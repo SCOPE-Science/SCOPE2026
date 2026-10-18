@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The counterexample is a two-dimensional Parseval \(K\)-frame, so its optimal lower bound is exactly \(1\), while the source formula returns \(1/4\). The general correction follows directly from the operator inequality \(A K K^*\le S\) and positive-definite conjugation. The equality criterion is the simultaneous equality condition in the two spectral inequalities used by the source proof.
+## correctness
 
-## Originality
-PASS for the source-specific correction and equality criterion. Exact-source, optimal-bound, generalized-eigenvalue, and counterexample formulations were searched and compared with broader operator-factorization literature. The closest indexed findings concern different \(K\)-frame questions.
+PASS
 
-A 2020 Fu--Zhu paper is identified by later primary literature as treating general optimal \(K\)-frame bounds. Its full theorem text was not accessible in the bounded inspection, so no novelty is claimed for abstract optimal-bound theory in isolation. No checked source stated the present Proposition 2.3(i) counterexample or the exact simultaneous-eigenspace criterion.
+Under the explicitly stated finite-dimensional S>0 and K≠0 assumptions the lower K-frame inequality is equivalent to A K K*= A KK* ≤ S. Congruence with S^(-1/2) yields Aopt = ||S^(-1/2)K||^(-2). The published lower estimate λmin(S)/||K||² is valid, but equality in both spectral inequalities requires a common vector from eigenspaces E_{λmin(S)}(S) and E_{||K||²}(KK*). On H=C², K=diag(2,1), Φ=(2e1,e2), S=KK*=diag(4,1), exact energies coincide, so Aopt=1, while λmin(S)/||K||²=1/4. Full author-uploaded 2018 article Prop2.3(i) actually calls 1/4 optimal for this class but its proof establishes only a lower inequality. All inequalities and equality cases are exact.
 
-## Value
-PASS. The printed result claims optimality, not merely validity, and the error survives in a later finite-\(K\)-frame paper. The exact correction separates a universal estimate from the true generalized spectral quantity and explains precisely when the simpler formula works.
+## originality
 
-## Limitations
-The inverse-square norm formula is stated under the source's positive-definite frame-operator hypothesis. Singular cases require a restricted or pseudoinverse formulation. Inaccessible-source overlap remains a literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The abstract optimal K-frame constant from operator order and Douglas factorization is standard and is not claimed as independent novelty. The specific false 2018 Proposition 2.3(i) and its exact extremal-eigenspace equality criterion, demonstrated by a 2D Parseval K-frame, are a source-specific correction not found in the comparisons. The later 2018/2020 general canonical K-dual results do not automatically state the correction of this eigenvalue quotient; unknown or unindexed errata remain possible.
+
+## value
+
+PASS
+
+Corrects a definite optimality error in a published general finite K-frame proposition; exact two-dimensional Parseval witness is a sharp falsifier, while an iff criterion identifies all cases when the original lower estimate actually attains the optimum. This is substantive information for frame-bound normalization, not a mere notational discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

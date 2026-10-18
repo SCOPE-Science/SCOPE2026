@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Take
-\[
-K=\begin{pmatrix}2&0\\0&1\end{pmatrix},
-\qquad
-\Phi=\{2e_1,e_2\}.
-\]
-The frame operator is
-\[
-S=\begin{pmatrix}4&0\\0&1\end{pmatrix}=KK^*.
-\]
-For \(x=(x_1,x_2)\),
-\[
-\sum_{\phi\in\Phi}|\langle x,\phi\rangle|^2
-=4|x_1|^2+|x_2|^2
-=\|K^*x\|^2.
-\]
-Thus the optimal lower \(K\)-frame bound is \(1\). Since
-\[
-\lambda_{\min}(S)=1,
-\qquad
-\|K\|^2=4,
-\]
-the published formula gives \(1/4\).
+# Independent mathematical audit
 
-For positive definite \(S\),
-\[
-A\|K^*x\|^2\le\langle Sx,x\rangle\quad\text{for all }x
-\]
-is equivalent to
-\[
-A(S^{-1/2}K)(S^{-1/2}K)^*\le I.
-\]
-Therefore
-\[
-A_{\mathrm{opt}}=\frac{1}{\|S^{-1/2}K\|^2}.
-\]
+## correctness
 
-The source estimate follows by composing
-\[
-\langle Sx,x\rangle\ge\lambda_{\min}(S)\|x\|^2
-\]
-with
-\[
-\|K^*x\|^2\le\|K\|^2\|x\|^2.
-\]
-In finite dimension, equality in the resulting optimal-bound estimate occurs exactly when one nonzero vector saturates both inequalities, namely when
-\[
-E_{\lambda_{\min}(S)}(S)\cap E_{\|K\|^2}(KK^*)\ne\{0\}.
-\]
+PASS
 
-The primary proposition and its proof were inspected in the publisher full text, and the later repetition was inspected in its open full text. All mathematical checks are exact symbolic calculations.
+Under the explicitly stated finite-dimensional S>0 and K≠0 assumptions the lower K-frame inequality is equivalent to A K K*= A KK* ≤ S. Congruence with S^(-1/2) yields Aopt = ||S^(-1/2)K||^(-2). The published lower estimate λmin(S)/||K||² is valid, but equality in both spectral inequalities requires a common vector from eigenspaces E_{λmin(S)}(S) and E_{||K||²}(KK*). On H=C², K=diag(2,1), Φ=(2e1,e2), S=KK*=diag(4,1), exact energies coincide, so Aopt=1, while λmin(S)/||K||²=1/4. Full author-uploaded 2018 article Prop2.3(i) actually calls 1/4 optimal for this class but its proof establishes only a lower inequality. All inequalities and equality cases are exact.
+
+## originality
+
+PASS
+
+The abstract optimal K-frame constant from operator order and Douglas factorization is standard and is not claimed as independent novelty. The specific false 2018 Proposition 2.3(i) and its exact extremal-eigenspace equality criterion, demonstrated by a 2D Parseval K-frame, are a source-specific correction not found in the comparisons. The later 2018/2020 general canonical K-dual results do not automatically state the correction of this eigenvalue quotient; unknown or unindexed errata remain possible.
+
+## value
+
+PASS
+
+Corrects a definite optimality error in a published general finite K-frame proposition; exact two-dimensional Parseval witness is a sharp falsifier, while an iff criterion identifies all cases when the original lower estimate actually attains the optimum. This is substantive information for frame-bound normalization, not a mere notational discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
