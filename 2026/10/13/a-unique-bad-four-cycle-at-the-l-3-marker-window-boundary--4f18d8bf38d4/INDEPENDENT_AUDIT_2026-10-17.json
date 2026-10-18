@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:59:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Read pinned RESULT.md and verifier; independently enumerated all 2^13 subsets of Q=[-6,6], applying separation >3 and 3-coverage of core [-3,3]. Reconstructed all directed overlap witnesses for each graph edge, obtaining 59 vertices, 75 undirected edges and 4 undirected simple four-cycles; unique signed circulation has magnitude four, other sums zero. Independently verified four explicit vertices D0=(-5,-1,3), D1=(-4,0,4), D2=(-3,1,5), D3=(-6,-2,2,6) and all four overlap equalities for g=-1, giving -4. Witness uniqueness follows from two candidate g differing by two contradicting >3 separation; repeated-vertex four-walks backtrack and cancel. The computation is exhaustive for this finite Q only; no higher-dimensional/general labeling impossibility asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang proof explicitly requires L>=4, not all positive marker radii."
+        ],
+        "reasoning": "The stronger-dimension graph-homomorphism theorem uses only L>=4, so has no implication that the canonical labels at L=3 work or fail; indeed the explicit edge cycle disproves extending that property.",
+        "searches": [
+          "arXiv:2609.39824v1 Section 7.2 Proposition 7.7",
+          "marker window graph Ruijun Wang L=3 four cycle canonical direction edge labels zero sum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39824v1 full relevant Section 7.2 and Lemma 7.3",
+        "arXiv:1803.03872v2 citation/abstract",
+        "Resultary query: marker window graph Ruijun Wang L=3 four cycle canonical direction edge labels zero sum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known L>=4 theorem + its use of 4<=L do not prove L=3 fails; explicit counterexample and uniqueness census supply new boundary fact."
+        ],
+        "reasoning": "Failure of a proof outside its hypotheses does not imply failure of the underlying property; construction of a directed nonzero-sum cycle is the decisive added content.",
+        "searches": [
+          "arXiv:2609.39824v1 Lemma 7.3",
+          "marker window graph Ruijun Wang L=3 four cycle canonical direction edge labels zero sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang defines graph M_{d,L} for L>=4 with a zero-sum canonical four-walk labeling; no L=3 theorem in relevant Section 7.2.",
+          "At L=3 the submitted cycle has every direction -1 and a nonzero sum."
+        ],
+        "reasoning": "It is a counterexample at an excluded boundary, not a restatement/dual of the proved L>=4 zero-sum lemma.",
+        "searches": [
+          "marker window graph Ruijun Wang L=3 four cycle canonical direction edge labels zero sum",
+          "arXiv:2609.39824v1 Lemma 7.3",
+          "arXiv:1803.03872v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent complete finite enumeration: V=59,E=75,4 simple four-cycles, exactly one nonzero canonical circulation."
+        ],
+        "reasoning": "The literature source includes no matching L=3 table in the inspected portion; the full 8192-subset search was independently reconstructed rather than copied from a known table.",
+        "searches": [
+          "marker window graph Ruijun Wang L=3 four cycle canonical direction edge labels zero sum",
+          "arXiv:2609.39824v1 Section 7.2"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Wang's arXiv:2609.39824v1 Lemma 7.3 is explicitly L>=4 and its proof uses L+4<=2L and 4<=L. The source's Proposition 7.7 uses that regime, and neither implies the first excluded L=3 canonical-label obstruction or its unique-cycle census. A targeted published-finding search finds other graph cycles but no coverage of these concrete marker-window sets. The result correctly narrows to the canonical witness annotation; absence of an alternative abstract labeling is not asserted.",
+      "residual_risks": [
+        "The result does not disprove the existence of other noncanonical edge labelings for M_{1,3}.",
+        "The analogous L=3 graph in dimensions >1 is not classified.",
+        "An unpublished computational census or appendix elsewhere could anticipate the numerical details."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lemma applies to canonical directions when L>=4; no L=3 census or explicit boundary failure in inspected text.",
+          "evidence": [
+            "Lemma 7.3 proof uses L+4<=2L and 4<=L; Proposition 7.7 uses L>=4."
+          ],
+          "identifier_or_url": "arXiv:2609.39824v1",
+          "material_read": "Complete preprint downloaded and relevant Section 7.2, Lemma 7.3 and Proposition 7.7 read; rendered pages of marker-window construction examined.",
+          "method": "arXiv full-text PDF and relevant screenshots",
+          "title": "Continuous graph homomorphisms of higher dimensional abelian group actions",
+          "trigger": "Original definition and closest theorem at L>=4."
+        },
+        {
+          "assessment": "Motivates the class of continuous combinatorial constructions, not evidence of this L=3 marker-window graph classification.",
+          "evidence": [
+            "Foundational continuous action context rather than same boundary graph."
+          ],
+          "identifier_or_url": "arXiv:1803.03872v2",
+          "material_read": "Citation and contextual comparison, not entire PDF.",
+          "method": "Bibliographic/abstract reading",
+          "title": "Continuous Combinatorics of Abelian Group Actions",
+          "trigger": "Broader constructions of finite targets."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Determines sharpness of a load-bearing cutoff in the finite target used for continuous abelian-action graph homomorphisms; the explicit obstruction and exhaustive uniqueness census inform attempts to reduce the marker-window radius or modify canonical label construction. This is a motivated boundary example, not an arbitrary small graph catalog.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Canonical L=3 one-dimensional witness-label obstruction only; no universal failure of abstract graph edge labeling."
+  ],
+  "schema_version": 1
+}

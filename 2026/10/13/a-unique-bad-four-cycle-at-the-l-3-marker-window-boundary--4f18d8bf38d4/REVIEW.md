@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The four displayed marker sets satisfy the source's \(L=3\) separation and coverage conditions. Each of the four overlap equations holds with canonical witness \(-1\), and witness uniqueness follows because two possible witnesses would place two points at distance at most \(2\) inside a \(3\)-separated set. Hence the closed four-walk has total canonical direction \(-4\), directly falsifying the zero-sum property at \(L=3\). The finite verifier exhausts all \(2^{13}\) candidate subsets and confirms the exact census \(59\) vertices, \(75\) edges, \(4\) simple four-cycles, with exactly one bad cycle.
+PASS
 
-## Originality
+PASS: Read pinned RESULT.md and verifier; independently enumerated all 2^13 subsets of Q=[-6,6], applying separation >3 and 3-coverage of core [-3,3]. Reconstructed all directed overlap witnesses for each graph edge, obtaining 59 vertices, 75 undirected edges and 4 undirected simple four-cycles; unique signed circulation has magnitude four, other sums zero. Independently verified four explicit vertices D0=(-5,-1,3), D1=(-4,0,4), D2=(-3,1,5), D3=(-6,-2,2,6) and all four overlap equalities for g=-1, giving -4. Witness uniqueness follows from two candidate g differing by two contradicting >3 separation; repeated-vertex four-walks backtrack and cancel. The computation is exhaustive for this finite Q only; no higher-dimensional/general labeling impossibility asserted.
 
-PASS. Wang states and proves the canonical construction only for \(L\ge4\); full-text searches found no treatment of \(L=3\) and no sharpness statement. Focused published-result searches for \(M_{1,3}\), the marker-window parameter, four-walk direction sums, and the \(L=3\) boundary found no equivalent result. Wang's Proposition 7.7 concerns the stated regime \(L\ge4\) and does not imply the excluded boundary or its unique bad cycle.
+## originality
 
-## Value
+PASS
 
-PASS. The parameter \(L\ge4\) is load-bearing in the marker-window construction that produces the finite targets separating successive continuous-homomorphism dimensions. The result identifies the exact first boundary failure rather than merely observing that the published proof uses \(4\): it exhibits the obstruction and shows by complete census that a single simple four-cycle is responsible. This is a motivated boundary counterexample useful for any attempt to shrink the marker window or modify the direction certificate.
+PASS best-of-knowledge: Wang's arXiv:2609.39824v1 Lemma 7.3 is explicitly L>=4 and its proof uses L+4<=2L and 4<=L. The source's Proposition 7.7 uses that regime, and neither implies the first excluded L=3 canonical-label obstruction or its unique-cycle census. A targeted published-finding search finds other graph cycles but no coverage of these concrete marker-window sets. The result correctly narrows to the canonical witness annotation; absence of an alternative abstract labeling is not asserted.
 
-## Closest literature and limitations
+## value
 
-The closest source is Wang's 2026 preprint itself: Lemma 7.3 proves the canonical zero-sum property for every \(L\ge4\), while its proof uses the inequalities \(L+4\le2L\) and \(4\le L\). The source contains no \(L=3\) analysis. Gao--Jackson--Krohne--Seward provide the earlier continuous-combinatorial setting but not this marker-window graph.
+PASS
 
-The claim is deliberately limited to Wang's canonical translation-witness labels on \(M_{1,3}\). It does not assert impossibility of some different abstract edge-direction assignment.
+PASS: Determines sharpness of a load-bearing cutoff in the finite target used for continuous abelian-action graph homomorphisms; the explicit obstruction and exhaustive uniqueness census inform attempts to reduce the marker-window radius or modify canonical label construction. This is a motivated boundary example, not an arbitrary small graph catalog.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

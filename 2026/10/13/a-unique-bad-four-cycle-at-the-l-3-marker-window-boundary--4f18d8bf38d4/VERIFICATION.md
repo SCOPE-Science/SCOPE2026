@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,37 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The central obstruction is checked directly from the definitions. For
-\[
-D_0=\{-5,-1,3\},\quad
-D_1=\{-4,0,4\},\quad
-D_2=\{-3,1,5\},\quad
-D_3=\{-6,-2,2,6\},
-\]
-each set is \(3\)-separated and \(3\)-covers \([-3,3]\cap\mathbb Z\). With \(Q=[-6,6]\cap\mathbb Z\), each transition \(D_i\to D_{i+1}\), cyclically, satisfies
-\[
-D_i\cap(-1+Q)=(-1+D_{i+1})\cap Q.
-\]
-The canonical direction on all four edges is therefore \(-1\), and the closed four-walk has total \(-4\).
+## correctness
 
-The included `verify.py` reconstructs the whole \(L=3\) graph by exhaustive enumeration. It checks all \(2^{13}\) subsets of \(Q\), tests the separation and coverage predicates, tests both possible translation witnesses on every unordered pair, verifies witness uniqueness on every edge, enumerates simple four-cycles modulo rotation and reversal, and checks their direction sums.
+PASS
 
-Expected output is:
+PASS: Read pinned RESULT.md and verifier; independently enumerated all 2^13 subsets of Q=[-6,6], applying separation >3 and 3-coverage of core [-3,3]. Reconstructed all directed overlap witnesses for each graph edge, obtaining 59 vertices, 75 undirected edges and 4 undirected simple four-cycles; unique signed circulation has magnitude four, other sums zero. Independently verified four explicit vertices D0=(-5,-1,3), D1=(-4,0,4), D2=(-3,1,5), D3=(-6,-2,2,6) and all four overlap equalities for g=-1, giving -4. Witness uniqueness follows from two candidate g differing by two contradicting >3 separation; repeated-vertex four-walks backtrack and cancel. The computation is exhaustive for this finite Q only; no higher-dimensional/general labeling impossibility asserted.
 
-`VERIFY_OK`
+## originality
 
-`vertices=59`
+PASS
 
-`edges=75`
+PASS best-of-knowledge: Wang's arXiv:2609.39824v1 Lemma 7.3 is explicitly L>=4 and its proof uses L+4<=2L and 4<=L. The source's Proposition 7.7 uses that regime, and neither implies the first excluded L=3 canonical-label obstruction or its unique-cycle census. A targeted published-finding search finds other graph cycles but no coverage of these concrete marker-window sets. The result correctly narrows to the canonical witness annotation; absence of an alternative abstract labeling is not asserted.
 
-`simple_4_cycles=4`
+## value
 
-`bad_canonical_4_cycles=1`
+PASS
 
-`exceptional_directions=(-1,-1,-1,-1)`
+PASS: Determines sharpness of a load-bearing cutoff in the finite target used for continuous abelian-action graph homomorphisms; the explicit obstruction and exhaustive uniqueness census inform attempts to reduce the marker-window radius or modify canonical label construction. This is a motivated boundary example, not an arbitrary small graph catalog.
 
-`exceptional_sum=-4`
-
-The published source proves the corresponding canonical zero-sum statement for every \(L\ge4\). No claim is made about alternative noncanonical labelings of the \(L=3\) graph.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
