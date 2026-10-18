@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The indicator matrix in RESULT.md gives all nine mixed probabilities for three steps. Its only distribution-dependent entry is \(3/8-t/8\); the delicate off-diagonal universal probability \(11/48\) is independently integrated by the probability integral transform. Summation yields the covariance, and exchangeability/disjointness proves the exact sharp envelope. Endpoint constructions use genuinely atomless distributions. A standalone exact rational rank/sign enumeration of continuous bin families agrees with every matrix cell. Boundary cases one and two are directly enumerated; no extrapolation beyond three steps is made.
+PASS
 
-## Originality
+The record/occupation indicators were reconstructed from strict records relative to S0=0 and occupation of S1,S2,S3>0. Symmetric atomless signs are iid fair, independent of magnitudes. Independent sign-case reasoning yields all nine mixed moments, with only I1 J3 depending on t=P(B1>B2+B3); the special I3 J2 cell is integral_1/2^1 u/2 du+integral_0^1/2 u^2 du =11/48. Their sum is 35/12-t/8; ER3=19/16 and EA3=3/2, yielding covariance 109/96-t/8. Three exchangeable disjoint dominance events imply 0<=t<=1/3; a common narrow positive magnitude interval has positive probability, giving t<1/3 for every atomless law. Magnitudes supported on (1,1.5) achieve t=0; widely separated continuous scale mixtures approach t=1/3; mixing yields every intermediate t continuously. Horizons 1 and 2 are directly computable. An independent fresh 600000-path MC each for uniform and Gaussian jumps corroborated benchmark covariance within sampling variation; it cannot prove the sharp continuum interval.
 
-PASS relative to the inspected literature, subject to the residual historical risk stated below. Majumdar–Ziff derive the marginal record-count and record-age renewal laws; Szabó–Vető give record-age asymptotics, and Godrèche–Majumdar–Schehr examine longest record ages. Those quantities do not encode the signs of all partial sums. Later multi-time record analysis likewise does not establish the joint record-count/positive-occupation covariance across arbitrary increment magnitudes. Targeted database and literature searches found no equivalent sharp three-step covariance envelope. Search absence is not a proof of absolute publication priority. The closest evidence and differences are detailed in AUDIT.json.
+## originality
 
-## Value
+PASS
 
-PASS. Record count and time spent above the origin are two classical universal marginal observables for symmetric random walks. Their dependence nevertheless detects jump-size laws from the very first possible horizon. The explicit triangle-dominance parameter is a structural explanation, and a complete sharp attainable interval with endpoint construction is stronger than a one-off nonuniversality example. It isolates the exact boundary of a natural universality assertion rather than a manually chosen statistic or numerical curiosity.
+The claimed first nonuniversal joint covariance is not supplied by known universal marginal record-number/age and occupation marginal laws. Record-age distributions do not determine how frequently the walk is positive between its record times. The three-step law explicitly detects the magnitude triangle-dominance probability, and the full range is additional. Best-of-knowledge comparison leaves older multivariate fluctuation identities as a genuine residual risk.
 
-## Limitations and literature risk
+## value
 
-The result is finite-horizon and makes no claim about joint distributions at later times. Related fluctuation or occupation identities could imply an equivalent expression under a nonobvious reduction. Primary comparisons in arXiv:0806.0057, arXiv:1403.6187, arXiv:1510.01152 and later record-process literature found no such coverage in the inspected material; independent bibliographic review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Record-count and positive-occupation are two classical natural random-walk observables whose separate laws are universal. Identifying exactly the first horizon where their dependence reflects the jump-magnitude distribution is a meaningful structural boundary. The explicit triangle-inequality parameter and complete attainable interval with sharp strict infimum characterize the full three-step family, rather than a single counterexample or handpicked numerical point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
