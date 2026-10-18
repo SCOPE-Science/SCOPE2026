@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The compatibility graph is reconstructed from the definition on all 120 permutations. Exhaustive maximal-clique enumeration and an independent exhaustive 5-clique enumeration agree on exactly 168 maxima and exclude any code of size 6. All internal distances, the complete stated 240-element action, both orbits, subgroup tests, and coset identities are directly rechecked by the bundled verifier.
+## correctness
 
-## Originality
-PASS. The closest primary source proves \(P(5,6)=5\), supplies one optimum, and explicitly leaves algebraic structure of optimal codes as a direction for investigation. Targeted searches over the exact parameter, aliases, extremizer counts, symmetry, and subgroup language found no statement implying the 168-code census, the 48/120 orbit split, or the cyclic-coset classification. The residual risk is an obscure or unindexed finite census.
+PASS
 
-## Value
-PASS. A complete equality-case classification at a canonical exact parameter is mathematically informative beyond the already known optimum. In particular, the discovery of two inequivalent symmetry types and a full orbit consisting of cosets of two cyclic order-five maxima gives structural information directly responsive to the gap noted in prior work.
+Kendall-tau distance on S5 is inversion count of the position-reordered pair, yielding 120 vertices and exactly 2940 compatibility edges at distance at least six. Independent all-five clique search obtained exactly 168 five-permutation codes and excluded any six-clique. Independently evaluated pairwise distances in every maximum (ten pairs all distance exactly six). Explicit 120 symbol relabelings and position reversal produce 240 distance-preserving maps; their action gives precisely two orbits 48 and 120 and stabilizers 5 and 2. Exactly seven maxima contain identity, of which two close under composition and form cyclic groups of order five; each yields 24 left cosets, the families are disjoint and equal the 48-element orbit. Checked the published Appendix D witness against the orbit classification. This classifies only n=5,d=6 under the specified 240 transformations.
 
-## Closest literature and limitations
-The closest literature is S. Vijayakumaran, “Largest Permutation Codes With the Kendall \(\tau\)-Metric in \(S_5\) and \(S_6\),” which establishes the optimum and prints one witness. This result is restricted to five symbols and distance six, and the symmetry classification is only under the explicitly verified 240-element action.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full original 2016 Vijayakumaran IEEE paper derives P(5,6)=5 (Table II) and supplies a single maximum five-word code (Appendix D); its conclusion explicitly calls for understanding the algebraic structure of the optimum codes. It does not enumerate all attaining codes, prove every optimum equidistant, give 48/120 orbit decomposition, or classify subgroup maxima. Resultary’s published n=6,d=10 extremizer census has different parameter and cannot imply n=5,d=6 exact counts by restriction without a suitable theorem; none found.
+
+## value
+
+PASS
+
+The complete optimizer/isometry classification for the well-defined small permutation coding benchmark directly addresses the structural question in its original exact-parameter paper. The unexpected split into a 48-code union of two cyclic-coset families and a different 120-code orbit is a meaningful classification rather than just recomputing P(5,6).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
