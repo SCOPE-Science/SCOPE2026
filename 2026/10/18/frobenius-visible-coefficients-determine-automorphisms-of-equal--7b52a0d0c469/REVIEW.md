@@ -1,0 +1,12 @@
+# Scientific review — Frobenius-visible coefficients
+
+## Correctness — PASS
+The local finite-dimensional Nakayama argument reduces automorphisms to nilpotent generator images with an invertible linear matrix. For \(d=mp^s\), \(m>1\), the coefficient of \(x_i^{d-p^s}x_j^{p^s}\) in a two-supported linear form's \(d\)-th power is nonzero, so the cotangent matrix is monomial. Under the \(p^s\)-Frobenius map, the square-free-forbidden criterion reduces to an \(m\)-th-power calculation in a truncated \(m\)-power algebra. The coefficient of the next-to-highest distinguished-variable power is a nilpotent times a unit, giving the exact admissible coefficient restriction. Counting yields the stated orders and reduced chart structures. The packaged standard-library verifier checked five small parameters exhaustively and four larger parameters by deterministic samples; no infinite assertion is inferred from the finite checks.
+
+## Originality — PASS, with limits
+The 1997 Deo–Maitra study covers graded automorphisms of the same characteristic-zero tensor-product family, and the broad Díaz–Liendo–Manzano-Flores–Regeta results from 2024 dominate its characteristic-zero setting. They do not imply the positive-characteristic conditions involving the \(p\)-free factor of the truncation exponent. The primary work of Angeltveit et al., arXiv:1206.0247 (2012), concerns \(K\)-theory of the same rings, not automorphisms. The publicly available full text on coordinate-cross algebra automorphisms imposes the distinct additional relations \(x_ix_j=0\), and its explicit normal form does not specialize to the present algebra. Targeted published-record and semantic database searches found no exact covering modular classification; this does not establish unconditional novelty. The 2024 and 2026 char-zero full texts were not both fully inspectable, and specialized positive-characteristic antecedents may remain unlocated.
+
+## Value — PASS
+The exact automorphism order for every finite field, number and dimensions of reduced geometric components, and coefficient-level normal form are complete natural structural invariants for a classical tensor-product family. They reveal an arithmetical dichotomy not seen in graded characteristic-zero results: when the truncation exponent is a pure power of the characteristic, every invertible cotangent action is admissible; otherwise only monomial cotangent actions survive, with fiber dimensions determined by the full \(p\)-free part.
+
+Self-review: passed. Independent audit: not yet performed.
