@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact two-jump generator verified by physical exhaustive edge orders and independent rational moment recurrence. The fluid ODE conserves h=ae^(-b/a), stays above positive r, and its BB reaction makes A-B nondecreasing. Uniform finite-horizon fluid approximation plus late separation ensures B exhausts with high probability. The generator drift of h is O(1/N), the extinction time O_p(log N), and the squared-jump bracket has deterministic limit Q=e^(-2b/a)(b^3/a+2b^2). The tail bracket vanishes by E integral b <= b(T)/c and finite jump sizes satisfy martingale CLT Lindeberg conditions. Substituting b=a log(a/r) yields explicit strictly positive v. Exact finite moment tests and variance quadrature passed; finite data are not used as proof of the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blelloch, Fineman, Shun 2012 arXiv:1202.3205 (full arXiv HTML, introduction and maximal-matching section): polylogarithmic dependency-depth theorem, no distributional jamming limit.",
+        "Arnosti 2021 public manuscript (abstract, statements, appendix): sparse random bipartite graphs, no deterministic nonbipartite split-graph CLT."
+      ],
+      "reasoning": "Compared hypotheses and conclusions of plausible stronger classes. General algorithmic parallelism holds on all graphs but cannot imply a particular unmatched-fraction variance. General density-dependent Markov chain CLTs on fixed time intervals do not by themselves yield the terminal stopped-process law.",
+      "searches": [
+        "random sequential adsorption dimers on join of clique and edgeless graph",
+        "random greedy matching split graph central limit theorem maximal matching vacancies",
+        "https://arxiv.org/abs/1202.3205"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.3205 (2012-02-15 first posted), public full HTML",
+      "Pippenger 1989 DOI:10.1137/0402034 abstract",
+      "Dyer and Frieze 1991 DOI:10.1002/rsa.3240020104 metadata/abstract",
+      "Dyer, Frieze, Pittel 1993 DOI:10.1214/aoap/1177005436 abstract",
+      "Arnosti 2021 author-hosted full PDF",
+      "MSC2020 AMS definition 82C22",
+      "Published records on greedy maximal independent sets of threshold graphs and chain graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pippenger 1989 accessible published abstract concerns high-girth or bounded-short-cycle graphs in its explicit solved regimes; dense split graphs have many triangles. Full text unavailable.",
+        "Dyer, Frieze, Pittel 1993 accessible abstract concerns random graph ensembles; the present graph is a deterministic dense two-class join.",
+        "The previously reported blocked complete-bipartite rectangle has no clique-internal reaction, so its four-class transition generator differs from the AB plus BB split-graph generator."
+      ],
+      "reasoning": "Distinct reaction channels and graph hypotheses preclude a direct specialization from the known blocked-bipartite law or sparse-graph asymptotics. An inaccessible plausible older general theorem cannot be ruled out; no accessible implication to the explicit terminal variance was found.",
+      "searches": [
+        "random pair annihilation A+B and B+B terminal conserved martingale central limit variance",
+        "random greedy matching split graph central limit theorem maximal matching vacancies",
+        "DOI:10.1137/0402034",
+        "DOI:10.1002/rsa.3240020104",
+        "DOI:10.1214/aoap/1177005436"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Random edge-order greedy matching is the edge-dimer adsorption process on the same graph; the adjacent-vertex independent-set problem instead uses a vertex priority order.",
+        "A published exact random-greedy independent-set law on threshold graphs concerns maximal independent sets of vertices, not matching-edge selection."
+      ],
+      "reasoning": "Compared the actual terminal unmatched-count CLT and variance after translating priority edges to exponential clocks, rather than comparing titles alone. Identified no equivalent claimed statement. Vertex MIS and edge matching on a line graph are algorithmically related, but results for vertex MIS on the original split graph do not control edge matching on its line graph.",
+      "searches": [
+        "split-graph random edge greedy maximal matching asymptotic Gaussian fluctuations central limit theorem and variance",
+        "quenched independent set joined to complete clique random dimer adsorption law residual alpha exp(-b/a)",
+        "dimer deposition on complete split graph perfect matching jamming"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published classifications of greedy independent-set laws on complete multipartite and threshold graphs measure a different vertex-priority output.",
+        "An exact dense bipartite blocked-rectangle adsorption model has different transition reactions and does not yield the present nonbipartite split-graph variance."
+      ],
+      "reasoning": "Queried precise graph, parameter, and observable aliases against records and accessible own cumulative claims; no exact distribution table or invariant matching the claimed split-graph Gaussian law was found. This is evidence of nonduplication, not a proof of exhaustive uniqueness.",
+      "searches": [
+        "mean field jamming on complete multipartite and split graphs",
+        "random greedy matching dimers on complete split graphs: a clique joined to an independent set, terminal vacant fraction alpha exp(-(1-alpha)/alpha)",
+        "random sequential adsorption jamming defects incomplete bipartite graph"
+      ]
+    },
+    "rationale": "Exact statement and implication checks against targeted research-record queries, all available own-claim history, and identifiable primary literature found no dominating theorem for the Gaussian terminal vacancies of deterministic complete split graphs. Key accessible primary full text addresses parallel complexity or random bipartite graphs; restricted historical abstracts do not prove uniqueness. Unresolved older full texts explicitly recorded.",
+    "residual_risks": [
+      "Full text of Dyer and Frieze (1991) was unavailable; an unobserved general matching CLT might entail this model.",
+      "Full text of Pippenger (1989) was unavailable; a graph-specific calculation in its body cannot be excluded.",
+      "Dense deterministic split-graph kinetic limit might be implicit in uncatalogued particle-reaction literature.",
+      "Older publication records and incomplete database coverage preclude independent priority/uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MATCHING_ALGORITHM_SAME; terminal vacant fraction and Gaussian CLT not covered in the material inspected",
+        "evidence": [
+          "Parallel depth O(log^2 N), not a distribution for the final matching size; random edge priority is directly described."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.3205",
+        "material_read": "Full public arXiv HTML, abstract, introduction, definition of greedy maximal matching and algorithm/complexity sections",
+        "method": "Read public manuscript and compare theorem goals and model definitions",
+        "title": "Greedy Sequential Maximal Independent Set and Matching are Parallel on Average",
+        "trigger": "Exact random-edge-priority greedy matching algorithm in general graphs"
+      },
+      {
+        "assessment": "RANDOM_BIPARTITE_SCOPE; does not imply deterministic nonbipartite complete split CLT",
+        "evidence": [
+          "Bipartite random graph edge model excludes the internal clique reaction channel crucial to variance here."
+        ],
+        "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "material_read": "Accessible PDF abstract, introduction, main theorem statements, and appendix on bipartite random graph models",
+        "method": "Read lawful author-hosted full manuscript material and compare graph family and output observables",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Primary work specifically on greedy matching distributions"
+      },
+      {
+        "assessment": "NO_DETERMINATIVE_FULL_TEXT_COMPARISON; residual prior-coverage risk",
+        "evidence": [
+          "The abstract discusses regular high-girth or few-short-cycle graph regimes and a separate edge adsorption model."
+        ],
+        "identifier_or_url": "DOI:10.1137/0402034",
+        "material_read": "Publisher and institutional repository abstract only; complete article not accessible",
+        "method": "Compared original published abstract with split-graph geometry; attempted lawful full-text access unsuccessfully",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Foundational vertex and edge RSA, possible dense-graph prior coverage"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_OVERLAP_RISK",
+        "evidence": [
+          "General randomized greedy matching results; no accessible statement of the explicit complete-split terminal Gaussian variance."
+        ],
+        "identifier_or_url": "DOI:10.1002/rsa.3240020104",
+        "material_read": "Accessible bibliographic metadata and abstract; full primary text inaccessible",
+        "method": "Compared advertised objectives to exact terminal variance and attempted lawful access",
+        "title": "Randomized greedy matching",
+        "trigger": "Older directly relevant random greedy matching paper"
+      },
+      {
+        "assessment": "NO_DIRECT_IMPLICATION_ESTABLISHED; incomplete-text risk",
+        "evidence": [
+          "Accessible description treats random graph ensembles and associated average-case asymptotics."
+        ],
+        "identifier_or_url": "DOI:10.1214/aoap/1177005436",
+        "material_read": "Available abstract and bibliographic metadata; full text not inspected",
+        "method": "Compared random-graph ensemble hypothesis with deterministic complete split graph",
+        "title": "The Average Performance of the Greedy Matching Algorithm",
+        "trigger": "Potential general mean and CLT of greedy matching"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b9a8257-a10c-434e-b50f-c48238d0eecc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete split graphs are a canonical dense inhomogeneous substrate whose independent vertices may be abandoned despite perfect-matching feasibility. The exact terminal central limit theorem gives the natural finite-size fluctuation scale and a nontrivial closed variance beyond the first-order mean-field jamming density, with potential use in assessing kinetic matching variability. The model is neither an arbitrary slice nor just an algebraic reformulation of prior bipartite defect laws.",
+    "status": "PASS"
+  }
+}
