@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify.py` checks the unrestricted-parameter Lie derivative of \(P=z+xy\), the polynomial derivative of \(Q\), and the two cone-branch substitutions \(y=\varepsilon sx\), \(z=\varepsilon x/s\), \(a=s^2-1\) for \(\varepsilon\in\{-1,1\}\). Both branches give \(\dot z=-2x^2\) from the system but \(\dot z=x/s^2\) from tangency. The only possible constant nonzero \(x\) violates \(\dot x=z\); the unique cone-bound complete orbit is the origin.
+## correctness
 
-To reproduce, run `python3 verify.py` with SymPy installed. The script prints `PASS` only after every asserted exact expression evaluates to zero. The analytical convergence and invariant-measure arguments appear in RESULT.md, and are not replaced by the finite symbolic check. No independent external validation or audit has been performed.
+PASS
+
+Exact unrestricted-parameter Lie computation gives d(z+xy)/dt=(a+1)x^2-y^2, independently recomputed. For a<=-1 bounded forward P is monotone decreasing, and omega-limit invariance with P constant forces x=0 (also at a=-1), then y=z=0, hence convergence. A bounded complete orbit obeying one-sided Q cannot be nonstationary because P is bounded monotone, alpha/omega limits lie in maximal invariant part of Q=0. On cone Q=0 for a>-1, write y=eps sqrt(a+1) x; flow tangency requires z=eps x/sqrt(a+1), but z' along that branch simultaneously equals x/(a+1) and -2x^2, excluding any nonconstant cone-contained entire orbit. Both time limits of P then are 0, forcing origin if Q has fixed sign throughout. Invariant measure condition follows by h(P) test functions and disintegration. No finite-time ODE integration is invoked.
+
+## originality
+
+PASS
+
+Primary Sprott article supplies the same reversible Eq.(11) and numerical coexistence, not a parameter-sharp global bounded-convergence theorem or stationary cone conditional law. Related published Resultary jerk exclusion has a different six-parameter equation and is not a reduction of this flow. No stronger coverage found in checked sources.
+
+## value
+
+PASS
+
+A sharp, nontrivial recurrence-exclusion boundary for a canonical time-reversible jerk example, together with a necessary cone-crossing mechanism above it, meaningfully classifies bounded dynamics beyond local equilibrium linearization or computer attractor plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

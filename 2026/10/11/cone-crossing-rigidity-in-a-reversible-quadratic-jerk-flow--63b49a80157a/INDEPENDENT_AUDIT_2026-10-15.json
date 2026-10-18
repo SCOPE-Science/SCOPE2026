@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:40:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "RESULT.md and symbolic verify.py at Git tree 135f8888f6b791721fb4942267c945fee27e62b3; independent SymPy /mnt/data/scope09_independent_checks_20261015.py; Sprott (2015) Eq. (11)",
+      "rationale": "Exact unrestricted-parameter Lie computation gives d(z+xy)/dt=(a+1)x^2-y^2, independently recomputed. For a<=-1 bounded forward P is monotone decreasing, and omega-limit invariance with P constant forces x=0 (also at a=-1), then y=z=0, hence convergence. A bounded complete orbit obeying one-sided Q cannot be nonstationary because P is bounded monotone, alpha/omega limits lie in maximal invariant part of Q=0. On cone Q=0 for a>-1, write y=eps sqrt(a+1) x; flow tangency requires z=eps x/sqrt(a+1), but z' along that branch simultaneously equals x/(a+1) and -2x^2, excluding any nonconstant cone-contained entire orbit. Both time limits of P then are 0, forcing origin if Q has fixed sign throughout. Invariant measure condition follows by h(P) test functions and disintegration. No finite-time ODE integration is invoked.",
+      "residual_risks": [
+        "Requires boundedness for long-time claims; does not exclude unbounded trajectories or assert recurrence for every a>-1.",
+        "The conditional identity is almost sure for compactly supported invariant probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary Wei–Sprott–Chen family has dx=y,dy=z,dz=b2*y+b3*z+b4*x^2+b5*y^2+b7*x*y+b8*x*z.",
+          "Cyclic relabeling of original dx=z,dy=x,dz=a x^2-y^2-yz yields dx_new=y_new,dy_new=z_new,dz_new=a*z_new^2-x_new^2-x_new*y_new, including quadratic z_new^2 absent from six-parameter family."
+        ],
+        "reasoning": "The six-parameter sign theorem does not contain the presented jerk equation under a mere cyclic relabeling or direct specialization; no covering reduction was substantiated.",
+        "searches": [
+          "quadratic jerk time reversible Sprott system x'=z y'=x z'=a x squared minus y squared minus y z cone crossing bounded",
+          "Resultary: sharp recurrence exclusion and oscillator realizability six-parameter quadratic jerk flows",
+          "Sprott (2015), Symmetric Time-Reversible Flows with a Strange Attractor, https://doi.org/10.1142/S0218127415500789"
+        ]
+      },
+      "checked_sources": [
+        "Sprott (2015), Symmetric Time-Reversible Flows with a Strange Attractor, https://doi.org/10.1142/S0218127415500789",
+        "https://sprott.physics.wisc.edu/pubs/paper433.pdf",
+        "Resultary own record ...--63b49a80157a",
+        "Resultary related six-coefficient family ...--e1b6be44b454"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sprott 2015 §2–4 Eq.11 supplies vector field and typical a values, not P coboundary or omega-limit argument.",
+          "The nearest general jerk result (Wei–Sprott–Chen family) excludes this polynomial monomial structure."
+        ],
+        "reasoning": "The proof relies on a newly explicit monotone polynomial and on identifying the largest invariant subset of its null cone; neither follows from the published numerical symmetry description.",
+        "searches": [
+          "Sprott (2015), Symmetric Time-Reversible Flows with a Strange Attractor, https://doi.org/10.1142/S0218127415500789",
+          "quadratic jerk time reversible Sprott system x'=z y'=x z'=a x squared minus y squared minus y z cone crossing bounded"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott Eq.(11) is exactly dx=z,dy=x,dz=a x^2-y^2-yz; surrounding text discusses symmetric attractor behavior at particular parameters."
+        ],
+        "reasoning": "Time-reversibility and existence of numerical attractors do not imply the global a=-1 rigidity boundary or the pointwise two-sided cone crossing.",
+        "searches": [
+          "quadratic jerk time reversible Sprott system x'=z y'=x z'=a x squared minus y squared minus y z cone crossing bounded",
+          "web: reversible Sprott Eq 11 cone Lyapunov polynomial P=z+xy crossing invariant measures",
+          "Sprott (2015), Symmetric Time-Reversible Flows with a Strange Attractor, https://doi.org/10.1142/S0218127415500789"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2015 figures and Lyapunov exponent values describe selected numerical invariant sets, not a complete coefficient-global table of invariant-measure sectors or a=-1 boundaries."
+        ],
+        "reasoning": "A numerical chaotic attractor table cannot establish a quantified statement for all bounded solutions and all real a.",
+        "searches": [
+          "quadratic jerk time reversible Sprott system x'=z y'=x z'=a x squared minus y squared minus y z cone crossing bounded",
+          "Sprott (2015), Symmetric Time-Reversible Flows with a Strange Attractor, https://doi.org/10.1142/S0218127415500789"
+        ]
+      },
+      "rationale": "Primary Sprott article supplies the same reversible Eq.(11) and numerical coexistence, not a parameter-sharp global bounded-convergence theorem or stationary cone conditional law. Related published Resultary jerk exclusion has a different six-parameter equation and is not a reduction of this flow. No stronger coverage found in checked sources.",
+      "residual_risks": [
+        "An unindexed earlier polynomial Lyapunov or monotone-cone analysis of Sprott Eq.(11) may exist.",
+        "The other-side parameter region is a necessary recurrence condition, not a recurrence-existence theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING parameter-wide cone nonrecurrence / stationary conditional balance",
+          "evidence": "Eq.(11) appears p.5; descriptions are numerical dynamical examples, no coboundary P=z+xy or global a=-1 proof.",
+          "identifier_or_url": "doi:10.1142/S0218127415500789; https://sprott.physics.wisc.edu/pubs/paper433.pdf",
+          "material_read": "Author-hosted 7-page PDF text and p.4 page image, §2 examples including Eq.(11) and attractor discussion",
+          "method": "Open lawful author PDF, full-text section/page inspection",
+          "title": "Symmetric Time-Reversible Flows with a Strange Attractor",
+          "trigger": "Original Eq.(11) source, same polynomial flow"
+        },
+        {
+          "assessment": "NOT_COVERING: different polynomial family",
+          "evidence": "General source lacks z^2 quadratic acceleration monomial arising when original jerk coordinates are rotated to xdot=y,ydot=z.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-recurrence-exclusion-and-oscillator-realizability-in-six-p--e1b6be44b454",
+          "material_read": "Complete published RESULT.md (equations, proof, coefficient family, references)",
+          "method": "Direct repository text full reading",
+          "title": "Sharp recurrence exclusion and oscillator realizability in six-parameter quadratic jerk flows",
+          "trigger": "Plausibly broader jerk-family theorem, requiring reduction test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sprott (2015), Symmetric Time-Reversible Flows with a Strange Attractor, https://doi.org/10.1142/S0218127415500789",
+        "RESULT.md jerk cone proof"
+      ],
+      "rationale": "A sharp, nontrivial recurrence-exclusion boundary for a canonical time-reversible jerk example, together with a necessary cone-crossing mechanism above it, meaningfully classifies bounded dynamics beyond local equilibrium linearization or computer attractor plots.",
+      "residual_risks": [
+        "Results are conditional on boundedness and do not prove chaotic attractor existence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For reversible jerk dx=z,dy=x,dz=a x^2-y^2-yz, P=z+xy satisfies P'=(a+1)x^2-y^2. When a<=-1 all bounded forward solutions converge to origin and no nontrivial bounded complete orbit exists; for a>-1 every nonstationary bounded complete orbit crosses both strict sides of cone (a+1)x^2=y^2, and compact stationary measures have E[y^2|P]=(a+1)E[x^2|P].",
+  "limitations": [
+    "No existence of periodic/chaotic dynamics in a>-1 sector, only necessary crossing for any nonstationary bounded complete orbit.",
+    "Noncompact initial orbits may diverge."
+  ],
+  "schema_version": 1
+}
