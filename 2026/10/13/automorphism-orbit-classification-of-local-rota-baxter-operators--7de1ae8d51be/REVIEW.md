@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The multiplication table determines the automorphism group explicitly: every automorphism is \(\phi_{a,c}\) with \(a\ne0\), and direct conjugation yields the weighted action on \((r_1,r_2)\). The proof treats the nonresonant and resonant cases separately, establishes complete invariants, and proves uniqueness of the representatives. The included exact-arithmetic replay checks the matrix identities and reduction formulas. The external local-operator classification used as a premise was inspected in arXiv:2606.22623v1, especially Theorem 3.4 and Example 4.1.
+## correctness
 
-## Originality
-PASS. The closest source classifies the local operators before quotienting by automorphisms and studies dimension plus commutation of ordinary operators with automorphisms. Document-wide searches found no conjugacy-orbit treatment. The earlier ordinary-operator classification also does not supply the local orbit quotient. Semantic and web searches for the exact chain, local Rota–Baxter conjugacy, and the invariant \(r_1^2/r_2^3\) found no equivalent or stronger result.
+PASS
 
-Residual risk: an older or poorly indexed paper could contain an equivalent low-dimensional orbit calculation under different notation.
+The algebra is generated along e1²=e2,e2²=e3 with cross-products zero. Multiplicativity of φ(e1)=a e1+b e2+c e3 forces b=0 and yields the FULL automorphism group φ(e1)=a e1+c e3, φ(e2)=a²e2, φ(e3)=a⁴e3, a≠0. Direct exact matrix conjugation gives r1′=a³r1+(c/a)(d1−r3), r2′=a²r2 and diagonal invariants. For r3≠d1, c eliminates r1 and a normalizes nonzero r2 by a square root. At resonance r3=d1, weighted scaling yields zero/coordinate-axis strata plus Δ=r1²/r2³, with normal representatives (Δ²,Δ); the required cube/square roots exist over algebraically closed char0. No other classes remain. The primary 2026 Example 4.1 and Theorem 3.4 explicitly establish the assumed local RB raw diagonal strata {(0,0),(0,2α),(4α,2α)} with free terminal coefficients. Independent symbolic conjugation and Δ identities agree.
 
-## Value
-PASS. The source's raw local family has redundant coordinates from algebra automorphisms. The orbit theorem removes that redundancy and reveals a genuine resonance phenomenon: fixed nonresonant diagonal data has only two intrinsic classes, while \(r_3=d_1\) supports a one-dimensional modulus. This is a natural complete classification of the smallest maximal-nilindex example rather than an arbitrary parameter slice.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same chain and raw local weight-zero Rota–Baxter strata are explicitly prior in Qaralleh–Mukhamedov–Khakimov Theorem 3.4/Example 4.1. Their accessible full text classifies raw local maps, quasi-affine parameter strata and commutants of ordinary maps, but not the orbit quotient of local maps under Aut(E). The weighted resonance modulus is an intrinsic additional classification, best-of-knowledge original.
+
+## value
+
+PASS
+
+A complete isomorphism quotient of the smallest maximal-nilindex evolution chain resolves precisely which terminal coefficients represent genuinely different local Rota–Baxter maps, revealing a nontrivial resonance hypersurface where a continuous modulus survives, whereas generic fixed diagonal fibers contain two orbits. This is a motivated structural classification, not a selected numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
