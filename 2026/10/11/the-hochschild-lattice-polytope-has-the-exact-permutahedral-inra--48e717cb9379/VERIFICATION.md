@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically in `RESULT.md`; finite computation is corroborative only.
 
-Critical checks:
-- The source places \(\mathrm{Hoch}(1,n)\) in \(\sum_i x_i=\binom{n+2}{2}\).
-- The source supplies tight subset-sum right-hand sides and an explicit formula for them.
-- Specializing that formula to \(m=1\) gives \(z_J=\binom{a+c+1}{2}+b\).
-- With \(k=a+b+c\), one has \(z_J\le\binom{k+1}{2}\).
-- The projected normal to a \(k\)-subset hyperplane has squared norm \(k(N-k)/N\).
-- The uniform center is therefore at distance at least \(\frac12\sqrt{Nk(N-k)}\) from every facet hyperplane.
-- All singleton tight inequalities are \(x_i\ge1\), and summing their exact radius constraints gives the sharp upper bound.
-- Equality forces every center coordinate to \((N+1)/2\).
+# Independent mathematical audit
 
-`verify.py` checks the algebraic inequalities exactly for \(3\le N\le200\) over all abstract parameter triples allowed by the specialization. It does not assess originality and does not replace the source verification.
+## correctness
+
+PASS
+
+The original Pilaud–Poliakova arXiv full text Remark 61 explicitly gives the tight subset right-hand sides z_J=binom(|A|+|C|+1,2)+|B|; Prop.57 and Def.55 fix the standard affine realization sum x_i=binom(N+1,2). At m=1 write k=|J|, t=|A|+|C|, b=k-t. Then 2z_J=2k+t(t−1)≤k(k+1), since 0≤t≤k. At c=((N+1)/2)1, 2 slack ≥k(N−k); projected normal norm squared=k(N−k)/N, hence every valid tight hyperplane is at intrinsic distance at least sqrt(N*k*(N−k))/2 ≥sqrt(N(N−1))/2. The N singleton constraints are x_i≥1, so summing the N ball inequalities gives the opposite upper bound and equality forces every center coordinate equal. This proves both sharp radius and UNIQUE incenter for all n≥2. Independently enumerated ALL 2^N−2 subset right-hand sides for N=3..12, including singleton tangency. Finite test corroborates, not replaces the symbolic infinite proof.
+
+## originality
+
+PASS
+
+The exact metric inball and uniqueness for the original Hochschild lattice (m=1) are not stated in Pilaud–Poliakova or the checked lattice studies. A related Resultary record treats the genuinely higher m≥2 Hochschild family and uses an analogous argument; its explicit parameter hypothesis excludes this boundary case, although the proof template makes the extension routine and limits independent methodological novelty.
+
+## value
+
+PASS
+
+PASS with qualification: The m=1 Hochschild polytope is the canonical geometric realization of the original Hochschild lattice. Its exact intrinsic largest ball and unique center are natural global Euclidean invariants that are not preserved by combinatorial equivalence and can aid comparison to permutahedra/freehedra. Exact identification for all n≥2 fills this concrete metric gap; however, the nearby m≥2 Hochschild proof uses essentially the same slack method, so no methodological breakthrough is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

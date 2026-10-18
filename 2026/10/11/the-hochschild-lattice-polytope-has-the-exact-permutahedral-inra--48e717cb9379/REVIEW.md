@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's explicit tight-right-hand-side formula specializes for \(\mathrm{Hoch}(1,n)\) to
-\[
-z_J=\binom{a+c+1}{2}+b,
-\qquad
-|J|=a+b+c.
-\]
-With \(t=a+c\), this is \(z_J=|J|+t(t-1)/2\le\binom{|J|+1}{2}\). At the uniform point, every subset support therefore has at least the classical permutahedral slack. The intrinsic normal calculation gives the exact lower distance \(\frac12\sqrt{N|J|(N-|J|)}\). Singleton tight inequalities then give an independent matching upper bound. Equality in their sum fixes every coordinate, so the incenter is unique.
+## correctness
 
-## Originality
-PASS. The exact Pilaud--Poliakova source was inspected at its deformed-permutahedron setup, Hochschild construction, and tight-right-hand-side parametrization. It provides the structural premises but no Euclidean inradius or Chebyshev-center theorem. Direct, alias, exact-value, and broader deformed-permutahedron searches found no covering statement. Earlier Hochschild/freehedron realizations are different Euclidean models. The closest own prior result concerns partial permutohedra and has a different halfspace system and metric phase behavior.
+PASS
 
-## Value
-PASS. The \((1,n)\)-Hochschild polytope is a recent canonical realization of the Hochschild lattice. The finding shows that its nontrivial deformation away from the standard permutahedron preserves both the exact Euclidean inradius
-\[
-\frac{\sqrt{n(n+1)}}2
-\]
-and the unique uniform incenter. This gives a clean metric interpretation of the source's tight-right-hand-side deformation and a family-wide invariant rather than a low-dimensional computation.
+The original Pilaud–Poliakova arXiv full text Remark 61 explicitly gives the tight subset right-hand sides z_J=binom(|A|+|C|+1,2)+|B|; Prop.57 and Def.55 fix the standard affine realization sum x_i=binom(N+1,2). At m=1 write k=|J|, t=|A|+|C|, b=k-t. Then 2z_J=2k+t(t−1)≤k(k+1), since 0≤t≤k. At c=((N+1)/2)1, 2 slack ≥k(N−k); projected normal norm squared=k(N−k)/N, hence every valid tight hyperplane is at intrinsic distance at least sqrt(N*k*(N−k))/2 ≥sqrt(N(N−1))/2. The N singleton constraints are x_i≥1, so summing the N ball inequalities gives the opposite upper bound and equality forces every center coordinate equal. This proves both sharp radius and UNIQUE incenter for all n≥2. Independently enumerated ALL 2^N−2 subset right-hand sides for N=3..12, including singleton tangency. Finite test corroborates, not replaces the symbolic infinite proof.
 
-## Closest literature and limitations
-The closest paper supplies the exact subset-sum data but does not perform the metric optimization. Earlier Hochschild-lattice geometry uses other realizations. A residual risk remains that a sufficiently general theorem on Chebyshev centers of deformed permutahedra implies the result under different terminology. The claim is restricted to the \((1,n)\)-family and to the source's intrinsic Euclidean realization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact metric inball and uniqueness for the original Hochschild lattice (m=1) are not stated in Pilaud–Poliakova or the checked lattice studies. A related Resultary record treats the genuinely higher m≥2 Hochschild family and uses an analogous argument; its explicit parameter hypothesis excludes this boundary case, although the proof template makes the extension routine and limits independent methodological novelty.
+
+## value
+
+PASS
+
+PASS with qualification: The m=1 Hochschild polytope is the canonical geometric realization of the original Hochschild lattice. Its exact intrinsic largest ball and unique center are natural global Euclidean invariants that are not preserved by combinatorial equivalence and can aid comparison to permutahedra/freehedra. Exact identification for all n≥2 fills this concrete metric gap; however, the nearby m≥2 Hochschild proof uses essentially the same slack method, so no methodological breakthrough is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
