@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is proved for every integer \(m\ge2\) and every strictly positive probability vector. Independent Poisson thinning and first-arrival conditioning give an exact zero-truncated-Poisson representation. The conditional covariance is a sum of strictly negative terms plus a nonpositive oppositely ordered weighted covariance. The conditional mean of singleton count strictly decreases in cover time, while the conditional draw-count mean strictly increases by an explicit positive derivative formula. The total-covariance identity finishes the proof. The exact-rational checker independently solves first-step equations for 59 finite parameter vectors; enumeration is supportive only.
+## correctness
 
-**Originality — PASS, with residual risk.** Myers and Wilf (2003), equation (44), *fully cover the uniform joint distribution* and therefore its uniform mixed moments; no novelty is claimed for that subcase. Brown, Peköz, and Ross (2008), Proposition 1, give separate cover and per-type terminal-count distributions for unequal probabilities but no claimed general cross-moment sign. Anceaume et al. (2014) and Zoroa et al. (2016) analyze nonuniform coverage and fixed-time occupancy without deriving this stopping-time covariance sign. The strict negativity for *every positive unequal probability vector*, with the conditional structural mechanism, is not implied by the identified prior statements. An unlocated general nonuniform joint-distribution result remains the most important originality risk.
+PASS
 
-**Value — PASS.** Completion effort and residual once-seen types are natural measures of coverage and repeated sampling. Under unequal type probabilities, conditioning on the cover event produces intricate dependence not determined by either marginal; the theorem gives a universal sign classification without restrictions on probability ratios or sample size. It is relevant to heterogeneous ecological encounters, coverage testing, and monitoring. The result does not assert regression monotonicity at discrete stopping-time values or an optimal numeric covariance bound.
+Poisson thinning makes each coupon stream independent rate p_i. Given continuous cover time T=t and last-arrival type J=j, others have independent zero-truncated Poisson counts of means a_i=x_i/(1-e^-x_i) and singleton probabilities q_i=x_i/(e^xi-1), while stream j has one point. Last-type weights w_j=q_j/sum q. Conditional covariance equals sum (1-w_i)q_i(1-a_i)+Cov_w(a_i,q_i)<0 by opposite monotonicity of a and q. The conditional means n(t) and s(t) are respectively strictly increasing and decreasing, as derivatives prove; total covariance then strictly negative. All m>=2 and all positive p; no independence claim for N and S. Independent exact rational first-step recurrence checked 56 small positive weight vectors and sampled unequal cases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: uniform coupon N,S joint law of Myers-Wilf covers the uniform corollary, but unequal-probability cover-time laws of Brown-Pekoz-Ross and Anceaume-Busnel-Sericola and fixed-draw occupancy work do not supply the terminal mixed moment or universal covariance sign. Relevant Resultary reset-coupon work concerns a different stopping mechanism. General nonuniform joint law remains possible but unlocated.
+
+## value
+
+PASS
+
+PASS: the strict negative dependence law is a natural exact multivariate stopping-time invariant for heterogeneous coupon collection; extending uniform joint distribution to all strictly positive probability vectors provides a useful monotonicity/association fact not inferred from cover-time marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

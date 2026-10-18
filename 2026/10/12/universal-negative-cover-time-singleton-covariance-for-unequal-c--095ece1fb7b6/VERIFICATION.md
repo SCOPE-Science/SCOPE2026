@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_unequal_coupon.py` in the extracted directory. The script solves finite first-step equations for three coordinates: remaining expected draws, expected final singleton count, and their raw mixed moment. It uses `fractions.Fraction`, capped occupation states and finite recursive elimination, without stochastic simulation or floating arithmetic. It reports 59 exact-rational cases and prints several benchmark moments; all passed when this package was constructed.
+## correctness
 
-In the uniform case it checks the finite closed expression for covariance \(m(H_m^{(2)}-H_m)\); the complete uniform joint distribution already appears in Myers and Wilf (2003) and is not claimed as novel. For unequal vectors it checks strict negativity directly against independent finite-state equations. The universal theorem for arbitrary real vectors and all \(m\ge2\) is proved in RESULT.md by conditional moment identities and strict monotonicity, not by these tests.
+PASS
 
-No formal prover, third-party validation, or independent scientific audit has been performed. Full historical novelty cannot be conclusively established from finite literature searches.
+Poisson thinning makes each coupon stream independent rate p_i. Given continuous cover time T=t and last-arrival type J=j, others have independent zero-truncated Poisson counts of means a_i=x_i/(1-e^-x_i) and singleton probabilities q_i=x_i/(e^xi-1), while stream j has one point. Last-type weights w_j=q_j/sum q. Conditional covariance equals sum (1-w_i)q_i(1-a_i)+Cov_w(a_i,q_i)<0 by opposite monotonicity of a and q. The conditional means n(t) and s(t) are respectively strictly increasing and decreasing, as derivatives prove; total covariance then strictly negative. All m>=2 and all positive p; no independence claim for N and S. Independent exact rational first-step recurrence checked 56 small positive weight vectors and sampled unequal cases.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: uniform coupon N,S joint law of Myers-Wilf covers the uniform corollary, but unequal-probability cover-time laws of Brown-Pekoz-Ross and Anceaume-Busnel-Sericola and fixed-draw occupancy work do not supply the terminal mixed moment or universal covariance sign. Relevant Resultary reset-coupon work concerns a different stopping mechanism. General nonuniform joint law remains possible but unlocated.
+
+## value
+
+PASS
+
+PASS: the strict negative dependence law is a natural exact multivariate stopping-time invariant for heterogeneous coupon collection; extending uniform joint distribution to all strictly positive probability vectors provides a useful monotonicity/association fact not inferred from cover-time marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

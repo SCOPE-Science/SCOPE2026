@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:59:08.531507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson thinning makes each coupon stream independent rate p_i. Given continuous cover time T=t and last-arrival type J=j, others have independent zero-truncated Poisson counts of means a_i=x_i/(1-e^-x_i) and singleton probabilities q_i=x_i/(e^xi-1), while stream j has one point. Last-type weights w_j=q_j/sum q. Conditional covariance equals sum (1-w_i)q_i(1-a_i)+Cov_w(a_i,q_i)<0 by opposite monotonicity of a and q. The conditional means n(t) and s(t) are respectively strictly increasing and decreasing, as derivatives prove; total covariance then strictly negative. All m>=2 and all positive p; no independence claim for N and S. Independent exact rational first-step recurrence checked 56 small positive weight vectors and sampled unequal cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anceaume et al. establish arbitrary-weight cover time distributions and moments, not joint singleton-count dependence.",
+          "Brown et al. describe last-type/terminal count marginals under unequal weights."
+        ],
+        "reasoning": "Marginal laws do not determine E[NS]; coverage by a stronger nonuniform joint theorem was not verified.",
+        "searches": [
+          "Unequal coupon collector completion time N singleton count S covariance negative mixed moment joint stopping distribution",
+          "https://arxiv.org/abs/1402.5245",
+          "https://doi.org/10.1017/S0269964808000132"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0304229",
+        "https://arxiv.org/abs/1402.5245",
+        "https://arxiv.org/abs/1608.00155",
+        "https://doi.org/10.1017/S0269964808000132",
+        "Unequal coupon collector completion time N singleton count S covariance negative mixed moment joint stopping distribution",
+        "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+        "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform case follows from Myers-Wilf and is not new.",
+          "The general inequality depends on conditional zero-truncated Poisson mixing and opposing regressions for every p vector."
+        ],
+        "reasoning": "The prior partial cases and coverage time moments do not logically imply this universal nonuniform covariance inequality.",
+        "searches": [
+          "Unequal coupon collector completion time N singleton count S covariance negative mixed moment joint stopping distribution",
+          "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+          "https://arxiv.org/abs/math/0304229",
+          "https://arxiv.org/abs/1402.5245"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Myers-Wilf Section 4 gives exact joint law P(N=n,S=j) for uniform sampling only.",
+          "The present statement is sign of mixed E[NS]-E[N]E[S] under nonuniform p."
+        ],
+        "reasoning": "Any complete nonuniform joint law would imply the covariance but the inspected uniform theorem alone does not.",
+        "searches": [
+          "Unequal coupon collector completion time N singleton count S covariance negative mixed moment joint stopping distribution",
+          "https://arxiv.org/abs/math/0304229",
+          "https://arxiv.org/abs/1402.5245"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform joint distribution table/formula is exact but restricted to equal p.",
+          "Independent finite rational enumerations include strongly unequal weights."
+        ],
+        "reasoning": "No database table for arbitrary unequal probabilities was found; numerical signs are not novelty evidence and not proof for real-valued p.",
+        "searches": [
+          "Unequal coupon collector completion time N singleton count S covariance negative mixed moment joint stopping distribution",
+          "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+          "https://arxiv.org/abs/math/0304229"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: uniform coupon N,S joint law of Myers-Wilf covers the uniform corollary, but unequal-probability cover-time laws of Brown-Pekoz-Ross and Anceaume-Busnel-Sericola and fixed-draw occupancy work do not supply the terminal mixed moment or universal covariance sign. Relevant Resultary reset-coupon work concerns a different stopping mechanism. General nonuniform joint law remains possible but unlocated.",
+      "residual_risks": [
+        "Broader nonuniform stopping-time joint distribution in unindexed older literature could imply this sign.",
+        "Finite rational tests cannot establish real parameter universality, which is analytic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the uniform special case, not arbitrary p",
+          "evidence": "Joint formula for uniform coupon collector",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+          "material_read": "Section 4 joint distribution and equation (44) for N and S",
+          "method": "Full scholarly HTML/paper read",
+          "title": "Some new aspects of the coupon-collector problem",
+          "trigger": "Direct uniform joint-law comparator"
+        },
+        {
+          "assessment": "No stopping-time singleton mixed-moment statement in inspected results",
+          "evidence": "Cover-time marginal distribution not a joint law",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5245",
+          "material_read": "Distribution, Markov formulation and cover-time moment results, with theorem statements",
+          "method": "Full source paper inspected",
+          "title": "New results on a generalized coupon collector problem using Markov chains",
+          "trigger": "Most relevant arbitrary-weight cover-time comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the strict negative dependence law is a natural exact multivariate stopping-time invariant for heterogeneous coupon collection; extending uniform joint distribution to all strictly positive probability vectors provides a useful monotonicity/association fact not inferred from cover-time marginals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not a discrete conditional regression at fixed N; no p with zero mass and no countably infinite coupon alphabets.",
+    "Broader nonuniform stopping-time joint distribution in unindexed older literature could imply this sign.",
+    "Finite rational tests cannot establish real parameter universality, which is analytic.",
+    "Signed continuation is a sequence position, not scientific certification; no public publication until provenance sanitization."
+  ],
+  "schema_version": 1
+}
