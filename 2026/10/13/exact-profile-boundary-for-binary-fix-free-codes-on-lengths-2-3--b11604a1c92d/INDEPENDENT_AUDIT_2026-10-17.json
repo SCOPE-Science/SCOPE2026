@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:52:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 0ee0a517fc1955d0ea9ccbbefaff8aa714c22a3c",
+        "Nested artifacts tree 3ae23116b884d05aebf66123ee7ae65a6045fc2e with verify.py blob d32b136c7f433a87769aa4394cce82b7355264b7",
+        "Independent 4096-state enumeration, 383 compatible short-layer subsets; full table/first obstruction crosschecked"
+      ],
+      "rationale": "Every choice of length-two and length-three selected words must be cross-prefix/suffix compatible. For each compatible pair, every length-four word with no selected short prefix or suffix is independently addable, because two distinct equal-length words are never proper prefix/suffix of one another. Thus maximum possible a4 equals the size of the available set maximized over all 2^4*2^8=4096 shorter-layer choices, and any integer below this maximum is achievable by deletion. A separate direct enumeration of all 4096 choices, with 383 compatible C2/C3 selections, reproduced every entry of the five table rows. Scanning all integer profiles with scaled Kraft weight 4a2+2a3+a4 <=16 confirmed unique minimal infeasible profile (2,0,5) at weight13. This is finite exhaustive proof, not a sample or inference about shifted lengths.",
+      "residual_risks": [
+        "This fully exhausts only lengths 2,3,4, not general binary lengths or larger alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Congero–Zeger Theorem II.1: for Kraft <=3/4 and <=3 distinct lengths, fix-free code exists",
+          "Congero–Zeger survey of additional specialized sufficiency criteria"
+        ],
+        "reasoning": "The general three-length 3/4 theorem implies the low-Kraft part but does not imply maxima for K>3/4 or unique first obstruction at 13/16; conversely the submitted finite theorem is a strict narrow-window complement rather than a stronger unrestricted result.",
+        "searches": [
+          "binary fix-free prefix suffix codes lengths 2 3 4 exact maximal length-4 profile (a2,a3,a4) first impossible Kraft 13/16",
+          "Kraft 13/16 binary fix free code lengths 2 3 4 profile (2,0,5)"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/TIT.2022.3218212, full 34 pages",
+        "Harada–Kobayashi 1999 summary as cited in Congero–Zeger",
+        "Resultary published q-ary implementation",
+        "Targeted Resultary searches on 13/16 and (2,0,5)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Congero–Zeger 2023 first page abstract and Theorem II.1",
+          "Independent exhaustive availability-count table and unique 13/16 obstruction"
+        ],
+        "reasoning": "Theorem II.1 proves feasibility only at K<=3/4, a proper subset of the new exact profile region. Neither it nor the related construction-time result logically determines which profiles above 3/4 are feasible.",
+        "searches": [
+          "binary fix-free prefix suffix codes lengths 2 3 4 exact maximal length-4 profile (a2,a3,a4) first impossible Kraft 13/16",
+          "Kraft 13/16 binary fix free code lengths 2 3 4 profile (2,0,5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Congero–Zeger 2023, Definition in Section I and main Theorem II.1",
+          "Harada–Kobayashi 1999 two-length sufficient 3/4 theorem"
+        ],
+        "reasoning": "Synonyms describe the identical no-prefix/no-suffix condition. Earlier existence guarantees do not supply the complete above-threshold 2/3/4 feasibility table; no observed matching indexed record.",
+        "searches": [
+          "binary fix-free prefix suffix codes lengths 2 3 4 exact maximal length-4 profile (a2,a3,a4) first impossible Kraft 13/16",
+          "Kraft 13/16 binary fix free code lengths 2 3 4 profile (2,0,5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All 34 pages of DOI:10.1109/TIT.2022.3218212 scanned for 13/16, (2,0,5), 2, 3, 4",
+          "Published SCOPE q-ary implementation concerns speed of a <=3/4 construction"
+        ],
+        "reasoning": "No primary table located in inspected full paper and no analogous published Resultary table found. This is bounded search, not proof that no historical small-profile table exists.",
+        "searches": [
+          "binary fix-free prefix suffix codes lengths 2 3 4 exact maximal length-4 profile (a2,a3,a4) first impossible Kraft 13/16",
+          "Kraft 13/16 binary fix free code lengths 2 3 4 profile (2,0,5)",
+          "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-output-sensitive-qary-fix-free-construction--e8ec1ec6a0dd"
+        ]
+      },
+      "rationale": "Congero–Zeger 2023 covers all three-distinct-length multisets with Kraft <=3/4; it does not state the above-threshold exact 2/3/4 maximum table. Authorized reading obtained all 34 pages of the primary journal paper and searched them for exact 13/16, (2,0,5), and 2,3,4 profile terms; none matched. Nearby published SCOPE output-sensitive q-ary three-length fix-free construction improves implementation of the established <=3/4 existence theorem, not the above-boundary census. Exact profile originality remains best-of-knowledge with minor risk of obscure early enumeration.",
+      "residual_risks": [
+        "An unpublished or unindexed exact small-instance table may predate this finite enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers <=3/4 feasibility for <=3 lengths; does not state or logically imply above-threshold profile table.",
+          "evidence": "Abstract, Section I definitions, Theorem II.1 p3, remaining pages full-text scan.",
+          "identifier_or_url": "DOI:10.1109/TIT.2022.3218212",
+          "material_read": "Full 34-page 2023 IEEE journal article text obtained through authorized institutional access, pages1-34; definitions, literature review, main theorem, construction sections, and references. Search performed across all pages for exact 13/16 and 2,3,4 table phrases.",
+          "method": "Full-text scholarly comparison with authorized publisher text (not redistributed)",
+          "title": "The 3/4 Conjecture for Fix-Free Codes With at Most Three Distinct Codeword Lengths",
+          "trigger": "Exact same fix-free definition, binary alphabet, at most three lengths"
+        },
+        {
+          "assessment": "Implementation improves runtime of <=3/4 theorem but does not imply exact above-threshold maximum profile.",
+          "evidence": "Statement only an O(N2 log N2+mu3 lambda3) construction running time for q-ary <=3/4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-output-sensitive-qary-fix-free-construction--e8ec1ec6a0dd",
+          "material_read": "Published record title, abstract/summary and scope surfaced in semantic search; no new exact (2,3,4) profile table.",
+          "method": "Published finding summary comparison (full body not claimed read)",
+          "title": "Output-sensitive implementation of the q-ary three-length fix-free construction",
+          "trigger": "Nearby relevant published claim for three-length fix-free words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Congero–Zeger motivation of 3/4 threshold and three-distinct-length difficulty",
+        "Independent exhaustive finite enumeration and explicit infeasible (2,0,5) profile"
+      ],
+      "rationale": "The three-consecutive-length window 2,3,4 is the smallest nontrivial setting testing the established 3/4 sufficiency boundary for genuinely three levels. Its full profile table and first unique obstruction answer a natural sharp coding-feasibility question, including the region not covered by the universal theorem. The result is not claimed to extend the universal threshold or to be a theory for all lengths; finite classification is nonetheless a meaningful exact boundary invariant.",
+      "residual_risks": [
+        "The result has intentionally narrow small-length scope and may be subsumed by unindexed exhaustive older work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The complete achievable multiplicity profiles of binary fix-free codes with lengths 2,3,4 are determined by exact maxima M(a2,a3) with rows (16,13,10,8,6,4,2,1,0), (9,7,6,5,4,1), (4,3,2), (1,0), (0), and every smaller a4 feasible; first infeasible scaled Kraft weight is 13/16, uniquely profile (2,0,5).",
+  "limitations": [
+    "Scientific originality is a best-of-knowledge assessment, not proof of absence of all priority claims. No public changes applied.",
+    "Package source contains private operational metadata; publication_plan not_ready is a transport/privacy limitation, not a scientific rejection."
+  ],
+  "schema_version": 1
+}

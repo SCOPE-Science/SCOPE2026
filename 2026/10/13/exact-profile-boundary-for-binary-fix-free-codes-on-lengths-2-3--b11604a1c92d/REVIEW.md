@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each choice of length-two and length-three layers, the available length-four layer is determined exactly by prefix/suffix exclusion. Because distinct equal-length words cannot be proper prefixes or suffixes of one another, every subset of the available length-four words is admissible, so maximizing the available count gives an exact necessary-and-sufficient profile test. The packaged verifier exhausts all \(4096\) shorter-layer selections and then the full profile grid, reproducing the stated table and the unique first obstruction \((2,0,5)\) at Kraft sum \(13/16\).
+## correctness
 
-## Originality
-PASS to the best of the performed literature and database checks. The 1999 two-length result and the 2023 three-distinct-length theorem guarantee existence through Kraft sum \(3/4\); the inspected statements do not classify the region above that threshold or state the exact table for lengths \(2,3,4\). Searches under fix-free, bifix, biprefix, and reversible variable-length aliases, plus exact multiplicity and \(13/16\) wording, found no covering table. The nearest computational record concerns the algorithmic implementation of the general \(3/4\) construction rather than this above-threshold profile frontier. Residual risk remains for an obscure historical enumeration.
+PASS
 
-## Value
-PASS. The \(3/4\) guarantee is the central existence threshold in fix-free coding. The result gives the complete local geometry immediately around that threshold in the shortest genuinely three-level consecutive window: it identifies exactly how far individual profiles can exceed \(3/4\), and isolates the first discrete obstruction. This is a natural boundary classification rather than a recomputation of the known guarantee.
+Every choice of length-two and length-three selected words must be cross-prefix/suffix compatible. For each compatible pair, every length-four word with no selected short prefix or suffix is independently addable, because two distinct equal-length words are never proper prefix/suffix of one another. Thus maximum possible a4 equals the size of the available set maximized over all 2^4*2^8=4096 shorter-layer choices, and any integer below this maximum is achievable by deletion. A separate direct enumeration of all 4096 choices, with 383 compatible C2/C3 selections, reproduced every entry of the five table rows. Scanning all integer profiles with scaled Kraft weight 4a2+2a3+a4 <=16 confirmed unique minimal infeasible profile (2,0,5) at weight13. This is finite exhaustive proof, not a sample or inference about shifted lengths.
 
-## Closest literature and limitations
-Harada–Kobayashi gives the two-distinct-length \(3/4\) guarantee, and Congero–Zeger proves the full binary three-distinct-length \(3/4\) theorem. The latter was inspected at the definition, historical review, Theorems II.1 and III.1, construction sections, and references. The present claim is only for lengths \(2,3,4\) and makes no assertion about shifted windows or arbitrary profiles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Congero–Zeger 2023 covers all three-distinct-length multisets with Kraft <=3/4; it does not state the above-threshold exact 2/3/4 maximum table. Authorized reading obtained all 34 pages of the primary journal paper and searched them for exact 13/16, (2,0,5), and 2,3,4 profile terms; none matched. Nearby published SCOPE output-sensitive q-ary three-length fix-free construction improves implementation of the established <=3/4 existence theorem, not the above-boundary census. Exact profile originality remains best-of-knowledge with minor risk of obscure early enumeration.
+
+## value
+
+PASS
+
+The three-consecutive-length window 2,3,4 is the smallest nontrivial setting testing the established 3/4 sufficiency boundary for genuinely three levels. Its full profile table and first unique obstruction answer a natural sharp coding-feasibility question, including the region not covered by the universal theorem. The result is not claimed to extend the universal threshold or to be a theory for all lengths; finite classification is nonetheless a meaningful exact boundary invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
