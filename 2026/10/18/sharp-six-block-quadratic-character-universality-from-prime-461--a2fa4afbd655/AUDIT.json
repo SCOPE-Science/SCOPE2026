@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exactly 64 times each sign-word count equals a full-field product sum minus six excluded-field products. Exclusions are bounded by 192, one-factor sums vanish, 15 distinct-pair sums each equal -1, and 42 higher-degree squarefree sums obey Weil with total coefficient 114sqrt(p). Thus 64N >= p-114sqrt(p)-207 >0 for p >= 16384. The packaged exact finite checker enumerates all odd primes p < 16384, using all admissible six-block starts and deterministic primality checks, asserts full support for p >=461, and identifies p457 as lacking precisely the all-residue word. It independently cross-checks Euler-criterion supports through p1009. This covers the infinite quantifier without extrapolating from finite runs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buchaev--Tsfasman explicitly evaluate lengths four and five, and record a general exact character-sum expression for all lengths but no six-word all-prime cutoff. Conrad proves uniform asymptotics for any fixed word with an error in sqrt(p); Wright proves general asymptotics for progressions, and Carella states sufficiently-large-prime pattern existence."
+      ],
+      "reasoning": "Generic asymptotics and unevaluated formulas ensure eventual occurrence but do not logically specify that 457 is the last exception. The six-block uniform tail bound together with a complete finite certificate is extra evaluated information, not an immediate special case of a numerical table.",
+      "searches": [
+        "arxiv:2607.17418 Sections 1--4 arbitrary four- and five-letter words and general pattern expression",
+        "arxiv:2011.11054 Theorem 1.1 all prescribed patterns for sufficiently large primes",
+        "Keith Conrad Quadratic residue patterns modulo a prime Theorem 2.1",
+        "arxiv:1111.2236 Theorem 2.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.2236 (2011-11-09 version 1; inspected 2012 full-text revision)",
+      "Keith Conrad Quadratic residue patterns modulo a prime (PDF)",
+      "arxiv:2011.11054",
+      "arxiv:2607.17418",
+      "doi:10.1090/S0002-9904-1926-04211-7 (metadata and quotation only)",
+      "OEIS A048280 (all-residue longest-run database)",
+      "semantic research-record searches: six-block quadratic residue universality, length-six Legendre sequence cutoff, mixed sign patterns"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Davenport/Weil asymptotic p/64+O(sqrt p) is a prerequisite but not a sharp threshold. Conrad obtains |N_p-p/64|<5sqrt(p)+3, which only forces occurrence for sufficiently large p and does not yield 461. Bennett establishes five consecutive residues for primes >193, not six mixed signs. Buchaev--Tsfasman explicitly evaluate only lengths four and five."
+      ],
+      "reasoning": "The conclusion for all primes above 457 requires ruling out failures at every prime between 461 and 16384. This separate finite census is essential to the exact result; the published general inequalities and generic formulas alone do not entail that sharp boundary.",
+      "searches": [
+        "Wright arxiv:1111.2236 §§1--2, Theorem 2.3 and remarks",
+        "Conrad Quadratic residue patterns modulo a prime Theorem 2.1 and Example 2.2",
+        "Buchaev--Tsfasman arxiv:2607.17418 §2 equations (21)--(32)",
+        "Carella arxiv:2011.11054 §1 and §8",
+        "Bennett 1926 DOI and exact quotation in publicly accessible exposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A six-bit support is all 64 nonwrapping blocks if and only if no prescribed Legendre-sign word is absent. No prior indexed hit giving last failing prime 457 or universal cutoff 461 was identified."
+      ],
+      "reasoning": "Checked equivalent wordings for Legendre words, six-block binary supports, and runs of six quadratic residues; no same evaluated universal statement was recovered.",
+      "searches": [
+        "semantic research-record query: all sixty four six consecutive quadratic residues nonresidue sign patterns every prime at least 461 with last exception prime 457",
+        "web: \"six consecutive quadratic residues\" \"461\"",
+        "web: \"64 patterns\" \"quadratic residues\" prime",
+        "local: accessible prior claims containing quadratic resid, Legendre pattern, six consecutive, character word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS records longest all-residue runs rather than simultaneous six-word support; the cited tables do not supply full 64-word supports for every prime. Explicit searches for threshold 461 and exception 457 found no such exact census."
+      ],
+      "reasoning": "The all-residue obstruction at 457 may be tabulated; that one bit alone does not provide positive realization of all 63 other patterns at 457 nor all 64 patterns at every larger prime. Unindexed program outputs remain an originality risk.",
+      "searches": [
+        "web: \"457\" \"461\" \"quadratic residues\" \"six\" pattern",
+        "web: \"six consecutive quadratic residues\" \"457\"",
+        "web: \"six consecutive\" \"quadratic residues\" \"all primes\"",
+        "OEIS A048280 longest run of consecutive quadratic residues; A002307 cited through Bennett discussion"
+      ]
+    },
+    "rationale": "The evaluated last exceptional prime 457 and universal full 64-word support threshold 461 are not stated or already implied without fresh finite evaluation in examined generic character-sum, asymptotic and length-four/five studies. Theorem 2.1 of Conrad and Section 2 of Buchaev--Tsfasman describe general counting ingredients, but neither evaluates all six-sign occurrence supports at every intermediate prime; checking all 1812 primes from 461 below 16384 and displaying the sharp obstruction at 457 is additional work. Searches did not locate a stronger published exact six-block cutoff, with residual unindexed-table risk.",
+    "residual_risks": [
+      "An unindexed or unpublished exact six-word support census may already establish the value 461.",
+      "Bennett’s complete primary PDF was inaccessible; the accessible exact introductory quotation covers only homogeneous runs of length five.",
+      "An implicit evaluated six-word criterion buried in broad character-sum literature could make the threshold a corollary, though inspected closely matching works do not state it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic existence with fixed-pattern Weil estimates, not the exact six-word threshold",
+        "evidence": [
+          "Section 1 paragraphs on Davenport/Weil, Theorem 2.3 and remarks bounding the error by a multiple of sqrt(p)"
+        ],
+        "identifier_or_url": "arxiv:1111.2236",
+        "material_read": "Full-text HTML introduction, Section 2 Theorem 2.3, and the explicit-error remarks",
+        "method": "arXiv HTML full text",
+        "title": "Quadratic Residues and Non-residues in Arithmetic Progression",
+        "trigger": "Pre-2016 number-theoretic source treating consecutive and arithmetic-progression residue patterns"
+      },
+      {
+        "assessment": "Gives a general fixed-length O(sqrt(p)) estimate; illustrates a sharp three-word boundary, but gives no six-word simultaneous last exception",
+        "evidence": [
+          "Theorem 2.1: |N_p-p/2^r|<(r-1)sqrt(p)+r/2; Example on three-residue runs last exception p=17"
+        ],
+        "identifier_or_url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/QuadraticResiduePatterns.pdf",
+        "material_read": "Full PDF text relevant to Theorem 2.1, numerical cutoff examples in Section 2 and closing discussion; rendered page 2 inspected",
+        "method": "PDF text and rendered page",
+        "title": "Quadratic residue patterns modulo a prime",
+        "trigger": "Directly matching general quadratic sign words and worst-case prime questions"
+      },
+      {
+        "assessment": "Sufficiently-large-prime and asymptotic statements, no evaluated threshold 461 or exhaustive six-block census; claims are not used as proof premises",
+        "evidence": [
+          "Theorem 1.1 concerns large p and k=O(log p), and Section 8 discusses general pattern estimates"
+        ],
+        "identifier_or_url": "arxiv:2011.11054",
+        "material_read": "Full-text HTML sections 1 and 8, including theorem statements",
+        "method": "arXiv HTML full text",
+        "title": "Consecutive Quadratic Residues And Quadratic Nonresidue Modulo p",
+        "trigger": "General claimed existence for arbitrary patterns"
+      },
+      {
+        "assessment": "Contains all-length generic character-sum identity and evaluated lengths four/five; does not provide last exceptional prime for all length-six patterns",
+        "evidence": [
+          "Introduction states explicit evaluation at lengths 4 and 5; Section 2 formulas (21)--(32) express arbitrary length via traces; Section 3 begins length four"
+        ],
+        "identifier_or_url": "arxiv:2607.17418",
+        "material_read": "Full-text arXiv HTML abstract, introduction, Section 2 all-length character-sum formulation and Section 3 evaluated length-four case; article specifies length-five case in Section 4",
+        "method": "arXiv HTML full text",
+        "title": "Quadratic residue patterns of length 4 and 5",
+        "trigger": "Closest recent exact pattern-occurrence calculation, potential dominating result"
+      },
+      {
+        "assessment": "Reported claim is five all-residue terms above prime 193; not all mixed six-sign words. Full text noninspection explicitly retained as risk",
+        "evidence": [
+          "Gerry Myerson public quotation reports Bennett’s bound for five consecutive positive residues and says six were not treated in detail"
+        ],
+        "identifier_or_url": "doi:10.1090/S0002-9904-1926-04211-7",
+        "material_read": "Bibliographic record and verbatim excerpt of the scope, not the primary full text",
+        "method": "AMS primary PDF attempted and inaccessible; independent public discussion quotes its introduction",
+        "title": "Consecutive quadratic residues",
+        "trigger": "Historical consecutive all-residue precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2fa4afb-d655-43b8-9de4-d733359bf7b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest prime failing to realize every mixed quadratic sign word of a fixed natural block length is a mathematically canonical cutoff. Length six extends past currently explicitly evaluated four/five-letter frequency cases and the classical five-consecutive-residue existence question. The exact value 457 and full occurrence after it, with an independently reproducible bounded certificate, provide genuine all-prime support information missing from standard asymptotic theorems; neither an arbitrary parameter choice nor a table recomputation of a previously established cutoff.",
+    "status": "PASS"
+  }
+}
