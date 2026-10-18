@@ -1,0 +1,23 @@
+# Scientific review: rank-three Eulerian counting-logic classification
+
+## Correctness — PASS
+
+The claim is proved for every finite bounded Eulerian rank-three poset, not just for tested examples. The critical steps are the forced two-regular bipartite atom–coatom incidence graph, its canonical decomposition into cycles, a formula-by-formula induction establishing complete \(C^2\)-equivalence at fixed \(r\), the \(C_4\) characterization of failed joins and meets, and the side-preserving dihedral-group orbit analysis. The \(C^3\) distinguishing formula uses exactly the three symbols \(x,y,z\), with bound-variable shadowing inside the atom/coatom definitions. Repeated squaring of the middle-rank adjacency relation with three variable names defines same-component membership within \(\lceil\log_2 r\rceil\) squaring steps; counting the resulting components and their atoms gives an explicit \(C^3\) identification sentence of quantifier rank at most \(\lceil\log_2 r\rceil+3\). The construction shows an identification upper bound but does not claim an optimal quantifier-rank lower bound. The partition enumerators and maximum distinct-cycle-size bound follow by bijections and extremal sums.
+
+The two standalone checks support these steps on finite instances: 230 nonisomorphic representatives through \(r=16\) and exhaustive labeled incidence matrices through \(r=5\), with complete small automorphism enumeration through \(r=5\). No finite computation is used as a proof of an unbounded statement. Risks are limited to the ordinary possibility of an overlooked proof step; no missing computational certificate is required by the actual universal proof.
+
+## Originality — PASS, qualified
+
+The basic classification of rank-three Eulerian posets as unions of alternating cycles is prior literature, and a finite eight-point incidence-order collision is known. Neither is represented as new. The claim is the exact combined logical and orbit-theoretic classification: a single full two-variable counting theory for every cardinality, the first mixed lattice layer at ten elements, the sharp three-variable counting width for within-class identification with a logarithmic quantifier-rank bound, three-variable counting definability of latticehood, the first non-refinable layer at twelve elements, exact automorphism-orbit formulas and the simultaneous partition/divisor census for all sizes. The inspected primary background gives the structural decomposition or generic refinement and \(C^2\)-inversion machinery, not this complete combined theorem. In particular, Kiefer–Schweitzer–Selman establish broader existence and characterization results for \(C^2\)-identified structures but do not supply this Eulerian-poset classification, its sharp class-relative variable bound, or the partition-stratified lattice and orbit counts. Dedicated research-index searches found no exact equivalent. Novelty is based on actual comparison, not on mere absence of search hits.
+
+The strongest residual risk is an uninspected specialized result that already presents an equivalent synthesis. Because the components are well-known ingredients, the significance claimed is an exact natural-family classification, not invention of the underlying combinatorial tools or priority for the ten-point witness.
+
+## Value — PASS
+
+The finding answers a concrete finite-model-theory question on a familiar class originating in face-poset and lattice theory: whether counting logic can see latticehood and whether its refinement cells agree with true automorphism orbits. It identifies two distinct sharp thresholds and quantifies an unbounded hidden orbit gap inside classes that counting logic cannot separate. The precise numerical enumerators distinguish lattice, nonlattice, refinable and non-refinable structures without arbitrary parameter slicing. This is a self-contained structural result, although its proof uses elementary tools; no downstream theorem is asserted.
+
+## References and limitations
+
+The structural source is “Eulerian poset” (PlanetMath, 2013-03-22, small-rank section). Relevant methodological sources are Grohe–Kersting–Mladenov–Selman, *Dimension Reduction via Colour Refinement*, arXiv:1307.5697; Arvind–Köbler–Rattan–Verbitsky, *Graph Isomorphism, Color Refinement, and Compactness*, arXiv:1502.01255; and Kiefer–Schweitzer–Selman, *Graphs Identified by Logics with Counting*, arXiv:1503.08792. The conclusion is restricted to finite bounded Eulerian posets of rank three in the strict-order language; neither unrestricted posets nor higher Eulerian ranks are claimed. The review is not an external proof certification.
+
+Self-review: passed. Independent audit: not yet performed.
