@@ -1,0 +1,15 @@
+# Scientific review: unimodular logarithmic Bergman phase transitions
+
+## Correctness
+PASS for the stated fixed range of weights \(a>0\) and exponents \(0<\tau<2\). Rotation invariance gives the beta-averaged monomial eigenvalues without a hidden normalization factor. Dominated convergence gives the subcritical regime, and the beta/gamma identity is exact at the critical exponent. In the nontrivial supercritical range the complex contour remains in a sector where \(\operatorname{Re}(L-\log z)>0\). After contour rotation, a nondegenerate stationary point controls the integral; the Taylor remainder in the phase tends uniformly to zero with its first two derivatives in the relevant moderate range. Endpoint estimates and the exponentially small beta-to-gamma approximation error establish a *relative* complex asymptotic, not merely a modulus estimate. Gamma asymptotics justify the compactness, Schatten nonmembership, and counting statements. The supporting numerical checker passed 17 designated comparisons, which are auxiliary rather than universal proof.
+
+## Originality
+PASS, qualified by explicitly stated literature access risks. The motivating Li–Wang paper (arXiv:2608.23733, first online 2026-08-24) gives a general Berezin-transform compactness criterion and does not state the complex moving-Mellin gamma asymptotic, the sharp logarithmic counting constant, or the three-regime essential spectra for this explicit phase. Koita–Kupin–Naboko–Touré (arXiv:2006.02586) treat boundary symbols with logarithmically *decaying modulus*, not a unimodular logarithmic chirp. Bendaoud–Kupin–Toumache–Touré–Zarouf (DOI:10.15407/mag16.01.003) give radial spectral/Schatten criteria; only their accessible introductory material was inspected, and a stronger uninspected formulation remains a residual risk. The 2025 Maximenko–Pacheco abstract discusses radial eigenvalue sequences, not a demonstrated identical oscillatory family. Overlap searches also compared related prior results involving fixed Mellin frequencies and algebraic boundary oscillations: neither implies the gamma profile here. No positive priority claim beyond the actual comparisons is made.
+
+## Value
+PASS. Bounded radial Toeplitz symbols can become compact through cancellation while retaining unit modulus at every interior point. This theorem determines the sharp dividing exponent, both noncompact essential-spectrum circles, the moving-saddle complex asymptotic on the compact side, the precise logarithmic eigenvalue-counting constant, and absence of every finite Schatten class. The combination gives a natural all-weight family and a quantitative boundary between compactness and summable spectral decay, rather than a sample computation or a restatement of a general compactness criterion.
+
+## Limitations
+The analysis is for each fixed \(\alpha>-1\) and \(0<\tau<2\), not for uniform exponents or \(\tau\ge2\). Independent validation and exhaustive historical priority review have not been performed. An equivalent computation in older literature could remain unidentified.
+
+Self-review: passed. Independent audit: not yet performed.
