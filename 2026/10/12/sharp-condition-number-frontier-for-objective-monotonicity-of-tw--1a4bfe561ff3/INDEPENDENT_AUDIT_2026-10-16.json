@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:08:58.433423Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Immutable source RESULT.md blob 6ead345bc70461d0edff1bf72d3f4e84ed80a0e4 at commit 475e612389968173d8ff1f5d87788e7b3684fd2d",
+        "Exact returned recursive Git source-tree SHA cf521648e084f055c39fa6f8814c9723a7228df4, truncated:false",
+        "Independent bounded analytic/numeric checker: independent_checks.py; its finite tests are only supporting checks"
+      ],
+      "rationale": "PASS: For a complete two-step CSD cycle with reused alpha=1/a, normalized spectral gradient weights p_i and moments a, m2, m3, expansion of ((1-lambda_i/a)^4-1)/lambda_i gives energy change ||g||^2(2a^3-4a m2+m3)/(2a^4). Averaging (lambda-1)(kappa-lambda)>=0 and its lambda multiple yields endpoint bounds. When a<=(kappa+1)/4 the coefficient of m2 is nonnegative, so the endpoint-supported cubic Q_kappa(r) bounds all spectra; otherwise Jensen gives the strictly negative -a(2a^2-(kappa+1)a+kappa) since kappa*<3+2sqrt2. The cubic discriminant is 4(kappa-1)^6(kappa^2+1)(2kappa^4-10kappa^3+3kappa^2-10kappa+2), reducing under z=kappa+1/kappa to 2z^2-10z-1. Negative/zero/positive signs give strict descent/equality/positive-r ascent intervals; positivity of the remaining roots follows by Descartes sign count. The rational kappa=5 example has reused alpha=17/21 and objective ratio 5599232/5250987>1. An independently written SymPy checker verified the algebraic factorization/discriminant and exact rational witness; infinite dimensionality relies on the moment proof.",
+      "residual_risks": [
+        "Exact arithmetic and SPD quadratic objectives only; strictly about complete two-update cycles, not intermediate steps, longer cycles, inexact data or rates.",
+        "A matching same-method 2005 source remained inaccessible in full; O best-of-knowledge with material residual risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang exact orbits can be R-linearly convergent while remaining energy decreasing; their stated non-R-superlinearity does not imply any cycle increase.",
+          "Gu claims asymptotic almost-everywhere convergence for parameter regimes, not uniform finite-cycle energy ordering.",
+          "Shen–Li–Dai alter search directions and provide rate assertions for Triangle SD, a different algorithm."
+        ],
+        "reasoning": "Asymptotic convergence or a different iterative scheme cannot imply a worst-case single-cycle no-rise theorem. The inaccessible old same-method paper is kept as a specific unverified priority risk.",
+        "searches": [
+          "arXiv:2610.00939v1 §§2–3",
+          "arXiv:2609.25800v1 abstract",
+          "arXiv:2501.16731v2 §§2–3",
+          "DOI:10.1007/s10107-004-0516-9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00939v1 (full primary text)",
+        "arXiv:2501.16731v2 (full primary text)",
+        "arXiv:2609.25800v1 (abstract, full unavailable)",
+        "DOI:10.1007/s10107-004-0516-9 (abstract, complete text unavailable)",
+        "Resultary_Search: two-step cyclic steepest descent reused exact line-search step objective monotonicity sharp spectral condition number threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Wang Theorem 3.1 yields a balanced CSD orbit on diag(1,3) with linear contraction and no cycle rise.",
+          "The reviewed theorem asserts cycle nonincrease for all SPD dimensions at every initial gradient exactly through kappa*=4.893733..., and open positive-growth families beyond."
+        ],
+        "reasoning": "The earlier orbit statement is compatible with the claimed no-rise region and neither proves nor disproves the exact universal threshold. The inaccessible Dai–Fletcher paper is not misclassified as NOT_COVERING.",
+        "searches": [
+          "arXiv:2610.00939v1",
+          "arXiv:2501.16731v2",
+          "DOI:10.1007/s10107-004-0516-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent statements concern q(x_{k+2})<=q(x_k) for all SPD A, x when alpha is reused exactly twice, or nonpositivity of the weighted fourth-degree spectral polynomial.",
+          "Li–Wang 2026 has same update but asserts existence of exceptional persistent trajectories, not this all-initialization threshold."
+        ],
+        "reasoning": "An exactly matching method is required but insufficient to establish coverage: the relevant object is one full-cycle quadratic energy and quantified universal spectral condition-number frontier.",
+        "searches": [
+          "Resultary_Search: two-step cyclic steepest descent reused exact line-search step objective monotonicity sharp spectral condition number threshold",
+          "\"cyclic steepest descent\" \"energy increase\" \"condition number\"",
+          "\"reused line-search\" two steps objective"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned specific formula or table matches the reciprocal quartic frontier and the open two-mode increase regime.",
+          "Published exact orbit examples use spectral ratios 3 and 2, not the universal all-spectral energy cutoff."
+        ],
+        "reasoning": "Numerical matching of a threshold is not by itself conclusive. Direct primary result comparison supports a distinction; unindexed older calculations remain possible.",
+        "searches": [
+          "Resultary_Search: two-step cyclic steepest descent reused exact line-search step objective monotonicity sharp spectral condition number threshold",
+          "\"4.893733\" \"cyclic steepest descent\"",
+          "\"5+3 sqrt 3\" CSD monotonicity"
+        ]
+      },
+      "rationale": "The first question is a worst-initialization, all-dimension one-cycle energy inequality, not a convergence-rate theorem. The closest complete CSD primary paper Li–Wang establishes exceptional non-superlinear periodic orbits and their decays, with no sharp uniform monotonicity threshold. Another paper introduces a different direction-modified algorithm. The 2005 foundational CSD asymptotics remain an explicitly material access risk.",
+      "residual_risks": [
+        "Dai–Fletcher 2005 is the closest historical same-method paper whose full text could not be read. Authorized retrieval was blocked; no workaround attempted.",
+        "Related cycle length 2 worst-case objective bounds may appear under delayed-gradient, spectral polynomial, or iterative methods terminology not indexed by bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING single-cycle objective frontier",
+          "evidence": "Non-superlinear balanced and 3-mode periodic orbits are convergence-rate obstructions, not optimal condition-number energy monotonicity.",
+          "identifier_or_url": "arXiv:2610.00939v1",
+          "material_read": "Full HTML: introduction, algorithm (2)-(5), Theorem 3.1, Proposition 3.2, Theorem 3.3 and proof sections",
+          "method": "read relevant primary HTML and compare quantifiers",
+          "title": "Exact counterexamples to R-superlinear convergence of cyclic steepest descent",
+          "trigger": "Exact same repeated-stepsize update"
+        },
+        {
+          "assessment": "DISTINCT_ALGORITHM",
+          "evidence": "Triangle SD modifies directions, distinct from using one exact SD step size twice.",
+          "identifier_or_url": "arXiv:2501.16731v2",
+          "material_read": "Full primary HTML, §§1–3 and algorithm showing special recombination of past search directions",
+          "method": "read relevant primary HTML",
+          "title": "Triangle Steepest Descent: A Geometry-Based Gradient Algorithm with Guaranteed R-Linear Convergence",
+          "trigger": "Near title and CSD literature relationship"
+        },
+        {
+          "assessment": "INCONCLUSIVE_FULLTEXT_ACCESS",
+          "evidence": "The abstract is about almost-everywhere asymptotic convergence, not a proven absence of exact finite-cycle frontier elsewhere in manuscript.",
+          "identifier_or_url": "arXiv:2609.25800v1",
+          "material_read": "Accessible abstract and indexing summary only; full HTML returned error",
+          "method": "abstract and bibliographic context; attempted full-text access",
+          "title": "Doubly exponential convergence of the cyclic steepest descent method for strictly convex quadratics in arbitrary dimensions",
+          "trigger": "Same algorithm, broader dimension"
+        },
+        {
+          "assessment": "INACCESSIBLE_MATERIAL_PRIORITY_RISK",
+          "evidence": "Could contain an exact one-cycle energy theorem despite its advertised asymptotic focus; cannot assert entire-text noncoverage.",
+          "identifier_or_url": "DOI:10.1007/s10107-004-0516-9",
+          "material_read": "Available article abstract and bibliographic references only; complete publication unavailable",
+          "method": "accessible abstract read; authorized institutional attempt blocked by safety policy, not retried",
+          "title": "On the asymptotic behaviour of some new gradient methods",
+          "trigger": "Foundational same-method paper, possible dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Immutable source RESULT.md Git blob 6ead345bc70461d0edff1bf72d3f4e84ed80a0e4",
+        "Complete assigned recursive Git tree match and bounded independent arithmetic checks"
+      ],
+      "rationale": "The distinction between convergent CSD cycles and one-cycle objective safety is operationally important: the first step is exact line search while the reused second step can raise the objective. An all-dimension sharp threshold 4.8937..., explicit open unsafe phase and 2D exact witness characterize when a natural delayed-gradient implementation retains a descent guarantee, beyond generic convergence rates or a mere isolated counterexample.",
+      "residual_risks": [
+        "A matching same-method 2005 source remained inaccessible in full; O best-of-knowledge with material residual risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic and SPD quadratic objectives only; strictly about complete two-update cycles, not intermediate steps, longer cycles, inexact data or rates.",
+    "A matching same-method 2005 source remained inaccessible in full; O best-of-knowledge with material residual risk."
+  ],
+  "schema_version": 1
+}

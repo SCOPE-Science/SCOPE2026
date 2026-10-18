@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-repeated-step energy difference is computed exactly as a cubic in the gradient's first three spectral moments. Two endpoint inequalities and Jensen's inequality reduce the all-dimensional sign test either to a two-eigenvalue spectrum or to a manifestly negative quadratic expression. The endpoint cubic discriminant is exactly factorized, and its root signs yield the universal threshold, endpoint equality, and above-threshold counterexamples. The bundled symbolic-and-rational checker returned `VERIFY_OK`; the analytic proof does not rely on finite sampling.
+## correctness
 
-**Originality — PASS (self-review).** Ran Gu (arXiv:2609.25800v1) gives an almost-everywhere asymptotic rate theorem rather than a uniform finite-cycle objective guarantee. Li–Wang (arXiv:2610.00939v1, earlier Zenodo record) show non-superlinear exceptional orbits; they do not compare objective values under a condition-number constraint. Shen–Li–Dai (arXiv:2501.16731v2) focus on rate results and a distinct triangle method. Friedlander et al. give global convergence for delayed-gradient methods. Related published results for Polyak, Barzilai–Borwein, and CG_AOS steps refer to different algorithms and do not imply this one. Named external search and indexed-record comparisons are recorded in `AUDIT.json`.
+PASS
 
-**Value — PASS.** The exact condition-number frontier gives a concrete universal finite-time safety guarantee for a recently studied nonmonotone cyclic algorithm. The all-dimensional reduction is structurally informative: when the mean spectral curvature is sufficiently small, endpoint eigenvalues govern the worst case, and otherwise objective growth is algebraically impossible below the frontier. The sharpness result shows that the frontier cannot be increased even for simple two-dimensional problems and that a genuinely open family of adverse starts exists above it.
+PASS: For a complete two-step CSD cycle with reused alpha=1/a, normalized spectral gradient weights p_i and moments a, m2, m3, expansion of ((1-lambda_i/a)^4-1)/lambda_i gives energy change ||g||^2(2a^3-4a m2+m3)/(2a^4). Averaging (lambda-1)(kappa-lambda)>=0 and its lambda multiple yields endpoint bounds. When a<=(kappa+1)/4 the coefficient of m2 is nonnegative, so the endpoint-supported cubic Q_kappa(r) bounds all spectra; otherwise Jensen gives the strictly negative -a(2a^2-(kappa+1)a+kappa) since kappa*<3+2sqrt2. The cubic discriminant is 4(kappa-1)^6(kappa^2+1)(2kappa^4-10kappa^3+3kappa^2-10kappa+2), reducing under z=kappa+1/kappa to 2z^2-10z-1. Negative/zero/positive signs give strict descent/equality/positive-r ascent intervals; positivity of the remaining roots follows by Descartes sign count. The rational kappa=5 example has reused alpha=17/21 and objective ratio 5599232/5250987>1. An independently written SymPy checker verified the algebraic factorization/discriminant and exact rational witness; infinite dimensionality relies on the moment proof.
 
-**Closest literature and limits.** Existing CSD work addresses asymptotic convergence, exceptional orbits, or alternate gradient schemes, not a sharp universal objective comparison between consecutive cycle boundaries. The Dai–Fletcher 2005 paper was identified but its full text could not be accessed after both accessible-source and authorized institutional attempts; this is a residual originality risk rather than a claim of its contents. The result is limited to exact two-update cycles on SPD quadratics and does not establish rate or per-step monotonicity. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first question is a worst-initialization, all-dimension one-cycle energy inequality, not a convergence-rate theorem. The closest complete CSD primary paper Li–Wang establishes exceptional non-superlinear periodic orbits and their decays, with no sharp uniform monotonicity threshold. Another paper introduces a different direction-modified algorithm. The 2005 foundational CSD asymptotics remain an explicitly material access risk.
+
+## value
+
+PASS
+
+The distinction between convergent CSD cycles and one-cycle objective safety is operationally important: the first step is exact line search while the reused second step can raise the objective. An all-dimension sharp threshold 4.8937..., explicit open unsafe phase and 2D exact witness characterize when a natural delayed-gradient implementation retains a descent guarantee, beyond generic convergence rates or a mere isolated counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
