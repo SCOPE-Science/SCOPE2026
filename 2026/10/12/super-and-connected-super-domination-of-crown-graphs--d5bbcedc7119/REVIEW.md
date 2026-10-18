@@ -1,12 +1,21 @@
-# Review of Super and connected-super domination of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. For a super dominating set \(S\), an omitted \(a_i\) must be witnessed by some selected \(b_j\) whose omitted-neighborhood intersection is exactly \(\{a_i\}\). Since \(b_j\) misses only \(a_j\) on the opposite side, there can be at most two omitted \(A\)-vertices; symmetrically there can be at most two omitted \(B\)-vertices. This gives the lower bound \(2n-4\). Equality forces two omissions on each side, and the witness condition forces the two index pairs to be disjoint. Those disjoint pairs also give explicit witnesses, proving attainability and uniqueness of the structural form. The induced selected subgraph is \(K_{2,2}\) at \(n=4\) and is connected by a short alternating path argument for \(n\ge5\). Exhaustive definition-level computation for \(3\le n\le7\) matches the theorem and isolates the \(n=3\) boundary.
+## correctness
 
-## Originality
-PASS. The closest primary super-domination source gives \(\gamma_{\mathrm{sp}}(K_{n,n})=2n-2\), not the perfect-matching-deleted crown. The 2018 connected-super paper treats common graphs and standard graph products but targeted full-text searches found no crown or complete-bipartite specialization. The 2022/2024 graph-classes-and-enumeration paper restates the complete-bipartite value and studies neighborhood coronas, clique gluings, Hajós sums, and selected enumeration families; targeted inspection found no crown or perfect-matching-deletion theorem. Indexed literature searches under crown, matching-deletion, ordinary super, and connected-super aliases found no equivalent statement. Complete-multipartite formulas are inapplicable because a crown graph is not complete multipartite for \(n\ge3\).
+PASS
 
-## Value
-PASS. Crown graphs are the canonical one-factor deletion of balanced complete bipartite graphs. The theorem measures a sharp structural change under that minimal symmetric deletion: the super domination number drops by exactly two, while the connected-super constraint costs nothing at the optimum. The exact disjoint-pair classification and count describe every optimum rather than only a scalar parameter value, giving a natural benchmark for edge-deletion sensitivity in super domination.
+For Cr_n=K_n,n minus a perfect matching, each omitted a_i requires a selected b_j adjacent to a_i but to no other omitted A vertex; because b_j is adjacent to all A except a_j, at most two A can be omitted, and symmetrically at most two B. Hence |S|>=2n-4. Equality forces two omitted A indices I={i,j} and two omitted B indices J={k,l}; the unique possible private witnesses b_j,b_i and a_l,a_k must all remain selected, exactly when I∩J=empty. Every such S is super dominating. Its induced subgraph is K_2,2 for n=4; for n>=5, each part has >=3 selected vertices and any missing cross-pair has a selected alternating length-three path, proving connectedness. Counting disjoint index pairs gives binom(n,2)binom(n-2,2). Boundary n=3 is C6 with 15 ordinary vs 6 connected minimum sets. An independent exhaustive definition-based enumerator checks 3<=n<=7.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge implication comparison of assigned exact claim against primary literature and semantic Resultary search. Super domination is not ordinary, restrained, perfect Roman, majority, or upper domination; such formulas cannot be equated with the private-neighbor condition. Neither complete-bipartite result nor connected super domination on general graph products gives the exact crown lower bound or disjoint-pair equality classification; no direct stronger coverage identified.
+
+## value
+
+PASS
+
+Crown graphs are natural regular bipartite graph families obtained by removing a perfect matching. Exact minimum super- and connected-super-domination numbers, complete rigidity of extremal sets and their count are motivated graph invariants; the difference from K_n,n establishes nonmonotone edge-deletion behavior. This is a self-contained all-n exact extremal classification, not an arbitrary small case or general paper-sized claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs \(\operatorname{Cr}_n\) directly from
-\[
-a_i b_j\in E
-\quad\Longleftrightarrow\quad
-i\ne j.
-\]
+# Independent mathematical audit
 
-For every candidate set \(S\), it checks the super-domination definition directly: each omitted vertex \(u\) must have a selected vertex \(v\) with
-\[
-N(v)\cap(V\setminus S)=\{u\}.
-\]
-It independently checks connectivity of the induced selected subgraph.
+## correctness
 
-Every nonempty subset is exhausted for \(3\le n\le7\), totaling \(21{,}819\) subsets. For every exhaustive case \(n\ge4\), the ordinary and connected-super minima agree exactly with the predicted family. The \(n=3\) boundary has fifteen minimum super dominating sets but only six connected minimum sets.
+PASS
 
-The checker also explicitly tests \(7{,}798\) theorem-predicted minimum constructions: every disjoint omitted-pair choice is checked through \(n=12\), and representative extremal index patterns are checked through \(n=50\).
+For Cr_n=K_n,n minus a perfect matching, each omitted a_i requires a selected b_j adjacent to a_i but to no other omitted A vertex; because b_j is adjacent to all A except a_j, at most two A can be omitted, and symmetrically at most two B. Hence |S|>=2n-4. Equality forces two omitted A indices I={i,j} and two omitted B indices J={k,l}; the unique possible private witnesses b_j,b_i and a_l,a_k must all remain selected, exactly when I∩J=empty. Every such S is super dominating. Its induced subgraph is K_2,2 for n=4; for n>=5, each part has >=3 selected vertices and any missing cross-pair has a selected alternating length-three path, proving connectedness. Counting disjoint index pairs gives binom(n,2)binom(n-2,2). Boundary n=3 is C6 with 15 ordinary vs 6 connected minimum sets. An independent exhaustive definition-based enumerator checks 3<=n<=7.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-n=3: gamma_sp=4, min_sp=15, gamma_csp=4, min_csp=6
-n=4: gamma_sp=4, min_sp=6, gamma_csp=4, min_csp=6
-n=5: gamma_sp=6, min_sp=30, gamma_csp=6, min_csp=30
-n=6: gamma_sp=8, min_sp=90, gamma_csp=8, min_csp=90
-n=7: gamma_sp=10, min_sp=210, gamma_csp=10, min_csp=210
-subsets_checked = 21819
-explicit_minimum_constructions_checked = 7798
-exhaustive_parameter_range = 3..7
-construction_parameter_range = 4..50
-all exhaustive minima for n>=4 matched the disjoint omitted-pair classification
-```
+PASS
 
-Finite computation is corroborative only. The all-order lower bound, equality classification, connectedness, and counting formula follow from the symbolic proof in `RESULT.md`.
+Best-of-knowledge implication comparison of assigned exact claim against primary literature and semantic Resultary search. Super domination is not ordinary, restrained, perfect Roman, majority, or upper domination; such formulas cannot be equated with the private-neighbor condition. Neither complete-bipartite result nor connected super domination on general graph products gives the exact crown lower bound or disjoint-pair equality classification; no direct stronger coverage identified.
+
+## value
+
+PASS
+
+Crown graphs are natural regular bipartite graph families obtained by removing a perfect matching. Exact minimum super- and connected-super-domination numbers, complete rigidity of extremal sets and their count are motivated graph invariants; the difference from K_n,n establishes nonmonotone edge-deletion behavior. This is a self-contained all-n exact extremal classification, not an arbitrary small case or general paper-sized claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
