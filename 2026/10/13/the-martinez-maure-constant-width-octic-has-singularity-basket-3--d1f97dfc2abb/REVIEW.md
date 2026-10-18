@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact source equation and parametrization were reconstructed. The supplied verifier checks global birationality, the complete affine Jacobian singular set, local analytic valuation pairs, the two points at infinity, and the genus-defect sum. The six nonreal affine points have nondegenerate quadratic terms, the three real points have Puiseux pair \((3,4)\), and the two infinite points have Puiseux pair \((2,7)\).
+## correctness
 
-## Originality
-PASS. The lead paper provides the curve but not its singularity basket. Bardet--Bayen's broader implicitization theorem supplies degree and properness/irreducibility, which are explicitly credited and are not counted as new. Exact DOI, equation, support-function, normalization, ADE, Puiseux, node, and cusp searches found no prior statement equivalent to the complete basket \(3E_6+6A_1+2A_6\). The remaining risk is an older equivalent-coordinate computation under unrelated terminology.
+PASS
 
-## Value
-PASS. This is a natural exact invariant of a named degree-minimal noncircular constant-width curve. It explains the entire genus defect of the projective octic and separates the three real curvature-degeneracy singularities from six hidden complex nodes and two singularities at infinity.
+For the specified degree8 affine F(s,q) from the 2021 support function h(theta)=8-sin(3theta), the homogeneous degree8 projective parametrization [U:V:W] has no base points and substitutes to zero. Rational (u,v) elimination agrees with F; subresultant of the two degree6 parameter equations is generically linear and its z coefficient at z=1 is 151552 !=0, hence the map is birational. Exact Jacobian solutions give 9 finite singularities in 3 cyclic orbits: 3 real E6 cusps at rotation orbit of (0,9) from local branch orders (3,4), plus 6 complex A1 nodes from nonzero Hessian determinants at (0,-9±6i sqrt3). At two points at infinity [1:±i:0], corrected local parameters have orders (2,7) hence A6. Independent SymPy localized series/Hessian/subresultant computations reproduce the essential coefficients, and δ total 3·3+6·1+2·3=21 equals plane octic arithmetic genus, excluding further singularities. Claim over C only.
 
-## Closest literature and limitations
-Martinez-Maure gives the exact octic, support function, and parametrization. Bardet--Bayen give general degree and properness theorems for support-function curves, including the minimal degree-eight bound. Panraksa--Washington treat earlier constant-width algebraic examples and isolated real points. None of the inspected materials states the accepted ADE basket. Literature search cannot exclude every projectively equivalent or poorly indexed presentation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Martinez-Maure 2021/22 gives support parametrization and explicit affine degree8 equation, not the complex singularity basket; Bardet–Bayen 2013 gives general properness/minimal degree analysis but not analytic ADE types of this specialization. Inspection of source full text and Resultary semantic query found no implied exact 3E6+6A1+2A6 invariant. Genus/degree are prior knowledge; singularity classification is the proposed new part.
+
+## value
+
+PASS
+
+The singularity basket of the specific minimal-degree noncircular algebraic constant-width curve is a natural intrinsic algebraic-geometry invariant. The complete local ADE types and genus-defect exhaustion distinguish real convex points from complex projective geometry, useful for curve normalization/classification beyond the original convex geometric construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

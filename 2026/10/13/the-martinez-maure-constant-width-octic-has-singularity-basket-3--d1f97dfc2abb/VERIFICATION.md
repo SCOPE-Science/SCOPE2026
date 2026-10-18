@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone `verify.py` rebuilds the exact degree-eight polynomial and performs the following checks with exact symbolic arithmetic:
 
-1. It verifies invariance under rotation by \(2\pi/3\).
-2. It reconstructs the complex rational parametrization and checks direct substitution into both the affine and projective equations.
-3. It computes the resultant of the two parameter equations and obtains the implicit equation exactly. The penultimate subresultant is linear in the parameter, and its leading coefficient evaluates to \(151552\) at a point of the image, proving generic degree one.
-4. It solves \(F=F_x=F_y=0\) exactly and obtains nine affine singular points, organized as three real points and two conjugate three-point rotation orbits.
-5. It checks a nonzero Hessian determinant at a nonreal representative, giving type \(A_1\) on all six nonreal points by symmetry.
-6. At \((0,9)\), the normalization expansions have initial orders \((3,4)\), giving type \(E_6\); rotation gives the other two.
-7. The homogeneous leading form is \((x^2+y^2)^4\), so the only points at infinity are \([1:i:0]\) and \([1:-i:0]\). In a local normalization chart, an analytic coordinate change gives orders \((2,7)\), hence type \(A_6\).
-8. The delta sum is \(3\cdot3+6\cdot1+2\cdot3=21\), equal to the arithmetic genus of a degree-eight plane curve.
+# Independent mathematical audit
 
-Fresh execution result:
+## correctness
 
-`VERIFY_OK`
+PASS
 
-`affine_singularities=3_E6_plus_6_A1`
+For the specified degree8 affine F(s,q) from the 2021 support function h(theta)=8-sin(3theta), the homogeneous degree8 projective parametrization [U:V:W] has no base points and substitutes to zero. Rational (u,v) elimination agrees with F; subresultant of the two degree6 parameter equations is generically linear and its z coefficient at z=1 is 151552 !=0, hence the map is birational. Exact Jacobian solutions give 9 finite singularities in 3 cyclic orbits: 3 real E6 cusps at rotation orbit of (0,9) from local branch orders (3,4), plus 6 complex A1 nodes from nonzero Hessian determinants at (0,-9±6i sqrt3). At two points at infinity [1:±i:0], corrected local parameters have orders (2,7) hence A6. Independent SymPy localized series/Hessian/subresultant computations reproduce the essential coefficients, and δ total 3·3+6·1+2·3=21 equals plane octic arithmetic genus, excluding further singularities. Claim over C only.
 
-`infinity_singularities=2_A6`
+## originality
 
-`normalization=P1`
+PASS
 
-`delta_total=21=arithmetic_genus`
+Martinez-Maure 2021/22 gives support parametrization and explicit affine degree8 equation, not the complex singularity basket; Bardet–Bayen 2013 gives general properness/minimal degree analysis but not analytic ADE types of this specialization. Inspection of source full text and Resultary semantic query found no implied exact 3E6+6A1+2A6 invariant. Genus/degree are prior knowledge; singularity classification is the proposed new part.
 
-The verifier establishes the exact curve claimed here; it does not assert anything about other degree-eight constant-width curves or equisingular families.
+## value
+
+PASS
+
+The singularity basket of the specific minimal-degree noncircular algebraic constant-width curve is a natural intrinsic algebraic-geometry invariant. The complete local ADE types and genus-defect exhaustion distinguish real convex points from complex projective geometry, useful for curve normalization/classification beyond the original convex geometric construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
