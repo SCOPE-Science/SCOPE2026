@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-P_n=B_n\times[-1/2,1/2]
-\]
-and
-\[
-U=(\sqrt{1-Z^2}V,Z),
-\]
-one has exactly
-\[
-w_{P_n}(U)=\sqrt{1-Z^2}\,w_{B_n}(V)+|Z|.
-\]
-The scalar expectations are
-\[
-\mathbb E(1-Z^2)=\frac23,
-\qquad
-\mathbb E Z^2=\frac13,
-\qquad
-\mathbb E(|Z|\sqrt{1-Z^2})=\frac13.
-\]
-Thus only the first two planar width moments remain.
+# Independent mathematical audit
 
-The first moment is \(n/\pi\) by Cauchy's perimeter formula. The second moment is the squared-support moment of the difference body. For even \(n\), that difference body is \(2B_n\); for odd \(n\), its extreme differences alternate to form a regular \(2n\)-gon. Integrating the support function over one normal cone yields the exact formulas in RESULT.md.
+## correctness
 
-`verify.py` reconstructs the regular base vertices, directly computes widths on deterministic angular grids, and independently samples the spatial prism width on a Fibonacci sphere. It checks both parity branches and the cube specialization.
+PASS
 
-These finite computations are diagnostics only. No finite sampling is used to justify the quantified theorem.
+For a right regular n-gon prism, support of a Cartesian product separates: w_P(U)=sqrt(1−Z²)w_B(V)+|Z| with Z uniform [-1,1] and planar V uniform S^1. Spherical integration yields E w_P²=(2/3)E w_B²+1/3+(2/3)E w_B. Cauchy perimeter gives E w_B=n/pi for a unit-edge n-gon. Difference body is a regular n-gon if n even and a regular 2n-gon if odd, of radii 1/sin(pi/n) and 1/(2sin(pi/(2n))), respectively; support-square integration on a normal cone yields both exact formulas. Independently integrated 100,000 planar directions for n=3,4,5,6,7, agreeing at 1e−9; these finite checks supplement the analytic all-n derivation. Cube n=4 equals known 1+4/pi.
+
+## originality
+
+PASS
+
+PASS on explicit all-n regular right-prism second-width moments with parity-dependent closed forms. Finch already has cube (n=4) but not the family; Gaussian-width paper covers other regular polytope classes and generic methods without the target uniform prisms. A known special case does not dominate the full all-n classification, and the prior cube formula is credited.
+
+## value
+
+PASS
+
+Regular right prisms are a canonical infinite geometric family whose directional-width second moment is a natural stochastic-geometric invariant; the even/odd difference-body change yields an explicit nontrivial parity split and recovers a classical cube benchmark. This is a complete motivated natural classification rather than an arbitrary finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

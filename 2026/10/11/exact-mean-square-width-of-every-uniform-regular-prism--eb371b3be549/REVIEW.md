@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The prism width separates exactly into a planar-base term and a vertical term. The spherical-coordinate variable \(Z\) is uniform on \([-1,1]\), so all three scalar expectations in the product expansion are elementary. Cauchy's formula supplies the first planar width moment. For the second moment, width is the support function of the difference body; that body is exactly a regular \(n\)-gon of radius \(\csc(\pi/n)\) for even \(n\) and a regular \(2n\)-gon of radius \((2\sin(\pi/(2n)))^{-1}\) for odd \(n\). Integrating \(R^2\cos^2 t\) on one normal cone gives the stated branches. The packaged checker independently compares both planar and spatial direct width sampling against the closed formulas.
+## correctness
 
-## Originality
-**PASS, with a classical-stereology residual risk.** Finch's full text treats the tetrahedron and cube and explicitly encourages computations for other convex bodies. Kabluchko--Litvak--Zaporozhets provide a general higher-moment framework and explicit cube, simplex, and crosspolytope applications; exact full-text search finds no “prism” occurrence. Searches under regular prism, uniform prism, mean-square width, projection length, mean caliper diameter, and Feret diameter found no equivalent all-\(n\) formula. The cube case is prior-covered and is used only as a consistency specialization, not as novelty evidence.
+PASS
 
-## Value
-**PASS.** Uniform \(n\)-gonal prisms form one of the two canonical infinite series of convex uniform polyhedra. A complete exact second-width-moment formula across the whole family is therefore a natural classification rather than an arbitrary one-off computation. The proof also isolates a reusable product-and-difference-body mechanism, and the even/odd split has a transparent geometric source.
+For a right regular n-gon prism, support of a Cartesian product separates: w_P(U)=sqrt(1−Z²)w_B(V)+|Z| with Z uniform [-1,1] and planar V uniform S^1. Spherical integration yields E w_P²=(2/3)E w_B²+1/3+(2/3)E w_B. Cauchy perimeter gives E w_B=n/pi for a unit-edge n-gon. Difference body is a regular n-gon if n even and a regular 2n-gon if odd, of radii 1/sin(pi/n) and 1/(2sin(pi/(2n))), respectively; support-square integration on a normal cone yields both exact formulas. Independently integrated 100,000 planar directions for n=3,4,5,6,7, agreeing at 1e−9; these finite checks supplement the analytic all-n derivation. Cube n=4 equals known 1+4/pi.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS on explicit all-n regular right-prism second-width moments with parity-dependent closed forms. Finch already has cube (n=4) but not the family; Gaussian-width paper covers other regular polytope classes and generic methods without the target uniform prisms. A known special case does not dominate the full all-n classification, and the prior cube formula is credited.
+
+## value
+
+PASS
+
+Regular right prisms are a canonical infinite geometric family whose directional-width second moment is a natural stochastic-geometric invariant; the even/odd difference-body change yields an explicit nontrivial parity split and recovers a classical cube benchmark. This is a complete motivated natural classification rather than an arbitrary finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
