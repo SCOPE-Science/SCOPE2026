@@ -1,11 +1,21 @@
-# Review of the exact two-worker coupled-compressor threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The model is fully specified: \(f_i(x)=x^2/2\), fixed scalar step and memory rates, independent rounds, Bernoulli marginals one half, and exchangeable correlated pairs. Substitution yields four explicit \(3\times3\) update matrices and a \(4\times4\) covariance transfer. The characteristic polynomial and generating function follow by exact rational algebra. The cubic Schur reduction has strictly positive factors for every \(0\le q<1/10\); the critical residue is \(6/19\); above the threshold an uncancelled pole lies in \((0,1)\), yielding a strictly superunit exponential limsup. Finite histories and exact symbolic identities were reproduced by the included program. A numerical iteration alone is not used to prove an infinite-horizon claim.
+## correctness
 
-**Originality — PASS, with residual risk.** The inspected defining gradient-memory update and its later general unbiased-compressor analysis supply algorithms and sufficient step-size results, not the exact joint-worker correlation frontier at fixed unit step. A prior exact DIANA worker-count law assumes independent half-dropout compressors and covers only \(q=1/4\) when the worker count is two; its conclusion does not imply the stable \(0\le q<1/10\) range or the critical floor. Correlated compressor results for MARINA use a different recursion. Indexed mathematical searches on the method, aliases and covariance threshold did not reveal a statement implying the complete phase diagram. Equivalent obscure specialized treatments remain possible, so priority is not certified.
+PASS
 
-**Value — PASS.** The same objective, local smoothness, marginal traffic, two workers, and unit primal step exhibit geometric convergence, a positive limiting mean-square error, or exponential-subsequence mean-square divergence solely through packet dependence. The exact \(1/10\) threshold is an actionable design criterion for antithetic coupling in this natural small-model benchmark, while the \(6/19\) critical floor distinguishes nondecay from divergence. This is not merely a restatement of a general variance bound: the memory state creates a nontrivial four-moment dynamic and a sharp boundary absent from existing sufficient analyses.
+From the exact specified old-memory update z+=(M_ab)z, the iid round coupling P00=P11=q and P01=P10=1/2-q gives an exchangeable second-moment 4-vector (X,U,H,V) with transfer T rows [2q,-4q,1/2,2q-1/2],[-q,2q,-1/4,1/4-q],[1/2,0,1/2,0],[q,1-2q,0,q]. Independent symbolic construction gives characteristic z/8(8z³-(40q+4)z²+(36q-4)z+1-6q) and rational X generating function (t-2)^2((6q-1)t-2)/((6q-1)t³+(4-36q)t²+(4+40q)t-8). The documented cubic Schur factors are positive exactly on 0<=q<1/10; at q=1/10 the uncancelled simple t=1 pole gives limit X/x0²=6/19 with other poles ±sqrt20; for q>1/10 the denominator has an uncancelled root t* in (0,1), so Cauchy–Hadamard gives exponential subsequence growth. Independent checker verified T, determinant, F and residue exactly, with spectral samples either side. Stability concerns mean square with fixed zero initial memories, not almost sure.
 
-**Scope and remaining uncertainty.** The result is exact-arithmetic, scalar, symmetric, and fixed-step. Other compressor designs, heterogeneous nodes, varying parameters, and independent specialist validation are outside scope. The prior studies were compared on update equivalence and actual parameter implications rather than title overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact correlated-worker DIANA scalar phase with fixed n=2 and unit normalized step, including antithetic stability q<1/10, independent failure q=1/4 and nonzero critical floor. A materially read published worker-count theorem fixes compressor independence and varies n and stepsize; it cannot imply cross-worker dependence q phase. The original DIANA algorithm and general EF-BV sufficient theory are credited. Best-of-knowledge originality remains conditional on unexplored alternate compressor dependence literature.
+
+## value
+
+PASS
+
+Within-worker-marginal budget and number of transmitted scalars are fixed, yet changing only cross-worker coupling reverses mean-square stability and produces an exact nonzero critical error. This is a meaningful structural limitation of independent-compression intuition; the exact 1/10 boundary and 6/19 floor are usable reproducible benchmarks, not arbitrary parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
