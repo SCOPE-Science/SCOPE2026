@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact offset interval geometry for arbitrary convex bases gives (b-a)+, 2min(a,b), (a-b)+, where a=width sqrt(1-c²), b=Hc. Their analytic sphere-coordinate integrals and Cauchy mean width yield a normalized three-state law. f_H(w)=w atan(H/w) has strictly negative second derivative -2H³/(H²+w²)². Strict Jensen proves equality iff constant width, Taylor integral remainder proves variance bounds, and a one-variable strictly decreasing stationary equation proves a unique global optimum. Independent normal/offset quadrature over four shape families and separate derivative tests passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cruz-Orive 2026, Sec. HITTING PROBABILITIES, explicitly fixes circular radius and uses axial rotation to suppress azimuth",
+        "Kellerer 1971, Sec. 4 explicitly solves isotropic straight-track chord length distributions for arbitrary planar base"
+      ],
+      "reasoning": "The circular paper has narrower shape coverage; Kellerer has broader base coverage but a different sampling-dimensionality and target statistic. Neither available theorem dominates the claimed cap-count and sharp extremizer law.",
+      "searches": [
+        "random affine hyperplane cuts cylinder arbitrary convex base one end cap probability constant width perimeter Jensen arctan",
+        "Crofton plane section generalized cylinder convex base hitting exactly one base width concavity",
+        "stereology random plane hitting endpoints arbitrary cross section extrusion prism constant width generalized cylinder"
+      ]
+    },
+    "checked_sources": [
+      "Cruz-Orive 2026 DOI:10.5566/ias.4005 pp. 95--101, full text inspected",
+      "Kellerer 1971 Radiation Research 47:359--376, full text inspected",
+      "2026 published cylinder-shadow mixed-moment record, title/summary only",
+      "2026 published regular-prism mean-square-width record, title/summary only",
+      "Official MSC2020 52A22: random convex sets and integral geometry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cruz-Orive 2026: P0,P1,P2 for radius r cylinders, Eq. 27",
+        "Kellerer 1971: C(l) and c(l) for isotropic random lines and arbitrary-base cylinders, Eqs. 50--56",
+        "Closest published shadow mixed-moment published-finding corpus record has a distinct random projection observable"
+      ],
+      "reasoning": "Substituting constant width w=2r and H=2h gives the 2026 circular formula, as required. In reverse, a circular-only formula cannot fix the response to nonconstant planar widths. The full convex-base law follows from interval geometry and angular integration; strict concavity, the universal optimum and width-variance rigidity are additional implications not present in those published statements.",
+      "searches": [
+        "2026 convex geometry sharp inequalities polytopes random affine sections probability face vector",
+        "isotropic invariant affine plane hitting exactly one basal face generalized cylinder B x [0,H] shape optimized constant width sharp 0.640264922",
+        "convex right prisms planar section 0 1 2 end faces cap hitting probability perimeter width arctangent Jensen",
+        "random Crofton section circular cylinder number bases hit optimal aspect ratio 1.4572944"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cruz-Orive 2026, Corollary 2 Eq. 27 gives identical formulas only when directional width is constant, originally the disk case",
+        "Kellerer 1971, Sec. 2 distinguishes straight random tracks from plane probes"
+      ],
+      "reasoning": "Cauchy mean width converts the normalization to perimeter, but the nonlinear directional width average remains and is not determined solely by perimeter; equality is constant-width geometry, not an equivalent recoding of the circular-only result.",
+      "searches": [
+        "isotropic invariant affine plane hitting exactly one basal face generalized cylinder B x [0,H] shape optimized constant width sharp 0.640264922",
+        "convex right prisms planar section 0 1 2 end faces cap hitting probability perimeter width arctangent Jensen",
+        "\"constant width\" \"random plane\" \"cylinder\" bases probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published record 2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707 is about 2D shadow moments of a cylinder",
+        "published-finding corpus published record 2026/10/11/SCOPE-exact-mean-square-width-of-every-uniform-regular-prism--eb371b3be549 concerns mean squared projection widths of regular prisms"
+      ],
+      "reasoning": "No accessed exact table or indexed matching extremal probability. The prior circular formula has no published all-base table/equality in the inspected source; a negative search alone is not used as novelty proof.",
+      "searches": [
+        "random Crofton section circular cylinder number bases hit optimal aspect ratio 1.4572944",
+        "\"0.640264922\" cylinder random plane",
+        "\"arctan\" \"convex cylinder\" \"probability\" plane caps"
+      ]
+    },
+    "rationale": "The published circular-cylinder three-state law (Cruz-Orive, Eq. 27) does not itself give an arbitrary-convex-base width law, an equality characterization over shapes, a sharp all-height maximum or second-order anisotropy rigidity. A 1971 arbitrary-base cylinder paper uses straight-line chord sampling, not random affine planes. The distinction is verified from their primary full texts. Residual older-literature risk remains.",
+    "residual_risks": [
+      "An older stereological source not retrieved here might give the same arbitrary-base plane-cap formula or its extremizers.",
+      "Published record summaries are not full-text negatives; distinct topic and operands support inapplicability but do not prove priority.",
+      "The local width-curvature coefficient is rigorously valid; the finite-width sandwich bounds may not attain equality for a given nonconstant body."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS circular case; DOES NOT state arbitrary-convex-base sharpness/width anisotropy or all-height unique extremizer",
+        "evidence": [
+          "p. 96: solid right circular cylinder with radius r and rotational reduction",
+          "p. 99 Eq. (27): three base incidence probabilities only parameterized by h,r",
+          "p. 100: application to observed rod transects"
+        ],
+        "identifier_or_url": "https://ias-iss.org/ojs/IAS/article/download/4005/1267/10162",
+        "material_read": "Complete research paper pages 95--101; particularly model assumptions pp. 96--97, Proposition 1 p. 98, Corollary 2 Eq. (27) p. 99, closing discussion",
+        "method": "Open-access full PDF text and page image review",
+        "title": "Stereology for the Weibel-Palade Bodies",
+        "trigger": "Identical random affine-plane cap incidence for circular rods"
+      },
+      {
+        "assessment": "NOT SAME OBSERVABLE: uniform isotropic straight-line track chord distributions, not random planar cap counts; useful neighboring generalization",
+        "evidence": [
+          "p. 359: abstract explicitly says straight random tracks",
+          "p. 360: defines mean free path randomness by line point/direction",
+          "pp. 372--374: 3D chord length distributions from 2D cross-section chord functions"
+        ],
+        "identifier_or_url": "https://websites.umich.edu/~nersb590/CourseLibrary/Kellerer.pdf",
+        "material_read": "Full article pages 359--376; focus abstract, definitions sec. 2, general-cylinder sec. 4 and Eq. (50)--(56)",
+        "method": "Accessible full PDF text and scanned page images",
+        "title": "Considerations on the Random Traversal of Convex Bodies and Solutions for General Cylinders",
+        "trigger": "Arbitrary convex cross-sectional cylinders may imply a stronger geometric law"
+      },
+      {
+        "assessment": "Different functional: joint area/perimeter moments of planar orthogonal shadows, not affine plane cap incidence",
+        "evidence": [
+          "Published abstract describes planar shadow covariance and aspect-ratio minimum ~1.68126868"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707",
+        "material_read": "Published research record title and summary only, not underlying full text",
+        "method": "Semantic research record retrieval",
+        "title": "Exact cylinder shadow mixed moment and sharp positive covariance",
+        "trigger": "Cylinder and sharp aspect-ratio optimum overlap search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ca661a0d-008b-4d86-99a4-05f6c79f44f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The geometric observation of whether an invariant random affine plane cuts 0,1,2 basal faces is motivated by stereological microscopy of finite rods. The result extends the exact published law from circular bases to arbitrary nonsmooth convex bases, obtains an unexpected shape-invariant crossing-balance identity, identifies a sharp universal 64% best probability and complete constant-width equality class, and yields a quantitative deficit tied to width anisotropy. These are structural, sharp all-body results with clear calibration relevance, not a table update.",
+    "status": "PASS"
+  }
+}
