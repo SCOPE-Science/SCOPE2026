@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The cobalancing recurrence is solved by a two-exponential affine formula, whose square has five distinct spectral bases for every prime at least five other than seven. The norm calculations establish the Vandermonde invertibility in each finite étale residue ring; the resulting coefficient divisibility test and odd-prime binomial lifting prove exactly the claimed prime-power valuations. The exceptional order six and one-unit lifting depth at five are computed explicitly. The independent standard-library verifier checked 6900 exact prime-valuation pairs over 300 window lengths, and 219 recurrence identities. It proves no bound on untested values; the symbolic argument handles all values.
+
+**Originality — PASS within inspected evidence.** Mbirika–Schrader–Spilker's open Question 30 concerns the same cobalancing-square gcd but provides partial observations rather than a good-prime order-spectrum theorem. The 2022 generalized Fibonacci square-gcd result has a different homogeneous recurrence. The closest existing related local calculations address other balancing/Pell sequences, not \(b_n^2\); neither their conclusions nor their hypotheses directly imply this affine five-frequency result. Six-plus targeted semantic record queries, exact title/parameter web queries, and available 79 prior local claim statements exposed no stronger coverage. Residual risk: an unindexed or implicit general recurrence theorem might subsume this local criterion; the published question remains incompletely resolved.
+
+**Mathematical value — PASS.** This is a uniform infinite prime-power classification for all but three small primes of the unresolved cobalancing-square instance of a published natural gcd problem. It detects an exceptional divisor five at every length divisible by six, including those not divisible by five. This is structural divisibility information, not merely a finite table or a routine isolated congruence.
+
+**Closest literature and limits.** arXiv:2301.05758 (2023), Question 30, and arXiv:2204.12626 (2022). Valuations for two, three, seven and the full gcd are not proved. Search absence does not certify mathematical novelty.
+
+Self-review: passed. Independent audit: not yet performed.
