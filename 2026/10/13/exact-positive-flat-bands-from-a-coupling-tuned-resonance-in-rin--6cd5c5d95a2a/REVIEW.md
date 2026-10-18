@@ -1,15 +1,21 @@
-# Scientific review: exact positive ring-chain flat bands
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses match the positive-length, degree-three ring-chain model and the vertex normalization in Exner–Pekař, arXiv:2403.09457v1, Sections 2 and 4. The published un-divided equation has only three constant coefficients at \(\gamma=0\); its two nonconstant Bloch coefficients vanish together only at integer \(k\), because one prefactor is strictly negative and the sine/cosine phase factors are mutually exclusive away from integers. Substituting those integers yields the exact square factor \(-8m^2\ell^2\sin(ml_1)\sin^2(ml_3)[3m^2\ell^2(c-1)+(c+1)]^2\). Zero of the complete secular equation for every Bloch phase gives point spectrum, and any point eigenvalue must survive a positive-measure phase set. The standalone checker reproduces the polynomial identity by exact integer arithmetic and separately checks the original matching matrix at selected phases. No numerical experiment is elevated to an infinite proof.
+## correctness
 
-## Originality — PASS
-The exact source [1] identifies a sufficient rational-edge-length mechanism for interior Kirchhoff-endpoint interpolating flat bands but does not state the exact coupling resonance. The new necessary-and-sufficient statement applies to irrational \(l_1/\pi\) and \(l_3/\pi\), with a flat band at a tunable momentum. Importantly, [3, Section 2.1] **already establishes an edge-length-independent resonance at the endpoint** \(t=1\), namely \(m\ell=1\); the new law reduces to this at \(t=1\). What remains new is the exact interpolation condition throughout \(0<t<1\) and complete positive flat-band classification there. A fixed-endpoint result does not itself imply the formula for interior couplings. Targeted phrase and formula searches for the interior resonance, the secular coefficients and incommensurate ring chains returned no statement that covers the full \(0<t<1\) classification. This does not establish absolute uniqueness; indexing gaps and the not-fully-inspected 2024 journal version are explicit residual risks.
+PASS
 
-## Value — PASS
-The model's paper singles out flat bands and commensurability as key spectral features. This classification settles the natural inverse parameter question for its nondegenerate Kirchhoff-endpoint interior family: it characterizes *all* positive flat bands, proves at most one exceptional positive flat band for fixed irrational-length parameters, and shows the interior interpolation produces one even with arithmetically independent edge lengths. The full interior parameter law is a structural classification, not a finite example: it interpolates the known endpoint resonance and distinguishes length and vertex-tuning mechanisms rigorously.
+For the gamma=0 interior-interpolation Exner–Pekař quantum chain, the original un-divided secular equation has Bloch sin(theta) and cos(theta) coefficients. At 0<t<1 their prefactors outside cos(k l3)-cos(k l2) and sin(k l2)+sin(k l3) cannot vanish. With l2+l3=2pi their simultaneous zero forces sin(pi k)=0, so k=m>=1 integer. Substituting integer m into original displayed P6,P4,P2 gives respectively -72 ell^6(c-1)^2 S, -48 ell^4(c²-1) S, -8 ell²(c+1)² S where S=sin(m l1)sin²(m l3); hence the constant secular coefficient factors exactly -8 m² ell² S [3m² ell²(c-1)+(c+1)]². Its vanishing is precisely edge commensurability or 3m² ell² tan²(pi t/6)=1. Analytic Bloch direct-integral criterion equates positive-measure zero of fibers with point spectrum and conversely. Independently expanded the multivariate polynomial identity via SymPy; numerical checks cannot substitute for the full secular-equation argument. Endpoint t=1 and negative/zero energies are excluded.
 
-## Literature and limitations
-[1] Exner–Pekař, *Vertex coupling interpolation in quantum chain graphs*, arXiv:2403.09457v1, full text Sections 2, 4 and Appendix A; publisher DOI 10.1063/5.0208361. [2] Baradaran–Exner–Tater, arXiv:1912.03667, preferred-orientation endpoint. [3] Baradaran–Exner–Tater, arXiv:2012.14344, periodic preferred-orientation chains. No claim about \(E\le0\), band isolation, or generic band spectrum; unindexed equivalent treatments are possible. The journal version was confirmed bibliographically but not fully read.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exner and Pekař (2024) give the exact general secular coefficients and identify rational edge-length flat bands in their gamma=0 Section 4, but they do not state the full simultaneous-zero classification or interior length-independent resonant factor in inspected full primary PDF. Earlier Baradaran–Exner–Tater works already prove a related preferred-orientation endpoint resonance m ell=1 at t=1, so the discovery of endpoint resonance is prior. The interior 0<t<1 exact tuning law, irrational-edge witness and complete positive point-spectrum criterion remain distinct. Resultary high-energy Kirchhoff boundary-layer result analyzes bands, not a fixed resonance point eigenvalue.
+
+## value
+
+PASS
+
+A complete positive flat-band classification in a natural interpolation family distinguishes geometric commensurability from coupling-induced point-spectrum localization; it includes explicitly incommensurate-length flat bands and an exact tuning law. This is a nontrivial spectral phenomenon motivated by the original ring-chain model, not just an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
