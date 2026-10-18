@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reduces the claim to exact integer offsets \(x=\psi(n)-n\) and \(y=\sigma(n)-\psi(n)\). The inequality \(\varphi(n)+\psi(n)\ge2n\) is reconstructed directly from the prime-product formulas. The local prime-power formulas prove \(y=0\) exactly for squarefree integers. Squarefree composites satisfy \(x\ge6\); nonsquarefree composites satisfy \(x\ge2\) and \(y\ge1\). The resulting polynomial lower bound is strictly increasing on the nonsquarefree domain and equals \(290\) at \((n,x,y)=(4,2,1)\). Direct substitution verifies equality at \(n=4\).
+# Independent mathematical audit
 
-The packaged verifier separately checks all composite \(n\le300000\) and reports the same unique minimum. That finite check is regression evidence only; the proof is symbolic and covers every composite integer.
+## correctness
 
-## Originality
-PASS with residual literature risk. Dimitrov's 2024 theorem supplies the baseline cubic inequality but no sharp composite additive constant. Sándor–Gryszka 2025 generalize the baseline to arbitrary powers and insert the stronger intermediate term \(\varphi(n)^k+2\psi(n)^k\), but that theorem does not imply the sharp constant \(290\) on composites: at \(n=4\), its cubic intermediate term is only \(163\) above the baseline. The inspected 2026 continuation treats different compound expressions and conjectures. Exact-formula web searches and semantic research-record searches found no statement matching the \(291\) lower bound with unique equality \(n=4\).
+PASS
 
-## Value
-PASS. The source inequality is sharp on primes, so a natural next structural question is the distance from equality after primes are excluded. The theorem determines that distance exactly, gives the unique extremal composite, and explains the sharp constant through the squarefree/nonsquarefree dichotomy rather than through enumeration. This is a natural sharp boundary refinement of a recent inequality, not an arbitrary finite slice.
+For composite n>=4 write x=psi(n)-n, y=sigma(n)-psi(n). The prime-factor Euler products prove phi+psi>=2n; multiplicativity gives y>=0, equality exactly for squarefree n. For squarefree composites n>=6 and x>=6, G(n,x,0)=(x-1)(3n^2+9nx+9n+x^2+x+1)>=2645. For nonsquarefree n>=4, x>=2,y>=1, the explicit cubic G is strictly increasing in n,x,y on that region and G(4,2,1)=290. Direct phi(4)=2,psi(4)=6,sigma(4)=7 gives defect 290 and uniquely n=4. Independent exact factoring/regression checked 1,696 composite integers but is not the all-n proof.
 
-## Closest literature and limitations
-The closest published result is Sándor–Gryszka's all-power inequality, which dominates Dimitrov's original right-hand side but does not resolve the composite gap. The closest later continuation by Dimitrov studies different reciprocal and mixed expressions. A residual risk remains that the same sharp composite constant appears in an unindexed note or under a different formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final statement is the exact composite equality gap 290 for a specified cubic totient–Dedekind–divisor-sum expression. Dimitrov's 2024 theorem is sharp on primes and cannot directly deliver a strict composite deficit. Sándor–Gryszka (2025) give a stronger all-power intermediate inequality, but their k=3 estimate at the composite extremizer n=4 yields only a 163-unit improvement over Dimitrov's baseline, not the exact 290. Independently inspected those primary results; no equivalent sharp composite constant was found in targeted literature or Resultary, with genuine residual historical-priority risk.
+
+## value
+
+PASS
+
+Excluding primes, where the original bound has equality, creates a mathematically natural next extremal stratum. The theorem determines the global composite gap and unique extremizer by distinct squarefree and square-divisible mechanisms, not by an arbitrary finite cutoff. A future study of stronger arithmetic-function inequalities can use this precise sharp boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

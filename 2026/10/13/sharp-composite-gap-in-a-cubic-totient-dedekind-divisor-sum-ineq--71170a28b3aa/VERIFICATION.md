@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically in `RESULT.md`. The finite program `verify.py` is a separate regression check of the formulas used in the proof.
 
-Run:
+# Independent mathematical audit
 
-`python3 verify.py`
+## correctness
 
-Saved output:
+PASS
 
-`VERIFY_OK`
+For composite n>=4 write x=psi(n)-n, y=sigma(n)-psi(n). The prime-factor Euler products prove phi+psi>=2n; multiplicativity gives y>=0, equality exactly for squarefree n. For squarefree composites n>=6 and x>=6, G(n,x,0)=(x-1)(3n^2+9nx+9n+x^2+x+1)>=2645. For nonsquarefree n>=4, x>=2,y>=1, the explicit cubic G is strictly increasing in n,x,y on that region and G(4,2,1)=290. Direct phi(4)=2,psi(4)=6,sigma(4)=7 gives defect 290 and uniquely n=4. Independent exact factoring/regression checked 1,696 composite integers but is not the all-n proof.
 
-`limit=300000`
+## originality
 
-`composite_cases=274002`
+PASS
 
-`minimum_defect=290`
+The final statement is the exact composite equality gap 290 for a specified cubic totient–Dedekind–divisor-sum expression. Dimitrov's 2024 theorem is sharp on primes and cannot directly deliver a strict composite deficit. Sándor–Gryszka (2025) give a stronger all-power intermediate inequality, but their k=3 estimate at the composite extremizer n=4 yields only a 163-unit improvement over Dimitrov's baseline, not the exact 290. Independently inspected those primary results; no equivalent sharp composite constant was found in targeted literature or Resultary, with genuine residual historical-priority risk.
 
-`unique_minimizer=4`
+## value
 
-`squarefree_composite_minimum=2653`
+PASS
 
-`nonsquarefree_composite_minimum=290`
+Excluding primes, where the original bound has equality, creates a mathematically natural next extremal stratum. The theorem determines the global composite gap and unique extremizer by distinct squarefree and square-divisible mechanisms, not by an arbitrary finite cutoff. A future study of stronger arithmetic-function inequalities can use this precise sharp boundary.
 
-`branch_bound_violations=0`
-
-The finite range does not prove an infinite statement. The infinite proof uses only the exact prime-factor identities, the bounds \(x\ge6\) on squarefree composites and \(x\ge2,y\ge1\) on nonsquarefree composites, and monotonicity of the explicit polynomial lower bound.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
