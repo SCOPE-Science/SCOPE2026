@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For ULC interval-support (a_n), c_n=n!a_n is log-concave. Majorization of indices establishes c_{mk+j}c_{mk+l}≥c_{m(k-1)+j}c_{m(k+1)+l}. Exact factorial ratios establish (k!/(mk+j)!)(k!/(mk+l)!)≥((k−1)!/(m(k−1)+j)!)((k+1)!/(m(k+1)+l)!), with equality worst-case at j=m−1, l=0. Multiplying and summing over residue pairs yields ULC for the coarsened pmf. Interval support and strict factorial comparison establish strictness for m≥2 at interior coarse blocks. Poisson-process grouping and the decreasing ratio covariance identity imply strict underdispersion of Erlang counts. Actual extracted standalone verifier performs exact rational sampled checks; no finite test is treated as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Puig et al. Section 2.1 Proposition 1: IFR interarrival implies renewal-count variance no greater than mean, which is weaker than ULC.",
+        "Badiella et al. preserve ULC under order statistics, not arbitrary deterministic coarsening.",
+        "Johnson 2007 develops ULC Poisson entropy/thinning, a different mechanism."
+      ],
+      "reasoning": "The full all-input ULC theorem cannot be recovered from underdispersion of a single renewal-count subclass: underdispersion is one scalar moment inequality. The floor operation is not convolution, independent rank selection, or Bernoulli thinning, so those closure results do not dominate it.",
+      "searches": [
+        "2021-2023 probability theory discrete log concavity random sums conditional truncation open problem",
+        "ULC discrete distribution floor integer division block coarsening preserves log concavity stronger than IFR renewal counts",
+        "\"Erlang renewal\" \"ultra log concave\"",
+        "\"block sums\" \"ultra log concavity\" probability",
+        "doi:10.1111/sjos.12677",
+        "doi:10.1016/j.spa.2006.10.006"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.spl.2023.109900",
+      "doi:10.1111/sjos.12677",
+      "doi:10.1016/j.spa.2006.10.006",
+      "doi:10.1080/02664763.2026.2694524",
+      "doi:10.1080/03610929508831649",
+      "2026/9/19/SCOPE-schur-concavity-product-profile-block-scale--c907c96c56a6",
+      "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Badiella et al. main theorem concludes ULC of order statistics, not ULC of floor-divided single count.",
+        "Puig et al. Section 2.1 gives Var≤Mean for Erlang renewal counts but no adjacent shape inequalities.",
+        "2026 grouped-Poisson article abstract describes underdispersed hurdle-regression models and model selection; full text inaccessible."
+      ],
+      "reasoning": "The present theorem implies strict Erlang-renewal underdispersion, so that prior consequence cannot imply its stronger premise. Order-statistic and hurdle-regression statements neither imply nor classify ULC under fixed-width block grouping. A same-claim earlier formulation remains possible and is expressly treated as risk.",
+      "searches": [
+        "doi:10.1016/j.spl.2023.109900",
+        "doi:10.1111/sjos.12677",
+        "doi:10.1080/02664763.2026.2694524",
+        "ULC discrete distribution floor integer division block coarsening preserves log concavity stronger than IFR renewal counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Definitions: ULC of (a_n) is log-concavity of (n!a_n).",
+        "The 2023 Badiella-del Castillo-Puig article treats order-statistic pmfs and synchronized sequences, not the deterministic block map.",
+        "No equivalent fixed-block aggregation theorem appeared in targeted queried results."
+      ],
+      "reasoning": "Aliases tested include integer division, floor grouping, coarsening, lumping, and synchronized factorially weighted block subsequences. The transformation changes a single count deterministically, unlike the order-statistic and thinning operations; title similarity alone is not a comparison. No known matching theorem found, but search incompleteness remains.",
+      "searches": [
+        "ultra log concavity preserved under pooling consecutive probabilities into equal length blocks: Y=floor(X/m) if X ULC",
+        "factorially weighted binning of ULC sequences quotient by block size m",
+        "\"ultra log concave\" \"block\" \"group\" probabilities",
+        "\"Poisson\" \"floor\" \"ultra log-concave\"",
+        "ultra log concave sequence grouping adjacent terms blocks sums floor random variable",
+        "doi:10.1016/j.spl.2023.109900"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research records retrieved no tabulated ULC closure assertion for Poisson block sums.",
+        "The candidate is a universal inequality in input sequences and integer widths, not a finite or tabulated numerical invariant."
+      ],
+      "reasoning": "No exact named database or parameter table could exhaustively cover the theorem: a putative tabulation of Erlang count moments alone would not imply universal ULC preservation. Results for other block-profile and cumulant problems do not match the object.",
+      "searches": [
+        "Erlang renewal counts Poisson grouping P(floor(Poisson(lambda)/m)=k) ultra log concave",
+        "equal width binning preserves ultra log concavity of integer probability mass functions via synchronized factorial rescaled block subsequences",
+        "Erlang renewal counts floor Poisson divided by m are ultra-log-concave, factorial moment underdispersion proof",
+        "\"grouped Poisson\" log concavity underdispersion",
+        "2026/9/19/SCOPE-schur-concavity-product-profile-block-scale--c907c96c56a6",
+        "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+      ]
+    },
+    "rationale": "Primary full-text and publisher-indexed theorem comparisons distinguish IFR renewal underdispersion from ULC shape inequalities and discrete order statistics from a deterministic block map. Prior-claim deduplication and targeted semantic/published-literature searches found no covering statement; highly relevant abstract-only 2026 grouping work remains a named priority risk.",
+    "residual_risks": [
+      "Equivalent unindexed preservation theorem could occur under coarsening, lumpability, aggregation, grouped-Poisson, or total-positivity terminology.",
+      "2026 grouped-Poisson hurdle regression full text could not be inspected; its abstract does not resolve priority.",
+      "Independent priority verification and specialist audit are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The theorem concerns ULC of order statistics, not deterministic equal-block coarsening. Retrieved theorem proof does not imply the present cross-pair factorial inequality.",
+        "evidence": [
+          "Published online 26 June 2023 from article history.",
+          "DOI 10.1016/j.spl.2023.109900, Definitions, Proposition 1 and the proof of ULC closure for order statistics."
+        ],
+        "identifier_or_url": "doi:10.1016/j.spl.2023.109900",
+        "material_read": "Publisher-indexed text of abstract, introduction, Definitions 1–2, synchronized-sequence Proposition 1, main order-statistic result/proof, and Corollary 1; university-hosted PDF result displayed first-page public-date metadata. Direct full PDF request blocked; no unseen text treated as cleared.",
+        "method": "Search-indexed publisher content and institutional OA-PDF metadata; direct publisher and institution full-text fetch attempts denied.",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Same ULC property and synchronized-sequence proof tool."
+      },
+      {
+        "assessment": "IFR Gamma/Erlang renewal underdispersion covers the scalar variance corollary but not universal or Poisson-only ULC preserving block coarsening.",
+        "evidence": [
+          "First published 7 August 2023 on publisher page.",
+          "Section 2.1, Proposition 1: IFR interarrival implies Var[N(t)]≤E[N(t)], without ULC statement."
+        ],
+        "identifier_or_url": "doi:10.1111/sjos.12677",
+        "material_read": "Open-access HTML Sections 1, 2.1, 2.2, 3 and conclusion, including Section 2.1 renewal-count definition, Propositions 1–2 and Gamma waiting-time discussion.",
+        "method": "Publisher open-access full-text HTML.",
+        "title": "Some mechanisms leading to underdispersion: Old and new proposals",
+        "trigger": "Exact Erlang-renewal interpretation and already-known underdispersion."
+      },
+      {
+        "assessment": "Abstract mentions a grouped-Poisson underdispersed count model but no ULC closure theorem. Full source uninspected; residual overlap risk acknowledged.",
+        "evidence": [
+          "Research article first online 28 June 2026; title and abstract describe a Poisson–Q_m mixture, hurdles, identification and model selection."
+        ],
+        "identifier_or_url": "doi:10.1080/02664763.2026.2694524",
+        "material_read": "Abstract, metadata and keywords only; full-text web request returned access denial.",
+        "method": "Open bibliographic abstract, publisher full-text access attempt (HTTP 403).",
+        "title": "Grouped-Poisson hurdle regression for underdispersed ecological counts",
+        "trigger": "Same grouped-Poisson terminology, potentially relevant newer modeling formulation."
+      },
+      {
+        "assessment": "Study of grouped-data Poisson regression log-likelihood concavity, which is different from ULC of the grouped count law; abstract-only comparison is not whole-document clearance.",
+        "evidence": [
+          "Abstract discusses globally concave log-likelihood for grouped Poisson observations."
+        ],
+        "identifier_or_url": "doi:10.1080/03610929508831649",
+        "material_read": "Bibliographic abstract only.",
+        "method": "Publisher bibliographic abstract.",
+        "title": "Grouped poisson regression models: theory and an application to public house visit frequency",
+        "trigger": "Earlier grouped Poisson distribution language."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bbedf910-2cac-4424-8774-e94546c19c5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Equal-width binning is a natural count-observation and renewal-process operation. The universal closure theorem covers all ULC discrete laws and every positive block width and proves strictness, much more than checking a specialized table. The Erlang renewal corollary materially strengthens the known underdispersion property to a pointwise distribution-shape constraint, with a structural sharp factorial-factor explanation. No unrelated general theorem or paper-length impact is claimed.",
+    "status": "PASS"
+  }
+}
