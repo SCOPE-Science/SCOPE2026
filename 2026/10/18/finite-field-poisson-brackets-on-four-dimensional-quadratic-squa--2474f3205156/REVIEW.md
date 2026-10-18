@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The associative annihilator is precisely the central square line. A Leibniz argument forces that line to be Lie-central. The remaining bracket is determined by an alternating three-tensor and an independent alternating two-form; in dimension three both Jacobi equations vanish by checking an orthogonal basis. The complete associative automorphism action is a similarity of the quadratic form plus an arbitrary central shift. This yields a single nonzero cross-product orbit and the complete quadratic-norm orbit partition for central brackets. The standalone finite-field calculations additionally check the full Leibniz solution-space rank, every proposed bracket, and the actual special-orthogonal orbit counts for three odd prime fields. No finite test is treated as a general proof.
+
+## Originality — PASS, with explicit limitation
+The motivating Petrov--Pypka preprint classifies dimensions at most three over arbitrary fields, so its stated domain does not imply a four-dimensional finite-field orbit count. Abdelwahab--Sánchez classify four-dimensional **complex** Poisson algebras and supply the natural orbit-classification methodology; the complex case of the present family is covered in principle and is **not** asserted as new. Complex classification does not decide whether norm fibers over finite fields split into extra orbits or yield \(q+2\) classes. Searches for finite-field Poisson counts, bilinear-square classifications, and matched formulas, plus the indexed mathematical database comparisons, found no explicit dominating finite-field statement. The older full complex classification could not be read in all tables, and equivalent older finite-field treatments remain a historical risk. This is a self-review, not proof of priority.
+
+## Mathematical value — PASS
+This is an exact natural classification at the first dimension beyond a new arbitrary-field dimension-three study. In a single nondegenerate quadratic-square family, the theorem establishes the entire four-dimensional Poisson-bracket parameter space, every isomorphism orbit over all odd finite fields, and the structurally necessary isotropic versus zero separation. The finite-field quadratic norm (rather than only rank or central dimension) supplies \(q+1\) distinct central types and a single contrasting noncentral orbit. It is neither a randomly selected isolated multiplication table nor a mere direct restatement of the complex classification.
+
+## Limits and closest literature
+Only odd finite fields and nondegenerate associative squares are covered. The 2025 complete complex classification may encode analogous central and noncentral normal forms; its field-specific implication is limited to the complex case. Unindexed or inaccessible finite-field work remains possible. Comparisons against inspected published finite-field Poisson statements found no claim-level implication; this does not establish universal novelty.
+
+Self-review: passed. Independent audit: not yet performed.
