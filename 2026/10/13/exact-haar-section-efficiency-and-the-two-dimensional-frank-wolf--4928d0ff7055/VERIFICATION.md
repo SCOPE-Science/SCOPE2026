@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and evidence
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 standard-library installation. The script checks the exact rational arithmetic equality for every \(2\le n\le200\) and \(1\le d\le n\), then samples Haar orthonormal frames by Gaussian Gram--Schmidt with seed `271828`. It compares the first-projection squared mass, tangential derivative moment, and small-angle squared-norm difference on four dimension pairs. The observed samples fell within the script's explicitly stated stochastic tolerances and concluded with `VERIFY_OK`.
+## correctness
 
-The all-dimension theorem is certified by the **written analytic proof**, not by bounded numerical tests. Its critical steps are the exact norm-difference identity, full periodic Fourier coefficient inequality, the projection-idempotence moment calculation and dominated convergence for coalescing directions. None of these steps uses an external computational oracle or an extrapolation from finite data. Reproduction of the source-derived expected-rate corollary additionally requires the original strong-set-convexity, uniform rolling-ball, smooth convex objective, fresh Haar sections and exact section-LMO assumptions; the proof invokes the inspected Proposition 3/Theorem 1 of the cited preprint.
+PASS
 
-No separate audit or independent scientific validation has been performed. This file does not certify any unproved stronger theorem about high-probability rates or non-Haar sampling.
+For unit u,v, Gamma=(||Pu||||Pv||-<Pu,Pv>)/(1-<u,v>) equals d/n minus the projected norm-difference square divided by 2(1-<u,v>). Along any great circle h(t)=||P(cos t u+sin t w)|| belongs to periodic H^1. Fourier Parseval and |e^{iktheta}-1|<=|k||e^{itheta}-1| bound finite-chord squared differences by the expected squared tangential derivative. For Haar rank-d projector Q=P^T P, idempotence and rotational invariance give E|hprime|^2=(n-d)/(n(n-1)), proving sharp chordal constant. Dominated convergence for coalescing directions proves sharpness and inf E Gamma=(d-1)/(n-1), including d=1 and d=n endpoints. Exact Euclidean ball section oracle calculation yields matching optimization witness; transfer to general strongly convex sets relies on existing source comparison-ball hypotheses, not an unrestricted arbitrary-domain claim. Independent rational/all-dimension and small-angle checks passed.
+
+## originality
+
+PASS
+
+Sharp (d-1)/(n-1) Haar section efficiency, optimal chordal norm contraction, d=2 positivity and exact ball-oracle witness quantitatively improve weaker coefficients in original random-subspace Frank–Wolfe paper. Related sparse stochastic subspace descent Haar moments concern gradient-projection steps rather than linear minimization on boundary ball sections.
+
+## value
+
+PASS
+
+The exact uniform expected section-oracle coefficient is an intrinsic sharp algorithmic-geometry invariant, yields a strict dimension-two progress guarantee, and improves a published coefficient by large multiplicative factors. Coalescing-direction witnesses establish optimality even for a Euclidean ball with linear objective, so the enhancement is not a routine normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

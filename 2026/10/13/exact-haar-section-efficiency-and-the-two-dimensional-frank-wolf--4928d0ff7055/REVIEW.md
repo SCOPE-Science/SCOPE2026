@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved for every integer \(n\ge2\), \(1\le d\le n\), and every allowed pair of unit directions. Exact Haar projector moment (6) follows from a rank-\(d\) idempotent identity and uniformity on the orthogonal complement. The Fourier telescoping inequality holds for every integer frequency and every circle separation; Haar stationarity transfers its integrated inequality to a fixed pair. Dominated convergence, with a pointwise Lipschitz majorant, proves optimality. The exact ball slice calculation proves the claimed optimization interpretation. The expected rate transfer uses the stated comparison-ball assumptions and the original source Proposition 3 and Theorem 1 without changing their geometric factor. `verify.py` passes exact-rational and seeded finite diagnostics; these are not substituted for the analytic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating primary preprint [1], including its appendices on norm-difference moments, determinant bounds, the ball-oracle factorization and the expected-rate proof, was compared statement by statement. Its Proposition 1 gives a nonsharp factor four above the optimal contraction; Proposition 7 gives the smaller \((d-1)/(96(n-1))\) coefficient. The 2024 normalized spherical-projection theorem [2] concerns expected projected geodesic angle rather than the unnormalized weighted section-oracle efficiency. Indexed mathematical-result comparisons returned Haar moment bounds in sparse subspace descent, not this exact Frank–Wolfe efficiency coefficient. Classical Fourier/Parseval and projector identities are acknowledged as known ingredients. An unindexed equivalent source or previously unnoticed stronger formulation remains possible; search absence is not uniqueness proof.
+PASS
 
-## Value — PASS
-The exact coefficient resolves the uniform expected ball-oracle factor left as an interval in a 2026 method, identifies the first positive subspace dimension \(d=2\), gives matching optimization examples, and strengthens the source's squared norm-difference estimate by a factor of four. It is a genuinely stronger, computable approximation guarantee used directly in the source's expected open-loop analysis. It does not purport to settle algorithmic lower bounds outside the ball, nor to improve independent short-step or tail estimates.
+For unit u,v, Gamma=(||Pu||||Pv||-<Pu,Pv>)/(1-<u,v>) equals d/n minus the projected norm-difference square divided by 2(1-<u,v>). Along any great circle h(t)=||P(cos t u+sin t w)|| belongs to periodic H^1. Fourier Parseval and |e^{iktheta}-1|<=|k||e^{itheta}-1| bound finite-chord squared differences by the expected squared tangential derivative. For Haar rank-d projector Q=P^T P, idempotence and rotational invariance give E|hprime|^2=(n-d)/(n(n-1)), proving sharp chordal constant. Dominated convergence for coalescing directions proves sharpness and inf E Gamma=(d-1)/(n-1), including d=1 and d=n endpoints. Exact Euclidean ball section oracle calculation yields matching optimization witness; transfer to general strongly convex sets relies on existing source comparison-ball hypotheses, not an unrestricted arbitrary-domain claim. Independent rational/all-dimension and small-angle checks passed.
 
-## Scientific limits
-The sharpness is a limiting worst case; it is not asserted that a separated angle realizes the infimum. The rate transfer uses all regularity assumptions of [1]. Only indexed/public and inspected sources were compared, so originality has residual publication-coverage risk. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp (d-1)/(n-1) Haar section efficiency, optimal chordal norm contraction, d=2 positivity and exact ball-oracle witness quantitatively improve weaker coefficients in original random-subspace Frank–Wolfe paper. Related sparse stochastic subspace descent Haar moments concern gradient-projection steps rather than linear minimization on boundary ball sections.
+
+## value
+
+PASS
+
+The exact uniform expected section-oracle coefficient is an intrinsic sharp algorithmic-geometry invariant, yields a strict dimension-two progress guarantee, and improves a published coefficient by large multiplicative factors. Coalescing-direction witnesses establish optimality even for a Euclidean ball with linear objective, so the enhancement is not a routine normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
