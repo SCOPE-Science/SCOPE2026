@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is proved symbolically over complex matrices. No external certificate or finite enumeration is needed.
+# Independent mathematical audit
 
-The source-side checks used the exact finite-dimensional statements in Zhou–Yang, arXiv:2609.09775v1: Proposition 2.4 for the injective/nilpotent block form, Theorem 2.10 for normality of the relevant power in finite dimension, Proposition 3.1 for direct sums and additive/difference closure, Theorem 3.3 for the arithmetic-tail form, and Example 3.9 for the explicit periodic and nilpotent blocks.
+## correctness
 
-The lower-bound replay is as follows. At the first admissible exponent \(m=dq\), the finite-dimensional block form diagonalizes because its injective block is invertible and annihilates the cross term through \(A^*X=0\). The nilpotent block satisfies \(B^m=0\). Consequently the large-exponent tail is controlled entirely by the injective block, forcing its period to be exactly \(d\). If \(q\ge2\), the exponent \((q-1)d\) belongs to the injective block's index set but not the target set, so it must fail for the nilpotent block. Hence \(B^{{(q-1)d}}\ne0\), forcing nilpotent dimension at least \((q-1)d+1\). For \(d\ge2\), the injective periodic block needs dimension at least \(2\). The separate boundary cases \(d=1\) and \(q=1\) then give the remaining exact values.
+PASS
 
-For the upper bound with \(d,q\ge2\), set \(r=(q-1)d+1\). The explicit direct sum \(S_d\oplus J_r\) has index set \(d\mathbb N\cap\{k:k\ge r\}\), whose first element is \(dq\); therefore it realizes exactly the required arithmetic tail in dimension \((q-1)d+3\).
+Reconstructed four exhaustive positive-integer regimes. For d,q>=2, the explicit S_d⊕J_{(q−1)d+1} has PQ exactly {dq,d(q+1),...}. Conversely at first permissible m=dq, the cited finite-dimensional block lemma and A*X=0 with invertible A split T=A⊕B, B^m=0. Large exponents force PQ(A)=dN; missing exponent (q−1)d forces B^{(q−1)d} nonzero, so dim B >= (q−1)d+1; d>1 forces dim A>=2. d=1 and q=1 boundary arguments separately match. Source-side abstract/log alone not used.
 
-Limit: this verification establishes the stated minimum dimension, not a classification of all minimizers. The literature comparison retains the residual risk stated in the review concerning older equivalent terminology.
+## originality
+
+PASS
+
+The arithmetic-tail form and nonoptimal realization of dimension dq+2 are in Zhou–Yang, but the exact least dimension and sharp lower obstruction are not in the materially inspected source; no Resultary hit apart from the target provided a stronger equivalent result. This is best-of-knowledge, not proof of priority.
+
+## value
+
+PASS
+
+Dimension-minimization of representations realizing all classified power-quasinormality index sets is a natural exact realization-complexity invariant. The nilpotent cutoff saves d−1 dimensions over the motivating construction and lower bound certifies optimality; a full parameter classification rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
