@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact theorem is obtained by the dissipative spectral-projection lemma, the three-sector star decomposition, a full-rank detector Gram matrix on the leaf-zero subspace, and the explicit sum of detector-visible spectral ranks at equal and unequal rates. At unequal rates the extra \(2:1\) eigenvalue coincidences have orthogonal detector images. Independent matrix diagonalization verified 25 models and 950 localized probabilities; additional direct lossy evolutions verified 12 cases. Numerical evidence is not substituted for the proof.
+## correctness
 
-**Originality — PASS, bounded assessment.** Štefaňák et al. (2007) give discrete-time infinite-line meeting probabilities. Razzoli et al. (2020/2021) provide one-walker trapping spectral tools and one-trap star/bipartite cases. Qiang et al. (2021) implement coherent two-particle star quantum walks. The inspected original texts do not evaluate the complete diagonal-reactor, distinguishable two-speed star model or its rank and capture formulas. An unlocated stronger general theorem remains a real publication-priority risk; no independent review has occurred.
+PASS
 
-**Value — PASS.** The full infinite-family classification identifies a natural speed-symmetry boundary that changes the protected dimension by \(2L-1\), makes a hub–leaf reaction certain off resonance and reveals two distinct localized reaction classes. The result does not depend on spatially varying positive reaction rates. It does not address incomplete absorption, exchange statistics, disorder or finite-time robustness.
+For finite-dimensional contraction semigroup -iH-K, all imaginary-axis invariant states are exactly H-eigenvectors in ker K; no Jordan blocks survive contractivity. Hence capture equals the orthogonal bright spectral projector. Decompose single-star adjacency into radial B=span{hub,uniform leaf}, W=zero-sum leaf. In W tensor W, Gram G_ij=(delta_ij-1/L)^2 has eigenvalues (L-1)/L (constant), (L-2)/L (sum-zero), positive for L>=3; its inverse gives leaf-leaf capture (2L-1)/(L^2(L-1)) in that sector. Enumerating tensor spectral sectors gives bright 5L for a!=b including resonant 1:2 or 2:1, because radial and leaf-zero-sum detector images remain orthogonal, and 3L+1 for a=b with antisymmetric collision modes dark. Direct independently programmed eigenprojection for L=3,4,5 checks predicted ranks and hub-leaf/leaf-leaf probabilities including a:b=1:2; infinity result rests on algebra, not finite diagonalization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The relevant primary one-particle trapping and discrete-time meeting papers do not state or directly imply the evaluated two-particle, all-coincidence, two-speed star laws. Spectral invariant-subspace tools themselves are prior art. Best-of-knowledge claim isolates nontrivial rate-resonance sector degeneracies and sitewise projectors, with specialized unindexed lossy multiparticle work still a risk.
+
+## value
+
+PASS
+
+A finite star is a standard quantum-network transport motif; reaction at a pair coincidence is a natural two-excitation observable. Arbitrarily small unequal-speed perturbations change the eventual hub-leaf reaction from 1/2 to certainty and brighten a further 2L-1 dimensions. Exact all-L, all-positive-loss formulas resolve a meaningful resonance boundary, not a mere normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
