@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:52:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: From the actual over-relaxed ADMM equations (source Eq.16) specialized to rho=delta>0, alpha=2, symmetric Q positive definite, the x step is (Q+delta I)^-1(delta z^k-mu^k-q). For eta^k=mu^k-delta z^k and x*=-(Q+delta I)^-1 q, x^{k+1}-x*=-(Q+delta I)^-1 eta^k, z^{k+1}-x*=(Q-delta I)(Q+delta I)^-1 eta^k/(2delta), and mu^{k+1}=delta z^{k+1}. Thus eta^1=0 for arbitrary initialization and exactly x²=z²=x*, mu²=delta x*, with one-update termination iff eta^0=0 (invertibility of Q+delta I). Independently exact rational scalar witness Q=2 delta=1 q=-3 z0=0 mu0=1 produces first (2/3,7/6,7/6), second (1,1,1). Proof is general matrix algebra, not finite empirical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Giselsson--Boyd focuses rate constants and metric selection, not the exact invariant first-step correction.",
+          "Conventional ADMM convergence theory grants asymptotics rather than this special two-step exact solve."
+        ],
+        "reasoning": "General convergence and optimal-penalty theorems do not imply exact warm-start iff or detect arbitrary-init one-step error.",
+        "searches": [
+          "Giselsson Boyd Linear Convergence Metric Selection Douglas-Rachford ADMM arXiv:1410.8479",
+          "ADMM finite termination warm start dual consistency over relaxation rho delta"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1306.2454",
+        "https://arxiv.org/abs/1410.8479",
+        "Resultary semantic search: overrelaxed ADMM rho delta alpha 2 one iteration arbitrary initialization dual variable two updates",
+        "Git pinned RESULT.md blob db4acfa892be706205aac3792d6c2312c3617d37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proof supplies invariant after the first update, but claiming one-update from arbitrary start improperly applies it to the initial state.",
+          "The exact iff eta0=0 follows from invertibility and the x-error; source does not explicitly discuss arbitrary start necessity."
+        ],
+        "reasoning": "Combined original equations do allow elementary correction, but the published theorem makes an overstrong assertion and must be interpreted with the missing premise; the corrective theorem has new explicit meaning.",
+        "searches": [
+          "arXiv:1306.2454 Theorem 2 proof mu k plus one delta z k plus one",
+          "arXiv:1410.8479 tight ADMM rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Theorem 2 states one-update convergence at the chosen parameters under arbitrary initialized ADMM formulation.",
+          "Source Appendix proves mu^{k+1}=delta z^{k+1}, only from k>=0 completed update, and incorrectly uses at k=0 without warm-start."
+        ],
+        "reasoning": "The source one-step assertion is not logically equivalent to the correct two-step bound on arbitrary starts; a nonzero eta0 witness distinguishes.",
+        "searches": [
+          "Ghadimi Teixeira Shames Johansson ADMM one iteration rho delta alpha two initialization",
+          "overrelaxed ADMM rho delta alpha 2 one iteration arbitrary initialization dual variable two updates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary only matching exact hit is the assigned record; other first-order transient cases differ.",
+          "Independent rational counterexample has state (2/3,7/6,7/6) at first step and exact all ones at second."
+        ],
+        "reasoning": "No matching published correction table located; mere absence of an erratum is not novelty proof.",
+        "searches": [
+          "overrelaxed ADMM rho delta alpha 2 one iteration arbitrary initialization dual variable two updates",
+          "rho=delta alpha=2 mu0 delta z0 one step ADMM erratum"
+        ]
+      },
+      "rationale": "PASS, qualified: Ghadimi--Teixeira--Shames--Johansson Theorem 2 says optimal rho=delta, alpha=2 converges in one iteration under their arbitrary-start setup; Appendix establishes mu^{k+1}=delta z^{k+1} but then substitutes mu^k=delta z^k at initial k=0 without hypothesis. The explicit warm-start iff and uniform two-update correct bound are not stated in those examined primary passages. Subsequent Giselsson--Boyd DRS/ADMM rate analysis addresses asymptotic contractivity rather than this start-manifold issue. Search cannot exclude an unindexed erratum; the original parameter-rate optimality is not newly claimed.",
+      "residual_risks": [
+        "Potential unindexed published or informal erratum may predate this exact initialization correction.",
+        "Floating point and inexact solves do not give literal two-update termination, only the exact abstract iteration does."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem says one-iteration; Appendix substitution assumes first-step-enforced dual consistency already at k=0",
+          "evidence": "rho=delta and alpha=2, mu^{k+1}=delta z^{k+1} derived, then mu^k substitution.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.2454",
+          "material_read": "Complete primary PDF accessible; Theorem 2, Eq.16, initialization setup and proof/appendix around pages 9, 27-28 materially read",
+          "method": "Original preprint PDF pages and algebraic comparison",
+          "title": "Ghadimi, Teixeira, Shames and Johansson, Optimal parameter selection for ADMM: quadratic problems",
+          "trigger": "Exact same objective, parameters, recurrence and potentially erroneous one-iteration theorem"
+        },
+        {
+          "assessment": "Studies contraction rates/metrics, not exact first-iteration initialization requirement",
+          "evidence": "Tight asymptotic linear convergence factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8479",
+          "material_read": "Relevant rate-bound passages and citations context inspected; complete paper not claimed read here",
+          "method": "Preprint abstracts and relevant sections",
+          "title": "Giselsson and Boyd, Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM",
+          "trigger": "Possible follow-on correction / stronger finite-step result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Corrects a concrete finite-termination claim under the actual source initialization convention by identifying the exact invariant warm-start manifold and giving a uniformly sharp two-step alternative, with an explicit counterexample. This is a motivated reproducibility and algorithm-interpretation issue, not merely a routine numerical discrepancy. No claim beyond regularized split quadratics in exact arithmetic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real symmetric positive-definite Q, delta>0, source over-relaxed quadratic splitting, unscaled mu, rho=delta, alpha=2, exact arithmetic.",
+    "No claim for other splittings, adaptive penalties, inequality constraints, inexact or floating-point steps.",
+    "Potential unindexed published or informal erratum may predate this exact initialization correction.",
+    "Floating point and inexact solves do not give literal two-update termination, only the exact abstract iteration does."
+  ],
+  "schema_version": 1
+}
