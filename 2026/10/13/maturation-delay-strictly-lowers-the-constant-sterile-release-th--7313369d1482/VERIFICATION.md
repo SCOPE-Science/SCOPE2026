@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the source equilibrium cubic and the release graph
-\[
-B_a(N)
-=
-\frac{N(\mu_2+\xi_2N)(a-\mu_1-\xi_1N)}{a}.
-\]
 
-It verifies symbolically that
-\[
-\frac{\partial B_a(N)}{\partial a}
-=
-\frac{N(\mu_2+\xi_2N)(\mu_1+\xi_1N)}{a^2}>0.
-\]
+# Independent mathematical audit
 
-For the Figure 1 parameters it evaluates \(b_0(\tau)\) by solving the exact quadratic stationarity equation for the unique interior maximizer. It reproduces
-\[
-b_0(0)\approx21.9375160204,
-\]
-\[
-b_0(0.2)\approx21.0432928772,
-\]
-\[
-b_0(1.5)\approx16.0416587978,
-\]
-and
-\[
-b_0(4.9)\approx7.8190596714.
-\]
+## correctness
 
-It also reconstructs the two positive equilibria at \(\tau=0.2\) and \(b=21\), matching the source's rounded coordinates, and brackets the unique crossing
-\[
-b_0(\tau)=21
-\]
-near \(\tau=0.209893\).
+PASS
 
-The general monotonicity and endpoint asymptotic are analytic; numerical values only replay the source parameter set.
+Using the exact constant-release delay system and equilibrium cubic of Cai–Ai–Fan, positive wild equilibrium with N=w+g>0 requires a>mu1 and b=B_a(N)=N(mu2+xi2 N)(a-mu1-xi1 N)/a. For fixed positive N within the admissible interval, dB/da=N(mu2+xi2N)(mu1+xi1N)/a^2>0, while the admissible interval expands in a, so the positive maximum strictly increases with a and strictly falls with tau through a=a0 exp(-mu0 tau). If a<=mu1 no positive equilibrium. Scaling N=(a-mu1)y/xi1 yields the quadratic endpoint coefficient mu1*mu2*mu0^2/(4xi1). Independent 45-digit decimal maximization gives b0(0)=21.93751602037679, b0(0.2)=21.04329287724136, b0(1.5)=16.04165879781685, b0(4.9)=7.81905967141617 and root b0(tau)=21 at tau=0.209892962986665; these contradict the printed Fig 1 threshold label and Fig 2 positive plateaus under fixed parameters, while preserving published local-stability theorem where equilibria exist. All parameters positive and tau>=0.
+
+## originality
+
+PASS
+
+The specified surviving claim is not established by any inspected prior statement or directly dominating mathematical implication. The four separate equivalence/coverage/table/implication comparisons below identify exactly which named background results are already known and which new mathematical conclusion remains; unpublished and inaccessible-source risks are explicitly retained.
+
+## value
+
+PASS
+
+A critical extinction boundary and its quadratic asymptotic for a biologically motivated delay model, plus a quantitative correction of actual published Figure 1–2 captions, are directly useful to interpreting threshold controls; this is not an endorsement of field application nor merely a numerical last-digit correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
