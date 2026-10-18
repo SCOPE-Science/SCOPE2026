@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(e_1,\ldots,e_r\) be the coordinate idempotents. For a basis tuple with \(n_j\) copies of \(e_j\), the only permutations contributing to Grinberg's cycle formula are those preserving every label class, because a cycle mixing two distinct coordinate idempotents has product zero. Hence
-\[
-f_m(e_{i_1},\ldots,e_{i_m})=\prod_j(c_j)_{n_j}.
-\]
-The signed cycle identity used here is
-\[
-\sum_{\sigma\in S_s}\operatorname{sgn}(\sigma)c^{\#\operatorname{cycles}(\sigma)}=(c)_s.
-\]
-It is an integral polynomial identity, so reduction modulo \(p\) is legitimate.
+# Independent mathematical audit
 
-For the standard representative \(a_j\in\{0,\ldots,p-1\}\) of \(c_j\), one has \((c_j)_s\ne0\) exactly for \(s\le a_j\). Thus a nonzero basis value of \(f_m\) exists exactly when \(m\le\sum_j a_j\). Multilinearity converts this basis criterion into the claimed identity/nonidentity criterion for the entire Frobenius map. No enumeration is used to extend a finite pattern to arbitrary \(p\), \(r\), or \(m\).
+## correctness
 
-A separate small regression expansion over permutations was performed for primes \(2,3,5\), ranks at most \(3\), and Frobenius orders at most \(5\); it matched the product formula. This check is supplementary only. The theorem does not verify or claim determinant-law pseudocharacter identities outside Grinberg's normalization-free definition.
+PASS
+
+Actual Git RESULT.md blob fee87c8b67241f09e9fa8a599c66ace652d53bbe uses Grinberg signed-cycle Frobenius maps. On tuple containing n_j copies of idempotent e_j, mixed-label cycles vanish and contributing permutations are ∏ S_nj, so f_m=∏_j (c_j)_nj. Mod p, (c_j)_s≠0 precisely when 0≤s≤the canonical lift a_j∈{0,...,p−1}. Existence of multiplicity vectors of sum m is equivalent to m≤∑a_j, and multilinearity extends this to the entire A^m. Hence minimal normalization-free degree w and distribution [t^d](1+...+t^(p−1))^r, including zero map, p=2 and r=1. Independent exhaustive bounded combinatorics for p=2,3,5, r≤3, m≤6 agreed; infinite assertion follows from the integral signed-cycle identity, not enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Grinberg defines the normalization-free Frobenius maps and proves sum/composition theorems, but an exact minimal degree and generating distribution for all coefficient vectors in the split characteristic-p algebra are not stated in inspected material. The lower bound comes from explicit mixed-idempotent nonvanishing, not from the published sum upper bound.
+
+## value
+
+PASS
+
+This is a natural complete classification of ALL additive maps on the basic split finite F_p-algebra for a newly generalized Frobenius notion, with exact degree spectrum and multiplicities. It clarifies a genuine small-characteristic limitation of normalized trace-like interpretations and yields an explicit sharp bound r(p−1), rather than an arbitrary coefficient slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
