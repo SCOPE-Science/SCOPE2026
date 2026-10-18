@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The update follows from the stochastic theta drift equation with independent conditional Brownian increments. The causal random affine series converges in \(L^2\) precisely under the assumed \(\mathbb E[R^2]<1\). Synchronous coupling establishes uniqueness. Conditional Gaussian variance mixtures establish necessity of equal conditional variances and show that distinct supported step sizes force \(\theta=1/2\); the midpoint identity proves sufficiency. The conditional Gaussian variance perpetuity has finite \(p/2\)-moment if and only if \(\mathbb E|R|^p<1\), using Minkowski or concavity for sufficiency and strict positivity for necessity. The fourth-moment recurrence is valid under a finite-fourth-moment hypothesis and has strictly positive forcing. The \(L^4\) series argument independently confirms sufficiency at \(\mathbb E[R^4]<1\). The exact rational witness was recomputed independently of floating-point simulation. Risk: no claim is made for general non-iid step policies or infinite-support laws.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Jiang–Liu–Weng's original full text, equation (2.6) and Example 4.1, covers fixed step sizes, fixed-step OU Gaussian invariant laws and their variance, not the random-step Gaussianity converse or the moment-matched infinite-fourth witness (arXiv:1801.09047v1). Jiang–Hu–Lu's open full text addresses Markovian switching under a fixed discretization step, a different kernel (DOI:10.1186/s13662-020-03129-3). Nakao's full text establishes a general multiplicative-noise mechanism, which is expressly acknowledged as prior rather than claimed new (arXiv:cond-mat/9802030v1). Wen–Li (2022) is directly relevant to stochastic theta updates with random steps but its publisher abstract emphasizes almost-sure stability; the inaccessible full text is a material residual comparison risk (DOI:10.1080/00207179.2022.2056516). Checked published mathematical-record searches returned related Langevin-covariance and randomized Gauss–Seidel results, not the specific numerical-stationarity classification. No claim of global or independently certified novelty is made.
+PASS
 
-## Value — PASS
-The random-step OU stationary law is a natural accuracy diagnostic for long-time simulation. An exact if-and-only-if Gaussianity boundary isolates the midpoint scheme as invariant-Gaussian under arbitrary independent finite-support random timesteps. The complete positive real moment threshold and exactly moment-matched pair demonstrate why first/second step statistics and mean-square stationarity cannot certify rare-error moments; one law has every moment finite, the other has a sharp cutoff in \(3<p<4\), despite identical stationary variance. The requirement of a precise fourth-moment reliability check is a meaningful boundary for randomized-step stochastic differential equation solvers. The scalar model does not establish general adaptive solver reliability or computational speedups.
+The causal L² series converges since m2<1 and bounded S(H). Difference coupling decays in L², ensuring uniqueness even among other invariant laws. Conditional stationarity under Gaussian prior is mixture with variance Q(h)=R(h)²v+S(h)²; mixture Gaussian iff Q constant (fourth cumulant 3Var(Q)), which for two different h forces theta=1/2, while singleton steps and midpoint preserve Gaussian exactly. Conditional on step history X is N(0,V) with perpetuity V=S²+R²V'; for q=p/2, Minkowski/subadditivity gives finite E V^q iff E|R|^p<1, and positivity S²>0 rules out >=1 by strict inequality. Exact independent rational reproduction: Euler laws A [(1/2,1/2),(3/2,1/2)] and B [(11/12,36/37),(4,1/37)] both E H=1,E H²=5/4,m2=1/4,v=4/3; A m4=1/16 and fourth moment 92/15; B m4=1261/576>1 hence infinite fourth moment. M_B(3)=1297/1776<1; convexity unique finite-moment cutoff 3<kappa<4. Scope no exact tail asymptotics.
 
-## Relationship and limitations
-The fixed-step OU invariant variance and the general theory of random affine tail amplification are established prior facts; the assessed addition is the specific randomized numerical method classification and matched-step witness. The unavailable Wen–Li paper remains a literature-access risk rather than evidence of noncoverage. Mathematical correctness is analytical; exact rational tests only exercise algebra. A separate independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jiang-Liu-Weng derive standard fixed-step theta stationary OU Gaussian variance, which cannot by itself imply the random-step non-Gaussian mixture or its all-order cutoff. Wen-Li directly study random-variable step stochastic theta almost-sure stability; the complete paper remained inaccessible (OA/arXiv checked, authorized Oxford reports disconnected VPN), a material risk but not decisive proof of coverage. General random affine perpetuity moment thresholds and Gaussian-mixture reasoning are prior mechanisms, acknowledged; the specific sharp numerical scheme classification and moment-matched rational example distinguish this theorem.
+
+## value
+
+PASS
+
+Random positive step methods are common in stochastic integration; a preserved stationary variance can disguise non-Gaussian heavy tails and nonexistent fourth moments. The sharp all-moment cutoff and same-first-two-step-moment opposing example diagnose an exact, reproducible stationarity property and clarify the midpoint exception, beyond simple fixed-step variance correctness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
