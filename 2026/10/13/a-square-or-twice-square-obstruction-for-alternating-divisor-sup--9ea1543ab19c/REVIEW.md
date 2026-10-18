@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact prime-power identity and the independent divisor-sum formula agree in the verifier. For odd \(n\), parity rules out the equation. For even \(n=2^a m\) with nonsquare odd \(m\), the proof treats odd \(a\), \(a=2\), and every even \(a\ge4\). The valuation-\(2\) subcase requires checking the factor \(\beta(4)=3\), from which equality would force \(3\mid m\); the corresponding \(7/9\) ratio excludes it. Every positive input is covered by the logical case split. The exact count of the two disjoint necessary shapes is proved. No infinite claim rests on a finite computation.
+## correctness
 
-## Originality — PASS, with residual risk
-Tóth, arXiv:1111.4842v1, §§2,7,8, states the parity criterion for \(\beta(n)\), introduces the iterated equation, and proves a proposition limited to certain powers of two. It does not give the additional implication from the iterated equation to parity of its first iterate. OEIS A200758 lists examples and numerical searches. Targeted published-finding and literature comparisons did not find a covering bound; the most similar iterated result concerns a different arithmetic function. An earlier unindexed elementary argument remains a genuine risk.
+PASS
 
-## Value — PASS
-This gives a natural global obstruction for the original superimperfect equation, eliminating an infinite density-one set of candidate inputs and bounding the total number of possible solutions up to \(X\) by an explicit \(O(\sqrt X)\) envelope. It does not claim a complete classification of the permitted shapes.
+β(p^e)=(p^(e+1)+(-1)^e)/(p+1) gives β(u)<=u, and β(m) odd iff every odd prime exponent in odd m is even. The equation forces n even; if n=2^a m with nonsquare odd m, u=β(n) even. The proof exhausts all a: for odd a use R(a)<2/3,R(t)<=3/4 giving β(u)/n<1/2; a=2 gives 3|u and β(u)/n<=(3/4)(3/4)(7/9)=7/16<1/2; even a>=4 and t=v2(u)!=2 gives <=(11/16)^2=121/256<1/2; if t=2, β(u)=3β(v) implies 3|m, so bound <=(11/16)(7/9)(3/4)=77/192<1/2. Contradiction in each branch proves odd m square. Classify parity of a into even square or twice square, disjoint by 2-adic valuation; count candidate shapes exactly. Independent multiplicative finite check through 250000 found solutions 2,4,8,128,32768, supportive only.
 
-## Limitations
-The exact solution set among even squares and twice squares is unresolved by this argument. The counting bound is only an upper bound. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tóth 2011 survey has the parity criterion β(n) odd iff n is square or twice square and gives superimperfect examples, but it does not assert that the odd part of every solution 2β(β(n))=n must be square. OEIS A200758 tabulates examples but no proof of the unrestricted shape bound. Though it uses familiar local abundancy inequalities, the case split is a nontrivial necessary structural restriction; possible unpublished elementary derivation is acknowledged.
+
+## value
+
+PASS
+
+The iterated β-superimperfect classification remains open; proving that every candidate has a square odd part reduces possible prime exponent patterns and gives O(sqrt X) global sparsity of the solution set. This is a natural all-integer obstruction rather than a low-range numerological census or complete-classification claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:48:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "β(p^e)=(p^(e+1)+(-1)^e)/(p+1) gives β(u)<=u, and β(m) odd iff every odd prime exponent in odd m is even. The equation forces n even; if n=2^a m with nonsquare odd m, u=β(n) even. The proof exhausts all a: for odd a use R(a)<2/3,R(t)<=3/4 giving β(u)/n<1/2; a=2 gives 3|u and β(u)/n<=(3/4)(3/4)(7/9)=7/16<1/2; even a>=4 and t=v2(u)!=2 gives <=(11/16)^2=121/256<1/2; if t=2, β(u)=3β(v) implies 3|m, so bound <=(11/16)(7/9)(3/4)=77/192<1/2. Contradiction in each branch proves odd m square. Classify parity of a into even square or twice square, disjoint by 2-adic valuation; count candidate shapes exactly. Independent multiplicative finite check through 250000 found solutions 2,4,8,128,32768, supportive only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier six known solutions and power-of-two family do not imply all integer solutions have square odd part."
+        ],
+        "reasoning": "No dominating general classification theorem in checked sources; recognized that if a complete published classification existed this shape theorem would be covered.",
+        "searches": [
+          "Toth arXiv:1111.4842v1 §7",
+          "Resultary: superimperfect alternating divisor sum beta beta n parity odd part perfect square necessary condition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md cdb3508e003b62d3cecc734066391feadb0686f0 and artifacts/verify.py blob 905c64747044c70a89045069fb799657dfb1324c",
+        "Toth arXiv:1111.4842v1 full primary article §§2,7",
+        "OEIS A200758; targeted Resultary queries",
+        "Independent β sieve for n<=250000 as finite sanity check; full result proved by inequalities."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing that β(u) odd iff u square or twice square does not determine v2(β(n)), while the proof excludes m nonsquare by local ratios including critical t=2/3-divisibility case."
+        ],
+        "reasoning": "The iterated shape obstruction is not a direct substitution into the existing parity result; it requires a new all-exponent inequality argument.",
+        "searches": [
+          "Toth arXiv:1111.4842v1 §2 parity lemma and §7 superimperfect discussion",
+          "OEIS A200758"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tóth characterizes when β(n) is odd; the new necessity uses β(β(n))=n/2 and 2-adic local inequalities, not mere parity alone."
+        ],
+        "reasoning": "Checked equivalent β notations and iterated-superimperfect definition; parity of β alone does not eliminate a nonsquare odd part.",
+        "searches": [
+          "Toth arXiv:1111.4842v1 §§2,7 and Liouville-divisor relation",
+          "OEIS A200758",
+          "Resultary: Toth beta superimperfect alternating sum divisors even square twice square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A200758 lists known witnesses 2,4,8,128,32768,2^31 and finite search, but no all-X O(sqrt X) upper bound."
+        ],
+        "reasoning": "The exact candidate shape theorem and counting bound are not entries of the examined tables, not proof of absolute novelty.",
+        "searches": [
+          "OEIS A200758",
+          "Toth arXiv:1111.4842v1 §7",
+          "Resultary: alternating divisor beta superimperfect square twice-square obstruction"
+        ]
+      },
+      "rationale": "Tóth 2011 survey has the parity criterion β(n) odd iff n is square or twice square and gives superimperfect examples, but it does not assert that the odd part of every solution 2β(β(n))=n must be square. OEIS A200758 tabulates examples but no proof of the unrestricted shape bound. Though it uses familiar local abundancy inequalities, the case split is a nontrivial necessary structural restriction; possible unpublished elementary derivation is acknowledged.",
+      "residual_risks": [
+        "An unindexed elementary corollary might already prove the same shape restriction; originality is best-of-knowledge.",
+        "Candidate shapes include numerous nonsolutions; O(sqrt X) is only an upper bound and no classification or infinitude claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States known parity characterization and asks about further superimperfect examples; no unrestricted odd-part-square necessity in inspected theorem statements",
+          "evidence": "§2 beta parity for square/twice-square; §7 lists six witnesses and asks whether others exist.",
+          "identifier_or_url": "arXiv:1111.4842v1",
+          "material_read": "Full 11-page accessible paper; §2 parity characterization (page 3), §7 superimperfect discussion (page 7), examples and references",
+          "method": "Lawful full arXiv PDF, targeted screenshots of pages 3 and 7",
+          "title": "A survey of the alternating sum-of-divisors function",
+          "trigger": "Original definition, parity theorem and iterated superimperfect question"
+        },
+        {
+          "assessment": "Examples and computational observation only; shape theorem not stated",
+          "evidence": "Lists 2,4,8,128,32768 and 2^31 as known terms.",
+          "identifier_or_url": "https://oeis.org/A200758",
+          "material_read": "Entry terms, definition, annotations and search context",
+          "method": "Public OEIS entry",
+          "title": "A200758: superimperfect numbers for the alternating divisor sum",
+          "trigger": "Exact example database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The iterated β-superimperfect classification remains open; proving that every candidate has a square odd part reduces possible prime exponent patterns and gives O(sqrt X) global sparsity of the solution set. This is a natural all-integer obstruction rather than a low-range numerological census or complete-classification claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Any positive integer n satisfying 2β(β(n))=n for multiplicative alternating divisor sum β is an even perfect square or twice a perfect square; the number ≤X is at most floor(sqrt(X)/2)+floor(sqrt(X/2))=O(sqrt X).",
+  "limitations": [
+    "The finite search does not establish an all-integer solution census; theorem is only a necessary condition and upper bound."
+  ],
+  "schema_version": 1
+}
