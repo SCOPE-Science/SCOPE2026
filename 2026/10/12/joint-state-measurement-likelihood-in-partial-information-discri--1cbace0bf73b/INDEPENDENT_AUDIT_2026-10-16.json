@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:49:56.907618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct reconstruction from rho_1=diag(p,1-p), rho_2=I/2, Pi_1=diag(q,1-q) yields s=1-p-q+2pq and log likelihood log(s)+(log p+log(1-p))/2 plus constants. At p=q=1/2, s=1/2, s_p=s_q=0, s_pq=2, so log(s) has mixed curvature 4, q curvature 0; calibration p curvature -4. Determinant -16 is strictly negative, proving indefinite curvature in an interior feasible convex slice. The fixed calibration probabilities are positive; POVM positivity and completeness hold. Independently recomputed exact Hessian; direct Git RESULT.md and artifacts/verify.py inspected. The negative conclusion applies to joint curvature, not all possible convergence arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minimum-error measurement optimization with fixed states is an SDP over Pi, a distinct objective/domain.",
+          "General maximum-likelihood tomography sources assume a prescribed measurement."
+        ],
+        "reasoning": "Prior convex optimization of either factor does not imply joint objective curvature; inspected protocols did not give a theorem restoring it under these data constraints.",
+        "searches": [
+          "Resultary semantic query: joint maximum likelihood optimization unknown quantum states unknown POVM Jezek 2002 nonconcavity Hessian bilinear discrimination",
+          "Jezek 2002 quant-ph/0202085",
+          "Jezek-Rehacek-Fiurasek Phys Rev A 65 060301 (2002)"
+        ]
+      },
+      "checked_sources": [
+        "Jezek quant-ph/0202085 primary full PDF, joint likelihood and uniqueness statement",
+        "Jezek, Rehacek and Fiurasek Phys Rev A 65 060301 (2002) landing page",
+        "Resultary Resultary semantic query: joint maximum likelihood optimization unknown quantum states unknown POVM Jezek 2002 nonconcavity Hessian bilinear discrimination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Indefinite restricted Hessian disproves universal joint concavity, but does not imply an alternative proof cannot show special-case convergence.",
+          "Original iterative fixed-point extrema do not prove global uniqueness from separate convexity."
+        ],
+        "reasoning": "The claim corrects a specific invalid implication and explicitly avoids overclaiming spurious local maxima.",
+        "searches": [
+          "Resultary semantic query: joint maximum likelihood optimization unknown quantum states unknown POVM Jezek 2002 nonconcavity Hessian bilinear discrimination",
+          "quant-ph/0202085 original statement of joint likelihood",
+          "Hradil-Rehacek-Fiurasek-Jezek 2004 state-estimation survey"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source joint probability is tr(rho Pi), bilinear with both rho and Pi variable.",
+          "The feasible slice Hessian has determinant -16 and positive and negative eigenvalues."
+        ],
+        "reasoning": "The correct convex-analytic translation of the claim is joint concavity of log likelihood for maximization. Separate block concavity is not joint concavity; the counterexample rules out both joint convexity and concavity.",
+        "searches": [
+          "Resultary semantic query: joint maximum likelihood optimization unknown quantum states unknown POVM Jezek 2002 nonconcavity Hessian bilinear discrimination",
+          "M. Jezek, quant-ph/0202085, likelihood definition and uniqueness sentence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numeric-table issue applies: the object is a universal curvature assertion falsified by one symbolic interior Hessian.",
+          "The source prints an unqualified convexity-based uniqueness assertion."
+        ],
+        "reasoning": "This is a logical counterexample rather than a finite data table; searched the exact source/problem to detect an existing correction.",
+        "searches": [
+          "Resultary semantic query: joint maximum likelihood optimization unknown quantum states unknown POVM Jezek 2002 nonconcavity Hessian bilinear discrimination",
+          "quant-ph/0202085 original equations",
+          "self-calibrating tomography literature search"
+        ]
+      },
+      "rationale": "A specific two-dimensional physically feasible counterexample targets the assertion in Jezek's original simultaneous-optimization protocol; fixed-measurement state tomography and measurement-only SDP optimize one factor and cannot rescue joint concavity. Basic bilinearity is known; the source-specific false implication and exact calibration-inclusive counterexample appear new in the inspected literature, subject to priority risk.",
+      "residual_risks": [
+        "The observation that bilinearity defeats joint concavity may already be folklore or stated in an unindexed later critique.",
+        "Indefinite curvature does not establish more than failure of the convexity certificate or failure for every initialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERED AS MODEL AND ASSERTION; original gives the disputed assertion, not the counterexample",
+          "evidence": "2002 original likelihood definition and text near original pages 4-5; two-variable slice reconstructs the missing mixed curvature",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0202085",
+          "material_read": "Full short original primary paper: likelihood equations, joint state/measurement variation, iteration and statement about convexity/global maxima; page image around uniqueness statement",
+          "method": "arXiv primary PDF text plus page screenshot",
+          "title": "Discrimination between non perfectly known states",
+          "trigger": "Identical original protocol and convexity-based global maximum claim"
+        },
+        {
+          "assessment": "Not a competing simultaneous unknown-state/unknown-measurement theorem",
+          "evidence": "Published method optimizes measurement for known states and uses SDP optimality conditions",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.65.060301",
+          "material_read": "Abstract and methodological description, not a full-text no-coverage assertion",
+          "method": "Publisher landing page and targeted comparison",
+          "title": "Finding optimal strategies for minimum-error quantum-state discrimination",
+          "trigger": "Similar-year measurement optimization might imply a stronger joint optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A published inference scheme invokes convexity for a global optimum guarantee; exhibiting a valid, easily reproducible counterexample changes how the method may be certified. Although the Hessian is small, it addresses a substantive structural justification, not arbitrary normalization or a trivial one-off calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "An interior commuting-qubit feasible slice of the joint state-and-POVM likelihood in Jezek 2002 has Hessian [[-4,4],[4,0]] at p=q=1/2; joint likelihood is neither convex nor concave, invalidating the cited global-uniqueness-by-convexity argument (but not proving multiple local optima or divergence).",
+  "limitations": [
+    "No universal theorem of convergence failure or multiple optima is asserted."
+  ],
+  "schema_version": 1
+}

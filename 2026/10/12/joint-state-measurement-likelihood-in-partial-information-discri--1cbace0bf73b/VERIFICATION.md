@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is primary. `artifacts/verify.py` uses exact rational arithmetic on the feasible commuting-qubit slice.
+# Independent mathematical audit
 
-It verifies \(s(1/2,1/2)=1/2\), the mixed curvature \(\partial_{pq}\log s=4\), the calibration curvature \(-4\), and the restricted Hessian \(\begin{pmatrix}-4&4\\4&0\end{pmatrix}\) with determinant \(-16\) and trace \(-4\). A negative determinant proves one positive and one negative eigenvalue.
+## correctness
 
-The executed package path returned:
+PASS
 
-`VERIFY_OK H=[[-4,4],[4,0]] determinant=-16 trace=-4 eigenvalues=-2+-2sqrt(5)`
+Direct reconstruction from rho_1=diag(p,1-p), rho_2=I/2, Pi_1=diag(q,1-q) yields s=1-p-q+2pq and log likelihood log(s)+(log p+log(1-p))/2 plus constants. At p=q=1/2, s=1/2, s_p=s_q=0, s_pq=2, so log(s) has mixed curvature 4, q curvature 0; calibration p curvature -4. Determinant -16 is strictly negative, proving indefinite curvature in an interior feasible convex slice. The fixed calibration probabilities are positive; POVM positivity and completeness hold. Independently recomputed exact Hessian; direct Git RESULT.md and artifacts/verify.py inspected. The negative conclusion applies to joint curvature, not all possible convergence arguments.
 
-This script does not establish any claim about the iteration's global landscape beyond the exact local curvature obstruction. The proof in `RESULT.md` supplies the all-symbolic argument.
+## originality
+
+PASS
+
+A specific two-dimensional physically feasible counterexample targets the assertion in Jezek's original simultaneous-optimization protocol; fixed-measurement state tomography and measurement-only SDP optimize one factor and cannot rescue joint concavity. Basic bilinearity is known; the source-specific false implication and exact calibration-inclusive counterexample appear new in the inspected literature, subject to priority risk.
+
+## value
+
+PASS
+
+A published inference scheme invokes convexity for a global optimum guarantee; exhibiting a valid, easily reproducible counterexample changes how the method may be certified. Although the Hessian is small, it addresses a substantive structural justification, not arbitrary normalization or a trivial one-off calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

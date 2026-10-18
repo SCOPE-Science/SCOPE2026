@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The counterexample stays inside the feasible set of qubit density operators and two-outcome POVMs. The source objective contains the joint term \(\log\operatorname{tr}(\rho_i\Pi_i)\) plus calibration terms depending on the state and fixed prior measurement. On the displayed slice the label-\(2\) term is constant, the label-\(1\) mixed second derivative is exactly \(4\), and the chosen valid calibration data contribute only \(-4\) to the \(p\)-curvature. The determinant \(-16\) is exact, so the interior Hessian is indefinite.
+PASS
 
-## Originality
+Direct reconstruction from rho_1=diag(p,1-p), rho_2=I/2, Pi_1=diag(q,1-q) yields s=1-p-q+2pq and log likelihood log(s)+(log p+log(1-p))/2 plus constants. At p=q=1/2, s=1/2, s_p=s_q=0, s_pq=2, so log(s) has mixed curvature 4, q curvature 0; calibration p curvature -4. Determinant -16 is strictly negative, proving indefinite curvature in an interior feasible convex slice. The fixed calibration probabilities are positive; POVM positivity and completeness hold. Independently recomputed exact Hessian; direct Git RESULT.md and artifacts/verify.py inspected. The negative conclusion applies to joint curvature, not all possible convergence arguments.
 
-**PASS.** The direct source states the convexity-based uniqueness claim but does not identify the bilinear joint-curvature obstruction. Searches by source identifier, title, joint concavity, convexity, global maximum, and simultaneous state/measurement likelihood did not locate an implication-equivalent correction. Fixed-measurement maximum-likelihood work does not cover the simultaneous bilinear optimization.
+## originality
 
-## Value
+PASS
 
-**PASS.** The convexity sentence is the source's explicit justification for a global maximum or plateau of its simultaneous reconstruction/discrimination iteration. The obstruction removes that global certificate in the smallest commuting quantum model, requiring an independent convergence or optimality argument rather than a cosmetic correction.
+A specific two-dimensional physically feasible counterexample targets the assertion in Jezek's original simultaneous-optimization protocol; fixed-measurement state tomography and measurement-only SDP optimize one factor and cannot rescue joint concavity. Basic bilinearity is known; the source-specific false implication and exact calibration-inclusive counterexample appear new in the inspected literature, subject to priority risk.
 
-## Closest literature and limitations
+## value
 
-Ježek's 2002 article is the direct source. Later maximum-likelihood work with a given measurement has a different optimization geometry. Modern self-calibrating tomography is broader but the inspected public material did not expose this source-specific Hessian. The finding does not assert algorithmic failure or multiple local optima for every data set.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A published inference scheme invokes convexity for a global optimum guarantee; exhibiting a valid, easily reproducible counterexample changes how the method may be certified. Although the Hessian is small, it addresses a substantive structural justification, not arbitrary normalization or a trivial one-off calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
