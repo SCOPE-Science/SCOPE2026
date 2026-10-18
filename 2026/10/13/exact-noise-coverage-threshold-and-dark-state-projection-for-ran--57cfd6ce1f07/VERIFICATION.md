@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The theorem is proved by invariant-subspace and stationary-support analysis in `RESULT.md`, not by exhaustive finite enumeration. The recorded program builds the complex Lindbladian directly from the stated Hamiltonian, positive site dephasers and local absorber, and compares the predicted fixed-space projector against the numerically computed superoperator spectrum. It samples all dephasing subsets for small bipartite sizes and four long-time propagations.
+# Independent mathematical audit
 
-Replay: install `requirements.txt` with pip, then run `python verify.py`. Recorded outcome: `VERIFY_OK rank_one_bipartite_lindblad_cases=168 stationary_kernel=168 long_time_states=4`.
+## correctness
 
-The numerical tests are finite corroboration only; no spectral-gap bounds uniform in system size or rates are proved. The exact absorbing projection, all-subset rank formula, and minimum placement budget are proved in the accompanying analytic text for every stated parameter choice.
+PASS
+
+For a rank-one cross-block H, any free-class vector orthogonal to its restricted coupling is annihilated by H, trap and every active dephaser, so Q rho Q is constant. If positive sigma is stationary, trace loss forces sigma_ww=0; evaluating <ker sigma,L(sigma) ker sigma> forces every P_j to preserve Ran sigma, and off-support blocks force H invariance. A dephased site cannot lie in Ran sigma because H|j> (B) or H^2|j> (A) has nonzero w component. Spectral invariance excludes the two bright H eigenvectors; thus stationary positive states lie in Q. Cesàro and positivity eliminate the complementary block, yielding finite-dimensional exponential convergence; free-class ranks give (r-1)_++(s-1)_+, sharp dephaser budget a+b-3 and (a-1)b placements. Independently built full complex Lindbladians verify zero-multiplicity rank(Q)^2 and strict negativity of the other spectral real parts for five nontrivial instances; finite checks do not prove generality.
+
+## originality
+
+PASS
+
+Best-of-knowledge: all-subset coupling-weighted asymptotic Lindblad projector and exact minimum dephaser placement count are not derived in the relevant inspected general dark-state references; source material is credited and residual equivalence risk retained.
+
+## value
+
+PASS
+
+Selective positive-rate site dephasing is a natural physical intervention. A sharp all-initial-state absorption/noise-coverage threshold and exact coupling-dependent per-site survival distinguish qualitative noise assistance from a quantitative placement classification. This is an unrestricted finite-network structural theorem, not a single finite witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

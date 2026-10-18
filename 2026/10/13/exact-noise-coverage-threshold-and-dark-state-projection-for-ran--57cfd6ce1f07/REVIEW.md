@@ -1,12 +1,21 @@
-# Scientific review: exact noise-coverage threshold for rank-one bipartite quantum networks
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof verifies that the coupling-weighted projection \(Q\) is annihilated by the Hamiltonian, sink and every selected dephaser. A positive stationary state has no sink occupancy, and a kernel test of the Lindblad equation forces its support to be invariant under every dephasing projector. The rank-one geometry then rules out any supported dephasing site, including a same-part site reached in two coherent hops. Hermitian invariance rules out the bright nonzero-energy modes; the stationary support is therefore contained in \(Q\). Compactness/Cesàro averaging eliminates all complementary survival, and finite-dimensional positivity yields exponential convergence. The exact rank and minimal placement count follow by two independent codimension-one constraints. Independently constructed Lindblad matrices and four long-time propagations corroborate the theorem in finite dimensions. No experiment alone establishes the infinite family.
+## correctness
 
-## Originality — PASS, with residual risk
-Novo et al. (arXiv:1412.7209) and Razzoli et al. (arXiv:2011.13794) analyze coherent graph and bipartite transport without arbitrary local-dephaser placement. Novo et al. (arXiv:1312.6989) and Le et al. (arXiv:1707.07482) analyze noise-assisted transport and dark-state suppression in other settings. Inspection of relevant full primary texts did not identify the all-subset weighted projector, localized survival, sharp \(a+b-3\) dephaser threshold or \((a-1)b\) optimal-placement count. Comparisons checked neighboring historical graph-absorption theorems and published mathematical records, not just exact title matches. A general quantum Markov semigroup theorem or another unlocated specialized statement may imply the claim; no independence or definitive publication priority is asserted.
+PASS
 
-## Value — PASS
-The exact placement of local noise is a concrete design variable in open quantum networks. Although any positive local dephaser can disrupt coherent interference, the result shows that complete absorption for all states still demands nearly complete site coverage, identifies all optimal placements, and gives coupling-dependent per-site survival for arbitrary incomplete configurations. This is a complete natural structural classification, not an arbitrary small-case invariant. Rates can be arbitrarily small but no quantitative finite-time efficiency is established. The result requires rank-one factorized interclass hopping, with nonzero components and zero onsite energies; general graphs or disordered diagonal potentials are not covered.
+For a rank-one cross-block H, any free-class vector orthogonal to its restricted coupling is annihilated by H, trap and every active dephaser, so Q rho Q is constant. If positive sigma is stationary, trace loss forces sigma_ww=0; evaluating <ker sigma,L(sigma) ker sigma> forces every P_j to preserve Ran sigma, and off-support blocks force H invariance. A dephased site cannot lie in Ran sigma because H|j> (B) or H^2|j> (A) has nonzero w component. Spectral invariance excludes the two bright H eigenvectors; thus stationary positive states lie in Q. Cesàro and positivity eliminate the complementary block, yielding finite-dimensional exponential convergence; free-class ranks give (r-1)_++(s-1)_+, sharp dephaser budget a+b-3 and (a-1)b placements. Independently built full complex Lindbladians verify zero-multiplicity rank(Q)^2 and strict negativity of the other spectral real parts for five nontrivial instances; finite checks do not prove generality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: all-subset coupling-weighted asymptotic Lindblad projector and exact minimum dephaser placement count are not derived in the relevant inspected general dark-state references; source material is credited and residual equivalence risk retained.
+
+## value
+
+PASS
+
+Selective positive-rate site dephasing is a natural physical intervention. A sharp all-initial-state absorption/noise-coverage threshold and exact coupling-dependent per-site survival distinguish qualitative noise assistance from a quantitative placement classification. This is an unrestricted finite-network structural theorem, not a single finite witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
