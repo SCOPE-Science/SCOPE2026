@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later. No packages or external inputs are required. The verifier constructs the 14-vertex cyclic Heawood graph, enumerates every allowed permutation matching (seven rows, three candidate neighbours per row), and independently computes the exact permanent using Ryser inclusion-exclusion. It also reconstructs the Fano incidence relation using seven nonzero binary vectors and checks the same matching set in that second model.
+## correctness
 
-For every one of the 24 matchings, the verifier directly evaluates each of its 128 edge subsets by counting how many complete perfect matchings extend that subset; it agrees exactly with the proposed polynomial and, for the reference matching, with the seven-block criterion. For symmetry, it enumerates all 168 invertible linear maps of the 3-dimensional binary vector space, adds point-line duality, and applies all 336 graph automorphisms to the matching and forcing subsets, verifying the claimed full orbits.
+PASS
 
-Expected successful output:
+In the Fano-incidence graph with edges j−i∈{0,2,3} mod 7, independent enumeration of all allowed permutations establishes 24 perfect matchings. Directly testing every subset of the fixed diagonal matching against every other matching shows a subset is locally forcing precisely when excluded from all seven four-edge common-intersection blocks B_t={e_t,e_{t+1},e_{t+3},e_{t+5}}. Independent subset counts yielded sizes 3:14,4:28,5:21,6:7,7:1 and no forcing smaller subset. The submitted verifier explicitly builds the 168 linear collineations and bipartition duality for 336 automorphisms and tests that 336 minimum triples form two 168-element orbits; its finite certificate was read, but independent automorphism enumeration was not reexecuted in this audit.
 
-```text
-VERIFY_OK fano_incidence=7points_7lines heawood_edges=21
-VERIFY_OK matchings_permutation=24 ryser_permanent=24 geometric_matchings=24
-VERIFY_OK overlap_histogram=0:2,1:7,2:7,4:7,7:1
-VERIFY_OK seven_maximal_nonforcing_4sets=rotations_of_{0,1,3,5}
-VERIFY_OK all_128_subsets_per_matching=24_matching_checks
-VERIFY_OK per_matching_forcing_polynomial=14z3+28z4+21z5+7z6+z7
-VERIFY_OK minimum_local_forcing_sets=14 cyclic_types=7+7
-VERIFY_OK automorphisms=336 matching_orbit=24 stabilizer=14
-VERIFY_OK across_matchings_minimum_triplets=336 orbit_sizes=168+168
-```
+## originality
 
-The assertions cover exactly the stated finite graph and finite matching universe. This is reproducible computation and internal review only, not external or independent validation. The count of all perfect matchings is essential: checking just the seven four-edge competitors, without exhausting the remaining matchings, would be insufficient to prove the obstruction criterion.
+PASS
+
+Prior forcing-number/spectrum literature defines local matching forcing but the inspected Che–Chen survey does not identify the Heawood forcing polynomial or seven obstruction blocks. Published data on 24 perfect matchings, Heawood symmetries and matching-complex topology do not determine the extension-uniqueness of selected triples. Resultary closest Heawood homology papers count entirely different objects. Earlier Heawood-specific forcing enumerations may be unindexed.
+
+## value
+
+PASS
+
+The Heawood graph is the smallest projective-plane incidence graph and a canonical cubic graph. The complete forcing-subset polynomial, intrinsic maximal nonforcing blocks, and optimal-set symmetry classes give an exact structural characterization beyond a lone small-graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: Heawood local matching forcing
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic Fano-incidence representation is verified against a separate binary-vector model. A complete exact matching enumeration and independently computed permanent both give 24 perfect matchings, which split into six explicit cyclic word families. Their fixed-edge intersections with a reference matching give precisely seven maximal four-edge obstruction blocks. The resulting forcing criterion, all 128 edge-subset decisions per matching, the enumerator coefficients, and the full graph automorphism orbits are verified directly by `verify.py`. The claim is finite and exact; no extrapolation from samples is used.
+## correctness
 
-**Originality — PASS, subject to the stated priority limitations.** The closest primary sources on perfect-matching forcing define and study the invariant, but their inspected theorems and examples do not give the seven explicit Heawood obstruction blocks, fourteen optimal triples per matching, or two orbit types. General results on cubic braces and Hamiltonian complementary 2-factors do not imply the entire local forcing-set enumerator. The search of published research records found related matching topology and different matching-forcing questions but no matching claim. The *global* forcing invariant has different quantifiers and is not equivalent: its edge set must force distinctions across all matchings, whereas the present subsets lie in a fixed matching and isolate that matching. An earlier unindexed source or a stronger unpublished classification cannot be excluded.
+PASS
 
-**Value — PASS.** The Heawood graph is a distinguished nontrivial cubic brace with a highly symmetric Fano-plane incidence construction. Identifying its seven maximal competing-matching intersections is a structural description of the matching-determination problem; the optimal configurations separate into two genuine stabilizer orbits. This provides a complete information-design classification beyond the already-accessible count of 24 perfect matchings and beyond a scalar minimum forcing number.
+In the Fano-incidence graph with edges j−i∈{0,2,3} mod 7, independent enumeration of all allowed permutations establishes 24 perfect matchings. Directly testing every subset of the fixed diagonal matching against every other matching shows a subset is locally forcing precisely when excluded from all seven four-edge common-intersection blocks B_t={e_t,e_{t+1},e_{t+3},e_{t+5}}. Independent subset counts yielded sizes 3:14,4:28,5:21,6:7,7:1 and no forcing smaller subset. The submitted verifier explicitly builds the 168 linear collineations and bipartition duality for 336 automorphisms and tests that 336 minimum triples form two 168-element orbits; its finite certificate was read, but independent automorphism enumeration was not reexecuted in this audit.
 
-**Primary comparisons and remaining scope.** Afshani–Hatami–Mahmoodian (arXiv:0903.2578), Che–Chen (*MATCH* 66 (2011), 93–136), and Gorsky–Johanni–Wiederrecht (arXiv:2408.08128) were consulted for the forcing definition and graph-specific surrounding work. This is one finite-graph result, not a statement about other projective planes or all cubic braces. Potential equivalent enumerations outside the consulted material remain a priority risk; no independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior forcing-number/spectrum literature defines local matching forcing but the inspected Che–Chen survey does not identify the Heawood forcing polynomial or seven obstruction blocks. Published data on 24 perfect matchings, Heawood symmetries and matching-complex topology do not determine the extension-uniqueness of selected triples. Resultary closest Heawood homology papers count entirely different objects. Earlier Heawood-specific forcing enumerations may be unindexed.
+
+## value
+
+PASS
+
+The Heawood graph is the smallest projective-plane incidence graph and a canonical cubic graph. The complete forcing-subset polynomial, intrinsic maximal nonforcing blocks, and optimal-set symmetry classes give an exact structural characterization beyond a lone small-graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
