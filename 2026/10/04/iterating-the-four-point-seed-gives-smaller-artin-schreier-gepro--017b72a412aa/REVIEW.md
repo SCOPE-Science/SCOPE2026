@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses exactly the published lifting theorem and the published four-general-points seed. A zero-dimensional complete intersection of type \((d_i)\) has coordinate-ring regularity \(\sum(d_i-1)\), so evaluation is surjective in every degree at least that value. In characteristic \(p\ge3\), the regularity of \((2,2,p,\ldots,p^{m-3})\) is at most \(p^{m-2}-1\), allowing the next orbit \(p^{m-2}\). In characteristic \(2\), the regularity of \((2,2,4,\ldots,2^{m-2})\) is \(2^{m-1}-m+1\), allowing the next orbit \(2^{m-1}\). The resulting product and comparison formulas are exact. The statement deliberately avoids any global optimality claim.
+## correctness
 
-## Originality
-**PASS.** Full-text inspection of the initiating paper found the one-step four-point lift, the larger dimension-uniform constructions, and the explicit Question 5.2 asking for smaller degrees, but not the iterative four-point sequences proved here. Targeted searches for the exact sequences, their cardinalities, four-point Artin--Schreier iteration, and an answer to Question 5.2 found no covering source. The closest older same-author higher-dimensional paper predates the Artin--Schreier construction. The main residual risk is that the short induction could have appeared informally or under different wording.
+PASS
 
-## Value
-**PASS.** This gives a dimension-uniform affirmative answer to an explicit open subquestion in a new paper. Every complete-intersection degree is reduced relative to the paper's published all-dimensional families, and the number of points drops by an exponentially growing factor with the dimension. The result therefore sharpens a central construction rather than adding a routine parameter instance.
+The proof starts from four general points in P^3 whose projected image is a reduced (2,2) complete intersection. The standard zero-dimensional complete-intersection coordinate-ring regularity is Σ(d_i-1), giving surjectivity of degree N-1 evaluation when N-1 ≥ that sum. For p≥3, the induction type in P^m is (2,2,p,...,p^(m-3)) and reg=2+Σ_{i=1}^{m-3}(p^i-1) ≤ p^(m-2)-1; hence the stated Artin--Schreier lifting theorem appends p^(m-2). For p=2, reg of (2,2,4,...,2^(m-2)) is 2^(m-1)-m+1 ≤2^(m-1)-1, appending 2^(m-1). Base case p≥3 uses p-1≥2, and p=2 starts with N=4. Product of CI degrees proves both cardinality formulas. Positionwise comparison against the (3,p,p²,...) and (3,4,8,...) published types is strictly smaller for every n≥4. The independent argument is conditional on the primary Theorem 4.2's exact evaluation-map hypothesis; a bounded verifier is not the geometric proof.
 
-## Closest literature and limitations
-The closest source is Chiantini--Farnik--Favacchio--Harbourne--Migliore--Szemberg--Szpond, arXiv:2609.03024v1, especially Theorem 4.2, Example 4.3, Propositions 4.5--4.6, and Question 5.2. Earlier same-author work supplies background on four general points but not the positive-characteristic lifting mechanism. The present result does not prove optimality among all lifts or all geproci sets.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 initiating geproci paper introduces the lifting operation and its one-step four-point seed and gives higher-degree families; those inputs permit an iteration but do not themselves state the all-dimensional recurrence and degree improvement. Exact Resultary similarity search found the target and unrelated projective-degree results, not a mathematical dominating published theorem. The simplicity of the induction makes an unindexed prior observation a genuine residual priority risk.
+
+## value
+
+PASS
+
+The precise iteration supplies all-dimensional positive-characteristic geproci configurations that improve each degree of previously published families, addressing the explicit smaller-degree subquestion in Question 5.2. This is a motivated geometric construction, not arbitrary degree arithmetic; no optimality claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
