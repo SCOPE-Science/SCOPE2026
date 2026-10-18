@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Finite verification of the affine-direction generator theorem
+# Independent mathematical audit
 
-Run `python verify.py` from this directory with Python 3.9 or later. No third-party modules are required. The checker implements all direction cosets and corresponding existential modalities over specified finite fields; it does **not** assume that independently named modalities can be permuted in a formula.
+## correctness
 
-The `Field` arithmetic module computes addition and polynomial-remainder multiplication for primes and proper prime powers. Each nonzero element is checked to act bijectively by multiplication, ruling out a reducible modulus in these tested orders. The `Frame` module enumerates the actual one-dimensional subspaces and corresponding line partitions.
+PASS
 
-`check_triangle` evaluates the explicit depth-one corner formula, the depth-two anchor formulas, and the depth-three singleton formulas for **every** point in each tested vector space. `closure_atoms` independently refines modal-equivalence classes from the single input predicate until stable. Its success is checked against the constructive formula outcomes.
+Automorphism obstruction: affine homotheties preserve each named direction and every definable Boolean-modal set; empty marking has translations, singleton (q>2) has nonidentity scaling, any two-point marking has reflection about midpoint (including characteristic two). For q=2 any singleton a plus its named direction closures isolates each x directly. For q>2 and noncollinear a,b,c, intersect u- and v-direction closures of P to isolate a+(b−a)+(c−a), then use intersections with P to isolate b,c,a. For x outside anchors choose two among a,b,c noncollinear with x; intersection of their singleton-based affine lines is {x}. Gives depth≤3. Since W finite, singleton definitions generate every subset. Independent exhaustive modal refinement for q=2,d2, q=3,d2, q=5,d2 confirms minimum support1/3 and noncollinear triple counts4,72,2000 respectively; these are regression only. Number of noncollinear supports N(N−1)(N−q)/6 is exact combinatorial count.
 
-Exhaustive subsets are enumerated over \(\mathbb F_2^2\) up to size one, and over \(\mathbb F_3^2\) and \(\mathbb F_4^2\) up to size three. They confirm sharp minima and verify that exactly \(72\) and \(480\) three-point valuations respectively generate in the latter two cases. Checked dimensions include two and three; field orders include \(2,3,4,5,7,8,9,11\).
+## originality
 
-Expected standard output:
+PASS
 
-```
-VERIFY_OK triangles=9 refinements=11 exhaustive_labelings=832 fields=11
-```
+PASS best of knowledge for sparse single-proposition generator threshold across every finite affine-direction frame, with dimension-uniform modal depth-three construction, beyond standard affine geometry or richer modal languages.
 
-These checks are finite empirical corroboration only. They do not independently prove the universal theorem, establish global originality, or optimize the depth-three bound. The mathematical argument in `RESULT.md` covers all finite fields and all dimensions at least two.
+## value
+
+PASS
+
+Identifies the exact cost in a natural, fully named finite Desarguesian affine modal frame of breaking point symmetries with one truth set, including tight obstructions and explicit depth bound uniform in field size and dimension. This is a structural expressivity/definability threshold, not a renaming or finite table alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
