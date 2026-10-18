@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For either design, conditional on tagged count \\(y\\), \\(K\\) equals in law the indicator that \\(y>0\\) plus richness \\(R_{m-y}\\) of other-species samples. A common nested coupling has increments in \\(\\{0,1\\}\\). Therefore \\(R_m\\le1+R_{m-1}\\), and \\(1+R_{m-y}\\le1+R_{m-1}\\) for every feasible \\(y\\ge2\\), proving all conditional tail orders. Averaging yields all monotone-score covariances. Exact analytical higher-frequency witness families prove both signs for every \\(r\\ge2\\); independent rational enumeration checks 12,127 finite inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gnedin–Hansen–Pitman full PDF, arXiv:math/0701718, esp. pages 147–150 and 156–158: independent occupancy moments and asymptotics.",
+        "Chao–Lin 2012 publisher record DOI 10.1111/j.1541-0420.2011.01739.x: abstract describes richness-estimator lower bounds under without-replacement sampling; technical details inaccessible.",
+        "One-switch covariance public RESULT.md: assumptions explicitly restrict to uniform iid boxes and limitations disclaim conditional monotonicity."
+      ],
+      "reasoning": "Classical occupancy moment formulas allow calculation of covariance but do not automatically supply an all-threshold conditional stochastic order. The established uniform iid higher-frequency sign threshold does not logically cover heterogeneous species probabilities or finite-census hypergeometric sampling. Chao–Lin is potentially relevant, and without the full proof cannot be declared non-covering.",
+      "searches": [
+        "covariance number of occupied boxes number of singleton boxes heterogeneous urn sampling exact positive",
+        "positive correlation species richness singletons counts hypergeometric occupancy",
+        "Nonparametric Lower Bounds for Species Richness and Shared Species Richness under Sampling Without Replacement"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0701718 (v1 first submitted 2007-01-24)",
+      "DOI:10.1111/j.1365-2656.2009.01525.x",
+      "DOI:10.1111/j.1541-0420.2011.01739.x",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Public full RESULT.md of the uniform-box one-switch paper: Eq. (1) and its explicitly stated restriction to uniform iid boxes; states no conditional monotonicity and no nonuniform assertion.",
+        "Gnedin–Hansen–Pitman full PDF: Eqs. (1)–(4) record occupancy moments and Section 6 studies variance asymptotics, no per-tag first-order order statement in the inspected sections.",
+        "Accessible Chao–Lin abstract: estimator lower bounds, with inaccessible full technical material."
+      ],
+      "reasoning": "The new statement implies the uniform iid case \\(\\operatorname{Cov}(K,K_1)\\ge0\\), but not the old result’s exact all-frequency sign-switch. Conversely, known \\(\\operatorname{Cov}(K,K_1)>0\\) does not imply the new coordinatewise inequalities conditioned on one tagged count, all thresholds and arbitrary species laws. A stochastic transfer under population balancing is also different from stochastic conditioning inside one fixed population.",
+      "searches": [
+        "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 (public full RESULT.md read)",
+        "arxiv:math/0701718 (primary paper full-text reviewed)",
+        "DOI:10.1111/j.1541-0420.2011.01739.x (public abstract reviewed)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gnedin–Hansen–Pitman, arXiv:math/0701718, Sections 1–2 and 6, uses the occupancy variables \\(K_n\\) and \\(K_{n,r}\\); explicit covariance formulas are for moments and not conditional stochastic order.",
+        "Public RESULT.md of “A one-switch covariance law for occupancy richness and frequency counts,” 2026-10-04, defines \\(K\\) and \\(K_r\\) in homogeneous iid urns and states positive \\(\\operatorname{Cov}(K,K_1)\\)."
+      ],
+      "reasoning": "The theorem can be reformulated as stochastic dominance \\(K\\mid Y_j=1\\succeq_{\\mathrm{st}}K\\mid Y_j=y\\) for every tagged count \\(y\\), or as nonnegative covariance between each tagged-singleton indicator and every nondecreasing function of \\(K\\). Ordinary positivity of \\(\\operatorname{Cov}(K,F_1)\\), as in the uniform-urn result, is a strict implication of this theorem and does not imply these tagged conditional inequalities.",
+      "searches": [
+        "singleton species conditional detection exactly once increases chance of high species richness stochastic dominance sample without replacement",
+        "conditional stochastic order of number of occupied species given a tagged category appears exactly once heterogeneous hypergeometric rarefaction",
+        "positive covariance individual singleton indicator any increasing function of observed species richness occupancy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified published result gives an analytic covariance sign and threshold only for uniform independent-box occupancy, not the tagged conditional distribution table for all census configurations.",
+        "Exact rational verification checks 12,127 selected finite tail inequalities, but finite tests are not a database proof of an unrestricted theorem."
+      ],
+      "reasoning": "No exact prior table of arbitrary tagged-singleton conditional richness-tail inequalities was identified. A search failure does not prove novelty; the coupling proof establishes correctness independent of the literature search.",
+      "searches": [
+        "species richness number of singletons covariance sample finite population rarefaction",
+        "singleton species conditional detection exactly once increases chance of high species richness stochastic dominance sample without replacement",
+        "published-finding corpus search: positive covariance individual singleton indicator any increasing function of observed species richness occupancy"
+      ]
+    },
+    "rationale": "The examined occupancy literature supplies basic frequency-count moments, the matched published finite-uniform-box result gives a narrower covariance sign law, and ecology sources motivate singleton-based survey assessment and richness estimation. None of the inspected full texts establishes per-tag first-order stochastic dominance for arbitrary finite census and heterogeneous iid sampling jointly with exact higher-frequency opposite-sign constructions. The accessible Chao–Lin record is abstract-only, which remains a genuine risk, and originality is only self-review.",
+    "residual_risks": [
+      "Classic urn-model or species-sampling textbooks may state an equivalent conditional covering lemma under different terms.",
+      "Technical full text of Chao–Lin (2012) was not inspected; no claim of whole-paper noncoverage is made.",
+      "No independent bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found relevant definitions, general moments and asymptotic variance, no covering conditional dominance theorem in inspected portions",
+        "evidence": "Equations (1)–(4) in the text, and Section 6 Lemma 5 concern occupancy count moments/variance rather than fixed-tag conditional distributions.",
+        "identifier_or_url": "arxiv:math/0701718",
+        "material_read": "Full-text PDF introduction, moments in Section 2 (pages 147–151), and variance material in Section 6 (pages 156–158)",
+        "method": "Primary manuscript text and page images",
+        "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+        "trigger": "Defines both observed richness and singleton occupancy with related covariance expressions"
+      },
+      {
+        "assessment": "Empirical ecological motivation, but no derived per-species conditional stochastic order for sampled richness",
+        "evidence": "Methods discuss singleton and doubleton accumulation curves and richness estimators; discussion concerns undersampling bias.",
+        "identifier_or_url": "DOI:10.1111/j.1365-2656.2009.01525.x",
+        "material_read": "Full HTML article, abstract, methods, sampling/resampling, discussion",
+        "method": "Published primary article HTML",
+        "title": "Undersampling bias: the null hypothesis for singleton species in tropical arthropod surveys",
+        "trigger": "Ecological application of singleton frequencies and observed richness"
+      },
+      {
+        "assessment": "Uniform iid special positive covariance, with no conditioning statement or heterogeneous finite-census coverage",
+        "evidence": "The full RESULT.md begins with uniform \\(m\\)-box occupancy, gives exact \\(\\operatorname{Cov}(K,K_r)\\) and states in limitations that it does not cover nonuniform cases or conditional monotonicity.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "material_read": "Entire public RESULT.md, including finding, full proof, scope and limitations",
+        "method": "Read public repository text",
+        "title": "A one-switch covariance law for occupancy richness and frequency counts",
+        "trigger": "Direct matching result on \\(\\operatorname{Cov}(K,K_1)\\) and higher frequency counts"
+      },
+      {
+        "assessment": "Plausible related primary source; cannot certify that full contents omit the conditional theorem",
+        "evidence": "Abstract states nonparametric estimator lower bounds, not conditional stochastic-order assertions; full text remains uninspected.",
+        "identifier_or_url": "DOI:10.1111/j.1541-0420.2011.01739.x",
+        "material_read": "Publisher abstract and bibliographic record only; full technical text not accessed",
+        "method": "Public publisher and bibliographic records",
+        "title": "Nonparametric Lower Bounds for Species Richness and Shared Species Richness under Sampling Without Replacement",
+        "trigger": "Finite-census richness estimation involving singleton/doubleton information"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d240160-d465-4807-9a38-b30a4f960ca0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A distribution-free first-order conditional stochastic order under both finite-census rarefaction and heterogeneous iid sampling links species richness to singleton detection at every tail threshold, not merely via a single mean or selected finite profile. Every higher frequency loses universal covariance sign, furnishing a mathematically sharp boundary. It supplies an interpretable null-model diagnostic for richness and rare-species survey relationships; no unsupported estimator or field-data generalization is claimed.",
+    "status": "PASS"
+  }
+}
