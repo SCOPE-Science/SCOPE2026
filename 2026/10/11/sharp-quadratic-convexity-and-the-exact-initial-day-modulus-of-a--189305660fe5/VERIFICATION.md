@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone `verify.py` requires Python 3's standard library only; run it with `python3 verify.py` from the directory holding the file. It checks the numerical equality witnesses against the analytic value for \(2\le n\le13\) and the parameters in its parameter list, tests 67,536 seeded numerical configurations, and proves 12 specified *finite* polynomial identities using exact rational arithmetic. Actual output:
+## correctness
 
-```
-Exact rational identities: 12
-Deterministic numeric witness + random tests: 67536
-PASS (finite checks only)
-```
+PASS
 
-The proof of the universal lower bound uses a norming sign vector, the equality case of Cauchy–Schwarz, and a one-variable arithmetic–geometric-mean minimization. Its exact witness uses complementary sign supports and an explicit orthogonality identity. These arguments, not the finite computations, establish the sharp coefficient and exact initial modulus for every permitted dimension and parameter.
+Reconstructed the proof for real n>=2, t>0. A norming sign vector sigma of midpoint m gives ((N(m+d)^2+N(m-d)^2)/2−N(m)^2)>=<sigma,d>^2+t||d||_2^2. Splitting positive/negative signed coordinates into a,b counts and sums A,B, Cauchy–Schwarz gives ||d||_2²>=A²/a+B²/b. AM–GM on A/B optimizes quotient to (sqrt((1+t/a)(1+t/b))−1)/(sqrt(...)+1), minimized with all n supports and balanced p=floor(n/2),q=ceil(n/2). Explicit d=(r/p repeated p, −1/q repeated q), r=sqrt((1+t/q)/(1+t/p)), v=|d|, yields equal ||kv±d||²=(k²+c)||d||² for k>=1; scaling gives exact Day modulus lower-envelope equality for eps<=eps*=2/sqrt(1+c). For eps>eps*, equality in sign norm estimates requires coordinatewise |m|>=|d|, contradicting required N(m)^2=1-c eps²/4<N(d)^2=eps²/4; compactness yields strict gap up to eps=2. Checked endpoint epsilon=0/2 and n even/odd. Independently evaluated four explicit equality witnesses (n,t)=(3,1),(3,7),(4,2),(5,0.3), all quadratic defects matching c to <1e-14. Sampling is not proof; analytic minimization covers all parameters.
 
-No exact value of the classical modulus beyond \(\varepsilon_*=2/\sqrt{1+c}\) is computed; a strict lower-envelope gap there follows analytically from the equality classification and compactness. The proof has not been independently audited.
+## originality
+
+PASS
+
+Different from existence of equivalent power-type uniformly convex renormings, or equivalence of several modulus definitions: supplies sharp coefficient for one concrete family, with odd-even support-balancing and maximal initial equality interval. No published indexed equivalent found in Resultary queries; possibility of equivalent old Clarkson/Orlicz calculation remains.
+
+## value
+
+PASS
+
+Provides a natural exact quantitative geometry of the hybrid l1+Hilbert squared norm in all dimensions, including nontrivial parity dependence and a sharp transition between equality in quadratic bound and strict improvement. Its initial modulus is independently useful even without whole epsilon>epsilon* formula; not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

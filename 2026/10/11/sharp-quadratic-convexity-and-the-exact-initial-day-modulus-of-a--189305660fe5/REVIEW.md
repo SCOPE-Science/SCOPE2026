@@ -1,15 +1,21 @@
-# Scientific review: sharp quadratic convexity of a hybrid \(\ell_1\)–Hilbert norm
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns the specified real norm \(N_t=(\|\cdot\|_1^2+t\|\cdot\|_2^2)^{1/2}\), all integers \(n\ge2\), and every \(t>0\). The signed-functional inequality (4), Cauchy–Schwarz step (5), one-variable optimization (6), and balanced-support minimization (7) reconstruct the global sharp midpoint constant. A sign-balanced vector attaining equality is given explicitly; its orthogonality relation (8) makes both normalized endpoints unit vectors and proves the Day modulus formula for the entire claimed initial interval. The strict part follows from equality conditions, coordinatewise domination, and compactness, not numerical sampling. The supplied reproducibility code passed 12 exact rational and 67,536 seeded numeric tests. Finite tests do not prove the universal formula; the analytic argument does.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-García-Lirola–Raja, *Uniformly convex renormings and generalized cotypes* (arXiv:1911.05657), addresses optimized equivalent renormings, not the exact coefficient for a fixed quadratic-mixed norm. Banaś–Ochab–Zając, *On the smoothness of normed spaces* (DOI:10.1007/s43034-023-00310-z), surveys geometry and moduli without the specified finite-dimensional computation. De Bernardi–Veselý, *Moduli of uniform convexity for convex sets* (DOI:10.1007/s00013-024-02031-8), proves equivalence of general modulus definitions, not a value for this norm. An indexed record on Euclidean Banach–Mazur distance of mixed \(\ell_p\)–\(\ell_q\) planes deals with a different invariant and does not imply the Day modulus, even in dimension two. Direct searches under exact quadratic convexity, mixed norms, and modulus aliases found no statement dominating the theorem. An unindexed equivalent calculation remains possible; the search is not a proof of worldwide novelty.
+PASS
 
-## Mathematical value — PASS
-The statement solves a natural exact quantitative invariant for an infinite family of finite-dimensional norms, rather than just proving qualitative uniform convexity. It gives the optimal constant in an inequality for every vector pair and determines precisely the maximal interval on which the induced classical modulus envelope is sharp. The support-balance optimization explains the even/odd dependence and the complementary-support geometry at the transition. Values beyond the transition are intentionally not claimed.
+Reconstructed the proof for real n>=2, t>0. A norming sign vector sigma of midpoint m gives ((N(m+d)^2+N(m-d)^2)/2−N(m)^2)>=<sigma,d>^2+t||d||_2^2. Splitting positive/negative signed coordinates into a,b counts and sums A,B, Cauchy–Schwarz gives ||d||_2²>=A²/a+B²/b. AM–GM on A/B optimizes quotient to (sqrt((1+t/a)(1+t/b))−1)/(sqrt(...)+1), minimized with all n supports and balanced p=floor(n/2),q=ceil(n/2). Explicit d=(r/p repeated p, −1/q repeated q), r=sqrt((1+t/q)/(1+t/p)), v=|d|, yields equal ||kv±d||²=(k²+c)||d||² for k>=1; scaling gives exact Day modulus lower-envelope equality for eps<=eps*=2/sqrt(1+c). For eps>eps*, equality in sign norm estimates requires coordinatewise |m|>=|d|, contradicting required N(m)^2=1-c eps²/4<N(d)^2=eps²/4; compactness yields strict gap up to eps=2. Checked endpoint epsilon=0/2 and n even/odd. Independently evaluated four explicit equality witnesses (n,t)=(3,1),(3,7),(4,2),(5,0.3), all quadratic defects matching c to <1e-14. Sampling is not proof; analytic minimization covers all parameters.
 
-## Scientific limitations
-The classical modulus above \(\varepsilon_*=2/\sqrt{1+c}\) is not evaluated; only its strict separation from the quadratic envelope is established. This does not extend to complex spaces or to dimension one. Reproducibility calculations are supporting checks, and an equivalent unindexed prior result cannot be excluded.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Different from existence of equivalent power-type uniformly convex renormings, or equivalence of several modulus definitions: supplies sharp coefficient for one concrete family, with odd-even support-balancing and maximal initial equality interval. No published indexed equivalent found in Resultary queries; possibility of equivalent old Clarkson/Orlicz calculation remains.
+
+## value
+
+PASS
+
+Provides a natural exact quantitative geometry of the hybrid l1+Hilbert squared norm in all dimensions, including nontrivial parity dependence and a sharp transition between equality in quadratic bound and strict improvement. Its initial modulus is independently useful even without whole epsilon>epsilon* formula; not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
