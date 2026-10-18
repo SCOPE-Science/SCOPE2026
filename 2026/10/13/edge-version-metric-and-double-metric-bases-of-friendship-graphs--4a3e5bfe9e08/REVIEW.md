@@ -1,12 +1,21 @@
-# Review of Edge-version metric and double metric bases of friendship graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In the line graph, all spoke edges form a clique and each rim edge is adjacent exactly to the two spokes from its own page. This gives the complete distance table. For ordinary edge-version resolution, every page must contain a selected spoke, and two one-landmark pages would leave their unselected spokes metrically indistinguishable, forcing the sharp lower bound \(2r-1\). The equality construction resolves every omitted-edge pair and yields exactly \(2r3^{r-1}\) bases. For double resolution, a page containing at most one selected edge either fails ordinary resolution or leaves a spoke-rim pair with a constant distance-difference vector, forcing two selected edges per page. The converse is verified by direct pair types, giving \(2r\) and exactly \(3^r\) minima. Exhaustive checks for \(2\le r\le6\) agree with every statement.
+## correctness
 
-## Originality
-PASS. The foundational 2018 edge-version doubly resolving paper treats sunlets and prisms and contains no friendship or windmill result. The later same-invariant circulant paper is confined to \(C_n(1,2)\) and likewise contains no friendship or windmill theorem. Searches under the equivalent formulation “doubly resolving number of the line graph of a friendship graph,” as well as edge-based and double-edge terminology, did not locate an equivalent result. The known 2019 friendship edge-metric theorem uses vertex landmarks resolving edges and is therefore scientifically inapplicable to the edge-landmark line-graph parameter proved here.
+PASS
 
-## Value
-PASS. Friendship graphs are a standard wheel-related family already used as a benchmark in metric-resolvability work. The result gives a complete pagewise structure theorem for both the edge-version metric bases and the stricter doubly resolving bases, exact enumerations of all minima, and an infinite family with a sharp constant gap \(\psi_E-\dim_E=1\). This directly develops the inequality \(\dim_E\le\psi_E\) emphasized in the defining literature rather than merely computing an isolated small case.
+The edge-distance graph is L(F_r): 2r spokes form a clique and rim z_i meets only its two spokes. Twin spokes force one spoke landmark per page, and two one-landmark pages leave unselected spokes metrically identical; hence metric dimension>=2r-1. Every page except one chosen with two edges and one exceptional spoke resolves all edge pairs, yielding 2r*3^(r-1) bases. For doubly resolving, a singly covered page makes its selected spoke and rim have constant distance difference against all landmarks; two per page are necessary and sufficient, yielding 2r and 3^r. Independently enumerated all landmark subsets in L(F_r) for r=2,3,4 confirming exact complete basis families. Symbolic page proof covers all r>=2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2018 original edge-version doubly-resolving work and 2024 circulant continuation employ this same line-graph distance but treat other graph families. The 2019 friendship-graph edge-metric quantity uses vertices as landmarks, a genuinely different invariant. No known prior statement implies either complete basis-family characterization for L(F_r).
+
+## value
+
+PASS
+
+The explicit minimum bases, their exact counts and sharp separation between ordinary and double resolving numbers classify a natural repeated-triangle line-graph family. The two notions genuinely differ by one even as size grows; this is more than a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
