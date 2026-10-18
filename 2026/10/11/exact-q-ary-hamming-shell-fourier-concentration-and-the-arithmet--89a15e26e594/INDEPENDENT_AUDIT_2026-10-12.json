@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:14:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With normalized characters for q>=3, n>=2 and 1<=k<=n-1, decompose each one-coordinate Fourier space into its normalized occupancy indicator u_i=(1_{x_i !=0}-p)/sqrt[p(1-p)] and transverse (q-2)-space. Conditioned on a uniformly random shell point, indicators form uniform k-subset, covariance is hypergeometric, transverse directions have conditional squared norm a/p. The conditional Gram has R=1+n(a-p)^2/[p(1-p)] (one), U=na(1-a)/[(n-1)p(1-p)] (n-1), T=a/p (n(q-2)), plus one zero; multiplying by shell mass w gives the full spectrum. Unique zero direction is sum 1_{x_i!=0}-k. Let z=qk-(q-1)n; independent SymPy simplification verifies R-T=z(z-1)/(n(q-1)), R-U=(z-1)(z+q-1)/[(n-1)(q-1)], T-U=qk(z-1)/[n(n-1)(q-1)]. Hence all positive eigenvalues agree iff z=1, i.e. n≡1 mod q and k=((q-1)n+1)/q. Independent construction and Hermitian eigendecomposition of full character Gram was checked for q=3,4,5, n=3, k=1,2 (6 examples); this corroborates, but the covariance calculation proves all n,q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis–Griffiths study multinomial/Krawtchouk polynomial harmonic tools; Xu constructs polynomial tight frames on composition spaces; Bannai et al. binary tight relative designs concern a different optimization."
+        ],
+        "reasoning": "The presence of a general orthogonal-polynomial framework does not alone entail an explicit arithmetic equality-of-all-nonzero-singular-values classification. If an exact association-scheme spectral theorem implies it, originality would be covered; that risk remains.",
+        "searches": [
+          "q ary Hamming shell Fourier first band concentration spectrum tight frame singular values",
+          "Diaconis Griffiths Krawtchouk tight frame Hamming design",
+          "Xu Hahn Krawtchouk tight frames"
+        ]
+      },
+      "checked_sources": [
+        "Diaconis and Griffiths, arXiv:1309.0112",
+        "Griffiths, arXiv:1603.00196",
+        "Xu, arXiv:1309.7526",
+        "Bannai et al., arXiv:1304.5760",
+        "Resultary attempted but unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary relative design tightness in arXiv:1304.5760 is a design cardinality property, q=2 rather than q>=3, and does not give this singular-spectrum criterion.",
+          "Xu frame results for polynomial subspaces in composition variables are not the same spatial restriction operator."
+        ],
+        "reasoning": "Compared strength and operator objects explicitly: design extremal sizes or symmetric polynomial frames do not imply all coordinate-character shell restriction singular values. No stronger theorem was identified in inspected material.",
+        "searches": [
+          "q ary Hamming shell Fourier first band concentration spectrum tight frame singular values",
+          "Bannai relative designs binary Hamming shells frame tightness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Griffiths, multivariate Krawtchouk (arXiv:1603.00196) discusses polynomial bases for multinomial composition variables.",
+          "The present Hilbert-space operator acts on unsymmetrized coordinate characters and includes n(q-2) transverse modes and one exact shell-null vector."
+        ],
+        "reasoning": "A Krawtchouk duality/formulation can diagonalize related Bose–Mesner operators, but the inspected results do not state the spectral multiplicities and shell restriction in the exact unsymmetrized parameter regime.",
+        "searches": [
+          "q ary Hamming shell Fourier first band concentration spectrum tight frame singular values",
+          "Hamming shell Fourier restriction first degree characters eigenvalues",
+          "Hamming shell Fourier (SCOPE-Science code search)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact spectral table for the first-coordinate unsymmetrized band appeared in the primary comparisons actually read."
+        ],
+        "reasoning": "This is an infinite q,n,k symbolic spectral formula with integer iff condition, not a single table entry. Known Krawtchouk polynomial evaluation tables do not by themselves present the quotient-frame operator spectrum.",
+        "searches": [
+          "q ary Hamming shell Fourier first band concentration spectrum tight frame singular values",
+          "q ary Hamming shell Fourier spectrum table values"
+        ]
+      },
+      "rationale": "PASS best of knowledge: multivariate Krawtchouk and Hamming relative-design results use related harmonic tools but generally occupancy/symmetric polynomial spaces or binary combinatorial tight designs, rather than the full unsymmetrized first Fourier band restricted to a single nonbinary Hamming shell. The exact wR,wU,wT,0 spectrum and integer tightness congruence are not found as a covered statement in the inspected primary sources; remains possible an association-scheme representation theorem entails the formula, as acknowledged.",
+      "residual_risks": [
+        "Resultary semantic search was attempted but returned temporarily_unavailable (search_completed:false); this is neither a matching-source clearance nor evidence of novelty.",
+        "Published SCOPE repository title/term code search was attempted on organization SCOPE-Science with the listed query; an empty result is not exhaustive and does not establish novelty.",
+        "Possible unlocated general association-scheme matrix-spectrum formula that directly implies these eigenvalues and tightness.",
+        "The Xu/Bannai primary full texts were not inspected exhaustively.",
+        "Finite floating-point Gram tests independently corroborate only six small cases, not the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant method and nomenclature, no checked statement of exact unsymmetrized shell restriction operator.",
+          "evidence": "Polynomial theory organizes symmetric occupancy coordinates, while this operator retains all individual one-coordinate character modes.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.0112",
+          "material_read": "Abstract, exposed introduction and targeted discussion of multinomial occupancy orthogonal polynomial families.",
+          "method": "arXiv source text/abstract and bibliography inspection",
+          "title": "An introduction to multivariate Krawtchouk polynomials and their applications",
+          "trigger": "Natural algebraic spectral method for Hamming shells"
+        },
+        {
+          "assessment": "Checked material provides Krawtchouk harmonic context but not the present full shell projection spectrum.",
+          "evidence": "Results concern multinomial occupancy models and multivariate polynomial eigenbases.",
+          "identifier_or_url": "https://arxiv.org/html/1603.00196v2",
+          "material_read": "Accessible full text particularly introductory statements and sections on multivariate occupancy Krawtchouk orthogonality and applications; did not read all text.",
+          "method": "arXiv HTML section-by-section inspection",
+          "title": "Multivariate Krawtchouk polynomials and composition birth and death processes",
+          "trigger": "Highly relevant primary full text from related researcher"
+        },
+        {
+          "assessment": "May share the term tight frame but the sampled space and operator differ; no whole-document exclusion claimed.",
+          "evidence": "The title refers to polynomial tight frames of several variables, unlike restriction of unsymmetrized Fourier first band to a full shell.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.7526",
+          "material_read": "Published abstract/summary, relevant polynomial frame definitions; full paper not completely read.",
+          "method": "arXiv abstract/source summary comparison",
+          "title": "Tight Frame with Hahn and Krawtchouk Polynomials of Several Variables",
+          "trigger": "Plausible stronger polynomial tight-frame coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact singular-value spectrum and complete arithmetic classification of when the shell restriction becomes a tight frame after its necessary one-dimensional quotient are natural finite harmonic-analysis sampling invariants. A researcher studying shell sampling or stable reconstruction needs precisely the nonzero singular values and the congruence condition; this goes beyond standard shell cardinality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Valid for integers q>=3, n>=2, 1<=k<=n-1; no prime-power requirement.",
+    "No higher Fourier bands or multiple-shell restrictions; degenerate shells excluded."
+  ]
+}
