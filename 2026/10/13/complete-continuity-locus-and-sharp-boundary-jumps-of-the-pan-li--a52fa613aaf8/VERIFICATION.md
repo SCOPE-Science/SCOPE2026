@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The defining PDF was inspected at Eq. (9), where the functional is the average one-particle entropy if all partial entropies are nonzero and is zero otherwise. The surrounding text identifies a zero partial entropy with partial factorization. Eq. (13) was also inspected for the three-term example used as an explicit boundary path.
+# Independent mathematical audit
 
-The proof was checked directly in finite dimension. For each bipartition, product pure states are the rank-one coefficient-flattening locus cut out by all 2-by-2 minors; it is a proper closed set with empty interior. Their finite union is therefore closed and nowhere dense, so genuine states form an open dense set. The average one-qubit entropy is continuous. These facts establish the complete continuity classification without numerical sampling.
+## correctness
 
-For three qubits, any biseparable pure state has one pure isolated qubit and a two-qubit pure factor, so its average one-qubit entropy is at most two thirds. The bound is attained by a Bell pair times a pure qubit. For four or more qubits, a Bell pair tensored with a GHZ state on the remaining qubits is biseparable while every one-qubit marginal is maximally mixed, attaining jump one.
+PASS
 
-No claim is made about mixed-state extensions or about LOCC monotonicity beyond what follows from the displayed continuity argument. The later 2007 comparison paper was identified but not available in full text, and remains an originality risk.
+For N>=3 the literal Eq.(9) is eta_N(psi)=A(psi)=mean one-qubit entropy on the open set of genuine pure states and eta_N=0 on the complement, a finite union of closed proper rank-one flattening varieties with empty interior. A is continuous by finite-dimensional entropy continuity. The genuine set is open dense, so eta is continuous on genuine states and also at fully product states where A=0 and 0<=eta<=A. Every partially entangled product-across-cut state has A>0, eta=0, and dense genuine sequences with eta->A, proving precisely the claimed discontinuity and jump. For N=3 a Bell pair times pure qubit reaches 2/3 and all biseparable states have A<=2/3. For N>=4 a Bell pair times GHZ_{N-2} reaches the universal A<=1 bound. This is a complete analytical proof, no numerical inference.
+
+## originality
+
+PASS
+
+The initiating Pan/Liu/Lu/Draayer paper directly defines the piecewise branch in Eq.(9), so the functional itself and the three-term family are prior. The full original text inspected did not explicitly state the exact all-pure-state continuity locus or sharp N=3 versus N>=4 jumps. Cao/Liu/Bai 2007 is directly relevant but only bibliographic material was accessible; its contents are a material originality risk. Best-knowledge originality applies only to the full classification and sharp extrema, not the formula or a generic observation that a hard zero-branch may be discontinuous.
+
+## value
+
+PASS
+
+The target is a published quantum-information entanglement measure; identifying exactly which states have discontinuity, proving dense-side jumps, and showing full-scale discontinuities for N>=4 exposes a structural robustness issue in a natural quantity. The sharp boundary cases are physically interpretable and reusable when comparing genuine-multipartite measures, beyond a trivial restatement of the definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
