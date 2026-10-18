@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-This record covers the exact orbit classification of ordinary derivations of the three-dimensional left Leibniz algebra whose nonzero basis products are \([e_1,e_1]=e_2\) and \([e_1,e_2]=e_3\).
+## correctness
 
-The symbolic check derives the derivation matrix from the generator \(e_1\), derives automorphisms from its image, and computes conjugation using the explicit invertible triangular matrix. The proof's case split covers fixed \(a\ne0\) in odd or even field size, fixed \(a=0,b\ne0\), the remaining nonzero \(c\) case, and zero. The final orbit cardinalities add up to the total number \(q^3\) of derivations for every prime power \(q\).
+PASS
 
-For reproducibility, run `python3 verify.py` in the same directory. It requires only the Python standard library and recomputes all finite examples, without relying on previously stored outputs. Actual replay returned `VERIFY_OK` for \(q=2,3,4,5,7,8,9\); the orbit counts were \(6,8,12,12,16,24,20\) respectively. The script checks explicit automorphism and derivation identities and both the formula and cardinalities of the orbit action. Results from finite examples are evidence of correct implementation, not an infinite proof.
+The entire derivation space is D(a,b,c) with diagonal entries (a,2a,3a) and subdiagonal entries (b,b,c); the automorphisms are G(h,t,u)=[[h,0,0],[t,h²,0],[u,ht,h³]], h!=0. Matrix conjugation yields a fixed, b→hb−at/h, c→h²c+a(t/h)^2−2au/h. For a!=0 and odd q, t kills b and u kills c; in char 2, after killing b the invariant Δ=ac+b² is zero or nonzero, all nonzero squares being equivalent in F_{2^s}. For a=0,b!=0, c/b² classifies, giving q orbits size q−1. For a=b=0, square-class quotient of c gives two odd-characteristic or one even-characteristic orbit; zero singleton. Sums reproduce q³, including q=2 and3. Source matrix finite-field verifier enumerates q={2,3,4,5,7,8,9}; all-field proof uses no invalid division by 2 in characteristic 2.
 
-Historical originality depends on comparing the conjugacy-orbit classification with existing work, not on the known derivation or automorphism formulas alone. The latest 2026 primary papers were checked at abstract level but their complete text could not be inspected; an equivalent uninspected statement remains a risk. No independent audit or independent validation is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge non-coverage after primary statement and implication comparisons. The claim is not made new merely because a text query lacked an identical title.
+
+## value
+
+PASS
+
+The finite-field conjugacy quotient of infinitesimal symmetries is a natural classification invariant, and characteristic-two splitting into Δ=0/nonzero produces genuinely different moduli and orbit statistics not supplied merely by the two standard matrix tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

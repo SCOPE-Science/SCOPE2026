@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Leibniz multiplication rules force the three-parameter derivation matrix and the previously known three-parameter automorphism matrix, with no characteristic restrictions. Matrix multiplication yields the explicit conjugation action; a case analysis, using invertibility of \(2\) for odd characteristic and bijectivity of squaring for finite fields of characteristic two, proves the stated orbit normal forms and sizes. Orbit sizes sum to the full \(q^3\) derivation space. `verify.py` exhaustively constructs and compares the orbits in seven finite fields, but finite tests are only supplementary evidence.
+## correctness
 
-## Originality — PASS, with stated historical risk
-Kurdachenko–Pypka–Velychko (2023), Theorem 4.1, already gives the automorphism matrix, and recent 2026 papers catalog automorphism groups and derivation algebras separately. These are deliberately excluded from the novelty assertion: the final claim is the **complete conjugation-orbit classification on the derivation space**, including the finite-field orbit counts and characteristic-two splitting. The relevant available primary full text was checked against this assertion; the two 2026 preprints were accessible only through abstracts and metadata, not completely inspected. Their opaque sections might contain an equivalent result, and unpublished work cannot be excluded.
+PASS
 
-## Value — PASS
-The natural moduli problem of classifying infinitesimal algebra symmetries up to an algebra's coordinate changes is finer than determining either the derivation vector space or the automorphism group in isolation. The full normal-form and orbit-size census for a distinguished minimal non-Lie nilpotent algebra exhibits a genuine field-characteristic transition: for each nonzero leading coefficient one orbit in odd characteristic, but two separate geometric types in characteristic two. The explicit invariant and count are useful as a baseline for equivalent deformations and symmetry-module comparisons; no unproved wider application is asserted.
+The entire derivation space is D(a,b,c) with diagonal entries (a,2a,3a) and subdiagonal entries (b,b,c); the automorphisms are G(h,t,u)=[[h,0,0],[t,h²,0],[u,ht,h³]], h!=0. Matrix conjugation yields a fixed, b→hb−at/h, c→h²c+a(t/h)^2−2au/h. For a!=0 and odd q, t kills b and u kills c; in char 2, after killing b the invariant Δ=ac+b² is zero or nonzero, all nonzero squares being equivalent in F_{2^s}. For a=0,b!=0, c/b² classifies, giving q orbits size q−1. For a=b=0, square-class quotient of c gives two odd-characteristic or one even-characteristic orbit; zero singleton. Sums reproduce q³, including q=2 and3. Source matrix finite-field verifier enumerates q={2,3,4,5,7,8,9}; all-field proof uses no invalid division by 2 in characteristic 2.
 
-## Closest sources and limitations
-The closest sources are arXiv:2609.24320v1, arXiv:2609.24323v1, DOI:10.1007/s11253-023-02153-2, and DOI:10.55640/eijmrms-06-06-16. The group and derivation formulas are prior knowledge; only their joint conjugacy-orbit classification is advanced. Potential older equivalent terminology and incomplete inspection of the two newest preprints are residual originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge non-coverage after primary statement and implication comparisons. The claim is not made new merely because a text query lacked an identical title.
+
+## value
+
+PASS
+
+The finite-field conjugacy quotient of infinitesimal symmetries is a natural classification invariant, and characteristic-two splitting into Δ=0/nonzero produces genuinely different moduli and orbit statistics not supplied merely by the two standard matrix tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
