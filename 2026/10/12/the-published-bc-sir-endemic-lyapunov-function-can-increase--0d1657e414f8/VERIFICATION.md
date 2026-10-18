@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` uses exact rational arithmetic. It checks the disease-free behavioral level \(B_0=1/11\), the threshold \(\mathcal R_0=34/11\), all four endemic-equilibrium equations at \(x^*=(27/50,23/100,23/100,5/9)\), the vector field at the witness state, the derivative identity for the displayed Volterra function, and the equation-(13) comparison.
+# Independent mathematical audit
 
-The exact outputs certified by the assertions are
-\[
-\dot W=\frac{2019503}{13851000}>0,
-\qquad
-Q_{13}=-\frac{30854209}{1923750}<0.
-\]
-Thus the inequality \(\dot W\le Q_{13}\) fails at the witness state.
+## correctness
 
-The calculation is finite and exact. It certifies failure of the published derivative bound only; it does not certify instability, nonconvergence, or falsity of the global-stability statement under a different proof.
+PASS
+
+PASS: Original 2026 full-text Theorem 4 (constant climate, nonnegative rates d>0, R0>1, interior endemic equilibrium) and unweighted four-variable Volterra W with asserted equation (13) were read, including original PDF page images. Exact admissible Λ=d=1,gamma=2,omega=1,beta=10,Vbar=1,epsilon=4/5,beta0=0,alpha0=1/10,alpha=5,eta=1 gives B0=1/11,R0=34/11>1 and equilibrium x*=(27/50,23/100,23/100,5/9). At interior x=(3/4,1/100,1/20,19/20), independent Fraction substitution gives Wdot=2019503/13851000>0 while eq.(13) RHS=−30854209/1923750<0. Hence (13) fails and *this particular Lyapunov proof* does not prove global stability. It does not demonstrate endemic instability or rule out another global-stability proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Target source original 31-page full PDF explicitly asserts Wdot<=strictly negative quadratics; no inspected portion or targeted correction/result search acknowledges a positive derivative. General SIR/SEIR Lyapunov and Dulac results treat different equations and do not supply this behavioral counterexample. Resultary exact paper, correction, endemic, Volterra aliases found no same counterexample. Priority remains subject to possible unindexed author notice.
+
+## value
+
+PASS
+
+PASS: A published theorem's sign-definite Volterra bound is essential to a LaSalle global-stability proof and is contradicted by an exact rational point meeting every stated assumption. This reveals an actionable structural gap (behavior-transmission cross terms), not a mere numerical optimization or unsupported assertion that a published conclusion itself is false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

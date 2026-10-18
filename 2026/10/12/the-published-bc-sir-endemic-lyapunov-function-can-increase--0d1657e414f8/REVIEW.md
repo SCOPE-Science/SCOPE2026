@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source model, autonomous assumptions, threshold, endemic equilibrium, and four-term Volterra function were reconstructed directly. For the stated exact rational parameters, the equilibrium equations vanish exactly and \(\mathcal R_0=34/11>1\). At the displayed interior state, exact differentiation gives \(\dot W=2019503/13851000>0\), whereas the source's claimed equation-(13) upper bound is \(-30854209/1923750<0\). The bundled verifier reproduces these identities without floating-point dependence.
+## correctness
 
-## Originality
-PASS. Semantic database searches for the exact source, endemic Volterra inequality, behavior-feedback SIR stability, and related aliases returned no record stating this contradiction. The closest returned dengue and epidemic findings concern switching geometry, patch-coupled reproduction numbers, or other stability mechanisms. Direct inspection of the motivating full text showed the disputed inequality is asserted as the decisive sign estimate; the related Melnik–Korobeinikov and Dénes–Röst literature uses different structural arguments and does not imply the source's behavior-coordinate estimate.
+PASS
 
-## Value
-PASS. Equation (13) is not an incidental calculation: it is the sign-definite step used to invoke LaSalle for the article's global endemic-stability theorem. An exact admissible state where the proposed Lyapunov function increases therefore identifies a substantive proof boundary and prevents the theorem from being treated as established by the printed argument. The result is also diagnostic for future repairs, because the behavior-dependent transmission creates cross terms that a valid Lyapunov construction must control.
+PASS: Original 2026 full-text Theorem 4 (constant climate, nonnegative rates d>0, R0>1, interior endemic equilibrium) and unweighted four-variable Volterra W with asserted equation (13) were read, including original PDF page images. Exact admissible Λ=d=1,gamma=2,omega=1,beta=10,Vbar=1,epsilon=4/5,beta0=0,alpha0=1/10,alpha=5,eta=1 gives B0=1/11,R0=34/11>1 and equilibrium x*=(27/50,23/100,23/100,5/9). At interior x=(3/4,1/100,1/20,19/20), independent Fraction substitution gives Wdot=2019503/13851000>0 while eq.(13) RHS=−30854209/1923750<0. Hence (13) fails and *this particular Lyapunov proof* does not prove global stability. It does not demonstrate endemic instability or rule out another global-stability proof.
 
-## Closest literature and limitations
-Classical SIR/SEIR Lyapunov and Dulac results provide useful comparison methods but do not cover the exact behavior-feedback derivative estimate considered here. The finding is deliberately limited to the invalidity of the published inequality and proof; it does not claim the endemic equilibrium is unstable or that the global-stability statement is false.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Target source original 31-page full PDF explicitly asserts Wdot<=strictly negative quadratics; no inspected portion or targeted correction/result search acknowledges a positive derivative. General SIR/SEIR Lyapunov and Dulac results treat different equations and do not supply this behavioral counterexample. Resultary exact paper, correction, endemic, Volterra aliases found no same counterexample. Priority remains subject to possible unindexed author notice.
+
+## value
+
+PASS
+
+PASS: A published theorem's sign-definite Volterra bound is essential to a LaSalle global-stability proof and is contradicted by an exact rational point meeting every stated assumption. This reveals an actionable structural gap (behavior-transmission cross terms), not a mere numerical optimization or unsupported assertion that a published conclusion itself is false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
