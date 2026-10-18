@@ -1,11 +1,21 @@
-# Review: exact reentrant amplification of maximal steered coherence
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof checks the density-matrix and partial-transpose spectra on the full stated domain. Alice's maximally mixed marginal reduces the complete POVM problem to an exact projected-correlation operator norm, and Bob's damped Bloch vector is never degenerate. Two singular values give the closed response formula. An exact concave-quadratic sign analysis, not sampling, proves the threshold and both interval endpoints. The rational example and 32 direct Kraus/projector cases were replayed from the packaged verifier. No assertion is made for broader state or channel classes.
+## correctness
 
-**Originality — PASS, with stated residual risks.** Hu, Milne, Zhang and Fan, *Quantum coherence of steered states*, arXiv:1507.02358 / DOI:10.1038/srep19365, provide the general QSE geometry and numerically plot prolate-state amplitude-damping enhancement (Fig. 2), but their Theorem 1 is an existential channel criterion rather than a sharp family-wide statewise phase condition. Hu and Fan, DOI:10.1103/PhysRevA.91.022301, analyze discord under local channels. Hu and Fan, DOI:10.1038/srep34380, address measurement-averaged steering-induced coherence. Lan and Hu, DOI:10.1016/j.rinp.2023.107050, focus on Bell inputs with squeezed damping and memory. Searches for geometric aliases, exact projective singular-value criteria, phase boundaries, and the source identifier found no covering claim. The possibility of an unindexed equivalently parameterized treatment remains a genuine limitation.
+PASS
 
-**Value — PASS.** The motivating publication left the precise dependence on prolate shape as numerical evidence. This result resolves a sharp three-parameter transition and an exact reentrant interval for all damping strengths, within a physically valid separable class. It makes quantitative predictions and distinguishes statewise enhancement from the previously established existence theorem.
+The pinned RESULT.md gives a complete optimization, not a sampled optimum. With Alice marginal I/2 every Bloch effect |m|<=1 is available, the coherence of Bob’s conditional state in the *post-damping Bob marginal* eigenbasis is the norm of the perpendicular projection, and its maximum is the largest projected T singular value. Damping sends b to (sqrt(q) beta,0,gamma) and T to diag(sqrt(q) tau,sqrt(q) kappa,q kappa). The two orthogonal projected rows give the exact two branches. Subtracting initial kappa^2 yields gamma P(gamma)/(gamma²+q beta²); concavity, endpoint negatives, internal vertex, and discriminant factorization give iff tau²>kappa²(1+beta²+2 sqrt(2) beta) and a single strict interval. State eigenvalues and its PPT eigenvalues nonnegative under 1-tau>=sqrt(beta²+4kappa²) establish physical separability for 2x2 systems. Direct independently calculated rational witness at (1/4,1/8,1/2),gamma=1/2 has coherence-square 257/2304 vs initial 1/64; boundary gamma=0,1 checked. This finite witness corroborates the analytic continuum proof, not replacing it.
 
-No new general result for discord, arbitrary two-qubit inputs, or nonstandard damping is claimed. Finite computer calculations provide corroboration but are not treated as a replacement for the complete analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim survives best-of-knowledge statement-level comparison: Hu et al. give the general maximal steered-coherence steering ellipsoid geometry and an existential characterization of channels capable of enhancement, as well as numerical prolate examples, but do not state or imply an evaluated *statewise* sharp three-parameter separable damping window with exact interval endpoints. It is not claiming invention of the operator-norm steering-ellipsoid method. No searched published finding covered this continuous parameter classification.
+
+## value
+
+PASS
+
+This is a mathematically motivated exact phase boundary for a physically accessible, always separable family exhibiting nonmonotonic single-outcome steered coherence under local damping. The two-root reentrant interval and strict enhancement criterion distinguish enhancement, loss, and critical touching in a nontrivial continuous family; it supplies a reusable exact benchmark beyond a numerical channel example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

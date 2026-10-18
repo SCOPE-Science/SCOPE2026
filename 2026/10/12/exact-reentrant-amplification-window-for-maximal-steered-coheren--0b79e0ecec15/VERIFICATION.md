@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The full argument is analytic. It uses exact density-matrix eigenvalues, the two-qubit positive-partial-transpose characterization of separability, the exact qubit Bloch-vector identity for single-outcome maximal steered coherence, and discriminant factorization of the remaining quadratic.
+## correctness
 
-For reproducibility, run `python verify.py` with Python 3. The self-contained verifier constructs four physical, separable parameter triples, applies the two Kraus matrices explicitly and calculates conditional qubit states for the two analytically optimizing projective effects at eight damping strengths each. These 32 directly reconstructed coherence values agree with both closed squared-singular-value branches within numerical tolerance. Python `fractions.Fraction` reproduces the exact rational sample and squared-coherence and discriminant identities.
+PASS
 
-Expected terminal output: `VERIFY_OK exact_fraction_witness=passed direct_kraus_steering_cases=32 boundary=passed`.
+The pinned RESULT.md gives a complete optimization, not a sampled optimum. With Alice marginal I/2 every Bloch effect |m|<=1 is available, the coherence of Bob’s conditional state in the *post-damping Bob marginal* eigenbasis is the norm of the perpendicular projection, and its maximum is the largest projected T singular value. Damping sends b to (sqrt(q) beta,0,gamma) and T to diag(sqrt(q) tau,sqrt(q) kappa,q kappa). The two orthogonal projected rows give the exact two branches. Subtracting initial kappa^2 yields gamma P(gamma)/(gamma²+q beta²); concavity, endpoint negatives, internal vertex, and discriminant factorization give iff tau²>kappa²(1+beta²+2 sqrt(2) beta) and a single strict interval. State eigenvalues and its PPT eigenvalues nonnegative under 1-tau>=sqrt(beta²+4kappa²) establish physical separability for 2x2 systems. Direct independently calculated rational witness at (1/4,1/8,1/2),gamma=1/2 has coherence-square 257/2304 vs initial 1/64; boundary gamma=0,1 checked. This finite witness corroborates the analytic continuum proof, not replacing it.
 
-These finite computations do not prove any universally quantified equality, positivity over a continuum, or literature novelty; those propositions are supported by the algebra in `RESULT.md` and the source comparison in `REVIEW.md`. Independent validation is not performed.
+## originality
+
+PASS
+
+The claim survives best-of-knowledge statement-level comparison: Hu et al. give the general maximal steered-coherence steering ellipsoid geometry and an existential characterization of channels capable of enhancement, as well as numerical prolate examples, but do not state or imply an evaluated *statewise* sharp three-parameter separable damping window with exact interval endpoints. It is not claiming invention of the operator-norm steering-ellipsoid method. No searched published finding covered this continuous parameter classification.
+
+## value
+
+PASS
+
+This is a mathematically motivated exact phase boundary for a physically accessible, always separable family exhibiting nonmonotonic single-outcome steered coherence under local damping. The two-root reentrant interval and strict enhancement criterion distinguish enhancement, loss, and critical touching in a nontrivial continuous family; it supplies a reusable exact benchmark beyond a numerical channel example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:00:11.327708Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned RESULT.md gives a complete optimization, not a sampled optimum. With Alice marginal I/2 every Bloch effect |m|<=1 is available, the coherence of Bob’s conditional state in the *post-damping Bob marginal* eigenbasis is the norm of the perpendicular projection, and its maximum is the largest projected T singular value. Damping sends b to (sqrt(q) beta,0,gamma) and T to diag(sqrt(q) tau,sqrt(q) kappa,q kappa). The two orthogonal projected rows give the exact two branches. Subtracting initial kappa^2 yields gamma P(gamma)/(gamma²+q beta²); concavity, endpoint negatives, internal vertex, and discriminant factorization give iff tau²>kappa²(1+beta²+2 sqrt(2) beta) and a single strict interval. State eigenvalues and its PPT eigenvalues nonnegative under 1-tau>=sqrt(beta²+4kappa²) establish physical separability for 2x2 systems. Direct independently calculated rational witness at (1/4,1/8,1/2),gamma=1/2 has coherence-square 257/2304 vs initial 1/64; boundary gamma=0,1 checked. This finite witness corroborates the analytic continuum proof, not replacing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu et al. Theorem 1 is existential across states and Theorem 2 bounds canonical MSC by an ellipsoid semiaxis. Lan–Hu use Bell-state/generalized amplitude damping with memory."
+        ],
+        "reasoning": "General geometry is an ingredient, not an already solved family-wise necessary-and-sufficient gamma-interval classification. Later channel and input families are not covering reductions.",
+        "searches": [
+          "https://www.nature.com/articles/srep19365",
+          "Hu Fan quantum steering ellipsoid local channels amplitude damping prolate separable",
+          "doi:10.1016/j.rinp.2023.107050"
+        ]
+      },
+      "checked_sources": [
+        "https://www.nature.com/articles/srep19365",
+        "https://arxiv.org/abs/1507.02358",
+        "https://doi.org/10.1016/j.rinp.2023.107050",
+        "Resultary semantic query: maximal steered coherence amplitude damping prolate separable two-qubit state exact threshold nonmonotonic enhancement steered coherence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hu et al. examine local amplitude damping with prolate steering ellipsoids in Figure 2 and derive which channels can enhance some state."
+        ],
+        "reasoning": "Their stated properties do not algebraically settle the exact post-channel eigenbasis dependence for all allowed separable states or the discriminant boundaries without substantive specialization.",
+        "searches": [
+          "https://www.nature.com/articles/srep19365",
+          "https://arxiv.org/abs/1507.02358",
+          "maximal steered coherence amplitude damping prolate separable two-qubit state exact threshold nonmonotonic enhancement steered coherence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu et al., Scientific Reports 6, 19365 (2016), Theorems 1–2 give general maximal steered coherence via the steering ellipsoid and local-channel possibility criterion."
+        ],
+        "reasoning": "Represent the state as b=(beta,0,0),T=diag(tau,kappa,kappa) and compare the transformed projected singular values; no algebraically equivalent three-parameter damping threshold is stated in the full published paper.",
+        "searches": [
+          "maximal steered coherence amplitude damping prolate separable two-qubit state exact threshold nonmonotonic enhancement steered coherence",
+          "https://www.nature.com/articles/srep19365"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary coherence hits concern other two-qubit resource tasks; no checked exact MSC damping-threshold table for this three-parameter family."
+        ],
+        "reasoning": "No fixed finite table/database could directly exhaust the continuum of beta,kappa,tau,gamma; only an actual parametric formula would cover it, not found in targeted checks.",
+        "searches": [
+          "maximal steered coherence amplitude damping prolate separable two-qubit state exact threshold nonmonotonic enhancement steered coherence",
+          "Resultary semantic query: maximal steered coherence amplitude damping prolate separable two-qubit state exact threshold nonmonotonic enhancement steered coherence"
+        ]
+      },
+      "rationale": "The claim survives best-of-knowledge statement-level comparison: Hu et al. give the general maximal steered-coherence steering ellipsoid geometry and an existential characterization of channels capable of enhancement, as well as numerical prolate examples, but do not state or imply an evaluated *statewise* sharp three-parameter separable damping window with exact interval endpoints. It is not claiming invention of the operator-norm steering-ellipsoid method. No searched published finding covered this continuous parameter classification.",
+      "residual_risks": [
+        "A not-read supplementary or differently parameterized prolate channel formula could encode the same inequality; absence of a search hit is not proof of global novelty.",
+        "Only this restricted family and Bob amplitude damping, not arbitrary channels or averaged coherence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial methodological overlap; not equivalent statewise threshold stated",
+          "evidence": "Theorem 1 existential over input states; Theorem 2 general geometry/bound; no explicit family-wide two-root boundary in evaluated sections.",
+          "identifier_or_url": "https://www.nature.com/articles/srep19365",
+          "material_read": "Accessible complete scholarly HTML including definitions, Theorems 1–2 and prolate numerical discussion/Figure 2",
+          "method": "read publisher full-text HTML",
+          "title": "Quantum coherence of steered states",
+          "trigger": "Exact same coherence measure, amplitude damping, prolate steering geometry"
+        },
+        {
+          "assessment": "Different Bell-state and memory-bearing channel context; do not assert document-wide non-coverage",
+          "evidence": "Different input/channel setup reported; inaccessible material is a residual literature risk.",
+          "identifier_or_url": "https://doi.org/10.1016/j.rinp.2023.107050",
+          "material_read": "Title, abstract/metadata and source-provided scope; full text not verified",
+          "method": "bibliographic and abstract comparison",
+          "title": "Protecting steered coherence in squeezed generalized amplitude damping channel with memory",
+          "trigger": "Competing damping/steering enhancement model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a mathematically motivated exact phase boundary for a physically accessible, always separable family exhibiting nonmonotonic single-outcome steered coherence under local damping. The two-root reentrant interval and strict enhancement criterion distinguish enhancement, loss, and critical touching in a nontrivial continuous family; it supplies a reusable exact benchmark beyond a numerical channel example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full recursive tree SHA not independently recomputed; pinned individual blobs fetched.",
+    "Point checks alone do not prove continuum claim; complete argument reconstructed."
+  ],
+  "schema_version": 1
+}
