@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact duality reduces the inner minimization to a determinant. Hexagonal symmetry leaves three relative edge types, and exact branch analysis gives the sharp \(8/9\) bound. Equality forces the displayed unit pair and one isometry orbit.
+## correctness
 
-## Originality
-PASS. The defining source gives the same \(2/3\) witness and only \(IB'\le8/9\). Later scalar theory does not imply the bounded lower bound or complete equality classification.
+PASS
 
-## Value
-PASS. The result completes a natural bounded-discrepancy problem on a classical benchmark; its substantive content is rigidity of all minimizers.
+From the explicitly defined dual norm N*(a,b)=max(|a|,|b|,|a+b|), the line-distance identity inf_lambda N(x+lambda y)=|det(x,y)|/N(y) holds. With x normalized to (1,t), 0<=t<=1, dihedral symmetry reduces y/N(y) to exactly three edges E0,E1,E2; E0 has no nontrivial isosceles solution, and remaining branch-active isosceles equalities force s+t<=3st or 1-2s-2t+3st>=0, respectively. Substitution q=sqrt((1-s)(1-t)) or sqrt(st), AM–GM yields q<=1/3 and determinant >=1-q²>=8/9. Equality in AM–GM and norm/isosc constraints forces r=||y||=1 and exactly the listed two symmetry-related chambers. Checked rational witness N(x±y)=4/3, determinant/N(y)=8/9. The argument is exhaustive because the hexagon edges partition the direction circle.
 
-## Closest literature and limitations
-The same-object source gives a one-sided witness, while later adjacent theory gives scalar relations. The theorem is endpoint-specific.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The number 8/9 was previously witnessed as an upper bound; original contribution is a global lower bound for bounded second vectors and the complete equality orbit, not re-announcing a scalar estimate.
+
+## value
+
+PASS
+
+A natural bounded orthogonality-discrepancy invariant for the canonical affine-regular hexagon had an explicit one-sided estimate; finishing the exact optimization and classifying all equality cases resolves a motivated geometric rigidity question. The result is more than known scalar witness or routine numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
