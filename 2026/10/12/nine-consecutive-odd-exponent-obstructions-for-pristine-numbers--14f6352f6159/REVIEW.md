@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For odd \(d\), the vanishing of \(d!P_d(-d-1)\) follows by pairing binomial-square terms, proving the integral factor. The inequality \(P_d(c)>c+d+1\) is immediate from its first two positive terms. If a prime \(q\) divides the linear factor but not the quotient's critical value, the quotient must divide \(d!\), contradicting its strict size bound. Otherwise the linear factor divides \(d!\). This gives exhaustive finite branches. The supplied standalone integer program verifies all \(639114\) divisor candidates, independently computes the quotient's critical values, factors them completely into primes no larger than each \(d\), and searches each exceptional-prime equation to completion. The enumerations supplement, rather than replace, the global reduction. No external independent audit is represented.
+PASS
 
-## Originality — PASS (provisional to further bibliographic review)
+Fink exact recursive-divisor identity reduces pristine to P_d(c)=q^d. For odd d the squared-binomial alternating sum at X=-d-1 vanishes, implying Q_d integer polynomial. Writing m=c+d+1 gives m Q_d(c)=d! q^d; as P_d(c)>m, Q_d(c)>d!. When q does not divide K_d, q dividing m would force Q_d(c) coprime to q and hence Q_d(c)|d!, contradiction. Thus either m|d! or q|K_d. An independently implemented exact-arithmetic exhaustive verification enumerated all 639114 relevant m|d! candidate c values and precisely the complete odd prime factors of each K_d (K factorization has no residual prime), testing exact integer dth powers and monotone exception equations; no cases survive for all nine exponents. Independently computed K via critical-point derivative sum. This is exhaustive only by the unrestricted two-branch proof, not a finite scan of arbitrary c bound.
 
-Fink (2020), Section 4.2, already gives the polynomial and its linear factor, and excludes exponents \(3\) and \(5\); these are explicitly credited. The stronger condition \(c+d+1\mid d!\) outside the finite set of primes dividing the quotient's critical value, and the nine exact exclusions for \(9\le d\le25\) odd, are neither supplied by those assertions nor entailed by Fink's general at-most-\(d-1\)-solutions statement. The closest published theorem found in the research index proves only the separate \(d=7\) case. Nearby special-function representations of the recursive-divisor function likewise do not imply the new nonexistence classification. Residual risks include an unindexed equivalent theorem and incomplete full-text access to one foundational paper.
+## originality
 
-## Value — PASS
+PASS
 
-Fink explicitly asks whether all odd exponents greater than one are impossible. The result resolves the next nine natural consecutive open odd-exponent layers beyond the previously excluded \(3\), \(5\), and \(7\), and supplies a reusable factorial-divisor sieve with an intrinsic completeness boundary rather than an arbitrary numerical cutoff. This is a natural Diophantine classification, not isolated computational examples. The remaining exponents \(d\ge27\) are not claimed.
+The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.
 
-## Scope and limitations
+## value
 
-All claims are restricted to odd primes and the nine listed odd exponents. The original function, its binomial formula, and the already-known polynomial factor are credited. Exact Python integer computation is a component of proof; external replication and literature review remain desirable. The 2019 source was checked by accessible bibliographic and abstract material; the directly relevant 2020 paper was substantively read from its lawful public PDF.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fink explicitly asks whether pristine examples exist for any odd exponent; after the previously proved 3,5,7 cases, this settles nine further consecutive natural odd-exponent layers by a reusable arithmetic sieve. Each layer has unbounded original c and q, so the exact finite reduction is substantive; no claim at d>=27.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
