@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The scalar Flooding update is exactly multiplicative by \(1+h\) below the flood radius and by \(1-h\) above it. For \(0<h<1\), taking log-radius turns the dynamics into two translations and, after a finite transient, a rigid circle rotation. Standard rotation theory and direct integration give the stated occupancy and mean-loss formulas. The \(h=1\) endpoint is a separate exact doubling/zeroing argument. The packaged checker replays the critical identities and resonances.
+PASS
 
-Scientific risk: the full classification is deterministic and one-dimensional, and exact boundary hits depend on the stated kink convention.
+The frozen RESULT.md has TWO overbroad assertions: it treats x0=0 as eligible for a log-radius conjugacy despite u=log 0 undefined, and calls the post-transient loss closure the entire interval without restricting to irrational rho; at golden-ratio h the orbit has only three points. A complete replacement RESULT.md is supplied. Its FINAL claim excludes x0=0, gives exact rotation for non-boundary trajectories, states dense/full-band closure and phase-independent means ONLY for irrational rho, and explicitly identifies finite q-point phase-dependent rational averages. It separately proves for all rational rho=p/q a p/q above-threshold visit frequency for endpoint-avoiding q-cycles. The h=1 dyadic boundary-hit and finite zero-collapse classification remains correct. Reconstructed multiplication log translations, the irrational integral h/atanh(h), and finite exact resonance and full-step tests independently. Scientific assessment is of the corrected final text, NOT a PASS on the frozen uncorrected closure assertion.
 
-## Originality
+## originality
 
-PASS. The defining paper gives the ascent/descent threshold rule and an informal random-walk description. Later work proves a local two-step gradient-regularization effect and gives scalar-quadratic Flooding illustrations and stationarity bounds, but no exact global orbit or time-average classification was found. A checked Fromage result already uses a logarithmic circle rotation for another optimizer, so that device is treated as prior; the accepted contribution is the Flooding-specific below-target mean, occupancy law, resonances, and exact-solve zero-loss absorption.
+PASS
 
-Residual risk: an unindexed note may have solved the same piecewise map.
+PASS best-of-knowledge for corrected deterministic Flooding-specific calibration, exact log rotation and h=1 collapse; standard circle dynamics itself is prior mathematics, and a different optimizer has related log rotations. No equivalent Flooding-specific conclusion was identified.
 
-## Value
+## value
 
-PASS. Flooding is explicitly intended to keep loss near a prescribed nonzero level. The exact theorem shows a systematic deterministic calibration bias below that level and a natural learning-rate endpoint that instead forces generic trajectories to zero loss. Those two facts directly test the method's defining design goals and provide sharp guidance about what the flood level and learning rate do in a solvable model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Flooding was specifically proposed to prevent descent to raw zero loss; on a natural strongly convex scalar test problem, the corrected exact calibration proves an irrational-time average STRICTLY below the target and a sharp h=1 zero-loss collapse. Separating rational phase effects prevents misleading use of a purported all-orbit loss band. This is motivated diagnostic mathematical information about the stated method, not a textbook circle-rotation exercise in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
