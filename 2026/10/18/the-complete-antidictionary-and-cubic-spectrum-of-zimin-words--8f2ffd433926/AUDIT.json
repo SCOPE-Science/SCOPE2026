@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The valuation representation fixes all occurrences of any nonempty middle factor at one offset within a level-h Zimin block; absent two-sided extensions force the entire block. The complete boundary-extension graph then lists every missing pair, including the empty middle and the boundary-only rank n-1 case. Summation is exact. The included independent context-enumeration checker agrees for ranks 1 through 9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1406.6341 presents general finite-word suffix-array algorithms and an extension-set criterion; it does not evaluate Zimin words.",
+        "arXiv:1506.04917 gives comparison algorithms and a circular-language analogue for arbitrary input, not specialized Zimin formulas."
+      ],
+      "reasoning": "Generic exact algorithms are broader in inputs but do not state the proposed closed-form output. The classification requires solving the concrete valuation boundary-extension graph and is not a direct substitution into a published explicit formula.",
+      "searches": [
+        "web: Zimin words minimal absent words exact formula Zimin antidictionary",
+        "web: ruler sequence valuation of integers exact minimal forbidden factors",
+        "arXiv:1406.6341 PDF Sections 2–3",
+        "arXiv:1506.04917 PDF Sections 1–4"
+      ]
+    },
+    "checked_sources": [
+      "Cooper–Rorabaugh, arXiv:1409.3080",
+      "Barton et al., arXiv:1406.6341",
+      "Crochemore et al., arXiv:1506.04917",
+      "Semantic research-record searches on Zimin minimal absent/forbidden words and ruler sequence",
+      "Public-web searches for Zimin MAWs and antidictionary exact formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cooper–Rorabaugh studies word encounters under nonerasing substitutions, a different avoidance predicate from absent contiguous factors of a fixed finite word.",
+        "Barton et al. Lemma 1 characterizes a missing extension from sets of factors; the proof here supplies Zimin-specific extension sets and all exact outputs.",
+        "Crochemore et al. studies linear-time comparison of already computed MAW sets and circularizations, not rank-dependent closed formulas."
+      ],
+      "reasoning": "The known valuation representation alone and general MAW algorithms do not logically give the closed forbidden families, precise lengths, or the cubic count without the new extension-graph classification. Any prior theorem explicitly computing them would dominate this result, but none was found.",
+      "searches": [
+        "arXiv:1409.3080 full readable article sections 0–2",
+        "arXiv:1406.6341 PDF Sections 2–3 and Lemma 1",
+        "arXiv:1506.04917 PDF Sections 2–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cooper–Rorabaugh arXiv:1409.3080 defines the recursion and studies encounter/avoidance rather than forbidden substrings.",
+        "Barton et al. arXiv:1406.6341, Sections 2–3, defines MAWs and solves their algorithmic enumeration for generic input words."
+      ],
+      "reasoning": "Antidictionary, minimal forbidden factors, and MAWs are the same relevant contiguous object. Direct statements and recurrence aliases were sought. No found source stated an all-rank Zimin antidictionary or an equivalent length spectrum; lack of hits is not a proof of novelty.",
+      "searches": [
+        "web: \"Zimin\" \"minimal absent words\"",
+        "web: \"Zimin\" \"minimal forbidden words\"",
+        "Zimin words minimal absent words MAW generalized alphabet n length spectrum",
+        "Complete minimal absent factors of recursive Zimin words Z_n=Z_{n-1} n Z_{n-1} are a Z_j b; exact antidictionary lengths 2^j+1 and cubic total count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic index matches involved unrelated automata rank-compression and binary-word short absent-subsequence extremals; these do not govern contiguous factors of rank-varying Zimin words.",
+        "Full contextual enumerations were generated independently; they are verification evidence, not a published table."
+      ],
+      "reasoning": "No known indexed table or database result was identified that could imply the exact all-rank formulas. The absence of a database hit alone cannot establish priority.",
+      "searches": [
+        "Zimin words minimal absent words MAW generalized alphabet n length spectrum",
+        "Ruler sequence valuation of integers exact minimal forbidden factors and antidictionary",
+        "web: Zimin words minimal forbidden factors minimal absent words recursion"
+      ]
+    },
+    "rationale": "Full-text comparison separates published Zimin pattern-avoidance thresholds from minimal absent contiguous factors. General MAW algorithms enumerate an arbitrary given word, but supply neither the exact finite-Zimin forbidden-language description nor the cubic alphabet-rank spectrum. Published database searches for Zimin minimal absent factors/antidictionaries and claim-level mathematical-record comparisons found no covering formula; unseen specialized literature remains possible.",
+    "residual_risks": [
+      "An unindexed or differently named Zimin/ruler-word antidictionary computation could imply this closed form.",
+      "Originality is self-review; independent review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_QUESTION",
+        "evidence": "Definition 0.6 gives the recursion/valuation; Theorems 1.1 and 2.5 address occurrence/avoidance of homomorphic pattern instances, not exact MAWs.",
+        "identifier_or_url": "https://arxiv.org/abs/1409.3080",
+        "material_read": "Full readable article sections defining the valuation form, proving avoidance estimates, and outlining remaining problems; section and appendix claims",
+        "method": "Read primary open-access article content and compare concrete conclusions",
+        "title": "Bounds on Zimin Word Avoidance",
+        "trigger": "Direct Zimin recursion and possible Zimin-specific coverage"
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": "General linear-time algorithm and extension criterion are provided, but no Zimin specialization or closed length spectrum.",
+        "identifier_or_url": "https://arxiv.org/pdf/1406.6341",
+        "material_read": "PDF pages 1–4 (abstract, introduction, definitions, Lemmas 1–2); searched remainder for Zimin and ruler sequence",
+        "method": "Read primary full-text relevant definitions and algorithms; inspected PDF page image",
+        "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+        "trigger": "General MAW algorithm could subsume the explicit formula"
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": "Algorithms and finite/circular sequence comparisons; no specific Zimin MAW classification.",
+        "identifier_or_url": "https://arxiv.org/pdf/1506.04917",
+        "material_read": "PDF pages 1–6, definitions, comparison algorithm, circular-language setup, contribution overview; searched full parsed text for Zimin",
+        "method": "Read primary full text, relevant argument sections, inspected page images",
+        "title": "Linear-Time Sequence Comparison Using Minimal Absent Words & Applications",
+        "trigger": "Broader general theory of MAWs and circular word potential coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f2ffd43-3926-47be-b636-b3fc95e7df23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact infinite-rank antidictionary of the classical unavoidable-pattern family is mathematically natural and structurally interpretable: its forbidden words have only exponentially separated lengths and a cubic, not exponential, output-size law relative to rank. A complete language description gives symbolic compression and provides a benchmark for absent-word algorithms, beyond routine finite enumeration.",
+    "status": "PASS"
+  }
+}
