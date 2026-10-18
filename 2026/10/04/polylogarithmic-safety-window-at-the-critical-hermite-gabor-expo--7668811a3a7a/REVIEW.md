@@ -1,57 +1,21 @@
-# Review of Polylogarithmic safety window at the critical Hermite-Gabor exponent
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary source's near-diagonal proof is sufficiently explicit to permit a drifting-parameter analysis. Setting
-\[
-\eta_n=\beta\frac{\log\log n}{\log n},
-\qquad
-\delta_n=\eta_n/2,
-\qquad
-p_n=1-\eta_n/4,
-\qquad
-t_n=2/3-\eta_n/4
-\]
-satisfies the source's partition inequalities for all sufficiently large \(n\). Substitution into the source's displayed layer bounds gives the dominant term
-\[
-n^{-\eta_n/8}=(\log n)^{-\beta/8}.
-\]
-All other finite-layer terms are smaller. The source's explicit tail estimate remains exponentially small because its two required conditions become
-\[
-n^{-2/3}(\log n)^\beta\to0
-\]
-and
-\[
-n^{1/3}(\log n)^\beta\to\infty.
-\]
-Thus the off-origin Janssen coefficient sum is uniformly
-\[
-O_\beta((\log n)^{-\beta/8}).
-\]
-Janssen's representation then yields the claimed normalized frame-operator estimate and frame bounds. No finite computation is used to prove the asymptotic theorem.
+PASS
 
-## Originality
+Directly reopened the source near-diagonal estimates, rather than applying its fixed-eta theorem at eta_n. With eta_n=beta loglog n/log n, delta_n=eta_n/2, p_n=1−eta_n/4, t_n=2/3−eta_n/4, constraints 0<delta<eta<1/3, 1/3<p<1, 0<t<2/3, p+t>5/3−2(eta−delta) hold eventually. Exact substitution in source (3.53) yields four contributions n^{-eta/8}, n^{-eta/4}, n^{-1/6−eta/2}, n^{-eta/2}. Source (3.65)–(3.67) gives n^{-1/6−9eta/8}, n^{-eta/2}, n^{-1/6−eta/2}log n for the delicate layer. Its tail prerequisite pi*n^{-epsilon}<0.1 and exp[−pi n^{1−epsilon}/4]<1/2 with epsilon=2/3−eta holds as n→infty. Inspected source lattice-counting constants are universal and do not conceal inverse-eta factors in these displayed estimates. Summing the off-origin Janssen coefficients and using unitary shifts gives ||ab S−I||≤C_beta(log n)^{-beta/8}. No finite experiment is substituted for the analytic uniform estimate.
 
-PASS. The 2026 source proves only a fixed-power statement:
-\[
-ab\le n^{-2/3-\eta}
-\]
-for each fixed \(\eta>0\). That theorem does not imply a logarithmic window by choosing \(\eta=\eta_n\), because its threshold is allowed to depend arbitrarily on \(\eta\). The accepted result therefore depends on a fresh proof-level comparison: the displayed source estimates are reopened and tracked uniformly while \(\eta_n,\delta_n,p_n,t_n\) drift with \(n\).
+## originality
 
-The full primary text was inspected through the Janssen criterion, the tail proof, the near-diagonal partition, and the explicit estimates for every lattice layer. Searches for logarithmic, polylogarithmic, critical-\(2/3\), asymptotically tight, and normalized-frame-operator formulations found no covering statement.
+PASS
 
-The 2025 frame-set paper treats specific safety-region enlargements and exact square-lattice examples rather than the present asymptotic logarithmic strip. The 2025 non-frame paper studies rational-density obstructions near the coordinate-axis scale and does not dominate the near-diagonal positive result.
+Faulhuber–Shafkulovska–Zlotnikov Theorem 1.1 proves ab≤n^{-2/3−eta} for each FIXED eta>0; its uncontrolled n_eta does not allow eta to drift. The evaluated (3.53), (3.65)–(3.67) layer inequalities and explicit tail permit the new logarithmic uniformity. The 2025 related frame-set work and near-axis obstruction concern other scales. Resultary search found the current claim but not a different log-window result; a near-contemporaneous independent estimate remains a priority risk.
 
-Residual risk remains that the logarithmic refinement may have been observed informally or in uncatalogued notes, since it is extracted from a recent proof rather than requiring a new external lemma.
+## value
 
-## Value
+PASS
 
-PASS. The motivating paper identifies \(2/3\) as the new critical product exponent but leaves a fixed positive power loss \(n^{-\eta}\). Removing every fixed power loss and replacing it by an arbitrary polylogarithmic loss is a meaningful asymptotic sharpening: it moves the guaranteed density from \(n^{2/3+\eta}\) to
-\[
-n^{2/3}(\log n)^\beta
-\]
-in a substantial near-diagonal regime.
+Replacing every fixed power loss by arbitrarily small logarithmic loss at the critical near-diagonal 2/3 product exponent is mathematically meaningful. Stronger still, the controlled Janssen sum proves natural-density-normalized frame operators approach identity at an explicit log rate, enabling conditioning estimates. The region expressly excludes the separate near-axis regime; exponent beta/8 is not asserted optimal.
 
-The operator-norm estimate gives additional structure beyond membership in the frame set: after the natural density normalization, these Gabor frames become asymptotically tight with an explicit logarithmic rate. This is useful for conditioning and reconstruction, not only for set inclusion.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
