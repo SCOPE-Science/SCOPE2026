@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-On the exact vertex set \((\mathbb Z/7\mathbb Z)^2\), two channel inputs are confusable iff both circular coordinate differences belong to \(\{0,\pm1\}\). In the complement compatibility graph, a maximal clique is exactly a nonextendable zero-error codebook. Standard exhaustive pivoted maximal-clique recursion explores all such cliques with no duplicates; two separately implemented programs generated identical sorted mask catalogues (SHA-256 `362d213751756f339a3319847ce2bc6b580fd2ddc34d124b265e0a1dd417de13`). Each returned mask passed an independent direct membership/nonextendability check, and the generators' orbits partitioned all 83,181 masks. The result covers exactly two uses and all labeled 49-input subsets; no inference from samples is involved.
+PASS
 
-## Originality: PASS, with residual literature risk
+On 49 labeled ordered pairs, zero-error sets are exactly cliques of the compatibility graph whose edges have at least one coordinate separation 2,3,4,5 mod 7. Inclusion-maximal zero-error sets are maximal cliques. Inspected the complete RESULT.md and actual verify_a.py/verify_b.cpp Git tree and independently implemented a pivoted Bron–Kerbosch maximal-clique recursion on the 49-vertex graph. It enumerated exactly 83,181 distinct terminal sets with counts 28 at size 7, 9,016 at size 8, 73,157 at size 9, and 980 at size 10; all passed direct adjacency and maximality tests. The sorted 13-hex-digit-per-line list has SHA-256 362d213751756f339a3319847ce2bc6b580fd2ddc34d124b265e0a1dd417de13, equal to the package’s uncompressed catalogue digest. Independent generator orbit traversal under shifts, reflections, and swap yields 229 orbits and the stated nine (cardinality,orbit-size,multiplicity) classes. This is complete finite enumeration, not extrapolation to more channel uses.
 
-The 2012 odd-cycle product paper and classical formula already determine the maximum cardinality ten. A prior maximum-code catalogue contains 980 such codes and three natural orbits. The 2018 Yang–Zhang theorem already implies minimum inclusion-maximal cardinality seven. The 2026 Hildebrant full text determines the *ordinary* independence polynomial of this same graph, which does not identify which submaximum independent sets are inclusion-maximal or their symmetry orbits. The new claim is instead the full terminal histogram (28, 9016, 73157, 980) and the 229-orbit classification, including 82,201 nonmaximum terminal codes. Primary same-graph literature was compared by the logical scope of its theorems, not just wording. The full 2005 Klobučar paper was inaccessible despite the journal portal listing its PDF, so its exact coverage remains a residual risk; none of the accessible primary statements supplies the terminal census. See `AUDIT.json` for detailed comparisons.
+## originality
 
-## Value: PASS
+PASS
 
-Inclusion maximality is the operational stopping condition for iterative zero-error codebook design. A stopping set may have only seven codewords even though ten are possible; moreover 82,201 suboptimal endpoints and their 226 symmetry classes are structurally distinct from the already known optimum census. Enumerating all terminal sizes, their frequency, and symmetry provides a natural complete finite answer for the first seven-cycle channel whose strong-product behavior is more subtle than the pentagon case. The result is not a renaming of a known extremal size or a numerical extrapolation.
+The full spectrum of inclusion-maximal codes, particularly 82,201 nonmaximum terminal codes in 226 symmetry orbits, is not the known independent domination minimum 7, independent-set counts, or known maximum size 10 with 980 maximum-size codes. The primary Yang–Zhang strong-product independence-domination result provides the minimum 7 but not the histogram. Hildebrant 2026 gives ordinary independence polynomials of the same graph, including coefficient 980, but those count all independent sets and do not furnish the maximal-set census. A semantic Resultary query returned no exact prior spectrum, but that absence is not a proof of originality.
 
-## Limitations and sources
+## value
 
-Two-use seven-cycle channel only; asymptotic Shannon capacity and higher products are not studied. The exact 2005 PDF was not readable; an unindexed complete enumeration cannot be categorically excluded. Main published comparisons: Klobučar (2005), Korže–Vesel (2012), Yang–Zhang (2018), Hildebrant (2026). All computational code and the exact finite catalogue are included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Inclusion-maximal codebooks are precisely terminal feasible communication designs: unlike maximum cardinality, terminal size measures how a zero-error code can saturate prematurely. The complete finite spectrum and natural channel-isometry orbit census are meaningful exact invariants of the canonical C7 two-use instance, not arbitrary sample values. The overwhelming nonmaximum count demonstrates a structural distinction from capacity-optimal codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
