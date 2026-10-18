@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The supporting-hyperplane distance reduces exactly to a dual slack by an explicit attaining translation. A scalar Bregman remainder has a positive global minimum for \(p>2\), and its pointwise inequality integrates without dimension-dependent constants. Because the competitor lies in the closed unit ball, the Bregman deficit gives a lower bound for the index. A two-coordinate family of *unit* vectors at distance at least the prescribed radius has dual slack \(c_p\varepsilon^p+O(\varepsilon^{2p})\); this is a genuine all-small-radius upper construction. The quartic scalar identity is exact. Code samples are auxiliary and are not substituted for infinite proofs.
+PASS
 
-## Originality
+For any norming (x,J_p(x)) in real Lp, distance from H_{J_p(x)} to each y∈B is exactly 1−J_p(x)(y), attained by z=y+(1−J_p(x)(y))x. The scalar Bregman remainder φ_p(t) is continuous, strictly positive, coercive for p>2, hence has minimum c_p∈(0,1/p) (minimizer in (-1,0)). Integrate the exact inequality |a+b|^p/p−|a|^p/p−|a|^{p−2}ab≥c_p|b|^p; the ball constraint supplies 1−J_p(x)(y)≥c_p||x−y||_p^p and the global lower bound. For any minimizer t_p, two disjoint normalized characteristic functions give unit vectors x_h,y_h with ||x_h−y_h||≥h and supporting slack c_ph^p+O(h^{2p}) for all sufficiently small h; this matches the lower bound. Independently verified quartic factorization (3/2)b²(a+b/3)²+b⁴/12 and p=4 two-atom symbolic h→0 limit 1/12. The finite numerical samples are not proofs.
 
-PASS with documented residual risk. The 2023 defining paper treats Hilbert spaces exactly and has only comparison inequalities for general spaces. The 2024 follow-up concerns the core and faces, not exact small-scale values. The 2019 Bregman paper provides related power-type bounds, not this matched asymptotic of a global support-hyperplane distance, and its cited older sharp \(L_p\) constants may nevertheless simplify the lower-bound step. The new contribution combines a sharp scalar remainder with the matching *unit-sphere* construction, thereby determining the precise global coefficient. Earlier work on a canonical scalar summand is a local profile and does not determine the global infimum: its coefficient \(1/p\) exceeds \(c_p\).
+## originality
 
-## Value
+PASS
 
-PASS. Strong rotundity is a natural Banach-space invariant introduced to quantify strong exposure. The first non-Hilbert \(L_p\) power-law coefficient is both intrinsic and sharp, independent of dimension and atomicity; in \(L_4\) it is exactly \(1/12\). Unlike a parameter substitution, the result identifies a strict gap between the local coordinate model and the optimal global asymptotics, and explains that gap by an explicit two-coordinate geometrical perturbation.
+García-Pacheco (2023) Definition 2.1 defines the precise local/global eta, Corollary 2.1 computes only Hilbert eta=epsilon²/2; his Lp-summand Theorem 2.6 is about stereographic projection, not the sharp GLOBAL eta coefficient for all real Lp p>2. Sprung (2019) studies general power-norm Bregman lower/upper controls; it does not establish the matching globally minimized eta with explicit unit-sphere pair. Published scalar Lp-summand local profile has epsilon^p/p, strictly larger than c_p. The inaccessible Xu–Zhang (1989) may have sharp scalar power remainder but does not automatically imply the new global-index upper construction. Originality PASS best-of-knowledge with this residual risk.
 
-## Comparison limits
+## value
 
-An older Xu–Zhang article cited by Sprung was not available in full text. Possible implicit coverage of the sharp scalar inequality through classical \(L_p\) convexity theory remains a risk, although no inspected source supplied the new global-index equality. No exact formula for finite radii is asserted.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2023 strong-rotundity index is a natural non-Hilbert geometric invariant with previously unevaluated exact leading coefficient across p>2 and arbitrary atomicity/dimension≥2. A sharp scalar convexity coefficient alone is insufficient: the nontrivial two-coordinate unit-sphere construction realizes it in the global hyperplane-distance index. Exact c4=1/12 is a reproducible natural benchmark, not a trivial rescaling of Hilbert modulus or a numerical grid calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

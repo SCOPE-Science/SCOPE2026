@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:08:16.762470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any norming (x,J_p(x)) in real Lp, distance from H_{J_p(x)} to each y∈B is exactly 1−J_p(x)(y), attained by z=y+(1−J_p(x)(y))x. The scalar Bregman remainder φ_p(t) is continuous, strictly positive, coercive for p>2, hence has minimum c_p∈(0,1/p) (minimizer in (-1,0)). Integrate the exact inequality |a+b|^p/p−|a|^p/p−|a|^{p−2}ab≥c_p|b|^p; the ball constraint supplies 1−J_p(x)(y)≥c_p||x−y||_p^p and the global lower bound. For any minimizer t_p, two disjoint normalized characteristic functions give unit vectors x_h,y_h with ||x_h−y_h||≥h and supporting slack c_ph^p+O(h^{2p}) for all sufficiently small h; this matches the lower bound. Independently verified quartic factorization (3/2)b²(a+b/3)²+b⁴/12 and p=4 two-atom symbolic h→0 limit 1/12. The finite numerical samples are not proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "García-Pacheco Cor2.1 computes Hilbert dimension≥2 exactly epsilon²/2 and Thm2.4 compares eta and 2 delta; Sprung Thm4.1 addresses general Bregman moduli."
+        ],
+        "reasoning": "Neither prior result specifies lim eta_{Lp}(epsilon)/epsilon^p for every p>2. A Clarkson/Hanner lower estimate does not dominate the submitted sharp c_p equality.",
+        "searches": [
+          "Resultary semantic: index of strong rotundity Lp spaces eta epsilon sharp small scale coefficient Bregman",
+          "https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf",
+          "https://link.springer.com/article/10.1186/s13660-018-1953-y"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf",
+        "https://link.springer.com/article/10.1186/s13660-018-1953-y",
+        "Resultary record 2026/10/11/SCOPE-exact-strong-rotundity-profiles-and-singular-endpoint-laws-for-s--1eaa11eb0e27",
+        "frozen RESULT.md blob 7fb1e6de1d75fda5bc698b22d62e1ce124bd4ea4",
+        "frozen verify.py blob 945a66ce4dde162263778781d7fa2ace9185806a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target combines integrated scalar remainder with an explicit pair of norm-one Lp functions attaining its minimum. Original eta paper does not present this matching pair; Sprung gives general Bregman comparison."
+        ],
+        "reasoning": "Sharp scalar Bregman inequality, even if previously known, supplies a lower bound only; it does not automatically prove global sharpness or the two-coordinate asymptotic. Older Xu–Zhang text was not inspected; risk remains bounded and explicit.",
+        "searches": [
+          "Resultary semantic: index of strong rotundity Lp spaces eta epsilon sharp small scale coefficient Bregman",
+          "https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf",
+          "https://link.springer.com/article/10.1186/s13660-018-1953-y",
+          "Xu–Zhang (1989) cited by Sprung"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "García-Pacheco Def2.1: eta_X(eps) is inf of distances from a norming hyperplane to B_X\\U_X(x,eps). Sprung defines Bregman divergence Δ_{||·||^p/p} from duality map."
+        ],
+        "reasoning": "The submitted eta reduction is an exact dual slack, whose lower bound is a Bregman estimate, but the sharp global constrained infimum also needs the unit-sphere two-coordinate construction. They are related tools, not equivalent previously proved claims.",
+        "searches": [
+          "Resultary semantic: index of strong rotundity Lp spaces eta epsilon sharp small scale coefficient Bregman",
+          "https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf",
+          "DOI:10.1186/s13660-018-1953-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published local scalar Lp summand profile has small-scale epsilon^p/p; target c_p<1/p and c4=1/12 versus 1/4."
+        ],
+        "reasoning": "Known local table is strictly different and cannot give target global infimum. Search found no matching global real Lp p>2 exact small-scale table.",
+        "searches": [
+          "Resultary semantic: index of strong rotundity Lp spaces eta epsilon sharp small scale coefficient Bregman",
+          "Resultary record 2026/10/11/SCOPE-exact-strong-rotundity-profiles-and-singular-endpoint-laws-for-s--1eaa11eb0e27",
+          "https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf"
+        ]
+      },
+      "rationale": "García-Pacheco (2023) Definition 2.1 defines the precise local/global eta, Corollary 2.1 computes only Hilbert eta=epsilon²/2; his Lp-summand Theorem 2.6 is about stereographic projection, not the sharp GLOBAL eta coefficient for all real Lp p>2. Sprung (2019) studies general power-norm Bregman lower/upper controls; it does not establish the matching globally minimized eta with explicit unit-sphere pair. Published scalar Lp-summand local profile has epsilon^p/p, strictly larger than c_p. The inaccessible Xu–Zhang (1989) may have sharp scalar power remainder but does not automatically imply the new global-index upper construction. Originality PASS best-of-knowledge with this residual risk.",
+      "residual_risks": [
+        "A sharp Lp scalar inequality may predate this paper under Bregman or uniform-convexity terminology, especially Xu–Zhang 1989, but direct prior coverage of the complete global-index equality has not been found.",
+        "One-dimensional, complex-scalars, p≤2 and exact finite-epsilon index are excluded by the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact global real-Lp p>2 leading coefficient",
+          "evidence": "Definition 2.1 p4; Corollary 2.1 p6 eta_H=epsilon²/2; Theorem 2.6 concerns stereographic projection pairs.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf",
+          "material_read": "PDF 10 pages: title/abstract p1, precise Definition 2.1 p4, Hilbert Corollary 2.1 and modulus comparison p6, Lp-summand Theorem 2.6 p7; other portions indexed in extracted PDF",
+          "method": "Published AIMS full PDF text and visual page screenshots pages 1,4,6,7",
+          "title": "The index of strong rotundity",
+          "trigger": "Original definition and possible Lp global sharpness coverage"
+        },
+        {
+          "assessment": "NOT_COVERING target global eta asymptotic",
+          "evidence": "Bregman Δ and modulus inequalities, not distance-to-norming-hyperplane global minimization matched by two atoms.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-018-1953-y",
+          "material_read": "Open article HTML, introduction, Sections 2 and 4; Theorem 4.1 and asymptotic Bregman modulus descriptions",
+          "method": "Publisher full-text HTML passage inspection (not every equation in article separately checked)",
+          "title": "Upper and lower bounds for the Bregman divergence",
+          "trigger": "Closest general scalar remainder technique"
+        },
+        {
+          "assessment": "ACCESS_RISK; no whole-document noncoverage inference",
+          "evidence": "Potential earlier matching scalar c_p does not alone certify or negate the submitted global eta equality.",
+          "identifier_or_url": "Xu–Zhang 1989, Acta Math. Sinica 37,433–439",
+          "material_read": "Secondary citation in Sprung (2019) only; no original full text",
+          "method": "Bibliographic indication and risk tracking",
+          "title": "Another set of characteristic inequalities of Lp spaces",
+          "trigger": "Possibly sharp scalar convexity constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2023 strong-rotundity index is a natural non-Hilbert geometric invariant with previously unevaluated exact leading coefficient across p>2 and arbitrary atomicity/dimension≥2. A sharp scalar convexity coefficient alone is insufficient: the nontrivial two-coordinate unit-sphere construction realizes it in the global hyperplane-distance index. Exact c4=1/12 is a reproducible natural benchmark, not a trivial rescaling of Hilbert modulus or a numerical grid calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the leading coefficient is determined; p>2 and at least two positive finite measure parts required.",
+    "Checking quartic and two-atom asymptotic does not by itself replace analytic scalar coercivity and integrated inequality.",
+    "A sharp Lp scalar inequality may predate this paper under Bregman or uniform-convexity terminology, especially Xu–Zhang 1989, but direct prior coverage of the complete global-index equality has not been found.",
+    "One-dimensional, complex-scalars, p≤2 and exact finite-epsilon index are excluded by the claim."
+  ],
+  "schema_version": 1
+}
