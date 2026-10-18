@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The target perturbation inequality was checked in its finite-support form. For each fixed coefficient vector \(c\), substituting \(tc\), dividing by \(t>0\), and taking \(t\downarrow0\) removes exactly the term \(\alpha t\|c\|\,\|T_Fc\|\). No interchange of an infinite sum with a limit is used.
+# Independent mathematical audit
 
-From the reduced inequality,
-\[
-(1-\beta)\|T_Gc\|\le(\sqrt{B_F}+\gamma)\|c\|,
-\]
-so the synthesis map is uniformly bounded on finitely supported sequences and extends to \(\ell^2\). This proves the stated ordinary Bessel bound.
+## correctness
 
-For sharpness, the one-atom choice \(F=(\sqrt{B_F})\) and \(G=((\sqrt{B_F}+\gamma)/(1-\beta))\) makes the reduced perturbation inequality an equality.
+PASS
 
-For the controlled counterexample, with \(0<\varepsilon<1\),
-\[
-S_G=\begin{pmatrix}1&\varepsilon\\\varepsilon&1+\varepsilon^2\end{pmatrix},\qquad
-CS_G=\begin{pmatrix}1&\varepsilon\\2\varepsilon&2+2\varepsilon^2\end{pmatrix}.
-\]
-Thus \(CS_G\ne(CS_G)^*\). At \(f=(1,i)\), its quadratic value has imaginary part of magnitude \(\varepsilon\), so it cannot satisfy a real controlled Bessel inequality. The source smallness condition reduces to \(\varepsilon<1\), exactly the range chosen.
+For every finitely supported c, substitute tc, divide by t and let t↓0: alpha t||c||||T_Fc||→0; the converse holds by positivity. Rearranging yields (1-beta)||T_Gc||≤(sqrt(B_F)+gamma)||c|| and extension to ell2. A one-atom example attains the constant. In C² with C=diag(1,2), F=(e1,e2), G=(e1+epsilon e2,e2), epsilon∈(0,1), K=I, beta=alpha=0 and gamma=epsilon satisfy the published smallness hypothesis but C S_G=[[1,epsilon],[2epsilon,2+2epsilon²]] is not self-adjoint; so the controlled conclusion fails. Hermitian polarization gives the exact commutation criterion for a bounded positive control.
 
-No computation beyond these exact symbolic identities is required. The result does not assert a controlled conclusion without \(CS_G=S_GC\), and it does not identify the source's controlled upper bound with the ordinary Bessel bound \(B_F\).
+## originality
+
+PASS
+
+The target 2018 theorem has the precise degree-two coefficient factor, and the 2016 homogeneous perturbation theorem does not correct it. The 2020 commutation correction treats a different K-frame assertion, not this exact alpha-free equivalence, tight bound and counterexample. Semantic Resultary and exact theorem/title searches found no stronger mathematical implication of the combined correction.
+
+## value
+
+PASS
+
+Correcting a false published controlled Bessel implication has substantive value because the result identifies the exact missing structural hypothesis and supplies a sharp usable ordinary stability constant; this is not merely a generic normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
