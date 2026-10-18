@@ -1,15 +1,21 @@
-# Scientific review: short-edge four-cycle numerical index
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-slope duality identifies the Lipschitz dual ball exactly as the intersection of a cube and a slab. The primal extreme molecules and all dual vertices are described, including the boundary at \(t=1\). An explicit three-vertex identity bounds each previously nonnorming evaluation by \((2-t)v(T)\), proving the universal operator lower bound. A rank-one operator has numerical radius \(1\) and norm \(2-t\) by direct vertex evaluation, closing equality. The exact rational checker passes seven parameter values but is not used as a substitute for the uniform analytic proof.
+## correctness
 
-## Originality — PASS (residual literature risk)
-The closest three-point result (Cobollo–Guirao–Montesinos, arXiv:2304.13183) does not apply to four-point metrics. Existing weighted-cycle threshold classifications establish \(n=1\) versus \(n<1\) but not the exact nonmaximal values in this deformation. Equal-edge parity results cover the endpoint, not the interior. General finite-dimensional polyhedral methods do not themselves assert the formula. Searches for weighted cycles, equivalent quotient and slab models, and the rational function found no direct covering theorem. Unindexed equivalent results remain possible.
+PASS
 
-## Mathematical value — PASS
-This is an exact, naturally parameterized three-dimensional Banach-space invariant for the first weighted cyclic metric, rather than an isolated numerical example. The formula quantifies the full transition between the square and the collapsed equilateral triangle, including its sharp rate and rank-one extremizers. That quantitative transition is not implied by merely knowing where maximal numerical index occurs.
+For every real t with 0<t≤1 the oriented edge relation p1+p2+p3+t p4=0 identifies dual ball K_t=[−1,1]^3 intersect |u1+u2+u3|≤t. Extreme dual vertices are permutations of (1,−1,±t), with t=1 degeneracy handled. The eight signed edge molecules are exactly primal vertices because each edge is shorter than its alternative path. The algebraic identity (t,1,−1)=(1,t,−1)−(1−t)[(1,−1,t)+(1,−1,−t)]/2, with symmetries, bounds every nonnorming extreme dual evaluation by (2−t)v(T), norming ones by v(T), and p4 is always normed. Therefore ||T||≤(2−t)v(T). The rank-one map T=φ⊗z, φ(p_i)=(1,−1/2,−1/2), z=((1−t)/(1+t))p1+(2/(1+t))p2 has ||φ||=1, ||z||=2−t, v(T)=1 by vertex enumeration. The identities and witness arithmetic were checked symbolically and against the declared finite exact parameter verifier, but the proof treats the continuous interval, not only sampled rational t. Endpoint t=1 yields index 1; t→0 limit 1/2 is not a claimed degenerate four-point metric.
 
-## Limitations
-Real scalars only; four vertices; three equal long edges; one shorter edge; no claim for the full four-weight domain or arbitrary operators. Independent audit is outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Prior full weighted-cycle rigidity theorems imply n=1 at t=1 and n<1 for 0<t<1, but explicitly do not give exact subunit values. Cobollo et al determine numerical index for three-point spaces; its t→0 limit may be checked against equilateral triangle but does not cover four points. Finite-dimensional general algorithms and unit-cycle parity have no stated continuous 1/(2−t) family. This natural sharp continuous interpolation is best-of-knowledge new with residual possible hidden polyhedral formula.
+
+## value
+
+PASS
+
+The simplest nontrivial one-edge perturbation of a square has a natural full one-dimensional parameter t. The formula 1/(2−t) quantifies the entire transition between square index 1 and equilateral triangle limit 1/2, including exact rate and a uniform rank-one extremizer, information not derivable from existing index-one thresholds. This is a natural complete classification of an exact Banach invariant for a geometrically motivated family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
