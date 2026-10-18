@@ -1,15 +1,21 @@
-# Review of temperature-dual Dicke recovery
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The three syndrome domains are mutually orthogonal because the two Dicke weights differ by at least three. Each recovery operator has singular values bounded by one. The one-site Dicke projection identity gives exactly the accepted down/up jump coefficient, while a first-order diagonal filter equalizes the two no-jump logical amplitudes. A separate hypergeometric calculation proves the exact normalized no-jump coherence, including its strict inequality at intermediate bath population and its quadratic variance coefficient. Full Kraus-matrix compositions and rational coefficient checks from `verify.py` agree with the statements. Residual risk: the expansions require fixed block length and sufficiently weak damping; no all-size uniform error constant is established.
+PASS
 
-## Originality
+For n≥5 and 1≤a≤floor((n-3)/2), weight sets {a,b},{a-1,b-1},{a+1,b+1} are pairwise disjoint. R0,R-,R+ consequently have orthogonal inputs and contraction singular values for sufficiently small γ. Projection of each local σ± between Dicke states has amplitude sqrt[w(n-w+1)]/n or sqrt[(n-w)(w+1)]/n; the diagonal ξ filter equalizes both logical amplitudes at sqrt[a(b+1)]/n, proving J=γa(b+1)/n and branch factors p,1-p, while R0 balances no-jump amplitudes at smax. Counting zero-jump A0/B0 patterns gives hypergeometric f_wl and exact cosine D=Mab/sqrt(MaaMbb), with strict D<1 when 0<p<1 by ℓ=0,n ratio separation. Binomial covariance yields 1-D=(b-a)²p(1-p)γ²/(2n)+O(γ³). Independent numerical hypergeometric calculations checked n=5,7,8 at several p and γ, and endpoint equality; this corroborates but does not replace all-n proof.
 
-**PASS, with bounded residual risk.** Dutta et al. (arXiv:2609.15924v1) already give the five-qubit Dicke encoding, probabilistic recovery idea, and first-order error removal, plus a general analytic PAQEC framework; these are credited, not claimed. Its main text, recovery sections, general theorem, and appendices were inspected. They do not state the all-size accepted-jump coefficient together with the exact Kraus-group-resolved normalized no-jump coherence factor. The 2026 zero-temperature code paper, 2018 constant-excitation bosonic code paper, and 2014 generalized-amplitude-damping code comparison address different scopes. The leading coefficient remains algebraically derivable from earlier channel identities; an undiscovered equivalent specialization is the main residual risk. Searches of published findings and primary literature found no implication-equivalent exact classification.
+## originality
 
-## Value
+PASS
 
-**PASS.** The new combined formula separates throughput and unavoidable thermal coherence loss for a natural extension of a recently studied noise-adapted code. It also locates the exact finite-strength threshold \(D<1\) for every intermediate bath population, and yields a transparent choice of Dicke weight: increasing the smaller excitation weight simultaneously improves the accepted jump coefficient and weakly decreases the no-jump dephasing coefficient (strictly at interior bath population), subject to the three-syndrome separation condition. These are physically motivated design invariants rather than isolated recomputations. The theorem does not claim full-channel optimal recovery or an implementation cost bound.
+Best-of-knowledge original explicit all-n restricted-family jump throughput and no-jump coherence/invariant, after crediting the published five-qubit Dicke PAQEC construction and general probabilistic error correction. Full closest-paper text was not accessible; uncertainty is recorded instead of asserting unseen sections lack the formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural, physically motivated code family has an exact analytic temperature-independent jump acceptance rate and separately temperature-dependent residual no-jump decoherence, giving a useful restricted-family Pareto choice of excitation gap. The exact jump/fidelity-throughput tradeoff is a meaningful mathematical invariant beyond demonstrating that one five-qubit code has O(γ²) fidelity; no global QEC optimum is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

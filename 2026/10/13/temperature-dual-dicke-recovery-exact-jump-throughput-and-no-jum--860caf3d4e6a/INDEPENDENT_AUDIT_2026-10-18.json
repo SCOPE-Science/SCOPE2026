@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:09:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥5 and 1≤a≤floor((n-3)/2), weight sets {a,b},{a-1,b-1},{a+1,b+1} are pairwise disjoint. R0,R-,R+ consequently have orthogonal inputs and contraction singular values for sufficiently small γ. Projection of each local σ± between Dicke states has amplitude sqrt[w(n-w+1)]/n or sqrt[(n-w)(w+1)]/n; the diagonal ξ filter equalizes both logical amplitudes at sqrt[a(b+1)]/n, proving J=γa(b+1)/n and branch factors p,1-p, while R0 balances no-jump amplitudes at smax. Counting zero-jump A0/B0 patterns gives hypergeometric f_wl and exact cosine D=Mab/sqrt(MaaMbb), with strict D<1 when 0<p<1 by ℓ=0,n ratio separation. Binomial covariance yields 1-D=(b-a)²p(1-p)γ²/(2n)+O(γ³). Independent numerical hypergeometric calculations checked n=5,7,8 at several p and γ, and endpoint equality; this corroborates but does not replace all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing PAQEC theory provides general conditions and SDP optimizations for arbitrary recoveries and may in principle subsume this particular construction upon specialization.",
+          "The earlier five-qubit code covers n=5 weight-1/4 fidelity order, not an explicitly stated all-admissible weight pair and finite-strength no-jump coherence invariant in the accessible sources."
+        ],
+        "reasoning": "General framework coverage is substantive and credited; obtaining the exact all-n polynomial-binomial/temperature tradeoff requires evaluating the specialized projections and Kraus amplitudes, which is not itself the universal PAQEC theorem.",
+        "searches": [
+          "arXiv:2609.15924 general PAQEC optimization",
+          "arXiv:2410.00155 probabilistic amplitude damping",
+          "arXiv:1809.09801 permutation invariant bosonic codes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary generalized amplitude damping Dicke recovery search",
+        "arXiv:2609.15924 abs + OA exposition",
+        "DOI:10.1103/6g5l-m4r1",
+        "arXiv:1809.09801"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published weight-1/4 code and PAQEC conditions predict possibility of O(γ²) conditional infidelity, which is credited.",
+          "The new specific recovery filters yield branchwise equalization and exact hypergeometric amplitudes; the p-independent a(n-a+1)/n jump constant and normalized no-jump dephasing factor require this additional calculation."
+        ],
+        "reasoning": "The framework could implicitly imply all of the formulas through specialization, so novelty is best-of-knowledge only. No accessible statement establishes identical full symbolic results, and the new exact invariant has a different claim from generic successful PAQEC.",
+        "searches": [
+          "arXiv:2609.15924 PAQEC generalized recovery",
+          "arXiv:2410.00155 amplitude damping codes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dutta et al. (2026) construct a five-qubit weight-1/4 permutation-invariant code and general probabilistic approximate recovery; their five-qubit result overlaps the first admissible instance.",
+          "The audited claim concerns all n and complementary weights with a concrete 3-syndrome projection, exact no-jump overlap D and leading accepted jump throughputs; the accessible primary abstract does not assert those formulas."
+        ],
+        "reasoning": "Aliases include permutation-invariant amplitude damping code, PAQEC, symmetric Dicke states and conditional entanglement fidelity. The n=5 code and PAQEC framework are not original; the all-n exact restricted-family formula is the claimed additional information.",
+        "searches": [
+          "Resultary: generalized amplitude damping Dicke code symmetric recovery jump",
+          "arXiv:2609.15924 PAQEC five qubit Dicke",
+          "arXiv:2410.00155 amplitude damping codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table of the all-size symbolic formulas found in actual searches; the five-qubit PAQEC comparison and numerical optimization are existing results.",
+          "The investigated result is a continuum of γ,p with all n and a, not only a finite list of computed code parameters."
+        ],
+        "reasoning": "A numerical table cannot establish an all-size exact coherence factor or its strict finite-temperature condition; absence of a table alone does not prove novelty.",
+        "searches": [
+          "Resultary: generalized amplitude damping Dicke recovery jump",
+          "arXiv:2609.15924 PDF and alphaXiv summary"
+        ]
+      },
+      "rationale": "Best-of-knowledge original explicit all-n restricted-family jump throughput and no-jump coherence/invariant, after crediting the published five-qubit Dicke PAQEC construction and general probabilistic error correction. Full closest-paper text was not accessible; uncertainty is recorded instead of asserting unseen sections lack the formulas.",
+      "residual_risks": [
+        "The primary 2609.15924 full text and appendices were unavailable via arXiv and Oxford VPN disconnected; generic PAQEC recovery expressions might implicitly specialize to these coefficients.",
+        "No global optimal recovery or Kraus-representation-independent channel invariant is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_FIVE_QUBIT_OVERLAP_FULL_TEXT_UNAVAILABLE",
+          "evidence": "Published paper already has n=5 permutation-invariant code and O(γ²) PAQEC; uninspected appendices may contain a broader formula, not declared NOT_COVERING.",
+          "identifier_or_url": "arXiv:2609.15924",
+          "material_read": "ArXiv abstract and detailed publicly accessible secondary exposition giving the five-qubit weight-one/four states, three error groups and general probabilistic recovery method; original primary body not retrievable",
+          "method": "ArXiv index, OA expanded summary, failed arXiv HTML/PDF, Oxford institutional attempt",
+          "title": "Quantum Codes for Generalized Amplitude-damping Noise",
+          "trigger": "Closest same five-qubit Dicke/PAQEC object and GAD Kraus groupings"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_CHANNEL",
+          "evidence": "Does not by abstract cover finite-temperature p-dependent no-jump coherence of every complementary Dicke pair.",
+          "identifier_or_url": "DOI:10.1103/6g5l-m4r1",
+          "material_read": "Journal abstract: three-qubit code and general family correcting fixed damping order; zero-temperature AD rather than two-direction thermal GAD",
+          "method": "Read Phys Rev Research abstract and bibliographic content",
+          "title": "Smallest quantum codes for amplitude-damping noise",
+          "trigger": "Earlier probabilistic amplitude damping code family"
+        },
+        {
+          "assessment": "BACKGROUND_UNRESOLVED",
+          "evidence": "Bosonic constant-excitation setting differs from qubit complementary-weight finite-temperature GAD.",
+          "identifier_or_url": "arXiv:1809.09801",
+          "material_read": "Citation and identifying scope in audited RESULT.md; full text not obtained",
+          "method": "Referenced bibliographically; not claimed full inspected",
+          "title": "Permutation-invariant constant-excitation quantum codes for amplitude damping",
+          "trigger": "Potential general symmetric amplitude-damping coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural, physically motivated code family has an exact analytic temperature-independent jump acceptance rate and separately temperature-dependent residual no-jump decoherence, giving a useful restricted-family Pareto choice of excitation gap. The exact jump/fidelity-throughput tradeoff is a meaningful mathematical invariant beyond demonstrating that one five-qubit code has O(γ²) fidelity; no global QEC optimum is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact D is only the postselected no-jump subchannel under a specified Kraus grouping; not the full corrected channel or basis-independent observable.",
+    "Only sufficiently small γ and fixed n for first-order fidelity/acceptance; no unrestricted optimal recovery.",
+    "Strong same-model five-qubit PAQEC literature access risk remains."
+  ]
+}
