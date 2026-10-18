@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:57:47.505715Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Invert the four partially entangled measurement-basis vectors explicitly: the four Bob unnormalized maps are unitarily equivalent to diag(x,y)/√2 or diag(y,x)/√2, with 1/√2≤x≤1, y=√(1−x²). For y>0, any branchwise success Kraus K reversing an unknown qubit to cU requires KD=cU and K†K≤I, hence |c|²≤y²/2 by the inverse operator norm. The filters Ks=diag(y/x,1) and Kf=diag(√(1−y²/x²),0) attain the bound and satisfy exact completeness. Four exclusive branches give 2y², including x=1/√2 probability 1 and x=1 probability 0 (in the latter case the inverse formula replaced by limiting/impossibility rank argument). Eq (9) printed second filter diag(1−y/x,0) does not satisfy Kraus completeness unless endpoint; correcting its matrix and decomposition is necessary. This is an analytic operator inequality, not an inference from numerical replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roa, Delgado, Fuentes-Guridi 2003 DOI:10.1103/PhysRevA.68.022310 covers optimal conclusive teleportation.",
+          "Lee et al 2021 DOI:10.1103/PhysRevResearch.3.033119 covers optimal measurement reversal by singular values."
+        ],
+        "reasoning": "Broader theorems cover abstract optimality but do not establish that particular 2000 printed expansion is not an identity or that its two printed matrices fail Kraus completeness without source-specific reconstruction.",
+        "searches": [
+          "Trump Bruss Lewenstein realistic teleportation partially entangled measurement basis conclusive branch probability 2y^2 Kraus reversal",
+          "Trump Bruss Lewenstein 2000 partially entangled Bell basis conclusive teleportation equation 8 9 incorrect probability Kraus filter"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0010113v1 full primary manuscript and rendered PDF page",
+        "arXiv:quant-ph/9906039 abstract",
+        "Roa et al 2003 DOI:10.1103/PhysRevA.68.022310",
+        "Lee et al 2021 DOI:10.1103/PhysRevResearch.3.033119",
+        "Resultary exact and prior-alias queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every branch has singular values x/√2,y/√2; a contraction reversing it has success amplitude bounded by y/√2.",
+          "The source v1 Eq. (9) prints a filter pair whose squared effects add diag((y/x)²+(1−y/x)²,1) not I for interior x."
+        ],
+        "reasoning": "The principle of conclusive optimality predates the claim, but cannot validate the v1 invalid Kraus pair; source-specific repair has precise independent mathematical content.",
+        "searches": [
+          "Trump Bruss Lewenstein realistic teleportation partially entangled measurement basis conclusive branch probability 2y^2 Kraus reversal",
+          "Trump Bruss Lewenstein 2000 partially entangled Bell basis conclusive teleportation equation 8 9 incorrect probability Kraus filter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trump–Bruß–Lewenstein arXiv:quant-ph/0010113v1 Eqs (7)–(9) give a partially entangled orthonormal measurement and a printed success probability 1/(2x²).",
+          "Mor–Horodecki arXiv:quant-ph/9906039 and Lee et al DOI:10.1103/PhysRevResearch.3.033119 give general conclusive/measurement-reversal formulas."
+        ],
+        "reasoning": "Corrected 2y² follows from smallest singular value when the correct branch map is supplied; target novelty is the 2000 v1 printed-operator diagnosis and fix.",
+        "searches": [
+          "Trump Bruss Lewenstein realistic teleportation partially entangled measurement basis conclusive branch probability 2y^2 Kraus reversal",
+          "Trump Bruss Lewenstein 2000 partially entangled Bell basis conclusive teleportation equation 8 9 incorrect probability Kraus filter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:quant-ph/0010113v1 PDF page and Eq. (8),(9), ending p=1/(2x²) checked.",
+          "Resultary exact query returns this assigned correction; no distinct earlier source-specific erratum."
+        ],
+        "reasoning": "Not an enumerative table question. Specific faulty equations and repaired 2×2 Kraus effects are exact reproducible objects.",
+        "searches": [
+          "Trump Bruss Lewenstein realistic teleportation partially entangled measurement basis conclusive branch probability 2y^2 Kraus reversal",
+          "Trump Bruss Lewenstein 2000 partially entangled Bell basis conclusive teleportation equation 8 9 incorrect probability Kraus filter"
+        ]
+      },
+      "rationale": "General Mor–Horodecki and later Roa/Lee–Im–Kim–Nha–Kim theory covers optimal conclusive teleportation and least-singular-value branch reversal; the package explicitly does not claim that general optimization law as novel. Its specific new claim is identifying the inconsistent Eq. (8) and non-complete Eq. (9) of Trump–Bruß–Lewenstein arXiv v1 and giving the valid replacement instrument. No sourced v1 erratum was located in tested DOI/title/equation searches.",
+      "residual_risks": [
+        "2001 journal version may alter/repair arXiv v1 equations and was not compared line by line.",
+        "Unknown unindexed erratum or note may describe same v1 problem.",
+        "Ideal Bell-basis projective measurement assumption does not model linear-optical discrimination efficiency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq (8) decomposition and Eq (9) two matrices do not implement stated protocol; branch filters restored.",
+          "evidence": "Printed p=1/(2x²), output corrected total 2(1−x²), physical rank-one endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0010113",
+          "material_read": "Accessible full arXiv v1 text plus rendered PDF page with Eqs (7)–(9) and final probability",
+          "method": "Direct basis inversion, 4-branch expansion, Kraus norm and completeness",
+          "title": "Realistic teleportation with linear optical elements",
+          "trigger": "Exact paper and v1 basis"
+        },
+        {
+          "assessment": "General principle already known, no direct 2000 v1 typo diagnosis in inspected material.",
+          "evidence": "Perfect conclusive teleportation with non-maximally entangled state.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/9906039",
+          "material_read": "Abstract and bibliographic record, not whole paper",
+          "method": "Comparison of general physical setup",
+          "title": "Teleportation via generalized measurements, and conclusive teleportation",
+          "trigger": "Foundational broader theory"
+        },
+        {
+          "assessment": "General optimal conclusive transmission, not specific 2000 Eq (8)–(9) correction in read material.",
+          "evidence": "Branchwise success tied to nonmaximal singular/Schmidt value.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.68.022310",
+          "material_read": "Publisher abstract and theorem-scope information",
+          "method": "Literature implication comparison",
+          "title": "Optimal conclusive teleportation of quantum states",
+          "trigger": "Broad optimality"
+        },
+        {
+          "assessment": "Prior general reversal principle acknowledged; exact v1 correction not documented in inspected material.",
+          "evidence": "Measurement reversal success bounded by contractions.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.3.033119",
+          "material_read": "Publisher accessible abstract/performance-framework passage",
+          "method": "Compare least-singular-value bound",
+          "title": "Quantum teleportation is a reversal of quantum measurement",
+          "trigger": "Optimal reversal formalism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit valid quantum instrument and input-independent optimal heralded success probability are necessary to implement or evaluate this classical conclusive teleportation example. The product-basis endpoint exposes the old printed prediction as unphysical, and the corrected filter is operationally meaningful independent of a new general teleportation theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ideal projective discrimination only; not a new formula for physical photon-detection success in a restricted optical apparatus.",
+    "2001 journal version may alter/repair arXiv v1 equations and was not compared line by line.",
+    "Unknown unindexed erratum or note may describe same v1 problem.",
+    "Ideal Bell-basis projective measurement assumption does not model linear-optical discrimination efficiency."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-`verify_partial_basis_teleportation.py` reconstructs the source's partially entangled orthonormal basis and the three-qubit input-resource state directly.
+# Independent mathematical audit
 
-It checks the corrected four-branch decomposition for deterministic complex input amplitudes and several interior values of \(x\). It verifies that every branch map has singular values \(x/\sqrt2\) and \(y/\sqrt2\).
+## correctness
 
-The script verifies the corrected Kraus completeness relation and that the success map returns the unknown qubit with joint probability \(y^2/2\) per branch, so the four-outcome total is \(2y^2\).
+PASS
 
-It also checks that the two matrices printed in the source's Eq. (9), if interpreted as Kraus operators, fail completeness for interior \(y/x\).
+Invert the four partially entangled measurement-basis vectors explicitly: the four Bob unnormalized maps are unitarily equivalent to diag(x,y)/√2 or diag(y,x)/√2, with 1/√2≤x≤1, y=√(1−x²). For y>0, any branchwise success Kraus K reversing an unknown qubit to cU requires KD=cU and K†K≤I, hence |c|²≤y²/2 by the inverse operator norm. The filters Ks=diag(y/x,1) and Kf=diag(√(1−y²/x²),0) attain the bound and satisfy exact completeness. Four exclusive branches give 2y², including x=1/√2 probability 1 and x=1 probability 0 (in the latter case the inverse formula replaced by limiting/impossibility rank argument). Eq (9) printed second filter diag(1−y/x,0) does not satisfy Kraus completeness unless endpoint; correcting its matrix and decomposition is necessary. This is an analytic operator inequality, not an inference from numerical replay.
 
-The replay is supplementary. Branchwise optimality follows analytically from the contraction inequality for a reversing Kraus operator.
+## originality
 
-No independent audit has been performed.
+PASS
+
+General Mor–Horodecki and later Roa/Lee–Im–Kim–Nha–Kim theory covers optimal conclusive teleportation and least-singular-value branch reversal; the package explicitly does not claim that general optimization law as novel. Its specific new claim is identifying the inconsistent Eq. (8) and non-complete Eq. (9) of Trump–Bruß–Lewenstein arXiv v1 and giving the valid replacement instrument. No sourced v1 erratum was located in tested DOI/title/equation searches.
+
+## value
+
+PASS
+
+An explicit valid quantum instrument and input-independent optimal heralded success probability are necessary to implement or evaluate this classical conclusive teleportation example. The product-basis endpoint exposes the old printed prediction as unphysical, and the corrected filter is operationally meaningful independent of a new general teleportation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
