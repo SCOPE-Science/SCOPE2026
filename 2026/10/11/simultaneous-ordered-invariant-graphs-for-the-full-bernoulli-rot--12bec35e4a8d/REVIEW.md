@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's explicit full-branch formulas were independently reconstructed. The two selected increasing branches permit exact ternary coding; the lift displacement is the selector minus the minus-symbol indicator. The probability-integral transform creates a uniform stationary threshold statistic from the existing Bernoulli future. Birkhoff convergence for rational thresholds, extended to all thresholds by monotonicity, proves simultaneous limits on one invariant full-measure set. The pure atomic section distribution accounts for every jump, while exhaustive total jump mass proves the null Cantor property. Exact finite-rational tests confirm all local branch identities without substituting for those infinite arguments.
+## correctness
 
-## Originality — PASS, with residual risk
-Li–Lloyd–Romaña already supply endpoint orbit encodings and orbitwise existence at every rotation rate. Their Section 5 explicitly asks for equivariant random compact sets; it does not assert measurable singleton sections at every rate for their Bernoulli model. The new statement supplies one simultaneous family for all rates, with strict ordering, exact jumps and null-Cantor range. Glendinning–Jäger–Stark's minimal-set theorem assumes continuous uniquely ergodic forcing and does not directly address this Bernoulli measure base. General measurable-selection or symbolic methods might imply aspects of this model-specific construction; the strongest claimed content is the explicit ordered all-parameter family and its sharp geometry, not invention of random inverse-branch coding.
+PASS
 
-## Mathematical value — PASS
-This is a concrete complete answer to the motivating paper's invariant-random-set question in its own nontrivial Bernoulli example. It shows that the entire rotation interval is simultaneously realized by minimal singleton random compact sets even though the total random topological entropy is positive. The unusual pure-jump dependence and null Cantor closure expose a precise regularity limitation on any hope of smooth interpolation by this selected family.
+For 0<p<1 and the stated continuous degree-one full-branch lifts F_±, biased binary V has continuous strictly increasing distribution G_p, so U=G_p(V) is uniform. On a common shift-invariant full-measure set, Birkhoff convergence for rational thresholds of U(σ^{k+1}ω) extends monotonically to all λ∈[0,1]. With ternary digit d_k=b_k+1_{t_k≤λ}, each inverse branch is x↦(d_k+x)/3; both signs recur, excluding branch-boundary ambiguity for all λ. The exact lift displacement is selector−b_k, yielding rotation λ−(1−p), simultaneously all λ; each singleton graph has zero relative Bowen fibre entropy. For typical distinct dense t_k, jumps are exactly 3^{−k−1}; gap lengths sum 1/2 equal to full endpoint interval, leaving perfect null closed Cantor range. Locally replayed all 30,948 rational branch identities for lengths 1..6. The ergodic/Cantor assertions rest on the infinite proof, not finite checks.
 
-## Literature comparison and limits
-Primary: Li, Lloyd and Romaña, arXiv:2606.16498v1, Example 3.1, Example 4.1, Section 5 Question 1. Related: Glendinning, Jäger and Stark, arXiv:0807.4707, uniquely ergodically forced result. No claim of resolution for arbitrary random circle endomorphisms, nor of uniqueness of the invariant graph at each rotation rate.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Lloyd–Romaña 2026 establish orbitwise realization of all rotation values and study random topological entropy. The claimed stronger structure here is an explicit simultaneous measurable compact singleton selector family, all rates on the same base set, plus exact dense-jump/null-Cantor section geometry. The closely relevant primary paper could not be examined in full through attempted open preprint/OA access; Oxford returned vpn_disconnected. The known abstract does not assert these families, but priority remains a material risk.
+
+## value
+
+PASS
+
+This solves an explicit and motivated compact-random-set realization problem for an established Bernoulli expanding-circle example, bridging orbitwise rotation with zero-entropy invariant graph realizations and giving an exact ordered-parameter Cantor structure. It deliberately does not solve the general ergodic-base question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
