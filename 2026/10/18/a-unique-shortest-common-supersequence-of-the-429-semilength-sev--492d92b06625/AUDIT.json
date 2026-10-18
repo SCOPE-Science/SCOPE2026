@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive C++17 code enumerates precisely all 2^21 and 2^22 host masks and all 429 recursively generated Dyck targets; direct greedy matching is equivalent to subsequence containment. It reports zero universal length-21 hosts, exactly one length-22 host. Padding rules out every shorter host. Independent BFS over 1,690,893 greedy states reproduces minimum and multiplicity; no inference from merely sampled words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published binary subsequence-universality record counts covering all binary targets, not specifically all Dyck targets; its reported quantity does not determine the exact Dyck-only host length or multiplicity.",
+        "General SCS algorithms from Clifford et al. apply to finite input families but do not already state or imply the numeric answer without computation."
+      ],
+      "reasoning": "The all-binary universality theorem imposes much stronger target coverage, so its optima do not directly determine the weaker Dyck-only optimum. Generic solver existence does not logically cover a particular exact classification.",
+      "searches": [
+        "exact Dyck semilength seven Catalan 429 shortest supersequence length 22 unique host",
+        "universal subsequence balanced parentheses 429 Dyck words length 22",
+        "scattered subsequence common supersequence Dyck paths optimum unique enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1004.0424 full public HTML",
+      "arxiv:2603.22591 abstract only",
+      "SageMath Dyck-word reference (definitions)",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Clifford et al., arXiv:1004.0424, first public 2010-04-03: general/restricted common supersequences and approximation, not exact universal covering all 429 Dyck targets.",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 counts all-input binary word universality indices, not minimum hosts for fixed Dyck targets.",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34 studies Dyck shift finite-core entropy, not scattered-supersequence covering."
+      ],
+      "reasoning": "Neither the general method nor a different universality statistic implies the exact Dyck optimum 22 and its unique witness. The searched closest claims do not subsume the finite result.",
+      "searches": [
+        "exact Dyck semilength seven Catalan 429 shortest supersequence length 22 unique host",
+        "universal subsequence balanced parentheses 429 Dyck words length 22",
+        "scattered subsequence common supersequence Dyck paths optimum unique enumeration",
+        "Clifford Gotthilf Lewenstein Popa 2010 restricted common supersequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clifford et al., arXiv:1004.0424, first public 2010-04-03: general/restricted common supersequences and approximation, not exact universal covering all 429 Dyck targets.",
+        "Dyck words also correspond to Catalan lattice paths and rooted ordered trees; a covering host would be an embedding-universal binary word for the complete semilength-seven Dyck family."
+      ],
+      "reasoning": "Searched both the common-supersequence and all-scattered-subsequence coverage descriptions, together with balanced parenthesis/Catalan aliases; no exact 22/unique statement identified. A terminology change alone would not establish originality; equivalences were compared at the claim level.",
+      "searches": [
+        "shortest common supersequence of all Dyck words of semilength n balanced parenthesis exact minimum length",
+        "subsequence universal for Dyck language Catalan words shortest supersequence",
+        "minimal binary string containing all Catalan words as scattered subsequences n=6 n=7",
+        "\"Dyck\" \"shortest common supersequence\" \"Catalan\"",
+        "\"balanced parentheses\" \"supersequence\" \"all\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000108 lists 429 Dyck words at semilength seven but does not provide a minimum supersequence or count of minimizers.",
+        "Search returns standard SCS/background rather than a table with optimum 22 and exactly one host."
+      ],
+      "reasoning": "A Catalan table determines the target-set cardinality only, not the optimization over covering hosts; no exact value table was located, but tables may be incompletely indexed.",
+      "searches": [
+        "Catalan words shortest common supersequence OEIS",
+        "\"Dyck words\" \"supersequence\" \"shortest\"",
+        "exact Dyck semilength seven Catalan 429 shortest supersequence length 22 unique host"
+      ]
+    },
+    "rationale": "Actual searches across Dyck, Catalan, balanced parentheses, scattered-subsequence and common-supersequence aliases found no theorem or table fixing both the length-22 minimum and uniqueness for all 429 semilength-seven Dyck targets. The complete arXiv:1004.0424 text treats a fixed resource multiset and approximability, not this unrestricted exact family. Generic algorithms do not logically imply the specific exact results without a new computation. Residual novelty risk: unindexed publications, thesis tables or another encoding.",
+    "residual_risks": [
+      "Unindexed or inaccessible preexisting exact calculation of semilength-seven common supersequence optimum and multiplicity.",
+      "Sources inspected only as abstracts cannot establish that their entire full texts lack a relevant specialized case.",
+      "Finite exact algorithms rely on the supplied source code being correctly interpreted and executed; independent scientific audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: maximizes coverage under a prescribed multiset rather than determines the exact unrestricted all-Dyck semilength-seven shortest supersequence or its uniqueness",
+        "evidence": [
+          "Definition of restricted common supersequence fixes a multiset and maximizes number of input subsequences; Sections 3.1–3.2 concern hardness/approximation; no 429-Dyck-target classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1004.0424v2",
+        "material_read": "Full HTML text, specifically abstract, introduction, formulation, Sections 2 and 3 and related citations",
+        "method": "Read publisher-hosted public arXiv HTML text and compared object, constraints, objective and proved results",
+        "title": "Restricted Common Superstring and Restricted Common Supersequence",
+        "trigger": "Closest classical common-supersequence problem with resources and alphabet restrictions"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: standard Dyck language is the target family, not an exhaustive supersequence optimization",
+        "evidence": [
+          "Dyck semilength enumeration is Catalan; computational APIs do not state shortest universal subsequence host."
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/dyck_word.html",
+        "material_read": "Description/definition and examples of Dyck words; not all implementation source",
+        "method": "Compared definitions and object count to target specification",
+        "title": "Dyck words — SageMath combinatorics reference",
+        "trigger": "Standard Dyck-word enumeration and equivalences"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_NOT_DECISIVE: studies two specified input strings and inclusion-minimal common supersequences; not evidence of the 429-target exact optimum",
+        "evidence": [
+          "Abstract explicitly concerns k=2 and minimal supersequences; not a claim that full text was inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.22591",
+        "material_read": "Public abstract, not full paper",
+        "method": "Compared two-target minimal-vs-shortest problem statement to 429-target finite exact census",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Potentially stronger common-supersequence enumeration literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "492d92b0-6625-4130-83d7-72e5be0e33cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete Catalan language of 429 length-14 targets has a well-defined exact shortest common subsequence-cover invariant. The exact minimum 22 and unique optimal literal host supply a complete previously unlocated finite cutoff and an unexpectedly rigid extremal classification, suitable as a benchmark in word compression and sequence embedding. This is not a mere Catalan count or general SCS algorithm application.",
+    "status": "PASS"
+  }
+}
