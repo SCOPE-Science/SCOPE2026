@@ -1,15 +1,21 @@
-# Self-review: Exact dyadic eventual periods for A158690
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula has fixed quantifiers \(k\ge2\), \(n\ge k+3\), and exact modulus \(2^{k+3}\). The Stirling/inclusion–exclusion transform is a finite computation at any index; modulo a fixed prime power its long tail vanishes. The normalized odd-base binomial congruence is proved uniformly, while the even-base terms vanish at the declared threshold. A valid fourth-power finite-difference annihilator reduces the remaining infinite sum to eight coefficients. Their two weighted sums are \(2\) and \(0\) modulo \(4\), proving the parity-sensitive obstruction and the exact least eventual period. Two independent coefficient algorithms and the exact finite-difference computations replay. Finite computations corroborate but do not replace the infinite proof.
+## correctness
 
-## Originality — PASS
-Kallat, arXiv:2609.07238v1, Sections 1–4, proves that \(\lambda(M)\) is an eventual period for any integer modulus \(M\), but gives no general formula for the *least* period. For \(M=2^r\), his bound is \(2^{r-2}\), whereas the new result supplies and proves the sharp period \(2^{r-3}\) for every \(r\ge5\). OEIS A158690 separately reports period two modulo \(16\) without the infinite result. Searches for the object, aliases, power-of-two periods, half-Carmichael periods and parity-sensitive lift, along with records addressing related but different sequences, did not reveal covering statements. The possibility of unindexed equivalent work remains.
+PASS
 
-## Value — PASS
-The motivating theorem raises the natural issue of sharpness of the Carmichael period bound. An exact least period for every dyadic modulus beyond a fixed threshold is a substantive infinite quantitative classification, not a restatement of eventual periodicity. The parity-sensitive half-shift formula supplies the necessary minimality obstruction and explains an unexpectedly consistent factor-two saving.
+The formal identity H(e^t-1) gives integer c_m and a(n)=sum_{m<=n} c_m m! S(n,m). With h=2^{k-1}, odd j satisfy (j^h-1)/2^{k+1}=(j^2-1)/8 mod4; even j^n terms vanish at the stated n>=k+3 bound. The weighted functions U_epsilon have Delta^8 U=0 mod4, leaving exact c_0..7=(1,1,2,7,33,197,1419,11966), whose weighted sums are 2 for even n and 0 for odd. This yields half-shift obstruction and a full shift 2^k for all n>=k+3. Since any minimal eventual period divides 2^k and 2^{k-1} fails, it equals 2^k. Independent integer Stirling recurrence checked the period and obstruction for r=5..8; finite checks do not prove all powers.
 
-## Scientific limitations
-The least preperiod and non-dyadic least periods remain unknown here. The originality determination is limited by discoverability of available literature. There has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Kallat establishes lambda(2^r)=2^(r-2) as an eventual period but does not resolve the least eventual period; OEIS records isolated small-modulus behavior. The present parity-sensitive half-period congruence simultaneously proves existence of 2^(r-3) and excludes all smaller powers for every r>=5, a genuinely stricter infinite parameter conclusion. The Stirling representation and general eventual periodicity themselves are attributed to prior work. No indexed exact full-family result found in reviewed records.
+
+## value
+
+PASS
+
+PASS: Sharp exact eventual-period classification for every dyadic modulus resolves a natural infinite arithmetic invariant of a named sequence, refining a known universal period by a factor of two with an obstruction ensuring minimality. A single small-modulus sample would not suffice, but the proof covers all r>=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
