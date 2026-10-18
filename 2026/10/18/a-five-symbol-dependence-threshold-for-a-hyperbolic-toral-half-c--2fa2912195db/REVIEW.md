@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The integer matrix is unimodular, symmetric positive definite and hyperbolic, with three distinct positive eigenvalues. A three-row Krylov determinant and Descartes' rule establish nonsingularity at every three distinct times. Primitive integer Fourier resonances then give the fourth-order moment formula. An elementary parity obstruction rules out the fifth-order moment; finite Fourier–Walsh inversion gives the stated exact five-symbol distribution. All assumptions, endpoint null sets, and infinite-versus-finite checks are identified. The independent exact-arithmetic program prints `VERIFY_OK` and its computations are reproducible with Python's standard library.
+
+**Originality — PASS (provisional against the inspected record).** Sun's toral-automorphism paper concerns entropy of ergodic measures, and Pollicott's commuting-toral work counts periodic points; neither gives the particular half-circle sensor, a parity classification of four-time moments, or the rational five-symbol law in the inspected full text. The general arithmetic Fourier-resonance method is standard and is not claimed new. Targeted searches for toral four-point sign resonance and five-block independence found no equivalent statement in the checked sources. Novelty is a limited bibliographic judgement, not a universal database certificate; lacunary/Fourier literature could subsume the computation in unstated form.
+
+**Value — PASS.** The natural question is how far low-order statistical independence can mask deterministic dependence for a fixed smooth hyperbolic map under a coarse observable. The theorem gives an exact first detectable successive-window length, exact quantitative conditional bias, and a complete arbitrary-time fourth-order criterion. These specific invariants identify a hidden-memory phenomenon and are not merely a renamed characteristic-polynomial identity.
+
+**Scope and risk.** Only the stated discontinuous half-circle observable and exact integer matrix are covered; there is no general robust sensor theorem. Independent bibliographic and mathematical validation have not yet been performed.
+
+Self-review: passed. Independent audit: not yet performed.
