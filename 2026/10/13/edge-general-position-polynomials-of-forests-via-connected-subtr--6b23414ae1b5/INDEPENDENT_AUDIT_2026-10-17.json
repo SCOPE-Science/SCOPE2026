@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:05:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 5c3a7b0d90cf6e5f0e6e0bc2bbff3854e63d120b",
+        "pinned verify.py ae55614446a6e82489fa8c053a2680ad6cce1949",
+        "independent_check_results.json: direct forest geodesics and connected boundary"
+      ],
+      "rationale": "For tree T and selected edge subset S, contracting all T\\S edges produces a tree Q_S with |S| edges, and any geodesic in T contains exactly the Q_S-distance many selected edges. Therefore S edge-GP iff diam Q_S<=2. When |S|>=2, Q_S must be a star with unique center, a connected vertex component K of T\\S and S=delta_T(K). Conversely each nonempty connected K with |delta K|>=2 gives a unique valid S. For S empty there is one K=V(T); for |S|=1 both sides of deleted edge are possible centers, hence subtract |E(T)|z. A rooted highest-selected-vertex recurrence gives B_v=product_child(z+B_child) and C_T=B_root+z sum_{v≠root} B_v. Forest EGF factors componentwise. Every complement component has an original leaf; maximum boundary equals number of leaves iff K contains every branching vertex, and each terminal arm admits one independently chosen boundary cut, proving product arm length. Path and isolated-node boundaries are separately handled. Independent geodesic and connected-boundary enumeration on a seven-vertex tree returned identical [1,6,15,10,2] counts and the leading coefficient 2.",
+      "residual_risks": [
+        "Connected-boundary identity is specific to trees; graph cycles obstruct quotient-star bijection.",
+        "Two-edge coefficient for paths is binomial of edge count, and isolated vertex is constant 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel et al. prove max edge set equals number of leaves, but one scalar cannot determine polynomial coefficients.",
+          "Resultary spider formula includes a strict subclass and part of the leading-coefficient formula.",
+          "General Position Polynomials counts vertex subsets, so its enumerator is structurally distinct."
+        ],
+        "reasoning": "Neither published scalar maximum nor the spider special case yields the formula for trees with multiple branching vertices. Prior connected-subtree boundary recurrences may be standard, but the map to edge-GP subsets is the new assertion.",
+        "searches": [
+          "arXiv:2105.04292 tree edge GP maximum theorem",
+          "arXiv:2207.07357 edge-k general position extrema",
+          "arXiv:2401.05696 General Position Polynomials",
+          "Resultary/2026 SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published All edge general-position sets of spider trees, Oct 4 2026, full RESULT.md",
+        "Manuel–Prabha–Klavžar arXiv:2105.04292",
+        "General Position Polynomials arXiv:2401.05696",
+        "Tian–Klavžar–Tan arXiv:2302.01587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known leaf maximum and spider arm-product theorem are exact consequences of the new general-forest identity.",
+          "Converse implication fails for a tree with at least two branching vertices; spider vertex-disjoint arm choices do not even parameterize all edges."
+        ],
+        "reasoning": "The stronger current claim mathematically includes earlier special-case formulas, but those special cases and a one-number maximum do not imply complete coefficients for arbitrary trees.",
+        "searches": [
+          "Manuel–Prabha–Klavžar arXiv:2105.04292 theorem on tree maximum",
+          "Resultary/2026 All edge general-position sets of spider trees full proof",
+          "Iršič–Klavžar–Rus–Tuite arXiv:2401.05696 vertex polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published spider paper gives P_T(z)=∏(1+ℓ_i z)+z²∑binom(ℓ_i,2) and leading coefficient ∏ℓ_i, but only one branching vertex.",
+          "Forest theorem has boundary-bijection formulation for arbitrary many branching vertices."
+        ],
+        "reasoning": "The spider formula is a genuine special case already covered; it does not directly imply general tree recursion. Searches under connected-subtree boundary and tree-edge GP polynomial aliases failed to locate a full-tree equivalence.",
+        "searches": [
+          "Resultary semantic: edge general position polynomials of forests trees connected subtree boundary polynomial leaf arm extremal count",
+          "Resultary/2026 published 2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123 full RESULT.md",
+          "connected induced subtree boundary enumerator tree arc cut generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published spider tables/formula cover spiders exactly.",
+          "A seven-vertex two-branch tree produced [1,6,15,10,2], not merely a spider specialization."
+        ],
+        "reasoning": "The infinite forest formula is an explicit combinatorial bijection, not a table lookup or inference from finite data; prior spider sequence is acknowledged as included.",
+        "searches": [
+          "Resultary published spider edge-general-position enumerator",
+          "general position polynomial tree all edges enumerator sequence",
+          "connected subtree boundary polynomial tree distribution"
+        ]
+      },
+      "rationale": "The 2021 general tree edge-GP result determines only the maximum as the leaf count. The 2026 publicly published Resultary record All edge general-position sets of spider trees (full RESULT read) already provides an all-cardinality polynomial and leading coefficient for spiders; the current result has genuine strictly broader scope—arbitrary trees with multiple branch vertices and arbitrary forests—plus a connected-boundary bijection and rooted recurrence. The 2024 general-position polynomial concerns vertex subsets, not selected edges. No inspected source gives the all-forest edge enumerator, but literature under subtree-boundary polynomial aliases remains possible.",
+      "residual_risks": [
+        "An older connected-subtree boundary-polynomial identity could imply the formula once the contraction equivalence is observed.",
+        "The spider restriction of the theorem and arm product are already covered by an October 4 published record and are not independently new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: spider case and arm product, but not arbitrary forests",
+          "evidence": "The source assumes one vertex of degree>=3 and obtains ∏(1+ℓ_i z)+z²∑binom(ℓ_i,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "material_read": "Complete RESULT.md read via pinned GitHub connector: finding, assumptions, full proof, verification, relationship to literature",
+          "method": "Read the full primary public mathematical statement and proof, compared bijection and object classes",
+          "title": "All edge general-position sets of spider trees",
+          "trigger": "Published same-invariant exact polynomial and leading coefficient for a subfamily"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE of maximum degree only, not enumerator",
+          "evidence": "General tree gp_e equals number of leaves, but no counts by all cardinalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "Accessible complete theorem statements on tree leaf maximum and investigated families; PDF pages inspected",
+          "method": "Read arXiv PDF/abstract and corresponding theorem statements",
+          "title": "Edge General Position Problem",
+          "trigger": "Foundational tree general extremal theorem"
+        },
+        {
+          "assessment": "INAPPLICABLE for edge-subset enumerator as stated",
+          "evidence": "Published polynomial coefficients enumerate subsets of V(G), not subsets of E(G).",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Accessible PDF introduction and definition of vertex general-position polynomial; inspected rendered page and model definitions",
+          "method": "Compared counted ground sets, the vertex rather than edge selection, and applications",
+          "title": "General Position Polynomials",
+          "trigger": "Plausibly broader polynomial with similar name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary published All edge general-position sets of spider trees, Oct 4 2026, full RESULT.md",
+        "Manuel–Prabha–Klavžar arXiv:2105.04292",
+        "General Position Polynomials arXiv:2401.05696",
+        "Tian–Klavžar–Tan arXiv:2302.01587"
+      ],
+      "rationale": "The full coefficient distribution of edge-general-position sets is a natural combinatorial refinement of the established leaf-count maximum. The new arbitrary-tree connected-boundary bijection yields an exact dynamic program and the number of maximum sets even when a tree has several branching vertices. This precise count is not determined by earlier scalar or spider-special-case results and is plausibly useful for graph parameter enumeration.",
+      "residual_risks": [
+        "The boundary recursion alone is standard tree dynamic-programming algebra; mathematical value rests on the global edge-general-position bijection and complete coefficients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No claim about graph cycles, root-realness, unimodality or arbitrary graph families.",
+    "Special spider formula and tree leaf-max known previously."
+  ]
+}

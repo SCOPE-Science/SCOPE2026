@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Contracting unselected tree edges converts the “at most two selected edges on any geodesic” condition into a quotient-tree diameter bound. For at least two selected edges the quotient has a unique star center, establishing a bijection with connected vertex sets of matching edge-boundary size; the one-edge exception produces precisely the correction term. The rooted recurrence is an exact inductive decomposition. The extremal multiplicity lemma follows because each outside component of a connected core must contain a leaf, with equality forcing a single cut on each leaf arm. The included verifier directly checked 1,429,023 edge subsets on 19,254 trees, and separately tested cut counts, leaf-arm multiplicities and disconnected cases. Finite enumerations are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to residual priority risk.** The closest work is Manuel–Prabha–Klavžar (arXiv:2105.04292), whose Theorem 3.3 proves only the maximum cardinality on trees; it does not provide all coefficients or the exact number of maximum sets. Tian–Klavžar–Tan (arXiv:2302.01587) addresses extremal values and bounds, and Manuel–Prabha–Klavžar (arXiv:2207.07357) studies generalized edge-position extrema. Vertex general-position polynomials (arXiv:2401.05696) count different objects. The exact all-cardinality edge-polynomial/connected-boundary identity and terminal-arm product were not located in those inspected papers or in targeted indexed record searches. Counting connected-subtree boundaries itself is an established theme and is not independently claimed new. An implicit equivalent elsewhere remains possible; this is a self-review, not priority certification.
+PASS
 
-**Value — PASS.** The complete polynomial is a natural counting refinement of the previously established scalar tree invariant, and the bijection identifies its coefficients with a concrete tree-boundary statistic. The polynomial-time recurrence works for all forests, while the leaf-arm formula classifies and counts all maximum selections, exposing dependence on branching geometry not visible in the scalar maximum. These are structurally motivated enumerative results, not an arbitrary finite case or a substitution into a published table.
+For tree T and selected edge subset S, contracting all T\S edges produces a tree Q_S with |S| edges, and any geodesic in T contains exactly the Q_S-distance many selected edges. Therefore S edge-GP iff diam Q_S<=2. When |S|>=2, Q_S must be a star with unique center, a connected vertex component K of T\S and S=delta_T(K). Conversely each nonempty connected K with |delta K|>=2 gives a unique valid S. For S empty there is one K=V(T); for |S|=1 both sides of deleted edge are possible centers, hence subtract |E(T)|z. A rooted highest-selected-vertex recurrence gives B_v=product_child(z+B_child) and C_T=B_root+z sum_{v≠root} B_v. Forest EGF factors componentwise. Every complement component has an original leaf; maximum boundary equals number of leaves iff K contains every branching vertex, and each terminal arm admits one independently chosen boundary cut, proving product arm length. Path and isolated-node boundaries are separately handled. Independent geodesic and connected-boundary enumeration on a seven-vertex tree returned identical [1,6,15,10,2] counts and the leading coefficient 2.
 
-**Limitations.** The connected-boundary formula relies on acyclicity; no analogous arbitrary-graph result is asserted. The recorded finite tests do not certify novelty or serve as the infinite proof. The full-text comparisons reduce but do not remove the possibility of earlier implicit coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2021 general tree edge-GP result determines only the maximum as the leaf count. The 2026 publicly published Resultary record All edge general-position sets of spider trees (full RESULT read) already provides an all-cardinality polynomial and leading coefficient for spiders; the current result has genuine strictly broader scope—arbitrary trees with multiple branch vertices and arbitrary forests—plus a connected-boundary bijection and rooted recurrence. The 2024 general-position polynomial concerns vertex subsets, not selected edges. No inspected source gives the all-forest edge enumerator, but literature under subtree-boundary polynomial aliases remains possible.
+
+## value
+
+PASS
+
+The full coefficient distribution of edge-general-position sets is a natural combinatorial refinement of the established leaf-count maximum. The new arbitrary-tree connected-boundary bijection yields an exact dynamic program and the number of maximum sets even when a tree has several branching vertices. This precise count is not determined by earlier scalar or spider-special-case results and is plausibly useful for graph parameter enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
