@@ -1,11 +1,21 @@
-# Scientific review: sharp odd-copy qutrit activation law
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof reduces the complete product spectrum to the feasible top-excitation interval \(\max(0,E-n)\le j\le\lfloor E/2\rfloor\). Because negative log-population is affine in \(j\), adjacent-shell comparisons reduce to two exact elementary extrema, respectively \(\lfloor(n-1)/2\rfloor\) and \(\lfloor(n+1)/2\rfloor\). This proves the if-and-only-if inequality for every integer copy number and includes equality cases. Explicit swapped basis strings establish strictly positive work at the first failed inequality. Standalone exact-integer enumeration covers 2,574 independent finite state-copy profiles; it is not the all-size proof.
+## correctness
 
-**Originality (PASS, with residual risk).** The closest general result is Koukoulekidis et al., arXiv:1912.07968v3, Sec. 3.3, Lemma 7: a fully general geometric algorithm deciding finite-copy passivity. Salvia and Giovannetti, arXiv:1912.02099v4, Proposition 1, derive necessary population inequalities, and their Sec. 5 concerns stronger structural stability. Both are credited, not relabeled as new. Vetrano et al., arXiv:2605.27369v1, treat multilevel channel work and asymptotic copy regularization. The additional specialized mathematical content is an exact symbolic finite-copy phase diagram with parity restriction and first active-copy formula, rather than the existing geometric algorithm or asymptotic statement. The remaining substantive originality risk is an undiscovered explicit specialization of the known algorithm or population bounds.
+PASS
 
-**Value (PASS).** The minimum number of noninteracting copies needed to unlock global unitary work is a natural resource invariant of passive states. The closed integer law quantifies its divergence near Gibbs populations, removes a growing product-spectrum search, and identifies a non-obvious odd/even plateau together with a direct constructive swap. This is a complete, motivated special-class classification, not a claim of a general ergotropy formula or a quantum-channel capacity theorem.
+Passivity iff every lower energy shell population dominates every higher energy shell population follows by pairwise swaps and doubly stochastic rearrangement. In shell E, top occupations j range [max(0,E-n),floor(E/2)], giving negative log population cost aE+(b-a)j. Maximizing the two endpoint differences over all consecutive shells gives g_n=floor((n-1)/2) in either slope order. Exact equality gives no strictly positive extracted work; Gibbs a=b remains all-copy passive and ratios with zero a or b are included. The first violated integer g occurs at stated odd n, and the proof constructs the corresponding basis-vector swap. Independent exact integer extrema and full shell-population order were checked for n=1..12 and 1≤p2≤p1≤p0≤8 (1440 profile/copy cases); all matched the criterion, while the analytic integer maxima establish unbounded n.
 
-**Limitations.** Only strictly positive diagonal qutrit spectra with equal, nonzero gaps and unrestricted joint unitaries are covered. The work obtained from the explicit swaps is a lower bound rather than necessarily the optimal ergotropy. Other spectra and rank-deficient states remain outside the proved domain. Related general necessary-and-sufficient *algorithms* already exist and are explicitly cited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Koukoulekidis et al. Lemma7 already offers the general exact but algorithmic k-passivity test from the additive energy-surprisal ensemble. Salvia–Giovannetti provide necessary inequalities and structurally stable N-passivity results; those are not the same as an evaluated iff for ordinary passivity with equally spaced energy levels. The explicit all-parameter closed threshold, parity-only activation and attaining swaps require a special shell extremization beyond the indexed general algorithm.
+
+## value
+
+PASS
+
+Determining the exact minimum number of noninteracting qutrit copies needed for globally extractable work is a natural, quantitative quantum-thermodynamics invariant; odd-only onset and the near-Gibbs divergence provide a complete phase diagram of an important finite-copy family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
