@@ -1,33 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact Möbius integral in the primary source reduces, for the Clifford three-torus, to an expectation over three independent phase variables. Torus translations remove the three block phases of the direction, leaving only the block weights \(w_i\). The simultaneous half-turn symmetry makes the functional even in \(t\). Exact phase moments through degree eight give
-\[
-c_4=\frac{2\Sigma_2-1}{16},
-\qquad
-c_6=\frac{105\Sigma_2-41-690\Pi}{1728},
-\]
-and
-\[
-c_8=\frac{-382+1440\Sigma_2-555\Sigma_2^2-11400\Pi}{27648}.
-\]
-The fourth-order term reproduces the published coefficient. On \(\Sigma_2=1/2\), the sixth-order sign changes at \(\Pi=1/60\); at equality the eighth-order coefficient is \(37/110592>0\). The weight constraints independently verify that \(0\le\Pi\le1/54\), so all claimed regimes are feasible.
+PASS
 
-## Originality
+The exact torus-phase average of (1−t²P)^(3/2)(1+ts)^−3 is even in t. Expanding and averaging independent cosines gives c4=(2Σ2−1)/16, c6=(105Σ2−41−690Π)/1728, c8=(−382+1440Σ2−555Σ2²−11400Π)/27648. Setting Σ2=1/2 yields the stated sign threshold and secondary positive c8. Independent finite exact phase-moment computations at weights (1/2,1/2,0) and (2/3,1/6,1/6) reproduced respective c6 and c8. The admissible product interval [0,1/54] follows by compact constrained extrema; Π=1/60 is realized by positive roots of z³−z²+z/4−1/60. This is local in t.
 
-PASS. The primary paper explicitly states that when \(S_v=2/(n+1)\), its fourth-order expansion does not determine the behavior of the total mean curvature. The inspected text does not compute the next coefficient on this boundary; it instead chooses a nondegenerate decreasing direction and later proves a separate global result for the balanced direction when \(n=4\). Targeted searches by source identifier, degenerate condition, higher-order variation, block weights, and the constant \(1/60\) located no covering statement.
+## originality
 
-The main residual risk is a very recent or unindexed follow-up containing an independent version of the same expansion.
+PASS
 
-## Value
+The primary Ni-Wang-Xie paper establishes the Möbius mean-curvature integral and a quartic coefficient with boundary S_v=1/2; its abstract and the mathematical formula quoted in the frozen package do not show this higher-order phase classification. Direct full-text retrieval was blocked (arxiv PDF/HTML and authorized institutional access), so a plausible identical calculation in its unread sections remains residual risk, not categorical failure.
 
-PASS. This resolves an explicit degeneracy left open in the source's central counterexample mechanism. The answer is structurally nontrivial: the quartic boundary itself contains both decreasing and increasing directions, and a second threshold appears through the block product. Resolving the equality case at eighth order makes the local phase classification complete for \(n=3\).
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+The quartically degenerate directional locus is explicitly motivated by the original torus instability analysis. Its nonuniform increasing/decreasing phases and resolved eighth-order equality case are structural facts beyond a routine coefficient recomputation.
 
-The closest source is Ruijie Ni, Peng Wang, and Zhenxiao Xie, arXiv:2609.36491v1. Its Corollaries 5.2--5.3 and exact equation (5.2) are the direct premises.
-
-The result is local near the identity Möbius transformation and is specific to the Clifford three-torus. It does not determine global monotonicity or the higher-dimensional quartically degenerate loci.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

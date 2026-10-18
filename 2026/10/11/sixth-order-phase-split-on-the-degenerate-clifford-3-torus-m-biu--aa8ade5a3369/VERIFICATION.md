@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,72 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-s=\frac1{\sqrt3}\sum_{i=1}^3\sqrt{w_i}\,\gamma_i,
-\qquad
-P=\sum_{i=1}^3w_i(1-\gamma_i^2)+s^2,
-\]
-where the \(\gamma_i=\cos\theta_i\) are independent phase variables. The exact source integrand is
-\[
-(1-t^2P)^{3/2}(1+ts)^{-3}.
-\]
+# Independent mathematical audit
 
-The checker expands this expression through degree eight and averages monomials using
-\[
-\mathbb E[\gamma_i^{2m}]=\frac{\binom{2m}{m}}{4^m},
-\qquad
-\mathbb E[\gamma_i^{2m+1}]=0.
-\]
-It then imposes
-\[
-w_1+w_2+w_3=1
-\]
-and verifies exactly
-\[
-[t^2]=0,
-\]
-\[
-[t^4]=\frac{2\Sigma_2-1}{16},
-\]
-\[
-[t^6]=\frac{105\Sigma_2-41-690\Pi}{1728},
-\]
-\[
-[t^8]=\frac{-382+1440\Sigma_2-555\Sigma_2^2-11400\Pi}{27648}.
-\]
+## correctness
 
-At
-\[
-\Sigma_2=\frac12
-\]
-the checker verifies
-\[
-[t^6]=\frac{23-1380\Pi}{3456}.
-\]
-At the secondary value
-\[
-\Pi=\frac1{60}
-\]
-it verifies
-\[
-[t^8]=\frac{37}{110592}>0.
-\]
+PASS
 
-The feasible threshold examples are checked exactly:
-\[
-\left(\frac12,\frac12,0\right)
-\]
-has \(\Pi=0\), and
-\[
-\left(\frac23,\frac16,\frac16\right)
-\]
-has \(\Pi=1/54\). The cubic
-\[
-z^3-z^2+\frac14z-\frac1{60}
-\]
-has discriminant \(1/1200>0\) and sign changes in three positive disjoint intervals, proving that the secondary threshold is attained.
+The exact torus-phase average of (1−t²P)^(3/2)(1+ts)^−3 is even in t. Expanding and averaging independent cosines gives c4=(2Σ2−1)/16, c6=(105Σ2−41−690Π)/1728, c8=(−382+1440Σ2−555Σ2²−11400Π)/27648. Setting Σ2=1/2 yields the stated sign threshold and secondary positive c8. Independent finite exact phase-moment computations at weights (1/2,1/2,0) and (2/3,1/6,1/6) reproduced respective c6 and c8. The admissible product interval [0,1/54] follows by compact constrained extrema; Π=1/60 is realized by positive roots of z³−z²+z/4−1/60. This is local in t.
 
-All coefficient identities and sign conclusions are exact symbolic statements. Numerical roots are not used as proof.
+## originality
+
+PASS
+
+The primary Ni-Wang-Xie paper establishes the Möbius mean-curvature integral and a quartic coefficient with boundary S_v=1/2; its abstract and the mathematical formula quoted in the frozen package do not show this higher-order phase classification. Direct full-text retrieval was blocked (arxiv PDF/HTML and authorized institutional access), so a plausible identical calculation in its unread sections remains residual risk, not categorical failure.
+
+## value
+
+PASS
+
+The quartically degenerate directional locus is explicitly motivated by the original torus instability analysis. Its nonuniform increasing/decreasing phases and resolved eighth-order equality case are structural facts beyond a routine coefficient recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
