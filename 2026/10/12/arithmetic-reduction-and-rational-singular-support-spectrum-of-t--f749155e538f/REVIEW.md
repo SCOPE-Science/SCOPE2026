@@ -1,19 +1,21 @@
-# Scientific review: arithmetic decagonal 61-line specialization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for the stated cyclotomic tangent-coordinate integral model. All \(61\) lines are independently reconstructed from the ten decagon tangents and \(45\) intersections. Exhaustive exact cyclotomic arithmetic gives \(551\) geometric points, stabilizer-derived field-degree frequencies \(7,20,524\), and a full \(35{,}990\)-triple determinant census. All nonzero determinant norms have prime factors only among \(2,3,5,11,19\), proving stability simultaneously for every other characteristic; finite-field exhaustive checks handle these five exceptions. The \(\mathbb F_p\)-rationality formula follows from the Frobenius permutation on \(\zeta_5\). The attached `verify.py` reconstructs the entire claim from scratch, without stored line/point tables. Bounds: the statement concerns reduced geometric supports and does not claim modular freeness or Jacobian lengths.
+PASS
 
-## Originality — PASS
+PASS: Independently reconstructed the 10 tangent lines over Q(zeta5), their 45 pair intersections, 481 secants, and 61 qualifying lines. Exact cyclotomic arithmetic yielded 551 singular points with histogram 335 double, 140 triple, 70 fivefold, one tenfold, five twelvefold (pair count 1830). Verified Galois fixed totals 551,7,7,27 and degree counts 7+20+524. Independently enumerated all 35,990 line-triple determinants with 2,060 zero and 33,930 nonzero; exact 21-value norm frequency table matched the pinned verifier, giving prime support exactly {2,3,5,11,19}. Independently reconstructed reductions in GF(16),GF(81),GF(5),GF(11),GF(361), matching lines, geometric points, histograms and rational Frobenius counts at every exceptional prime; checked good primes 7,29,31. Thus the argument proves all good characteristics via complete determinant norm support, not finite sampling; Frobenius mod5 gives 551,27,7 for residue classes. Uniform primitive integral line vectors checked against prime-zero collisions.
 
-Pokora–Roulleau, arXiv:2403.20024v1, §2 Remark 2.5, previously constructed the complex \(61\)-line arrangement, proved freeness, and discussed a projective realization over \(\mathbb Q(\sqrt5)\). Kühne–Roulleau, arXiv:2312.03470v1, develop polygonal line operators and matroid realization spaces. These results and the complex arrangement are excluded from novelty. Direct primary-text comparisons and indexed mathematical-record searches for the decagon operator, characteristic reduction, sharp exception primes and Galois-point spectra did not reveal the theorem about this **fixed** integral model. The original printed last high-order incidence value is inconsistent with the universal line-pair identity; the new proof derives the relevant entry independently. Unindexed prior arithmetic computations remain a genuine bibliographic risk; searches alone do not certify priority.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem classifies every residue characteristic of a canonical arithmetic representation of a recognized rigid polygonal arrangement. Its five exceptional incidence degenerations and sharp Frobenius rational-point spectrum represent complete, natural invariants of this coordinate model, not an arbitrary finite test or a generic stability slogan. The stated model dependence is essential: this is not an assertion about intrinsic minimal projective-realization field or freeness in positive characteristic.
+Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.
 
-## Literature and limitations
+## value
 
-Sources: Pokora–Roulleau, *Construction of free arrangements using point-line operators*, arXiv:2403.20024v1; Kühne–Roulleau, *Regular polygons, line operators, and elliptic modular surfaces as realization spaces of matroids*, arXiv:2312.03470v1. The proof determines geometric reduced line arrangements and fields of point coordinates for the specified cyclotomic normalization only. No independent mathematical audit or priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural arithmetic bad-reduction classification for a previously studied complex 61-line arrangement distinguishes accidental merging at five primes and gives exact finite-field rational singular support and Galois degrees. Detecting and correcting the previously printed impossible five fifteenfold-point entry matters: it violates the line-pair count, whereas five twelvefold points satisfy it. The invariant is a model-specific but geometrically motivated arithmetic census; not a claim of all projectively equivalent integral presentations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

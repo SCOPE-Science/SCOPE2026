@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:19:15.946053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently reconstructed the 10 tangent lines over Q(zeta5), their 45 pair intersections, 481 secants, and 61 qualifying lines. Exact cyclotomic arithmetic yielded 551 singular points with histogram 335 double, 140 triple, 70 fivefold, one tenfold, five twelvefold (pair count 1830). Verified Galois fixed totals 551,7,7,27 and degree counts 7+20+524. Independently enumerated all 35,990 line-triple determinants with 2,060 zero and 33,930 nonzero; exact 21-value norm frequency table matched the pinned verifier, giving prime support exactly {2,3,5,11,19}. Independently reconstructed reductions in GF(16),GF(81),GF(5),GF(11),GF(361), matching lines, geometric points, histograms and rational Frobenius counts at every exceptional prime; checked good primes 7,29,31. Thus the argument proves all good characteristics via complete determinant norm support, not finite sampling; Frobenius mod5 gives 551,27,7 for residue classes. Uniform primitive integral line vectors checked against prime-zero collisions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pokora–Roulleau mentions abstract model over Q(sqrt5); new result explicitly concerns a fixed Q(zeta5) tangent-coordinate presentation and its primitive integral coefficients."
+        ],
+        "reasoning": "Even potential smaller global realization field does not imply coordinatewise least fields nor reductions of the specified integral representative.",
+        "searches": [
+          "Pokora–Roulleau arXiv:2403.20024",
+          "Kühne–Roulleau arXiv:2312.03470"
+        ]
+      },
+      "checked_sources": [
+        "Construction of free arrangements using point-line operators: https://arxiv.org/html/2403.20024v1",
+        "Regular polygons, line operators, and elliptic modular surfaces as realization spaces of matroids: https://arxiv.org/abs/2312.03470",
+        "Assigned RESULT.md and verify.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/arithmetic-reduction-and-rational-singular-support-spectrum-of-t--f749155e538f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published O61 count 335·1+140·3+70·10+1·45+5·105=2025 >1830, so printed n15 entry cannot hold for 61 distinct lines. Assigned five 12-fold instead contribute 5·66 and yield exactly 1830."
+        ],
+        "reasoning": "Classical abstract arrangement data cannot imply claimed model-specific prime-Frobenius rational-point count; the corrected char0 incidence supports the arithmetic theorem but is not its only contribution.",
+        "searches": [
+          "Pokora–Roulleau singularity table and normal forms",
+          "assigned exhaustive cyclotomic determinant census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source constructs O_61 as point-line operator, proves freeness and gives complex singularity counts; no arithmetic prime-by-prime census in Remark 2.5."
+        ],
+        "reasoning": "Known complex incidence does not determine model-dependent Frobenius spectrum and bad reduction after fixing integer cyclotomic factors.",
+        "searches": [
+          "Resultary: decagon 61 line arithmetic reductions exceptional primes 2 3 5 11 19",
+          "Pokora–Roulleau arXiv:2403.20024 Remark 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top twelve included other decagon norm geometry, no direct arithmetic reductions. Primary published table gives n_15=5, inconsistent with 61 choose 2 pair identity; not identical corrected exact arithmetic table."
+        ],
+        "reasoning": "No prior exact prime reduction table found, but arithmetic line-arrangement databases could contain one unindexed.",
+        "searches": [
+          "Resultary: regular decagon O61 551 singular points modulo primes",
+          "Pokora–Roulleau Remark 2.5"
+        ]
+      },
+      "rationale": "Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.",
+      "residual_risks": [
+        "Arithmetic rational singular-point counts and integral reductions apply only to chosen coordinate/integral model; they are not projective invariants under arbitrary field changes.",
+        "Published Remark 2.5 has an internally inconsistent high multiplicity; our conclusion uses complete independent exact incidence reconstruction, not an assumed source correction.",
+        "No exhaustive literature search can exclude earlier unpublished finite characteristic tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING complex arrangement but NOT arithmetic classification",
+          "evidence": "Remark 2.5 O_61=Lambda_{2,3}(C_10), printed n15=5, no reduction primes",
+          "identifier_or_url": "https://arxiv.org/html/2403.20024v1",
+          "material_read": "Full accessible HTML section 2 including Remark 2.5 construction, published multiplicity table and Q(sqrt5) field-of-model assertion",
+          "method": "lawful arXiv HTML",
+          "title": "Construction of free arrangements using point-line operators",
+          "trigger": "same decagonal 61-line object"
+        },
+        {
+          "assessment": "MATERIAL_LIMITED; related but distinct arithmetic invariant",
+          "evidence": "Abstract concerning modular surfaces rather than reduction of fixed O61 line factors",
+          "identifier_or_url": "https://arxiv.org/abs/2312.03470",
+          "material_read": "Abstract describing realization spaces and n-gon operators; full article not read",
+          "method": "arXiv abstract",
+          "title": "Regular polygons, line operators, and elliptic modular surfaces as realization spaces of matroids",
+          "trigger": "related line operator and moduli geometry"
+        },
+        {
+          "assessment": "INDEPENDENT_COMPUTATION_REPRODUCED",
+          "evidence": "61/551, 21 norm values, Galois orbits, five exceptional finite fields, three good samples",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/arithmetic-reduction-and-rational-singular-support-spectrum-of-t--f749155e538f/RESULT.md",
+          "material_read": "Complete source program, exact norm histogram, Galois orbit calculation, finite-field reduction method; independent program reimplemented and executed",
+          "method": "pinned GitHub blob read; local independent exact rational/cyclotomic and finite-field reconstruction",
+          "title": "Assigned RESULT.md and verify.py",
+          "trigger": "nonstandard exhaustive exact cyclotomic computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural arithmetic bad-reduction classification for a previously studied complex 61-line arrangement distinguishes accidental merging at five primes and gives exact finite-field rational singular support and Galois degrees. Detecting and correcting the previously printed impossible five fifteenfold-point entry matters: it violates the line-pair count, whereas five twelvefold points satisfy it. The invariant is a model-specific but geometrically motivated arithmetic census; not a claim of all projectively equivalent integral presentations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Construction of free arrangements using point-line operators: https://arxiv.org/html/2403.20024v1",
+    "Regular polygons, line operators, and elliptic modular surfaces as realization spaces of matroids: https://arxiv.org/abs/2312.03470",
+    "Assigned RESULT.md and verify.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/arithmetic-reduction-and-rational-singular-support-spectrum-of-t--f749155e538f/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment independent from previously authored self-review, not formal Lean or expert attestation.",
+    "Best-of-knowledge originality is not exhaustive priority certification.",
+    "Publication blocked until confidentiality sanitization; scientific decision is not imported."
+  ],
+  "residual_risks": [
+    "Arithmetic rational singular-point counts and integral reductions apply only to chosen coordinate/integral model; they are not projective invariants under arbitrary field changes.",
+    "Published Remark 2.5 has an internally inconsistent high multiplicity; our conclusion uses complete independent exact incidence reconstruction, not an assumed source correction.",
+    "No exhaustive literature search can exclude earlier unpublished finite characteristic tables."
+  ],
+  "schema_version": 1
+}
