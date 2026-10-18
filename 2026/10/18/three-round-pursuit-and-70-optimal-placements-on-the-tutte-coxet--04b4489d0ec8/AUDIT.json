@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Direct graph construction over F_2^4 gives 30 vertices, 45 edges, girth eight, and diameter four. The exact backwards winning recurrence (proved by cop-then-robber quantifier induction) exhausts 30 states per cop multiset, including repeated cop locations and pass moves. With one and two cops, the winning-position masks stabilize at horizons one and two respectively without any all-robber initial state; with three cops exactly seventy of 4,960 start multisets win by turn three and none by turn two. An independent-in-implementation complement recursion reproduces the same 70 start states and all counts. All seventy are precisely the 35 projective point triples, 15 line pencils, and 20 regulus triples. A separate two-ball covering argument proves that no three-cop start wins in two rounds. Actual executable files verify_game.py and verify_dual.py and their generated outputs are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aigner–Fromme 1984 girth-five lower bound yields c(T)>=3, but does not supply an upper bound or capture time.",
+        "Bonato–Burgess, doi:10.1002/jcd.21331 (2012): published bounds for design-derived graphs; relevant sections concern lower bounds, transversal designs, and point graphs.",
+        "Bonato et al. 2009, doi:10.1016/j.disc.2008.04.004: a fixed-cop polynomial algorithm for capture time, without an explicit T value."
+      ],
+      "reasoning": "Any theorem only bounding cop number below by minimum degree does not force three-round capture or its seventy starts. The design-paper point-graph statements concern an adjacency distinct from the incidence graph. General capture-time computability does not supply the instance result.",
+      "searches": [
+        "\"Cops and Robbers on Graphs Based on Designs\" Bonato Burgess",
+        "\"generalized quadrangle\" \"cop number\" \"capture\"",
+        "\"30-vertex\" \"capture time\" \"cops\"",
+        "\"The capture time of a graph\" Bonato Golovach Hahn Kratochvíl",
+        "minimum number of cops and capture round on Tutte 8 cage cage graph"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/jcd.21331",
+      "arxiv:1308.3354v1",
+      "doi:10.1016/j.disc.2008.04.004",
+      "Aigner–Fromme, A game of cops and robbers, Discrete Applied Mathematics 8 (1984), 1–12 (cited general bound)",
+      "2026/10/11/SCOPE-the-tutte-coxeter-independence-complex-is-a-wedge-of-nine-eight--374e87ce82da (published summary)",
+      "2026/10/11/SCOPE-the-scale-3-rips-complex-of-the-tutte-coxeter-graph-is-a-wedge-o--9454ecd0bd54 (published summary)",
+      "Accessible own previous-claim census, 29 findings in same research topic"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The standard 1984 girth-degree result only gives the necessity of at least three cops.",
+        "Bonato–Burgess 2012 studies incidence graphs of certain BIBDs and GDDs and generalized quadrangle point graphs, but not an enumerated classification of fast initial positions of W(2,2) incidence graph in accessible materials.",
+        "Bonato et al. 2013 arXiv:1308.3354 gives Q_n asymptotic capture time and definitions for the standard game, not this finite graph."
+      ],
+      "reasoning": "Even if a general design-graph theorem yielded the cop number three, this would neither set the optimal game length to exactly three nor specify 70 successful starting multisets and their partition into projective triples, pencils and reguli. The quantitative and structural claim therefore is not a corollary of the identified prior statements.",
+      "searches": [
+        "\"Tutte-Coxeter\" \"cops\" \"robbers\"",
+        "\"generalized quadrangle\" \"cop number\" \"incidence\" exact 2 2",
+        "2013 The capture time of the hypercube arxiv 1308.3354",
+        "cops and robbers on graphs based on designs Bonato Burgess generalized quadrangle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonato–Burgess 2012, doi:10.1002/jcd.21331: design-derived cop-number methods; generalized-quadrangle point graphs distinguished from incidence graphs.",
+        "Bonato et al. arXiv:1308.3354v1: complete accessible HTML concerned hypercube capture times.",
+        "published-finding corpus closest same-graph record 2026/10/11/SCOPE-the-tutte-coxeter-independence-complex-is-a-wedge-of-nine-eight--374e87ce82da concerns an independence complex, not a pursuit game."
+      ],
+      "reasoning": "Tutte eight-cage, Cremona–Richmond incidence graph and doily W(2,2) name the same graph; all were searched with capture-round and start-placement terms. A cop-number result or homotopy invariant cannot alone imply the timed optimal-start classification. The available indexed contents contained no equivalent theorem.",
+      "searches": [
+        "cop capture time Tutte Coxeter graph cubic 8 cage three cops 30 vertex graph",
+        "three-cop capture time of generalized quadrangle W(2,2) incidence graph",
+        "70 optimal starts cops robbers for Tutte 8 cage symplectic generalized quadrangle W(2,2)",
+        "\"Tutte-Coxeter\" \"capture time\"",
+        "\"Cremona-Richmond\" \"cops\" \"robbers\"",
+        "\"Tutte Coxeter\" \"three cops\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research record 2026/10/11/SCOPE-the-scale-3-rips-complex-of-the-tutte-coxeter-graph-is-a-wedge-o--9454ecd0bd54 reports Vietoris–Rips homotopy at scale three, unrelated to capture time.",
+        "Research record 2026/10/11/SCOPE-the-tutte-coxeter-independence-complex-is-a-wedge-of-nine-eight--374e87ce82da studies homotopy of independent sets.",
+        "Accessible own research ledger for this slot contains 29 claims on distinct invariants, not pursuit-game capture rounds."
+      ],
+      "reasoning": "No exact seventy-placement table was found in the queried published research summaries, the searched literature, or the available prior-claim census. Nonappearance in an index alone cannot certify novelty.",
+      "searches": [
+        "the Tutte Coxeter 30 vertex graph has three cop capture time exactly three rounds and 70 winning triples of initial placements",
+        "cop placement triples points lines reguli for smallest generalized quadrangle doily",
+        "capture time of Tutte Coxeter graph 05C57 pursuit game optimal initial placement all triples",
+        "\"Tutte eight cage\" \"capture\" \"cops\"",
+        "\"Tutte-Coxeter\" \"cop number\" \"capture\""
+      ]
+    },
+    "rationale": "The result is the precise three-round capture time and all optimal unordered triple placements for the thirty-vertex Tutte–Coxeter incidence graph, not the familiar girth-degree cop-number lower bound. Prior papers cover cop-number inequalities for design graphs, general capture-time theory, or hypercube capture time; none of the accessible material implies the 70-start geometry. Published records about Vietoris–Rips and other complexes of the same graph use different objects and parameters. Targeted searches found no exact equivalent. The full design-paper publisher text was not available and unindexed work remains a residual risk.",
+    "residual_risks": [
+      "The 2012 Bonato–Burgess complete article was not available for full-document inspection; an attempted institutional-access request required human input.",
+      "Unindexed finite calculations or equivalent cop-placement classifications could exist under other terminology.",
+      "The general cop-number inequality and generic capture-time algorithms are already known; only the exact finite capture time and optimal-start geometry are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different graph variants and cop-number bounds are visible; no seventy-placement capture-time classification was found in inspected portions. Full-text overlap not excluded.",
+        "evidence": [
+          "Wiley first-online date 2012-10-17; DOI 10.1002/jcd.21331",
+          "Accessible sections describe general cop number of design-derived graphs; no phrase capture time found in rendered abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jcd.21331",
+        "material_read": "Publisher abstract, indexed introduction, Tools section and selected passages concerning design incidence graphs and generalized quadrangle point graphs. Complete publisher text was unavailable.",
+        "method": "Open publisher HTML abstract and inspect indexed article excerpts; search for the title and lawful open-access/arXiv version; institutional-access attempt required interaction.",
+        "title": "Cops and Robbers on Graphs Based on Designs",
+        "trigger": "Closest historic subject match: cops on design incidence graphs and generalized quadrangles."
+      },
+      {
+        "assessment": "Studies Q_n and Cartesian products; no theorem on the Tutte–Coxeter incidence graph or its optimal triple deployments.",
+        "evidence": [
+          "arXiv first submission 2013-08-15; primary MSC in source 05C57 and 05C80",
+          "Definition specifies cops choose positions, robber follows, and players may stay."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.3354",
+        "material_read": "Full accessible HTML text; introduction and definitions §1.1, upper-bound constructions §2, lower-bound framework §3, and cited prior results.",
+        "method": "Read arXiv full HTML at arxiv.org/abs/1308.3354.",
+        "title": "The capture time of the hypercube",
+        "trigger": "Primary full-text archive source on capture time and standard game rules."
+      },
+      {
+        "assessment": "Defines and motivates the natural parameter, but not the exact Tutte–Coxeter value or placement list.",
+        "evidence": [
+          "Discrete Mathematics 309 (2009), 5588–5595",
+          "Abstract states fixed-k capture time can be computed by polynomial algorithm."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2008.04.004",
+        "material_read": "Accessible abstract and introduction, including the statements on finite-time capture and algorithms for fixed cop number; complete document not obtained.",
+        "method": "Read accessible ScienceDirect indexed article material.",
+        "title": "The capture time of a graph",
+        "trigger": "Foundational capture-time definition and known general algorithms."
+      },
+      {
+        "assessment": "A simplicial Vietoris–Rips result does not constrain turn-based cop pursuit or optimal placements.",
+        "evidence": [
+          "Summary gives wedge of 256 three-spheres at scale three, not a game parameter."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-the-scale-3-rips-complex-of-the-tutte-coxeter-graph-is-a-wedge-o--9454ecd0bd54",
+        "material_read": "Search result title and scientific summary, not entire document.",
+        "method": "Research-record semantic search and comparison of stated invariant.",
+        "title": "The scale-three Rips complex of the Tutte–Coxeter graph is a wedge of 256 three-spheres",
+        "trigger": "Closest published research record using the same thirty-vertex graph."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04b4489d-0ec8-4857-9c5c-e7b86ec63f70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Tutte–Coxeter graph is the classical smallest cubic girth-eight cage and naturally tests pursuit on a sparse highly symmetric incidence graph. The capture-time invariant and complete characterization of all fastest feasible initial configurations answer a natural deployment question. The precise 35 projective lines, 15 point pencils, and 20 reguli are geometric structural categories, not arbitrary hand-picked subsets; the result is exact for every three-cop starting placement rather than a partial census. The proof distinguishes a known lower bound on cop count from new optimal-time geometry. It makes no unsupported claim of a general theorem for larger designs.",
+    "status": "PASS"
+  }
+}
