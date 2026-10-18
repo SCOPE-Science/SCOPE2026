@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically in `RESULT.md`.
+# Independent mathematical audit
 
-The accompanying checker performs a supplementary exact-rational finite census. It takes every strictly increasing support of size two through five from
-\[
-\{-3,-2,-1,0,1,2,3\}
-\]
-and every positive integer mass vector with entries in \(\{1,2,3\}\), normalized to probabilities.
+## correctness
 
-For each law it enumerates every ordered iid pair, groups the pair sum by the attained absolute difference, and verifies whether the conditional pair-sum mean is constant. It independently tests central symmetry of support and probability mass about the exact rational mean.
+PASS
 
-The replay covers \(9072\) laws. Exactly \(396\) have flat conditional pair-sum mean, and exactly the same \(396\) are centrally symmetric.
+Center iid X1,X2 at mean μ and write Z1,Z2 with mgf M. Conditional mean zero given |Z1-Z2| annihilates (Z1+Z2)cosh(t(Z2-Z1)); exchangeability independently annihilates the sinh part. Factoring expectation of (Z1+Z2)e^{t(Z2-Z1)} using independence yields M'(-t)M(t)+M(-t)M'(t)=0. Thus for K=log M, K'(t)+K'(-t)=0 and K(t)=K(-t) near zero. MGF uniqueness forces central symmetry. Conversely global sign reversal leaves separation invariant and flips midpoint, proving conditional mean constant. Exponential integrability justifies differentiation on smaller neighborhood. Independent exhaustive exact fractions confirmed 9072 support-weight laws, 396 equivalent cases; enumeration is not the universal proof.
 
-The finite census is not used as an infinite proof. The universal claim relies on the conditional-expectation, exchangeability, independence, and moment-generating-function uniqueness argument.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK laws=9072 flat=396 symmetric=396`.
+Best-of-knowledge PASS after reading complete particularly relevant older midrange paper via authorized institutional access, reading relevant open author preprint on adjacent-order regressions, and checking related independence and covariance results. Older characterization corpus remains large, and 2015 Huang--Su full article not fully examined.
+
+## value
+
+PASS
+
+Mean independence of two-observation midpoint and separation is a canonical and weaker dependence constraint than full independence. The theorem gives a complete symmetry characterization under a transparent local mgf assumption and includes atomic, mixed and continuous parents, sharply separating symmetry tests from classical sample-mean/range normality independence theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After centering, symmetry immediately forces the conditional mean of the pair sum to vanish given the absolute difference. Conversely, the conditional-mean identity may be tested against the even function \(\cosh(t(Z_2-Z_1))\); exchangeability separately kills the corresponding odd \(\sinh\) term. Their sum yields an exponential identity that factors under independence into
-\[
-M'(-t)M(t)+M(-t)M'(t)=0.
-\]
-On a smaller exponential-moment neighborhood this implies that \(\log M(t)-\log M(-t)\) is constant and hence zero. Moment-generating-function uniqueness then proves central symmetry. The packaged exact-rational census independently confirms the equivalence on thousands of finite-support laws.
+PASS
 
-## Originality
+Center iid X1,X2 at mean μ and write Z1,Z2 with mgf M. Conditional mean zero given |Z1-Z2| annihilates (Z1+Z2)cosh(t(Z2-Z1)); exchangeability independently annihilates the sinh part. Factoring expectation of (Z1+Z2)e^{t(Z2-Z1)} using independence yields M'(-t)M(t)+M(-t)M'(t)=0. Thus for K=log M, K'(t)+K'(-t)=0 and K(t)=K(-t) near zero. MGF uniqueness forces central symmetry. Conversely global sign reversal leaves separation invariant and flips midpoint, proving conditional mean constant. Exponential integrability justifies differentiation on smaller neighborhood. Independent exhaustive exact fractions confirmed 9072 support-weight laws, 396 equivalent cases; enumeration is not the universal proof.
 
-PASS, with a specific residual risk from older midrange-characterization literature. Two full primary papers by Huang and Su were inspected at their regression-characterization theorem statements. They condition on specified order statistics or adjacent order statistics rather than on the absolute difference of a two-observation sample, and do not state the accepted symmetry criterion.
+## originality
 
-Akhundov--Balakrishnan--Nevzorov is the most plausible older source because it explicitly concerns midrange characterizations. Only its abstract was accessible for decisive comparison; that abstract describes different conditional regressions involving central order statistics and a Student-law characterization. It remains a named residual risk rather than being declared non-covering.
+PASS
 
-The modern mean/range independence theorem of Hu and Lin is not stronger in a way that covers the present statement: it assumes full independence, continuous positive density, and sample size at least three, and concludes normality. The accepted result concerns only constant conditional mean at sample size two and includes discrete laws.
+Best-of-knowledge PASS after reading complete particularly relevant older midrange paper via authorized institutional access, reading relevant open author preprint on adjacent-order regressions, and checking related independence and covariance results. Older characterization corpus remains large, and 2015 Huang--Su full article not fully examined.
 
-## Value
+## value
 
-PASS. Conditional mean independence is a natural intermediate notion between zero covariance and full independence. The theorem identifies exactly what this weaker dependence requirement detects for the most basic location-versus-spread pair: central symmetry.
+PASS
 
-The result is structural rather than a moment recomputation. It gives a two-observation diagnostic valid for discrete, continuous, and mixed laws under one transparent local-transform assumption, and sharply separates symmetry characterization from classical normal characterizations based on full independence.
+Mean independence of two-observation midpoint and separation is a canonical and weaker dependence constraint than full independence. The theorem gives a complete symmetry characterization under a transparent local mgf assumption and includes atomic, mixed and continuous parents, sharply separating symmetry tests from classical sample-mean/range normality independence theorems.
 
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK laws=9072 flat=396 symmetric=396`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

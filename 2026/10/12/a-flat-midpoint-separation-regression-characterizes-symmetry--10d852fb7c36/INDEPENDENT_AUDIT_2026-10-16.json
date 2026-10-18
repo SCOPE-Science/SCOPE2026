@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:04:42.334037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Center iid X1,X2 at mean μ and write Z1,Z2 with mgf M. Conditional mean zero given |Z1-Z2| annihilates (Z1+Z2)cosh(t(Z2-Z1)); exchangeability independently annihilates the sinh part. Factoring expectation of (Z1+Z2)e^{t(Z2-Z1)} using independence yields M'(-t)M(t)+M(-t)M'(t)=0. Thus for K=log M, K'(t)+K'(-t)=0 and K(t)=K(-t) near zero. MGF uniqueness forces central symmetry. Conversely global sign reversal leaves separation invariant and flips midpoint, proving conditional mean constant. Exponential integrability justifies differentiation on smaller neighborhood. Independent exhaustive exact fractions confirmed 9072 support-weight laws, 396 equivalent cases; enumeration is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang--Su author PDF uses conditional quadratic forms of adjacent order statistics and assumes differentiable density.",
+          "Hu--Lin sample mean and range independence is stronger in the CONDITION but yields normality under continuous density/n≥3 rather than symmetry for n=2."
+        ],
+        "reasoning": "A theorem requiring independence does not imply a converse characterization under merely constant conditional mean; it cannot cover the weaker hypothesis or all discrete laws.",
+        "searches": [
+          "Huang Su 2010 Characterizations based on certain regression assumptions of adjacent order statistics pdf",
+          "Hu Lin arXiv:2112.06152 sample mean range independence normal characterization"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1081/STA-200039063 (2004)",
+        "DOI:10.1016/j.spl.2010.07.010; https://www.stat.nuk.edu.tw/huangwj/paper_new/2010-2.pdf",
+        "DOI:10.1080/02331888.2013.825961 (journal 2015, online 2013)",
+        "Resultary/2026/10/4/SCOPE-exact-sign-phase-diagram-for-sample-mean-sample-range-covariance--80a210c3d4ea",
+        "arXiv:2112.06152"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Akhundov primary full pages1-13: linear regressions of X_{k:2k+1},X_{k+2:2k+1} given the center order statistic; the conclusions are quantile families and Student t2.",
+          "Source 2010 conditions on X_(2) or X_(n-1), not absolute difference of n=2 pair."
+        ],
+        "reasoning": "Those specific conditionals cannot be substituted to derive the two-sample general-symmetry equivalence without the new transform factorization. Independent proof survives all checked comparisons.",
+        "searches": [
+          "Akhundov 2004 full text Theorem 2.1, Theorem 3.1",
+          "Huang Su 2010 pdf Sections 1-3",
+          "Hu Lin 2021 arXiv normal independence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is E[(X1+X2)/2 | |X1-X2|]=EX for iid n=2, equivalently E[(Z1+Z2)h(|Z1-Z2|)]=0 for all bounded h.",
+          "Akhundov--Balakrishnan--Nevzorov Theorem 2.1 conditions on the median of 3 and yields Student t2 and related quantile families, not conditioning on n=2 range."
+        ],
+        "reasoning": "Conditional regression given pairwise absolute difference is not reducible to conditional regression given sample median at size 3; the objects and conclusions differ.",
+        "searches": [
+          "Two iid real observations conditional expectation sample midpoint given absolute difference is constant iff underlying distribution symmetric mean range regression characterization",
+          "Akhundov Balakrishnan Nevzorov 2004 New Characterizations by Properties of Midrange DOI 10.1081/STA-200039063"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published Resultary manuscript classifies three-atom sample-mean/range COVARIANCE signs for n≥2.",
+          "Zero covariance is a single scalar condition and does not imply zero conditional regression across all range values, even in the finite three-point class."
+        ],
+        "reasoning": "The related explicit table and finite population characterization does not encode the present full conditional-mean iff-symmetry theorem; no same theorem identified in relevant records.",
+        "searches": [
+          "Resultary semantic search: Two iid real observations conditional expectation sample midpoint given absolute difference is constant iff underlying distribution symmetric mean range regression characterization",
+          "Resultary/2026 sample mean sample range covariance SCOPE-exact-sign-phase-diagram-for-sample-mean-sample-range-covariance--80a210c3d4ea"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after reading complete particularly relevant older midrange paper via authorized institutional access, reading relevant open author preprint on adjacent-order regressions, and checking related independence and covariance results. Older characterization corpus remains large, and 2015 Huang--Su full article not fully examined.",
+      "residual_risks": [
+        "The large older order-statistic characterization literature is not exhaustively searched; Huang--Su 2015 full manuscript remains not fully examined.",
+        "Moment-generating-function existence is a real hypothesis; weakening to mere first moments is not proved.",
+        "No extension to samples of size three or more is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_WITH_FULL_PRIMARY_READ",
+          "evidence": "Main conditional regression is linear combination of order-statistic neighbors given median (n=3 or 2k+1), identifies Student-t2/quantile family, not n=2 midpoint conditioned on absolute gap.",
+          "identifier_or_url": "DOI:10.1081/STA-200039063 (2004)",
+          "material_read": "All 13 pages, including Theorems 2.1, 3.1, proofs, examples, references and last-page reprint notice",
+          "method": "Authorized full article text, pages 1–13",
+          "title": "New Characterizations by Properties of Midrange and Related Statistics",
+          "trigger": "plausibly covering midrange regression theorem"
+        },
+        {
+          "assessment": "DIFFERENT_CONDITIONS",
+          "evidence": "Analyzes quadratic regressions of min given next statistic and max given predecessor, assuming differentiable density, rather than the symmetry iff flat pairwise-separation regression.",
+          "identifier_or_url": "DOI:10.1016/j.spl.2010.07.010; https://www.stat.nuk.edu.tw/huangwj/paper_new/2010-2.pdf",
+          "material_read": "Open author PDF, abstract and main theorem framework, equations 2–9 and later sections context",
+          "method": "Primary PDF with textual mathematical definitions",
+          "title": "Characterizations based on certain regression assumptions of adjacent order statistics",
+          "trigger": "closely related regression of order statistics"
+        },
+        {
+          "assessment": "PLAUSIBLE_ACCESS_RISK",
+          "evidence": "Abstract mentions sums given specified order statistics; absence of full article prevents a complete noncoverage conclusion.",
+          "identifier_or_url": "DOI:10.1080/02331888.2013.825961 (journal 2015, online 2013)",
+          "material_read": "Publisher article abstract and summary of theorem topics; full text NOT inspected",
+          "method": "Publisher abstract only",
+          "title": "Characterizations based on regression assumptions of order statistics",
+          "trigger": "further sums/order-statistic conditional expectations"
+        },
+        {
+          "assessment": "DIFFERENT_STRENGTH",
+          "evidence": "Characterizes sign of covariance for fixed discrete masses and variable support, not the full conditional mean given range.",
+          "identifier_or_url": "Resultary/2026/10/4/SCOPE-exact-sign-phase-diagram-for-sample-mean-sample-range-covariance--80a210c3d4ea",
+          "material_read": "Complete RESULT.md including 3-atom n≥2 covariance theorem and proof",
+          "method": "Published research record Git source full scientific text",
+          "title": "Exact sign phase diagram for sample-mean/sample-range covariance in three-point laws",
+          "trigger": "nearby published regression/range result"
+        },
+        {
+          "assessment": "DIFFERENT_HYPOTHESIS",
+          "evidence": "Requires full independence of mean and range and studies normal law for larger continuous samples.",
+          "identifier_or_url": "arXiv:2112.06152",
+          "material_read": "arXiv title, abstract and scope conditions",
+          "method": "Author preprint abstract / indexed result",
+          "title": "Characterizations of the Normal Distribution via the Independence of the Sample Mean and Feasible Definite Statistics",
+          "trigger": "potentially dominating mean/range theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mean independence of two-observation midpoint and separation is a canonical and weaker dependence constraint than full independence. The theorem gives a complete symmetry characterization under a transparent local mgf assumption and includes atomic, mixed and continuous parents, sharply separating symmetry tests from classical sample-mean/range normality independence theorems.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1081/STA-200039063 (2004)",
+    "DOI:10.1016/j.spl.2010.07.010; https://www.stat.nuk.edu.tw/huangwj/paper_new/2010-2.pdf",
+    "DOI:10.1080/02331888.2013.825961 (journal 2015, online 2013)",
+    "Resultary/2026/10/4/SCOPE-exact-sign-phase-diagram-for-sample-mean-sample-range-covariance--80a210c3d4ea",
+    "arXiv:2112.06152"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only iid n=2, any law with finite mgf near zero. Characterizes central symmetry, not normality or independence."
+  ],
+  "residual_risks": [
+    "The large older order-statistic characterization literature is not exhaustively searched; Huang--Su 2015 full manuscript remains not fully examined.",
+    "Moment-generating-function existence is a real hypothesis; weakening to mere first moments is not proved.",
+    "No extension to samples of size three or more is asserted."
+  ],
+  "schema_version": 1
+}
