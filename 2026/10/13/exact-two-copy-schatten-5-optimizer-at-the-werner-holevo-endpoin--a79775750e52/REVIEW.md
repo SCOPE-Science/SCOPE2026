@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The qutrit endpoint spectrum is reduced exactly to six eigenvalues \(\lambda_i/4\) and three scaled roots of a cubic. Newton identities yield the fifth moment as a polynomial in \(e_2\) and \(e_3\). Maclaurin's inequality and an exact factorization prove the global bound on the full Schmidt simplex, with equality only at \((1/3,1/3,1/3)\). The bundled rational checker replays the algebra and final constants.
+PASS
 
-## Originality
+Qutrit Werner–Holevo output decomposition has six off-diagonal eigenvalues λ_i/4 (multiplicity 2 each) and three diagonal-block eigenvalues γ_j/4 from x³−2x²+x−4e₃. Newton recurrence gives exact fifth moment 4+10e₂²−10e₂e₃−10e₂+70e₃. Maclaurin bounds e₃≤(e₂/3)^(3/2); the stated factorization has sign on u∈[0,1/3] and equality only at u=1/3. Independently checked uniform eigenvalues yield 43/10368 and violation ratio fifth power 86/81. The actual verifier script was inspected but was not used as sole evidence. Equality requires uniform Schmidt coefficients.
 
-**PASS, narrowly scoped.** Werner and Holevo already state from plots that the \(p=5\) global maximum lies at the maximally entangled center. The new claim does not appropriate that qualitative observation: it supplies the exact global analytic proof, equality classification, exact fifth moment \(43/10368\), and exact violation factor \((86/81)^{1/5}\). Datta's rigorous Werner--Holevo result covers only \(1\le p\le2\), while Datta--Holevo--Suhov prove entropy additivity for the transpose-depolarizing family. Exact-value, alias, implication, and database searches located no covering theorem.
+## originality
 
-Residual risk remains that an equivalent short calculation appears in poorly indexed notes or theses.
+PASS
 
-## Value
+Werner–Holevo 2002 explicitly asserted from PLOTS that the p=5 maximizer is at the maximally entangled Schmidt center, and the witness output formula yields the exact center fifth moment by substitution. Thus optimizer location and witness value are antecedents, not new discoveries. The original paper gives no rigorous full-simplex positivity inequality or equality-case proof; current new contribution is an exact rigorous GLOBAL certificate and uniqueness. Novelty is narrowly this proof rather than first statement of optimizer. Best-of-knowledge O survives with high prior-coverage risk.
 
-**PASS.** The qutrit \(p=5\) case is the first integer above the canonical Werner--Holevo transition. Replacing a plot-supported optimizer assertion by an exact full-simplex theorem and exact violation factor is a substantive benchmark result for a standard quantum-channel counterexample.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A rigorous exact global optimization over the Schmidt simplex closes a proof gap left by a qualitative 2002 plot and uniquely certifies the multiplicativity violation at first integer p=5. Despite previous recognition of the center and exact witness expression, analytic equality control is a substantive quantum-channel norm result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

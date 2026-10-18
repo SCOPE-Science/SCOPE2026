@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and finite-dimensional. The critical checks are:
+# Independent mathematical audit
 
-1. At the qutrit Werner--Holevo endpoint, the six off-diagonal output eigenvalues are \(\lambda_i/4\), each twice, and the remaining three are \(\gamma_j/4\), where \(\gamma_j\) are roots of \(x^3-2x^2+x-4e_3\).
-2. Newton identities give \(\sum_i\lambda_i^5=5e_2^2-5e_2e_3-5e_2+5e_3+1\) and \(\sum_j\gamma_j^5=60e_3+2\).
-3. Since \(e_3\le(e_2/3)^{3/2}\) and \(e_2\le1/3\), the problem reduces to \(0\le u\le1/3\) with \(u=\sqrt{e_2/3}\).
-4. The exact factorization
-\[
-\frac{344}{81}-\left(4-30u^2+70u^3+90u^4-30u^5\right)
-=\frac{10}{81}(3u-1)(81u^4-216u^3-261u^2-6u-2)
-\]
-is nonnegative on that interval and vanishes only at \(u=1/3\).
-5. Equality then forces \(\lambda_1=\lambda_2=\lambda_3=1/3\). The optimum fifth moment is \(43/10368\), and comparison with the single-use fifth moment \(1/16\) gives the fifth power violation ratio \(86/81\).
+## correctness
 
-`verify_wh_p5.py` uses only the Python standard library and exact rational arithmetic for the recurrence identities, polynomial factorization coefficients, exact optimum, and violation factor. Its deterministic grid is supplementary and is not used as proof of the continuous statement.
+PASS
+
+Qutrit Werner–Holevo output decomposition has six off-diagonal eigenvalues λ_i/4 (multiplicity 2 each) and three diagonal-block eigenvalues γ_j/4 from x³−2x²+x−4e₃. Newton recurrence gives exact fifth moment 4+10e₂²−10e₂e₃−10e₂+70e₃. Maclaurin bounds e₃≤(e₂/3)^(3/2); the stated factorization has sign on u∈[0,1/3] and equality only at u=1/3. Independently checked uniform eigenvalues yield 43/10368 and violation ratio fifth power 86/81. The actual verifier script was inspected but was not used as sole evidence. Equality requires uniform Schmidt coefficients.
+
+## originality
+
+PASS
+
+Werner–Holevo 2002 explicitly asserted from PLOTS that the p=5 maximizer is at the maximally entangled Schmidt center, and the witness output formula yields the exact center fifth moment by substitution. Thus optimizer location and witness value are antecedents, not new discoveries. The original paper gives no rigorous full-simplex positivity inequality or equality-case proof; current new contribution is an exact rigorous GLOBAL certificate and uniqueness. Novelty is narrowly this proof rather than first statement of optimizer. Best-of-knowledge O survives with high prior-coverage risk.
+
+## value
+
+PASS
+
+A rigorous exact global optimization over the Schmidt simplex closes a proof gap left by a qualitative 2002 plot and uniquely certifies the multiplicativity violation at first integer p=5. Despite previous recognition of the center and exact witness expression, analytic equality control is a substantive quantum-channel norm result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
