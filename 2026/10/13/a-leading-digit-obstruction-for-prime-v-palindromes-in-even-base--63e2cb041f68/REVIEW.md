@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument checks all primes and all even bases: the subadditivity and prime-power estimate for \(v\) yield \(v(m)\le m/2\) for odd composites \(m\ge21\); reversals of odd primes in even bases are odd, and the odd high-leading-digit condition forces a strict bound \(r_b(p)<2p\). The exceptions \(9\), \(15\), and the even prime \(2\) are handled explicitly. Finite tests in `verify.py` were replayed; they are not substituted for the proof.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Bispels et al. (arXiv:2405.05267v1, 2024) pose basewise prime \(v\)-palindrome existence as Problem 1, report the least composite binary example, and exhibit prime examples in other bases. Boran et al. (arXiv:2307.00770v1, 2023) give a decimal classification and \(v(n)\le n\); those facts alone do not imply the binary conclusion or the stated arbitrary-even-base digit restriction. Targeted searches found no statement-equivalent coverage. The possibility of an unindexed equivalent argument remains.
+PASS
 
-**Value — PASS.** The base-\(2\) case of an explicit natural number-theory question is settled for all primes; the general parity/leading-digit inequality gives an infinite structural exclusion rather than a computational census. The restriction is sharp in spirit: prime \(v\)-palindromes may occur outside this digit stratum (the known base-\(16\) example has even leading digit).
+The arithmetic v function has prime power values v(l)=l and v(l^e)=l+e for e>=2, and v(ac)<=v(a)+v(c), v(t)<=t. For each odd composite m>=21 factor m=ac with a,c odd>=3 and (a-2)(c-2)>=4, obtaining v(m)<=a+c<=m/2. Check exceptional odd composites 9 and 15 directly: v(9)=5, v(15)=8. For odd prime p in even base b with odd leading digit d>=b/2, reverse s is odd with same base-b length and s<b^L<=2p. If s is distinct prime then v(s)=s!=p; if composite>=21 then v(s)<=s/2<p; s=15 cannot yield prime v, s=9 would require p=5 but 5 never reverses to 9 in any even base. Palindromic reversals are excluded by definition; p=2 inadmissible. Thus no such prime v-palindrome; every base-2 leading digit is 1 and meets the condition. Independent finite check tested 1753 odd primes in base2 and verified small exceptions; unbounded result is analytic.
 
-**Limits.** This is not a complete classification of prime \(v\)-palindromes in arbitrary even bases and says nothing about odd bases. The source comparison is not an exhaustive novelty certificate, and the code only performs finite consistency tests.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bispels–Boran–Miller–Sosis–Tsai 2024 Definition 2 and Problem 1 ask which bases admit prime v-palindromes; Table1 records composite base-2 175 but not nonexistence for prime binary v-palindromes. Boran et al 2023 characterize decimal prime v-palindromes and Lemma2.7 proves the weaker v(n)<=n; the new odd-composite half bound and even-base parity/leading digit argument establish an all-length criterion beyond base10. No checked broader theorem implies this condition for all even b.
+
+## value
+
+PASS
+
+This settles the prime nonexistence question completely for base 2, explicitly requested by the general-base prime existence problem, and excludes an infinite natural family of leading digits in every even base. The argument is a concise structural obstruction motivated by the reversal size and valuation function, not an unmotivated finite table scan.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
