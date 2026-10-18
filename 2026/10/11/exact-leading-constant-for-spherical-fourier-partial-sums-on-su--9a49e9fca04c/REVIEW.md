@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is reconstructed from the exact Peter--Weyl kernel. With \(M=L+1\), normalized Weyl integration reduces the endpoint norm to
-\[
-\frac2\pi\int_0^\pi\left|\sum_{m=1}^M m\sin(m\theta)\right|\sin\theta\,d\theta.
-\]
-The exact finite-sum identity in `RESULT.md` splits this into a leading oscillation of size \(M\) and a remainder whose absolute integral is \(O(\log M)\). The leading weighted \(|\cos|\) integral has mean \(2/\pi\), giving \(8/\pi^2\). The checker confirms the algebraic identity and numerical convergence but is not used to infer the limit.
+## correctness
 
-## Originality
-**PASS, with a named residual risk.** Hare (1997) supplies the exact \(SU(2)\) orthogonal block decomposition and multiplier setting but not this endpoint asymptotic. Giulini--Travaglini (1986) treat the same broad Lebesgue-constant phenomenon and prove sharp order bounds; their inspected full text does not state the coefficient \(8/\pi^2\). Meaney (1981) proves qualitative unboundedness criteria. Literature searches under Peter--Weyl, Dirichlet-kernel, Lebesgue-constant, partial-sum, and coefficient-fingerprint aliases found no covering statement among the checked sources. Dreseler's 1986 Bochner--Riesz asymptotics paper remains an inaccessible plausible source and is explicitly retained as a risk rather than treated as negative evidence.
+PASS
 
-## Value
-**PASS.** The canonical low-pass projection is the basic Fourier truncation attached to the natural \(SU(2)\) Peter--Weyl grading. Replacing a known order estimate by the exact leading endpoint amplification constant is a substantive stability statement for nonabelian Fourier summation, and it is not implied by the corresponding single-block norm because absolute values allow cancellation between blocks.
+By SU(2) Peter-Weyl characters, highest-weight cutoff S_L is convolution with K_L(theta)=sum_{m=1}^{M}m sin(m theta)/sin theta, M=L+1. Haar probability Weyl density 2/pi sin² theta makes endpoint L1 and Linfty operator norms equal (2/pi)∫0^pi |sum m sin(m theta)|sin theta dtheta. Algebraic identity sin theta sum m sin(m theta)=-M cos(theta/2)cos((M+1/2)theta)+(1/2)cot(theta/2)sin(M theta) was independently checked with maximal sampled error 1.8e-12. Its second term integrates O(log M) by splitting at 1/M, cot(theta/2)≤2/theta and sin(M theta)≤M theta near zero. The absolute cosine Fourier expansion has mean 2/pi and summable k^-2 coefficients; integration by parts gives weighted integral ∫cos(theta/2)|cos((M+1/2)theta)|=4/pi+O(1/M). Hence norm=(8/pi²)M+O(log M). Independent midpoint integrations M=32,128,512 gave norm/M .8198525004,.8129236562,.8111618525 approaching 8/pi²=.8105694691; asymptotic is proved analytically, not by numerics.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact normalized leading coefficient of unsmoothed highest-weight SU(2) spherical partial sums, not for Peter-Weyl decomposition or mere linear-order growth. Hare 1997 supplies representation blocks; Giulini–Travaglini 1986 published abstract gives only two-sided ∥D_R∥_1≈R growth, not limit 8/pi²; Meaney 1981 gives unboundedness. Dreseler 1986 studies Bochner–Riesz kernels but complete text inaccessible, and its unsmoothed order-zero relation remains material residual priority risk. Resultary unavailable is not novelty proof.
+
+## value
+
+PASS
+
+Exact Lebesgue-constant leading coefficient for the canonical compact-group spectral projector improves known growth-order bounds with a natural sharp, reusable endpoint reference and rigorous logarithmic remainder.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

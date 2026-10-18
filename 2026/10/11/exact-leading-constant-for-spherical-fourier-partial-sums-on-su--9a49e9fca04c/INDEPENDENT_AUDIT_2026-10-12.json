@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T15:22:02.472981Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By SU(2) Peter-Weyl characters, highest-weight cutoff S_L is convolution with K_L(theta)=sum_{m=1}^{M}m sin(m theta)/sin theta, M=L+1. Haar probability Weyl density 2/pi sin² theta makes endpoint L1 and Linfty operator norms equal (2/pi)∫0^pi |sum m sin(m theta)|sin theta dtheta. Algebraic identity sin theta sum m sin(m theta)=-M cos(theta/2)cos((M+1/2)theta)+(1/2)cot(theta/2)sin(M theta) was independently checked with maximal sampled error 1.8e-12. Its second term integrates O(log M) by splitting at 1/M, cot(theta/2)≤2/theta and sin(M theta)≤M theta near zero. The absolute cosine Fourier expansion has mean 2/pi and summable k^-2 coefficients; integration by parts gives weighted integral ∫cos(theta/2)|cos((M+1/2)theta)|=4/pi+O(1/M). Hence norm=(8/pi²)M+O(log M). Independent midpoint integrations M=32,128,512 gave norm/M .8198525004,.8129236562,.8111618525 approaching 8/pi²=.8105694691; asymptotic is proved analytically, not by numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Giulini–Travaglini institutional abstract states ∥D_R∥1 bounded between positive unspecified multiples of R^(n-1)/2",
+          "Dreseler Bochner–Riesz article bibliographic only; no full text",
+          "Original analytic kernel identity, Haar normalization and exact coefficient computed for highest-weight cutoff"
+        ],
+        "reasoning": "Broader theorem: General semisimple group growth order does not imply normalized coefficient 8/pi².",
+        "searches": [
+          "Giulini Travaglini 1986 DOI 10.1016/0022-1236(86)90059-5",
+          "Hare 1997 Peter Weyl Littlewood Paley SU2",
+          "Dreseler 1986 Bochner Riesz compact Lie group asymptotic",
+          "SU2 spherical Fourier unsmoothed partial sums",
+          "SU2 spherical Dirichlet kernel exact Lebesgue constant 8/pi²"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/0022-1236(86)90059-5 bibliographic abstract",
+        "DOI:10.4153/CMB-1997-036-1 bibliographic",
+        "Dreseler JFA 68 (1986) 374-387 bibliographic",
+        "Git RESULT.md blob 1124bcbbd0b0cec32b3f66dbedef07d83b1cb274",
+        "Git verify.py blob ecd7552d9076dfc07c7f26d1bb2f11c581cdbbec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Giulini–Travaglini institutional abstract states ∥D_R∥1 bounded between positive unspecified multiples of R^(n-1)/2",
+          "Dreseler Bochner–Riesz article bibliographic only; no full text",
+          "Original analytic kernel identity, Haar normalization and exact coefficient computed for highest-weight cutoff"
+        ],
+        "reasoning": "Statement versus prior implication: Prior order bounds, unboundedness and representation theory do not imply a specific coefficient; Bochner–Riesz zero-smoothing implication not resolved from inaccessible full text, retained as priority risk.",
+        "searches": [
+          "Dreseler 1986 Bochner Riesz compact Lie group asymptotic",
+          "SU2 spherical Fourier unsmoothed partial sums",
+          "SU2 spherical Dirichlet kernel exact Lebesgue constant 8/pi²",
+          "Giulini Travaglini 1986 DOI 10.1016/0022-1236(86)90059-5",
+          "Hare 1997 Peter Weyl Littlewood Paley SU2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Giulini–Travaglini institutional abstract states ∥D_R∥1 bounded between positive unspecified multiples of R^(n-1)/2",
+          "Dreseler Bochner–Riesz article bibliographic only; no full text",
+          "Original analytic kernel identity, Haar normalization and exact coefficient computed for highest-weight cutoff"
+        ],
+        "reasoning": "Equivalent formulation: Spherical Dirichlet and highest-weight Peter-Weyl kernel are equivalent here with precise cutoff and Haar normalization; SU2=S3 aliases searched.",
+        "searches": [
+          "SU2 spherical Dirichlet kernel exact Lebesgue constant 8/pi²",
+          "Giulini Travaglini 1986 DOI 10.1016/0022-1236(86)90059-5",
+          "Hare 1997 Peter Weyl Littlewood Paley SU2",
+          "Dreseler 1986 Bochner Riesz compact Lie group asymptotic",
+          "SU2 spherical Fourier unsmoothed partial sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Giulini–Travaglini institutional abstract states ∥D_R∥1 bounded between positive unspecified multiples of R^(n-1)/2",
+          "Dreseler Bochner–Riesz article bibliographic only; no full text",
+          "Original analytic kernel identity, Haar normalization and exact coefficient computed for highest-weight cutoff"
+        ],
+        "reasoning": "Exact table and database: No located exact coefficient table for this precise unsmoothed cutoff; Resultary failure gives no negative evidence.",
+        "searches": [
+          "Hare 1997 Peter Weyl Littlewood Paley SU2",
+          "Dreseler 1986 Bochner Riesz compact Lie group asymptotic",
+          "SU2 spherical Fourier unsmoothed partial sums",
+          "SU2 spherical Dirichlet kernel exact Lebesgue constant 8/pi²",
+          "Giulini Travaglini 1986 DOI 10.1016/0022-1236(86)90059-5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact normalized leading coefficient of unsmoothed highest-weight SU(2) spherical partial sums, not for Peter-Weyl decomposition or mere linear-order growth. Hare 1997 supplies representation blocks; Giulini–Travaglini 1986 published abstract gives only two-sided ∥D_R∥_1≈R growth, not limit 8/pi²; Meaney 1981 gives unboundedness. Dreseler 1986 studies Bochner–Riesz kernels but complete text inaccessible, and its unsmoothed order-zero relation remains material residual priority risk. Resultary unavailable is not novelty proof.",
+      "residual_risks": [
+        "Resultary temporarily unavailable, not a successful negative search",
+        "Dreseler Bochner-Riesz paper full text not available; potentially stronger result",
+        "Giulini–Travaglini whole paper not accessed, abstract alone cannot exclude exact norm coefficient"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published two-sided order-growth; full article cannot be certified not to contain coefficient",
+          "evidence": [
+            "Institutional archive abstract and bibliographic description only; article full text unavailable",
+            "Published two-sided order-growth; full article cannot be certified not to contain coefficient"
+          ],
+          "identifier_or_url": "DOI:10.1016/0022-1236(86)90059-5; https://www.boa.unimib.it/handle/10281/23275",
+          "material_read": "Institutional archive abstract and bibliographic description only; article full text unavailable",
+          "method": "Direct web primary text when specified; otherwise bibliographic/abstract as expressly limited",
+          "title": "Sharp Estimates for Lebesgue Constants on Compact Lie Groups",
+          "trigger": "Directly relevant original theorem, object, or parameter"
+        },
+        {
+          "assessment": "Provides Peter-Weyl blocks, not independently known to contain endpoint leading constant",
+          "evidence": [
+            "Bibliographic abstract and decompositions, not original full article",
+            "Provides Peter-Weyl blocks, not independently known to contain endpoint leading constant"
+          ],
+          "identifier_or_url": "DOI:10.4153/CMB-1997-036-1",
+          "material_read": "Bibliographic abstract and decompositions, not original full article",
+          "method": "Direct web primary text when specified; otherwise bibliographic/abstract as expressly limited",
+          "title": "A General Approach to Littlewood-Paley Theorems for Orthogonal Families",
+          "trigger": "Directly relevant original theorem, object, or parameter"
+        },
+        {
+          "assessment": "Plausible priority overlap not ruled out; smoothed versus unsmoothed cutoff remains an explicit risk",
+          "evidence": [
+            "Secondary bibliographic citation only; complete text unavailable",
+            "Plausible priority overlap not ruled out; smoothed versus unsmoothed cutoff remains an explicit risk"
+          ],
+          "identifier_or_url": "Dreseler, JFA 68 (1986), 374–387",
+          "material_read": "Secondary bibliographic citation only; complete text unavailable",
+          "method": "Direct web primary text when specified; otherwise bibliographic/abstract as expressly limited",
+          "title": "On the Asymptotic of the Bochner--Riesz Kernel on Compact Lie Groups",
+          "trigger": "Directly relevant original theorem, object, or parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact Lebesgue-constant leading coefficient for the canonical compact-group spectral projector improves known growth-order bounds with a natural sharp, reusable endpoint reference and rigorous logarithmic remainder.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1016/0022-1236(86)90059-5 bibliographic abstract",
+    "DOI:10.4153/CMB-1997-036-1 bibliographic",
+    "Dreseler JFA 68 (1986) 374-387 bibliographic",
+    "Git RESULT.md blob 1124bcbbd0b0cec32b3f66dbedef07d83b1cb274",
+    "Git verify.py blob ecd7552d9076dfc07c7f26d1bb2f11c581cdbbec"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only highest-weight unsmoothed S_L on SU(2), Haar probability, L1/Linfty; remainder O(log L) not claimed optimal.",
+    "Resultary temporarily unavailable, not a successful negative search",
+    "Dreseler Bochner-Riesz paper full text not available; potentially stronger result",
+    "Giulini–Travaglini whole paper not accessed, abstract alone cannot exclude exact norm coefficient"
+  ],
+  "residual_risks": [
+    "Resultary temporarily unavailable, not a successful negative search",
+    "Dreseler Bochner-Riesz paper full text not available; potentially stronger result",
+    "Giulini–Travaglini whole paper not accessed, abstract alone cannot exclude exact norm coefficient"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Published two-sided order-growth; full article cannot be certified not to contain coefficient",
+      "evidence": [
+        "Institutional archive abstract and bibliographic description only; article full text unavailable",
+        "Published two-sided order-growth; full article cannot be certified not to contain coefficient"
+      ],
+      "identifier_or_url": "DOI:10.1016/0022-1236(86)90059-5; https://www.boa.unimib.it/handle/10281/23275",
+      "material_read": "Institutional archive abstract and bibliographic description only; article full text unavailable",
+      "method": "Direct web primary text when specified; otherwise bibliographic/abstract as expressly limited",
+      "title": "Sharp Estimates for Lebesgue Constants on Compact Lie Groups",
+      "trigger": "Directly relevant original theorem, object, or parameter"
+    },
+    {
+      "assessment": "Provides Peter-Weyl blocks, not independently known to contain endpoint leading constant",
+      "evidence": [
+        "Bibliographic abstract and decompositions, not original full article",
+        "Provides Peter-Weyl blocks, not independently known to contain endpoint leading constant"
+      ],
+      "identifier_or_url": "DOI:10.4153/CMB-1997-036-1",
+      "material_read": "Bibliographic abstract and decompositions, not original full article",
+      "method": "Direct web primary text when specified; otherwise bibliographic/abstract as expressly limited",
+      "title": "A General Approach to Littlewood-Paley Theorems for Orthogonal Families",
+      "trigger": "Directly relevant original theorem, object, or parameter"
+    },
+    {
+      "assessment": "Plausible priority overlap not ruled out; smoothed versus unsmoothed cutoff remains an explicit risk",
+      "evidence": [
+        "Secondary bibliographic citation only; complete text unavailable",
+        "Plausible priority overlap not ruled out; smoothed versus unsmoothed cutoff remains an explicit risk"
+      ],
+      "identifier_or_url": "Dreseler, JFA 68 (1986), 374–387",
+      "material_read": "Secondary bibliographic citation only; complete text unavailable",
+      "method": "Direct web primary text when specified; otherwise bibliographic/abstract as expressly limited",
+      "title": "On the Asymptotic of the Bochner--Riesz Kernel on Compact Lie Groups",
+      "trigger": "Directly relevant original theorem, object, or parameter"
+    }
+  ]
+}
