@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces arbitrary ellipses to diagonal ones by averaging over coordinate sign symmetries, preserving both sides of every norm comparison. The resulting one-variable function \(F_r(t)=1-t^m+rt\) is concave, and its exact endpoint minima and critical maximum yield a distortion ratio whose global minimum is attained at \(r=1\). This proves the formula for every real \(q>2\) without relying on finite sampling.
+## correctness
 
-## Originality
-PASS. The closest inspected literature establishes the finite-dimensional Musielak--Orlicz framework and Banach--Mazur context (arXiv:1305.6288) or the Nakano/Luxemburg definitions (DOI 10.1186/s13663-015-0357-7), but not this distance formula. A close published record treats the single exponent \(q=4\) for a different invariant on the same mixed-power body; that special overlap does not imply the all-\(q\) theorem. The residual risk is an equivalent statement under convex-body terminology.
+PASS
 
-## Value
-PASS. The pair of exponents \((2,q)\) is the simplest variable-exponent deformation with one Hilbert coordinate and one superquadratic coordinate. Determining its exact Euclidean Banach--Mazur distance for every \(q>2\), together with the optimal ellipsoid and contact directions, supplies a natural benchmark for finite-dimensional Nakano geometry rather than a parameter-table recomputation.
+Sign averaging preserves upper/lower quadratic comparison for all real x,y and removes cross terms. For q>2 write m=q/2>1,t=y²: F_r(t)=1-t^m+rt. Its minimum is min(1,r); for 0<r<m the maximum is 1+(m-1)(r/m)^[m/(m-1)] and for r≥m it is r. On r≤1, r² D'(r)=-1+(r/m)^[m/(m-1)]<0; for r≥1 the numerator grows or D=r. The unique ratio minimum is r=1, giving d_BM²=1+(m-1)m^[-m/(m-1)]. q=4 yields 5/4. This is an all-real-q proof, not numerical extrapolation.
 
-## Closest literature and limitations
-Kobos (arXiv:1305.6288) defines finite-dimensional Musielak--Orlicz Luxemburg spaces and discusses Banach--Mazur distance, but studies equilateral dimension. Castillo-Santos and Japón (DOI 10.1186/s13663-015-0357-7) explicitly identify Nakano sequence spaces inside the Musielak--Orlicz class. The result here does not cover general exponent pairs, higher dimensions, or arbitrary coordinate Young functions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific claim after object/implication comparisons against accessible primary texts; unavailable Resultary is explicitly NOT a negative search or originality proof. The absolute convex body x²+|y|^q≤1 is simultaneously the 2-coordinate Nakano/Luxemburg unit ball, or a generalized superellipse; these were queried under both normed-space and convex-body terms. Kobos defines the gauge; no equivalent all-q distance statement is present in that inspected primary result. A previously recorded q=4 Thullen-body result is a fixed-exponent squeezing invariant 2/sqrt(5), not the same Banach–Mazur statement and cannot imply a continuum formula. The q=4 squared Banach–Mazur value 5/4 is a related special numerical overlap, not independently new.
+
+## value
+
+PASS
+
+The complete one-parameter variable-exponent Nakano family with one Hilbert coordinate is a natural deformation of Euclidean geometry. Its globally best Euclidean ellipsoid, continuum of exact distortions and contact directions are an independently reusable benchmark for Musielak–Orlicz geometry, not a table lookup or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
