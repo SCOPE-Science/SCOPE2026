@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:50:52.489767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the original four-cell martingale, each length-n null path has probability 4^(-n) and its value depends only on occupancy multiplicities. Independently rebuilt a symmetry-compressed integer DP: transitions from a sorted occupancy state increment a value-v cell with multiplier equal to its count multiplicity, retaining only paths with M_n<T. Reproduced the two exact horizon-128 crossing probabilities: 0.050092095656419… at T-=33554432/2297295 and 0.049902691907131… at T*=10384593717069655257060992658440192/710974957562660933407217865583125. Independently scanned all 550,967 four-part occupancy partitions through n=128 and found no attainable support between T- and T*. Threshold is minimal only within the stipulated attained-support convention, not among all real T.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ville bound T=20 is general but not sharp at finite horizon.",
+          "Henzi–Law section 4.4 uses Monte Carlo calibration for their Sinkhorn-corrected method and does not state a universal exact finite-horizon recurrence supplying this fixed-grid threshold."
+        ],
+        "reasoning": "No identified theorem supersedes the exact integer-state recurrence and two adjacent support crossing probabilities for the specified fixed-grid process.",
+        "searches": [
+          "https://arxiv.org/abs/2305.13818",
+          "exact finite-horizon Ville inequality Dirichlet multinomial Bayes factor calibration",
+          "Resultary semantic: Exact finite horizon calibration four cell rank martingale N=128 threshold Henzi Law sequential independence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2305.13818",
+        "Henzi–Law public replication discussion",
+        "Resultary semantic: Exact finite horizon calibration four cell rank martingale N=128 threshold Henzi Law sequential independence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original martingale definition yields M_n, but does not calculate the exact 128-step boundary-crossing distribution.",
+          "Exact threshold requires summing paths avoiding a boundary and ruling out every intermediate support value; these are not implied by Ville inequality or the source simulations."
+        ],
+        "reasoning": "The finite state recurrence is a substantive extra computation with a reproducible exact decision relevant to truncation.",
+        "searches": [
+          "https://arxiv.org/abs/2305.13818",
+          "Resultary semantic: Exact finite horizon calibration four cell rank martingale N=128 threshold Henzi Law sequential independence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Henzi–Law fixed-grid d=2 model is exactly a uniform four-category iid null with uniform Dirichlet(1,1,1,1) Bayes-factor martingale.",
+          "The support-attained calibration is equivalent to finding the minimal attained threshold with pathwise null crossing probability ≤1/20 through 128 observations."
+        ],
+        "reasoning": "Compared this exact discrete max-over-time functional rather than equating superficially similar test thresholds from different Sinkhorn or mixture variants.",
+        "searches": [
+          "Resultary semantic: Exact finite horizon calibration four cell rank martingale N=128 threshold Henzi Law sequential independence",
+          "Dirichlet multinomial Bayes factor sequential crossing exact finite horizon",
+          "four multinomial cells occupancy Bayesian martingale"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier indexed table of the exact 128-step fixed-grid size and consecutive support levels was found.",
+          "The self-mirror Resultary entry repeats the assignment and is not independent prior evidence."
+        ],
+        "reasoning": "The original paper and replication discussion provide simulated cutoffs of a different test, not the two exact fractions.",
+        "searches": [
+          "\"14.606131491142460\" martingale",
+          "\"0.049902691907131\" four cell",
+          "Resultary semantic: Exact finite horizon calibration four cell rank martingale N=128 threshold Henzi Law sequential independence"
+        ]
+      },
+      "rationale": "Henzi–Law give the martingale and discuss simulation-based finite-horizon calibration of a different Sinkhorn variant; they do not give this exact fixed-grid four-cell N=128 support threshold. The independent 128-step exact path count and exhaustive support-gap certificate are not implied by a generic Ville bound.",
+      "residual_risks": [
+        "Unindexed sequential multinomial Bayes-factor computations may contain equivalent recurrence or exact 128-step cutoff, though none identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the fixed-grid d=2 exact 128-step support threshold; source simulation concerns a Sinkhorn correction",
+          "evidence": "Fixed-grid Dirichlet-integrated martingale equation; Section 4.4 simulation-based truncation corrections.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.13818",
+          "material_read": "Full accessible preprint relevant text: fixed-grid Bayes-factor formula, null rank assumptions, Section 4.4 finite-horizon simulation and variants",
+          "method": "Public arXiv/ar5iv full text including equations and section 4.4",
+          "title": "A Rank-Based Sequential Test of Independence",
+          "trigger": "Original rank martingale and finite-horizon calibration context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-horizon Ville calibration is directly relevant to sequential testing. A certified 5% cutoff at a realistic horizon and exact null size replaces an otherwise conservative 20 cutoff; the exact support convention prevents ambiguity and the orbit-compressed recurrence is useful for related discrete null martingales.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only iid-uniform randomized rank null, fixed 4 cells, uniform Dirichlet prior, N=128 and α=.05; not the Sinkhorn correction or general horizons. Support-attained, not continuous thresholds."
+  ],
+  "schema_version": 1
+}
