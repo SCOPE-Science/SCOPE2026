@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The conjugate-difference identity is exact, and for odd \(n\) a collision with integer \(c\ne1\) is impossible. The discriminant quotient is valid because \(\mathcal O_{\mathbb Q(\zeta)}=\mathbb Z[\zeta]\). The local unit-pair count has the two exact values \(p^{e-1}(p-1)\) and \(p^{e-1}(p-2)\), and the Chinese remainder theorem gives the stated product. Removing the unique diagonal precisely when the residue sum is a unit gives \(E_n(m)\). Grouping by root order yields the cyclotomic factors. The final \(c=0\)/\(c=2\) argument is exhaustive because index one forces \(|1-c|=1\).
+## correctness
 
-## Originality
-PASS. The closest primary source studies the same generator family but its Section 2 addresses proper-subfield generation and does not state the exact full-field order index in the odd composite case. The Shah--Nakahara paper concerns index-two imaginary abelian subfields and Gauss periods. Searches for the exact index, discriminant, transformed-cyclotomic, and composite-conductor formulations did not locate a covering statement. A prime-conductor formula does not imply the composite theorem: for composite \(n\), residue sums split according to which full prime-power components occur in the root order, producing the divisor-indexed exponents \(E_n(m)\).
+PASS
 
-## Value
-PASS. The result closes a natural full-field branch left open by the source paper and converts the monogeneity question into an explicit arithmetic formula for every odd composite conductor. The divisor-stratified exponents expose how composite conductor structure changes the index and give a complete power-basis classification inside the natural family \(\zeta+c\zeta^{-1}\).
+Distinct conjugates: (zeta^a-zeta^b)(1-c zeta^(-a-b)) cannot vanish for distinct units since integer c and odd-order root force c=1 in any collision. The discriminant-ratio product is therefore valid. CRT counts ordered unit pairs by t=a+b locally as p^(e-1)(p-1) for p|t and p^(e-1)(p-2) otherwise; unordered pairs subtract unique diagonal exactly for primitive order m=n, explaining E_n(m). Grouping roots yields product Phi_m(c), and t=0 exponent phi(n)/2. At c=2, E_n(n)>=1 and Phi_n(2)>1; all other c !=0,2 excluded by |1-c|>1. Independent exact unit-pair enumerations for n=9,15,21,25,27,33,45,63,75 matched every exponent, but the CRT proof handles all n.
 
-The principal residual risk is bibliographic: an older equivalent index formula could be phrased in transformed-cyclotomic or discriminant language. The targeted exact-expression and structural searches performed here did not find one.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with substantial named-source access risk: the same generating family is studied by Karatarakis--Kaur, but public abstract and source summary concern monogeneity of proper subfields and special boundary c=1, not a located full-field composite-conductor index formula. Their FULL text could not be read despite arXiv/OA attempts and authorized institutional access reporting VPN disconnected. No claim of whole-document noncoverage is made. Composite conductor divisor stratification is not an automatic prime-conductor specialization.
+
+## value
+
+PASS
+
+An exact order index and power-basis classification for a natural explicit infinite family inside cyclotomic fields is an independently reusable invariant; the multiplicative divisor strata replace misleading prime-only uniform residue counts. It is not merely a single sample computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

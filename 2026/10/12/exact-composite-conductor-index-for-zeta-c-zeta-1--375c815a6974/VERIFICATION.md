@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two independent components: an algebraic discriminant factorization and an arithmetic count of unit-pair sums.
+# Independent mathematical audit
 
-For distinct unit classes \(a,b\pmod n\), the identity
-\[
-(\zeta^a+c\zeta^{-a})-(\zeta^b+c\zeta^{-b})
-=(\zeta^a-\zeta^b)(1-c\zeta^{-a-b})
-\]
-was checked symbolically. For odd \(n\) and integer \(c\ne1\), the second factor cannot vanish, so the generator has full degree. Dividing the generator discriminant by the cyclotomic discriminant leaves exactly the product of the second factors over unordered pairs.
+## correctness
 
-For each residue \(t\pmod n\), the ordered-pair count is computed locally at every \(p^e\parallel n\): it is \(p^{e-1}(p-1)\) if \(p\mid t\) and \(p^{e-1}(p-2)\) otherwise. CRT multiplication and removal of the unique diagonal when \(t\) is a unit give the exponent \(E_n(m)\), where \(m\) is the order of \(\zeta^t\). Grouping roots of equal order gives \(\Phi_m(c)\).
+PASS
 
-The bundled exact-integer program `artifacts/verify.py` was replayed from the packaged path. It checks every odd composite \(n\le315\), every residue-sum multiplicity, the total unordered pair count, and the two candidates \(c=0,2\) forced by \(|1-c|=1\). Its captured output is stored in `artifacts/verification_output.txt` and is:
+Distinct conjugates: (zeta^a-zeta^b)(1-c zeta^(-a-b)) cannot vanish for distinct units since integer c and odd-order root force c=1 in any collision. The discriminant-ratio product is therefore valid. CRT counts ordered unit pairs by t=a+b locally as p^(e-1)(p-1) for p|t and p^(e-1)(p-2) otherwise; unordered pairs subtract unique diagonal exactly for primitive order m=n, explaining E_n(m). Grouping roots yields product Phi_m(c), and t=0 exponent phi(n)/2. At c=2, E_n(n)>=1 and Phi_n(2)>1; all other c !=0,2 excluded by |1-c|>1. Independent exact unit-pair enumerations for n=9,15,21,25,27,33,45,63,75 matched every exponent, but the CRT proof handles all n.
 
-`VERIFY_OK odd_composite_conductors=93 n_max=315 residue_pair_checks=15759 classification_c0_c2=OK`
+## originality
 
-The replay is finite and is not an exhaustive proof of the theorem for all conductors. The infinite quantifier is discharged by the CRT argument and cyclotomic factorization in `RESULT.md`. No claim is made for even conductors, prime conductors, or \(c=1\).
+PASS
+
+Best-of-knowledge PASS with substantial named-source access risk: the same generating family is studied by Karatarakis--Kaur, but public abstract and source summary concern monogeneity of proper subfields and special boundary c=1, not a located full-field composite-conductor index formula. Their FULL text could not be read despite arXiv/OA attempts and authorized institutional access reporting VPN disconnected. No claim of whole-document noncoverage is made. Composite conductor divisor stratification is not an automatic prime-conductor specialization.
+
+## value
+
+PASS
+
+An exact order index and power-basis classification for a natural explicit infinite family inside cyclotomic fields is an independently reusable invariant; the multiplicative divisor strata replace misleading prime-only uniform residue counts. It is not merely a single sample computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
