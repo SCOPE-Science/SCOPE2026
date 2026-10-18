@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The memoryless parameter slice is explicitly allowed by the defining algorithm. Substitution into a scalar positive quadratic gives the exact one-dimensional softplus map. Monotonicity proves global convergence through the critical boundary, Taylor expansion proves the linear, quadratic, and critical asymptotics, and an explicit derivative calculation proves local attraction of the supercritical symmetric two-cycle.
+PASS
 
-Scientific risk: the supercritical statement is deliberately local and does not classify the entire basin.
+Fresh scalar derivation yields x_next=x(1-a/L(u)); monotone |x| descent for 0<a<=2ln2. ORIGINAL has incorrect unrestricted asymptotic assertions: at critical a=2ln2, u0=ln3 makes x1=0, so t|x_t|->0 and signs do not eventually alternate; at a=ln3, u0=ln2 gives x1=0 and x_next/x_t undefined thereafter. The COMPLETE REPAIRED RESULT explicitly distinguishes terminating/nonterminating orbits. Zero hits iff L(u)=a and nonzero u_hit=ln(exp(a)-1) exists for a>ln2; all nonterminating subcritical and critical asymptotics follow Taylor/reciprocal recurrence; supercritical x*=ln(exp(a/2)-1)/(beta lambda) has |d|<1. Analytical proof covers all parameters in stated memoryless scalar domain.
 
-## Originality
+## originality
 
-PASS. The defining Sadam paper gives the softplus recurrence, bounded adaptive-learning-rate rationale, parameter interpretation, and general convergence rates. It does not state the exact scalar threshold, the \(\log 2\) resonance, the critical \(t^{-1}\) amplitude law, or the explicit supercritical cycle. Focused indexed searches for equivalent Sadam and normalized-gradient dynamics found no implication-equivalent result.
+PASS
 
-Residual risk: a generic one-dimensional normalized-gradient analysis with the same map may exist outside the indexed literature searched.
+Source gives Sadam softplus update and general optimization bounds, not the scalar exact multiplier 1-a/L, critical inverse-time law or unique attracting two-cycle. Padam and Polar Express have different denominator states/maps. Substantive best-of-knowledge originality, not merely absence of identical wording.
 
-## Value
+## value
 
-PASS. The result concerns Sadam's defining calibration parameter. It shows exactly when increasing the source's Adam-like sharpness parameter changes the local optimizer dynamics from contraction to a flip cycle and identifies a distinct quadratic-convergence resonance. That is a structural tuning law for the proposed mechanism rather than an arbitrary scalar computation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Softplus calibration and scalar stability frontier address the model-defining beta/eta tuning tradeoff. Sharp 2ln2 flip and ln2 superattraction mark distinct meaningful dynamical regimes; explicit finite-termination exceptions make quantification correct. An optimized-learning mechanism is genuinely motivated even in minimal deterministic slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

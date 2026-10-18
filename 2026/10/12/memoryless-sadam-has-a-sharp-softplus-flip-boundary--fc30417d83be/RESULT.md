@@ -1,359 +1,95 @@
-# Memoryless Sadam has a sharp softplus flip boundary
+# Memoryless Sadam: a sharp softplus flip boundary and its exceptional terminating orbits
+
 ## Finding
 
-Sadam replaces Adam's denominator by a softplus calibration,
+Consider the scalar positive quadratic \(f(x)=\lambda x^2/2\) with \(\lambda>0\), positive fixed base step \(\eta\), and the Sadam recurrence of Tong, Liang, and Bi with its explicitly admissible memoryless parameters \(\beta_1=\beta_2=0\) and positive calibration parameter \(\beta\). Set
 \[
-\operatorname{softplus}(s)
-=
-\frac{1}{\beta}\log(1+e^{\beta s}),
-\qquad
-\beta>0.
+L(u)=\log(1+e^u),\qquad a=\eta\beta\lambda,\qquad u_t=\beta\lambda|x_t|.
 \]
-The source presents \(\beta\) as a controller that interpolates between a smoother momentum-like regime and the Adam-like regime.
-
-The calibration itself has an exact discrete stability transition.
-
-Consider the scalar quadratic
+The exact iterate is
 \[
-f(x)=\frac{\lambda}{2}x^2,
-\qquad
-\lambda>0,
-\]
-with constant base step
-\[
-\eta>0.
-\]
-Choose the permitted memoryless Sadam parameters
-\[
-\beta_1=\beta_2=0.
-\]
-Then
-\[
-g_t=\lambda x_t,
-\qquad
-m_t=g_t,
-\qquad
-v_t=g_t^2.
+\boxed{x_{t+1}=x_t\bigl(1-a/L(u_t)\bigr).}\tag{1}
 \]
 
-Define
+**Global convergence and its two exceptional cases.** For \(0<a\le2\log2\), **every** initial value converges to zero. An orbit started at \(x_0\ne0\) can reach zero in finitely many steps precisely when a nonzero iterate has magnitude
 \[
-a=\eta\beta\lambda,
-\qquad
-u_t=\beta\lambda |x_t|,
-\qquad
-L(u)=\log(1+e^u).
+\boxed{\beta\lambda|x_t|=u_{\rm hit}:=\log(e^a-1),}\tag{2}
 \]
-The Sadam iteration is exactly
-\[
-\boxed{
-x_{t+1}
-=
-x_t
-\left(
-1-\frac{a}{L(u_t)}
-\right).
-}
-\]
+which is possible only if \(a>\log2\). Once this happens, the orbit is identically zero thereafter. Thus any asymptotic *quotient* or *nonzero decay constant* below is asserted only for initial conditions whose orbits do **not** terminate in finite time.
 
-This gives a complete local bifurcation picture and a sharp global convergence boundary.
+For \(0<a<2\log2\), every nonterminating orbit satisfies
+\[
+\boxed{\lim_{t\to\infty}\frac{x_{t+1}}{x_t}=1-\frac{a}{\log2}.}\tag{3}
+\]
+At the internal resonance \(a=\log2\), every orbit started away from zero is nonterminating and converges locally quadratically, with
+\[
+\boxed{\lim_{t\to\infty}\frac{|x_{t+1}|}{|x_t|^2}=\frac{\beta\lambda}{2\log2}.}\tag{4}
+\]
+At \(a=2\log2\), a nonterminating orbit eventually alternates sign and obeys
+\[
+\boxed{\lim_{t\to\infty}t|x_t|=\frac{\log2}{\beta\lambda},\qquad
+\lim_{t\to\infty}t^2f(x_t)=\frac{(\log2)^2}{2\beta^2\lambda}.}\tag{5}
+\]
+A terminating orbit at this critical parameter instead has both limits zero and no eventual alternating signs; consequently the nonzero constants in (5) cannot be asserted for *every* nonzero initial condition.
 
-If
+For \(a>2\log2\), the minimizer is linearly unstable, and there is exactly one nonzero symmetric two-cycle \(\{x_*,-x_*\}\), where
 \[
-0<a<2\log 2,
+\boxed{\beta\lambda|x_*|=\log(e^{a/2}-1).}\tag{6}
 \]
-then every initial point converges to zero. Moreover,
-\[
-\boxed{
-\frac{x_{t+1}}{x_t}
-\longrightarrow
-1-\frac{a}{\log 2}.
-}
-\]
+That two-cycle is locally attracting. No global basin assertion is made.
 
-At
-\[
-a=\log 2,
-\]
-the linear term vanishes and convergence is locally quadratic:
-\[
-\boxed{
-\frac{|x_{t+1}|}{|x_t|^2}
-\longrightarrow
-\frac{\beta\lambda}{2\log 2}.
-}
-\]
-
-At the sharp flip boundary
-\[
-a=2\log 2,
-\]
-every nonzero orbit still converges to zero, but eventually alternates sign. Its magnitude has the exact first-order critical law
-\[
-\boxed{
-t|x_t|
-\longrightarrow
-\frac{\log 2}{\beta\lambda}.
-}
-\]
-Consequently,
-\[
-\boxed{
-t^2 f(x_t)
-\longrightarrow
-\frac{(\log 2)^2}{2\beta^2\lambda}.
-}
-\]
-
-If
-\[
-a>2\log 2,
-\]
-the minimizer is linearly unstable. There is a unique symmetric nonzero two-cycle
-\[
-\{x_*,-x_*\}
-\]
-with
-\[
-\boxed{
-\beta\lambda |x_*|
-=
-\log(e^{a/2}-1).
-}
-\]
-This two-cycle is locally attracting.
-
-Thus the softplus floor does more than cap an adaptive learning rate. In the memoryless scalar core, it creates a sharp flip transition controlled by the single dimensionless product
-\[
-\eta\beta\lambda.
-\]
-Increasing \(\beta\) makes Sadam more Adam-like, as intended by the source, but simultaneously narrows the local small-gradient stability range at fixed \(\eta\lambda\).
+The threshold \(\eta\beta\lambda=2\log2\) therefore separates global convergence to the optimizer from linear instability in the memoryless scalar model. The distinct internal value \(\eta\beta\lambda=\log2\) cancels the linear term. The exact finite-termination qualification is essential at both subcritical and critical parameters.
 
 ## Assumptions and scope
 
-The result uses exactly Algorithm 1 of the source, with no bias correction, as displayed there.
+Equation (1) is the uncorrected-for-bias memoryless specialization of the source's Sadam algorithm: with \(\beta_1=\beta_2=0\), one has \(m_t=g_t=\lambda x_t\) and \(v_t=g_t^2\), and the source replaces \(\sqrt{v_t}\) by \(\beta^{-1}\log(1+e^{\beta\sqrt{v_t}})\). The source permits \(0\le\beta_1,\beta_2<1\). The result concerns a deterministic scalar quadratic and a fixed positive step; it does not establish a corresponding threshold for nonzero memory, stochastic gradients, multidimensional coupling, bias-corrected variants, or real-world training.
 
-The slice
-\[
-\beta_1=\beta_2=0
-\]
-is explicitly permitted by the source parameter range
-\[
-0\le\beta_1,\beta_2<1.
-\]
-It isolates the nonlinear effect of the softplus denominator from momentum and second-moment memory.
-
-The objective is a deterministic scalar positive quadratic. The theorem does not assert the same threshold for nonzero moment memory, stochastic gradients, multidimensional coupled objectives, or bias-corrected implementations.
-
-The supercritical claim is local for the nonzero two-cycle: it proves existence, uniqueness within symmetric cycles, and local attraction. It does not claim global convergence to that cycle from every nonzero initialization.
+An orbit is **terminating** if some iterate equals zero exactly; it is **nonterminating** otherwise. Starting at \(x_0=0\) always yields the zero orbit. For a nonzero starting point, (2) characterizes the first possible zero hit; its nonzero right-hand side exists exactly for \(a>\log2\). Since the scalar map can map a nonzero state to zero, finite-time termination must not be tacitly excluded from statements about all initial values.
 
 ## Proof
 
-For the stated parameter slice,
-\[
-m_t=\lambda x_t
-\]
-and
-\[
-\sqrt{v_t}=|\lambda x_t|.
-\]
-Therefore
-\[
-\operatorname{softplus}(\sqrt{v_t})
-=
-\frac{1}{\beta}
-\log(1+e^{\beta\lambda|x_t|}),
-\]
-which gives the exact map
-\[
-x_{t+1}
-=
-x_t
-\left(
-1-\frac{a}{L(u_t)}
-\right).
-\]
+With the stated specialization, \(g_t=\lambda x_t\), \(m_t=g_t\), and \(\sqrt{v_t}=|g_t|\); substitution into the Sadam softplus denominator immediately gives (1). The function \(L\) is strictly increasing on \([0,\infty)\), with \(L(0)=\log2\) and range \([\log2,\infty)\).
 
-Since
+**Global convergence.** For \(0<a\le2\log2\) and any \(u>0\),
 \[
-L(0)=\log 2
+0<\frac a{L(u)}<2,
 \]
-and \(L\) is strictly increasing, if
-\[
-0<a\le2\log 2,
-\]
-then every \(u>0\) satisfies
-\[
-0<\frac{a}{L(u)}<2.
-\]
-Hence
-\[
-|x_{t+1}|<|x_t|
-\]
-for every nonzero iterate. The magnitude therefore has a limit. A positive limiting magnitude would make the strict multiplier stay uniformly below one, a contradiction. Thus
-\[
-x_t\to0.
-\]
+so \(|x_{t+1}|<|x_t|\) for nonzero \(x_t\). Magnitudes decrease to a limit \(\ell\ge0\). If \(\ell>0\), continuity makes the strict contraction multiplier uniformly smaller than one near \(\ell\), contradicting convergence to a positive limit. Thus \(x_t\to0\). Zero is fixed, so the conclusion holds also for terminating or initially zero orbits.
 
-For
-\[
-0<a<2\log 2,
-\]
-continuity at zero gives
-\[
-\frac{x_{t+1}}{x_t}
-\to
-1-\frac{a}{\log 2}.
-\]
+**Exact zero-hit criterion.** For \(x_t\ne0\), equation (1) yields \(x_{t+1}=0\) if and only if \(L(u_t)=a\). The range and strict monotonicity of \(L\) show that there is a *positive* solution if and only if \(a>\log2\), uniquely given by \(u_{\rm hit}=\log(e^a-1)\). This proves (2). In particular at \(a=2\log2\), choosing \(\beta\lambda|x_0|=\log3\) makes \(L(u_0)=\log4=2\log2\), so \(x_1=0\). Likewise \(a=\log3\) and \(\beta\lambda|x_0|=\log2\) give \(x_1=0\) in the strict subcritical regime. These are exact counterexamples to unqualified nonzero asymptotic laws; no continuity convention can define the quotient \(x_{t+1}/x_t\) once both numerator and denominator vanish.
 
-The Taylor expansion
+**Ordinary and resonant asymptotics.** For a nonterminating orbit, \(x_t\ne0\) at every time and \(u_t\to0\). Taking the limit of its multiplier in (1) gives (3). The expansion
 \[
-L(u)
-=
-\log 2+\frac{u}{2}+\frac{u^2}{8}+O(u^3)
+L(u)=\log2+u/2+u^2/8+O(u^3)
 \]
-shows that when
-\[
-a=\log 2,
-\]
-\[
-1-\frac{a}{L(u)}
-=
-\frac{u}{2\log 2}+O(u^2).
-\]
-Because
-\[
-u=\beta\lambda|x|,
-\]
-this yields the quadratic convergence constant.
+implies at \(a=\log2\) that \(1-a/L(u)=u/(2\log2)+O(u^2)\). Substituting \(u=\beta\lambda|x|\) proves (4). At this value of \(a\), the zero-hit criterion excludes finite termination for every nonzero initial state.
 
-Now let
+**Critical behavior.** Put \(a=2\log2\) and restrict to a nonterminating orbit. Since \(u_t\to0\), its signed multiplier is eventually strictly negative, and signs alternate. Its magnitude satisfies
 \[
-a=2\log 2.
+u_{t+1}=u_t\bigl(2\log2/L(u_t)-1\bigr)
+=u_t-u_t^2/\log2+O(u_t^3).
 \]
-For sufficiently small positive \(u\), the multiplier is negative, so signs eventually alternate. The magnitude recurrence is
+The expression in parentheses is positive for all sufficiently small \(u_t>0\); thus the reciprocal difference is
 \[
-u_{t+1}
-=
-u_t
-\left(
-\frac{2\log 2}{L(u_t)}-1
-\right)
-=
-u_t-\frac{u_t^2}{\log 2}+O(u_t^3).
+\frac1{u_{t+1}}-\frac1{u_t}=\frac1{\log2}+O(u_t).
 \]
-The reciprocal expansion gives
-\[
-\frac{1}{u_{t+1}}-\frac{1}{u_t}
-=
-\frac{1}{\log 2}+O(u_t).
-\]
-Since \(u_t\to0\), averaging these increments yields
-\[
-t u_t\to\log 2,
-\]
-which proves both critical limits.
+Summing these increments and dividing by \(t\) gives \(1/(tu_t)\to1/\log2\) by Cesàro convergence, hence \(t u_t\to\log2\). Replacing \(u_t\) by \(\beta\lambda|x_t|\) and substituting into \(f\) proves both limits in (5).
 
-Finally suppose
+**Supercritical two-cycle and attraction.** When \(a>2\log2\), the derivative of the map (1) at zero is \(1-a/\log2<-1\), proving local linear instability. A nonzero symmetric two-cycle is characterized by the multiplier \(-1\), or \(L(u_*)=a/2\). Since \(a/2>\log2\), this has exactly one positive solution, (6). With \(q=a/2\), \(p=1-e^{-q}\), and \(u_*=\log(e^q-1)=q+\log(1-e^{-q})\), the derivative of the signed map at either cycle point is
 \[
-a>2\log 2.
+d=-1+\frac{4u_*p}{a}.
 \]
-The derivative at zero is
-\[
-1-\frac{a}{\log 2}<-1,
-\]
-so zero is unstable.
+Here \(0<u_*<q=a/2\) and \(0<p<1\), so \(0<4u_*p/a<2\). Thus \(|d|<1\), and the two-step multiplier \(d^2<1\) proves local attraction. The proof does not attempt to describe all supercritical initial conditions.
 
-A symmetric nonzero two-cycle requires
-\[
-x_{t+1}=-x_t,
-\]
-equivalently
-\[
-1-\frac{a}{L(u_*)}=-1.
-\]
-Thus
-\[
-L(u_*)=\frac{a}{2}.
-\]
-Strict monotonicity of \(L\) gives the unique solution
-\[
-u_*=\log(e^{a/2}-1)>0.
-\]
+## Verification and boundaries
 
-Let
-\[
-q=\frac{a}{2},
-\qquad
-p=1-e^{-q}.
-\]
-The derivative of the signed map at either cycle point is
-\[
-d
-=
--1+\frac{4u_*p}{a}.
-\]
-Because
-\[
-u_*=\log(e^q-1)=q+\log(1-e^{-q})<q
-\]
-and
-\[
-0<p<1,
-\]
-we have
-\[
-0<\frac{4u_*p}{a}<2.
-\]
-Therefore
-\[
--1<d<1.
-\]
-The two-step multiplier is \(d^2<1\), proving local attraction.
+The derivation of (1), monotone convergence, expansion, and multiplier estimate are analytical for the complete stated parameter ranges, not extrapolations from simulation. The exact substitutions \(a=2\log2,\ u_0=\log3\) and \(a=\log3,\ u_0=\log2\) exhibit the exceptional zero-hit orbits and explain the necessary correction of the universal asymptotic language. For nonterminating critical orbits, numerical evaluation can check the coefficient \(tu_t\to\log2\), but the all-time limit follows from the reciprocal-increment proof. The original included `verify.py` is a finite analytical/iteration guard; its successful execution alone is not a substitute for the quantified exception.
 
-## Verification
+## Relationship to prior work and limitations
 
-The accompanying `verify.py` reconstructs the source memoryless Sadam map directly.
-
-It checks global magnitude decrease in the subcritical and critical regimes, the ordinary linear factor below threshold, the quadratic resonance at
-\[
-a=\log 2,
-\]
-the critical law
-\[
-t u_t\to\log 2,
-\]
-the exact supercritical two-cycle amplitude, and the strict local two-cycle multiplier bound.
-
-The computations are transcription and asymptotic guards. The global subcritical statement, critical asymptotic, and supercritical local stability are proved analytically above.
-
-## Relationship to prior work
-
-Tong, Liang, and Bi introduce Sadam by applying a softplus function to the square root of Adam's second-moment state. They prove that this bounds the adaptive learning rate, explain that small \(\beta\) behaves more like momentum while large \(\beta\) approaches the original adaptive method, and recommend tuning \(\beta\).
-
-The inspected source develops nonconvex, convex, and Polyak--Łojasiewicz convergence bounds. It does not analyze the scalar quadratic map above, state a stability threshold at
-\[
-\eta\beta\lambda=2\log 2,
-\]
-identify the quadratic resonance at
-\[
-\eta\beta\lambda=\log 2,
-\]
-derive the critical inverse-linear amplitude law, or exhibit the supercritical attracting symmetric two-cycle.
-
-Focused searches for Sadam quadratic stability, softplus-preconditioned two-cycles, normalized-gradient cycles, and equivalent \(\log 2\) thresholds did not identify an implication-equivalent published result. Closest indexed optimization results concern other adaptive or normalized steps and do not contain Sadam's softplus map.
-
-## Limitations
-
-The theorem isolates the source-permitted memoryless slice and therefore does not describe the full recommended momentum parameters.
-
-The exact threshold is scalar and deterministic.
-
-The attracting two-cycle statement is local rather than global.
-
-The result identifies a mechanism and a parameter boundary; it does not by itself show that the source's recommended practical settings fail on neural-network training.
+Tong, Liang, and Bi introduce Sadam through a softplus calibration of Adam's second-moment denominator and discuss parameter-dependent effective learning rates, convergence results and practical optimization. Those definitions and results are prior work. The precise memoryless scalar flip threshold, second-order cancellation, critical inverse-time law for nonterminating orbits, and explicit locally attracting symmetric two-cycle are not asserted to follow from the source's general convergence estimates. The relevant structural mechanism is the source's calibration parameter controlling a real change in discrete optimizer dynamics. Standard one-dimensional fixed-point and flip calculations are used as tools, not claimed as new general dynamical-systems theorems. It remains possible that a different account of normalized-gradient or softplus recurrences contains an equivalent scalar map, and the narrow memoryless model is not a prediction for arbitrary implementation settings.
 
 ## References
 
-1. Qianqian Tong, Guannan Liang, and Jinbo Bi, “Calibrating the Adaptive Learning Rate to Improve Convergence of ADAM,” arXiv:1908.00700v1, first submitted 2019-08-02.
-2. Qianqian Tong, Guannan Liang, and Jinbo Bi, “Calibrating the adaptive learning rate to improve convergence of ADAM,” Neurocomputing 481 (2022), 333--356, DOI `10.1016/j.neucom.2022.01.014`.
+1. Q. Tong, G. Liang, and J. Bi, *Calibrating the Adaptive Learning Rate to Improve Convergence of ADAM*, arXiv:1908.00700 (2019).
+2. Q. Tong, G. Liang, and J. Bi, *Calibrating the adaptive learning rate to improve convergence of ADAM*, Neurocomputing 481 (2022), 333–356, DOI:10.1016/j.neucom.2022.01.014.
