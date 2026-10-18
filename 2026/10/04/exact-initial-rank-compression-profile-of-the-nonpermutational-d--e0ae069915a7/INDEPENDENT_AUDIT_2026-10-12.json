@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T02:16:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-rank-compression-profile-of-the-nonpermutational-d--e0ae069915a7/RESULT.md",
+        "Git blob RESULT.md 5b998f1fef5fe86f960ba7054a26399354f35ea3",
+        "Git blob verifier 766548776d934d5e12d494208df30b8b609f878d",
+        "Independent bitmask BFS and/or compatibility-graph exact clique computations, /tmp/scope10_check_results.json"
+      ],
+      "rationale": "Both maps are rank n−1: a collides {n−1,n} and omits n, b collides {1,n} and omits 1. Any proper prefix ends in a and lacks n, or ends in b and lacks 1; hence b is effective only as the initial letter. Later drops must be a, and after each effective a a further effective a needs an intervening b. This forces at least 2s−2 symbols and unique equality word (ba)^(s−1) for s≥2 (at s=1 either a or b works). The complement after k blocks is {n,2,4,...,2k} through k=ceil(n/2)−1, when the next ba has no new drop. Independently reproduced exact subset BFS for n4..13 including unique words and strict saturation; packaged n4..18 BFS and n4..200 witness verification source inspected.",
+      "residual_risks": [
+        "All n≥4, exact s=1 and s2..ceil(n/2), plus strict failure at ceil(n/2)+1; no claim beyond early profile.",
+        "Finite BFS checks only n=4..13 for automata; all-n correctness rests on the symbolic proof, not those samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGV reset threshold n²−3n+2 is the strongest named-family prior result consulted."
+        ],
+        "reasoning": "The endpoint does not dominate the exact early-deficiency profile; coding results are inapplicable because they concern word error channels, not DFA image ranks.",
+        "searches": [
+          "https://arxiv.org/pdf/1302.5793",
+          "https://arxiv.org/pdf/1005.0129",
+          "Damerau? inapplicable: coding-channel papers concern different objects"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-rank-compression-profile-of-the-nonpermutational-d--e0ae069915a7#RESULT.md",
+        "Git blob RESULT.md 5b998f1fef5fe86f960ba7054a26399354f35ea3",
+        "https://arxiv.org/pdf/1302.5793",
+        "https://arxiv.org/pdf/1005.0129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AGV n²−3n+2 proves shortest reset word; new result measures rank n−s for s≤ceil(n/2) with 2s−2 cost and unique (ba)^(s−1)."
+        ],
+        "reasoning": "The reset endpoint does not entail the short alternating path or sharp next deficiency. The claim is not a simple specialization of the prior endpoint theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/1302.5793",
+          "https://arxiv.org/pdf/1005.0129"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AGV papers identify this nonpermutational coloring and collision structure; no initial λ_n(s) is asserted."
+        ],
+        "reasoning": "Letter renaming/state relabeling might yield an alias; neither source states these shortest intermediate words.",
+        "searches": [
+          "nonpermutational D''_n rank profile alternating ba, subset compression and rank threshold",
+          "Resultary: nonpermutational D''_n automaton shortest rank compression ba word initial deficiency spectrum [temporarily_unavailable]",
+          "GitHub SCOPE2026 code search: D''_n rank profile [0 hits]",
+          "https://arxiv.org/pdf/1302.5793",
+          "https://arxiv.org/pdf/1005.0129"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact D''_n initial rank table found in checked family sources, semantic search index unavailable."
+        ],
+        "reasoning": "This is an infinite n parametric formula; any existing intermediate subset-rank tables would cover special cases, so searches were attempted but cannot establish negative globally.",
+        "searches": [
+          "GitHub SCOPE2026 code search: D''_n rank profile [0 hits]",
+          "Resultary: nonpermutational D''_n automaton shortest rank compression ba word initial deficiency spectrum [temporarily_unavailable]",
+          "https://arxiv.org/pdf/1302.5793"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: AGV 2010/2013 full texts show the named nonpermutational D''_n and its quadratic reset length n²−3n+2 but no initial alternating rank profile, exact threshold or uniqueness; endpoint does not logically imply them. No located duplicate, but semantic outage and unindexed rank terminology remain residual.",
+      "residual_risks": [
+        "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+        "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+        "Prior subset-compression work on the nonpermutational D''_n under another automaton labeling may be missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sections 4.2/4.3 supply definitions and reset lengths, not shortest image-cardinality profiles, unique intermediate words or initial saturation boundaries.",
+          "evidence": "Theorem 5 H_n reset length n^2-4n+6; Theorem 6 D'_n and D''_n reset thresholds n^2-3n+4 and n^2-3n+2; preceding definitions/figures.",
+          "identifier_or_url": "arXiv:1302.5793v2; https://arxiv.org/pdf/1302.5793",
+          "material_read": "Full text as parsed 23-page PDF; especially Sections 4.2 and 4.3, Theorems 5 and 6, automaton figures, and reset-word derivations.",
+          "method": "Authoritative arXiv full PDF text and page visual check.",
+          "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+          "trigger": "Same three named automata and precise maps; plausible earlier rank statement."
+        },
+        {
+          "assessment": "Theorem 4 gives reset lengths of D'_n and D''_n; no intermediate rank-drop function or uniqueness classification in the reviewed statements.",
+          "evidence": "Theorem 4 n^2-3n+4 and n^2-3n+2 and family definitions.",
+          "identifier_or_url": "arXiv:1005.0129v1; https://arxiv.org/pdf/1005.0129",
+          "material_read": "13-page source including named family diagrams and Theorem 4 reset threshold proofs.",
+          "method": "arXiv full PDF with visual page inspection.",
+          "title": "Slowly synchronizing automata and digraphs",
+          "trigger": "Original paper introducing D'_n and D''_n."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git blob RESULT.md 5b998f1fef5fe86f960ba7054a26399354f35ea3",
+        "https://arxiv.org/pdf/1302.5793",
+        "https://arxiv.org/pdf/1005.0129"
+      ],
+      "rationale": "A sharp universal half-rank bottleneck and unique alternating minimum words for a highly structured nonpermutational slow synchronizer, contrasting its known quadratic reset length. The collision-based proof identifies a genuine structural obstruction rather than just repeating reset folklore.",
+      "residual_risks": [
+        "Value scoped exactly to the stated natural invariant/domain; no downstream theorem or global census claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All n≥4, exact s=1 and s2..ceil(n/2), plus strict failure at ceil(n/2)+1; no claim beyond early profile.",
+    "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+    "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+    "Prior subset-compression work on the nonpermutational D''_n under another automaton labeling may be missed."
+  ],
+  "schema_version": 1
+}

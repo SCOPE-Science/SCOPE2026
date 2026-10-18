@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof uses only the explicitly displayed transformations. Its critical points are: each letter has exactly one collision pair; after any nonempty word the last letter forces omission of one state needed for an effective \(b\); effective \(a\)'s must be separated; equality forces \((ba)^{s-1}\); and the explicit hole induction determines exactly how long that word keeps reducing rank.
+# Independent mathematical audit
 
-`verify.py` reconstructs the automata independently. Exhaustive power-automaton breadth-first search for every \(4\le n\le18\) verifies the target-rank distances through the claimed range, counts shortest words, checks uniqueness for \(s\ge2\), and verifies the strict next-deficiency boundary. Direct replay verifies the hole formula and saturation for every \(4\le n\le200\).
+## correctness
 
-The actual archived run produced `VERIFY_OK`; its complete standard output is stored in `verification_output.txt`.
+PASS
 
-The finite computations do not prove the theorem for all \(n\); they are consistency checks for the separate symbolic proof. No claim is made for later target ranks beyond the first strict boundary.
+Both maps are rank n−1: a collides {n−1,n} and omits n, b collides {1,n} and omits 1. Any proper prefix ends in a and lacks n, or ends in b and lacks 1; hence b is effective only as the initial letter. Later drops must be a, and after each effective a a further effective a needs an intervening b. This forces at least 2s−2 symbols and unique equality word (ba)^(s−1) for s≥2 (at s=1 either a or b works). The complement after k blocks is {n,2,4,...,2k} through k=ceil(n/2)−1, when the next ba has no new drop. Independently reproduced exact subset BFS for n4..13 including unique words and strict saturation; packaged n4..18 BFS and n4..200 witness verification source inspected.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: AGV 2010/2013 full texts show the named nonpermutational D''_n and its quadratic reset length n²−3n+2 but no initial alternating rank profile, exact threshold or uniqueness; endpoint does not logically imply them. No located duplicate, but semantic outage and unindexed rank terminology remain residual.
+
+## value
+
+PASS
+
+A sharp universal half-rank bottleneck and unique alternating minimum words for a highly structured nonpermutational slow synchronizer, contrasting its known quadratic reset length. The collision-based proof identifies a genuine structural obstruction rather than just repeating reset folklore.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
