@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The transformed hazard factors exactly as \(h_S=h_0\Phi(S)\) with \(\Phi(s)=(\pi s/2)\cot(\pi s/4)\). The derivative of \(2y\cot y\) is negative on \(0<y\le\pi/4\), so the multiplier increases as survival decreases. The New X–Lindley baseline hazard is strictly increasing. Endpoint bounds and the sharp terminal-gap limit then follow analytically. The bundled checker is supplementary and reproduces the exact formulas numerically.
+## correctness
 
-## Originality
-PASS. The 2019 Sin-G primary paper was inspected and credited for the general hazard formula, its derivative expression, and the right-tail equivalence \(h_S\sim2h_0\), which already covers the mere terminal level \(2\xi\). The 2026 target explicitly leaves monotonicity to separate establishment. Focused published-record and primary-literature searches found no statement of universal IFR preservation for this generator or the SNXL first-order gap \(z(2\xi-h_\xi(z))\to2\).
+PASS
 
-The principal residual risk is an unindexed reliability-theory statement under different terminology.
+Write baseline S=1−F, h0=f/S. The transformed hazard is hS=h0 Phi(S), Phi(s)=(π s/2)cot(π s/4)=2y cot y. Its derivative in y is 2(sin y cos y−y)/sin²y<0 for 0<y<=π/4, so Phi(S(x)) increases strictly with x and h0 positive nondecreasing makes hS strictly increasing. For New X–Lindley S0=e^(−ξz)(1+ξz/2), h0=ξ(1+ξz)/(2+ξz), increasing. Limits Phi(1)=π/2, Phi(0+)=2 imply πξ/4<hξ(z)<2ξ. As t=ξz→∞, Phi(S0)=2−π²S0²/24+O(S0⁴), and h0/ξ=1−1/(t+2), yielding z(2ξ−hξ(z))→2. This is analytic for all z>0, ξ>0; numerical grid checks cannot replace it.
 
-## Value
-PASS. Hazard shape is a primary reliability property of the new model, and the target source itself flags the missing proof. The result provides a global all-parameter classification and a reusable generator theorem, while the first-order terminal gap sharpens the already-known zeroth-order asymptotic. No converse preservation theorem or inferential uncertainty result is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Souza et al. already provide Sin-G hazard construction and the generic leading tail equivalence hS∼2h0; that covers hξ→2ξ and is explicitly excluded from novelty. The newer SNXL source provides the hazard and initial limit but explicitly leaves monotonicity/terminal shape open. The distinct results are IFR preservation for all monotone baselines and sharp next-order 2/z correction. No exact prior seen in Resultary search; possible general reliability transform lemma remains.
+
+## value
+
+PASS
+
+Proves the hazard shape of a recently proposed reliability family in full parameter range instead of inferring it graphically; generalized IFR-preserving property is reusable in transform-family design, while 2/z gap quantifies asymptotic approach used in reliability tails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
