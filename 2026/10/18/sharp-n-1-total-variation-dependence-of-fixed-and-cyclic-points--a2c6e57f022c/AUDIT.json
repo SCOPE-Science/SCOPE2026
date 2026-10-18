@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every n≥1, the count q_{n,k}=k(n)_k/n^{k+1} follows from the rooted-forest formula and a uniform permutation on the cyclic set; inclusion-exclusion gives the rencontres law and the independent-image model gives the binomial fixed-point marginal. Their mixture produces an exact finite-n TV formula. The conditional fixed-point expectation equals one, proving zero covariance, while K_n=1 proves dependence for n≥2. A dominating summable sequence kδ_k justifies passing the limit through the mixture. The alternating Taylor remainder sums exactly to (3e²+1)/8, and a factorial-tail-controlled binomial-to-Poisson expansion gives 3/(4e). Direct exact enumeration through n=6 and a numerical series check support the analytic proof; they are not used as infinite certificates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet and Odlyzko (1990) present a broad general generating-function framework for random mapping statistics; only accessible bibliographic/abstract material was inspected.",
+        "Booher et al., arXiv:2205.00135, Section 3.3 and Lemma 12: fixed-point-marked generating functions and expected reachability under conditioning, not the full-joint/product-of-marginals first-order total-variation coefficient.",
+        "Finch, arXiv:2205.05579v1, Section 3: limiting longest-cycle statistics jointly with cyclic-point counts, on a different fluctuation scale."
+      ],
+      "reasoning": "Generic mapping generating functions and marginal asymptotics can encode the conditional law, and are credited as prior coverage. Even asymptotic independence by itself yields neither a sharp n^{-1} rate nor this constant. The complete 1990 primary text could not be examined and remains a specifically identified priority risk rather than being labeled not covering.",
+      "searches": [
+        "Flajolet Odlyzko 1990 random mapping statistics pdf inria",
+        "\"random mapping\" \"fixed points\" \"asymptotically independent\"",
+        "\"random mappings\" \"fixed points\" \"total variation\" \"cyclic\""
+      ]
+    },
+    "checked_sources": [
+      "S. Finch, arXiv:2205.05579v1, Section 3, https://arxiv.org/abs/2205.05579",
+      "J. C. Hansen and J. Jaworski, Ars Combinatoria 94 (2010), https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+      "J. Booher et al., arXiv:2205.00135, Section 3.3, https://arxiv.org/abs/2205.00135",
+      "P. Flajolet and A. M. Odlyzko, Random Mapping Statistics (1990), bibliographic abstract only, DOI:10.1007/3-540-46885-4_34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch: conditional random permutation and cyclic-vertex Rayleigh-scale law, not a finite-pair total-variation coefficient.",
+        "Hansen–Jaworski: general models given cyclic-vertex counts and typical component sizes, not fixed-point/cyclic-vertex dependence distance.",
+        "Booher et al.: fixed-point generating functions imply known marginal enumeration, not a sharp comparison with the product of exact marginals."
+      ],
+      "reasoning": "The strongest relevant prior statements imply the exact conditional distribution and at least qualitative asymptotic independence. They do not directly imply the claimed coefficient without deriving two separate first-order contributions: the weighted rencontres error (3e²+1)/8 and the binomial marginal correction 3/(4e). The claim is these evaluated contributions, not the classical inputs.",
+      "searches": [
+        "arxiv:2205.05579v1 Section 3 cyclic points uniform permutation",
+        "Hansen Jaworski Random Mappings with a Given Number of Cyclical Points 2010",
+        "arxiv:2205.00135 Section 3.3 random functions fixed points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hansen and Jaworski (2010), pages 342–344: conditioning on cyclic points gives a uniform permutation of those vertices.",
+        "Finch, arXiv:2205.05579v1, Section 3: cyclic vertices of a random mapping form a random permutation.",
+        "Fixed points, self-loops, and cycles of length one describe the same statistic, while cyclic points, periodic vertices, and the cyclic set describe the other statistic."
+      ],
+      "reasoning": "The classical conditional permutation description implies the exact finite joint law after rencontres inclusion-exclusion, so that part is expressly treated as covered. The comparison target is the first-order distance between the full joint law and the product of its actual finite-n marginals. None of the inspected equivalent-formulation results supply that dependence coefficient.",
+      "searches": [
+        "random functional graphs number of self-loops and periodic points total variation independence sharp constant",
+        "\"random mapping\" \"fixed points\" \"cyclic points\" \"independence\" \"total variation\"",
+        "Random mapping number of cyclic points fixed points joint distribution dependency Poisson rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible exact joint probabilities reduce to rooted-forest counts multiplied by rencontres numbers; these are acknowledged as known.",
+        "Searches located no displayed value for the first-order dependence constant; absence of a retrieved table is not a proof that it has not been recorded."
+      ],
+      "reasoning": "This result is not a new table of finite mapping counts. The asserted object is an explicit universal asymptotic dependence coefficient. Known finite enumeration tables may imply it only after an additional absolute-error summation; a table lookup alone does not establish the target asymptotic.",
+      "searches": [
+        "random mapping fixed points cyclic points total variation independence asymptotic formula",
+        "fixed point count cyclic point count random self-map exact dependence total variation order one over n",
+        "random mapping conditional cyclic points permutation fixed points total variation independence asymptotic formula"
+      ]
+    },
+    "rationale": "The known decomposition of a random endofunction into cyclic permutation and rooted forest makes the finite joint law classical, and this is not claimed as the advance. The inspected 2022 mapping-cycle study, 2010 cyclic-point-conditioned mapping paper, and fixed-point-marked mapping enumeration do not state the sharp first-order total-variation dependence asymptotic with constant ((3e^2+1)/8+3/(4e)). The proof supplies a new summable rencontres-discrepancy calculation and retains the marginal binomial correction. Broader historical-priority risk remains from general mapping enumeration and older Poisson-approximation literature; this is a self-review, not independent certification.",
+    "residual_risks": [
+      "The foundational 1990 Flajolet–Odlyzko treatment was only bibliographically accessible, so it may imply an equivalent first-order dependence constant.",
+      "Earlier permutation Poisson-approximation or mapping marked-generating-function literature may explicitly contain the same closed constant under a different dependence metric.",
+      "Finite joint probabilities are classical; novelty and value depend specifically on the analytic extraction of the sharp product-marginal total-variation constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers conditional uniform permutation and longest cycles; no sharp fixed-point/cyclic-point product-TV constant identified in inspected material.",
+        "evidence": [
+          "Section 3 explicitly notes that cyclic vertices form a random permutation and derives longest-cycle conditional distributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.05579",
+        "material_read": "Version-one arXiv text, Section 3 (Purdom & Williams), relevant component/cycle sections and references; PDF pages 4–6 visually inspected.",
+        "method": "Full article text with targeted PDF page checks.",
+        "title": "Components and Cycles of Random Mappings",
+        "trigger": "Direct middle-period research anchor describing conditional cyclic permutations and cycle statistics."
+      },
+      {
+        "assessment": "Classical conditional permutation and rooted forest machinery; its target is typical component sizes given cyclic counts, not a total-variation independence constant.",
+        "evidence": [
+          "Pages 342–344 define the uniform random mapping, cyclic set, conditional uniform random permutation, and component-size objective."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+        "material_read": "Page images 341–345, 353 and 359, focusing on construction, exact conditioning, model variants, and theorem scope.",
+        "method": "Primary open-access PDF page inspection.",
+        "title": "Random Mappings with a Given Number of Cyclical Points",
+        "trigger": "Closest earlier conditional cyclic-vertex construction, a potential domination of the new claim."
+      },
+      {
+        "assessment": "Derives fixed-point-marked generating functions and conditional reachability asymptotics, not the product-TV first-order constant.",
+        "evidence": [
+          "Lemma 12 gives the component/tree generating-function factorization for mappings with a fixed number of fixed points."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.00135",
+        "material_read": "Section 3.3 and Lemma 12 in primary PDF text, with pages 10–11 visually checked.",
+        "method": "Primary arXiv PDF text and pages.",
+        "title": "Failing to Hash Into Supersingular Isogeny Graphs",
+        "trigger": "Plausible broader prior coverage because Section 3.3 explicitly counts random maps with fixed points."
+      },
+      {
+        "assessment": "Potential implied coverage remains unresolved; recorded explicitly as a priority risk.",
+        "evidence": [
+          "The abstract advertises a general framework for around twenty random-mapping statistics by generating functions and singularity analysis."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+        "material_read": "Abstract, bibliography and publication information only; complete primary text not accessible in the search.",
+        "method": "Publisher bibliographic abstract; no full-text noncoverage inference.",
+        "title": "Random Mapping Statistics",
+        "trigger": "Foundational broad random-mapping enumeration work could contain a dominating mixed generating function."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2c6e57f-022c-4f27-9514-a267a903c127",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pair of fixed points and cyclic vertices is a canonical local/global pair of statistics of random functional digraphs. Exact zero covariance conceals genuine finite dependence. Its sharp TV asymptotic quantifies operational asymptotic independence at the natural 1/n scale, with a nontrivial explicit constant split into rare conditioned-permutation errors and a marginal Poissonization correction. This is meaningful even though the exact finite joint law is classical.",
+    "status": "PASS"
+  }
+}
