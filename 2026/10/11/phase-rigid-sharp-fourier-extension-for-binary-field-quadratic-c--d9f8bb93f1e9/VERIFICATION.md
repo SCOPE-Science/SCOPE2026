@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Reproducible finite checks
+## correctness
 
-Run `python3 verify.py`. The script uses only Python 3 standard-library modules and implements binary fields of sizes \(2,4,8,16,32\) via explicitly listed irreducible polynomials. Both split and nonsplit quadratic forms are tested over every nonzero level in each field. The script checks exact conic cardinalities, exact representation multiplicities for every pair sum, all sumset cardinalities, the polynomial convolution fourth-moment identity for two deterministic nonconstant complex inputs at every level, and the exact \(2^{M-1}\)-family's sign-pattern equality witness. It also evaluates the Fourier transform directly at every ambient frequency for eight smaller-field cases.
+PASS
 
-Expected replay line:
+In even characteristic the nondegenerate symplectic polar form and unique square roots yield M=q−1 split or q+1 nonsplit nonzero-level points, including q=2. For s≠0, Q(v)=Q(v+s)=j reduces to B(v,s)=Q(s); isotropic s cannot be a sum and nonisotropic s yields an affine F_q-line parameter t with equation t²+t=constant, hence 0 or 2 ordered pairs. All diagonal pairs sum to zero and offdiagonal unordered pairs have distinct sums. Character orthogonality gives ‖Ef‖₄⁴=(q²/M⁴)(|Σf²|²+2T²−2Σ|f|⁴) under the stated surface-probability/output-counting normalization. Cauchy and triangle give sharp (q²/M²)(3−2/M) with exactly common modulus and common squared phase, hence c independent signs and 2^(M−1) projective classes. Algebra yields nonnegative deficit 2Σ(a−1/M)²+1−|Σz|²; remains valid M=1.
 
-`VERIFY_OK level_sets=114 pair_fibers=114 convolution_patterns=228 direct_fourier=8`
+## originality
 
-## Analytic verification and boundaries
+PASS
 
-The all-size proof uses the projective-line cardinality calculation, a nondegenerate polar line, the two-root equation \(t^2+t=c\), additive-character orthogonality, and equality in the triangle and Cauchy–Schwarz inequalities. The finite checks confirm arithmetic and normalization in representative fields but cannot certify the all-size claim independently. No formal external certification has been performed.
+Nagy (2022/2023) already proves these binary conics are Sidon sets and records q−1/q+1 point counts; neither those finite-geometry theorems nor inspected finite-field restriction results states the normalized complex-input sharp extension constant, exhaustive 2^(M−1) sign projective optimizer family and exact quantitative deficit. The present computation is an elementary application of known Sidon geometry, but the complete sharp endpoint functional inequality and extremal profile were not found in primary sources. Novelty is limited to that precise analytic invariant, NOT to conic Sidon geometry.
+
+## value
+
+PASS
+
+The rank-two binary conic is a canonical characteristic-two Sidon geometry, and its sharp fully complex L²→ℓ⁴ extension norm, independent sign equality family, and exact amplitude/phase deficit form a natural complete endpoint calculation absent from the compared odd-characteristic inequalities. Although the pair-sum step is elementary and known from finite geometry, exact normalization and equality/stability for all q with q=2 endpoints answer a motivated spectral invariant. Sign classes are characteristic-two-specific, not arbitrary parameter decoration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

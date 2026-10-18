@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a nondegenerate binary quadratic form in characteristic two, every nonzero-level point belongs to one nonisotropic projective direction, so the conic has \(M=q-1\) or \(M=q+1\) points. Nonzero pair sums are unique as unordered pairs: the polar-line equation reduces to \(t^2+t=c\), with zero or two solutions, while an isotropic sum would force a contradiction. The zero sum has exactly all \(M\) diagonal pairs. Fourier orthogonality therefore establishes the exact fourth-moment formula. A sharp \(\ell^4\)/\(\ell^2\) inequality with equality constraints follows from Cauchy–Schwarz and the triangle inequality, and elementary rearrangement yields the claimed exact deficit. The proof includes the small case \(M=1\) and does not infer all-size results from finite enumeration. The accompanying checker completed 114 level sets, 228 convolution-pattern identities, and 8 direct Fourier reconstructions.
+PASS
 
-## Originality — PASS, with recorded uncertainty
+In even characteristic the nondegenerate symplectic polar form and unique square roots yield M=q−1 split or q+1 nonsplit nonzero-level points, including q=2. For s≠0, Q(v)=Q(v+s)=j reduces to B(v,s)=Q(s); isotropic s cannot be a sum and nonisotropic s yields an affine F_q-line parameter t with equation t²+t=constant, hence 0 or 2 ordered pairs. All diagonal pairs sum to zero and offdiagonal unordered pairs have distinct sums. Character orthogonality gives ‖Ef‖₄⁴=(q²/M⁴)(|Σf²|²+2T²−2Σ|f|⁴) under the stated surface-probability/output-counting normalization. Cauchy and triangle give sharp (q²/M²)(3−2/M) with exactly common modulus and common squared phase, hence c independent signs and 2^(M−1) projective classes. Algebra yields nonnegative deficit 2Σ(a−1/M)²+1−|Σz|²; remains valid M=1.
 
-The relevant full primary material is Iosevich–Koh, arXiv:0804.4505, and Koh–Shen, arXiv:1003.4240. Both explicitly impose odd characteristic in the statements and methods most relevant here, whereas the present claim is entirely in characteristic two. The more recent González-Riquelme–Oliveira e Silva work, arXiv:2405.16647, concerns other model surfaces and its stated characteristic ranges exclude the characteristic-two conic. Semantic searches of published mathematical findings found no statement implying this binary-field norm, its \(2^{M-1}\) complex-projective sign patterns, and the exact two-term deficit. The conic's restricted-pair-sum property is closely related to weak Sidon sets in 2-groups: a historical equivalent or dominating general \(\Lambda(4)\) identity remains a genuine unexcluded possibility. Absence of a retrieved result is not a universal novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is the sharp \(L^2\to\ell^4\) extension endpoint on all smooth quadratic conics over even finite fields, a natural boundary of established odd-characteristic extension theory. The theorem determines both split and nonsplit constants, all complex equality cases, exact projective multiplicity, and a quantitative stability identity with two geometrically meaningful defects. This structural classification extends beyond a finite check, while making no claim about higher-dimensional or singular surfaces.
+Nagy (2022/2023) already proves these binary conics are Sidon sets and records q−1/q+1 point counts; neither those finite-geometry theorems nor inspected finite-field restriction results states the normalized complex-input sharp extension constant, exhaustive 2^(M−1) sign projective optimizer family and exact quantitative deficit. The present computation is an elementary application of known Sidon geometry, but the complete sharp endpoint functional inequality and extremal profile were not found in primary sources. Novelty is limited to that precise analytic invariant, NOT to conic Sidon geometry.
 
-## Scientific limitations and risk
+## value
 
-Only nonzero-level nondegenerate binary forms in characteristic two are covered; normalizations are fixed explicitly. The proof gives no statement for degenerate polar forms, zero levels, or general higher-dimensional surfaces. An equivalent formulation in older Sidon-set or finite-geometry literature remains possible despite primary-text and semantic comparisons. Independent validation is outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The rank-two binary conic is a canonical characteristic-two Sidon geometry, and its sharp fully complex L²→ℓ⁴ extension norm, independent sign equality family, and exact amplitude/phase deficit form a natural complete endpoint calculation absent from the compared odd-characteristic inequalities. Although the pair-sum step is elementary and known from finite geometry, exact normalization and equality/stability for all q with q=2 endpoints answer a motivated spectral invariant. Sign classes are characteristic-two-specific, not arbitrary parameter decoration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
