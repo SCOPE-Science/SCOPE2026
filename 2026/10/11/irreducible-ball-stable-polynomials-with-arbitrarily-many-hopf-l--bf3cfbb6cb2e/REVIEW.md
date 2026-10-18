@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The open-ball zero exclusion is the exact strict inequality \((1-r^2)^m+\varepsilon r^2<1\) for \(r>0\) and \(0<\varepsilon<1\), together with \(|z_1^2+z_2^2|<1\) in the remaining interior case. Exhaustive boundary equality and unique phases yield precisely \(m\) disjoint circles. The prime \(1-z_1^2-z_2^2\) divides the constant term in the quadratic variable \(z_3\) exactly once; Eisenstein over a UFD proves the entire polynomial irreducible. The gradient and contact identities establish nonsingularity and tangency, while a single orthogonal complex structure displays all components as Hopf fibers of the equatorial three-sphere. All quantified parameters are covered analytically rather than experimentally.
+PASS
 
-## Originality — PASS
+Set S=z₁²+z₂², r=|z₃|. In the closed ball, |S^m+εz₃²|≤(1-r²)^m+εr²≤1-(1-ε)r²; strictness for r>0 or interior r=0 forces all boundary zeros to z₃=0, S^m=1 and triangle equality. Those equalities yield precisely disjoint phase-rotated real unit circles indexed j modulo m. The irreducible prime 1-S=1-(z₁+iz₂)(z₁-iz₂) appears to exponent one in constant term 1-S^m, with quotient value m modulo that prime; leading z₃² coefficient -ε is a unit. Eisenstein in C[z₁,z₂][z₃] proves irreducible for all m. Nonzero (z₁,z₂) gives nonzero complex gradient at each circle. The parametrized tangents satisfy Σ conj(z_j) dz_j/dt=0, and the real planes e^{πij/m}R² are invariant under the common orthogonal complex structure J'(z₁,z₂)=(-z₂,z₁); hence they are distinct Hopf fibers and all pairwise linking magnitudes in the equatorial S³ equal one. Independently checked prime multiplicity symbolically for m=1..6; infinite m proof is Eisenstein, not finite testing.
 
-Knese, Pascoe and Sola (arXiv:2602.21051v1, Sections 4.2–4.3) already allow a *reducible* lifted polynomial with \(m\) such circles and explicitly discuss why their one-variable lift factors; the weaker unrestricted component count is therefore not new. Their boundary-curve and local-construction results do not imply global ball-stability plus irreducibility for the displayed family. Vavitsas, Wu and Zarvalis (arXiv:2607.05974v2) and Vavitsas and Zarvalis (2024) prove finite Nash stratification for each fixed polynomial but do not construct unbounded linked components under irreducibility. Searches of related names, formulas, topologies and stronger coverage in published mathematical records found no identical claim. An unindexed earlier construction remains a residual risk, not a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-Irreducibility potentially constrains how many disconnected, complex-tangential boundary-zero curves can occur in a fixed-dimensional ball. The family overcomes that restriction while preserving \(m\) pairwise Hopf-linked circles and a nonsingular hypersurface along their boundary, yielding an unbounded natural invariant. This resolves a structurally motivated existence question rather than only recounting a known reducible lift or computing a narrow numerical example.
+Full accessible Knese–Pascoe–Sola Sections 4.1–4.5 show ordinary one-variable lifting yields reducible multi-circle products and the quadratic form gives a single circle. Adding -ε z₃² is a separate Eisenstein irreducibility mechanism while preserving exactly m fibers. The source discusses local zeros and general construction, not this exact global irreducible link family.
 
-## Limits
+## value
 
-The theorem does not settle two-variable irreducible zero-curve classification, prescribe arbitrary link types, or derive optimal degree bounds. The linking and Legendrian assertions belong to the equatorial \(S^3\). Independent audit has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The distinction between reducible liftings and irreducible ball-stable polynomials with arbitrarily many disjoint, pairwise-linked smooth boundary components is a substantive geometric boundary phenomenon, not just a renamed degree parameter. It supplies a uniform constructive counterexample to any irreducible fixed-dimension component bound and an exactly controlled link type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

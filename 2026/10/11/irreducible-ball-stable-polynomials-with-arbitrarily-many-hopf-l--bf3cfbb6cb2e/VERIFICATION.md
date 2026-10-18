@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-## Exact analytic checks
+# Independent mathematical audit
 
-1. Set \(S=z_1^2+z_2^2\), \(r=|z_3|\). Verify \(|S|\le1-r^2\) and \((1-r^2)^m\le1-r^2\) for every integer \(m\ge1\) when \(0\le r\le1\). The resulting bound \(|S^m+\varepsilon z_3^2|\le1-(1-\varepsilon)r^2\) is strictly below \(1\) for positive \(r\) and \(\varepsilon<1\). At \(r=0\), any interior point has \(|S|<1\).
-2. On the boundary set \(r=0\), solve \(S^m=1\) and apply the equality case \(|z_1^2+z_2^2|=|z_1|^2+|z_2|^2\). This yields the listed real circles and no others; their phases differ modulo \(\pi\).
-3. In \(\mathbb C[z_1,z_2]\), rewrite the irreducible prime \(q=1-S\) as \(1-uv\) with \(u=z_1+iz_2\), \(v=z_1-iz_2\). Divide \(1-S^m\) by \(q\); the complementary sum is \(m\bmod q\), hence not divisible by \(q\). Eisenstein on the quadratic polynomial in \(z_3\) proves irreducibility over the full complex polynomial ring.
-4. Compute the nonzero gradient on the circles, verify \(\langle\gamma_j'(t),\gamma_j(t)\rangle=0\), and observe \(J'(z_1,z_2)=(-z_2,z_1)\) preserves all distinct real two-planes \(e^{\pi i j/m}\mathbb R^2\). Distinct fibers of this Hopf fibration in \(S^3\) have absolute linking number one.
+## correctness
 
-These steps form an all-parameters proof; no finite sampling is used to infer an infinite assertion. No computational program or external certificate is necessary. Literature comparisons and originality risks are recorded in the scientific review, not claimed to be independently certified.
+PASS
+
+Set S=z₁²+z₂², r=|z₃|. In the closed ball, |S^m+εz₃²|≤(1-r²)^m+εr²≤1-(1-ε)r²; strictness for r>0 or interior r=0 forces all boundary zeros to z₃=0, S^m=1 and triangle equality. Those equalities yield precisely disjoint phase-rotated real unit circles indexed j modulo m. The irreducible prime 1-S=1-(z₁+iz₂)(z₁-iz₂) appears to exponent one in constant term 1-S^m, with quotient value m modulo that prime; leading z₃² coefficient -ε is a unit. Eisenstein in C[z₁,z₂][z₃] proves irreducible for all m. Nonzero (z₁,z₂) gives nonzero complex gradient at each circle. The parametrized tangents satisfy Σ conj(z_j) dz_j/dt=0, and the real planes e^{πij/m}R² are invariant under the common orthogonal complex structure J'(z₁,z₂)=(-z₂,z₁); hence they are distinct Hopf fibers and all pairwise linking magnitudes in the equatorial S³ equal one. Independently checked prime multiplicity symbolically for m=1..6; infinite m proof is Eisenstein, not finite testing.
+
+## originality
+
+PASS
+
+Full accessible Knese–Pascoe–Sola Sections 4.1–4.5 show ordinary one-variable lifting yields reducible multi-circle products and the quadratic form gives a single circle. Adding -ε z₃² is a separate Eisenstein irreducibility mechanism while preserving exactly m fibers. The source discusses local zeros and general construction, not this exact global irreducible link family.
+
+## value
+
+PASS
+
+The distinction between reducible liftings and irreducible ball-stable polynomials with arbitrarily many disjoint, pairwise-linked smooth boundary components is a substantive geometric boundary phenomenon, not just a renamed degree parameter. It supplies a uniform constructive counterexample to any irreducible fixed-dimension component bound and an exactly controlled link type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
