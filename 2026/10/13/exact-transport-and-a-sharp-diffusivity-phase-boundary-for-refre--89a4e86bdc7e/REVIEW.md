@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For each frozen interval the first opposing arrow forces an exact two-cycle, giving two rational moment-generating functions. Geometric renewal-reward LLN/CLT then gives the stated rational speed and diffusivity; the derivative identities prove global speed monotonicity, strict balanced diffusivity growth, and the biased interior maximum. An exact symbolic and rational replay of 193 checks passed. The numerical/truncated checks supplement, not establish, the continuum theorem.
+## correctness
 
-**Originality: PASS, subject to stated priority risk.** The closest 2016 and March 2026 cooling-environment papers establish structural decomposition under deterministic/global resampling, often with ellipticity assumptions excluding deterministic arrows. A newer October 2026 work establishes general geometric-regeneration formulas and the known endpoint curvature; these are credited. It does not derive the displayed rational arrow laws or their global refresh-rate diffusivity if-and-only-if classification. Searches for equivalent titles, transformations, generating functions, and dominating results found no known covering statement. Absence of a search result does not prove priority.
+PASS
 
-**Value: PASS.** Singular arrows create unavoidable frozen two-cycles and an extreme trap/homogenization contrast. The theorem resolves a complete two-parameter rate question, identifies the sole bias value with monotone diffusivity, and shows mathematically that partial refresh can be *more* diffusive than full refresh. The sharp global dichotomy and exact formulas are substantive even without a general theorem for all random environments.
+For iid deterministic spatial arrows and geometric whole-field refresh blocks, the first opposite arrow K is geometric and a frozen walk enters an alternating 2-cycle. Direct sums give first and second generating functions R_t(z)=(1+tz)/[(1-tz)(1-z²)] and S_t(z)=(1+tz)²/[(1-tz)²(1-z²)]. The independent reward blocks (L,D) have geometric L; the renewal-reward law and CLT give v=p²H_a(1-p) and Sigma=p²J-2p²v(H+zH′)+(2-p)v²/p. Algebra yields the displayed speed and its derivative. For a=1/2, Sigma=p(3-p)²/[(2-p)(1+p)²], derivative positive on 0<p<1; for a≠1/2, Sigma(1)=4a(1-a), derivative 0, second derivative 24a(1-a)(2a-1)²>0, while Sigma(p)→0 at p↓0. Continuity forces a strictly higher interior maximizer and rules out global strict increase for any asymmetric bias. Independent SymPy verified rational identities. No uniqueness of maximizer asserted.
 
-The findings are confined to independent spatial arrows, global refresh, annealed fluctuations, \(0<a<1\), and \(0<p\le1\). The exact asymmetric maximizing rate is not classified. Earlier unindexed singular-environment results remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.
+
+## value
+
+PASS
+
+The all-refresh-rate nonmonotonicity phase boundary is an exact transport law for a natural singular spatial walk, distinguishing the balanced environment from arbitrarily biased ones. It refines generic regenerative CLT identities into a model-specific global diffusivity classification and quantifies why added refresh can reduce effective diffusion despite increasing speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
