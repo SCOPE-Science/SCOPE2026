@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The mathematical result concerns independent row-fixed, site-equiprobable binary presence--absence randomization, not a fixed-column null.
 
-For every pair of row sizes \(a,b\), the verifier calculates the exact law of their overlap from
-\[
-\Pr(X=x)=\binom ax\binom{H-a}{b-x}/\binom Hb.
-\]
-It derives the empirical mean and variance of the pairwise checkerboard score directly from this probability law and compares them against the falling-factorial formulas. This is checked for all integer pairs \(1\le a,b\le H\) and all \(2\le H\le12\), totaling 649 parameter cases.
+# Independent mathematical audit
 
-In six completely enumerated heterogeneous/homogeneous row-degree systems it generates the entire Cartesian product of possible species-presence subsets, 30,665 matrices total, and compares exactly evaluated whole-matrix C-score mean and variance with the theorem. It separately checks every two-edge overlap joint distribution, including edges sharing one species; it checks full path-forest joint factorizations and the cyclic three-edge counterexample. Exact fractions are used throughout.
+## correctness
 
-The case with \(H=5\) and species occupancies \((2,3,4)\) has
-\[
-\mathbb E[C]=\frac75,
-\qquad \operatorname{Var}(C)=\frac{49}{75},
-\]
-verified by complete enumeration of 500 matrices.
+PASS
 
-To rerun the standalone verifier with standard Python 3:
+Independent row-fixed uniform subsets have hypergeometric pair overlaps; conditioning on a leaf row of any forest leaves the leaf-edge overlap with fixed law independent of every other edge, giving joint product by induction. All distinct pair contributions are pairwise independent; factorial-moment expansion of (a-X)(b-X) gives exact pair mean/variance and global C-score variance sum/M^2. Independent full enumeration of 500 matrices for H=5, occupancies (2,3,4) recovers mean 7/5 and variance 49/75. In a 3-cycle over H=2, all overlaps one has probability 1/4 not 1/8, so cannot claim general joint independence or tails.
 
-`python3 verify_checkerboard_fe_moments.py`
+## originality
 
-The last line should be `VERIFY_OK`.
+PASS
 
-These finite checks are not presented as an infinite proof. The all-parameter correctness rests on the leaf-conditioning forest independence lemma and the exact falling-factorial moment expansion in the paper.
+Gotelli establishes ecological SIM2 null and checkerboard model, Veech exact pairwise hypergeometric overlaps, and Arita pairwise/Fisher equivalence. A single pair law does not determine cross-pair covariance. Leaf-conditioning forest factorization and exact global null variance are not reported in their inspected relevant sections; generic random-set U-statistic identities might cover an equivalent result under different terminology.
+
+## value
+
+PASS
+
+The standard ecological fixed-row equiprobable null needs a calibrated community-level C-score variance, not only per-pair marginal p values. Exact forest zero covariance supplies a reusable finite-sample normalization for heterogeneous species occupancies and delineates non-Gaussian cycle dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

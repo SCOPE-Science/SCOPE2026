@@ -1,16 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each species pair the overlap is hypergeometric because the second uniform subset is drawn without replacement relative to any fixed first subset. The key nonstandard lemma is reconstructed by conditioning on all other species rows and removing a leaf of an arbitrary forest. The leaf overlap has a conditional law invariant to those rows because its neighbor's size is fixed, and therefore is independent of the remaining forest variables. Induction proves exact joint factorization on forests and zero covariance for every two distinct pair-score terms. Direct falling-factorial algebra establishes both displayed moments, including the \(H=2\) boundary. An exact-rational independent enumerator cross-checks 649 pair distributions and 30,665 full matrices, with pair and path-factorization checks.
+## correctness
 
-Risks and limits: independence is not asserted for arbitrary cyclic collections; the three-singleton/two-site triangle explicitly disproves it. The model fixes only row totals, not columns or site suitability; no Gaussian approximation or exact tail test is claimed. The verifier checks finite cases but is not the proof of the unrestricted theorem.
+PASS
 
-## Originality — PASS
-Gotelli (2000) states the SIM2 randomization and original C-score and assesses model-based significance by simulation. Veech (2013) develops the exact two-species co-occurrence law; Arita (2016) shows its identity with the Fisher test and fixed--equiprobable matrix model and recognizes that whole-community indices aggregate pairwise statistics. Their inspected arguments do not derive the forest-overlap product law, pairwise independence of distinct overlapping-edge contributions, or the variance across random full-matrix C-scores for arbitrary prescribed rows. The theorem is not a renamed single-pair hypergeometric calculation: it resolves the cross-pair covariance terms that determine the full variance. Distinguish the variance *across matrices* from published software metrics describing score dispersion *within a matrix*. Targeted literature and database searches did not identify an equivalent or stronger covering result.
+Independent row-fixed uniform subsets have hypergeometric pair overlaps; conditioning on a leaf row of any forest leaves the leaf-edge overlap with fixed law independent of every other edge, giving joint product by induction. All distinct pair contributions are pairwise independent; factorial-moment expansion of (a-X)(b-X) gives exact pair mean/variance and global C-score variance sum/M^2. Independent full enumeration of 500 matrices for H=5, occupancies (2,3,4) recovers mean 7/5 and variance 49/75. In a 3-cycle over H=2, all overlaps one has probability 1/4 not 1/8, so cannot claim general joint independence or tails.
 
-Residual risks: a combinatorial-probability formulation may already contain the forest lemma implicitly. Stone and Roberts's original article is accessible here through bibliographic material, rather than an inspected full body; the full 2000, 2013, and 2016 methodological articles were read in relevant sections. An unseen older calculation of aggregate null variance remains possible; no absence-of-publication theorem is claimed.
+## originality
 
-## Value — PASS
-The C-score and fixed-row equiprobable randomization are standard ecological co-occurrence tools. Prior work evaluates community C-scores through many simulated matrices; exact expectation and null variance are directly interpretable calibration quantities, especially when randomization variance estimates are costly or unstable. The forest factorization also explains why extensive shared-species dependence does not contribute to a second-moment calculation even though longer cycles prevent full independence. The result is useful within its explicit model and does not misrepresent the resulting standardized score as having a normal tail.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gotelli establishes ecological SIM2 null and checkerboard model, Veech exact pairwise hypergeometric overlaps, and Arita pairwise/Fisher equivalence. A single pair law does not determine cross-pair covariance. Leaf-conditioning forest factorization and exact global null variance are not reported in their inspected relevant sections; generic random-set U-statistic identities might cover an equivalent result under different terminology.
+
+## value
+
+PASS
+
+The standard ecological fixed-row equiprobable null needs a calibrated community-level C-score variance, not only per-pair marginal p values. Exact forest zero covariance supplies a reusable finite-sample normalization for heterogeneous species occupancies and delineates non-Gaussian cycle dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
