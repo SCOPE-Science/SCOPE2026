@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The checker computes occurrence parity two ways and tests the exact append identity and bounded-window criterion over 57 nonzero terminal-zero blocks of lengths 2–6, 512 integers for each append test, and differences 1–159 for the criterion. It also checks two explicit small-pattern families to difference 1000.
+## correctness
 
-Expected output: `VERIFY_OK positive_pattern_doubling_cases=9063 append_checks=29184 two_explicit_families=2000`.
+PASS
 
-These finite computations check implementation agreement, not infinite completeness. The all-positive-difference theorem is proved by the append-zero identity, least-congruence comparison, and regular-language construction in RESULT.md. No independently performed audit or human validation is claimed.
+PASS: By partitioning occurrences of v=w0 before and at an appended zero, g_v(2n)=g_v(n) XOR 1_{n≡[w]_2 mod 2^(L-1)}, including finite leading-zero padding. Along multiples jd, if the first trigger t is absent, parity lists coincide; if present they disagree at exactly t, so equal first-failure indices occur iff some earlier parity is 1. Linear congruence gives t<=2^(L-1), and finite carry automata for fixed j times input d plus finite pattern parity machines prove a 2-automatic set with O_v(log d) membership. Independent 7,800 append and 1,300 progression tests corroborated (not infinite proof), and source code inspected.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): An exact first-trigger iff is neither supplied by prior A_v growth bounds nor implied by results for additive shift; its regularity corollary is natural but relies on the new characterization. Finiteness or generic 2-automatic closure does not imply this precise first-trigger equivalence with fixed residue r or solve the stated all-pattern family. Residual literature/access risks are explicitly recorded.
+
+## value
+
+PASS
+
+PASS: Directly answers Sobolewski Problem 6 for every nonzero terminal-zero binary pattern by an explicit bounded earliest-trigger criterion, much stronger than a search table. The new structural equivalence underpins the regular-language conclusion; generic automatic closure is credited, not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

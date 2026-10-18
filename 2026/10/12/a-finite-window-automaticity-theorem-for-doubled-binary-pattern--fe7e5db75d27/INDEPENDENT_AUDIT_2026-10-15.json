@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: By partitioning occurrences of v=w0 before and at an appended zero, g_v(2n)=g_v(n) XOR 1_{n≡[w]_2 mod 2^(L-1)}, including finite leading-zero padding. Along multiples jd, if the first trigger t is absent, parity lists coincide; if present they disagree at exactly t, so equal first-failure indices occur iff some earlier parity is 1. Linear congruence gives t<=2^(L-1), and finite carry automata for fixed j times input d plus finite pattern parity machines prove a 2-automatic set with O_v(log d) membership. Independent 7,800 append and 1,300 progression tests corroborated (not infinite proof), and source code inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original bounds show progression lengths finite; its Problem 5 concerns global Av(d), Problem 6 initial Av(0,d).",
+          "Other papers concern Fibonacci/Thue–Morse/Rudin–Shapiro progressions or block-counting under addition."
+        ],
+        "reasoning": "Finiteness or generic 2-automatic closure does not imply this precise first-trigger equivalence with fixed residue r or solve the stated all-pattern family.",
+        "searches": [
+          "arXiv:2204.05287v2 Theorem 1.7 and §6",
+          "arXiv:2501.05830 related named sequences",
+          "arXiv:2412.15851 related addition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.05287v2 Section 1 and Problem 6 primary full preprint",
+        "DOI:10.1016/j.tcs.2024.114815 journal abstract",
+        "arXiv:2501.05830 abstract",
+        "arXiv:2412.15851 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Problem 6 text: for v ending 0 describe all d with Av(0,2d)=Av(0,d); the authors exclude patterns ending 1 as trivial.",
+          "The new result derives g_v(2n)=g_v(n) XOR suffix trigger and reduces equality to first earlier discrepancy."
+        ],
+        "reasoning": "An exact first-trigger iff is neither supplied by prior A_v growth bounds nor implied by results for additive shift; its regularity corollary is natural but relies on the new characterization.",
+        "searches": [
+          "arXiv:2204.05287v2 final Problem 6",
+          "arXiv:2412.15851 shift comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact fixed-v question in Sobolewski Problem 6 is A_v(0,2d)=A_v(0,d) for patterns ending 0."
+        ],
+        "reasoning": "Compared doubled differences, appended-zero suffix congruence, pattern parity finite-window and 2-automatic aliases. Original question asks for the same equality set but does not provide the bounded congruence-first-trigger criterion.",
+        "searches": [
+          "Resultary: Sobolewski Problem 6 monochromatic progression A_v(0,2d) equals A_v(0,d) terminal 0 pattern",
+          "Resultary: doubled binary pattern finite window automaticity theorem word combinatorics",
+          "arXiv:2204.05287v2 Problem 6",
+          "arXiv:2204.05287v2 Problem 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original supplies figures and small data but leaves the general characterization as Problem 6.",
+          "The direct Resultary search returned no exact same problem theorem."
+        ],
+        "reasoning": "Finite tables cannot establish the full infinite d-language or automaticity; the candidate derives a symbolic criterion.",
+        "searches": [
+          "arXiv:2204.05287 figures and finite tables",
+          "Resultary: Sobolewski Problem 6 monochromatic progression A_v(0,2d) equals A_v(0,d) terminal 0 pattern"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): An exact first-trigger iff is neither supplied by prior A_v growth bounds nor implied by results for additive shift; its regularity corollary is natural but relies on the new characterization. Finiteness or generic 2-automatic closure does not imply this precise first-trigger equivalence with fixed residue r or solve the stated all-pattern family. Residual literature/access risks are explicitly recorded.",
+      "residual_risks": [
+        "Full revised 2024 journal article was not separately read; it may include later solutions not in arXiv v2.",
+        "All-zero patterns and arbitrary progression starting points excluded by hypothesis.",
+        "Known automatic-sequence closure provides part of the generic proof, so novelty rests on the bounded first-trigger classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSES_EXACT_QUESTION",
+          "evidence": "Problem 6 explicitly asks the terminal-zero doubled-step equality classification, not solves it.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.05287",
+          "material_read": "OA 31-page arXiv preprint searched; Section 1 definitions, notation and Section 6 including Problem 6 lines 2005–2014 closely read; PDF page visually inspected",
+          "method": "Read arXiv full-text relevant sections and PDF screenshot",
+          "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+          "trigger": "Original problem and general progression bounds"
+        },
+        {
+          "assessment": "NOT_SHOWN_TO_COVER",
+          "evidence": "Focus on individual standard sequences, not all binary terminal-zero patterns.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.05830",
+          "material_read": "Abstract/accessible topic description, not a complete full-text reread",
+          "method": "arXiv indexing and primary topic comparison",
+          "title": "Monochromatic arithmetic progressions in the Fibonacci, Thue-Morse, and Rudin-Shapiro words",
+          "trigger": "Nearby later sequence-progressions publication"
+        },
+        {
+          "assessment": "NOT_SHOWN_TO_COVER",
+          "evidence": "Studies additive shifts of counting functions; no doubled-initial-progression theorem in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.15851",
+          "material_read": "Accessible abstract and topic synopsis, not full text",
+          "method": "arXiv metadata/abstract inspection",
+          "title": "On the behavior of binary block-counting functions under addition",
+          "trigger": "Possible stronger block-counting identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Directly answers Sobolewski Problem 6 for every nonzero terminal-zero binary pattern by an explicit bounded earliest-trigger criterion, much stronger than a search table. The new structural equivalence underpins the regular-language conclusion; generic automatic closure is credited, not claimed novel.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2204.05287v2 Section 1 and Problem 6 primary full preprint",
+    "DOI:10.1016/j.tcs.2024.114815 journal abstract",
+    "arXiv:2501.05830 abstract",
+    "arXiv:2412.15851 abstract",
+    "assigned source tree 0adaec43ecb06bd39160ea19739d936984d57903"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All-zero v excluded.",
+    "Starting point fixed at zero, doubling only; constants not polynomial-uniform in pattern length.",
+    "Some word-finitedness results imported from named Sobolewski earlier theorem."
+  ],
+  "residual_risks": [
+    "Full revised 2024 journal article was not separately read; it may include later solutions not in arXiv v2.",
+    "All-zero patterns and arbitrary progression starting points excluded by hypothesis.",
+    "Known automatic-sequence closure provides part of the generic proof, so novelty rests on the bounded first-trigger classification."
+  ],
+  "schema_version": 1
+}

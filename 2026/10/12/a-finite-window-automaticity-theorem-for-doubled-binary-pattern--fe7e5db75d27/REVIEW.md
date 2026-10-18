@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The append-zero identity follows from an exhaustive partition of occurrences into those entirely before the appended digit and the one possible new terminal occurrence. For each positive difference, the first congruence trigger flips the progression's parity exactly once at the first trigger; a disagreement strictly before the trigger is therefore necessary and sufficient for equality of first-disagreement lengths. The congruence bound and constant-multiplier finite-state closure yield the fixed finite decision and automaticity assertions. A separate Python checker compares independently implemented parity counters and progression scans in thousands of finite cases. The proof, not the finite search, covers all qualifying patterns and all positive differences.
+PASS
 
-## Originality — PASS
+PASS: By partitioning occurrences of v=w0 before and at an appended zero, g_v(2n)=g_v(n) XOR 1_{n≡[w]_2 mod 2^(L-1)}, including finite leading-zero padding. Along multiples jd, if the first trigger t is absent, parity lists coincide; if present they disagree at exactly t, so equal first-failure indices occur iff some earlier parity is 1. Linear congruence gives t<=2^(L-1), and finite carry automata for fixed j times input d plus finite pattern parity machines prove a 2-automatic set with O_v(log d) membership. Independent 7,800 append and 1,300 progression tests corroborated (not infinite proof), and source code inspected.
 
-The motivating source explicitly poses the doubled-step equality classification in Problem 6. Its inspected preprint provides general progression bounds and specific results for other patterns, but not this congruence-first-triggers classification or automaticity. Targeted literature searches considered the literal question, synonymous doubling criteria, broader automatic-sequence progressions, and exact finite tables. The closest follow-up studies other standard sequences; a later block-counting paper concerns additive shifts, not doubling. The full revised journal document was not separately re-read, so an unindexed or revised equivalent remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem addresses a specific published mathematical problem for an infinite family of binary patterns rather than an arbitrary slice. Unlike a raw search for the first mismatch, membership in the entire equality set is reducible to at most \(2^{|v|-1}-1\) prior parity probes, independently of the size of the difference, and the set has a finite automaton. This supplies an explicit structural classification and a fast decision method, including nontrivial examples. No statement is claimed for all-zero patterns or other starting positions.
+PASS (best of knowledge): An exact first-trigger iff is neither supplied by prior A_v growth bounds nor implied by results for additive shift; its regularity corollary is natural but relies on the new characterization. Finiteness or generic 2-automatic closure does not imply this precise first-trigger equivalence with fixed residue r or solve the stated all-pattern family. Residual literature/access risks are explicitly recorded.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Directly answers Sobolewski Problem 6 for every nonzero terminal-zero binary pattern by an explicit bounded earliest-trigger criterion, much stronger than a search table. The new structural equivalence underpins the regular-language conclusion; generic automatic closure is credited, not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
