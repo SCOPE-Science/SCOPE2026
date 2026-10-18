@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T16:50:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently checked exact 2×2 matrices K=diag(1,0), U=[[0,1],[0,0]], W=H, Λ=K, C=C’=I. E(f)=|f1|²=||K*f||², R(U)=R(K)=span e1, U*f=(0,f1), and ||U*f||=||K*f||. However UW=span e1 and ΛU*P_UW=0 identically, contradicting any positive K-lower frame bound at e1. Theorem 2.3 at publisher pp114–115 imposes no injectivity of U. For closed-range K, (K†)*K*=P_R(K), not identity; applying it to U*f requires R(U*)⊆R(K). The published sufficient-bound algebra follows with the added range hypothesis if image fusion spaces are closed. The false theorem’s necessary half was not refuted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rahimlou–Sadri–Ahmadi 2020 Theorem 2.1 maps to UK with invertible U, its Cor.2.1 preserves K after commutation with K*.",
+          "Ahmadi et al 2020 image constructions use invertible U and/or commutation, unlike the disputed noninvertible rank-one U."
+        ],
+        "reasoning": "The stronger-looking frame-transport results do not imply the claimed sufficiency under the weaker actual premises.",
+        "searches": [
+          "Constructions of K-g-fusion and their dual in Hilbert spaces invertible U commutation",
+          "controlled K-g fusion transport image frames UK Theorem 2.1",
+          "controlled K-g-fusion frame transport U range adjoint range condition counterexample Moore Penrose Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Rahimlou–Sadri–Ahmadi, U.P.B. Scientific Bulletin 82(1) (2020), 111–120, publisher PDF Theorem 2.3",
+        "Ahmadi–Rahimlou–Sadri–Zarghami Farfar, DOI 10.31926/but.mif.2020.12.61.1.2",
+        "Git frozen RESULT.md, VERIFICATION.md, REVIEW.md, metadata and audit files, tree 0678f669576495c556d564f42e471c373c1ecffd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary theorem claims Γ is a K-g fusion frame; with K and U chosen above Γ has zero analysis and nonzero K*e1.",
+          "Its own Theorem2.4 instead says the *original* system is a U-g fusion frame from R(U)⊆R(K)."
+        ],
+        "reasoning": "The primary implication is contradicted by direct calculation; neighboring published implications concern different conclusions.",
+        "searches": [
+          "\"Construction of controlled K-g-fusion frames in Hilbert spaces\" erratum counterexample",
+          "\"Theorem 2.3\" K g fusion transported U star"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2020 primary Theorem 2.3 uses R(U)⊆R(K) and ||U*f||≥δ||K*f||; exact source proof asserts U*f=(K†)*K*U*f.",
+          "For closed-range K, (K†)*K* = orthogonal P_R(K); counterexample R(U*)=span e2 is orthogonal to R(K)."
+        ],
+        "reasoning": "Projection, pseudoinverse, and adjoint-range formulations were compared; the missing premise is precisely the statement that U* maps H into R(K).",
+        "searches": [
+          "Theorem 2.3 Rahimlou Sadri Ahmadi controlled K-g-fusion",
+          "R(U) R(U*) Moore Penrose controlled K-g fusion transport",
+          "controlled K-g-fusion frame transport U range adjoint range condition counterexample Moore Penrose Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Publisher PDF: U.P.B. Sci. Bull. Series A 82(1) (2020), pp111–120, Thm2.3 pp114–115.",
+          "No checked exact erratum or identical 2x2 counterexample in indexed searches; source has no correction in examined pages."
+        ],
+        "reasoning": "A theorem-specific correction, rather than a computed numerical invariant or known table, is the exact novelty target.",
+        "searches": [
+          "\"Construction of controlled K-g-fusion frames in Hilbert spaces\" \"Theorem 2.3\" correction erratum",
+          "\"R(U*)\" \"R(K)\" controlled fusion frame counterexample"
+        ]
+      },
+      "rationale": "The novel final claim is a concrete counterexample to a named implication and diagnosis of its exact missing adjoint-range geometry, not a restatement of the published theorem. Full publisher PDF pages 111–120, including complete Theorem 2.3 proof, was inspected. Other image-transport theorems require invertibility or commutation and do not supply this failure. Exact erratum/counterexample and range-alias searches returned no same counterexample; database negatives do not establish absolute priority.",
+      "residual_risks": [
+        "No claim that R(U*)⊆R(K) is a necessary condition for every fixed frame.",
+        "For general U the transported UW_i must also be closed; this counterexample uses a closed one-dimensional image.",
+        "An unpublished or unindexed erratum could previously identify this gap.",
+        "Resultary semantic lookup unavailable (internal tool failure); negative web search is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stated iff sufficient direction is false as evidenced by source and exact counterexample",
+          "evidence": "Theorem2.3 assumes R(U)⊆R(K) and scalar lower ||U*f||; the crucial pseudoinverse equality at bottom p114 does not follow.",
+          "identifier_or_url": "https://www.scientificbulletin.upb.ro/static/pdfs/full36e_351589.pdf",
+          "material_read": "Complete 10-page publisher PDF, esp. definitions pp111–113, Thm2.1–2.4 and full theorem2.3 proof pp114–115",
+          "method": "Full-text and rendered theorem/proof-page inspection",
+          "title": "Construction of controlled K-g-fusion frames in Hilbert spaces",
+          "trigger": "Exact theorem under critique"
+        },
+        {
+          "assessment": "PARTIAL_COMPARISON; invertibility and commutation distinguish this formulation",
+          "evidence": "Source describes invertible-operator transport and extra commutation for same-K preservation.",
+          "identifier_or_url": "doi:10.31926/but.mif.2020.12.61.1.2",
+          "material_read": "Published indexed description and relevant construction conditions; NOT independently verified full article this run",
+          "method": "Bibliographic, abstract and targeted theorem summaries",
+          "title": "Constructions of K-g-fusion and their dual in Hilbert spaces",
+          "trigger": "Closest same-author operator-image transport"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A formally stated iff transport criterion for controlled K-g-fusion frames fails even with equality in its numerical condition and with closed image subspace. The constructive failure isolates a meaningful hidden adjoint-range condition affecting usable operator-transfer criteria, not a cosmetic constant or textbook renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Theorem 2.3 of Rahimlou–Sadri–Ahmadi (2020) has a false converse: a specific rank-one C² operator satisfies all stated hypotheses and the norm criterion but its transformed controlled K-g-fusion analysis has zero energy. R(U*)⊆R(K) suffices to validate the defective pseudo-inverse conversion, with closed image subspaces.",
+  "limitations": [
+    "No claim that R(U*)⊆R(K) is a necessary condition for every fixed frame.",
+    "For general U the transported UW_i must also be closed; this counterexample uses a closed one-dimensional image.",
+    "An unpublished or unindexed erratum could previously identify this gap.",
+    "Resultary semantic lookup unavailable (internal tool failure); negative web search is not novelty proof."
+  ],
+  "schema_version": 1
+}

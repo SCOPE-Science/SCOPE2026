@@ -1,37 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target theorem and complete proof were checked in the publisher PDF. In the exact \(2\times2\) example, the original system is Parseval, \(K\) has closed range, \(R(U)=R(K)\), the controls are identities, the transformed fusion subspace is closed, and
-\[
-\|U^*f\|=\|K^*f\|
-\]
-for every \(f\). Nevertheless the transformed analysis operator on its fusion subspace is zero, so no positive \(K\)-lower bound exists.
+## correctness
 
-The published converse proof uses
-\[
-U^*f=(K^\dagger)^*K^*U^*f.
-\]
-For closed-range \(K\), the operator preceding \(U^*f\) is \(P_{R(K)}\). The equality therefore needs \(R(U^*)\subseteq R(K)\), which the theorem does not assume.
+PASS
 
-## Originality
-PASS. Exact-source, theorem-number, range/adjoint-range, Moore--Penrose, controlled-\(K\)-\(g\)-fusion transport, correction, and erratum formulations were compared with the available prior scientific corpus and the closest primary construction literature.
+I independently checked exact 2×2 matrices K=diag(1,0), U=[[0,1],[0,0]], W=H, Λ=K, C=C’=I. E(f)=|f1|²=||K*f||², R(U)=R(K)=span e1, U*f=(0,f1), and ||U*f||=||K*f||. However UW=span e1 and ΛU*P_UW=0 identically, contradicting any positive K-lower frame bound at e1. Theorem 2.3 at publisher pp114–115 imposes no injectivity of U. For closed-range K, (K†)*K*=P_R(K), not identity; applying it to U*f requires R(U*)⊆R(K). The published sufficient-bound algebra follows with the added range hypothesis if image fusion spaces are closed. The false theorem’s necessary half was not refuted.
 
-The closest same-author \(K\)-\(g\)-fusion construction paper transports to \(UK\) under invertible \(U\), and preserves \(K\) only with extra commutation. It does not imply the disputed criterion or the counterexample.
+## originality
 
-## Value
-PASS. This is a necessary-and-sufficient transport theorem, and its sufficient direction fails in the strongest possible way: its scalar lower condition holds with equality while the transformed analysis is identically zero. The repair identifies the missing operator geometry rather than changing a cosmetic constant.
+PASS
 
-## Closest literature and limitations
-Adding
-\[
-R(U^*)\subseteq R(K)
-\]
-repairs the pseudo-inverse step, assuming the image fusion subspaces are closed. A direct condition on
-\[
-\|K^*U^*f\|
-\]
-is another sufficient repair and avoids the Moore--Penrose conversion.
+The novel final claim is a concrete counterexample to a named implication and diagnosis of its exact missing adjoint-range geometry, not a restatement of the published theorem. Full publisher PDF pages 111–120, including complete Theorem 2.3 proof, was inspected. Other image-transport theorems require invertibility or commutation and do not supply this failure. Exact erratum/counterexample and range-alias searches returned no same counterexample; database negatives do not establish absolute priority.
 
-The added range condition is not asserted necessary for every fixed frame, and an unindexed correction may contain the same observation.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A formally stated iff transport criterion for controlled K-g-fusion frames fails even with equality in its numerical condition and with closed image subspace. The constructive failure isolates a meaningful hidden adjoint-range condition affecting usable operator-transfer criteria, not a cosmetic constant or textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
