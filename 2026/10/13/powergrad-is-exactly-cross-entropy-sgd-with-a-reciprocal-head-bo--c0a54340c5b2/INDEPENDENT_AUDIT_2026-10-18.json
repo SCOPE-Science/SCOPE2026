@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:10:42.772486Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2111.12495",
+        "Independent exact bounded checks in independent_1783_checks.py and independent_1783_results.txt; frozen RESULT.md Git blob"
+      ],
+      "rationale": "For logits W h_theta, p_i^alpha normalized is exactly softmax(alpha W h)_i. With V=alpha W, d[alpha^-1 CE(alpha W,theta)]/dW=(p_alpha-y)h^T and d/dtheta=J_h^T W^T(p_alpha-y), matching the specified PowerGrad pseudo-backward rule in BOTH blocks. Transforming the update by V=alpha W yields eta_V=alpha eta_W and eta_theta^CE=eta_theta/alpha, hence exact ratio alpha^-2 for equal step sizes and identical fixed-feature class predictions. Independently checked random softmax probabilities, centered finite differences and 15 exact matched SGD steps. Alpha=0, non-linear final heads, optimizer momentum/adaptive state excluded.",
+      "residual_risks": [
+        "Source implementation may include momentum or weight decay; conjugacy is claimed only for plain SGD/gradient descent and matching minibatches; implicit-bias conclusion inherits its source hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das et al. study empirical gradient tampering for a range of CNN architectures and optimizers but omit the scalar-head reparameterized SGD trajectory.",
+          "https://arxiv.org/abs/2111.12495",
+          "https://arxiv.org/abs/1710.10345"
+        ],
+        "reasoning": "Broader gradient-smoothing and implicit-bias results apply to neighboring procedures but do not supply the matching head/body optimizer identity; the max-margin part is explicitly a transferred prior theorem.",
+        "searches": [
+          "PowerGrad transformed softmax equivalent temperature scaled cross entropy SGD surrogate gradient feature head learning rates"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2111.12495",
+        "https://arxiv.org/abs/1706.04599",
+        "https://arxiv.org/abs/1710.10345",
+        "Resultary semantic query: PowerGrad transformed softmax equivalent temperature scaled cross entropy SGD surrogate gradient feature head learning rates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original equation (1) sets p_i′=p_i^alpha/sum_j p_j^alpha; origin §6 explicitly acknowledges similarity to temperature and emphasizes different forward semantics.",
+          "https://arxiv.org/abs/2111.12495",
+          "Its empirical SGD uses other hyperparameters (including Nesterov momentum) and does not state exact conjugacy for the narrower plain-SGD update."
+        ],
+        "reasoning": "The source directly yields the softmax scaling but the claimed optimization equivalence requires proving the whole backward field integrates and tracking the alpha in each parameter block. It is not a direct repetition of a published optimization result.",
+        "searches": [
+          "PowerGrad transformed softmax equivalent temperature scaled cross entropy SGD surrogate gradient feature head learning rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Powering normalized exponential scores is identically temperature-scaled softmax; this prerequisite is already in standard distillation/calibration theory.",
+          "PowerGrad source §2 (arXiv:2111.12495) defines only the altered logit pseudo-gradient; §6 compares temperature scaling applied in the forward pass.",
+          "https://arxiv.org/abs/2111.12495"
+        ],
+        "reasoning": "The same optimization claim can be written as an integrable pseudo-gradient with potential alpha^-1 CE(alpha W,theta) or as ordinary CE with anisotropically rescaled learning rates. Earlier softmax-temperature equality alone does not imply the full parameter-block interpretation without the chain-rule treatment.",
+        "searches": [
+          "PowerGrad transformed softmax equivalent temperature scaled cross entropy SGD surrogate gradient feature head learning rates",
+          "https://arxiv.org/abs/1706.04599"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact numerical data table is relevant to this universal functional identity: the tested scalars and dimensions are diagnostic only. Resultary semantic search of PowerGrad/temperature/SGD returned adjacent optimizer recurrences, not this expression."
+        ],
+        "reasoning": "The novelty claim is an all-network differential/algebraic equivalence, not a finite enumeration. Matching scores or names from a database would not prove coverage.",
+        "searches": [
+          "PowerGrad transformed softmax equivalent temperature scaled cross entropy SGD surrogate gradient feature head learning rates"
+        ]
+      },
+      "rationale": "Best-of-knowledge structural novelty is the explicit full head/body conservative surrogate and reciprocal two-block SGD conjugacy, not the known powered-softmax=temperature identity. The origin paper distinguishes backward tampering and forward temperature but does not integrate the complete vector field or calculate the alpha^-2 relative-rate effect. Full relevant sections were read; unindexed equivalent derivation remains possible.",
+      "residual_risks": [
+        "The conservative potential follows a brief chain-rule calculation from the original formula and may exist as undocumented folklore.",
+        "Optimizer behavior with momentum, Nesterov, decay, mixed precision or decoupled forward/objective semantics is not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definition and prior scaled-probability idea; does not formulate alpha^-1 CE(alpha W,theta) with full head-body SGD conjugacy and alpha^-2 relative learning-rate ratio",
+          "evidence": [
+            "§2 equation (1) and discussion; §6 temperature-distillation comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12495",
+          "material_read": "Full arXiv text as served in HTML: method §2, interpretation §5, related-work comparison §6 and experimental optimizer context; checked formula (1), p_i′−y, forward/backward distinction",
+          "method": "Read freely available full-text sections and surrounding arguments, including rendered PDF pages where applicable",
+          "title": "Das et al., Altering Backward Pass Gradients improves Convergence / Softmax Gradient Tampering",
+          "trigger": "Exact same PowerGrad backward transform, gradients and training rules"
+        },
+        {
+          "assessment": "Temperature scaling is a prior operation; does not establish the exact PowerGrad SGD conjugacy",
+          "evidence": [
+            "Positive temperature changes confidence without changing class ordering"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.04599",
+          "material_read": "Abstract and published identifier/temperature normalization; not used to declare whole-text noncoverage",
+          "method": "Read abstract/bibliographic source and cited contextual theorem only; no full-text NOT_COVERING claim",
+          "title": "Guo et al., On Calibration of Modern Neural Networks",
+          "trigger": "Temperature-scaled softmax equivalent formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2111.12495",
+        "https://arxiv.org/abs/1710.10345"
+      ],
+      "rationale": "Identifies the mathematically exact objective behind a nominally non-conservative altered-backward procedure and an operationally meaningful alpha^-2 head/body learning-speed shift in trainable networks. The fixed-feature boundary explains which dynamics are merely reparameterized; this is a motivated optimizer-mechanism characterization, not an unmotivated scalar substitution.",
+      "residual_risks": [
+        "The conclusion is not an empirical generalization advantage and is limited to an exposed linear final head and plain SGD."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Source implementation may include momentum or weight decay; conjugacy is claimed only for plain SGD/gradient descent and matching minibatches; implicit-bias conclusion inherits its source hypotheses.",
+    "The conservative potential follows a brief chain-rule calculation from the original formula and may exist as undocumented folklore.",
+    "Optimizer behavior with momentum, Nesterov, decay, mixed precision or decoupled forward/objective semantics is not covered.",
+    "The conclusion is not an empirical generalization advantage and is limited to an exposed linear final head and plain SGD."
+  ],
+  "schema_version": 1
+}
