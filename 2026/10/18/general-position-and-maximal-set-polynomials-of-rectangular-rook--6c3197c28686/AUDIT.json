@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The identification of rook vertices with K_{m,n} edges converts each length-two geodesic triple into exactly a selected 3-edge bipartite path. Connected bipartite P4-free graphs are exactly stars. The labeled exponential formula counts their disconnected components with isolated edge separately. The three exclusive maximality cases are proved by adding missing edges. Inclusion-exclusion and restricted set partitions enumerate these cases; a constructive c-component family gives every asserted maximal-set size. A separate direct shortest-path BFS program checked 370512 subsets on ten boards; 42 further symbolic board identities agree. No finite search is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.05696 introduces general-position polynomials, presents general inclusion-exclusion framework and other graph families, but no closed rook-graph species formula in its inspected results.",
+        "arXiv:2306.09965, Section 5/Theorem 5.3 establishes the lower scalar invariant for Cartesian complete products."
+      ],
+      "reasoning": "General counting frameworks require nontrivial graph-specific classification and do not themselves instantiate the exact two-parameter polynomial. Known extremal sizes do not imply the full coefficients.",
+      "searches": [
+        "general position polynomial Cartesian product complete graphs K_m square K_n",
+        "general position polynomials labelled bipartite star forest enumeration",
+        "On general position sets in Cartesian products complete graphs 2021"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.09965 v1/v2 primary manuscript; Theorem 5.3, Cartesian complete-graph products",
+      "arxiv:2401.05696 v1 primary manuscript; general GP polynomials and inclusion-exclusion",
+      "arxiv:1907.04535 v1, later 2021 On General Position Sets in Cartesian Products; known graph-product GP numbers and different grid enumeration",
+      "External searches for labelled bipartite star-forest enumerators and P4-free edge-subset classes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2306.09965 proves gp^- = min(m,n) for complete-product rook graphs, which is implied by the present maximal spectrum; reverse implication fails (a single extremal coefficient does not imply all coefficients).",
+        "arXiv:2401.05696 defines psi and general identities, and does not supply the bipartite star-forest classification or explicit maximal enumerator in inspected sections."
+      ],
+      "reasoning": "The new claim strictly refines scalar results and specializes general methods with graph-specific structural enumeration, rather than restating a prior corollary.",
+      "searches": [
+        "arxiv:2306.09965 lower general position sets rook graphs",
+        "arxiv:2401.05696 General position polynomials",
+        "On general position sets in Cartesian products lower upper gp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The line graph identity R_{m,n}=L(K_{m,n}) converts GP triples into length-three bipartite paths, hence star forests. Both interpretations were compared against the cited works.",
+        "arXiv:2306.09965, Theorem 5.3, treats lower GP cardinality, not all star forests."
+      ],
+      "reasoning": "Semantic equivalence checked through line graphs, bipartite P4-free edge sets, star-forest species, and ordinary versus mutual visibility. The cited full texts do not give the same full statements.",
+      "searches": [
+        "general position sets rook graphs line graphs complete bipartite P4 star forests",
+        "count bipartite star forests K_m,n exponential generating function",
+        "arxiv:2306.09965 Theorem 5.3",
+        "arxiv:2401.05696 general position polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries for rook-graph GP polynomial and labelled bipartite star-forest counts did not expose an exact same-formula table.",
+        "Finite graph-polynomial coefficients in verification_output.txt independently match the derived formula for ten boards."
+      ],
+      "reasoning": "No exact matching external database or table was located, which is evidence of search coverage only, not proof of priority.",
+      "searches": [
+        "rook graph general position polynomial coefficient sequence",
+        "bipartite star forest count complete bipartite graphs",
+        "general position polynomial inclusion maximal rook graph"
+      ]
+    },
+    "rationale": "Direct comparison of the fully inspected pertinent parts of arXiv:2306.09965 and arXiv:2401.05696 finds previously known scalar GP extrema and general polynomial principles, but not both explicit rook-graph all-cardinality enumerators, the star-forest species formula, or the complete maximal-set spectrum. The prior scalar bounds alone do not imply the generating polynomials; relevant bipartite forest equivalences were queried. Bibliographic uniqueness is provisional, particularly against obscure bipartite star-forest counting references.",
+    "residual_risks": [
+      "A combinatorics enumeration of labelled bipartite star forests could implicitly provide the all-set EGF despite no exact title match; this possibility cannot be ruled out by searches alone.",
+      "Unindexed OEIS tables, dissertations, or informal counting notes could cover some coefficients.",
+      "This is a self-review; independent review and priority assessment remain outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SCALAR_NOT_COMPLETE_COUNT",
+        "evidence": "Theorem 5.3 gives the lower GP number for K_m square K_n; no complete size-enumerator or maximal-set polynomial is provided in that inspected treatment.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+        "material_read": "Full arXiv paper inspected, emphasizing Cartesian complete-products discussion and Theorem 5.3 on printed page 12.",
+        "method": "Open-access arXiv full text/PDF and page rendering",
+        "title": "Lower General Position Sets in Graphs",
+        "trigger": "Exact same graph family and lower GP parameter"
+      },
+      {
+        "assessment": "DEFINITION_AND_GENERAL_FRAMEWORK_NOT_EXACT_ROOK_POLYNOMIAL",
+        "evidence": "The general position polynomial is defined and general identities derived; no explicit two-factor rook-graph star-forest or maximal-set enumerator appears among stated results.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+        "material_read": "Full arXiv HTML text inspected, including graph-family propositions, enumeration principles, and concluding section.",
+        "method": "Open-access arXiv full text",
+        "title": "General Position Polynomials",
+        "trigger": "Introduces exact counting invariant and possible general dominating formulas"
+      },
+      {
+        "assessment": "COVERS_EXTREMA_NOT_COMPLETE_COUNTS",
+        "evidence": "The established gp number m+n-2 concerns extremal size, whereas a generating-polynomial coefficient array cannot be deduced from that single scalar fact.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.04535",
+        "material_read": "Open-access 2019 arXiv full text inspected, focusing on the introduction, preliminaries, and the explicit path-grid enumerations.",
+        "method": "Open-access primary literature",
+        "title": "On General Position Sets in Cartesian Products",
+        "trigger": "Extremal GP results for products of complete graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c3197c2-8686-420c-a5bc-4136ec5051b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural class of two-factor rook graphs, the complete distribution of all general-position sets and all inclusion-maximal sets is a substantially finer invariant than the known minimum and maximum sizes. The bipartite star-forest equivalence resolves both polynomials in a uniform two-parameter expression and proves an arbitrarily long interval of absent maximal-set sizes, a structural gap phenomenon with direct consequences for general-position enumeration. Exact all-cardinality coefficients and constructive support witness provide reusable enumerative information beyond a small numerical improvement.",
+    "status": "PASS"
+  }
+}
