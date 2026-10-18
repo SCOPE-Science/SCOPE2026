@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T22:16:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In K_{n,...,n}, degree d=(r-1)n and the closed-neighborhood defensive condition exactly reduces to s-s_i>=t=floor(d/2) on occupied parts. With a=s-t, all occupied s_i<=a. One-vertex deletion destroys alliance for every removed vertex iff >=2 occupied parts attain the cap a; zero or one tight allows removable vertex. Two tight parts also FORCE inclusion-global minimality: any proper defensive subset containing one tight part must contain every cross-part supporter, hence the other tight part and then all S; a subset avoiding both has at most t-a vertices, less than the universal t+1 lower bound. Thus 1<=a<=n and >=2 tight parts classify all globally minimal alliances. The max is t+n, attained by two full parts and distribution of t-n among other parts. Inclusion-exclusion with weight (-1)^(k-2)(k-1) counts >=2 tight parts, giving N_a coefficient formula and N_n. Independent direct exhaustive globally minimal subset-of-subset checks verified (r,n)=(3,2),(3,3),(4,2),(4,3) and max sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General upper globally minimal alliance and parameterized algorithm do not supply closed t+n on all K_n^r and N_a all layers."
+        ],
+        "reasoning": "Generic FPT neighborhood-diversity decision can compute a fixed example but does not entail the explicit binomial coefficient formula as a stated closed theorem.",
+        "searches": [
+          "Resultary: globally minimal defensive alliances balanced complete multipartite graph upper alliance number minimal alliance counting polynomial strong alliances",
+          "Bazgan Fernau Tuza 2019 Aspects of upper defensive alliances",
+          "Gaikwad Maity arXiv:2202.02010 neighborhood diversity FPT algorithm"
+        ]
+      },
+      "checked_sources": [
+        "Strong alliance polynomial of complete multipartite graphs (2026 public result)",
+        "Gaikwad and Maity, Globally Minimal Defensive Alliances: A Parameterized Perspective, arXiv:2202.02010",
+        "Bazgan Fernau Tuza 2019 upper defensive alliances",
+        "Resultary: globally minimal defensive alliances balanced complete multipartite graph upper alliance number minimal alliance counting polynomial strong alliances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strong lemma on tight parts at even degree implies even-degree local/minimal classification; odd-degree ordinary threshold is one smaller and can include extra alliances; N_a and t+n counts require further occupancy/inclusion-exclusion."
+        ],
+        "reasoning": "Prior implication acknowledged for half the parity cases, with genuinely distinct ordinary odd-degree cases and complete enumeration surviving. Generic algorithms are not the same mathematical assertion.",
+        "searches": [
+          "Resultary 2026 strong polynomial full text",
+          "Gaikwad Maity 2022 full HTML definitions and results",
+          "Feng Fernau Mann 2023 paper abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strong requires s-s_i>=ceil(d/2); ordinary requires s-s_i>=floor(d/2). These agree for even d but differ for odd d. Both have tight-cap arguments."
+        ],
+        "reasoning": "Exact parity comparison prevents falsely crediting already implied even-degree minimal classification. Full claim includes odd-degree and enumerator, not just tightness.",
+        "searches": [
+          "Resultary: globally minimal defensive alliances balanced complete multipartite graph upper alliance number minimal alliance counting polynomial strong alliances",
+          "Resultary strong-alliance polynomial complete multipartite graphs 2026 full RESULT.md",
+          "Gaikwad Maity 2022 global vs local minimal definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strong prior enumerates ALL strong alliances, not globally inclusion-minimal sets by size; offensive k-alliance predicates apply to outsiders; no reported exact N_a table for ordinary balanced graphs."
+        ],
+        "reasoning": "The nearest computational counts are of a different family of qualifying sets; no exact full minimal enumeration table located. This does not prove novelty.",
+        "searches": [
+          "Resultary: globally minimal defensive alliances balanced complete multipartite graph upper alliance number minimal alliance counting polynomial strong alliances",
+          "Resultary strong-alliance complete multipartite and all global offensive k-alliance polynomial",
+          "Feng Fernau Mann arXiv:2312.11963 enumerating minimal defensive alliances"
+        ]
+      },
+      "rationale": "PASS qualified to the full ORDINARY defensive minimal-set enumerator and exact upper-size/multiplicity formulas, particularly the odd-degree regime. The 2026 strong-alliance result proves an analogous tightness criterion for strong alliances, which agrees with ordinary alliances when degree even. That even-degree classification is acknowledged as implicit PRIOR and is not credited as new. The source does not give all inclusion-minimal enumerator coefficients, sharp upper cardinality and count, or ordinary odd-degree case in this statement.",
+      "residual_risks": [
+        "Even-degree tight-part classification genuinely covered by prior strong result; closed formula might be derivable by routine coefficient extraction from that theorem. Generic neighborhood-diversity algorithms may permit recovering it with computation; bibliographic risk from alternate normalizations remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "even-degree ordinary classification is covered implicitly; odd degree differs and globally minimal enumerator was not proved there",
+          "evidence": "strong cap ceil(d/2), ordinary cap floor(d/2); prior polynomial counts all strong sets, not minimal ones",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a",
+          "material_read": "complete published RESULT.md including cap theorem, minimal tightness, strong all-sets polynomial, full proof and limits",
+          "method": "GitHub fetched entire RESULT.md",
+          "title": "Strong alliance polynomial of complete multipartite graphs (2026 public result)",
+          "trigger": "closely dominating parameters/tightness proof on same graphs"
+        },
+        {
+          "assessment": "general complexity and neighborhood-diversity FPT; no explicit balanced multipartite exact polynomial/upper formula in inspected results",
+          "evidence": "definition distinguishes local (all single deletions) from global (all proper subsets); general algorithm for neighborhood diversity",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02010",
+          "material_read": "full arXiv text including Definitions 1-4, observation and neighborhood-diversity Section 2",
+          "method": "open full arXiv HTML text and read definitions/results",
+          "title": "Gaikwad and Maity, Globally Minimal Defensive Alliances: A Parameterized Perspective, arXiv:2202.02010",
+          "trigger": "same globally minimal ordinary defensive alliance invariant"
+        },
+        {
+          "assessment": "potential general enumeration algorithm not exact closed balanced-K formula",
+          "evidence": "general complexity focus rather than enumerator N_a",
+          "identifier_or_url": "https://arxiv.org/abs/2312.11963",
+          "material_read": "arXiv abstract and bibliographic full-text index",
+          "method": "open arXiv abstract",
+          "title": "Feng, Fernau, Mann, Enumerating Minimal Defensive Alliances",
+          "trigger": "generic counting framework for globally minimal alliances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural infinite, highly symmetric multipartite family admits the exact largest GLOBAL-inclusion-minimal defensive alliance and a complete level-counting polynomial; distinction between ordinary/strong at parity and local/global minimality matters mathematically. Count of maximal-size sets is an exact useful invariant, not an unmotivated small numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Strong alliance polynomial of complete multipartite graphs (2026 public result)",
+    "Gaikwad and Maity, Globally Minimal Defensive Alliances: A Parameterized Perspective, arXiv:2202.02010",
+    "Bazgan Fernau Tuza 2019 upper defensive alliances",
+    "Resultary: globally minimal defensive alliances balanced complete multipartite graph upper alliance number minimal alliance counting polynomial strong alliances"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only r>=3 equal part size n>=2 and ordinary closed-neighborhood condition; even-degree subclaim tight classification overlaps prior strong work; no unequal sizes or claims of a new generic minimality characterization.",
+    "No expert/formal certification is inferred from finite or symbolic checks; known historical gaps are preserved."
+  ],
+  "residual_risks": [
+    "Even-degree tight-part classification genuinely covered by prior strong result; closed formula might be derivable by routine coefficient extraction from that theorem. Generic neighborhood-diversity algorithms may permit recovering it with computation; bibliographic risk from alternate normalizations remains."
+  ],
+  "schema_version": 1
+}
