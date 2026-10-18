@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "All positive triples are covered. Unary and alternating targets give three upper bounds. Cyclic subsequence transitivity reduces to m=1,2,3. An explicit greedy offset potential yields final displacement <one full period r in all cases, with a separate alternating-target shift at m=3. Independent script checks 144 triples, 14270 length-k targets and 144 sharpness obstructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2003.04629, Sec. 4 analyzes classical circular universality.",
+        "arXiv:2104.09063, Theorems 9 and 10 study repeated-word arch universality.",
+        "arXiv:2503.18611, Def. 5 and main algorithms cover existence of a universal word in a regular language.",
+        "arXiv:2610.06717, Section 1 and language universality definitions treat fixed Parikh-matrix classes."
+      ],
+      "reasoning": "The inspected stronger-looking results concern different quantifier order, different source word classes, or general decision algorithms rather than exact formula for union-of-conjugates subsequence spectra of periodic two-block necklaces. Algorithmic decidability of finite instances does not state or imply the given closed form without further analysis.",
+      "searches": [
+        "\"Scattered Factor Universality\" \"circular\" \"binary\" \"arches\" formula",
+        "\"subsequence universality\" \"words\" 2025 2026",
+        "for every binary length k pattern there exists a rotation of 0^a 1^b repeated r containing pattern as scattered subsequence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.04629",
+      "arXiv:2104.09063",
+      "arXiv:2503.18611",
+      "arXiv:2610.06717"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2003.04629, Definition 4: a single conjugate is universal.",
+        "arXiv:2104.09063, Definition 2 and Lemma 8 concern the same index.",
+        "arXiv:2503.18611, Definition 5: a language contains a word that covers every target.",
+        "arXiv:2610.06717, p.1-4: fixed numbers of letters and scattered ab pairs.",
+        "Direct witness 000111 has the new index three but one-conjugate universality index two."
+      ],
+      "reasoning": "Neither one-conjugate universality nor general language existence/universality implies the exact maximum over target-dependent choices of rotation. The quantifier-separation witness proves the objects are not interchangeable. The proof supplies a nontrivial greedy displacement analysis not provided by the compared statements.",
+      "searches": [
+        "\"circular k-universal\" arXiv:2003.04629",
+        "\"k-Universality of Regular Languages Revisited\" existential all target",
+        "\"Subsequence Analysis Problems for Binary Parikh Matrices\" universality",
+        "cyclic subsequence spectrum union of rotations, target-dependent rotation, binary periodic run-block word (0^a1^b)^r exact universality length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barker et al., arXiv:2003.04629, Definition 4 (one conjugate must be universal).",
+        "Fleischmann et al., arXiv:2104.09063, Definition 2 (same one-conjugate quantifier).",
+        "Adamson et al., arXiv:2503.18611, Definition 5 (some word is universally covering)."
+      ],
+      "reasoning": "The checked meanings require one chosen word or one chosen rotation to cover all targets (exists-rotation then forall-target). The claim instead permits a different rotation for each target (forall-target then exists-rotation). These are inequivalent: cyclic 000111 covers all length-three targets across rotations, but no rotation covers all length-three targets.",
+      "searches": [
+        "\"circular\" \"subsequence universality\" \"index\" binary words",
+        "\"cyclic\" \"subsequence universal\" binary word runs",
+        "cyclic subsequence spectrum union of rotations, target-dependent rotation, binary periodic run-block word (0^a1^b)^r exact universality length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic research record searches returned related subsequence-universality count formulas and circular necklace results but no entry stating this rotation-dependent three-parameter formula.",
+        "Four inspected primary sources do not tabulate this statistic."
+      ],
+      "reasoning": "The claimed object is an exact infinite family rather than a finite table lookup. Closest records concern whole-word universality and unrelated cyclic factors. Failure to locate a matching table is not a proof of global novelty.",
+      "searches": [
+        "exact distribution number of palindromic k-subsequence universal words length n",
+        "shortest cyclic supersequence of all binary scattered subsequences, two-block repetition with arbitrary rotation per query",
+        "\"circular\" \"subsequence universality\" \"index\" binary words"
+      ]
+    },
+    "rationale": "Compared primary 2020/2021 one-rotation circular universality, 2025 regular-language existence/universality, and 2026 Parikh-matrix classes. None of the inspected statements gives the target-dependent rotation index of the three-parameter necklace family; the quantifier-separation witness 000111 excludes direct equivalence. Search coverage is not proof of global priority.",
+    "residual_risks": [
+      "Possible unindexed exact result under necklace scattered subsequence or deletion-tolerant circular covering terminology.",
+      "General regular-language algorithms may have immediate but unstated specializations beyond inspected results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different quantifier order; one chosen conjugate must cover all targets",
+        "evidence": "Definition 4, original PDF p. 4; Section 4 around p.12",
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Definitions 2/4, introduction, Section 4 circular part and relevant theorem statements",
+        "method": "Inspected primary PDF text and page images",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational circular-universality definition potentially subsuming the claim"
+      },
+      {
+        "assessment": "Uses one common universal rotation, not target-dependent rotations",
+        "evidence": "Definition 2, p.2; Lemma 8/Theorems 9–10",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Introduction, Definitions 1–4, Lemma 8, Theorems 9–10, discussion of arch remainders",
+        "method": "Inspected primary PDF text",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Closest proof methods for periodic words and circular subsequence universality"
+      },
+      {
+        "assessment": "Studies existence of a word covering all targets or every word covering all targets; not union of all rotation spectra",
+        "evidence": "Definition 5 on p.5: existence and universal k-subsequence universality",
+        "identifier_or_url": "https://arxiv.org/pdf/2503.18611",
+        "material_read": "Abstract, introduction, Definition 5, main decision-problem descriptions",
+        "method": "Inspected primary PDF text and first page image",
+        "title": "k-Universality of Regular Languages Revisited",
+        "trigger": "Recent generalization to language quantifiers potentially covering finite rotation languages"
+      },
+      {
+        "assessment": "Fixed-count Parikh-matrix languages, not two-run periodic circular target-dependent universal spectra",
+        "evidence": "pp.1–4, introductory definitions and stated main results",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.06717",
+        "material_read": "Abstract, introduction, definitions and synopsis of main results",
+        "method": "Inspected primary PDF text and first page image",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Recent primary source with exact arithmetic subsequence-universality classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92466ef4-0e9a-4ff1-986c-c6746f6384a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exactly classifies cyclic target-dependent scattered-factor coverage for a natural three-parameter repeated-run family, distinguishes it from the classical one-common-rotation variant, and exposes a saturation transition at minimum run length three. It supplies a reusable explicit finite-state greedy displacement proof, not just enumeration.",
+    "status": "PASS"
+  }
+}
