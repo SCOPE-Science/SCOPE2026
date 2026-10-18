@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For any 0/1 subset of Z8×Z2, the sum of eighth roots of unity vanishes exactly when the four cyclotomic count pairs are equal, since Phi8=X^4+1. Thus spectrum iff D(B) is a subset of Fourier zeros Z(A) at equal cardinality, and tiling iff disjoint nonzero differences and cardinality product 16. Computing exact difference masks for each of 65535 nonempty subsets, their 15-bit histograms and subset zeta transforms proves all s(A) and t(A) counts including vanishing for non-divisor sizes. Complete partition by 16 automorphisms times 16 translations yields precisely 43 orbits and re-sums to 1611 spectral sets. The included verifier was actually executed; brute pair tests independently reproduce every positive basis count for k=2,4,8. No floating-point error or infinite extrapolation arises.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang Theorem 1.5 applies for any prime p and positive n and therefore includes p=2,n=3.",
+        "Malikiosis Theorems 1.4 and 1.5 are formulated for cyclic groups, not Z8 × Z2."
+      ],
+      "reasoning": "Zhang strictly generalizes the spectral/tiling equivalence to every Z_p × Z_p^n, so that part is not new; neither that statement nor the cyclic-group structural coverage implies a specific count or affine-orbit multiplicity distribution for this particular group.",
+      "searches": [
+        "arXiv:2109.08400v3 Theorem 1.5",
+        "arXiv:2005.05800v3 Theorems 1.4 and 1.5",
+        "complete spectral set and translational tiling classification on Z4 × Z4 finite abelian group Fuglede conjecture small group"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2005.05800v3",
+      "https://arxiv.org/html/2109.08400v3",
+      "https://arxiv.org/abs/2109.08400",
+      "https://arxiv.org/abs/2005.05800",
+      "https://epubs.siam.org/doi/10.1137/22M1493598",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fuglede-census-in-the-sixteen-point-group-mathbb-z-4-2--27eae8f2814b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fuglede-census-for-mathbb-z-4-times-mathbb-z-2-2--5c6c05045dc1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang proves A spectral iff A tiles in this and much larger groups, not the number s(A) of orthogonal bases or t(A) of tiling complements.",
+        "The normalized weak-tiling order-16 record concerns qualitative tiling implications, not exact complete Fourier-base incidence."
+      ],
+      "reasoning": "Our assertion that every spectral subset tiles is a corollary of Zhang and excluded from the novelty claim. The count of 1611, orbit count 43 and pair multiplicities are logically stronger quantitative facts independent of the mere equivalence relation. A 4-point A can have (s,t)=(16,32), while another has (32,16), so equality of count functions does not follow from prior qualitative equivalence.",
+      "searches": [
+        "Z8 Z2 exact 1611 spectral sets 43 affine orbits 732 size 4 742 size 8 number orthogonal Fourier bases",
+        "Z_2 × Z_8 Fuglede spectral tile count enumeration group order 16 spectra multiplicity 17 19 affine orbits",
+        "arXiv:2109.08400v3 Theorem 1.5 and Sections 4-6",
+        "2026/10/11/SCOPE-normalized-weak-tiling-forces-tiling-in-every-abelian-group-of-o--3706d926dcfb"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang Section 2 defines spectral pairs and tiling pairs using character differences; the definitions coincide with the criteria used here.",
+        "The title/abstract and Sections 4-5 prove yes/no equivalence but provide no count of all 1611 sets or their spectrum fibers."
+      ],
+      "reasoning": "The two formulations as exponentials forming an ON basis and as difference sets contained in Fourier zeros are exactly equivalent by character orthogonality. The latter supplies an exact count here but Zhang’s spectral iff tile theorem cannot yield how many spectra or complements occur for a given A.",
+      "searches": [
+        "exact spectral and translational tile classification of group Z8 × Z2 order 16 Fuglede census",
+        "Z_2 × Z_8 Fuglede spectral tile count enumeration group order 16 spectra multiplicity 17 19 affine orbits",
+        "cyclic group of order 8 times 2 exact Fourier orthogonal bases spectra classification tally",
+        "arXiv:2109.08400v3 Section 2 spectral pair and tiling pair definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed exact order-16 census for Z4² gives 2155 subsets and 19 affine orbits.",
+        "The closest indexed exact order-16 census for Z4 × Z2² gives 3147 subsets and 27 affine orbits.",
+        "No searched record explicitly reports 1611 subsets / 43 affine orbits for Z8 × Z2."
+      ],
+      "reasoning": "The two indexed quantitative tables are not dominating prior art because the underlying groups are nonisomorphic to Z8 × Z2 (their exponents are 4, whereas this group has exponent 8). A general yes/no theorem is not an exact database for individual spectra counts. Search failure remains a residual priority risk.",
+      "searches": [
+        "exact spectral and translational tile classification of group Z8 × Z2 order 16 Fuglede census",
+        "Z8 Z2 exact 1611 spectral sets 43 affine orbits 732 size 4 742 size 8 number orthogonal Fourier bases",
+        "Z_2 × Z_8 Fuglede spectral tile count enumeration group order 16 spectra multiplicity 17 19 affine orbits",
+        "cyclic group of order 8 times 2 exact Fourier orthogonal bases spectra classification tally",
+        "complete spectral set and translational tiling classification on Z4 × Z4 finite abelian group Fuglede conjecture small group",
+        "2026/10/4/SCOPE-exact-fuglede-census-in-the-sixteen-point-group-mathbb-z-4-2--27eae8f2814b",
+        "2026/10/4/SCOPE-exact-fuglede-census-for-mathbb-z-4-times-mathbb-z-2-2--5c6c05045dc1"
+      ]
+    },
+    "rationale": "The proven new claim is quantitative: 1611 spectral subsets and their spectra and complement multiplicities in exactly 43 affine classes for the group of exponent eight. Zhang (arXiv:2109.08400, Theorem 1.5) subsumes the qualitative yes/no equivalence for the group but not this count; Malikiosis is cyclic, and the two closest public order-16 tables concern groups of exponent four. Full text of both named primary papers was examined. Specific queries for the group aliases, exact counts, and basis multiplicities returned no matching table; this supports best-knowledge originality but does not prove global novelty.",
+    "residual_risks": [
+      "Unindexed earlier enumerations of Z8 × Z2, unpublished computational tables, or specialist appendices might record equivalent counts.",
+      "The two closest quantitative group-order comparisons were evaluated from indexed scientific summaries, not their complete papers.",
+      "Originality is a same-model, best-knowledge assessment, not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT QUALITATIVE COVERAGE, not numerical coverage: yes/no Fuglede equivalence is known, the finite enumeration is not a stated result.",
+        "evidence": [
+          "arXiv:2109.08400v3 Theorem 1.5",
+          "arXiv:2109.08400v3 Sections 4–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.08400v3",
+        "material_read": "Full accessible arXiv HTML: Introduction, definitions in Section 2, Theorem 1.5, Sections 4 and 5, and Conclusion.",
+        "method": "Read article text and compare conclusion, quantifiers and counts against 1611/43/multiplicity claim.",
+        "title": "Fuglede's conjecture holds in Z_p × Z_{p^n}",
+        "trigger": "Exact group family including Z2 × Z8, potential dominating theorem."
+      },
+      {
+        "assessment": "Relevant methodology but not an exact count for the noncyclic group of exponent eight.",
+        "evidence": [
+          "arXiv:2005.05800v3 Theorems 1.4–1.5",
+          "arXiv:2005.05800v1 initial posting 2020-05-12"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.05800v3",
+        "material_read": "Full accessible arXiv HTML: introduction, Theorems 1.4-1.5, and mask-polynomial setup.",
+        "method": "Examined cyclic hypotheses and orthogonality-root-of-unity mechanism.",
+        "title": "On the structure of spectral and tiling subsets of cyclic groups",
+        "trigger": "Earliest dated primary Fourier-harmonic motivation and roots-of-unity framework."
+      },
+      {
+        "assessment": "Nonisomorphic group (exponent four) and distinct numerical totals; no logical coverage.",
+        "evidence": [
+          "indexed title and summary: 2155 subsets, 19 affine orbits in Z4²"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fuglede-census-in-the-sixteen-point-group-mathbb-z-4-2--27eae8f2814b",
+        "material_read": "Public indexed title and scientific summary; full underlying manuscript not inspected.",
+        "method": "Compared mathematical group invariant factors, group exponent, and stated totals.",
+        "title": "Exact Fuglede census in the sixteen-point group Z4²",
+        "trigger": "Indexed quantitative classification of the same group order, plausible competing census."
+      },
+      {
+        "assessment": "Nonisomorphic group (exponent four); gives no orbit counts for Z8 × Z2.",
+        "evidence": [
+          "indexed title and summary: 3147 subsets, 27 affine orbits in Z4 × Z2²"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fuglede-census-for-mathbb-z-4-times-mathbb-z-2-2--5c6c05045dc1",
+        "material_read": "Public indexed title and scientific summary; full underlying manuscript not inspected.",
+        "method": "Compared group exponents and exact classification scope.",
+        "title": "Exact Fuglede census for Z4 × Z2²",
+        "trigger": "Indexed complete quantitative classification of another order-16 group."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2302b563-ef6e-4425-a3c9-3e835bb96100",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact spectrum/tiling incidence classification in Z8 × Z2 naturally refines the prior yes/no Fuglede result, distinguishing 43 affine classes and giving number-of-spectrum counts for every subset. The exponent-eight group is not interchangeable with two previously tabulated exponent-four order-16 groups. New concrete phenomena include 672 eight-point sets with exactly two spectra and 6 with 256, plus reversed four-point (s,t) multiplicity pairs (16,32) and (32,16). These are structural, naturally defined finite Fourier invariants useful when comparing Fourier sampling bases and tiling complements, not arbitrary selected examples.",
+    "status": "PASS"
+  }
+}
