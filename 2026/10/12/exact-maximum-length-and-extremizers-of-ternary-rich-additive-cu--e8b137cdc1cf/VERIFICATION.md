@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Compile `additive_enum.cpp` using a conforming C++17 compiler, for example:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 -Wall -Wextra additive_enum.cpp -o additive_enum
-./additive_enum > additive_counts.txt
-python3 verify_additive.py additive_counts.txt
-```
+PASS
 
-The enumerator outputs `VISITED 404535`, `COUNT 104 8`, `COUNT 105 0`, eight unique `REP` words, and `VERIFY_ENUM_OK`. The independent Python checker outputs `VERIFY_OK max_len=104 labeled=8 symmetry_orbits=2 independently_bruteforced_lengths=0..10`.
+The prefix property is factorial for richness and additive-cube-freeness. On extension by a symbol, all new cubes end at the last position and are exactly those equal integer-sum triples checked with prefix sums; preservation of richness is equivalent to introduction of one previously unseen palindrome as longest palindromic suffix. To avoid dependence on packaged palindromic-tree implementation, wrote and compiled an independent C++ DFS with explicit suffix-palindrome string matching and a set of all previously occurring palindromes. It explored all 404535 admissible prefixes, independently recovering N(100..105)=(90,80,36,12,8,0) and the eight explicit length-104 words. An independent Python orbit check verifies reversal and a→2−a preserve those words and form exactly two four-word orbits. Any longer word would have an admissible 105-prefix, which the exhaustive search rules out; not an extrapolation from finite prefix samples.
 
-The enumerator searches **all labeled** words over the integer alphabet 0, 1, 2 through length 105, pruning only exactly detected existing additive cubes or failures of rich-word extension. At length 105 no admissible prefix survives, which proves no longer admissible word exists. The program does not substitute a search timeout or a finite partial check for a proof. `representatives.txt` is a convenience copy of the eight complete maximal words.
+## originality
 
-The Python checker performs direct, independent factor testing and a complete brute-force comparison at lengths up to 10. It separately validates the eight length-104 representatives and every one-letter extension. The two implementations have distinct palindrome algorithms, though they share the elementary definitions. Scientific priority is not mechanically certified; independent audit remains unperformed.
+PASS
+
+Andrade–Mol, arXiv:2408.15390v2 (full relevant sections read), treats rich ternary words avoiding abelian cubes; the published longest such word has length 180. Weighted additive-cube-freeness is strictly stronger than abelian-cube-freeness: equality of Parikh vectors implies equal sums but not conversely. Theorem 1.2 in Andrade–Mol on infinite additive-fourth-power-free rich words does not bar additive cubes. Thus neither published 180 nor fourth-power avoidance implies 104, eight words or two orbits. Resultary rich-word retrievals and exact 104/8 web searches returned different word properties, not this census. Priority is best-of-knowledge, not proof of global novelty.
+
+## value
+
+PASS
+
+An exact extremal threshold for naturally defined palindromically rich ternary words under additive cube avoidance settles a mathematically motivated finite endpoint absent from the nearby abelian-cube classification. The eight explicit equality words and reversal/complement orbits are usable as tests of structural hypotheses about rich avoiders. It is neither arbitrary alphabet reweighting nor recomputation of the different 180 bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
