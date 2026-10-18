@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-point weighted shortest-path metric gives a five-dimensional real free space. Every dual vertex arises from five saturated box inequalities, yielding exactly 60 dual vertices; the 12 signed edge molecules are exposed primal vertices. The established polyhedral extreme-pair principle converts the norm and numerical radius into maxima over 360 and 150 rational tensors. The supplied standard-library checker reconstructs all vertices and tensors, verifies all 360 decompositions with coefficient sums bounded by \(17/14\), and checks a specific operator with \(v(T)=1\) and \(\|T\|=17/14\). Thus the exact universal lower bound and its sharpness have a finite, exhaustive, independently reproducible *arithmetic* witness. This arithmetic reproducibility is not an independent scientific audit.
+## correctness
 
-**Originality — PASS, with residual risk.** Cobollo--Guirao--Montesinos, arXiv:2304.13183v1, covers three-point spaces, not the six-point case. Available unit-edge cycle parity and unweighted bipartite graph-metric results do not imply a value for this weighted metric; the earlier short-edge four-cycle concerns only four vertices. Targeted comparisons considered the equivalent descriptions as a weighted-cycle transportation-cost norm, a hyperplane section of a rectangular box, and a norming-contact polytope. No checked source asserts or implies the value \(14/17\). The possibility of an unindexed prior exact calculation remains.
+PASS
 
-**Mathematical value — PASS.** The simplest asymmetric integer weighting of a six-cycle is a natural testing ground for the dependence of the numerical index on edge lengths: the unweighted even-cycle result gives \(1\), whereas this explicitly non-uniform bipartite metric gives \(14/17\). The exact sharp value and operator demonstrate that the unweighted parity rigidity does not extend unchanged to metric weights, and furnish a reproducible higher-dimensional benchmark for numerical-index theory. The general weighted-cycle problem remains open in this work.
+For the real six-vertex weighted cycle w=(1,2,2,2,2,2), Lipschitz dual ball equals zero-sum weighted-edge increment section. Every dual vertex has at least five edge constraints saturated and comes from fixing five signs; exactly 60 vertices. The primal ball has exactly 12 signed normalized edge molecules, each exposed because its edge is strictly shorter than its complementary path. The finite extreme-pair numerical-radius principle reduces operator norm to 360 unique rank-one tensors and numerical radius to 150 norming-contact tensors. FROZEN actual `c6_exact_certificate.json` (Git blob 588e48168e1d6266873c94c2bf63ea16373f7cb2) and `c6_verify_exact.py` (blob 715f609c54b818c4eff2196d10e4c3d47b5cecfe) were inspected. Independent custom exact BigInt rational reconstruction regenerated all 60 dual,12 primal,150 contacts,360 norm tensors; equality with stored full sets held, all 360 certificate rational linear decompositions matched coordinatewise with ℓ1 coefficient sums ≤17/14 (zero failures), and the explicit 5x5 witness had v(T)=1 and ||T||=17/14. This is mathematically exhaustive because the vertex enumeration and reduction are proved, not a sample. Thus n(X)=14/17 exactly.
 
-Closest literature: [1] Cobollo, Guirao and Montesinos, *The numerical index of 2-dimensional Lipschitz-free spaces*, arXiv:2304.13183v1; published unit-cycle parity and unit-edge bipartite classification records; and the previous four-cycle computation. The finite certificate does not settle any general weighted-cycle classification, and there is residual prior-art risk from unindexed sources.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Existing general indexed result for arbitrary positive weighted cycles determines numerical-index-one threshold only; it explicitly does not determine subunit numerical indices. The unit-edge parity law gives n=1 for uniform even six cycles, but cannot imply a rational 14/17 after shortening one edge. Cobollo et al classify three-point free spaces and establish reduction principle, not this five-dimensional exact invariant. Exact certificate supplies a new benchmark for first simple higher even weighted cycle despite possibility of an unindexed old rational table.
+
+## value
+
+PASS
+
+The single shortened edge of the smallest higher even cycle is a natural new benchmark: its unweighted even counterpart has index 1, while positivity rigidity guarantees only strict <1 for nonuniform weights. Determining exact 14/17, with exhaustive reusable rational certificate and sharp witness, quantifies the first nonuniform five-dimensional test case. A natural exact invariant is independently useful even without the full weighted-cycle census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
