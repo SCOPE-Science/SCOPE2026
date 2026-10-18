@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stable non-Hermitian no-jump generator K=-iJA-kappa P/2 has all eigenvalues in the open left half-plane: any eigenvector with zero decay at site 1 is zero by nearest-neighbor recurrence. The unique Hermitian solution T of K†T+TK=-I equals integrated survival. I independently verified the even/odd separation matrix ansatz and boundary row cancellation: diagonal T_ss=(N+1-s)(s/kappa+(s-1)kappa/(4J^2)); optimization by strict convexity and s=1 exception follow. Independently solved finite Lyapunov systems in Python for N=2..9 and J=.7,kappa=1.9, with errors under 1e-14; this numerics corroborates but does not prove the all-N statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riberi arXiv:2605.08056 treats semi-infinite absorbing walk and total absorption/transients; not a finite reflecting-end first passage mean.",
+          "Silva arXiv:2601.09628 analyzes exceptional-point spectra, not integrated sitewise survival.",
+          "Krapivsky–Luck–Mallick 1311.6298 analyzes finite rings with dark sectors and infinite-chain settings, structurally different."
+        ],
+        "reasoning": "Nearby general models are broader in graph/process varieties but do not mathematically dominate this precise open-path all-N mean and optimization theorem.",
+        "searches": [
+          "arXiv:2605.08056 Riberi absorbing boundary quantum walk finite semi infinite",
+          "arXiv:2601.09628 Silva exceptional point finite chain localized loss",
+          "arXiv:1311.6298 Krapivsky Luck Mallick traps finite ring",
+          "arXiv:2403.00058 Peter quantum trapping optimal rate"
+        ]
+      },
+      "checked_sources": [
+        "Assigned source RESULT.md and VERIFICATION.md at frozen Git commit",
+        "arXiv:2605.08056",
+        "arXiv:2601.09628",
+        "arXiv:0803.3446",
+        "arXiv:1311.6298",
+        "Resultary quantum absorption semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Riberi semi-infinite total absorption has no finite reflecting boundary and cannot identify factor N+1-s.",
+          "Varbanov projective protocol changes the survival generator and therefore does not imply the Lindblad formula.",
+          "Silva exceptional-point locations do not determine the off-diagonal Lyapunov solution or exact optimum."
+        ],
+        "reasoning": "The known generic Lyapunov identity sets up a solvable system but not its closed exact path evaluation or length-independent optimizer.",
+        "searches": [
+          "arXiv:2605.08056 Riberi Appendix D.2 Eq.95",
+          "arXiv:0803.3446 Varbanov Eq.26",
+          "arXiv:2601.09628 Silva Wronskian Eq9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Varbanov–Krovi–Brun (2008) models random projective presence/absence observations; its hitting time is not the Lindblad absorption law.",
+          "Our mean is the diagonal of Lyapunov inverse for a no-jump semigroup; the explicit all-path kernel is not provided by generic inverse wording."
+        ],
+        "reasoning": "Equivalent first-moment approaches considered; differing measurement instruments cannot be substituted without verifying the generator.",
+        "searches": [
+          "finite path quantum walk boundary absorbing site mean survival time Lyapunov optimal sink",
+          "continuous time quantum walk finite chain Lindblad loss exact hitting time",
+          "arXiv:0803.3446 Poisson presence absence hitting times"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary hits included unrelated quantum transfer/radial dynamics and classical hitting times; no identical formula was located.",
+          "The all-N formula is parametric in the sink and starting position, not a fixed finite graph tabulation."
+        ],
+        "reasoning": "No exact indexed duplicate was identified in genuinely compared material; unindexed specializations remain possible.",
+        "searches": [
+          "quantum walk finite path absorption mean N s J kappa closed formula",
+          "Resultary coherent quantum walk finite path single boundary Lindblad sink exact mean absorption time optimal sink rate"
+        ]
+      },
+      "rationale": "The exact mean and size-free optimal sink rate are not supplied by inspected semi-infinite Lindblad walk, finite-array exceptional-point spectral classification, finite-ring traps, or projective-measurement hitting times. A generic Lyapunov inverse method is known, but its full path-specific explicit solution is the substantive evaluated result.",
+      "residual_risks": [
+        "An overlooked model-equivalent general quantum hitting-time theorem could potentially specialize to the closed formula.",
+        "Not valid for disordered paths, multiple sinks, bulk decoherence or superposed inputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SEMI_INFINITE_MODEL",
+          "evidence": "Half-line with no far reflecting endpoint; Eq.95 addresses total absorption, not finite path integrated survival time.",
+          "identifier_or_url": "arXiv:2605.08056",
+          "material_read": "Complete public preprint accessible; targeted inspection of boundary dynamics and absorption probability, including Appendix D.2",
+          "method": "arXiv open full-text and PDF inspection",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Closest boundary loss quantum-walk geometry"
+        },
+        {
+          "assessment": "SPECTRAL_NOT_FIRST_PASSAGE",
+          "evidence": "Wronskian exceptional-point conditions neither give T_ss nor optimize mean absorption.",
+          "identifier_or_url": "arXiv:2601.09628",
+          "material_read": "Open primary paper, sections on spectral criterion and localized sink",
+          "method": "arXiv full-text inspection",
+          "title": "Parity-Induced Exceptional Points with Localized Loss",
+          "trigger": "Finite localized-loss quantum arrays"
+        },
+        {
+          "assessment": "DIFFERENT_MEASUREMENT_PROCESS",
+          "evidence": "Poisson projective detection dynamics differ from terminal Lindblad jump.",
+          "identifier_or_url": "arXiv:0803.3446",
+          "material_read": "Article model and small graph examples read through its open preprint representation",
+          "method": "arXiv article targeted sections II–IV",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Potentially equivalent hitting-time observable"
+        },
+        {
+          "assessment": "GEOMETRY_DIFFERS",
+          "evidence": "Finite rings can harbor dark modes, unlike an open path with one terminal sink.",
+          "identifier_or_url": "arXiv:1311.6298",
+          "material_read": "Focused open-text sections on finite rings and infinite geometry",
+          "method": "arXiv article targeted inspection",
+          "title": "Survival of classical and quantum particles in the presence of traps",
+          "trigger": "General trapping processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Coherent transport through an absorbing quantum chain has the natural Zeno-versus-weak-sink tradeoff. A closed finite-size and all-site mean time, together with the surprising starting-site-only optimal loss rate, gives an exact benchmark for quantum absorption and transport, not a routine two-site numerical calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned source RESULT.md and VERIFICATION.md at frozen Git commit",
+    "arXiv:2605.08056",
+    "arXiv:2601.09628",
+    "arXiv:0803.3446",
+    "arXiv:1311.6298",
+    "Resultary quantum absorption semantic search"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "single terminal Markovian sink, open path, uniform hopping and site-basis input",
+    "only the mean is optimized, not distributional stochastic dominance",
+    "finite numerical checks are corroborative, analytic identity is universal"
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_SEMI_INFINITE_MODEL",
+      "evidence": "Half-line with no far reflecting endpoint; Eq.95 addresses total absorption, not finite path integrated survival time.",
+      "identifier_or_url": "arXiv:2605.08056",
+      "material_read": "Complete public preprint accessible; targeted inspection of boundary dynamics and absorption probability, including Appendix D.2",
+      "method": "arXiv open full-text and PDF inspection",
+      "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+      "trigger": "Closest boundary loss quantum-walk geometry"
+    },
+    {
+      "assessment": "SPECTRAL_NOT_FIRST_PASSAGE",
+      "evidence": "Wronskian exceptional-point conditions neither give T_ss nor optimize mean absorption.",
+      "identifier_or_url": "arXiv:2601.09628",
+      "material_read": "Open primary paper, sections on spectral criterion and localized sink",
+      "method": "arXiv full-text inspection",
+      "title": "Parity-Induced Exceptional Points with Localized Loss",
+      "trigger": "Finite localized-loss quantum arrays"
+    },
+    {
+      "assessment": "DIFFERENT_MEASUREMENT_PROCESS",
+      "evidence": "Poisson projective detection dynamics differ from terminal Lindblad jump.",
+      "identifier_or_url": "arXiv:0803.3446",
+      "material_read": "Article model and small graph examples read through its open preprint representation",
+      "method": "arXiv article targeted sections II–IV",
+      "title": "Hitting time for the continuous quantum walk",
+      "trigger": "Potentially equivalent hitting-time observable"
+    },
+    {
+      "assessment": "GEOMETRY_DIFFERS",
+      "evidence": "Finite rings can harbor dark modes, unlike an open path with one terminal sink.",
+      "identifier_or_url": "arXiv:1311.6298",
+      "material_read": "Focused open-text sections on finite rings and infinite geometry",
+      "method": "arXiv article targeted inspection",
+      "title": "Survival of classical and quantum particles in the presence of traps",
+      "trigger": "General trapping processes"
+    }
+  ]
+}
