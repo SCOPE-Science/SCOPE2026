@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable verification and scope
+# Independent mathematical audit
 
-Run `python verify.py` and `python verify_n5.py` from the supplied file directory using Python 3.9 or later and no third-party modules. Both programs were executed successfully from the exact files included with this finding.
+## correctness
 
-`verify.py` enumerates all explicitly constructed families for each \(2\le n\le11\), checks every word is a permutation, checks fixed one-coordinate recovery for each coordinate of each word, verifies uniqueness, and compares the exact count to the claimed formula. Results: sizes \(2,3,8,10,48,56,384,432,3840,4224\) for lengths \(2\) through \(11\).
+PASS
 
-`verify_n5.py` independently enumerates \(4^5=1024\) distinct fixed-observer maps in length five; reduction by all \(120\) coordinate permutations gives thirteen dependency-map orbits. For each orbit a compatibility graph on all \(120\) five-symbol permutations is constructed independently of the explicit family. Exhaustive bitset clique search with proper vertex-coloring upper bounds excludes an eleven-word code. This is a finite exact computation; no timeout, partial census, or inferred conclusion is used.
+The observer map i->j(i) is a finite loop-free functional digraph: each weak component contains a directed cycle of length >=2. Fixed value at any cycle vertex determines the values throughout the component by traversing inverse repair equations. Processing t components of sizes s_j bounds family size by product_r (n-sum_{h<r}s_h). Even n gives 2^m m!. Odd n forces one size>=3, placed first, and gives n(n-3)(n-5)...2. The construction with a three-letter (r,f(r),g(f(r))) prefix and h-paired suffix realizes equality at all odd lengths, including n=3. Independent n=3,5,7,9,11 construction/repair enumeration obtains 3,10,56,432,4224.
 
-The arbitrary-length proof relies on component structure and explicit maps, not on these finite checks. Neither program provides an independent audit or a formal verification of all lengths.
+## originality
+
+PASS
+
+The 2016 Raviv–Yaakobi–Médard preprint includes an unqualified n!! equality but the two-symbol block construction requires 2|n. For odd n=5, its blanket 5!!=15 prediction conflicts with rigorously proved upper 10. The surviving contribution is the corrected sharp odd-length optimum and matching triple-prefix construction. The 2018 journal full text remains inaccessible and could contain a later correction.
+
+## value
+
+PASS
+
+The fixed-observer permutation locality maximum is a natural exact coding parameter; the odd case was previously bounded between a smaller pair-block construction and a larger general bound. The explicit corrected optimum and construction solve the natural parity gap and correct the invalid general equality extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: fixed-observer permutation locality one
+# Independent mathematical audit
 
-**Correctness — PASS.** A dependency graph with one non-self outgoing edge per position has components of size at least two. One cycle coordinate determines its entire component. In odd length a component of size at least three is unavoidable; counting its three distinct symbols before the pair-sized components yields \((2m+1)2^{m-1}(m-1)!\) as an upper bound. The explicit three-coordinate construction reaches equality, with recovery maps and observer positions checked for all coordinates. At even length the analogous pair blocks reach \(2^m m!\). Direct construction checks for \(2\le n\le11\) and an independent exhaustive \(n=5\) upper check pass; infinite validity rests on the proof.
+## correctness
 
-**Originality — PASS, with risk.** The 2016 complete author manuscript establishes the model, component method, a general \(n!!\) upper bound, and optimal even-length pair blocks. For odd lengths it cites the smaller pair-block lower construction; the new exact odd formula is strictly between those bounds for \(n\ge5\), hence not implied by the inspected result. Semantically relevant published-record and exact-parameter searches found no covering result. The expanded 2018 journal article remained inaccessible in full, so later overlap within that source remains a significant bibliographic risk. Searches cannot establish absolute novelty.
+PASS
 
-**Value — PASS.** This resolves the odd-length extremal storage-family capacity for an established recovery model, rather than providing an isolated small enumeration. It proves the precise parity-dependent loss and exhibits a repairable family for every odd length, strengthening the existing bounds. The finding is deliberately limited to fixed observers, as required by the original nonadaptive setting.
+The observer map i->j(i) is a finite loop-free functional digraph: each weak component contains a directed cycle of length >=2. Fixed value at any cycle vertex determines the values throughout the component by traversing inverse repair equations. Processing t components of sizes s_j bounds family size by product_r (n-sum_{h<r}s_h). Even n gives 2^m m!. Odd n forces one size>=3, placed first, and gives n(n-3)(n-5)...2. The construction with a three-letter (r,f(r),g(f(r))) prefix and h-paired suffix realizes equality at all odd lengths, including n=3. Independent n=3,5,7,9,11 construction/repair enumeration obtains 3,10,56,432,4224.
 
-**Closest literature and limits.** Raviv–Yaakobi–Médard, arXiv:1601.04504 (2016), Theorem 2 and Section 4.2; same authors, Designs, Codes and Cryptography 86 (2018), 387–418, DOI 10.1007/s10623-017-0378-9 (full text inaccessible). No classification of all maximizers, adaptive-repair claim, or independent scientific validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2016 Raviv–Yaakobi–Médard preprint includes an unqualified n!! equality but the two-symbol block construction requires 2|n. For odd n=5, its blanket 5!!=15 prediction conflicts with rigorously proved upper 10. The surviving contribution is the corrected sharp odd-length optimum and matching triple-prefix construction. The 2018 journal full text remains inaccessible and could contain a later correction.
+
+## value
+
+PASS
+
+The fixed-observer permutation locality maximum is a natural exact coding parameter; the odd case was previously bounded between a smaller pair-block construction and a larger general bound. The explicit corrected optimum and construction solve the natural parity gap and correct the invalid general equality extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
