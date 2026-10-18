@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (C): PASS
+The theorem is for every real quality ratio \(q>1\) and balanced zealot fraction \(0<z<1/2\), with all physical equilibria strictly interior. The stationary equations lead to an exhaustive rational parametrization with two admissible ratio intervals. The higher-quality branch is strictly monotone; the lower-quality branch has a unique maximum of an explicit rational function because the derivative's quartic polynomial has a strict sign change and strictly negative derivative. The Jacobian has strictly negative trace at every equilibrium and a determinant whose sign is exactly the derivative sign, so the counts and local types are proved at and away from the fold. The quality monotonicity and large-quality limit are strict analytic conclusions. The packaged verification script independently checks decisive identities and representative full-spectrum examples. No claims about global stochastic dynamics are made.
+
+## Originality (O): PASS with residual risk
+The main 2023 article establishes the cross-inhibition model, equal-quality pitchfork, and **numerical** unequal-quality folds; it does not provide this exact all-parameter threshold, rigorous uniqueness of the fold, complete physical equilibrium classification, or the asymptotic coefficient. The article explicitly says the unequal-quality closed-form equilibrium expressions are too complex to use directly. Direct comparison therefore excludes all such qualitative known conclusions from the novel claim. Related 2024 heterogeneous-swarm work uses mixtures of agent behaviors and was only partially accessible; the 2025 nonlinear-inhibition work uses a different nonlinear response and has a different dynamical system. General algebraic bifurcation theory does not alone supply these model-specific inequalities. Record-level and literature searches did not find a dominating theorem, but unavailable supplementary material and publication-priority uncertainty persist. A failed search is not proof of novelty.
+
+## Value (V): PASS
+The source describes a real decision-design problem: a swarm can remain locally trapped around an inferior option despite a quality advantage. The exact algebraic threshold tells how many zealots extinguish this particular lower-quality stable state for any quality ratio, and proves the large-quality scaling. The rational ratio parametrization and full branch-type result replace a qualitative plot with a provable, precisely computable phase boundary. This is a structurally motivated complete classification of a natural two-option model, not a trivial numerical parameter refinement. The result does not claim behavioral policy optimality or a global reliability theorem.
+
+## Residual limits
+The theorem concerns deterministic local equilibria and balanced zealots only. The broader AAMAS 2024 proceedings PDF and supplementary computational notebooks were not completely accessible for coverage comparison. Broader analytic models may contain an implicit stronger theorem. Full independent review remains open.
+
+Self-review: passed. Independent audit: not yet performed.
