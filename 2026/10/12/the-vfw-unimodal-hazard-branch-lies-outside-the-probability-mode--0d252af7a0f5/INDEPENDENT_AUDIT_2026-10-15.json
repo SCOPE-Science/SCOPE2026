@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:14:31.280838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From G=1-exp(-A), A=exp(theta*x^vartheta-1/x), differentiating yields G'=x^(-2)(1+vartheta*theta*x^(vartheta+1))*A*exp(-A). For vartheta>0 and theta>0, A increases from 0 to infinity and G is a proper CDF. At theta=0 the mass on finite x is 1-e^(-1), leaving e^(-1) at infinity. At theta<0, A tends to 0 at infinity, G declines from its interior maximum and its derivative changes sign once at (-1/(vartheta*theta))^(1/(vartheta+1)); the formal PDF is negative after this point. Valid-theta hazard tends to 0 at x downarrow 0 and infinity at x infinity. Independently evaluated G(1)=0.12657698150688335, G(10)=0.000041078711471964624 and g(10)=-0.000040667089052803186 for vartheta=1, theta=-1, including threshold x=1. This is symbolic for all real theta; finite checks only illustrate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original and 2025 model define positive theta; neither positive-domain definition alone explicitly critiques the 2025 sign-based hazard classification.",
+          "The 2025 paper studies inference under positive-scale priors, not a stronger all-real-theta normalization theorem."
+        ],
+        "reasoning": "Older positive-theta parameter assumptions imply negative theta lies outside the specified model, but do not explicitly state the erroneous shape classification and its sign-changing PDF. Thus this is a published-paper-specific correction; small novelty risk that another note observed it.",
+        "searches": [
+          "DOI:10.3390/math13243896 full article section 2",
+          "Ahmad Hussain Very Flexible Weibull Distribution 2017"
+        ]
+      },
+      "checked_sources": [
+        "Elshahhat–Seyam, Mathematics 13 (2025) 3896, DOI 10.3390/math13243896, Section 2 public text",
+        "Ahmad–Hussain 2017 Very Flexible Weibull Distribution, original abstract/positive-parameter declaration",
+        "Resultary semantic VFW negative-parameter/normalization searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For vartheta>0 and theta<0, factor 1+vartheta*theta*x^(vartheta+1) becomes negative, forcing a negative density and declining CDF.",
+          "The 2025 paper attributes a unimodal increase-decrease HRF to that branch."
+        ],
+        "reasoning": "The 2017 source positive-parameter restriction is logically consistent with the correction, while the 2025 model claim is contradicted; the calculation disproves only the invalid branch, not the positive-theta inferred data fits.",
+        "searches": [
+          "Elshahhat Seyam Mathematics 13 (2025) 3896 hazard sign cases",
+          "Ahmad Hussain Mayfeb Journal 2017 parameter definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Section 2 gives G(x)=1-exp(-exp(theta*x^vartheta-1/x)) and extends sign case theta<0, theta=0, theta>0.",
+          "Direct normalizability condition lim G(x)=1 holds precisely theta>0."
+        ],
+        "reasoning": "The correction may be restated as normalization of the formal exponential cumulative hazard, or positivity of the derivative; this is the same claim, not a different new theorem. No indexed Resultary entry returned an equivalent VFW-specific correction.",
+        "searches": [
+          "Resultary semantic query Very Flexible Weibull negative theta not distribution hazard reliability parameter criticism proper CDF Elshahhat Seyam",
+          "DOI:10.3390/math13243896 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary entries on Weibull endpoint anti-concentration and unrelated hazards concern different families/claims.",
+          "No exact table of excluded shape branches located in the checked sources."
+        ],
+        "reasoning": "There is no finite database claim in the result. The analogous exact-data check is model parameter-domain and hazard-shape tables; the checked 2025 table itself includes excluded nonprobability cases, not a prior correction.",
+        "searches": [
+          "Resultary VFW negative theta improper distribution queries",
+          "\"Very Flexible Weibull\" \"negative\" \"correction\" searches"
+        ]
+      },
+      "rationale": "Structured searches compared exact claims and implications; see named checks and inspection evidence. Best-of-knowledge only; residual literature-priority risks remain.",
+      "residual_risks": [
+        "Highly specific correction may already appear in a recent unindexed corrigendum.",
+        "Direct publisher full-text URL returned 429; Section 2 full-text content read via publicly indexed reproduction rather than a locally downloaded original PDF.",
+        "No claim concerning complete critical-point classification or positive-domain statistical validity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY classifies theta<0 and theta=0 hazards despite positive-parameter PDF/CDF; no normalization/negative-density correction found in inspected sections.",
+          "evidence": "Section 2: G=1-exp(-exp(theta t^vartheta-t^-1)); theta>0 stated; item (i) theta<0 increasing-decreasing; item (ii) theta=0 unimodal.",
+          "identifier_or_url": "https://doi.org/10.3390/math13243896",
+          "material_read": "Public original full-text reproduction includes Section 2 equations (2)-(5), theta>0 declaration, subsequent hazard-shape items (i)-(iii), abstract and inference overview; full page indexed, publisher page returned HTTP 429 on direct open.",
+          "method": "Read full-text HTML/text reproduction from publicly indexed ResearchGate and indexed publisher content; independently recalculated equations, not relying on submitted review.",
+          "title": "Very Flexible Weibull Reliability Modeling for Shock Environments Using Unified Censoring Plans",
+          "trigger": "Same distribution and precisely criticized hazard-sign classification"
+        },
+        {
+          "assessment": "Original domain supports theta>0; whole-original exclusion of a previous correction cannot be claimed from this partial reading.",
+          "evidence": "Ahmad and Hussain 2017 original introduction and abstract describe two-parameter proper distribution and flexible failure rates.",
+          "identifier_or_url": "https://www.researchgate.net/publication/320307548_Very_Flexible_Weibull_Distribution",
+          "material_read": "Accessible original article landing text, abstract and positive-parameter model declaration as quoted in the 2025 primary; original pages not systematically reviewed this execution.",
+          "method": "Read publicly accessible indexed abstract plus crosscheck model formula against 2025 source.",
+          "title": "Very Flexible Weibull Distribution",
+          "trigger": "Original model parameter and hazard-shape scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is not an arbitrary parameter-domain sign check: the article explicitly advertises a negative-theta increase-then-decrease hazard as a model feature even while declaring theta>0 for its CDF/PDF. Proving the advertised branch is not a probability distribution removes a materially misleading reliability-shape claim. The positive-theta inference and possible interior turns are retained, so its significance is narrow but real.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Elshahhat–Seyam, Mathematics 13 (2025) 3896, DOI 10.3390/math13243896, Section 2 public text",
+    "Ahmad–Hussain 2017 Very Flexible Weibull Distribution, original abstract/positive-parameter declaration",
+    "Resultary semantic VFW negative-parameter/normalization searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Highly specific correction may already appear in a recent unindexed corrigendum.",
+    "Direct publisher full-text URL returned 429; Section 2 full-text content read via publicly indexed reproduction rather than a locally downloaded original PDF.",
+    "No claim concerning complete critical-point classification or positive-domain statistical validity.",
+    "Privacy/publication blocker is separate from scientific C/O/V and from external Lean/expert verification."
+  ],
+  "schema_version": 1
+}
