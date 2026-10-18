@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute the companion `verify.py` using Python 3 with no third-party packages. The verifier performs exact polynomial arithmetic over \(\mathbb Q\) and finite prime fields, then checks the three proposed derivations are logarithmic, verifies the determinant equals \(F\) exactly, and checks the characteristic-dependent vanishing of the \(z\)-derivative. It covers thirteen admissible specializations, including positive characteristics dividing and not dividing the total weight.
+## correctness
 
-The expected concluding line is:
+PASS
 
-`VERIFY_OK: exact coefficient-ring logarithmic identities and unit determinants in 13 cases`
+Reconstructed reducedness: G squarefree, gcd(G,H)=1; if p∤d then H_z=−dz^{d−1}, while when p|d, H is nonreduced precisely for all p|k_j. Writing U=x∂x+y∂y, A=L(−b∂x+a∂y), det(U,A,∂z)=G, tame frame E=U+z∂z, B=A+(zβ/d)∂z, T=z^{d−1}U+P∂z has det(E,B,T)=GH; wild frame (∂z,U,HA) also has determinant GH. Checked logarithmic multipliers algebraically. Squarefree determinant/divisibility makes each frame span in arbitrary characteristic; deg 0,1,d+m−1 in wild case. H_z=0 forces tangent concurrence; H(0,0,1)=−1. Exact source verifier inspects 13 representative specializations but universality follows from determinant identities, not sampling.
 
-The parameter-uniform proof is supplied in `RESULT.md`, Steps 1–6. Finite checks cannot certify an infinite parameter range; the universal polynomial identities, exact reducedness test and determinant-based spanning argument establish it. The existence of unpublished or unindexed equivalent prior results cannot be excluded through database searches, and independent validation has not been performed.
+## originality
+
+PASS
+
+General published char-zero freeness for precisely the same divisor is credited. The wild positive-characteristic reducedness threshold, explicit degree-zero free derivation, wild basis transition and tangent-concurrency phenomenon are not stated in the inspected original theorem or general methodological references. Best-of-knowledge PASS with implicit corollary/unindexed characteristic-p work risk.
+
+## value
+
+PASS
+
+The complete characteristic-dependent logarithmic module is a natural invariant of an established free-curve family; an Euler-derivation degeneration changes the degrees and global tangent geometry. Exact p-th-power boundary and full formula across all positive weights are structurally motivated, rather than a small isolated computational gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

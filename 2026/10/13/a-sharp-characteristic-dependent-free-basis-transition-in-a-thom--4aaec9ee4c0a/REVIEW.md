@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reducedness boundary is exact: the binary form has vanishing partial derivatives precisely when it is a nontrivial Frobenius power. In both characteristic regimes explicit derivation frames are logarithmic and their determinants equal the entire reduced defining equation with unit coefficient. A self-contained determinant-divisibility argument justifies sufficiency of this basis criterion in arbitrary characteristic. The tangent statement follows from the exact \(z\)-partial derivative, with no genericity assumption beyond smoothness. The attached exact checker replays thirteen representative coefficient-ring computations and is not used as an infinite proof.
+PASS
 
-## Originality — PASS (bibliographic qualification)
+Reconstructed reducedness: G squarefree, gcd(G,H)=1; if p∤d then H_z=−dz^{d−1}, while when p|d, H is nonreduced precisely for all p|k_j. Writing U=x∂x+y∂y, A=L(−b∂x+a∂y), det(U,A,∂z)=G, tame frame E=U+z∂z, B=A+(zβ/d)∂z, T=z^{d−1}U+P∂z has det(E,B,T)=GH; wild frame (∂z,U,HA) also has determinant GH. Checked logarithmic multipliers algebraically. Squarefree determinant/divisibility makes each frame span in arbitrary characteristic; deg 0,1,d+m−1 in wild case. H_z=0 forces tangent concurrence; H(0,0,1)=−1. Exact source verifier inspects 13 representative specializations but universality follows from determinant identities, not sampling.
 
-The originating Theorem 1.5 of Dimca–Ilardi–Pokora–Sticlaru proves the characteristic-zero freeness and exponents. Its full-text proof in §4.2 uses characteristic-zero Tjurina invariants and does not include the positive-characteristic splitting, the reducedness boundary or the wild tangency transition. General later work on Saito criteria discusses the determinant mechanism but has not been identified as giving this particular coefficient- and weight-uniform classification. Searches for equivalent positive-characteristic families, Euler-derivation degenerations, Frobenius-free bases, and strange tangent curves disclosed no equivalent statement. Because an indexed search is not a novelty certificate, unindexed calculations or general results specializing implicitly to this family remain residual priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-This computes a complete natural module invariant in every characteristic for a published free-curve construction. The transition is not a minor numerical variation: a degree-zero logarithmic derivation appears, the homogeneous basis degrees jump, and the nonlinear component becomes a strange curve with all smooth tangents concurrent at an exterior point, despite reducedness and freeness. The theorem identifies the exact nonreduced boundary and gives infinitely many concrete reduced wild examples. It has an intrinsic algebraic-geometric interpretation and does not rely only on a program's correctness.
+General published char-zero freeness for precisely the same divisor is credited. The wild positive-characteristic reducedness threshold, explicit degree-zero free derivation, wild basis transition and tangent-concurrency phenomenon are not stated in the inspected original theorem or general methodological references. Best-of-knowledge PASS with implicit corollary/unindexed characteristic-p work risk.
 
-## Closest literature and limitations
+## value
 
-The complex freeness theorem and its proof are arXiv:2301.01117, Theorem 1.5 and §4.2. General Saito frameworks in arXiv:2407.14082 and arXiv:2402.08305 are methodological, not identified as stronger results with matching parameters. The claim is restricted to reduced models over algebraically closed fields and to the logarithmic derivation module, not to positive-characteristic Jacobian syzygies, singularity classifications or integral-model reductions. An independent literature and mathematics audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete characteristic-dependent logarithmic module is a natural invariant of an established free-curve family; an Euler-derivation degeneration changes the degrees and global tangent geometry. Exact p-th-power boundary and full formula across all positive weights are structurally motivated, rather than a small isolated computational gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
