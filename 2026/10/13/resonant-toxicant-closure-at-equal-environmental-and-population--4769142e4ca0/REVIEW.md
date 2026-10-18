@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The equal-rate subsystem is solved exactly, and the post-pulse map has repeated multiplier \(e^{-cT}<1\). The resulting unique attracting periodic orbit has mean \(k\Lambda/(c^2T)\), obtained directly from period-integrated balance laws and also as the \(g\to v\) limit of the printed nonresonant formula.
+PASS
 
-## Originality
+At g=v=c>0, the two linear equations have exact post-pulse solution Te(τ)=Y e^{-cτ}, T0(τ)=e^{-cτ}(X+kYτ), with E=e^{-cT}, Y=Λ/(1−E), X=kΛTE/(1−E)^2. The affine one-period map has upper-triangular linear part [[E,kTE],[0,E]], spectral radius E<1; the fixed point is unique and globally attracting (including the non-diagonalizable repeated-eigenvalue case). Both jump and continuity boundaries hold. Integrated balance gives ∫Te=Λ/c and ∫T0=kΛ/c², yielding kΛ/(c²T). Independent numerical reproduction at a nontrivial (k,c,Λ,T)=(0.71,1.23,0.53,1.7) checks periodicity/mean; Mu–Lo's exact k=g=v=T=1, Λ=.2 case yields mean .2. No claim about ecological simulation correctness.
 
-PASS. The primary source's Lemma 3.2 has a \(g-v\) denominator and gives no equal-rate branch, while Section 6 explicitly uses \(g=v=1\). The closest inspected predecessor has the analogous denominator \(h-g-m\) and also does not state its resonant branch. DOI, title, alias, boundary, and correction searches found no published repair.
+## originality
 
-## Value
+PASS
 
-PASS. The missing boundary is the exact parameter equality used throughout the source's numerical section. The correction makes the periodic toxicant orbit analytically defined there and proves that the mean threshold quantity used by the paper remains unchanged at resonance.
+Best-of-knowledge source-specific resonance correction is not already furnished by the published Mu–Lo Lemma 3.2 formula, whose g−v denominator excludes the equality used in Section 6; its mean lemma is nevertheless continuous. The basic repeated-eigenvalue linear ODE technique is established mathematics and is NOT new. The gap matters because a published model relies on the equality case. A related 2016 paper uses a similar nonresonant denominator but no covering boundary theorem was found in available material; unindexed errata remain a risk.
 
-## Closest literature and limitations
+## value
 
-Meng, Wang, and Zhang provide the closest nonresonant periodic-toxicant template but do not cover the equal-rate branch. The result does not re-run simulations or claim their trajectories are wrong. An unindexed correction remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source simultaneously excludes equal rates in the displayed periodic solution and uses equal rates in its actual numerical threshold cases. Giving the well-defined periodic orbit and showing that the threshold mean survives addresses a concrete model-integrity gap rather than a gratuitous algebra exercise. The scope is deliberately the source's toxicant subsystem, not a new general impulsive-system theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

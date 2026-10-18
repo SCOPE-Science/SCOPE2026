@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:57:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At g=v=c>0, the two linear equations have exact post-pulse solution Te(τ)=Y e^{-cτ}, T0(τ)=e^{-cτ}(X+kYτ), with E=e^{-cT}, Y=Λ/(1−E), X=kΛTE/(1−E)^2. The affine one-period map has upper-triangular linear part [[E,kTE],[0,E]], spectral radius E<1; the fixed point is unique and globally attracting (including the non-diagonalizable repeated-eigenvalue case). Both jump and continuity boundaries hold. Integrated balance gives ∫Te=Λ/c and ∫T0=kΛ/c², yielding kΛ/(c²T). Independent numerical reproduction at a nontrivial (k,c,Λ,T)=(0.71,1.23,0.53,1.7) checks periodicity/mean; Mu–Lo's exact k=g=v=T=1, Λ=.2 case yields mean .2. No claim about ecological simulation correctness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meng–Wang–Zhang prior toxicant model uses environmental decay h and population decay g+m and analogous nonresonant denominator h−g−m; search results did not establish a full equal-rate extension."
+        ],
+        "reasoning": "General repeated-rate linear theory implies the algebraic method, but does not document the particular source boundary, pulse normalization, mean-preservation and equal-rate Section 6 applicability in the motivating model.",
+        "searches": [
+          "Resultary semantic search: equal toxicant decay rates impulsive periodic chemostat environmental toxicant resonance g=v explicit periodic orbit food chain Mu Lo (15 ranked results)",
+          "Meng Wang Zhang 10.11948/2016055 polluted impulsive chemostat toxicant"
+        ]
+      },
+      "checked_sources": [
+        "Git c3a988d5b59af9cf0a03db10b8101b09cf5e51de RESULT.md, verify.py blob 1247027d32afaab290f061da38556b4849dc7f48",
+        "Mu–Lo DOI 10.3934/dcdsb.2020279 (full primary text)",
+        "Meng–Wang–Zhang DOI 10.11948/2016055 (limited relevant material)",
+        "Resultary semantic search: equal toxicant decay rates impulsive periodic chemostat environmental toxicant resonance g=v explicit periodic orbit food chain Mu Lo (15 ranked results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.2 printed at g−v≠0, Section 6 equal rates; the new solution fills the undefined case and reproduces the unchanged β0=.2."
+        ],
+        "reasoning": "A continuous formula for β0 is already published, but it does not itself supply the missing explicit attracting orbit. The omitted repeated-root dynamics are straightforward but source-pertinent. No stronger checked source covers the complete asserted source-specific bridge.",
+        "searches": [
+          "Mu–Lo Section 3 Lemmas 3.2–3.3 and Section 6",
+          "Meng et al 2016 Lemma 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their T0*(0) and T0*(t) divide by g−v; exact limit under g→v has Jordan factor τ e^{-cτ}."
+        ],
+        "reasoning": "Repeated-rate resonance is the equivalent form of the omitted limit, not an independent general differential-equation invention. The original display does not explicitly define the limit branch.",
+        "searches": [
+          "Mu Lo 10.3934/dcdsb.2020279 equal decay g=v limit periodic toxicant",
+          "Mu–Lo PDF Lemma 3.2, p.4177"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The motivating publication gives β0=kΛ/(vgT) and parameter k=g=v=T=1 Λ=.2; no searched result contained the displayed resonant X,Y formulas for this paper."
+        ],
+        "reasoning": "This is not a standard numerical database invariant. Checking DOI-specific correction and analytic equivalence is material; absence from search is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: equal toxicant decay rates impulsive periodic chemostat environmental toxicant resonance g=v explicit periodic orbit food chain Mu Lo (15 ranked results)",
+          "Mu Lo erratum resonance correction 10.3934/dcdsb.2020279"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific resonance correction is not already furnished by the published Mu–Lo Lemma 3.2 formula, whose g−v denominator excludes the equality used in Section 6; its mean lemma is nevertheless continuous. The basic repeated-eigenvalue linear ODE technique is established mathematics and is NOT new. The gap matters because a published model relies on the equality case. A related 2016 paper uses a similar nonresonant denominator but no covering boundary theorem was found in available material; unindexed errata remain a risk.",
+      "residual_risks": [
+        "General repeated-root solution is elementary; value is confined to the specific incorrectly omitted source boundary.",
+        "An unindexed published corrigendum or supplementary equation could already give this limit.",
+        "The ecological population dynamics and simulations were not re-run or independently validated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERAGE_GAP",
+          "evidence": "Lemma 3.2 uses g−v denominator; Section 6 k=g=v=1, T=1, Λ=.2 and β0=.2. The same paper does not define its resonant solution.",
+          "identifier_or_url": "DOI:10.3934/dcdsb.2020279",
+          "material_read": "Original 18-page paper, text of pp. 4173–4190; in particular model (3)/(4), Lemma 3.2/3.3 at 4177, extinction/persistence dependencies, Section 6 pp.4184–4187, references",
+          "method": "Authorized academic full-text PDF text extraction; inspected printed equations and numeric section",
+          "title": "Dynamics of the food-chain population in a polluted environment with impulsive input of toxicant",
+          "trigger": "Exact original model and equal-rate numerical values"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "Parallel toxicant model, but available material cannot decisively exclude an implicit equal-rate limit in full original text.",
+          "identifier_or_url": "DOI:10.11948/2016055",
+          "material_read": "Bibliographic record and relevant pollutant-system/periodic-solution description; complete text not established as read",
+          "method": "Public search and cited-source comparison",
+          "title": "Global dynamics analysis of a nonlinear impulsive stochastic chemostat system in a polluted environment",
+          "trigger": "Closest source identified in motivating publication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source simultaneously excludes equal rates in the displayed periodic solution and uses equal rates in its actual numerical threshold cases. Giving the well-defined periodic orbit and showing that the threshold mean survives addresses a concrete model-integrity gap rather than a gratuitous algebra exercise. The scope is deliberately the source's toxicant subsystem, not a new general impulsive-system theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only positive equal decay c>0, positive k,Λ,T, exact pulse convention.",
+    "Not a new mathematical technique and no certification of the ecological simulations."
+  ],
+  "schema_version": 1
+}
