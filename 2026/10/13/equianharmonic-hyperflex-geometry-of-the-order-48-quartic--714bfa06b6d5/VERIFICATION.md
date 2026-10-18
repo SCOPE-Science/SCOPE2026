@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is checked in `verification/verify.py` using exact symbolic arithmetic. The script verifies:
+# Independent mathematical audit
 
-- the tangent expansion on \(z=1\) and the vanishing of its linear term;
-- after imposing the curve equation, the incompatibility of quadratic and cubic contact conditions when \(y\ne0\);
-- the factorization \(a^4+a=a(a+1)(a^2-a+1)\) and order-four contact on \(x=az\);
-- contact order three, not four, for every point at infinity;
-- the equianharmonic cross-ratio relation \(\alpha^2-\alpha+1=0\);
-- the coefficient comparison showing that an automorphism fixing the hyperflex divisor pointwise has \(p=r=0\) and \(q^4=1\).
+## correctness
 
-The verifier was replayed from its packaged path with SymPy 1.14.0. Successful execution prints:
+PASS
 
-`VERIFY_OK hyperflexes=4 collinear=y=0 tangents=4_concurrent equianharmonic=A4 kernel=C4`
+For C48:x^4+y^4+xz^3=0 over C, at z=1 substitution along the tangent vector (4b^3,-(4a^3+1)) yields quadratic coefficient 6b^2(1-8a^3) after b^4=-a^4-a. The independent symbolic cubic coefficient becomes 27b when a^3=1/8, excluding all b≠0 hyperflexes. For b=0, a^4+a=0 and the line x=az restricts F to y^4, proving order four; z=0 points have contact three. Four roots 0,-1,α,1-α, α²-α+1=0, have cross-ratio α and projective stabilizer A4. The group order 48 is explicitly prior input; coefficient comparison for projective automorphisms fixing the four collinear contact points forces p=r=0,q^4=1, so kernel is C4 and image order 12=A4. No independent proof of group order is claimed.
 
-The group-order step uses the published fact \(|\operatorname{Aut}(C_{48})|=48\). The script does not independently reclassify the full automorphism group; it verifies the new geometric identification once that published premise is supplied.
+## originality
+
+PASS
+
+The published C48 study explicitly locates and counts all four hyperosculating LINES, and gives the abstract order-48 group and its central C4-by-A4 extension; these are credited and cannot be recertified as discoveries. It does not explicitly identify the four intrinsic CONTACT points, equianharmonic cross-ratio, or the kernel and faithful quotient action on that divisor. The additional geometric action statement was independently derived, with substantial prior-data implication risk because lines and group are given.
+
+## value
+
+PASS
+
+The intrinsic hyperflex divisor and faithful tetrahedral quotient distinguish the geometry of this exceptional automorphism-rich quartic beyond a bare abstract group presentation; this is a motivated structural description of its special contact points, albeit closely adjacent to the known complete tangent list. It is not a new automorphism-order or hyperosculating-line-count result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

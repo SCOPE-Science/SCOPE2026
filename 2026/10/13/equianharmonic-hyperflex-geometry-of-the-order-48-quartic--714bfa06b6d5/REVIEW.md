@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies the hyperflexes without relying on the published count. On the affine chart, the tangent-line expansion gives explicit quadratic and cubic contact coefficients; after using the curve equation, any hypothetical hyperflex with nonzero \(y\)-coordinate would simultaneously require \(8a^3=1\) and a nonzero residual cubic coefficient \(-27/4\). The four remaining points have contact exactly four by direct restriction, while every point at infinity has contact exactly three. The kernel computation compares all relevant coefficients of the transformed quartic and leaves precisely the fourth-root scaling of \(y\). The packaged verifier replays these identities exactly.
+## correctness
 
-## Originality — PASS
-The closest source, arXiv:2406.07015v1, states the quartic, the order-\(48\) automorphism group and its abstract \(C_4\mathbin{\odot}A_4\) structure, the existence of four hyperosculating lines, their explicit equations, and their concurrency. It does not identify the contact divisor, its equianharmonic cross-ratio, or the induced quotient action. The earlier arXiv:2308.16514 provides bitangent-arrangement context but does not imply this action. Exact-equation, hyperflex, equianharmonic, and automorphism-action searches found no covering statement. The main residual risk is an older classical description under different genus-three terminology.
+PASS
 
-## Value — PASS
-This is not merely a coordinate simplification of the four lines. It identifies the intrinsic four-point divisor that carries the noncentral part of the automorphism group, explains the source's concurrency by a dual pencil, and turns the abstract \(A_4\) quotient into the tetrahedral projective symmetry of an equianharmonic configuration. That gives a structural bridge between the quartic's special tangency geometry and its exceptional automorphism group.
+For C48:x^4+y^4+xz^3=0 over C, at z=1 substitution along the tangent vector (4b^3,-(4a^3+1)) yields quadratic coefficient 6b^2(1-8a^3) after b^4=-a^4-a. The independent symbolic cubic coefficient becomes 27b when a^3=1/8, excluding all b≠0 hyperflexes. For b=0, a^4+a=0 and the line x=az restricts F to y^4, proving order four; z=0 points have contact three. Four roots 0,-1,α,1-α, α²-α+1=0, have cross-ratio α and projective stabilizer A4. The group order 48 is explicitly prior input; coefficient comparison for projective automorphisms fixing the four collinear contact points forces p=r=0,q^4=1, so kernel is C4 and image order 12=A4. No independent proof of group order is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published C48 study explicitly locates and counts all four hyperosculating LINES, and gives the abstract order-48 group and its central C4-by-A4 extension; these are credited and cannot be recertified as discoveries. It does not explicitly identify the four intrinsic CONTACT points, equianharmonic cross-ratio, or the kernel and faithful quotient action on that divisor. The additional geometric action statement was independently derived, with substantial prior-data implication risk because lines and group are given.
+
+## value
+
+PASS
+
+The intrinsic hyperflex divisor and faithful tetrahedral quotient distinguish the geometry of this exceptional automorphism-rich quartic beyond a bare abstract group presentation; this is a motivated structural description of its special contact points, albeit closely adjacent to the known complete tangent list. It is not a new automorphism-order or hyperosculating-line-count result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
