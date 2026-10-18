@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:03:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary two-gram count class for a linear word is determined by transition loops a=N00,b=N11 and cross counts c=N01,d=N10. Feasibility forces |c-d|<=1. For c=d=j>=1, two endpoint orientations yield B_j(a,b)=(m/j) C(a+j-1,j-1)C(b+j-1,j-1), a+b=m-2j. For |c-d|=1, only one endpoint orientation gives U_j=binomial product. Strict log-concavity balances a,b when j>=2; for j=1 all loop allocations tie. The ratio B_{j+1}*/B_j* identifies k=ceil(m/4) and exceptional adjacent tie when m=1 mod4; direct inequality B_{j0}*>max U excludes all imbalanced transitions. Central-binomial Stirling yields F_n~2^(n+1)/(pi(n-1)). Independent direct enumeration of 131,064 binary words n=3..16 checked 1,078 profile classes and every equality profile. The all-length proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known cardinality function B_j, U_j still requires maximizing all j and exclusions of unequal transitions; no prior closed optimization theorem identified in primary published sources."
+        ],
+        "reasoning": "The general Whittle class-size distribution and complete prior pointwise fiber formulas dominate the counting lemma but do not by themselves evaluate a maximizing fiber or prove endpoint-balance/tie conditions. The submitted optimization is a genuine additional theorem, although earlier priority remains plausible.",
+        "searches": [
+          "Largest Markov type class binary linear word transition count 2 gram profile maximal fiber equality profiles",
+          "Resultary exact binary two-multispectrum code size singleton classification all profile counts",
+          "Whittle 1955 distribution and moment formula Markov chain type class",
+          "doi:10.46298/dmtcs.2768"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+        "doi:10.46298/dmtcs.2768",
+        "arxiv:1410.8837",
+        "doi:10.1111/j.2517-6161.1955.tb00197.x",
+        "Resultary semantic query: Largest Markov type class binary linear word transition count 2 gram profile maximal fiber equality profiles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=4s, the exact new result F_{4s+1}=C(2s,s)^2 follows from nontrivial mode j=s; unbalanced transition classes provably never attain it."
+        ],
+        "reasoning": "The global maximum is implied abstractly by taking max over the existing pointwise formulas, but its explicit binomial closed form and all equality cases are not simply parameter substitution: optimization over j and a,b and comparison with endpoint-imbalanced regimes is necessary. Thus prior work covers an input lemma but does not explicitly furnish the claimed extremum.",
+        "searches": [
+          "Largest Markov type class binary linear word transition count 2 gram profile maximal fiber equality profiles",
+          "Resultary exact binary two-multispectrum code size singleton classification all profile counts",
+          "Whittle 1955 distribution and moment formula Markov chain type class",
+          "doi:10.1111/j.2517-6161.1955.tb00197.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full published RESULT.md derives imbalanced c01=k+1,c10=k class size C(a+k,k)C(b+k,k); balanced classes follow both orientations. It does not state global F_n or modal profiles."
+        ],
+        "reasoning": "The closest published Resultary 2026/10/4 result has exactly the same linear binary two-gram observation, including run-composition formula for EACH profile, and is expressly acknowledged. Its theorem determines number of distinct profiles and singleton classes rather than the largest fiber.",
+        "searches": [
+          "Largest Markov type class binary linear word transition count 2 gram profile maximal fiber equality profiles",
+          "Resultary exact binary two-multispectrum code size singleton classification all profile counts",
+          "Whittle 1955 distribution and moment formula Markov chain type class",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Q_n grows quadratically with n and counts classes, while F_n counts words in ONE class and grows ~2^n/n."
+        ],
+        "reasoning": "Resultary exact two-multispectrum published theorem on Q_n and singletons is the closest exact table, NOT a table of the largest fiber. Jacquet 2010 tabulates number of cyclic Markov types, not these modal linear fiber values.",
+        "searches": [
+          "Largest Markov type class binary linear word transition count 2 gram profile maximal fiber equality profiles",
+          "Resultary exact binary two-multispectrum code size singleton classification all profile counts",
+          "Whittle 1955 distribution and moment formula Markov chain type class",
+          "arxiv:1410.8837"
+        ]
+      },
+      "rationale": "A published earlier full distribution of SAME linear two-gram fiber sizes substantially overlaps and must be credited; its objective is number of distinct profiles/singletons, not maximizing a fiber. The new sharp max and complete modal-profile equality conditions require global log-concave discrete optimization, strict endpoint comparison and asymptotic analysis. Earlier Whittle distribution or unindexed mode formula remains substantive priority risk.",
+      "residual_risks": [
+        "Prior published Resultary theorem gives exact arbitrary-fiber distribution on same observation; originality solely in full optimization and equality classification, not fiber-count identities.",
+        "Whittle 1955 primary full text unavailable; an earlier modal-type theorem could cover this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial direct prior: arbitrary fixed-fiber cardinalities are already explicit. But global modal maximum and precise all equality profiles, strict domination of endpoint imbalances, and asymptotic worst ambiguity not computed. Not merely a substitution, requires optimizing under parity and endpoint cases.",
+          "evidence": [
+            "For c01=k+1,c10=k prior yields binom(c00+k,k)binom(c11+k,k); balanced case has two run orientations. Prior finding optimizes number of DISTINCT PROFILES Q_n, not the LARGEST CLASS."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+          "material_read": "Complete publicly published RESULT.md, including feasible profile count Q_n, singleton theorem, and exact binomial run-composition fiber size at each profile",
+          "method": "Read-only GitHub primary published source",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Same binary linear bigram multiplicity channel; possible dominating prior formula for every fiber"
+        },
+        {
+          "assessment": "Article primarily counts the number of cyclic Markov types, not max size of linear binary type fiber; does cite earlier Whittle class-size formula",
+          "evidence": [
+            "Jacquet, Knessl, Szpankowski 2010, main cyclic type-counting rather than linear modal cardinality."
+          ],
+          "identifier_or_url": "doi:10.46298/dmtcs.2768",
+          "material_read": "Complete DMTCS article PDF, especially abstract, counting theorem, cyclic-string examples and Whittle citation",
+          "method": "Public PDF read with rendered title-page screenshot and textual theorem inspection",
+          "title": "Counting Markov Types",
+          "trigger": "Markov types sometimes mean equivalence classes for transition count matrices, potentially exact maximum"
+        },
+        {
+          "assessment": "Framework handles the observation but no inspected theorem optimizes largest linear binary length-two fiber",
+          "evidence": [
+            "Kiah, Puleo, Milenkovic 2014/2015; analyzes profile feasibility/number of classes and code size, not the maximum within-class multiplicity."
+          ],
+          "identifier_or_url": "arxiv:1410.8837",
+          "material_read": "Full accessible arXiv article HTML, focus on achievable profile counts, flow graphs and codes",
+          "method": "Public arXiv full-text inspection",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Exactly overlapping substring multiplicity observation and reconstruction code classes"
+        },
+        {
+          "assessment": "Cannot exclude earlier maximum class results hidden in full original; genuine residual originality risk",
+          "evidence": [
+            "Whittle 1955 JRSS B 17 235-242; full paper not inspected."
+          ],
+          "identifier_or_url": "doi:10.1111/j.2517-6161.1955.tb00197.x",
+          "material_read": "Indexed abstract/bibliographic description only; complete primary paper not obtained",
+          "method": "Public abstract search",
+          "title": "Some Distribution and Moment Formulae for the Markov Chain",
+          "trigger": "Whittle classical exact transition type multiplicities could include modal type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-case reconstruction list size for complete linear bigram multiplicities is a natural quantitative ambiguity invariant. Exact all-n sharp maximum, all maximizing profiles and 2/(pi n) asymptotic are useful independently of previously known arbitrary-profile counts; the optimization is not a random slice nor a known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+    "doi:10.46298/dmtcs.2768",
+    "arxiv:1410.8837",
+    "doi:10.1111/j.2517-6161.1955.tb00197.x",
+    "Resultary semantic query: Largest Markov type class binary linear word transition count 2 gram profile maximal fiber equality profiles"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Prior published Resultary theorem gives exact arbitrary-fiber distribution on same observation; originality solely in full optimization and equality classification, not fiber-count identities.",
+    "Verified finite calculations supplement rather than establish unrestricted theorem.",
+    "No GitHub write/import, independent external attestation, or global literature priority certification.",
+    "Publication withheld due to potentially public operational provenance in source metadata."
+  ],
+  "residual_risks": [
+    "Prior published Resultary theorem gives exact arbitrary-fiber distribution on same observation; originality solely in full optimization and equality classification, not fiber-count identities.",
+    "Whittle 1955 primary full text unavailable; an earlier modal-type theorem could cover this result."
+  ],
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific assessment: binary two-gram profile collision fibers
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes linear overlapping two-grams, all four counts, the binary alphabet, and all lengths \(n\ge3\). The positive-run composition bijections separately count the equal- and unequal-transition cases, including constant words. Strict discrete log-concavity balances self-loop counts, a closed ratio comparison determines the maximizing cross-transition counts and the occasional parity tie, and direct comparisons exclude opposite-endpoint configurations. The limiting coefficient follows by central binomial estimates. The bundled independent checks exhaust words through length 18 and four-count profiles through length 80, reproducing all modal profiles and total counts; these computations are supplementary to the all-length proof. The main risks are possible transcription errors in the ratio comparisons or omissions at the short-length boundary; both have been explicitly checked.
+## correctness
 
-**Originality — PASS, with bibliographic residual risk.** The closest inspected primary full texts are Jacquet–Knessl–Szpankowski (2010) and Kiah–Puleo–Milenkovic (arXiv 2014/2015). The former explicitly enumerates the *number* of first-order Markov types and recalls the prior fixed-type population formula. The latter studies the number of distinct substring profiles and code constructions. Neither text, including the sections presenting their main results, supplies the exact all-length *largest* binary linear bigram-count fiber and its complete equality cases. The 1955 Whittle article is materially related because it calculates fixed-profile distributions, but only the abstract could be inspected; its full text was inaccessible, so an earlier implicit or explicit modal classification cannot be definitively ruled out. Several neighboring public records concern multinomial modes or matrix fibers but not these sequence fibers. Novelty means the additional global extremization and equality characterization, not a new fixed-profile counting formula.
+PASS
 
-**Value — PASS.** An unordered count spectrum of adjacent pairs is a canonical lossy observation in string reconstruction, DNA-profile storage and finite-order Markov modeling. The maximum number of messages consistent with one perfectly observed spectrum is the exact worst-case list size; this is a motivated all-length natural invariant. The theorem gives its closed form, complete maximizing transition-count profiles, finite parity effects and asymptotic collision probability. Neither the fixed-type count nor the number of distinguishable spectra alone supplies the worst-case list size. Scope is restricted to the full binary linear two-gram count channel, not cyclic words or higher-order spectra.
+The binary two-gram count class for a linear word is determined by transition loops a=N00,b=N11 and cross counts c=N01,d=N10. Feasibility forces |c-d|<=1. For c=d=j>=1, two endpoint orientations yield B_j(a,b)=(m/j) C(a+j-1,j-1)C(b+j-1,j-1), a+b=m-2j. For |c-d|=1, only one endpoint orientation gives U_j=binomial product. Strict log-concavity balances a,b when j>=2; for j=1 all loop allocations tie. The ratio B_{j+1}*/B_j* identifies k=ceil(m/4) and exceptional adjacent tie when m=1 mod4; direct inequality B_{j0}*>max U excludes all imbalanced transitions. Central-binomial Stirling yields F_n~2^(n+1)/(pi(n-1)). Independent direct enumeration of 131,064 binary words n=3..16 checked 1,078 profile classes and every equality profile. The all-length proof is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A published earlier full distribution of SAME linear two-gram fiber sizes substantially overlaps and must be credited; its objective is number of distinct profiles/singletons, not maximizing a fiber. The new sharp max and complete modal-profile equality conditions require global log-concave discrete optimization, strict endpoint comparison and asymptotic analysis. Earlier Whittle distribution or unindexed mode formula remains substantive priority risk.
+
+## value
+
+PASS
+
+Worst-case reconstruction list size for complete linear bigram multiplicities is a natural quantitative ambiguity invariant. Exact all-n sharp maximum, all maximizing profiles and 2/(pi n) asymptotic are useful independently of previously known arbitrary-profile counts; the optimization is not a random slice nor a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
