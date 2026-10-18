@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:10:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/a-single-weak-drift-covariance-crossover-for-boundary-visits-in--8848b5645d45/RESULT.md",
+        "2026/10/13/a-single-weak-drift-covariance-crossover-for-boundary-visits-in--8848b5645d45/verify_walk_cov.py"
+      ],
+      "rationale": "PASS: Exact transient Green matrix identity Cov_i(T,N_1)=G_i1(t_1-t_i)+(G²)_i1-G_i1 follows by ordering the two occupation-time indices. The biased walk potential kernel and mean duration satisfy the discrete boundary-value equation. Fixed-i weak-drift expansions and bounded Riemann sums lead to the displayed F_i(b); an independent sympy b→0 limit equals 2-2i/3. The numerator H_i has H_i''=exp(-b)[4(1-exp(-b))-(i+1)b], proving all sign regimes, with a unique positive crossing only at i=2 (b*=1.49888421886734). Finite m covariance need not share the limit's sign uniformly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bénichou–Desbois analyze Brownian graph occupation under drift; van Uem presents gambler's ruin stopping and mean times."
+        ],
+        "reasoning": "Continuum occupation transforms and exact marginal stopping times are substantial premises; no inspected statement specialized to the discrete weak-drift covariance limit at fixed i and its unique crossing.",
+        "searches": [
+          "de Vos Vervaat Local Times Bernoulli Walk FEW 244 1987 pdf",
+          "https://arxiv.org/abs/0810.4636",
+          "https://arxiv.org/abs/1302.7247"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1111/j.1467-9574.1988.tb01516.x",
+        "https://repository.tilburguniversity.edu/bitstreams/889bc341-7faa-430b-a1e8-23360bae9840/download",
+        "https://arxiv.org/abs/0810.4636",
+        "https://arxiv.org/abs/1302.7247"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted profile arises from (G²)_{i1}/m as an integral plus a nontrivial cancellation in G_i1(t1-ti). H_i'' switches curvature only for i=2."
+        ],
+        "reasoning": "A general joint probability generating function contains moments formally but does not on its face assert the weak-bias limit or prove its one-crossing property. With the full de Vos text unavailable, the possibility of implicit coverage is recorded explicitly.",
+        "searches": [
+          "https://doi.org/10.1111/j.1467-9574.1988.tb01516.x",
+          "https://arxiv.org/abs/0810.4636"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Vos and Vervaat study joint generating functions of local times of Bernoulli walks at stopping times; finite mixed moments can in principle be obtained by differentiation."
+        ],
+        "reasoning": "An equivalent formulation would differentiate joint occupation/absorption transforms and take p=(1+exp(-b/m))^-1 with fixed initial state. The inspected abstract cannot decide if that paper already worked out this singular sign diagram.",
+        "searches": [
+          "gambler's ruin absorption time number visits state one covariance weak drift m logit b/m sign transition",
+          "https://doi.org/10.1111/j.1467-9574.1988.tb01516.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The output F_i(b) is a continuum one-variable profile depending on fixed i; exact finite-chain Green matrices are known algebraically."
+        ],
+        "reasoning": "Finite-state tables of G and t, even when available, do not automatically establish the m→infinity asymptotic and the global sign chart. No exact table matching the latter was located.",
+        "searches": [
+          "boundary local time absorption covariance gambler ruin start two critical drift exact table",
+          "Resultary: gambler's ruin absorption time number visits state one covariance weak drift"
+        ]
+      },
+      "rationale": "PASS best of knowledge: classical gambler's-ruin Green kernels and durations are credited, and de Vos–Vervaat 1988 treats joint local-time generating functions. Those may encode the finite mixed moments, so the identity is not asserted novel. The full fixed-start weak-drift covariance scaling and unique start-site-specific sign diagram were not located in inspected material. de Vos–Vervaat full 1987 manuscript inaccessible, retained as serious priority risk.",
+      "residual_risks": [
+        "de Vos–Vervaat 1987/1988 exact local-time work full text was not accessible; unknown if the limiting covariance is implicit in its formulas.",
+        "Covariance limit proven for fixed i and b only; no uniform growing-i or drifting-b conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant joint transforms, cannot infer article does not contain the asserted scaling; severe but not automatic exclusion.",
+          "evidence": [
+            "Abstract: joint PGFs of local times at various stopping times given by simple functional equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9574.1988.tb01516.x",
+          "material_read": "Wiley abstract and Tilburg FEW 244 repository listing. Open-access PDF download attempt failed; Oxford reported VPN disconnected. Whole text not read.",
+          "method": "Primary publisher abstract, repository record, authorized access attempt",
+          "title": "Local Times of Bernoulli Walk",
+          "trigger": "Closest exact joint local-time stopping-time analysis"
+        },
+        {
+          "assessment": "Closely related continuum framework, not documented exact discrete start-site sign diagram.",
+          "evidence": [
+            "2008 Brownian graph exit/occupation time transforms in drift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0810.4636",
+          "material_read": "ArXiv bibliographic abstract and summary, not entire preprint.",
+          "method": "Preprint abstract inspection",
+          "title": "Exit and Occupation times for Brownian Motion on Graphs with General Drift and Diffusion Constant",
+          "trigger": "Continuum drift and joint occupation quantities"
+        },
+        {
+          "assessment": "Marginal results are credited and not asserted novel.",
+          "evidence": [
+            "2013 gambler's-ruin stopping strategies/mean duration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.7247",
+          "material_read": "ArXiv metadata/abstract, not full preprint.",
+          "method": "Primary metadata/abstract inspection",
+          "title": "Stopping strategies and gambler's ruin problem",
+          "trigger": "Classical mean absorption time and probability formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/13/a-single-weak-drift-covariance-crossover-for-boundary-visits-in--8848b5645d45/RESULT.md",
+        "https://doi.org/10.1111/j.1467-9574.1988.tb01516.x",
+        "https://repository.tilburguniversity.edu/bitstreams/889bc341-7faa-430b-a1e8-23360bae9840/download"
+      ],
+      "rationale": "PASS: The exact sign reversal of absorption-time/local-time covariance under weak right drift is a natural stochastic process dependence question. The sharp location of a single critical drift and the exceptional starting position i=2 materially refine known marginal Green and moment formulas.",
+      "residual_risks": [
+        "de Vos–Vervaat 1987/1988 exact local-time work full text was not accessible; unknown if the limiting covariance is implicit in its formulas.",
+        "Covariance limit proven for fixed i and b only; no uniform growing-i or drifting-b conclusions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "m→∞ with each i>=1 and b>=0 fixed; nonnegative weak right drift only; unconditional absorption and visits include t=0 where appropriate.",
+    "No finite-m sign uniformity or arbitrary drift left of fair, nor conditional exit covariance."
+  ]
+}

@@ -1,19 +1,21 @@
-# Review of the boundary-visit covariance crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact mixed-moment formula follows from the Green resolvent, with its entries checked against absorbing-walk recurrences. The weak-drift limit is a bounded-kernel Riemann sum. The derivative of the explicit numerator gives the complete and unique sign transition. The bundled program verifies 600 exact-rational and numerical conditions but is not a substitute for the infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: Exact transient Green matrix identity Cov_i(T,N_1)=G_i1(t_1-t_i)+(G²)_i1-G_i1 follows by ordering the two occupation-time indices. The biased walk potential kernel and mean duration satisfy the discrete boundary-value equation. Fixed-i weak-drift expansions and bounded Riemann sums lead to the displayed F_i(b); an independent sympy b→0 limit equals 2-2i/3. The numerator H_i has H_i''=exp(-b)[4(1-exp(-b))-(i+1)b], proving all sign regimes, with a unique positive crossing only at i=2 (b*=1.49888421886734). Finite m covariance need not share the limit's sign uniformly.
 
-The compared gambler's-ruin stopping-time literature gives marginal mean durations, and the Brownian-graph occupation-time literature concerns a continuum joint law. A Bernoulli-walk paper by de Vos and Vervaat develops full local-time generating functions and could implicitly cover finite mixed moments; those are not claimed novel. Its full text could not be inspected, so implicit prior coverage of the singular weak-drift sign diagram cannot be excluded. Published-record searches did not identify the complete classification.
+## originality
 
-## Value — PASS
+PASS
 
-A local visit count and a total lifetime capture different properties of a killed random walk. Their joint dependence changes qualitative behavior with the initial lattice distance from ruin, and the sign-reversal parameter has a unique sharp value rather than an arbitrary computed instance. The result is a mathematically natural asymptotic covariance benchmark.
+PASS best of knowledge: classical gambler's-ruin Green kernels and durations are credited, and de Vos–Vervaat 1988 treats joint local-time generating functions. Those may encode the finite mixed moments, so the identity is not asserted novel. The full fixed-start weak-drift covariance scaling and unique start-site-specific sign diagram were not located in inspected material. de Vos–Vervaat full 1987 manuscript inaccessible, retained as serious priority risk.
 
-## Literature and limits
+## value
 
-See Bénichou–Desbois (arXiv:0810.4636v1), van Uem (arXiv:1302.7247v1), and de Vos–Vervaat (doi:10.1111/j.1467-9574.1988.tb01516.x). The theorem assumes a fixed positive start and fixed nonnegative near-fair drift parameter as the upper absorbing barrier tends to infinity. Finite-barrier signs and varying-start regimes are not classified. Historical coverage by unavailable text remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact sign reversal of absorption-time/local-time covariance under weak right drift is a natural stochastic process dependence question. The sharp location of a single critical drift and the exceptional starting position i=2 materially refine known marginal Green and moment formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
