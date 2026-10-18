@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The unique greedy decomposition is proved to equal the exact subsequence-universality index. Transition counts are j-1 known and q-j new letters within each arch, with q versus q-1 initial choices. Multiplication by the incomplete-tail functions gives the complete joint generating function. The uniformly chosen proper infinite word yields i.i.d. cover-time blocks L=1+sum_{j=1}^{q-1}Geom((q-j)/(q-1)); exact mean/variance and the renewal CLT give the stated rates. Independent exhaustive coefficient enumeration for q=2 through n=10, q=3 through n=12, q=4 through n=9, and q=5 through n=7 agrees with direct index computation, and direct scattered-subsequence tests corroborate short cases. The q=2 zero-variance boundary is separately stated. No finite enumeration substitutes for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2311.10658, §4, Theorem 28 and Corollary 30: general algorithmic counting of k-universal accepted words for a DFA, with exponential dependence on alphabet size.",
+        "arXiv:2304.04583, §3: combinatorial algorithms and recurrences counting unrestricted k-universal words.",
+        "Neither inspected relevant counting section presents a closed q-parametric rational function or limiting variance for the no-equal-neighbors language."
+      ],
+      "reasoning": "Every proper word belongs to a regular language, so the general DFA theorem covers the computability of each fixed instance; the claim does not assert otherwise. That algorithm does not state, in its full relevant counting section, the compact symbolic formula across variable q or the iid renewal law with explicit mean/variance. A mere fixed-instance algorithm is not a statement implying those symbolic identities without further derivation.",
+      "searches": [
+        "subsequence universality proper words no consecutive equal symbols exact count universal arch q alphabet",
+        "k-Universality of Regular Languages arxiv 2311.10658",
+        "Ranking and Unranking k-subsequence universal words arxiv 2304.04583",
+        "2023 Adamson Fleischmann Huch Koss Manea Nowotka k-Universality of Regular Languages 2311.10658 exact nonrepeating alphabet"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.04583, relevant full-text counting sections",
+      "arXiv:2304.11932, relevant full-text arch sections",
+      "arXiv:2311.10658, relevant full-text regular-language counting sections",
+      "Published research record: Closed-form law for binary subsequence universality (2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37)",
+      "Published research record: Exact full-support insertion radius of subsequence universality (2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.11932 explains classical deterministic arch decomposition but not its interaction with a proper-coloring Markov source.",
+        "arXiv:2311.10658 gives counting for general regular languages, not a regenerative factorization for this no-loop Markov chain.",
+        "The renewal step is explicitly proved here from the j-1/q-j transition counts and symmetry, rather than claimed as an immediate corollary of the cited algorithms."
+      ],
+      "reasoning": "The arch theorem plus generic Markov-chain methods provide ingredients, so some conceptual overlap is substantial. However the special identity of post-arch continuation counts, the exact finite bivariate formula, and the explicit universal q-dependent asymptotic constants are additional scientific comparisons and calculations, not contained as such in the inspected claims. Unindexed or implicit prior derivations remain a risk.",
+      "searches": [
+        "\"arch factorization\" \"adjacent equal\" generating function",
+        "coupon collector Markov chain no consecutive repeated draws waiting time q harmonic",
+        "words with unequal adjacent letters proper colorings q-ary subsequence universality exact bivariate generating function arch distribution coupon collector without immediate repeats"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.11932, §2: arch factorization and the equality of arch count with the universality index; no proper-word enumeration in the relevant exposition.",
+        "Closest research record: Closed-form law for binary subsequence universality (2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37) concerns unrestricted binary words, whose distribution differs even from the proper binary case.",
+        "Targeted searches did not return a recorded equivalent q-ary, no-adjacent-repeat exact joint distribution."
+      ],
+      "reasoning": "The known arch criterion is a component used in the proof, not an equivalent statement of the new q-uniform generating function or its Gaussian constants. The closed-form unrestricted binary result does not imply the q>=3 homogeneous no-repeat law; q=2 proper words have a deterministic index.",
+      "searches": [
+        "complete bivariate distribution of subsequence universality index for proper q-ary words with no repeated adjacent symbols rational generating function",
+        "renewal central limit theorem subsequence universality Markov chain uniform no self loops waiting time harmonic number",
+        "subsequence universality proper colorings words adjacent unequal universal sequences arch 2022 2023",
+        "universal subsequences nonrepeating adjacent words gaussian universality index random proper coloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of the ternary index histograms (n=3: 6,6; n=6: 6,66,24) as the stated proper-word invariant was identified in these searches.",
+        "Short-length integer data are provided as verification rather than the principal claim; the exact result is the all-q generating function."
+      ],
+      "reasoning": "A sequence/table hit would need to encode the same constrained language and universality statistic, not merely match a few coefficients; the tested queries did not establish such coverage. Failure to locate a table is not proof of novelty.",
+      "searches": [
+        "OEIS ternary adjacent distinct universal subsequences arch distribution 6 66 24",
+        "\"6t^3\" \"4t^3\" \"subsequence\"",
+        "proper q-colorings path arch factorization coupon collector without repetitions generating function finite distribution"
+      ]
+    },
+    "rationale": "Relevant complete primary counting sections and targeted published-result queries do not exhibit the stated q-parametric rational law for words with unequal neighbors or its exact regenerative constants. The strongest directly relevant published general result proves algorithmic counting for arbitrary regular languages, not this explicit symbolic formula. The arch characterization is acknowledged as prior. Residual risk: an unindexed Markov-coupon formulation or implicit prior specialization may exist.",
+    "residual_risks": [
+      "Search coverage is not a uniqueness proof; unpublished and unindexed preprints may contain an equivalent special case.",
+      "Classical coupon-collector methods and general regular-language counting algorithms are close ingredients; a stronger earlier special-function or Markov-renewal identity might implicitly subsume the symbolic result.",
+      "No independent mathematical audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General DFA counting and ranking; does not explicitly supply the q-uniform rational formula or the proper-word renewal CLT.",
+        "evidence": "Section 4, Theorem 28 and Corollary 30 (general accepted-path and accepted-word counting), arXiv:2311.10658.",
+        "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+        "material_read": "Primary PDF: abstract and introduction, definitions, relevant complete counting/ranking section (§4, pp. 13–17), particularly Theorem 28 and Corollary 30; selected pages visually inspected.",
+        "method": "Read extracted full-text sections and rendered PDF pages with formula comparison.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Most general potentially dominating earlier counting theorem for constrained regular languages"
+      },
+      {
+        "assessment": "Supplies a premise (index equals number of arches), not the no-adjacent-repeat enumeration and probabilistic law.",
+        "evidence": "Section 2, pp. 3–4, arXiv:2304.11932.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+        "material_read": "Primary PDF introduction, §2 complete arch definition and index identification, introductory results of §3; rendered pp. 1 and 4 inspected.",
+        "method": "Read primary full-text material on arch factorization and the associated displayed equality.",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Potential equivalence to standard arch theory"
+      },
+      {
+        "assessment": "Counts unrestricted words, whose allowed self-repetitions change the arch-state transitions; does not give the stated constrained-law formula.",
+        "evidence": "Section 3.1–3.2, arXiv:2304.04583.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+        "material_read": "Primary PDF abstract, introduction, §3.1–3.2 on unrestricted arch enumeration and counting recurrences; rendered pp. 1 and 5 inspected.",
+        "method": "Direct reading of primary PDF counting statements and formulas.",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Potential explicit whole-alphabet arch counts and dominating generating functions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12e3cab5-3b1a-4a3d-b508-83b9407a6519",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural homogeneous adjacency constraint on q-ary words changes the entire universality-index distribution. The theorem gives a closed rational bivariate series uniform in both q and the index, rather than per-length numerical computations; its renewal identification removes post-arch dependence and yields explicit growth and fluctuation constants for every q>=3, with a sharp deterministic boundary at q=2. The exact distribution and CLT are relevant to universality under proper-coloring/transition-constrained string sources, and are not merely a renaming or a single small instance of a known table.",
+    "status": "PASS"
+  }
+}
