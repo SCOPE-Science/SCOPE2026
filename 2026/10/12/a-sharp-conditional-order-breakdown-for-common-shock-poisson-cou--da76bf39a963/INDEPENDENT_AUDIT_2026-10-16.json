@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:43:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson u_a(k) is log-concave with interval support; the kernel u_a(x−z) is TP2. Product of all latent factors is MTP2, and marginalization over common Z preserves it (Fallat et al., Prop3.4(ii)). The joint pair-sum coefficient kernel g(x,s)=[t^(s−x)]e^(at)(a+bt)^x/x! has adjacent minors equal to nonnegative log-concavity expressions, establishing LR monotonicity for every pair. Since S_n=T_n+nZ, T_n~Pois(na), condition on S_n=n−1 gives Bin(n−1,1/n), and on S_n=n gives w Bin(n,1/n)+(1−w)δ1 with w=(na)^n/n! divided by that plus b. Therefore the tail-2 gap changes sign exactly at b_ST=(na)^n/n! * δ_n/r_n with r_n=Pr(Bin(n−1,1/n)≥2) and δ_n=(n−1)/n²(1−1/n)^(n−2). At n=3, exact conditional mass ratios yield LR iff b≤2a³, ST iff b≤6a³. Independently checked exact rational thresholds at n=3..12 for b/bcrit=1/2,1,2; finite samples corroborate but universal proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pellerey–Navarro Proposition3.1 assumes the bivariate (Xi,rest sum) density logconcave and TP2; Fallat et al. supplies MTP2 closure and factorization, no universal monotonicity for Xi given all-sum."
+        ],
+        "reasoning": "The record furnishes a counterexample showing that a weaker MTP2 premise does not imply the prior sufficient condition, and quantifies its failure. It does not contradict the prior theorem because that theorem needs extra hypotheses.",
+        "searches": [
+          "Resultary semantic search: multivariate common shock Poisson MTP2 conditional stochastic monotonicity given sum breakdown likelihood ratio cutoff",
+          "https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "https://arxiv.org/html/1510.01290v2"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s11749-021-00789-5",
+        "https://arxiv.org/html/1510.01290v2",
+        "https://doi.org/10.1111/insr.12408",
+        "Resultary semantic search: multivariate common shock Poisson MTP2 conditional stochastic monotonicity given sum breakdown likelihood ratio cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition3.1 gives full-sum LR only when (Xi,rest) has TP2 and logconcavity; the constructed MTP2 common-shock law violates the desired full-sum stochastic order at b>b_ST."
+        ],
+        "reasoning": "This is a strict boundary/counterexample to a tempting invalid extension, not a special case of the sufficient theorem. The pairwise LR property is proved separately and cannot imply full-sum order.",
+        "searches": [
+          "Resultary semantic search: multivariate common shock Poisson MTP2 conditional stochastic monotonicity given sum breakdown likelihood ratio cutoff",
+          "https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "https://arxiv.org/html/1510.01290v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pellerey–Navarro condition on the joint law of (Xi,Σ_{j≠i}Xj) is not a consequence of MTP2 of the vector Xi; Schulz–Genest–Mesfioui discusses the same classical common-shock Poisson family."
+        ],
+        "reasoning": "Identical shock model is known, but conditional ordering after inclusion of the conditioned coordinate in the full sum is a distinct precise assertion.",
+        "searches": [
+          "Resultary semantic search: multivariate common shock Poisson MTP2 conditional stochastic monotonicity given sum breakdown likelihood ratio cutoff",
+          "https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "https://doi.org/10.1111/insr.12408"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pellerey–Navarro examples use independent finite discrete counts and dependent continuous Gumbel exponential models; the inspected primary source does not tabulate n=3 thresholds 2a³/6a³ or b_ST(n,a)."
+        ],
+        "reasoning": "Exact tabulated common-shock conditional mass vectors and sharp order thresholds are absent from the inspected article and not mechanically entailed by classical common-shock marginal covariance formulas alone.",
+        "searches": [
+          "Resultary semantic search: multivariate common shock Poisson MTP2 conditional stochastic monotonicity given sum breakdown likelihood ratio cutoff",
+          "https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "https://doi.org/10.1111/insr.12408"
+        ]
+      },
+      "rationale": "The exact MTP2 common-shock counterexample and distinct LR/ST adjacent-level frontiers refine dependent-sum monotonicity results. The primary sufficient condition on (Xi, sum(other Xj)) is stronger/different, and its examples do not give these precise common-shock thresholds.",
+      "residual_risks": [
+        "A latent-count actuarial paper may have computed an equivalent common-shock conditional counterexample without this terminology.",
+        "Only the specified adjacent levels/tails are classified; the entire family of full-total pairs is not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its sufficient theorem adds assumptions on the conditioned pair (Xi,rest total), which are not guaranteed by joint MTP2; no common-shock Poisson cutoff.",
+          "evidence": [
+            "Proposition3.1 hypothesis: logconcavity and TP2 of (Xi,Σ_{j≠i}Xj); introduction counterexample is independent bounded discrete law."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "material_read": "Full accessible publisher HTML including Introduction, counterexamples 1.1–1.2, §2 conditional TP2 criterion, §3 Proposition3.1 and examples.",
+          "method": "Published Springer full-text HTML read directly.",
+          "title": "Stochastic monotonicity of dependent variables given their sum",
+          "trigger": "Closest precise dependent-sum monotonicity theorems"
+        },
+        {
+          "assessment": "Supports general MTP2 preservation, not full-sum conditional monotonicity.",
+          "evidence": [
+            "Proposition3.4(ii) MTP2 closed under marginalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1510.01290v2",
+          "material_read": "Full available arXiv HTML, especially §3 MTP2 definition and Proposition3.4 marginalization closure, factor/product discussion.",
+          "method": "Primary arXiv HTML directly read.",
+          "title": "Total positivity in Markov structures",
+          "trigger": "Needed closure theorem for latent-factor Poisson MTP2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp structural boundary of dependent conditional ordering in a canonical MTP2 positively correlated multivariate Poisson model. Exact distinct LR/ST cutoffs provide reusable risk/association counterexamples with explicit dimension dependence, beyond mere numerical nonmonotonicity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For equi-intensity common-shock counts Xi=Yi+Z, Yi independent Pois(a), Z Pois(b), a,b>0, the joint law is MTP2 and pair-sum conditional distributions are LR-increasing. For every n≥3 the full-total tail event {X1≥2} at totals n−1,n reverses exactly when b>b_ST(n,a); at n=3 the LR and ST frontiers for totals 2,3 are b=2a³ and 6a³.",
+  "limitations": [
+    "Sharp frontiers are only the declared adjacent pair/tail; no global full-total order phase diagram.",
+    "Possible equivalent examples in older actuarial/total-positivity literature remain a bounded residual risk."
+  ],
+  "schema_version": 1
+}
