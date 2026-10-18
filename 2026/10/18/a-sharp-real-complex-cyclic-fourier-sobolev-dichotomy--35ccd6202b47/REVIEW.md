@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Exact duality converts the real optimal coefficient into a maximum of the cycle Green quadratic form over sign vectors. The Green formula is verified by the discrete Laplacian identity. A continuous-circle unit-cell interpolation differs from that quadratic form only by a cardinality-dependent constant. The established circle Riesz rearrangement inequality therefore forces a consecutive maximizing subset; direct finite summation yields the parity formulas. Complex Fourier diagonalization gives the sharp complex coefficient and character optimizers. The norm-constant ratio and sole real–complex equality order follow from spectral eigenvector constraints. The checker tests the algebra but is not offered as infinite proof.
+
+**Originality — PASS, with historical uncertainty.** The fully inspected main finite-cycle 2026 sources concern logarithmic Sobolev inequalities, entropy and their cubic/quartic stability deficits, not the sharp real zero-mean \(\ell^1\)-energy inequality. A separate 2026 sharp discrete \(\ell^1\) result imposes zero exterior boundary conditions rather than cyclic mean zero and is not a covering result. Classical discrete Wirtinger theorems are \(\ell^2\)-to-energy results. A targeted published-mathematics record search and comparison of accessible mathematical statements found no equivalent, but older unindexed exact inequalities cannot be excluded without further historical scholarship. The circle rearrangement theorem itself is fully credited.
+
+**Value — PASS.** The sharp quantity is the natural real operator norm of the cyclic discrete antiderivative from energy \(\ell^2\) to \(\ell^1\), alongside the complex-valued analogue. The dual extremizer undergoes a structural change from a consecutive block Green potential to a pure Fourier character. The parity law, exact order-four coincidence and persistent asymptotic scalar-field gap give a complete natural family rather than an arbitrary finite slice.
+
+**Limitations.** One standard circle Riesz rearrangement theorem is used without re-proving its general form. Characterization of every real optimizer is not claimed. The verifier only checks finite cases. Unindexed historical priority remains a risk.
+
+Self-review: passed. Independent audit: not yet performed.
