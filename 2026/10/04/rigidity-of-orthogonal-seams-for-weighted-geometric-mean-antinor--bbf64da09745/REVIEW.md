@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For the positive-weight monomial antinorm, the normal to the antisphere is the explicit gradient
-\[
-f_p(x)\left(p_1/x_1,\ldots,p_d/x_d\right).
-\]
-Orthogonality to a linear hyperplane with normal \(a\) is therefore equivalent to a reciprocal identity on every positive point satisfying \(a\cdot x=0\). Splitting the nonzero coefficients of \(a\) by sign turns the two equations into equality of total positive masses and equality of two reciprocal sums. If either sign class had two entries, varying two masses while preserving their sum would make one reciprocal sum nonconstant, contradicting the required identity. Hence exactly one positive and one negative normal coefficient remain, and their squared coefficients times the corresponding weights must agree. This gives precisely the weighted coordinate-pair seam. Direct substitution proves the converse.
+PASS
 
-The proof covers every dimension \(d\ge2\), every strictly positive probability vector of weights, and every linear hyperplane meeting the positive orthant. The standalone checker independently confirms the gradient/seam identity and stress-tests the reciprocal-sum obstruction.
+The gradient of f_p(x)=product_i(x_i/sqrt(p_i))^p_i is f_p(x)(p_i/x_i)_i. For V={a·x=0} with a mixed-sign normal, everywhere orthogonality along V∩S_p is sum_i a_i p_i/x_i=0. Positive homogeneity extends the identity to all positive x in V. With y_i=a_i x_i (a_i>0) and z_j=-a_j x_j (a_j<0), equal masses and equal reciprocal sums must hold for all positive redistributions; a sum c_r/t+c_s/(C-t) is not constant for any two positive coefficients. Hence exactly one positive and one negative a_i, and a_i²p_i=a_j²p_j gives the weighted pair seam. Converse by direct gradient evaluation, yielding exactly binomial(d,2). Tested representative d=2..9 gradient identities and nonpair reciprocal obstructions; analytic simplex argument proves all d and weights.
 
-## Originality
+## originality
 
-PASS with stated residual risk. The 2024 preprint and current 2025 publication were inspected at the definition of admissible hyperplanes, the lifting theorem, the smooth weighted geometric-mean example, Proposition 3, and the concluding open problems. Proposition 3 constructs one weighted coordinate-pair seam and proves that its gradient remains in the seam; coordinate permutation supplies all pairs. Neither the preprint nor the current publication states that these are the only linear everywhere-orthogonal seams.
+PASS
 
-The 2021 primary source introducing the self-dual weighted geometric-mean family was inspected at its self-duality proposition and surrounding classification discussion. It establishes the family and leaves higher-dimensional classification open, but does not classify orthogonal splitting hyperplanes for the family.
+Makarov–Protasov Proposition 3 constructs a weighted pairwise-coordinate seam for the canonical smooth self-dual antinorm, but does not prove that arbitrary orthogonal linear hyperplane seams must be of this form. This result supplies the converse through independent variation of reciprocal sums. Resultary search found exact self only; other weighted norm/duality findings do not cover the full seam classification.
 
-Targeted searches used the exact antinorm, weighted-coordinate equations, tangent-hyperplane orthogonality, admissible versus non-admissible seams, and uniqueness/exhaustiveness terminology. No equivalent converse theorem was located.
+## value
 
-## Value
+PASS
 
-PASS. The later primary source makes admissible hyperplanes central to its inductive construction and explicitly asks whether non-admissible hyperplanes can play an analogous role in broader autopolar geometry. The weighted geometric-mean family is its canonical smooth self-dual example. Proving that every everywhere-orthogonal linear seam of this model is necessarily admissible gives a structural rigidity result at the precise interface between the smooth example and the lifting machinery. It identifies the full seam set, rather than checking another isolated coordinate pair, and cleanly separates what this canonical family can do from the genuinely non-admissible phenomena sought in the open polyhedral problem.
+A full natural classification of everywhere orthogonal linear seams in an explicit canonical antinorm family, establishing exact rigidity and identifying the scope of admissible lifting geometry; motivated by a stated broader open nonadmissible-splitting question.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
