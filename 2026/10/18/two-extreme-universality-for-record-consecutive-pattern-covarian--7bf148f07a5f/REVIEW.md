@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The exact covariance follows from independence of ranks outside the target window and an explicit Beta order-statistic moment inside it. The leading-order cancellation leaves only ranks \(k\) and \(k-1\), yielding the uniform-in-ambient-size inverse-square coefficient; exact-rational permutation enumeration and limiting-coefficient checks corroborate the proof. The tested cases do not substitute for the all-length argument.
+
+**Originality — PASS (same-model, residual risk).** The full accessible introduction and relevant scope of Janson's 2014 preprint concern 132-avoiding permutations and classical subsequence patterns, not unrestricted permutations with a position-specific consecutive pattern coupled to record count. The available full text of Elizalde's 2015 survey examines consecutive-pattern enumeration, with no record-count covariance result identified on text search. Janson–Nakamura–Zeilberger's earlier aggregate classical-pattern moment framework does not itself express the location-specific covariance theorem. Close indexed results treat fixed-point/descent local dependence and count/inversion covariance, not this two-highest-value universality law. Some older generalized-pattern or record-statistic literature could contain an equivalent mixed formula; that is the principal residual risk.
+
+**Mathematical value — PASS.** The exact formula handles arbitrary consecutive patterns, providing a structural separation between global record statistics and local relative-order events. The leading sign is universal across the \((k-2)!\) arrangements of lower ranks with the same top-two orientation, whereas the finite-position sign may reverse (already for pattern \(132\)). This matters for the covariance behavior of record-count statistics with position-weighted local pattern scans, and goes beyond enumerating one special pattern.
+
+Self-review: passed. Independent audit: not yet performed.
