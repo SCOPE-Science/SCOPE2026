@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and mathematical limits
 
-The complete proof uses only (i) the finite polynomial identity for exponentially tilted characteristic functions, (ii) a nonzero polynomial's inability to vanish on a circular arc, (iii) normalized factorization into independent Bernoulli probability-generating functions, and (iv) the explicit Fourier modulus of a tilted Bernoulli variable. These steps prove the claim for every finite support, with no numerical extrapolation.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external packages. The saved checker produced:
+## correctness
 
-```
-PASS: four Bernoulli factors yield nonnegative normalized PGF with expected negative roots
-PASS: 10648 exact integer coefficient triples; 608 ordinary-but-not-strong cases
-PASS: rational witness has tilted Fourier zero at angle 2.065012371258, but endpoint modulus 0.356537679935
-LIMIT: numerical point check not an infinite proof; full equivalence is established algebraically in RESULT.md
-```
+PASS
 
-All reported integer coefficient tests and the Bernoulli-factor identities use exact rational/integer arithmetic. The displayed angle and modulus use ordinary floating-point arithmetic only to illustrate the rational-algebraic witness. The complete infinite-degree-uniform theorem is a direct mathematical proof, not a purported computer certificate or independent verification.
+For any integer support shift k and r=e^theta, the exponentially tilted characteristic modulus is |P(re^{it})|/P(r). If P has a nonreal root re^{it0} (0<t0<pi), monotonicity would require nonnegative modulus to remain zero for the continuum t>=t0; nonzero polynomial cannot vanish on an arc. Nonnegative coefficients, positive constant and leading coefficients exclude nonnegative real roots, so all roots are strictly negative. Normalized factorization produces d independent Bernoulli PGFs, and each tilted Bernoulli modulus squared is 1-2q(1-q)(1-cos t), nonincreasing t∈[0,pi]. Handles d=0 deterministic case, support gaps and all real tilts, no hidden aperiodicity. Ordinary-not-strong witness 90+9z+z² has discriminant -279 and ordinary derivative inequality 9*(90+1)>4*90; tilt |root|=sqrt90 generates interior zero followed by nonzero endpoint.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Aamand–Alon–Houen–Thorup introduce strong monotonicity and prove sufficient Bernoulli examples and convolution closure, not the converse characterizing all finite-support laws by negative PGF zeros. Classical Aissen–Edrei–Schoenberg–Whitney real-root/total-positive-sequence theory and Bernoulli factorization are acknowledged as antecedents; their negative-root characterization alone is not equivalent to the new Fourier all-tilt monotonicity until the nonreal-zero obstruction is established. Targeted Resultary and mathematical literature searches did not identify an older full equivalence, with wording-alias risk retained.
+
+## value
+
+PASS
+
+PASS. This is a full structural characterization of a nontrivial analytic regularity class, turning an all-real-tilts Fourier-shape condition into an exact checkable algebraic root condition, including gaps and deterministic boundary. It proves the converse absent from the motivating work and supplies an explicit failure tilt for any nonreal root; the strict 3-point ordinary-versus-strong example shows the boundary is meaningful rather than a definition restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

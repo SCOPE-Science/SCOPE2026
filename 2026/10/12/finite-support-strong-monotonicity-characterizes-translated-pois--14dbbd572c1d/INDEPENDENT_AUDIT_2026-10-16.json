@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:17:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any integer support shift k and r=e^theta, the exponentially tilted characteristic modulus is |P(re^{it})|/P(r). If P has a nonreal root re^{it0} (0<t0<pi), monotonicity would require nonnegative modulus to remain zero for the continuum t>=t0; nonzero polynomial cannot vanish on an arc. Nonnegative coefficients, positive constant and leading coefficients exclude nonnegative real roots, so all roots are strictly negative. Normalized factorization produces d independent Bernoulli PGFs, and each tilted Bernoulli modulus squared is 1-2q(1-q)(1-cos t), nonincreasing t∈[0,pi]. Handles d=0 deterministic case, support gaps and all real tilts, no hidden aperiodicity. Ordinary-not-strong witness 90+9z+z² has discriminant -279 and ordinary derivative inequality 9*(90+1)>4*90; tilt |root|=sqrt90 generates interior zero followed by nonzero endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper establishes Bernoulli strong monotonicity and sum closure, covering (3)->(1) but not (1)->(2).",
+          "Aissen et al. characterize polynomial zero patterns and total positivity independently of Fourier tilt monotonicity."
+        ],
+        "reasoning": "The classical algebraic classification is necessary background; a covering theorem would need the analytic implication under exponential tilts, which the inspected sources do not supply.",
+        "searches": [
+          "arXiv:2104.03721 On Sums of Monotone Random Integer Variables",
+          "Aissen Edrei Schoenberg Whitney total-positive sequences",
+          "Poisson-binomial convolution closure"
+        ]
+      },
+      "checked_sources": [
+        "Git source tree 7b1af42b2adca269ea3212daa5e44ce8d2208b03 RESULT.md, REVIEW.md, VERIFICATION.md, verify.py identified",
+        "Aamand–Alon–Houen–Thorup arXiv:2104.03721, 8-page text",
+        "Aissen–Edrei–Schoenberg–Whitney PNAS 37 (1951), DOI 10.1073/pnas.37.5.303",
+        "Resultary strong Fourier tilt Poisson-binomial alias query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical proof gives real-rooted=>Bernoulli sum; motivating paper then yields strong monotonicity. The converse from Fourier monotonicity to real-rootedness needs the interior-circle zero obstruction and is not a known stated implication in these sources."
+        ],
+        "reasoning": "Prior work covers one direction, not the asserted equivalence; the circular nonreal-root obstruction is the essential new logical step.",
+        "searches": [
+          "Aamand et al. arXiv:2104.03721 definition and closure proof",
+          "Aissen Edrei Schoenberg Whitney 1951 real-rootedness",
+          "Poisson binomial standard factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aamand et al. define monotone and strongly monotone random integer variables and list Bernoulli examples under all tilts.",
+          "Classical Poisson-binomial PGF is a product of real negative linear factors."
+        ],
+        "reasoning": "The claimed all-tilt Fourier monotonicity equivalence is stronger than the one-way standard Bernoulli example; actual source examples and classical root results do not state the converse.",
+        "searches": [
+          "Resultary: strong monotonicity exponential tilt characteristic function modulus finite support real rooted Poisson binomial characterization",
+          "Aamand Alon Houen Thorup strong monotonicity finite support converse",
+          "Poisson binomial real-rooted PGF tilted Fourier modulus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No parameter table is involved; the finding classifies all finite integer probability laws by a root condition."
+        ],
+        "reasoning": "Known distribution tables and exact PGF products list members, not every member satisfying the analytic property.",
+        "searches": [
+          "Resultary semantically related Poisson-binomial findings",
+          "Poisson binomial probability generating polynomial classification"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Aamand–Alon–Houen–Thorup introduce strong monotonicity and prove sufficient Bernoulli examples and convolution closure, not the converse characterizing all finite-support laws by negative PGF zeros. Classical Aissen–Edrei–Schoenberg–Whitney real-root/total-positive-sequence theory and Bernoulli factorization are acknowledged as antecedents; their negative-root characterization alone is not equivalent to the new Fourier all-tilt monotonicity until the nonreal-zero obstruction is established. Targeted Resultary and mathematical literature searches did not identify an older full equivalence, with wording-alias risk retained.",
+      "residual_risks": [
+        "Unindexed earlier equivalent theorem from analytic characterizations of real-rooted generating functions could affect priority.",
+        "The signed finite-support integer and point-mass conventions are essential; infinitely supported Poisson/geometric examples are deliberately outside this theorem.",
+        "Exact discriminant witness was independently recomputed; source verify.py exhaustive coefficient grid was not reproduced and is unnecessary for the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward Bernoulli-sum inclusion, no finite-support converse root characterization in inspected text",
+          "evidence": "Strong monotonicity quantifies all exponential tilts; Bernoulli laws and independent sums are examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.03721",
+          "material_read": "Accessible full eight-page preprint and author manuscript material including strong monotonicity definition, Bernoulli examples, sum-closure and principal tail theorem",
+          "method": "Open-access PDF full text and corresponding public manuscript",
+          "title": "On Sums of Monotone Random Integer Variables",
+          "trigger": "Originating definition and sufficiency theorem for strong monotonicity"
+        },
+        {
+          "assessment": "Classical negative-real-root framework, not a Fourier-tilt characterization",
+          "evidence": "Real-negative polynomial PGFs split into normalized Bernoulli linear factors.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.37.5.303",
+          "material_read": "Abstract and indexed statements, not a claimed full page-by-page reading",
+          "method": "Published historical mathematical result search",
+          "title": "On the Generating Functions of Totally Positive Sequences",
+          "trigger": "Potential stronger coverage via real-rooted polynomials and total positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This is a full structural characterization of a nontrivial analytic regularity class, turning an all-real-tilts Fourier-shape condition into an exact checkable algebraic root condition, including gaps and deterministic boundary. It proves the converse absent from the motivating work and supplies an explicit failure tilt for any nonreal root; the strict 3-point ordinary-versus-strong example shows the boundary is meaningful rather than a definition restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git source tree 7b1af42b2adca269ea3212daa5e44ce8d2208b03 RESULT.md, REVIEW.md, VERIFICATION.md, verify.py identified",
+    "Aamand–Alon–Houen–Thorup arXiv:2104.03721, 8-page text",
+    "Aissen–Edrei–Schoenberg–Whitney PNAS 37 (1951), DOI 10.1073/pnas.37.5.303",
+    "Resultary strong Fourier tilt Poisson-binomial alias query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed earlier equivalent theorem from analytic characterizations of real-rooted generating functions could affect priority.",
+    "The signed finite-support integer and point-mass conventions are essential; infinitely supported Poisson/geometric examples are deliberately outside this theorem.",
+    "Exact discriminant witness was independently recomputed; source verify.py exhaustive coefficient grid was not reproduced and is unnecessary for the proof."
+  ],
+  "schema_version": 1
+}

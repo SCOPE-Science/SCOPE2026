@@ -1,15 +1,21 @@
-# Scientific review: finite-support strong monotonicity
+# Independent mathematical audit
 
-## Correctness — PASS
-For an arbitrary finite integer support, shifting by its least point gives a polynomial with positive constant and leading coefficients. The tilt identity is exact; an upper-half-plane zero yields an interior zero of a supposed nonincreasing nonnegative characteristic modulus, which would force infinitely many polynomial zeros. All remaining roots must be negative, and normalization factors the polynomial into Bernoulli probability-generating functions. Conversely every tilt of their independent sum has the Fourier modulus of another independent Bernoulli sum, hence is nonincreasing. The deterministic case and gaps are handled explicitly. The strict ordinary-versus-strong example has exact discriminant and endpoint calculations, with supplemental checker replay.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The full eight-page 2021 preprint arXiv:2104.03721 and an accessible eight-page 2022 author journal manuscript were inspected, including the exact definition, finite Bernoulli examples, closure remarks, and the tail theorem. They establish the forward inclusion but do not state the converse classification through real negative polynomial zeros. Classical real-rooted factorization and total-positive-sequence literature are acknowledged, rather than presented as new. Dedicated semantic searches of published mathematical findings and public literature for the theorem, Poisson-binomial aliases, root criteria, and tilting equivalences did not reveal stronger covering statements; absence of a match is not proof of worldwide priority. A differently worded older Fourier/zero characterization remains possible. Independent priority assessment is outstanding.
+PASS
 
-## Value — PASS
-The result completely classifies a naturally defined structural assumption used for tilted local-limit estimates, replacing universal checking over a continuum of tilts and angles with a finite root condition. It proves that among all finitely supported integer laws the condition admits no class beyond translated Poisson-binomial distributions and supplies a checkable zero-based obstruction. The three-point example shows that the classification addresses the genuinely stronger assumption rather than a routine restatement of the un-tilted property. It does not claim a classification for infinite-support laws or a general new tail theorem.
+For any integer support shift k and r=e^theta, the exponentially tilted characteristic modulus is |P(re^{it})|/P(r). If P has a nonreal root re^{it0} (0<t0<pi), monotonicity would require nonnegative modulus to remain zero for the continuum t>=t0; nonzero polynomial cannot vanish on an arc. Nonnegative coefficients, positive constant and leading coefficients exclude nonnegative real roots, so all roots are strictly negative. Normalized factorization produces d independent Bernoulli PGFs, and each tilted Bernoulli modulus squared is 1-2q(1-q)(1-cos t), nonincreasing t∈[0,pi]. Handles d=0 deterministic case, support gaps and all real tilts, no hidden aperiodicity. Ordinary-not-strong witness 90+9z+z² has discriminant -279 and ordinary derivative inequality 9*(90+1)>4*90; tilt |root|=sqrt90 generates interior zero followed by nonzero endpoint.
 
-## Closest literature and risks
-Aamand et al., arXiv:2104.03721 and DOI:10.1214/22-ECP500, define strong monotonicity and prove Bernoulli examples; their eight-page manuscripts do not present the reverse implication. Aissen et al., DOI:10.1073/pnas.37.5.303, provide historical context for real-rooted total positivity, not the stated tilted Fourier equivalence. Direct root factorization needs no external classification theorem. Primary residual risk: an equivalent spectral characterization may exist under different classical terminology. Computational tests corroborate only finite cases; the universal argument is analytic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Aamand–Alon–Houen–Thorup introduce strong monotonicity and prove sufficient Bernoulli examples and convolution closure, not the converse characterizing all finite-support laws by negative PGF zeros. Classical Aissen–Edrei–Schoenberg–Whitney real-root/total-positive-sequence theory and Bernoulli factorization are acknowledged as antecedents; their negative-root characterization alone is not equivalent to the new Fourier all-tilt monotonicity until the nonreal-zero obstruction is established. Targeted Resultary and mathematical literature searches did not identify an older full equivalence, with wording-alias risk retained.
+
+## value
+
+PASS
+
+PASS. This is a full structural characterization of a nontrivial analytic regularity class, turning an all-real-tilts Fourier-shape condition into an exact checkable algebraic root condition, including gaps and deterministic boundary. It proves the converse absent from the motivating work and supplies an explicit failure tilt for any nonreal root; the strict 3-point ordinary-versus-strong example shows the boundary is meaningful rather than a definition restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
