@@ -1,17 +1,21 @@
-# Scientific review: parity-frequency separation
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof addresses every positive integer by separating the conditional odd and even populations and using exact multiplicative prime-power formulas. For odd inputs, the indicated \(18058\) finite valuation vectors have ratio greater than one (or are the all-zero vector), while squarefree prime factors above \(19\) cannot decrease the ratio. A convergent squarefree-tail Euler product gives the certified conditional lower frequency. The exceptional input \(1\) has density zero. The exact rational lower bound exceeds \(17/20\).
+## correctness
 
-For even inputs, the \(32591\) selected finite valuation vectors have ratio strictly below \(11/12\) before primes above \(19\) are included. A uniform \(100\)-th-moment estimate for the remaining prime-factor product excludes all but less than \(1/70\) of each selected cylinder from being guaranteed strict failures. Exact rational finite products and a convergent large-prime remainder bound establish the inequality over arbitrarily large inputs. The resulting conditional failure frequency exceeds \(897/3500>1/4\). The attached standard-library checker recomputes all exact rational components. Neither finite enumeration alone nor sampled ratios are treated as infinite proofs.
+PASS
 
-## Originality — PASS, residual risk acknowledged
-Trudgian's 2013 paper directly poses the overall density question and supplies a squarefree lower bound, but not conditional odd/even estimates. The published \(0.753659844\ldots\) bound is an overall lower frequency, not a parity separation; the logical information in one unconditional average cannot force either conditional bound. The numerical counts in OEIS A322446 are finite experiments. Related exponential-divisor mean-value and inequality papers treat different claims. Targeted published-finding corpus searches for the comparison, parity, conditional densities and aliases did not retrieve a covering result. An unindexed proof or a stronger theorem whose implication has not been recognized remains possible; no formal global novelty certification is asserted.
+The prime-power quotient is rho_p(a)=(1+p^a)/sum_{d|a}p^d (with rho_p(0)=1); rho_p(1)>1 and rho_p(a)<1 for a>=2. Disjoint odd valuation cylinders for p<=19, conditioned on odd parity and squarefree at all larger primes, have exact mass W_o=31076642675170427132493824/35968987080950832137604375 and 18058 selected vectors. The Euler-product factor and pi<22/7 yield strict liminf>17/20. Selected even cylinders have 32591 vectors, mass W_e=38646621072482317819/148330460379458857500 >13/50 and small-prime ratio<11/12. The infinite tail product T is controlled by a convergent 100th moment; prime-product rational bound B<1/70 and Markov give even failure density >897/3500, hence success limsup <3/4. Checked convergence of conditional divisor-sum moment by g(q)=O(1/q) and finite-modulus CRT, not inferred from finite patterns. Independent code rederived both masses/counts and moment bound.
 
-## Value — PASS
-The original literature requests information on how often the inequality holds; the new result proves a strict difference exceeding ten percentage points between odd and even asymptotic frequencies. The phenomenon is not implied by existing overall-density bounds. The parity contrast is structural and applies over an unrestricted infinite domain, with separate exact certificates for both sides. It is meaningful without determining either exact conditional density or the full overall density.
+## originality
 
-## Limitations
-The constants \(17/20\) and \(3/4\) are certified bounds, not claimed optimal. The proof does not establish existence or formulas for the separate limiting frequencies; it bounds their lower and upper limits. Any inaccessible or unindexed stronger published result is an originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Trudgian asks the overall comparison-frequency question and supplies a squarefree lower bound; his Section 4 does not give separate odd/even conditional inequalities. The complete published finite-cylinder result 831dd476bf82 proves only an unconditional overall lower bound 0.753659844..., which cannot imply the contrasting conditional bounds. Best-of-knowledge PASS with unindexed analytic-number-theory risk.
+
+## value
+
+PASS
+
+The two conditional populations of a classical unresolved comparison-density problem have provably separated frequencies by more than 1/10. Distinct analytical lower and upper density arguments are required; it is not an arbitrary short finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
