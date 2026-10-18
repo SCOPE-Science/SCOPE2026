@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker verifies the two finite combinatorial ingredients used by the proof.
 
-For every
-\[
-1\le n\le16,
-\]
-it assigns powers-of-two weights to the first basis vector in each \(\mathbb C^2\)-factor and checks that all subset sums are pairwise distinct. Hence the tested one-parameter subgroups have exactly the tensor-coordinate lines as projective fixed points.
+# Independent mathematical audit
 
-For every
-\[
-1\le n\le10
-\]
-and every subset \(I_0\subseteq[n]\), it evaluates the diagonal specialization
-\[
-\phi(A,B)_I
-=
-\prod_{i\in I}a_i\prod_{i\notin I}b_i
-\]
-with
-\[
-(a_i,b_i)=(1,0)\quad(i\in I_0),
-\qquad
-(a_i,b_i)=(0,1)\quad(i\notin I_0),
-\]
-and confirms that exactly coordinate \(I_0\) is nonzero.
+## correctness
 
-Finite checks are regression evidence only. Distinctness for every \(n\) follows from uniqueness of binary expansion, and coordinate containment follows from the displayed exact diagonal formula. The all-parameter Euler statement then follows from the archival group invariance and algebraic \(\mathbb C^*\)-localization.
+PASS
+
+The original Lin–Sturmfels/Borodin–Rains determinantal-point variety is GL2(C)^n invariant. The diagonal cocharacter with powers-of-two weights yields pairwise distinct weights on 2^n standard tensor coordinates, hence these are the only ambient projective fixed points. Their membership is not assumed: for diagonal A,B, phi(A,B)_I=prod_{i in I}a_i prod_{i notin I}b_i, and 0/1 choices realize each coordinate point. The variety therefore contains all 2^n fixed points and no more. Euler C* localization gives chi_top(V_n)=2^n; ambient complement has chi_c=0. Independent code checked 510 such coordinate specializations for n<=8; proof holds all n.
+
+## originality
+
+PASS
+
+Borodin–Rains arXiv:math-ph/0409059 Theorem 4.2 proves GL2(C)^n semidirect Sn invariance and Theorem 4.4 dimensions/whole ambient through n<=3. Lin–Sturmfels arXiv:0812.0601 gives projective map/closedness, algebraic relations and same natural invariance. Neither main theorem computes Euler characteristic. The symmetric-principal-minor subvariety having analogous Euler value does not imply the general locus value (Euler is not monotone under inclusion). Searches under both naming conventions and Resultary did not reveal exact prior statement.
+
+## value
+
+PASS
+
+The general principal-minor variety has intricate equations and first becomes proper in n=4; obtaining an exact uniform global topological invariant for all n is a natural object-specific fact, not the scalar dimension/degree restated. The complement Euler cancellation is a useful invariant even when the individual Betti numbers are complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
