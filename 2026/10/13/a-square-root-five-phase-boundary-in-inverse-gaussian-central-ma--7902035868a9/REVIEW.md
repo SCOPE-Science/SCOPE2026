@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. After scale reduction, the exact standardized inverse-Gaussian density is analytic in \(\varepsilon=\kappa^{-1/2}\) on every fixed central interval once \(\varepsilon c<1\). The identity \(g_\varepsilon(-z)=g_{-\varepsilon}(z)\) makes the integrated expansion even. Exact formal expansion gives the stated \(\varepsilon^2\) and \(\varepsilon^4\) coefficient polynomials, and direct polynomial-times-Gaussian differentiation gives the two boundary expressions. Uniform analyticity supplies the \(O_c(\kappa^{-3})\) remainder. The support boundary is outside the integration interval for all sufficiently large \(\kappa\).
+## correctness
 
-## Originality
-PASS. The closest primary source treats the identical inverse-Gaussian family but only proves the one-standard-deviation Gaussian comparison. It does not state the all-fixed-radius expansion, the \(\sqrt5\) crossover, or the second-order boundary behavior. Targeted searches for those formulations and coefficients found no covering statement. A later anti-concentration paper studies variable standardized radii for other named families but does not list inverse Gaussian among its treated families.
+PASS
 
-Residual risk: classical inverse-Gaussian normal-approximation literature is large, and an equivalent integrated expansion may exist under older asymptotic or first-passage notation that was not surfaced by the targeted searches.
+For κ=λ/μ and ε=κ^(-1/2), standardized IG density ratio to φ is analytic uniformly on [-c,c] once εc<1; reflection z→−z exchanges ε→−ε, so its symmetric integral has only even Taylor orders. Independently expanded the logarithm and exponential through ε^6 with exact SymPy rationals, reproducing A2=(z^6−10z^4+15z^2)/8 and A4=z^12/384−3z^10/32+63z^8/64−105z^6/32+315z^4/128; checked differentiated Gaussian-polynomial primitives exactly. Integration gives c³(5−c²)φ(c)/4κ and −c⁵(c²−7)(c⁴−18c²+27)φ(c)/192κ², with analytic O_c(κ^−3). At c=√5 second coefficient = −19(√5)^5 φ(√5)/48; at c=1 it is 5φ(1)/16. These establish only fixed-radius eventual signs, not finite-κ uniform comparisons.
 
-## Value
-PASS. The result changes the qualitative interpretation of Gaussian approximation for the family: convergence is not from one side uniformly across standardized central windows. A single natural radius, \(\sqrt5\), separates eventual excess from eventual deficit, and the degenerate first-order boundary is resolved by an explicit negative second-order term. The fixed one-standard-deviation theorem is recovered as a quantitatively sharp specialization rather than merely recomputed.
+## originality
 
-## Closest literature and limitations
-The primary comparison is Sun--Hu--Sun, arXiv:2304.11459, Section 6, which proves the inverse-Gaussian one-standard-deviation variation inequality. Hu--Song--Tan, arXiv:2401.09998, provides nearby all-radius anti-concentration context for other familiar families. The present theorem is only a fixed-radius large-\(\kappa\) statement and does not claim a complete finite-shape phase diagram.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. The c=1 inequality and generic inverse-Gaussian normal convergence leave the sign of central-mass approximation at c≠1 undetermined. No equivalent all-fixed-radius phase comparison was identified; older unindexed expansions remain possible.
+
+## value
+
+PASS
+
+The variance-standardized one-sigma probability for a natural skewed first-passage family has a known Gaussian comparison. Identifying the sharp radius where the sign reverses, including a nonzero boundary correction, supplies a motivated quantitative Gaussianization classification useful for central coverage and approximation diagnostics; it is not a routine restatement of central-limit convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

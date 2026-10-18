@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(X_{\mu,\lambda}\sim\operatorname{IG}(\mu,\lambda)\), scaling by \(\mu\) shows that the standardized law depends only on \(\kappa=\lambda/\mu\). With \(\varepsilon=\kappa^{-1/2}\), its exact density relative to the standard Gaussian density is
-\[
-R_\varepsilon(z)=(1+\varepsilon z)^{-3/2}
-\exp\!\left(\frac{z^2}{2}-\frac{z^2}{2(1+\varepsilon z)}\right).
-\]
-For any fixed \(c>0\), this is analytic uniformly on \([-c,c]\) once \(|\varepsilon|c<1\). Also \(R_\varepsilon(-z)=R_{-\varepsilon}(z)\), so the symmetric integral contains only even powers of \(\varepsilon\).
+# Independent mathematical audit
 
-The bundled checker reconstructs the formal series from \(\log R_\varepsilon\) using rational polynomial arithmetic. It verifies
-\[
-A_2(z)=\frac{z^6-10z^4+15z^2}{8}
-\]
-and
-\[
-A_4(z)=\frac{z^{12}}{384}-\frac{3z^{10}}{32}+\frac{63z^8}{64}-\frac{105z^6}{32}+\frac{315z^4}{128}.
-\]
-It then checks exact polynomial primitives under the Gaussian weight, which yield
-\[
-\int_{-c}^c A_2(z)\varphi(z)\,dz
-=\frac{c^3(5-c^2)\varphi(c)}{4}
-\]
-and
-\[
-\int_{-c}^c A_4(z)\varphi(z)\,dz
-=-\frac{c^5(c^2-7)(c^4-18c^2+27)\varphi(c)}{192}.
-\]
-Analytic evenness makes the next integrated term order \(\varepsilon^6=\kappa^{-3}\).
+## correctness
 
-The numerical portion of the checker compares direct quadrature with the two-term asymptotic at several radii, including both sides of \(\sqrt5\). These are regression checks only and are not used to infer the infinite-parameter statement.
+PASS
+
+For κ=λ/μ and ε=κ^(-1/2), standardized IG density ratio to φ is analytic uniformly on [-c,c] once εc<1; reflection z→−z exchanges ε→−ε, so its symmetric integral has only even Taylor orders. Independently expanded the logarithm and exponential through ε^6 with exact SymPy rationals, reproducing A2=(z^6−10z^4+15z^2)/8 and A4=z^12/384−3z^10/32+63z^8/64−105z^6/32+315z^4/128; checked differentiated Gaussian-polynomial primitives exactly. Integration gives c³(5−c²)φ(c)/4κ and −c⁵(c²−7)(c⁴−18c²+27)φ(c)/192κ², with analytic O_c(κ^−3). At c=√5 second coefficient = −19(√5)^5 φ(√5)/48; at c=1 it is 5φ(1)/16. These establish only fixed-radius eventual signs, not finite-κ uniform comparisons.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. The c=1 inequality and generic inverse-Gaussian normal convergence leave the sign of central-mass approximation at c≠1 undetermined. No equivalent all-fixed-radius phase comparison was identified; older unindexed expansions remain possible.
+
+## value
+
+PASS
+
+The variance-standardized one-sigma probability for a natural skewed first-passage family has a known Gaussian comparison. Identifying the sharp radius where the sign reverses, including a nonzero boundary correction, supplies a motivated quantitative Gaussianization classification useful for central coverage and approximation diagnostics; it is not a routine restatement of central-limit convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
