@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Hoeffding-orthogonality decomposition gives an exact nonnegative sum-of-squares formula for every scalar contrast's long-run variance. It vanishes precisely for adjacent-pair coboundaries. Explicit three-symbol equations classify the pattern-constant coboundaries; two symbols supply one extra null direction. Exact rational covariance matrices independently confirm the ranks for nine different positive-mass laws. The analytical argument covers every fixed finite support size and every strictly positive mass vector.
+
+**Originality — PASS on inspected evidence, subject to the stated access risk.** The closest statistical paper, Weiß--Schnurr, supplies the generalized pattern framework, iid null probabilities, covariance formulas and bootstrap tests, including its printed two-point-pattern covariance proposition. Schnurr--Fischer gives the general weak-order theory and limit theorems. Bandt gives covariance rank four for six *strict* patterns of continuous white noise. None of the inspected primary material asserts the complete tie-aware thirteen-coordinate nullspace or its jump between two and three categories. Search records and their mathematical implications are detailed in AUDIT.json; unsuccessful searches are not a uniqueness proof. The full publisher text of Weiß--Schnurr was not separately downloaded, leaving historical-priority risk.
+
+**Value — PASS.** The thirteen nominal categories do not constitute thirteen independent Gaussian fluctuation directions. The theorem determines the exact effective dimension and every redundant linear contrast independently of nuisance symbol masses, which is essential for correctly formulating singular-covariance Wald or quadratic calibrations in tie-aware ordinal time-series testing. The binary case has an additional telescoping constraint invisible from normalization alone; the transition to three symbols removes it. This classification is more informative than a covariance table or an isolated small-alphabet computation.
+
+The result assumes iid finite-alphabet data with fixed positive masses and specified null probabilities for the stated chi-square interpretation. Equivalence to an unindexed earlier result cannot be excluded without independent historical review.
+
+Self-review: passed. Independent audit: not yet performed.
