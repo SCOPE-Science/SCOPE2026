@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published binary-nestohedron H-description has fixed total coordinate sum and one lower facet inequality for each proper building-set element. Projecting each indicator normal into the fixed-sum translation space gives norm
-\[
-\sqrt{\frac{|I|(m-|I|)}m}.
-\]
-Every frontier partitions the ground set, so summing its normalized clearance inequalities gives the stated radius upper bound. Laminarity gives the converse: recursively, the minimum mass required by a subtree is the maximum of its own shifted facet bound and the sum of its child requirements. The root requirement is the maximum over all frontiers, so the minimum frontier ratio is feasible. The same normalized inequalities give every optimal center.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the binary-building-set definition, nestohedron H-description, face theorem, and fertilitope characterization, with targeted searches for inradius and Chebyshev-center terminology. Candidate-specific published-result and literature searches covered fertilitope, binary nestohedron, largest-inscribed-ball, Chebyshev-center, and laminar-frontier formulations. No covering theorem was located.
+PASS
 
-## Value
-PASS. Fertilitopes are a canonical recent family tied to stack-sorting and classified by binary nestohedra. The result works for every connected fertilitope, not a low-dimensional slice, and converts its Euclidean Chebyshev problem into a finite frontier optimization on the laminar inclusion tree. The full incenter polyhedron adds structural information beyond the radius alone.
+The proof correctly normalizes each proper facet normal by projecting 1_I into H_0={sum u_i=0}, giving nu_I=sqrt(|I|(m-|I|)/m). Summing shifted inequalities over every disjoint tree frontier proves the upper bound. The inclusion-tree recursion M_I=max(z_I+rho nu_I,sum_child M_J) and a root-to-leaf mass allocation prove feasibility at the minimum; all optimal centers are exactly the shifted-facet polyhedron. Positive weights and connected root imply all asserted facets; no infinite argument relies on enumeration. Independently solving a Chebyshev LP in two nontrivial laminar examples agrees with the frontier quotients.
 
-## Closest literature and limitations
-The closest source supplies the complete laminar H-description, face structure, integrality, and fertilitope classification but no Euclidean radius optimization. The theorem is realization-specific and does not claim an analogous formula for arbitrary nonlaminar nestohedra or determine enclosing spheres and extremal ellipsoids.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A laminar frontier-cut inradius theorem is stronger than the existing nestohedral facet system and fertilitope realization. Resultary search exposed the same submitted record and neighboring metric polytopes but no prior result with the identical frontier formula. This is bounded, best-of-knowledge novelty rather than search-based proof of priority.
+
+## value
+
+PASS
+
+The formula replaces a continuous Euclidean inball optimization on a natural class of nestohedra/fertilitopes with an exact finite cut problem on the associated rooted laminar tree, and describes the entire center locus. These are independently useful geometric invariants, not simply relettered facet inequalities or table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

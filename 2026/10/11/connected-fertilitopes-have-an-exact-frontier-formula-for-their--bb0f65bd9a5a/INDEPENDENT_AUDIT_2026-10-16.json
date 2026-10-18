@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:19:42.108544Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof correctly normalizes each proper facet normal by projecting 1_I into H_0={sum u_i=0}, giving nu_I=sqrt(|I|(m-|I|)/m). Summing shifted inequalities over every disjoint tree frontier proves the upper bound. The inclusion-tree recursion M_I=max(z_I+rho nu_I,sum_child M_J) and a root-to-leaf mass allocation prove feasibility at the minimum; all optimal centers are exactly the shifted-facet polyhedron. Positive weights and connected root imply all asserted facets; no infinite argument relies on enumeration. Independently solving a Chebyshev LP in two nontrivial laminar examples agrees with the frontier quotients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant Theorem 3.2 identifies integral binary nestohedra; Theorem 2.10 and its H-description give their facets and nesting, not a Euclidean optimization."
+        ],
+        "reasoning": "A stronger polymatroid/laminar Chebyshev theorem could cover the result, but the inspected source has no such distance-normalized formula and searched neighbors address different polytopes.",
+        "searches": [
+          "Resultary: Fertilitopes binary nestohedra Euclidean inradius frontier laminar Chebyshev inscribed ball",
+          "arXiv:2102.11836 §§2.6,3",
+          "web: generalized permutohedron laminar base polytope inball"
+        ]
+      },
+      "checked_sources": [
+        "Defant arXiv:2102.11836v2 pp.2–3,12–13,21",
+        "Resultary q=Resultary: Fertilitopes binary nestohedra Euclidean inradius frontier laminar Chebyshev inscribed ball",
+        "Git RESULT.md tree 6845e1fdb7f2d431d788908d9a6b58a906afe056"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source furnishes c(I)>=z_I; new proof projects 1_I into the sum-zero hyperplane with norm sqrt(|I|(m-|I|)/m).",
+          "The inclusion-tree dynamic-programming recursion M_I=max(L_I,sum child M_J) proves sufficiency of all partition/frontier cuts, not present in the source."
+        ],
+        "reasoning": "The original nestohedron theorem does not logically imply this explicit minimax frontier quotient without the metric projection and laminar feasibility argument.",
+        "searches": [
+          "arXiv:2102.11836 p.12 facet inequalities and p.3 Theorem 3.2",
+          "Resultary: Fertilitopes binary nestohedra Euclidean inradius frontier laminar Chebyshev inscribed ball"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant supplies z_I=sum_{J subset I}y_J and the H-description, but no projected-normal weighted frontier minimum.",
+          "The incenter system is a Chebyshev-center LP; the more specific laminar partition ratio does not follow from the generic label alone."
+        ],
+        "reasoning": "Alias search included inball, Chebyshev-center, inradius and polymatroid base-polytope language, not just fertilitopes; no implication-equivalent theorem was located.",
+        "searches": [
+          "Resultary: Fertilitopes binary nestohedra Euclidean inradius frontier laminar Chebyshev inscribed ball",
+          "web: fertilitopes inradius nestohedra laminar Chebyshev center",
+          "arXiv:2102.11836 Theorems 2.9, 2.10, 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top Resultary hit is this exact candidate, while next nearest hits concern bistar edge polytopes, rank-selected Boolean polytopes, etc.",
+          "No externally indexed exact inradius table for fertilitopes was identified."
+        ],
+        "reasoning": "Potential table coverage checked under the invariant and object, not assumed absent from title mismatches.",
+        "searches": [
+          "Resultary: Fertilitopes binary nestohedra Euclidean inradius frontier laminar Chebyshev inscribed ball",
+          "Resultary: fertilitope inradius exact table",
+          "web: binary nestohedron largest inscribed ball"
+        ]
+      },
+      "rationale": "A laminar frontier-cut inradius theorem is stronger than the existing nestohedral facet system and fertilitope realization. Resultary search exposed the same submitted record and neighboring metric polytopes but no prior result with the identical frontier formula. This is bounded, best-of-knowledge novelty rather than search-based proof of priority.",
+      "residual_risks": [
+        "A more general Chebyshev theorem for laminar polymatroid bases could subsume the result under unfamiliar terminology.",
+        "The computational checks on m<=6 cannot certify all m; the recursion supplies the infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_INPUT_NOT_COVERING_METRIC_FORMULA",
+          "evidence": [
+            "theorem 2.10 equations (3) and (4) specify lower-sum facet constraints, but not normalized Euclidean inradius"
+          ],
+          "identifier_or_url": "arXiv:2102.11836v2 / doi:10.1007/s00454-023-00488-y",
+          "material_read": "PDF pp.2–3 and 12–13: binary building-set definition, full-dimensional connected nestohedra, Theorems 2.9–2.10, z_I facet system; Theorem 3.2 classification cross-checked via pp.3,21",
+          "method": "read full-text mathematical sections via PDF text and page image",
+          "title": "Fertilitopes",
+          "trigger": "same object and primary classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula replaces a continuous Euclidean inball optimization on a natural class of nestohedra/fertilitopes with an exact finite cut problem on the associated rooted laminar tree, and describes the entire center locus. These are independently useful geometric invariants, not simply relettered facet inequalities or table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict positive weights and connected binary building sets only; metric is standard affine-hull Euclidean.",
+    "Published original does not state an inradius theorem; bibliographic dominance risk remains under polymatroid aliases."
+  ],
+  "schema_version": 1
+}
