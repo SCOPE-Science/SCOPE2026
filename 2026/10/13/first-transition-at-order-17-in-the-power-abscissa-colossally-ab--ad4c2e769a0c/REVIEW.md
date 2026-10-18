@@ -1,19 +1,21 @@
-# Self-review: first power-abscissa contact transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Musin's reference-secant lemma reduces the first contact to the smallest global maximizer of \(J_k\). Alaoglu–Erdős critical prime increments give 56 separately certified events above the \(167\) threshold, with precisely 42 eligible contact candidates above \(55440\) and below \(10^{65}\). An exhaustive 110-digit outward-rounded interval comparison proves the CA-index-\(15\) number \(6983776800\) strictly maximizes \(J_{17}\) over those candidates, with a gap of at least \(1.6\%\) over any competitor. Independently, Robin's unconditional bound yields a strictly decreasing upper fence on every larger integer, below \(300000\) against the chosen score exceeding \(173600000\). This is a complete infinite proof, not finite-experiment extrapolation. The verifier recovers the known level-\(16\) and finite level-\(32\) benchmarks.
+PASS
 
-## Originality — PASS
+The source defines Musin A_k(1,2) via the first maximizer of reference secants for F(u)=exp(u^2), rho=sigma/n and u=loglog n, reference n=55440. Independently recomputing Alaoglu–Erdos critical increments using high-precision mpmath gave 56 strict events to cutoff eps(167,1), 42 candidates below 10^65, classical index 15 n=6983776800 with J17 approximately 173,611,222 versus nearest 170,810,097, and index 10 n=720720 maximizes J16. Independently evaluating Robin tail B(5) gave about 295,370 (<300000), and derivative log upper numerator <17/u vs denominator >2u for u>=5 proves no larger contact. Inspected original artifacts/verify.py for directed Decimal outward intervals and primorial exhaustive finite-cover logic. Mathematical claim is only first transition at k17, with k<=16 plateau imported from source, not higher jumps.
 
-The primary full text (Musin, arXiv:2609.33794v1) explicitly certifies orders \(1\)–\(16\) at classical index \(10\) and next tabulates order \(32\) at index \(27\); the precise order-\(17\) winner is not given. The value \(6983776800\) appearing in the same paper at order \(3\) belongs to the **different** abscissa \(F(u)=\exp(u)\), so that theorem does not imply the order-\(17\) statement here. Exact-form, parameter, table and published-finding corpus searches found no equivalent/stronger exp-square first-transition result. A prior prime-support theorem for order-\(8\) contacts concerns another property and does not imply the winner. The paper's ancillary interval material was not independently read, so possible extra unindexed calculations there remain an access risk.
+## originality
 
-## Value — PASS
+PASS
 
-The order-\(1\) through \(16\) contact plateau and the paper's focus on first-contact growth make the **first exact transition** a natural invariant. Establishing that it occurs precisely at order \(17\), and identifying the new optimizer, answers an unknown transition question directly motivated by the table's gap rather than an arbitrary census extension. The result involves nontrivial full-tail exclusion, not a normalization or tiny gain.
+For exactly the exp(u^2) coordinate (not exp(u)), the new claim identifies first order-17 contact and 16-level plateau length. Resultary semantic query found no same contact result; the mathematical distinction from the value appearing at order3 in exp(u) coordinates is decisive. However the strongest same-source Musin 2026 primary full text and ancillary table were inaccessible after lawful OA attempts and an authorized institutional request reporting vpn_disconnected. This is a MATERIAL source-inspection risk, not a claim that the entire paper was read or proved non-covering.
 
-## Limitations and closest literature
+## value
 
-Musin supplies the overall theory and published adjacent-level anchors; only the missing first transition in his \(A_k(1,2)\) coordinates is added. The theorem neither determines the next jump nor improves asymptotic bounds. OEIS A004490 lists the underlying classical colossally abundant number but not the claimed hierarchy transition. The separate ancillary archive was unavailable for direct inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first change after the primary work's tabulated order-1..16 plateau is the sharp structurally natural transition point in the hierarchy, an unknown exact value directly motivated by a missing parameter row. An infinite-tail argument is required beyond a finite contacts spreadsheet.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
