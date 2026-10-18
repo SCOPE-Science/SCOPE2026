@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The classification is analytic. The channel operator system contains every branch coordinate projector
-\[
-|e_{j+1}\rangle\langle e_{j+1}|,
-\]
-so a quantum code of dimension at least two must annihilate all branch coordinates and hence lie in the protected qubit sector. The cross operators are
-\[
-E_0^*E_j=\langle f_1,\phi_j\rangle |e_1\rangle\langle e_{j+1}|,
-\]
-which force every scalar block coexisting with that qubit to be supported on the zero-overlap branch coordinates. This yields at most \(z\) such scalar blocks, and the coordinate lines attain the bound.
+## correctness
 
-The purely classical code of size \(m+1\) is realized by the input lines \(e_0,e_2,\ldots,e_{m+1}\), whose output supports are \(f_0,\phi_1,\ldots,\phi_m\). Output dimension rules out a larger exact classical code. The two maximal candidates are comparable exactly when \(m+1\le z+2\), and since \(z\le m-1\), this occurs exactly at \(z=m-1\).
+PASS
 
-The attached checker `artifacts/verify.py` independently constructs representative Kraus families, confirms trace preservation and the zero-overlap count, and checks the relevant cross-operator coefficients. It returns `VERIFY_OK` using only the Python standard library. These finite examples corroborate but do not replace the all-\(m\) proof.
+For all m≥2, the displayed Kraus operators satisfy Σ E_a*E_a=I. Since each branch projector Q_j=|e_{j+1}><e_{j+1}| belongs to the channel operator system and rank(Q_j)=1, scalar compression P Q_j P=λ_j P forces λ_j=0 for any code quantum block dimension≥2, hence the entire block lies in the protected C=span(e0,e1) and can have dimension only 2. Cross terms E0*Ej=α_j|e1><e_{j+1}| then force scalar code lines coexisting with that block to be supported only on the z exactly zero-overlap coordinates. These z coordinate lines attain the maximum hybrid algebra M2⊕C^z. The orthogonal output supports f0,φ1,...,φ_m yield C^{m+1}; output dimension rules out any larger classical message count. The *-embedding relation C^{m+1}≤M2⊕C^z iff m+1≤z+2, and z≤m−1, proves the two maximal types and the unique dominating aligned case. Haar-random orthonormal basis has every α_j≠0 almost surely, so z=0. Representative packaged code was inspected, but generality follows algebraically not from finite examples.
 
-Unproved limits: no approximate-error threshold, tensor-power classification, entanglement-assisted version, or higher-rank-branch analogue is asserted.
+## originality
+
+PASS
+
+Extends an actual four-input/three-output published non-domination witness into an arbitrary-m continuous family of rank-one branch bases, exactly classifying the zero-overlap phase boundary and the Haar-generic two-maxima regime. Published criteria do not state this explicit all-m/z classification.
+
+## value
+
+PASS
+
+Exact classification of maximal hybrid quantum-classical codes across an arbitrary-dimensional physically interpretable channel family, with sharp aligned exception and Haar-generic non-domination, resolves whether the recently observed pathology is isolated or stable. Nontrivial operator-system structure and embedding order are both essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
