@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:01:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With 1<R, epsilon>0 and G=diag([[-1,1],[1,-1]],[[-R,R],[R,-R]]), the two-dimensional Krylov subspace spanned by z=(1,0,epsilon,0) and Gz has no nonzero vector in ker G, so its Ritz nodes satisfy lambda_-<lambda_+<0. The standard 2-node Lanczos polynomial p_t(s) interpolating e^(ts) yields component multipliers (p_t(-1), positive slope, epsilon p_t(-R), R epsilon positive slope)/(1+epsilon). Rayleigh inequalities force p_t(-1)>0. At t>0 only p_t(-R) can become negative, exactly when the lower Ritz node exceeds -R; then it has the unique crossing t*=log((R+lambda_+)/(R+lambda_-))/(lambda_+-lambda_-). Sylvester criterion on H+RM=(Z^T(G+RI)Z) with first principal minor R-1>0 gives det(H+RM)=-R[R³epsilon^4+2R(R²-2R+2)epsilon²+2-R]. Thus all-time positivity iff that polynomial is >=0; for R>2 it has one positive root in u=epsilon². The epsilon->0 positive limit of t* is half log(R/(R-2)), though epsilon=0 exactly is an invariant exact 2-state case. Independently reconstructed H,M and symbolic determinant using SymPy, confirming exact witness R=4,epsilon=1/8 with polynomial -47/64 and Gram values. No claim about irreducible or general Markov chains.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Ritz polynomial exactness covers p_t(G)z; the mass-threshold determinant -R P_R(epsilon²), unconditional R<=2 and critical epsilon curve are not in those general interpolation claims."
+        ],
+        "reasoning": "A general interpolation formula is stronger computational machinery but does not fix the sign of physical entries of this specific Markov graph without the new compressed determinant and geometry.",
+        "searches": [
+          "Saad (1992) DOI:10.1137/0729014",
+          "Frommer–Güttel–Schweitzer MIMS 2013.48",
+          "Resultary prior exact horizon fb3579f163d8"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8/RESULT.md",
+        "https://www-users.cse.umn.edu/~saad/PDF/RIACS-90-ExpTh.pdf",
+        "MIMS EPrint 2013.48",
+        "DOI:10.1137/13093491X",
+        "Resultary semantic search: Lanczos Krylov Markov generator positivity projected exponential two reversible two-state blocks negative probabilities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diagonal basis theorem determines signs of q_t(A)b in its coordinate basis only; Markov G physical coordinate basis is an orthogonal mixing of eigenspaces."
+        ],
+        "reasoning": "Transformation to eigenbasis yields mixed signed initial coordinates and cannot import the old all-positive-coordinate conclusion; direct analysis of 4 physical components and Sylvester determinant adds a non-implied safe/unsafe parameter split.",
+        "searches": [
+          "Resultary exact positivity horizon fb3579f163d8",
+          "Saad 1992 Sections 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Older diagonal-positive theorem proves the same affine two-Ritz interpolation and a top-eigenvalue time horizon, but assumes diagonal positive definite A and all entries of b>0."
+        ],
+        "reasoning": "Compared equivalent e^(-tA)b versus e^(tG)z, Markov reversible similarity transformations and physical-coordinate sign preservation; eigenbasis changes do not preserve the nonnegative cone.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 full RESULT.md",
+          "Resultary semantic search: Lanczos Krylov Markov generator positivity projected exponential two reversible two-state blocks negative probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier numerical witness concerns diagonal three-mode positive system; no published exact table located for this four-state two-link Markov phase in (R,epsilon)."
+        ],
+        "reasoning": "The stated witness R=4 and exact root u=(3sqrt3-5)/8 is part of the new family diagram, not a priority claim about spectral interpolation.",
+        "searches": [
+          "Resultary semantic search: Lanczos Krylov Markov generator positivity projected exponential two reversible two-state blocks negative probabilities",
+          "Resultary diagonal-positive horizon 2026/10/4/...fb3579f163d8"
+        ]
+      },
+      "rationale": "The 2013 Frommer–Güttel–Schweitzer and 1992 Saad Krylov papers supply basic Ritz-interpolation tools, not all-time Markov probability sign conditions. Closest Resultary SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 proves a related *diagonal positive definite matrix with strictly positive physical-coordinate start* horizon, whose core affine-interpolant formula is a true prior ingredient. Here the exact Markov generator has zero eigenvalues, a non-diagonal physical basis, a start with zeros and specific variable rate/mass parameters, and a different unconditional safe regime R<=2; that diagonal theorem does not directly entail the explicit R-epsilon positivity phase and crossing threshold. The retained novelty is the complete mass-conditioned reversible two-link classification, not a new general interpolation identity.",
+      "residual_risks": [
+        "Strong common use of the same two-node interpolation mechanism means another positive-semigroup result might imply the specific Markov threshold under a different physical-coordinate formulation.",
+        "The generator is reducible; neither irreducibility nor minimal state dimension is claimed.",
+        "The approximation fails exact mass conservation as well as positivity; the theorem is strictly about sign and positive normalization cannot cure it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_METHOD_NOT_SAME_PHYSICAL_CONE",
+          "evidence": "Its A is diagonal positive definite and b_i strictly positive, whereas the Markov target has two zero eigenvalues, a non-diagonal physical basis and initial zero-state masses.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8/RESULT.md",
+          "material_read": "Read entire published RESULT.md, assumptions, theorem, exact Ritz interpolation proof, witness, scope and limitations",
+          "method": "Full original research file read from published repository",
+          "title": "The Exact Positivity Horizon of the Two-Step Lanczos Exponential",
+          "trigger": "Strongest identified related exact 2-step positive-system result"
+        },
+        {
+          "assessment": "PROOF_INGREDIENT_ONLY",
+          "evidence": "General Krylov exponential interpolation cannot itself imply the full R-epsilon physical-coordinate positivity criterion.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~saad/PDF/RIACS-90-ExpTh.pdf",
+          "material_read": "Original full preprint was available; inspected basic Krylov matrix exponential approximation and interpolation formulation, rather than Markov-specific sign classification",
+          "method": "Full lawful author-hosted PDF; relevant formulas and theorem statement comparison",
+          "title": "Analysis of Some Krylov Subspace Approximations to the Matrix Exponential Operator",
+          "trigger": "Foundational 2-step polynomial interpolation and subspace identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity is a physical probability constraint for a Markov semigroup, so an exact safe/unsafe criterion for the ordinary minimal nontrivial Lanczos approximation provides an analytically sharp benchmark. The rare-block late-time negative component and nonzero finite epsilon->0 crossing time distinguish semigroup positivity from projected Krylov behavior, with explicit limits and no claim of universality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8/RESULT.md",
+    "https://www-users.cse.umn.edu/~saad/PDF/RIACS-90-ExpTh.pdf",
+    "MIMS EPrint 2013.48",
+    "DOI:10.1137/13093491X",
+    "Resultary semantic search: Lanczos Krylov Markov generator positivity projected exponential two reversible two-state blocks negative probabilities"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strong common use of the same two-node interpolation mechanism means another positive-semigroup result might imply the specific Markov threshold under a different physical-coordinate formulation.",
+    "The generator is reducible; neither irreducibility nor minimal state dimension is claimed.",
+    "The approximation fails exact mass conservation as well as positivity; the theorem is strictly about sign and positive normalization cannot cure it.",
+    "Scientific assessment complete, but no complete package-wide neutral public replacements/guards.",
+    "No publication/closeout or GitHub writes made."
+  ],
+  "residual_risks": [
+    "Strong common use of the same two-node interpolation mechanism means another positive-semigroup result might imply the specific Markov threshold under a different physical-coordinate formulation.",
+    "The generator is reducible; neither irreducibility nor minimal state dimension is claimed.",
+    "The approximation fails exact mass conservation as well as positivity; the theorem is strictly about sign and positive normalization cannot cure it."
+  ],
+  "schema_version": 1
+}

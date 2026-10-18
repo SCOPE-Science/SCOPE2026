@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The all-time sign law is derived from the exact two-dimensional Krylov compression. For \(R>1\) and \(\varepsilon>0\), its Ritz eigenvalues satisfy \(\lambda_-<\lambda_+<0\). The affine interpolant \(p_t\) of the exponential has strictly positive slope for \(t>0\). Three computed coordinates are therefore positive, and the fourth has the sign of \(p_t(-R)\). The criterion for a negative value is precisely \(\lambda_->-R\). A direct compressed-Gram determinant calculation gives
-\[
-\det(H+RM)=-R\big(R^3\varepsilon^4+2R(R^2-2R+2)\varepsilon^2+2-R\big).
-\]
-The other Sylvester minor is \(R-1>0\). This proves the complete rate/mass phase diagram. The interpolation formula yields the unique crossing time and the rare-mass limit. The exact rational witness is replayed by an embedded standard-library checker.
+## correctness
 
-## Originality
-PASS with explicit residual risk. Saad's full original analysis and Frommer–Güttel–Schweitzer's full archived preprint already supply the Ritz-interpolation identity, matrix-exponential Krylov framework, and norm-error analysis. Those ingredients are acknowledged as prior and do not themselves give a stochastic sign classification. Searches for equivalent Markov generator, rare-mass, rate-contrast, positivity, and Krylov expressions did not locate the displayed determinant criterion or its all-time consequences. A previous diagonal Lanczos spectral-width positivity law is a different worst-case fixed-time statement: it does not determine this fixed Markov generator's exact all-time phase diagram. The closest accessible alternative classical exponential paper was inspected at abstract level only; that is retained as a risk, not a claim of full noncoverage.
+PASS
 
-## Value
-PASS. On two independent reversible Markov links, the exact evolution is stochastic for all times, but ordinary two-step Lanczos can assign a negative probability to a rare fast state. The precise transition depends on both link-rate contrast and initial rare mass, and the first sign violation remains at finite time as that mass tends to zero. This is a complete natural model classification and a useful warning about assessing probability propagation only by Krylov norm error. Renormalizing the computed mass cannot correct the negative sign.
+With 1<R, epsilon>0 and G=diag([[-1,1],[1,-1]],[[-R,R],[R,-R]]), the two-dimensional Krylov subspace spanned by z=(1,0,epsilon,0) and Gz has no nonzero vector in ker G, so its Ritz nodes satisfy lambda_-<lambda_+<0. The standard 2-node Lanczos polynomial p_t(s) interpolating e^(ts) yields component multipliers (p_t(-1), positive slope, epsilon p_t(-R), R epsilon positive slope)/(1+epsilon). Rayleigh inequalities force p_t(-1)>0. At t>0 only p_t(-R) can become negative, exactly when the lower Ritz node exceeds -R; then it has the unique crossing t*=log((R+lambda_+)/(R+lambda_-))/(lambda_+-lambda_-). Sylvester criterion on H+RM=(Z^T(G+RI)Z) with first principal minor R-1>0 gives det(H+RM)=-R[R³epsilon^4+2R(R²-2R+2)epsilon²+2-R]. Thus all-time positivity iff that polynomial is >=0; for R>2 it has one positive root in u=epsilon². The epsilon->0 positive limit of t* is half log(R/(R-2)), though epsilon=0 exactly is an invariant exact 2-state case. Independently reconstructed H,M and symbolic determinant using SymPy, confirming exact witness R=4,epsilon=1/8 with polynomial -47/64 and Gram values. No claim about irreducible or general Markov chains.
 
-## Closest literature and limitations
-The full Saad and Frommer–Güttel–Schweitzer papers give the projection/interpolation framework; the latter is the primary MSC \(65F60\) archive anchor. The proof concerns a reducible symmetric four-state generator, a specified nonnegative initial distribution, and ordinary two-step projection. It does not address arbitrary or irreducible Markov generators, minimal state dimension, restarts, or roundoff. An older less searchable positivity result and the unread full text of Hochbruck–Lubich remain originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2013 Frommer–Güttel–Schweitzer and 1992 Saad Krylov papers supply basic Ritz-interpolation tools, not all-time Markov probability sign conditions. Closest Resultary SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 proves a related *diagonal positive definite matrix with strictly positive physical-coordinate start* horizon, whose core affine-interpolant formula is a true prior ingredient. Here the exact Markov generator has zero eigenvalues, a non-diagonal physical basis, a start with zeros and specific variable rate/mass parameters, and a different unconditional safe regime R<=2; that diagonal theorem does not directly entail the explicit R-epsilon positivity phase and crossing threshold. The retained novelty is the complete mass-conditioned reversible two-link classification, not a new general interpolation identity.
+
+## value
+
+PASS
+
+Positivity is a physical probability constraint for a Markov semigroup, so an exact safe/unsafe criterion for the ordinary minimal nontrivial Lanczos approximation provides an analytically sharp benchmark. The rare-block late-time negative component and nonzero finite epsilon->0 crossing time distinguish semigroup positivity from projected Krylov behavior, with explicit limits and no claim of universality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

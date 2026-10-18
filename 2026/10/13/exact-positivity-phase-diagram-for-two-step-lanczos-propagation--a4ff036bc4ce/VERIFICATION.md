@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal rate/mass/time phase diagram is proved analytically in `RESULT.md`. The included `verify.py` uses only Python standard-library exact fractions and checks its finite algebraic certificate and one strict sign example.
 
-With \(R=4\), \(\varepsilon=1/8\), put \(Z=[z,G_Rz]\), \(M=Z^{\mathsf T}Z\), and \(H=Z^{\mathsf T}G_RZ\). The checker exactly reconstructs
-\[
-M=\begin{pmatrix}65/64&-17/16\\-17/16&5/2\end{pmatrix},
-\qquad
-H=\begin{pmatrix}-17/16&5/2\\5/2&-8\end{pmatrix},
-\]
-\[
-\det(H-sM)=\frac{361s^2+1400s+576}{256},
-\quad
-\det(H+4M)=\frac{47}{16}.
-\]
-The characteristic roots are
-\[
-\lambda_\pm=\frac{-700\pm68\sqrt{61}}{361}.
-\]
-Using only the rational enclosure \(39/5<\sqrt{61}<8\), the checker proves \(\lambda_->-7/2\), \(\lambda_+<0\), and \(\lambda_+-\lambda_->29/10\), hence
-\[
-\frac{4+\lambda_+}{4+\lambda_-}<8
-\quad\text{while}\quad
-e^{\lambda_+-\lambda_-}
->1+29/10+(29/10)^2/2>8.
-\]
-This is a rigorous sign certificate at \(t=1\): the third component of the two-step Lanczos approximation is negative, while the exact component is \(\varepsilon(1+e^{-8})/(2(1+\varepsilon))>0\).
+# Independent mathematical audit
 
-The checker also verifies the determinant identity for several rational positive rate/mass pairs. Those finite replays do not replace the symbolic proof for arbitrary \(R>1\), \(\varepsilon>0\), and \(t\ge0\). No claim is made about minimum dimension or irreducible chains.
+## correctness
+
+PASS
+
+With 1<R, epsilon>0 and G=diag([[-1,1],[1,-1]],[[-R,R],[R,-R]]), the two-dimensional Krylov subspace spanned by z=(1,0,epsilon,0) and Gz has no nonzero vector in ker G, so its Ritz nodes satisfy lambda_-<lambda_+<0. The standard 2-node Lanczos polynomial p_t(s) interpolating e^(ts) yields component multipliers (p_t(-1), positive slope, epsilon p_t(-R), R epsilon positive slope)/(1+epsilon). Rayleigh inequalities force p_t(-1)>0. At t>0 only p_t(-R) can become negative, exactly when the lower Ritz node exceeds -R; then it has the unique crossing t*=log((R+lambda_+)/(R+lambda_-))/(lambda_+-lambda_-). Sylvester criterion on H+RM=(Z^T(G+RI)Z) with first principal minor R-1>0 gives det(H+RM)=-R[R³epsilon^4+2R(R²-2R+2)epsilon²+2-R]. Thus all-time positivity iff that polynomial is >=0; for R>2 it has one positive root in u=epsilon². The epsilon->0 positive limit of t* is half log(R/(R-2)), though epsilon=0 exactly is an invariant exact 2-state case. Independently reconstructed H,M and symbolic determinant using SymPy, confirming exact witness R=4,epsilon=1/8 with polynomial -47/64 and Gram values. No claim about irreducible or general Markov chains.
+
+## originality
+
+PASS
+
+The 2013 Frommer–Güttel–Schweitzer and 1992 Saad Krylov papers supply basic Ritz-interpolation tools, not all-time Markov probability sign conditions. Closest Resultary SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 proves a related *diagonal positive definite matrix with strictly positive physical-coordinate start* horizon, whose core affine-interpolant formula is a true prior ingredient. Here the exact Markov generator has zero eigenvalues, a non-diagonal physical basis, a start with zeros and specific variable rate/mass parameters, and a different unconditional safe regime R<=2; that diagonal theorem does not directly entail the explicit R-epsilon positivity phase and crossing threshold. The retained novelty is the complete mass-conditioned reversible two-link classification, not a new general interpolation identity.
+
+## value
+
+PASS
+
+Positivity is a physical probability constraint for a Markov semigroup, so an exact safe/unsafe criterion for the ordinary minimal nontrivial Lanczos approximation provides an analytically sharp benchmark. The rare-block late-time negative component and nonzero finite epsilon->0 crossing time distinguish semigroup positivity from projected Krylov behavior, with explicit limits and no claim of universality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
