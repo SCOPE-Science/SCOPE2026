@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite checks and proof boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the embedded files. No third-party package is needed. The checker exhausts every labelled deletion mask for cyclic orders \(3\) through \(12\), all nonzero frequency differences and all deletion counts. It compares the measured maximum root-sum modulus with the closed arc formula and counts every maximizing mask. It additionally enumerates capacity vectors for several quotient sizes and multiplicities.
+## correctness
 
-The recorded outcome is `VERIFY_OK index_cases= 635 index_masks= 81920 capacity_cases= 246 max_numerical_error= 2.1e-14`. Finite calculations are consistency tests only: for unrestricted cyclic orders the proof uses the exact Fourier character identity and the circular rearrangement argument. No numerical tolerance is used to establish a general implication. The case of a complete deletion has zero retained eigenvalues; the one-ray residual case has zero lower bound.
+PASS
 
-The result assumes unweighted rows, two-dimensional complex signals, and labelled erasure indices. In particular, an index whose analysis vector lies on the same complex projective ray as another index remains a distinct available coefficient. The values of all discrete parameters and the distinct-frequency hypothesis are stated in `RESULT.md`.
+For distinct Fourier row frequencies a,b modulo N, the full frame operator is N/2 times identity, and any r-mask has retained eigenvalues (N-r±|z_E|)/2. The gcd phase map splits N labels into m=N/g equal-capacity classes. Maximization of |sum c_j ζ_m^j| by a support-functional projection fills the cyclic largest-cosine arc; a strict convexity argument rules out split boundary partial counts. Hence q full consecutive classes, at most one s-partial adjacent class, formula M=|g sum_{j<q} ζ_m^j+sζ_m^q|, count m when s=0, m*C(g,s) for endpoint q, 2m*C(g,s) for interior q; all endpoints and m=2 covered. I independently exhaustively enumerated erasure masks and verified maximal moduli and equality counts for all 3<=N<=10, all differences and all sizes (372 test triples). The all-N proof is the exact exchange/convexity argument, not that finite test.
+
+## originality
+
+PASS
+
+Marshall–Waldron treat Fourier harmonic-frame enumeration/equivalence, Bodmann–Paulsen general erasures, and Haikin–Zamir–Gavish moments under random erasure, none deriving worst fixed-cardinality spectra and equality counts for arbitrary two-character cyclic row differences. An earlier projective-orbit zero-proportion result entails only the qualitative survival threshold and singular case; the strictly positive spectral bound and precise arc-mask census remain uncovered. Resultary searched by erasure masks, root-of-unity extrema and two-row Fourier sensing, finding no stronger covering quantitative theorem.
+
+## value
+
+PASS
+
+Sharp adversarial lower singular-value bounds and exact numbers of worst masks quantify robustness of a natural harmonic two-sensor frame, including arithmetic repeated-ray effects. This is more than the already-known rank threshold and may be needed in erasure-resistant Fourier sensing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

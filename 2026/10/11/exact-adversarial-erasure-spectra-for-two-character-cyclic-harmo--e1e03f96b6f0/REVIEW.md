@@ -1,11 +1,21 @@
-# Review of exact erasure spectra for two-character cyclic harmonic frames
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonality of distinct cyclic characters makes the original frame operator \(N I/2\). For every retained subframe, the two eigenvalues reduce exactly to a modulus of a labelled root-of-unity sum. Greedy support-functional ordering and a strictly convex boundary-tie argument classify all maximizers as capacity-filled circular arcs. The distinct arc pattern count, the \(\binom gs\) labelled choices, and the rank threshold follow without a finite-domain assumption. The packaged Python checker independently enumerates 81,920 erasure masks and 246 capacity-vector cases; finite replay is supplementary rather than proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Marshall–Waldron classify/count harmonic frame families, Bodmann–Paulsen give bounds for two-uniform erasure frames, Cheng–Lv–Sun characterize uniform-subframe-bound frames, and Haikin–Zamir–Gavish derive Bernoulli erasure moments. These results do not determine the sharp deterministic retained eigenvalue profile for every size, the quotient-frequency dependence, or the optimizer count. The earlier projective-orbit zero-proportion theorem implies the qualitative rank-survival threshold, and the singular-case mask counts, neither of which is claimed as independently new. The closest published two-frequency concentration and subgroup-plus-one-point Riesz classifications concern different objectives. The elementary polygonal arc extremum is prior mathematics and is not claimed new; an unindexed equivalent frame formulation remains possible.
+PASS
 
-**Value — PASS.** Worst-case erasure conditioning is an intrinsic stability invariant for redundant Fourier measurements. This complete classification gives the exact stability floor and ceiling, identifies every most damaging deletion mask, counts them, and quantitatively refines the known \(\gcd\)-controlled robustness threshold. The labelled multiplicity phenomenon is invisible in a generic pairwise frame-bound inequality and is relevant when sensor outputs repeat a projective measurement direction.
+For distinct Fourier row frequencies a,b modulo N, the full frame operator is N/2 times identity, and any r-mask has retained eigenvalues (N-r±|z_E|)/2. The gcd phase map splits N labels into m=N/g equal-capacity classes. Maximization of |sum c_j ζ_m^j| by a support-functional projection fills the cyclic largest-cosine arc; a strict convexity argument rules out split boundary partial counts. Hence q full consecutive classes, at most one s-partial adjacent class, formula M=|g sum_{j<q} ζ_m^j+sζ_m^q|, count m when s=0, m*C(g,s) for endpoint q, 2m*C(g,s) for interior q; all endpoints and m=2 covered. I independently exhaustively enumerated erasure masks and verified maximal moduli and equality counts for all 3<=N<=10, all differences and all sizes (372 test triples). The all-N proof is the exact exchange/convexity argument, not that finite test.
 
-**Scope and limits.** Two unit-norm Fourier rows, all cyclic orders and erasure cardinalities. No generalization to three or more rows, weighted measurements, or optimized dual decoders. Source comparisons rule out specific nearby implications, not every unindexed prior work. Full technical details and an executable finite check are in `RESULT.md` and `verify.py`.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Marshall–Waldron treat Fourier harmonic-frame enumeration/equivalence, Bodmann–Paulsen general erasures, and Haikin–Zamir–Gavish moments under random erasure, none deriving worst fixed-cardinality spectra and equality counts for arbitrary two-character cyclic row differences. An earlier projective-orbit zero-proportion result entails only the qualitative survival threshold and singular case; the strictly positive spectral bound and precise arc-mask census remain uncovered. Resultary searched by erasure masks, root-of-unity extrema and two-row Fourier sensing, finding no stronger covering quantitative theorem.
+
+## value
+
+PASS
+
+Sharp adversarial lower singular-value bounds and exact numbers of worst masks quantify robustness of a natural harmonic two-sensor frame, including arithmetic repeated-ray effects. This is more than the already-known rank threshold and may be needed in erasure-resistant Fourier sensing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
