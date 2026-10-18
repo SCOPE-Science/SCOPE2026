@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and proved limits
+# Independent mathematical audit
 
-Extract the accompanying Python source `verify.py` next to this file, then run `python verify.py` using Python 3 standard library only. Its tested run printed:
+## correctness
 
-```
-VERIFY_OK exact_assertions=18167
-```
+PASS
 
-The code uses exact rational Fourier coefficient maps; it checks rank-one cosine updates, Duhamel expansion, companion-block characteristic polynomials for several degrees and feedback parameters, and the nonreturn of off-resonance harmonics. The code does not simulate the full infinite-dimensional function space and cannot alone establish the theorem.
+Differentiating the weak pushforward pairing ∫φ(dx+tεℓ(u)sin(2πkx))(1+tu) gives L=P_d+εℓ(·)g with g=−2π(k/d)cos(2π(k/d)x) if d|k and zero otherwise, precisely normalized. On mean-zero C¹ with norm ||u′||∞, P_d derivative iterates contract d^{-t}; high-frequency cosine tests avoid the rank-one feedback for t steps and attain ||L^t||≥d^{-t}. For k not a positive d-power the injected frequency chain never returns to observed frequency 1, so the Duhamel moment m_t=ℓ(P_d^t u) decays d^{-t} and all finite injected chain terms preserve that upper spectral radius. If k=d^j, exactly one feedback return occurs after j steps; the moment satisfies m_t=a_t−π εd^{j−1}m_{t−j}, establishing upper exponential rate R=max(d^{-1},(πd^{j−1}|ε|)^{1/j}). Invariant span of cosines at frequencies 1,d,…,d^{j−1} has companion characteristic polynomial λ^j+πεd^{j−1}, yielding the sharp lower eigenvalue modulus. Independently built companion blocks for d=2,3,5, j=1..4 and four ε values; polynomial coefficients matched. The analytic Duhamel and Gelfand proof, not this finite check, establishes spectral radius on infinite-dimensional C¹.
 
-Separately, a periodic-grid centered directional-difference test of the original pushforward formula compared 25 observable/parameter combinations (five degree/harmonic/strength cases and five output frequencies), at 32768 grid points and difference step \(10^{-5}\); the comparison tolerance was \(2\cdot10^{-7}\). This numerical check is a derivative-normalization diagnostic only.
+## originality
 
-The infinite-dimensional theorem is established by Steps 1–4 of RESULT.md: test-function linear response, sharp transfer contraction scale, exact harmonic-return recurrence, and finite-dimensional eigenblock. The spectral classification does not assert nonlinear local stability or independent validation.
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+Linear stability of a uniform self-consistent transfer equilibrium is a natural mean-field dynamics question. The result gives a sharp exact all-coupling spectral radius, identifies a purely arithmetic resonance k=d^j, and shows that nonresonant large couplings need not affect linear decay in the chosen C¹ space. This is a motivated structural phase boundary and complete parameter classification, not an unsupported inference about nonlinear stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

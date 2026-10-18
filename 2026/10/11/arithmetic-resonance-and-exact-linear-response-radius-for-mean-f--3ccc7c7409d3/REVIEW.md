@@ -1,15 +1,21 @@
-# Same-model scientific review: Arithmetic resonance and exact linear-response radius for mean-field expanding circle maps
+# Independent mathematical audit
 
-## Correctness — PASS
-The test-function derivation fixes the normalizations in the rank-one term and the observable. The proof treats every integer degree, harmonic, real coupling and the neutral radius-one equality. Duhamel gives an exact delayed moment equation; a companion Fourier block and a high-frequency sequence establish both lower bounds. The finite checker passed 18,167 exact rational assertions and the separate periodic-grid directional test passed 25 numerical comparisons. Those finite checks test formulas but are not a proof of the infinite-dimensional spectral-radius bound, which is reconstructed in RESULT.md.
+## correctness
 
-## Originality — PASS, with stated priority risk
-The 2023 review of mean-field self-consistent operators and the 2025 differential/spectral theory are explicit prior foundations. Their materially read results do not supply this exact all-frequency harmonic-return law. The 2026 Fourier–Fejér fixed-point paper has a different primary question. published-finding corpus comparisons against Fourier, transfer and feedback aliases identified no implication match. The September 23, 2026 Ahmad–Tanzi paper is materially relevant but was accessible only by public abstract: equivalent hidden details cannot be excluded. The originality decision is a same-model assessment subject to independent priority audit.
+PASS
 
-## Mathematical value — PASS
-The proof gives a meaningful exact instability phase diagram for a natural globally coupled family rather than a numerical example. It shows that the arithmetic relation between expansion degree and forcing wavelength, not coupling strength alone, determines whether feedback can destabilize the uniform-density linearization. It produces explicit degree-dependent complex multiplier cycles and thresholds. It does not prove nonlinear bifurcation or physical finite-population stability.
+Differentiating the weak pushforward pairing ∫φ(dx+tεℓ(u)sin(2πkx))(1+tu) gives L=P_d+εℓ(·)g with g=−2π(k/d)cos(2π(k/d)x) if d|k and zero otherwise, precisely normalized. On mean-zero C¹ with norm ||u′||∞, P_d derivative iterates contract d^{-t}; high-frequency cosine tests avoid the rank-one feedback for t steps and attain ||L^t||≥d^{-t}. For k not a positive d-power the injected frequency chain never returns to observed frequency 1, so the Duhamel moment m_t=ℓ(P_d^t u) decays d^{-t} and all finite injected chain terms preserve that upper spectral radius. If k=d^j, exactly one feedback return occurs after j steps; the moment satisfies m_t=a_t−π εd^{j−1}m_{t−j}, establishing upper exponential rate R=max(d^{-1},(πd^{j−1}|ε|)^{1/j}). Invariant span of cosines at frequencies 1,d,…,d^{j−1} has companion characteristic polynomial λ^j+πεd^{j−1}, yielding the sharp lower eigenvalue modulus. Independently built companion blocks for d=2,3,5, j=1..4 and four ε values; polynomial coefficients matched. The analytic Duhamel and Gelfand proof, not this finite check, establishes spectral radius on infinite-dimensional C¹.
 
-## Closest literature and limits
-Ahmad–Tanzi (2026), arXiv:2609.27484v1 (abstract-only access); Tanzi (2023), doi:10.1007/s40574-023-00350-2; Castorrini–Galatolo–Tanzi (2025), doi:10.1007/s00332-025-10177-0; Bahsoun–Froyland–Phalempin (2026), arXiv:2605.08803v1. Full-source risk and mathematical limitations are stated in RESULT.md and AUDIT.json.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+Linear stability of a uniform self-consistent transfer equilibrium is a natural mean-field dynamics question. The result gives a sharp exact all-coupling spectral radius, identifies a purely arithmetic resonance k=d^j, and shows that nonresonant large couplings need not affect linear decay in the chosen C¹ space. This is a motivated structural phase boundary and complete parameter classification, not an unsupported inference about nonlinear stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
