@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-For \(q=3\) and \(q=5\), it independently constructs the projective quotient of \(TD(\mathbb F_q,3)\), checks the isotropic/anisotropic degree split, and exhaustively enumerates all quotient graph automorphisms. The counts are \(24\) and \(120\), matching the prime-field values \(q(q^2-1)\).
+## correctness
 
-It then constructs the full vector graph, recovers exactly \(q^2+q+1\) maximal twin classes of size \(q-1\), confirms diameter two, and verifies that selecting all but one vector from every class gives a resolving set of size \((q^2+q+1)(q-2)\).
+PASS
 
-The checker also verifies the closed determining/metric cardinality identity and minimum-set count algebra for \(q=3,5,7,11\).
+Actual RESULT proof: scalar classes are uniform q−1 true/false twins, distinct projective polar lines determine different classes; isotropic points have distinct quotient degree and reconstruct polar lines. Fundamental theorem of projective geometry identifies polarity-preserving semilinear transformations; internal symmetric groups yield the full automorphism group. Twin transpositions force q−2 selections/class, while a chosen representative of every class plus quotient line discrimination resolves all omitted vertices at diameter two. Independently inspected verifier and reconstructed q=3,5 classes (13 and 31), minimum canonical resolving sizes (13,93), and projective quotient automorphism counts (24,120). These bounded counts corroborate, not prove the odd-prime-power theorem. The q odd and dimension three restrictions are essential.
 
-Exact replay output:
+## originality
 
-```text
-p=3: quotient_vertices=13, quotient_aut=24, twin_classes=13, determining_metric=13, canonical_basis=OK
-p=5: quotient_vertices=31, quotient_aut=120, twin_classes=31, determining_metric=93, canonical_basis=OK
-symbolic count checks OK
-VERIFY_OK
-```
+PASS
 
-The finite calculations corroborate the proof. The arbitrary odd prime-power statement rests on the projective-polarity reconstruction and the semilinear fundamental theorem, not on finite enumeration.
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
+
+## value
+
+PASS
+
+The complete full-vector automorphism group and coincidence/classification of metric and determining bases are natural exact invariants of a well-studied family, going substantially beyond the pre-existing diameter and domination results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

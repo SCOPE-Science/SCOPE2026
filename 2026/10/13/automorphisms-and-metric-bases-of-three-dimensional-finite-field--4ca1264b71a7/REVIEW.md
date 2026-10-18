@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Nonzero scalar multiples form maximal twin classes of size \(q-1\). The quotient graph is reconstructed from polar lines in \(\operatorname{PG}(2,q)\); degrees recognize the absolute conic, and every quotient automorphism maps polar lines to polar lines. The fundamental theorem of projective geometry and preservation of the polarity give \(\operatorname{P\Gamma O}(3,q)\). The twin-transposition obstruction forces at least \(q-2\) selected vertices per projective point for both determining sets and resolving sets. Selecting exactly that many in every class kills all automorphisms and resolves the unique omitted vertices because the quotient is twin-free and the full graph has diameter two. The packaged checker confirms the quotient automorphism counts and full twin/resolving structure for \(q=3,5\).
+PASS
 
-## Originality
+Actual RESULT proof: scalar classes are uniform q−1 true/false twins, distinct projective polar lines determine different classes; isotropic points have distinct quotient degree and reconstruct polar lines. Fundamental theorem of projective geometry identifies polarity-preserving semilinear transformations; internal symmetric groups yield the full automorphism group. Twin transpositions force q−2 selections/class, while a chosen representative of every class plus quotient line discrimination resolves all omitted vertices at diameter two. Independently inspected verifier and reconstructed q=3,5 classes (13 and 31), minimum canonical resolving sizes (13,93), and projective quotient automorphism counts (24,120). These bounded counts corroborate, not prove the odd-prime-power theorem. The q odd and dimension three restrictions are essential.
 
-PASS. The foundational and finite-field dot-product papers inspected or checked cover definitions, connectivity, diameter, degree, regularity, isomorphism rigidity, domination, clique, independence, and planarity, but no statement located gives the full vector-level automorphism group, determining number, metric dimension, or classification of all minimum sets. The classical orthogonal-polarity literature supplies quotient geometry rather than the accepted blow-up symmetry theorem. Semantic comparisons with published database results on dot-product domination and two-dimensional zero forcing do not imply the three-dimensional automorphism or metric-basis statement.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a complete symmetry description of a natural algebra-defined graph and identifies two different symmetry/resolution invariants exactly. The equality of determining number and metric dimension is not a numerical accident: both are controlled by projective scalar twin classes, while the quotient retains the nontrivial semilinear orthogonal geometry. The classification and count of all minimum sets make the structural mechanism explicit and reusable for higher-dimensional investigations.
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete full-vector automorphism group and coincidence/classification of metric and determining bases are natural exact invariants of a well-studied family, going substantially beyond the pre-existing diameter and domination results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
