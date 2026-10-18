@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T10:12:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: From the exact printed nonlinear profile equation substitute v=1-phi, giving the upstream linearized Q(lambda)=tau*c*lambda^3-D*lambda^2-c*lambda+1. The cited minimal speed is the unique positive y=c²/D root of F_-(y)=4r y²+(1-18r-27r²)y-4, r=tau/D>1. Independently expanded cubic discriminants (sympy) to check disc(Q)=D³[F_-(y)+36r*y+8]>0 for y>=y*. Vieta and Q(-infinity)<0<Q(0) imply one negative/two positive distinct roots. F_-(1/r)=5/r-22-27r<0 implies c>D/sqrt(tau); Q(1/sqrt(tau))=1-D/tau>0 and Q'(1/sqrt(tau))=2(c-D/sqrt(tau))>0 place both positive roots below the Bessel Laplace radius. Each e^{lambda_j xi} solves both ODE and convolution using Φ(lambda)=1/(1-tau*lambda²) and meets the exact positivity, normalization, monotonicity, convexity and left decay imposed on the source limiting solution. The primary arXiv full text §6 lines 958-1006 explicitly states that no such limiting solution exists, so that specific proof step is falsified. This does not disprove existence of nonlinear oscillatory profiles by another route.",
+      "risks": [
+        "Correction addresses invalid contradiction step, not a complete nonlinear traveling-wave classification."
+      ],
+      "sources": [
+        "Git 2026/10/11/real-upstream-spectrum-defeats-the-linear-oscillation-obstructio--a32a93e50680/RESULT.md blob efcae9323d4721af39fb25b4cc584a091a076ccf",
+        "Git 2026/10/11/real-upstream-spectrum-defeats-the-linear-oscillation-obstructio--a32a93e50680/VERIFICATION.md blob 2ec2386014b7670aa04c1e9d3ec8f590104a46d5",
+        "https://arxiv.org/html/2609.34368v1",
+        "https://doi.org/10.3934/dcdsb.2014.19.801",
+        "Resultary query: pseudo-parabolic Fisher KPP traveling wave upstream characteristic polynomial real spatial eigenvalues τ greater D monotone oscillation counterexample"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary downstream Ψ(lambda,c)=tau*c*lambda³-D lambda²-c lambda-1 determines c*, but does not imply monotone upstream modes from a no-monotone premise; 2014 stability regime is distinct."
+        ],
+        "reasoning": "General wave-oscillation methods and downstream root analysis do not subsume a proof of the reversed-sign upstream 3-real-root ordering across c>=c*.",
+        "searches": [
+          "arXiv:2609.34368v1 §§2-3,6",
+          "Wang Bai Cao 2014 doi:10.3934/dcdsb.2014.19.801"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.34368v1",
+        "https://doi.org/10.3934/dcdsb.2014.19.801",
+        "Resultary query: pseudo-parabolic Fisher KPP traveling wave upstream characteristic polynomial real spatial eigenvalues τ greater D monotone oscillation counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original theorem wants all upstream monotone modes impossible, while the frozen claim constructs two normalized modes and proves the cubic discriminant >0 throughout the same c range."
+        ],
+        "reasoning": "This is a mathematical counterexample to an intermediate published proof lemma, not contradiction of a known theorem stating the same positive result; weaker nonlinear conclusions remain open.",
+        "searches": [
+          "arXiv:2609.34368v1 §6 pp 33-36",
+          "doi:10.3934/dcdsb.2014.19.801"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source writes cw'-tau c w'''= -D w''+w and the normalized convolution problem and claims it has no monotone solution; Q has two positive roots satisfying its printed transform-radius restriction."
+        ],
+        "reasoning": "The claimed correction is literally for the source limiting system, not another sign convention or merely same wave speed.",
+        "searches": [
+          "arXiv:2609.34368v1 §6, esp. equations (6.61)-(6.65)",
+          "Resultary: pseudo-parabolic Fisher KPP traveling wave upstream characteristic polynomial real spatial eigenvalues τ greater D monotone oscillation counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top Resultary record exactly equals the audited claim itself; related retrieved oscillator/other traveling-wave entries have different model equations.",
+          "Original arXiv §6 explicitly asserts no monotone solution, not an exact table for the upstream roots."
+        ],
+        "reasoning": "No independent earlier correction or source-specific root table located; search coverage cannot establish priority conclusively.",
+        "searches": [
+          "Resultary: pseudo-parabolic Fisher KPP traveling wave upstream characteristic polynomial real spatial eigenvalues τ greater D monotone oscillation counterexample",
+          "arxiv:2609.34368 correction and upstream roots"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: Direct Section 6 of the *identical* Cao-Chen-Jin-Yin arXiv:2609.34368v1 concludes the opposite, hence cannot cover the correct two-exponent counterexample. Their Section 3 analyzes the downstream polynomial with constant -1 and minimal speed; upstream constant +1 is a different spatial problem. Wang-Bai-Cao 2014 works in small-viscosity stability and does not give these tau>D roots or source-specific logical correction. Resultary same-source self-hit is not a separate prior publication.",
+      "residual_risks": [
+        "The existence of the positive linearized modes does not itself prove a globally monotone nonlinear traveling wave; an independent oscillation proof might exist.",
+        "Any unknown contemporary erratum or source revision must be checked before publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contradicts the challenged intermediate statement; supports the precise scope, with no claim the whole nonlinear theorem must be false.",
+          "evidence": [
+            "§3 Ψ(lambda,c)=tau c lambda³-D lambda²-c lambda-1; §6 limiting problem c w'-D/tau w=(1-D/tau)B*w, w(0)=1,w'>=0,w(-infinity)=0; §6 concludes no such solution."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.34368v1",
+          "material_read": "Full arXiv HTML inspected around §§2-3 and complete Section 6 argument lines ~890-1006; the 41-page open PDF was also opened, though individual PDF screenshots failed.",
+          "method": "Read same arXiv v1 HTML full relevant sections; checked equations (3.16), (6.61), (6.64)-(6.65) and exact no-solution conclusion.",
+          "title": "A Critical Value for the Viscosity Coefficient: Triggering Oscillatory Traveling Waves in the Pseudo-parabolic Fisher-KPP Equation",
+          "trigger": "Exact paper, equation and the Section 6 assertion being challenged"
+        },
+        {
+          "assessment": "Earlier small-viscosity spectral stability does not supply this admissible supercritical upstream correction.",
+          "evidence": [
+            "Different tau>D admissibility and a different claim about Section 6 of 2026 preprint."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2014.19.801",
+          "material_read": "Public article abstract and bibliographic synopsis about small-viscosity fronts; original full text not asserted to have been read.",
+          "method": "Published abstract lookup.",
+          "title": "Exponential stability of the traveling fronts for a viscous Fisher-KPP equation",
+          "trigger": "Earlier identical model family, possible root comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A rigorously exhibited positive convex solution to the exact limiting system corrects a central analytical impossibility claim used to justify asymptotic traveling-wave oscillations; the complete admissible-speed root ordering is structurally useful in stability and tail analysis. Value does not rest on claiming to refute the full nonlinear theorem or explain finite overshoot.",
+      "risks": [
+        "Correction addresses invalid contradiction step, not a complete nonlinear traveling-wave classification."
+      ],
+      "sources": [
+        "https://arxiv.org/html/2609.34368v1",
+        "https://doi.org/10.3934/dcdsb.2014.19.801",
+        "Resultary query: pseudo-parabolic Fisher KPP traveling wave upstream characteristic polynomial real spatial eigenvalues τ greater D monotone oscillation counterexample"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Correction addresses invalid contradiction step, not a complete nonlinear traveling-wave classification.",
+    "The existence of the positive linearized modes does not itself prove a globally monotone nonlinear traveling wave; an independent oscillation proof might exist.",
+    "Any unknown contemporary erratum or source revision must be checked before publication."
+  ]
+}
