@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic.
 
-The packaged checker `artifacts/verify.py` uses exact symbolic algebra to verify the full \(A_1(a,b)\) multiplication table after the basis change
-\[
-f_1=e_1,
-\qquad
-f_2=-a e_1-\frac{a^2}{b}e_2.
-\]
-It confirms
-\[
-f_1^2=f_2,
-\qquad
-f_1f_2=f_2f_1=f_2^2=0,
-\]
-and checks that the change-of-basis determinant is
-\[
--\frac{a^2}{b}.
-\]
+# Independent mathematical audit
 
-It independently verifies the canonical automorphism matrices
-\[
-\begin{pmatrix}
-s&0\\
-t&s^2
-\end{pmatrix}
-\]
-and derivation matrices
-\[
-\begin{pmatrix}
-r&0\\
-w&2r
-\end{pmatrix},
-\]
-together with the affine relation
-\[
-[H,E]=E.
-\]
+## correctness
 
-The checker returns `VERIFY_OK`.
+PASS
+
+Direct calculation on the printed A1(a,b) multiplication table with ab≠0: e1²=−ae1−a²e2/b, v0=be1+ae2 annihilates both basis elements, f1=e1 and f2=e1²=−(a/b)v0 have determinant −a²/b≠0 and products f1²=f2, f1f2=f2f1=f2²=0. A2 and A3 exchange by swapping e1,e2. Independently checked the basis and annihilator identities over Q at a=2,b=3; the parameter-symbolic calculation is explicit. For canonical u²=v, any multiplicative invertible map has φ(u)=su+tv and φ(v)=s²v, s≠0; this derives the displayed affine semidirect automorphism group. A derivation has D(u)=ru+wv, D(v)=2rv, and [diag(1,2),E21]=E21 over characteristic zero. No assertion that the original theorem claimed pairwise distinctness or higher-dimensional classification.
+
+## originality
+
+PASS
+
+Directly read both the primary Braiek–Chtioui–Mabrouk Theorem 2.3 three-table classification and Hou–Cui Example 2.2 which already merges A2 with A3 but still lists the A1(a,b) family separately. Neither gives the residual explicit isomorphism from the family to u²=v in the material read. Resultary semantic searches for this exact low-dimensional correction returned only other small algebra classifications, not the same missing basis identification. Best-of-knowledge priority for the final collapse remains qualified by possible later corrections; no false claim of a three-class non-isomorphism assertion is attributed to the original theorem.
+
+## value
+
+PASS
+
+Eliminates a spurious parameter family in a published low-dimensional classification and its later reuse, providing a canonical isomorphism class together with complete automorphism and characteristic-zero derivation algebra. Though its proof is short, correcting the underlying classification and normal forms has concrete downstream structural use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

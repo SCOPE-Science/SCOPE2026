@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The basis change is direct: in the parameter family \(v_0=b e_1+a e_2\) annihilates the algebra and \(e_1^2=-(a/b)v_0\). Hence \(f_1=e_1\), \(f_2=e_1^2\) form a basis with the sole nonzero product \(f_1^2=f_2\). The \(A_2/A_3\) isomorphism is a basis swap. The automorphism and derivation descriptions follow uniquely from preserving or differentiating the relation \(u^2=v\). The packaged symbolic checker replays each identity.
+PASS
 
-## Originality
+Direct calculation on the printed A1(a,b) multiplication table with ab≠0: e1²=−ae1−a²e2/b, v0=be1+ae2 annihilates both basis elements, f1=e1 and f2=e1²=−(a/b)v0 have determinant −a²/b≠0 and products f1²=f2, f1f2=f2f1=f2²=0. A2 and A3 exchange by swapping e1,e2. Independently checked the basis and annihilator identities over Q at a=2,b=3; the parameter-symbolic calculation is explicit. For canonical u²=v, any multiplicative invertible map has φ(u)=su+tv and φ(v)=s²v, s≠0; this derives the displayed affine semidirect automorphism group. A derivation has D(u)=ru+wv, D(v)=2rv, and [diag(1,2),E21]=E21 over characteristic zero. No assertion that the original theorem claimed pairwise distinctness or higher-dimensional classification.
 
-PASS. The primary source displays three forms. The closest later full-text source reduces the list to two forms but still retains the parameter family separately. Focused semantic and web searches found no explicit final isomorphism between that family and the square algebra. The main residual risk is an unindexed author correction.
+## originality
 
-## Value
+PASS
 
-PASS. The result removes spurious parameters from the foundational two-dimensional classification of a newly introduced algebraic structure and supplies a canonical model with explicit automorphism and derivation algebras. This normalization is directly relevant to later constructions built from low-dimensional anti-Leibniz examples.
+Directly read both the primary Braiek–Chtioui–Mabrouk Theorem 2.3 three-table classification and Hou–Cui Example 2.2 which already merges A2 with A3 but still lists the A1(a,b) family separately. Neither gives the residual explicit isomorphism from the family to u²=v in the material read. Resultary semantic searches for this exact low-dimensional correction returned only other small algebra classifications, not the same missing basis identification. Best-of-knowledge priority for the final collapse remains qualified by possible later corrections; no false claim of a three-class non-isomorphism assertion is attributed to the original theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Eliminates a spurious parameter family in a published low-dimensional classification and its later reuse, providing a canonical isomorphism class together with complete automorphism and characteristic-zero derivation algebra. Though its proof is short, correcting the underlying classification and normal forms has concrete downstream structural use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
