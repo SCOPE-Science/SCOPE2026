@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact midpoint/half-separation reduction is valid on the entire nonantipodal state space because both transformed numerator components have strictly positive real part after factoring out the midpoint. The oriented-angle determinant gives the exact sign of every displacement; monotone one-dimensional dynamics consequently gives every basin, separator and boundary. Expansion of the arctangent map establishes the quadratic decrement \((t^+)^2-t^2=-2h^2+O(t^{-2})\), from which the sharp escape constant follows by comparison. The executable test corroborates the algebra but is not used as proof of infinite dynamics.
+
+**Originality — PASS on checked evidence, subject to residual risk.** Altafini (arXiv:2610.13518v1, §§II–III) assumes a symmetric value matrix with a real principal eigenvector; the present complex-eigenvalue value map is outside those assumptions. Tomihari–Karakida (arXiv:2505.19458v4, §5.2) treat local oscillatory Jacobians rather than this global basin classification. Gao–Yang–Chen (arXiv:2609.28448v1, §V.1) explain rotating value planes but leave nonlinear stability and basins unresolved. Targeted literature searches and semantic mathematical-record comparisons located no covering theorem. General projective or circle-map theory might imply some or all statements and is a genuine bibliographic risk; novelty has not been independently established.
+
+**Mathematical value — PASS.** The parameter curve \(h^2=L(1-L)\) is a sharp border between robust antipodal attraction and genuine coexistence of rotating consensus and fixed antipodal states, with explicitly calculable basin-separating invariant circles. At \(L=1\), the sharp inverse-square escape law quantifies long-lived nearly antipodal transients, a dynamical feature missed by equilibrium and local Jacobian classification alone. This is a complete low-dimensional phase portrait for a natural nonsymmetric case, not a renamed computation at one arbitrary parameter.
+
+**Scientific limits.** Exactly two unit-circle agents, uniform state-independent attention, real-positive residual factor \(L>0\). The result does not cover general attention kernels or higher-dimensional interactions. All reported checks are non-independent.
+
+Self-review: passed. Independent audit: not yet performed.
