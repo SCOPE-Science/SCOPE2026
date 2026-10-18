@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's autonomous next-generation matrix yields exactly the positive coefficients \(A,B,C\) and a quadratic for \(y=\mathcal R_0^2\). For positive \(B\), the larger root is simple on \(0\le x<1\), has \(y>C\), and differentiates implicitly. Every interior critical point must have \(y=Ax\) and \(x=(B+C)/(A+B)\). The derivative begins negative and, when \(A>C\), ends positive, proving unique global minimization including clipped physical parameter endpoints. The exact reproduction crossing identity (4) establishes both sides of the synthetic invasion window. The standalone checker independently validates rational identities, sign conditions and random parameters. The finite random tests alone do not establish the theorem.
+PASS
 
-## Originality — PASS (specific claim)
+The actual RESULT.md writes y=R0² as the larger root of P(y,x)=y²-[Ax²+B(1-x)²+C]y+ACx². At x<1, P(C,x)<0 and Py at the larger root is positive. Solving Px=0 with P=0 yields y=Ax and the unique interior critical x*=(B+C)/(A+B), admissible only A>C. x(p) increases from x0 to 1, proving all boundary cases and the stated p*. I independently used exact rational arithmetic to reproduce quadratic, x*=2/5, p*=5/8, threshold polynomial P(1,x(p))=[6-80(p-1/2)^2]/[25(5-4p)^2], and endpoint signs; the strict-subcritical set follows because the smaller root stays below C=3/5. Source’s 2026 paper supplies only the underlying next-generation expression. The p=1 reducible case is evaluated by continuity, not assumed human invasion.
 
-The main 2026 Oropouche paper gives the reproduction number and rough bounds but does not classify its exact global minimum against urban-residence proportion or provide a two-ended subcritical window. Shetgaonkar–Sharma (2026) already prove an analogous nonmonotone host-*preference* optimum in a structurally different two-host, one-vector model; the generic U-shaped phenomenon is not claimed as new. Althouse (2026) studies weighting choices in a general two-host/two-vector force of infection, not this 4-node spectral optimization. The 2022 host-preference/competition study treats dilution criteria. Published published-finding corpus comparators include a two-patch SEIR reproduction-number counterexample, not this claim. Risk: literature inaccessible to the search or a historically presented abstract might contain the exact same special-case optimization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source explicitly treats the forest–city human residence parameter and three linked infection cycles, but a numerical sensitivity comparison does not determine optimal residence. The exact closed-form three-regime optimum and a rational, biologically admissible two-sided threshold example distinguish suppression of the **full infection-free equilibrium** from simple monotonic urbanization scenarios. The result supplies a sharp baseline diagnostic for a live 2026 model; it is not an intervention recommendation or a global stability result.
+The full source-specific unique optimizer and two-sided *p*-window are not the reproduction-number expression in Peterson et al. or the separate published mathematical correction of its Appendix threshold rule. A related published two-host vector-preference optimizer motivates priority caution, but uses a different network and variable. Best-of-knowledge PASS, not absolute novelty proof.
 
-## Closest literature and limitations
+## value
 
-Main source: Peterson et al. (2026), DOI 10.1007/s00285-026-02422-1, Sections 2.2, 3.1, 4 and Appendix A. Closest mechanism: Shetgaonkar–Sharma (2026), arXiv:2604.27113, Section 4.1. Broader networks: Althouse (2026), DOI 10.1371/journal.pcbi.1014754. The historical 2025 oral-conference page documents an earlier public presentation by the same authors but its abstract attachment was inaccessible. Scientific limits: autonomous baseline only, strict positivity and fixed demographic populations; \(p=1\) can leave a disconnected wildlife epidemic without urban infection; no empirical fit or independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically meaningful optimization of a natural residence-control parameter in a specific host-vector epidemic system: an exact interior minimizer and subcritical window, with a genuine wildlife-only p=1 interpretation boundary. This supplies a usable analytic diagnostic rather than an arbitrary numerical point; no claim of seasonal or intervention efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

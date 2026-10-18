@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later, using only standard-library modules. The executable verifies the synthetic model's exact fractional loop coefficients, the quadratic branch identities, the claimed optimizer, the exact two-sided threshold polynomial, and the endpoint inequalities. A seeded randomized finite stress test compares the stated global optimizer with grids of admissible positive coefficient triples; this is computational evidence only.
+## correctness
 
-The infinite universal assertion is established analytically in RESULT.md by the explicit characteristic quadratic, positivity of the root discriminant, implicit differentiation, uniqueness of critical points, and endpoint monotonicity. No computer enumeration is used as an infinite proof. The result does not address nonautonomous seasonality, nonlinear stability, or fitted real-world interventions. Independent audit is not performed.
+PASS
+
+The actual RESULT.md writes y=R0² as the larger root of P(y,x)=y²-[Ax²+B(1-x)²+C]y+ACx². At x<1, P(C,x)<0 and Py at the larger root is positive. Solving Px=0 with P=0 yields y=Ax and the unique interior critical x*=(B+C)/(A+B), admissible only A>C. x(p) increases from x0 to 1, proving all boundary cases and the stated p*. I independently used exact rational arithmetic to reproduce quadratic, x*=2/5, p*=5/8, threshold polynomial P(1,x(p))=[6-80(p-1/2)^2]/[25(5-4p)^2], and endpoint signs; the strict-subcritical set follows because the smaller root stays below C=3/5. Source’s 2026 paper supplies only the underlying next-generation expression. The p=1 reducible case is evaluated by continuity, not assumed human invasion.
+
+## originality
+
+PASS
+
+The full source-specific unique optimizer and two-sided *p*-window are not the reproduction-number expression in Peterson et al. or the separate published mathematical correction of its Appendix threshold rule. A related published two-host vector-preference optimizer motivates priority caution, but uses a different network and variable. Best-of-knowledge PASS, not absolute novelty proof.
+
+## value
+
+PASS
+
+A mathematically meaningful optimization of a natural residence-control parameter in a specific host-vector epidemic system: an exact interior minimizer and subcritical window, with a genuine wildlife-only p=1 interpretation boundary. This supplies a usable analytic diagnostic rather than an arbitrary numerical point; no claim of seasonal or intervention efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
