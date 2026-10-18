@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claimed domain is the unit disk and eight connected subdivision regions with pairwise disjoint interiors, with at least one region disjoint from the outer circle. No equal-area hypothesis is used.
+# Independent mathematical audit
 
-The critical lower-bound check is exact: a unit-circle chord of circular separation \(\delta\) has length \(2\sin(\delta/2)\). Therefore a boundary subset of diameter at most \(2\sin(\pi/7)\) lies in an arc of angle at most \(2\pi/7\). If one region misses the outer circle, at most seven such traces cover that circle, forcing one trace to reach the threshold.
+## correctness
 
-The upper-bound construction uses \(s=\sin(\pi/7)\). The core diameter is \(2s\). In an outer sector, squared distance is \(r^2+t^2-2rt\cos\delta\), with \(r,t\in[s,1]\) and \(0\le\delta\le2\pi/7\). Monotonicity in \(\delta\) and convexity in each radial variable reduce the maximum to the corner cases. The outer-outer corner equals \(4s^2\); the inner-inner corner equals \(4s^4\); and the mixed corner differs from \(4s^2\) by
-\[
-(s-1)(4s^2+s-1)<0.
-\]
-The sign is certified without decimal approximation because \(s>2/5\), giving \(4s^2+s-1>1/25\).
+PASS
 
-The numerical value \(2\sin(\pi/7)\approx0.8677674782\) is included only as a consistency check. The unrestricted eight-subdivision optimum and a classification of interior equality interfaces are unproved and are not part of the claim.
+Slice of outer circle with Euclidean diameter ≤2sin(π/7) fits an arc of length at most 2π/7 (diametral chord monotonicity, 4π/7<π). Because at least one interior core piece does not touch the circle, seven other traces cover 2π radians, giving lower bound, with seven consecutive arcs forced on equality. Centered inner radius s=sin(π/7), seven annular radial sectors of angle 2π/7, squared-distance maxima at radial corners: 4s²,4s⁴,1+s²−2s cos(2π/7); last difference from 4s² is (s−1)(4s²+s−1)<0 (s>2/5). Independently recalculated constant 0.8677674782351162 and corner sign. It does not prove the unrestricted 8-subdivision optimum or all interior interface shapes.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for optimality and forced boundary arcs throughout the *one-core topological stratum*, NOT for the already-known construction: Cañete–Schnell–Segura Gomis Example 4.8 introduced the same inner disk + seven sectors to disprove the standard eight-piece partition, but no sharp infimum among all core-containing eight-subdivisions or equality boundary-trace characterization is stated. Their circle-arc lemma motivates the elementary lower bound; the exact natural stratum-wide classification exceeds the exhibit. Potential prior straightforward corollary remains priority risk.
+
+## value
+
+PASS
+
+PASS. The source exhibit exhibits topology but leaves a natural exact question: what diameter must ANY eight-piece subdivision with one interior core incur? The sharp threshold and equality boundary traces settle that geometrically meaningful restricted class even without the unrestricted census. No general theorem beyond this stratum is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
