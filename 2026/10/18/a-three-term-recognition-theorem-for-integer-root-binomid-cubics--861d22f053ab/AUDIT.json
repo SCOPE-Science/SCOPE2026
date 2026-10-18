@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Binomidness forces f2/f1 and f3/f1 integral. For ordered nonnegative root shifts, u_t=(t+2)/(t+1) is decreasing: a>=3 is impossible, and b is bounded by 3,5,3 for a=0,1,2. Solving c+1=K/(m-K) for exact integer m yields exactly twelve triples, displayed with their f3/f1 fractions; nine fail the second test. The three survivors equal n^3, 2n*C2(n), and 6*C3(n), all binomid by the ordinary binomial theorem, product closure, and the published integer binomial-determinant identity. The included pure-Python exact verifier confirms twelve candidates, 15,450 sample coefficients and 350 determinant cases. Computation does not replace the unrestricted proof; no claim about cubics outside the specified root class is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shapiro, Divisibility Properties for Integer Sequences, Integers 23 (2023) A57, DOI 10.5281/zenodo.8214835, Theorem 26 and Open Problem 27, and §1 determinant identity.",
+        "Shapiro, published Theorem 26, restricts the complete classification to degree at most two; Open Problem 27 explicitly requests degree three.",
+        "Caalim–Tanaka, Lexicographically Minimal Extension of a Finite Binomid Index, Integers 24 (2024) A53, DOI 10.5281/zenodo.11221709, §§1–2."
+      ],
+      "reasoning": "A general theorem classifying all cubic binomid polynomials would dominate this claim; no such theorem was identified in the inspected material. The published Pascal-column and termwise-product results imply sufficiency of the listed examples, but do not rule out further integer-root triples. General binomid-index tests restate the integrality requirement without solving the cubic shift classification.",
+      "searches": [
+        "\"binomid polynomials\" cubic classification 2024 2025",
+        "\"degree three\" \"binomid\" \"polynomial\" classification",
+        "\"generalized binomial coefficients\" \"cubic\" \"polynomials\" integrality roots"
+      ]
+    },
+    "checked_sources": [
+      "Shapiro, Divisibility Properties for Integer Sequences, Integers 23 (2023) A57, DOI 10.5281/zenodo.8214835, Theorem 26 and Open Problem 27, and §1 determinant identity.",
+      "Caalim–Tanaka, Lexicographically Minimal Extension of a Finite Binomid Index, Integers 24 (2024) A53, DOI 10.5281/zenodo.11221709, §§1–2.",
+      "arXiv:2302.02243v1 (posted 2023-02-04), https://arxiv.org/html/2302.02243v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shapiro, Divisibility Properties for Integer Sequences, Integers 23 (2023) A57, DOI 10.5281/zenodo.8214835, Theorem 26 and Open Problem 27, and §1 determinant identity.",
+        "Caalim–Tanaka, Lexicographically Minimal Extension of a Finite Binomid Index, Integers 24 (2024) A53, DOI 10.5281/zenodo.11221709, §§1–2.",
+        "Shapiro Lemma 3(a) proves termwise-product closure; its Pascal-column discussion records integrality via binomial determinants.",
+        "Shapiro Theorem 26 ends at degree two and immediately states Open Problem 27 for cubic polynomials."
+      ],
+      "reasoning": "Published closure and Pascal-column integrality prove that the three survivors are binomid. They do not imply that all other nonnegative integer-root cubics fail. The new monotone exclusion and finite exact root-shift enumeration supply precisely that missing implication. The valuation-index framework is logically compatible but is not a stronger polynomial-root classification.",
+      "searches": [
+        "\"binomid\" \"cubic\" \"polynomial\" Shapiro",
+        "\"binomid polynomial\" \"cubic\" \"integer\" \"roots\"",
+        "arXiv:2302.02243v1 Divisibility Properties for Integer Sequences",
+        "doi:10.5281/zenodo.11221709"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shapiro, Divisibility Properties for Integer Sequences, Integers 23 (2023) A57, DOI 10.5281/zenodo.8214835, Theorem 26 and Open Problem 27, and §1 determinant identity.",
+        "Caalim–Tanaka, Lexicographically Minimal Extension of a Finite Binomid Index, Integers 24 (2024) A53, DOI 10.5281/zenodo.11221709, §§1–2."
+      ],
+      "reasoning": "Fontené–Ward/generalized binomial coefficients and binomid are equivalent integrality terms. The inspected primary texts give definitions, a valuation-index characterization and individual examples, but no statement equivalent to a complete nonpositive integer-root cubic classification with the two first-term tests.",
+      "searches": [
+        "cubic polynomial f(n)=(n+a)(n+b)(n+c) with nonnegative integer offsets is binomid if and only if offsets (0,0,0),(0,0,1),(0,1,2); finite test f(1)|f(2),f(1)|f(3)",
+        "\"Fontené-Ward\" \"cubic\" integer roots classification binomid polynomial",
+        "\"binomid\" \"period 3\" Shapiro",
+        "Shapiro Open Problem 27 classify cubic binomid polynomial integer root factors nonpositive a b c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published Shapiro tables display several Pascal columns, but contain no table of all nonnegative three-shift cubic candidates (Theorem 26 and Open Problem 27).",
+        "Caalim–Tanaka, Lexicographically Minimal Extension of a Finite Binomid Index, Integers 24 (2024) A53, DOI 10.5281/zenodo.11221709, §§1–2."
+      ],
+      "reasoning": "Direct exact-query and semantic searches did not produce a database or tabulation of the twelve first-test candidates or three final root patterns. An absence of results is not an originality proof, so the possibility of an unindexed equivalent table is retained as a risk.",
+      "searches": [
+        "\"binomid\" cubic polynomial \"x(x+a)(x+b)\" classification",
+        "\"binomid polynomial\" cubic roots",
+        "\"polynomial\" \"binomid\" \"integer roots\" classify",
+        "degree 3 binomid polynomial product three shifted linear factors f-nomial integrality iff n^3 n^2(n+1) n(n+1)(n+2)"
+      ]
+    },
+    "rationale": "Relative to the inspected full primary materials, Shapiro establishes degree-at-most-two classification and states the cubic case as Open Problem 27. Its known Pascal-column examples and product closure establish positive cases, not exhaustive exclusions. Caalim–Tanaka give general binomid-index machinery but no integer-root cubic finite recognition theorem. Targeted equivalence, parameter, table and broader-coverage searches found no dominating classification. Residual uncertainty concerning unindexed equivalent work remains explicit.",
+    "residual_risks": [
+      "An equivalent proof of this integer-root cubic subclass might exist in unindexed mathematical literature or later work not recovered by the searches.",
+      "The theorem is not an unrestricted classification of degree-three integer-valued polynomials and makes no claim about all levels of their binomid pyramids."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers known sufficiency and definitions, not the complete three-shift classification. The source explicitly describes higher-degree classification as unresolved.",
+        "evidence": [
+          "arXiv:2302.02243v1 (posted 2023-02-04), https://arxiv.org/html/2302.02243v1",
+          "Shapiro, Divisibility Properties for Integer Sequences, Integers 23 (2023) A57, DOI 10.5281/zenodo.8214835, Theorem 26 and Open Problem 27, and §1 determinant identity."
+        ],
+        "identifier_or_url": "arXiv:2302.02243v1; https://arxiv.org/html/2302.02243v1",
+        "material_read": "Abstract and Introduction definitions; binomial determinant identity; Lemma 3; Theorem 15 on divisor-product sequences; §4.3 on polynomial sequences and degree-three problem; related discussion.",
+        "method": "Read public HTML full-text sections, checked formulas and assertions against the theorem and a published-version PDF.",
+        "title": "Divisibility Properties for Integer Sequences",
+        "trigger": "Exact motivating notion, established Pascal-column integrality and degree-three gap."
+      },
+      {
+        "assessment": "Theorem 26 classifies degree <=2, and Open Problem 27 asks to classify cubic binomid polynomials; no exclusion theorem for all integer-root cubic shifts.",
+        "evidence": [
+          "Shapiro, Divisibility Properties for Integer Sequences, Integers 23 (2023) A57, DOI 10.5281/zenodo.8214835, Theorem 26 and Open Problem 27, and §1 determinant identity."
+        ],
+        "identifier_or_url": "doi:10.5281/zenodo.8214835; https://math.colgate.edu/~integers/x57/x57.pdf",
+        "material_read": "Pages 1–4 on definition, closure and Pascal-column examples; page 17, §4.3, Theorem 26 and Open Problem 27; relevant PDF page images and parsed equations.",
+        "method": "Direct full-text PDF inspection and page-image cross-check of the theorem/problem statements.",
+        "title": "Divisibility Properties for Integer Sequences (published version)",
+        "trigger": "Need to inspect original-results section and confirm the exact published degree-three open problem."
+      },
+      {
+        "assessment": "Provides an equivalent p-adic integrality framework, not a full classification of cubic polynomial root-shift patterns.",
+        "evidence": [
+          "Caalim–Tanaka, Lexicographically Minimal Extension of a Finite Binomid Index, Integers 24 (2024) A53, DOI 10.5281/zenodo.11221709, §§1–2."
+        ],
+        "identifier_or_url": "doi:10.5281/zenodo.11221709; https://math.colgate.edu/~integers/y53/y53.pdf",
+        "material_read": "Pages 1–4: Introduction, definition of p-factors and binomid indices, valuation criterion, and extensions setup.",
+        "method": "Read the primary open-access PDF and inspected its first page image and core definitions.",
+        "title": "Lexicographically Minimal Extension of a Finite Binomid Index",
+        "trigger": "Potential more general characterization of binomid sequences including periodic and polynomial instances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "861d22f0-53ab-488a-a11a-82996609b152",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published cubic-polynomial classification problem naturally separates by root geometry. All cubics with three nonpositive integer roots form an unbounded, three-parameter subclass. The result gives a complete classification of this subclass and an exact constant-size recognition certificate from its first three values, despite infinitely many generalized-binomial integrality requirements. It excludes every other root-shift triple uniformly rather than relying on a finite census. This is a motivated natural classification, not an arbitrary parameter slice or a rebranding of a known positive example. No downstream general theorem is asserted.",
+    "status": "PASS"
+  }
+}

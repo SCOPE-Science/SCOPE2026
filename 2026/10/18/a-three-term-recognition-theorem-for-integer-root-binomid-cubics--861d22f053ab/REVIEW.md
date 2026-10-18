@@ -1,0 +1,11 @@
+# Scientific review: three-term recognition for integer-root binomid cubics
+
+**Correctness — PASS.** Binomid integrality forces the two first-term ratios to be integers. Monotonic estimates bound the two smallest nonnegative root shifts; the exact rational equation for the last shift produces twelve and only twelve candidates. The third-to-first ratio eliminates nine. The survivors are products or scalar multiples of ordinary and Pascal-column binomid sequences. The latter have the published integer determinant representation displayed in the proof. The proof is universal in the unbounded root parameters and all generalized-binomial indices. The companion checker confirms exact arithmetic but is not treated as an infinite proof.
+
+**Originality — PASS, relative to inspected sources.** Shapiro (2023) classifies degree at most two, explicitly asks for cubic classification, and establishes the binomid property of individual Pascal-column sequences. Those results prove the positive cases but do not imply the exhaustive three-root classification or the two-coefficient finite test. Caalim–Tanaka (2024) study valuation indices and minimal extensions, not restrictions on cubic root shifts. Targeted searches for cubic binomid polynomials, split roots, finite tests and equivalent classification did not identify a stronger result. Remaining risk: an unindexed equivalent or a classification embedded in uncatalogued later literature.
+
+**Value — PASS.** Complete classification of a natural three-parameter root-geometry subclass of a published open degree-three problem is mathematically motivated. The result gives an unexpectedly short, exact decision certificate—two small divisibility checks—for an otherwise infinite family of generalized-binomial coefficients. The excluded cases are proved impossible uniformly, not merely eliminated by computer search. The result is confined to the integral-root subclass, and does not claim the full cubic problem.
+
+**Closest prior literature and limits.** Shapiro (2023), Theorem 26 and Open Problem 27; Pascal-column binomid examples and determinant formula; Caalim–Tanaka (2024), valuation-index framework. No independent literature survey beyond the reported sources is implied; no independent scientific audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
