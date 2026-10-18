@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim is a finite minimum and uniqueness statement. Every Dyck word through length \(24\) is covered by an exhaustive search. A prefix-pruned route and an independent all-Catalan route agree on the complete survivor sets for lengths \(8,10,\ldots,24\). No nesting-level-\(4\) survivor occurs below \(24\); exactly one occurs at \(24\). Direct factor-period inspection verifies that its largest exponent is exactly \(7/3\), not larger.
+## correctness
 
-## Originality
-PASS. The direct source proves the qualitative threshold and supplies an all-level construction, but does not optimize the first restored nesting level. Its displayed even-level morphic family yields length \(228\) at nesting level \(4\), whereas the new classification proves the optimum \(24\) and uniqueness. Searches of the direct paper, equivalent threshold terminology, the exact witness, plausible related Dyck literature, and the owned ledgers found no covering result.
+PASS
 
-Residual risk remains that an unindexed computation or unpublished note records the same minimizer.
+Use 0 as opening and 1 as closing parenthesis and forbid factors with exponent strictly greater than 7/3 (not factors exactly at 7/3). The 24-letter witness 001001100100110110011011 is balanced, has nonnegative prefix heights of maximum 4, is reverse-complement invariant, contains 1001001 of period 3 and length 7 (exact exponent 7/3), and has no factor with 3*length > 7*period. An independent prefix construction exhausts every Dyck word at every even length 2..24, pruning only already-created forbidden suffixes: there are no level-4 survivors below 24 and at 24 precisely 40 level2,36 level3 and ONE level4 survivor, the witness. The original certificate and verifier code were inspected; the independent enumeration regenerated its count table. The finite classification is an exhaustive proof of the bounded minimality/uniqueness claim, not an unbounded theorem about all nesting levels.
 
-## Value
-PASS. Nesting level \(4\) is mathematically distinguished: it is exactly the first level forbidden by the non-strict \(7/3\) theorem and recovered at the strict \(7/3^+\) boundary. The result therefore measures the sharp transition itself and replaces a length-\(228\) existence construction at that level by the exact length-\(24\) optimum with a complete equality case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original narrow result after comparing actual mathematical implications with primary source and adjacent literature: Theorem 2.1 rules out 7/3-power-free height4 (exponents >=7/3 forbidden); a different strict >7/3 predicate permits the 24-word boundary witness. The source's 228-letter construction does not establish 24 as minimal or unique.
+
+## value
+
+PASS
+
+The original threshold paper proves height <=3 for non-strict 7/3 avoidance and existence at arbitrary nesting for strict 7/3+ avoidance, giving level 4 through a much longer substitution witness. The least first-new-height witness (24) and uniqueness at the critical exact-boundary repetition are natural unknown sharp invariants, independently useful in combinatorics on words even without a formula for all heights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
