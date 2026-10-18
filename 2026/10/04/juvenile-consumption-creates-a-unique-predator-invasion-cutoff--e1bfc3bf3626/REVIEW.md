@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. At the predator-free state the linearization is block upper triangular: the prey diagonal derivative is \(-r\), and the predator renewal block freezes the prey environment at \(\bar x=r/a\). Solving that linear block gives the displayed Euler--Lotka equation. The triangle inequality excludes nonnegative-real-part characteristic roots when \(\mathcal R_P(g)<1\), and the source's strictly positive smooth juvenile indicator makes \(\mathcal R_P(g)\) strictly decreasing to zero. The accompanying finite-lifespan replay checks representative identities but is not used as an infinite-dimensional proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The motivating source numerically classifies predator-free outcomes and reports that \(g\) and \(\tau^*\) are the most influential parameters, but its inspected full text contains no net-reproductive-number or Euler--Lotka invasion theorem. A closely related 2018 paper proves a reproductive threshold in a different model with age-structured prey, not an age-structured role-reversing predator. The accepted originality is therefore the source-specific functional, its strict/complete monotonicity in \(g\), and uniqueness of the resulting local invasion cutoff, not the general Euler--Lotka method.
+## correctness
 
-## Value
-PASS. The result gives analytic structure to a numerically important parameter direction in the motivating model. At fixed maturation age, it shows that the local predator-invasion boundary can be crossed at most once as juvenile consumption increases, reducing a high-dimensional local-stability question to one scalar renewal integral and clarifying why large \(g\) suppresses predator invasion.
+PASS
 
-## Closest literature and limitations
-Closest inspected literature includes Lu--Liu (2018), which gives a predator reproductive threshold when the prey is age structured, and Ripoll--Font (2023), which studies numerical stability and Hopf bifurcation in a different age-structured predator-prey system. Neither implies the role-reversal functional or the unique \(g\)-cutoff here. The result is local invasion theory only; it does not establish global extinction or persistence, full basin geometry, or monotonicity in \(\tau^*\).
+At the predator-free equilibrium xbar=r/a, u=0, prey perturbations have stable eigenvalue -r and predator linearization is autonomous because derivatives of its x-dependent coefficients are multiplied by equilibrium u=0. Along characteristics its renewal eigenmodes give F(lambda,g)=∫ Bbar(τ) exp(-∫_0^τ m0(s)ds -g*xbar*A(τ)-lambda*τ)dτ=1. The real positive mode exists iff R_P(g)=F(0,g)>1; for R_P(g)<1 a complex root with Re lambda≥0 contradicts |F|≤R_P(g). For the source's smooth positive juvenile indicator A(τ)>0 at all positive ages, so R_P is strictly decreasing and tends to 0 by dominated convergence, provided R_P(0)<∞ and positive-age births. It follows that one positive g_c exists iff R_P(0)>1. The displayed derivative lambda'(g)<0 follows from implicit differentiation if the age moment exists. Source finite-lifespan simulation avoids indefinite-tail spectral subtleties. These are local invasion claims, not global nonlinear extinction or general semigroup stability without tails.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete accessible Suarez et al. primary model gives numerical predator-free regime classification and identifies g as influential, but does not display this source-specific Euler--Lotka reproduction integral or unique monotone threshold. Related net-reproductive threshold work treats age-structured prey or different Lotka--Volterra interactions; generic Euler--Lotka is standard. The contribution is specifically the model's hazard-dependent complete-monotonicity and one-parameter uniqueness, not discovery of renewal theory.
+
+## value
+
+PASS
+
+The source's numerical phase diagrams single out juvenile consumption as a main extinction parameter. An exact one-crossing law for that parameter provides a scalar analytically justified local invasion threshold, separates persistence from global dynamics, and can replace repeated local-stability simulations for fixed maturation age.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

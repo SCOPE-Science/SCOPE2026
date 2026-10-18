@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:49:56.165780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the predator-free equilibrium xbar=r/a, u=0, prey perturbations have stable eigenvalue -r and predator linearization is autonomous because derivatives of its x-dependent coefficients are multiplied by equilibrium u=0. Along characteristics its renewal eigenmodes give F(lambda,g)=∫ Bbar(τ) exp(-∫_0^τ m0(s)ds -g*xbar*A(τ)-lambda*τ)dτ=1. The real positive mode exists iff R_P(g)=F(0,g)>1; for R_P(g)<1 a complex root with Re lambda≥0 contradicts |F|≤R_P(g). For the source's smooth positive juvenile indicator A(τ)>0 at all positive ages, so R_P is strictly decreasing and tends to 0 by dominated convergence, provided R_P(0)<∞ and positive-age births. It follows that one positive g_c exists iff R_P(0)>1. The displayed derivative lambda'(g)<0 follows from implicit differentiation if the age moment exists. Source finite-lifespan simulation avoids indefinite-tail spectral subtleties. These are local invasion claims, not global nonlinear extinction or general semigroup stability without tails.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu--Liu's structured prey differs in which population carries age and in its mortality/birth functions; Ripoll--Font study different interactions and Hopf stability."
+        ],
+        "reasoning": "Generic positive age-structured renewal theory supports spectral reasoning but the inspected works do not claim this explicit model-dependent monotone g-cutoff.",
+        "searches": [
+          "doi:10.1007/s00285-026-02402-5 primary source",
+          "doi:10.1186/s13662-018-1614-y threshold dynamics of age-structured prey",
+          "doi:10.3934/mbe.2023696 numerical age-structured Lotka–Volterra"
+        ]
+      },
+      "checked_sources": [
+        "Actual Git tree 72d394befe045b6f5bcb2e0b1634cf2ee86542f7, RESULT.md 8e93aae5864c398a6382068030701fb0840bb394, verify.py 2b02a3013141683a441bb8b2cbdae24ba03f027c",
+        "doi:10.1007/s00285-026-02402-5",
+        "arXiv:2502.19748v1",
+        "doi:10.1186/s13662-018-1614-y",
+        "doi:10.3934/mbe.2023696",
+        "Current Resultary query and related findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Suarez's extinction region arises numerically; renewal boundary admits a linear scalar transform after decoupling. Other model's reproduction threshold has different operators."
+        ],
+        "reasoning": "The analytic one-crossing theorem uses source-specific positive smooth mortality A(τ), a step absent from qualitative numerical findings and differently structured models.",
+        "searches": [
+          "Suarez et al. predator-free phase diagram",
+          "Lu--Liu 2018 predator net reproduction threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source's numerical predator-free region and extinction-at-large-g observation are weaker than an explicit F(0,g) threshold and analytic one-crossing theorem."
+        ],
+        "reasoning": "Aliases including reproduction number, Malthusian parameter, renewal spectral threshold and monotone juvenile hazard were compared; the same source-specific theorem was not located.",
+        "searches": [
+          "Resultary: Suarez Cameron Fagan Levy age structured role reversal juvenile consumption g predator invasion Euler Lotka threshold R0",
+          "A predator-prey model with age-structured role reversal net reproduction threshold Euler"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Paper supplies simulated phase regions, not an analytical table of R_P(g) or exact g_c."
+        ],
+        "reasoning": "This is an analytic parameter threshold, not a known-table recomputation; numerical plots cannot imply uniqueness over all g≥0.",
+        "searches": [
+          "doi:10.1007/s00285-026-02402-5 g tau-star phase diagram",
+          "Resultary predator invasion reproduction number role reversal"
+        ]
+      },
+      "rationale": "The complete accessible Suarez et al. primary model gives numerical predator-free regime classification and identifies g as influential, but does not display this source-specific Euler--Lotka reproduction integral or unique monotone threshold. Related net-reproductive threshold work treats age-structured prey or different Lotka--Volterra interactions; generic Euler--Lotka is standard. The contribution is specifically the model's hazard-dependent complete-monotonicity and one-parameter uniqueness, not discovery of renewal theory.",
+      "residual_risks": [
+        "Positive-renewal reproduction thresholds are classical; any novelty must remain limited to this model's exact parameter formula and one-crossing conclusion.",
+        "Infinite-lifespan spectral growth-bound/exponential stability can need tail/moment hypotheses not proved here.",
+        "No conclusion about nonlinear global extinction, remote attractors or monotonicity in tau-star."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS_MODEL; NO_SOURCE_SPECIFIC_THRESHOLD_IN_READ_TEXT",
+          "evidence": "Birth and hazard equations match the linearization; publication emphasizes parameter experiments and observed extinction, not the displayed Euler--Lotka one-crossing formula.",
+          "identifier_or_url": "doi:10.1007/s00285-026-02402-5; arXiv:2502.19748",
+          "material_read": "Accessible full-text HTML model equations, maturation functions and sections discussing numerical stability/phase diagrams were read; the preprint abstract and bibliographic metadata were also checked.",
+          "method": "Open-access primary full-text HTML and specific section comparison",
+          "title": "A predator-prey model with age-structured role reversal",
+          "trigger": "Original governing equations, boundary renewal and numerical predator-free claims"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Age is assigned to prey with unstructured predator; not the Suarez hazard model.",
+          "identifier_or_url": "doi:10.1186/s13662-018-1614-y",
+          "material_read": "Abstract, model description and theorem-level scope; whole proof not read.",
+          "method": "Lawful open access primary landing/full-text sections",
+          "title": "Threshold dynamics of a predator–prey model with age-structured prey",
+          "trigger": "Closest reproductive-number threshold theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Different population structure and model; no term g*xbar*A(τ) or same cutoff.",
+          "identifier_or_url": "doi:10.3934/mbe.2023696",
+          "material_read": "Primary abstract and model-scope introduction; full mathematical proofs not independently read.",
+          "method": "Publisher open landing text",
+          "title": "Numerical approach to an age-structured Lotka-Volterra model",
+          "trigger": "Related numerical renewal stability and Hopf theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source's numerical phase diagrams single out juvenile consumption as a main extinction parameter. An exact one-crossing law for that parameter provides a scalar analytically justified local invasion threshold, separates persistence from global dynamics, and can replace repeated local-stability simulations for fixed maturation age.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive-renewal reproduction thresholds are classical; any novelty must remain limited to this model's exact parameter formula and one-crossing conclusion.",
+    "Infinite-lifespan spectral growth-bound/exponential stability can need tail/moment hypotheses not proved here.",
+    "No conclusion about nonlinear global extinction, remote attractors or monotonicity in tau-star."
+  ],
+  "schema_version": 1
+}
