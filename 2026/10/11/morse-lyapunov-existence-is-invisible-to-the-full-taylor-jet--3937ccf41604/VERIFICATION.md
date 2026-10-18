@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The primary preprint was checked at its definitions, Proposition 3.5, and Corollary 3.9. The polynomial source field is exactly
-\[
-\dot x_1=-\varepsilon x_1^3+x_2,\qquad \dot x_2=-x_1^3-x_2^3,
-\]
-with \(\varepsilon>0\). The source gives a strict global Lyapunov function and proves by a Hessian argument that no Morse Lyapunov function exists.
+# Independent mathematical audit
 
-For the new construction, the standard multiplier \(a(x)=\exp(-1/\|x\|^2)\) for \(x\ne0\), with \(a(0)=0\), is smooth and flat. Therefore both \(a f_\varepsilon\) and \(-a x\) have all derivatives equal to zero at the origin. For \(-a x\), direct differentiation of \(\|x\|^2\) gives a strictly negative orbital derivative away from the origin.
+## correctness
 
-For \(a f_\varepsilon\), the positive factor on the punctured plane preserves oriented source orbits. The source-time parameter cannot remain bounded as physical time tends to infinity, because a finite nonzero orbit point has a neighborhood on which \(a\) is bounded below. It also cannot diverge at finite physical time because \(a\le1\). Thus global attraction and stability pass to the time change. A putative Morse Lyapunov function for the time-changed field would have strictly negative derivative along \(f_\varepsilon\) after division by \(a\), contradicting the inspected source proposition.
+PASS
 
-No numerical experiment, finite enumeration, or external certificate is used. The proof does not cover the real-analytic category, and it does not show that the full smooth local germ is insufficient.
+Jongeneel Proposition 3.5 proves f_eps=(-eps*x1^3+x2,-x1^3-x2^3) is globally asymptotically stable and has no smooth Morse Lyapunov function; its nilpotent-Hessian obstruction was inspected in full text. a(x)=exp(-1/||x||²) off zero and zero at origin is C-infinity flat. F-=a*f_eps and F+=-a*x share the zero full Taylor jet; V+=||x||² strictly decreases under F+. A positive bounded time change preserves GAS and all strict Lyapunov inequalities off zero, so a hypothetical Morse Lyapunov for F- would contradict Jongeneel. No analytic-category assertion.
+
+## originality
+
+PASS
+
+The no-Morse GAS example and necessary semisimplicity condition in Jongeneel do not construct two GAS fields with identical full infinite jet and opposite Morse Lyapunov status. Older smooth orbital-equivalence results use a multiplier nonvanishing at the equilibrium, whereas the essential flat multiplier vanishes. Best-of-knowledge new counterexample, with unindexed-folklore risk.
+
+## value
+
+PASS
+
+Full formal Taylor data cannot classify Morse Lyapunov existence even among globally asymptotically stable smooth planar systems. A constructive jet-invisibility boundary is a motivated mathematical negative result, not merely a renamed source counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

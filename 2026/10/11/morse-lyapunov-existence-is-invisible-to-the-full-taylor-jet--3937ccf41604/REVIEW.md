@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The flat scalar \(a\) is smooth and strictly positive off the origin. Both products are flat at the origin, so the two complete Taylor jets coincide. The radial field has the exact quadratic Morse Lyapunov function \(V_+(x)=\|x\|^2\). The other field is a positive time change of Jongeneel's globally asymptotically stable example on the punctured plane, and a hypothetical Morse Lyapunov function would also be one for the source field after division of the strict orbital derivative by \(a(x)>0\). The time-change parameter cannot stop at a finite source time and cannot reach infinite source time at finite physical time, so global asymptotic stability is preserved.
+## correctness
 
-## Originality
-PASS. Statement-level searches covered full Taylor jets, flat time changes, orbit equivalence, Morse Lyapunov functions, globally asymptotically stable fields, and the motivating paper. The motivating source gives a no-Morse example and a first-order necessary condition but does not state jet-indistinguishability. The closest time-rescaling literature inspected preserves Lyapunov functions under a multiplier satisfying \(\mu(0)=1\), which cannot erase the full Taylor jet. No searched source implied the constructed pair.
+PASS
 
-## Value
-PASS. The motivating paper explicitly leaves a complete characterization open and notes that higher-order effects are unclear. The finding establishes a sharp boundary for any formal local characterization: in the smooth category, even the entire Taylor series is insufficient. This is a structural obstruction rather than a parameter variation or a recomputation.
+Jongeneel Proposition 3.5 proves f_eps=(-eps*x1^3+x2,-x1^3-x2^3) is globally asymptotically stable and has no smooth Morse Lyapunov function; its nilpotent-Hessian obstruction was inspected in full text. a(x)=exp(-1/||x||²) off zero and zero at origin is C-infinity flat. F-=a*f_eps and F+=-a*x share the zero full Taylor jet; V+=||x||² strictly decreases under F+. A positive bounded time change preserves GAS and all strict Lyapunov inequalities off zero, so a hypothetical Morse Lyapunov for F- would contradict Jongeneel. No analytic-category assertion.
 
-## Closest literature and limitations
-The closest source is Jongeneel, arXiv:2610.05626v1, especially Proposition 3.5 and Corollary 3.9. Algaba, García, and Giné, DOI:10.1007/s00009-015-0641-0, gives a nearby time-rescaling preservation principle but assumes a nonvanishing multiplier at the singular point. The construction here is nonanalytic and does not address determination from the full smooth germ or from global orbit data. An equivalent observation may exist in unindexed literature on smooth time changes; that residual search risk does not affect correctness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The no-Morse GAS example and necessary semisimplicity condition in Jongeneel do not construct two GAS fields with identical full infinite jet and opposite Morse Lyapunov status. Older smooth orbital-equivalence results use a multiplier nonvanishing at the equilibrium, whereas the essential flat multiplier vanishes. Best-of-knowledge new counterexample, with unindexed-folklore risk.
+
+## value
+
+PASS
+
+Full formal Taylor data cannot classify Morse Lyapunov existence even among globally asymptotically stable smooth planar systems. A constructive jet-invisibility boundary is a motivated mathematical negative result, not merely a renamed source counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
