@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:14:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unrestricted published four-state direction-determinate shortest-accepted-word maximum is binomial(4,2)-1=5. Direct independent simulation of the specified binary witness verifies its first accepted word is abba, length four; the ternary witness first accepts abbac, length five. For the binary upper bound, independently coded exhaustive C++ enumeration treats each of the four direction splits, all 625^2 two-letter transition-map pairs, all independently chosen left/right endmarker return maps (superset of actual machines), and both symmetry-inequivalent singleton accepting states when available; 101,562,500 configurations yielded exact split maxima 0,3,4,3. Singleton final state reduction is safe because any accepted shortest word remains accepted while no new shorter word appears. Initial state normalization and end-marker independent returns only enlarge the checked class. Hence no binary four-state machine reaches five. The published unrestricted upper bound and ternary construction finish the exact minimum alphabet proof.",
+      "risk": "Exactly 4-state direction-determinate 2DFA, source end-marker and partial-transition semantics.",
+      "sources": [
+        "Frozen RESULT.md 27df892660b9ee8385855fbe12226429789cb1f4",
+        "Independent complete binary C++ census and witness simulation",
+        "Immutable source tree 955edb5f327253d7ed10dd449b3ea49ee7319c7d"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original 5-symbol extremal existence is weaker than ternary sufficiency and cannot bound binary maximum. Fixed-alphabet general results do not imply exact small n=4."
+        ],
+        "reasoning": "Other formal-language appendices/theses not exhaustively inspected.",
+        "searches": [
+          "arXiv:2210.00235 Theorem 2 + construction with N-1 distinct letters; Dobronravov 2021 fixed-alphabet abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.00235 complete primary PDF",
+        "DOI 10.3233/FI-2021-2044 abstract",
+        "Resultary semantic query four-state fixed alphabet"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A construction using alphabet size five does not logically rule out binary extremals nor imply ternary compression; separate complete binary census and ternary witness are necessary."
+        ],
+        "reasoning": "All four direction splits explicitly covered.",
+        "searches": [
+          "Martynova–Okhotin Theorem 2 construction with five distinct symbols"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direction-determinate 2DFA shortest accepted input, versus one-way DFA reset/avoiding words (different predicates)."
+        ],
+        "reasoning": "Same-state alphabet minimality not a consequence of unrestricted max.",
+        "searches": [
+          "Martynova–Okhotin arXiv:2210.00235 full PDF §§2–3 and Theorem 2; fixed-alphabet 2DFA bibliographic searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No mathematical database/table of four-state binary/ternary optimum identified in actual search; exact enumeration here is new independent source computation."
+        ],
+        "reasoning": "Absence of indexed table is not proof of novelty.",
+        "searches": [
+          "Resultary query four-state direction-determinate binary ternary shortest accepted string; word abbac searches described in source"
+        ]
+      },
+      "rationale": "Martynova–Okhotin prove the unrestricted 5 and construct it with a distinct letter for each of five consecutive input symbols; five-symbol construction does not imply a ternary one nor exclude binary. The general fixed-alphabet papers address asymptotic lower bounds and do not establish the exact four-state threshold in inspected material. Resultary query returned related reset automata but no direct result. Best-of-knowledge PASS; potential unpublished small-state census remains.",
+      "residual_risks": [
+        "An unindexed prior small-state computation could contain the exact 4/5 threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESTRICTED_MAX_KNOWN_ALPHABET_THRESHOLD_NEW",
+          "evidence": "Construction defines a distinct input letter for each of N-1 steps; n=4 extremum five uses five letters",
+          "identifier_or_url": "arXiv:2210.00235v1",
+          "material_read": "Complete 14-page public primary PDF, §2 definitions, Theorem 1, Theorem 2 and 5-letter construction; page 3 visually inspected",
+          "method": "Public PDF reading and screenshot",
+          "title": "The maximum length of shortest accepted strings for direction-determinate two-way finite automata",
+          "trigger": "Original unrestricted exact theorem and extremal construction"
+        },
+        {
+          "assessment": "ASYMPTOTIC_FIXED_ALPHABET_CONTEXT",
+          "evidence": "No inspected exact n=4 binary/ternary result",
+          "identifier_or_url": "DOI:10.3233/FI-2021-2044",
+          "material_read": "Published bibliographic abstract and reference list only, not full article",
+          "method": "Accessible listing",
+          "title": "On the Length of Shortest Strings Accepted by Two-way Finite Automata",
+          "trigger": "Earliest fixed-alphabet regime context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-alphabet restrictions are a recognized distinct regime of 2DFA shortest-string complexity. The new exact smallest alphabet attaining the established 4-state extreme is a natural finite cutoff, with a nontrivial all-model exhaustive upper certificate and explicit sharp witnesses; this is not simply re-running the unrestricted formula.",
+      "risk": "Specific to exactly four states; computational exhaustive certificate has an explicitly finite normal form.",
+      "sources": [
+        "arXiv:2210.00235 complete primary PDF",
+        "DOI 10.3233/FI-2021-2044 abstract"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly 4-state direction-determinate 2DFA, source end-marker and partial-transition semantics.",
+    "No fixed-alphabet formula for larger state counts."
+  ],
+  "schema_version": 1
+}
