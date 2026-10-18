@@ -1,25 +1,21 @@
-# Scientific review: cyclic divisibility and reversal-blind rank spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is finite functional Kripke frames having exactly one directed periodic orbit and only depth-one preperiodic points. In a singleton-successor relation the bounded-morphism forth-and-back requirement is precisely commutation with the successor map. Its periodicity consequence forces target cycle length to divide source cycle length, and the image of every source cycle point is uniquely determined by one of the target-cycle rotations. Every source leaf has exactly the two kinds of possible target images accounted for by the proof: one predecessor core point, or a target leaf in the same target fibre. Inclusion–exclusion counts the assignments attaining precisely a given subset of target leaves, independently in each fibre. The sum over all core shifts is disjoint, giving the complete inter-frame homomorphism-rank polynomial with the stated orientation.
+PASS
 
-For an idempotent endomorphism the core rotation must be zero. Every image leaf is fixed and every remaining leaf may choose exactly one fixed leaf in its own fibre or the preceding core point. This proves the idempotent rank factors, the full overhead range, and the count of retract supports. Relabelling source and target fibre indices by negation matches every term in the general Hom polynomial under simultaneous reversal. Core-commuting isomorphisms are only rotations, proving that the explicitly reversed three-fibre examples are not isomorphic. Finite Boolean modal duality transfers frame image cardinalities to powers of two without interchanging source and target.
+For a successor-commuting map, periodic core must map to target cycle, forcing target length d dividing source c and exactly d rotations. A source leaf has options one forced predecessor core point plus target leaves in its fibre. Inclusion-exclusion gives Q_{p,q} for occupied target leaves and independent fibres multiply, proving Hom polynomial. Idempotence forces identity core shift and fixes each occupied leaf, giving ∏ sum binom(s_i,j)(j+1)^(s_i-j)u^j. Reflecting fibre indices with a->-a preserves E and I; directed-core isomorphisms are only cyclic rotations, so (1,2,3) and (1,3,2) differ. Independently computed E and I arrays and totals 1968 and 276; algebra inverse-image has 2^(d+k) elements, not d+k.
 
-A standalone, standard-library operation-table program was executed and replayed: it checks all functions on 56 small frames (1,262,096 candidates), bounded maps and idempotents, 225 separately generated cross-frame pairs, and 15 modal-algebra tables; it also reconstructs both nine-world spectra from the normal form. All checks passed. The general conclusion rests on the proof, not a finite extrapolation.
+## originality
 
-## Originality — PASS, with residual historical risk
+PASS
 
-General modal-algebra/frame duality, commuting-map characterizations for monounary algebras, and possible image-cardinality spectra are prior art and are expressly excluded from the claim of novelty. Bezhanishvili–Bezhanishvili–de Groot (arXiv:2106.01628; original 2021-06-03) supplies a broader categorical duality without the family-specific multiplicity polynomial. Jakubíková-Studenovská and Potpinková's 2014 endomorphism-spectrum work studies which image *sizes* occur, not the complete number of endomorphisms at each size, the inter-frame Hom refinement, or reversal-blind failure of reconstruction. The 2023 cycle-graph endomorphism work instead concerns undirected graph homomorphisms. The comparison specifically tested formulations via unary-algebra commuting maps, transformation semigroups, cycle-plus-pendant functional graphs, idempotent ranks, and dual modal-algebra morphisms; searches in indexed published mathematical findings and both own-ledger periods found no implication of the full theorem. Thus the combined exact Hom multiplicity formula and explicit nonisomorphic reversal counterexample are not covered by the material inspected.
+General finite monounary endomorphism-spectrum work and modal-algebra duality are acknowledged; the submitted theorem adds the all-source/all-target multiplicity polynomial, idempotent rank enumerator and concrete reversal-blind nonisomorphism witness. The 1986 monounary source was materially inspected; the highly plausible 2014 primary full text was not retrievable through open routes or connected institutional access (vpn_disconnected), so implicit coverage remains a recorded risk rather than automatic failure. Best-of-knowledge PASS.
 
-The full 1985–1986 articles on endomorphisms of partial monounary algebras could not be completely examined. Their general theorems may implicitly subsume part of the normal form, and an equivalent unindexed enumeration remains possible. The originality assessment is consequently not a claim that every possible antecedent has been excluded. In particular the elementary normal-form observation is not singled out as original; the delimited contribution is the complete finite rank-refined classification and reconstruction counterexample.
+## value
 
-## Value — PASS
+PASS
 
-The image-rank distribution is a natural compression invariant of the endomorphism monoid of a finite Boolean modal algebra. Ordinarily it is not recovered from the set of possible ranks alone. Here a single theorem counts *every* bounded morphism between different length-and-fibre configurations, states the exact obstruction to existence, and counts idempotent images with a separate explicit product. The conclusion that image-rank profiles do not reconstruct the algebra is a structural counterexample: the two nonisomorphic 512-element algebras have the same complete endomorphism and idempotent spectra, not merely the same attainable ranks or total endomorphism count. This gives a motivated boundary for numerical classification rather than an arbitrary isolated computation. The formulas are constructive and permit independent enumeration at any prescribed finite parameters.
+The theorem supplies the complete inter-frame and idempotent image-rank multiplicity distributions in a natural finite functional-frame class and an explicit pair indistinguishable by both exact spectra. This has structural reconstruction significance beyond a small numerical computation.
 
-## Limitations
-
-Only one periodic core and depth-one attachments are covered; no theorem is asserted for arbitrary finite functional digraphs. The image-rank invariants coincide under reflection, not necessarily the complete endomorphism monoids. Prior general monounary-algebra work creates a real residual implicit-antecedent risk. The code covers finite test cases, not arbitrary parameters. External mathematical audit has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

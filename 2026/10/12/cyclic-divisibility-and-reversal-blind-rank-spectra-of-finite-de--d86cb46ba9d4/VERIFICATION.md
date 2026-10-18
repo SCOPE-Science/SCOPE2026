@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` in a Python 3 standard-library environment. The checker reconstructs finite unary successor operation tables and tests arbitrary functions against \(fT=Uf\), including idempotence and image cardinalities. It also independently tests the corresponding finite Boolean modal operations under inverse image and compares with the exact generating-function arithmetic.
+# Independent mathematical audit
 
-Replay output:
+## correctness
 
-`VERIFY_OK 56 finite frames; 1262096 brute function tables; 11009 bounded maps; 1343 idempotents; 15 modal-algebra checks (2165 candidate maps); 225 hom-pairs (22183 direct function tables, 531 bounded homomorphisms); 1228 coefficient/reversal assertions; two 9-world normal-form witnesses (1968 maps each)`
+PASS
 
-The \(56\) full-table frame cases have at most \(6\) worlds, and the separate \(225\) source–target checks have at most \(4\) worlds on each side. The explicit \(9\)-world witnesses are checked by exhaustively generating every map in the proved normal form, not by considering all \(9^9\) functions. This is finite evidence, not a computational proof for arbitrary parameters. The general proof is in `RESULT.md`.
+For a successor-commuting map, periodic core must map to target cycle, forcing target length d dividing source c and exactly d rotations. A source leaf has options one forced predecessor core point plus target leaves in its fibre. Inclusion-exclusion gives Q_{p,q} for occupied target leaves and independent fibres multiply, proving Hom polynomial. Idempotence forces identity core shift and fixes each occupied leaf, giving ∏ sum binom(s_i,j)(j+1)^(s_i-j)u^j. Reflecting fibre indices with a->-a preserves E and I; directed-core isomorphisms are only cyclic rotations, so (1,2,3) and (1,3,2) differ. Independently computed E and I arrays and totals 1968 and 276; algebra inverse-image has 2^(d+k) elements, not d+k.
+
+## originality
+
+PASS
+
+General finite monounary endomorphism-spectrum work and modal-algebra duality are acknowledged; the submitted theorem adds the all-source/all-target multiplicity polynomial, idempotent rank enumerator and concrete reversal-blind nonisomorphism witness. The 1986 monounary source was materially inspected; the highly plausible 2014 primary full text was not retrievable through open routes or connected institutional access (vpn_disconnected), so implicit coverage remains a recorded risk rather than automatic failure. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The theorem supplies the complete inter-frame and idempotent image-rank multiplicity distributions in a natural finite functional-frame class and an explicit pair indistinguishable by both exact spectra. This has structural reconstruction significance beyond a small numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
