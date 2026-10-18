@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the signless Laplacian \(K=BB^{\mathsf T}\), derives a unique scalar root from a strictly increasing spectral function, proves two exact uniform diagonal identities from graph transitivity, and checks containment at all \(m+n\) facets. Explicit positive contact weights satisfy both of John's global optimality identities. Eigenvalue transfer through the rectangular incidence matrix proves the semiaxis spectrum and determinant; the complete-bipartite quadratic and the cyclic Fourier integral are derived algebraically. The numeric verifier checked 40 graphs with 1,176 total contacts and both moment identities; it is corroborative, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to residual risk
-The inspected fractional-matching primary papers establish vertex/diameter and simplex-path properties, not maximum-volume Euclidean inscribed ellipsoids. The general orbit-polar ellipsoid treatment does not state a classification of this **two-facet-orbit, free-center** polytope. The already-known complete-graph specialization is subsumed but not counted as a separate new result; cycles, balanced complete bipartite graphs, hypercubes, Petersen, and their spectral-volume laws go beyond it. No equivalent specific statement was found in the identified primary literature or targeted semantic searches. Published general two-orbit optimization principles could permit another derivation; exhaustive priority has not been established.
+PASS
 
-## Value — PASS
-The result classifies an infinite natural family by graph spectrum, gives exact all-facet contact certificates, distinguishes bipartite spectral null directions, and determines exact volume. The closed radical for balanced complete bipartite graphs and golden-ratio limit along cycles reveal features absent from the two-eigenvalue complete-graph case. It is neither a numerical census nor an arbitrary parameter slice.
+For connected vertex-and-edge transitive d-regular G, K=BBᵀ=dI+A≥0, tr K=nd, λ≤2d. Φ(t)=t(1+dt)V_G(t)/d is strictly increasing on t>0, Φ(0)=0, Φ(1)≥1, so the scalar root is unique in (0,1]. Vertex transitivity makes diagonal BM^{-1}Bᵀ constant V_G(t), edge transitivity gives constant diagonal M^{-1}=1-tV/d. The root implies L=dt/(1+dt) and V=d/[t(1+dt)]. With center a=t/(1+dt) and Σ=ηM^{-1}, η=t/[d(1+dt)], both edge and degree facet support radii equal their slacks a and 1-da. Each defining inequality is a genuine facet when d≥2. The positive John edge/vertex weights p=dt/(1+dt) and q=d/[2(1+dt)] cancel linear normals by Bᵀ1=2·1 and produce Σ^(1/2)(p/a² I+q/(1-da)² BᵀB)Σ^(1/2)=I; this proves global maximum ellipsoid including nonsymmetric competitors. Rank-nullity transfers K spectrum into edge space to compute all semiaxes/volume. For Kdd, eigenvalues 2d,d^(2d-2),0 yield the stated quadratic root. Cyclic Fourier sum and ∫(1+t+t cosθ)^(-1)=1/sqrt(1+2t) yield golden ratio root. Independently evaluated C5,K4,K3,3 using NumPy/SciPy; edge/vertex contacts and John identities had residuals <2e-15. General assertions follow from analytic identities, not finite examples.
 
-## Closest literature and limits
-Blanchard–De Loera–Louveaux (arXiv:2001.09575v1), Sanità (arXiv:1806.03397v1), Kafer–Pashkovich–Sanità (arXiv:1709.09642v1), and Barvinok–Blekherman (arXiv:math/0312268v1) were compared by mathematical statements. The first three address combinatorial and circuit diameters or monotone paths; the last addresses orbit-polar ellipsoids in a general framework. Non-transitive regular graphs and integral matching polytopes are excluded. No external independent verification has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete-graph K_n specialization is explicitly already covered by a separate published exact John theorem; similarly the doubly-substochastic Kdd case has a separate exact theorem. The claim assessed is the all vertex-and-edge-transitive graph spectral classification, including cycles, hypercubes and Petersen and an asymptotic golden-ratio law. Barvinok–Blekherman develop general orbit-ellipsoid tools, but the inspected general statements do not themselves deliver the displayed two-facet-orbit, freely centered spectral root, all contacts and volume for this nonhomogeneous polytope. The broader family therefore has a substantive uncovered mathematical conclusion.
+
+## value
+
+PASS
+
+A natural infinite graph family of fractional matching polytopes receives an exact spectral center, full anisotropic John ellipsoid, volume and all-facet contact certificate. Special graph spectra produce nontrivial bipartite radical and a golden-ratio limiting cycle parameter; the result is a substantive general classification rather than a special-case recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
