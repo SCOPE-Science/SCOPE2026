@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limitations
 
-Run `python3 verify_delta_affine.py` with the Python 3 standard library; no data downloads or third-party packages are required. The checker computes the semantic truth-set operation directly on all events for every labelled frame with \(1\le n\le4\) and at most two distinct outgoing successors, computes the corresponding bit-matrix dynamics independently, compares every tested iterate with \(\boldsymbol1+B^k x\), compares the first repeated matrix-power index with the rank stabilization index, and tests all admissible one- and two-world frames for period one.
+# Independent mathematical audit
 
-Successful replay prints `all_frames_n=1 passed` through `all_frames_n=4 passed`, then `frame_count=15002 valuation_count=237068`, odd-cycle exact periods at sizes 3, 5, 7 and 9, and finally `VERIFY_OK`.
+## correctness
 
-The checker also computes algebraic normal-form degrees on local rows of successor size 0 through 6 by a truth-table Möbius transform. The unrestricted formula for those degrees, the matrix-iteration identity, the exact Fitting classification, and the unbounded-period conclusion are proved symbolically in RESULT.md. In particular, 15,002 frame tests are not exhaustive over arbitrarily many worlds, and the four odd-cycle instances are not proofs of the lower bound for every odd size.
+PASS
 
-Independent scientific auditing or formal verification has not been performed. Historical coincidence with an inaccessible full text has not been excluded.
+For r successor bits, the all-agree indicator is product(x_i)+product(1+x_i) over F2. At r=0 or1 it is constant1; at r>=2 cancellation of leading degree-r terms leaves every degree-(r-1) monomial with coefficient one, so algebraic degree exactly r-1. Thus coordinatewise Boolean affine iff every row has at most two successors. In that case Delta(x)=1+Bx where every B row has weight0 or2; B1=0 gives Delta^k(x)=1+B^k x for all k>=1. The first stable rank index a>=1 identifies Fitting decomposition ker B^a plus U=im B^a, with B|U invertible; equality of operator iterates is exactly B^{k+p'}=B^k iff k>=a and ord(B|U) divides p'. For n<=2 stable image dim<=1 implies p=1. At n3 the explicit 3x3 matrix yields period3. For each odd n>=3, B=I+P for a cyclic permutation has minimal polynomial (t+1)^n-1=t*g(t), g degree n-1 with g(0)=1; the order p of B|U obeys deg(g)<=p, hence p>=n-1. Independent direct matrix/valuation checker verified all 15002 at-most-two-successor frames n<=4, 237068 valuation cases, and odd-cycle periods n=3,5,7,9 equal 3,15,7,63. These finite tests corroborate but do not replace the universal ANF/Fitting/minimal-polynomial proofs.
+
+## originality
+
+PASS
+
+The non-contingency/knowing-whether semantics are classical (Humberstone 2002, Fan–Wang–van Ditmarsch 2015) and the 2026 Sierra Miranda–Wang–Zenger primary paper gives proof theory for this very operator, not this binary-Boolean matrix dynamics in its inspected definitions and main argument. Fitting decomposition and elementary ANF are standard, credited ingredients. The new candidate identifies an exact sharp branching threshold, full uniform transient and period formula, and unbounded periodic family for nontransitive finite frames; those do not follow from ordinary semantics or finite transitive-frame stabilization. No direct equivalent surfaced in relevant published mathematical searches, subject to older Boolean-network modal-iteration material not inspected exhaustively.
+
+## value
+
+PASS
+
+The natural iteration of the knowing-whether event operator acquires a sharp local algebraic-degree boundary and a complete global finite-time/cycle classification. The unbounded-period odd-cycle family shows that severe local branching restriction does not force convergence; this is a meaningful structural separation, not an arbitrary numerical frame example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
