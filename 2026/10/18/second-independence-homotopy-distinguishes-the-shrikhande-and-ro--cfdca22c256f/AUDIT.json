@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "All 65,536 subsets of each sixteen-vertex graph have two agreeing independent face predicates; the resulting complete face vectors and Hasse incidences are exhaustively reconstructed by the embedded checker. There are 639 and 543 disjoint element-matching pairs, respectively, and directed Hasse topological sorts visit all 1336 and 1192 nonempty faces, proving acyclicity. Exactly one critical vertex and 57 (respectively 105) critical 3-cells remain, no other critical cells; the discrete Morse CW models are forced to be wedges of those numbers of 3-spheres over the integers, not merely mod-two homology. Direct mod-two simplicial boundary calculations independently give ranks 57 and 105 in degree 3 and zero elsewhere.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deshpande–Singh arXiv:2001.05448 introduction lines 54-72 restrict proved formulas to complete multipartite, whiskered, path, cycle and rooted-tree graphs.",
+        "Abdelmalek et al. arXiv:2106.10863 theorems concern chordal/trees/caterpillars.",
+        "Induced four-cycles in S on vertices 0,1,2,3 and R on 0,1,5,4 disprove chordality in either case."
+      ],
+      "reasoning": "Neither graph is in an explicitly classified family or satisfies the hypothesis of the chordal-graph wedge theorem. The latter may predict a wedge under chordality but cannot supply the exact ranks for this nonchordal pair. The matching construction computes both homotopy types directly.",
+      "searches": [
+        "arXiv:2001.05448 full-text theorem-family list, Sections 1-5",
+        "arXiv:2106.10863 PDF abstract, introduction, tree/caterpillar theorems",
+        "Shrikhande graph induced-forest filtration F_1 homotopy",
+        "dissociation simplicial complexes line graphs rook graph Hamming graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.05448",
+      "arXiv:2106.10863",
+      "https://jaanos.github.io/tables/graphs/Shrikhande.html",
+      "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+      "2026/10/11/SCOPE-the-two-matching-complex-of-k-4-4-is-a-wedge-of-fifteen-five-sph--915eed6b65e5",
+      "2026/10/11/SCOPE-integral-homology-of-the-rook-graph-neighborhood-complex--00c7d8853dcb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published closest comparison: 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187, summary about first independence: 23 and 15 two-spheres.",
+        "Published graph-edge 2-matching result: 2026/10/11/SCOPE-the-two-matching-complex-of-k-4-4-is-a-wedge-of-fifteen-five-sph--915eed6b65e5, summary about graph-edge choices with incident degree bound two.",
+        "Neighborhood-complex torsion record 2026/10/11/SCOPE-integral-homology-of-the-rook-graph-neighborhood-complex--00c7d8853dcb concerns a distinct nerve."
+      ],
+      "reasoning": "The prior first independence classification does not determine the threshold-two complex or its inclusion: it has a strictly smaller face condition. The ordinary two-matching complex of K4,4 allows adjacent line-graph edges arranged in paths that are forbidden by induced maximum degree one; hence neither object includes an exact homotopy implication for the new theorem. Likewise the neighborhood complex is a common-neighbor nerve, not a dissociation complex. No strongest prior statement found subsumes the two claimed sphere-wedge types.",
+      "searches": [
+        "Ind_2 Shrikhande rook graph K4 square K4 homotopy two independent induced matching vertex dissociation complex",
+        "Shrikhande graph induced-forest filtration F_1 homotopy",
+        "published-finding corpus record: independence complexes of the Shrikhande and 4x4 rook graphs",
+        "published-finding corpus record: the two-matching complex of K4,4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Definition of higher independence as induced components of size at most two: arXiv:2001.05448, introduction and Definitions, https://arxiv.org/pdf/2001.05448",
+        "The independent predicates component-size<=2 and induced maximum-degree<=1 agree on all vertex subsets, implemented in shr_rook_pair_certificate.py",
+        "The closest published first-independence comparison reports 23 and 15 two-spheres, not the threshold-two 57 and 105 three-sphere wedges."
+      ],
+      "reasoning": "Induced maximum degree one, dissociation-set, and component-size-at-most-two formulations are exactly equivalent and were searched. They are not the ordinary (degree-zero) independence complex, the graph-edge matching complex, the neighborhood complex, or the graph-edge two-matching complex. No covering exact threshold-two classification was found.",
+      "searches": [
+        "Shrikhande graph two independence higher independence Ind_2 induced matching complex forest maximum degree 1",
+        "Ind_2 Shrikhande rook graph K4 square K4 homotopy two independent induced matching vertex dissociation complex",
+        "induced matching vertex-set complexes of the strongly regular graphs with parameters 16 6 2 2, Shrikhande rook",
+        "\"Shrikhande\" \"dissociation\" \"complex\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The graph catalogue names the unique Shrikhande exception to the lattice-graph strongly regular parameter classification, with no second-independence homotopy entries: https://jaanos.github.io/tables/graphs/Shrikhande.html.",
+        "published-finding corpus exact and semantic searches most closely returned earlier ordinary-independence or different-complex records, not a second-independence homotopy table."
+      ],
+      "reasoning": "Known graph catalogues determine adjacency and strongly regular parameters, not the homotopy of the induced degree-one vertex-set complexes. No exact table giving the 57/105 homotopy classifications was identified; missing search hits are not treated as mathematical proof of uniqueness.",
+      "searches": [
+        "strongly regular pair (16,6,2,2) higher independence complex 2 stage sphere wedge ranks 57 105",
+        "dissociation complex Shrikhande Hamming H(2,4) graph homology third dimension 57 105",
+        "\"Shrikhande\" \"2-independence\"",
+        "\"rook graph\" \"2-independence complex\"",
+        "https://jaanos.github.io/tables/graphs/Shrikhande.html"
+      ]
+    },
+    "rationale": "Published higher-independence theorems inspected in primary arXiv full texts address explicitly different graph families or require chordality; both graphs here contain induced chordless squares. Research-record searches using both graph aliases, the induced-maximum-degree-one and dissociation formulations, explicit ranks and related complexes yielded as closest ordinary first-independence, neighborhood/Čech and original-edge two-matching results. Their statements do not imply the present threshold-two homotopy types. Unindexed literature and the inaccessible full text of a closest first-stage comparison remain residual risks. No partition-based uniqueness inference is used.",
+    "residual_risks": [
+      "Equivalent work absent from searched indices may exist; search absence alone does not prove originality.",
+      "The published first-independence pair comparison was available by scientific record summary, not by readable full text. Its stated result covers threshold one and is not a known stronger covering theorem.",
+      "The finite certificate assumes the standard correctness of the discrete-Morse matching theorem; it directly checks the combinatorial acyclicity hypotheses."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The named graph families do not include either Shrikhande or rook graph; the element-matching tool is methodological prior work but does not provide our exact matching or result.",
+        "evidence": [
+          "Abstract and introduction explicitly list complete multipartite, fully whiskered, path, cycle and perfect m-ary tree cases; theorem/section list in 2020 manuscript.",
+          "Element-matching acyclicity Proposition 2.10 appears on PDF page 4; no Clebsch, Shrikhande or rook result located."
+        ],
+        "identifier_or_url": "arXiv:2001.05448, https://arxiv.org/pdf/2001.05448",
+        "material_read": "Full-text PDF searchable; read introduction, complete list of proved family theorems, definitions and discrete-Morse matching propositions, and searched full text for the graph names.",
+        "method": "Primary arXiv PDF page and theorem inspection, including the matching theorem and families listed in Sections 3-5.",
+        "title": "Higher Independence Complexes of graphs and their homotopy types",
+        "trigger": "Original 2020 introduction of this higher-independence homotopy framework and possible dominating theorem."
+      },
+      {
+        "assessment": "Results focus on chordal graphs, trees and caterpillars. Both current graphs contain induced chordless four-cycles, so no stronger classification applies.",
+        "evidence": [
+          "Corollary 2.10: r-independence of trees is shellable.",
+          "Theorem 3.12: r-independence of caterpillars is vertex decomposable."
+        ],
+        "identifier_or_url": "arXiv:2106.10863, https://arxiv.org/pdf/2106.10863",
+        "material_read": "Full-text PDF searchable; inspected abstract, theorem scope in introduction, Corollary 2.10 and Theorem 3.12, plus sections naming studied graphs.",
+        "method": "Primary arXiv PDF inspection and exact search for both graph names.",
+        "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+        "trigger": "Potential higher-independence shellability and homotopy theorem for general graphs."
+      },
+      {
+        "assessment": "Record expressly concerns ordinary independence, threshold one; does not itself imply stage two. Full-text unavailability is recorded as an originality risk, not a whole-document negative determination.",
+        "evidence": [
+          "Summary identifies the first independence complexes as wedges of 23 and 15 two-spheres, respectively."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+        "material_read": "Published record title and scientific summary; linked full text could not be accessed.",
+        "method": "Published research-record semantic search; source text compared for threshold and homotopy implication.",
+        "title": "Independence complexes of the Shrikhande and 4x4 rook graphs have different sphere-wedge homotopy types",
+        "trigger": "Same two graphs with a possibly stronger result on independence."
+      },
+      {
+        "assessment": "Its 2-matching complex constrains degrees in original K4,4, not the induced degree of the selected rook-graph vertices. These are different complexes; summary cannot subsume the claimed result.",
+        "evidence": [
+          "Record says its faces are edge sets in which every original graph vertex has degree at most two; our faces demand each selected edge in K4,4 meet at most one other selected edge."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-the-two-matching-complex-of-k-4-4-is-a-wedge-of-fifteen-five-sph--915eed6b65e5",
+        "material_read": "Published record title and scientific summary; no complete full text obtained.",
+        "method": "Direct comparison of the two face conditions using the accessible summary.",
+        "title": "The two-matching complex of K4,4 is a wedge of fifteen five-spheres",
+        "trigger": "Same underlying K4,4 edge set as rook graph vertices, and suggestive terminology."
+      },
+      {
+        "assessment": "Establishes standard graph pair and its distinction, without computing higher-independence complexes.",
+        "evidence": [
+          "Only two strongly regular graphs with parameters (16,6,2,2); Shrikhande is exceptional to the 4x4 lattice graph."
+        ],
+        "identifier_or_url": "https://jaanos.github.io/tables/graphs/Shrikhande.html",
+        "material_read": "Graph catalogue descriptive sections on strongly regular parameters, constructions and local structure.",
+        "method": "Webpage text inspection.",
+        "title": "Shrikhande graph",
+        "trigger": "Graph uniqueness and aliases: H(2,4), lattice graph, strongly regular parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cfdca22c-256f-4b64-940c-102bfbdbac13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two graph objects exhaust the naturally classified strongly regular parameter set (16,6,2,2); they share all local parameters but have unequal higher-independence homotopy invariants at the first genuinely nonordinary threshold. Exact integral sphere-wedge types, not just f-vectors or finite Betti tables, make this a motivated comparative classification and demonstrate parameter-insensitivity of a graph-derived topological construction. This is distinct from merely repeating the already studied ordinary independence classification.",
+    "status": "PASS"
+  }
+}
