@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a spider, the Bai--Hua set function reduces exactly to a leaf count plus one possible center contribution. With at least three subdivided arms, the center-edge set has negative ratio \((2-r)/d\), every set omitting a center edge has nonnegative ratio, and every strict superset has a strictly larger ratio by the positive defect \(d\ell+k(r-2)\). The supported-Einstein criterion therefore applies on the connected center star. The two limiting weight classes follow exactly from the inverse-weight tree curvature formula and normalize to total mass \(1\).
+PASS
 
-## Originality
+From the source-defined set functional, beta(A)=number of included terminal edges+(2-d)1_(all center edges included). For C consisting of all d hub edges, beta(C)=2-r<0. Omitting a center edge gives beta(A)>=0, while a strict superset with k additional edges and ell extra terminal edges has d beta(A)-(d+k)(2-r)=d ell+k(r-2)>0. Hence C uniquely minimizes beta/|A|. The supported Einstein star equations for reciprocal-degree q_i give q_long=(r-2)/(d(d-2)), q_short=(d+r-2)/(d(d-2)); inversion and normalization yield the asserted weights, checked independently for 136 parameter pairs and exhaustive subsets of three example spiders. General convergence invokes the Bai–Hua supported-Einstein criterion as stated in the source package; the source preprint full text was inaccessible in this run, so its exact hypotheses remain an explicit verification risk.
 
-PASS. The focal paper provides the general convergence machinery but not this spider calculation. The earlier inverse-weight flow paper does not give this negative-curvature non-caterpillar limit. The closest published spider result concerns a different fixed-combinatorial-distance curvature-distortion invariant and has arm-length-dependent static weights, so it does not imply the depth-erasure flow theorem. Targeted statement-level searches found no equivalent result.
+## originality
 
-## Value
+PASS
 
-PASS. The source explicitly leaves normalized metric convergence open on general finite trees. This theorem resolves an infinite non-caterpillar family and exposes a new structural phenomenon: subdivision depth is completely forgotten by the normalized limit. The exact support, curvature, and two weight classes provide reusable benchmarks for the open convergence problem.
+The exact minimizer C, two nontrivial weight classes, and loss of subdivision depth are not supplied by the published abstracts and related full spider-curvature result inspected; full Bai–Hua and earlier flow preprints could not be independently read, a specifically recorded literature risk rather than a novelty certificate.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest primary sources are arXiv:2609.04671v3 and arXiv:2509.22140v3. A recent spider curvature-distortion result is also close in object but not in curvature convention or invariant. The theorem is restricted to at least three subdivided arms and gives no rate of convergence, no unnormalized asymptotic scale, and no result for arbitrary finite trees.
+Solves an entire natural non-caterpillar infinite family within a recent open normalized-flow framework, with explicit convergence support, negative limiting curvature, and a structural depth-erasure effect that could guide limits for general trees. This is motivated geometry rather than an arbitrary finite numeric evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
