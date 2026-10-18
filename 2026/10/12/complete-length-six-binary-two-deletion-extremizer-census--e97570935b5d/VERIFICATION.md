@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script uses only the standard library and reconstructs every binary word of length \(6\), every exact two-deletion descendant set, and the full compatibility graph.
+## correctness
 
-The script checks descendant generation both by direct survivor-position choices and by two iterated single deletions. It verifies \(64\) vertices and \(522\) compatibility edges, exhaustively enumerates all maximal cliques, and separately enumerates every four-clique. The two equality-case enumerations agree exactly. It then recomputes the universal core, the Hamming weights of the nonconstant members, every 2-dominance relation, and the complete reversal/complement action on the optima.
+PASS
 
-Expected successful output:
+Independently formed all 64 distinct exact length-four descendant sets by survivor-coordinate enumeration and the 522-edge compatibility graph. Independent NetworkX maximal-clique enumeration gave 217 maximal 2-cliques, 276 maximal 3-cliques and exactly 16 maximal 4-cliques, none larger. Intersecting maxima yields 000000,111111; the other two words in every maximum have weight three. Exact descendant-set inclusion tests give three nondominant (basic) maxima; reversal and complement give seven all-optimum orbits of sizes 1,1,2,2,2,4,4 and two basic orbits. This finite exhaustive graph calculation proves precisely the bounded parameter, not any all-length assertion.
 
-`VERIFY_OK vertices=64 edges=522 bk_nodes=620 maximal_hist=2:217,3:276,4:16 maximum=4 labeled_maxima=16 core=000000,111111 middle_weight=3 group_size=4 orbits=7 orbit_sizes=1,1,2,2,2,4,4 basic_maxima=3 basic_orbits=2 basic_orbit_sizes=1,2 coverage=8:1,11:2,12:6,14:1,16:6`
+## originality
 
-The computation is exhaustive only for \(n=6,t=2\). Finite enumeration here is not evidence for any larger length, other deletion count, or a larger automorphism group. The supplied `census.csv` is derived data; `verify.py` is the primary reproducibility artifact and does not trust the CSV.
+PASS
+
+Kolev explicitly motivates classification of distinct optimal codes and basic maxima, but the inspected paper does not enumerate the binary (6,2) equality cases. Weindel–Heckel give the related same-parameter conflict graph (1,494 edges, complementary to these 522) and code-size results for other lengths, not the 16 equality cases or the dominance/orbit census. Genuine priority risk remains for Landjev–Haralambiev (2007) full text.
+
+## value
+
+PASS
+
+The complete small-parameter equality-case and nondominant-basic census answers a natural concrete instance of a recognized deletion-code classification problem, not merely a nonsharp numerical upper bound. Precise optimal codebooks and orbit representatives are independently useful finite coding invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
