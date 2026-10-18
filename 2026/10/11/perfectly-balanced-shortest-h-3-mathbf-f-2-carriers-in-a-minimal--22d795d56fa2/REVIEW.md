@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact published facet presentation reconstructs the full face vector and four-neighborliness. Exact mod-two boundary elimination gives \(\dim H_3=2\). Every one of the \(273\) missing five-set boundaries is checked to be a \(3\)-cycle and nonzero in homology; exactly three nonzero quotient classes occur, each \(91\) times. Present five-set boundaries are checked to be null-homologous. The stated representatives and relation \(\alpha+\beta\) are verified directly.
+## correctness
 
-## Originality
-PASS. Four-neighborliness, tightness, minimality, asymmetry, and the facet table are all prior and are explicitly treated as such. The inspected literature and semantic-index searches did not state the complete \(273\)-support homology-class census or the \(91,91,91\) balance. Tightness alone does not determine these multiplicities. Residual risk remains from unindexed historical computations.
+PASS
 
-## Value
-PASS. In a rank-two middle-homology group, a complete shortest-support census is naturally refined by the distribution among nonzero classes. The perfect balance is a clean, reusable invariant and is not attributable to simplicial symmetry because the triangulation is asymmetric.
+For the specifically labeled four-neighborly 13-vertex triangulation K=(S3×S3)^a_13, the published 208 six-simplex facets independently reconstruct f=(13,78,286,715,1014,728,208). Every four-set is a tetrahedron, so no nonzero 3-cycle is supported on fewer than five vertices. Exact independent mod-2 boundary elimination finds rank(∂3)=220, rank(∂4)=493 and dim H3=715−220−493=2. There are C(13,5)−1014=273 missing 5-sets, all carry tetrahedron-boundary 3-cycles, every one nonzero modulo image ∂4. Proper pivot-descending reduction of all 273 cycles gives exactly three distinct nonzero quotient classes, exactly 91 supports each; every vertex belongs to exactly 105. Distinct lexicographic representatives 12357,12358,12378 satisfy alpha+beta=gamma. The finite enumeration is exhaustive and thus proves the exact labeled-object census, not a finite extrapolation.
 
-## Closest literature and limitations
-Lutz's 2005 source is the decisive exact-object reference; Bagchi--Datta provide broader tightness context. The result is limited to mod-two homology of the displayed thirteen-vertex triangulation and does not determine integral carrier classes or compare the other minimal triangulations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lutz supplied the 208-facet triangulation, vertex minimality, 4-neighborliness and asymmetry; these establish the object but not equality of all 273 missing five-set homology classes or their 91/91/91 multiplicities. Related later tight-manifold literature establishes induced-subcomplex nontriviality principles but does not imply the exact class-level partition. Indexed shortest-carrier distributions in other 11/12/13-vertex manifolds involve different triangulations/coefficients and do not cover this classification.
+
+## value
+
+PASS
+
+The exact shortest-carrier distribution across all three nonzero H3(F2) classes is a natural invariant of a vertex-minimal combinatorial S3×S3. Equal 91/91/91 balance despite the triangulation having no simplicial automorphisms is a useful nontrivial finite combinatorial-homology benchmark, not just reprinting the f-vector or verifying one generator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
