@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For m>=4,r>=1, no initial pair can start a forcing process spanning the hub and rim, whereas every hub-plus-adjacent-rim triple succeeds. An all-rim minimum triple must begin with a contiguous rim pair; before the hub turns blue, a white hub blocks spoke-to-rim forces. The only way the third seed can permit a spoke to color the hub is the explicitly classified near-spoke A or B pattern. Conversely each such triple colors the hub and then all rim vertices. The exact list has m(3r+2) distinct triples. Their one-token exchanges are exactly pair intersections: the m(r+1) hub triples form an induced rim cycle and all other triples attach to it. A finite pair-multiplicity table for every k type, with symmetry, determines degrees and m(6r+5) edges by handshaking; each case can be verified directly from the A/B/H formulas. The separate standalone checker exhausts all 2- and 3-vertex initial sets for 30 parameter pairs m=4..8,r=1..6 (164295 candidate triples) and checks all counts/adjacencies, but finite checks are not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Geneson-Haas-Hogben, arXiv:2009.00220, studies general zero-forcing reconfiguration and proves connectivity for forests; generalized gears contain many cycles.",
+        "Bong-Carlson-Curtis-Haas-Hogben, arXiv:2205.09668, studies token addition/removal on all feasible sets, with a different adjacency relation."
+      ],
+      "reasoning": "The general forest connectivity theorem is inapplicable to cyclic gears. General all-size addition/removal connectivity does not entail that optimal sets are connected by one-for-one swaps. No inspected broad theorem determines the stated exact gear structure.",
+      "searches": [
+        "reconfiguration graph minimum zero forcing sets gear graph generalized gear graph 2023 2024 2025 2026",
+        "\"gear graph\" \"zero forcing reconfiguration\" degree distribution",
+        "\"gear graph\" \"zero forcing\" \"3r+2\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.18513v1 and its open-access v2 HTML: original gear family and scalar proof",
+      "arxiv:2009.00220v1: minimum-set zero-forcing exchange framework",
+      "arxiv:2205.09668v1: all-set token-addition/removal model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anderton et al., arXiv:2310.18513, Theorem 2.3 and Section 2, establishes the optimum size and discusses shapes of feasible forcing sets, not exchange graph adjacency or degree counts.",
+        "Geneson-Haas-Hogben, arXiv:2009.00220, Section 2 and main results: token-jumping is defined and several graph families treated; no gear case.",
+        "Bong et al., arXiv:2205.09668, introduction and main set-up: TAR, not fixed-size single exchanges."
+      ],
+      "reasoning": "The new theorem explicitly excludes the antecedent zero forcing number. Obtaining labeled orbit counts from antecedent seed descriptions may be a deduction, but the exact exchange graph, pair incidence profile, connectedness, and edge formula require additional comparisons. None of the three inspected sources has a statement whose conclusion implies these features.",
+      "searches": [
+        "\"gear zero forcing minimum sets orbit\" \"reconfiguration\"",
+        "\"zero forcing graph of generalized gear graph\" adjacency quotient",
+        "\"gear graphs\" \"zero forcing reconfiguration\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Anderton et al., arXiv:2310.18513, Sections 2.1-2.2: minimum zero forcing number and seed families up to symmetry.",
+        "Geneson-Haas-Hogben, arXiv:2009.00220: the zero-forcing graph is the token-jumping graph on minimum sets, and forests have connected such graphs."
+      ],
+      "reasoning": "The exchange graph here is not an alternative naming of the minimum cardinality or propagation-time classification. Knowing a family of seed representatives does not determine all distinct labeled triples, their pairwise intersections, vertex degrees, and connectedness. No generalized-gear exchange theorem was located under the listed aliases.",
+      "searches": [
+        "\"gear graph\" \"zero forcing\" \"reconfiguration\"",
+        "\"generalized gear graph\" \"zero forcing graph\" connected",
+        "\"gear graph\" \"minimum zero forcing sets\" number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary gear study arXiv:2310.18513 gives Z=3 and analyzed propagation-time cases, not a table of pair intersections or an exchange graph degree sequence.",
+        "The explicit exchange counts follow from a new pair-multiplicity table in RESULT.md; the independent finite checker reconstructs exchange edges without reading this table."
+      ],
+      "reasoning": "No directly identical published sequence/table was identified in the investigated primary and web sources. A sequence search cannot rule out unindexed tabulations; such priority uncertainty is retained.",
+      "searches": [
+        "\"generalized gear\" \"minimum zero forcing sets\" count",
+        "\"gear graph\" \"zero forcing polynomial\" 2024 2025",
+        "number minimum zero forcing sets gear graph generalized gear graph enumeration polynomial 2023 2024"
+      ]
+    },
+    "rationale": "The new claim is the complete token-jumping graph of minimum ordinary zero-forcing sets of generalized gears for m>=4, r>=1, including exact degree profile, edge count and connectivity. The 2023 gear paper already proves the scalar value three and discusses families of forcing triples; these antecedents are not claimed new. Full sections of the original gear and zero-forcing reconfiguration works, and relevant all-size TAR work, were inspected. No equivalent or stronger generalized-gear token-jumping exchange theorem was located by stated searches. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "The 2023 study already describes seed patterns up to isomorphism. The labeled configuration enumeration alone may be routine relative to that antecedent and is not represented as an independent discovery.",
+      "Unindexed preprints or unpublished exact exchange-graph classifications cannot be excluded by the completed searches.",
+      "The proof covers only m>=4 and does not identify the exact diameter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_ANTECEDENT_NOT_COVERING_EXCHANGE_GRAPH",
+        "evidence": [
+          "Theorem 2.3 gives Z(Gr(m,r))=3.",
+          "The propagation-time discussion reduces minimum configurations to two seed families up to symmetry.",
+          "No token-jumping graph, degree profile, or edge formula is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.18513v2",
+        "material_read": "The full introduction and Section 2, especially Theorem 2.3 and the propagation-time analysis of all minimum seed families; the paper conclusion was surveyed.",
+        "method": "Available arXiv HTML full text, including theorem statements, proofs and classification discussion.",
+        "title": "The zero forcing numbers and propagation times of gear graphs and helm graphs",
+        "trigger": "The work defines the exact generalized gear objects and proves their zero-forcing number."
+      },
+      {
+        "assessment": "FRAMEWORK_NOT_GENERALIZED_GEAR_RESULT",
+        "evidence": [
+          "Defines one-vertex exchange on minimum zero-forcing sets.",
+          "Proves connectedness for forests, not for all cyclic graphs.",
+          "No generalized-gear section or result identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2009.00220v1",
+        "material_read": "Abstract, definitions and statements in the main sections on connectivity and graph families; searched for gear graphs.",
+        "method": "Open-access arXiv full-text HTML, inspected by heading and keyword.",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Introduces the exact minimum-set token-jumping object under the name zero-forcing graph."
+      },
+      {
+        "assessment": "DIFFERENT_RECONFIGURATION_MODEL",
+        "evidence": [
+          "TAR moves add or delete one element and vertices range over all feasible sets.",
+          "The minimum-set token-jumping graph uses cardinality-preserving one-vertex exchanges.",
+          "No specific generalized-gear exchange result identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.09668v1",
+        "material_read": "Abstract, introduction, definitions and relevant structural results; searched for gear graphs.",
+        "method": "Open-access arXiv full-text HTML inspected by sections and text search.",
+        "title": "Isomorphisms and properties of TAR reconfiguration graphs for zero forcing and other X-set parameters",
+        "trigger": "Plausible stronger reconfiguration result involving zero-forcing sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e17851cb-1c83-4849-9b6f-468d07181b74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Generalized gears are canonical cyclic graphs with a hub and evenly spaced spokes. Moving between distinct minimum sensor/driver seed sets by a single replacement while never losing eventual forcing is a mathematically motivated constraint not determined by Z=3 or by propagation time. An explicit connected backbone, every local exchange degree, and exact edge and vertex counts provide a structural description of the full optimal solution space for infinitely many instances. The contribution is more than renaming a scalar invariant; prior descriptions do not give its feasible exchange graph.",
+    "status": "PASS"
+  }
+}
