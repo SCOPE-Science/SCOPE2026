@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For every m>=2 and α>0, the generator is symmetric Hurwitz and trace W_v=(1/2)[(L+αI)^−1]vv. A rank-one edge restoration proves that a pendant leaf strictly outranks its adjacent internal vertex, excluding all three internal vertices. A verified three-by-three Schur reduction gives the two leaf-class diagonals; their difference has everywhere-positive denominator and numerator (m−2)α²+(m²−4)α−2. Its derivative proves one positive root for m>=3 and no root for m=2. Exact root rationalization proves the m²α*→2 limit. The standalone SymPy verification passed 406 symbolic and exact-matrix assertions; finite checks corroborate, rather than prove, the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Summers and Lygeros, Optimal Sensor and Actuator Placement in Complex Dynamical Networks, arXiv:1306.2491 (11 June 2013), Sections II–IV proves a general placement-modularity theorem, not an explicit two-hub tree parameter switch.",
+        "Kirkland, Neumann and Shader, Distances in Weighted Trees and Group Inverse of Laplacian Matrices, SIAM J. Matrix Anal. Appl. 18 (1997), §§2–3, DOI:10.1137/S0895479896298713 supplies a stronger theorem about the zero-damping group inverse on ALL trees, but its parameter domain does not include α>0."
+      ],
+      "reasoning": "The strong general optimal-placement result provides a site-by-site evaluation principle, but does not fix comparative scores for this graph. A stronger all-tree group-inverse theorem covers the small-α leading-order direction; it does not determine the finite-α root or high-damping reversal. The present result is not advertised as a general all-tree leaf theorem or full controllability statement.",
+      "searches": [
+        "control Gramian trace optimal single driver on a tree Laplacian damping alpha leaf center switching optimal actuator as leak rate changes",
+        "single actuator optimal placement trace controllability Gramian two hubs star of stars degree 3 leaf damping threshold",
+        "two hub tree joined stars plus one pendant leaf unique optimal single actuator trace controllability gramian phase transition damping",
+        "actuator placement trace Gramian Laplacian tree leader optimal leaf regularization damping threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1306.2491, first public version 2013-06-11 (primary historical anchor), accessible full text",
+      "Kirkland–Neumann–Shader 1997, DOI 10.1137/S0895479896298713, open full text",
+      "Published-result semantic records: 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc; 2026/9/20/SCOPE-sharp-reformulated-albertson-bound-for-trees--41bab2d366ca; 2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680",
+      "Related previously published scientific records about finite-horizon star reachability and noisy-leader optimization, compared for implication coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Summers and Lygeros, Optimal Sensor and Actuator Placement in Complex Dynamical Networks, arXiv:1306.2491 (11 June 2013), Sections II–IV provides modularity but lacks explicit damping-resolved tree ranking.",
+        "Kirkland, Neumann and Shader, Distances in Weighted Trees and Group Inverse of Laplacian Matrices, SIAM J. Matrix Anal. Appl. 18 (1997), §§2–3, DOI:10.1137/S0895479896298713 establishes pendant maximizers of L# through inverse distance status; its operator has a zero eigenvalue and differs from (L+αI)^−1.",
+        "The new proof requires a three-internal-vertex Schur complement and a strictly increasing quadratic sign comparison to establish a positive-damping crossing."
+      ],
+      "reasoning": "Prior modularity plus the definition of a Gramian entails reduction to checking candidate diagonal entries, but not the sign of their two-orbit difference. The group-inverse extremal result implies only a limiting small-damping ordering after subtracting the common singular term 1/(nα). It cannot imply the α*=O(m^−2) crossover or the unique high-damping central-leaf optimizer without new positive-damping computation. The checked cited sources are not stronger covering results for the claimed domain.",
+      "searches": [
+        "control Gramian trace optimal single driver on a tree Laplacian damping alpha leaf center switching optimal actuator as leak rate changes",
+        "single actuator optimal placement trace controllability Gramian two hubs star of stars degree 3 leaf damping threshold",
+        "two hub tree joined stars plus one pendant leaf unique optimal single actuator trace controllability gramian phase transition damping",
+        "resolvent diagonal maximum two hub tree alpha plus Laplacian root sqrt m+2 8/(m-2) leaf",
+        "Distances in Weighted Trees and Group Inverse of Laplacian Matrices Kirkland Neumann Shader pendant vertex maximal diagonal group inverse theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Summers and Lygeros, Optimal Sensor and Actuator Placement in Complex Dynamical Networks, arXiv:1306.2491 (11 June 2013), Sections II–IV identifies trace-Gramian site scores as additively separable; the present symmetric generator gives one half of a shifted-Laplacian inverse diagonal.",
+        "Kirkland, Neumann and Shader, Distances in Weighted Trees and Group Inverse of Laplacian Matrices, SIAM J. Matrix Anal. Appl. 18 (1997), §§2–3, DOI:10.1137/S0895479896298713 characterizes diagonals of the group inverse, i.e. the zero-damping finite part, rather than a full positive-damping ranking.",
+        "The proved reduced comparison is a rational diagonal Green-function difference with numerator (m−2)α²+(m²−4)α−2."
+      ],
+      "reasoning": "The equivalent analytic form is the maximizer of [(L+αI)^−1]_{vv}, also a heat-kernel diagonal integral. Trace modularity says how to compare candidate sites once their scores are known; it does not imply which leaf wins as α varies. Group-inverse maximizers are α→0 asymptotics, not a classification for α>0; neither logically dominates the new all-parameter threshold.",
+      "searches": [
+        "regularized Laplacian diagonal inverse tree with two high-degree branch hubs and pendant center leaf crossing parameter alpha",
+        "distance centrality to resolvent centrality node rankings change with regularization parameter tree",
+        "resolvent diagonal maximum two hub tree alpha plus Laplacian root sqrt m+2 8/(m-2) leaf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact rational function or root arose in the accessed published-result search hits. Closest by object: 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc, which treats fractional zero forcing, not Gramian trace.",
+        "Related scientific records included 7b8af1e7-c62a-4102-b380-caec36110b79 (finite-horizon reachability determinant of priced star spokes) and 753dea01-a986-4ead-a16b-f2df412eaf78 (noisy leader selection on stars); neither gives a single actuator damped two-hub trace-gramian ranking.",
+        "Statements involving Gramian, actuator, damping, resolvent and control terminology were compared by their scientific claims, not only titles."
+      ],
+      "reasoning": "A finite benchmark table for a few parameter values could not establish the all-integer threshold, tie classification or asymptotic scale. The accessible records focus on different graphs, different controllability functionals or different parameter ranges. A negative semantic-search result is not proof of uniqueness.",
+      "searches": [
+        "two hub tree joined stars plus one pendant leaf unique optimal single actuator trace controllability gramian phase transition damping",
+        "resolvent diagonal maximum two hub tree alpha plus Laplacian root sqrt m+2 8/(m-2) leaf",
+        "resolvent diagonal maximum two hub tree alpha plus Laplacian root sqrt m+2 8/(m-2) leaf"
+      ]
+    },
+    "rationale": "The directly compared primary texts establish general trace-Gramian modularity (Summers–Lygeros) and all-tree zero-damping group-inverse extremal locations (Kirkland–Neumann–Shader), but neither states nor logically supplies the exact positive-damping switching threshold on this specified two-hub family. Semantic published-record searches and accessible own-ledger claim comparisons yielded no dominating or equivalent result. This is a same-model best-knowledge originality judgment, not a priority certification; equivalent unindexed specializations remain possible.",
+    "residual_risks": [
+      "Unindexed or weakly indexed specialist work may already state the same shift-dependent resolvent site ranking for the two-hub tree.",
+      "General graph-resolvent centrality or specific sensor-location examples might imply the same root after non-obvious parameter reduction; the accessible primary comparisons did not show such an implication.",
+      "Some published-result semantic search calls returned temporary unavailability; completed substantive calls and direct primary-text comparisons remain available. No absent checks are represented as completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXPLICIT_COVERAGE",
+        "evidence": "The paper proves modularity of trace Gramian and ranks possible input positions, but does not establish the two-hub tree classification or the damping threshold.",
+        "identifier_or_url": "https://arxiv.org/abs/1306.2491",
+        "material_read": "Accessible complete preprint text: definitions and interpretations of trace Gramian, the modularity theorem, actuator-placement applications, and conclusions.",
+        "method": "Read full-text accessible preprint and compared the trace functional and set-function theorem against the exact claim.",
+        "title": "Optimal Sensor and Actuator Placement in Complex Dynamical Networks",
+        "trigger": "Most directly relevant primary theorem about trace-Gramian optimal actuator selection; first public arXiv version in 2013."
+      },
+      {
+        "assessment": "RELATED_ZERO_DAMPING_THEORY_NOT_FINITE_DAMPING_COVERAGE",
+        "evidence": "The object is the Moore–Penrose/group inverse of the zero-shift Laplacian, whose extremal diagonal indices correspond to pendant vertices. It is not the positive-shift resolvent with the claimed site-switch.",
+        "identifier_or_url": "https://pdfs.semanticscholar.org/6c13/6f0da4d44678c5251fe9b5a461f6ddbe1164.pdf",
+        "material_read": "Open full-text pages including introduction, group-inverse matrix formulas, and section 3 extremal diagonal conclusions (pages 827, 828 and 837, with the intervening algebra inspected from searchable full text).",
+        "method": "Inspected the full article in an authorized open-access author-affiliated institutional repository PDF, including page images and theorem statements.",
+        "title": "Distances in Weighted Trees and Group Inverse of Laplacian Matrices",
+        "trigger": "Plausible stronger all-tree result on maxima of Laplacian inverse-type diagonal entries."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d6efa46-7aca-493b-9a65-2bf332fd9250",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed, natural tree with two heavily branched hubs and one short terminal arm exhibits a nontrivial exact relocation of its maximizing actuator class as leakage changes, despite uniform edge conductances and equal candidate actuation strength. The theorem gives all integer branch sizes, every damping regime, all tied sites at the boundary, and a sharp dimension-dependent O(m^−2) transition scale. The explicit design criterion matters for trace-Gramian/H2 input placement, not just symbolic diagonal inversion.",
+    "status": "PASS"
+  }
+}
