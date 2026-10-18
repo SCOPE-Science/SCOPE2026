@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:14:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=6k+r with n>=2 the given six factorizations of normalized (T_n,T_{n+1},T_{n+2}) correctly exhibit U=hu, V=hv and W in <u,v>, with gcd(u,v)=gcd(h,W)=1. The Apéry set with modulus hu is the rectangle {i hv+j W:0<=i<u,0<=j<h}: reduction absorbs hW into h<u,v>, and residue distinctness holds successively modulo h and u. Its maximum minus hu gives F=huv-hu-hv+(h-1)W; complementary indices certify symmetry and genus (F+1)/2. Substitution yields six cubics with leading coefficients 96,162,96,30,432,30 in k, and asymptotic n^-3 values 4/9,3/4,4/9,5/36,2,5/36. For n=2,3 the triples (2,5,10),(2,4,7) are 2-generated; for n>=7 increasing a<b<c<2a prevents redundancy, while n=4..6 checked separately. Independent exact Dijkstra shortest-residue Apéry computation for all n=2..35 matched six formulas (34 checks), with exact gcd normalization. This is bounded corroboration, not the reason the all-n result holds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general gluing lemma supplies F for a factorized triple but not the 6 exact n-mod-6 factorizations and gcd identities.",
+          "Source §3 examines four consecutive tetrahedral terms and §4 their free numerical semigroups."
+        ],
+        "reasoning": "These ingredients can make the final calculation straightforward after discovering all six witness decompositions, but neither broad theorem alone states the all-n normalized three-tetrahedral classification.",
+        "searches": [
+          "numerical semigroup three consecutive tetrahedral numbers normalized gcd Frobenius six residues symmetric gluing",
+          "https://arxiv.org/pdf/1706.04378",
+          "https://arxiv.org/abs/1712.02522",
+          "Brauer Shockley gluing Frobenius formula"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1706.04378",
+        "https://arxiv.org/abs/1712.02522",
+        "https://oeis.org/A069761"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-term tetrahedral semigroup contains the three-term semigroup, but can have a smaller Frobenius number and different gcd.",
+          "New case r=5 reverses the preferred generator pair (U,V)=(c,b) and uses its own nonnegative W witness."
+        ],
+        "reasoning": "Knowing the Frobenius number for <a,b,c,d> does not determine that for <a,b,c> after gcd normalization, and generic gluing needs the six case-specific factorizations.",
+        "searches": [
+          "numerical semigroup three consecutive tetrahedral numbers normalized gcd Frobenius six residues symmetric gluing",
+          "https://arxiv.org/pdf/1706.04378",
+          "https://arxiv.org/abs/1712.02522"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Robles-Pérez/Rosales describes THREE consecutive triangular but FOUR consecutive tetrahedral numbers; its tetrahedral sequence is intrinsically four-term.",
+          "The new normalized triple sometimes has nonunit gcd before normalization."
+        ],
+        "reasoning": "An unindexed gcd-reduction of the four-term theorem would need to preserve the exact three-generator semigroup, which dropping a generator does not do in general.",
+        "searches": [
+          "numerical semigroup three consecutive tetrahedral numbers normalized gcd Frobenius six residues symmetric gluing",
+          "https://arxiv.org/pdf/1706.04378",
+          "normalized triple tetrahedral T_n T_n+1 T_n+2 semigroup symmetric Frobenius gluing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A069761 is labeled four consecutive tetrahedral numbers, not the normalized three-term sequence.",
+          "Independent Dijkstra Apéry confirmed exact values n=2..35 across six residue classes, including n=4 F=309."
+        ],
+        "reasoning": "The all-n polynomials are an exact infinite classification rather than reading off or recomputing an existing same-invariant table; a hidden equivalent sequence remains possible.",
+        "searches": [
+          "numerical semigroup three consecutive tetrahedral numbers normalized gcd Frobenius six residues symmetric gluing",
+          "https://oeis.org/A069761",
+          "Frobenius three consecutive tetrahedral numbers six residue formula OEIS"
+        ]
+      },
+      "rationale": "Robles-Pérez/Rosales arXiv:1706.04378, primary full PDF §3, explicitly computes four consecutive tetrahedral numbers, with same gcd/gluing toolkit; §2 computes three consecutive triangular numbers. This work instead normalizes the gcd of exactly three consecutive tetrahedral numbers and classifies all six congruence classes and semigroup symmetry. OEIS A069761 similarly addresses four tetrahedral terms. The general Apéry/gluing lemma and gcd techniques are classical, but the complete natural triple-family application does not follow directly from the four-generator formula.",
+      "residual_risks": [
+        "General three-generator numerical-semigroup literature may contain equivalent normalized tetrahedral specializations not indexed by this precise name.",
+        "The original source article supplies close pair-gcd lemmas, reducing the novelty scope to the six-case normalized exact classification rather than gluing theory itself.",
+        "Independent regression was n<=35; all n derive from the symbolic gcd/witness table and Apéry lemma."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly studies three triangular or four tetrahedral numbers, not the gcd-normalized three-tetrahedral numerical semigroup",
+          "evidence": [
+            "Introduction: must take sequences of four tetrahedral numbers; §3 begins purpose computing four consecutive tetrahedral Frobenius number, pair gcd six cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.04378",
+          "material_read": "Full arXiv PDF abstract, §§1 and 3, tetrahedral Lemma 9 and four-term classification in pp. 5–11; relevant page image visually checked",
+          "method": "open arXiv PDF text, targeted page screenshot",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "near-identical figurate objects and parameters"
+        },
+        {
+          "assessment": "Counts Frobenius of four tetrahedral numbers, not exact normalized triple",
+          "evidence": [
+            "Number of generators and gcd normalization differ; source and target are not the same table."
+          ],
+          "identifier_or_url": "https://oeis.org/A069761",
+          "material_read": "Sequence label and scope as cited in pinned RESULT.md and source comparison; full database rows not independently downloaded",
+          "method": "source description comparison",
+          "title": "OEIS A069761",
+          "trigger": "exact tabular invariant potentially covering the claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact Frobenius number, genus/symmetry and embedding-dimension classification for a natural missing three-term tetrahedral numerical-semigroup family. Six residue laws and four asymptotic phases are useful invariants beyond a small table; no downstream theorem requirement is imposed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "General three-generator numerical-semigroup literature may contain equivalent normalized tetrahedral specializations not indexed by this precise name.",
+    "The original source article supplies close pair-gcd lemmas, reducing the novelty scope to the six-case normalized exact classification rather than gluing theory itself.",
+    "Independent regression was n<=35; all n derive from the symbolic gcd/witness table and Apéry lemma."
+  ]
+}
