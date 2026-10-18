@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A direct decomposition yields three mutually orthogonal tangent leakage blocks; singular-vector rank-one input attains the exact realized norm. Orthogonal invariance and independent sketches yield the scalar factorization. Gaussian independent blocks reduce to inverse Wishart with finite second inverse moment iff ell>r+1. Haar row projector identity yields AA^T=W^-1-I and a Gaussian-frame trace formula; positive codimension produces divergence at ell<=r+1. The proof covers all admissible finite dimensions, fixed nonzero normal blocks and mixed ensembles, while CHECK.py corroborates identities without replacing analytic proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tropp et al., arXiv:1609.00048v2, Appendix A, Fact A.1/Lemma A.5; one-sided Gaussian inverse pseudoinverse moments.",
+        "Lacotte et al., arXiv:2002.00864v5, Secs. 1–3; Gaussian/Haar sketch comparison for iterative Hessian sketch, not the current projector.",
+        "Niu et al., arXiv:2605.24955, Secs. 1–2; sampled regression/CUR oblique projection rather than tangent projection."
+      ],
+      "reasoning": "Tropp provides broader matrix sketch error bounds and pseudoinverse moments but not arbitrary two-sided oblique tangent-normal discrepancy; Hessian-sketch spectral limits and random-sampling oblique regression have incompatible objects/quantifiers. General inverse-Wishart tools are ingredients, not claims implying the full exact Haar finite-population and two-sided frontier without further argument.",
+      "searches": [
+        "Random orthonormal-row Haar sketches and Gaussian sketches for oblique tangent-space projectors exact expected squared error Wishart Jacobi oversampling threshold",
+        "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "Gaussian pseudoinverse oblique normal tangent space projection finite expectation",
+        "Haar sketch Gaussian tangent projection DLRA",
+        "\"oblique\" \"Haar\" \"Gaussian\" \"projection\" \"variance\" sketch"
+      ]
+    },
+    "checked_sources": [
+      "Carrel–Grigori, arXiv:2607.03402v1, Sec. 4 and Lemma 4.2; derivation of two-sided oblique projector and deterministic leakage warning.",
+      "Tropp et al., arXiv:1609.00048v2, Appendix A, Fact A.1/Lemma A.5; one-sided Gaussian inverse pseudoinverse moments.",
+      "Lacotte et al., arXiv:2002.00864v5, Secs. 1–3; Gaussian/Haar sketch comparison for iterative Hessian sketch, not the current projector.",
+      "Niu et al., arXiv:2605.24955, Secs. 1–2; sampled regression/CUR oblique projection rather than tangent projection.",
+      "Accessible same-slot historical claims used exclusively for deduplication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel–Grigori, arXiv:2607.03402v1, Sec. 4 and Lemma 4.2; derivation of two-sided oblique projector and deterministic leakage warning.",
+        "Tropp et al., arXiv:1609.00048v2, Appendix A, Fact A.1/Lemma A.5; one-sided Gaussian inverse pseudoinverse moments.",
+        "Lacotte et al., arXiv:2002.00864v5, Secs. 1–3; Gaussian/Haar sketch comparison for iterative Hessian sketch, not the current projector.",
+        "Niu et al., arXiv:2605.24955, Secs. 1–2; sampled regression/CUR oblique projection rather than tangent projection."
+      ],
+      "reasoning": "Carrel–Grigori derives P_ob and qualitative perpendicular amplification; Tropp supplies a classic one-sided Gaussian inverse-Wishart identity; Lacotte studies iterative Hessian sketches; Niu studies sampling-based regression. The current result combines independent two-sided normal leakage, exact mean square, Haar comparison, infinite-moment frontier, and the sharp operator norm. These were not established by the inspected stated results; equivalent unindexed treatments remain possible.",
+      "searches": [
+        "Gaussian oblique tangent projection dynamical low rank approximation fixed perpendicular residual exact mean square error inverse Wishart oversampling sketch rows threshold",
+        "sketch Galerkin Gaussian oblique projector Frobenius error moment infinite at sketch size rank plus one",
+        "randomized oblique tangent projection Gaussian sketch infinite variance oversampling rank+1 dynamical low rank",
+        "randomized low rank approximation oblique projector expected Frobenius norm inverse wishart sketch oversampling",
+        "Gaussian oblique projectors Frobenius norm expected error (l-r-1) inverse wishart two sided",
+        "Haar orthogonal rows Gaussian sketch oblique projection mean-square finite population correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carrel–Grigori, arXiv:2607.03402v1, Sec. 4 and Lemma 4.2; derivation of two-sided oblique projector and deterministic leakage warning.",
+        "Tropp et al., arXiv:1609.00048v2, Appendix A, Fact A.1/Lemma A.5; one-sided Gaussian inverse pseudoinverse moments."
+      ],
+      "reasoning": "Compared the same tangent projector written through one-sided oblique idempotents and the rank-r normal block, rather than comparing paper titles. The Gaussian inverse-Wishart coefficient is acknowledged as standard; none of the inspected claims states the full two-sided law, independent zero/infinite cases, or sharp realized norm. No equivalent formulation found in checked sources.",
+      "searches": [
+        "Gaussian oblique tangent projection dynamical low rank approximation fixed perpendicular residual exact mean square error inverse Wishart oversampling sketch rows threshold",
+        "sketch Galerkin Gaussian oblique projector Frobenius error moment infinite at sketch size rank plus one",
+        "Carrel Grigori oblique dynamical low rank Gaussian versus Haar row-orthonormal sketch exact mean-square tangent normal leakage factor (m-ell)/(m-r)",
+        "\"tangent space\" \"oblique\" \"Gaussian\" \"inverse Wishart\" expected error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked accessible historical claim summaries for this numerical-method slot; closest concerned other random subspace/weak tests/low-rank approximation settings."
+      ],
+      "reasoning": "No searched published database or historical ledger claim gave the pair of exact leakage factors and their normal-block composition. Similar scores returned orthogonal-projector and iterative-optimization problems with different claims. Database absence does not establish novelty.",
+      "searches": [
+        "Gaussian oblique tangent projection dynamical low rank approximation fixed perpendicular residual exact mean square error inverse Wishart oversampling sketch rows threshold",
+        "sketch Galerkin Gaussian oblique projector Frobenius error moment infinite at sketch size rank plus one",
+        "Carrel Grigori oblique dynamical low rank Gaussian versus Haar row-orthonormal sketch exact mean-square tangent normal leakage factor (m-ell)/(m-r)",
+        "Random orthonormal-row Haar sketches and Gaussian sketches for oblique tangent-space projectors exact expected squared error Wishart Jacobi oversampling threshold",
+        "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "Gaussian pseudoinverse oblique normal tangent space projection finite expectation",
+        "Haar sketch Gaussian tangent projection DLRA"
+      ]
+    },
+    "rationale": "Exact Gaussian–Haar expectation and moment threshold for the two-sided low-rank oblique tangent projector appear beyond inspected qualitative projector work and the known one-sided inverse-Wishart ingredient. Semantic published mathematics index searches, checked accessible historical claims and inspected primary comparisons found no implication that directly covers the whole theorem; confidence is limited by possible unindexed equivalent formulations.",
+    "residual_risks": [
+      "Exact equivalent results might exist in unindexed inverse-matrix-beta/oblique-projection literature.",
+      "Niu et al. remaining full text was not comprehensively inspected; the checked formulation is different.",
+      "Semantic database search is not exhaustive and similarity rankings do not certify absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same projection construction, but qualitative deterministic treatment; no exact Gaussian–Haar fixed-normal mean-square laws found in the inspected source.",
+        "evidence": "Section 4 defines oblique projection and normal residual; Lemma 4.2 supplies its operator expression.",
+        "identifier_or_url": "https://arxiv.org/html/2607.03402v1",
+        "material_read": "HTML Section 4, Lemma 4.2 and Proposition 4.4 and contextual surrounding discussion",
+        "method": "Inspected primary full-text HTML passages and compared projector equations and claims",
+        "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "trigger": "Defines the identical oblique two-sided tangent projector; plausible directly covering paper"
+      },
+      {
+        "assessment": "Contains classical Gaussian inverse-Wishart ingredient, explicitly attributed; the Haar correction and two-sided normal-block claim are distinct.",
+        "evidence": "Appendix A has E||(Gaussian pseudoinverse)||_F² with denominator oversampling minus one.",
+        "identifier_or_url": "https://arxiv.org/pdf/1609.00048",
+        "material_read": "Appendix A including inverse-Gaussian moment Fact A.1 and Lemma A.5; original full PDF passages",
+        "method": "Read source PDF text and visually examined PDF pages; compared one-sided identities to proposed two-sided projector",
+        "title": "Practical sketching algorithms for low-rank matrix approximation",
+        "trigger": "Gaussian pseudoinverse moments could dominate claimed sketch factor"
+      },
+      {
+        "assessment": "Concerns Hessian sketch spectral iterates and limiting laws, not the finite-dimensional two-sided oblique low-rank tangent projection.",
+        "evidence": "The source defines iterative Hessian sketches and inverse spectral moments.",
+        "identifier_or_url": "https://arxiv.org/pdf/2002.00864",
+        "material_read": "Sections 1–3, including problem/objective formulation and comparison of sketch types",
+        "method": "Read primary PDF and examined rendering for mathematical distinction",
+        "title": "Optimal iterative sketching with the subsampled randomized Hadamard transform",
+        "trigger": "Related comparison of Haar versus Gaussian sketch inverse moments"
+      },
+      {
+        "assessment": "Row/column sampling for regression and CUR differs from independent full-support Gaussian and Haar tangent sketches; uninspected later sections leave bibliographic uncertainty.",
+        "evidence": "Sections 1–2 formulate sampled regression/CUR projector, not the fixed normal-block tangent discrepancy.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.24955",
+        "material_read": "Accessible primary full-text Sections 1–2: problem statement, sampling schemes and main preliminary definitions",
+        "method": "Compared matrix objects, probability models and requested observables",
+        "title": "Debiasing random oblique projections for subsampled OLS and fast CUR in high dimensions",
+        "trigger": "Oblique projection and bias/variance appear plausible"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "440d648a-9d82-48bf-92ca-c25e4eb34b6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a natural stability/error observable of a newly studied oblique low-rank tangent projector. It gives exact finite vs infinite expected error boundaries, sharp realized worst-case amplification and a finite-population Haar regularization contrast, including a two-by-two case where full Gaussian sampling still has infinite mean-square error but Haar sampling has none. This is meaningful for sketch-size and distribution design while not asserting unproved runtime or trajectory improvements.",
+    "status": "PASS"
+  }
+}
