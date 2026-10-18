@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Constant phase rotation makes the phase marginal uniform. Arbitrary one-coordinate generator tests give the two conditional laws. The standard mechanical power balance plus Cauchy–Schwarz gives the RMS estimate, and the equality case would force a sinusoidal velocity whose induced position makes the cubic Duffing equation an impossible polynomial identity. The cubic barycenter law gives the one-well crossing result.
+## correctness
 
-Risk: the theorem assumes compact invariant support and strictly positive harmonic forcing, damping, frequency, and double-well coefficients.
+PASS
 
-## Originality
-PASS. The elementary power balance is treated as prior. Classical strange-attractor, averaging, statistical-chaos, and modern Melnikov/Lyapunov literature was compared at statement and implication level. The complete open same-family source contains no matching mean-square, average, variance, or conditional formulation, and semantic searches found no same-object result with the accepted combined theorem.
+At frozen RESULT.md blob dd470992d297fd34a3b2dcc7e1686c2695a6dc95, generator stationarity for antiderivatives of test functions in x and y gives E[y|x]=0 and E[L|y]=δy, L=βx−αx³+f cosθ. Invariant θ rotation gives zero forcing mean and E cos²θ=1/2. Differentiating H=y²/2−βx²/2+αx⁴/4 gives δ E[y²]=f E[y cosθ] and hence E[y²]≤f²/(2δ²). Zero velocity is impossible under f>0 and rotating phase. Equality in Cauchy gives y=(f/δ)cosθ, so x=C+[f/(δω)]sinθ on each support orbit; the y equation then has a nonzero cubic coefficient −α[f/(δω)]³ in a proposed linear identity, contradiction. Similarly E[(dy/dt)²]>0, giving the strictly intermediate load correlation from orthogonal variance. E[x(x²−β/α)]=0 forces positive mass on both sides of the potential minimum ±sqrt(β/α) for any one-well invariant support. All compactly supported invariant measures, all positive α,β,δ,f,ω, and the two-crossings conclusion for each nonconstant one-well periodic orbit are covered. Symbolically recomputed dH/dt and the cubic obstruction; finite checks cannot establish invariant-measure statements.
 
-Risk: the complete 1982 statistical Duffing article was not available in the checked route, so an equivalent older weighted identity cannot be excluded absolutely.
+## originality
 
-## Value
-PASS. The strict RMS ceiling bounds dissipative velocity activity using only forcing and damping, while the equality obstruction genuinely uses Duffing's cubic nonlinearity. The conditional nonlinear-load law and one-well minimum crossing provide exact consistency tests for periodic and chaotic stationary computations.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS on bounded best-of-knowledge comparison for the jointly quantified conditional regressions, strict all-stationary RMS inequality with equality obstruction, exact load variance and well-crossing constraint. Classical Duffing chaos and power-balance papers do not on inspected material imply these full statements; older statistical work is partly uninspected.
+
+## value
+
+PASS
+
+The forced double-well oscillator is canonical in nonlinear dynamics; any invariant measure (including chaotic and periodic ones) obeys a strict energy-throughput ceiling independent of the potential parameters, plus conditional load regression and a geometrically forced crossing of the unforced well minimum. The one-well crossing/strict rigidity is a motivated nontrivial structural constraint usable to test proposed invariant statistics, rather than treating the elementary energy balance as new. No existence, chaoticity, or optimized sharpness beyond strict universal bound claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
