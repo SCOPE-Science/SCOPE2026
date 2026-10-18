@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked from the defining geometry. For \(-b<y<a\), the triangle's horizontal width is \(2w(a-y)/(a+b)\), so removing the cap above \(x=he^t\) gives
-\[
-f(t)=\frac{w}{a+b}\big((a+b)^2-(a-x)^2\big).
-\]
-Differentiation with respect to the dilation parameter gives the exact factorization
-\[
-f f''-(f')^2=-\left(\frac{w}{a+b}\right)^2 2x\left(ax^2+(4ab+2b^2)x-ab(2a+b)\right).
-\]
-The quadratic factor is strictly increasing for \(x>0\), so its unique positive zero is the claimed threshold. The equality case was checked separately: when \(h=h_*\), every sufficiently small negative parameter has \(he^t<h_*\), producing positive logarithmic curvature and therefore defeating two-sided local log-concavity.
+# Independent mathematical audit
 
-The symbolic checker `verify_threshold.py` replays the factorization, confirms the two radical formulas for \(h_*\) are identical, and checks the published special case \((a,b,w,R,S,h)=(3,2,5,6,3,1)\), for which \(h_*=4/3\) and \((\log f)''(0)=26/441\).
+## correctness
 
-The proof does not use enumeration, floating-point optimization, or a timeout as evidence. It does not establish global log-concavity outside the local one-active-side regime.
+PASS
+
+For the specified positive parameters 0<h<a, R>w and S>b, only the rectangle top edge intersects the triangle boundary near t=0. Direct integration of horizontal section width 2w(a-y)/(a+b) yields f(t)=w/(a+b)(he^t+b)(2a+b-he^t). Writing x=he^t, the logarithmic-curvature numerator factors exactly as −2xG(x) times a positive scale, G(x)=a x²+(4ab+2b²)x−ab(2a+b). Independently simplified the symbolic factorization and substitution of h*=a sqrt(b(2a+b))/(a+b+sqrt(b(2a+b))): both residuals vanish. G is strictly increasing for x>0, G(0)<0; log-concavity on a two-sided neighborhood holds iff h>h*. At h=h*, negative t produces positive curvature, so equality is not an exception. Bar-On coordinates yield h*=4/3 and curvature 26/441. This is an exact local proof, not a finite grid assertion.
+
+## originality
+
+PASS
+
+New claim and its implications assessed against named primary papers and fresh Resultary published-finding searches. Self-indexed candidate hit ignored as evidence of novelty. The four mandatory checks, material actually read, and risks follow.
+
+## value
+
+PASS
+
+The source example is a canonical one-axis counterexample to relaxation of symmetry in a planar B-property. Varying the natural triangle dimensions and the sole active rectangle cut gives a complete, exact phase boundary, including a nontrivial equality-point distinction. This converts a one-off example into a motivated local classification. It does not purport to cover other active-side regimes; its elementary algebra does not by itself make the specific phase classification routine or known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

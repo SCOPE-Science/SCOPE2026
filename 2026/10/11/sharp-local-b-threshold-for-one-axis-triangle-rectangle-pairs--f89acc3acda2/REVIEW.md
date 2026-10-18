@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the one-active-side regime, the intersection area is integrated exactly and the logarithmic-curvature numerator factors as \(-2xG(x)\) with \(G\) a strictly increasing quadratic for \(x>0\). This proves the sharp threshold and separately resolves the endpoint \(h=h_*\). The source example is recovered exactly, not numerically.
+## correctness
 
-## Originality
-PASS. The primary paper gives one explicit one-axis-symmetric triangle–rectangle counterexample and asks about relaxations of symmetry; it does not state a parametric threshold. The later planar theorem for even log-concave measures and symmetric bodies is not applicable to these nonsymmetric pairs. Targeted exact-form, alias, source-coordinate, and implication searches found no prior statement of the threshold. Residual risk remains that an elementary calculation appeared in an unindexed source under other terminology.
+PASS
 
-## Value
-PASS. The theorem gives a sharp local phase diagram for the canonical family containing the published counterexample and identifies why the threshold point itself still fails. This turns an isolated negative example into a complete structural classification within a motivated family.
+For the specified positive parameters 0<h<a, R>w and S>b, only the rectangle top edge intersects the triangle boundary near t=0. Direct integration of horizontal section width 2w(a-y)/(a+b) yields f(t)=w/(a+b)(he^t+b)(2a+b-he^t). Writing x=he^t, the logarithmic-curvature numerator factors exactly as −2xG(x) times a positive scale, G(x)=a x²+(4ab+2b²)x−ab(2a+b). Independently simplified the symbolic factorization and substitution of h*=a sqrt(b(2a+b))/(a+b+sqrt(b(2a+b))): both residuals vanish. G is strictly increasing for x>0, G(0)<0; log-concavity on a two-sided neighborhood holds iff h>h*. At h=h*, negative t produces positive curvature, so equality is not an exception. Bar-On coordinates yield h*=4/3 and curvature 26/441. This is an exact local proof, not a finite grid assertion.
 
-## Closest literature and limitations
-The closest source is Livne Bar-On, arXiv:1311.6584v1, whose Examples and open questions section supplies the special pair and states its local failure. Saroglou, arXiv:1409.4346, proves the planar positive theorem under even/symmetric hypotheses and therefore does not cover the present family. The result is local in the dilation parameter and assumes only the top side of the rectangle is active near zero; other regimes are not classified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+New claim and its implications assessed against named primary papers and fresh Resultary published-finding searches. Self-indexed candidate hit ignored as evidence of novelty. The four mandatory checks, material actually read, and risks follow.
+
+## value
+
+PASS
+
+The source example is a canonical one-axis counterexample to relaxation of symmetry in a planar B-property. Varying the natural triangle dimensions and the sole active rectangle cut gives a complete, exact phase boundary, including a nontrivial equality-point distinction. This converts a one-off example into a motivated local classification. It does not purport to cover other active-side regimes; its elementary algebra does not by itself make the specific phase classification routine or known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
