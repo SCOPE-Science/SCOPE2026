@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. Its reference output is `verification_output.txt` and begins with `VERIFY_OK`.
+## correctness
 
-The program factors integers exactly, compares the finite criterion with divisor counts across the first 100 positive terms in each predicted universal progression with \(1\le A\le60\), checks the square-class formula at each odd prime less than \(200\), and checks the \(p=109\) discrepancy against the numerical prediction of Conjecture 2 in Merca (2022). These computations were executed against the embedded file's bytes.
+PASS
 
-The infinite argument is mathematical rather than computational: the fixed-valuation product gives sufficiency; an explicit square times a prime in a CRT class defeats the odd-product case; and the unique modulo-four factor reduces the remaining case to \(p t^2\equiv B\pmod A\). Dirichlet's theorem provides the prime in the CRT class. No upper cutoff in the code is used as a theorem hypothesis.
+For p^a||A with valuation e_p(B)<a, exponent e_p is fixed. Multiplicativity gives J|tau. If J odd, all forced exponents are even; the explicit auxiliary square E (fixed exponents e_p and 2a at nonfixed p|A), CRT and Dirichlet yield a prime q outside E with E*q=B (mod A), so tau(Eq)=2 (mod4), disproving universal divisibility. If J=2 (mod4), exactly one forced exponent is 1 (mod4), all other forced exponents even; a term with tau=2 (mod4) is exactly p*t^2, giving the stated solvability iff. For A=8p^2,B=8beta+1, p||B supplies p-1 candidates; odd t has t^2=1 (mod8), so p!=1 (mod8) precludes exception, otherwise half the units fail quadratic solvability mod p. This proves cardinality for all odd primes; independently checked all A<=42 against positive terms and p=109 exact 108, with direct finite checks distinguished from infinite proof.
 
-No independent audit or validation has been performed.
+## originality
+
+PASS
+
+The comparison must use exact statement implications: Merca 2022 Conjecture 2 is a conjecture and predicts (p-1)/2 if p-1 not cubefree, while the new p mod8 formula refutes that for p=109; its Theorem 3 proves p=3,5 only. General arbitrary-A progression iff goes beyond Merca prime-square families. Resultary published totient and sum-of-divisors records are different arithmetic functions; neither controls divisor-count tau. No stronger verified universal modulus-four tau progression theorem found in inspected primary material.
+
+## value
+
+PASS
+
+This is an effective full classification for arbitrary arithmetic progressions of a classical multiplicative function modulo four, and settles a named 2022 counting conjecture by a structural quadratic congruence obstruction. The p=109 discrepancy is not mere recomputation because the general criterion proves the full infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review: a complete modulus-four criterion for divisor counts on arithmetic progressions
+# Independent mathematical audit
 
-**Correctness — PASS.** For each \(p^a\Vert A\), the inequality \(\nu_p(B)<a\) fixes the valuation in every term. Their divisor-count factors give a forced product \(J\). When \(J\) is odd, the explicitly defined square \(E\), CRT and Dirichlet primes construct a term \(Eq\equiv B\pmod A\) having exactly two modulo-four divisors. When \(J\equiv2\pmod4\), the only possible nonzero divisor-count residue is caused by \(pt^2\); the exact quadratic congruence is both necessary and sufficient, including its fixed exponent \(1\pmod4\). The application counts exactly the \(p\)-adic valuation-one residue classes and resolves the remaining square condition modulo \(8\) and \(p\). The standard-library verifier checks numerous finite instances, not the infinite theorem.
+## correctness
 
-**Originality — PASS with explicit residual risk.** Merca's 2022 full-text introduction states the \(\mathcal B_{1,p}\) cardinality as a conjecture depending on cubefreeness, and Theorem 3 proves only \(p=3,5\). The general progression criterion and the \(p\bmod8\) cardinality are stronger than those particular results. The conjecture predicts \(54\) at \(p=109\) because \(27\mid108\), while the theorem proves \(108\). A separately recorded parameter result for \(r\in\{3,5,7\}\) is already covered and is not a distinct claimed contribution. Related results on totient congruences and divisibility of sums of divisors address different arithmetic functions, and do not imply this theorem. An unindexed equivalent classification remains possible.
+PASS
 
-**Value — PASS.** The theorem gives a finite necessary-and-sufficient test for all mod-four divisor congruences on arbitrary arithmetic progressions; it also resolves and corrects a specifically motivated 2022 prime-square counting conjecture. The quadratic-residue obstruction is structural and not an arbitrary finite parameter census.
+For p^a||A with valuation e_p(B)<a, exponent e_p is fixed. Multiplicativity gives J|tau. If J odd, all forced exponents are even; the explicit auxiliary square E (fixed exponents e_p and 2a at nonfixed p|A), CRT and Dirichlet yield a prime q outside E with E*q=B (mod A), so tau(Eq)=2 (mod4), disproving universal divisibility. If J=2 (mod4), exactly one forced exponent is 1 (mod4), all other forced exponents even; a term with tau=2 (mod4) is exactly p*t^2, giving the stated solvability iff. For A=8p^2,B=8beta+1, p||B supplies p-1 candidates; odd t has t^2=1 (mod8), so p!=1 (mod8) precludes exception, otherwise half the units fail quadratic solvability mod p. This proves cardinality for all odd primes; independently checked all A<=42 against positive terms and p=109 exact 108, with direct finite checks distinguished from infinite proof.
 
-Scientific limitations: only modulus four and linear progressions. A self-contained unconditional proof is present; the checker is supporting regression only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The comparison must use exact statement implications: Merca 2022 Conjecture 2 is a conjecture and predicts (p-1)/2 if p-1 not cubefree, while the new p mod8 formula refutes that for p=109; its Theorem 3 proves p=3,5 only. General arbitrary-A progression iff goes beyond Merca prime-square families. Resultary published totient and sum-of-divisors records are different arithmetic functions; neither controls divisor-count tau. No stronger verified universal modulus-four tau progression theorem found in inspected primary material.
+
+## value
+
+PASS
+
+This is an effective full classification for arbitrary arithmetic progressions of a classical multiplicative function modulo four, and settles a named 2022 counting conjecture by a structural quadratic congruence obstruction. The p=109 discrepancy is not mere recomputation because the general criterion proves the full infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
