@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The candidate claim is the full combinatorial-Laplacian factorization of \(G_{p,q}\), its exact Kirchhoff tree product, and the connectivity eigenspace transition for every integer \(p\ge2\), \(q\ge3\). Each subspace in the proof is described explicitly. The unsigned-incidence identity \(L=D-B^{\mathsf T}B\), dimension tally, two-by-two Gram blocks, and threshold identity \(W(p+q-1)=q-p(p-1)\) have been reconstructed. Exact graph-based cofactor and characteristic-polynomial computations from `VERIFY.py` agree for seven finite parameter pairs. Finiteness of the checks is not used to justify the universal conclusions; the invariant-subspace argument supplies that proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The 2020 matroid-polytope reconstruction work describes the pertinent family through its nine-vertex base-exchange example and proves reconstruction results, not the present Laplacian or connectivity statements. Dong–Yan, Dong (2019), and Gong–Jin give general formulas for the number of spanning trees of arbitrary line graphs: these **implicitly cover the numeric tree count** but do not explicitly evaluate this family or give its entire Laplacian and eigenspace switch. The identified complete-split-graph spectral work pertains to the underlying graph, not its line graph. The originality claim rests on the combined complete evaluated factorization and the sharp eigenmode transition, not on the mere existence of a spanning-tree enumeration. Equivalent special-family treatments under different names cannot be definitively excluded. Gong–Jin's full text was unavailable; the mathematical comparison relies on its public abstract and Dong–Yan's full preprint.
+PASS
 
-## Value: PASS
-The result completes a natural spectral classification for a two-parameter deformation of the rank-two hypersimplex, rather than reporting an isolated small graph or a routine normalization. An explicit switch from clique-contrast to parallel-class-contrast Fiedler eigenspaces at a nonlinear boundary distinguishes qualitative graph connectivity regimes despite the same matroid construction. The closed tree-count product is an efficiently evaluable companion invariant, in contrast to the general implicit sum over all spanning trees of the underlying graph. There is no claim of a universal new graph-theoretic technique.
+Rank-two bases are unordered pairs in {p nonclique elements}∪{q singleton classes}, excluding two from the p-parallel class, so E=pq+binom(q,2). An exchange adjacency swaps exactly one element, hence the polytope 1-skeleton is the line graph of H=K_q join p isolated vertices. Let B be the unsigned vertex-edge incidence matrix of H; for e=xy, line-graph Laplacian is L_{L(H)}=diag(d_H(x)+d_H(y))−B^TB. Splitting the edge module into row/column contrasts in the p×q cross incidence block, clique-edge circulation and orthogonal coupled contrasts yields spectral blocks: (p+2q−1)^((p−1)(q−1)), (p+q−1)^(p−1), (2p+2q−2)^(q(q−3)/2), two-dimensional W(t)^(q−1) where W(t)=t²−(2p+3q−1)t+q(3p+2q−1), and central t(t−(2p+q−1)). Dimensions sum E and all factors positive except the unique t=0. Kirchhoff product of nonzero eigenvalues divided by E gives the asserted exact spanning-tree count. Among positive factors the gap is min(S,λ−) where S=p+q−1 and λ−=(2p+3q−1−sqrt((q−1)²+4p(p−1)))/2; W(S)=q−p(p−1), producing switch of Fiedler multiplicity q−1 to p−1 across q=p(p−1) (tie p+q−2, attainable p≥3). Independent exact SymPy Laplacian matrices rebuilt from basis-exchange adjacency for (p,q)=(2,3),(2,4),(3,3),(3,4),(4,3); their full characteristic polynomials equal every predicted factor and cofactors agree with Kirchhoff. This is finite corroboration; invariant-subspace calculation and dimension exhaustion constitute the parameter-uniform proof.
 
-## Scope and evidence limits
-The theorem covers the ordinary unweighted Laplacian for \(p\ge2\), \(q\ge3\) only. The proof is self-contained within `RESULT.md`; the finite symbolic checker is corroboration, not an independent proof of the infinite family. The closest general line-graph enumeration and possible specialized equivalent formulations remain the principal coverage risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published matroid-polytope reconstruction classifies graphs abstractly, and published general line-graph tree formulas implicitly yield tree counts; neither inspected paper gives all-parameter factorization together with an explicit Fiedler eigenspace-multiplicity transition q=p(p−1). Resultary nearby other polytope spectra refer to distinct basis graphs. Originality PASS bounded to that specific quantitative complete family, not the general incidence identity or matrix-tree theorem.
+
+## value
+
+PASS
+
+A natural infinite rank-two matroid family has a completely explicit Laplacian with a sharp change in the symmetry and multiplicity of its Fiedler space, supplementing the previously known matroid graph reconstruction and generic tree-count methods. The all-parameter invariant-subspace decomposition, not the five small numerical instances or mere tree recomputation, supplies mathematical substance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

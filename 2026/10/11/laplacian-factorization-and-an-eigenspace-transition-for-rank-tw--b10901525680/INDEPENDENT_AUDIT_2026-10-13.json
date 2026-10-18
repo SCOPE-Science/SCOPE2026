@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T02:18:21.627599Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rank-two bases are unordered pairs in {p nonclique elements}∪{q singleton classes}, excluding two from the p-parallel class, so E=pq+binom(q,2). An exchange adjacency swaps exactly one element, hence the polytope 1-skeleton is the line graph of H=K_q join p isolated vertices. Let B be the unsigned vertex-edge incidence matrix of H; for e=xy, line-graph Laplacian is L_{L(H)}=diag(d_H(x)+d_H(y))−B^TB. Splitting the edge module into row/column contrasts in the p×q cross incidence block, clique-edge circulation and orthogonal coupled contrasts yields spectral blocks: (p+2q−1)^((p−1)(q−1)), (p+q−1)^(p−1), (2p+2q−2)^(q(q−3)/2), two-dimensional W(t)^(q−1) where W(t)=t²−(2p+3q−1)t+q(3p+2q−1), and central t(t−(2p+q−1)). Dimensions sum E and all factors positive except the unique t=0. Kirchhoff product of nonzero eigenvalues divided by E gives the asserted exact spanning-tree count. Among positive factors the gap is min(S,λ−) where S=p+q−1 and λ−=(2p+3q−1−sqrt((q−1)²+4p(p−1)))/2; W(S)=q−p(p−1), producing switch of Fiedler multiplicity q−1 to p−1 across q=p(p−1) (tie p+q−2, attainable p≥3). Independent exact SymPy Laplacian matrices rebuilt from basis-exchange adjacency for (p,q)=(2,3),(2,4),(3,3),(3,4),(4,3); their full characteristic polynomials equal every predicted factor and cofactors agree with Kirchhoff. This is finite corroboration; invariant-subspace calculation and dimension exhaustion constitute the parameter-uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General line-graph spanning-tree formulas in Dong--Yan cover the tree count abstractly for arbitrary graphs.",
+          "Pineda-Villavicencio--Schröter treats reconstruction of all matroid base-polytope graphs, not their Laplacian spectra."
+        ],
+        "reasoning": "A universal algorithm is not an explicit all-parameter spectral polynomial or exact eigenspace transition. Tree formula is credited as derivable from prior graph enumerations; new content centers on factorization and crossing.",
+        "searches": [
+          "https://arxiv.org/pdf/1507.08022",
+          "https://arxiv.org/pdf/2010.10227",
+          "Laplacian spectrum and algebraic connectivity of line graph of complete split graph join clique independent set matroid base polytope spanning trees phase transition"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2010.10227",
+        "https://arxiv.org/pdf/1507.08022",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published general line-graph tree identities can be specialized to count, but do not give eigenvalues or multiplicities.",
+          "Matroid reconstruction supplies identification of the basis graph, not W(S)=q−p(p−1) crossing."
+        ],
+        "reasoning": "Existing statements cannot imply the submitted full characteristic polynomial and Fiedler multiplicities without substantial new decomposition; the quantitative spectral phenomenon is the motivation and value.",
+        "searches": [
+          "https://arxiv.org/pdf/1507.08022",
+          "https://arxiv.org/pdf/2010.10227",
+          "Laplacian spectrum and algebraic connectivity of line graph of complete split graph join clique independent set matroid base polytope spanning trees phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pineda-Villavicencio--Schröter Example 22 identifies a specific rank-two parallel matroid base graph.",
+          "The target family is exactly line graphs of complete split graphs K_q ∨ overline(K_p)."
+        ],
+        "reasoning": "Alias-search across split-graph line graphs and rank-two basis-exchange graphs did not locate a matching W(t) spectral factor with this Fiedler switch; mere reconstruction classification is not equivalent to spectral decomposition.",
+        "searches": [
+          "Laplacian spectrum and algebraic connectivity of line graph of complete split graph join clique independent set matroid base polytope spanning trees phase transition",
+          "https://arxiv.org/pdf/2010.10227",
+          "spectra laplacian line graphs of complete split graphs K_q join independent set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary precise self hit b10901525680 and separate symmetric-edge-polytope graph spectra; neither other output matches this specific rank-two matroid class.",
+          "Direct exact finite independent charpolys agree for five p,q values but a finite check is not proof of no published table."
+        ],
+        "reasoning": "No table with this p,q factorization and the q=p(p−1) eigenspace transition was found; self-index cannot prove priority.",
+        "searches": [
+          "Laplacian spectrum and algebraic connectivity of line graph of complete split graph join clique independent set matroid base polytope spanning trees phase transition",
+          "Laplacian spectrum and algebraic connectivity of line graph of complete split graph join clique independent set matroid base polytope spanning trees phase transition"
+        ]
+      },
+      "rationale": "Published matroid-polytope reconstruction classifies graphs abstractly, and published general line-graph tree formulas implicitly yield tree counts; neither inspected paper gives all-parameter factorization together with an explicit Fiedler eigenspace-multiplicity transition q=p(p−1). Resultary nearby other polytope spectra refer to distinct basis graphs. Originality PASS bounded to that specific quantitative complete family, not the general incidence identity or matrix-tree theorem.",
+      "residual_risks": [
+        "A specialized signless-incidence-spectrum table for complete split graphs not found in the bounded search could already encode the factorization.",
+        "Only p≥2,q≥3 and unweighted ordinary graph Laplacian; spanning-tree count alone is implied by general methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides structural graph context and specific (p,q) example but not complete parameter spectral factorization or phase transition.",
+          "evidence": [
+            "Example 22 rank-two matroid with a parallel pair, q=3; no graph Laplacian theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.10227",
+          "material_read": "Lawful complete 22-page arXiv PDF, definitions, basis-exchange graph reconstruction and Example 22 pp18–19",
+          "method": "Read full primary PDF and visually checked relevant construction",
+          "title": "Reconstructibility of Matroid Polytopes",
+          "trigger": "Direct prior study of rank-two parallel-class matroid base graphs"
+        },
+        {
+          "assessment": "Broad spanning-tree transformations can imply the numerical tree count; do not state target Laplacian characteristic polynomial or Fiedler transition.",
+          "evidence": [
+            "Theorem 1.1 gives line-graph tree calculations, Corollary 5.1 special classes; not an eigenspace analysis"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08022",
+          "material_read": "Lawful 22-page arXiv PDF, primary formula and section on line graph tree count",
+          "method": "Read primary PDF main theorem, proofs and corollary region",
+          "title": "Spanning trees of line graphs and their subdivision graphs",
+          "trigger": "Potential general prior spanning-tree formula dominating specialized count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural infinite rank-two matroid family has a completely explicit Laplacian with a sharp change in the symmetry and multiplicity of its Fiedler space, supplementing the previously known matroid graph reconstruction and generic tree-count methods. The all-parameter invariant-subspace decomposition, not the five small numerical instances or mere tree recomputation, supplies mathematical substance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2010.10227",
+    "https://arxiv.org/pdf/1507.08022",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized signless-incidence-spectrum table for complete split graphs not found in the bounded search could already encode the factorization.",
+    "Only p≥2,q≥3 and unweighted ordinary graph Laplacian; spanning-tree count alone is implied by general methods."
+  ],
+  "residual_risks": [
+    "A specialized signless-incidence-spectrum table for complete split graphs not found in the bounded search could already encode the factorization.",
+    "Only p≥2,q≥3 and unweighted ordinary graph Laplacian; spanning-tree count alone is implied by general methods."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides structural graph context and specific (p,q) example but not complete parameter spectral factorization or phase transition.",
+      "evidence": [
+        "Example 22 rank-two matroid with a parallel pair, q=3; no graph Laplacian theorem"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2010.10227",
+      "material_read": "Lawful complete 22-page arXiv PDF, definitions, basis-exchange graph reconstruction and Example 22 pp18–19",
+      "method": "Read full primary PDF and visually checked relevant construction",
+      "title": "Reconstructibility of Matroid Polytopes",
+      "trigger": "Direct prior study of rank-two parallel-class matroid base graphs"
+    },
+    {
+      "assessment": "Broad spanning-tree transformations can imply the numerical tree count; do not state target Laplacian characteristic polynomial or Fiedler transition.",
+      "evidence": [
+        "Theorem 1.1 gives line-graph tree calculations, Corollary 5.1 special classes; not an eigenspace analysis"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1507.08022",
+      "material_read": "Lawful 22-page arXiv PDF, primary formula and section on line graph tree count",
+      "method": "Read primary PDF main theorem, proofs and corollary region",
+      "title": "Spanning trees of line graphs and their subdivision graphs",
+      "trigger": "Potential general prior spanning-tree formula dominating specialized count"
+    }
+  ]
+}
