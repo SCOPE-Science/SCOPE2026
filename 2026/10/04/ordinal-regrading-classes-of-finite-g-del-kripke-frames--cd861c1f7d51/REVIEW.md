@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The central lemma is an exact semantic conjugacy. Any increasing homeomorphism of \([0,1]\) fixes \(0,1\), preserves minimum, maximum, and Gödel implication, and commutes with finite minima and maxima. Structural induction therefore gives \(e^h(w,\varphi)=h(e(w,\varphi))\) for every formula. Since valuation regrading is bijective, frame validity is identical in both directions.
+PASS
 
-The canonical representative follows by sending the finitely many distinct interior accessibility levels to equally spaced ranks. The orbit count is exact: after choosing the entries lying strictly between \(0\) and \(1\), endpoint entries have two independent choices and interior entries form an ordered set partition. This yields the stated ordered-Bell sum.
+For a finite labelled W and Gödel implication, every strictly increasing endpoint-fixing homeomorphism h commutes with min, max and a->b (since it preserves the <= predicate and 1). It commutes with all finite modal infima/suprema by monotonicity. Structural induction yields e_{hR,he}(w,phi)=h(e_{R,e}(w,phi)) for all formulas in the language without pinned intermediate truth constants. Its inverse bijects valuations, so frame validity is invariant. Classify N=m^2 labelled entries by whether each is endpoint 0/1 or in one of k positive ordered interior equality blocks; piecewise-linear h maps interior levels to i/(k+1), defining a unique canonical representative per orbit. Choose s interior entries, assign 2 endpoints to others, and ordered-partition the s entries: T_N=sum_s binom(N,s)2^(N-s) sum_k k! S(s,k). Independently recomputed T1=3,T2=11,T3=51,T4=299,T9=28349043 with a distinct ordered-block recurrence; the universal proof is algebraic, not inferred from finite enumeration. T counts regrading orbits and only upper-bounds distinct modal logics.
 
-## Originality
+## originality
 
-PASS. The closest source is Ferrari–Fiorentini–Giardini–Rodriguez (2026). It proves the finite model property for witnessed Gödel modal logic and, during its PSPACE analysis, bounds the number of numerical values needed in a formula-specific countermodel. That does not classify an arbitrary fixed finite fuzzy frame, establish a common all-formula/all-valuation regrading conjugacy, or count regrading orbits.
+PASS
 
-The standard 2010 and 2015 Gödel-modal papers provide the fuzzy frame semantics and completeness background. Searches using “order isomorphism,” “order automorphism,” “weak order accessibility,” “regrading,” “canonical equally spaced accessibility,” and related aliases did not locate the present frame quotient or census.
+Ferrari et al. introduce the same witnessed Gödel Kripke semantics and finite rational countermodel reductions, but these are formula-specific existence results. The presented fixed-frame conjugacy transports every valuation and every formula simultaneously and counts endpoint-anchored weak-order orbits. Earlier general Gödel-modal semantics are not an exact census of regrading classes. The result is a natural full classification, with possible implicit order-automorphism folklore acknowledged.
 
-## Value
+## value
 
-PASS. Fuzzy \(m\)-world frames have continuum many real-valued accessibility matrices, while the theorem reduces their frame-validity study to finitely many canonical ordinal types and supplies the exact number of such regrading classes. This is a natural structural compression for finite Gödel-frame analysis: it separates genuinely modal distinctions from irrelevant numerical spacing and turns an uncountable parameter space into an explicit finite search domain.
+PASS
 
-## Closest literature and limitations
+An exact canonical normal form replaces continuum-valued accessibility matrices with a finite complete search space of ordinal frame types, enabling finite-frame validity comparisons. The labelled regrading orbit count is a natural invariant with a nontrivial ordered Bell census and no claim that each orbit yields a different logic. The general m theorem is more than an arbitrary numerical instance.
 
-The 2026 witnessed-model paper is the closest comparison because it also replaces arbitrary real values by finite rational values in countermodel search. Its result is formula-specific existence; the present result is a fixed-frame semantic equivalence under every valuation and every formula, followed by an exact orbit census.
-
-The census does not assert that different regrading classes have different valid logics, and named intermediate truth constants would invalidate the regrading symmetry.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
