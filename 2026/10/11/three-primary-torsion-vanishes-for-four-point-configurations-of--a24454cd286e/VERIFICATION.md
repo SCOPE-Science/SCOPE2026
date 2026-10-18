@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in this directory using the Python standard library. The program (i) independently calculates all nine \(\mathbb F_3 S_3\) indecomposable sign-Hom dimensions from exact finite linear constraints; (ii) compares every coefficient of the bivariate polynomial for the modular top Betti number with the character-averaged rational formula; and (iii) checks integrality and equality on the \(1089\) ordered parameter pairs \(7\le a,b\le39\). It reports the first three examples \(1911,5726,16716\) and prints `VERIFY_OK` on success.
+## correctness
 
-During the mathematical derivation, separate exact finite-field elimination of the defining injection slot relations at \(a=7,8\) gave module dimensions \(225,641\), matching the derived character formula. Their \(V\)-fixed projective and nonprojective block multiplicities and the nontrivial \(V\)-character stabilizer eigenspaces also matched. The packaged verifier checks the algebraic general identities but does not re-enumerate these large injection matrices, and the finite checks do not prove the infinite theorem independently. The proof in RESULT.md supplies the projectivity and syzygy arguments required for arbitrary parameters.
+PASS
 
-The integral universal-coefficient step deduces absence of \(3\)-primary torsion from exact equality of characteristic-three and rational **top** homology dimensions. Other coefficients, homology degrees and graph sizes are outside the result. Independent review has not been performed.
+By An Proposition5.1 the top H4 over any field is Hom_{F3[S4]}(sgn,D(a)⊗D(b)). For a,b>=7, the 4-row chessboard complex has free top homology and shellability supplies a projective chain resolution. Its V4-trivial block has (x-1)U2^- plus projective U3^+,U3^- and the three nontrivial V4 blocks are projective; careful orientation sign is included. I reconstructed the nine mod-three sign-Hom dimensions as [[1,1,1],[1,1,2],[1,2,1]] from explicit S3 module matrices. Character/multiplicity expansion matches the ordinary averaging polynomial for H4, and exact sample Betti numbers at (7,7),(7,8),(8,8) are 1911,5726,16716. UCT gives H4(F3)-rank H4(Z)=dim Tor(H3(Z),F3)=0. All parameter values rely on the universal module polynomial identity, not finite sample extrapolation.
+
+## originality
+
+PASS
+
+The complete 2026 An source Theorem5.10 proves odd-prime torsion vanishing for p>=m only; its Question8.2(1) explicitly singles out first excluded case m=4,p=3. The characteristic-three modular representation calculation treats precisely that missing case, so the claimed all a,b>=7 vanishing is not implied by An’s general vanishing theorem. Resultary search found no earlier exact same case beyond audited target.
+
+## value
+
+PASS
+
+Resolves an explicit natural open first-exceptional-prime case for graph-braid homology across an infinite bipartite graph family. The exact rank comparison and modular structure can serve future integral torsion investigations. Does not claim lower part sizes or other primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

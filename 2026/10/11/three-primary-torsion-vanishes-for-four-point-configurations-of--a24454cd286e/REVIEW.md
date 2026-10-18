@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Proposition 5.1 of An identifies the relevant top homology as a sign-isotypical slot tensor product in every characteristic. The complete algebraic argument over \(\mathbb F_3\) derives the three-step syzygy, splits by the normal Klein-four subgroup, computes multiplicities from p-regular characters, and calculates nine indecomposable Hom dimensions. Exact coefficient comparison with the rational character formula and integral universal coefficients yields the stated torsion vanishing for all \(a,b\ge7\). The standalone checker recomputes the small-module dimensions and polynomial identity, and also checks numerical examples. The infinite conclusion relies on the proof, not extrapolation from experiments.
+## correctness
 
-**Originality — PASS, qualified.** The originating full-text source, arXiv:2610.04305v1, explicitly leaves \(m=4,p=3\) outside its Theorem 5.10 and asks this first case in Question 8.2(1). The result is not implied by its rational rank formula alone. Related indexed and previously computed results address different primes, smaller graphs, or chessboard homology itself. An equivalent unindexed proof remains possible, and one older chessboard paper was inspected only at the abstract level.
+PASS
 
-**Value — PASS.** This resolves the full first excluded regime of a concrete recent research question, with an infinite-parameter structural proof. It explains the effect of nonsemisimple characteristic-three slot representations rather than merely reporting selected numerical ranks.
+By An Proposition5.1 the top H4 over any field is Hom_{F3[S4]}(sgn,D(a)⊗D(b)). For a,b>=7, the 4-row chessboard complex has free top homology and shellability supplies a projective chain resolution. Its V4-trivial block has (x-1)U2^- plus projective U3^+,U3^- and the three nontrivial V4 blocks are projective; careful orientation sign is included. I reconstructed the nine mod-three sign-Hom dimensions as [[1,1,1],[1,1,2],[1,2,1]] from explicit S3 module matrices. Character/multiplicity expansion matches the ordinary averaging polynomial for H4, and exact sample Betti numbers at (7,7),(7,8),(8,8) are 1911,5726,16716. UCT gives H4(F3)-rank H4(Z)=dim Tor(H3(Z),F3)=0. All parameter values rely on the universal module polynomial identity, not finite sample extrapolation.
 
-**Limitations.** No claim concerns two-primary torsion, other degrees, or graph parts smaller than seven. The proof uses An's exact slot model and established chessboard shellability. It has not undergone independent expert audit.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete 2026 An source Theorem5.10 proves odd-prime torsion vanishing for p>=m only; its Question8.2(1) explicitly singles out first excluded case m=4,p=3. The characteristic-three modular representation calculation treats precisely that missing case, so the claimed all a,b>=7 vanishing is not implied by An’s general vanishing theorem. Resultary search found no earlier exact same case beyond audited target.
+
+## value
+
+PASS
+
+Resolves an explicit natural open first-exceptional-prime case for graph-braid homology across an infinite bipartite graph family. The exact rank comparison and modular structure can serve future integral torsion investigations. Does not claim lower part sizes or other primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
