@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source AGC ratio specializes to a continuous three-zone scalar map. Below \(\eta h=2\), every nonzero point has strictly decreasing magnitude; continuity rules out a positive limiting magnitude. At and above that threshold, an explicit floor-band two-cycle exists until \(\eta\lambda=2\), after which the outer linear map has expanding modulus. The embedded checker independently verifies every branch and boundary.
+PASS
 
-Risk: the theorem is scalar and deterministic and does not include momentum.
+From source AGC ratio |h x|/max(|x|,epsilon)>lambda, the small-norm threshold is |x|>lambda*epsilon/h and all three stated branches follow (continuous at a and epsilon). For 0<eta*h<2, each nonzero branch decreases |x| strictly; a nonzero positive asymptotic magnitude is excluded by continuity and strict decrease. For eta in [2/h,2/lambda], both proposed phases lie in the closed [a,epsilon] interpolation where gradient equals lambda*epsilon*sign(x), so x->x-s->x; endpoint a and epsilon agree with adjacent formulas. For eta>2/lambda the outer factor |1-eta*lambda|>1 is invariant for sufficiently large |x| and diverges. Independently used exact fractions h=5,lambda=1,epsilon=1/10,eta=1/2: a=1/50, s=1/20, x=1/40 gives x->-1/40->x. The infinity statement is universal convergence, not convergence of all intermediate trajectories to cycles.
 
-## Originality
+## originality
 
-PASS. The defining AGC paper states the floored unit-wise norm-ratio rule and its empirical stability motivation but not this phase diagram. The inspected general clipping literature treats fixed clipping radii, not a clipping radius proportional to a floored parameter norm. Focused published-record searches did not locate the discontinuous positive-floor stability threshold or exact AGC two-cycle interval.
+PASS
 
-Residual risk: fixed-threshold clipping has mathematically related cycle behavior, and an equivalent source-specific specialization could exist in unindexed implementation notes.
+Specific positive AGC parameter-norm floor changes scalar asymptotic stability ceiling from clipped curvature to raw curvature and exactly locates a cycle continuum; this source-specific conjunction was not identified in checked primary sources or relevant published records. Generic gradient clipping and elementary scalar sign-flip dynamics remain antecedents, not claimed new in themselves.
 
-## Value
+## value
 
-PASS. The positive norm floor is an essential implementation detail of AGC, introduced to handle small or zero parameters. The theorem shows that it is also asymptotically decisive: it restores the raw-curvature stability ceiling and creates bounded nonconvergent cycles throughout the gap where the floorless relative-clipping rule would still converge. This directly qualifies AGC's intended stability mechanism without extrapolating to full neural-network training.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive AGC parameter norm floor is an implemented safeguard for zero/near-zero weights; the sharp h rather than lambda stability ceiling and exact cycle band reveal a mathematical limitation of the very safeguard. This is a motivated source-specific discrete dynamical boundary rather than renaming a textbook scalar GD threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

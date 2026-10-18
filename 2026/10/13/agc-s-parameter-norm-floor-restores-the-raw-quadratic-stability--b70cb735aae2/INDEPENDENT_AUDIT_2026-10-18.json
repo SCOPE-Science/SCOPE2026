@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:49:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob baac2a4bf345d1ae62904ecdbbc0648ebf6edc83",
+        "AGC defining rule arXiv:2102.06171; exact-rational local independent test"
+      ],
+      "rationale": "From source AGC ratio |h x|/max(|x|,epsilon)>lambda, the small-norm threshold is |x|>lambda*epsilon/h and all three stated branches follow (continuous at a and epsilon). For 0<eta*h<2, each nonzero branch decreases |x| strictly; a nonzero positive asymptotic magnitude is excluded by continuity and strict decrease. For eta in [2/h,2/lambda], both proposed phases lie in the closed [a,epsilon] interpolation where gradient equals lambda*epsilon*sign(x), so x->x-s->x; endpoint a and epsilon agree with adjacent formulas. For eta>2/lambda the outer factor |1-eta*lambda|>1 is invariant for sufficiently large |x| and diverges. Independently used exact fractions h=5,lambda=1,epsilon=1/10,eta=1/2: a=1/50, s=1/20, x=1/40 gives x->-1/40->x. The infinity statement is universal convergence, not convergence of all intermediate trajectories to cycles.",
+      "residual_risks": [
+        "Scalar deterministic plain GD only; no stochastic, momentum, vector, or full network inference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General gradient-clipping convergence bounds/variance-bias analyses address different clipping schedules and assumptions."
+        ],
+        "reasoning": "None of the inspected general theorems directly dominates a source-specific necessary-and-sufficient discrete scalar AGC threshold with the sharp entire two-cycle interval.",
+        "searches": [
+          "Adaptive Gradient Clipping AGC parameter-norm floor scalar quadratic stability convergence two cycle h lambda epsilon",
+          "Zhang et al arXiv:1905.11881",
+          "Koloskova et al arXiv:2305.01588"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.06171 full text",
+        "arXiv:1905.11881",
+        "arXiv:2305.01588",
+        "Adaptive Gradient Clipping AGC parameter-norm floor scalar quadratic stability convergence two cycle h lambda epsilon",
+        "Resultary scalar two-cycle search results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brock source specifies epsilon floor (default 1e-3), empirical batch/lr stability motivations; stated paper lacks this exact scalar global-step threshold."
+        ],
+        "reasoning": "Empirical stability or relative update clipping does not imply an if-and-only-if global scalar convergence or explicit period-two continuum.",
+        "searches": [
+          "Adaptive Gradient Clipping AGC parameter-norm floor scalar quadratic stability convergence two cycle h lambda epsilon",
+          "Brock et al arXiv:2102.06171"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original AGC threshold uses floored parameter norm and does not state the three-zone scalar stability theorem."
+        ],
+        "reasoning": "Parameter-norm ratio clipping is reducible to a state-dependent clipped scalar map; fixed-radius clipping can yield two-cycles, but does not directly assert the floor-discontinuous AGC global h-boundary in these exact assumptions.",
+        "searches": [
+          "Adaptive Gradient Clipping AGC parameter-norm floor scalar quadratic stability convergence two cycle h lambda epsilon",
+          "Brock et al arXiv:2102.06171 AGC floored norm equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index retrieval surfaced scalar two-cycle results for different optimizers and no directly matching exact AGC floor phase diagram."
+        ],
+        "reasoning": "This is a dynamics theorem rather than a pre-existing finite database value. Similar optimizer cycles cannot be substituted without deriving the AGC-specific floor normalizations.",
+        "searches": [
+          "Adaptive Gradient Clipping AGC parameter-norm floor scalar quadratic stability convergence two cycle h lambda epsilon",
+          "2026/10/4/Resultary scalar Polar-Express flip frontier",
+          "2026/10/4/Resultary gradient-clipped heavy-ball scalar"
+        ]
+      },
+      "rationale": "Specific positive AGC parameter-norm floor changes scalar asymptotic stability ceiling from clipped curvature to raw curvature and exactly locates a cycle continuum; this source-specific conjunction was not identified in checked primary sources or relevant published records. Generic gradient clipping and elementary scalar sign-flip dynamics remain antecedents, not claimed new in themselves.",
+      "residual_risks": [
+        "Older exact scalar clipping dynamics or optimizer implementation notes may imply the result under another form; failed indexed search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines floored norm ratio; does not contain the inspected scalar mathematical phase diagram.",
+          "evidence": "AGC section equation for per-unit clipping and epsilon parameter, Section 3",
+          "identifier_or_url": "arXiv:2102.06171",
+          "material_read": "Full available ar5iv manuscript, AGC methods including clipping formula and floor explanation",
+          "method": "lawful open preprint full text",
+          "title": "High-Performance Large-Scale Image Recognition Without Normalization",
+          "trigger": "Exact original AGC algorithm and epsilon floor"
+        },
+        {
+          "assessment": "Related generalized clipping results but no demonstrated implication of exact AGC floor theorem.",
+          "evidence": "Published gradient clipping theory with differing clipping model",
+          "identifier_or_url": "arXiv:1905.11881",
+          "material_read": "Accessible article/abstract and relevant convergence statements",
+          "method": "open-access research search",
+          "title": "Why Gradient Clipping Accelerates Training: A Theoretical Justification for Adaptivity",
+          "trigger": "Potential general gradient clipping convergence domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2102.06171 AGC floor motivation",
+        "exact two-cycle construction"
+      ],
+      "rationale": "The positive AGC parameter norm floor is an implemented safeguard for zero/near-zero weights; the sharp h rather than lambda stability ceiling and exact cycle band reveal a mathematical limitation of the very safeguard. This is a motivated source-specific discrete dynamical boundary rather than renaming a textbook scalar GD threshold.",
+      "residual_risks": [
+        "Interpretation is limited to one scalar deterministic unit, not empirical neural-network instability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a scalar h-curvature quadratic and AGC parameter-lambda clipping with floor epsilon>0 (h>lambda>0), the exact three-zone clipped gradient has boundaries a=lambda*epsilon/h and epsilon. Every initialization converges to zero iff 0<eta*h<2. For 2/h<=eta<=2/lambda, nonzero two-cycles have positive phase x in [max(a,eta*lambda*epsilon-epsilon),min(epsilon,eta*lambda*epsilon-a)]; for eta>2/lambda some trajectories diverge. Formally setting epsilon=0 gives stability iff eta*lambda<2.",
+  "limitations": [
+    "Formal zero-floor comparison is not the actual AGC default",
+    "No higher-dimensional or noisy SGD conclusion",
+    "No assertion that all intermediate nonconvergent trajectories tend to the displayed cycles."
+  ],
+  "schema_version": 1
+}
