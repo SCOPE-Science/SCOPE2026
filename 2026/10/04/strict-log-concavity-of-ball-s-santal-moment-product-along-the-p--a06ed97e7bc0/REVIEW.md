@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The coordinate second moment is evaluated by a beta integral. After the substitution \(t=1/p\), the logarithm of the normalized polar moment product is exactly a linear combination of symmetric log-gamma terms. Twice differentiating Gauss's multiplication formula converts every curvature term to a finite average-free sum of the strictly decreasing trigamma kernel \(G_t\). The sorted \((n+2)\)-grid is coordinatewise below the comparison multiset \(\{1/3,2/3,1,\ldots,1\}\), with strict inequality, so the logarithmic second derivative is strictly negative. Symmetry under polarity then gives the monotonicity and uniqueness assertions. The endpoint formula follows from exact moments of the cube, crosspolytope, and Euclidean ball. The included checker replays the independent numerical consistency checks but is not used as proof of an infinite assertion.
+## correctness
 
-## Originality
-PASS. The closest primary source proves Ball's inequality globally and recalls Ball's earlier unconditional case, which yields only \(F_n\le1\) for \(\ell_p\) balls. Full-text inspection of the recent source did not find an \(\ell_p\)-profile, gamma-product, or monotonicity statement. Searches of published mathematical records for dual \(\ell_p\)-ball moment products, reciprocal-exponent log-concavity, the exact gamma factors, and the source identifier did not locate a result implying the claimed profile. The closest \(\ell_p\) literature found concerns hyperplane section/projection volumes or different gamma ratios. Ball's 1986 dissertation remains a residual access risk, but the modern source explicitly identifies the result inherited from it as the unconditional inequality rather than an exponent-by-exponent comparison.
+PASS
 
-## Value
-PASS. The 2026 theorem resolves a longstanding global extremal inequality but does not describe how its canonical \(\ell_p\) test family approaches equality. Strict reciprocal-exponent log-concavity gives a natural complete one-parameter classification, strengthening a pointwise upper bound into a structural interpolation law and identifying the exact endpoint. This is mathematically motivated by polarity and by the source theorem rather than by an arbitrary parameter slice.
+For integer n>=2 and 0<t=1/p<1, q dual to p, coordinate second moment of B_p^n is I_n(p)=2^n/3 Gamma(1+3t)Gamma(1+t)^(n-1)/Gamma(1+(n+2)t); orthogonal coordinate symmetry yields Ball functional B(B_p^n)=n I_n(p)I_n(q). Define Phi_a(t)=logGamma(1+at)+logGamma(1+a(1-t)); log F_n=Phi_3+(n-1)Phi_1-Phi_(n+2)+constant. Differentiated Gauss multiplication implies Phi_a doubleprime=sum_{r=1}^a G_t(r/a), G_t(x)=psi_1(t+x)+psi_1(1-t+x), strictly decreasing x>0 by the positive trigamma series. For N=n+2>=4 the N grid r/N, r=1..N, is termwise <= sorted multiset {1/3,2/3,1,...,1} with a strict first inequality; hence Phi_N doubleprime>Phi_3 doubleprime+(N-3)Phi_1 doubleprime and log F_n doubleprime<0 for all n,t. Symmetry t to 1-t and strict concavity give unique maximum p=2 and monotonic decay for p>2. Evaluating I_n(infty)=2^n/3, I_n(1)=2^(n+1)/(n+2)!, I_n(2)=pi^(n/2)/((n+2)Gamma(n/2+1)) gives the stated cube-crosspolytope endpoint. No assertion about general convex-body paths or p-parametrized concavity.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: distinct exact theorem or implication not supplied by the materially inspected primary results; the same Resultary indexed SCOPE entry is the audited work, not prior independent coverage. F_n(t)<=1 and equality at t=1/2 allow non-monotonic oscillations below 1; the derived negative logarithmic second derivative and strict off-center order are stronger, and not a corollary of the inspected general inequality.
+
+## value
+
+PASS
+
+Ball’s quadratic Santaló inequality is well-motivated in convex geometry. This theorem gives an exact strict profile on the canonical primal-dual ℓp family rather than just maximality at the Euclidean ball: it compares any two non-Euclidean exponents and computes a natural endpoint. The trigamma grid comparison is a nontrivial structural property, not merely restating a known pointwise upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
