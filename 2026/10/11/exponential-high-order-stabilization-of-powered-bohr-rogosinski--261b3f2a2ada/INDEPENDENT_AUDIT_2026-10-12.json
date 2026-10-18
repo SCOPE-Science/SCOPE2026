@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:19:53.997127Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Frozen RESULT.md blob 4c8ad2c3168df51d2d527ed39f3fbf299d690ef4 inspected. F_m(r)=p(1-r^m)/(1+r^m)-2r^N/(1-r) is strictly decreasing for 0<r<1, p in (0,2], N,m>=1; F_m(0+)=p and F_m(1-)=-infinity ensure unique sharp root. Increasing m increases F_m at each interior r, so R_{m+1}>R_m; evaluating F_m(A)=-2p A^m/(1+A^m)<0 at unique A solving p=2A^N/(1-A) bounds R_m<A<1. Monotone limit L satisfies L=A because R_m^m<=A^m->0. Mean value theorem between R_m and A and bound m*xi_m^(m-1)<=m*A^(m-1)->0 give the exact asymptotic deficit (A-R_m)/A^m -> 2A(1-A)/[N-(N-1)A]. Substitution N=1 recovers 4p/(p+2)^2. Independently bisection checked p=1,2 N=1 and p=1.2 N=3 at m=15,40; normalized ratios approach 1. Assumption that the root is the sharp radius is imported from cited prior theorem, not proven by this audit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2025 Remark 2.2 when N=1: lim_{m->infty} R^p_{m,1}=p/(p+2); 2021 supplies p=1,2 families."
+        ],
+        "reasoning": "These bound/convergence statements are weaker than the stated sharp first correction; strong prior theorem creates correct starting equation but lacks quantified perturbation in examined text.",
+        "searches": [
+          "Hamada-Honda-Kohr DOI:10.1007/s13324-025-01061-x full 19-page article",
+          "Kayumov et al JMAA 496 (2021) 124824"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 4c8ad2c3168df51d2d527ed39f3fbf299d690ef4",
+        "Hamada-Honda-Kohr 2025 DOI:10.1007/s13324-025-01061-x ALL pp.1-19 authorized text",
+        "Zeng-Xiong arXiv:2609.28357v1 bibliographic and source quotation",
+        "Kayumov-Khammatova-Ponnusamy DOI:10.1016/j.jmaa.2020.124824 quoted in 2025 source",
+        "Independent high-precision bisection three (p,N) settings, 2 m values each; Resultary failed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior roots define R_m and A. Fresh MVT calculation yields prefactor 2A(1-A)/[N-(N-1)A], specializing to N=1."
+        ],
+        "reasoning": "The exact coefficient is an elementary consequence requiring only differentiation of already known implicit equation; the audit does not claim independent sharp radius or priority for its limiting value.",
+        "searches": [
+          "Hamada-Honda-Kohr 2025 pp.2-12",
+          "Zeng-Xiong 2026 improved N=1 theorem abstract and record",
+          "Kayumov et al Theorems A/B quoted in 2025 pp.2-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharp root equation p(1-r^m)/(1+r^m)=2r^N/(1-r); root-defect expansion A-R_m~K A^m."
+        ],
+        "reasoning": "Examined reparametrization of Schwarz-map vanishing order and powered-Bohr endpoint. Prior equations exactly cover root definition, not explicit asymptotic coefficient.",
+        "searches": [
+          "powered Bohr Rogosinski sharp radius Schwarz map order m exponential convergence prefactor [Resultary search_internal_error; search_completed=false, not a finding]",
+          "Hamada-Honda-Kohr Analysis Math Phys 15:64 (2025), Theorem 2.1 and Remarks 2.2/3.4",
+          "Zeng-Xiong arXiv:2609.28357v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2025 full text contains sharp radius equations and unquantified limiting remarks; no exact m->infty coefficient table found."
+        ],
+        "reasoning": "Continuous-parameter m-asymptotic is not a fixed table; no search hit is not priority proof.",
+        "searches": [
+          "Publisher 2025 full text pages 1-19",
+          "GitHub SCOPE-Science query Bohr Rogosinski asymptotic [no matches]"
+        ]
+      },
+      "rationale": "PASS with a narrowly bounded originality claim. Earlier sharp radii and their implicit equations are completely prior; 2025 Hamada-Honda-Kohr publisher article (all 19 pages obtained and materially read through authorized access) states high-m endpoint limit in Remarks 2.2 and 3.4 but no exact exponential correction/prefactor was identified. 2021 Kayumov-Khammatova-Ponnusamy p=1,2 cases already imply limiting radii. What remains is the precise first exponentially small defect for powered parameters p,N, not a new Bohr inequality. It follows from elementary mean-value/root perturbation and can be regarded as a simple quantitative corollary; residual risk of equivalent unstated derivative observations remains.",
+      "residual_risks": [
+        "Exact rate is a direct textbook-style implicit-root expansion; scientific contribution is narrow and a hidden prior corollary may use it.",
+        "Full separate 2026 primary paper not read; potential equivalent remark in newer improved case.",
+        "Resultary search failed, no novelty inference from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact first exponential correction in m was not found in the inspected complete primary; prior endpoint rates and root formulas credited",
+          "evidence": "Remark 2.2 and 3.4 state limiting p/(p+2), not coefficient multiplying [p/(p+2)]^m.",
+          "identifier_or_url": "DOI:10.1007/s13324-025-01061-x",
+          "material_read": "ALL 19 pages: pp.2-4 Theorems A/B and limiting note, pp.5-12 powered statements and Remarks 2.2/3.4, pp.13-19 results and references",
+          "method": "Authorized Oxford institutional full-text extraction, 12+8+7 page-scoped reads; 19 distinct pages",
+          "title": "Bohr–Rogosinski radius for holomorphic mappings with values in higher dimensional complex Banach spaces",
+          "trigger": "same sharp powered radius and probable existing asymptotic"
+        },
+        {
+          "assessment": "N=1 root has same formula; no full-text NOT_COVERING assertion",
+          "evidence": "Residual possibility of an unquoted quantitative remark retained.",
+          "identifier_or_url": "arXiv:2609.28357v1",
+          "material_read": "Title, abstract, and source-package faithful quoted theorem statement; full paper not newly recovered",
+          "method": "Public scholarly metadata plus comparison to frozen RESULT.md",
+          "title": "Improved Bohr–Rogosinski radius for holomorphic mappings with values in complex Banach spaces",
+          "trigger": "new N=1 improvement"
+        },
+        {
+          "assessment": "Sharp p=1/2 root definitions and limits prior; not a new bound",
+          "evidence": "Theorem A and B displayed m,N root equations in 2025 article.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2020.124824",
+          "material_read": "Its Theorems 1,2 as explicitly reproduced in 2025 primary pp.2-3; separate original full text not obtained",
+          "method": "Reproduction inside inspected 2025 primary",
+          "title": "Bohr–Rogosinski phenomenon for analytic functions and Cesàro operators",
+          "trigger": "classical p=1/2 endpoint cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS, qualified. m is the natural zero-order of the Schwarz map and R_{m,N} the sharp radius governing the analytic inequality. The deficit from its limiting powered Bohr constant answers a precise quantitative convergence question for this natural invariant; for N=1 the base p/(p+2) and exact prefactor 4p/(p+2)^2 are usable error estimates, not merely a renamed parameter or arbitrary small-instance check. The derivation is elementary and does not strengthen the original inequality; its narrowness limits scope, not by itself mathematical utility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 4c8ad2c3168df51d2d527ed39f3fbf299d690ef4",
+    "Hamada-Honda-Kohr 2025 DOI:10.1007/s13324-025-01061-x ALL pp.1-19 authorized text",
+    "Zeng-Xiong arXiv:2609.28357v1 bibliographic and source quotation",
+    "Kayumov-Khammatova-Ponnusamy DOI:10.1016/j.jmaa.2020.124824 quoted in 2025 source",
+    "Independent high-precision bisection three (p,N) settings, 2 m values each; Resultary failed"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sharpness of radius comes from previously published theorem; not re-proven as a functional inequality.",
+    "No all-parameter uniform remainder nor new Bohr–Rogosinski inequality."
+  ],
+  "residual_risks": [
+    "Exact rate is a direct textbook-style implicit-root expansion; scientific contribution is narrow and a hidden prior corollary may use it.",
+    "Full separate 2026 primary paper not read; potential equivalent remark in newer improved case.",
+    "Resultary search failed, no novelty inference from it."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The exact first exponential correction in m was not found in the inspected complete primary; prior endpoint rates and root formulas credited",
+      "evidence": "Remark 2.2 and 3.4 state limiting p/(p+2), not coefficient multiplying [p/(p+2)]^m.",
+      "identifier_or_url": "DOI:10.1007/s13324-025-01061-x",
+      "material_read": "ALL 19 pages: pp.2-4 Theorems A/B and limiting note, pp.5-12 powered statements and Remarks 2.2/3.4, pp.13-19 results and references",
+      "method": "Authorized Oxford institutional full-text extraction, 12+8+7 page-scoped reads; 19 distinct pages",
+      "title": "Bohr–Rogosinski radius for holomorphic mappings with values in higher dimensional complex Banach spaces",
+      "trigger": "same sharp powered radius and probable existing asymptotic"
+    },
+    {
+      "assessment": "N=1 root has same formula; no full-text NOT_COVERING assertion",
+      "evidence": "Residual possibility of an unquoted quantitative remark retained.",
+      "identifier_or_url": "arXiv:2609.28357v1",
+      "material_read": "Title, abstract, and source-package faithful quoted theorem statement; full paper not newly recovered",
+      "method": "Public scholarly metadata plus comparison to frozen RESULT.md",
+      "title": "Improved Bohr–Rogosinski radius for holomorphic mappings with values in complex Banach spaces",
+      "trigger": "new N=1 improvement"
+    },
+    {
+      "assessment": "Sharp p=1/2 root definitions and limits prior; not a new bound",
+      "evidence": "Theorem A and B displayed m,N root equations in 2025 article.",
+      "identifier_or_url": "DOI:10.1016/j.jmaa.2020.124824",
+      "material_read": "Its Theorems 1,2 as explicitly reproduced in 2025 primary pp.2-3; separate original full text not obtained",
+      "method": "Reproduction inside inspected 2025 primary",
+      "title": "Bohr–Rogosinski phenomenon for analytic functions and Cesàro operators",
+      "trigger": "classical p=1/2 endpoint cases"
+    }
+  ]
+}
