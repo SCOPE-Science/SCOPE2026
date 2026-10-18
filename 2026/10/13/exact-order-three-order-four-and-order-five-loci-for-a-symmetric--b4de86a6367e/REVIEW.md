@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The genus-one completion is smooth under the stated discriminant. Each Vieta/swap involution has fixed points, so their product acts by translation. The boundary-orbit argument treats the degeneracies at \(B=0\) and \(t=0,\pm1\) separately; hence it tests *global exact* orders, not merely affine recurrence cycles. The elimination identity, cubic irreducibility over \(\mathbf C(B)\), discriminant factorization and nonconstant \(j\)-function follow algebraically. Exact-arithmetic finite checks independently corroborate, but do not prove, the universal claims.
+## correctness
 
-## Originality — PASS, with limitations
-Wu's same-family Section 10 gives the Vieta maps and smoothness condition but not the stated finite-order strata. The existing free simultaneous-sign involution/2-isogeny determines a *different* torsion translation, not the order of the Vieta-swap. The McMillan resonance work discusses low-order resonances and may overlap conceptually but does not give the claimed fifth-order parameter curve in the inspected text. Classical QRT monographs and division-polynomial criteria may contain an implicit equivalent, particularly after variable rescaling; this is an unresolved bibliographic risk, not a novelty certification.
+PASS
 
-## Value — PASS
-The exact fifth-order locus is a complete nonisotrivial positive-dimensional algebraic family with its normalization, not a routine finite sample. It distinguishes genuinely globally periodic integrable maps from special periodic points; the order-three and order-four equations give useful boundary comparisons.
+On Δ=G((B+2)²−4G)((B−2)²−4G)≠0 the smooth (2,2) bidegree curve has genus one. The coordinate Vieta involution and swap each have a fixed point and hence are elliptic reflections, so H is a translation. The projective boundary origin O=(∞,1) has H(O)=(-1,∞), H²(O)=(t,-1), H⁻¹(O)=(1,-t), t=(G−1)/B. Equality of boundary iterates yields order3 iff B≠0,G=1+B; order4 iff B=0 or G=1; and order5 iff F5=(G−1−B)(G−1+B)²−B³(G−1)=0, all restricted to Δ≠0 and excluding smaller orders. Independently expanded F5 under B=(t−1)(t+1)²/t, G=t(t²+t−1), obtaining zero, and factored Δ=(t−1)^5(t+1)^5(t²−4t−1)(t²+t−1)/t³. The birational inverse t=(G−1)/B proves rationality, B(t) degree three implies irreducible cubic F5, and the quartic j invariant has a pole at t→1 so is nonconstant. The source checker was read; finite sample cycles do not establish the classification.
 
-## Scope and integrity
-Complex smooth fibers only; no claim about higher exact periods or singular fibers. The quartic \(j\)-calculation is purely algebraic. The standalone checker requires only Python standard library. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical general QRT translation/group-law machinery and rational elliptic torsion theory are not new. The parameter-specific exact order3,4,5 equations for individual smooth C_(B,G) fibers, plus irreducible nonisotrivial order5 locus, were not present in the inspected Wu primary Section 10. Tsuda classifies birationally periodic QRT *surface mappings*, a different global quantifier from a translation of an individual invariant genus-one fiber; older implicit specialization may exist and is a material residual risk.
+
+## value
+
+PASS
+
+Exact periodicity loci separate global order-m finite elliptic-fiber dynamics from generic infinite order and identify a nonisotrivial rational period-five parameter family. This is a meaningful structural classification for a standard symmetric QRT family, not a list of numerical orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
