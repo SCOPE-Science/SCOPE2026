@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:53:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from frozen exact Selkov polynomial vector field, independently verify equilibrium (b,b/K), det K and trace mu; coordinate transformation q=x+y-b-b/K, v=b-x gives exact scalar q''+Kq=mu q'+2bq q'+b(2K-1)/K*(q')²-q(q')²-(q')³. Fourier Poincaré--Lindstedt order-two Q2=d/2+d cos(2theta)/6+b sin(2theta)/(3sqrt K) and order-three resonant coefficients yield mu2=(1+2K-2K²)/4>0 and nu2=-(2K-1)(4K²+3K-2)/(24sqrt K). Independent SymPy recomputed exactly resonant cosine coefficient (2K-1)(4K²+3K-2)/12, mu2, nu2 and c(K), rather than trusting checker exit. Positive cubic radial stability with transverse eigenvalue crossing gives locally unique stable periodic branch for small mu>0. Denominator of c>0 on (0,1); factors yield roots K*=(sqrt41-3)/8≈0.42539 and 1/2 and three sign regions. Fixed K only, no uniform endpoint or exact isochrony claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Artés--Llibre--Valls 2018 discusses Hopf and qualitative phase portraits; no determinant-constrained period derivative in inspected text",
+          "Related Selkov Schnakenberg Galerkin corrections are for different normalized dynamics",
+          "Llibre--Nabavi complete 2022 text inaccessible"
+        ],
+        "reasoning": "Qualitative Hopf existence does not dominate the quantitative nonlinear period derivative; 1968 and other normalizations cannot be substituted without time-scale comparison.",
+        "searches": [
+          "doi:10.1016/j.chaos.2018.07.007 Selkov phase portraits Hopf",
+          "doi:10.1515/math-2021-0008 Selkov Schnakenberg period",
+          "doi:10.3934/dcdsb.2022056 Selkov model Poincare disc"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob eab681cf113777fcfeeab6a9c2e2957223338688",
+        "Frozen checker.py blob b742572e799679ed870c7cbe52fa643d8986ae80",
+        "Git tree 47152052cec18f6d383a87db3abfb1c02791e552",
+        "doi:10.1016/j.chaos.2018.07.007 13-page primary PDF relevant mathematics",
+        "doi:10.3934/dcdsb.2022056 primary abstract and figures",
+        "doi:10.1515/math-2021-0008",
+        "Strogatz (1994), pp205-209 cited ODE",
+        "Resultary semantic search: Selkov glycolysis polynomial oscillator constant determinant Hopf near bifurcation period shift sign reversing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strogatz establishes equilibrium/Hopf setting, not third-order solvability coefficients",
+          "2018 phase portrait theorem does not supply the determinant-constrained c(K)",
+          "The same Jacobian determinant alone forces no sign for nonlinear period response"
+        ],
+        "reasoning": "The claimed sign reversals require actual cubic resonant projections at fixed K; existing general Hopf theory does not imply these constants from stability data.",
+        "searches": [
+          "Strogatz Nonlinear Dynamics Chaos 1994 Selkov pp205-209",
+          "Artés Llibre Valls Dynamics of Higgins-Selkov and Selkov systems theorem 2",
+          "Al Noufaey 2021 Section 6 perturbation frequency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original polynomial oscillator is in Strogatz 1994 and Artés--Llibre--Valls 2018, with qualitative Hopf conclusions",
+          "Resultary closest same-equation hit is this submitted finding; Brusselator first period slope concerns different chemistry"
+        ],
+        "reasoning": "Compared exact physical-time period derivative after constant-det Jacobian parameterization, not merely nearby Hopf titles. Found no explicit equal formula.",
+        "searches": [
+          "Selkov glycolysis polynomial oscillator constant determinant Hopf near bifurcation period shift sign reversing",
+          "Selkov oscillator period function near Hopf fixed linear frequency",
+          "(2K-1)(4K²+3K-2) period slope Selkov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-neutral-point phase table identified in checked same-model sources; published figures show phase portraits, not c(K)"
+        ],
+        "reasoning": "The two sign boundaries follow an all-parameter symbolic normal-form coefficient, not a copied numerical phase diagram.",
+        "searches": [
+          "Selkov Hopf nonlinear frequency coefficient vs kinetic parameter",
+          "Selkov period change K=0.5 0.42539 table"
+        ]
+      },
+      "rationale": "Strogatz 1994 uses the same polynomial vector field and qualitative cycle arguments; the materially inspected 2018 Artés--Llibre--Valls phase-portrait paper establishes qualitative Hopf but not this exact determinant-constrained period coefficient or two neutral points. Al Noufaey 2021 uses a related reaction-diffusion Galerkin oscillator rather than the same time-normalized curve. Selkov 1968 uses a distinct printed rate law. Llibre--Nabavi 2022 is a plausible same-model period source, but its complete article was inaccessible (official abstract/figures read; institutional VPN disconnected), so its potential coverage is a named residual risk. Best-of-knowledge O pass is qualified, not a definitive whole-document exclusion.",
+      "residual_risks": [
+        "Llibre--Nabavi 2022 complete manuscript is inaccessible, despite open and authorized institutional attempts; an equivalent period-function coefficient cannot be ruled out.",
+        "Only fixed K∈(0,1), local small positive mu branch; zeros of first derivative are not proof of isochrony or global period monotonicity.",
+        "The 1968 bibliographic date does not identify the original publication day of the later polynomial model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_COVERAGE",
+          "evidence": "Establishes same-model qualitative phase portraits/Hopf, not fixed-det nonlinear period slope or two sign boundaries.",
+          "identifier_or_url": "doi:10.1016/j.chaos.2018.07.007",
+          "material_read": "Complete 13-page openly accessible primary PDF was textually inspected around polynomial equations, Section 3 Hopf, and phase-portrait conclusions; subsequent screenshot re-access was blocked by Anubis challenge",
+          "method": "Direct PDF textual reading of relevant equations and results, not visual screenshot of blocked re-fetch",
+          "title": "Dynamics of the Higgins--Selkov and Selkov systems",
+          "trigger": "Same polynomial vector field and Hopf threshold"
+        },
+        {
+          "assessment": "ACCESS_RISK",
+          "evidence": "Cannot exclude an equivalent period expansion in unread sections; retained as originality risk.",
+          "identifier_or_url": "doi:10.3934/dcdsb.2022056",
+          "material_read": "Official article abstract, figures and table links; full HTML/PDF access denied; authorized institutional retrieval job 4a9f03d83c39ff1ea8d3d9bec6933a90 returned vpn_disconnected",
+          "method": "Primary abstract/figures only, NOT full manuscript",
+          "title": "Phase portraits of the Selkov model in the Poincare disc",
+          "trigger": "Highly relevant exact same flow and potentially omitted period properties"
+        },
+        {
+          "assessment": "DIFFERENT_SYSTEM",
+          "evidence": "Reaction--diffusion Galerkin coefficient does not imply exact oscillator c(K).",
+          "identifier_or_url": "doi:10.1515/math-2021-0008",
+          "material_read": "Public description of Section 6 and system; complete primary full text not inspected this turn",
+          "method": "Metadata and methodological comparison",
+          "title": "Stability analysis for Selkov-Schnakenberg reaction-diffusion system",
+          "trigger": "Related Lindstedt--Poincare method"
+        },
+        {
+          "assessment": "DIFFERENT_NORMALIZATION",
+          "evidence": "Founding 1968 printed equations are not literally the 1994 polynomial ODE, so direct formula transfer would be invalid.",
+          "identifier_or_url": "doi:10.1111/j.1432-1033.1968.tb00175.x",
+          "material_read": "Primary bibliographic metadata of original rate law",
+          "method": "Bibliographic model comparison",
+          "title": "Self-Oscillations in Glycolysis 1. A Simple Kinetic Model",
+          "trigger": "Original historical Selkov name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keeping the linearized determinant/frequency K fixed while varying distance through Hopf isolates a genuinely nonlinear period-sensitivity effect: two exact sign reversals distinguish accelerating from slowing cycles. This natural local bifurcation invariant supplies useful parameter boundaries rather than an arbitrary polynomial computation or a generic statement that a Hopf cycle exists.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Llibre--Nabavi 2022 complete manuscript is inaccessible, despite open and authorized institutional attempts; an equivalent period-function coefficient cannot be ruled out.",
+    "Only fixed K∈(0,1), local small positive mu branch; zeros of first derivative are not proof of isochrony or global period monotonicity.",
+    "The 1968 bibliographic date does not identify the original publication day of the later polynomial model."
+  ],
+  "schema_version": 1
+}

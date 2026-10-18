@@ -1,12 +1,21 @@
-# Scientific review of the constant-determinant Selkov period law
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial change of variables is an exact conjugacy near the unique equilibrium, and the parameter curve has exactly constant determinant \(K\) and trace \(\mu\). Symbolic Fourier projections of the cubic solvability conditions give \(\mu_2=(1+2K-2K^2)/4>0\) and the displayed frequency coefficient. The transverse Hopf theorem yields a locally unique stable nonconstant periodic branch for all fixed \(K\in(0,1)\) and sufficiently small positive \(\mu\). The sign and root classification is a direct positive-denominator polynomial calculation. The reproducible checker validates the nonstandard algebra; it does not replace the analytic existence argument.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest sources are Strogatz (1994), pp. 205–209, for the exact polynomial system, Artés–Llibre–Valls (2018) for global portraits and local Hopf structure, and Al Noufaey (2021), Section 6, for amplitude/frequency perturbation formulas of related Galerkin flows. None of the materially inspected statements implies the exact determinant-constrained coefficient or the two zero-slope loci. Sel'kov's 1968 original uses a distinct rate law. The accessible abstract/figures of Llibre–Nabavi (2022) address the same vector field, but its full postprint could not be retrieved; an unknown equivalent period calculation remains a priority risk. No lack of search hits is claimed as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The determinant-preserving parameterization holds the linearized Hopf period fixed while allowing the nonlinear period response to vary, so its sign is an intrinsic finite-amplitude effect rather than an artifact of changing linear frequency. The existence of two distinct neutral-sensitivity points inside the positive-kinetic Hopf range gives experimentally interpretable parameter boundaries for local period tuning, and is not provided by the usual linear Hopf threshold or qualitative trapping-region calculation. No global or finite-amplitude monotonicity is asserted.
+Starting from frozen exact Selkov polynomial vector field, independently verify equilibrium (b,b/K), det K and trace mu; coordinate transformation q=x+y-b-b/K, v=b-x gives exact scalar q''+Kq=mu q'+2bq q'+b(2K-1)/K*(q')²-q(q')²-(q')³. Fourier Poincaré--Lindstedt order-two Q2=d/2+d cos(2theta)/6+b sin(2theta)/(3sqrt K) and order-three resonant coefficients yield mu2=(1+2K-2K²)/4>0 and nu2=-(2K-1)(4K²+3K-2)/(24sqrt K). Independent SymPy recomputed exactly resonant cosine coefficient (2K-1)(4K²+3K-2)/12, mu2, nu2 and c(K), rather than trusting checker exit. Positive cubic radial stability with transverse eigenvalue crossing gives locally unique stable periodic branch for small mu>0. Denominator of c>0 on (0,1); factors yield roots K*=(sqrt41-3)/8≈0.42539 and 1/2 and three sign regions. Fixed K only, no uniform endpoint or exact isochrony claims.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Strogatz 1994 uses the same polynomial vector field and qualitative cycle arguments; the materially inspected 2018 Artés--Llibre--Valls phase-portrait paper establishes qualitative Hopf but not this exact determinant-constrained period coefficient or two neutral points. Al Noufaey 2021 uses a related reaction-diffusion Galerkin oscillator rather than the same time-normalized curve. Selkov 1968 uses a distinct printed rate law. Llibre--Nabavi 2022 is a plausible same-model period source, but its complete article was inaccessible (official abstract/figures read; institutional VPN disconnected), so its potential coverage is a named residual risk. Best-of-knowledge O pass is qualified, not a definitive whole-document exclusion.
+
+## value
+
+PASS
+
+Keeping the linearized determinant/frequency K fixed while varying distance through Hopf isolates a genuinely nonlinear period-sensitivity effect: two exact sign reversals distinguish accelerating from slowing cycles. This natural local bifurcation invariant supplies useful parameter boundaries rather than an arbitrary polynomial computation or a generic statement that a Hopf cycle exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
