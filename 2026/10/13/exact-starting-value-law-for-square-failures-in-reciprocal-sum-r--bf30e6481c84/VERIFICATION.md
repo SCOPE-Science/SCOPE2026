@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically in the following chain.
+# Independent mathematical audit
 
-1. For a prime \(p\mid h\), if \(v_p(x_0)<v_p(h)\), then \(v_0\equiv0\pmod p\) and \(u_0\not\equiv0\pmod p\); after one step the projective ratio is \(\infty\) and no later \(u_n\) is divisible by \(p\).
-2. If \(v_p(x_0)>v_p(h)\), then the initial ratio is \(0\), but this only affects \(u_0\); the first counted obstruction uses \(u_n\) with \(n\ge1\). The next ratio is \(\infty\), so again there is no counted failure from \(p\).
-3. If \(v_p(x_0)=v_p(h)=\alpha\), then the reduced ratio modulo \(p\) is \((x_0/p^\alpha)(h/p^\alpha)^{-1}\), giving the stated class modulo \(p^{\alpha+1}\).
-4. The reduced ratio evolves by \(t\mapsto t+t^{-1}\) until a hit of \(0\); after a hit, it moves to \(\infty\), so first-hit sets are disjoint.
-5. The cited square criterion converts a hit at time \(r\) into a failed term at index \(r+1\).
-6. The Chinese remainder theorem combines the local states, and grouping by distinct finite hit times gives the number of failed terms.
+## correctness
 
-The included `verify.py` implements both the theorem prediction and the original exact integer recurrence. Replayed from the packaged file, it returns:
+PASS
 
-`VERIFY_OK exhaustive_h_le_60_states=16182 h65_counts=3507,714,4 modulus=4225 B5={2: [1, 4], 1: [2, 3]} B13={1: [5, 8]}`
+Published Proposition 4.1 gives square iff gcd(h,u_n)=1 and pairwise coprime iterated numerators under (u,v)->(u^2+v^2,uv). For each p^alpha||h, initial ratio mod p has an absorbing pole unless v_p(x0)=alpha. In the equality case the ratio equals (x0/p^alpha)*(h/p^alpha)^(-1) mod p and iterates by T(t)=t+t^(-1) until a unique zero hit. Every finite-field hit t gives exactly one x0 class modulo p^(alpha+1). p=3 mod4 cannot hit because predecessor solves t^2=-1; p=2 is included. CRT independence across primes yields exact period and collision-aware distribution. Independent code checked 8147 local starting residues across h<=36 and h=65, including direct integer (u_n,v_n) failure indices for h<=21 and h=65; the h65 counts match 3507/714/4. h=1 empty product M=1 yields all starts zero failures.
 
-The computation checks complete periods, not sampled starts, for \(h\le60\) and for the stated \(h=65\) example. It is corroboration only; no finite computation is treated as proof of the universal theorem. No independent audit has been performed.
+## originality
+
+PASS
+
+The motivating 2026 paper establishes the non-cancellation recurrence, per-prime at-most-once obstruction and first-hit interpretation but leaves the exact starting-value proportions as an open question. The submitted p-adic class and collision-aware CRT formula are an explicit fixed-h answer not found as a theorem in the inspected primary text.
+
+## value
+
+PASS
+
+The lead 2026 paper expressly asks for the starting-value proportion. A uniform exact periodicity and CRT law for every fixed h, with collisions of distinct primes at the same time correctly counted, answers that natural unresolved finite-field/arithmetic-dynamics enumeration question. It yields exact rational densities without requiring an inaccessible generic closed form for all preimage trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

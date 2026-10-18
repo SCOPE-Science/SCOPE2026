@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:46:22.479964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob fe9ee539a4ce43d2a0615477c2612094a4faeffb",
+        "Matijasevick--Rodríguez--Salazar arXiv:2610.00765v1 Proposition 4.1 and Remark 4.2",
+        "Independent finite field projective first-hit and direct coprime recurrence checks for 8147 starting residues"
+      ],
+      "rationale": "Published Proposition 4.1 gives square iff gcd(h,u_n)=1 and pairwise coprime iterated numerators under (u,v)->(u^2+v^2,uv). For each p^alpha||h, initial ratio mod p has an absorbing pole unless v_p(x0)=alpha. In the equality case the ratio equals (x0/p^alpha)*(h/p^alpha)^(-1) mod p and iterates by T(t)=t+t^(-1) until a unique zero hit. Every finite-field hit t gives exactly one x0 class modulo p^(alpha+1). p=3 mod4 cannot hit because predecessor solves t^2=-1; p=2 is included. CRT independence across primes yields exact period and collision-aware distribution. Independent code checked 8147 local starting residues across h<=36 and h=65, including direct integer (u_n,v_n) failure indices for h<=21 and h=65; the h65 counts match 3507/714/4. h=1 empty product M=1 yields all starts zero failures.",
+      "residual_risks": [
+        "No uniform closed-form first-hit counts c_{p,r} in p; density law is algorithmic for each fixed h.",
+        "Finite computations corroborate; proof uses valuation cases and CRT for arbitrary h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original 2026 paper proves each prime can cause at most one failure, but not its exact activation residues for every starting value and joint density.",
+          "Jones--Manes study Galois actions on preimage trees; OEIS tabulates one initial orbit denominator sequence."
+        ],
+        "reasoning": "General arboreal Galois or sequence tables do not determine the prime-power valuations and simultaneous-hit CRT law for integer starts.",
+        "searches": [
+          "Matijasevick--Rodríguez--Salazar Theorem B and Proposition 4.1",
+          "Jones--Manes Galois theory quadratic rational functions DOI:10.4171/CMH/316",
+          "OEIS A073834 rational iteration t+1/t"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00765",
+        "https://ems.press/journals/cmh/articles/12462",
+        "https://oeis.org/A073834"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 7 asks the starting-value proportion as a question, so it is not claimed as an already-proved density theorem.",
+          "Its Proposition 4.1 omits the explicit p-adic start v_p(x0)=alpha trichotomy and CRT collision grouping."
+        ],
+        "reasoning": "A solution requires analysis of the special integral starting ratio and local modulus p^(alpha+1), not a mere restatement of a per-prime upper bound.",
+        "searches": [
+          "arXiv:2610.00765v1 Proposition 4.1, Remark 4.2 and Section 7 Question (1)",
+          "DOI:10.4171/CMH/316 quadratic rational function preimages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 paper Remark 4.2 frames the dynamics of x/h mod p; Section 7 explicitly asks for proportion of starting values with exactly j failures.",
+          "Resultary nearest hits concern other arithmetic distributions, not this exact periodic count."
+        ],
+        "reasoning": "The natural alias is distribution of finite-field T-preimage depths across starts modulo p^(alpha+1), then CRT. No identified source supplies these combined local counts.",
+        "searches": [
+          "Resultary: reciprocal sum sequence perfect squares starting values density finite field t+1/t Matijasevick",
+          "Web: 2610.00765 first hit distribution density starting values",
+          "Web: finite-field backward orbit of 0 under x+1/x CRT density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A073834 is a fixed-start numerator/denominator trajectory, not all starting values grouped by h.",
+          "Exact h=65 class counts are newly reconstructed via finite field hit sets; not found in inspected database."
+        ],
+        "reasoning": "Numerical counts are a check and example; contribution is an all-h modular density formula and first-hit grouping rather than a table entry.",
+        "searches": [
+          "Resultary: reciprocal sum sequence perfect squares starting values density finite field t+1/t Matijasevick",
+          "OEIS A073834 denominators of b(n)=b(n-1)+1/b(n-1)",
+          "Web: reciprocal sum square failures proportion x0 h"
+        ]
+      },
+      "rationale": "The motivating 2026 paper establishes the non-cancellation recurrence, per-prime at-most-once obstruction and first-hit interpretation but leaves the exact starting-value proportions as an open question. The submitted p-adic class and collision-aware CRT formula are an explicit fixed-h answer not found as a theorem in the inspected primary text.",
+      "residual_risks": [
+        "An alternate distribution theorem expressed as finite-field preimage automata or prime-power residue counting could be unindexed; not excluded by semantic search alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes first-hit interpretation but explicitly leaves the exact distribution requested here as a question",
+          "evidence": [
+            "Proposition 4.1 lines 119--133; Remark 4.2 lines 137--138; Section 7 Question (1) lines 219--225"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00765",
+          "material_read": "Full accessible manuscript: definitions, Theorems A/B, no cancellation, Proposition 4.1, Remark 4.2, Section 7 questions",
+          "method": "Read primary scientific arXiv-rendered full text",
+          "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+          "trigger": "Same recurrence and exact open starting-value proportion problem"
+        },
+        {
+          "assessment": "Arboreal Galois action does not by its indexed statement imply fixed-h CRT density over positive integer starts",
+          "evidence": [
+            "DOI:10.4171/CMH/316 abstract: preimage-tree Galois actions and finite-index results"
+          ],
+          "identifier_or_url": "https://ems.press/journals/cmh/articles/12462",
+          "material_read": "Publisher abstract, theorem topic and bibliographic metadata, full 40-page paper not read",
+          "method": "Read EMS publisher abstract and primary scope description",
+          "title": "Galois theory of quadratic rational functions",
+          "trigger": "Potential exact quadratic rational preimage dynamics and uniform counts"
+        },
+        {
+          "assessment": "Contains one trajectory and points to 2026 source, not starting-value law",
+          "evidence": [
+            "A073834: denominators of b(n)=b(n-1)+1/b(n-1)"
+          ],
+          "identifier_or_url": "https://oeis.org/A073834",
+          "material_read": "Sequence definition, initial denominators, comments and literature references",
+          "method": "Read OEIS database page",
+          "title": "OEIS A073834",
+          "trigger": "Possible exact table for t->t+1/t recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00765",
+        "https://oeis.org/A073834"
+      ],
+      "rationale": "The lead 2026 paper expressly asks for the starting-value proportion. A uniform exact periodicity and CRT law for every fixed h, with collisions of distinct primes at the same time correctly counted, answers that natural unresolved finite-field/arithmetic-dynamics enumeration question. It yields exact rational densities without requiring an inaccessible generic closed form for all preimage trees.",
+      "residual_risks": [
+        "No asymptotics in growing h or classification of all field-specific first-hit depths, which are explicitly left as finite computable inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every fixed positive h and starting integer x0, the failure indices of the reciprocal-sum square test are the distinct finite first-hitting times to 0 for t->t+1/t at primes p|h with p=2 or 1 mod 4, activated only when v_p(x0)=v_p(h); this gives periodicity modulo product p^(v_p(h)+1) and an exact CRT density formula grouping simultaneous prime hits. At h=65, counts are 3507,714,4 modulo 4225.",
+  "limitations": [
+    "Publication not ready: exact original privacy-bearing operational metadata must not be copied publicly; source package and all original bytes remain unchanged.",
+    "No GitHub write, publication, certificate, or dispatcher closeout executed; originality is best-of-knowledge with explicit source-specific residual risks."
+  ],
+  "schema_version": 1
+}
