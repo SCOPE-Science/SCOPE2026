@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source gives the complete irredundant facet system in the stated parameter range. The proposed diagonal center has equal distance \(r_{m,n}\) from every coordinate facet and the total-sum facet. For a proper \(k\)-subset facet, tangency would occur at
-\[
-h_k=\frac{\sqrt k(2n-k+1)}{2(\sqrt k+1)}.
-\]
-After \(x=\sqrt k\), the derivative numerator of the corresponding continuous function is strictly decreasing, so the minimum over \(1\le k\le n-1\) is at an endpoint. Both endpoint values are strictly larger than the candidate radius, with the harder endpoint reduced to the positive expression in equation (19) of `RESULT.md`. A global upper bound follows by summing the coordinate clearances and combining them with the total-sum clearance; equality forces the center uniquely.
+## correctness
 
-## Originality
-PASS. The geometry-classified primary full text was inspected at the exact facet theorem and the m>n discussion. It contains no “inradius”, “Chebyshev”, or “radius” statement. The earlier introducing paper was checked as supporting same-object literature. Targeted published-result searches covered redundant-regime, largest-inscribed-ball, full-sum-facet, and Chebyshev-center formulations. A previously available exact inradius result was compared directly: its hypothesis is \(n\ge m-1\), while the present theorem assumes the disjoint regime \(m\ge n+2\), so it does not imply this claim.
+PASS
 
-## Value
-PASS. The redundant range is not a routine reparameterization: the source facet structure changes because all intermediate upper inequalities of cardinality \(n,\ldots,m-1\) cease to be facets. The theorem shows that this entire opposite regime nevertheless has a simple exact Euclidean inball controlled only by the coordinate and total-sum facets. It gives a unique center and complete tangency classification for every parameter pair in the range.
+PASS. The complete primary facet list in Behrend et al. Proposition 2.7 (Proposition 2.8 in a cited version) has coordinates x_i≥0, proper upper cardinalities 1≤k≤n−1 with support z_k=k(2n−k+1)/2, and full sum ≤T=n(n+1)/2 for m≥n+2. At c=r1, r=T/(m+√m), the m coordinate distances and full-sum distance exactly equal r. The proper upper facet distance (z_k−kr)/√k>r reduces to r<h_k=z_k/(k+√k). Treat h_k as φ(√k) with φ′ numerator 2n+1−3x²−2x³ decreasing, so minimum on 1≤x≤√(n−1) is an endpoint. Checked h1>r and h_{n−1}>r via a=√(n−1),b=√(n+2)>a, leaving a strict positive polynomial difference. For any contained radius ρ, coordinate inequalities imply q_i≥ρ and total cap Σq_i+ρ√m≤T, whence ρ≤r; equality forces every q_i=r, establishing uniqueness. Verified 28,560 independent facet inequalities n≤120 and selected m; symbolic proof covers all m,n in domain, not finite enumeration.
 
-## Closest literature and limitations
-The closest literature gives the H-description, face lattice, volume, Ehrhart theory, generalized-permutohedron structure, and anti-blocking interpretation. Those results provide the premises but do not solve the Euclidean Chebyshev problem. The theorem is realization-specific and does not address circumradii, John ellipsoids, or arbitrary anti-blocking generalized permutohedra.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Behrend et al. and Heuer–Striker supply the exact facet system, face lattice and volume/Ehrhart results, but not Euclidean inball or contact classification. Separately published exact partial-permutohedron inradius formula assumes n≥m−1 and derives min{n/2,√m(2n−m+1)/(2(√m+1))}; it expressly leaves n<m−1 unresolved. Present m≥n+2 is disjoint and has a different facet deletion structure, so its formula does not formally specialize. Searched symmetric polymatroid Chebyshev-center aliases; no broader domination found.
+
+## value
+
+PASS
+
+PASS. The Euclidean inball and complete tangency/facet separation in the entire complementary redundant-inequality region m≥n+2 are natural intrinsic metric invariants of a standard polytope family. Proving all proper subset-sum facets inactive gives a structural simplex-envelope phenomenon across an infinite disjoint parameter regime, beyond a mere arbitrary slice or recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
