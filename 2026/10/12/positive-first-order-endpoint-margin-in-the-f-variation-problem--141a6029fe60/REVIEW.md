@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact independent-chi-square representation reduces the F central probability to two expectations of a chi-square CDF at a normalized chi-square multiplier. Exact moment expansions and a Taylor argument with exponentially small tail control give the first correction. The boundary algebra simplifies to \(\pm2\sqrt{2d}\,f_d(d\pm\sqrt{2d})\), so the central coefficient is strictly positive. The numerical script only replays representative cases.
+## correctness
 
-## Originality
-PASS with residual literature risk. The direct source, arXiv:2305.13615v1, proves the comparison for numerator degrees \(1,2,3,4\), records the fixed-degree chi-square limit, and leaves the higher-degree range as the difficult case. A prior result for numerator degree \(5\) is excluded. Candidate-specific published-finding corpus and public searches did not locate the signed first-order moving-interval expansion or its endpoint-density coefficient. A general asymptotic F-CDF theorem under different language remains a residual risk.
+PASS
 
-## Value
-PASS. The source's open parameter range begins at higher numerator degrees, and weak convergence does not reveal whether the central probability approaches its chi-square endpoint from above or below. The explicit positive first-order margin proves a genuine sufficiently-large-denominator region of the conjecture for every fixed \(d\ge6\).
+For fixed d>=6, d(mu_m±s_m)=d±sqrt(2d)+[2d±(d+6)sqrt(2d)/2]/m+O_d(m^-2). Conditioning on W=chi_m^2/m yields E H_d(tW)=H_d(t)+t^2 f_d'(t)/m+O_d(m^-2) using EW−1=0, E(W−1)^2=2/m and fourth-moment/tail control. In each moving endpoint the exact first coefficient b_±+(d/2−1)t_±−t_±^2/2=±2sqrt(2d). Subtraction gives 2sqrt(2d)[f_d(t_+)+f_d(t_-)]/m>0; t_->0 for d>=6. Consequently C_{d,m} exceeds the chi-square limit for all sufficiently large m, pointwise in d. Independently rederived both symbolic identities using SymPy (R1_F_ENDPOINT_IDENTITY_OK); finite F distribution regression in source is not used as infinite proof.
 
-## Closest literature and limitations
-Sun--Hu--Sun, arXiv:2305.13615v1, is the direct predecessor; arXiv:2303.17487v1 supplies the Gamma/chi-square benchmark. The result is pointwise in \(d\), with no uniform \(M_d\), no monotonicity theorem, and no claim for every \(m\ge5\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Hu–Sun prove all-m F/chi-square variation for d=1..4, and their section 5 discusses unresolved d>=5, rather than the fixed-d large-m first-order coefficient. The separately published d=5 result leaves fixed d>=6 open. A general CDF expansion could entail a derivative term, but no inspected result establishes the moving one-standard-deviation margin and positive endpoint sum; the result is a best-of-knowledge targeted gap rather than an assertion of absolute priority.
+
+## value
+
+PASS
+
+The one-standard-deviation probability conjecture is a stated nontrivial distribution-comparison problem. A positive sign in the leading finite-m correction proves the previously untreated high-denominator tail for every fixed numerator degree >=6, not merely a numerical fit. Exact density endpoint coefficient quantifies the approach and could be used in future uniformity/monotonicity work. The result explicitly does not claim all finite m or a uniform d threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

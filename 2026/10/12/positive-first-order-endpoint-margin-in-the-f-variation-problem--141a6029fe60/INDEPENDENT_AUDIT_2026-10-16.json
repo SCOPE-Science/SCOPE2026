@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:12:10.235228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned immutable RESULT.md, source tree e6fbf02587bd29d964244efc67d58caf37b3287e and verify_f_endpoint.py",
+        "Sun–Hu–Sun arXiv:2305.13615 exact moments and chi-square limit, PDF pages 1–3 and 22–24",
+        "Local independent /mnt/data/check_batch1333.py symbolic simplification"
+      ],
+      "rationale": "For fixed d>=6, d(mu_m±s_m)=d±sqrt(2d)+[2d±(d+6)sqrt(2d)/2]/m+O_d(m^-2). Conditioning on W=chi_m^2/m yields E H_d(tW)=H_d(t)+t^2 f_d'(t)/m+O_d(m^-2) using EW−1=0, E(W−1)^2=2/m and fourth-moment/tail control. In each moving endpoint the exact first coefficient b_±+(d/2−1)t_±−t_±^2/2=±2sqrt(2d). Subtraction gives 2sqrt(2d)[f_d(t_+)+f_d(t_-)]/m>0; t_->0 for d>=6. Consequently C_{d,m} exceeds the chi-square limit for all sufficiently large m, pointwise in d. Independently rederived both symbolic identities using SymPy (R1_F_ENDPOINT_IDENTITY_OK); finite F distribution regression in source is not used as infinite proof.",
+      "residual_risks": [
+        "No effective or d-uniform M_d and no all-m comparison.",
+        "Taylor remainder requires the fixed t_± positive, uniform derivatives on a fixed neighborhood of W=1 and exponentially small chi-square tails; these conditions hold at each fixed d>=6."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original F paper Theorem 1.2 covers only d=1,2,3,4 for arbitrary m>=5; PDF section 5 treats larger d as remaining problem",
+          "Gamma result compares chi-square/Gamma limit with normal but not the finite-m F endpoint error"
+        ],
+        "reasoning": "An all-d Gamma bound supplies the target chi-square benchmark but cannot by itself guarantee the sign of the finite F-to-chi-square correction; larger m expansion establishes it.",
+        "searches": [
+          "Sun Hu Sun arXiv:2305.13615 theorem 1.2 d1 1 2 3 4 and section 5",
+          "Sun Hu Sun arXiv:2303.17487 Gamma extreme central variation theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.13615 PDF Theorem 1.2 Sections 2 and 5",
+        "arXiv:2303.17487 cited gamma benchmark",
+        "Resultary d=5 special case 5e533f7fc1a8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source 2023 proves m-uniform result on d<=4; d=5 record proves m-uniform case d=5",
+          "New theorem has weaker quantifier on m but independent wider d>=6, so neither prior low-d theorem logically implies the new parameter range."
+        ],
+        "reasoning": "The checked prior statements do not logically imply the stated new quantified finding; compare their parameters and claims above.",
+        "searches": [
+          "arXiv:2305.13615 F variation inequality d 1 2 3 4 chi square limit",
+          "Resultary one-sigma F(5,d) theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Hu–Sun arXiv:2305.13615 Sections 1,2,5 treats central one-sigma mass and d>=5 as unresolved",
+          "Resultary 2026/10/4 SCOPE-one-sigma-variation-comparison-for-f-5-d--5e533f7fc1a8 concerns numerator d=5"
+        ],
+        "reasoning": "Equivalent forms concern F one-sigma mass approaching chi-square from above, or the first-order derivative of the beta CDF at the moving endpoints. The inspected 2023 source states neither for all fixed d>=6; the d=5 specialization does not subsume it.",
+        "searches": [
+          "Resultary: F distribution chi-square one standard deviation probability endpoint asymptotic fixed numerator degree denominator infinity Sun Hu Sun gamma inequality",
+          "\"F(d,m)\" \"1/m\" \"variation comparison\" chi square central probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top nearby findings include d=5 monotonicity and a half-mass gap, with different events/quantifiers"
+        ],
+        "reasoning": "No known exact table from these searches provides the analytic all-fixed-d>=6 endpoint coefficient; a database search alone cannot establish priority.",
+        "searches": [
+          "Resultary one-sigma F variation asymptotic coefficient fixed numerator",
+          "F distribution variance central mass endpoint asymptotic 1/m table"
+        ]
+      },
+      "rationale": "Sun–Hu–Sun prove all-m F/chi-square variation for d=1..4, and their section 5 discusses unresolved d>=5, rather than the fixed-d large-m first-order coefficient. The separately published d=5 result leaves fixed d>=6 open. A general CDF expansion could entail a derivative term, but no inspected result establishes the moving one-standard-deviation margin and positive endpoint sum; the result is a best-of-knowledge targeted gap rather than an assertion of absolute priority.",
+      "residual_risks": [
+        "General F/chi-square asymptotic literature may contain an equivalent moving-boundary coefficient not retrieved.",
+        "Gamma primary full proof was not independently reinspected; only its benchmark is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for fixed d>=6 endpoint 1/m theorem; low-d cases and limiting comparison already prior",
+          "evidence": "arXiv:2305.13615 Theorem 1.2 and Section 5",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.13615",
+          "material_read": "Theorem 1.2; exact F moments and beta CDF at PDF pages 1–3; remarks for d>=5 on PDF pages 22–24",
+          "method": "Primary arXiv full PDF, parsed text and visual page inspection",
+          "title": "Variation comparison between the F-distribution and the normal distribution",
+          "trigger": "Exactly same one-sigma central probability and degrees"
+        },
+        {
+          "assessment": "Benchmark credited; does not assert F endpoint first-order margin",
+          "evidence": "arXiv:2305.13615 introduction Theorem 1.1 reference to Gamma comparison",
+          "identifier_or_url": "https://arxiv.org/abs/2303.17487",
+          "material_read": "Abstract and benchmark cited by primary F paper; not complete independent inspection of its full proof",
+          "method": "Primary arXiv abstract plus citation within the materially inspected F paper",
+          "title": "The extreme values of two probability functions for the Gamma distribution",
+          "trigger": "Needed final gamma-vs-normal benchmark"
+        },
+        {
+          "assessment": "d=5 case; separate quantifier and range",
+          "evidence": "Resultary match result id 5e533f7fc1a8",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-one-sigma-variation-comparison-for-f-5-d--5e533f7fc1a8",
+          "material_read": "Returned mathematical statement in Resultary summary only, not full proof",
+          "method": "Resultary semantic record search",
+          "title": "One-sigma variation comparison for F(5,d)",
+          "trigger": "Published adjacent numerator degree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sun–Hu–Sun arXiv:2305.13615 stated d>=5 gap",
+        "Analytic RESULT.md coefficient and positive densities"
+      ],
+      "rationale": "The one-standard-deviation probability conjecture is a stated nontrivial distribution-comparison problem. A positive sign in the leading finite-m correction proves the previously untreated high-denominator tail for every fixed numerator degree >=6, not merely a numerical fit. Exact density endpoint coefficient quantifies the approach and could be used in future uniformity/monotonicity work. The result explicitly does not claim all finite m or a uniform d threshold.",
+      "residual_risks": [
+        "The improvement is only a pointwise asymptotic tail, not resolution of the full conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed integer d>=6 only; m tends to infinity through m>=5.",
+    "Comparison to the Gaussian is via prior Gamma theorem, not independently reproved."
+  ],
+  "schema_version": 1
+}
