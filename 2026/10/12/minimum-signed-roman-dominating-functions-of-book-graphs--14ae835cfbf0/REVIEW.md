@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the signed Roman conditions to four exact kinds of inequalities: two global spine sums and two page-local sums. The lower bound checks every possible pair of spine labels in \(\{-1,1,2\}^2\), including the only numerical boundary with both spine labels \(-1\). Equality is then reconstructed rather than inferred from computation. The attached verifier independently enumerates all labelings for \(n=3,4,5\) and uses a direct page-state dynamic program through \(n=12\); both agree with the symbolic classification and count.
+## correctness
 
-## Originality
-PASS. Full-text comparison was made with the foundational signed-Roman paper and with the archival join-family paper arXiv:1411.7208 / DOI:10.22044/jas.2016.729. The latter treats wheels, fans, friendship graphs, and joins of cycles, not the Cartesian-product book graph. published-finding corpus searches using book, square-book, Cartesian-product, and minimum-labeling aliases returned no same-object theorem; the nearest same-invariant finding is the complete-multipartite weight enumerator, which does not apply because \(B_n\) is not complete multipartite for \(n\ge2\). Previously published findings available for comparison were also checked for claim overlap. Residual risk is limited to an unindexed earlier family-specific result.
+PASS
 
-## Value
-PASS. This is a complete optimum-layer classification on a standard graph family, with a closed count and a sharp structural cutoff: for \(n\ge6\) every optimum function has both spine vertices labeled \(2\), whereas \(n=3,4,5\) admit exactly one additional reflected family of size \(2n\). This is more informative than an isolated minimum-value calculation and gives an exact enumerative invariant.
+On B_n=K_{1,n} □ P_2, n≥3, let (α,β) be the spine labels and s_i=x_i+y_i be page sums. Feasibility is exactly α+β+Σx_i≥1, α+β+Σy_i≥1, α+s_i≥1, β+s_i≥1, plus each −1 supported by a neighbor 2. A case analysis on α,β∈{−1,1,2} forces total weight at least 4. Equality with spine (2,2) forces every s_i=0 and pages (−1,1) or (1,−1), with |n−2k|≤3 by the global spine bounds. The only other equality spine choices (1,2)/(2,1) require exactly one exceptional page, only feasible for n=3,4,5. Hence M_n=Σ_{|n−2k|≤3} C(n,k)+2n 1_{3≤n≤5}, including M3=14,M4=22,M5=40. A fresh brute checker checks all 3^{2+2n} labelings for n=3,4,5, exactly matching optima and their described families. The symbolic spine/page constraints, not brute force, prove all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational signed-Roman theorem supplies the definition and general bounds; the inspected specific graph-family paper treats joins, fans, friendship graphs, wheels, but not Cartesian book graphs. The published exact complete-multipartite signed-Roman enumerator cannot specialize to B_n for n≥2. The submitted complete infinite minimum-set classification and count are not thereby prior-implied.
+
+## value
+
+PASS
+
+Determining and enumerating every minimum signed Roman function on the canonical n-page book graph is an interpretable combinatorial classification. Its constrained global spine imbalance yields nontrivial central-binomial layers, while the additional Type II optimum structures disappear sharply after five pages; this is a motivated equality-case invariant, not a renaming of the optimum scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
