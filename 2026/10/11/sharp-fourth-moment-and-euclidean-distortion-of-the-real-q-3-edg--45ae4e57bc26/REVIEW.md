@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Walsh orthogonality gives the exact fourth-moment expansion over the six square faces of \(Q_3\). A coefficientwise checked identity decomposes the proposed fourth-moment deficit into explicit quartic squares and a copositive quadratic form in the squared coefficients. Copositivity for all real nonnegative vectors follows from a minimal-support global-minimum argument together with an exhaustive exact rational test of all \(4095\) simplex faces. The verifier classifies \(1475\) positive-definite tangent cases and all \(539\) feasible interior stationary points; no negative value occurs. An induction along flat Hessian directions and positive cross-energies classifies exactly the six uniform-face zeros. The sign condition follows from the vanished quartic squares. Finite computations are used with a completeness proof, not extrapolated to infinite domains. Ellipsoid averaging over sign changes and cube automorphisms proves the Euclidean-distance assertion.
+PASS
 
-## Originality — PASS (bibliographic risk acknowledged)
+Reconstructed all degree-four nonzero Walsh monomials: even incidence gives E(F⁴)=3B²−2Σa_e⁴+24Σ_{6 cube faces}∏a_e. A coefficientwise verified quartic deficit identity writes 4B²−E(F⁴)=bᵀMb+4Σface,3-partitions(a_ea_f−a_ga_h)². The nontrivial copositivity proof reduces a negative simplex minimum to strictly positive-definite tangent Hessian on minimal support; independently rebuilt exact rational LDL support certificate over all 2^12−1=4095 supports: 1475 PD, 539 interior positive stationary, zero minimum attained at exactly six four-edge face supports, no negative candidate, with strictly positive mixed energies between distinct zeros. Additionally checked 25 complete direct 256-sign fourth moments with independent integer coefficients. The zero deficit forces single-face equal magnitudes and positive product. For the Banach–Mazur distance, sign switching gives a symmetry separating distinct basis edges and cube automorphisms act edge-transitively, so symmetrizing an optimal Euclidean form makes it scalar ℓ²; ∥F∥4/∥F∥2 ranges [1,√2], proving exact dBM=√2. Exhaustive rational support certificate plus analytic minimal-support argument covers all real coefficients, not merely finite samples.
 
-The inspected original papers analyze homogeneous sums and fourth-moment normal approximations [1,2], or general coefficient-independent chaos bounds [3], not the exact \(Q_3\)-edge moment with complete face-localization equality cases and Banach--Mazur value. The published finite Walsh-support geometry findings found by search treat different uncertainty or phase-extremal quantities. Nearby exact results for complete quadratic Walsh chaos and for one-corner-deleted bilinear chaos give strictly larger constants on larger spaces; their conclusions do not imply the exact optimum for the present four-corner-deleted support. Exact-search absence is not by itself proof of priority. Unindexed specialized literature remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The twelve-edge cube is a canonical, edge-transitive finite graph and a naturally distinguished homogeneous Walsh subspace. The theorem calculates a genuine sharp operator norm and a geometric distance in dimension twelve, and reveals spontaneous localization of all extremizers to its six square faces. Its complete rational support certificate resolves the nonlinear constrained fourth-moment optimization, rather than merely producing a numerical bound. It also gives the exact \(K_{4,4}\)-minus-perfect-matching bilinear model under a standard identification.
+General homogeneous Rademacher-chaos comparison results supply dimension-free bounds, not this twelve-dimensional Q3 sharp optimum and face-localized equality. The directly related published graph-supported theorem imposes edge-disjoint squares, whereas every edge of Q3 belongs to two distinct square faces: its hypothesis definitively fails, so no corollary. Complete K_n quadratic Walsh chaos concerns a larger different support with a different constant. No searched published equivalent Q3 coefficientwise sharp BM theorem was found, but negative search alone is not novelty proof.
 
-## Scientific limits
+## value
 
-Only the real twelve-edge model at exponent four is established. The result does not identify sharp constants for higher cubes or complex coefficients. Mathematical priority remains subject to independent specialist literature review.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Q3 is the smallest nontrivial cube with heavily overlapping square face supports; the exact weighted-fourth-moment optimization and Banach–Mazur distance are motivated invariants of its natural 12-dimensional graph-supported Walsh subspace, with unexpected single-face localization despite overlapping cycles. The self-contained exact finite case provides a nontrivial boundary example absent from the edge-disjoint theorem.
 
-## References
-
-[1] Nourdin--Peccati--Reinert, *Invariance principles for homogeneous sums*, arXiv:0904.1153.
-
-[2] Ledoux, *Chaos of a Markov operator and the fourth moment condition*, arXiv:1210.7587.
-
-[3] Ivanisvili--Tkocz, *Comparison of moments of Rademacher chaoses*, arXiv:1807.04358.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
