@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The three coordinate equations follow from matrix-unit multiplication. An exhaustive five-stratum linear-map rank partition computes the fiber classes over any field, and a separate primitive-polynomial argument identifies all geometric irreducible components; no appeal to point-count interpolation or numerical extrapolation is needed. Exact finite-field matrix enumeration and linear-rank calculations independently agree for each target over five finite fields. Scope is limited to reduced fibers, so no scheme-theoretic reducedness is inferred.
+
+**Originality — PASS (best knowledge, residual risk).** The inspected full texts of Soffer (arXiv:1411.5389), Kumar–Prajapati (arXiv:1601.04133), and Kaur–Sharma–Singh (arXiv:2006.01493) deal with commuting probabilities, conjugacy and centralizer incidence, not this three-stratum prescribed Jordan-product fiber classification. Searches also included commutator-word fibers, anticommutator equations, and finite-field table aliases. Earlier fixed-output anticommutator formulas for the full two-by-two matrix algebra and niltriangular commuting-plane counts concern different ambient algebras or geometric objects, and do not imply the asserted formulas. Standard zero-commutator questions overlap the characteristic-two zero slice, but do not by themselves establish the combined motivic classes and component jump. An undiscovered equivalent nilpotent-word-map classification remains a priority risk.
+
+**Value — PASS.** Prescribed fibers refine ordinary commuting probabilities and zero loci; exact fiber motives simultaneously determine arithmetic counts for every finite field and reveal a characteristic-uniform transition in component number. The smallest niltriangular matrix size supporting two independent second-superdiagonal targets and one third-superdiagonal target makes the object structurally natural. This is more than an isolated target count.
+
+**Scope and limitations.** The proof applies to reduced labeled-pair fibers, not similarity orbits or nonreduced schemes. The result is independently unvalidated beyond the described exact computations and same-model argument review. Originality remains conditional on accessible literature rather than an absolute priority certificate.
+
+Self-review: passed. Independent audit: not yet performed.
