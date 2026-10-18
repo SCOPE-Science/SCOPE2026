@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-The all-alphabet upper bound and code construction are proved in `RESULT.md`; the programs below only check the formulas and distinguishability for sample alphabets. Run from the folder containing the scripts:
+## correctness
 
-```sh
-python3 verify_latin_grain.py
-c++ -std=c++17 -O2 verify_modular_grain.cpp -o verify_modular_grain
-./verify_modular_grain
-```
+PASS
 
-`verify_latin_grain.py` constructs an idempotent Latin square from diagonal constraints and exact row/column uniqueness for \(q=3,4,5,6\). It checks all received words for collisions and returns `VERIFICATION_OK`. Its binary test checks the six displayed words. Its observed size counts for \(q=2,3,4,5,6\) were `6, 21, 52, 105, 186`, with respective total distinct output counts `12, 63, 172, 365, 666`. This is not an enumeration of every optimal code.
+Reconstructed sector upper bound: fixing first a, t words with second a have distinct final letters; words (a,b,a,d) b!=a contribute <=q−t distinct final letters; other (a,b,c,d), b,c!=a contribute <=(q−1)^2 pairs, so |C_a|<=q²−q+1. An idempotent Latin square exists for every q>=3 and construction (a,a,a,a) plus (a,b,c,L(b,c)) b!=a has disjoint balls by column/row uniqueness and idempotence. q2 six-word exception independently checked. Independent q=2,3,4,5,7,9 finite images: sizes 6,21,52,105,301,657; all q follows proof not tests.
 
-`verify_modular_grain.cpp` constructs the modular family for odd \(q=3,5,7,9,11\). Its observed size counts were `21, 105, 301, 657, 1221`, and output counts `63, 365, 1099, 2457, 4631`. It returned `VERIFICATION_OK`. The modulo construction applies to all odd cardinalities, not just the tested ones.
+## originality
 
-All computations use exact integer arithmetic and direct output-set comparison, without floating-point tolerance. The classical existence theorem for all other \(q\ge3\) is invoked in the mathematical proof, not re-proved by finite checks. Scientific originality is a literature assessment with a residual risk, and no independent audit has been performed.
+PASS
+
+The all-alphabet capacity identity and Latin-square attainment for predecessor overwrite length four were not found in inspected published code results or Resultary; it is a genuinely stronger infinite-q statement than binary finite-block examples. Full Sharov–Roth and Gabrys work not fully inspected, hence a meaningful overlap risk remains.
+
+## value
+
+PASS
+
+Exact all-alphabet length-four capacity is an infinite, nontrivial sharp finite-block theorem with a constructive Latin-square realization for every q>=3 and explicit q2 exception; the precise formula is useful for zero-error granular channel benchmarking, not an arbitrary isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

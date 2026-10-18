@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-grain output map preserves the first coordinate. For fixed first letter, splitting by the next two letters bounds codewords with second letter equal to the first by \(t\), those with third equal to the first but second different by \(q-t\), and those with both different by \((q-1)^2\). This gives \(q^2-q+1\) per first letter for every alphabet. An idempotent Latin square exists in each order at least three, and the paper proves that its row/column uniqueness and diagonal guarantee disjoint output sets for the proposed size-matching construction. Six displayed binary words cover the exceptional order two. Separate Python and C++ verifiers enumerate outputs for all packaged sample sizes. No experimental bound is used to infer the universal theorem.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-Sharov–Roth's 2014 full text defines the general \(q\)-ary overwrite channel and develops asymptotic bounds, but its finite-block constructions and equality discussion are binary rather than an exact all-alphabet length-four formula. Gabrys–Yaakobi–Dolecek treat binary grain-error correction using related nonbinary component codes; that is not the same as a \(q\)-ary grain channel. The standard existence of idempotent Latin squares is acknowledged as prior mathematics. Searches found no assertion of \(M_q(4,1)=q^3-q^2+q\) for all integer \(q\), nor an equivalent complete construction. This conclusion remains subject to the possibility of an unindexed earlier specialization; the 2014 original is the closest prior source.
+PASS
 
-## Value — PASS
-Length four is a natural first finite length at which overwriting at multiple distinct positions produces nontrivial competing error shadows. An exact formula valid for every alphabet size, with a general matching construction, resolves the whole alphabet family rather than supplying isolated small computations. The Latin-square connection yields a simple reusable design mechanism and clarifies precisely why the familiar binary case is exceptional in the construction.
+Reconstructed sector upper bound: fixing first a, t words with second a have distinct final letters; words (a,b,a,d) b!=a contribute <=q−t distinct final letters; other (a,b,c,d), b,c!=a contribute <=(q−1)^2 pairs, so |C_a|<=q²−q+1. An idempotent Latin square exists for every q>=3 and construction (a,a,a,a) plus (a,b,c,L(b,c)) b!=a has disjoint balls by column/row uniqueness and idempotence. q2 six-word exception independently checked. Independent q=2,3,4,5,7,9 finite images: sizes 6,21,52,105,301,657; all q follows proof not tests.
 
-## Boundaries
-The exact result concerns one directed adjacent overwrite and length four, not noisy stochastic operation, multi-error correction, or other lengths. The proof relies on the published classical existence theorem for idempotent Latin squares of every order except two; the bundled finite verifiers only test small examples. An earlier equivalent result might be present outside the inspected materials. The review is not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-alphabet capacity identity and Latin-square attainment for predecessor overwrite length four were not found in inspected published code results or Resultary; it is a genuinely stronger infinite-q statement than binary finite-block examples. Full Sharov–Roth and Gabrys work not fully inspected, hence a meaningful overlap risk remains.
+
+## value
+
+PASS
+
+Exact all-alphabet length-four capacity is an infinite, nontrivial sharp finite-block theorem with a constructive Latin-square realization for every q>=3 and explicit q2 exception; the precise formula is useful for zero-error granular channel benchmarking, not an arbitrary isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
