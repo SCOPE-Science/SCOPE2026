@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:54:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-negative-covariance-between-two-sample-runs-and-cram-r-von--82eeb2ce383b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-negative-covariance-between-two-sample-runs-and-cram-r-von--82eeb2ce383b/VERIFICATION.md"
+      ],
+      "rationale": "Under tie-free common null the binary word is uniform among binom(N,m) fixed-composition words. At pooled rank j, F_m−G_n=B_j/(mn), H_N has jumps 1/N, so T=ΣB_j²/(mnN²). Hypergeometric variance yields E B_j²=mn j(N−j)/(N−1), summing E S=mnN(N+1)/6. R=1+Σ I_i. P(I_i=1)=2mn/[N(N−1)]. Condition on one adjacent transition: two distinguished positions contain one label each with equally likely orientations, remaining N−2 positions a uniform (m−1,n−1) word. Case j<i, j=i, j>i conditional means/variances give Σ_i E[S|I_i=1]=N(N−1)[(N−1)mn+N]/6; inserting into Σ_iCov(I_i,S) gives −mn(2mn−N)/3. Handle N=2,3 by enumeration. Independent exact Fraction exhaustive all compositions 2≤N≤11 matched formula, source verifier additionally checks 8,166 binary words through N12 and 777 conditional identities through N40. Algebra supplies all N, not finite extrapolation. For N≥3, mn≥N−1 ensures negativity; limit follows directly.",
+      "residual_risks": [
+        "Strict tie-free common-distribution null, exact displayed T normalization and all positive m,n only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas et al full available author-posted manuscript gives complete marginal exact distribution/mean/variance of R, not joint with T.",
+          "Zhou et al develop alternate two-sample smooth test and mention classical CvM benchmark, not a run–CvM cross moment.",
+          "Anderson gives CvM null distribution, not its covariance with runs."
+        ],
+        "reasoning": "Even a stronger marginal distribution for each statistic, or a comparison to an omnibus test, cannot imply mixed covariance without joint information.",
+        "searches": [
+          "Biswas Mukhopadhyay Ghosh distribution free two sample run test 2014 Biometrika",
+          "Zhou Zheng Zhang Two Sample Smooth Tests for Equality of Distributions arxiv 1509.03459",
+          "Anderson 1962 distribution two sample Cramer von Mises criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1093/biomet/asu045",
+        "https://arxiv.org/abs/1509.03459",
+        "Anderson, Annals of Mathematical Statistics 33 (1962) 1148–1159",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biswas et al §2.1 exact run pmf and mean/variance but no CvM.",
+          "The CvM two-sample statistic integrates squared empirical bridge, involving all prefixes and needing transition/bridge joint law."
+        ],
+        "reasoning": "Existing marginal statistics and formulae connecting each separately to rank-process functionals do not entail the cross-moment. The edge-conditioning identity is a genuinely additional calculation.",
+        "searches": [
+          "Biswas Mukhopadhyay Ghosh run exact null distribution section 2",
+          "Anderson 1962 two sample Cramer von Mises rank statistic equation",
+          "two sample run test Cramer von Mises empirical process mixed moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_j=NA_j−mj and R=1+Σ I_i expose equivalence to a finite symmetric hypergeometric permutation bridge correlation.",
+          "Resultary SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d gives pairwise transition-indicator covariances, not correlation with quadratic integrated bridge S."
+        ],
+        "reasoning": "Pairwise transition covariances are only second moments of I, whereas Cov(R,S) involves higher mixed moments of prefix label sums; the published local transition law does not logically fix the claimed mixed moment.",
+        "searches": [
+          "runs statistic covariance with two-sample Cramer von Mises statistic random balanced label words empirical bridge",
+          "Wald Wolfowitz runs covariance integrated squared empirical bridge",
+          "two-sample runs CvM quadratic bridge rank moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary fixed-composition transition-dependence record contains adjacency/disjoint I_i–I_j covariance signs; it does not state E[RΣB_j²].",
+          "Classical exact CvM tables and WW run tables list distinct marginal statistics."
+        ],
+        "reasoning": "Searches and inspected full runs paper found no tabulated mixed covariance −(2mn−N)/(3N²); absence cannot certify against historical rank-test appendices or alternate normalizations.",
+        "searches": [
+          "\"runs\" \"Cramér–von Mises\" covariance",
+          "\"Wald Wolfowitz\" \"Cramer von Mises\" covariance exact",
+          "Resultary runs statistic covariance with two-sample Cramer von Mises statistic random balanced label words empirical bridge"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Individual run and Cramér–von Mises null laws and pairwise transition covariance do not determine the cross moment. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.",
+      "residual_risks": [
+        "Historical nonparametric-test literature may encode the identical mixed moment in terms of permutation bridge quadratic forms under another normalization.",
+        "Full 1962 Anderson original and Zhou et al full paper not read; no whole-document noncoverage claim for either.",
+        "Strict tie-free common-distribution null, exact displayed T normalization and all positive m,n only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides R marginal exact distribution, mean and variance; no mixed CvM statistic in inspected manuscript",
+          "evidence": "Section 2.1 exact fixed-composition run pmf, E R=2mn/N+1 and Var R=2mn(2mn−N)/(N²(N−1)).",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/asu045",
+          "material_read": "Author-uploaded complete primary manuscript via ResearchGate full HTML text §§1–2, eqs for exact run law and moments, searched Cramér; Oxford abstract cross-checked",
+          "method": "Full author manuscript text and primary publisher abstract",
+          "title": "A distribution-free two-sample run test applicable to high-dimensional data",
+          "trigger": "Same univariate Wald–Wolfowitz run statistic and null distribution"
+        },
+        {
+          "assessment": "CvM as existing benchmark, no reported mixed covariance with WW runs",
+          "evidence": "arXiv:1509.03459, published Bernoulli 23 (2017) 951–989.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.03459",
+          "material_read": "Primary arXiv abstract and published OA repository description; entire manuscript not read",
+          "method": "Primary arXiv/author university repository abstract comparison",
+          "title": "Two-Sample Smooth Tests for the Equality of Distributions",
+          "trigger": "Contains CvM benchmark against two-sample null"
+        },
+        {
+          "assessment": "Provides marginal distribution/normalization only in compared account",
+          "evidence": "SciPy two-sample CvM manual cites Anderson (1962) Eq.9.",
+          "identifier_or_url": "Anderson, Annals of Mathematical Statistics 33 (1962) 1148–1159",
+          "material_read": "Classical theorem and equation via SciPy current documentation and bibliographic citation; original full text not read",
+          "method": "Secondary precise statement and primary citation",
+          "title": "On the distribution of the two-sample Cramér–von Mises criterion",
+          "trigger": "Classic exact global test distribution/normalization"
+        },
+        {
+          "assessment": "Pairwise I_i transition covariances, not the joint with quadratic bridge S",
+          "evidence": "Indexed exact two-transition covariance phase thresholds, no E[R S] formula in result summary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "material_read": "Semantic result record: title, summary and objects; full Resultary code/text not independently read",
+          "method": "Resultary published-record index comparison",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Closest published SCOPE record with identical fixed-composition binary word model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1093/biomet/asu045",
+        "https://arxiv.org/abs/1509.03459",
+        "Anderson, Annals of Mathematical Statistics 33 (1962) 1148–1159",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "rationale": "The Wald–Wolfowitz runs test counts local rank alternations while Cramér–von Mises integrates the global squared two-sample empirical bridge. Their exact mixed null covariance is a motivated dependence/calibration statistic, with universal strict negative sign and nonzero proportional-sample limit. Neither marginal null law computes the coupling; not an arbitrary small parameter slice.",
+      "residual_risks": [
+        "Strict tie-free common-distribution null, exact displayed T normalization and all positive m,n only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two samples m,n≥1 from the same continuous law (N=m+n), the pooled rank-label run count R and T=(mn/N)∫(F_m−G_n)^2 dH_N satisfy exact Cov(R,T)=−(2mn−N)/(3N²), zero only for m=n=1 and negative for N≥3. Equivalently Cov(R,Σ_{j=1}^{N−1}(N A_j−mj)²)=−mn(2mn−N)/3; proportional m/N→λ∈(0,1) yields −2λ(1−λ)/3.",
+  "limitations": [
+    "Historical nonparametric-test literature may encode the identical mixed moment in terms of permutation bridge quadratic forms under another normalization.",
+    "Full 1962 Anderson original and Zhou et al full paper not read; no whole-document noncoverage claim for either.",
+    "Strict tie-free common-distribution null, exact displayed T normalization and all positive m,n only."
+  ],
+  "schema_version": 1
+}

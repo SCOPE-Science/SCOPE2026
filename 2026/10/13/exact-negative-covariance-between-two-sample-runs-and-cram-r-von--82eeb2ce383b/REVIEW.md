@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The pooled-label reduction is exact under the continuous common-distribution null. The identity \(T=(mnN^2)^{-1}\sum_{j=1}^{N-1}B_j^2\) follows directly from the pooled empirical-distribution jumps. Hypergeometric second moments give \(\mathbb ES=mnN(N+1)/6\). Conditioning one edge to be a change leaves a uniform residual word with \(m-1\) and \(n-1\) labels; the resulting conditional means and variances sum to the stated aggregate identity, which yields \(\operatorname{Cov}(R,T)=-(2mn-N)/(3N^2)\). The exceptional small totals \(N=2,3\) are handled directly. Exact-rational replay checks the finite formulas on thousands of words but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest inspected runs source gives the marginal null law, mean and variance of the same one-dimensional run statistic, while the Cramér–von Mises source treats the global two-sample discrepancy separately. Targeted statement, alias, bridge-energy and implication searches did not locate the mixed covariance or a stronger theorem that yields it. Existing exact results connecting runs to a centered Mann–Whitney square and connecting that square to Cramér–von Mises do not imply the missing runs–Cramér–von Mises covariance. Residual risk remains that older rank-test or empirical-process literature contains the same mixed moment under another normalization.
+PASS
 
-## Value
-PASS. Runs and Cramér–von Mises are canonical but structurally different two-sample diagnostics: one is local in adjacent pooled labels and the other is a global quadratic empirical-bridge energy. The theorem gives a simple exact finite-sample coupling, proves its sign for every nontrivial size configuration, and identifies a nonzero proportional-sample covariance limit. This is a motivated structural relation rather than a renaming or arbitrary parameter slice.
+Under tie-free common null the binary word is uniform among binom(N,m) fixed-composition words. At pooled rank j, F_m−G_n=B_j/(mn), H_N has jumps 1/N, so T=ΣB_j²/(mnN²). Hypergeometric variance yields E B_j²=mn j(N−j)/(N−1), summing E S=mnN(N+1)/6. R=1+Σ I_i. P(I_i=1)=2mn/[N(N−1)]. Condition on one adjacent transition: two distinguished positions contain one label each with equally likely orientations, remaining N−2 positions a uniform (m−1,n−1) word. Case j<i, j=i, j>i conditional means/variances give Σ_i E[S|I_i=1]=N(N−1)[(N−1)mn+N]/6; inserting into Σ_iCov(I_i,S) gives −mn(2mn−N)/3. Handle N=2,3 by enumeration. Independent exact Fraction exhaustive all compositions 2≤N≤11 matched formula, source verifier additionally checks 8,166 binary words through N12 and 777 conditional identities through N40. Algebra supplies all N, not finite extrapolation. For N≥3, mn≥N−1 ensures negativity; limit follows directly.
 
-## Closest literature and limitations
-The inspected runs paper is M. Biswas, M. Mukhopadhyay and A. K. Ghosh, DOI 10.1093/biomet/asu045. The inspected Cramér–von Mises context is W.-X. Zhou, C. Zheng and Z. Zhang, arXiv:1509.03459. P. Marsh, DOI 10.1080/10485250903486078, supplies an explicit primary 62G10 classification for the two-sample nonparametric-testing setting. The theorem assumes a continuous common null and the displayed Cramér–von Mises normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Individual run and Cramér–von Mises null laws and pairwise transition covariance do not determine the cross moment. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+The Wald–Wolfowitz runs test counts local rank alternations while Cramér–von Mises integrates the global squared two-sample empirical bridge. Their exact mixed null covariance is a motivated dependence/calibration statistic, with universal strict negative sign and nonzero proportional-sample limit. Neither marginal null law computes the coupling; not an arbitrary small parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
