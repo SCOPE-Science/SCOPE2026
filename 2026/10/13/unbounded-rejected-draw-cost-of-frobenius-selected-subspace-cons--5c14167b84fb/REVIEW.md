@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct projector computation gives all three Frobenius criteria and proves unique selection for \(0<t\le1/2\). The two active-row proposal probabilities follow from squared projected norms, and a geometric waiting-time calculation yields exact means. Both accepted projections were reconstructed analytically; rational instances independently checked by `verify.py`. There is no inference from a finite experiment to the universal claim.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 primary work gives the rejection rule, the row-norm distribution and the Frobenius surrogate separately, but neither the concrete family nor a uniform raw-proposal comparison with an alternative row selection. The 2023 SCRK paper gives a projected-row method and spectral convergence theory, but it does not compare the surrogate's proposal cost. The 2025 SC-RCD paper addresses a different coordinate/PSD setting. published-finding corpus similarity searches returned related Kaczmarz, row-coherence and pivoting results, but no statement implying this same-system unbounded selection regret. A rediscovery under alternate sampling-cost terminology remains a risk; literature search is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The Frobenius selection surrogate is motivated by the cited work as a practical proxy for solver acceleration. The counterexample identifies a concrete computational cost not measured by accepted-iteration convergence bounds. It compares a globally optimal surrogate decision against an explicit alternative on the identical system and right-hand side, and the overhead ratio diverges despite identical accepted iteration counts. It exposes a structural design choice rather than a mere numerical failure.
+The exact Gram projector P_j=I−a_j a_j^T/||a_j||² for A_t rows yields F1=1+t², F2=1+1/(1+t²), F3=t^−2+1+t² and F1<F2,F3 for 0<t≤1/2. For j=1 projected rows t e2 and e3 have nonzero residual only at row2, acceptance probability t²/(1+t²) and geometric mean (1+t²)/t²; the first accepted step reaches e2 exactly. For j=2 the active row1 projected squared norm 1/(1+t²) competes with an inactive projected row3 of squared norm 1; its raw acceptance probability 1/(2+t²), and one accepted step also reaches e2. Independent symbolic rational calculations verified projectors, objectives, rejection probabilities and updates. The asserted unboundedness applies ONLY to raw IID proposals, not accepted iteration complexity.
 
-**Scope and residual risks.** Exact arithmetic, singleton constraints, independent raw samples, unit relaxation, and zero-residual rejection. Dynamic residual-aware sampling would change the cost model. Other row distributions and numerical thresholds are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Qi–Han–Xie already prescribe squared projected-row-norm proposal probabilities, nonzero-residual resampling and a Frobenius singleton-row design criterion, and study convergence in accepted steps. Their actual Algorithm 1/Remark 3.1 does not present this Frobenius-optimal versus alternative raw-proposal divergence with one accepted step each. Earlier Lok–Rebrova subspace-constrained Kaczmarz gives framework, but not the exact regret family. One can derive a rejection penalty from their sampling formula, yet this explicit arbitrarily bad surrogate counterexample is the substantive claim.
+
+## value
+
+PASS
+
+Expected raw attempts can dominate runtime while the accepted-step complexity hides the overhead. This three-dimensional exact counterexample proves that choosing a constraint by a natural residual Frobenius criterion can be arbitrarily suboptimal for a separate, implementation-relevant resource, with a competing legal constraint and identical accepted progress. It does not allege failure of the accepted-iteration convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
