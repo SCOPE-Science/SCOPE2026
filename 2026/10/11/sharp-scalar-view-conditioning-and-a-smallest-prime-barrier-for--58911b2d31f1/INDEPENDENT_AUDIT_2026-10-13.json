@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T19:11:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the complete projective direction set P1(Z/N), weighted line-sum normalization sqrt(w_d/N) gives T_w*T_w diagonal in normalized Fourier characters with eigenvalue lambda_xi=sum_{<xi,d>=0}w_d. For primitive nonzero xi, there is exactly one perpendicular projective direction, and every direction is realized; hence the nonconstant minimal eigenvalue is min w_d. For any nonzero xi, choose a prime p with nonzero p-primary component; its reduction constrains all orthogonal directions to one mod-p projective fiber, yielding lambda_xi<=W_{p,ell}; conversely a character whose p^k local coordinate is p^(k-1) times a perpendicular nonzero mod-p vector and other local components vanish realizes *exactly* W_{p,ell}. Thus maximum is max_{p|N,ell} W_{p,ell}. Average over least-prime p_* fibers and min w_d <=S/D_N gives sharp kappa_0²>=D_N/(p_*+1), with equality only if all direction weights coincide. Local CRT count of orthogonality directions (p^v for nonzero local valuation v, p^(k-1)(p+1) for zero) and local frequency multiplicities p^{2(k-v)}-p^{2(k-v-1)} exhaust N² characters, proving full uniform spectrum. Independent construction of projective sets and weighted nonzero character eigenvalues for N=2..14 confirmed min/max and D_N, not infinity.",
+      "risks": [
+        "Finite tests N<=14 do not establish arbitrary composite N; the proof uses local CRT and exact valuation combinatorics.",
+        "Condition number is restricted to the mean-zero subspace and uniform scalar per direction; arbitrary line or frequency filtering is a different problem."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 0d450a63c444f1af2316d33ca68229c5e31f1fea, full exact Fourier/CRT proof",
+        "Independent projective residue and Fourier integer enumeration moduli 2..14 in sanity.py",
+        "Kingston–Svalbe 2005 published projective modulo-N construction abstract"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier orthogonalized projection bases and one-dimensional frequency filters can make differently processed transforms tight.",
+          "Such preconditioning uses frequency-dependent filtering or changes measurement basis, which the scalar-per-direction model forbids."
+        ],
+        "reasoning": "A more powerful *algorithm* does not imply a scalar-only optimum. The particular obstruction p_* in unfiltered view conditioning remains a separate question. The 2005 full source was inaccessible, so residual implication risk remains.",
+        "searches": [
+          "discrete projective cyclic Radon transform modulo N weighted directions normal spectrum conditioning minimum prime divisor singular values",
+          "\"projective Radon\" \"condition number\" \"prime\" weights",
+          "Kingston Svalbe 2005 discrete modulo N projective Radon transform projective direction weights conditioning",
+          "doi:10.1007/978-3-540-31965-8_13",
+          "doi:10.1016/j.sigpro.2005.09.024"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/978-3-540-31965-8_13 (abstract only)",
+        "doi:10.1016/j.sigpro.2005.09.024 (abstract only)",
+        "Frozen RESULT.md Fourier-CRT exact proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2005 accessible published abstract says full invertibility and projective modulo-N directions; does not state the scalar-weight minimax.",
+          "The 2006 abstract discusses orthogonalized prime-power transforms, a different class of permissible reconstruction operators."
+        ],
+        "reasoning": "Inversion and orthogonalization do not logically bound every positive scalar direction-weighted transform by D_N/(p_*+1), nor force optimizer uniformity. Complete 2005 text remains an explicit unresolved access risk, not a positive NOT_COVERING whole-document claim.",
+        "searches": [
+          "discrete projective cyclic Radon transform modulo N weighted directions normal spectrum conditioning minimum prime divisor singular values",
+          "\"projective Radon\" \"condition number\" \"prime\" weights",
+          "Kingston Svalbe 2005 discrete modulo N projective Radon transform projective direction weights conditioning",
+          "doi:10.1007/978-3-540-31965-8_13",
+          "doi:10.1016/j.sigpro.2005.09.024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kingston–Svalbe 2005 defines all projective directions and invertible periodic line projections.",
+          "The new operator uses scalar shared direction weights, with endpoints min w_d and max mod-p fiber sums."
+        ],
+        "reasoning": "Fourier-slice inversion is an alias to the underlying normal operator diagonalization, but exact constrained weights/minimax/rigidity are additional claims not stated in accessible earlier descriptions.",
+        "searches": [
+          "discrete projective cyclic Radon transform modulo N weighted directions normal spectrum conditioning minimum prime divisor singular values",
+          "\"projective Radon\" \"condition number\" \"prime\" weights",
+          "Kingston Svalbe 2005 discrete modulo N projective Radon transform projective direction weights conditioning",
+          "doi:10.1007/978-3-540-31965-8_13",
+          "doi:10.1016/j.sigpro.2005.09.024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen source provides a complete CRT multiplicity formula, not a finite table of particular N.",
+          "Open publisher/catalogue abstracts discuss invertibility/projective redundancy, not an explicit weighted endpoint table.",
+          "Resultary semantic service returned internal errors."
+        ],
+        "reasoning": "Even if unweighted Fourier multiplicities are known background, the weight-constrained all-N minimax and equality rigidity require comparison beyond tabulated small cases; no negative database certification is asserted.",
+        "searches": [
+          "discrete projective cyclic Radon transform modulo N weighted directions normal spectrum conditioning minimum prime divisor singular values",
+          "\"projective Radon\" \"condition number\" \"prime\" weights",
+          "Kingston Svalbe 2005 discrete modulo N projective Radon transform projective direction weights conditioning",
+          "doi:10.1007/978-3-540-31965-8_13",
+          "doi:10.1016/j.sigpro.2005.09.024"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for acquisition-weight constrained minimax and its unique optimizer, not for the classical discrete Fourier-slice principle. Source abstract and related orthogonalization literature were compared at objective level. A highly plausible primary 2005 full text remained inaccessible after open-source and institutional routes, so priority risk is retained explicitly rather than converting access trouble into O failure.",
+      "residual_risks": [
+        "The directly relevant 2005 projective transform full article was inaccessible (Oxford VPN disconnected); it may already contain a calculation yielding scalar-weight spectral endpoints.",
+        "The 2006 prime-power orthogonalization article full text was embargoed; equivalent spectral optimizations could be described there.",
+        "Connected Resultary service failed, reducing finding-corpus coverage; no negative coverage inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIMARY: no whole-document NOT_COVERING verdict. Abstract does not state constrained scalar-weight minimax, but unknown full text may contain it.",
+          "evidence": [
+            "Monash abstract: N x N modulo-N images, invertible 1D projection sums; Oxford returned vpn_disconnected, job a85595279f11a3b8febcaa00a791f84d"
+          ],
+          "identifier_or_url": "doi:10.1007/978-3-540-31965-8_13; https://research.monash.edu/en/publications/a-discrete-modulo-n-projective-radon-transform-for-n-x-n-images",
+          "material_read": "Publisher/Monash research record abstract and publication data, describing full modulo-N invertibility, projective line direction model and composite redundancy; full text inaccessible through initial OA/preprint searches and Oxford institutional route (vpn_disconnected)",
+          "method": "Read published abstract and searched lawful full text; separate authorized institutional retrieval attempted and blocked",
+          "title": "A Discrete Modulo N Projective Radon Transform for N x N Images",
+          "trigger": "Same discrete cyclic projective directions and invertible line-sum operator"
+        },
+        {
+          "assessment": "RELATED_METHOD_DIFFERENT_QUANTIFIER: orthogonalized bases may use frequency-dependent processing absent from this scalar acquisition class; possible technical overlap remains risk.",
+          "evidence": [
+            "ANU repository: orthogonal prime-power DRT; access embargo until 2037"
+          ],
+          "identifier_or_url": "doi:10.1016/j.sigpro.2005.09.024; https://openresearch-repository.anu.edu.au/items/e23345f6-0022-40d0-acad-744e20e4d5a1",
+          "material_read": "Open research repository abstract and record identifying prime-power orthogonal basis; repository marks restricted through 2037-12-31; original full text not read",
+          "method": "Read bibliographic and scope abstract; no inaccessible full-text inference",
+          "title": "Orthogonal discrete Radon transform over prime-power images",
+          "trigger": "Plausible stronger orthogonality result in closely related projective grid transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cyclic projective Radon transforms and scalar acquisition weights are natural discrete tomography objects. The theorem quantifies a sharp arithmetic conditioning barrier tied to the smallest prime, identifies the uniquely best positive view schedule and supplies exact mode multiplicities. It is mathematically useful even where more general frequency filtering can do better.",
+      "risks": [
+        "The directly relevant 2005 projective transform full article was inaccessible (Oxford VPN disconnected); it may already contain a calculation yielding scalar-weight spectral endpoints.",
+        "The 2006 prime-power orthogonalization article full text was embargoed; equivalent spectral optimizations could be described there."
+      ],
+      "sources": [
+        "doi:10.1007/978-3-540-31965-8_13 (abstract only)",
+        "doi:10.1016/j.sigpro.2005.09.024 (abstract only)"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only full projective direction sets, scalar positive weights shared per direction, and mean-zero image condition number.",
+    "No optimality among frequency-dependent filters or arbitrary per-line designs.",
+    "Most relevant 2005 primary full text inaccessible owing to institutional VPN; priority remains best-of-knowledge."
+  ]
+}

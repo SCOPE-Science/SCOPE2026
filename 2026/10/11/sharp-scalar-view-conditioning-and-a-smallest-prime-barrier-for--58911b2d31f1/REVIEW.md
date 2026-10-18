@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Directly reconstruct the normalization and the Fourier-slice diagonalization: each direction contributes an orthogonal projection with weight equal to its positive scalar. Primitive frequencies isolate one direction, giving the smallest nonconstant eigenvalue; choosing a frequency supported at a single prime component with maximal valuation realizes an entire prime-direction fiber, giving the largest. Every nonzero frequency is contained in such a fiber. The strict-positivity hypothesis secures injectivity and the mean-zero endpoint comparison. Averaging over the least-prime residue fibers proves the sharp minimax bound, and equality of the minimum with the average forces all view weights equal. The Chinese remainder theorem proves the complete uniform multiplicities. Finite enumeration and direct Gram comparisons reproduce the exact claims for grid sizes through thirty, but do not prove the unlimited statement.
+PASS
 
-## Originality — PASS, with explicit priority risk
+For the complete projective direction set P1(Z/N), weighted line-sum normalization sqrt(w_d/N) gives T_w*T_w diagonal in normalized Fourier characters with eigenvalue lambda_xi=sum_{<xi,d>=0}w_d. For primitive nonzero xi, there is exactly one perpendicular projective direction, and every direction is realized; hence the nonconstant minimal eigenvalue is min w_d. For any nonzero xi, choose a prime p with nonzero p-primary component; its reduction constrains all orthogonal directions to one mod-p projective fiber, yielding lambda_xi<=W_{p,ell}; conversely a character whose p^k local coordinate is p^(k-1) times a perpendicular nonzero mod-p vector and other local components vanish realizes *exactly* W_{p,ell}. Thus maximum is max_{p|N,ell} W_{p,ell}. Average over least-prime p_* fibers and min w_d <=S/D_N gives sharp kappa_0²>=D_N/(p_*+1), with equality only if all direction weights coincide. Local CRT count of orthogonality directions (p^v for nonzero local valuation v, p^(k-1)(p+1) for zero) and local frequency multiplicities p^{2(k-v)}-p^{2(k-v-1)} exhaust N² characters, proving full uniform spectrum. Independent construction of projective sets and weighted nonzero character eigenvalues for N=2..14 confirmed min/max and D_N, not infinity.
 
-The most closely related established work gives periodic Fourier-block Radon inversion (Beylkin 1987), a projective cyclic complete line-sum transform and composite redundancy (Kingston–Svalbe 2005), orthogonalized prime-power projection bases (Kingston 2006), and frequency-dependent projection filtering (Kingston–Svalbe 2007). None of the material inspected states the constrained all-modulus positive scalar-view minimax and its unique equality case. The 2005, 2006, and 2007 full texts were not available for complete comparison; their abstracts alone do not support a whole-document novelty guarantee. An equivalent result in finite-frame optimization or earlier transform literature remains possible. The general Fourier-slice lemma and projective counts are not claimed as original.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single positive scalar per acquired direction is a natural restricted measurement design, as distinct from applying a nonlocal frequency filter. The theorem determines exactly how well this design class can condition every nonconstant image, with an arithmetic lower barrier and unique optimal design for all composite grid sizes. The full unweighted singular spectrum supports quantitative inversion and frame analysis. This is a nontrivial structural distinction between prime and composite cyclic tomography, not a renamed normalization identity.
+Best-of-knowledge originality for acquisition-weight constrained minimax and its unique optimizer, not for the classical discrete Fourier-slice principle. Source abstract and related orthogonalization literature were compared at objective level. A highly plausible primary 2005 full text remained inaccessible after open-source and institutional routes, so priority risk is retained explicitly rather than converting access trouble into O failure.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Cyclic projective Radon transforms and scalar acquisition weights are natural discrete tomography objects. The theorem quantifies a sharp arithmetic conditioning barrier tied to the smallest prime, identifies the uniquely best positive view schedule and supplies exact mode multiplicities. It is mathematically useful even where more general frequency filtering can do better.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
