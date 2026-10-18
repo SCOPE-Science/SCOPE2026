@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The exact reduced-cardinal identity follows by cancellation of leading polynomial coefficients and interpolation uniqueness. The sum-of-absolute-values triangle inequality proves a uniform O(log N) norm comparison. Concavity of sin on [0,pi] bounds full-grid cards; angular localization and a compact boundary rescaling prove all three limiting regimes. The fixed-edge overshoot is strict; its inverse-square correction follows from globally localizing the exact sinc-ratio maximum. The packaged pure-Python checker passes 1242 supplementary finite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu arXiv:2606.23409 Theorems 3.1-3.2 study a full set of N+1 distinct angularly perturbed nodes with degree N interpolation, not deleting one node and lowering interpolation degree.",
+        "Webb–Trefethen–Gonnet DOI:10.1137/110848797 studies numerical evaluation outside [-1,1], not point-loss Lebesgue growth.",
+        "2016 J. Inequalities and Applications survey DOI:10.1186/s13660-016-1030-3 reviews classical intact-grid Lebesgue results."
+      ],
+      "reasoning": "The best-known intact-grid logarithmic bounds and perturbation bounds do not dominate a reduced N-point grid formed by deletion: the number of constraints and degree both change. The classical universal cardinal formula supplies a proof component but no result determining the moving-index asymptotic norm.",
+      "searches": [
+        "When do perturbed Chebyshev--Lobatto points remain Chebyshev?",
+        "Stability of Barycentric Interpolation Formulas for Extrapolation",
+        "The stability of barycentric interpolation at the Chebyshev points of the second kind",
+        "Lebesgue functions and Lebesgue constants in polynomial interpolation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1309.7944",
+      "arxiv:1411.7746",
+      "arxiv:2606.23409",
+      "doi:10.1186/s13660-016-1030-3",
+      "doi:10.1093/comjnl/15.2.156 (abstract only)",
+      "doi:10.1137/110848797 (abstract/bibliography only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mascarenhas arXiv:1309.7944, introduction and appendix: standard full-grid weights and roundoff stability, with no deletion theorem.",
+        "Xiang arXiv:1411.7746, introduction and section 4: full-grid interpolation approximation and bounded fundamental polynomials.",
+        "Salzer DOI:10.1093/comjnl/15.2.156, bibliographic abstract only: barycentric interpolation and divided-difference convenience, not enough for a full-document exclusion."
+      ],
+      "reasoning": "Neither full-grid lambda_N=O(log N), full-grid individual cardinal sup boundedness, nor barycentric forward-stability bounds implies the precise constants for the incomplete grid without the missing-cardinal reduction and its global scaled asymptotics. Salzer full text is an unresolved but not decisive priority risk.",
+      "searches": [
+        "\"The stability of barycentric interpolation at the Chebyshev points of the second kind\" arxiv",
+        "\"Lagrangian Interpolation at the Chebyshev Points\" \"Unnoted Advantages\"",
+        "Chebyshev grid missing interpolation node stability operator norm",
+        "Chebyshev Lobatto node erasure Lebesgue constant N"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mascarenhas arXiv:1309.7944 gives weights for the intact grid in formulas (3)-(4), but its stability theorems do not evaluate the deleted-node polynomial operator norm.",
+        "Xiang arXiv:1411.7746 gives full-grid Lebesgue constants and fundamental-polynomial estimates, not the one-erasure boundary-mode limit."
+      ],
+      "reasoning": "The exact rank-one reduction uses the intact-grid cardinal basis, but its sharp asymptotic boundary constants require a separate global supremum and boundary-layer analysis. No examined equivalent formulation states the three positional limits.",
+      "searches": [
+        "\"missing Chebyshev\" \"Lebesgue\" interpolation",
+        "\"incomplete Chebyshev\" interpolation \"Lebesgue\"",
+        "\"deleted\" \"Chebyshev-Lobatto\" \"Lebesgue\"",
+        "Chebyshev Lobatto nodes one removed point Lebesgue constant deletion node"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full-grid barycentric weights are explicit in arXiv:1309.7944 (3)-(4).",
+        "No inspected primary reference or table gives the incomplete-grid sharp boundary profile rho_j or its inverse-square high-j coefficient."
+      ],
+      "reasoning": "One may compute individual finite-degree Lagrange tables from known weights, but a table of intact-node weights is not an exact or stronger statement of the deleted-grid limit classification. Database absence alone is not a uniqueness proof.",
+      "searches": [
+        "\"Chebyshev-Lobatto\" \"missing\" \"Lebesgue constant\"",
+        "\"Chebyshev-Lobatto\" \"deleted\" \"Lebesgue\"",
+        "Lagrange cardinal fundamental polynomial Chebyshev extrema sup norm boundary scaling 2z sin z denominator"
+      ]
+    },
+    "rationale": "Full open-text inspections of Mascarenhas (2013), Xiang (2014), a later perturbation preprint (2026), and targeted inspection of a 2016 survey identify classical weights, full-grid Lebesgue stability, and grid perturbations but not the deletion-position asymptotic classification. Primary source abstract comparison and mathematical-record searches found no covering implication; complete historical priority is not certified.",
+    "residual_risks": [
+      "Uninspected pre-digital full text (particularly Salzer 1972) might contain a related erasure identity or asymptotic.",
+      "Search terms and indexed mathematical records cannot establish global historical novelty; independent bibliographic validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected statements: treats intact-grid numerical formula, not deletion and reduced-degree operator norms",
+        "evidence": [
+          "Full-grid barycentric weights in introductory equations (3)-(4)",
+          "Sections 2 and appendix A concern floating-point stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.7944",
+        "material_read": "Introduction, formulas (1)-(4), stability theorem discussion, selected appendix technical derivations",
+        "method": "open full web-rendered scholarly text and inspect relevant sections",
+        "title": "The stability of barycentric interpolation at the Chebyshev points of the second kind",
+        "trigger": "same exact Chebyshev–Lobatto nodes and barycentric coefficients"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected statements: full node sets only; no rank-one erased-grid asymptotic",
+        "evidence": [
+          "Introduction equations (3)-(8) define full-grid Lebesgue constants and give O(log n) behavior",
+          "Full-grid cardinal-polynomial supremum estimates discussed in introduction and section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.7746",
+        "material_read": "Introduction, full-grid Chebyshev comparison, theorem discussion and section-4 cardinal estimates",
+        "method": "open scholarly text and inspect interpolation and fundamental-polynomial statements",
+        "title": "On Interpolation Approximation: Convergence rates for polynomial interpolation for functions of limited regularity",
+        "trigger": "Lebesgue norms and suprema of Chebyshev cardinal basis functions"
+      },
+      {
+        "assessment": "NOT_COVERING: same-size perturbed grid, whereas current object deletes a point and decreases polynomial degree",
+        "evidence": [
+          "Theorems 3.1-3.2 assume n+1 distinct perturbed angular nodes",
+          "No deletion or missing-node theorem in inspected sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.23409",
+        "material_read": "Introduction, Theorems 3.1-3.2 and their hypotheses, later discussion of perturbation scale",
+        "method": "open web scholarly text, inspect theorem hypotheses and search deletion aliases",
+        "title": "When do perturbed Chebyshev–Lobatto points remain Chebyshev?",
+        "trigger": "later paper examining loss of stability of Chebyshev nodes"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected sections: classic complete-grid constants",
+        "evidence": [
+          "Chebyshev nodes and full interpolation Lebesgue bounds in overview"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-016-1030-3",
+        "material_read": "Introduction and Chebyshev-Lebesgue review section",
+        "method": "read web full-text article sections",
+        "title": "Lebesgue functions and Lebesgue constants in polynomial interpolation",
+        "trigger": "possible broad Lebesgue-constant coverage"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_PRIORITY: abstract covers full-grid barycentric formula, not explicit erasure; no full-text exclusion",
+        "evidence": [
+          "Abstract lists barycentric interpolation, divided-difference checking and numerical differentiation; does not state missing-node asymptotics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/comjnl/15.2.156",
+        "material_read": "Bibliographic title, publication metadata and abstract only; full paper unavailable",
+        "method": "publisher abstract and bibliographic record",
+        "title": "Lagrangian Interpolation at the Chebyshev Points; Some Unnoted Advantages",
+        "trigger": "earliest foundational exact barycentric treatment of identical full grid"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3c5beff-381f-41d1-b40c-78d7c23c9ad3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp loss-of-sample growth answers a motivated stability question about an otherwise near-optimal logarithmic interpolation grid. The nontrivial boundary-layer coefficients resolve all three natural location scales, quantify fixed-offset overshoot and its inverse-square transition, and distinguish loss of edge from loss of interior observations. It is not a routine finite-table value or a renaming of a full-grid bound.",
+    "status": "PASS"
+  }
+}
