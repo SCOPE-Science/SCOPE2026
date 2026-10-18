@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "A vertex is exactly a connected saturated-edge graph. This forces integer potential heights and a range of 1 or 2. Range 1 gives two alternating words. Range 2 gives a complete tight zero/two core; all ones have tight edges exactly when adjacent to zero/two. These necessary and sufficient conditions yield the unique run/block decomposition and rational generating function. Dominant simple pole analysis proves the asymptotic. Actual packaged standard-library checker exhausts n=2..10 by direct metric graph connectivity and independent coefficient recurrence; finite checks are not extrapolated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Delucchi–Hoessly arXiv:1612.05534 gives all face numbers for tree-like metrics only. The capped-path four-point sums are 2,4,3, hence nontree for n>=4.",
+        "Alexander–Fradelizi–García-Lirola–Zvavitch arXiv:1911.10642 treats general finite free-space geometry; searched sections did not yield the all-n capped-path count."
+      ],
+      "reasoning": "The natural powerful exact face-count theorem for tree metrics fails the four-point hypothesis. General geometry without this specific enumeration does not dominate the new formula.",
+      "searches": [
+        "arXiv:1612.05534 tree-like metric f-vectors",
+        "arXiv:1911.10642 Lipschitz-free finite metric polytope",
+        "published-finding corpus: truncated path metric cycle graph capped 2 extreme Lipschitz potentials"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1608.06848",
+      "arXiv:1612.05534",
+      "arXiv:1911.10642",
+      "arXiv:2304.14039",
+      "published-finding corpus record 3bd6d7048744",
+      "published-finding corpus record 5c07b142df09"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.14039 supplies connected-tight-edge characterization, a starting lemma not the word classification.",
+        "Published disjoint-short-pair RESULT.md assumes a matching of shortened edges; capped paths shorten every consecutive pair and for n>=4 have overlapping short edges.",
+        "Published multipartite interpolation RESULT.md assumes a partition whose cross-distances are constant one; capped paths have nonuniform distances and no such partition structure."
+      ],
+      "reasoning": "The earlier general extremality criterion needs a fresh structure theorem and nontrivial run enumeration to imply the proposed rational series. Neither relevant restricted family includes the capped path, and neither earlier result states its generating function.",
+      "searches": [
+        "published-finding corpus: facet count Lipschitz free space truncated path metric min(|i-j|,2) capped distance path",
+        "published-finding corpus: integer height words tight edge connectivity finite Lipschitz polytope diameter 2 path 2.26953",
+        "published-finding corpus: sharp facet jumps for interpolated complete multipartite Lipschitz-free balls",
+        "arXiv:2304.14039 Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gordon–Petrov arXiv:1608.06848, Lemma 1 identifies tight-graph face dimension but does not count capped-path vertices.",
+        "The candidate also counts vertices of the dual Lipschitz polytope, not merely facets under a new name. No exact match was found in targeted records."
+      ],
+      "reasoning": "Polar-dual vertex wording and constrained-height-word counts were explicitly treated as equivalent to facet enumeration; the same full formula is not presented in examined sources.",
+      "searches": [
+        "published-finding corpus: facet count Lipschitz free space truncated path metric min(|i-j|,2) capped distance path",
+        "published-finding corpus: diameter two path metric Lipschitz polytope extreme points facet count",
+        "web: Lipschitz polytope capped path metric truncated distance two vertex number",
+        "arXiv:1608.06848 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical sequence/generating-function record appeared among returned mathematical records.",
+        "Known matching-contraction facet count is 3^k(2^(n-k)-2) for disjoint edges; overlapping truncated paths do not fit that table."
+      ],
+      "reasoning": "Small computed counts alone are not novelty; the comparisons targeted both exact integer sequences and an all-length rational generating function. Search non-detection remains limited evidence.",
+      "searches": [
+        "published-finding corpus: exact number of vertices of real 1-Lipschitz unit ball on n point path with metric min(|i-j|,2), generating function 2x^3(1+x)^3 / ((1-x-2x^2-2x^3)(1-x-x^2-x^3))",
+        "published-finding corpus: facet count transportation polytope Lipschitz free capped path 2 truncated line n",
+        "web: truncated line metric Lipschitz polytope facets diameter 2 word enumeration"
+      ]
+    },
+    "rationale": "The classified capped-path ternary words and their rational all-n facet generating function are not implied by the inspected generic, tree-like, matching-only, multipartite-only, or general extreme-point results. Research-record searches for truncated path metrics and generating coefficients found no matching statement. Residual risk of uncatalogued equivalences is explicit.",
+    "residual_risks": [
+      "Searches and inspected passages do not exclude a differently worded earlier exact generating function in unindexed literature.",
+      "Sections selected from the 2019 broad geometry paper and 2016 tree paper were read materially, but not every page was comprehensively audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General admissibility and generic-face formulas, no capped-path count in inspected portions; nongeneric capped path cannot use generic formula",
+        "evidence": "Theorem 1 explicitly assumes generic metric; Lemma 1 identifies graph-connectivity dimension.",
+        "identifier_or_url": "https://arxiv.org/html/1608.06848v1",
+        "material_read": "HTML introduction, entire statements of Theorems 1–5, Lemma 1, sections 2–3",
+        "method": "primary open-access HTML close reading",
+        "title": "Combinatorics of the Lipschitz Polytope",
+        "trigger": "Broad possible face-number domination"
+      },
+      {
+        "assessment": "Exact f-vectors restricted to tree-like metrics; strict four-point metric obstruction rules out proposed family at n>=4",
+        "evidence": "arXiv v1 first public 2016-12-16, abstract expressly tree-like.",
+        "identifier_or_url": "https://arxiv.org/abs/1612.05534",
+        "material_read": "full-text PDF introduction, main results, Section 4 and Example 4.22; publication dates from original arXiv version",
+        "method": "open-access PDF text with targeted visual inspection",
+        "title": "Fundamental Polytopes of Metric Trees via Parallel Connections of Matroids",
+        "trigger": "General all-face-number theorem for tree metrics"
+      },
+      {
+        "assessment": "Provides geometric background rather than equivalent capped-path facet count in the inspected portions",
+        "evidence": "arXiv initial posting 2019-11-24.",
+        "identifier_or_url": "https://arxiv.org/abs/1911.10642",
+        "material_read": "full-text PDF introduction, Section 2 and selected relevant structural results",
+        "method": "open-access full-text targeted reading",
+        "title": "Geometry and Volume Product of Finite Dimensional Lipschitz-Free Spaces",
+        "trigger": "Possible structural theorem covering all finite metric Lipschitz balls"
+      },
+      {
+        "assessment": "General extreme-point criterion exists, but no explicit enumerative capped-path generating function",
+        "evidence": "Initial posting 2023-04-27; Theorem 2 uses connected saturation.",
+        "identifier_or_url": "https://arxiv.org/abs/2304.14039",
+        "material_read": "arXiv full HTML and central Theorem 2 proof in six-page PDF",
+        "method": "open-access HTML and PDF visual inspection",
+        "title": "On Extreme Points and Representer Theorems for the Lipschitz Unit Ball on Finite Metric Spaces",
+        "trigger": "Tight-graph criterion may subsume word classification"
+      },
+      {
+        "assessment": "Only disjoint shortened pair matching, not overlapping path short edges",
+        "evidence": "Its metric has k disjoint edges shorter than one and all other distances one.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744",
+        "material_read": "complete RESULT.md including assumptions, proof, limitations",
+        "method": "read-only GitHub primary-result file retrieval",
+        "title": "Facet enumeration for equilateral metrics with independently shortened pairs",
+        "trigger": "Closest published discrete-facet count"
+      },
+      {
+        "assessment": "Requires complete multipartite metric with uniform cross-part distances, unlike capped paths",
+        "evidence": "Theorem requires all different-part distances one, uniform same-part distance parameter between one and two.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09",
+        "material_read": "RESULT.md central theorem, proof, and comparison sections",
+        "method": "read-only GitHub primary-result file retrieval",
+        "title": "Sharp facet jumps for interpolated complete multipartite Lipschitz-free balls",
+        "trigger": "Other close complete exact facet classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71582333-27b2-4bdc-b2bd-2e5fe661cb4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Facet numbers of Lipschitz-free balls are natural Banach-space invariants; the cap-two path forms an infinite, non-tree metric family that escapes existing tree, matching, and multipartite classifications. It gives an explicit all-n formula and a strict change of the exponential base from 2 for tree path metrics to about 2.26953, with a transparent constrained-height-word mechanism; not a single arbitrary computation.",
+    "status": "PASS"
+  }
+}

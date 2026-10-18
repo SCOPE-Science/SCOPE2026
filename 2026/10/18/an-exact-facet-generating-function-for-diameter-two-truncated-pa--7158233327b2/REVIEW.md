@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Tight-edge connectivity is a necessary and sufficient vertex criterion; connected integer-tight constraints force integer heights. The range-one case produces exactly two alternating words. In the range-two case, all zero-to-two pairs form one tight connected core, and each one must touch a zero or two at an adjacent index. The resulting unique run/block decomposition gives the stated rational generating function. Its simple unique dominant pole yields the asymptotic. An exact script independently compares connectivity, word classification and rational-series coefficients for every normalized ternary word through length ten, supplemented by small-dimensional polytope vertex enumeration.
+
+**Originality — PASS (subject to residual literature risk).** The 2016 Gordon–Petrov criterion concerns general tight graphs and generic-metric enumerations; 2016 Delucchi–Hoessly explicitly treats tree-like metrics, which the capped path fails at four points. The 2023 extreme-point paper develops a structural criterion, not the displayed formula. Two closest accessible exact facet-count studies consider disjoint matching contractions or complete multipartite metrics, neither of which contains the overlapping-short-edge capped path case. Targeted research-record queries produced no dominating all-length capped-path formula. General structural coverage does not, without the new counting argument, imply these explicit coefficients. Inaccessible or unindexed sources could still overlap.
+
+**Mathematical value — PASS.** Facet numbers are natural isometry-invariants of finite-dimensional Lipschitz-free unit balls. The distance truncation converts the path-metric cube (two choices per new vertex) into a nontree family with a different rational language of extreme potentials and a strictly larger exponential growth base. This gives both an exact invariant for every dimension and an interpretable structural mechanism, rather than a routine numerical enumeration.
+
+**Limits.** The conclusion applies only to the real diameter-two capped path. Finite brute-force verification is not an infinite proof; the general claim rests on the independent combinatorial argument. Bibliography is not an exhaustive negative novelty certificate.
+
+Self-review: passed. Independent audit: not yet performed.
