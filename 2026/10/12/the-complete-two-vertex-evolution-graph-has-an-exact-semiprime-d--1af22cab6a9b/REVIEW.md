@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The determinant-nonzero case is perfect and therefore semiprime. In the determinant-zero full-support case, \(A^2\) is one-dimensional and every nonzero ideal contains it, so semiprimeness is equivalent to \((A^2)^2\ne0\). Direct calculation gives the defect equation \(a^3+b c^2=0\). The complete graph is downward directed, so the inspected source theorem makes semiprime equivalent to prime. Exhaustive finite-field ideal enumeration independently verifies the criterion and all counts.
+PASS
 
-## Originality
+For a full-support two-dimensional evolution algebra with M=[[a,b],[c,d]], nonzero determinant gives A^2=A and the established perfect=>semiprime theorem. For zero determinant, e2^2=(b/a)e1^2 and every nonzero ideal I contains A^2=Kv: if x=u e1+w e2 is nonzero, multiply by a basis idempotent-factor to isolate a nonzero multiple of v. Hence semiprime iff v^2 !=0. Exactly v^2=(a^2+bc^2/a)v, giving defect a^3+bc^2=0; a complete two-loop graph is downward-directed, so source Corollary 3.15 yields equivalence with primeness. For F_q, d=bc/a on the rank-one locus; each a,c!=0 fixes b=-a^3/c^2,d=-a^2/c, so precisely (q-1)^2 nonsemiprimes, (q-1)^3(q-2) perfect, (q-1)^2(q-2) semiprime nonperfect and q(q-2)(q-1)^2 semiprime. Independent explicit ideal-subspace enumeration for q=2,3,5,7 confirms each formula, not used as arbitrary-field proof.
 
-PASS. The primary source supplies a single same-graph semiprime/nonsemiprime pair and explicitly concludes that semiprimeness is not graph-characterizable, but it does not classify the graph fiber. Its perfect and prime theorems leave the determinant-zero semiprime test unresolved. The separate two-dimensional perfect classification excludes rank-one algebras. Targeted semantic and literature searches found no matching polynomial criterion or finite-field stratification. A differently parameterized low-dimensional classification remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result replaces a single counterexample with a complete structural boundary on the smallest full-support graph fiber. It also reveals a substantial semiprime-but-nonperfect stratum and quantifies all three regimes over finite fields.
+The central prior paper gives a same-complete-graph counterexample and general semiprime/prime implications, but not the full zero-determinant ideal criterion, exact codimension-two locus or q-parametric matrix stratification. These are real statement-level additions; the perfect-only classification excludes the rank-one locus.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Graph invariants alone provably fail to decide semiprimeness of evolution algebras; identifying the complete smallest full-support graph fiber supplies a natural sharp counterexample classification rather than an arbitrary specialization. The nonperfect-but-semiprime stratum and exact field-size counts document genuine structural variation even within one fixed graph, useful for small-algebra classification and algorithm benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

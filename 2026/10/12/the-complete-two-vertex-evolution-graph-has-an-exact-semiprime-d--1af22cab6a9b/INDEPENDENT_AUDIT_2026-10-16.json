@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:13:32.408825Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Git RESULT.md blob 0b76ba1645a5b73beb64415a210241ba28c1e713",
+        "Cabrera Casado et al., arXiv:2404.08752, Proposition 3.17 and Corollary 3.15",
+        "Independent exact one-dimensional-ideal enumerator for finite prime fields, independent_checks.py"
+      ],
+      "rationale": "For a full-support two-dimensional evolution algebra with M=[[a,b],[c,d]], nonzero determinant gives A^2=A and the established perfect=>semiprime theorem. For zero determinant, e2^2=(b/a)e1^2 and every nonzero ideal I contains A^2=Kv: if x=u e1+w e2 is nonzero, multiply by a basis idempotent-factor to isolate a nonzero multiple of v. Hence semiprime iff v^2 !=0. Exactly v^2=(a^2+bc^2/a)v, giving defect a^3+bc^2=0; a complete two-loop graph is downward-directed, so source Corollary 3.15 yields equivalence with primeness. For F_q, d=bc/a on the rank-one locus; each a,c!=0 fixes b=-a^3/c^2,d=-a^2/c, so precisely (q-1)^2 nonsemiprimes, (q-1)^3(q-2) perfect, (q-1)^2(q-2) semiprime nonperfect and q(q-2)(q-1)^2 semiprime. Independent explicit ideal-subspace enumeration for q=2,3,5,7 confirms each formula, not used as arbitrary-field proof.",
+      "residual_risks": [
+        "Counts structure matrices with a specified natural basis, not isomorphism classes; arbitrary-field proof needs abcd!=0.",
+        "Finite q enumerations are supportive, not proof for all fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perfect=>semiprime addresses det!=0 only; downward-directed+semiprime=>prime does not test semiprimeness.",
+          "The two-dimensional perfect-algebra moduli article imposes perfect determinant and does not address rank-one fibers."
+        ],
+        "reasoning": "Neither more general graph theorem nor perfect moduli result derives the additional exact rank-one defect equation.",
+        "searches": [
+          "arXiv:2404.08752 Corollary 3.15 and Proposition 3.17",
+          "arXiv:2204.08410 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.08752v2 (primary text, Prop3.4/Cor3.15/Prop3.17)",
+        "arXiv:2204.08410 (introduction, determinant and perfect-classification scope)",
+        "Published mathematics semantic search for full-support evolution semiprime rank-one equations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Prop3.4 gives only existence of two algebras with the same graph and different semiprimeness.",
+          "Original criteria supply useful implications but not the zero-determinant test; solving v^2=0 gives the additional exact locus."
+        ],
+        "reasoning": "The finite-field enumeration and rank-one defect are not logical consequences of the cited general implications alone; a direct ideal calculation is needed.",
+        "searches": [
+          "arXiv:2404.08752 Proposition 3.4, Corollary 3.15, Proposition 3.17",
+          "arXiv:2204.08410 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2404.08752 Proposition 3.4 asserts absence of graph-only characterization by examples; its corollaries and algorithms use semiprime hypotheses.",
+          "The new equivalent rank-one ideal condition (Kv)^2!=0 gives polynomial a^3+bc^2, not just the same-graph counterexample."
+        ],
+        "reasoning": "Compared semiprime matrix criterion, rank-one algebra classification, prime criterion and finite-field graph-fiber distribution. No inspected statement simultaneously classifies all determinant-zero full-support matrices; semantic nonhit is only supporting evidence.",
+        "searches": [
+          "published findings semantic query: two-dimensional evolution algebra complete two vertex graph all structure constants nonzero semiprime prime rank-one matrix criterion finite field",
+          "arXiv:2404.08752 Proposition 3.4 and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite-field counts (q-1)^2 and (q-1)^2(q-2) were not tabulated in inspected primary work.",
+          "Resultary nearest semantic hits concern different evolution-algebra or finite-field problems."
+        ],
+        "reasoning": "No table already giving this stratification was located; such negative search evidence is not proof of novelty.",
+        "searches": [
+          "published findings semantic query: two-dimensional evolution algebra complete two vertex graph all structure constants nonzero semiprime prime rank-one matrix criterion finite field",
+          "arXiv:2404.08752 Proposition 3.4"
+        ]
+      },
+      "rationale": "The central prior paper gives a same-complete-graph counterexample and general semiprime/prime implications, but not the full zero-determinant ideal criterion, exact codimension-two locus or q-parametric matrix stratification. These are real statement-level additions; the perfect-only classification excludes the rank-one locus.",
+      "residual_risks": [
+        "An earlier low-dimensional classification may encode the same rank-one scalar condition using isomorphism normal forms.",
+        "Basis-dependent structure-matrix count must not be called a count of isomorphism classes.",
+        "No exhaustive historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_OF_TOOLS_AND_EXAMPLES",
+          "evidence": "Prop3.4 supplies one pair, Cor3.15 assumes semiprime for primeness, Prop3.17 gives perfect=>semiprime.",
+          "identifier_or_url": "arXiv:2404.08752v2",
+          "material_read": "Full public PDF introduction, Proposition 3.4 examples and conclusion, Section 3.1 algorithm scope, Corollary 3.15 and Proposition 3.17, pages 1,6-11",
+          "method": "Direct PDF text inspection and theorem-implication comparison",
+          "title": "Centroid and algebraic properties of evolution algebras through graphs",
+          "trigger": "Exact prior same-graph counterexample and primeness/perfection implications"
+        },
+        {
+          "assessment": "PERFECT_ONLY_NOT_RANK_ONE_SEMIPRIME",
+          "evidence": "Theorem and Section4 restrict to perfect algebras; semiprime terminology does not occur.",
+          "identifier_or_url": "arXiv:2204.08410",
+          "material_read": "Full lawful PDF introduction, determinant conditions in preliminaries, Section 4 theorem scope and exact-term search for semiprime",
+          "method": "Full-text PDF section comparison",
+          "title": "Two-dimensional perfect evolution algebras over domains",
+          "trigger": "Potential dominating low-dimensional complete classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2404.08752 Proposition 3.4 and general semiprimeness algorithm",
+        "Git RESULT.md complete rank-one proof"
+      ],
+      "rationale": "Graph invariants alone provably fail to decide semiprimeness of evolution algebras; identifying the complete smallest full-support graph fiber supplies a natural sharp counterexample classification rather than an arbitrary specialization. The nonperfect-but-semiprime stratum and exact field-size counts document genuine structural variation even within one fixed graph, useful for small-algebra classification and algorithm benchmarks.",
+      "residual_risks": [
+        "It remains a two-vertex, full-support, fixed-natural-basis classification; no broader graph supports or isomorphism types classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Counts structure matrices with a specified natural basis, not isomorphism classes; arbitrary-field proof needs abcd!=0.",
+    "Finite q enumerations are supportive, not proof for all fields.",
+    "An earlier low-dimensional classification may encode the same rank-one scalar condition using isomorphism normal forms.",
+    "Basis-dependent structure-matrix count must not be called a count of isomorphism classes.",
+    "No exhaustive historical-priority certification."
+  ],
+  "schema_version": 1
+}
