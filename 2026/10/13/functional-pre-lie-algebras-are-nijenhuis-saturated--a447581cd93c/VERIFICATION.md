@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,51 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` uses the normalized functional
-\[
-\varphi(x_1,\ldots,x_n)=x_1
-\]
-and product
-\[
-x\cdot y=\varphi(x)y.
-\]
 
-For
-\[
-(n,q)=(1,2),(2,2),(2,3),(3,2),(3,3),
-\]
-it exhaustively enumerates every \(n\times n\) matrix.
+# Independent mathematical audit
 
-For each matrix it directly checks the Nijenhuis identity on all ordered basis pairs. Every matrix passes.
+## correctness
 
-It then groups matrices by
-\[
-\varphi\circ N
-\]
-and verifies that all \(q^n\) target functionals occur, each exactly
-\[
-q^{n(n-1)}
-\]
-times.
+PASS
 
-The exact rank distribution is compared with
-\[
-\frac{\prod_{i=0}^{r-1}(q^n-q^i)^2}
-{\prod_{i=0}^{r-1}(q^r-q^i)}
-\]
-for every rank.
+The Nijenhuis identity for x*y=phi(x)y cancels to phi(Nx)N(y) on both sides for every linear N; the deformed multiplication is (phi o N)(x)y. Any nonzero functional yields the same algebra isomorphism type; the map N->phi o N is surjective with q^{n(n-1)}-element fibers and whole locus q^{n^2}. Rota–Baxter weight zero is exactly N^2=0, with rank-r counts by image/kernel flag. Reconstructed the cancellation, all cardinalities and rank range. Independent enumeration over F2 for n=1,2,3 checks every 2^{n^2} matrix, full basis-pair identity, fibers and square-zero equivalence; tested n=3 has 512 Nijenhuis operators and 22 square-zero maps. These finite checks are not the arbitrary-field proof.
 
-Finally it directly checks the weight-zero Rota–Baxter identity, confirms equivalence with
-\[
-R^2=0,
-\]
-and verifies every square-zero rank stratum against
-\[
-\binom{n}{r}_q
-\binom{n-r}{r}_q
-|\operatorname{GL}_r(\mathbf F_q)|.
-\]
+## originality
 
-It returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is replay evidence. The arbitrary-field result follows from the cancellation proof in `RESULT.md`.
+Best-of-knowledge: source Example 5.3(1) identifies this exact functional family and its square-zero Rota–Baxter maps, not the complete all-endomorphism Nijenhuis locus/deformation-fiber theorem. The later 2D/3D complex classification covers only special cases; no broader theorem was established by the searches.
+
+## value
+
+PASS
+
+An arbitrary-dimensional complete Nijenhuis classification with deformation fibers on the exact named pre-Lie example is a natural structural result: it identifies the entire operator variety rather than only the source’s square-zero subclass. Fiber counts and zero/nonzero deformations clarify what the Rota–Baxter restriction misses; routine matrix-rank and zeta formulas are ancillary. The cancellation is short, hence conceptual depth and possible folklore occurrence are material caveats.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

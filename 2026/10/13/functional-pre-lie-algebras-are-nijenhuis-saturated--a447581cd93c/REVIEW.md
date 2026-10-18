@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(x\cdot y=\varphi(x)y\), the three terms inside the Nijenhuis operator cancel to \(\varphi(Nx)y\), so both sides of the Nijenhuis identity equal \(\varphi(Nx)N(y)\) for every endomorphism. The induced product is exactly \(x\cdot_Ny=(\varphi\circ N)(x)y\). The finite-field fiber and rank counts follow from a surjective linear map and standard matrix enumeration. The square-zero Rota–Baxter comparison is independently rederived. Exhaustive replay in dimensions up to \(3\) agrees with every displayed formula.
+PASS
 
-## Originality
+The Nijenhuis identity for x*y=phi(x)y cancels to phi(Nx)N(y) on both sides for every linear N; the deformed multiplication is (phi o N)(x)y. Any nonzero functional yields the same algebra isomorphism type; the map N->phi o N is surjective with q^{n(n-1)}-element fibers and whole locus q^{n^2}. Rota–Baxter weight zero is exactly N^2=0, with rank-r counts by image/kernel flag. Reconstructed the cancellation, all cardinalities and rank range. Independent enumeration over F2 for n=1,2,3 checks every 2^{n^2} matrix, full basis-pair identity, fibers and square-zero equivalence; tested n=3 has 512 Nijenhuis operators and 22 square-zero maps. These finite checks are not the arbitrary-field proof.
 
-PASS. The primary 2017 source contains exactly this arbitrary-dimensional family but states only the square-zero Rota–Baxter subclass of Nijenhuis maps. Later complete classifications cover only two-dimensional complex pre-Lie and three-dimensional complex associative algebras. Current and prior ledgers contain other pre-Lie Nijenhuis results but not this functional arbitrary-dimensional theorem. Targeted semantic, exact-formula, and web searches found no all-endomorphism saturation statement. A differently indexed observation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is the canonical arbitrary-dimensional family chosen in the foundational pre-Lie Nijenhuis paper. Showing that its entire endomorphism algebra is Nijenhuis, while its Rota–Baxter locus is only square-zero, exposes a strong structural separation between the two operator notions. Closure of every induced deformation inside the same functional family gives a simple uniform moduli map and exact finite-field fibers in every dimension.
+Best-of-knowledge: source Example 5.3(1) identifies this exact functional family and its square-zero Rota–Baxter maps, not the complete all-endomorphism Nijenhuis locus/deformation-fiber theorem. The later 2D/3D complex classification covers only special cases; no broader theorem was established by the searches.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An arbitrary-dimensional complete Nijenhuis classification with deformation fibers on the exact named pre-Lie example is a natural structural result: it identifies the entire operator variety rather than only the source’s square-zero subclass. Fiber counts and zero/nonzero deformations clarify what the Rota–Baxter restriction misses; routine matrix-rank and zeta formulas are ancillary. The cancellation is short, hence conceptual depth and possible folklore occurrence are material caveats.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
