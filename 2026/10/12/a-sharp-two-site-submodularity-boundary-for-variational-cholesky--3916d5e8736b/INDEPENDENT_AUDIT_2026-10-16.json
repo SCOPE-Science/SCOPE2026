@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:51:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reviewed RESULT.md at Git blob 4ba21ff33d3bd749c0790f77fb663867019a7997 defines the exact noise-one Titsias VFE gain for two Nyström subsets. Rank-one determinants are 2+r² and the full determinant 4-r²; Sherman–Morrison applied to y=a(1,-1) yields D=B(r)-C(r)a², B=r²-log(2+r²)+(1/2)log(4-r²), C=3r(1-r)/((2+r²)(2-r)). For 0<r<1, B>0 by f(0)=0 and f’(t)=1-1/(2+t)-1/(2(4-t))>1/3, and C>0; the iff threshold follows. Independent symbolic substitution gives D(1/2,1)=1/36+(1/2)log(20/27)≈-0.12227451845. Taylor expansion yields -3a²r/4+O_a(r²) for any fixed a>0 as r↓0, and the ordered large-a, r↑1 weak-submodularity ratio tends to zero. Positive-semidefinite directional derivative proves monotonicity, which is not submodularity. The inspected verify.py checks 2170 rational-kernel configurations with floating logarithms; this finite check corroborates, not proves, the continuum theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jakkala–Akella Appendix explicitly concludes the SGP/SVGP ELBO is not submodular in general; its sensor-location model chooses uninformative zero labels, not the antipodal y=a(1,-1) phase boundary.",
+          "Schaub–Zaspel Theorem 4.4 provides exact ΔVFE and Section 4 monotonicity; no two-site phase/ratio theorem in full accessible text.",
+          "Classical GP mutual-information submodularity governs a distinct set function and conditional independence assumptions."
+        ],
+        "reasoning": "Qualitative non-submodularity is already covered and cannot be counted as new. The exact sharp r,a boundary and absence of any uniform weak-submodularity ratio on the restricted family are meaningful additional exact results not furnished by these broader claims.",
+        "searches": [
+          "Jakkala & Akella DOI:10.1177/02783649251384993 Appendix Submodularity",
+          "Schaub–Zaspel arXiv:2606.01821v1 full text",
+          "Titsias AISTATS2009 PMLR/v5/titsias09a",
+          "Krause–Singh–Guestrin JMLR9 2008"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01821v1",
+        "arXiv:1310.6007",
+        "https://proceedings.mlr.press/v5/titsias09a.html",
+        "DOI:10.1177/02783649251384993",
+        "Krause et al., JMLR 2008 GP mutual-information submodularity",
+        "Resultary semantic VFE query 2026-10-16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior increment formula determines individual VFE gains but gives neither a necessary-and-sufficient sign comparison for four subsets nor the fixed-amplitude near-identity instability.",
+          "Prior article proves/reports qualitative non-submodularity but not a sharp two-parameter sign phase diagram, nor the ordered 0 weak-submodularity ratio."
+        ],
+        "reasoning": "The new sharp frontier is obtained only after restricting the observation geometry and comparing all subsets; it is a genuine quantitative refinement of prior gain and failure statements, not original discovery of non-submodularity.",
+        "searches": [
+          "Schaub–Zaspel Theorem 4.4 Eq. (4.2) and Prop. 4.5",
+          "Jakkala–Akella Appendix SGP submodularity comparison and Eq. (21)–(28)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rank-one VFE gain is prior; present necessary-and-sufficient comparison involves three distinct subset gains and amplitude a, not an equivalent expression for a single rank-one increment.",
+          "Resultary nearest nonmatching zonotope log-submodularity phase diagram (2026/10/11/SCOPE-exact-two-parameter-directional-phase-diagram-for-a-zonotope-log--f4edcfe36776) has a different objective."
+        ],
+        "reasoning": "The formulas can be assembled from earlier gain identities but the new quantified comparison, weak-correlation failure, and ratio degeneration are neither identical to nor explicitly implied as a claimed theorem by the inspected papers.",
+        "searches": [
+          "arXiv:2606.01821v1 Theorem 4.4 and Proposition 4.5",
+          "arXiv:1310.6007 (CholQR one-step gain)",
+          "Resultary: variational free energy sparse Gaussian process inducing point selection set function submodularity counterexample increasing returns Cholesky two point data-dependent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest SCOPE findings concern zonotope log-submodularity or approximate Cholesky deflation error, not VFE two-site submodularity.",
+          "No exact (r,a) frontier or ratio table in inspected source texts."
+        ],
+        "reasoning": "The result is a continuous analytic parameter frontier, not a conventional numerical database/table entry; nonmatching database hits offer weak negative evidence only.",
+        "searches": [
+          "Resultary semantic query on data-dependent VFE Cholesky submodularity",
+          "2026 quantitative weak-submodularity ratio Nyström VFE Gaussian process search",
+          "Schaub–Zaspel full text search: submodularity"
+        ]
+      },
+      "rationale": "The precise data-amplitude dependent two-site phase boundary and vanishing uniform weak-submodularity ratio go beyond the prior VFE gain, monotonicity, and general qualitative non-submodularity already in the literature. The 2026 Jakkala–Akella article actually DOES report the SGP/SVGP bound is not generally submodular (Appendix, around Equation 28); this is acknowledged as important prior coverage, not described as new here. Its zero-label sensor-placement setup and empirical/general argument do not give this nonzero-antipodal-observation two-site if-and-only-if inequality or ordered ratio. The relevant Schaub–Zaspel full preprint establishes exact rank-one ΔVFE and monotonicity but not the subsetwise boundary. Priority is best-of-knowledge, not guaranteed.",
+      "residual_risks": [
+        "An earlier unindexed explicit two-site counterexample/ratio proof may exist; database negatives are not novelty proof.",
+        "Jakkala–Akella establishes qualitative non-submodularity of the same VFE/ELBO family; do not advertise that qualitative failure as novel.",
+        "Restricted 2×2 antipodal-data result does not imply high-dimensional greedy approximation guarantees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INCREMENT_AND_MONOTONICITY_NOT_SHARP_BOUNDARY",
+          "evidence": "Theorem 4.4 states ΔL=−1/2[log(1+a)−b²/(1+a)−||u||²/noise], Prop.4.5 states Cholesky-consistent update; no two-site r,a sign classification.",
+          "identifier_or_url": "https://www.researchgate.net/publication/405682818_Variational_Free_Energy_Pivot_Selection_for_Pivoted_Cholesky",
+          "material_read": "Public full-text preprint introduction, related-work section, objective derivation, Theorem 4.4 and Proposition 4.5, discussion of monotonicity and comparison to Cao",
+          "method": "Read author-uploaded public full text, searched submodularity; verified the same rank-one quantity",
+          "title": "Variational Free Energy Pivot Selection for Pivoted Cholesky",
+          "trigger": "Same exact VFE functional and Cholesky pivots"
+        },
+        {
+          "assessment": "QUALITATIVE_NON_SUBMODULARITY_ALREADY_PRIOR_NOT_EXACT_BOUNDARY",
+          "evidence": "Appendix states the KL-derived inequality does not hold generally and reports empirical non-submodularity, but no (r,a) frontier or zero weak-submodularity ratio.",
+          "identifier_or_url": "https://journals.sagepub.com/doi/10.1177/02783649251384993",
+          "material_read": "Full public article and Appendix Submodularity including entropy/KL comparison around Eq.(21)–(28), plus zero-labelled sensor-placement formulation",
+          "method": "Read primary publisher HTML substantive mathematical appendix and setup",
+          "title": "Fully differentiable sensor placement and informative path planning",
+          "trigger": "Highly relevant stronger qualitative prior on submodularity of SGP ELBO"
+        },
+        {
+          "assessment": "PRIOR_GAIN_FORMULA",
+          "evidence": "Schaub–Zaspel explicitly identifies Cao et al. exact scalar gain equivalence, not the four-subset phase boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.6007",
+          "material_read": "Abstract/available explanatory related-work comparison and per-candidate gain antecedent documented in Schaub–Zaspel full primary text",
+          "method": "Primary preprint identity and exact quotation via inspected subsequent primary related-work section",
+          "title": "Efficient Optimization for Sparse Gaussian Process Regression",
+          "trigger": "Same CholQR pivot-gain predecessor"
+        },
+        {
+          "assessment": "PRIOR_OBJECTIVE",
+          "evidence": "Original collapsed VFE objective, no indicated two-site obstruction.",
+          "identifier_or_url": "https://proceedings.mlr.press/v5/titsias09a.html",
+          "material_read": "Published primary theorem and derivation as reported in subsequent primary full-text, accessible proceedings landing material",
+          "method": "Primary landing and secondary mathematical cross-check",
+          "title": "Variational Learning of Inducing Variables in Sparse Gaussian Processes",
+          "trigger": "Original variational Gaussian-process lower bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact phase boundary separates marginal complementarity and diminishing returns for a live data-aware kernel objective; this is a motivated sharp small-dimensional obstruction, not an arbitrary parameter sample. Its weak-correlation failure rules out intuition from almost-orthogonal kernels, and its zero uniform ratio limits use of weak-submodularity guarantees. Earlier qualitative failure is credited; the original value is the quantified complete frontier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A sharp two-site submodularity boundary for variational Cholesky pivoting",
+  "limitations": [
+    "Continuum claim rests on algebraic proof; verifier tests rational grid with floating-point logs, not all real r,a.",
+    "More than two sites, negative correlations, other noise variances and general approximation ratios are not claimed."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated scope has \(0<r<1\), fixed unit noise, exact Nyström subsets and \(a\ge0\). Explicit rank-one and full-rank determinants and inverses yield the claimed singleton/full gains and the precise defect. The scalar function defining the threshold is strictly positive for all permitted correlations by direct differentiation. Taylor coefficients prove weak-correlation failure at every fixed nonzero observation amplitude. The ordered large-amplitude/high-correlation limit proves the vanishing uniform weak-submodularity ratio, and the VFE directional derivative verifies monotonicity independently of submodularity. The standalone rational reconstruction program successfully checked the algebra, but finite tests are not the proof.
+PASS
 
-## Originality — PASS, with residual risk
+The reviewed RESULT.md at Git blob 4ba21ff33d3bd749c0790f77fb663867019a7997 defines the exact noise-one Titsias VFE gain for two Nyström subsets. Rank-one determinants are 2+r² and the full determinant 4-r²; Sherman–Morrison applied to y=a(1,-1) yields D=B(r)-C(r)a², B=r²-log(2+r²)+(1/2)log(4-r²), C=3r(1-r)/((2+r²)(2-r)). For 0<r<1, B>0 by f(0)=0 and f’(t)=1-1/(2+t)-1/(2(4-t))>1/3, and C>0; the iff threshold follows. Independent symbolic substitution gives D(1/2,1)=1/36+(1/2)log(20/27)≈-0.12227451845. Taylor expansion yields -3a²r/4+O_a(r²) for any fixed a>0 as r↓0, and the ordered large-a, r↑1 weak-submodularity ratio tends to zero. Positive-semidefinite directional derivative proves monotonicity, which is not submodularity. The inspected verify.py checks 2170 rational-kernel configurations with floating logarithms; this finite check corroborates, not proves, the continuum theorem.
 
-The full publicly available text of Schaub and Zaspel (arXiv:2606.01821v1), its discussion of Cao et al., Cao et al.'s primary text (arXiv:1310.6007), and Titsias's original paper were compared at the statement level. The earlier papers develop the general VFE functional, exact pivot increments, and monotonicity; they do not assert the exact two-site submodularity boundary, failure for arbitrarily weak positive correlation at fixed nonzero observations, or the zero-infimum uniform weak-submodularity ratio. Published mathematical-results searches for these precise assertions and equivalent terminology did not identify direct coverage. The formulas are elementary consequences of prior VFE definitions, so unindexed prior two-site calculations remain a genuine residual risk; absence of a search hit is not a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact phase boundary addresses a motivated structural question for greedy data-aware kernel pivoting: monotone one-step gains need not admit the standard diminishing-returns or positive uniform weak-submodularity premise for greedy guarantees. A minimal two-site complete classification, a well-conditioned weak-correlation failure mechanism, and the scale-free zero-infimum boundary explain a limitation of such guarantees without asserting an algorithmic lower bound. This is more than a sign-check of a single arbitrary parameter point: it identifies the full natural threshold and its limiting mechanisms.
+The precise data-amplitude dependent two-site phase boundary and vanishing uniform weak-submodularity ratio go beyond the prior VFE gain, monotonicity, and general qualitative non-submodularity already in the literature. The 2026 Jakkala–Akella article actually DOES report the SGP/SVGP bound is not generally submodular (Appendix, around Equation 28); this is acknowledged as important prior coverage, not described as new here. Its zero-label sensor-placement setup and empirical/general argument do not give this nonzero-antipodal-observation two-site if-and-only-if inequality or ordered ratio. The relevant Schaub–Zaspel full preprint establishes exact rank-one ΔVFE and monotonicity but not the subsetwise boundary. Priority is best-of-knowledge, not guaranteed.
 
-## Closest work and limitations
+## value
 
-Schaub–Zaspel (2026) is the direct numerical-linear-algebra source, with Cao et al. (2013) and Titsias (2009) providing the same objective and precursor greedy formulas. Mutual-information submodularity is distinct. The result is confined to two sites with positive correlation, fixed unit noise and antipodal real outputs. It supplies neither multistep greedy performance bounds nor finite-precision conclusions; an equivalent unindexed primary treatment remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact phase boundary separates marginal complementarity and diminishing returns for a live data-aware kernel objective; this is a motivated sharp small-dimensional obstruction, not an arbitrary parameter sample. Its weak-correlation failure rules out intuition from almost-orthogonal kernels, and its zero uniform ratio limits use of weak-submodularity guarantees. Earlier qualitative failure is credited; the original value is the quantified complete frontier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
