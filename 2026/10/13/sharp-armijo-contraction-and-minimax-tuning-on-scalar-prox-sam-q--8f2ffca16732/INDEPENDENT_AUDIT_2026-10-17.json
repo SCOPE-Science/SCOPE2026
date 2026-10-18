@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:48:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On H(x)=lambda(x-x*)^2/2 and R=0 the scalar scaled gradient trial direction is d=-r e; the paper's proximal model decrement is q=-lambda*r*e^2/2. With nonstationary e, the source Armijo inequality (1-tr)^2<=1-eta*tr is equivalent to tr<=2-eta. Geometric backtracking has accepted u=r if r<=2-eta, else beta(2-eta)<u<=2-eta. Thus 0<u<2 and |e_next|/|e|=|1-u|<=max(1-min{r0,beta(2-eta)},1-eta)<1 for all r>=r0. Extremal raw steps r=r0 when available, r=(2-eta)/beta^j, and near-rejected boundaries demonstrate sharpness under only r>=r0; optimizing gives eta*=min(r0,2beta/(1+beta)). Checked eta in (0,1), beta in (0,1), r0>0 and unbounded r allowed. The case e=0 is stationary and excluded from cancellation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krklec Jerinkic et al. give qualitative full-sample convergence and line-search well-definedness; the new formula needs a scalar substitution and extremizing families."
+        ],
+        "reasoning": "General deterministic proximal-gradient and stochastic Armijo convergence theorems apply to broader objective classes but give nonsharp convergence conclusions; they do not state the exact r0-beta-eta minimax factor, although its algebra is a routine limiting case.",
+        "searches": [
+          "Resultary: Prox-SAM scalar quadratic Armijo relaxation sharp contraction minimax tuning",
+          "\"Variable metric proximal stochastic gradient methods with additional sampling\" scalar quadratic Armijo backtracking",
+          "\"minimax\" Armijo threshold \"beta\" scalar quadratic proximal line search"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s10589-025-00720-w",
+        "DOI:10.1137/15M1019325",
+        "Resultary:2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Eq (6), Prox-SAM Algorithm 1, section 2.1; source does not state qopt=1-min(r0,2beta/(1+beta))."
+        ],
+        "reasoning": "The earlier sufficient-decrease rule implies the accepted-step criterion after inserting this scalar quadratic, but the published convergence theorem by itself does not quantify the sharp factor or balancing eta. New conclusion is an exact worked out consequence of that algorithm, with no claim to priority for standard Armijo algebra.",
+        "searches": [
+          "Resultary: Prox-SAM scalar quadratic Armijo relaxation sharp contraction minimax tuning",
+          "\"Variable metric proximal stochastic gradient methods with additional sampling\" scalar quadratic Armijo backtracking",
+          "\"minimax\" Armijo threshold \"beta\" scalar quadratic proximal line search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source algorithm Step 1-4 uses an independent relaxation t_k and a variable metric; it supplies no exact scalar factor."
+        ],
+        "reasoning": "Armijo, sufficient decrease, proximal model descent and scaled gradient relaxation describe the same tested mechanism. In the primary paper alpha_k and t_k are distinct; ordinary Armijo step size is their product only after scalar specialization, so comparison uses u=t alpha lambda/s rather than terminology.",
+        "searches": [
+          "Resultary: Prox-SAM scalar quadratic Armijo relaxation sharp contraction minimax tuning",
+          "\"Variable metric proximal stochastic gradient methods with additional sampling\" scalar quadratic Armijo backtracking",
+          "\"minimax\" Armijo threshold \"beta\" scalar quadratic proximal line search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ID 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789; different step construction."
+        ],
+        "reasoning": "The primary source contains algorithmic inequalities and simulations, not a table of exact worst-case contraction or exact eta optimum. Related Resultary hit is scaled Polyak SPD quadratic objective frontier, a different algorithm.",
+        "searches": [
+          "Resultary: Prox-SAM scalar quadratic Armijo relaxation sharp contraction minimax tuning",
+          "\"Variable metric proximal stochastic gradient methods with additional sampling\" scalar quadratic Armijo backtracking",
+          "\"minimax\" Armijo threshold \"beta\" scalar quadratic proximal line search"
+        ]
+      },
+      "rationale": "Earlier generic Armijo descent analysis contains scalar test ingredients, but the identified source-specific sharp contraction envelope with its lower-raw-curvature information class and exact minimax eta was not located as a theorem in the inspected primary article or targeted literature. The result is conditional and a special application; this is best-of-knowledge originality, not a claim to invent Armijo backtracking.",
+      "residual_risks": [
+        "Scalar model and endpoint-balancing proof may be viewed as a direct standard Armijo corollary, so priority of the elementary formula remains uncertain.",
+        "Upper raw-curvature constraints could alter the minimax factor; claim explicitly discards those constraints.",
+        "Only frozen source files/blobs were read; source directory tree SHA from assignment was not independently recomputable with available read-only connector."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm and model established; no exact scalar minimax factor located",
+          "evidence": "Independent line-search parameter t distinct from alpha; one-dimensional specialization analyzed.",
+          "identifier_or_url": "https://doi.org/10.1007/s10589-025-00720-w",
+          "material_read": "Open-access published HTML, sections 2.1/2.2, Armijo decrease and Algorithm 1 Step 1-4 and assumptions; not just abstract",
+          "method": "Inspected complete relevant algorithm/convergence sections",
+          "title": "Variable metric proximal stochastic gradient methods with additional sampling",
+          "trigger": "Source algorithm and full-sample mechanism"
+        },
+        {
+          "assessment": "General convergence framework, possible equivalent scalar benchmark remains risk",
+          "evidence": "Different general objectives and results; no asserted whole-paper absence",
+          "identifier_or_url": "https://doi.org/10.1137/15M1019325",
+          "material_read": "Bibliographic description and source paper references; not full primary text",
+          "method": "Compared algorithm class and scope",
+          "title": "Variable Metric Inexact Line-Search-Based Methods for Nonsmooth Optimization",
+          "trigger": "Deterministic line-search predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp worst-case contraction for the source's *separate* raw learning rate/variable metric and geometric line-search relaxation is a motivated exact scalar algorithm benchmark. The minimax eta exposes the r0-limited vs backtracking-limited transition, not just convergence; it is meaningful for diagnosing stability when raw curvatures are uncontrolled above. It does not claim stochastic, multidimensional or empirical tuning guarantees. Its derivation is elementary, so the value is deliberately narrow but mathematically operational rather than a generic textbook restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s10589-025-00720-w",
+    "DOI:10.1137/15M1019325",
+    "Resultary:2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Scalar model and endpoint-balancing proof may be viewed as a direct standard Armijo corollary, so priority of the elementary formula remains uncertain.",
+    "Upper raw-curvature constraints could alter the minimax factor; claim explicitly discards those constraints.",
+    "Only frozen source files/blobs were read; source directory tree SHA from assignment was not independently recomputable with available read-only connector."
+  ],
+  "schema_version": 1
+}
