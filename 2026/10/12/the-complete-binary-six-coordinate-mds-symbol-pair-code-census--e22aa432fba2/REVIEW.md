@@ -1,19 +1,21 @@
-# Review of the binary length-six MDS symbol-pair code census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns exactly sixteen-word subsets of binary length-six words with cyclic pair distance at least four. The critical reduction is explicit: two distinct words have pair distance at most three if and only if their disagreement support lies within an adjacent cyclic two-position interval. Thus six four-coordinate erasure projections must all be bijections, yielding an exact-cover problem with 96 columns and 64 six-column rows. The supplied exact-cover code exhausts every 16-row exact cover and finds 76; a logically different 64-vertex compatible-clique recursion also finds 76 and lists exactly the same sets. Both independently calculate the full catalog; the Python code additionally verifies all 120 pairwise distances per code, the 44/32 affinity split, and five complete isometry orbits. The written graph and exact-cover recursion invariants justify completeness. No partial search or computational limit is passed off as a proof.
+PASS
 
-## Originality — PASS, with remaining uncertainty
+For 6 cyclic bit positions, pair-distance<4 iff any two distinct words differ only within some two adjacent coordinates; therefore the six 4-coordinate puncturings are injective exactly for d_pair>=4. With 16 words each puncturing is bijective; Singleton bound |C|<=16 follows. Each of 64 candidate words covers one column for each of six puncturings; an admissible C is precisely an exact cover of the 96 (index, remaining4-bit value) columns using 16 word-rows. Inspected finite algorithm: minimum-size uncovered-column recursion branches through all compatible rows, no exact cover skipped; independent locally implemented it, reproducing exactly 685 recursion nodes, 76 distinct 16-sets, 44 XOR-affine and 32 nonaffine. Independently enumerated bit translations and 12 dihedral coordinate permutations: five disjoint orbit sizes 4,32,24,12,4 with identical five lexicographically least representatives to source. The independent C++ 16-clique enumeration, whose monotone candidates ensure uniqueness, visits 391978 nodes. This is a genuine exhaustive finite proof at n=6 only, not extrapolated beyond it.
 
-Chee et al. (arXiv:1211.1728, §§2--4, Corollary 3.2(iv)) proved the known bound and existence of binary length-six distance-four MDS symbol-pair codes; those are not new. Ding et al. (arXiv:1605.08859, §§1--6) develop linear constructions in other distance regimes and do not count nonaffine MDS codes. The closest indexed mathematical records involve cyclic linear codes at other lengths and distances, or the binary length-five pair-distance-four full-optimum count; none of their stated results imply 76 length-six optimizers, 32 nonaffine optimizers, and five complete orbits. Exhaustive source comparisons and alternate wording searches found no stronger covering classification. The original Cassuto–Blaum paper's full publisher text was unavailable during the present comparison; the possibility of earlier unindexed counts or equivalent erasure-array classifications remains an originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-Maximum-distance symbol-pair codes were introduced for overlapping read channels. The Singleton bound determines how many codewords are possible but says nothing about all equality cases. The six-coordinate/adjacent-two-erasure equivalence makes 16 the exact information-theoretic maximum and makes classification of all optimal erasure layouts an intrinsic next question. The presence of 32 nonaffine optimal codes and a single 32-element nonaffine orbit gives meaningful structural information unavailable from linear constructions or a single witness. The five orbit representatives reduce full design enumeration to small canonical choices. This is a self-contained natural finite classification, not a claim of an infinite new bound or a minor numerical improvement to one.
+Chee et al arXiv:1211.1728 establish Singleton-type bound and existence of binary MDS pair codes of even length with d_pair=4, so those aspects are prior. Ding et al arXiv:1605.08859 emphasize constructions of linear MDS codes, not unconstrained 16-word sets. Resultary nearest exact-census source treats length FIVE, with 20 affine codes; this is length SIX and first nonaffine orbit, 76 labeled sets. No located source gives this precise complete nonlinear census, affine breakdown and full translation-dihedral orbits; priority remains best-of-knowledge.
 
-## Residual limitations
+## value
 
-The originality claim concerns the complete finite classification and does not assert priority over the existence theorem. The search cannot exclude unindexed technical reports or unviewed closed publisher appendices. The package has no independent external mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All equality cases at the smallest even length beyond the fully affine n=5 classification are intrinsically useful in symbol-pair coding: 32 of 76 maximal codebooks are not affine, disproving an affine-only expectation, and the five metric-isometry orbits are a complete moduli inventory. A natural finite optimum enumeration, not arbitrary sampled strings; no larger-n generalization is required for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

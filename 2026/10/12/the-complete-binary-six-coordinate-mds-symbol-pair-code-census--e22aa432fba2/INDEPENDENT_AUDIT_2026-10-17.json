@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:16:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 6 cyclic bit positions, pair-distance<4 iff any two distinct words differ only within some two adjacent coordinates; therefore the six 4-coordinate puncturings are injective exactly for d_pair>=4. With 16 words each puncturing is bijective; Singleton bound |C|<=16 follows. Each of 64 candidate words covers one column for each of six puncturings; an admissible C is precisely an exact cover of the 96 (index, remaining4-bit value) columns using 16 word-rows. Inspected finite algorithm: minimum-size uncovered-column recursion branches through all compatible rows, no exact cover skipped; independent locally implemented it, reproducing exactly 685 recursion nodes, 76 distinct 16-sets, 44 XOR-affine and 32 nonaffine. Independently enumerated bit translations and 12 dihedral coordinate permutations: five disjoint orbit sizes 4,32,24,12,4 with identical five lexicographically least representatives to source. The independent C++ 16-clique enumeration, whose monotone candidates ensure uniqueness, visits 391978 nodes. This is a genuine exhaustive finite proof at n=6 only, not extrapolated beyond it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cor3.2(iv) shows existence for even code lengths, hence includes n=6 but does not classify all maximizers.",
+          "Ding et al focus on constructions; linear restrictions cannot classify nonaffine 32-code orbit."
+        ],
+        "reasoning": "More general parameter ranges on bounds/existence do not dominate the exact n=6 optimizer count; a prior universal optimizer classification could, but no such implication found.",
+        "searches": [
+          "Chee et al arXiv:1211.1728 Corollary 3.2(iv)",
+          "Ding et al arXiv:1605.08859",
+          "Resultary length-five exact-census source"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md blob 879ce4937788eb1037c34fe6ba1b5230a6f0f855",
+        "GitHub pair6_verify.py blob 57ba025599ae07874a61084ed0480dd8f2b1ac89",
+        "GitHub pair6_enum.cpp blob e4fbff408d6d91d109b384110ed38f95839dbd5a",
+        "GitHub pair6_codes.txt blob d7583386d6a28a3008a0dbb29927c54b660066e4",
+        "Chee et al arXiv:1211.1728",
+        "Ding et al arXiv:1605.08859",
+        "Resultary 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8",
+        "Resultary search: Resultary: binary length 6 size 16 symbol-pair MDS code nonaffine 76 orbit classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither statement implies the count 76, affine split 44/32, nor five orbit sizes under translations and dihedral index symmetries."
+        ],
+        "reasoning": "The new exact-cover proof enumerates ALL codebooks, not just ones produced by a known construction; therefore these prior existence theorems cannot yield its complete catalogue without further classification.",
+        "searches": [
+          "Chee 2012 Singleton bound and existence",
+          "Ding 2016 linear MDS constructions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pair-distance >=4 is equivalent to injectivity of puncturing any adjacent two bits; known Singleton bound and code-existence constructions are prior.",
+          "Length-five Resultary census gives 20 labeled maxima, all affine, unlike n6 nonaffine codes."
+        ],
+        "reasoning": "Erasure-injective formulation is standard equivalence and is used as a certificate, not a separate novelty claim; complete all-code equality classification at length6 is strictly stronger than existence.",
+        "searches": [
+          "Resultary: binary length 6 size 16 symbol-pair MDS code nonaffine 76 orbit classification",
+          "Chee-Ji-Kiah-Wang-Yin arXiv:1211.1728 Theorem 2.1",
+          "Resultary 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete length-five table is a different finite parameter.",
+          "The source provides an actual 76-line code catalogue checked against two exhaustive algorithms; previously inspected sources do not include it."
+        ],
+        "reasoning": "No matching public database/list covering 76 six-coordinate code sets was identified; nonexistence of a search hit is not proof of novelty.",
+        "searches": [
+          "Resultary: binary length 6 size 16 symbol-pair MDS code nonaffine 76 orbit classification",
+          "Resultary 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8",
+          "Chee 2012 constructions"
+        ]
+      },
+      "rationale": "Chee et al arXiv:1211.1728 establish Singleton-type bound and existence of binary MDS pair codes of even length with d_pair=4, so those aspects are prior. Ding et al arXiv:1605.08859 emphasize constructions of linear MDS codes, not unconstrained 16-word sets. Resultary nearest exact-census source treats length FIVE, with 20 affine codes; this is length SIX and first nonaffine orbit, 76 labeled sets. No located source gives this precise complete nonlinear census, affine breakdown and full translation-dihedral orbits; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "A pre-existing but unindexed length-six symbol-pair code catalogue could cover the exact 76-set classification.",
+        "No claims for lengths >6, larger alphabets or arbitrary coordinate permutations; exhaustive proof is finite at this naturally specified parameter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bound/existence covered, no all-optimizer binary n6 enumeration in inspected material",
+          "evidence": [
+            "Theorem 2.1",
+            "Corollary 3.2(iv)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1728",
+          "material_read": "Primary PDF Theorem 2.1 and Corollary 3.2(iv), notation q,n,d and even-length existence; inspected PDF page2",
+          "method": "Primary full-text PDF relevant theorems and proof vicinity read",
+          "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+          "trigger": "Same binary cyclic symbol-pair Singleton bound and distance-four constructions"
+        },
+        {
+          "assessment": "No mathematical implication of an all-code n6 nonlinear census established; broader full-text novelty risk retained",
+          "evidence": [
+            "main aim: linear MDS symbol-pair code constructions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.08859",
+          "material_read": "Accessible arXiv abstract and introduction description of linear constructions, not claimed full paper inspection",
+          "method": "Abstract and introductory scope only",
+          "title": "New Constructions of MDS Symbol-Pair Codes",
+          "trigger": "Potential broader code-classification theorem"
+        },
+        {
+          "assessment": "Different n=5 object and only affine optimizers; does not cover n=6 count or nonaffine orbit",
+          "evidence": [
+            "20 labeled n5 maxima, all affine"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8",
+          "material_read": "Resultary title and semantic result summary: 20 labeled maxima, all affine for n=5",
+          "method": "Indexed finding summary, not entire Git package read",
+          "title": "Exact classification of binary length-five MDS symbol-pair codes",
+          "trigger": "Very close published fixed-parameter census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All equality cases at the smallest even length beyond the fully affine n=5 classification are intrinsically useful in symbol-pair coding: 32 of 76 maximal codebooks are not affine, disproving an affine-only expectation, and the five metric-isometry orbits are a complete moduli inventory. A natural finite optimum enumeration, not arbitrary sampled strings; no larger-n generalization is required for value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md blob 879ce4937788eb1037c34fe6ba1b5230a6f0f855",
+    "GitHub pair6_verify.py blob 57ba025599ae07874a61084ed0480dd8f2b1ac89",
+    "GitHub pair6_enum.cpp blob e4fbff408d6d91d109b384110ed38f95839dbd5a",
+    "GitHub pair6_codes.txt blob d7583386d6a28a3008a0dbb29927c54b660066e4",
+    "Chee et al arXiv:1211.1728",
+    "Ding et al arXiv:1605.08859",
+    "Resultary 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8",
+    "Resultary search: Resultary: binary length 6 size 16 symbol-pair MDS code nonaffine 76 orbit classification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality, no exhaustive priority certification; source-access and exact scientific scope limitations are included in the separate axis rationales.",
+    "Scientific approval is not publication approval: pre-existing public operational identifiers require fully verified sanitization; status not_ready."
+  ],
+  "residual_risks": [
+    "A pre-existing but unindexed length-six symbol-pair code catalogue could cover the exact 76-set classification.",
+    "No claims for lengths >6, larger alphabets or arbitrary coordinate permutations; exhaustive proof is finite at this naturally specified parameter."
+  ],
+  "schema_version": 1
+}
