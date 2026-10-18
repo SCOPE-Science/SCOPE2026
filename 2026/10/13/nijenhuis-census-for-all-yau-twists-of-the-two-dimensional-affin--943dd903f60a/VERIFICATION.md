@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` uses the affine Lie bracket
-\[
-[e_1,e_2]=e_2.
-\]
 
-For a completely general \(2\times2\) matrix \(\alpha\), it reconstructs the Lie-endomorphism equations and obtains
-\[
-\alpha=
-\begin{pmatrix}
-p&0\\
-r&s
-\end{pmatrix},
-\qquad
-s(1-p)=0.
-\]
+# Independent mathematical audit
 
-It constructs the Yau-twisted bracket
-\[
-[x,y]_\alpha=\alpha([x,y])
-\]
-and symbolically verifies that the Nijenhuis torsion is identically zero for every \(2\times2\) matrix \(N\).
+## correctness
 
-It then exhaustively enumerates every eligible \(\alpha\) and every \(N\) over
-\[
-\mathbf F_2,\quad
-\mathbf F_3,\quad
-\mathbf F_5,\quad
-\mathbf F_7,
-\]
-checking the Hom-Lie Nijenhuis condition directly.
+PASS
 
-The checker verifies that the number of twists is
-\[
-2q^2-q
-\]
-and that the total number of twist-operator pairs is
-\[
-4q^4-q^3-2q^2.
-\]
+For the affine bracket [e1,e2]=e2, writing alpha=[[p,q],[r,s]] gives alpha([e1,e2])=[alpha(e1),alpha(e2)] iff q=0 and s(1-p)=0, valid over every field. The Yau bracket is s det(x,y)e2. Direct expansion of the Nijenhuis torsion for arbitrary N=[[a,b],[c,d]] cancels identically; hence the sole additional Nijenhuis requirement is [N,alpha]=0. The union of two affine planes in the alpha variables meets in a line, giving 2q^2-q twists; precisely alpha=0,I are scalar, with q^4 commuting N each. All other 2-by-2 alpha have degree-two minimal polynomial and centralizer Fq[alpha], of size q^2. Thus 4q^4-q^3-2q^2 pairs, with each extension field replacing q by q^m; exponentiating its counts gives (1-q^3 T)(1-q^2 T)^2/(1-q^4 T)^4. Independent full commutator enumeration at q=2,3,5 gave twist counts 6,15,45 and fiber distributions {q^4:2,q^2:2q^2-q-2}, respectively. The finite checks corroborate, not replace, the arbitrary-field proof.
 
-It also verifies the fiber distribution: exactly two scalar twists have \(q^4\) Nijenhuis operators and every other twist has \(q^2\).
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is a replay check. The arbitrary-prime-power theorem follows from the exact endomorphism and centralizer proofs in `RESULT.md`.
+The all-Yau-twist affine Lie algebra Nijenhuis pair variety and its finite-field fiber polynomial/zeta are not stated in the inspected same-author public Hom-Lie deformation preprint or retrieved published findings. Das–Sen provides the general Nijenhuis framework (its full publisher text was inaccessible). The special commuting-pair evaluation is more than the generic definition and separates scalar from nonscalar twists. Best-of-knowledge originality with explicit source-access risk.
+
+## value
+
+PASS
+
+The nonabelian 2D affine Lie algebra is the unique 2D nonabelian Lie algebra up to isomorphism; all Yau endomorphism twists, not an arbitrary slice, form a natural family. Exact exceptional scalar fibers, generic commuting-matrix fibers, and their all-extension arithmetic zeta determine the complete finite-field moduli distribution, a useful benchmark beyond a trivial single-matrix substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
