@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The radial distance from an interior point of an \(m\)-ball has an exact quadratic-root formula. After spherical integration the odd linear term vanishes, leaving an integrand that decreases pointwise with eccentricity and strictly decreases on positive measure for \(m\ge2\). Every affine hyperplane section of a Euclidean ball is another Euclidean ball centered at the orthogonal projection of the ambient center, and Pythagoras shows that the section-center distances of two points are ordered exactly as their ambient-center distances. This proves both implications and the stronger one-section criterion. The packaged checker independently replays the algebra and the low-dimensional boundary case.
+## correctness
 
-## Originality
-**PASS, with residual indexing risk.** The materially inspected 2009 open-problem statement poses the all-section-to-global implication for arbitrary convex bodies and cites the generalized dual-volume framework. Herburt's 2008 radial-center paper identifies the order-\(1\) mean-radial-distance functional and proves an interior-location theorem, but does not state this affine-section criterion. The 2005 paper's publicly available abstract describes generalized dual-volume selectors and their additivity properties, not a ball section-order theorem. Searches under the open-problem wording, Euclidean-ball specialization, mean radial distance, eccentricity monotonicity, and one-hyperplane formulations found no covering result.
+PASS
 
-## Value
-**PASS.** The result gives a clean affirmative model case of a published convex-geometric implication and sharpens its hypothesis from every common hyperplane to any single common hyperplane. The mechanism is structural rather than a numerical special case: all relevant section and whole-body comparisons collapse to the same center-distance order in every \(d\ge3\). The failure of this mechanism in the planar one-dimensional-section boundary also identifies exactly where the proof stops.
+At the assigned tree reconstructed RESULT.md and verify.py. For any m-ball of radius r and interior eccentricity s, the radial distance is -s(e.u)+sqrt(r^2-s^2+s^2(e.u)^2). The odd term integrates to zero. For m>=2 the square-root integrand decreases strictly with s on all directions other than the two poles, which have spherical measure zero. Thus the mean radial distance is strictly decreasing in s. For any affine hyperplane H through a and b in the ambient d-ball, its section is a (d-1)-ball centered at the perpendicular foot c_H, with common radius sqrt(R^2-|c_H|^2), and |x-c_H|^2=|x|^2-|c_H|^2. Hence the section and ambient comparisons have the identical radius ordering for all d>=3, including a=b. When d=2 its line-section sum is the constant chord length 2r, so the boundary exclusion is essential. The proof is pointwise and complete for all dimensions; the code’s numerical quadrature is only a regression check.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Banach Center Publications 84 (2009), Problem 7, asks for a general-body all-hyperplane implication; Herburt 2008 develops radial centers and location of their maxima, not the section order relation for arbitrary pairs. Resultary also locates a cone counterexample to the unrestricted assertion, which is consistent with rather than covering this exact ball criterion. The one-hyperplane iff strengthening goes beyond the posed implication. Fulltext access limits of the earlier 2005 framework paper are retained rather than asserted away.
+
+## value
+
+PASS
+
+This is a motivated symmetric benchmark for a concrete geometric open problem, not merely the location of the ball’s radial center. It gives a precise yes-case and the surprising strengthening that each individual section already contains the entire two-point order information, while the dimension-two line case fails to distinguish points. The exact comparison can calibrate attempted generalizations to nonspherical bodies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
