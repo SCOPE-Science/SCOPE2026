@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:18:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 742712d2b1c8283d07119d27985b8c5c8e11e4b8",
+        "actual verify_census.py blob 29b69064ca1bf9de098eb5822e2acded682fdc2b",
+        "independent exact 788035-space full RREF replay"
+      ],
+      "rationale": "For each three-space U in M_3(F_2), L_U(X)=s_4(A,B,C,X) is basis-independent because s_4 is alternating in its first three slots and every GL_3(F_2) basis change has determinant one. The identity and U lie in its kernel; the alternating trace form forces even rank, so only 0, 2, 4 are possible. Independently compiled C++ enumeration of EVERY unique RREF three-space in F_2^9, with s_4 evaluated by all 24 word permutations and exact GF(2) elimination, reproduced exactly 788035 spaces with rank histogram (0:11635,2:122320,4:654080) and 10795 rank-zero spaces containing I_3; hence 840 zero spaces avoid I_3. This is a complete finite census, not an infinite-field theorem.",
+      "residual_risks": [
+        "The trace-rank argument requires standard cyclic-trace identities; no statement is made for other fields, orders or matrix dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The current odd-k theorem assumes characteristic zero; even-k results are inapplicable to k=3; real-matrix estimates do not count F2 points."
+        ],
+        "reasoning": "Neither generic Zariski-density nor a characteristic-zero rank estimate implies exact numbers of F2-rational subspaces.",
+        "searches": [
+          "arXiv:2609.06339",
+          "Dixon–Pressman DOI 10.1080/03081087.2017.1389851",
+          "Brassil–Reichstein DOI 10.1007/s11856-022-2349-8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.06339",
+        "DOI 10.1080/03081087.2017.1389851",
+        "DOI 10.1007/s11856-022-2349-8",
+        "actual source package at commit cd76f0b741a81ebc64b2fc7846361df5d730832d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Genericity of nullity five over char-zero fields does not imply rank distribution over M3(F2), including the 840 rank-zero spaces not containing identity."
+        ],
+        "reasoning": "The exact finite-field rank distribution is strictly additional data rather than an obvious char-zero corollary.",
+        "searches": [
+          "arXiv:2609.06339 odd-k generic theorem and Dixon–Pressman foundational problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Tang–Zhao state a characteristic-zero generic-nullity problem, while the audited theorem is an exact count in F_2; the characteristic-zero generic nullity 5 is not a finite-field distribution."
+        ],
+        "reasoning": "Compared as standard polynomial s4 ranks, generalized commutator nullities and a finite Grassmannian stratum census. No examined theorem supplies the four exact finite counts.",
+        "searches": [
+          "Attempted Resultary: generalized commutator s4(A,B,C,X) M3(F2) rank distribution 11635 122320 654080 788035 odd standard polynomial",
+          "arXiv:2609.06339",
+          "DOI 10.1080/03081087.2017.1389851"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No actual covering table was identified from the inspected primary results; the index search failed technically, and the repository search was incomplete."
+        ],
+        "reasoning": "An exact histogram table would cover this claim regardless of its wording; none can be certified present or absent from an incomplete search.",
+        "searches": [
+          "Exact count phrases 788035, 11635, 122320, 654080 in the inspected scientific record",
+          "GitHub code search of SCOPE generalized-commutator names (returned incomplete_results=true)"
+        ]
+      },
+      "rationale": "The 2026 odd-generalized-commutator result is a Zariski-generic theorem in characteristic zero, and the older conjecture is posed for real matrices. Neither gives a characteristic-two Grassmannian rank histogram. The exact rank-zero exception 840 is not a consequence of genericity. Originality is best-of-knowledge from statement-level comparison, not a claim that the temporarily unavailable index was searched successfully.",
+      "residual_risks": [
+        "All five targeted Resultary requests returned temporarily_unavailable/search_internal_error (search_completed=false); this is not evidence of no matching findings. No retry was made in this run.",
+        "Primary full text for the recent generic-nullity source was inaccessible this run; an older finite-field table under standard-polynomial terminology may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS; no decisive exact F2 table was established",
+          "evidence": "Its advertised theorem concerns a generic characteristic-zero nullity, not an enumerated F2 Grassmannian.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06339",
+          "material_read": "Metadata/abstract and statement scope available via public search; full arXiv document was not accessible in this execution, and institutional fallback reported disconnected VPN.",
+          "method": "Bounded explicit scope comparison without asserting whole-document noncoverage",
+          "title": "Generic Nullity of Generalized Commutators",
+          "trigger": "Closest same-parameter odd generalized-commutator theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT; residual risk kept",
+          "evidence": "Problem concerns real generalized commutators rather than a binary exact rank distribution.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2017.1389851",
+          "material_read": "Bibliographic theorem statements and mathematical scope from inspected primary citations; full text not freshly obtained.",
+          "method": "Restricted implication comparison",
+          "title": "Generalized commutators and a problem related to the Amitsur–Levitzki theorem",
+          "trigger": "Original odd-case conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lin–Tang–Zhao generic odd-k problem",
+        "independent full Grassmannian rank census"
+      ],
+      "rationale": "The smallest odd generalized-commutator instance over the smallest finite field is a natural boundary left untouched by characteristic-zero genericity. Exact rank-stratum sizes, maximal-rank proportion 1792/2159, and the unexpected 840 extra rank-zero subspaces form a complete, reproducible finite structural census with clear use as a benchmark for positive-characteristic conjectures.",
+      "residual_risks": [
+        "This does not classify exceptional subspaces geometrically and gives no formula for general field size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only (n,k)=(3,3) over F_2 and complete enumeration of 3-subspaces; not a general k,n,q theorem.",
+    "Index outage and primary-full-text limits remain originality risks."
+  ],
+  "schema_version": 1
+}

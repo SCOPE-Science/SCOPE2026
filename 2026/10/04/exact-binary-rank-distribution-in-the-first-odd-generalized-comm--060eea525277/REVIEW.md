@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is basis-independent because the standard polynomial is alternating and every invertible \(3\times3\) matrix over \(\mathbb F_2\) has determinant \(1\). The structural rank restriction is reconstructed from the identity insertion, the nondegenerate trace pairing, and the alternating trace form. The finite census is exhaustive over the unique reduced-row-echelon representative of every element of \(\operatorname{Gr}(3,9)(\mathbb F_2)\). Two independent expansions of \(s_4\) agree on every representative and return the same histogram. The total \(788035\) is independently checked by the Gaussian binomial coefficient.
+## correctness
 
-## Originality
-PASS. The closest recent source proves the Dixon--Pressman generic-nullity formula over characteristic-zero fields and states no finite-field rank distribution. The original Dixon--Pressman paper is formulated over the real field and only speculates about infinite fields of characteristic different from \(2\). Brassil--Reichstein treats even \(k\), whereas this claim is the odd case \(k=3\). Targeted semantic and bibliographic searches for the exact finite-field formulation, the rank histogram, and the numerical counts found no covering statement. Residual risk remains that an older computation of standard-polynomial maps may contain an equivalent table under different terminology.
+PASS
 
-## Value
-PASS. This is the smallest odd Dixon--Pressman boundary case and characteristic \(2\) lies outside the scope of the 2026 theorem. The result does more than exhibit one extremal tuple: it determines the complete finite Grassmannian distribution, quantifies the mass attaining the characteristic-zero extremal nullity, and isolates \(840\) genuinely nontrivial zero operators beyond the automatic identity-containing locus. These data give a concrete finite-characteristic test case for any proposed extension of generic-nullity theory.
+For each three-space U in M_3(F_2), L_U(X)=s_4(A,B,C,X) is basis-independent because s_4 is alternating in its first three slots and every GL_3(F_2) basis change has determinant one. The identity and U lie in its kernel; the alternating trace form forces even rank, so only 0, 2, 4 are possible. Independently compiled C++ enumeration of EVERY unique RREF three-space in F_2^9, with s_4 evaluated by all 24 word permutations and exact GF(2) elimination, reproduced exactly 788035 spaces with rank histogram (0:11635,2:122320,4:654080) and 10795 rank-zero spaces containing I_3; hence 840 zero spaces avoid I_3. This is a complete finite census, not an infinite-field theorem.
 
-## Closest literature and limitations
-Lin--Tang--Zhao (arXiv:2609.06339v1) is the closest source; Dixon--Pressman (DOI 10.1080/03081087.2017.1389851) and Brassil--Reichstein (DOI 10.1007/s11856-022-2349-8) provide the surrounding formulation. The claim does not generalize the counts to other finite fields or matrix sizes, and it does not classify the exceptional spaces up to conjugacy.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 odd-generalized-commutator result is a Zariski-generic theorem in characteristic zero, and the older conjecture is posed for real matrices. Neither gives a characteristic-two Grassmannian rank histogram. The exact rank-zero exception 840 is not a consequence of genericity. Originality is best-of-knowledge from statement-level comparison, not a claim that the temporarily unavailable index was searched successfully.
+
+## value
+
+PASS
+
+The smallest odd generalized-commutator instance over the smallest finite field is a natural boundary left untouched by characteristic-zero genericity. Exact rank-stratum sizes, maximal-rank proportion 1792/2159, and the unexpected 840 extra rank-zero subspaces form a complete, reproducible finite structural census with clear use as a benchmark for positive-characteristic conjectures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
