@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Normalized influence plus a strict response factor below one half makes every update a convex combination with a positive self-coefficient. Strict positive feedback along directed paths lowers the old maximum and raises the old minimum within n-1 steps; continuity and compactness imply consensus. The diameter displacement is at most twice the maximal edge response, and vanishing response-to-gap ratio forces D(t+1)/D(t)->1. In the reciprocal two-agent subfamily the exact gap recurrence is transformed by y=d^(-alpha) and H(y)=exp(y)y^(-(1+1/alpha)); rigorous mean-value asymptotics give H(y(t+1))-H(y(t))->2alpha, hence the three-term logarithmic law, epsilon hitting-time constant, and analytic-order comparison. Verified exact-rational and floating-point tests supplement, but do not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2409.10809v1, Theorems 4.1–4.3 and Appendix B concern existence of consensus for generalized biases, not the asymptotic speed for flat responses.",
+        "arXiv:2403.03913v1, Section II has a simplex-normalizing multipolar update with different state and response laws."
+      ],
+      "reasoning": "Qualitative agreement for a larger class of biases does not imply any uniform rate; indeed the constructed flat class has one-step diameter ratio tending to one. Linear finite-memory consensus results assume nonvanishing linear coupling, rather than zero response derivative at consensus. The distinct simplex-normalizing multipolar dynamics do not algebraically reduce to the stated gap recurrence.",
+      "searches": [
+        "opinion dynamics arbitrary directed graph polynomial convergence with nonlinear averaging and continuous bias functions",
+        "flat nonlinear opinion response no geometric convergence arbitrary strongly connected graph consensus diameter ratio tends to one",
+        "generalized bias opinion model consensus convergence rates slow flat e^{-1/x} 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.17615v1 (full HTML: principal model, theorem, Figure 5, appendix)",
+      "arXiv:2409.10809v1 (full HTML: theorem, generalization proof, Appendix B)",
+      "arXiv:2112.09542 (HTML Sections 4–6)",
+      "arXiv:2403.03913v1 (HTML Sections I–III)",
+      "arXiv:1802.01052 (abstract only, no full-text noncoverage conclusion)",
+      "Closest published-index summaries on seven-agent confidence switching, linear consensus with fading memory, and social-ODE critical relaxation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2402.17615v1, Theorem 3.1 + proof appendix imply consensus but no estimate for \\(D_{t+1}/D_t\\); Figure 5 explicitly contains the flat example.",
+        "arXiv:2112.09542, Sections 4–5 establish convergence and polarization limits for a different confirmation-bias model.",
+        "arXiv:2403.03913v1, Proposition 3 concerns fixed points of a distinct simplex-normalized multipolar system.",
+        "Chen et al., arXiv:1802.01052 abstract, concerns stability and equilibria for different state-dependent social bias couplings; the abstract alone cannot rule out theorem-level coverage."
+      ],
+      "reasoning": "A prior statement implies the result only if it enforces a rate of at most subgeometric on every eligible graph and the explicit \\(\\log\\log t\\), \\(\\log(2\u0007lpha)\\), and hitting-time constant for the flat scalar map. Qualitative consensus and different-bias stability theorems do not force those quantitative conclusions. General analytic-recurrence literature could supply a reusable lemma, but no decisive implication was found in the inspected primary materials.",
+      "searches": [
+        "A Multi-Agent Model for Opinion Evolution under Cognitive Biases convergence rate exponentially flat 1/log t 2024",
+        "real analytic bias versus infinitely flat bias convergence polynomial versus logarithmic opinion dynamics",
+        "Dynamics of Opinions with Social Biases 2019 Chen Qin Li Qi Shi theorem rate convergence asymptotic nonlinear"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2402.17615v1, Definition 3 and Figure 5 show the same scalar bias and two-agent object, but Theorem 3.1 proves only convergence.",
+        "arXiv:2409.10809v1, Theorem 4.2 restates convergence for disagreement biases, without the stated limit and correction."
+      ],
+      "reasoning": "The precise scalar inverse-logarithmic recurrence was searched under consensus, flat-response, and inverse-power aliases. The source identifies the underlying example, but an illustration of slow convergence neither gives the three-term inverse-gap law nor the equivalent hitting-time constant. The present theorem includes a graph-wide subgeometric obstruction not provided by these qualitative consensus statements.",
+      "searches": [
+        "nonlinear consensus powers biased DeGroot disagreement x|x|^p strongly connected directed graph polynomial rate 2024 Alvim",
+        "exponentially flat receptive resistant cognitive bias in two agent Alvim model inverse-logarithmic consensus 1/d = log t + 2 log log t + log 2",
+        "two agent reciprocal DeGroot disagreement beta exp minus inverse power iterated asymptotic log log"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest publicly indexed comparison: an exact logarithmic **switching lifetime** for a seven-agent bounded-confidence model, which counts graph switches rather than disagreement decay.",
+        "Another close indexed comparison optimizes the rate of *linear* symmetric consensus with exponential memory, for which the influence gain is nonzero.",
+        "A social-model critical relaxation result concerns an ODE for bullying prevalence and has a different state variable and polynomial decay."
+      ],
+      "reasoning": "Published-index matches were evaluated by what they imply, not title similarity. None of the examined closest entries tabulates the exact constants for the named two-agent flat bias or proves the heterogeneous graph-wide zero-exponential-rate obstruction. Absence of an indexed match is not taken as a proof of global uniqueness.",
+      "searches": [
+        "A Multi-Agent Model for Opinion Evolution under Cognitive Biases Fig 5 e^-1/x exact asymptotic logarithmic tolerance time",
+        "positive strongly connected graph asymptotically vanishing influence coefficients opinion bias cannot converge geometrically",
+        "asymptotic log log t consensus e^{-1/d} two-agent DeGroot nonlinear bias"
+      ]
+    },
+    "rationale": "The motivating 2024 full text proves qualitative agreement and depicts the identical flat-bias example, without quantitative rates. The later generalized-bias theorem similarly proves agreement but no sharp inverse-gap correction or epsilon-time equivalent. A distinct multipolar bias model and earlier confirmation-bias polarization results do not imply the same claims. Actual published-index searches, comparable original full-text sections and accessible historical claims were compared by implications. Residual risk from broad nonlinear-iteration theory is explicitly retained.",
+    "residual_risks": [
+      "Specialist slow-iteration/regular-variation theory could imply the scalar three-term formula through a more general asymptotic theorem; the mathematical novelty of generic Laplace asymptotic tools is not claimed.",
+      "Additional nonlinear consensus results may be unindexed or phrased in different variables.",
+      "Only the abstract was reviewed for the 2018 social-bias study; no full-text noncoverage finding is asserted for that source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers eventual consensus and visually slow behavior of this exact example, not its explicit three-term inverse-gap law or epsilon-hitting-time equivalent.",
+        "evidence": [
+          "arXiv:2402.17615v1, Definition 3 (bias-update equation), Theorem 3.1, Figure 5, Appendix Lemma 0.A.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.17615v1",
+        "material_read": "Full accessible HTML: model definition in Section 2, receptive-resistance domain, Theorem 3.1, Figure 5 and accompanying text, proof outline in Section 3.3, and relevant proofs in Appendix 0.A.",
+        "method": "Original arXiv full HTML, direct theorem–hypothesis–conclusion and displayed-bias comparison.",
+        "title": "A Multi-Agent Model for Opinion Evolution under Cognitive Biases",
+        "trigger": "Exact source of the two-agent exponentially flat response, and the closest same-model convergence theorem."
+      },
+      {
+        "assessment": "The theorem grants consensus in a broad class, but no rates, logarithmic correction or epsilon-tolerance constants; nonvanishing uniform mixing is not deduced.",
+        "evidence": [
+          "arXiv:2409.10809v1, Theorems 4.1–4.3 and Appendix B"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.10809v1",
+        "material_read": "Full accessible HTML: generalized update and factor conditions in Section 3.2, Theorems 4.1–4.3 in Section 4, expressiveness proof and consensus proof appendix Section B.",
+        "method": "Original arXiv full HTML with attention to rate assertions and the proof appendix.",
+        "title": "Consensus in Models for Opinion Dynamics with Generalized-Bias",
+        "trigger": "Later generalized-bias theorem could dominate a claim in a more restricted receptive-bias model."
+      },
+      {
+        "assessment": "Uses a particular confirmation-bias response and studies consensus values/polarization, not the flat disagreement-map time law.",
+        "evidence": [
+          "arXiv:2112.09542, Section 4, Section 5, Theorem 20"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.09542",
+        "material_read": "Open arXiv full HTML: update assumptions and relevant convergence/polarization statements in Sections 4–5 and related-work discussion in Section 6.",
+        "method": "Original full-text HTML, direct model and principal convergence-result comparison.",
+        "title": "A Formal Model for Polarization under Confirmation Bias in Social Networks",
+        "trigger": "Earlier development of nonlinear confirmation-bias opinion updates on weighted influence graphs."
+      },
+      {
+        "assessment": "Multidimensional simplex-normalization dynamics rather than scalar disagreement bias; its results do not imply the claimed flat-bias ratio and exact tolerance expansion.",
+        "evidence": [
+          "arXiv:2403.03913v1, Equation (1), Proposition 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.03913v1",
+        "material_read": "Original full HTML: Introduction and related work, model in Section II-B, fixed-point and stability results in Section III.",
+        "method": "Original arXiv full HTML, comparison of the underlying state space and transition operator.",
+        "title": "Multipolar opinion evolution in biased networks",
+        "trigger": "Plausible near-date biased-opinion work could have stronger general contraction results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0299c027-12ba-4751-a3e9-f307d8aaec34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact 2024 example was introduced to illustrate extremely slow practical consensus, but no time-to-accuracy result was given. The new exponential-in-inverse-tolerance law quantifies that gap, and the graph-wide obstruction shows why connectivity cannot restore exponential progress when all response derivatives vanish at agreement. The analytic comparison separates regularities producing geometric, polynomial and inverse-logarithmic convergence, a motivated structural rate classification rather than a routine tabulation.",
+    "status": "PASS"
+  }
+}
