@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The generalized Vandermonde determinant factors exactly as the ordinary Vandermonde product times \(z_1+z_2+z_3+z_4\). For four distinct unit roots, zero sum forces both the first and third elementary symmetric functions to vanish, so the root polynomial is even and the roots are precisely two antipodal pairs. The converse is immediate. This gives the full all-\(N\) classification, and the rank-\(3\) assertion follows from the ordinary Vandermonde rank of the first three rows. Exact symbolic and cyclotomic checks through \(N=40\) corroborate the argument.
+## correctness
 
-## Originality
-PASS. The closest full-text source proves an iff criterion for prime-power DFT sizes, proves uniform distribution necessary for all sizes, and explicitly shows that sufficiency fails for general composite sizes. It therefore covers the odd prime-power subcase but does not imply the all-modulus special-family theorem, the antipodal classification of every singular minor, the exact bad-minor count, or the rank statement. Searches under harmonic-frame, DFT-minor, generalized-Vandermonde, and roots-of-unity formulations found no covering result. The determinant factorization itself is classical and is not claimed as new. Residual risk remains for older material indexed only under roots-of-unity sums or generalized Vandermonde identities.
+PASS
 
-## Value
-PASS. The row set \(\{0,1,2,4\}\) is the first one-step perturbation of four consecutive DFT rows, and its generalized Vandermonde quotient collapses to a single elementary symmetric function. The result gives a complete all-modulus answer to a natural harmonic-frame instance inside a setting where the general composite-size criterion is known to fail, and it identifies the entire failure geometry rather than only deciding full spark.
+For row exponents (0,1,2,4), generalized Vandermonde equals ordinary Vandermonde times z1+z2+z3+z4. Distinct N-th roots ensure first factor nonzero. For four unit roots with sum zero, e1=0 and e3=e4 conjugate(e1)=0, so root polynomial Q(t)=t^4+e2 t²+e4 is even: roots occur in two antipodal pairs. Conversely antipodal pairs sum zero, possible among Nth roots precisely when N is even. Choose two of N/2 pairs gives binomial count; three consecutive rows give a rank-three Vandermonde, so singular rank exactly 3. Uniformity over divisors: even N fails mod2 occupancies (3,1), odd N has d=3 counts (1,2,1) or all distinct d>=5. Inspected full RESULT and exact cyclotomic/polynomial verification source; finite N<=40 confirms only, not proves all N.
 
-## Closest literature and limitations
-Alexeev-Cahill-Mixon is the decisive comparison: prime powers are already covered, while arbitrary composite sizes are not. Isaacs-Evans is relevant generalized-Vandermonde/root-of-unity background for prime order. The accepted claim is intentionally restricted to the fixed row pattern and makes no general four-row classification claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Alexeev–Cahill–Mixon Theorem 9 proves uniformity iff full spark for prime-power N, covering the odd prime-power cases here; paper notes uniformity is only necessary in general and gives N=10 composite counterexample with rows {0,1,3,4}, not {0,1,2,4}. The all-modulus exact classification and even-modulus singularity count and rank are not stated in inspected relevant section. Schur factorization itself is classical and not claimed original.
+
+## value
+
+PASS
+
+Near-consecutive four-row Fourier subframes are a natural nontrivial deformation of consecutive full-spark Vandermonde rows. This supplies exact full-spark characterization for all composite sizes and enumerates all defective maximal minors by a rigid antipodal geometry, a reusable finite-frame invariant with motivated object and parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
