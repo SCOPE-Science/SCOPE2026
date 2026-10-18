@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The argument gives size-four and size-eight deletion-output transversals at lengths seven through nine, including a six-orbit finite classification for the length-eight transversal. Period-two constructions attain the first four bounds; an eight-word linear code attains the length-nine bound. Its eight explicit output masks are pairwise disjoint and cover all \(32\) five-bit outputs, so it is a perfect code for the stated channel. Two independently implemented checks, `verify.py` and `verify_cpp.cpp`, recompute the entire channel for every short input, checks the masks, orbit witnesses and disjointness, and return `VERIFY_OK`. The general hitting-set bound and parity arguments are separately proved rather than inferred from computation.
+PASS
 
-## Originality
+With exactly two nonoverlapping adjacent-pair deletions, a hitting set of output words H yields |C|<=|H| for a code with disjoint deletion balls. For n=5,6 output space gives size 2,4 transversals. At n=7,9 keep an output whose odd slots agree, by pigeonhole among original odd slots and pair each removed odd slot with distinct adjacent even indices; gives hitting sets 4 and 8. At n=8 the period-two H={0000,0101,1010,1111} meets every ball: repeated aligned binary pair case immediately and six complement/reversal orbit witnesses for 24 distinct-pair cases; independently enumerated all 256 input words. Period-two length n words have pairwise disjoint balls for n=6,7,8. The 3 generator rows for n=9 yield 8 binary codewords with output ball sizes 1,1,1,1,7,7,7,7 summing 32; independent output-set computation proves pairwise disjointness and union all 32 five-bit words. Exact maxima (2,4,4,4,8), perfect n=9. No n>=10 theorem.
 
-**PASS, subject to residual risk.** The closest directly matching source, Wang–Kong–Yaakobi–Duman (arXiv:2606.01245v1), establishes the known length-six boundary and bounds for arbitrary and two-two burst parameters. Its inspected Introduction, Sections IV–V, examples and conclusion do not state the exact length-seven-to-nine profile or a perfect length-nine code. Ye–Sun–Yu–Ge–Elishco (arXiv:2408.03113) constructs asymptotically efficient two-burst codes and gives bounds under long-block hypotheses; Lan–Sun–Yu–Ge (arXiv:2504.20460) concerns error-ball intersections and sequence reconstruction. An unindexed earlier short-block computation remains possible; no absence of publication is formally proved.
+## originality
 
-## Value
+PASS
 
-**PASS.** The natural first five admissible blocklengths reveal that increasing the length from six to eight does not increase the largest code, but length nine supports eight codewords. More significantly, the exhibited length-nine linear code is perfect for the exact channel: every received five-bit word decodes to precisely one of its eight codewords. This is a concrete finite coding benchmark and a sharp transition not supplied by asymptotic redundancy statements.
+PASS best-of-knowledge with material literature-access risk: Ye et al 2024/26 gives asymptotic two-exact-burst constructions and a general graph-independent-set lower bound, not these five consecutive small optimal sizes. Wang et al 2026 public abstract gives general multiple-burst bounds; source assigned package correctly credits known n=6 special case. Full 2026 Wang arXiv PDF was inaccessible through current channels and protected retrieval reported vpn_disconnected; do not claim it is wholly noncovering. Neither inspected full Ye text nor available Wang material contains an explicit n=7,8 plateau and perfect linear n=9 partition.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+These are small but mathematically natural first nontrivial exact blocklengths for two-burst deletion coding, with the sharp n=8 plateau, first growth at n=9, and a perfect linear length-nine code partitioning the output space. Such extremal anchors and explicit perfect packing can inform coding constructions, finite bounds and benchmark algorithms despite absence of n>=10 census. Not an arbitrary fragment: the channel and initial spectrum are canonical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

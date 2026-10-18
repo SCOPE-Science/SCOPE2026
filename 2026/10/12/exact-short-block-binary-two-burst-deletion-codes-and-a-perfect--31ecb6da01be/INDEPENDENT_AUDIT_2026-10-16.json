@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:18:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With exactly two nonoverlapping adjacent-pair deletions, a hitting set of output words H yields |C|<=|H| for a code with disjoint deletion balls. For n=5,6 output space gives size 2,4 transversals. At n=7,9 keep an output whose odd slots agree, by pigeonhole among original odd slots and pair each removed odd slot with distinct adjacent even indices; gives hitting sets 4 and 8. At n=8 the period-two H={0000,0101,1010,1111} meets every ball: repeated aligned binary pair case immediately and six complement/reversal orbit witnesses for 24 distinct-pair cases; independently enumerated all 256 input words. Period-two length n words have pairwise disjoint balls for n=6,7,8. The 3 generator rows for n=9 yield 8 binary codewords with output ball sizes 1,1,1,1,7,7,7,7 summing 32; independent output-set computation proves pairwise disjointness and union all 32 five-bit words. Exact maxima (2,4,4,4,8), perfect n=9. No n>=10 theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye et al develop general redundancy inequalities and independence-number bounds; Wang et al abstract announces general upper/lower bounds and structural deletion-ball theory."
+        ],
+        "reasoning": "A general bound may determine isolated special n values if sharp; the n=6 value is credited, but the accessible source material does not demonstrate that their general bounds yield the n=7,8,9 optima or perfect code. Full Wang comparison remains a genuine residual risk.",
+        "searches": [
+          "Ye et al arXiv:2408.03113 §§II-III",
+          "Resultary: binary codes two bursts of length 2 deletions n 7 8 9 perfect 8 codewords",
+          "Wang et al arXiv:2606.01245 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Ye et al arXiv:2408.03113 full accessible relevant §§II-III",
+        "Wang et al arXiv:2606.01245 abstract; complete manuscript inaccessible; authorized connection unavailable",
+        "Lan et al arXiv:2504.20460 abstract/context",
+        "Resultary: binary codes two bursts of length 2 deletions n 7 8 9 perfect 8 codewords",
+        "Git blob RESULT 20bc0cdd1617c81fef59b1995e7d1b27b2e42ce4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exhibited n=9 code has 8 balls partitioning all 32 outputs, and the H9 transversal establishes universal upper 8; source asymptotic lower bounds do not mathematically assert equality or perfectness."
+        ],
+        "reasoning": "The n=6 value is prior; the n=7,8 equality and n=9 perfect code are additional finite extremal facts unless a source demonstrates a dominating small-n bound, still a residual comparison risk.",
+        "searches": [
+          "Ye et al general code lower bound, §III",
+          "Resultary: binary codes two bursts of length 2 deletions n 7 8 9 perfect 8 codewords",
+          "Wang et al abstract/source assigned known n=6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The channel is exactly two disjoint adjacent-pair deletions, not arbitrary four deletions or one 2-substring-edit; unlike 2-substring-edit Resultary hit these code sizes refer to two (2,2) bursts."
+        ],
+        "reasoning": "Earlier search hits for 1 deletion plus substitution, 2-substring edit and other burst shapes are not equivalent channels; the accessible Ye full text uses same channel but gives asymptotic constructions.",
+        "searches": [
+          "Resultary: binary codes two bursts of length 2 deletions n 7 8 9 perfect 8 codewords",
+          "Ye et al arXiv:2408.03113 two exact bursts; Wang et al arXiv:2606.01245"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A separate Resultary length-six two-list two-deletion code and length-eight 2-substring-edit code treat different decoding problems, not exact (2,2) burst code M_2(n,(2,2))."
+        ],
+        "reasoning": "Exact short-block codes require a matching transversal and packing; no matching database/table for this channel was verified in inspected texts; inaccessible same-channel Wang full text prevents definitive table absence.",
+        "searches": [
+          "Resultary: binary codes two bursts of length 2 deletions n 7 8 9 perfect 8 codewords",
+          "Ye et al arXiv:2408.03113 text search and theorem sections",
+          "Wang et al arXiv:2606.01245 available metadata"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with material literature-access risk: Ye et al 2024/26 gives asymptotic two-exact-burst constructions and a general graph-independent-set lower bound, not these five consecutive small optimal sizes. Wang et al 2026 public abstract gives general multiple-burst bounds; source assigned package correctly credits known n=6 special case. Full 2026 Wang arXiv PDF was inaccessible through current channels and protected retrieval reported vpn_disconnected; do not claim it is wholly noncovering. Neither inspected full Ye text nor available Wang material contains an explicit n=7,8 plateau and perfect linear n=9 partition.",
+      "residual_risks": [
+        "Wang et al same-channel 2026 original full manuscript not materially read; it may contain a hidden small-n table, special bound or perfect construction. Available abstract cannot rule that out.",
+        "No uniqueness/all-optimum classification of the length-nine code or any n>=10 assertion.",
+        "The proof of n=8 depends on six specific symmetry representatives, independently checked by exhaustive finite enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME CHANNEL, GENERAL BOUNDS NOT EXACT N=7..9 CLASSIFICATION",
+          "evidence": "They write M(q,n,b) as graph independence and prove general lower bounds; do not state the five-value profile in inspected material.",
+          "identifier_or_url": "https://www.researchgate.net/publication/382914625_Codes_Correcting_Two_Bursts_of_Exactly_b_Deletions",
+          "material_read": "Accessible full preprint text §§II-III definitions, graph reformulation, Theorem III.1, and construction parameters",
+          "method": "Primary full-text relevant sections compared with finite extremal claim",
+          "title": "Ye, Sun, Yu, Ge and Elishco, Codes Correcting Two Bursts of Exactly b Deletions",
+          "trigger": "Same exact 2-b-burst channel, broad construction and bounds"
+        },
+        {
+          "assessment": "UNRESOLVED FULL-TEXT COVERAGE RISK",
+          "evidence": "Abstract states improved general upper/lower bounds and deletion-ball structural results; it cannot establish whole-paper noncoverage of n=7..9 or a perfect code.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.01245",
+          "material_read": "Public preprint abstract/metadata; complete PDF unavailable via attempted arXiv/OA access, authorized institutional retrieval returned vpn_disconnected",
+          "method": "Abstract and available citation comparison only; full text NOT read",
+          "title": "Wang, Kong, Yaakobi and Duman, Upper Bounds on Multiple b-Burst Deletion-Correcting Codes",
+          "trigger": "Closest 2026 same-channel structural bounds potentially covering finite n"
+        },
+        {
+          "assessment": "DIFFERENT RECONSTRUCTION INVARIANT",
+          "evidence": "Computes/interprets burst deletion ball sizes/intersections and reconstruction rather than proven exact maximum code sizes for n=7..9.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.20460",
+          "material_read": "Abstract/bibliographic context only",
+          "method": "Targeted title/problem comparison",
+          "title": "Lan, Sun, Yu and Ge, Sequence Reconstruction under Channels with Multiple Bursts",
+          "trigger": "Nearby ball sizes and sequence reconstruction results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are small but mathematically natural first nontrivial exact blocklengths for two-burst deletion coding, with the sharp n=8 plateau, first growth at n=9, and a perfect linear length-nine code partitioning the output space. Such extremal anchors and explicit perfect packing can inform coding constructions, finite bounds and benchmark algorithms despite absence of n>=10 census. Not an arbitrary fragment: the channel and initial spectrum are canonical.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ye et al arXiv:2408.03113 full accessible relevant §§II-III",
+    "Wang et al arXiv:2606.01245 abstract; complete manuscript inaccessible; authorized connection unavailable",
+    "Lan et al arXiv:2504.20460 abstract/context",
+    "Resultary: binary codes two bursts of length 2 deletions n 7 8 9 perfect 8 codewords",
+    "Git blob RESULT 20bc0cdd1617c81fef59b1995e7d1b27b2e42ce4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Wang et al same-channel 2026 original full manuscript not materially read; it may contain a hidden small-n table, special bound or perfect construction. Available abstract cannot rule that out.",
+    "No uniqueness/all-optimum classification of the length-nine code or any n>=10 assertion.",
+    "The proof of n=8 depends on six specific symmetry representatives, independently checked by exhaustive finite enumeration.",
+    "Best-of-knowledge scientific assessment, not formal proof certification or verification/attestation.",
+    "No Git source modification; publication withheld due to inspected public provenance and unreviewed generated public files."
+  ],
+  "schema_version": 1
+}
