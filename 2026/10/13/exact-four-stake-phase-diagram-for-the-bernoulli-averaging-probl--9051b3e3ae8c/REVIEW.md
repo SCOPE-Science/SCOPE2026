@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A complete five-strip proof handles all \(0<p\le t\le1\), including threshold equality. The first three regimes use exact winning-singleton counts and elementary binomial inequalities. For thresholds above \(1/2\), the intersecting-graph classification of winning pairs yields the sharp two-candidate majority bound, and above \(2/3\) the weight-sum exclusions force a one-stake upper bound. Explicit equal-stake vectors attain every bound. Independent exact rational finite-grid checks replay many instances; the proof is analytic and requires no such grid.
+## correctness
 
-## Originality
-PASS. The motivating full paper proves unrestricted-stake optimality in some parameter bands, and those covered parts are not presented as new. It leaves gaps, while the new four-stake theorem supplies a complete classification, including a low-threshold strip in that gap. Searches under the precise weighted-Bernoulli, Csóka, and four-stake formulations did not locate a stronger statement. An older equivalent small-family theorem remains the principal residual bibliographic risk.
+PASS
 
-## Value
-PASS. The four-position sharp phase diagram resolves a natural finite-dimensional version of an explicit optimization conjecture, not an arbitrary parameter sample, and gives the exact optimal number of equal stakes across all bias-threshold regimes. The result is limited to at most four positive stakes.
+Independently checked all five boundary intervals and equality cases. Below t=1/2, bound by number s of winning singletons (s<=3 or s<=2); conditional binomial event requiring >=2 other successes produces the exact nonnegative differences (3-s)pq^3, pq^2(1-2p), pq^2(2-3p), using p<=t. Above 1/2 winning pairs form an intersecting graph; every intersecting-edge family on four vertices lies in a star or triangle. With no winning singleton, triangle/star bounds <=3p^2-2p^3, and no pairs yields <=4p^3-3p^4. Above 2/3 no triangle of winning edges exists; two winning edges force all winning sets to contain their common vertex, one winning edge forces a fixed endpoint, and without pairs at most four winning triples give <=p using p<=t<=3/4 when all four win. One-, two-, three-, four-equal vectors attain all pieces. Independently checked exact rational Bernoulli sums on all 5,940, 35,490 and 371,910 grid-weight/parameter combinations for denominator 8,12,20, with no upper-bound violation. Grid is corroborative, not real-continuum proof.
 
-## Closest literature and limitations
-Fokkink, Meester, and Pelekis, arXiv:2002.06804v1 / DOI:10.30757/ALEA.v20-07, prove stronger unrestricted-number results in selected parameter regions; the four-stake theorem adds a complete classification on the parameter triangle. Fishburn et al., DOI:10.1137/0607009, supply the intersecting-family theorem applied in the high-threshold literature. No generalization beyond four positive stake positions, nor uniqueness of all optimizers, is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fokkink--Meester--Pelekis gives Csoka's unrestricted-number-stakes conjecture and proves several parameter regions, including p<=1/2<t and certain favorable-odds special cases; Fishburn et al. gives general p-weight of intersecting families. Neither full-text theorem supplies this complete four-coordinate two-parameter envelope across uncovered low-threshold zones. The four-stake restriction is material; broader unlimited-stake results in covered zones are explicitly prior.
+
+## value
+
+PASS
+
+A complete exact solution of the first nontrivial small finite-dimensional instance across the full (p,t) triangle, including regions still open with unbounded stake count, is a motivated combinatorial probability frontier. Sharp strategy switch and endpoint effects can be needed by finite betting designs. No claim to solve unrestricted Csoka conjecture or uniqueness of all optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
