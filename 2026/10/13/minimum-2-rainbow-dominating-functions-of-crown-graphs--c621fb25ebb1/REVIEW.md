@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof begins with the exact criterion that an empty \(a_i\) requires both colors in the opposite color supports after deleting index \(i\), and symmetrically for an empty \(b_i\). A weight below four is ruled out by side-weight arguments that cover zero and positive side weights separately. At weight four, every \(n\ge5\) instance is forced to side weights \((2,2)\); the only two-color realizations of side weight two are one double label or two differently colored singleton labels, and the unique-color obstruction forces the stated index alignment. The \(n=4\) and \(n=3\) exceptions are classified separately and exhaustively. The standalone checker confirms the literal definition, structural criterion, classifier, and counts through \(n=12\), with full-state enumeration for the two exceptional orders. The finite check is regression evidence, not the infinite proof.
+## correctness
 
-## Originality
-**PASS.** The closest published database result classifies all 2-rainbow dominating functions on complete multipartite graphs and therefore covers \(K_{n,n}\), but a crown graph is not complete multipartite for \(n\ge3\). Its missing matched edge creates an index-sensitive unique-color obstruction not present in the partwise complete-multipartite criterion. The foundational full text establishes the parameter and prism correspondence but contains no crown theorem. Searches covered crown, complete-bipartite-minus-matching, bipartite-Kneser, bipartite-double-cover, tensor-product, and prism formulations. No statement implying the retained minimum-family classification or multiplicity was found. Residual indexing risk remains explicit.
+PASS
 
-## Value
-**PASS.** The crown graph is the canonical one-factor deletion of \(K_{n,n}\). The scalar 2-rainbow domination number stays at \(4\), so the minimum-family structure captures information invisible to the scalar invariant: for \(n\ge5\), every optimum is forced onto either one matched index or one common two-index support, yielding exactly \(2n^2-n\) optima. Through the classical prism correspondence, the result simultaneously classifies all minimum dominating sets of \(\operatorname{Cr}_n\square K_2\). This is a natural structural refinement of a standard invariant under a standard graph perturbation.
+For crown Cr_n = K_{n,n} with a perfect matching deleted, an empty a_i sees both colors exactly if B_1\{i} and B_2\{i} are nonempty, and similarly swapping sides. Every feasible function of weight at most 3 is impossible for n≥3; weight 4 is realized by matching doubly colored vertices. For n≥5 all minima have side weights (2,2), forcing either aligned double labels on the same index (n choices) or independently colored singleton pairs on the same two indices (4 binom(n,2) choices). At n=4 twelve zero-side singleton configurations supplement 28 core functions; at n=3 twelve zero-side (1,2,3)-permutations and 24 (1,3)-split configurations supplement 15. Independent literal label enumeration through n=8 confirms minima 51,40,45,66,91,120 and no smaller weights. This is a symbolic all-n proof; the finite census is corroboration only.
 
-## Closest literature and limitations
-Brešar, Henning, and Rall introduced rainbow domination in 2005 and their 2008 full treatment records MSC 05C69 and the weight-preserving prism correspondence. Brešar and Kraner Šumenjak study the 2-rainbow parameter itself. Chellali, Haynes, and Hedetniemi give general comparison bounds. The closest research-database item, `7f7bcd9e9b58`, gives an exact all-function theorem for complete multipartite graphs. None of the inspected statements contains the matched-index crown classification. The finite checker does not replace the symbolic proof, and literature search cannot guarantee global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2005/2008 rainbow-domination papers define the parameter and establish its weight-preserving G×K2 prism correspondence; that is credited, not claimed. A published Resultary theorem completely classifies all 2-rainbow functions on complete multipartite graphs, but Cr_n is not complete multipartite: deleting matched edges creates index-sensitive nonneighbors; the prior theorem does not imply the crown-specific counts. Published restrained- and perfect-Roman crown-graph results involve different feasibility constraints. No exact crown 2-rainbow min-function classification found under crown/bipartite Kneser/tensor-product aliases.
+
+## value
+
+PASS
+
+The full set of minimum functions and exact multiplicity 2n²−n, with exceptional orders 3 and 4, is a natural extremal classification on an important near-complete bipartite family. Through the standard prism correspondence it simultaneously counts distinct minimum dominating sets of a graph product, giving a reusable exact invariant rather than merely an obvious bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

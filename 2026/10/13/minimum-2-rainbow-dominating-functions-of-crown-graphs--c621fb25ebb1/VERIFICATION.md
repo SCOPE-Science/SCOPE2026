@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses the exact support criterion
-\[
-f(a_i)=\varnothing\Rightarrow B_1\setminus\{i\}\ne\varnothing\text{ and }B_2\setminus\{i\}\ne\varnothing,
-\]
-with the symmetric condition for empty \(b_i\). The standalone checker constructs the crown adjacency relation directly, evaluates the literal 2-rainbow definition, independently evaluates this criterion, and compares every feasible weight-four labeling with the structural classifier.
+## correctness
 
-For \(3\le n\le12\), it enumerates every labeling of total weight at most four, which is enough to test both the lower bound and every claimed minimum family. For \(n=3\) and \(n=4\), it additionally enumerates the complete state space of all \(4^{2n}\) labelings and recomputes the minimum weight and its multiplicity from scratch.
+PASS
 
-Run command:
+For crown Cr_n = K_{n,n} with a perfect matching deleted, an empty a_i sees both colors exactly if B_1\{i} and B_2\{i} are nonempty, and similarly swapping sides. Every feasible function of weight at most 3 is impossible for n≥3; weight 4 is realized by matching doubly colored vertices. For n≥5 all minima have side weights (2,2), forcing either aligned double labels on the same index (n choices) or independently colored singleton pairs on the same two indices (4 binom(n,2) choices). At n=4 twelve zero-side singleton configurations supplement 28 core functions; at n=3 twelve zero-side (1,2,3)-permutations and 24 (1,3)-split configurations supplement 15. Independent literal label enumeration through n=8 confirms minima 51,40,45,66,91,120 and no smaller weights. This is a symbolic all-n proof; the finite census is corroboration only.
 
-`python3 verify_2rainbow_crown.py`
+## originality
 
-Observed output:
+PASS
 
-`VERIFY_OK n_range=3..12 low_weight_labelings=619907 criterion_checks=619907 minimum_class_checks=1263 count_checks=10 full_small_checks=69632 max_order=24`
+The 2005/2008 rainbow-domination papers define the parameter and establish its weight-preserving G×K2 prism correspondence; that is credited, not claimed. A published Resultary theorem completely classifies all 2-rainbow functions on complete multipartite graphs, but Cr_n is not complete multipartite: deleting matched edges creates index-sensitive nonneighbors; the prior theorem does not imply the crown-specific counts. Published restrained- and perfect-Roman crown-graph results involve different feasibility constraints. No exact crown 2-rainbow min-function classification found under crown/bipartite Kneser/tensor-product aliases.
 
-The computation proves only the tested finite ranges. The all-\(n\) theorem is established by the symbolic proof in `RESULT.md`.
+## value
+
+PASS
+
+The full set of minimum functions and exact multiplicity 2n²−n, with exceptional orders 3 and 4, is a natural extremal classification on an important near-complete bipartite family. Through the standard prism correspondence it simultaneously counts distinct minimum dominating sets of a graph product, giving a reusable exact invariant rather than merely an obvious bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
