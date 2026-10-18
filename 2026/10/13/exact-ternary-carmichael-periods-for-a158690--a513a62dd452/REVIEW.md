@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The coefficientwise identity in the Stirling basis proves the factorial divisibility needed to truncate the generating function for every ternary modulus. Euler's theorem supplies an eventual period; a finite-difference argument exploiting the factor \(1-e^{-9t}\) annihilates all higher summands in the normalized first-third shift. The remaining four explicit subset sums are tabulated and independently recomputed by the included verifier. The parity obstruction rules out every proper divisor of the Carmichael period. Finite coefficient experiments support, but do not replace, the infinite proof.
+## correctness
 
-**Originality — PASS, subject to documented access risk.** Kallat's publicly available 2026 abstract states an eventual Carmichael period for all moduli, not the least period. The OEIS entry states Bala's older eventual-period conjecture and a dyadic example, not a ternary sharpness theorem. Targeted semantic searches for this sequence, modulo-three power towers, period minimality, and first-third-shift congruences returned no covering claim. A separate exact-period result concerns powers of two, where the least period can be smaller; it cannot imply the ternary classification. The full Kallat manuscript was inaccessible, so its body and any unindexed equivalent proof remain material residual risks.
+PASS
 
-**Value — PASS.** An all-exponent determination of a natural least-period invariant resolves the sharpness question for the first odd-prime-power tower and distinguishes it structurally from dyadic behavior. The uniform exact difference congruence explains why the general period cannot be divided by three, beyond a finite table or routine periodicity corollary.
+PASS: Let P_m(n) be coefficients of the m-th product term. Expansion in y=e^{−t}−1 with integral coefficients divisible by y^m implies m!|P_m(n), uniformly truncating m≥3r modulo 3^r. For m<3r inclusion-exclusion expresses terms as sums of K_S^n and Euler/Carmichael periodicity gives eventual period 2·3^{r−1}. For r≥2, normalized first-third-shift at h=2·3^{r−2} depends on K_S modulo 9; the factor with 2j−1=9 (j=5) pairs/cancels all m≥5. Exact m≤4 subset sums produce residue 2 for even n and zero for odd. Modulo three a(n) alternates, so all eventual periods are even; the nonzero first-third shift excludes all proper divisors. Independent dual coefficient recurrences plus direct subset-residue check corroborated r=1..4 at tested indices, not the infinite statement.
 
-**Limitations.** The least preperiod and other odd prime-power towers are not classified; the complete motivating preprint was not obtained. The scientific proof has not been independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+PASS: Read Kallat's entire seven-page 2026 arXiv manuscript and its theorem/proof of the all-moduli Carmichael eventual period. It supplies an upper period for 3^r, but no proof that the period is minimal nor the parity-dependent first-third-shift obstruction. OEIS A158690 describes Bala's conjecture and initial values. Thus the exact all-r ternary least period is not an immediate implication of the cited upper bound. Unindexed equivalent work remains possible.
+
+## value
+
+PASS
+
+PASS: The least eventual period is the sharp invariant behind Bala's periodicity question. Proving the Carmichael period is attained at every ternary prime-power modulus, with a uniform explicit nonzero half-shift digit, resolves the first odd-primary sharpness tower and explains its contrast with dyadic reductions. This is an infinite statement with a structural cancellation argument, not a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
