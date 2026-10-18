@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_order16.py` in the same directory. The entire proof checker is included in this package, uses the Python standard library only, and does not import any saved computation or external data. Its final lines read:
+# Independent mathematical audit
 
-```
-VERIFIED: every normalized weak tile in every abelian group of order 16 tiles.
-NORMALIZED_SUBSETS_CHECKED= 163840
-```
+## correctness
 
-The enumeration loops over every one of the \(2^{15}\) origin-containing nonempty subsets of each group, without a heuristic stopping threshold. For each, it constructs the exact group table and the difference support \(A-A\), checks all legal translate blocks, enumerates possible exact tiling partners, and performs fraction-free integer Gaussian elimination on every remaining incidence system. There are no floating-point constants, tolerances, random searches, or external scientific code dependencies in the certificate.
+PASS
 
-For a concrete nontrivial obstruction in \(\mathbb Z_{16}\), take
-\[
-A=\{0,1,2,9\},\quad
-T_A=\{3,4,5,6,10,11,12,13\}.
-\]
-The complement of \(A\), in increasing order, is
-\[
-X=(3,4,5,6,7,8,10,11,12,13,14,15).
-\]
-Assign integer weights
-\[
-w=(0,1,-1,-1,2,-1,2,-2,0,1,0,0).
-\]
-Then \(\sum_{x\in X}w(x)=1\) but \(\sum_{a\in A}w(a+t)=0\) for every allowed \(t\in T_A\), contradicting a weak tiling, even one with signed weights supported on the legal shifts.
+Normalize A to contain zero. The convolution identity at a∈A and nonnegativity force h(t)=0 on (A-A)\{0}. For every remaining x∉A the unknown values on allowed shifts solve integer incidence M_A h=ones. The standalone exact checker constructs each of the five group tables and iterates every one of the 2^15 normalized nonempty subsets; for every case, either allowed shifts fail coverage, an explicit compatible complement exists, or integer elimination finds rank_Q[M|1]>rank_Q M. Rational inconsistency excludes all real, hence nonnegative, solutions. Direct converse takes h=1_B for a tiling complement containing zero. I independently read and reran the complete deterministic Python checker, which terminated successfully with 163840 subsets and exact tile counts 1,15,95,139,1;1,15,183,371,1;1,15,311,387,1;1,15,359,787,1;1,15,455,1395,1. Exhaustiveness depends on transparent loop and exact group construction, not a sampled finite experiment.
 
-An additional exact symbolic-rank cross-check compared the same integer elimination method to rational ranks on \(800\) deterministic random rectangular matrices. This independent software check does not replace the self-contained exhaustive group verifier.
+## originality
 
-The claim does not address other group orders, uniqueness of weak tiling weights, or a general structural theorem without finite enumeration.
+PASS
+
+The primary Kiss--Matolcsi--Matolcsi--Somlai theorem defines normalized positive-definite weak tiling and proves low-dimensional elementary p-group results, not the five order-16 types without Fourier positivity. An earlier complete F2^4 census establishes one of the five cases exactly (counts 1,15,455,1395,1) and is acknowledged as known. Spectral/Fuglede censuses for Z4² and Z4×Z2² concern spectral sets rather than arbitrary nonnegative normalized weak complements. The other four group types and all-order-16 classification survive direct implication checks.
+
+## value
+
+PASS
+
+A complete cutoff over the natural five isomorphism classes at order 16 addresses whether normalized weak tiling rigidifies to an actual translational factorization. It is an exact full finite classification with nontrivial rational-infeasibility certificates; dropping positive definiteness is a substantive strengthening, and the known F2^4 component is explicitly not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
