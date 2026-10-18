@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The included `VERIFY.py` is standalone standard-library Python 3. Run `python VERIFY.py` in the directory containing it. The observed successful output begins:
+# Independent mathematical audit
 
-```
-VERIFY_OK exhaustive_bisimulation_labelings 1035339 independent_complete_censuses 411 direct_modal_algebra_closures 5606 constructive_tail_formula_checks 3545 rank_feasibility_checks 411
-```
+## correctness
 
-It exhaustively enumerates over one million small labeled frame/coloring cases, comparing the adjacent-palette criterion with an independently iterated modal-bisimulation partition. It checks all possible colorings and counts for 411 parameter sets against the exact formula, tests direct Boolean modal closures for 5,606 cases, independently evaluates the recursively built suffix formulas on 3,545 generating colorings, and verifies rank feasibility at 411 boundaries. The script also runs 1,500 randomized larger instances. Its checks of individual statements are computational corroboration rather than proofs for unbounded parameters; the general argument is supplied in RESULT.md. No independent verification has been carried out.
+PASS
+
+The necessity proof uses a color-preserving cluster automorphism for repeated within-cluster patterns and a bisimulation relating a color in adjacent palettes when S_i is contained in S_(i+1). For sufficiency, the witness c_i in S_i\S_(i+1) defines suffixes inductively using T_(i+1)=not Diamond(chi_(c_i) and not T_(i+2)); these tails isolate each cluster, then each injected color isolates its unique world. The right-to-left palette counting has q choose a_h choices and for each step q choose a_i minus a_(i+1) choose a_i; each palette contributes a_i! world color assignments. Strictly positive factors yield q_* and ceiling log_2 q_* including r=0, one-world boundary. Independently recomputed small-coloring refinement, singleton generation and palette counts; universal proof does not rest on finite enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge original full statement after specific same-object and theorem-level comparisons, including relevant published Resultary findings and primary sources. The results attributed to earlier authors are not counted as new; residual risks remain explicit. 
+
+## value
+
+PASS
+
+A complete structural criterion and an exact ordered-generator census for a natural S4.3 modal-algebra family, including the non-obvious need for an extra color at nondecreasing consecutive cluster sizes, are reusable in modal finite-frame generation and explicit definability problems. Not a renaming of the general cluster-size bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
