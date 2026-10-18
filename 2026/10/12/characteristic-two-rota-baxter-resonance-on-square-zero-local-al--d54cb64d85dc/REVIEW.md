@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Coefficient comparison on \((v,v)\), \((1,v)\), and \((1,1)\) forces the image into the square-zero radical, \(L^2=0\), and \(2L(u)=0\). The converse is verified for all input pairs, not merely observed experimentally. The count of rank-\(r\) square-zero maps is reconstructed from image/kernel flags and an isomorphism. Direct exhaustive identity tests on six finite instances agree with all claimed rank/index boundaries and totals. Boundary cases \(n=1\), characteristic two, and \(P=0\) are explicitly handled.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Farooq's 2026 Theorem 3.4 is stated for characteristic zero and demands \(P^2=0\); the displayed characteristic-two operator with \(P^2(1)\ne0\) is impossible there. The 2021 unital-algebra nilpotency theorem is likewise characteristic-zero. The closest retrieved characteristic-two exterior-algebra operator census uses an algebra with nonzero radical square, so it cannot imply the current classification merely by parameter specialization. Searches using Rota–Baxter/Rota Baxter, square-zero, truncated polynomial, nilpotency index, dual numbers, positive characteristic, and finite-field enumeration did not identify a stronger covering theorem. This is a literature-based comparison, not a proof of priority; hidden equivalent terminology remains a risk.
+PASS
 
-**Value — PASS.** The main phenomenon is a sharp qualitative change of nilpotency index caused specifically by characteristic two on an entire natural family of first-order local algebras. The theorem describes all operators and determines an exact joint distribution of operator rank and nilpotency index over every finite field, not an arbitrary small-number count or a mere renaming of characteristic-zero formulas. The characteristic-two nilpotency-index-three locus is nonempty exactly from radical dimension two onward, and its finite-field cardinality is explicit. This supplies reusable structural data for further Rota–Baxter classification problems.
+Reconstructed the weight-zero identity for A=K⊕V with V²=0 and finite dim V=n≥1. Writing P(1)=a+u, P(v)=f(v)+L(v), scalar parts at (v,v) give f(v)²=2f(v)², forcing f=0 over any field; similarly (1,1) forces a=0. Then (1,v) gives L²=0; (1,1) gives 2L(u)=0. Conversely xP(y)+P(x)y∈V and P of this equals 2abL(u), so both constraints suffice. Thus P²(a+v)=aL(u), P³=0; characteristic two admits index 3 iff L(u)≠0; other characteristics require P²=0. Square-zero maps of rank r correspond to im U⊂ker W of dimensions r,n-r and an isomorphism V/W→U, proving M_q(n,r); each u-stratum follows from im L⊂ker L. Independent brute force over F2,n=2 enumerated all 2^9 linear maps, checked all basis-pair identities, found 16 RB maps with index counts 1,9,6. Full source result and verify.py were inspected, not merely log outputs.
 
-**Scientific limitations.** The family is radical-square-zero and the weight is zero; no generalization to nonsplit or longer local algebras is proved. Exhaustive tests cover only the fields and dimensions listed in `VERIFICATION.md`. Published full-text inspection of Farooq's closest classification supports the novelty distinction; equivalent unindexed historical work cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The char2 resonance adds u not in ker L and exact q-even rank/index counts absent from the directly comparable characteristic-zero theorem. Full available Farooq text explicitly assumes characteristic zero and states P²=0 (Theorem 3.4); char2 contradicts a naive extension. Nearby exterior-algebra F2 classification has radical square nonzero and different multiplication, so its finite enumeration does not imply the split square-zero universal classification. Published search is nonexhaustive, with alias risk explicitly retained.
+
+## value
+
+PASS
+
+This is a motivated sharp characteristic boundary of a standard operator identity on the natural universal radical-square-zero local algebra. The general all-fields structural equivalence and all-finite-fields rank/index census exhibit a genuine new nilpotency phenomenon and give exact data for arbitrary embedding dimension; this is more than a tiny numerical check or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
