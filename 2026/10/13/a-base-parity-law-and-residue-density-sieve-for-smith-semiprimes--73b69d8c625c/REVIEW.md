@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Smith equality gives the exact necessary congruence
-\[
-(p-1)(q-1)\equiv1\pmod{B-1}.
-\]
-When \(B\) is odd, reduction modulo \(2\) excludes every distinct-prime semiprime and every odd prime square, leaving only \(4\); direct base-\(B\) digit sums show that \(4\) fails in base \(3\) and succeeds in every odd base at least \(5\).
+## correctness
 
-For even \(B\), the modulus \(m=B-1\) is odd. Every compatible distinct-prime pair has residues \((r,T(r))\), where \(T(r)=1+(r-1)^{-1}\) on the set of residues for which both \(r\) and \(r-1\) are units. The map is an involution, and the Chinese remainder theorem gives
-\[
-|A_m|=\prod_{\ell^a\parallel m}\ell^{a-1}(\ell-2).
-\]
-For each fixed ordered reduced residue pair, prime-number theory in arithmetic progressions gives the semiprime main term \(x\log\log x/[\varphi(m)^2\log x]\). Brun--Titchmarsh controls the large-small-prime tail, and prime squares are lower order. The displayed constant and upper-density conclusion follow.
+PASS
 
-## Originality
-PASS. The general congruence modulo \(B-1\) is known and is explicitly treated as prior work. Decimal Smith semiprimes and their digital-root restriction are also known and are not claimed as new. The closest complete archival Smith-number papers inspected concern decimal repunit constructions and contain no semiprime theorem. Searches for odd-base Smith semiprimes, general-base semiprime residue classes, and semiprime asymptotics found no statement of the base-parity classification or the explicit density constant.
+The digit-sum congruence s_B(n)=n mod(B-1) gives (p-1)(q-1)=1 mod m for n=pq, including p=q. If B is odd, m even: all cases except p=q=2 contradict parity; base 3 gives s_3(4)=2!=4, while every odd B>=5 has s_B(4)=4=2s_B(2). For even B, m is odd: distinct prime residues satisfy r,T(r)=1+(r-1)^(-1), r in A_m with r,r-1 units, and T is involutive. CRT counts |A_m|=prod l^(a-1)(l-2). Standard fixed-modulus PNT in AP plus Mertens estimates and Brun-Titchmarsh bound each ordered residue prime-pair contribution to x loglog x/(phi(m)^2 log x); prime squares are lower-order. This is the density of the NECESSARY congruence-compatible superset C_B, not the true Smith subset M_B. Independent direct digit sums for all semiprimes <=30000 in B=2..20 confirm odd-base classification; checked T for odd moduli up to 39 and decimal A_9={2,5,8}, c_10=1/12. Finite enumeration does not establish the asymptotic.
 
-The main residual risk is that the parity argument is elementary and could have appeared as an unindexed observation in recreational or base-dependent Smith-number material. The density theorem is less likely to be hidden by terminology because it requires a fixed-residue prime-pair asymptotic, but an unindexed note remains possible.
+## originality
 
-## Value
-PASS. The theorem is not a bounded table or a restatement of the decimal digital-root observation. It classifies the entire semiprime layer in every odd base and, in every even base, converts the universal digit-sum congruence into a quantitative asymptotic sieve with an explicit Euler-product constant. This sharply separates odd and even bases and supplies a natural baseline for any finer distribution theory of base-dependent Smith semiprimes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Smith semiprime sequences and the decimal digital-root residue restriction are prior; OEIS A279314 already explicitly describes modulus B-1 in arbitrary bases. The assessed surviving statement is the exact odd-base semiprime classification plus all-even-base involutive residue pairing and its asymptotic semiprime-compatibility sieve, not claimed novelty of congruence (1) or decimal patterns.
+
+## value
+
+PASS
+
+The all-odd-base complete semiprime classification and closed all-even-base asymptotic sieve constant quantify a natural base-dependent obstruction. The density theorem is a genuine arithmetic counting statement over infinitely many prime pairs, not a finite-table recomputation; modest complexity is compensated by complete explicit parameter coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
