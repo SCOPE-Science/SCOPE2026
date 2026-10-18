@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and geometry are explicit (n>=4, degree-three C_n square K2). Four-rung local equivalence gives a direct closed-walk bijection; a reconstructed 64-state matrix yields exactly 108 allowed edges and a single 29-state primitive recurrent component. SymPy exact weighted determinant gives x^51 F G, with independently enumerated full polynomial coefficients for n=4..8. Rouché, Descartes and PF identify the Perron root; analytic perturbation proves the density LLN. Finite tests are ancillary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Toninelli et al. discuss the existence of extensive frozen families of two-wide slabs and infinite-lattice ergodicity (full HTML §1.3 and sections 2,5), but not a finite square-ladder graded count.",
+        "De Oliveira full text section VI studies a ladder with activation when a neighboring site is occupied, not the two-end vacancy test.",
+        "Raj et al. define motion among single-occupied triangles, in contrast with a three-neighbor square-ladder hop test."
+      ],
+      "reasoning": "None of these stronger-looking general kinetic constraints determines the characteristic polynomial of the degree-three periodic square ladder: the statements concern different graphs, dynamics or asymptotic questions. Exact transfer identities were independently derived, not imported.",
+      "searches": [
+        "Kob Andersen 2xN ladder absorbing blocked states entropy 2.605506",
+        "kinetically constrained lattice gases ladder Kob Andersen 2xL frozen configurations counting",
+        "Toninelli–Biroli–Fisher arxiv:cond-mat/0410647 full HTML secs. 1.3, 2, 5, 6",
+        "de Oliveira Phys Rev E 71 016112 PDF pages 1–4",
+        "Raj–Oganesyan–Scardicchio arxiv:2412.05231 full HTML sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0410647",
+      "doi:10.1103/PhysRevE.71.016112",
+      "arxiv:2412.05231",
+      "arxiv:1309.6247"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Toninelli et al. establish bulk ergodicity and frozen structures under KA rules, without deriving the specific two-leg finite-state spectrum.",
+        "De Oliveira changes the kinetic acceptance condition: a site is active if a neighbor is occupied; their ladder is numerical.",
+        "Raj et al. use a triangular group of three occupied/vacant sites, not the KA two-end graph rule.",
+        "Jack 2013 concerns the East spin model and hard-rod mappings."
+      ],
+      "reasoning": "These claims do not imply the graded trace polynomial, its octic Perron root or the typical jammed density. General transfer-matrix methods are prior methodology and are not claimed as new. Residual unindexed overlap remains.",
+      "searches": [
+        "arxiv:cond-mat/0410647v1, sections 1.3, 2, 5",
+        "doi:10.1103/PhysRevE.71.016112 full 4-page PDF",
+        "arxiv:2412.05231 sections 1–2",
+        "Robert L Jack 2013 Counting metastable states kinetically constrained model arxiv full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published Kob–Andersen rule explicitly requires the relevant occupied-neighbor bound before and after moving (arxiv:cond-mat/0410647, sec. 1.3).",
+        "A finite-type de Bruijn encoding of precisely this rule is established in RESULT.md and verified by independently checking physical-graph hops."
+      ],
+      "reasoning": "The equivalent names are two-end KA s=1, one-extra-vacancy-before-and-after exclusion dynamics, and a finite-type subshift of immobilized rung configurations. Results for spin-flip FA or single-end facilitated exclusion do not imply these particular counts.",
+      "searches": [
+        "mathematical-results database: Strict frozen configurations of two-spin facilitated Fredrickson Andersen model on finite cylindrical ladders, open packing polynomial and entropy",
+        "mathematical-results database: equivalent finite type subshift for frozen configuration Kawasaki lattice gas constrained to require an additional vacancy at both endpoints of a hop",
+        "Kob Andersen model two leg ladder frozen configurations transfer matrix exact blocked states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "mathematical-results database returned nearest records about unrelated ladder topology/quantum lattices, rather than a kinetic KA jammed-state table.",
+        "No searched physics source displayed the polynomial, the counts 54,129,319,837,2150, or the occupancy density 0.7362220133 for this rule."
+      ],
+      "reasoning": "There is no exact indexed table found with these parameters; absence in a semantic search is not proof of novelty. A full catalogue could contain an equivalent unlabeled adjacency matrix.",
+      "searches": [
+        "mathematical-results database: Exact enumeration of absorbing jammed configurations for Kob Andersen lattice gas on the periodic square two-leg ladder C_n times K_2 under s=1 facilitation; entropy Perron root degree-eight polynomial x^8-4x^7+4x^6-2x^5+2x^4+3x^3-2x^2-2x-1",
+        "mathematical-results database: Blocked configurations transfer matrix three-regular square ladder conserved kinetically constrained lattice gas 2xN periodic jamming entropy 2.6055066585",
+        "kinetically constrained ladder lattice gas jammed states counting configurations characteristic polynomial 8"
+      ]
+    },
+    "rationale": "Compared the exact claim and implied consequences against full primary KA 2004, full distinct-ladder CLG 2005, full triangular-ladder kinetics 2024, and East model 2013 abstract. mathematical-results database searches for aliases, characteristic polynomial and occupancy counts found no covering theorem. Full unindexed mathematical literature remains an explicit residual uncertainty.",
+    "residual_risks": [
+      "Possible unindexed exact square-ladder KA enumeration or disguised subshift characteristic polynomial.",
+      "Jack 2013 full body was not accessible in this check; different model identified from its abstract.",
+      "Absence of an exact match in a semantic database is not a literature uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational KA constraint and general ergodicity/blocked structures; no complete two-leg periodic square-ladder polynomial",
+        "evidence": [
+          "§1.3 specifies the before/after occupied-neighbor condition and describes infinite frozen slabs; §2 concerns hypercubic lattice ergodicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0410647v1",
+        "material_read": "Full open HTML contents and detailed sections 1.3, 2/3, 5, 6 including definitions and frozen configurations",
+        "method": "Read HTML with section navigation and term-location comparisons",
+        "title": "Cooperative Behavior of Kinetically Constrained Lattice Gas Models of Glassy Dynamics",
+        "trigger": "Exact canonical definition of Kob–Andersen dynamics and discussion of frozen slabs"
+      },
+      {
+        "assessment": "Different activation condition, and ladder treated numerically; does not imply the KA partition polynomial",
+        "evidence": [
+          "Page 1: activity requires at least one occupied neighbor; page 4: ladder critical density by simulation; page 3: transfer for a chain only."
+        ],
+        "identifier_or_url": "https://fig.if.usp.br/~oliveira/PRE_71_016112_2005.pdf",
+        "material_read": "All four pages, particularly dynamical definitions in sections I-II and the ladder simulation in section VI",
+        "method": "Read full PDF extracted text and inspected original page image",
+        "title": "Conserved lattice gas model with infinitely many absorbing states in one dimension",
+        "trigger": "Ladder geometry and frozen-state transfer matrix methods"
+      },
+      {
+        "assessment": "Triangular-ladder one-particle-per-triangle moves are not the KA vacancy rule",
+        "evidence": [
+          "§2.1 describes 001,010,100 transitions within active triangles and critical density 2/3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.05231",
+        "material_read": "Full-text HTML introduction, model construction and transition matrix in §2.1",
+        "method": "Compared allowed three-site transitions and graph with KA square-ladder rule",
+        "title": "A kinetically constrained model exhibiting non-linear diffusion and jamming",
+        "trigger": "Recent potential ladder jamming overlap"
+      },
+      {
+        "assessment": "East model, nonconserved spin facilitation; not a decisive missing comparison for particle-conserving KA ladder",
+        "evidence": [
+          "Abstract states metastable East-model hard-rod mapping, not a two-end vacancy particle hop."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.6247",
+        "material_read": "Title and detailed accessible abstract; full body not obtained",
+        "method": "Compared subject and explicit claim scope",
+        "title": "Counting metastable states in a kinetically constrained model using a patch repetition analysis",
+        "trigger": "Metastable state count in an older constrained model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15f324e8-998d-4c24-bdef-e260e11aa02c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact particle-graded enumeration across every volume, degree-eight entropy exponent and typical jammed density on the minimally confined three-regular square ladder give a nontrivial kinetic-caging benchmark not supplied by generic existence statements, finite checks, or infinite-square-lattice ergodicity.",
+    "status": "PASS"
+  }
+}
