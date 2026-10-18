@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem concerns spatial numerical radius of a specifically normalized real signed cyclic isometry. An alternating vector supplies the odd-dimensional negative eigenvalue. In even dimensions diagonal sign conjugation exchanges the numerical-radius branches, and the exact cyclic Young-deficit identity gives a nonnegative variational quotient. The homogeneous power-transform quotient has local coefficient \(2(p-1)/p^2\); compactness supplies global coercivity. Anti-periodic Sobolev interpolation and Poincaré–Wirtinger give the sharp liminf, while an explicit sine-profile family gives the limsup. The argument localizes away from zero to avoid using a false global quadratic Taylor approximation. Finite checks corroborate selected identities, not the limit itself.
+## correctness
 
-**Originality — PASS with bibliographic qualification.** Chang–Wang, Chien–Sheu, and Chica–Merí address adjacent Hilbert weighted-shift numerical radii or planar numerical indices, rather than the real \(\ell_p\) numerical-radius asymptotic of this signed cyclic shift. Direct numerical-radius and antiperiodic alias searches found no implication-level coverage in the consulted mathematical index; such searches cannot exclude unknown equivalent earlier formulations. Related operator-norm asymptotics for \(I+U_n\) do not imply this distinct spatial numerical-radius asymptotic without further analysis.
+PASS
 
-**Value — PASS.** A naturally occurring norm-one signed cyclic permutation has a parity-dependent numerical-radius stability gap across the complete range of reflexive real \(\ell_p\) spaces. The result identifies the exact universal scaling order and sharp exponent-dependent constant for the signed periodic obstruction, not an arbitrary finite parameter slice. It relates nonlinear Banach-space duality pairing to an anti-periodic Poincaré eigenvalue.
+Odd n admits an alternating-sign eigenvector of eigenvalue -1, and for even n diagonal sign-conjugacy flips U to -U. Young’s coordinate inequality yields an exact minimum of edge defects E_p(a,b) around the antiperiodic ring, positive for any nonzero even periodic vector. The nonlinear power map sign(a)|a|^{p/2} converts the defect into a coercive square of adjacent transformed differences. Its local positive ratio is c_p=2(p-1)/p^2, while global compact normalized-pair bounds handle sign changes and zeros. A minimizing sequence’s anti-periodic piecewise-linear interpolants have bounded H1 norms and L2 mass 1; localization away from zeros and weak lower semicontinuity yield liminf c_p∫|z’|²≥c_p pi² by the antiperiodic Poincaré inequality. A positive sine recovery vector gives equality in the limit; p=2 reduces to cos(pi/n). Finite verification script was read but does not establish the infinite limit.
 
-**Limitations and residual risks.** No exact finite-even-dimensional formula is given (except at exponent two). No endpoint or complex-scalar claim is made. Bibliographic equivalence with historical real-Banach numerical-radius results remains possible. Independent mathematical confirmation remains to be performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published separate SCOPE result for finite NILPOTENT ell_p shifts has the same Young-curvature constant times a DIRICHLET gap, but lacks the antiperiodic cycle, parity dichotomy, and signed nonlinear duality energy; its full proof was compared. Hilbert weighted cyclic matrix papers yield the p=2 case but do not imply a fixed general p asymptotic. Another published signed ell_4 cycle study concerns operator norm of adjacency, a different functional. No logical dominating result found.
+
+## value
+
+PASS
+
+The antiperiodic signed cycle is a canonical frustrated permutation with a sharp parity effect and a non-Hilbert curvature coefficient. Its exact large-dimension numerical-radius deficit is a motivated invariant distinct from Hilbert spectral norms and from nilpotent Dirichlet shifts; an independently useful sharp benchmark for Banach numerical-radius theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
