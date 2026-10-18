@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:57:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The result uses scattered subsequences, not contiguous factors. For L=down(a^7) union down(ba^5ba) and K=down(aababa), principal-ideal substitution gives S=down((aababa)^7) union down(b(aababa)^5 b(aababa)); closures commute with this substitution because K is the downward closure of a single word. A separate independently implemented BFS over canonical maximal-subsequence antichains gives exactly 15, 8, 127 reachable distinct left quotients for L, K and S, respectively; 127 exceeds 15*8=120. Each maximal antichain defines a unique residual language, so reachable distinct antichains certify minimal DFA state counts, not merely NFA sizes. In addition, the ACTUAL certificate.json blob (not its VERIFY_OK log) was read and every one of 15+8+127 states and 30+16+254 letter transitions was checked independently for canonicality, correctness, reachability and uniqueness. This is a complete finite witness refuting a universal conjecture; it does not establish an asymptotic superquadratic lower bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2407.10355v1, Theorems 3.2 and 3.3; input L has antichain of two maximal generators"
+        ],
+        "reasoning": "The disjoint-alphabet and product-of-atoms results have narrower hypotheses and cannot dominate a same-binary-alphabet union of two incomparable ideals.",
+        "searches": [
+          "singular substitution scattered subword downward closed binary languages 127 120 product minimal DFA state complexity Guyot conjecture counterexample",
+          "subword-closed downward closed languages singular substitution state complexity Guyot Conjecture 3.25"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2407.10355v1",
+        "SCOPE Resultary semantic searches: subword-closed singular substitution and exact product state bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guyot stated universal product inequality rather than general asymptotic constant-factor conjecture; source witness same-alphabet"
+        ],
+        "reasoning": "A single 127>120 case falsifies the universal exact product inequality, although it does not exclude O(kappa(L)kappa(K)) with an enlarged constant.",
+        "searches": [
+          "singular substitution scattered subword downward closed binary languages 127 120 product minimal DFA state complexity Guyot conjecture counterexample",
+          "arxiv:2407.10355v1",
+          "SCOPE Resultary semantic searches: subword-closed singular substitution and exact product state bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2407.10355v1, section 3, Conjecture 2/3.25; complete independently checked 127-state S certificate"
+        ],
+        "reasoning": "The prior conjecture has exactly kappa(L[a<-K]) <= kappa(L) kappa(K), with substitution into one letter; the witness is genuinely against the same parameters.",
+        "searches": [
+          "singular substitution scattered subword downward closed binary languages 127 120 product minimal DFA state complexity Guyot conjecture counterexample",
+          "Guyot singular substitution Conjecture 3.25 counterexample 2025 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full canonical certificate with 150 states/300 transitions, independently verified; original arxiv conjecture still affirmative"
+        ],
+        "reasoning": "Primary v1 and targeted record searches did not expose these exact generators or 15,8,127 state counts; this is not proof that unindexed constructions do not exist.",
+        "searches": [
+          "singular substitution scattered subword downward closed binary languages 127 120 product minimal DFA state complexity Guyot conjecture counterexample",
+          "subword-closed downward closed languages singular substitution state complexity Guyot Conjecture 3.25",
+          "Guyot singular substitution Conjecture 3.25 counterexample 2025 2026"
+        ]
+      },
+      "rationale": "Guyot, arXiv:2407.10355v1, Conjecture 2 in converted HTML (Conjecture 3.25 in PDF) states precisely the product bound for arbitrary overlapping alphabets; it is not a theorem or already refuted in the inspected original version. Its Theorem 3.2 proves the bound only for disjoint alphabets, and Theorem 3.3 when L is a product of atoms. Both hypotheses are absent here, since both inputs use the binary alphabet and L is the union of two incomparable principal ideals. Guyot already observes difficulty with overlapping alphabets, but no prior exact 15*8<127 counterexample was located in inspected material. An uninspected later author version may affect priority; this is a best-of-knowledge PASS with that explicit risk.",
+      "residual_risks": [
+        "An updated author-hosted manuscript or unindexed independent counterexample may have appeared after the inspected v1; no exhaustive priority certification.",
+        "No assertion about asymptotic lower bounds or smallest possible counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture identical; proved hypotheses inapplicable to witness",
+          "evidence": [
+            "arxiv:2407.10355v1; HTML lines 33-76 and 500-559"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.10355v1",
+          "material_read": "Introduction, state complexity definitions, Section 3 definitions, Theorem 3.2, Conjecture 2, Theorem 3.3",
+          "method": "Read arXiv author-preprint HTML in full relevant sections",
+          "title": "On the State Complexity of Square Root and Substitution for Subword-Closed Languages",
+          "trigger": "Exact conjecture and potentially dominating theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit small two-generator binary counterexample settles the truth value of the exact proposed product bound. State complexity for downward-closed languages is a natural automata invariant; the complete 150-state quotient certificate makes the falsification checkable. The seven-state violation is mathematically decisive despite small numerical excess, and it does not pretend to disprove every quadratic-factor upper bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2407.10355v1",
+    "SCOPE Resultary semantic searches: subword-closed singular substitution and exact product state bound"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite exact binary witness refutes the sharp multiplicative coefficient 1 only; it does not exclude a quadratic big-O upper bound."
+  ],
+  "residual_risks": [
+    "An updated author-hosted manuscript or unindexed independent counterexample may have appeared after the inspected v1; no exhaustive priority certification.",
+    "No assertion about asymptotic lower bounds or smallest possible counterexample."
+  ],
+  "schema_version": 1
+}

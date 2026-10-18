@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Verification of the singular-substitution counterexample
+# Independent mathematical audit
 
-Place `certificate.json`, `check_certificate.py`, and `nfa_crosscheck.py` together. With Python 3 and no third-party packages, execute:
+## correctness
 
-```text
-python3 check_certificate.py
-python3 nfa_crosscheck.py
-```
+PASS
 
-The first program validates all \(15+8+127=150\) distinct canonical quotient states and \(300\) binary transition entries of the three complete DFAs. It independently recomputes all first-occurrence suffix residuals, checks canonical antichains, start states, transition closure, and reachability. Because each state labels the unique maximal-generator antichain of a finite downward-closed language, uniqueness of the labels is a mathematical distinguishing argument establishing **minimality**, not only an upper bound.
+The result uses scattered subsequences, not contiguous factors. For L=down(a^7) union down(ba^5ba) and K=down(aababa), principal-ideal substitution gives S=down((aababa)^7) union down(b(aababa)^5 b(aababa)); closures commute with this substitution because K is the downward closure of a single word. A separate independently implemented BFS over canonical maximal-subsequence antichains gives exactly 15, 8, 127 reachable distinct left quotients for L, K and S, respectively; 127 exceeds 15*8=120. Each maximal antichain defines a unique residual language, so reachable distinct antichains certify minimal DFA state counts, not merely NFA sizes. In addition, the ACTUAL certificate.json blob (not its VERIFY_OK log) was read and every one of 15+8+127 states and 30+16+254 letter transitions was checked independently for canonicality, correctness, reachability and uniqueness. This is a complete finite witness refuting a universal conjecture; it does not establish an asymptotic superquadratic lower bound.
 
-Expected first output:
+## originality
 
-```text
-VERIFY_OK complete_reachable_quotients L=15 K=8 substitution=127 product=120 excess=7
-```
+PASS
 
-The second program directly enumerates the short input languages, constructs a separate epsilon-NFA for the singular substitution, determinizes its \(337\) reachable subsets, and minimizes them by partition refinement. It does not read or reuse the transition certificate. Expected second output:
+Guyot, arXiv:2407.10355v1, Conjecture 2 in converted HTML (Conjecture 3.25 in PDF) states precisely the product bound for arbitrary overlapping alphabets; it is not a theorem or already refuted in the inspected original version. Its Theorem 3.2 proves the bound only for disjoint alphabets, and Theorem 3.3 when L is a product of atoms. Both hypotheses are absent here, since both inputs use the binary alphabet and L is the union of two incomparable principal ideals. Guyot already observes difficulty with overlapping alphabets, but no prior exact 15*8<127 counterexample was located in inspected material. An uninspected later author version may affect priority; this is a best-of-knowledge PASS with that explicit risk.
 
-```text
-VERIFY_OK independent_epsilon_NFA=337 deterministic_subsets minimum=127 originals=15,8
-```
+## value
 
-All integers are exact. These algorithms exhaust the finite quotient automata; they are not finite sampling offered as an infinite theorem. The formal mathematics separately proves why those finite automata recognize exactly the languages stated. Independent external audit has not been performed.
+PASS
+
+An explicit small two-generator binary counterexample settles the truth value of the exact proposed product bound. State complexity for downward-closed languages is a natural automata invariant; the complete 150-state quotient certificate makes the falsification checkable. The seven-state violation is mathematically decisive despite small numerical excess, and it does not pretend to disprove every quadratic-factor upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
