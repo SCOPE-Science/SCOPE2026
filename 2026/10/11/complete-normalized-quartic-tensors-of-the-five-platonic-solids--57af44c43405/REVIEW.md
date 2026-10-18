@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is a single complete classification of the fourth-degree volume moment tensor for each uniformly filled regular Platonic solid, up to overall length scale. The proof fixes the volume measure, normalizes the second and fourth radial moments, and uses coordinate sign-flip and permutation symmetries to reduce the tetrahedral, cubical and octahedral quartic polynomials to two explicit monomial moments. The cube and octahedron entries follow from independent elementary integrations; the tetrahedron uses a genuine uniform Dirichlet barycentric law, not a vertex-only approximation. For every solid, exact face-cone disintegration plus triangular facet moments gives the radial ratio. Dodecahedral and icosahedral quartic isotropy follows from a vanishing character-average calculation in degrees two and four for their common rotation group. The symbolic checker reconstructs all five radical/rational ratios and all three nonconstant angular coefficients, and independently constructs volumetric samples in each polyhedron.
+## correctness
 
-## Originality — PASS
-The strongest direct prior, Módis and Kovács (2024), already proves the **qualitative** rotational-invariance classification for higher-order moments of Platonic bodies. The new claim explicitly credits that coverage, and adds the exact orientation polynomial, its full extrema and equality directions, the tetrahedron–cube equality of normalized angular profiles, and five exact dimensionless radial ratios. Their full eight-page text was compared at the theorem, Table 2, examples, and conclusion and does not state the quantified tensor table. The closest older full texts of Tonon (2005) and Richter–Schicker (2014) concern, respectively, second-order tetrahedral inertia and generalized Platonic volume disintegration; Reid's open manuscript is about rectification and volume. Searching both mathematical and mechanical aliases, plus exact rational and radical fingerprints, located no implication-equivalent published quantified table. The largest residual risk is scattered older cube fourth moments (notably Sulikashvili 1987) and unpublished complete tables.
+PASS
 
-## Value — PASS
-Módis and Kovács motivate higher-order moments through orientation-dependent mechanics and material effects, while the classical Platonic geometry literature supplies volumes and ordinary inertia. The question of **how much** the full-body fourth moment changes under direction is therefore natural and mathematically specific. The classification gives all directional values rather than merely deciding whether variation exists, identifies an unexpected equality across a simplex and a parallelotope, and separates angular anisotropy from radial deviation from the ball. A finite complete table is precisely meaningful here because the five Platonic symmetry types exhaust the regular three-dimensional cases; this is not an arbitrary small data sample.
+For uniform VOLUME measure on each centered solid, tetrahedron/cube/octahedron have quartic polynomial Q(u)=qΣu_i^4+6pΣ_{i<j}u_i²u_j². Dirichlet integration yields (q,p,R4)=(3/35,1/21,19/35),(1/5,1/9,19/15),(1/35,1/210,4/35), giving η=5(q−3p)/R4=−10/19,−10/19,5/8. For each solid, decomposition into centered face pyramids gives κ=25/21[1+β²(8+4c+3c²)/(180B²)], B=1−β+β(2+c)/6; exact Platonic c,β yield κ values 95/63,19/15,80/63,(338875−37475√5)/211722,(185−15√5)/126. The rotational icosahedral character of harmonic degrees 2 and 4 has zero fixed multiplicity, proving η=0 for dodecahedron/icosahedron. Independent exact SymPy reductions reproduced every κ and the first three η. The source verify.py was actually read: exact symbolic face, Dirichlet, character calculations and supplementary Monte Carlo (not proof). Scope is filled volume, not vertices/surface.
 
-### Limitations and risks
-The qualitative isotropy classification and individual elementary cube moments are prior-coverable and excluded from independent novelty assertions. The 1958 Platonic second-inertia work and the 1987 cube higher-inertia paper were accessible only through bibliographic/abstract evidence, not reliable complete text; neither is used to assert whole-document noncoverage. Arbitrary affine images, nonuniform densities, surfaces and vertex measures are excluded. This is a same-model scientific review, not an independent audit.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Módis–Kovács full eight-page primary 2024 paper handles EXACT fourth-order rotational-invariance classes, so no novelty is claimed for η=0 of icosa/dodecahedron or anisotropy existence for others. It does not give the two-parameter quantitative normalized η/κ table or the tetrahedron–cube equality of directional profiles. Older mechanics papers may include individual cube coefficients, explicitly risked. Complete all-five-body numerical spectrum with radial ratios is not a direct implication of qualitative invariance. Best-of-knowledge originality survives despite cheap individual entries and prior known symmetry.
+
+## value
+
+PASS
+
+Uniform-volume rank-four moment tensors of the five regular solids are canonical integral-geometric invariants. Their complete scale-independent two-number spectrum determines all fourth-order tensor entries; equality of tetrahedral and cubic angular profiles despite differing radial kurtosis is a nontrivial natural comparison, and exact dodecahedral/icosahedral radial ratios complete the list. These numbers are usable precise benchmarks beyond an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
