@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable Git RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "Jacob–Külshammer, Congruences for sums of powers of an integer, arXiv:2204.09403 Proposition 11",
+        "Breuer–Héthelyi–Horváth–Külshammer, Loewy structure of certain fixpoint algebras Part II, 2021 Lemma 2.11",
+        "Independent exact checker CYCLOTOMIC_THREE_POWER_RESULTANTS_AND_MODULAR_TESTS_OK"
+      ],
+      "rationale": "Fix positive integer n=ord_e(q), with coprime q,e>=2, and let m(q,e) be the least number of q-power summands with repetitions allowed producing zero modulo e. If m(q,e)=3 and 3 does not divide n, normalize exponents to 0<=a<=b<n and form F(X)=1+X^a+X^b. F and X^n-1 have no common complex root: three unit complex numbers summing to zero must be a regular 3-gon, whose ratios force a cubic root of unity and hence 3|n. Thus their nonzero integral resultant is divisible by e; each factor F(zeta) for zeta^n=1 has modulus<=3, so e<=3^n. If 3|n, F_n(X)=1+X^{n/3}+X^{2n/3} vanishes at primitive n-th roots, so Phi_n(X) divides F_n(X). For all sufficiently large integer bases q, nonzero resultants of Phi_n(X) with X^d-1 (d proper divisor of n) ensure ord_{Phi_n(q)}(q)=n. If n odd choose e=Phi_n(q), and no 2-sum is possible in an odd-order group. If n even, hence 6|n, choose q>=2 congruent 1 mod3 and e=3Phi_n(q); since Phi_n(1)=1 for such n, gcd(q,e)=1, order remains n, 1+q^{n/3}+q^{2n/3} vanishes mod e, and no 2-sum exists because every q-power is 1 mod3. Infinitely many growing moduli result. Independent exact resultant tests for 3-free orders and construction samples n=3,6,9,12,15 matched. The n=1 and n=2 finite-side boundaries are included in the general argument.",
+      "residual_risks": [
+        "The bound e<=3^n is universal but not claimed optimal; the theorem does not enumerate the finite exceptional moduli.",
+        "The cyclic-order argument requires gcd(q,e)=1 and m defined with positive number of summands and repetitions allowed.",
+        "The large-q exact-order lemma invokes finitely many nonzero resultants; finite sample checks are not proof of unbounded n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Breuer et al 2021 Lemma 2.11 supplies m=3 for odd n divisible3 on prime powers; for even n it instead yields m=2, not required m=3.",
+          "Jacob–Külshammer 2022 Proposition 11 assumes e|Phi_n(q) and m<n/(n-phi(n)); no universal e bound for arbitrary moduli of order n.",
+          "Lam–Leung 1995 gives characteristic-zero complex root vanishing length sets, not integer e upper bounds."
+        ],
+        "reasoning": "Earlier theorems genuinely cover part of the odd-order existence argument and a special finite family. They do not imply the even-order composite construction or finite-side all-modulus bound.",
+        "searches": [
+          "m(q,e)=3 sums of three powers modulo e multiplicative order cyclotomic infinity if divisible by 3 resultant",
+          "m(q,e) three order even 3 composite modulus infinite 3^n",
+          "arXiv:math/9511209"
+        ]
+      },
+      "checked_sources": [
+        "Jacob–Külshammer arXiv:2204.09403",
+        "Breuer–Héthelyi–Horváth–Külshammer 2021 IEJA 30, Lemma 2.11, Prop. 2.25",
+        "Lam–Leung arXiv:math/9511209",
+        "Published mathematical-record semantic search m(q,e)=3 sums of three powers modulo e multiplicative order cyclotomic infinity if divisible by 3 resultant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Breuer Lemma 2.11 exactly implies odd-order m=3 for odd n divisible by 3 at suitable primes, which is prior coverage.",
+          "Jacob Prop. 11 handles e|Phi_n(q), narrower than arbitrary e with ord_e(q)=n.",
+          "Even-order m=3 requires e divisible by 3 and q congruent 1 mod3, ruling out 2-term cancellation; source prime-power lemma yields m=2 in even order."
+        ],
+        "reasoning": "The final theorem is assessed for the combined all-order finite/infinite dichotomy, explicit universal finite-side modulus bound, and composite even-order families, not for prior-covered odd-order construction or elementary root-of-unity geometry alone.",
+        "searches": [
+          "Breuer–Héthelyi–Horváth–Külshammer 2021 Lemma 2.11 and Prop. 2.25",
+          "Jacob–Külshammer 2022 Proposition 11",
+          "Lam–Leung 1995 Main Theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to existence of q with exact order n and 0 in sum of three elements of cyclic subgroup <q> in (Z/eZ)^×, with 0 not in sum of two.",
+          "The source uses the invariant m(q,e); Lam–Leung uses vanishing sums of complex roots instead of modular residue sums."
+        ],
+        "reasoning": "Compared multiplicative order, cyclic subgroup three-sum and group-ring zero-sum formulations; distinction between complex exact vanishing and modular congruence is material, not a rephrasing.",
+        "searches": [
+          "m(q,e)=3 sums of three powers modulo e multiplicative order cyclotomic infinity if divisible by 3 resultant",
+          "order n m(q,e)=3 modular vanishing sum three group ring weight cyclotomic resultant",
+          "arXiv:2204.09403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tables handle specific prime orders and prime power moduli; the independent small-e census checks examples through e=154."
+        ],
+        "reasoning": "Finite order tables do not cover the all-n quantifiers, even-order composite constructions or the uniform bound. Small data are corroborative and not mistaken for an exhaustive classification.",
+        "searches": [
+          "arXiv:2204.09403 order 5/7 modular examples",
+          "Breuer et al 2021 Example 2.26",
+          "modular three-sum congruence small e census"
+        ]
+      },
+      "rationale": "The published 2021 Breuer–Héthelyi–Horváth–Külshammer Lemma 2.11 gives m(q,p^k)=3 when the odd multiplicative order has a factor three, so the odd-order infinite construction is substantially covered in spirit and follows from that lemma together with primes congruent 1 mod n. This is credited; it is NOT the claimed new core. That same lemma gives m=2 for even order on odd prime-power moduli, so it cannot imply the new even-order three-sum construction with composite modulus 3Phi_n(q). Jacob–Külshammer Proposition 11 establishes finiteness only with the extra hypothesis e|Phi_n(q) and a smaller length threshold, whereas this theorem fixes ord_e(q)=n over arbitrary composite moduli and supplies the explicit bound 3^n for every n not divisible by three. Lam–Leung classifies weight sets of complex root-of-unity sums in characteristic zero, not these modular residue zero sums or their bounded moduli. Comparisons were by hypotheses and implications, including the genuine earlier odd-order coverage. No all-order exact finite/infinite statement for arbitrary modulus was identified in full relevant primary sources or mathematical-record search.",
+      "residual_risks": [
+        "A broader classical group-ring/resolvent theorem might implicitly yield the modulus bound or composite construction; searches did not find a covering all-order statement.",
+        "Odd-order infinite side largely follows earlier results and is not independently credited as new; independent contribution must be evaluated via complete dichotomy and even-order side."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_RESTRICTED_FINITE_CASE",
+          "evidence": [
+            "Prop. 11 needs e|Phi_n(q) and m<n/(n-phi(n)); it does not bound arbitrary e of prescribed order with three summands."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.09403",
+          "material_read": "Complete 16-page arXiv primary PDF: definition, Proposition 11 on p. 12, proof, corollary and prime-order examples",
+          "method": "Read original PDF, rendered Proposition 11 page and compared hypotheses",
+          "title": "Congruences for sums of powers of an integer",
+          "trigger": "Same precise function m(q,e), near-general finiteness result"
+        },
+        {
+          "assessment": "ODD_CONSTRUCTION_COVERED_EVEN_COMPOSITE_NOT",
+          "evidence": [
+            "Lemma 2.11: for p>3 and 3|ord_{p^k}(q), m=2 if order even and m=3 if order odd."
+          ],
+          "identifier_or_url": "https://www.ieja.net/files/papers/volume-30/2-V30-2021.pdf",
+          "material_read": "Full 50-page publisher PDF available; Lemma 2.11 pp. 26–27, Proposition 2.25, examples and hypotheses examined",
+          "method": "Read exact lemma, nearby proof, and earlier finiteness proposition",
+          "title": "The Loewy structure of certain fixpoint algebras, Part II",
+          "trigger": "Possible stronger order/m=3 coverage for all n"
+        },
+        {
+          "assessment": "COMPLEX_ROOT_WEIGHT_DISTINCT_FROM_MODULAR_LENGTH",
+          "evidence": [
+            "Weight set W(n) is generated by prime divisors of n in characteristic zero; no bound on actual modular e appears."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+          "material_read": "Full 18-page original arXiv PDF, introduction, Main Theorem and root-of-unity weight-set context",
+          "method": "Read original primary and rendered first page",
+          "title": "On vanishing sums of roots of unity",
+          "trigger": "Possible all-order vanishing-sum weight theorem with stronger scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jacob–Külshammer 2022 m(q,e) problem",
+        "Breuer et al 2021 prime-power m=3/2 transition",
+        "All-order resultant bound and composite cyclotomic construction"
+      ],
+      "rationale": "The invariant m(q,e) is central in a published modular power-sum problem, and multiplicative order is its natural arithmetic organizing parameter. The theorem identifies an exact all-order finite/infinite boundary at divisibility by three, provides an explicit bound for every order outside the infinite regime, and constructs infinitely many genuinely composite moduli for the even-order regime where prime-power results cannot have minimal length three. These are structural classifications, not a single example; their value persists even though earlier papers cover the odd-order existence subcase.",
+      "residual_risks": [
+        "Universal bound is not asserted sharp; classification gives a dichotomy rather than a complete list below 3^n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd-order infinite construction is substantially anticipated by prime-power results; only the full all-n classification and composite-even extension survive as claimed additions.",
+    "Finite checks of sample resultants/order do not prove the infinite construction.",
+    "No publication-ready sanitized metadata replacements staged."
+  ],
+  "schema_version": 1
+}
