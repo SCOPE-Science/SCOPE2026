@@ -1,15 +1,21 @@
-# Review of minimal total dominating sets of triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-domination criterion (at most one isolated vertex and no selected isolated edge) is necessary and sufficient even for selected vertices of the line graph. Deleting a cycle edge never harms it, so minimal selected graphs are forests. In the isolate-free case the leaf-edge test forces components to be exactly three-vertex paths. With one isolate, nonpendant-edge deletion forces a two-vertex split-off component, which is equivalent to stars with some once-subdivided arms. The hub-rooted exponential count corrects its unique double-counted four-vertex path. The proof covers every \(n\ge3\), and the exact checker agrees on all \(2{,}131{,}016\) examined subsets for orders three to seven.
+## correctness
 
-## Originality — PASS with residual risk
-The mathematical closest comparisons are the general claw-free upper-total-domination bounds of Favaron–Henning (2003), Henning–Yeo (2006), the output-sensitive minimal-total-domination enumeration reductions of Kanté–Limouzy–Mary–Nourine (2014), and the ordinary edge-domination algorithm of Kanté and collaborators (2014). The latter uses closed adjacency and does not imply the open-adjacency total domination enumeration. The general total-domination polynomial of Chaluvaraju–Chaitra counts all, not just inclusion-minimal, sets. No inspected primary statement or relevant searched published record implied the complete \(L(K_n)\) classification and EGF; search noncoverage is not a uniqueness proof. Full text of a relevant 2003 bound paper and a general 2014 polynomial paper was inaccessible; alternate terminology and unpublished or unindexed equivalent results remain genuine priority risks.
+PASS
 
-## Value — PASS
-The exact inclusion-minimal-set polynomial supplies each cardinality count, gives the lower and upper total domination numbers as consequences, and identifies the precise selected-forest geometry. A complete classification on a natural family is more informative than the known general inequalities and than computing one small parameter. The four-vertex-path correction is necessary for reproducible exact enumeration.
+For S subset E(K_n) as a total dominating vertex set in T_n=L(K_n), open-edge incidence requires that its spanning selected graph F have at most one isolated vertex and no K2 connected component; all selected edges must meet another distinct selected edge. Inclusion minimality excludes cycles. With no isolate, every component must be P3, since removing a pendant edge from any larger tree creates one permitted isolate without leaving K2. With one isolate, every nonpendant selected edge must cut off a K2 component on one side, forcing component core of nonleaves to diameter <=2, hence a star with arms independently subdivided at most once; at least two arms. Conversely each described forest is minimal. Labeled EGF is exp(z²u³/2)-1-u + u exp(B), B=u(exp(zu+z²u²)-1-zu-z²u²)-z³u⁴/2; the P4 double-hub correction is essential. This yields gamma_t(T_n)=floor(2n/3), upper Gamma_t=2 for n3 else n-2, and the exact n mod 3 minimum-set count formulas in RESULT. Independently enumerated every candidate subset of K_n edges for n=3..6 using actual open-neighborhood total domination plus one-edge deletion minimality, reproducing M3={2:3}, M4={2:12}, M5={3:80}, M6={4:840}. Source n7 output {4:630,5:3402} was not rerun, and finite verification is not substituted for the all-n tree/spider proof.
 
-## Scientific limits
-Finite enumeration is independent corroboration only. The result makes no statement about full total-domination polynomials, arbitrary line graphs or independently certified priority. Access limits are recorded without claiming inaccessible full text was inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is inclusion-minimal total domination in the triangular graph, equivalently minimal TOTAL edge domination of K_n using open edge neighborhoods. This differs from minimal ordinary edge domination with closed neighborhoods in Kanté et al. General hypergraph-transversal algorithms, claw-free total-domination bounds, and the polynomial enumerating all (not only minimal) total dominating sets do not imply the full family-specific forest/spider classification or EGF. The full 2003 Favaron–Henning paper and a total-domination-polynomial article were inaccessible; their possible exact specializations are residual risks.
+
+## value
+
+PASS
+
+Determines every inclusion-minimal total dominating set of the highly symmetric triangular graph in a reusable labeled species description and obtains complete size polynomial, min/max cardinalities, and minimum multiplicities. This natural exact invariant is not a routine deduction of generic claw-free inequalities or all-set domination counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
