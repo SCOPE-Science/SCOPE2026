@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The face condition is checked directly against the graph definition; every \(S_n\)-fixed simplex is a union of pair-orbits and contributes the correct orientation sign to the augmented Lefschetz trace. Boolean-cycle inversion yields \((-1)^{c(\sigma)}(f_1(\sigma)^2-3f_1(\sigma)+1)\), and the published homotopy concentration converts this to the homology trace. Young's rule and rational semisimplicity give precisely the two irreducible Specht constituents. An independent finite-orbit enumerator covers all cycle types for sizes 4 through 7 and returns `VERIFY_OK`; these tests corroborate, but do not establish, the all-size proof.
+
+**Originality — PASS, subject to explicit bibliographic risk.** The directly overlapping published six-point representation is credited, and the new claim begins at \(n\ge7\). The closest same-family primary paper establishes only nonequivariant homotopy, while the earliest archival equivariant Kneser source studies stable graphs and dihedral actions. Their statements do not imply full ordinary \(S_n\)-characters. The distinguishing proof is a uniform cycle-wise weighted orbit count. A differently indexed general theorem and an inaccessible related bounded-cover paper remain possible sources of overlap.
+
+**Mathematical value — PASS.** A canonical graph-topological family has a full growing symmetry group, and ordinary Betti ranks do not determine how its top classes transform. The two-part Specht classification at every size, together with the vanishing of \(S_n\)- and \(A_n\)-invariants, answers that motivated equivariant question uniformly rather than recomputing a finite table. It does not purport to give integral lattices or equivariant homotopy equivalences.
+
+Self-review: passed. Independent audit: not yet performed.
