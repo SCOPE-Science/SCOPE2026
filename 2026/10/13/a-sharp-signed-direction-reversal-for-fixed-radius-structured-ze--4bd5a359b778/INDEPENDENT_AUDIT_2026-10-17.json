@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:57:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(x)=lambda||x||^2/2, exact forward differences give x_next=(I-beta PP^T)x-(beta h r/2)P1, where beta=alpha lambda and r=d/ell. With iid frames, R^2=rR, Ru=ru, ||u||^2=d, ER=I, the mean evolves by 1-beta and the second moment by rho=1-2beta+beta^2r, both contract for 0<beta r<2. Solving gives h^2 r^2 [beta d+2(1-beta r)||Eu||^2]/[4(2-beta r)]. Directional Cauchy Schwarz plus isotropy gives 0<=q=||Eu||^2<=ell; signed, positive and globally sign-biased coordinate frames realize each q. Therefore sign of 1-beta r is exactly the global minimizer reversal. Independently enumerated coordinate-frame one-step distribution with exact fractions at (d,ell,beta,h)=(4,1,1/4,1) gives E x1=(3/4,3/2,-3/4,0) and E||x1||^2=11/2, agreeing with both recurrences. Universal law is algebra, not sample-based.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convergence bounds do not imply exact limiting squared risk; Haar SSD assumes a distinct gradient/subspace estimator."
+        ],
+        "reasoning": "Cannot derive this signed/unsigned minimax crossover as a corollary of an upper bound lacking the mean-orientation term.",
+        "searches": [
+          "arxiv:2206.05124 Theorem 2",
+          "arxiv:2107.03941 Theorem 3.7",
+          "Resultary:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2206.05124 full primary PDF",
+        "arxiv:2107.03941 limited comparison",
+        "Resultary:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 semantic summary",
+        "Resultary:2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209 semantic summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Algorithm 1/Assumption 2 supply hypotheses; they do not force sign(q) optimality to reverse at beta d/ell=1."
+        ],
+        "reasoning": "Source update supplies premises; new mean-squared-risk equality plus exhaustive admissible q optimization adds a genuinely stronger statement.",
+        "searches": [
+          "arxiv:2206.05124",
+          "arxiv:2107.03941",
+          "fixed radius forward difference zeroth order stochastic descent orthogonal frames stationary mean square error signed versus unsigned direction reversal threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rando et al. finite difference update is the same; cosine orientation mean creates affine forcing q absent from derivative-only forms."
+        ],
+        "reasoning": "No equivalent formulation of the exact stationary second moment and sharp sign reversal appears in the inspected primary theorem; an unbiased-estimator bias cancellation remark is weaker.",
+        "searches": [
+          "fixed radius forward difference zeroth order stochastic descent orthogonal frames stationary mean square error signed versus unsigned direction reversal threshold",
+          "arxiv:2206.05124, Assumption 2, Algorithm 1",
+          "arxiv:2107.03941 Remark 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby Resultary records concern KGSM and sparse-SSD, not a table of fixed-radius isotropic orthogonal-frame risk optima."
+        ],
+        "reasoning": "This is an all-dimension symbolic distributional optimization, not a hidden finite table; checked related indexes for exact same stationary law.",
+        "searches": [
+          "fixed radius forward difference zeroth order stochastic descent orthogonal frames stationary mean square error signed versus unsigned direction reversal threshold",
+          "Resultary:2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209"
+        ]
+      },
+      "rationale": "The two stochastic structured-direction papers establish the update and convergence estimates, but an upper bound in their step/radius setting is not the equality for fixed positive radius nor minimax orientation reversal. The nearby Haar subspace-moment result concerns derivative-based sampling, not the finite-difference affine drift; the Resultary KGSM mean-square stability result concerns another algorithm. No searched stronger published exact fixed-radius variance law implied this reversal.",
+      "residual_risks": [
+        "Unindexed constant-radius quadratic S-SZD stationary-variance analysis or an exact equivalent in a supplemental appendix may exist.",
+        "Proof assumes iid isotropic finite-radius frames and noiseless isotropic quadratic only; no general stochastic loss claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest primary has convergence upper bounds, no exact law for constant positive radius or frame-sign crossover",
+          "evidence": [
+            "Assumption 2 and Algorithm 1, pp.3-4; Theorem 2 p.9; constant-step discussion p.10"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.05124",
+          "material_read": "Full PDF: Assumption 2, Algorithm 1, Theorem 2, fixed-step/radius discussion and conclusions",
+          "method": "Read primary PDF theorem and algorithm passages",
+          "title": "Stochastic Zeroth Order Descent with Structured Directions",
+          "trigger": "Identical update and isotropic frame laws"
+        },
+        {
+          "assessment": "Cannot assert whole-paper absence, retain residual risk",
+          "evidence": [
+            "Theorem 3.7 and Remark 4.2 are referenced by research package; independent full-text confirmation pending"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "Title, abstract, theorem/remark quoted in the audited source; complete text not independently read",
+          "method": "Source contextual inspection; research package comparison",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Same orientation and finite difference estimator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp global parameter-selection transition for a published optimization method; in particular an unbiased symmetric signed estimator may give greater stationary error than a biased unsigned estimator above beta r=1. The scalar invariant q classifies every admissible law, a motivated analytical boundary rather than a tiny numerical check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed constant-radius quadratic S-SZD stationary-variance analysis or an exact equivalent in a supplemental appendix may exist.",
+    "Proof assumes iid isotropic finite-radius frames and noiseless isotropic quadratic only; no general stochastic loss claim."
+  ],
+  "schema_version": 1
+}

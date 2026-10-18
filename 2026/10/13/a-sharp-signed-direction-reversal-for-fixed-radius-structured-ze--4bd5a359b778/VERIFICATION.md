@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is exact for every finite dimension \(d\ge1\), every frame size \(1\le\ell\le d\), every \(\lambda,h>0\), and every \(0<\alpha\lambda d/\ell<2\). The frame identity \((PP^\top)^2=(d/\ell)PP^\top\) supplies the closed scalar second-moment recursion. Frame isotropy and independence close the mean recursion. A separate Cauchy--Schwarz argument proves the sharp \(q\le\ell\) bound, and explicit coordinate-frame laws attain both ends and every intermediate point.
+## correctness
 
-`verify.py` was executed from this artifact's actual working-directory copy and returned `PASS: 1305 exact-rational transition, moment and endpoint checks`, with the two rational examples stated in the finding. It enumerates exact distributions for selected finite dimensions and steps, so the script corroborates but does not replace the infinite-law proof.
+PASS
 
-All comparisons to prior literature concern equality, implication, and scope rather than title similarity. Inaccessible full texts are not treated as inspected. The result is self-reviewed; no independent audit or external certification has been performed.
+For f(x)=lambda||x||^2/2, exact forward differences give x_next=(I-beta PP^T)x-(beta h r/2)P1, where beta=alpha lambda and r=d/ell. With iid frames, R^2=rR, Ru=ru, ||u||^2=d, ER=I, the mean evolves by 1-beta and the second moment by rho=1-2beta+beta^2r, both contract for 0<beta r<2. Solving gives h^2 r^2 [beta d+2(1-beta r)||Eu||^2]/[4(2-beta r)]. Directional Cauchy Schwarz plus isotropy gives 0<=q=||Eu||^2<=ell; signed, positive and globally sign-biased coordinate frames realize each q. Therefore sign of 1-beta r is exactly the global minimizer reversal. Independently enumerated coordinate-frame one-step distribution with exact fractions at (d,ell,beta,h)=(4,1,1/4,1) gives E x1=(3/4,3/2,-3/4,0) and E||x1||^2=11/2, agreeing with both recurrences. Universal law is algebra, not sample-based.
+
+## originality
+
+PASS
+
+The two stochastic structured-direction papers establish the update and convergence estimates, but an upper bound in their step/radius setting is not the equality for fixed positive radius nor minimax orientation reversal. The nearby Haar subspace-moment result concerns derivative-based sampling, not the finite-difference affine drift; the Resultary KGSM mean-square stability result concerns another algorithm. No searched stronger published exact fixed-radius variance law implied this reversal.
+
+## value
+
+PASS
+
+Sharp global parameter-selection transition for a published optimization method; in particular an unbiased symmetric signed estimator may give greater stationary error than a biased unsigned estimator above beta r=1. The scalar invariant q classifies every admissible law, a motivated analytical boundary rather than a tiny numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
