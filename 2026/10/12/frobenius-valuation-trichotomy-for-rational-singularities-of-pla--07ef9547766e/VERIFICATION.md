@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python interpreter. Its implementation expands the defining plane-curve polynomial in shifted local coordinates modulo primes, truncates at the claimed first nonzero degree, and checks the complete coefficient dictionaries against the derived initial forms. It also tests the critical repeated-root multiplicities by exact binomial translation. The output is:
+## correctness
 
-`VERIFY_OK: exact truncated local coefficient identities and critical multiplicities in 14 cases`
+PASS
 
-The tests cover examples with \(s<q\), \(s=q\), \(s>q\), including characteristic \(2\), examples with one repeated and one simple tangent, and examples with one tangent of multiplicity \(q+1\). All coefficients are integers reduced exactly modulo \(p\); no floating-point arithmetic or search heuristics are used. The proof in `RESULT.md` derives the formulas for every prime power \(q\), not just the tested examples.
+Reconstructed affine partial derivatives f_x=1+a^r(k-b), f_y=a^{r+1}-b^r and rational-point parametrization t=b/a; no infinity singularity from line derivative. Frobenius translation produces zero coefficients below degree min(s,q)+1; for s<q tangent slope roots of z^{s+1}-z+t^{-N} are squarefree; for s>q U^q V-U V^q gives q+1 rational directions; at s=q derivative of P_h,lambda has unique repeated-root candidate and condition h²+lambda(h+1)=0. Independently factored mod 5 exceptional witness (p,q,r,t)=(5,5,5,3) as one simple plus one 5-fold tangent, and mod 3 (3,3,3,1) as one 4-fold tangent; distinguishes repeated tangent from unknown analytic branch number. Only rational singular points are classified.
 
-The tangent-collision equality is tested directly against the factorization of the translated slope polynomial. Critical-point multiplicities are conclusions about tangent cones, not claims about the number of analytic branches at nonordinary points. The mathematical statement has been reviewed using the displayed local formulas and the full originating source; no independent mathematical audit was performed.
+## originality
+
+PASS
+
+Best-of-knowledge new local singularity trichotomy for exactly the curve family of Asgarli–Ghioca, expressly retaining their rational singular-point first-derivative classification. The read primary 2023 paper gives a rational singularity exclusion test but does not in the inspected treatment derive these all-p-dividing-r tangent cone orders and collision patterns.
+
+## value
+
+PASS
+
+Multiplicities, tangent directions and normalization-branch splitting at rational singularities are fundamental local invariants of plane-filling curves. The sharp valuation boundary s=q and degenerate critical tangent pattern clarify a natural open parameter regime, rather than an arbitrary finite-field example or cosmetic derivative calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
