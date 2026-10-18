@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument uses the published semigroup differential identity and explicitly assumes the dual has a finite second moment. Differentiating the semigroup equation at the pgf fixed point gives exact ODEs for the first and second factorial moments. Solving them yields the stated formulas. The fixed-mean dispersion lower bound is an exact integer-support inequality, and its equality condition is pointwise. The attainable upper range is obtained by mean-preserving mixtures. The boundary case \(a=1\) is separately forced by \(J\ge1\). A deterministic exact-rational checker verifies representative algebraic identities and extremal constructions; the infinite-family theorem rests on the analytic proof, not on finite enumeration.
+## correctness
 
-## Originality
-PASS with residual literature risk. The closest source, Valero--Ginebra arXiv:2609.30106v1, gives the dual-pgf classification and differential identity for the exact same stopping-model class. Full-text comparison did not find a general mean--variance invariant, sharp fixed-exponent lower frontier, equality classification, or full dispersion range. Generic continuous-time branching moment equations are classical and are not claimed as new. The source itself points to two 1968 Karlin--McGregor embedding papers; their full texts were not obtained during bounded lawful-access searching, so an equivalent older extremal formulation remains possible. Targeted semantic searches over published mathematical findings did not reveal a stronger or equivalent statement.
+PASS
 
-## Value
-PASS. The result supplies a design-level invariant missing from the structural classification: once the dual mean fixes the expectation growth exponent, the dual second moment alone fixes the complete variance curve. The adjacent-two-point dual law is the unique least-variable design and the theorem gives the entire attainable dispersion range. This is a motivated structural consequence for choosing among stable stopping families rather than a routine restatement of the classification.
+Starting from the asserted canonical branching pgf generator ∂_s H_s(t)=H_s(t)(φ(H_s(t))-1) for s=-log θ, finite E[J^2] justifies first and second t-derivatives at t=1. With a=EJ, b=E[J(J-1)], m(0)=1=f(0)+1, the moment equations m’=am and f’=a f+(2a+b)m² give m=θ^-a and Var=(1+b/a)m(m-1)=(EJ²/EJ)m(m-1). The pointwise integer inequality (j-q)(j-q-1)>=0 yields EJ²>=a²+δ(1-δ), unique adjacent support equality. For a>1 the {1,M} laws with mean a have unbounded second moments as M→∞; mean-preserving mixing realizes each finite κ above the floor. At a=1, J=1 uniquely. Independent rational-moment checks corroborate exact equality examples. The external theorem associating a positive-integer dual law to the semigroup is a clearly identified premise; direct full-text access to its 2026 source was unavailable.
 
-## Closest literature and limitations
-The primary source is Jordi Valero and Josep Ginebra, arXiv:2609.30106v1 (2026-09-24), especially Proposition 17, Theorem 5, Remark 5, and Examples 2--4. The two classical antecedents explicitly cited there are Karlin--McGregor (1968), DOI 10.2307/1994885 and DOI 10.2307/1994886. The finite-variance statement requires \(\mathbb E[J^2]<\infty\), and no claim is made for higher moments or stochastic-order optimality. The unavailable full text of the two classical papers is the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Valero–Ginebra canonical dual parametrization is the initiating premise, and moment evolution is standard branching theory. The additional claimed invariant and sharp adjacent-support optimization, equality classification and full κ range at fixed canonical exponent were not found in inspected primary material or Resultary comparisons. Since the full 2026 manuscript and two older 1968 papers were inaccessible, historical equivalence remains a material priority risk rather than an invented negative full-text verdict.
+
+## value
+
+PASS
+
+Fixing the actual singleton-probability growth exponent for composition-closed stopping models is a natural constraint. The theorem identifies the complete attainable dispersion envelope, unique minimizer and a=1 boundary in this model class; this is an interpretable design invariant of random stopping, not an arbitrary finite slice or sole computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
