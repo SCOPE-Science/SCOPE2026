@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:18:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim fixes nonnegative n-by-n cell probabilities, uniform 1/n row and column margins, and only n+1 diagonal prefix values k²/n². For each i<j, comparing the copula upper envelope and Bertino lower bound gives n²[C(i/n,j/n)-C(j/n,i/n)]≤F_ij=min(h_i,h_j)-max(0,H_ij-n(j-i)), with h_k=k(n-k) and H_ij=max_{i≤k≤j}h_k. Linear interpolation of the prescribed diagonal knots is admissible and the published upper/Bertino splice attains all F_ij simultaneously; this is a genuine copula, so its cell masses give a feasible table. Centering at spacing d yields G_n(d)=(n²-L²)/4-max(0,floor(n²/4)-nd), with L=d+((n-d) mod 2); G rises before its threshold and falls after, yielding the eight residue coefficients and equality at 8|n. Independent exact integer interval tests for 2≤n<130 and seven feasible simultaneous-attainment LPs for n=2..8 agree. Those checks do not prove the infinite case; the interpolation/splice and centered threshold arguments do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 gives the universal exact upper envelope for a full prescribed diagonal; Proposition 4.3 gives the copula splice; Example 4.11 evaluates δ(t)=t² as 15/64."
+        ],
+        "reasoning": "That general continuous theorem is a technical input. Fixing only the diagonal values at n+1 knots admits infinitely many diagonals, so the old independence-diagonal example does not dominate the finite-knot feasible class. The new reduction evaluates the best permissible diagonal and exact finite-grid counts.",
+        "searches": [
+          "arXiv:2308.02220v2 Theorem 3.6 and Proposition 4.3, Example 4.11",
+          "arXiv:1802.06969 discrete copula geometry"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.02220v2 Proposition 2.3, Theorem 3.6, Proposition 4.3, Example 4.11",
+        "arXiv:1802.06969 (metadata/abstract and subject comparison only)",
+        "arXiv:2306.01604 (metadata/subject comparison only)",
+        "Resultary semantic query: copula asymmetry diagonal section grid knots independence exact eight residue finite discrete copulas"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For exact continuous δ(t)=t² the old maximum 15/64 is already proved. The new quantity only equals this for n divisible by eight and is smaller for other grids."
+        ],
+        "reasoning": "A theorem fixing all diagonal t values does not directly give the supremum over all copulas fixing only discrete diagonal values; extra variation minimization, joint attainment and integer rounding are mathematically needed. The new theorem is neither a recasting of the continuous example nor a claim to the inherited envelope theorem.",
+        "searches": [
+          "arXiv:2308.02220v2 §3–§4 Theorem 3.6 Proposition 4.3 Example 4.11",
+          "Resultary diagonal checkerboard and BFEx findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doubly stochastic grid table and checkerboard copula are equivalent via cell masses n²p_ab; Resultary nearest returned BFEx-index checkerboard examples and copula-diagonal convexity, not this objective."
+        ],
+        "reasoning": "Converting to transportation-polytope or checkerboard language changes no constraints or objective. The identified published results do not report the knot-constrained max asymmetry n-mod-8 law.",
+        "searches": [
+          "Resultary: copula asymmetry diagonal section grid knots independence exact eight residue finite discrete copulas",
+          "Perrone–Solus–Uhler arXiv:1802.06969",
+          "Kokol Bukovšek–Mojškerc–Stopar arXiv:2308.02220v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The examined references focus on full-diagonal bounds, geometry or Kendall-concordance entropy, not a list of sharp maxima for the stated diagonal-knot constraints."
+        ],
+        "reasoning": "The proposed period-eight expression covers all n≥2 rather than recopying a finite known table; no equivalent table was found in the searched sources.",
+        "searches": [
+          "Resultary query on eight-residue checkerboard asymmetry",
+          "arXiv:1802.06969 polytope",
+          "Sukeda–Sei arXiv:2306.01604 checkerboard entropy"
+        ]
+      },
+      "rationale": "The earlier full-diagonal copula theorem supplies crucial envelope/splice machinery and the continuous 15/64 benchmark, which are credited rather than claimed. Material comparison of its actual hypotheses with the finite-knot feasible class and the integer maximization supports a distinct new exact theorem on every finite grid. The published discrete-copula geometry and a Resultary search for equivalent matrix formulations disclosed no dominating finite-knot law. Absence from search is not novelty proof; a concise corollary implicit in full-diagonal machinery remains the main priority risk.",
+      "residual_risks": [
+        "The sharp finite-knot formula may be an implicit short corollary of the 2024 general envelope theorem not previously singled out.",
+        "The equality occurs for nonnegative tables; positivity and off-grid objectives are not established.",
+        "Secondary copula-polytope papers were not inspected in full; this is a bounded best-of-knowledge comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ENVELOPE_AND_SPLICE_NOT_FINITE_KNOT_FORMULA",
+          "evidence": "The source gives a universal full-diagonal variation envelope and continuous δ=t² asymmetry 15/64, not the proposed n-dependent period-eight finite-knot optimum.",
+          "identifier_or_url": "https://arxiv.org/html/2308.02220v2",
+          "material_read": "Material mathematical passages of §2 Proposition 2.3; §3 Theorems 3.3, 3.6; §4 Proposition 4.3 and Example 4.11, plus relevant introduction",
+          "method": "Official arXiv open HTML, mathematical formula comparison",
+          "title": "Exact upper bound for copulas with a given diagonal section",
+          "trigger": "Same copula object, sharp asymmetry and the value 15/64"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact grid-point asymmetry under independence-matching diagonal observations is a natural partial-identification problem for discretized copulas. The finite-knot constraints are demonstrably weaker than knowing an entire continuous diagonal. The sharp sample-grid oscillation, its exact period-eight arithmetic, and one joint extremizer for all oriented comparisons quantify a meaningful finite-resolution phenomenon. This is not merely another statement of the established continuous 15/64 example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2308.02220v2 Proposition 2.3, Theorem 3.6, Proposition 4.3, Example 4.11",
+    "arXiv:1802.06969 (metadata/abstract and subject comparison only)",
+    "arXiv:2306.01604 (metadata/subject comparison only)",
+    "Resultary semantic query: copula asymmetry diagonal section grid knots independence exact eight residue finite discrete copulas"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes nonnegative masses, not strictly positive ones; only grid-point statistic and diagonal grid knots fixed.",
+    "Finite LP and interval enumeration are corroboration, not a proof for all n."
+  ],
+  "residual_risks": [
+    "The sharp finite-knot formula may be an implicit short corollary of the 2024 general envelope theorem not previously singled out.",
+    "The equality occurs for nonnegative tables; positivity and off-grid objectives are not established.",
+    "Secondary copula-polytope papers were not inspected in full; this is a bounded best-of-knowledge comparison."
+  ],
+  "schema_version": 1
+}

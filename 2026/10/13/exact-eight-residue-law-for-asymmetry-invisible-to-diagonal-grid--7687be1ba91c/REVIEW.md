@@ -1,15 +1,21 @@
-# Scientific review: diagonal-grid asymmetry law
+# Independent mathematical audit
 
-## Correctness
-PASS. The displayed \(F_{ij}\) envelope follows from the upper copula variation bound, a lower marginal/Bertino inequality and discrete unimodality of the quadratic diagonal deficits. Its simultaneous attainability requires and invokes the substantive previously published diagonal splice theorem; mere feasibility of separately optimized linear programs would not suffice. Translational monotonicity, centered interval maximization, and the spacing cutoff reduce the integer optimization to at most two nearby values, giving the exact period-eight formulas. Independent integer matrix witnesses and finite scans run successfully. Potential boundary risk at small dimensions was tested separately at \(n=2,3\); the proof explicitly rules out an inadmissible zero spacing.
+## correctness
 
-## Originality
-PASS, with priority limitations. The closest full-text source [1] proves continuous-diagonal sharpness, including \(15/64\) for \(\delta(t)=t^2\), and is expressly used here. It does not state the sharp size-dependent checkerboard/grid-prefix law for only \(n+1\) diagonal constraints. The full texts of [2] and [3] establish discrete-copula polytope structure and minimum-information checkerboards, respectively, without the asserted diagonal-grid formula. Semantic research-index searches for checkerboard diagonal independence, equivalences, grid asymmetry, and the period-eight integer threshold revealed no directly covering result. This is not an independent priority certificate; equivalent results under unfamiliar terminology remain possible.
+PASS
 
-## Value
-PASS. Practical discretized dependence models can match independence exactly along all measured diagonal knots yet retain large directional dependence. The sharp finite-resolution bound is an intrinsic design/identification invariant: its exact dependence on resolution and the eight-divisibility equality threshold cannot be inferred from the continuous independence diagonal's constant alone. It provides an exact optimality benchmark, not an arbitrary small-instance table, and identifies how finite diagonal calibration can conceal nonexchangeability.
+The final claim fixes nonnegative n-by-n cell probabilities, uniform 1/n row and column margins, and only n+1 diagonal prefix values k²/n². For each i<j, comparing the copula upper envelope and Bertino lower bound gives n²[C(i/n,j/n)-C(j/n,i/n)]≤F_ij=min(h_i,h_j)-max(0,H_ij-n(j-i)), with h_k=k(n-k) and H_ij=max_{i≤k≤j}h_k. Linear interpolation of the prescribed diagonal knots is admissible and the published upper/Bertino splice attains all F_ij simultaneously; this is a genuine copula, so its cell masses give a feasible table. Centering at spacing d yields G_n(d)=(n²-L²)/4-max(0,floor(n²/4)-nd), with L=d+((n-d) mod 2); G rises before its threshold and falls after, yielding the eight residue coefficients and equality at 8|n. Independent exact integer interval tests for 2≤n<130 and seven feasible simultaneous-attainment LPs for n=2..8 agree. Those checks do not prove the infinite case; the interpolation/splice and centered threshold arguments do.
 
-## Limitations
-No claim of smooth or strictly positive extremizers, no determination of off-grid asymmetry, and no new proof of the general sharp-continuous-diagonal theorem. A literature priority risk remains for alternative formulations of the same constrained Birkhoff polytope optimization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier full-diagonal copula theorem supplies crucial envelope/splice machinery and the continuous 15/64 benchmark, which are credited rather than claimed. Material comparison of its actual hypotheses with the finite-knot feasible class and the integer maximization supports a distinct new exact theorem on every finite grid. The published discrete-copula geometry and a Resultary search for equivalent matrix formulations disclosed no dominating finite-knot law. Absence from search is not novelty proof; a concise corollary implicit in full-diagonal machinery remains the main priority risk.
+
+## value
+
+PASS
+
+Exact grid-point asymmetry under independence-matching diagonal observations is a natural partial-identification problem for discretized copulas. The finite-knot constraints are demonstrably weaker than knowing an entire continuous diagonal. The sharp sample-grid oscillation, its exact period-eight arithmetic, and one joint extremizer for all oriented comparisons quantify a meaningful finite-resolution phenomenon. This is not merely another statement of the established continuous 15/64 example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
