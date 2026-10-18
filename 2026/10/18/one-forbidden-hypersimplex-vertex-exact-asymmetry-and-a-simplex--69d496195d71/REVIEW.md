@@ -1,0 +1,11 @@
+# Review of the one-forbidden-basis Minkowski-asymmetry classification
+
+**Correctness — PASS.** The proof reconstructs the deleted-vertex hypersimplex as the cube slice with one rank inequality, by the one-coordinate-exchange description of hypersimplex edges. Reflected containment against every defining inequality gives a full-dimensional linear program with exact lower bounds. Equality conditions reconstruct **every** minimizing center without assuming symmetry. The rank--corank gap cases are exhaustive, and exact-rational reflected-vertex checks on 36 profiles support the argument. The infinity of dimensions is proved analytically, not inferred from finite tests.
+
+**Originality — PASS, with residual bibliographic risk.** Relevant matroid-polytope work describes relaxation cuts and lattice-point invariants but not this asymmetry law. General robust optimization gives an algorithmic formulation, not the explicit piecewise formula and simplex-of-centers classification. An earlier classification for rank-two matroids is excluded by assuming both rank and corank at least three. A related panhandle-matroid formula concerns the opposite cell in a hypersimplex split, not this deleted-basis polytope. The accessible literature and indexed mathematical records did not identify a theorem implying the all-rank result. Equivalent results under alternate terminology cannot be ruled out completely.
+
+**Mathematical value — PASS.** A natural one-basis perturbation of the uniform-matroid polytope exhibits a sharp geometric stability threshold. More surprisingly, a single removed basis creates an entire high-dimensional simplex of optimal affine-invariant centers precisely at rank--corank gap one, whereas the balanced and more unbalanced regimes have unique centers. The exact symmetry-loss amounts and center classification provide geometric structure beyond the known truncation or general optimization descriptions.
+
+**Closest literature and limits.** The general robust-polyhedron method and the circuit-hyperplane polyhedral split are acknowledged as ingredients; neither should be claimed new. The domain is one forbidden basis with rank and corank at least three. Independent validation and an exhaustive historical priority search are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.

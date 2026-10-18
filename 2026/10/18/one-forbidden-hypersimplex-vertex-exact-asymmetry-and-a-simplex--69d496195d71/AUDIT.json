@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The cut x(H)<=k-1 removes the one forbidden vertex without new edge intersections because hypersimplex edges exchange one 0 and one 1. Reflection containment is equivalent to coordinate constraints 1<=z_i<=s, total z([n])=k(s+1), plus one exact cut bound z(H)<=s(k-1)+max(0,k-l). Summing establishes four sharp lower bounds; equality constraints yield one unique uniform center at rank-corank gap>=2, a unique nonuniform center at equal rank and corank, or a full simplex of dimension min(k,l) at gap one. The four cases include every center and all integer boundaries. The standalone verifier checks 36 profiles, 48,164 vertices, and 212,798 exact rational reflected-vertex instances; independent full linear programs checked 64 profiles. Experiments are explicitly corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D. den Hertog, J. Pauphilet, M. Y. Soali, Minkowski Centers via Robust Optimization, Proposition 4, 2022 preprint: general polyhedral robust linear-optimization formulation.",
+        "Published research identifier a659b650d983, full Finding and Proof: explicit Minkowski asymmetry and centers only for rank-two matroid base polytopes; the corank-two case follows by complement duality."
+      ],
+      "reasoning": "The general optimization formulation can numerically solve individual polytopes but gives no evaluated rank/corank phase diagram or full center simplex. The rank-two theorem is not broad enough to imply the rank>=3 and corank>=3 classification. Neither source states a stronger covering theorem.",
+      "searches": [
+        "almost uniform matroid base polytope Minkowski measure of asymmetry complete minimizing centers",
+        "one circuit hyperplane matroid asymmetry coefficient rank corank",
+        "matroid base polytope Minkowski measure asymmetry formula index rank functions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2010.10227",
+      "arxiv:2003.02679",
+      "arxiv:2208.04893",
+      "https://optimization-online.org/2022/01/8768/",
+      "a659b650d983",
+      "a58242d50e97",
+      "82125c812c6f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2003.02679, Proposition 5.3: a matroid polytope split/relaxation, with lattice-volume and Ehrhart applications rather than Minkowski center implications.",
+        "arxiv:2208.04893: matroid valuative invariants, not affine center polytopes.",
+        "Published result a659b650d983, proof: rank-two parallel classes, hence disjoint hypotheses from ranks and coranks at least three."
+      ],
+      "reasoning": "The present theorem imposes different optimization constraints from volume/Ehrhart or Euclidean radius theorems. Specializing general polyhedral containment is a method rather than an already evaluated asymmetry theorem. The rank-two theorem does not cover the new integer parameter regime. The opposite panhandle cell of a hypersimplex split is not the deleted-basis cell and no implication through polarity or complement was found.",
+      "searches": [
+        "one circuit hyperplane matroid asymmetry coefficient rank corank",
+        "Minkowski symmetry number uniform matroid with one missing basis rank and corank balanced near balanced",
+        "sparse paving matroid base polytope inradius circumradius Chebyshev center",
+        "hypersimplex one basis removed incenter facet contacts circuit hyperplane"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2003.02679, Section 5 and Proposition 5.3: the polytope is a circuit-hyperplane relaxation/split, an equivalent geometric representation of the vertex deletion.",
+        "arxiv:2010.10227: matroid polytope reconstruction and basis-exchange graph terminology."
+      ],
+      "reasoning": "Deleting the forbidden basis is equivalent to one circuit-hyperplane relaxation cut of a hypersimplex. Those descriptions give the object but not its affine Minkowski asymmetry nor its complete optimal-center locus. Rank--corank interchange corresponds to coordinate complement, which preserves the formula and is already considered.",
+      "searches": [
+        "Minkowski asymmetry of hypersimplex with one vertex removed sparse paving circuit-hyperplane matroid base polytope exact center",
+        "hypersimplex minus one basis single forbidden basis circuit hyperplane Minkowski asymmetry sharp rank corank gap one simplex of minimizing centers",
+        "Minkowski symmetry number uniform matroid with one missing basis rank and corank balanced near balanced",
+        "hypersimplex circuit hyperplane rank corank differ one center locus simplex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research record a659b650d983 classifies rank-two matroid base polytope Minkowski centers.",
+        "Published research record a58242d50e97 studies intrinsic Euclidean inradius of all connected matroid base polytopes, a different invariant.",
+        "Published research record 82125c812c6f studies minimum enclosing Euclidean spheres of minimal matroid polytopes, a different extremal problem."
+      ],
+      "reasoning": "The closest indexed exact formulas concern lower-rank asymmetry or Euclidean radii, none tabulate or assert the present high-rank forbidden-basis asymmetry and its complete family of centers. Absence of a database match is not proof of novelty.",
+      "searches": [
+        "Minkowski asymmetry of hypersimplex with one vertex removed sparse paving circuit-hyperplane matroid base polytope exact center",
+        "almost uniform matroid base polytope Minkowski measure of asymmetry complete minimizing centers",
+        "hypersimplex minus one basis single forbidden basis circuit hyperplane Minkowski asymmetry sharp rank corank gap one simplex of minimizing centers",
+        "hypersimplex circuit hyperplane rank corank differ one center locus simplex"
+      ]
+    },
+    "rationale": "The claim concerns arbitrary ranks and coranks at least three, exact rank--corank asymmetry loss, and all minimizer centers for deleting exactly one basis of a uniform matroid. Inspected primary matroid articles address polyhedral reconstruction, circuit-hyperplane Ehrhart splits, and valuations, not this center law. The general robust-center LP does not state its explicit closed form or contact regimes. The accessible full mathematical rank-two classification and complement duality apply only when the rank or corank is two; the present domain explicitly excludes both. Searches of published mathematical records and primary literature did not identify a theorem implying this new complete classification; plausible older equivalent terminology remains a residual priority risk.",
+    "residual_risks": [
+      "Historical formulations under alternative names (Minkowski measure of symmetry, deleted-basis sparse paving matroids, hyperplane splits) may escape the indexed searches.",
+      "The general computational optimization literature might contain isolated tabulated instances, but no stronger all-integer theorem was found in inspected material.",
+      "Independent bibliographic priority assessment remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No specific Minkowski-asymmetry invariant or all-rank center-locus classification stated.",
+        "evidence": "Pineda-Villavicencio and Schröter, preprint 2020-10-20, primary MSC2020 52B11.",
+        "identifier_or_url": "arxiv:2010.10227",
+        "material_read": "Accessible preprint abstract, introduction, main reconstruction results, and classifications.",
+        "method": "Direct publicly accessible preprint text and statement comparison",
+        "title": "Reconstructibility of matroid polytopes",
+        "trigger": "Verified geometry classification and primary matroid polytope definitions"
+      },
+      {
+        "assessment": "Studies lattice-point counting and relaxed matroid polytopes; does not determine Minkowski asymmetry or all centers.",
+        "evidence": "Ferroni, preprint first public 2020-03-05, Section 5.",
+        "identifier_or_url": "arxiv:2003.02679",
+        "material_read": "Full accessible paper, especially Section 5 and Proposition 5.3 and surrounding proofs.",
+        "method": "Preprint PDF/text read and theorem-implication comparison",
+        "title": "On the Ehrhart Polynomial of Minimal Matroids",
+        "trigger": "Circuit-hyperplane relaxation describes the exact one-vertex deletion family"
+      },
+      {
+        "assessment": "Matroid valuations and Ehrhart-type invariants do not imply exact Minkowski-center law.",
+        "evidence": "Ferroni and Schröter, preprint first public 2022-08-09.",
+        "identifier_or_url": "arxiv:2208.04893",
+        "material_read": "Accessible public preprint HTML, abstract, statements, and valuation families.",
+        "method": "Primary abstract/theorem-body comparison",
+        "title": "Valuative invariants for large classes of matroids",
+        "trigger": "Possible stronger covering theorem for all sparse-paving or split matroid polytopes"
+      },
+      {
+        "assessment": "Gives general robust optimization machinery; does not evaluate the deleted-hypersimplex family or determine its full minimizer simplex.",
+        "evidence": "Den Hertog, Pauphilet, and Soali, 2022 preprint, Proposition 4.",
+        "identifier_or_url": "https://optimization-online.org/2022/01/8768/",
+        "material_read": "Full accessible preprint PDF, especially formal robust-center formulations and Proposition 4.",
+        "method": "Full paper PDF review including mathematical statements",
+        "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+        "trigger": "Direct general Minkowski asymmetry optimization might imply the specialized law"
+      },
+      {
+        "assessment": "It handles rank-two and via coordinate complementation corank-two, but does not apply when both rank and corank are at least three.",
+        "evidence": "Published record identifier a659b650d983, explicit rank-two assumptions.",
+        "identifier_or_url": "a659b650d983",
+        "material_read": "Complete public theorem text, hypotheses, proof, relationship-to-prior-work, limitations, and references.",
+        "method": "Read complete accessible published mathematical finding and compared its rank hypotheses",
+        "title": "Minkowski asymmetry and all centers of rank-two matroid base polytopes",
+        "trigger": "Closest exact same-invariant theorem and potential small-rank/dual coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69d49619-5d71-4fe5-9adf-819f8d49ae4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A one-basis deletion of the uniform-matroid polytope is a canonical minimal combinatorial perturbation. The asymmetry suffers an exactly quantified loss only at ranks differing from coranks by at most one. Surprisingly, gap one creates a positive-dimensional simplex of all optimal centers rather than a unique minimizer, of dimension arbitrarily large while a balanced example remains uniquely centered. This sharp stability and center-locus phase diagram for all rank and corank at least three is meaningful beyond generic robust LP feasibility and standard Ehrhart-split facts.",
+    "status": "PASS"
+  }
+}
