@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All p>q>=2 are handled by an unrestricted gap upper bound from symmetrization and PSD monotonicity, a 4x4 inertia calculation, an affine eigenvector Rayleigh comparison, the opposite-sign perturbation, and an independent Perron bound on negative transition eigenvalues. The polynomial has one positive h-root by Descartes. Eight exact sympy identities and 231 full matrices corroborate but are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2004, full author PDF: general semidefinite programming solves each fixed graph numerically, without this all-parameter formula.",
+        "Boyd et al. 2009 §5.4.4 (p. 816): closed weights for symmetric K_n--K_n clique-barbell, including positive within-clique transitions."
+      ],
+      "reasoning": "A general SDP formulation gives a computational method but not the claimed analytic sharp imbalance classification. The balanced two-clique theorem has different graph parameters and no unequal-cluster branch; neither cited full-text result states a dominating theorem from which the quartic phase boundary follows directly.",
+      "searches": [
+        "Fiedler eigenvalue saturated hub random walk on unequal double star p q optimal semidefinite spectral radius",
+        "Fastest mixing Markov chain double broom with p and q leaves, optimal probabilities boundary quartic polynomial",
+        "Fastest mixing Markov chain double star edge probability two hub graph"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144503423264 (full 2004 author manuscript)",
+      "arxiv:0709.0955v1 (full text; 2009 journal §5.4.4)",
+      "Fastest Mixing Markov Chain on a Path (bibliographic and abstract only)",
+      "published-finding corpus semantic searches documented in originality named checks",
+      "Published related claims concerning distinct star-based graph objectives"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2009 clique-barbell analysis assumes two cliques of the same order n and has three edge orbits p0,p1,p2.",
+        "Here p>q>=2, there are only p+q+1 tree edges and the rational branch occurs above a nontrivial N(p,q) boundary."
+      ],
+      "reasoning": "Removing the clique-internal edges from the prior optimizer would not yield a theorem that the remaining kernel minimizes SLEM under unequal hub capacities. General symmetry arguments reduce variables but do not settle the algebraic optimum. The exact rational test is therefore not an identified corollary of the inspected works.",
+      "searches": [
+        "Fastest Mixing Markov Chain on Graphs with Symmetries §5.4.4 Kn-Kn clique barbell analytic transition probabilities",
+        "Fastest mixing Markov chain two joined stars unequal leaf degree probability bridge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. 2009 §1.1 defines SLEM as spectral norm off constants and §2 gives symmetry averaging.",
+        "The claimed test N(p,q)>=0 is equivalent to optimality of a candidate for an unequal tree, and is not a numeric SDP value.",
+        "published-finding corpus returned closest ID 2026/9/7/SCOPE002 (balanced-spider mixing bounds) and 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc (unrelated fort hypergraph)."
+      ],
+      "reasoning": "SLEM, reversible random-walk optimization, spectral gap optimization and Laplacian eigenvalue tuning were considered as aliases; the displayed quartic iff condition was not recovered in those results.",
+      "searches": [
+        "Fastest mixing Markov chain unequal double-star D_{p,q} with p>q>=2 optimal bridge edge probability support transition and 1+sqrt 2 imbalance threshold",
+        "Optimal symmetric stochastic matrix on two joined stars with unequal pendant numbers spectral gap rational branch",
+        "Boyd Diaconis Xiao fastest mixing Markov chain graph double star trees fastest mixing unequal two stars"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest results include 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc and 2026/9/7/SCOPE002, different objectives.",
+        "The compared published findings include claim ca9ef0ce-4718-416f-8bab-e6d27f6de957 for a quadrilateral book (star Cartesian product), and 820a04e5-c7df-40dd-8658-01e031fa4ab6 for Gauss integration on balanced double-stars."
+      ],
+      "reasoning": "No exact table entry or matching claim identified. Those closest results do not imply SLEM optimum on unbalanced two-hub trees. Database search is incomplete and never proves global uniqueness.",
+      "searches": [
+        "Fastest mixing Markov chain unequal double-star D_{p,q} with p>q>=2 optimal bridge edge probability support transition and 1+sqrt 2 imbalance threshold",
+        "FMMC double star edge probability two hub graph"
+      ]
+    },
+    "rationale": "General FMMC convex and symmetry principles are prior art; the candidate supplies a distinct all-parameter high-imbalance rational optimum and a quartic necessary-and-sufficient threshold. The 2009 clique-barbell result has equal cluster sizes and internal clique edge variables; the present graph is an unequal tree and the closed formulas are not a direct specialization. The nearest accessible comparison findings are about a Cartesian-product star network or fourth-order integrator positivity, not unequal-tree SLEM. Unindexed equivalent work is still possible.",
+    "residual_risks": [
+      "FMMC is a classical semidefinite optimization problem; an unindexed graph-family specialization could reproduce the result.",
+      "A non-obvious reduction from a broader unequal-clique or tree spectral-optimization theorem outside inspected material could imply the formula.",
+      "Path-paper full text not inspected, but its path hypothesis is graph-theoretically inapplicable.",
+      "The earlier technical report has month-level date evidence only (February 2003); the first exact-date public electronic release verified here is 2004-10-29."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_FRAMEWORK_NOT_EXACT_PARAMETRIC_THRESHOLD",
+        "evidence": [
+          "The FMMC objective and SDP are defined for every fixed graph; no unequal double-star quartic optimum is presented in inspected material."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full accessible 23-page author manuscript, focus on global SLEM formulation, SDP and examples",
+        "method": "Full-text examination and objective/graph-family implication comparison",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational SDP method could dominate any graph-specific optimality statement"
+      },
+      {
+        "assessment": "COVERS_SYMMETRY_METHOD_AND_BALANCED_CLIQUE_BARBELL_NOT_STATED_UNBALANCED_DOUBLE_STAR_FORMULA",
+        "evidence": [
+          "Section 5.4.4 presents formulas with two K_n cliques and weights for intra-clique transitions; displayed variables and hypotheses do not furnish a p>q double-star phase boundary."
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; doi:10.1137/070689413; https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full 28-page paper; specifically introduction §§1–2, orbit reduction §4 and graph example §5.4.4 with p. 816 exact optimizer",
+        "method": "Accessible full-text inspection and rendered p. 816 formula comparison",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Two-clique barbell graph and automorphism reduction are potentially stronger overlapping results"
+      },
+      {
+        "assessment": "PATH_GRAPH_DIFFERENT_FROM_BOTH_HUBS_WITH_AT_LEAST_TWO_LEAVES",
+        "evidence": [
+          "The source optimizes a path, whereas p>q>=2 creates two vertices of degree at least three."
+        ],
+        "identifier_or_url": "https://www.web.stanford.edu/~boyd/papers/fmmc_path.html",
+        "material_read": "Abstract and public bibliographic page; not full PDF",
+        "method": "Source-scope comparison",
+        "title": "Fastest Mixing Markov Chain on a Path",
+        "trigger": "Small q tree degenerate cases may reduce to path FMMC"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a07e6cc-4d90-4a28-a828-975fb88b1db2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A naturally selected two-bottleneck network family has a closed rational globally fastest-mixing policy exactly beyond a sharp imbalance threshold. The competing quotient and leaf-difference eigenvalues create a structural spectral transition, and the critical imbalance tends to 1+sqrt(2). The theorem gives an actionable graph-dependent allocation rule, not merely a fixed numerical example. The complementary regime remains unsolved.",
+    "status": "PASS"
+  }
+}
