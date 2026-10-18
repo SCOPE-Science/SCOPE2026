@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization identities for binomial transforms match Bouthat [1, Section 2]. The new auxiliary lemma follows from the exact Poisson Fourier characteristic function, uniform translated convergence for a continuous trigonometric absolute value, the assumed vanishing third harmonic, and the explicitly integrated two-frequency sign pattern. The source's Lemmas 4.2, 5.1 and 3.2 are applied with their stated hypotheses; the positive-boundary case is separated from vanishing factors, and the complex-to-real argument preserves the left limsup while not enlarging the two right limsups. The executable checker confirms finite identities and numerical consistency, but the proof, not numerical tests, supports the infinite conclusion.
+PASS
 
-## Originality — PASS
+PASS: For β>1 and irrational φ/π where φ=arccos(1/β), normalize b,c by β^n and a by α^n, α=sqrt(β²−1). Exact EGF relations G(w)=exp(qw)F(pw), H(w)=exp(qw)F(−pw) (p=α/β,q=1/β). On third-harmonic rays Bouthat Lemma 4.2 gives e^(−t)G(te^(±3iφ))→0 and analog for H. Poisson angular phase equidistribution for irrational φ/π follows from Fourier characteristic exp(t(e^(ikφ)−1))→0 for every nonzero k. With λ=[3−4sin²(π/9)]⁻¹, g=cosθ+λcos3θ, exact mean |g|=J=2/π(2cos(π/9)−1). Nonreal second harmonic vanishes; first-harmonic amplitude ≤J times coefficient limsup. Bouthat Lemmas 5.1 (sector interpolation) and 3.2 (Cauchy saddle arcs) yield coefficient constant 2J=4/π(2cosπ/9−1)≈1.119668<2/√3. Independently verified g zero, antiderivative, numeric constant and transform normalizations; finite quadrature is corroborative only.
 
-The full 2026 paper [1] uses a uniform Cauchy–Schwarz harmonic estimate \(1/\sqrt3\) and concludes the sharp universal constant \(2/\sqrt3\). The new nonresonant use of the complete Poisson angular distribution yields the strictly smaller upper bound \(1.119668\ldots\). The closest public parameterwise note [3] proves only lower bounds, equal to one at irrational angles, and does not imply this upper inequality. Targeted mathematical-record and literature searches found no stronger covering statement. Unindexed equivalences and the unavailable 2005 primary full text remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The parameter set is the complement of a countable dense exceptional set and has full Lebesgue measure. A sharp uniform constant can obscure pervasive stronger behavior; the new theorem separates the irrational sector from the arithmetic resonance responsible for global sharpness. The constant is exact, comes with a reusable constrained-harmonic argument, and is a strict parameterwise strengthening rather than a cosmetic restatement. It does not determine the best fixed-parameter constant.
+PASS best-of-knowledge: Bouthat proves the uniform sharp constant 2/√3, attained at rational φ/π=1/3, and an angle-independent first-ray estimate; Resultary arithmetic-resonance note gives lower bounds one for irrational φ/π. Neither prior upper estimate nor lower-bound arithmetic profile implies the improved nonresonant upper 2J. New Poisson irrational equidistribution replaces general Cauchy–Schwarz angular estimate.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The fixed-parameter versus globally uniform sharpness gap is mathematically motivated. A strictly smaller bound across all irrational-angle parameters is a substantive refinement, not a tiny arbitrary numeric exercise; it identifies arithmetic resonance as the mechanism behind uniform sharpness and produces an explicit rigorous universal-on-subclass constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
