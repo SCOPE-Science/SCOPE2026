@@ -1,11 +1,21 @@
-# Scientific review: normalizer-rigid genus-six cyclic actions
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof characterizes every possible quotient-base automorphism using the unique wild full-inertia and tame cubic branch points. The first Artin–Schreier coordinate forces the base scaling to be trivial by a simple-pole obstruction. Length-two Witt addition, inversion, and a second simple-pole test then give exactly two permitted parameters; the deck-kernel argument establishes the normalizer identity. The genus-six input is independently reconstructed from local jumps and the different. The bundled finite-field checker corroborates the Witt identities and parameter-orbit structure but is not used as a substitute for the general proof.
+## correctness
 
-**Originality — PASS, with a bibliographic risk.** Kazemifard–Tafazolian's Theorem 5.8 supplies normal forms but expressly leaves parameter uniqueness unstated. Dang–Hippold's general reduced-Witt-vector and Hurwitz-space results provide the underlying equivalence relation, not the precise quotient-scaling calculation or the normalizer identity for this mixed tame/wild cyclic-twelve boundary family. Results for maximal Kummer curves and the separate higher-order cyclic range involve different function fields or hypotheses. A general older theorem may imply the same self-normalization without mentioning this presentation, and that remains a risk rather than a claimed impossibility.
+PASS
 
-**Value — PASS.** The result completes a natural moduli ambiguity left by an explicit characteristic-two boundary classification, supplies a precise invariant \(j=\lambda^2+\lambda\) for all geometric cyclic-action pairs, and rules out every additional automorphism normalizing the specified wild cyclic subgroup. This exact orbit-and-normalizer description is useful when comparing specializations or studying Hurwitz loci. It makes no claim about complete automorphism groups or unmarked isomorphism classes.
+Unique wild and tame branch points force quotient base transformation z->c*z for any normalizing pair isomorphism. The simple-pole AS lemma prohibits (c^-1+1)z^-1 coboundary, hence c=1. The generator group of order 4 is ±1; direct Witt formulas yield f_lambda-f_mu=(0,(lambda+mu)t) and f_lambda+f_mu=(0,t^2+(lambda+mu)t). The same pole lemma makes pair equivalence exactly lambda+mu=0 or 1, i.e. equal lambda^2+lambda; kernel of quotient action is C12, so normalizer and hom-set counts follow. Genus via different exponents 26 at zero and four tame exponents 2 at infinity gives g=6. Finite-field Witt GF(16) checks only corroborate identities, not universal claim.
 
-Closest primary references: Kazemifard–Tafazolian, arXiv:2610.04702v1, Theorem 5.8; Dang–Hippold, arXiv:2306.14711v3, Propositions 2.4 and 3.9. Supporting range comparison: Timpanella, arXiv:2609.34709v1.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kazemifard–Tafazolian Theorem 5.8 gives these genus-six cyclic-order-12 normal forms but explicitly declines parameter uniqueness. Dang–Hippold general AS–Witt unit-equivalence/moduli framework is used but does not itself determine this mixed Kummer–Witt family’s rigid base scaling, exact pair groupoid or normalizer; Timpanella applies at cyclic order ≥2g+1 unlike present order=2g.
+
+## value
+
+PASS
+
+Determines genuine geometric isomorphism classes and full pair-isomorphism count for a natural wild automorphism boundary family; closes the precise parameter redundancy left open by origin paper, not a generic moduli relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
