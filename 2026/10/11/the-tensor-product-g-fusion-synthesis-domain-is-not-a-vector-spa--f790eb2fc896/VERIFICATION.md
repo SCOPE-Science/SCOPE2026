@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-I=J=\{1,2\},
-\qquad
-H_i=K_j=\mathbb R,
-\]
-a displayed coefficient family in Note 3.2 has matrix form
-\[
-M=
-\begin{pmatrix}
-f_1g_1&f_1g_2\\
-f_2g_1&f_2g_2
-\end{pmatrix}.
-\]
-Direct calculation gives
-\[
-\det M=0.
-\]
-The matrices
-\[
-A=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix},
-\qquad
-B=
-\begin{pmatrix}
-0&0\\
-0&1
-\end{pmatrix}
-\]
-are both of the prescribed form, but
-\[
-\det(A+B)=1.
-\]
-Thus the displayed set is not closed under addition.
+# Independent mathematical audit
 
-For the repaired spaces
-\[
-E=\bigoplus_i^{\ell^2}H_i,
-\qquad
-F=\bigoplus_j^{\ell^2}K_j,
-\qquad
-G=\bigoplus_{i,j}^{\ell^2}(H_i\otimes K_j),
-\]
-the canonical map on simple tensors satisfies
-\[
-\|U((f_i)_i\otimes(g_j)_j)\|_G^2
-=
-\left(\sum_i\|f_i\|^2\right)
-\left(\sum_j\|g_j\|^2\right).
-\]
-Finite-support elementary tensors are dense in \(G\), so \(U\) extends to a unitary.
+## correctness
 
-On simple coefficient tensors, direct expansion of the synthesis sum gives
-\[
-T_{\Lambda\otimes\Gamma}U
-=
-T_\Lambda\otimes T_\Gamma.
-\]
-Density and boundedness extend this identity to the completed spaces; taking adjoints gives the corrected analysis identity.
+PASS
 
-The open primary PDF was inspected at Note 3.2, Note 3.5, and Theorem 3.6, including page images of Note 3.2 and the synthesis calculation in Theorem 3.6. No numerical approximation or finite search is used in the proof.
+In the scalar 2×2 model the displayed coefficient matrices have the form f g^T, hence rank ≤1 and determinant zero. The diagonal rank-one arrays e1 e1^T and e2 e2^T belong to the set but sum to I2 of determinant 1; nonclosure is proved. On algebraic coefficient tensors, the full product-index ℓ² map U preserves inner products; individual coordinate simple tensors span a dense range, so U extends onto a unitary. Under the source’s frame/Bessel assumptions bounded synthesis maps agree on the dense tensor subspace: T_product∘U=T_Λ⊗T_Γ; the unadjusted operator equality suppresses a domain identification. The result is conditional on the paper’s literal displayed set.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the precise error and repaired operator typing in Ghosh–Samanta Note 3.2, Note 3.5 and Theorem 3.6, not novelty of general Hilbert tensor products or the rank-one fact. Read the relevant source PDF including printed formulas and checked Resultary searches under tensor g-fusion and coefficient domain; no other actual earlier correction or logically dominating statement surfaced. Earlier tensor-frame work uses the correctly completed tensor Hilbert space but does not assert this specific correction. Risks include unindexed erratum or intended informal notation.
+
+## value
+
+PASS
+
+The literal nonvector coefficient domain undermines a named Hilbert-space assertion and type of subsequent bounded synthesis operators in a published frame theorem. The rank-two 2×2 witness is elementary, but it isolates a concrete error affecting operator domains; the direct-sum/unitary correction preserves the valid frame-operator identity. This has substantive pedagogical and mathematical utility beyond a gratuitous cheap normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
