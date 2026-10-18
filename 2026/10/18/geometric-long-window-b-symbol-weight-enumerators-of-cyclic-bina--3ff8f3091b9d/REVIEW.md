@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** Every length-\(m\) consecutive parity-check interval is independent, so each longer interval has a shortened subcode of exactly \(2^{\ell-m}\) words. A codeword with nonfull \(b\)-symbol weight for \(b>n/2\) must have a unique zero run longer than half its circumference, hence a uniquely positioned complement arc. Inclusion-exclusion at its endpoints proves all coefficients without unbounded enumeration. The packaged checker exhausts codewords through \(m=4\) and short supporting arcs through \(m=5\).
+
+**Originality (O): PASS, subject to source-discovery risk.** Liu–Pan (2021) addresses generalized minimum-weight matrices of two small Hamming codes, with a different coordinate ordering in their printed \([15,11]\) instance, rather than all coefficients. Shi–Özbudak–Solé (2021) proves cyclic stability for \(b\ge n-m\), while the new coefficients occur for \(n/2<b<n-m\). Zhu–Shi (2022) and Vega (2022) concern irreducible cyclic codes (not this dual Hamming family); Zhu et al. (2024) bounds spectrum cardinality but not multiplicity. Results with matching nomenclature therefore do not imply the new formula. Searches of published mathematical findings did not identify a covering statement. Possible unindexed prior equivalents remain a risk; search absence is not novelty proof.
+
+**Mathematical value (V): PASS.** The closed enumerator fixes the exact multiplicities for every admissible large window and all binary cyclic Hamming lengths, rather than just a minimum distance or upper bound on number of distinct weights. The uniqueness threshold \(b>n/2\) has intrinsic structural meaning, and the geometric coefficient law derives from consecutive shortenings. Nonfull coefficient counts have a natural interpretation for overlapping-window read channels.
+
+**Limits and priority qualification.** The cyclic exponent order is essential; arbitrary coordinate reorderings are excluded. The theorem says nothing about \(b\le n/2\), nonbinary Hamming codes, optimal decoding, or an independently established publication priority. Finite computation corroborates but does not replace the general proof.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For primitive alpha, every m consecutive parity-check columns form a basis; fixed length-l shortened subspaces have size 2^(l-m). For b>n/2, each subfull-weight nonzero codeword has a unique zero run of length>=b, giving a unique complementary support arc. Endpoints-one inclusion-exclusion yields exact 1,1,2,4,... anchored counts and b-weight b+l-1; total count and subtraction give the polynomial. Independently coded direct window checks exhaust m=3,4 and independent anchored-span counts through m=5. No limiting or probabilistic step is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shi/Özbudak/Solé stability covers b>=k=n-m; new nontrivial weights require b<=n-m-1.",
+        "Zhu/Shi and Vega enumerate irreducible cyclic trace codes of dimension roughly m, not their dual Hamming codes of dimension n-m."
+      ],
+      "reasoning": "Existing broad cyclic bounds and exact irreducible-code formulas do not specialize to the new Hamming coefficients; b-symbol weight is not controlled by the ordinary dual MacWilliams identity. Saturation region is explicitly acknowledged as known.",
+      "searches": [
+        "Full b-symbol weight distributions of irreducible cyclic codes, simplex codes, Hamming dual, long zero runs",
+        "Binary Hamming code window-consecutive m independent parity check columns cyclic burst shortened code support distribution",
+        "arXiv:2203.11567v1",
+        "arXiv:2206.03459v1",
+        "HAL:hal-03189478"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.16299v2",
+      "HAL:hal-03189478 (author-posted full-text rendition)",
+      "arXiv:2203.11567v1",
+      "arXiv:2206.03459v1",
+      "arXiv:2404.02471v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior minimum/spectrum-cardinality bounds do not specify number of codewords at each weight.",
+        "Known b>=k stability implies our all-full result only in the region b>=n-m, not geometric nonfull coefficients at n/2<b<n-m."
+      ],
+      "reasoning": "The new key implication is unique long cyclic zero run plus dimensions of all contiguous shortenings; prior results cited do not supply this particular coefficient distribution, even though the building-block rank facts are elementary and known.",
+      "searches": [
+        "Binary cyclic Hamming code b-symbol cyclic burst weight enumerator high window b greater than n/2 geometric multiplicity 2^(L-m-2)",
+        "Full b-symbol weight distributions of irreducible cyclic codes, simplex codes, Hamming dual, long zero runs",
+        "Exact cyclic b-symbol weight enumerator of the binary Hamming code of length 2^m-1 for b>n/2: n, n,2n,4n geometric multiplicity and n2^(n-b-m-1) non-full codewords",
+        "arXiv:2404.02471v1 Section 6 Theorem 22",
+        "HAL:hal-03189478 stability theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu/Pan Examples 4.3-4.4 enumerate generalized minimal weights, not the number of cyclic Hamming codewords at each b-symbol weight.",
+        "Published literature was searched for cyclic burst/window enumeration and geometric multiplicities."
+      ],
+      "reasoning": "The claimed polynomial determines coefficients for all 2^(n-m) codewords, whereas the generalized b-symbol hierarchy retains only minima over subspaces. Both invariants share terminology but neither equality nor implication of formulas was identified.",
+      "searches": [
+        "Binary cyclic Hamming code b-symbol cyclic burst weight enumerator high window b greater than n/2 geometric multiplicity 2^(L-m-2)",
+        "Hamming codes b-symbol weight distribution high b full spectrum minimum n relation cyclic window shortening",
+        "Exact cyclic b-symbol weight enumerator of the binary Hamming code of length 2^m-1 for b>n/2: n, n,2n,4n geometric multiplicity and n2^(n-b-m-1) non-full codewords",
+        "arXiv:2103.16299v2 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu/Pan [15,11] Hamming table is a matrix of generalized minima in a different coordinate order, not a polynomial of multiplicities.",
+        "Zhu et al. (2024) gives spectrum-cardinality bounds, not a coefficient table for the cyclic binary Hamming family."
+      ],
+      "reasoning": "No relevant table containing these complete distributions in the claimed primitive-exponent ordering was located; absence from search is not a priority proof.",
+      "searches": [
+        "Hamming codes b-symbol weight distribution high b full spectrum minimum n relation cyclic window shortening",
+        "Exact cyclic b-symbol weight enumerator of the binary Hamming code of length 2^m-1 for b>n/2: n, n,2n,4n geometric multiplicity and n2^(n-b-m-1) non-full codewords",
+        "b-symbol weight spectrum of Hamming codes; geometric coefficient law for contiguous shortened subcodes; binary cyclic Hamming long windows",
+        "arXiv:2404.02471v1 Section 6",
+        "arXiv:2103.16299v2 Section 4"
+      ]
+    },
+    "rationale": "Direct comparison with the most plausible cyclic-code and Hamming-code sources identifies generalized minimum weight matrices, dimension-based stability, irreducible-code formulas and spectrum-cardinality bounds, none of which determine the exact cyclic Hamming multiplicity formula for all m. Semantic searches of published mathematical findings identified no implication coverage. Residual risk: literature discovery is not exhaustive, and no external priority verification has been performed.",
+    "residual_risks": [
+      "No search can prove world-wide priority; possible unindexed equivalent derivation or specialized burst-enumerator source.",
+      "Only the author-posted full-text rendition, not a separately downloaded PDF, was examined for the 2021 geometric treatment.",
+      "Other variants of Hamming parity-column ordering change b-symbol weights, so superficially similar Hamming tables require explicit order checks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: generalized minima and two small examples, with lexicographic column order; no all-codeword cyclic-order multiplicity law for arbitrary m",
+        "evidence": [
+          "Section 4 Example 4.3 gives [7,4] generalized weight matrix; Example 4.4 gives [15,11] generalized weight matrix, not weight enumerator.",
+          "Example 4.4 explicitly orders parity columns in a binary-lexicographic list, unlike the primitive-exponent cyclic ordering required here."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.16299v2",
+        "material_read": "Abstract, Introduction, definitions, Section 4 Hamming examples 4.3 and 4.4, Section 5 criteria",
+        "method": "Full-text HTML inspected with sections and example formulas",
+        "title": "Generalized b-symbol weights of Linear Codes and b-symbol MDS Codes",
+        "trigger": "Direct Hamming code and b-symbol theorem overlap, especially Example 4.4"
+      },
+      {
+        "assessment": "NOT_COVERING: stability begins at window >= code dimension n-m; nontrivial weights of the new theorem are at b<n-m; special exact formulas apply irreducible families",
+        "evidence": [
+          "Introduction states stability: same enumerator for b>=k where k is code dimension.",
+          "Corollaries 2 and 3 restrict exact formula to an irreducible/nonzero single-cyclotomic-coset setup."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/350508739_Geometric_Approach_tob-Symbol_Hamming_Weights_of_Cyclic_Codes",
+        "material_read": "Full-text material including introduction, Section II definitions, Section IV cyclic irreducible formulas and corollaries",
+        "method": "Lawfully accessible author-posted full-text HTML rendition inspected",
+        "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+        "trigger": "General cyclic enumerator stability and possible direct covering bounds"
+      },
+      {
+        "assessment": "NOT_COVERING: irreducible cyclic code of small trace dimension m differs from dimension-(n-m) Hamming code; theorem is not a distribution for its dual",
+        "evidence": [
+          "Theorem formulates b-symbol enumerator of irreducible cyclic trace codes using Gaussian periods; not a dual-code MacWilliams transform for b-symbol weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.11567v1",
+        "material_read": "Abstract, irreducible trace representation, weight-distribution theorems and consequences",
+        "method": "arXiv full-text HTML inspected",
+        "title": "The b-symbol weight distribution of irreducible cyclic codes and related consequences",
+        "trigger": "Complete b-symbol weight enumerator formulas"
+      },
+      {
+        "assessment": "NOT_COVERING: semiprimitive irreducible trace-code family rather than cyclic Hamming codes",
+        "evidence": [
+          "Main result explicitly targets one-/two-weight semiprimitive irreducible cyclic codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.03459v1",
+        "material_read": "Abstract, hypotheses of semiprimitive irreducible family and main theorem",
+        "method": "arXiv full-text HTML inspected",
+        "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+        "trigger": "Broader potential b-symbol enumerators of cyclic codes"
+      },
+      {
+        "assessment": "NOT_COVERING: bounds number of possible weights; does not count codewords at each long-window weight of Hamming family",
+        "evidence": [
+          "Section 6 Theorem 22 gives bound on |W_b(C)|; no multiplicity coefficients.",
+          "Section 6 notes that b>=k gives only full weight, consistent with and weaker than the claimed nontrivial b<k interval."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.02471v1",
+        "material_read": "Abstract, definitions, Sections 5-6, Theorems 20 and 22, Proposition 23, conclusion",
+        "method": "arXiv full-text HTML inspected",
+        "title": "Some bounds on the cardinality of the b-symbol weight spectrum of codes",
+        "trigger": "Potential stronger cyclic spectrum theorem and saturated-window overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ff8f309-1b9d-4f90-bebd-b538bb508af4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An infinite family of classical cyclic error-correcting codes gains a complete exact b-symbol enumerator in an otherwise nontrivial wide-window regime; geometric multiplicities and their cutoff are invisible to the previously known minimum-weight hierarchy and stability theorem. The result gives explicit probabilities of observing each window weight for uniform codewords and an exact count of all words below full read-channel weight. The selection b>n/2 is the mathematically natural threshold that makes a long zero run unique, rather than an arbitrary numeric slice.",
+    "status": "PASS"
+  }
+}
