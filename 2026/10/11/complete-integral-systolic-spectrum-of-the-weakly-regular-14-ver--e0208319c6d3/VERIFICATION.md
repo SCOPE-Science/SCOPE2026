@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included `verify.py` reconstructs the 14-vertex cyclic complex from the published facet formula and uses only integer arithmetic and finite enumeration. It verifies \(f=(14,42,28)\), that every edge lies in two triangles, that all graph triangles are facets, and that there are no 4-cliques.
+# Independent mathematical audit
 
-For homology, a spanning tree is collapsed. The remaining 29 edges and 28 triangle boundaries give an integral presentation. The verifier computes all 29 maximal minors exactly by fraction-free elimination, checks that the relation rank is 28 and that the gcd of the maximal minors is 2, and constructs a primitive cofactor vector annihilating every relation. The same relation matrix has rank 27 over \(\mathbf F_2\).
+## correctness
 
-It then exhausts all simple three- and four-edge cycles. All 28 three-cycles are face boundaries. There are 77 four-cycles: 42 null, 21 representing the nonzero order-two class, and 14 with primitive infinite-order class. Finally it verifies that the 35 essential four-cycles are exactly the union of the translation orbits of \((0,1,7,6)\), \((0,1,7,8)\), and \((0,2,4,6)\), with orbit sizes 14, 7, and 14.
+PASS
 
-The calculation is exhaustive only for simple cycles of lengths three and four; it does not classify longer or non-simple cycles.
+The exact facet formula {i,i+1,i+2} and {i,i+2,i+8} modulo 14 yields 14 vertices, 42 edges, 28 triangles, 28 and only 28 graph triangles and no 4-cliques, hence flag. Contract the explicit spanning path 0–1–…–13: the 28x29 relation matrix of triangle boundaries has Smith diagonal twenty-seven 1s and one 2, giving H1=Z⊕Z/2. Independently enumerating every undirected simple 4-cycle returns 77; reduced mod-2 and integral free coordinates partition them as 42 null, 21 nonzero torsion, 14 primitive free. All 28 simple triangles are facet boundaries; hence the 35 nontrivial four-cycles are shortest nonzero-integral-homology simple cycles. Translation action by one has the claimed orbit sizes 14,7,14. This uses exact whole finite enumeration and independent SymPy Smith form, not an inference from verifier logs.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact integral-homology systolic classes and orbit census; original Q_(7,2) triangulation, flag-context results, and known Klein-bottle H1 are explicitly credited, not counted as discoveries. Direct primary results do not state or dominate the full numeric class-valued length-four spectrum. The unavailable Resultary index limits search confidence, not automatically this scientific verdict.
+
+## value
+
+PASS
+
+A named weakly regular combinatorial Klein-bottle triangulation is a natural finite object; the integral homology systole and torsion-versus-primitive split distinguish geometry of different H1 classes, while the cyclic orbit inventory shows their symmetry. This is a reusable exact finite topological invariant rather than an arbitrary small graph test. It does not purport to classify every Klein bottle or non-simple cycle; its narrow domain limits breadth but not the mathematical motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
