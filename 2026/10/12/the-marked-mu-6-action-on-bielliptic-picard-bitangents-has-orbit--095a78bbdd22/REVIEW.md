@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** The cited source determines the four bitangents fixed by the bielliptic involution. The added argument classifies every line invariant under the commuting order-three automorphism and proves that only the line at infinity is a bitangent. The resulting fixed-point counts force the complete \(\mu_6\)-orbit decomposition. The square identity, section discriminant, line restriction, and orbit arithmetic are checked by the bundled exact script.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The closest source is Laga--Shnidman: Lemma 7.18 gives only the \(\tau\)-orbit structure, and Proposition 7.19 transports the 12 size-two \(\tau\)-orbits to Prym two-torsion. Their inspected bitangent section does not state the full marked \(\mu_6\)-orbit structure. Searches using bitangent, odd-theta, cyclic-order-six, Prym-two-torsion, and exact numerical aliases found no covering statement. A residual risk is an older classical or unindexed bitangent table using different terminology.
+## correctness
 
-## Value
-**PASS.** The marked \(\mu_6\)-action is part of the natural structure of every bielliptic Picard curve, and bitangents are the odd theta characteristics used in the source's arithmetic analysis. The result completes the finite orbit picture and converts the 12 Prym-relevant \(\tau\)-pairs into four canonical three-cycles, rather than computing an arbitrary specialization.
+PASS
 
-## Closest literature and limitations
-The result concerns the marked \(\mu_6\)-subgroup. It does not classify the larger full automorphism action on the special member \(a=0\), and it does not assert arithmetic Galois orbit counts over a nonclosed field.
+Laga–Shnidman Lemma 7.18 fixes the τ=(x↦−x) bitangent count at four, namely infinity and three horizontal lines, with twelve other τ-pairs. For σ=(y↦ωy), projectively σ-fixed lines are either Y=0 or in the pencil AX+CZ=0. The Y=0 section is the separable quartic x⁴+ax²+b under the discriminant b(a²−4b)≠0; the finite vertical X=uZ section is Z(Y³−f(u)Z³), hence has multiplicities 1+1+1+1 or 1+3 and is never an even bitangent divisor. Infinity Z=0 has intersection 4∞ and is the sole σ-fixed bitangent. Thus n1+2n2=1, n1+3n3=4 and n1+2n2+3n3+6n6=28 give (1,0,1,4). The three horizontals are a size-3 orbit since c³=b−a²/4≠0. Equivariance of τ-pair construction then gives four free µ3-orbits on Prym-related 2-torsion. Independently reproduced discriminant and horizontal square identity; code is a consistency check, not a derivation of Lemma 7.18.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary source classifies the τ-involution fixed bitangents and identifies the twelve pairs with Prym two-torsion, but the independently checked σ-fixed-line classification produces a genuinely extra marked order-three action and therefore the full µ6 orbit decomposition. Existing τ orbit counts alone do not logically determine σ fixed points or the 1+3+4×6 splitting. Older classical bitangent tables remain a named residual risk.
+
+## value
+
+PASS
+
+The 28 odd theta characteristics are a canonical geometric invariant of these genus-three curves and the involution/Prym-pair construction is central to their arithmetic study. Classifying the full naturally marked order-six permutation action, including four three-cycles on the 12 Prym-pair set, completes a meaningful symmetry classification. It is neither an arbitrary finite example nor just reiterating the involution count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

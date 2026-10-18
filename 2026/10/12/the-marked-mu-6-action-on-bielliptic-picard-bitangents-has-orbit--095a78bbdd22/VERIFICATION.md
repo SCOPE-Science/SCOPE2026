@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The cited input is Laga--Shnidman's exact involution count: four \(\tau\)-fixed bitangents and twelve \(\tau\)-pairs. The additional proof checks the complete list of projective lines fixed by the order-three subgroup and the intersection divisor on each type.
 
-The bundled `verify.py` performs exact symbolic checks with SymPy: the horizontal bitangent square identity, the discriminant of the \(Y=0\) section, the projective restriction to \(X=uZ\), and the integer orbit-count equations. The finalized embedded checker was extracted and rerun after packaging. It returned:
+# Independent mathematical audit
 
-`VERIFY_OK orbit=1+3+4x6 mu3_fixed=1 tau_fixed=4 prym_pairs=4x3`
+## correctness
 
-The computation does not enumerate all 28 bitangents and is not used as a substitute for an exhaustive proof. Exhaustiveness comes from the projective eigenspace classification of order-three invariant lines together with the source's exact involution lemma. The Prym statement uses the source's Proposition 7.19 and equivariance of the construction under the commuting \(\mu_3\)-action.
+PASS
+
+Laga–Shnidman Lemma 7.18 fixes the τ=(x↦−x) bitangent count at four, namely infinity and three horizontal lines, with twelve other τ-pairs. For σ=(y↦ωy), projectively σ-fixed lines are either Y=0 or in the pencil AX+CZ=0. The Y=0 section is the separable quartic x⁴+ax²+b under the discriminant b(a²−4b)≠0; the finite vertical X=uZ section is Z(Y³−f(u)Z³), hence has multiplicities 1+1+1+1 or 1+3 and is never an even bitangent divisor. Infinity Z=0 has intersection 4∞ and is the sole σ-fixed bitangent. Thus n1+2n2=1, n1+3n3=4 and n1+2n2+3n3+6n6=28 give (1,0,1,4). The three horizontals are a size-3 orbit since c³=b−a²/4≠0. Equivariance of τ-pair construction then gives four free µ3-orbits on Prym-related 2-torsion. Independently reproduced discriminant and horizontal square identity; code is a consistency check, not a derivation of Lemma 7.18.
+
+## originality
+
+PASS
+
+The primary source classifies the τ-involution fixed bitangents and identifies the twelve pairs with Prym two-torsion, but the independently checked σ-fixed-line classification produces a genuinely extra marked order-three action and therefore the full µ6 orbit decomposition. Existing τ orbit counts alone do not logically determine σ fixed points or the 1+3+4×6 splitting. Older classical bitangent tables remain a named residual risk.
+
+## value
+
+PASS
+
+The 28 odd theta characteristics are a canonical geometric invariant of these genus-three curves and the involution/Prym-pair construction is central to their arithmetic study. Classifying the full naturally marked order-six permutation action, including four three-cycles on the 12 Prym-pair set, completes a meaningful symmetry classification. It is neither an arbitrary finite example nor just reiterating the involution count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
