@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound follows directly from the shifted quadratic form. Arbitrarily long Dirichlet intervals on one lowest-potential ray prove the universal upper bound. Persson's formula separates clusters with and without a lowest-potential tail, and equality in the nonnegative shifted form excludes a threshold eigenfunction. The ray-tail pigeonhole argument then gives the exact attainment threshold.
+## correctness
 
-## Originality
-PASS. The closest primary result is Example 5.1 of Hofmann--Kennedy--Serio, which treats the equal zero-potential line and star and obtains attainment for at most the total number of rays. The new statement allows distinct constant ray potentials, replaces the total ray count by the multiplicity of the lowest asymptotic potential, and gives an if-and-only-if characterization of all minimizing clusters. Targeted searches under spectral-partition, star/starlike, constant-potential, essential-threshold, and asymptotic-channel terminology did not locate an equivalent or stronger statement.
+PASS
 
-## Value
-PASS. The theorem gives a natural complete classification in the simplest multichannel Schrödinger star: the infimum is insensitive to the number of requested clusters, while attainment detects exactly the degeneracy of the lowest asymptotic channel. This sharply distinguishes value of the infimum from existence of optimizers and identifies a structural threshold mechanism useful for testing more general unbounded-graph partition results.
+PASS. Nonnegative shifted form q_H[u]−v*||u||²=||uʹ||²+int_H(V−v*)|u|² gives lambda(H)>=v* for every connected cluster. k disjoint Dirichlet intervals of length L on any lowest-potential ray give max eigenvalue v*+pi²/L² ->v*, establishing the infimum for every k. A lowest-potential tail gives lambda(H)=Sigma(H)=v* by Weyl/test functions and Persson; a cluster without such tail has bounded geometry or asymptotic potential >v*, so any lambda=v* would be an L² eigenfunction. Equality in the shifted form forces derivative zero and support only on minimum-potential pieces, incompatible with a nonzero L² vector on the connected cluster, excluding this possibility. Distinct minimizing clusters need distinct nonoverlapping min-ray tails, so k<=r; choosing k low tails attains. The exact non-covering convention is essential.
 
-## Closest literature and limitations
-The unbounded metric-graph partition paper supplies the definitions, Persson formula and equal-potential star benchmark. Compact-graph partition asymptotics/interlacing results are inapplicable to this asymptotic-channel question. Work on starlike nonlinear Schrödinger operators and on piecewise-constant quantum-graph trace formulae studies different observables. The theorem is restricted to finite stars, exactly constant nonnegative ray potentials, and the non-covering partition convention.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, bounded best-of-knowledge. Hofmann–Kennedy–Serio Example 5.1 fully proves the zero-potential m-star case r=m. For edgewise unequal constant nonnegative potentials the index is instead multiplicity r of v*=min v_j, and the characterization of all minimizing clusters and the non-eigenvalue threshold are established by this new form argument. The broader unbounded-graph existence theorem has no converse at equality and does not itself provide this classification.
+
+## value
+
+PASS
+
+PASS. The distinction between infimal partition energy and attained partition above an essential-spectrum threshold is a natural spectral question. Exact attainment cutoff k<=r when high-potential rays cannot host minimizing clusters gives useful new channel-dependent classification, beyond merely computing an interval eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
