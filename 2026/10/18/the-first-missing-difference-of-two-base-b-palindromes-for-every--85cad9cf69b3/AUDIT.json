@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Constructive interval filling: every gap between two-digit and three-digit single-digit-difference intervals receives an explicit palindrome pair; exclusion: quantitative Theorem 12 proof reduces to u<b^5, then complete casework by digit lengths, end-digit congruence and coefficient bounds. Python verifies finite cases in bases 5..20 and 5..10; no finite scan is used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pongsriiam--Saito, Palindromes and Antipalindromes in Short Intervals, 2023 JIS article 23.9.5, pp.11-12 Theorem 12 and proof; p.26 Question 25; https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "Zakharov 2024 work on sums of two palindromes addresses sums rather than differences."
+      ],
+      "reasoning": "Published Theorem 12 supplies a large-length restriction, but not the claimed first absent member for each base; its open questions concern the broader difference set. A complete classification of all differences would imply this result, but no such theorem was located in inspected sources.",
+      "searches": [
+        "Pongsriiam Saito palindrome differences minimal missing numbers all bases",
+        "Pongsriiam Saito Theorem 12 least absent palindrome difference uniform base"
+      ]
+    },
+    "checked_sources": [
+      "Pongsriiam--Saito, Palindromes and Antipalindromes in Short Intervals, 2023 JIS article 23.9.5, pp.11-12 Theorem 12 and proof; p.26 Question 25; https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.html",
+      "https://oeis.org/A290393",
+      "published-finding corpus semantic searches for first missing palindrome differences and cubic formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 12: only special differences occur infinitely often; proof quantitatively restricts high-length representations for every non-special fixed d.",
+        "Question 25 concerns the difference set."
+      ],
+      "reasoning": "The source theorem implies eventual absence of representations at sufficiently large length for non-special gaps, not *absence of every finite representation* at T nor representation of all smaller positive integers. Both additional implications are new direct arguments in the proof.",
+      "searches": [
+        "least missing positive difference between two base-b palindromes b^3-(b-1)^2 for b>=5",
+        "smallest positive integer not representable as difference of two base b palindromes b^3 -(b-1)^2",
+        "Pongsriiam Saito Theorem 12 least absent palindrome difference uniform base"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The formula asserts the first hole in the difference set, equivalent to exact coverage of the initial interval and exclusion at T. Pongsriiam--Saito, Palindromes and Antipalindromes in Short Intervals, 2023 JIS article 23.9.5, pp.11-12 Theorem 12 and proof; p.26 Question 25; https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf"
+      ],
+      "reasoning": "A classification of infinite fixed gaps does not assert whether an exceptional gap has a finite representation. The proof uses published large-length rigidity and makes a separate finite digit argument.",
+      "searches": [
+        "least missing positive difference between two base-b palindromes b^3-(b-1)^2 for b>=5",
+        "palindrome difference sets 37 72 109 191 307 base 3 4 5 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A290393 lists a binary base example, while base 2 is excluded from the new formula. Decimal first excluded difference 919 is known as a base-specific observation."
+      ],
+      "reasoning": "An isolated table value for a fixed base does not establish the all-base formula, its uniform minimality or universal exclusion proof. A possible unindexed cross-base table remains a residual risk.",
+      "searches": [
+        "palindrome difference sets 37 72 109 191 307 base 3 4 5 6",
+        "first missing positive palindrome differences base 10 919 base 5 109 b≥5",
+        "OEIS A290393 first missing binary palindrome differences"
+      ]
+    },
+    "rationale": "Inspected Pongsriiam--Saito 2023 full article classifies infinitely recurring fixed palindrome differences and asks about the difference set. It does not compute the first hole for all b>=5. Distinct base-specific tables and binary OEIS sequence do not imply a uniform theorem. Search uncertainty remains.",
+    "residual_risks": [
+      "An uncatalogued general all-base result in recreational palindrome literature or an OEIS cross-base sequence may duplicate the first-hole formula.",
+      "Dependent quantitative large-length bound comes from proof of Theorem 12, not simply its infinitude statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the first-missing all-base theorem; a required quantitative length-reduction ingredient is already covered",
+        "evidence": [
+          "Theorem 12 characterizes gaps represented infinitely often, distinguishing fixed gaps d=2 or d=b^r+b^(r-1); proof uses an explicit threshold n>=b^(2r+1).",
+          "Question 25 concerns the full set of possible palindrome differences."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "material_read": "Primary full article relevant Theorem 12 statement, subsequent full proof pages 11-12 and Question 25; general introductory framing; 28-page accessible PDF",
+        "method": "Read indexed PDF full-text sections and inspected page images of Theorem 12 and its proof",
+        "title": "Palindromes and Antipalindromes in Short Intervals",
+        "trigger": "Same palindrome pairs and fixed differences, Theorem 12; Question 25"
+      },
+      {
+        "assessment": "Only base 2, disjoint from all bases >=5",
+        "evidence": [
+          "Binary first absent even difference reported; not a formula for all bases."
+        ],
+        "identifier_or_url": "https://oeis.org/A290393",
+        "material_read": "Indexed descriptive sequence heading and base-2 numerical first hole",
+        "method": "Read search and public database snippet",
+        "title": "OEIS A290393",
+        "trigger": "Known smallest absent differences for binary palindromes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85cad9cf-69b3-4cfd-a67a-a437d3fa4e70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimal omitted difference is a canonical exact invariant motivated by Question 25 in the primary source. The uniform infinite-base expression is not a textbook palindrome identity or isolated computation, and hinges on two nontrivial ingredients: complete constructive coverage and a rigorous elimination of arbitrarily long representations.",
+    "status": "PASS"
+  }
+}
