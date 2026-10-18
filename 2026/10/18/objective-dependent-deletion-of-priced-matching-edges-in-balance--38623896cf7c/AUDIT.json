@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For connected allocations, 2n(tr((L+P)^(-1))-1) is strictly convex and identifies unique edge weights by offdiagonal entries. Matching-preserving group symmetry reduces every global optimum to exactly two edge weights, with a positive nonmatching class. The complete Fourier/two-block spectrum leads to a scalar ratio objective. Its exact derivative is (n-1)D_n(r)(t-T_n(r)); since N_n'(r)D_n(r)-N_n(r)D_n'(r)=N_n'(r)/n-n²/(X³Y³)<0, it has the claimed unique minimizing ratio and threshold. The matrix-tree determinant comparison, strict positive threshold gap, and n→∞ limit are algebraic. A real script extracted from the new package reproduces 2094 finite checks; finite checks are supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi, §5.2: graph automorphisms force equal weights within a symmetry orbit and examples are edge-transitive graphs and wheels; full article also covers trees and barbells; DOI 10.1137/050645452.",
+        "Johnson–Walters, Mathematika 70 (2024), DOI 10.1112/mtk.12278, concerns choosing a graph with unit resistors under an edge-count constraint, not optimizing priced continuous conductances for this fixed biclique.",
+        "The original MTNS 2006 12-page conference proceedings paper solves only the barbell analytically in §V, not a cost-distinguished perfect matching in balanced bicliques; the dated proceedings front page establishes the July 24–28 2006 public venue."
+      ],
+      "reasoning": "The 2008 theorem supplies general optimality conditions and supports the strict-convexity reduction, which are credited, but no formula in inspected examples covers a distinguished weighted matching. The 2024 topology extremal result has different variables and restrictions. No stronger theorem inspected explicitly gives the particular phase boundary or disagreement interval.",
+      "searches": [
+        "Web: Ghosh Boyd Saberi 2008 minimizing effective resistance of a graph optimal weights Kirchhoff index pdf",
+        "PDF: https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf, introductory definitions and §§5.1–5.2, 8",
+        "Web: optimal resistor networks Johnson Walters 2024 Mathematika",
+        "Web: \"minimizing\" \"resistance\" \"crown graph\" weighted conductance optimization",
+        "PDF: https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf (2006 proceedings, pp. 1185–1195, introduction, optimization and analytic examples)"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://epubs.siam.org/doi/10.1137/050645452",
+      "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12278",
+      "https://onlinelibrary.wiley.com/doi/pdf/10.1002/qua.21588",
+      "Named published mathematical findings cited with exact source identifiers in the comparison blocks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the same K_{n,n} and matching price, maximizing the weighted spanning-tree enumerator deletes matched edges at n(2n-3)/[(2n-1)(n-2)]; this objective is different from the total effective resistance.",
+        "The new independently derived resistance threshold is n²(4n²-11n+8)/[(n-2)(4n³-11n²+10n-4)], strictly larger than the determinant threshold for every n≥3; hence the determinant optimizer actually disagrees on a nonempty price interval.",
+        "Ghosh–Boyd–Saberi 2008 gives the general strict-convex objective, but not this explicit optimization conclusion."
+      ],
+      "reasoning": "A matrix-tree/determinant optimality statement does not imply the trace-inverse optimizer; indeed the thresholds differ. Both formulas are independently derived from the weighted Laplacian spectrum within the new proof. General convexity/symmetry methodology is expressly excluded from novelty; the concrete spectral phase diagram, strict gap and limiting budget share constitute the new claim.",
+      "searches": [
+        "Direct comparison with the weighted spanning-tree enumerator for K_{n,n} with a priced matching (derived using the matrix-tree identity)",
+        "PDF: https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf, §§2,5,8",
+        "Web: optimal edge weights complete bipartite graph resistance minimizing perfect matching expensive edges",
+        "Web: \"Kirchhoff index\" \"weighted\" \"complete bipartite\" \"perfect matching\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi, SIAM Review 50 (2008), §§1–2: sum of pairwise effective resistances equals order times the positive Laplacian inverse-eigenvalue sum; DOI 10.1137/050645452.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f; topic is geodesic subpaths, not conductance optimization."
+      ],
+      "reasoning": "Searched aliases: Kirchhoff index, total effective resistance, trace of Laplacian pseudoinverse, A-optimal conductance design, crown/biclique with matching. No matching exact all-price optimization theorem found in inspected material. General exact convex formulations do not by themselves provide the specialized rational threshold and metric comparison.",
+      "searches": [
+        "published-finding corpus: sharp price threshold complete bipartite graph K_{n,n} perfect matching edge conductance budget minimization Kirchhoff index resistance design",
+        "published-finding corpus: unique global minimizer total pairwise effective resistance crown graph K_n,n minus perfect matching, weighted matching priced",
+        "Web: optimal edge weights complete bipartite graph resistance minimizing perfect matching expensive edges",
+        "Web: \"Kirchhoff index\" \"weighted\" \"complete bipartite\" \"perfect matching\"",
+        "Web: \"weighted complete bipartite\" \"Kirchhoff index\" two weights matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8 studies metric dimension, not resistance minimization.",
+        "published-finding corpus 2026/10/4/SCOPE-perfect-roman-domination-of-crown-graphs--e57b781e4a71 studies domination, not conductance optimization.",
+        "published-finding corpus 2026/10/11/SCOPE-euclidean-inradius-of-acyclic-flow-polytopes-as-an-effective-res--9a80040abd60 uses effective resistance in a different flow-polytope calculation."
+      ],
+      "reasoning": "Actual semantic searches returned no specific row with the same objective, priced full matching, and all-parameter optimizer. Similar graph identifiers and effective-resistance keywords correspond to different invariants. Search incompleteness is recorded and is not treated as a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: sharp price threshold complete bipartite graph K_{n,n} perfect matching edge conductance budget minimization Kirchhoff index resistance design",
+        "published-finding corpus: unique global minimizer total pairwise effective resistance crown graph K_n,n minus perfect matching, weighted matching priced",
+        "published-finding corpus: effective resistance minimization two edge orbits perfect matching in biclique continuous conductance t cost phase transition",
+        "published-finding corpus: weighted Laplacian inverse-trace design complete bipartite diagonal edge prices n-by-n",
+        "published-finding corpus: Kirchhoff index effective resistance minimization conductance budget complete bipartite graph discounted perfect matching edge prices weighted matching sharp threshold"
+      ]
+    },
+    "rationale": "The new statement concerns a priced inverse-Laplacian-trace minimum and an exact discrepancy from determinant design. The 2006/2008 source treats general resistance optimization and symmetry but does not present this graph/price threshold, explicit weighted conductances, or the two-objective threshold gap. The mathematically related maximum-spanning-tree objective has a distinct threshold and does not determine the inverse-trace minimizer. Searches of published mathematical findings and academic literature produced no equivalent statement; this is best-knowledge originality with explicit residual indexing risk.",
+    "residual_risks": [
+      "No literature or semantic database search exhausts unindexed articles and implicit specializations.",
+      "Publisher abstract but not complete text was accessible for Bendito et al. (2008); it may contain specialized formulas not checked.",
+      "The general Ghosh–Boyd–Saberi convex formulation is broad; the new exact conclusion is mathematically obtainable from it but was not explicitly found in the inspected primary family examples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes general uniqueness/convex design and a solved barbell, not the new all-price matched-biclique minimizer or determinant-versus-trace transition. This absence judgment is limited to the inspected author-hosted conference paper.",
+        "evidence": [
+          "Proceedings of the 17th MTNS, Kyoto, Japan, July 24–28, 2006, TuP12.2, p. 1185, with title and authors Ghosh–Boyd–Saberi.",
+          "§V pp.1193–1194 solves a barbell, while §VII describes other resistance objectives; the full 2006 paper does not formulate priced matching conductances on K_{n,n}."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "12-page proceedings PDF, title/dated front matter, abstract and §I, general theory §§II–IV, analytical barbell calculation §V, example list §VI and extensions §VII, as identified from the accessible full-text page extraction and inspected 1st-page image.",
+        "method": "Read full-paper searchable text covering the named sections, inspect the dated conference front-page image and locate the complete analytical example section.",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006 conference version)",
+        "trigger": "Earliest datable published precursor and exact primary formulation of total-resistance conductance design."
+      },
+      {
+        "assessment": "Covers general convex method, uniqueness and symmetry, and several different families; no priced perfect-matching biclique trace threshold, objective-comparison band or limiting matched-budget allocation in read sections.",
+        "evidence": [
+          "DOI 10.1137/050645452; §5.2 explicitly treats edge-orbit symmetry and a wheel, while §8 lists other ERMP extensions."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "30-page author-hosted PDF; abstract, problem definition/trace and convexity material, §§5.1–5.2 analytical examples and symmetry, §8 extensions, references.",
+        "method": "Opened text-extracted full PDF and inspected its relevant numbered sections and page image.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Principal source for continuous conductance allocation and potential dominating family calculation."
+      },
+      {
+        "assessment": "Fixed unit resistor/edge-count topology design, not independently priced weighted biclique design; structurally inapplicable to the present conductance-allocation claim.",
+        "evidence": [
+          "Johnson and Walters, Mathematika 70 (2024), e12278."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/mtk.12278",
+        "material_read": "Accessible open HTML abstract, definitions/section 2, and representative analytic argument from section 9.",
+        "method": "Inspected openly accessible publisher HTML sections and keywords.",
+        "title": "Optimal resistor networks",
+        "trigger": "Recent topologically constrained extremal resistance design paper with similar words."
+      },
+      {
+        "assessment": "Abstract announces Kirchhoff-index formulas with symmetry but no optimization of conductance allocations. Full-text not inspected; no whole-paper noncoverage conclusion is drawn.",
+        "evidence": [
+          "Bendito, Carmona, Encinas, Gesto, International Journal of Quantum Chemistry 108 (2008), 1200–1206."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/qua.21588",
+        "material_read": "Abstract and publication metadata only.",
+        "method": "Inspected publisher abstract and description.",
+        "title": "A formula for the Kirchhoff index",
+        "trigger": "Possible exact network formula for graphs with symmetry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38623896-cf7c-4aac-a597-80287efc3941",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two motivated network-design objectives with identical price/budget data provably require different edge support throughout an explicit nonempty interval. The result provides globally unique allocations and full value for every n≥3, a price-threshold gap of order 1/n, and a positive limiting fraction of expenditure on discounted matching connections. This is a structural design distinction, not a mere numerical instance, a naming variant, or an unproved extrapolation.",
+    "status": "PASS"
+  }
+}
