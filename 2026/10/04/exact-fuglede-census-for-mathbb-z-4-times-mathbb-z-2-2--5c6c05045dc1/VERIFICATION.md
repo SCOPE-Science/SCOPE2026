@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` is a complete exact checker for the finite claim. It performs these checks from first principles:
+# Independent mathematical audit
 
-1. Enumerates all \(2^{16}-1=65535\) nonempty subsets of \(\mathbb Z_4\times\mathbb Z_2^2\).
-2. Computes character zeros using exact counts of the phases \(1,i,-1,-i\); no floating point is used.
-3. Tests spectrality by exhaustive clique search for a translated spectrum containing \(0\).
-4. Tests tiling independently by exhaustive clique search for a translated complement containing \(0\).
-5. Asserts equality of the two predicates for every subset and the exact size counts \(16,120,1436,1574,1\).
-6. Enumerates every automorphism by possible generator images and bijectivity, obtaining exactly \(192\).
-7. Combines these with all \(16\) translations and verifies the affine-orbit counts \(1,3,10,12,1\).
+## correctness
 
-Reviewed replay output:
+PASS
 
-`VERIFY_OK subsets=65535 accepted=3147 sizes=16,120,1436,1574,1 aut=192 affine=3072 orbits=1,3,10,12,1`
+Independent group-arithmetic enumeration over all 65535 nonempty masks in G=(Z4)x(Z2)^2 found Fourier-zero condition n0=n2,n1=n3 and normalized spectrum and tiling cliques identical mask by mask, with good masks=3147, size distribution (16,120,1436,1574,1). Independently constructed all 192 automorphisms from generator images and all 3072 affine actions, yielding affine orbit profile (1,3,10,12,1). Difference criteria are equivalent to an orthogonal character basis and unique tiling by cardinality, so this is an exhaustive finite proof, not sample extrapolation.
 
-The verification proves only the stated finite classification. It does not extrapolate to larger groups.
+## originality
+
+PASS
+
+Best-of-knowledge exact (4,2,2) Fuglede equivalence and 3147/27 census has no identified dominating source. Compared the structural group invariant factors, not merely names; only directly inspected scope and genuinely unsuccessful searches are claimed.
+
+## value
+
+PASS
+
+The mixed exponent-four rank-three group (4,2,2) is a natural smallest boundary outside known two-generator positive Fuglede families. Its exact all-subset equivalence, size profile, and affine-orbit counts supply a reusable mathematical classification rather than an arbitrary tiny calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
