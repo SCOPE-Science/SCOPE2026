@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The exact first-moment path exposure separates mutually exclusive absorption events. The square-root transition follows from an explicit Gaussian-tail-dominated Riemann sum; the opposite regimes follow from Gaussian bounds, a repeat-before-caster union bound, and Markov's inequality. Complete coverage follows from the eigenvalues of a reduced Laplacian and the directed matrix-tree theorem. The cycle Poisson limit uses joint factorial moments and a controlled tail. Independent exhaustive finite-state enumeration checks exact expectations and forest counts. The proof does **not** infer a critical-window concentration law from its first moment.
+
+**Originality: PASS (best-knowledge, residual risk).** Berinsky et al.'s random-delegation analysis focuses on fixed probability of direct voting and bounded component weights. Brill et al.'s detailed experiments identify vote isolation but do not derive this vanishing-caster crossover. Utke–Schmidt-Kraepelin use forest and random-walk tools for different delegation rules. Existing matrix-tree and random-mapping results are credited as mathematical antecedents, not portrayed as new. Searches of relevant records and available earlier claims found no direct covering result tying exact represented weight, complete-coverage probability, and the different sharp scales together. Classical random-mapping literature could contain an equivalent reformulation; independent priority assessment remains needed.
+
+**Value: PASS.** The difference between almost-all participation and full cycle-free participation is a meaningful design distinction. With sublinear yet super-square-root casting participation, almost all votes count with high probability but the chance that no vote is lost tends to zero. Exact formulas and the Poisson residual-cycle law quantify both regimes, without presupposing any broader theorem about voting accuracy.
+
+**Boundaries:** Homogeneous, independent, complete-network, no-fallback delegation only; neither real elections nor majority-correctness probabilities are modeled. The square-root crossover is for expectation, not a claimed deterministic critical-window fraction.
+
+Self-review: passed. Independent audit: not yet performed.
