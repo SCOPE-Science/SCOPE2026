@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The claim is an unrestricted classification across all integer census sizes and sampling depths, not a finite empirical extrapolation. Rooted PD and taxonomic richness are defined on the same uniformly chosen set of labeled individuals. At the four protected depths, the proof reduces to deterministic richness or to monotone two-state conditional comparisons. In the constructive range, the sample's number of copies of the unique doubleton has an exact hypergeometric law, giving the stated covariance identity and strict threshold. All denominators are nonzero in the asserted domain; positive ultrametric lengths exist for the chosen parameters. An independent standard-library enumerator agrees on 72 exact finite cases, including the rational first witness. The all-size theorem is proved symbolically, not by the enumerator.
+
+## Originality — PASS (subject to bibliographic limitations)
+Full primary texts of Nipperess–Matsen (arXiv:1208.6552), O'Dwyer–Kembel–Green (2012), and Chao et al. (2014/2015) were inspected for cross-covariance sign, sample-size boundary, and ultrametric branch-parameter thresholds. The closest general foundation already supplies edge-occupancy moment identities; it does not assert the fixed-size richness/PD sign classification or the simultaneous maximally long negative-depth interval. Searches also compared known occupancy-covariance results with different objectives and sampling laws. Residual risk: equivalent sign criteria could be implicit in an uninspected phylogenetic or multivariate-hypergeometric source. This self-review is not an independent literature certification.
+
+## Value — PASS
+Ecologists routinely evaluate species richness and phylogenetic diversity on the same rarefied samples. The result exactly delineates the sampling depths at which their co-fluctuations must agree in sign on every ultrametric tree, and exhibits maximally persistent anticorrelation at all remaining depths. The five-individual minimum and explicit branch-length boundary are natural sharp features of the sampling design, not arbitrary numerical slices. The finding clarifies that positive cross-sample richness/PD association cannot be assumed from either measure's monotone accumulation curve. It does not imply conclusions about empirical assemblages, non-ultrametric trees, or sampling with replacement.
+
+Self-review: passed. Independent audit: not yet performed.
