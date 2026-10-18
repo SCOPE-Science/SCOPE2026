@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The statement is restricted to the unweighted complex nilpotent shift \(J_n\) and \(n\ge4\). The upper envelope follows from singular norm duality. Its attainment in the strict regime follows from positive left/right singular vectors and differentiability of the simple Perron eigenvalue. Strict convexity and the derivative endpoints give the unique optimizing parameter. The plateau follows from the top singular subspace and the ordinary numerical range of \(J_{n-1}\). At its edge, Schur reduction and the normalized sine eigenvector give the exact second-order coefficient. The endpoint \(q=1\) is the classical numerical radius. The provided checker tests selected finite dimensions and does not replace these proofs.
+## correctness
 
-## Originality: PASS
-The inspected 2026 paper proves scaled \(q\)-range dilation and spectral-set results rather than the nilpotent-shift radius profile. Chien--Nakazato 2010 gives the \(3\times3\) plateau (excluded), but no arbitrary-order transition or curvature. Ogasawara--Nakazato 2014 studies the non-Jordan nilpotent matrix whose strictly upper-triangular entries are all \(1\), at a fixed parameter. Classical circular-union and numerical-radius formulas are acknowledged as existing. Targeted mathematical-record searches found no covering all-order sharp quadratic coefficient. The 1998 Li--Nakazato full text was inaccessible; it and possible unindexed equivalences remain the principal originality risks. A failed search is not proof of novelty.
+PASS
 
-## Value: PASS
-The nilpotent Jordan shift is the canonical finite-dimensional truncated shift. Identifying exactly where its \(q\)-numerical radius stops saturating the operator norm and measuring the second-order loss resolves a natural quantitative spectral-geometric boundary throughout an infinite family. The explicit curvature varies nontrivially with dimension; the exact envelope also provides a stable method for computing the whole profile. The finding is not merely a generic consequence of the abstract existence of a \(q\)-range, and it does not claim results for arbitrary nilpotents.
+Reconstructed q-overlap normalization, phase/unitary symmetry, and the rank-(n-1) isometric initial space of J_n. Equality in norm forces first coordinate zero, reducing the plateau exactly to the circular numerical range W(J_{n-1}) of radius cos(pi/n). For t>0, the top eigenvector of the irreducible positive-offdiagonal tridiagonal (J+tI)^*(J+tI) is simple and positive; paired left singular vector has real overlap s_n'(t), attaining the dual norm bound at the matching q. A common norming pair at two distinct t would force nilpotent J to have eigenvalue s(t)-t>0, so s strictly convex. Schur complement on e1 versus e2..en, followed by simple eigenvalue perturbation of J_{n-1}+J_{n-1}*, gives s(t)=1+q_n t+[(n+2)/(2n)]sin^2(pi/n)t^2+O(t^3); Legendre minimization gives the claimed coefficient. Checked q=1 separately and numerical SVD/minimizations n=4..8 for small delta, observed ratios tending to exact coefficients. Tests do not prove arbitrary n.
 
-## Literature and limitations
-Key comparison: Kaunisto--O'Loughlin--Virtanen, arXiv:2610.00443v2, full Sections 1--3; Chien--Nakazato 2010, 15-page paper, Theorem 2.1 and underlying circular-union formula; Ogasawara--Nakazato 2014, 7-page paper and explicit matrix in (1.2). Li--Nakazato 1998 was located but full text could not be accessed, so there is a residual coverage risk. The analytic proof is not independently audited and the numerical checker establishes no infinite-dimensional or all-order theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded novelty of the explicit all-size plateau edge and its exact second-order coefficient; the general Davis–Wielandt shell machinery is not claimed as original. Li–Nakazato (1998) is plausibly overlapping at the level of general q-numerical functions; its full text was unavailable and leaves a material publication risk, but the abstract gives no all-n Jordan transition or coefficient and no decisive equivalence has been established.
+
+## value
+
+PASS
+
+The nilpotent Jordan shift is the canonical matrix numerical-range model. A sharp dimension-dependent first loss beyond a nontrivial norm plateau and a variational profile for all dimensions are motivated spectral-geometric data, not a renaming of the ordinary w(J_n) endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
