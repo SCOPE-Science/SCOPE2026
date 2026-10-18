@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact flat-support and witness obligations proven by induction for all formulas and finite teams; the stage-two context invariant proves stage-three stabilization or stage-four all-null stabilization, with a sharp NE-and-bottom witness; direct and alternating checkers replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anttila–Knudstorp provide general expressive completeness for convex union-closed team properties.",
+        "Anttila–Kontinen–Yang prove polynomial model checking and explicitly ask whether the iteration always stabilizes at four."
+      ],
+      "reasoning": "Expressive completeness does not entail a uniform, sharp update bound for this particular algorithm. A polynomial complexity result likewise does not imply four-round convergence.",
+      "searches": [
+        "Published mathematical research-record query: Propositional nonemptiness team logic four rounds bottom-up top-down fixed point, quadratic/linear-time model checking via flattened witness constraints",
+        "arxiv:2503.21850 Convex Team Logics expressive completeness",
+        "arxiv:2510.08122 original §3 and §6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2510.08122 (relevant primary HTML §§2–6)",
+      "arxiv:2503.21850 (accessible intro, abstract and relevant statements)",
+      "Propositional union closed team logics (accessible excerpt)",
+      "Published research-record queries on four-step convergence and flattened witness tests",
+      "Earlier mathematical claims on coNP entailment for implication comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the source §3, update count is only bounded by a multiple of team and formula sizes; immediately after the proof the authors say apparent four-iteration convergence needs investigation.",
+        "The earlier coNP entailment result is based on small models and convexity/union closure, not on a fixed iteration count."
+      ],
+      "reasoning": "The new claim adds a sharp constant for a specific algorithm, not just membership in P or coNP. It cannot be inferred from the stated earlier upper bound or small-counterteam bound without the contextual label invariant proved here.",
+      "searches": [
+        "arxiv:2510.08122 §§2–4,6 (original algorithm and admitted gap)",
+        "Published mathematical research-record query: Linear-time model checking for propositional logic with nonemptiness atom PL(NE) by flat formula and one existential classical witness obligation per occurrence of NE under all conjunctive siblings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 Anttila–Kontinen–Yang source §3 gives alternating labels and §3 discussion says convergence by iteration four is an unproved observation. No source located states the exact four-update equality for this algorithm."
+      ],
+      "reasoning": "Equivalence must match the per-occurrence alternating maps, the null-team convention and the sharp fourth update; the motivating paper instead gives a size-dependent polynomial bound.",
+      "searches": [
+        "Published mathematical research-record query: Anttila Kontinen Yang 2025 fixed point model checking PL(NE) sequence stabilizes at the fourth iteration, four passes sharp, one nonemptiness conjunct bottom",
+        "Web: propositional nonemptiness logic model checking linear time 2025 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible own record concerns a sharp counterteam bound and coNP-complete entailment rather than the iterative model-checker termination.",
+        "No indexed count/table or equivalent exact four-update statement surfaced."
+      ],
+      "reasoning": "No numerical sequence is claimed. Equality at update four is a structural algorithm property, and the previously recorded logical complexity statement does not imply this update identity.",
+      "searches": [
+        "Published mathematical research-record query: Algorithm maximal satisfying subteam PL(ne) first four rounds exact convergence iteration 4 sharpness",
+        "earlier published claim on coNP entailment and sharp counterteams",
+        "Web: PL NE model checking NC1 algorithm"
+      ]
+    },
+    "rationale": "The 2025 original paper explicitly leaves the four-round convergence question open; targeted mathematical research-record, literature, and related-theorem comparisons found no equivalent statement. General expressive-completeness and earlier coNP entailment do not supply the sharp algorithmic statement without a new proof.",
+    "residual_risks": [
+      "The complete 2025 convex-team primary text was not re-readable after the initial relevant HTML extraction; generalized normal-form details could shorten the proof.",
+      "Older generic constraint-propagation literature may implicitly subsume the four-update bound under a different name.",
+      "No independent human/external audit; finite tests do not prove the induction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly motivates and does not state sharp four-round theorem; explicitly leaves its proof open.",
+        "evidence": [
+          "§3 lines 159–258 define the alternating maps; line 258 leaves fourth-round convergence to future investigation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.08122",
+        "material_read": "HTML §§2–6 including semantic clauses, entire iterative algorithm, its correctness proof, small-model lemma, and conclusion",
+        "method": "Primary full-text HTML reading via public HTML text",
+        "title": "Complexity Results in Team Semantics: Nonemptiness Is Not So Complex",
+        "trigger": "Exact original algorithm, iteration upper bound and statement of the gap"
+      },
+      {
+        "assessment": "Proves expressive completeness but inspected material does not directly settle sharp convergence; residual whole-text coverage uncertainty explicitly retained.",
+        "evidence": [
+          "Intro lines 57–60 and 112–123 describe general convex/union-closed expressive completeness."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.21850",
+        "material_read": "HTML abstract and introduction through semantics overview and §3 description; later detailed sections not fully accessible at subsequent reads",
+        "method": "Public HTML extract and targeted follow-up queries",
+        "title": "Convex Team Logics",
+        "trigger": "Potential broader convex normal-form coverage"
+      },
+      {
+        "assessment": "Background, not a basis for a whole-document noncoverage assertion.",
+        "evidence": [
+          "Accessible text describes flatness and union-closed propositional team logics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apal.2022.103102",
+        "material_read": "Accessible article extracts on flatness, union closure, and disjunction; no complete algorithm-specific analysis",
+        "method": "Web accessible textual extract",
+        "title": "Propositional union closed team logics",
+        "trigger": "Earlier general union-closure semantics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2253425a-894a-4d59-96e3-b6901cfaf559",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Settles the explicit algorithmic termination question in the motivating paper with a sharp constant independent of formula/team size and an O(formula size times explicit team size) direct decision procedure.",
+    "status": "PASS"
+  }
+}
