@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The simple-cycle SCC lemma follows from matching-length return words and trim reachability; two sequential cyclic SCCs imply unbounded ambiguity by distributing common-multiple loops. Subset counting gives (1+a)2^(n-a-2) for acyclic endpoints, with strictness in all cases, and 2^(n-c-1) for a cyclic endpoint. Equality forces one endpoint selfloop, a complete ordered DAG, and exactly 2(n-2)! labeled structures. Exhaustive checker of all graphs at n<=4 and every extremizer n<=10 passes. Edge quantification and singleton cases examined.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weber–Seidl (1991), Table 1: broader-model unary maximum 2^(n-1), not 2^(n-2).",
+        "Kiefer et al. (2026), Introduction: 2^(n-2) is a unary lower-bound construction; general upper bound 2^O(n)."
+      ],
+      "reasoning": "Neither larger bound for NFAs with multiple initial/final states nor generic exponential bound forces a sharp half-sized bound for singleton endpoints. In particular they do not characterize or count every extremal graph.",
+      "searches": [
+        "unary nondeterministic finite automaton one initial one final exact ambiguity 2 power n minus two characterization all extremizers loop source sink",
+        "finitely ambiguous unary NFA maximal degree of ambiguity and classification of optimal automata",
+        "Weber Seidl 1991 unary automata ambiguity 2^{n-1} multiple initial final states singleton bound",
+        "Weber Seidl 1991 Table 1 degree of ambiguity unary automata",
+        "arXiv:2610.08525 Sections 1-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08525, full accessible HTML paper",
+      "Weber and Seidl (1991), lawful OA 25-page PDF and rendered Table 1",
+      "arXiv:2501.14725, full accessible article",
+      "published-finding corpus semantic record searches listed in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A unary lower example proves attainability only; an arbitrary-model maximum of 2^(n-1) proves a weaker upper bound.",
+        "The new claim adds universal singleton-model upper bound 2^(n-2), necessary-and-sufficient equality structure, and 2(n-2)! labeled extremizers."
+      ],
+      "reasoning": "No cited source statement implies all parts of the proposed claim. Source material was read in depth; residual equivalent earlier digraph proof remains possible.",
+      "searches": [
+        "arXiv:2610.08525 introduction and Sections 3-5",
+        "Weber–Seidl 1991, full-text Table 1 and proof",
+        "sharp 2^(n-2) maximal unary NFA ambiguity single initial single final, and transitive acyclic graph endpoint loop all extremizers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source describes the same lower bound but does not assert an upper bound in the singleton model.",
+        "The original directed-graph restatement is maximal length-m walk counts with one source and one sink."
+      ],
+      "reasoning": "Equivalent matrix-power, accepting-walk, simple-cycle SCC, and automata-degree formulations were considered. The lower-bound example is a special case of the new full theorem, not an implication in the opposite direction.",
+      "searches": [
+        "maximum finite ambiguity of unary nondeterministic finite automata n states exact number accepting runs unary NFA exponential upper bound acyclic graph",
+        "unary nondeterministic finite automaton one initial one final exact ambiguity 2 power n minus two characterization all extremizers loop source sink",
+        "finitely ambiguous unary NFA maximal degree of ambiguity and classification of optimal automata",
+        "sharp 2^(n-2) maximal unary NFA ambiguity single initial single final, and transitive acyclic graph endpoint loop all extremizers",
+        "Kiefer Mazowiecki Ryzhikov Wiśniewski 2026 finite ambiguity unary sharp degree lower bound 2^{n-2} equality characterization",
+        "Weber Seidl 1991 unary automata ambiguity 2^{n-1} multiple initial final states singleton bound",
+        "\"maximum degree\" \"unary\" \"single initial\" \"single final\" ambiguity automata",
+        "\"2^{n-2}\" \"unary\" \"ambiguity\" finite automata",
+        "\"unary\" \"finitely ambiguous\" \"2^{n-2}\" upper",
+        "\"one-letter\" \"finite ambiguity\" \"exact maximum\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only located exact tabular bound is 2^(n-1) in a broader NFA model."
+      ],
+      "reasoning": "The broader bound differs in its initial/final-state quantification. Search failure alone is not proof of novelty, but no exact singleton-endpoint optimizer table or structural classification was found.",
+      "searches": [
+        "finitely ambiguous unary NFA maximal degree of ambiguity and classification of optimal automata",
+        "Kiefer Mazowiecki Ryzhikov Wiśniewski 2026 finite ambiguity unary sharp degree lower bound 2^{n-2} equality characterization",
+        "Weber Seidl 1991 unary automata ambiguity 2^{n-1} multiple initial final states singleton bound",
+        "Weber–Seidl Table 1 unary finite ambiguity"
+      ]
+    },
+    "rationale": "Closest primary results give the same 2^(n-2) unary construction as a lower bound (Kiefer et al. 2026) and an exact 2^(n-1) maximum for a more permissive unary model (Weber–Seidl 1991), but neither is a matching singleton-endpoint upper bound or rigid equality classification. Checked targeted primary-literature and published-record searches reveal no covering proof. Earlier equivalent formulations remain a documented priority risk.",
+    "residual_risks": [
+      "The historical theorem cited in Weber–Seidl Table 1 could have a singleton-endpoint refinement in an earlier thesis not verified here.",
+      "A graph-walk extremal inequality or fully equivalent bound may exist under different language and evade searchable sources.",
+      "Self-review cannot establish first publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only an example establishing a lower bound 2^(n-2); general NFA upper bound asymptotically 2^O(n). No sharp universal unary singleton-endpoint upper bound or rigidity classification identified.",
+        "evidence": [
+          "Section 1, introduction, explicitly mentions unary lower bound 2^(n-2); Sections 3-5 develop general upper/lower machinery."
+        ],
+        "identifier_or_url": "arXiv:2610.08525 / https://arxiv.org/abs/2610.08525",
+        "material_read": "Entire accessible arXiv HTML manuscript, including introduction, singleton-SCC upper-bound argument, lower bounds and appendix.",
+        "method": "Full-text inspection and direct implications comparison for unary single-start/single-final model.",
+        "title": "Stronger bounds on the degree of ambiguity of finite automata",
+        "trigger": "Recent primary paper explicitly identifies the unary 2^(n-2) lower construction."
+      },
+      {
+        "assessment": "Tabulated universal unary exact maximum 2^(n-1) allows multiple initial/final states, and is not a bound matching 2^(n-2) under singleton endpoints, nor a full equality classification. Potential thesis citation warrants historical priority caution.",
+        "evidence": [
+          "Table 1 on page 19 (PDF page index 18) records unary maximum in the more general initial/final convention; original paper discusses ambiguity-degree upper bounds."
+        ],
+        "identifier_or_url": "doi:10.1016/0304-3975(91)90381-B / https://fmazowiecki.github.io/course/WS91.pdf",
+        "material_read": "Complete 25-page lawful OA PDF with special attention to Table 1 and proof passages about unary NFAs.",
+        "method": "Full-text extraction/inspection and rendered screenshot of Table 1 on PDF page 19 (zero-index 18).",
+        "title": "On the degree of ambiguity of finite automata",
+        "trigger": "Origin of ambiguity growth classification and exact older unary bounds."
+      },
+      {
+        "assessment": "Algorithmic ambiguity testing/complexity does not state the optimizing transition digraph theorem.",
+        "evidence": [
+          "Problem formulations are about deciding ambiguity thresholds, not enumerating every degree-maximizing unary graph."
+        ],
+        "identifier_or_url": "arXiv:2501.14725 / https://arxiv.org/abs/2501.14725",
+        "material_read": "Accessible full article on finite-ambiguity decision complexity, with sections addressing finite directed graphs.",
+        "method": "Full-text scan for extremal unary finite ambiguity and one-start/one-final rigidity.",
+        "title": "Fine-Grained Complexity of Ambiguity Problems on Automata and Directed Graphs",
+        "trigger": "Possible overlapping complexity-of-ambiguity treatment and graph formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d42de78-07f4-4e7c-bf17-c21c14286029",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural single-start, single-final unary NFA model this identifies the exact maximum degree and every equality structure, distinguishing it from the different multiple-initial/final optimum. The rigidity is a substantive canonical classification and yields the exact labeled count, not merely a known lower-bound example. SCC subset counting transfers as a proof technique.",
+    "status": "PASS"
+  }
+}
