@@ -1,15 +1,21 @@
-# Review: Sharp Hausdorff regularity exponents of planar radial weighted perimeters
+# Independent mathematical audit
 
-## Correctness — PASS
-The uniform origin-ball boundary mass estimate is verified in both full-dimensional and degenerate cases. The exact support-function variation cancels tangential terms, and cutoff/integration-by-parts estimates yield all stated constants with correct ranges and endpoints. Weak boundary-measure convergence plus uniform origin truncation passes results to segments/points. Point and disk witnesses prove optimal exponents; numerical tests provide auxiliary checks, not an infinite proof.
+## correctness
 
-## Originality — PASS
-The directly matching 2026 geometric functional and factor-two degeneration convention in arXiv:2608.19851v1 lead to a qualitative continuity theorem. The later companion arXiv:2610.11677v1 also states and proves qualitative continuity, without quantitative sharp moduli. Hug--Schneider's support-measure Hölder result has bounded-Lipschitz test-function hypotheses and does not imply the singular radial power phase transition. Published mathematical-record comparisons concerning fractional perimeters, width stability and constant-width geometry control different quantities. An unindexed exact theorem remains possible.
+PASS
 
-## Value — PASS
-The result supplies a global quantitative stability law for a natural weighted geometric measure, including sharp singular exponents, a qualitative transition at the unweighted case, and exact witnesses under dimension collapse. It can be used in error control for shape variation and weighted-perimeter optimization without assuming smoothness. The constants for nonzero powers are not asserted to be numerically sharp, and no higher-dimensional conclusion is included.
+PASS: Local boundary mass M_K(r)≤2πr for full planar convex bodies follows from convex intersection/perimeter monotonicity, and for segments double length ≤4r<2πr. Support parametrization x=h n+h'τ, ds=(h+h'')dθ, integration by parts gives exact shape derivative ∫v(f+ρ∇f·n) and no tangential v' remainder. For p<0 flat truncation f_eps=min(|x|^p,eps^p) bounds gradient ∫|∇f_eps|≤2π(1−p)eps^p, singular remainder ≤2π(-p)/(p+1)eps^(p+1), choose eps=δ. For p≥0 use bound ∫p|x|^(p−1) and radius R, yielding stated Lipschitz coefficients. Weak boundary measure limit and uniform cutoff extend to segments/points. Point vs small disk makes exponent p+1 optimal, concentric disks fixed radius force exponent≤1 for p>0. Finite CHECKS.py verifies selected disks/segments/triangles but cannot prove universal statement.
 
-## Reproduction and limitations
-`CHECKS.py` executes with the Python standard library, reports `RADIAL_WEIGHTED_PERIMETER_FINITE_CHECKS_OK`, and tests exact circle/segment formulas plus a nonsingular triangle quadrature. The analytic proof—not the finite computations—is responsible for the universal theorem. The latest companion paper falls after the original August public source date. Relevant primary material was inspected, with residual risk from unindexed equivalent literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge with real access risk. Csató–Giovagnoli–Roy 2026 same functional has qualitative Hausdorff continuity with degenerate factor-two; companion Csató–Giovagnoli arxiv:2610.11677v1 Oct8 announces qualitative continuity, but primary full text inaccessible after OA attempts and authorized Oxford returned vpn_disconnected, so cannot infer whole-document absence of quantitative sharp exponents. Hug–Schneider support-measure 1/2 Hölder theorem has bounded-Lipschitz tests not singular |x|^p; Saracco–Stefani examines inclusion monotonicity rather than this two-body modulus. The explicit p-dependent full phase diagram and optimal witnesses not found in read accessible sources.
+
+## value
+
+PASS
+
+PASS: Natural power-weighted geometric perimeter in shape optimization admits robust explicit Hausdorff error control even through collapse to segments/points. Singular/zero/positive parameter transition with optimal exponents distinguishes integrability barrier and is independently useful for stability estimates. Constants p≠0 not asserted optimal, and no higher dimensional scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
