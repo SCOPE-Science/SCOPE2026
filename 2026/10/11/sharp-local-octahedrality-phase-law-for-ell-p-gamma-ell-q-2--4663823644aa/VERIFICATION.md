@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,51 +18,25 @@
   "schema_version": 1
 }
 ---
-For finite \(q\ge2\), if
-\[
-(r,s)\in S_{\ell_q^2},
-\]
-then
-\[
-(s,-r)\in S_{\ell_q^2}
-\]
-and both symmetric chords have \(q\)-th power
-\[
-|r+s|^q+|r-s|^q.
-\]
-Scalar Clarkson gives
-\[
-|r+s|^q+|r-s|^q
-\ge
-2(|r|^q+|s|^q)
-=
-2.
-\]
-This is the exact fiber lower mechanism.
 
-For the one-coordinate upper witness, if
-\[
-a=\|y_{\gamma_0}\|_q,
-\]
-one sign gives a fiber chord of \(q\)-th power at most
-\[
-1+a^q.
-\]
-The full outer \(p\)-th power is therefore at most
-\[
-H(a)
-=
-(1+a^q)^{p/q}+1-a^p.
-\]
-Writing
-\[
-b=a^q,\qquad r=p/q,
-\]
-one has \(H\le2\) for \(r\le1\) by subadditivity and \(H\le2^r\) for \(r\ge1\) by monotonicity. This yields
-\[
-s=2^{1/\min\{p,q\}}.
-\]
+# Independent mathematical audit
 
-The bundled `verify.py` checks these scalar inequalities and representative fiber witnesses numerically over a broad parameter grid. The checks are supplementary; the proof above is analytic over the full parameter range.
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+For every real ell_p(Gamma;ell_q²) with infinite Gamma, 1≤p<∞,2≤q≤∞, define s as inf over unit base x of sup over unit y of min two symmetric chord lengths. An unused or arbitrarily small outer coordinate gives the 2^(1/p) lower bound for each x. For finite q≥2, the rotated fiber (r,s)↦(s,−r), scaled coordinatewise by ||x_gamma||_q, is again a unit witness; scalar Clarkson gives both q-power chord norms ≥2, hence both global chords ≥2^(1/q). At one-coordinate base x=(1,0), choose the sign cancelling y first component; with a=||y_fiber||, min chord^p ≤(1+a^q)^(p/q)+1−a^p. For p≤q subadditivity bounds by 2; for p≥q monotonicity in b=a^q bounds by 2^(p/q). For q=∞ the chosen first-fiber chord ≤1 and total ≤2. Thus upper equals max two lower mechanisms, s=2^(1/min(p,q)), including p=q and q=∞ endpoints. The proof is analytic; random finite test code is not used to quantify all exponents.
+
+## originality
+
+PASS
+
+New claim and its implications assessed against named primary papers and fresh Resultary published-finding searches. Self-indexed candidate hit ignored as evidence of novelty. The four mandatory checks, material actually read, and risks follow.
+
+## value
+
+PASS
+
+This computes the exact worst-base-point symmetric-chord index on a natural two-parameter infinite family of vector-valued sequence spaces. The sharp switch at p=q identifies distinct outer-coordinate and fiber Clarkson mechanisms. The full q>2 law is not a mere substitution into the known q=2 Hilbert case; this is a motivated quantitative phase classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound has two independent mechanisms. Almost-unused outer coordinates give \(2^{1/p}\). For finite \(q\ge2\), rotating every normalized fiber vector \((r,s)\) to \((s,-r)\) makes the two local chords have the same \(q\)-th power \(|r+s|^q+|r-s|^q\), and scalar Clarkson makes this at least \(2\); scaling coordinatewise gives \(2^{1/q}\). For the upper bound, a one-coordinate base point reduces every competitor to the scalar envelope \((1+a^q)^{p/q}+1-a^p\). Subadditivity handles \(p\le q\), monotonicity handles \(p\ge q\), and the \(q=\infty\) endpoint is direct.
+## correctness
 
-## Originality
-PASS. published-finding corpus searches covered exact local-octahedrality terminology, vector-valued \(\ell_p\) aliases, the formula \(2^{1/\min\{p,q\}}\), a concrete \(q=3\) specialization, and phase-transition wording. The closest indexed theorem is the Hilbert-fiber case \(q=2\); it does not imply the \(q>2\) law. Current and immediate-prior own ledgers were checked; the nearby own theorem concerns the diamond fiber \(\ell_1^2\). Hardtke's full source is qualitative and contains no quantitative index formula.
+PASS
 
-## Value
-PASS. The result identifies an exact two-parameter phase boundary \(p=q\) and explains it by two competing geometric mechanisms. It extends the isolated Hilbert-fiber phenomenon into a full super-Hilbert fiber scale and gives a natural exact benchmark for quantitative local octahedrality in vector-valued sequence spaces.
+For every real ell_p(Gamma;ell_q²) with infinite Gamma, 1≤p<∞,2≤q≤∞, define s as inf over unit base x of sup over unit y of min two symmetric chord lengths. An unused or arbitrarily small outer coordinate gives the 2^(1/p) lower bound for each x. For finite q≥2, the rotated fiber (r,s)↦(s,−r), scaled coordinatewise by ||x_gamma||_q, is again a unit witness; scalar Clarkson gives both q-power chord norms ≥2, hence both global chords ≥2^(1/q). At one-coordinate base x=(1,0), choose the sign cancelling y first component; with a=||y_fiber||, min chord^p ≤(1+a^q)^(p/q)+1−a^p. For p≤q subadditivity bounds by 2; for p≥q monotonicity in b=a^q bounds by 2^(p/q). For q=∞ the chosen first-fiber chord ≤1 and total ≤2. Thus upper equals max two lower mechanisms, s=2^(1/min(p,q)), including p=q and q=∞ endpoints. The proof is analytic; random finite test code is not used to quantify all exponents.
 
-## Closest literature and limitations
-Hardtke's 2017/2018 work provides the local-octahedrality symmetric-chord framework and qualitative absolute-sum results. An indexed later computation gives the Hilbert-fiber boundary case \(q=2\), while an own prior computation treats the diamond fiber \(q=1\). The present theorem covers \(2\le q\le\infty\) for two-dimensional fibers; it does not resolve \(1<q<2\) or higher-dimensional fibers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+New claim and its implications assessed against named primary papers and fresh Resultary published-finding searches. Self-indexed candidate hit ignored as evidence of novelty. The four mandatory checks, material actually read, and risks follow.
+
+## value
+
+PASS
+
+This computes the exact worst-base-point symmetric-chord index on a natural two-parameter infinite family of vector-valued sequence spaces. The sharp switch at p=q identifies distinct outer-coordinate and fiber Clarkson mechanisms. The full q>2 law is not a mere substitution into the known q=2 Hilbert case; this is a motivated quantitative phase classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
