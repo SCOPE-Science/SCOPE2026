@@ -1,11 +1,21 @@
-# Scientific review: even halved-cube quantum average mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and normalized character group are explicit, the Cayley adjacency eigenvalues are verified by a finite algebraic identity for arbitrary even dimension, and the equivalence of spectral energies is exhaustive. Orthogonal spectral-projector expansion yields the exact Cesàro mixing operator. An inclusion–exclusion count over the two disjoint parity constraints gives each mixing eigenvalue; positive and zero character sectors then exhaust the vertex space. Discrete log-concavity proves the sharp positive gap. Exact independent finite Fourier/projector checks support, but do not replace, the unrestricted proof.
+## correctness
 
-**Originality — PASS, residual risks stated.** Godsil's original work establishes the projector formula. Chan's halved-cube analysis (arXiv:1305.5811, Section 5, including instantaneous mixing and perfect state transfer) establishes relevant eigenvalues and gives antipodal kernel *inclusion* via the known link between strong cospectrality and mixing, but does not give kernel equality, the full Cesàro spectrum, or a positive-sector spectral gap. The 2018 average-mixing paper, the 2022 exact-algorithm paper, the 2024 survey, and the available spectral-graph textbook material were compared by scientific implication; none of the inspected relevant passages supplies the claimed formula. The folded-cube and Hamming-cube spectral cases do not determine this even halved-cube projector partition. The dimension-four multipartite instance and odd-dimensional consequences are credited as covered rather than included in the novelty claim. Residual risk: an overlooked Bose–Mesner-algebra or antipodal-scheme treatment may imply the result in an equivalent language; absence from search is not universal novelty proof.
+PASS
 
-**Value — PASS.** The halved cube is a canonical distance-regular binary network with proven perfect state transfer. The finding identifies the *exact* time-averaged transport modes lost to antipodal symmetry, proves no other modes vanish, and computes the sharp positive spectral gap at every even dimension. The problem is structurally motivated, not a parameter substitution or isolated table entry. It is not presented as solving the primitive distance-regular graph conjecture (the graphs here are antipodal).
+Reconstructed the Cayley group G of 2^(d-1) even-weight words, its character-dual quotient by the all-ones vector, adjacency energies ((d-2|a|)^2-d)/2 and complete energy coincidence criterion |a|=|b| or |a|+|b|=d. Godsil spectral-projector Schur squares diagonalize by Fourier characters; count equal energies for a,a+z by disjoint support one-counts t,u: 2t=|z| or 2u=d-|z|. Inclusion-exclusion gives the stated binomial fractions, positive precisely for even character parity and zero precisely for odd; even dimension makes parity invariant under quotient. Antipodal symmetry follows by character parity. For the gap, b_j=1-C(2j,j)/4^j is positive and discretely concave on j>0; its symmetric product maximizes at the center by log concavity. Recomputed Fourier equal-energy count exactly in d=6 and d=8, obtaining ranks 16,64 and gaps 11/16,39/64. Boundary d=4 is explicitly excluded from novelty; finite checks do not establish all even d.
 
-**Limitations.** The claim is for unweighted adjacency and infinite-time average mixing, in even dimensions at least six. It is not instantaneous mixing, a robustness result, or an arbitrary Hamiltonian claim. Broader unindexed literature may contain an equivalent formula; independent scientific audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original: exact even-halved-cube Cesaro spectrum, positive antipodal sector and minimum nonzero mixing eigenvalue extend beyond existing instantaneous mixing, strong-cospectral nullspace inclusion and general Schur-square machinery. Directly compared graph, quotient normalizations, and implications; primitive distance-regular graph rank problems are not claimed solved. An unindexed association-scheme treatment remains possible.
+
+## value
+
+PASS
+
+The even halved cube is a canonical distance-regular cubelike transport graph. Complete nullspace equality identifies every time-averaged lost mode, and exact gap measures mixing contraction on all surviving modes; these are structural family invariants absent from the cited general framework, not a selected toy sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
