@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verify.py` from a directory containing the two embedded files `verify.py` and `verification_output.txt`. This uses only Python's standard library, enumerates all subsets on 15 explicit cactus profiles, compares iterative cycle closure with binary-vector closure, and directly calculates maximum sizes of convex-independent, Helly-independent and Radon-independent sets. It prints `PASS profiles=15 tested_subsets=3576` and the full per-profile record in `verification_output.txt`.
+# Independent mathematical audit
 
-The checker is logically separate from the proof's pruning argument: it computes hulls by repeated infection, while the linear closure uses binary rank. The tests are exhaustive for their declared finite profiles, not for all graphs or for the infinite cactus family. The incidence-forest pruning proof in `RESULT.md` is the universal certificate; the computational checks do not establish any claims about non-cactus graphs or external verification.
+## correctness
+
+PASS
+
+PASS: Reconstructed both operator inclusions rather than just the rank count. Each simple cycle of a cactus is a cycle block. The vertex/cycle-block incidence bipartite graph is a forest, giving independent F2 incidence relations; any nonempty relation sum has at least two nonzero coordinates, so quotient vectors are nonloops and dimension is |V|-k. Every cycle-infection is a linear dependence and hence belongs to quotient-span closure. Conversely, for a closed infection set H and quotient-dependent w outside H, choose a forest of cycle relations with symmetric difference supported in H union {w}; pruning a farthest cycle block from w forces its parent into H, removes that cycle without losing the witness at w, and eventually forces w, contradiction. Independence definitions give both directions for Helly and Radon sizes in a loopless represented matroid. Independently generated 130 distinct random small cactus cases and exhaustively compared hulls versus F2 quotient span on 146,432 subsets, not treating those finite cases as universal proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: The recent Nair–Anand–Chandran–Nascimento–Anil cycle-convexity work treats hardness and high-threshold extremal classifications; the Araújo et al cycle-rank work covers forests/cycles and other restricted classes. Neither accessible mathematical statement implies a matroid quotient for every cactus with arbitrarily many cycles. The full earlier related technical report was not available; that material remains a substantive overlap risk.
+
+## value
+
+PASS
+
+PASS: The result gives a usable full closure operator with basis exchange and an exact Helly/Radon/rank identity for cacti with arbitrarily many cycle blocks and bridges. This addresses a motivated structural tractability gap beyond separately known forest or one-cycle ranks. The matroid representation is a nontrivial mathematical characterization, not an arbitrary small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
