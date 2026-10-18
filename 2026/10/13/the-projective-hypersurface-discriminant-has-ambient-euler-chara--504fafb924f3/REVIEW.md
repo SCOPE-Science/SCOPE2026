@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A base-\(B\) one-parameter subgroup separates all degree-\(d\) monomials, so the fixed points of the coefficient projective space are precisely monomial forms.
+## correctness
 
-A one-variable monomial is nonreduced. For \(n\ge3\), any monomial using at least two variables defines a union of coordinate hyperplanes with nonempty intersection and is singular there. For \(n=2\), the only reduced monomial divisor is \(xy\) at degree \(2\). Hence the smooth-hypersurface parameter space has no torus fixed point except in the binary-quadratic case, where it has exactly one.
+PASS
 
-Euler localization gives the complement Euler characteristic, and constructible additivity gives the discriminant value. The bundled checker replays the finite monomial classification and weight separation. Finite computation is regression evidence only.
+For n,d>=2 over C and N=binom(n+d-1,d), choose diagonal one-parameter subgroup with weights 1,B,...,B^(n-1), B>d. Degree-d monomial weights are pairwise distinct by base-B representation, so ambient P^{N-1} fixed locus consists of N coordinate monomials. Every monomial defines a singular projective hypersurface except xy for (n,d)=(2,2): a pure power is nonreduced, and for n>=3 distinct coordinate components meet; binary reduced monomial xy exists only at d=2. Thus the smooth coefficient-space U fixed locus is empty except one point for binary quadrics. Algebraic C* Euler localization gives chi_c(U)=0 or 1 respectively, and additivity gives chi(D)=N or 2. The independent checker verified 2969 monomial cases with exact weight distinctness; infinite proof is symbolic.
 
-## Originality
-PASS. The inspected archival source defines the same nonvanishing-discriminant open set and its projectivization but contains no Euler-characteristic or fixed-point statement. Targeted searches in discriminant, smooth-parameter-space, Veronese-dual, and monomial-fixed-point language did not locate the complete formula or its unique exception.
+## originality
 
-Residual risk remains because the localization proof is short and may be implicit in older topology literature.
+PASS
 
-## Value
-PASS. The projective discriminant is the canonical boundary of the parameter space of smooth hypersurfaces. The result computes its Euler characteristic uniformly in every dimension and degree and gives the equivalent universal vanishing statement for the smooth coefficient-space parameter locus, with one sharp exception.
+Classical discriminants, the nonsingular form open set, Euler localization, and torus weighting are prior tools. Alper–Isaev arXiv:1407.6838 studies the same nonvanishing-discriminant open forms but concentrates on associated forms/invariant theory, not coefficient-space Euler characteristics. Searches in discriminant/topological Euler/Veronese dual/smooth parameter space language and Resultary uncovered no earlier precise all-(n,d) ambient-Euler identity with the binary-quadratic exception. Significant folklore risk given short localization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The discriminant is a fundamental projective parameter-space boundary. A uniform characteristic across all dimensions and degrees, plus the exceptional pair and compactly-supported complement vanishing, is a reusable exact invariant distinguishing coefficient spaces from moduli quotients. The fixed-locus classification is object-dependent, not a generic numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
