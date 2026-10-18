@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the four-frequency moment sum over sample indices: E|sum exp(ikTheta)|^4=2n^2-n, and for distinct positive k,l, E[A_k A_l]=n^2, even when one frequency is a multiple of the other. Uniformity eliminates every nonzero net frequency. Parseval for the mean-centered circular empirical process gives U_n^2=(2*pi^2)^-1 sum_{k>=1} Z_{n,k}/k^2. Square summability ensures L2 convergence; zeta(2), zeta(4) yield E U_n^2=1/12, Var U_n^2=(n-1)/(360n), and the exact cross-correlation. This proves finite uncorrelatedness, NOT independence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Watson (1961) provides foundational statistic; its complete text was unavailable, not classified as NOT_COVERING.",
+          "Jammalamadaka–Meintanis–Verdebout (2020) develops the general Sobolev framework and null limit distributions; exact finite mixed energy covariance not in focused inspected material."
+        ],
+        "reasoning": "The broad Sobolev class dominates the definitions and asymptotic framework but does not mechanically subsume the claimed finite squared-energy orthogonality; full classical source access remains a residual concern.",
+        "searches": [
+          "Watson goodness-of-fit tests circle 1961 DOI 10.1093/biomet/48.1-2.109",
+          "On Sobolev tests uniformity circle Watson Rayleigh 2020",
+          "Pycke multimodal circular Watson Rayleigh 2010"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md, REVIEW.md, VERIFICATION.md and source metadata at inventory commit",
+        "DOI:10.3150/19-BEJ1191 full-text targeted inspection",
+        "DOI:10.1093/biomet/48.1-2.109 abstract",
+        "Resultary published-record semantic search Rayleigh/Watson"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic independence of finitely many harmonic components permits nonzero finite-sample covariance, so cannot imply exact zero at every n.",
+          "The Fourier representation is a prerequisite, but by itself does not imply the fourth-moment calculation."
+        ],
+        "reasoning": "Prior Fourier/spectral frameworks are strictly weaker for the all-sample covariance conclusion; none of the compared recent published records imply it.",
+        "searches": [
+          "arXiv/full DOI 10.3150/19-BEJ1191 Watson Rayleigh asymptotic independence",
+          "Resultary Rayleigh Watson U2 circular harmonics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jammalamadaka–Meintanis–Verdebout (2020), Secs 1–2: Watson has weights proportional to k^-2 and Rayleigh first harmonic, but the key independence statement there is asymptotic.",
+          "The exact finite covariance follows from separate fourth-moment index pairing; same normalization not silently inferred from asymptotic law."
+        ],
+        "reasoning": "A harmonic-series representation does not itself imply finite orthogonality; the independent finite fourth-moment theorem is the extra premise needed for the constant.",
+        "searches": [
+          "Rayleigh Watson U squared finite sample covariance correlation Fourier harmonics",
+          "Rayleigh statistic Watson U2 exact finite sample covariance correlation harmonics null uniform circle 3sqrt10/pi2",
+          "DOI:10.3150/19-BEJ1191"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits concerned unrelated correlation and harmonic facts; no indexed same-object result.",
+          "The constant is an exact analytic zeta(4)/zeta(2) computation, not a tabulated finite sample."
+        ],
+        "reasoning": "An exact-database or table duplicate was not found; this is not itself a priority proof.",
+        "searches": [
+          "\"3 sqrt(10)\" \"Watson\" \"Rayleigh\"",
+          "\"90/pi^4\" \"Watson\" Rayleigh",
+          "Resultary: Rayleigh statistic Watson U2 exact finite sample covariance correlation harmonics null uniform circle 3sqrt10/pi2"
+        ]
+      },
+      "rationale": "Best-of-knowledge finite-sample refinement. Full-text modern Sobolev tests give Fourier weights, Rayleigh/Watson specializations and asymptotic harmonic independence but do not state the all-n squared-harmonic covariance and 3*sqrt(10)/pi^2 correlation. Exact-formula/alias and published-result searches yielded no equivalent claim. Older Watson primary full text is a concrete priority risk.",
+      "residual_risks": [
+        "Foundational Watson 1961 body not read; an older equivalent calculation under different normalization remains possible.",
+        "No finite independence of squared energies is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_AND_NOT_FOUND_FINITE_COVARIANCE",
+          "evidence": "Asymptotic fixed-harmonic independence is not finite squared-energy covariance; no exact all-n correlation in focused text.",
+          "identifier_or_url": "DOI:10.3150/19-BEJ1191",
+          "material_read": "Accessible complete primary 2020 article, focused reading of definitions, Fourier weights, null harmonic asymptotics, and test specializations",
+          "method": "Public journal PDF and rendered formulas",
+          "title": "On Sobolev tests of uniformity on the circle with an extension to the sphere",
+          "trigger": "Same named Rayleigh and Watson test family"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Full text could contain an unindexed finite-moment calculation.",
+          "identifier_or_url": "DOI:10.1093/biomet/48.1-2.109",
+          "material_read": "Abstract and bibliographic material only; full article not read",
+          "method": "Publisher metadata/abstract and bounded lawful retrieval",
+          "title": "Goodness-of-fit tests on a circle",
+          "trigger": "Original Watson statistic source"
+        },
+        {
+          "assessment": "RELATED_NOT_FULLY_READ",
+          "evidence": "Power comparison is not evidence of the exact finite mixed covariance.",
+          "identifier_or_url": "DOI:10.1002/cjs.10048",
+          "material_read": "Abstract and bibliographic information, not full body",
+          "method": "Publisher abstract",
+          "title": "Some tests for uniformity of circular distributions powerful against multimodal alternatives",
+          "trigger": "Same circular uniformity power comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-n exact null redundancy of two standard and complementary circular goodness-of-fit tests is a useful natural second-moment invariant: Corr squared is 90/pi^4, about 0.924; the decomposition also gives precisely the residual higher-harmonic null variance. Not merely a renaming of the Watson Fourier definition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git RESULT.md, REVIEW.md, VERIFICATION.md and source metadata at inventory commit",
+    "DOI:10.3150/19-BEJ1191 full-text targeted inspection",
+    "DOI:10.1093/biomet/48.1-2.109 abstract",
+    "Resultary published-record semantic search Rayleigh/Watson"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "iid circular uniformity only",
+    "n>=2; distinct positive integer harmonics; no independence conclusion",
+    "full original Watson article unavailable"
+  ],
+  "source_inspections": [
+    {
+      "assessment": "BACKGROUND_AND_NOT_FOUND_FINITE_COVARIANCE",
+      "evidence": "Asymptotic fixed-harmonic independence is not finite squared-energy covariance; no exact all-n correlation in focused text.",
+      "identifier_or_url": "DOI:10.3150/19-BEJ1191",
+      "material_read": "Accessible complete primary 2020 article, focused reading of definitions, Fourier weights, null harmonic asymptotics, and test specializations",
+      "method": "Public journal PDF and rendered formulas",
+      "title": "On Sobolev tests of uniformity on the circle with an extension to the sphere",
+      "trigger": "Same named Rayleigh and Watson test family"
+    },
+    {
+      "assessment": "INACCESSIBLE_PRIORITY_RISK",
+      "evidence": "Full text could contain an unindexed finite-moment calculation.",
+      "identifier_or_url": "DOI:10.1093/biomet/48.1-2.109",
+      "material_read": "Abstract and bibliographic material only; full article not read",
+      "method": "Publisher metadata/abstract and bounded lawful retrieval",
+      "title": "Goodness-of-fit tests on a circle",
+      "trigger": "Original Watson statistic source"
+    },
+    {
+      "assessment": "RELATED_NOT_FULLY_READ",
+      "evidence": "Power comparison is not evidence of the exact finite mixed covariance.",
+      "identifier_or_url": "DOI:10.1002/cjs.10048",
+      "material_read": "Abstract and bibliographic information, not full body",
+      "method": "Publisher abstract",
+      "title": "Some tests for uniformity of circular distributions powerful against multimodal alternatives",
+      "trigger": "Same circular uniformity power comparison"
+    }
+  ]
+}
