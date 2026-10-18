@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "For n>=8, exactly floor(log_2(n-2)) genuine chords (n,2^j) are added. With S_t=sum_{i=t}^n i, each target k in [n,T_n) lies uniquely in [S_t,S_{t-1}), so 0<=r=k-S_t<=t-2. Binary digits 2^j in r are distinct vertex labels below t, joined to suffix endpoint n by an existing cycle edge (j=0) or an added chord (j>=1). The chosen connected vertex set sums to k. Targets below n and T_n are immediate. The verifier independently checks all 88556 targets for n=3..80 and 956 larger samples. Boundaries n=8, t=2, t=n, r=0, k=T_n all follow. The finite tests do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves only mEC(n)<=n/2-1 and suggests possible o(n) behavior.",
+        "Published-index 2026/10/4/SCOPE-exact-linear-chaining-depth-in-the-free-group-boundary-counterex--5760d16c3020 studies chain depth in an unrelated topological example."
+      ],
+      "reasoning": "A theorem asserting a bounded or logarithmic number of chords for this labeled-cycle invariant would dominate the present claim. Targeted searches found none; generic graph-theoretic cycle/chord results do not imply coverage of every integer label sum.",
+      "searches": [
+        "complete weighted cycle 1 to n adding chords O(log n) to realize all connected vertex subset sums binary expansion",
+        "graphs labeled integers 1 through n connected subset sums complete sums logarithmic number added edges",
+        "The minimum number of extra chords to make the consecutive 1..n labeled cycle sum-complete satisfies mEC(n)<=floor(log2(n-2)) by connecting n to powers of 2; every target is a terminal suffix plus binary residue, settling sublinear edge completion of Marotti Needleman cycles"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08889v1",
+      "https://arxiv.org/html/2610.08889v1",
+      "2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+      "2026/10/4/SCOPE-exact-linear-chaining-depth-in-the-free-group-boundary-counterex--5760d16c3020",
+      "2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.08889v1 Section 5 Proposition 1: mEC(n)<=n/2-1.",
+        "arXiv:2610.08889v1 Section 5 final sentence asks for a sublinear improvement."
+      ],
+      "reasoning": "The prior linear bound cannot imply O(log n), since an upper bound proportional to n allows linear growth. The explicit binary-suffix witness construction gives strictly stronger asymptotic control without invoking the source proposition. The prior incompleteness theorem merely shows mEC(n)>=1 for n>=8.",
+      "searches": [
+        "Marotti Needleman mEC(n) edge completion graph consecutive cyclic sums sublinear logarithmic bound",
+        "The minimum number of extra chords to make the consecutive 1..n labeled cycle sum-complete satisfies mEC(n)<=floor(log2(n-2)) by connecting n to powers of 2; every target is a terminal suffix plus binary residue, settling sublinear edge completion of Marotti Needleman cycles",
+        "\"consecutive cycle sums\" \"logarithmic\" added edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.08889v1 Section 5 defines mEC(n) in terms of sum completeness of connected vertex sets.",
+        "Published-index near match 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 concerns cover-free-family numbers, not additive vertex sums."
+      ],
+      "reasoning": "The equivalent test is whether connected subsets of the augmented consecutively labeled cycle cover [1,T_n]. Neither indexed adjacent graph-sum terminology nor the full defining paper contains this logarithmic binary-star construction.",
+      "searches": [
+        "consecutive cycle sums minimum edge completion mEC(n) logarithmic upper bound binary powers chords number theory connected subset sums Hamiltonian cycles",
+        "complete weighted cycle 1 to n adding chords O(log n) to realize all connected vertex subset sums binary expansion",
+        "Marotti Needleman mEC(n) edge completion graph consecutive cyclic sums sublinear logarithmic bound",
+        "graphs labeled integers 1 through n connected subset sums complete sums logarithmic number added edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article reports mEC(8)=1 and a linear all-n construction but no exact table of the proposed binary-chord bound.",
+        "Finite witness tests for the new construction are reproducible with the attached verifier."
+      ],
+      "reasoning": "The claim is not a recomputation of a finite database: it covers every n>=8 via a uniform construction. The source small case n=8 is consistent with, but sharper than, the constructed two-chord upper bound.",
+      "searches": [
+        "\"Consecutive Cycle Sums\" \"mEC\" \"log\"",
+        "\"minimum edge completion\" \"cycle\" \"sum\"",
+        "consecutive cycle sums minimum edge completion mEC(n) logarithmic upper bound binary powers chords number theory connected subset sums Hamiltonian cycles"
+      ]
+    },
+    "rationale": "The full motivating paper studies the identical mEC invariant but provides a linear upper bound and asks for sublinear improvement. The explicit logarithmic binary-chord graph and gap-filling proof are not in the source. Five targeted published-index searches and web literature queries returned no equivalent or dominating theorem. Related cycle parameters lack implications for connected label-sum completeness; residual risk of an unindexed equivalent remains.",
+    "residual_risks": [
+      "A prior construction under different terminology or in unindexed literature could have already shown a logarithmic or stronger bound.",
+      "The proof is an upper-bound construction, not an assertion that floor(log_2(n-2)) chords are necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Section 5 proves mEC(n)<=n/2-1 and asks whether mEC(n)=o(n); no binary-power chord construction or logarithmic bound is given.",
+        "identifier_or_url": "https://arxiv.org/html/2610.08889v1",
+        "material_read": "Complete available arXiv HTML text, including Sections 1 through 5 and references; in particular Section 5 Proposition 1, the graph construction and concluding open direction.",
+        "method": "Read the primary article and compared exact definitions, Section 5 bound, suggested extension, and connectivity quantifier.",
+        "title": "Consecutive Cycle Sums",
+        "trigger": "Defines the same minimum edge-completion invariant and poses a sublinear bound as a further question."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abd1c81e-68d3-43e1-a351-e7627f62ce1a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recently defined natural extremal invariant carried an explicit open question whether its n/2-size edge completion could be sublinear. A uniform O(log n) construction for every n>=8 resolves that question and gives an efficient canonical witness for every target sum. The result is an infinite structural improvement, not an arbitrary finite cutoff or a restatement of a textbook subset-sum lemma.",
+    "status": "PASS"
+  }
+}
