@@ -1,0 +1,15 @@
+# Scientific assessment: nonminimum cycle independent-domination slides
+
+## Correctness — PASS
+Every maximal independent set on a cycle has cyclic gaps only \(2\) or \(3\), and each legal token slide exchanges adjacent unlike gaps. This directly establishes the necessary and sufficient move predicate and positive even degree. Counting marked gap compositions yields the exact layer size and run-degree multiplicities; a separate Vandermonde identity yields the edge count. Marked-token adjacent-gap swaps and the ability to move the marked token one step after reordering prove connectedness in every nonfrozen layer. The position-sum invariant provides the odd-girth lower bound and the explicit floor-coordinate process is an all-order witness attaining length \(n\). Two independent generated state-space methods reproduce the counts and schedules on bounded cases. All hypotheses, wraparound cases and \(t=0\) are explicitly treated in the proof.
+
+## Originality — PASS, subject to literature-indexing risk
+The central difference is **requiring every intermediate state to be both independent and dominating**, not merely independent. Bonsma–Kamiński–Wrochna, arXiv:1403.0359v1, prove reachability in the larger independent-set space; Avis–Hoang, arXiv:2203.16861v1, compute properties of that larger space. Neither source gives the maximality-restricted all-cardinality degree enumerator or odd-girth law. Brewster–Mynhardt–Teshima, arXiv:2303.08190v1, analyze precisely the excluded minimum \(k\)-layer. The explicit source comparisons, published-finding corpus semantic searches and available earlier related claims yielded no covering assertion, but this remains best-knowledge rather than a claim to exhaustive world novelty.
+
+## Value — PASS
+The fixed-cardinality maximal-independent graph is a natural constrained local-search space for independent domination. The theorem supplies a complete sharp mobility transition (two frozen alternators versus connected active layers), exact numbers of configurations with every number of allowed local moves, an Euler tour in each active layer, and a parity-sensitive exact odd-return invariant. These all-order structural facts go beyond cardinality-only counts and are useful for understanding permissible local transitions without transiently abandoning domination. The result does not pretend that the previously treated minimum layer is new.
+
+## Closest literature and residual limitations
+The nearest geometric construction is the minimum-i-set analysis by Brewster–Mynhardt–Teshima, specifically their Section 3; that result stops at the independent domination number and does not imply the nonminimum layers. The general claw-free reachability algorithm and ordinary token-slide cycle results do not preserve maximality. Earlier unindexed descriptions of independent-domination configuration graphs may contain equivalent statements, and the result excludes general graphs, minimum cardinalities, ordinary girth and exact diameters.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof independently derives the gap-condition iff maximality, the local-slide iff 2/3 swap, marked gap-word and r-run counts, and connectivity via anchor-preserving adjacent transpositions plus controllable anchor displacement. The floor Beatty-type n-step process supplies the shortest odd cycle, with mod-n sum proving optimality. Wraparound and t=0 are separately handled. Two standalone verifiers enumerate independent-and-dominating configurations directly versus gap generation, reproducing counts and explicit legal n-step cycles across finite test ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma et al. (2014) prove polynomial-time reachability for unconstrained independent sets on claw-free graphs; connectivity in an ambient graph does not imply connectivity of the subgraph induced by dominating sets.",
+        "Avis–Hoang (2022) treats the ambient independent-set TS graph, with no maximality predicate."
+      ],
+      "reasoning": "The broader reachability algorithm may find paths that temporarily cease to dominate, so it does not dominate the stricter connectivity claim. An ambient graph's even degrees, bipartiteness or odd-girth cannot determine an induced subgraph's degree distribution or odd girth.",
+      "searches": [
+        "arxiv:1403.0359v1 Theorem 16 independent sets claw-free",
+        "arxiv:2203.16861v1 cycles independent sets token sliding",
+        "maximal independent k-sets on cycles adjacent token sliding graph odd girth n, all even vertex degrees and Eulerian"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.0359v1",
+      "arxiv:2303.08190v1",
+      "arxiv:2203.16861v1",
+      "published-finding corpus semantic search: six actual queries recorded in prior_checks",
+      "accessible own historic claim ledger snapshots for Sep week4 and Oct week1 and current week2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Minimum cycle i-graph exact results concern k=ceil(n/3), disjoint from the claimed k>ceil(n/3).",
+        "General TS_k(C_n) vertices include configurations that are not dominating, so its exact degrees and adjacencies are for another graph.",
+        "The claimed per-run mobility frequency and explicit odd cycle existence require separate cyclic gap-word and floor-coordinate arguments."
+      ],
+      "reasoning": "These precise prior claims neither directly imply the uniform nonminimum constrained graph connectivity nor the exact degree spectrum. The new result borrows the known cyclic gap representation but proves its own counting, connectivity, and parity claims.",
+      "searches": [
+        "arxiv:2303.08190v1 Theorem 3.7 and minimum-cardinality cycle i-graph",
+        "arxiv:1403.0359v1 Lemma 8 and Theorem 16; nonmaximum independent sets",
+        "arxiv:2203.16861v1 Proposition 16; ordinary independent-set TS Eulerian",
+        "token sliding reconfiguration fixed-cardinality maximal independent sets of a cycle C_n independent dominating sets gap length 2 3 components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2303.08190v1 §1 and §3 define i-graphs using only minimum independent dominating sets; this result expressly excludes that layer.",
+        "arxiv:1403.0359v1 Theorem 16 treats all independent sets, not intermediate dominating sets.",
+        "arxiv:2203.16861v1 defines unrestricted independent-set sliding graphs."
+      ],
+      "reasoning": "Compared aliases: maximal independent = independent dominating; size-k i-graphs are not the usual minimum i-graphs. Existing titles match some terminology but the required vertex-set predicate and parameter quantifiers differ. No exact all-nonminimum classification was found in inspected text or semantic results.",
+      "searches": [
+        "token sliding reconfiguration fixed-cardinality maximal independent sets of a cycle C_n independent dominating sets gap length 2 3 components",
+        "reconfiguration independent dominating sets cycle token slide connected iff 2k<n<3k",
+        "independent dominating sets of cyclic graphs of any fixed size k under token sliding, exact connected components and degree distribution of i-graphs beyond minimum domination",
+        "arxiv:2303.08190v1; independent-domination i-graphs of paths and cycles Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned graph domination and cycle-structure records but none with a fixed-cardinality maximal-independent token-sliding degree table.",
+        "arxiv:2303.08190v1 Lemma 3.1 enumerates minimum i-sets only, not the complete k-spectrum."
+      ],
+      "reasoning": "Targeted identifiers, parameter names, i-graph aliases, degree-frequency formula and Eulerian/girth statements were searched. No indexed exact table found; negative database searches are not proof of universal novelty.",
+      "searches": [
+        "For cycles C_n and any nonminimum size k between ceil(n/3) and floor(n/2), token sliding on maximal independent sets is connected if n>2k, has two isolates if n=2k, and has degree spectrum counts n/r * binom(t-1,r-1) binom(k-t-1,r-1)",
+        "independent dominating sets of cyclic graphs of any fixed size k under token sliding, exact connected components and degree distribution of i-graphs beyond minimum domination",
+        "maximal independent sets cycle token sliding degree distribution all cardinalities 2r binomial formula",
+        "cycle independent dominating set reconfiguration all cardinalities token sliding"
+      ]
+    },
+    "rationale": "Compared full statements and proof scopes of Bonsma–Kamiński–Wrochna (2014), Brewster–Mynhardt–Teshima (2023), and Avis–Hoang (2022). The prior exact cycle i-graph result fixes the minimum independent-domination size, expressly excluded here; general independent-set token-sliding allows non-dominating intermediates. The all-nonminimum maximality-preserving degree spectrum and exact odd-girth conclusion are not implied by the inspected results. Relevant published-finding corpus and own archived claims did not indicate stronger coverage; a residual unindexed-publication possibility remains.",
+    "residual_risks": [
+      "The complete bibliography of possible earlier maximal-independent reconfiguration papers, including unindexed or differently named structural enumerations, is not exhaustively available.",
+      "Similarity search alone cannot certify priority; claims are restricted to the exact nonminimum configuration family and move model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: all independent sets rather than maximal-independent-only intermediates",
+        "evidence": [
+          "§6 Theorem 16: polynomial-time reachability of independent sets; does not impose domination on each state."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.0359v1",
+        "material_read": "Introduction; reachability theorems, sections on cycles; Theorem 16 and Lemma 8",
+        "method": "Full open-access HTML text and open PDF comparison",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Natural general token-sliding reachability theorem for cycles"
+      },
+      {
+        "assessment": "NOT_COVERING: exact same move and independent domination property, but only minimum-sized configurations; excluded layer",
+        "evidence": [
+          "Abstract and §1 define i-sets to have cardinality i(C_n)=ceil(n/3); §3 classifies only these configurations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.08190v1",
+        "material_read": "Introduction, §3.1–§3.4 including statements, proof constructions and figures",
+        "method": "Open-access complete HTML version and PDF comparison",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Exact prior graph of cycle independent dominating configurations and legal slides"
+      },
+      {
+        "assessment": "NOT_COVERING: omits maximality restriction and exact constrained mobility spectrum",
+        "evidence": [
+          "Defines vertices as all independent k-sets, unlike the currently analyzed subset of independent dominating k-sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+        "material_read": "Definition of ordinary independent-set TS graph; propositions on cycles and Eulerian characteristics",
+        "method": "Open-access arXiv PDF inspected by section and theorem",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "Eulerian, girth and cycle properties of ordinary token sliding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7483c658-e23c-45de-94cd-02446810fa55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete family-wide exact graph phase diagram in a natural size-constrained independent-domination local search space separates frozen maximum configurations from active connected Eulerian layers, computes every local move-degree multiplicity, and determines parity and shortest odd-return cycles. This explains concrete constrained mobility phenomena not determined by known minimum i-graph results or unconstrained independent-set reachability; no general graph extension is claimed.",
+    "status": "PASS"
+  }
+}
