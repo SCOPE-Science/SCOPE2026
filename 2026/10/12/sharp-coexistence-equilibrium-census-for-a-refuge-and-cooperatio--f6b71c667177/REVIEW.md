@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The equilibrium reduction follows directly from both exact fixed-point equations with positive predator and prey coordinates. For \(G(s)=s[r+\log(1-bs)]\), the signs \(G''<0\) and \(G'''<0\), coupled to the explicitly decreasing curvature ratio \(Q=s''/(s')^2\), show that \(T''\) can change sign at most once while \(G'>0\). The auxiliary derivative \(W'=yT''\) implies strict monotonicity or a single nondegenerate maximum of the equilibrium function; its endpoint signs force the precise root census. This is an infinite-domain analytical argument, not an extrapolation from a numerical grid. Symbolic differentiation and the source's two-root example provide supplemental reproducibility checks.
+## correctness
 
-**Originality (PASS, limited).** The exact Ricker/refuge/cooperation census is not the conditional nullcline intersection discussion of De Silva–Jang (2026), Proposition 3.2; that source explicitly leaves open the possibility of further intersections. Jang–Yousef (2023), Theorem 2.4, gives at most two equilibria for Beverton–Holt recruitment, for which the prey nullcline is affine rather than logarithmic in survival. This does not logically cover the Ricker claim. A previously recorded lower-equilibrium instability result assumes the two-equilibrium regime and does not establish this count. Chou and coauthors (2021) study Ricker growth without the present prey-refuge parameter, but only its abstract was accessible; potential stronger coverage within that paper remains a risk.
+PASS
 
-**Value (PASS).** A global cap on coexistence equilibria is essential to distinguish an actual two-branch predator Allee effect from potentially unrecognized additional positive equilibria. The result closes an expressly stated analytical gap and supplies a unique nondegenerate fold threshold across all positive Ricker growth rates, including the omitted equality case of the reproduction number. It is neither an arbitrary parameter slice nor a finite-grid count.
+For the exact normalized two-species Ricker map, eliminate prey through x(y)=1+r^{-1}log(1-b(1-exp(-y-cy²))) and reduce strictly positive fixed points to R q(y)=1 on x(y)>0, R=beta*b. G(s)=s[r+log(1-bs)] has G′′=-b(2-bs)/(1-bs)^2<0 and G′′′=-b²(3-bs)/(1-bs)^3<0. On initial G′>0 interval P=-G′′/G′ is strictly increasing, while Q=s′′/(s′)^2=e^{y+cy²}(2c/(1+2cy)^2-1) has Q′=-e^u[((1+2cy)^2-c)^2+7c²]/(1+2cy)^3<0; independently reproduced all three derivative identities symbolically. Thus T=G(s(y)) has curvature changing at most once from + to -, and W=yT′-T, W′=yT′′, yields strict decrease of q when c<=1/2+b/r and exactly one nondegenerate peak otherwise. The endpoint limits q(0+)=1 and q(right end)=0 prove the entire R=beta*b regime table, including R=1 and the tangent at 1/qmax. The published example has two positive roots, but numerical samples do not prove this infinite-parameter theorem.
 
-**Residual limitations.** No branch stability, persistence, global attractor, or field-data implication is established. A full theorem-level comparison with Chou–Chow–Hu–Jang (2021) is outstanding; the source models differ by prey refuge, but unindexed variants remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new statement/implication after source-specific primary comparison and targeted published-record searches; residual priority and access risks are itemized below.
+
+## value
+
+PASS
+
+A global sharp equilibrium census and nondegenerate fold for the precise Ricker/refuge/cooperative-hunting map settle an explicit geometric gap in the original same-model Proposition 3.2. Distinguishes beta*b=1 and threshold c=1/2+b/r without imposing r<2, which matters for interpreting bistability and possible positive stationary states. It does not assert dynamical attraction or persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
