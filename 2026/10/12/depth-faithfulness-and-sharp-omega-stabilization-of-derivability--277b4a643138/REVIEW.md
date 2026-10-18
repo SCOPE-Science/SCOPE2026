@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite-observation simulation is a depth induction. For each box operand that is false under \(\Gamma\vdash_{L_{n-1}}\), the conjunction of the true operands with its negation must be \(\mathsf K\)-satisfiable: otherwise bounded-depth agreement from the induction hypothesis forces a contrary \(L_{n-1}\)-derivation. Standard Kripke completeness supplies successor witnesses, the finite-model property bounds their size, and depth truncation bounds their height. Simultaneous construction respects every boxed subformula at the new root. The reverse interpretation construction shows \(L_n\subseteq\mathsf K\); empty-assumption interpretations separate \(\Box^{n+1}\top\) at the next stage. The proof covers every natural stage, not merely computed cases.
+PASS
 
-## Originality: PASS, with specific literature risks
+Using Bevan interpretation truth I|=Box(psi) iff Gamma proves_(L_(n-1)) psi, and L_j⊂K from representing any Kripke point by an interpretation whose Gamma is the successor theory, the induction is sound. For finite Sigma modal depth<=n collect box operands B of depth<=n-1; partition by Gamma derivability. For each chi in negative B, K-satisfiability of (and B+) and not chi follows because a K proof of (and B+)→chi, of depth<=n-1, would be an L_(n-1) theorem under induction, contradicting nonderivability. FMP and finite-depth unraveling yield a finite height<=n-1 witness for every negative chi. Attach these as successors of a root with I atomic valuation, matching all target boxes/Boolean combinations and producing height<=n. For n=0 PC equals K depth-zero tautologies; hence L_n and K have equal depth-n fragments. Empty-Gamma witnesses show Box^(n+1)top not in L_n, while theorem-lifting puts it in L_(n+1). Bevan Proposition 5 and fixed-point/necessitation closure give union=L_omega=K and strictness until omega. No finite enumeration or proof logs are represented as a universal certificate.
 
-Bevan's *Logics of Logics* (2025) proves the transformation, its continuity and the eventual fixed point, but the inspected complete article does not state finite-tree simulation for arbitrary fixed-evaluation interpretations, exact depth-fragment agreement at finite stages, or strictness at each stage. Schröder–Pattinson's *PSPACE Bounds for Rank-1 Modal Logics* (2007), examined at Example 3.18 and Theorem 4.9, establishes the general K one-step and shallow-model apparatus; the present semantic stage comparison is not among its statements. A derivation by combining these earlier results may exist and remains a priority risk. The full text of Bevan's 2022 thesis could not be obtained; no absence claim is made about its unread chapters. Published-work and mathematical-record searches, including formulations in terms of necessitation depth and one-step completeness, found no direct statement.
+## originality
 
-## Value: PASS
+PASS
 
-The iterates of a natural fixed-point operator have an exact finite-observation meaning: stage \(n\) is indistinguishable from normal \(\mathsf K\) at depth \(n\), while an explicit depth-\(n+1\) formula first separates them. The quantified tree construction connects two semantics and makes the stabilization stage \(\omega\) sharp. This answers a motivated structural question for every finite stage rather than accumulating isolated examples.
+Bevan 2025 already proves the VINT operator equation, continuity and union at the fixed point K. The audited claim separately quantifies over arbitrary interpretations and finite modal-depth formula sets, constructs bounded-height finite Kripke trees, identifies exact finite-stage modal-depth agreement and strict first omission. The union statement alone is consistent with earlier finite stabilization and does not imply exact depth. However priority against Bevan 2022 dissertation remains a material access risk.
 
-## Scientific limitations
+## value
 
-The semantic correspondence is only for finite families of formulas and a bounded modal depth; a globally uniform finite model is not asserted. Ordinary K completeness and finite-model property are standard inputs, not new discoveries. No proof of publication priority or external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-height simulation and sharp modal-depth calibration clarify how a natural non-normal-to-normal iterative logic construction develops across finite stages; they are structural lemmas useful for proving exactly when approximation misses K theorems. The omega-stabilization cutoff is an exact natural ordinal invariant, not an arbitrary finite slice, and is stronger than merely identifying the eventual least fixed point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

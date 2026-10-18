@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-The result is a deductive theorem and requires no opaque numerical table, hidden proof package, solver or external execution. Its steps can be independently replayed from the displayed definitions and the standard completeness and finite-model properties of normal modal logic \(\mathsf K\).
+## correctness
 
-1. Verify the atom/box truth clauses of Bevan (2025), §1.1. At a Kripke point, take \(\Gamma\) to be its full immediate-successor theory. Soundness for each \(\lambda\subseteq\mathsf K\) proves that \(\Gamma\vdash_\lambda\psi\) iff every successor satisfies \(\psi\).
-2. For the inductive tree construction at depth \(n\), list all operands of box subformulas occurring in the finitely many target formulas. Divide them according to \(\Gamma\vdash_{L_{n-1}}\). For each negative operand \(\chi\), derive the contradiction that would follow if \(\mathsf K\vdash(\bigwedge B^+)\to\chi\). The formula has depth at most \(n-1\), so the induction premise applies exactly at the required boundary.
-3. Apply ordinary Kripke completeness to the resulting \(\mathsf K\)-consistent finite conjunctions. Standard finite-model property and depth-\(n-1\) unraveling turn each witness into a finite rooted tree. Adding one root changes modal depth by exactly one and preserves every requested box truth value.
-4. At the sharpness boundary, \(\Box\top\notin\mathrm{PC}\); by induction \(\Box^r\top\notin L_{r-1}\), so \((M,\varnothing,L_{r-1})\not\models\Box^{r+1}\top\), whereas theorem lifting puts \(\Box^{r+1}\top\in L_{r+1}\). This establishes strictness without finite enumeration.
-5. Use the prior-work identity \(V\mathrm{INT}(\lambda)=\mathsf K_0+\Box\lambda\) to see that the increasing union contains the distribution axiom and is closed under necessitation, hence equals \(\mathsf K\). Strictness rules out any finite stabilization index.
+PASS
 
-These are proof-reconstruction instructions, not execution logs. The induction covers all natural numbers; no finite experiment is claimed to establish universal correctness. Literature priority and independent auditing remain open.
+Using Bevan interpretation truth I|=Box(psi) iff Gamma proves_(L_(n-1)) psi, and L_j⊂K from representing any Kripke point by an interpretation whose Gamma is the successor theory, the induction is sound. For finite Sigma modal depth<=n collect box operands B of depth<=n-1; partition by Gamma derivability. For each chi in negative B, K-satisfiability of (and B+) and not chi follows because a K proof of (and B+)→chi, of depth<=n-1, would be an L_(n-1) theorem under induction, contradicting nonderivability. FMP and finite-depth unraveling yield a finite height<=n-1 witness for every negative chi. Attach these as successors of a root with I atomic valuation, matching all target boxes/Boolean combinations and producing height<=n. For n=0 PC equals K depth-zero tautologies; hence L_n and K have equal depth-n fragments. Empty-Gamma witnesses show Box^(n+1)top not in L_n, while theorem-lifting puts it in L_(n+1). Bevan Proposition 5 and fixed-point/necessitation closure give union=L_omega=K and strictness until omega. No finite enumeration or proof logs are represented as a universal certificate.
+
+## originality
+
+PASS
+
+Bevan 2025 already proves the VINT operator equation, continuity and union at the fixed point K. The audited claim separately quantifies over arbitrary interpretations and finite modal-depth formula sets, constructs bounded-height finite Kripke trees, identifies exact finite-stage modal-depth agreement and strict first omission. The union statement alone is consistent with earlier finite stabilization and does not imply exact depth. However priority against Bevan 2022 dissertation remains a material access risk.
+
+## value
+
+PASS
+
+The finite-height simulation and sharp modal-depth calibration clarify how a natural non-normal-to-normal iterative logic construction develops across finite stages; they are structural lemmas useful for proving exactly when approximation misses K theorems. The omega-stabilization cutoff is an exact natural ordinal invariant, not an arbitrary finite slice, and is stronger than merely identifying the eventual least fixed point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
