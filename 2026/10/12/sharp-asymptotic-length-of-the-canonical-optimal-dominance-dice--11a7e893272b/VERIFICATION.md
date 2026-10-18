@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof of the limit is analytic. The accompanying `verify.py` is a regression checker for the exact recurrence and finite source values.
+# Independent mathematical audit
 
-For an admissible canonical edge \(a<b\), it checks
-\[
-(N-a)b\le T_N,
-\]
-and iterates the farthest admissible successor \(\lfloor T_N/(N-a)\rfloor\). Dynamic programming for every \(2\le N\le150\) independently confirms that this greedy hitting time is the shortest order-preserving canonical subcycle length.
+## correctness
 
-The checker reproduces the five values quoted in the source:
-\[
-g_{10}=6,\quad g_{100}=24,\quad g_{10^4}=260,\quad g_{10^6}=2628,\quad g_{10^8}=26304.
-\]
-It also evaluates a long prefix of
-\[
-C=\sqrt2\sum_{r=0}^{\infty}\frac{\sqrt{r+1}-\sqrt r}{r+1}
-\]
-with its leading positive tail and obtains \(2.630472693\ldots\), consistent with the proved constant.
+PASS
 
-Finite computations do not certify the asymptotic theorem. The infinite claim rests on the exact band-width calculation for the centered recurrence and the dyadic bound controlling all outer bands.
+Probability 1-(N-a)b/N² gives exact allowable edge threshold T_N. Monotone greedy F_N(a)=min(N,floor[T_N/(N-a)]) dominates every increasing feasible path. Even and odd centered integer recurrences have step 1+floor(j(j+1)/(m-j)) or 1+floor(j²/(m+1-j)); solving band boundary quadratics shows two-component widths 2 sqrt(m)(sqrt(r+1)-sqrt(r))+O_r(1), hence width/(r+1) passage count. Outer dyadic regions contribute O(sqrt(m)/A+log m) and vanish upon limits. Source a_n gives universal tan/arctan bound and liminf pi/sqrt2. Independent greedy path values 6,24,260,830,2628,8318,26304 at N=10,100,1e4,1e5,1e6,1e7,1e8; finite agreement not infinite proof.
+
+## originality
+
+PASS
+
+The originating Komisarski article was read in full mathematical parts. It reports shortest canonical numerical subcycle lengths and O(sqrt N) inequalities but does not derive the exact asymptotic constant C or the sharper unrestricted bracket.
+
+## value
+
+PASS
+
+Sharp constant quantifies dice-count resources for the previously constructed canonical optimal-dominance cycle, improving coarse square-root bounds and distinguishing canonical from unrestricted optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
