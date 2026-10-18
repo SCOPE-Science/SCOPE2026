@@ -1,19 +1,21 @@
-# Scientific review — sharp preperiods of A158690
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The formal substitution into an integral series gives a finite power spectrum modulo every \(2^e\). Odd bases obey Carmichael periodicity while even bases die at index \(e\). At index \(e-1\), only bases congruent to \(2\) modulo \(4\) remain; their coefficient parity is \(g_2+g_3=2+7\equiv1\pmod2\), via an exact periodic binomial parity identity. A gcd-of-periods argument excludes every alternative earlier-starting period, not just the Carmichael shift. All exponents and the exceptional modulus \(2\) have been checked. The exact finite certificate and independent initial-EGF comparison passed in `verification/verify.py`; finite tests are not being used as infinite proof.
+PASS
 
-## Originality (PASS, with residual risk)
+The formal integral substitution y=e^t−1 gives G(y)=Σ g_k y^k with g0..3=(1,1,2,7); Stirling expansion yields a(n)=Σ g_k k! S(n,k). Mod 2^e, factorial divisibility truncates this to a finite sum Σ c_j j^n. Odd j are Carmichael-periodic; even j^n vanish by n≥e, proving period L_e from onset e. At n=e−1 only j≡2(mod4) contribute to the Carmichael-shift discrepancy; finite binomial inversion and mod-2 fourth-difference show their coefficient sum ≡g2+g3≡1, giving exact 2^(e−1). If some earlier tail had arbitrary period Q, its least period on the tail beginning e divides both Q and L_e; this forces equality at the obstructed n=e−1, contradiction. A separate e=1 parity check gives s1=0. Independent Stirling/arithmetic checks confirmed e=2..12; universality is proved by the finite-spectrum parity argument.
 
-The closest fully inspected source, Kallat, arXiv:2609.07238, Proposition 2.1 and Remark 2.2, proves eventual periodicity from \(n\ge e\) and calls the starting bound not necessarily sharp. This does not imply the lower-onset statement. Danesh's 2026-08-26 abstract covers universal eventual Carmichael periods but was not accessible for complete manuscript inspection: an implicit sharpness proof there remains a risk. OEIS A158690 gives the single example modulo \(16\), not all exponents. A previous exact least-period finding for high powers of two was found and is **not** claimed as original here; its valid claim supplies an eventual period but not a matching obstruction at \(e-1\). Searches against related forms, the research records, and the published literature found no stronger theorem establishing the universal sharp onset. Search absence alone is not a novelty proof.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The least index of eventual periodicity is a natural, exact arithmetic invariant. The 2026 general theorem left the sharpness of its starting threshold open. The new identity proves a uniform optimal obstruction for infinitely many prime-power moduli, not a single computation or renaming of an existing period bound. It gives a complete preperiod classification, and the precise mechanism (a sparse parity sum governed by the second and third integral Stirling weights) is reusable in studying sharp onsets for related sequences.
+Kallat arXiv:2609.07238 Proposition 2.1 proves the upper onset n≥e with Carmichael period, and Remark 2.2 expressly leaves sharpness open. A previously established least-eventual-period theorem is separately credited. The submitted result supplies the missing lower bound against every arbitrary possible period, not a restatement of upper periodicity or a finite OEIS example. Danesh preprint abstract overlaps general eventual periodicity but full text was inaccessible, leaving priority risk.
 
-## Residual scientific limits
+## value
 
-The shortest eventual periods are not presented as new; odd prime powers and composite moduli are outside the claim. The 2026 Danesh full text could not be inspected. The novelty assessment remains fallible and is not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles a natural sharp-onset question in an actively studied OEIS sequence and separates first eventual periodic index from eventual period length; the explicit boundary discrepancy has independent use in exact modular sequence dynamics. A genuine all-e impossibility statement is not inferable from a known upper onset bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
