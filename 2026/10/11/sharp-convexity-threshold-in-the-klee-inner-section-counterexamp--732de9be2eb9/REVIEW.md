@@ -1,33 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The published meridional-curvature expression simplifies to
-\[
-1+\varepsilon(2c-c^3),
-\qquad c=\cos\phi,
-\]
-up to a strictly positive factor. The cubic
-\[
-2c-c^3
-\]
-has its unique minimum on \([-1,1]\) at
-\[
-c=-\sqrt{\frac23},
-\]
-where its value is
-\[
--\frac{4\sqrt6}{9}.
-\]
-Thus nonnegative curvature for all meridional directions is equivalent to
-\[
-\varepsilon\le\frac{3\sqrt6}{8}.
-\]
-Strict inequality gives strictly positive curvature. Endpoint convexity follows from Hausdorff closure of convex compact sets, while every larger parameter has negative meridional curvature at the displayed latitude. The bundled symbolic checker independently reconstructs the curvature factorization and exact critical value.
+## correctness
 
-## Originality
-**PASS, with a residual folklore risk.** The complete primary source was materially inspected at its convexity lemma. It proves convexity only for sufficiently small \(\varepsilon\) and explicitly records the numerical sufficient value \(0.91\); it does not state the exact endpoint. Searches under the paper title, radial formula, Klee inner-section terminology, \(0.91\), and the radical \(3\sqrt6/8\) did not locate an implication-equivalent published result. A searchable result with the same radical concerns a different cubic support-function family and therefore does not cover this axial radial-body problem.
+PASS
 
-## Value
-**PASS.** The parameter is not an arbitrary slice: it is the exact convexity boundary of the canonical one-parameter body used in the negative solution of a longstanding geometric-tomography problem. The result replaces a numerical sufficient constant in the construction's geometric foundation by the sharp dimension-independent threshold and identifies the exact latitude at which convexity fails. The claim is deliberately limited to this convexity lemma and does not overstate the parameter range of later analytic steps.
+For n>=3 and 0<=epsilon<1, the meridian radial function is positive. Direct independent symbolic differentiation proves that r^2+2(r' )^2-r r'' has the sign of F_epsilon(c)=1+epsilon(2c-c^3), c=cos(phi). The cubic has its unique global minimum -4sqrt(6)/9 at c=-sqrt(2/3); endpoints give -1 and +1. Thus 3sqrt(6)/8 is the exact convexity bound, strict positivity below it, one zero curvature latitude at it and negative curvature above. The Hausdorff limit argument correctly retains endpoint convexity. Independent SymPy simplification returned zero for the curvature factorization; finite checks were not treated as proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the *exact maximal convexity parameter* of the specific radial family. Gardner–Ryabogin–Yaskin–Zvavitch Lemma 3.2 gives the same curvature expression and a sufficient numerical 0.91 but does not identify the exact global minimization. A Resultary record on a cubic support function has the same radical but different geometry and is not an implication. Any folklore exact endpoint remains a historical priority risk.
+
+## value
+
+PASS
+
+PASS: the family is a geometrically canonical input to the Klee inner-section counterexample, and the full sharp geometric convexity range is a natural unknown exact invariant. The improvement beyond the published 0.91 is numerically small, but the mathematical object is an exact endpoint and first degenerating latitude; it is not presented as extending all other analytic conditions in the counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

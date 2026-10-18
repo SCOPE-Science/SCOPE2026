@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,59 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-r(\phi)
-=
-\left(1+\varepsilon\cos^3\phi\right)^{-1/3},
-\]
-symbolic differentiation gives
-\[
-r^2+2(r')^2-r r''
-=
-\frac{
-1+2\varepsilon\cos\phi-\varepsilon\cos^3\phi
-}{
-\left(1+\varepsilon\cos^3\phi\right)^{8/3}
-}.
-\]
-Because the denominator is positive for
-\[
-0\le\varepsilon<1,
-\]
-the sign is determined by
-\[
-1+\varepsilon(2c-c^3),
-\qquad c\in[-1,1].
-\]
+# Independent mathematical audit
 
-The derivative of
-\[
-g(c)=2c-c^3
-\]
-is
-\[
-g'(c)=2-3c^2,
-\]
-so its unique minimum is attained at
-\[
-c=-\sqrt{\frac23}
-\]
-with value
-\[
--\frac{4\sqrt6}{9}.
-\]
-Therefore the exact nonnegative-curvature condition is
-\[
-1-\frac{4\sqrt6}{9}\varepsilon\ge0,
-\]
-equivalently
-\[
-\varepsilon\le\frac{3\sqrt6}{8}.
-\]
+## correctness
 
-`verify.py` symbolically replays the curvature factorization and critical-point calculation and checks nearby decimal parameters. The decimal checks are diagnostic only and are not used as proof.
+PASS
 
-At the endpoint, convexity is obtained as a Hausdorff limit of strictly convex members from below. The verification does not claim that later, separate estimates in the original inner-section construction remain valid up to the same endpoint.
+For n>=3 and 0<=epsilon<1, the meridian radial function is positive. Direct independent symbolic differentiation proves that r^2+2(r' )^2-r r'' has the sign of F_epsilon(c)=1+epsilon(2c-c^3), c=cos(phi). The cubic has its unique global minimum -4sqrt(6)/9 at c=-sqrt(2/3); endpoints give -1 and +1. Thus 3sqrt(6)/8 is the exact convexity bound, strict positivity below it, one zero curvature latitude at it and negative curvature above. The Hausdorff limit argument correctly retains endpoint convexity. Independent SymPy simplification returned zero for the curvature factorization; finite checks were not treated as proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the *exact maximal convexity parameter* of the specific radial family. Gardner–Ryabogin–Yaskin–Zvavitch Lemma 3.2 gives the same curvature expression and a sufficient numerical 0.91 but does not identify the exact global minimization. A Resultary record on a cubic support function has the same radical but different geometry and is not an implication. Any folklore exact endpoint remains a historical priority risk.
+
+## value
+
+PASS
+
+PASS: the family is a geometrically canonical input to the Klee inner-section counterexample, and the full sharp geometric convexity range is a natural unknown exact invariant. The improvement beyond the published 0.91 is numerically small, but the mathematical object is an exact endpoint and first degenerating latitude; it is not presented as extending all other analytic conditions in the counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
