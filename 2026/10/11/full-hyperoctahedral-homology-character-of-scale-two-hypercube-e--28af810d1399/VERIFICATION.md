@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. The verifier reconstitutes every simplex as a subset of a closed cube neighborhood, tests every signed simplicial trace under all affine automorphisms in dimensions two through five, and compares the value with the independent cycle-parity expression. It checks the translated average against \(\binom{a_1}{2}-a_2\) for every coordinate permutation and tests thirty-five further full-group elements in dimension six. The completed local run printed:
+## correctness
 
-```
-n=2: 8 automorphisms, 14 nonempty faces, H2 dimension 1, all character traces and invariant exterior-square characters agree
-n=3: 48 automorphisms, 72 nonempty faces, H2 dimension 7, all character traces and invariant exterior-square characters agree
-n=4: 384 automorphisms, 352 nonempty faces, H2 dimension 31, all character traces and invariant exterior-square characters agree
-n=5: 3840 automorphisms, 1616 nonempty faces, H2 dimension 111, all character traces and invariant exterior-square characters agree
-n=6: 35 selected automorphisms, 7072 nonempty faces, all traces agree
-VERIFY_OK
-```
+PASS
 
-The code operates directly on enumerated face sets, not on stored matrices from another calculation. These computations are finite checks, not a substitute for the uniform proof. The topological concentration is independently supplied by Adams–Shukla–Singh, arXiv:2212.05871, Theorem 4.1. No independent audit has been conducted.
+For n≥2, the intrinsic scale-two cube Čech faces are subsets of radius-one closed neighborhoods, not Vietoris–Rips. Adams–Shukla–Singh Theorem 4.1 supplies H2 concentration of rank 2^(n−2)(n²−3n+4)−1. Hopf trace counts fixed vertices F(g), fixed and swapped weight-1/2 edges with D=a1+C(a1,2)+a2 and τ(g), and higher fixed faces by their unique centers. This derives the full affine character F(1−D/2+C(a1,2)−a2)+2^(r−1)τ−1, uniformly in n; averaging translations gives character C(a1,2)−a2 on H2^T, precisely ∧² of the permutation module. Each transposition negates its indexed alternating pair, so no full-group invariants. Independent code computed all group elements for n=2..5 and agreed; not used for the all-n theorem.
+
+## originality
+
+PASS
+
+The 2022/2025 Adams–Shukla–Singh homotopy theorem fixes only homology dimension, and the separately published translation-only SCOPE representation fixes only T_n restriction. Neither determines S_n coordination or the full semidirect-product character; the explicit τ(g) correction and the S_n-module ∧²Q^n are additional. Galetto–Montaño–Wellner analyze a different Vietoris–Rips complex. Best-of-knowledge originality; no claim of complete full-group irreducible decomposition.
+
+## value
+
+PASS
+
+An all-dimensional explicit character of the natural full automorphism group reveals representation information hidden by the known wedge-of-spheres homotopy type and by translation characters; ∧²Q^n translation-fixed structure and zero global fixed space are substantive natural equivariant-topology invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's exact intrinsic graph Čech definition and published scale-two sphere-wedge theorem supply the homology concentration. A new uniform signed simplicial Lefschetz proof counts fixed vertices, fixed and reversed edges, and uniquely-centered higher faces for every affine cube automorphism; the cycle-consistency argument and translation averaging establish the complete formula and exterior-square invariant module. The standalone finite verifier independently reconstructs and checks every group element in dimensions two through five and thirty-five further elements in dimension six. The proof, not finite enumeration, justifies arbitrary dimension.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2022 source proves the nonequivariant wedge type and Betti numbers, and a prior translation-restricted character already determines the normal translation subgroup; neither implies traces of coordinate permutations or identifies the translation-fixed module as an exterior square. The same-object primary full text was examined through the relevant definitions and complete proof of its scale-two theorem; no such complete-group result is stated there. Matsushita addresses general closed neighborhood equivalences; Galetto–Montaño–Wellner address Vietoris–Rips group actions, not Čech group actions. Actual targeted literature and mathematical-record queries found no stronger covering statement, but unindexed or unpublished equivalents remain a risk. Literature search does not prove universal uniqueness.
+PASS
 
-**Value — PASS.** A full representation of the canonical hyperoctahedral symmetry group is a natural structural invariant of the published hypercube Čech family. Its complete character and the explicit \(S_n\)-module \(\bigwedge^2\mathbb Q^n\) reveal symmetry invisible to Betti numbers or a translation-group decomposition, including vanishing full-group invariants for every dimension.
+For n≥2, the intrinsic scale-two cube Čech faces are subsets of radius-one closed neighborhoods, not Vietoris–Rips. Adams–Shukla–Singh Theorem 4.1 supplies H2 concentration of rank 2^(n−2)(n²−3n+4)−1. Hopf trace counts fixed vertices F(g), fixed and swapped weight-1/2 edges with D=a1+C(a1,2)+a2 and τ(g), and higher fixed faces by their unique centers. This derives the full affine character F(1−D/2+C(a1,2)−a2)+2^(r−1)τ−1, uniformly in n; averaging translations gives character C(a1,2)−a2 on H2^T, precisely ∧² of the permutation module. Each transposition negates its indexed alternating pair, so no full-group invariants. Independent code computed all group elements for n=2..5 and agreed; not used for the all-n theorem.
 
-**Limitations.** Rational representations, exact intrinsic scale two, all dimensions at least two; no full irreducible constituent table for the nonabelian group or integral equivariant homology. The full-size proof relies on the published nonequivariant theorem, and independent validation has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022/2025 Adams–Shukla–Singh homotopy theorem fixes only homology dimension, and the separately published translation-only SCOPE representation fixes only T_n restriction. Neither determines S_n coordination or the full semidirect-product character; the explicit τ(g) correction and the S_n-module ∧²Q^n are additional. Galetto–Montaño–Wellner analyze a different Vietoris–Rips complex. Best-of-knowledge originality; no claim of complete full-group irreducible decomposition.
+
+## value
+
+PASS
+
+An all-dimensional explicit character of the natural full automorphism group reveals representation information hidden by the known wedge-of-spheres homotopy type and by translation characters; ∧²Q^n translation-fixed structure and zero global fixed space are substantive natural equivariant-topology invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
