@@ -1,12 +1,21 @@
-# Review of Independent double Roman domination of rectangular rook graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Positive support is independent, so a label-\(1\) vertex is impossible and the support is a partial matching of rows to columns. Every zero must have a positive neighbor, so the support dominates the board. An independent dominating matching must saturate the smaller side; for \(m\le n\) it therefore consists of exactly one cell in every row and distinct columns. When \(m=n\), every zero has exactly two support neighbors and all support labels \(2\) are necessary and sufficient at minimum weight. When \(m<n\), an unoccupied column exists; the zero in that column in each row has only its row support as a positive neighbor, forcing that support label to \(3\). This proves both values and the equality classifications. Exhaustive definition-level checks on three small boards agree exactly.
+## correctness
 
-## Originality
-PASS. The closest same-parameter literature supplies general bounds, equality criteria involving independent \(2\)-domination, and tree-oriented results. The square scalar value is consistent with one such general criterion, but the literature located does not state the rook-graph optimizer classification or the unequal rectangular phase. Searches using rook graph, Hamming graph, Cartesian product, line graph, and \(L(K_{m,n})\) aliases returned no equivalent independent double Roman result. A current same-object result concerns perfect double Italian domination, which is a different labeling predicate. The residual risk is a differently phrased or non-indexed treatment.
+PASS
 
-## Value
-PASS. Rectangular rook graphs are canonical Cartesian products and line graphs of complete bipartite graphs. The theorem exposes a sharp structural phase transition: equal sides permit two label-\(2\) defenders at every zero, whereas one extra column forces every support label to \(3\). The exact optimizer families are classical matching objects—permutations and injections—so the result gives both a natural exact invariant and a transparent structural classification.
+Independent support of an iDRDF on R_mn is a partial row/column matching with no 1-labels (a 1 would require a positive neighbor contrary to independence). Every zero requires a positive neighbor, forcing matching to saturate all m rows. When square, each zero sees one supported neighbor in each direction and exactly 2s suffice, giving weight 2m and m! permutation optima. When m<n, an unoccupied column gives one-positive-neighbor zero per row, forcing all supported 3s and weight 3m with n!/(n−m)! injections. The argument covers m,n≥2. Independently checked all four-label assignments on R_2,2, R_2,3, R_2,4 and R_3,3 (the largest 4^9 cases), with exact minima and optimizer counts; no extrapolation from these finite checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same independent double Roman parameter has general sharp bounds and criteria for equality, which partly imply the square rook graph scalar optimum. The unequal rectangular phase and complete minimum-function classification are not implied by that scalar-bound theorem without additional matching geometry. Direct comparison of L(K_mn), K_m □ K_n, and rook graph aliases did not identify full prior coverage.
+
+## value
+
+PASS
+
+Rectangular rook graphs are standard Cartesian products/line graphs. The sharp square-versus-nonsquare transition is forced by board geometry and gives complete algebraic families of every optimal labeling, bijectively permutations or injections. This is an exact structured classification beyond an isolated score; the pre-known square bound alone does not determine the strict rectangular phase or all optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
