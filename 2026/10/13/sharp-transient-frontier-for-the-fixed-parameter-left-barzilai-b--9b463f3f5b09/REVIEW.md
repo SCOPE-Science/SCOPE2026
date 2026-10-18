@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source fixed-\(p\) LEFT scalar is a Rayleigh quotient divided by \(p\), so the actual step length puts every spectral product in \([p/\kappa,p\kappa]\). This gives the universal modal bound \(p\kappa-1\). Both squared gradient norm and quadratic objective gap are weighted sums of the squared modal multipliers. A two-dimensional exact-line-search warm-up makes the next gradient concentrate arbitrarily strongly on the high-curvature mode while the LEFT step tends to \(p/\mu\), proving sharpness.
+PASS
 
-## Originality
+For an SPD A with eigenvalues in [mu,L], the delayed Rayleigh quotient r lies in [mu,L], so h=p/r and every spectral product h*lambda is in [p/kappa,p*kappa]. Since p>=1, max(abs(1-p/kappa),abs(1-p*kappa))=p*kappa-1. The same squared modal bound controls Euclidean gradient norm and A^-1-weighted objective gap. In the actual exact-line-search warm-up A=diag(kappa,1), g0=(sqrt(e),1), the next gradient lies in the large-eigenvalue mode as e->0 while h1->p, so both ratios tend to (p*kappa-1)^2, proving a sharp supremum. For p*kappa>2 sufficiently small positive e yields strict increases. Endpoint p*kappa=2 ensures nonincrease, not necessarily exact attainment. Independent rational iterates tested kappa=5/1.5/2 and p=1.5/1.2/1 with multiple scales; universal analytic proof remains separate.
 
-PASS. The primary full text, source-specific searches, the closest indexed BB objective frontier, and recent quadratic BB convergence and Lyapunov literature were compared at the implication level. The closest sharp BB result is confined to the ordinary BB1--BB2 interval; the recent spectral-weight results also remain within Rayleigh quotients. None of the inspected sources states the outside-BB1 factor \((p\kappa-1)^2\) or the exact frontier \(\kappa=2/p\).
+## originality
 
-The main residual risk is an equivalent older spectral-gradient transient bound under different notation.
+PASS
 
-## Value
+PASS best-of-knowledge for this precise fixed-p extension and sharp compatible warm-up, not for operator spectral norm inequalities or generic delayed gradient methods. The closest published BB-interval theorem has different step-domain and parameter. Xu full primary text supplies method and asymptotic stability but not the transient frontier.
 
-PASS. The result supplies an exact finite-horizon safety boundary for the source parameter \(p\). It shows that the regime reported as locally more stable can have a strictly smaller worst-case monotonicity window and can exhibit arbitrarily large condition-number-driven transient spikes before later \(R\)-linear convergence. This directly informs the source's motivation for truncating extended scalars back toward the Hessian spectrum.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural question is whether locally/stochastically stable longer-than-BB1 steps can transiently increase energy or gradient. The sharp condition-number and p-dependent pointwise boundary answers this with an algorithmically compatible witness. It is an exact finite-horizon safety limit beyond asymptotic rates, not just a renamed spectral inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

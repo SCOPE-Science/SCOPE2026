@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an SPD A with eigenvalues in [mu,L], the delayed Rayleigh quotient r lies in [mu,L], so h=p/r and every spectral product h*lambda is in [p/kappa,p*kappa]. Since p>=1, max(abs(1-p/kappa),abs(1-p*kappa))=p*kappa-1. The same squared modal bound controls Euclidean gradient norm and A^-1-weighted objective gap. In the actual exact-line-search warm-up A=diag(kappa,1), g0=(sqrt(e),1), the next gradient lies in the large-eigenvalue mode as e->0 while h1->p, so both ratios tend to (p*kappa-1)^2, proving a sharp supremum. For p*kappa>2 sufficiently small positive e yields strict increases. Endpoint p*kappa=2 ensures nonincrease, not necessarily exact attainment. Independent rational iterates tested kappa=5/1.5/2 and p=1.5/1.2/1 with multiple scales; universal analytic proof remains separate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published full RESULT.md handles eta_BB2 <= eta <= eta_BB1, hence eta in [1/L,1/mu], with sharp factor (kappa-1)^2 after a warm-up.",
+          "LEFT with p>1 has step p/r outside the classical BB interval, reaching up to p/mu."
+        ],
+        "reasoning": "The broader BB interval classification does not imply the LEFT p>1 frontier without a new out-of-interval argument and warm-up witness. Classical spectral operator bound is credited, not claimed new.",
+        "searches": [
+          "Resultary: BB interval objective monotonicity frontier 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+          "arXiv:2609.12084 and arXiv:2609.12100 quadratic BB"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2506.12731v2",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+        "https://arxiv.org/abs/2609.12084",
+        "Resultary semantic search for Sharp transient frontier for the fixed-parameter LEFT Barzilai--Borwein extension"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xu Theorem 2 asserts eventual R-linear convergence, not pointwise descent for arbitrary histories.",
+          "The published BB interval theorem excludes eta>eta_BB1; LEFT deliberately exceeds it."
+        ],
+        "reasoning": "Neither earlier theorem entails the sharp warm-up-compatible (p*kappa-1)^2 bound with condition p*kappa<=2; their domains and quantifiers are different.",
+        "searches": [
+          "Xu 2506.12731v2 Sections 2-4, Eq.(21), Theorem 2, stability discussion",
+          "Resultary BB interval full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LEFT is a delayed Rayleigh step with length p/r, so its one-step contraction is an endpoint spectral multiplier, rather than the original angle-adaptive p_k rule.",
+          "Xu Eq.(21) gives exactly alpha^L=(1/p)(lambda epsilon+1)/(epsilon+1), with p in (1,2)."
+        ],
+        "reasoning": "The mathematical statement is about worst-case one-step spectral amplification after a valid warm-up. Alternative notations using step length h=1/alpha do not alter the bound; an R-linear stability theorem is not an equivalent pointwise estimate.",
+        "searches": [
+          "Resultary: fixed parameter LEFT Barzilai Borwein p Rayleigh quotient exact line search warmup worst case gradient objective amplification kappa frontier",
+          "arXiv:2506.12731v2 Eq.(21), Eq.(22)-(23)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xu reports stable equilibrium/monotone-gradient behavior under dynamical conditions, not a complete universal transient envelope.",
+          "The located Resultary BB interval record has factor (kappa-1)^2, not (p*kappa-1)^2."
+        ],
+        "reasoning": "This analytic continuous-parameter optimization theorem is not a finite integer table; checked nearest exact formula and primary source claims instead of relying on title searches.",
+        "searches": [
+          "Resultary search: sharp fixed LEFT p*kappa=2 transient monotonicity",
+          "arXiv:2506.12731v2 stability figures and numerical comparisons"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for this precise fixed-p extension and sharp compatible warm-up, not for operator spectral norm inequalities or generic delayed gradient methods. The closest published BB-interval theorem has different step-domain and parameter. Xu full primary text supplies method and asymptotic stability but not the transient frontier.",
+      "residual_risks": [
+        "The sharp endpoint amplification uses a classical operator bound and elementary two-eigenmode construction; specialized historical spectral-gradient transient bounds under other names may already imply it.",
+        "This is the fixed-p model only; original p_k=1+sin(theta_k) has coupled history and is not covered.",
+        "The warm-up sharpness is a limiting supremum, not an attained nonterminal state at e=0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_TRANSIENT_FRONTIER",
+          "evidence": "Fixed p in (1,2), LEFT alpha=Rayleigh/p and R-linear conclusion appear; no universal one-step monotonicity sharp factor established.",
+          "identifier_or_url": "https://arxiv.org/html/2506.12731v2",
+          "material_read": "Full public arXiv HTML: Eq.(10), Eq.(19), fixed-p Eq.(21), Section 3.1 gradient recurrence, Theorem 2, stability and conclusion; confirmed scaling and asymptotic caveat",
+          "method": "primary full-text HTML",
+          "title": "On Convergence and Stability of Two Extended BB-like Step Sizes",
+          "trigger": "Exactly same LEFT fixed-parameter method"
+        },
+        {
+          "assessment": "RELATED_BUT_OUTSIDE_DOMAIN",
+          "evidence": "Published result covers only BB2-BB1 interval and sharp factor (kappa-1)^2; extension p>1 is outside this interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+          "material_read": "Complete public RESULT.md from Resultary Git tree, theorem, exact warm-up extremal family, proof and scope",
+          "method": "published research full RESULT.md",
+          "title": "Sharp objective-monotonicity frontier for Barzilai-Borwein interval steps",
+          "trigger": "Nearest indexed sharp objective frontier"
+        },
+        {
+          "assessment": "PRIOR_CONVERGENCE_NOT_EXACT_TRANSIENT",
+          "evidence": "Describes Lyapunov/R-linear BB dynamics; the source-specific LEFT p>1 worst-case transient claim is not established by available excerpt.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12084",
+          "material_read": "Public bibliographic abstract/statement and related published cross-reference; complete PDF not claimed read",
+          "method": "abstract and literature comparison",
+          "title": "Lyapunov Functions and R-Linear Convergence for Quadratic Barzilai-Borwein Dynamics",
+          "trigger": "Possible stronger convergence results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural question is whether locally/stochastically stable longer-than-BB1 steps can transiently increase energy or gradient. The sharp condition-number and p-dependent pointwise boundary answers this with an algorithmically compatible witness. It is an exact finite-horizon safety limit beyond asymptotic rates, not just a renamed spectral inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git tree c2669b601857312080c31e44176fba64794b42bc",
+    "frozen RESULT.md blob f957794c5290b0e7f6ca92e22411c5a97971a33c",
+    "https://arxiv.org/html/2506.12731v2",
+    "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+    "https://arxiv.org/abs/2609.12084",
+    "Resultary semantic search for Sharp transient frontier for the fixed-parameter LEFT Barzilai--Borwein extension",
+    "/mnt/data/run222/independent_checks.py",
+    "/mnt/data/run222/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite-dimensional SPD, kappa>1, p in [1,2); no general nonlinear objectives or angle-dependent p_k.",
+    "Finite rational experiments corroborate but do not prove the all-dimensional bound or originality.",
+    "No claim of formal independent theorem certification; computation is corroborative and literature priority remains best-of-knowledge.",
+    "Public file provenance requires authorized confidentiality sanitization; scientific acceptance does not imply publication readiness."
+  ],
+  "residual_risks": [
+    "The sharp endpoint amplification uses a classical operator bound and elementary two-eigenmode construction; specialized historical spectral-gradient transient bounds under other names may already imply it.",
+    "This is the fixed-p model only; original p_k=1+sin(theta_k) has coupled history and is not covered.",
+    "The warm-up sharpness is a limiting supremum, not an attained nonterminal state at e=0."
+  ],
+  "schema_version": 1
+}
