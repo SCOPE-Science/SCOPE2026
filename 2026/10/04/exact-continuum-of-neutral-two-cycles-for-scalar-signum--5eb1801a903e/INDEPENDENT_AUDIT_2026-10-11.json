@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 4a862721c14ce00022f81f22697f912ad2ead54c",
+        "actual verify.py blob 6ebf07ac77d19e648ce58a3526bc94da66cceaae",
+        "independent solution of the two affine periodicity equations and local Jacobian"
+      ],
+      "rationale": "For deterministic scalar Signum with positive quadratic curvature and step, momentum beta in (0,1) and sign(0)=0, nontrivial return in two position steps forces one positive and one negative updated-momentum sign. Solving the TWO periodic momentum equations yields m_0=a(u-delta/(1+beta)), m_1=a(u-beta*delta/(1+beta)), and exactly beta*delta/(1+beta)<u<delta/(1+beta). These inequalities prove necessity as well as existence; endpoints lose the nonzero-sign itinerary. The two-step map with fixed sign itinerary is x_{k+2}=x_k and m_{k+2}=beta^2*m_k+(1-beta)*a*((1+beta)*x_k-delta), so the cycle family has tangential multiplier 1 and normal multiplier beta^2, not isolated asymptotic stability. Half-amplitude delta/2, crossing zero and the midpoint interval follow exactly. Reconstructed the recurrence from the actual RESULT and verifier and independently checked representative rational parameters and endpoints; grid checks are corroboration, not the all-parameter proof.",
+      "residual_risks": [
+        "Only scalar deterministic constant-step positive quadratics, beta in (0,1) and sign(0)=0; local alternating-sign stability, no global basin/higher-period classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original Signum convergence analysis uses a stochastic nonconvex regime, not a constant-step autonomous scalar return map.",
+          "A newer sign-momentum limit-cycle discussion uses a different nonsmooth setting, not the scalar positive-quadratic phase-space classification."
+        ],
+        "reasoning": "Neither a stochastic optimization convergence theorem nor oscillations of a different optimizer determine the exact open interval of neutral cycles or the transverse multiplier beta^2.",
+        "searches": [
+          "arXiv:1802.04434 full-text algorithm and convergence sections",
+          "arXiv:2009.06125 introduction and algorithm-dynamics discussion",
+          "2026 Finite-Time Nonsmooth Convergence of Signum and Muon, public search result"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1802.04434",
+        "arXiv:2009.06125",
+        "2026 Signum nonsmooth convergence public search result",
+        "GitHub SCOPE code search: signum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Signum algorithm specification alone does not state the precise interval of all two-cycles nor their normal/tangential stability; those follow by solving the periodicity system.",
+          "The RMSprop/Adam examples do not imply a Signum invariant line of cycles."
+        ],
+        "reasoning": "The result is a concrete dynamical classification beyond the source algorithm and the distinct methods in the closest inspected literature.",
+        "searches": [
+          "Bernstein et al arXiv:1802.04434 Signum algorithm",
+          "Ma Wu E arXiv:2009.06125 fixed-step analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernstein et al define the momentum-before-sign-step update, rather than the analyzed cycle manifold.",
+          "The Ma–Wu–E fixed-step oscillation discussion concerns adaptive algorithms and sign-gradient flows, not these discrete Signum two-step phase equations."
+        ],
+        "reasoning": "Compared signSGD with momentum, scalar relay feedback and discrete constant-step 2-cycles, including phase reversal and reparametrization by midpoint. No examined theorem states an equivalent invariant family.",
+        "searches": [
+          "Attempted Resultary: Signum signSGD momentum scalar quadratic constant step continuum neutral period two cycles (temporarily_unavailable, search_completed=false)",
+          "GitHub public SCOPE code search: signum (zero indexed results)",
+          "arXiv:1802.04434",
+          "arXiv:2009.06125"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-parameter table or published finite data was identified in the accessible primary texts."
+        ],
+        "reasoning": "The theorem is a symbolic one-parameter classification, not a table recomputation. Search noncompletion remains a risk, not positive evidence of novelty.",
+        "searches": [
+          "Attempted Resultary Signum scalar cycles (search did not complete)",
+          "GitHub code search: signum",
+          "Web targeted search: Signum momentum scalar quadratic period-two interval beta"
+        ]
+      },
+      "rationale": "Best-of-knowledge new complete period-two manifold and exact two-step normal multiplier for the specified discrete momentum-sign algorithm. The primary algorithm source explains stochastic Signum but not a fixed-step scalar quadratic cycle classification; fixed-step oscillations of related RMSprop/Adam and nonsmooth sign methods use different maps. No stronger inspected statement entails this particular family. Search incompleteness is explicit.",
+      "residual_risks": [
+        "A targeted published-finding semantic search was attempted but returned temporarily_unavailable/search_internal_error with search_completed=false; it is not treated as evidence that no overlapping record exists. A current GitHub code-search query of the public SCOPE repository returned no match, which is also not proof of novelty.",
+        "Relay/quantized-control literature might contain an equivalent family under non-optimization terminology; its full landscape was not exhaustively reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM/CONTEXT, NO SAME TWO-CYCLE STATEMENT IN MATERIAL READ",
+          "evidence": "The source treats stochastic nonconvex convergence with sign momentum; audited result concerns exact deterministic two-step orbit and local multipliers.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.04434",
+          "material_read": "Accessible arXiv full-PDF introduction and algorithm exposition, including Signum momentum and convergence setting.",
+          "method": "Primary-text reading and update-order comparison.",
+          "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+          "trigger": "Original Signum update definition and closest algorithm source"
+        },
+        {
+          "assessment": "RELATED BUT DIFFERENT ITERATION",
+          "evidence": "The inspected fixed-step oscillation descriptions are for adaptive methods other than the discrete Signum recurrence here.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.06125",
+          "material_read": "Accessible arXiv full-PDF introduction and technical discussion of RMSprop/Adam behavior and sign-gradient flow; only relevant portions inspected.",
+          "method": "Method and claim comparison.",
+          "title": "A Qualitative Study of the Dynamic Behavior of Adaptive Gradient Algorithms",
+          "trigger": "Potential general prior on fixed-step optimizer oscillation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bernstein et al Signum update arXiv:1802.04434",
+        "Ma–Wu–E arXiv:2009.06125",
+        "exact periodicity/local-map reconstruction"
+      ],
+      "rationale": "A complete exact classification of a continuum of neutrally stable cycles in a standard sign-momentum optimizer addresses a motivated fixed-step stability question. It separates fixed step-induced half-amplitude from momentum-controlled cycle-center bias and gives the actual normal convergence multiplier, contrasting with a claim of a unique attracting periodic orbit. This is a structural boundary for a natural algorithm, not an arbitrary sample.",
+      "residual_risks": [
+        "The fact is narrowly deterministic and one-dimensional; it does not establish convergence guarantees for stochastic or higher-dimensional training."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact only for scalar deterministic positive quadratic, beta in (0,1), delta>0, sign(0)=0.",
+    "Nontrivial two-cycles only and local normal attraction; no global dynamics classification.",
+    "Originality depends on the inspected literature and is limited by unavailable index and possible relay-control aliases."
+  ],
+  "schema_version": 1
+}
