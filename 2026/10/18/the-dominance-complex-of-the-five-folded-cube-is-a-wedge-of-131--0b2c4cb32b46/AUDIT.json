@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The code fixes the 16-vertex Cayley graph, checks the strongly regular parameters, and enumerates all 65536 masks using both the closed-neighborhood exclusion predicate and the direct dominating-complement predicate. Both yield 53730 nonempty faces. The explicit certificate has 26799 distinct matched Hasse covers with exactly one critical vertex and 131 critical 9-faces. A full directed Hasse graph with 401088 edges is topologically sorted over all 53730 face vertices, so acyclicity is proved by exhaustive finite computation, not an experiment. Forman's theorem gives a CW model with one 0-cell and 131 9-cells; its attaching maps are necessarily constant. Euler check gives -131; every artifact is included and executable without external dependencies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ehrenborg and Hetyei, European Journal of Combinatorics 27 (2006), Section 7: dominance complex of forests is homotopy equivalent to a sphere.",
+        "Matsushita (arXiv:2009.04145), Theorem 1: a homological-connectivity bound for every graph, but no exact homotopy classification for Clebsch.",
+        "Matsushita and Wakatsuki (arXiv:2312.02639), Theorem 5.16 and Section 6: cycles and path products are computed; no degree-five strongly regular case."
+      ],
+      "reasoning": "General duality and connectivity bounds alone cannot determine the precise wedge rank or integral homotopy type. Forest/chordal and cycle/path-product classifications are inapplicable to the nonchordal degree-five Clebsch graph. The inspected works do not prove a general strongly-regular-graph classification covering this claim.",
+      "searches": [
+        "strongly regular (16,5,0,2) graph dominance complex homotopy algebraic topology",
+        "dominance complex homotopy Cayley graphs",
+        "dominance complex strongly regular graph",
+        "topological homotopy dominance complex folded hypercube Clebsch graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.02639v1 / later openly available full PDF: Matsushita–Wakatsuki, 2023 first public version",
+      "arXiv:2009.04145: Matsushita, 2020 first public version",
+      "Ehrenborg–Hetyei 2006: theorem on forest dominance and the general definition",
+      "Full public result text, the 5-regular Clebsch independence-complex calculation, blob b9868ad006e42a289b49540172b6835bc5a601c2",
+      "Full public result text, folded-cube open-neighborhood classification, blob 0c7f78aac408ce86a819c1807029fe96d214afbc",
+      "Full public result text, 5-regular Clebsch open-neighborhood classification, blob 33d411efc50715152abce2866e9f65c98fcf5a90"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For 2312.02639 the inspected paper defines D(G), proves D(G)^vee=N(complement G), and lists concrete homotopy applications for cycles and path products, without mentioning Clebsch.",
+        "For 2009.04145 the inspected paper establishes a universal vertex-cover bound, not an exact Clebsch computation.",
+        "A public indexed result for N(FQ_n) is about N(C), whereas the dual of D(C) is N(complement C)."
+      ],
+      "reasoning": "None of these prior claims determines the asserted full integral homotopy equivalence for D(C), even as a numerical special case. A Betti rank or generic duality statement would not itself imply the wedge decomposition; the supplied acyclic matching is the additional mathematical input. No decisive unresolved stronger-coverage source surfaced.",
+      "searches": [
+        "Clebsch graph 16 5 regular closed neighborhood hypergraph Alexander dual 131",
+        "2023 dominance complexes neighborhood Alexander dual Clebsch graph",
+        "Matsushita Wakatsuki dominance complexes neighborhood complexes and combinatorial Alexander duals 2312.02639",
+        "Clebsch graph neighborhood complex of complement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matsushita (arXiv:2009.04145) states that D(G) is the independence complex of the hypergraph with edges N[v], and its Alexander dual is related to a bipartite incidence graph.",
+        "Matsushita and Wakatsuki (arXiv:2312.02639) identify D(G) as the Alexander dual of N(complement G), not of N(G).",
+        "The full indexed note on the degree-five Clebsch independence complex (Git blob b9868ad006e42a289b49540172b6835bc5a601c2) computes Ind(C) instead of D(C)."
+      ],
+      "reasoning": "The proposed statement is equivalent to an integral homotopy classification of the closed-neighborhood-avoidance hypergraph complex. Ordinary independence forbids edges, whereas dominance forbids entire six-vertex closed neighborhoods; a classification of Ind(C) does not imply the rank 131 result. Combinatorial Alexander duality connects homology of D(C) with cohomology of N(complement C), but the checked Clebsch neighborhood theorem concerns N(C); the graphs are not isomorphic since their degrees differ (five versus ten).",
+      "searches": [
+        "dominance complex of Clebsch folded five cube graph 131 9 spheres closed neighborhoods",
+        "folded 5-cube domination complex wedge 131 S9 simplicial",
+        "Clebsch graph 16 5 regular closed neighborhood hypergraph Alexander dual 131"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed calculations list the degree-five Clebsch ordinary neighborhood complex as a wedge of 31 two-spheres (Git blob 33d411efc50715152abce2866e9f65c98fcf5a90).",
+        "An indexed general theorem on odd folded-cube open-neighborhood complexes (Git blob 0c7f78aac408ce86a819c1807029fe96d214afbc) includes the same rank 31 for N(C).",
+        "A separate indexed degree-five Clebsch independence-complex note (Git blob b9868ad006e42a289b49540172b6835bc5a601c2) gives a wedge of nine three-spheres."
+      ],
+      "reasoning": "These were compared at the level of definitions and complete result statements, not just titles. Neither is a table or formula for D(C): the independence complex has 392 nonempty faces, the open-neighborhood complex has 352, and the present dominance complex has 53730. The rank 131 claim was not found in checked indexed records or exact-query web results. Index coverage is not proof of uniqueness.",
+      "searches": [
+        "Clebsch graph dominance complex homotopy type reduced integral homology",
+        "Clebsch graph neighborhood complex Lovasz homotopy cyclic symmetry",
+        "neighborhood complex of the complement of the Clebsch graph 10 regular halved five cube homology homotopy 131 S4",
+        "domination complex Clebsch graph wedge of 131 spheres"
+      ]
+    },
+    "rationale": "The nearest public claims determine dominance/neighborhood duality, vertex-cover connectivity bounds, or independence/open-neighborhood homotopy for the same graph; they neither state nor imply the new Clebsch dominance-complex homotopy classification. Exact graph, dimension, rank, Alexander-dual and general-theorem comparisons were made against primary texts and an indexed mathematical-results collection. This is a best-knowledge novelty assessment, not a uniqueness certificate.",
+    "residual_risks": [
+      "No finite search can rule out an equivalent unindexed, unpublished or supplementary-table calculation of this exact complex.",
+      "Other 2025–2026 publications and full monographs were not exhaustively screened; identified likely dominating results were compared materially."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.1 is duality with the neighborhood complex of the complement; its homotopy examples do not classify the Clebsch dominance complex.",
+        "evidence": "arXiv:2312.02639, Theorem 1.1, Lemma 2.1, Theorem 5.16, Section 6.",
+        "identifier_or_url": "https://arxiv.org/pdf/2312.02639",
+        "material_read": "Introduction pp. 1-4; definition/Lemma 2.1 on p. 5; Theorem 5.16 and its hypotheses on pp. 17-18; text-wide search for Clebsch and regular.",
+        "method": "PDF text and page rendering for mathematical definitions and results; section and word search.",
+        "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+        "trigger": "Exact functor and its most relevant modern systematic treatment."
+      },
+      {
+        "assessment": "Gives bounds and a general construction, not the asserted exact rank or homotopy of the Clebsch graph.",
+        "evidence": "arXiv:2009.04145, Theorem 1 and Corollary 4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2009.04145",
+        "material_read": "Introduction and Theorem 1, the hypergraph/Alexander-dual definition and Corollary 4 (pp. 1-4).",
+        "method": "Original arXiv PDF text and rendered first page.",
+        "title": "Dominance complexes and vertex cover numbers of graphs",
+        "trigger": "General theorem could dominate a special finite graph result."
+      },
+      {
+        "assessment": "Its claim is about forbidding edges (ordinary independence), not forbidding six-vertex closed neighborhoods; no dominance result stated.",
+        "evidence": "Full finding: Ind(C) is a wedge of nine three-spheres, using 392 nonempty simplices.",
+        "identifier_or_url": "Public Git blob b9868ad006e42a289b49540172b6835bc5a601c2",
+        "material_read": "Complete RESULT.md, including graph definition, proof, relationship to prior literature and limitations.",
+        "method": "Direct read of published markdown source.",
+        "title": "The folded five-cube independence complex is a wedge of nine three-spheres",
+        "trigger": "Exact same graph and plausible overlap with another topological graph complex."
+      },
+      {
+        "assessment": "The family theorem is for open N(C), not D(C); via complement-duality it does not imply the present result.",
+        "evidence": "Its degree-five case is N(C) equivalent to 31 two-spheres.",
+        "identifier_or_url": "Public Git blob 0c7f78aac408ce86a819c1807029fe96d214afbc",
+        "material_read": "Complete RESULT.md, including definitions, all-odd-dimensional theorem, proof and limitations.",
+        "method": "Direct read of published markdown source.",
+        "title": "The neighborhood complexes of odd folded hypercubes are wedges of two-spheres",
+        "trigger": "A stronger infinite-family theorem on the same graph could subsume an isolated case."
+      },
+      {
+        "assessment": "Explicitly computes the ordinary open-neighborhood complex of the 5-regular Clebsch graph, not its dominance complex.",
+        "evidence": "Cayley graph generators 1,2,4,8,15; 352 faces and 31 two-spheres for N(C).",
+        "identifier_or_url": "Public Git blob 33d411efc50715152abce2866e9f65c98fcf5a90",
+        "material_read": "Complete RESULT.md, including Cayley model, finite proof, literature and limitations.",
+        "method": "Direct read of published markdown source.",
+        "title": "The five-regular Clebsch neighborhood complex is a wedge of 31 two-spheres",
+        "trigger": "Identical graph presentation and related simplicial functor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b2c4cb3-2b46-4756-b5ea-30caf1fc3243",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The five-regular Clebsch graph is the canonical 16-vertex folded cube with strongly regular parameters (16,5,0,2), whose dominance complex is not classified by the forest, chordal, cycle or path-product theorems. This complete integral homotopy result gives a motivated natural benchmark, determines the previously unreported rank and dimension of all homology, and is stronger than an Euler-characteristic or one-field table. The face complex reaches dimension eleven but has homotopy concentrated in nine, revealing a meaningful nontrivial collapse in a symmetric graph beyond standard classes. The finite exact invariant and its reproducible proof are useful even without an infinite-family theorem.",
+    "status": "PASS"
+  }
+}
