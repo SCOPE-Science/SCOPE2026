@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` uses only the Python standard library and reconstructs the complex from the two published facet representatives and the two published permutation generators.
+# Independent mathematical audit
 
-It obtains a group of order \(720\), exactly \(150\) facets, and face vector \((16,120,330,375,150)\). Exact mod-two elimination gives
-\[
-\operatorname{rank}\partial_3=225,\qquad
-\operatorname{rank}\partial_4=149,
-\]
-hence \(\dim H_3=1\).
+## correctness
 
-Every one of the \(8008\) ten-vertex subsets is tested for a local three-cycle surviving modulo the global four-boundary space; none survives. Every one of the \(4368\) eleven-vertex subsets is then tested. Exactly \(150\) survive globally, and their set is checked to equal exactly the complements of the \(150\) facets.
+PASS
 
-For each of those \(150\) complements, local chain ranks give one-dimensional \(H_3\), and the surviving local class maps nontrivially to global \(H_3\). Each of the other \(4218\) eleven-vertex induced subcomplexes is checked to have zero local \(H_3\).
+Independent implementation regenerated the order-720 permutation group and its 150 five-vertex facets, computed f=(16,120,330,375,150), GF(2) ranks of boundary_3 and boundary_4 as 225 and 149, hence global H3 dimension 1. All 8008 ten-vertex induced subcomplexes have local H3 zero; all 4368 eleven-vertex induced subcomplexes have local H3 exactly 1 for the 150 facet complements and zero otherwise. For both distinct S6 orbits (30,120) a local 3-cycle was independently reduced modulo global im boundary_4 to certify nonzero inclusion image, giving the exact claimed carrier and orbit classifications. Representatives independently give f=(11,55,92,52,4) and (11,55,95,58,7). No inference from a verifier log or sampling.
 
-Finally, the full published \(S_6\) action is applied to the \(150\) carriers, yielding orbit sizes \(30\) and \(120\) and the two stated representative face vectors.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=16,120,330,375,150 H3_F2_dim=1 min_vertex_support=11 supports11=150 facet_complements=yes other11_local_H3=0 S6_order=720 support_orbits=30,120 rep30_f=11,55,92,52,4 rep120_f=11,55,95,58,7`
+Best-of-knowledge distinction: Balagopalan/Datta provide object, facet-orbit structure 30+120 and vertex minimality; they do not establish the mod-two H3 minimum carrier census, local inclusion nontriviality and facet-complement equality. Related published indexed SCOPE H1 missing-triangle one-systole of same complex is different degree and does not imply H3 carrier data. Resultary query returned 20 hits, including the exact self record which is explicitly excluded as an independent antecedent; remaining nearest results are different homological degrees or complexes.
 
-All finite ranges used by the claim are exhausted.
+## value
+
+PASS
+
+Natural nontrivial H3 class on a sharp vertex-minimal triangulation has a meaningful minimum vertex support and a complete facet-complement carrier classification, with exact symmetry orbit structure; an independent finite exact invariant useful for combinatorial topology and algorithmic homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
