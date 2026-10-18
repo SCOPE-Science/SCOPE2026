@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a finite statement over all binary words of lengths \(1\) through \(7\). The error ball is reconstructed independently by string and tuple operations for every word. Explicit witnesses give the lower bounds. The upper bounds are exhaustive maximum-clique proofs with a valid greedy-coloring bound, so no sampling, timeout, or asymptotic extrapolation is used. The packaged replay returns exactly \(2,3,4,7,11,17,30\).
+## correctness
 
-## Originality
-PASS. The 2022 Wang--Vu--Tan paper introduces the same either/or error channel and supplies an order-optimal-redundancy construction, while the expanded 2023 full text develops the channel and constructions without the exact initial table. The 2025 Ye--Ge work supplies asymptotic cardinality upper bounds rather than these finite exact values. Searches using the exact channel name, equivalent asymmetric-shift language, the length-\(7\) value, and the full sequence found no inspected publication or checked published-finding record that states or implies the result. Residual risk is limited to unindexed or unpublished finite computations.
+PASS
 
-## Value
-PASS. Exact finite optima are a natural benchmark for a channel whose published theory is primarily constructive and asymptotic. The complete initial profile quantifies short-block performance, gives a reference point for evaluating finite-length constructions, and separates the precise either/or model from stronger simultaneous-error models. The result is limited but mathematically motivated rather than an arbitrary parameter slice.
+The received ball B(x) contains x, all single deletion-of-0 outputs and all single swaps 01↔10, never an error composition. The compatibility graph on the 2^n words has edge iff balls disjoint, so its maximum clique is precisely the maximum code cardinality. Inspected packaged witnesses in artifacts/optimal_codes.json including 30 length-7 words; independent exhaustive graph construction and coloring branch-and-bound on 128 length-7 vertices established tuple 2,3,4,7,11,17,30, with 102,464 recursive calls; the package verifier has an independently checked coloring pruning lemma and a distinct explicit certificate path (recorded 100221 calls). Exact n=1..7, with no extrapolation.
 
-## Closest literature and limitations
-The closest primary source is Wang--Vu--Tan, DOI `10.1109/ITW54588.2022.9965921`, with its expanded treatment arXiv:`2301.11680`. The closest broader upper-bound source inspected is Ye--Ge, arXiv:`2507.04806`. The result makes no claim for \(n\ge8\), no claim for simultaneous deletion and transposition, and no claim that all possible unpublished computations have been excluded.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Wang/Vu/Tan full source defines exactly the channel but gives constructions; Ye/Ge Section VII supplies only n≥n0 asymptotic upper bounds; Gabrys et al. study a stronger arbitrary deletion alternative but only asymptotically. None imply (2,3,4,7,11,17,30). Exact-table discovery still uncertain due unavailable semantic index/unindexed sources.
+
+## value
+
+PASS
+
+The exact finite capacity of a natural DNA/recording error channel, including 30 optimal length-7 codewords, is a useful and nonmechanical answer absent from the standard asymptotic constructions; naturally motivated finite cutoff and explicit upper certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T02:16:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-profile-for-binary-one-0-deletion-or-adjacent-tran--da86d12c66bc/RESULT.md",
+        "Git blob RESULT.md af7a92cd979810c655c1a854a2110d1869e4aa77",
+        "Git blob verifier 1bbe5aa774492aa9de88be9051bcfafb4af33cdd",
+        "Independent bitmask BFS and/or compatibility-graph exact clique computations, /tmp/scope10_check_results.json"
+      ],
+      "rationale": "The received ball B(x) contains x, all single deletion-of-0 outputs and all single swaps 01↔10, never an error composition. The compatibility graph on the 2^n words has edge iff balls disjoint, so its maximum clique is precisely the maximum code cardinality. Inspected packaged witnesses in artifacts/optimal_codes.json including 30 length-7 words; independent exhaustive graph construction and coloring branch-and-bound on 128 length-7 vertices established tuple 2,3,4,7,11,17,30, with 102,464 recursive calls; the package verifier has an independently checked coloring pruning lemma and a distinct explicit certificate path (recorded 100221 calls). Exact n=1..7, with no extrapolation.",
+      "residual_risks": [
+        "Either/or one-error asymmetric 0 deletion versus one adjacent transposition; not arbitrary-symbol deletions, not the simultaneous both-error channel, no n≥8 claim.",
+        "Finite exhaustive correctness does not imply any values beyond the enumerated n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabrys et al. one arbitrary deletion OR transposition is a stronger channel but its construction has only asymptotic redundancy; Ye/Ge Theorem VII.1 holds n≥n0 with unspecified C."
+        ],
+        "reasoning": "Code existence for the stronger channel bounds neither exact optimum from above at each n nor the finite 30 value; n-asymptotic upper inequalities with unknown constants do not entail exact small-n maxima.",
+        "searches": [
+          "https://arxiv.org/pdf/2112.09971",
+          "https://arxiv.org/pdf/2507.04806",
+          "https://arxiv.org/pdf/2301.11680"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-profile-for-binary-one-0-deletion-or-adjacent-tran--da86d12c66bc#RESULT.md",
+        "Git blob RESULT.md af7a92cd979810c655c1a854a2110d1869e4aa77",
+        "https://arxiv.org/pdf/2301.11680",
+        "https://arxiv.org/pdf/2507.04806",
+        "https://arxiv.org/pdf/2112.09971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang construction gives redundancy ≈ log n+constant and Ye/Ge requires sufficiently large n, while the claimed n7 maximum is exact finite; Gabrys channel differs by allowing deletion of 1 as well."
+        ],
+        "reasoning": "Neither equal-channel construction nor stronger-channel asymptotic theorem entails matching lower+upper bounds for n≤7; conversely stronger-channel arbitrary deletion is not interchangeable with the 0-only model.",
+        "searches": [
+          "https://arxiv.org/pdf/2301.11680",
+          "https://arxiv.org/pdf/2507.04806",
+          "https://arxiv.org/pdf/2112.09971"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. Section III-A has the same OR-channel; Ye/Ge studies combined deletion/transposition bounds, including stricter channels."
+        ],
+        "reasoning": "Equivalence of balls requires preserving the OR versus BOTH distinction and 0-only deletion restriction. Existing asymptotic code families do not assert the exact cardinality function for n≤7.",
+        "searches": [
+          "0-deletion OR adjacent transposition binary code, asymmetric Damerau–Levenshtein one-error correction",
+          "https://arxiv.org/pdf/2301.11680",
+          "https://arxiv.org/pdf/2507.04806",
+          "Resultary: binary code one zero deletion OR adjacent transposition exact finite length 7 maximum 30 [temporarily_unavailable]",
+          "GitHub SCOPE2026 code search: 0-deletion adjacent transposition exact [0 hits]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected same-channel primary Section III-A and asymptotic upper-bound Section VII without matching finite n=7 table; semantic index did not complete."
+        ],
+        "reasoning": "No exact database row identified; literature-exhaustion is not claimed; exact 30 could have been independently computed previously.",
+        "searches": [
+          "GitHub SCOPE2026 code search: 0-deletion adjacent transposition exact [0 hits]",
+          "Resultary: binary code one zero deletion OR adjacent transposition exact finite length 7 maximum 30 [temporarily_unavailable]",
+          "web: binary 0 deletion adjacent transposition codes n=7 30 optimal",
+          "https://arxiv.org/pdf/2301.11680",
+          "https://arxiv.org/pdf/2507.04806"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Wang/Vu/Tan full source defines exactly the channel but gives constructions; Ye/Ge Section VII supplies only n≥n0 asymptotic upper bounds; Gabrys et al. study a stronger arbitrary deletion alternative but only asymptotically. None imply (2,3,4,7,11,17,30). Exact-table discovery still uncertain due unavailable semantic index/unindexed sources.",
+      "residual_risks": [
+        "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+        "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+        "The close Damerau-Levenshtein literature may contain supplementary finite optimization data not indexed by ordinary search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same error-ball family but constructive redundancy bounds, not exact length<=7 optima; simultaneous deletion-plus-transposition variants elsewhere are stricter/different.",
+          "evidence": "Section III-A one 0-deletion or one adjacent transposition, Theorem 1 constructive code, no maximum-clique table.",
+          "identifier_or_url": "arXiv:2301.11680; https://arxiv.org/pdf/2301.11680",
+          "material_read": "Accessible 17-page primary PDF including Section III-A, Construction 1, Theorem 1 and model variants.",
+          "method": "arXiv full-text reading and page visual inspection.",
+          "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+          "trigger": "Defines the same either/or one-0-deletion / one adjacent-transposition channel."
+        },
+        {
+          "assessment": "Theorem VII.1 bounds |C| asymptotically by C 2^n/n^t for sufficiently large n, constants unspecified; no exact optimum at n=1..7 and the stronger simultaneous channel does not fix those cardinalities.",
+          "evidence": "Theorem VII.1 requires n≥n0 and gives unspecified C; Introduction and Section VII describe asymptotic redundancy optimality.",
+          "identifier_or_url": "arXiv:2507.04806; https://arxiv.org/pdf/2507.04806",
+          "material_read": "Accessible 18-page paper, Introduction, definitions, Section VII Lemma VII.1, Theorem VII.1 and concluding section.",
+          "method": "Full primary PDF text, page-1 visual screenshot, cross-check statements.",
+          "title": "On the Maximum Size of Codes Under the Damerau-Levenshtein Metric",
+          "trigger": "Broad upper bounds for same deletion/transposition domain potentially dominating finite exact sizes."
+        },
+        {
+          "assessment": "Construction for one arbitrary deletion OR transposition is a stronger error channel than 0-deletion OR transposition, but results are asymptotic bounds and do not imply exact n<=7 optimum for the weaker channel.",
+          "evidence": "Main binary transposition/deletion construction theorem, asymptotic redundancy O(log n) plus corrections.",
+          "identifier_or_url": "arXiv:2112.09971; https://arxiv.org/pdf/2112.09971",
+          "material_read": "Accessible 33-page primary PDF including main theorems and Section 5 constructions.",
+          "method": "arXiv full-text and visual page inspection.",
+          "title": "Beyond Single-Deletion Correcting Codes: Substitutions and Transpositions",
+          "trigger": "Potential stronger arbitrary deletion-or-transposition code size results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git blob RESULT.md af7a92cd979810c655c1a854a2110d1869e4aa77",
+        "https://arxiv.org/pdf/2301.11680",
+        "https://arxiv.org/pdf/2507.04806",
+        "https://arxiv.org/pdf/2112.09971"
+      ],
+      "rationale": "The exact finite capacity of a natural DNA/recording error channel, including 30 optimal length-7 codewords, is a useful and nonmechanical answer absent from the standard asymptotic constructions; naturally motivated finite cutoff and explicit upper certificate.",
+      "residual_risks": [
+        "Value scoped exactly to the stated natural invariant/domain; no downstream theorem or global census claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Either/or one-error asymmetric 0 deletion versus one adjacent transposition; not arbitrary-symbol deletions, not the simultaneous both-error channel, no n≥8 claim.",
+    "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+    "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+    "The close Damerau-Levenshtein literature may contain supplementary finite optimization data not indexed by ordinary search."
+  ],
+  "schema_version": 1
+}
