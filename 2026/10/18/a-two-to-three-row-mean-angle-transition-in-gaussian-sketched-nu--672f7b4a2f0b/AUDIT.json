@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact Gram eigenprojector formula (1) and independent beta-prime radial/Beta angular laws (2) reconstruct the risk. At s=3 the 2x2 Wishart determinant exponent vanishes; integrating ordered eigenvalues gives angle density proportional to a(theta)^(-2), whose two rational angular integrals yield epsilon^2/(1+epsilon^2). For s=2 the radial density is (1+r)^(-2), and the large-x kernel is Et^2/x+O(x^-2)=1/(2x)+O(x^-2), hence epsilon^2 log(1/epsilon)+O(epsilon^2). For fixed s>2 the region r<2epsilon^2 is O(epsilon^s)=o(epsilon^2), and dominated convergence on its complement yields Et^2 E(1/r)=1/(s-2). Definitions and ranges (m>=s>=2, 0<epsilon<1, independent real Gaussian sketch) and exact/nonasymptotic vs asymptotic conclusions are explicit. The embedded verifier passed 1,500 Gram-eigenvector identities, 18 three-row integration identities, and 10 radial-asymptotic numerical sanity checks; finite checks are not substituted for proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa and Park, arxiv:2206.00975, Sections 2-3: left-sketch singular-vector accuracy, subspace embeddings and high-probability multiplicative-perturbation angle bounds.",
+        "Gilbert, Park and Wakin, arxiv:1211.0361: perturbation and recovery analysis rather than exact Gaussian mean-squared angle.",
+        "Dong, Martinsson and Nakatsukasa, arxiv:2211.04676: canonical-angle estimates for leading subspace approximation with a different sketching construction."
+      ],
+      "reasoning": "A stronger deterministic or probabilistic bound would cover this claim only if it provided the exact moment constant (including log loss at s=2) or implied the precise finite-s=3 identity. The inspected bounds are inequalities with differing normalizations; none computes this law or the threshold. A general Wishart density is a starting distribution, not itself the evaluated risk statement.",
+      "searches": [
+        "arxiv:2206.00975 full manuscript Sections 2-3 trailing right singular vectors multiplicative perturbation bounds",
+        "arxiv:1211.0361 full manuscript sketched SVD right singular vectors",
+        "arxiv:2211.04676 full manuscript randomized subspace canonical angles",
+        "published-finding corpus: Gaussian left sketch approximate trailing singular vector mean squared sine angle small singular value high condition number two columns oversampling chi-square logarithmic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.00975",
+      "arxiv:1211.0361",
+      "METR02-13",
+      "arxiv:2211.04676",
+      "published-finding corpus published mathematical-research semantic search, multiple exact queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Takemura–Sheena establish joint weak convergence of eigenvector coordinates and inverse chi-square spectral scales; at s=2 the nonuniform integrability specifically obstructs inference of the logarithmic mean."
+      ],
+      "reasoning": "The precise target is the mean squared sine of the smallest right-singular direction for a two-mode Gaussian left sketch. The closest published Wishart eigenvector weak-limit result supplies a limiting distribution but not a moment theorem: at two rows the limiting inverse chi-square moment is nonintegrable. The null-space sketch error bounds concern the same algorithm but only control accuracy probabilistically, not the exact square-angle risk law. Neither published statement implies the logarithmic coefficient nor the finite-three-row identity.",
+      "searches": [
+        "published-finding corpus: smallest singular vector Gaussian left sketch rank two anisotropic high condition number expected angle",
+        "Takemura and Sheena METR02-13 Theorem 2 p6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Takemura and Sheena METR02-13 (2002), Theorem 2, p. 6: weak convergence of normalized sample eigenvectors and chi-square scaled eigenvalues, not convergence of expected squared angle.",
+        "The explicit 2x2 Wishart eigenvector angle density for three rows integrates to epsilon^2/(1+epsilon^2), while a beta-prime radial integral gives epsilon^2 log(1/epsilon)+O(epsilon^2) at two rows."
+      ],
+      "reasoning": "An equivalent statement could be couched as a Wishart eigenprojector moment, principal-angle risk, or an anisotropic Gaussian singular-vector perturbation. The inspected weak-limit theorem does not imply moment convergence at two rows because the limiting inverse-chi-square variable has infinite expectation; nor does it state the nonasymptotic three-row identity. No inspected equivalent moment theorem was located; possible unindexed classical formula is a residual priority risk.",
+      "searches": [
+        "published-finding corpus: two-dimensional Wishart sample eigenvector weak noise squared sine angle asymptotic inverse chi square critical sample size logarithm",
+        "published-finding corpus: sample covariance eigenvector two populations nearly singular n=2 logarithmic risk",
+        "Web: Wishart sample eigenvector distribution anisotropic 2x2 expected squared angle near zero eigenvalue logarithmic",
+        "published-finding corpus: Exact three-row Gaussian sketch trailing right singular vector expected squared sine angle epsilon squared over one plus epsilon squared Wishart 2x2",
+        "published-finding corpus: 2x2 sample Wishart 2 degrees freedom eigenvector squared error epsilon squared log 1 epsilon small population eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus record on exact Haar moments in sparse stochastic subspace descent concerns a different algorithm and observable, not the Gaussian trailing-right-singular-vector angle risk.",
+        "No inspected primary source or search result tabulated both the exact three-row expectation and critical two-row asymptotic coefficient.",
+        "Final exact-formulation queries also returned a published published-finding corpus record on two-coordinate Gauss–Seidel transients and unrelated angular-geometry results, with no corresponding Wishart sketch risk formula."
+      ],
+      "reasoning": "Nearby mathematical-data tables and indexed results concern different observables or algorithmic settings. Search absence alone cannot establish priority, but no actual checked exact table supplied this pair of risk laws.",
+      "searches": [
+        "published-finding corpus: randomized null space approximate smallest singular vector 2 columns Gaussian sketch expected principal angle threshold s=2 s=3",
+        "published-finding corpus: sketched SVD smallest singular vector exact asymptotic angle chi square degrees of freedom",
+        "Web: 2x2 Wishart eigenvector expected square sine exact 3 degrees freedom",
+        "published-finding corpus: Gaussian left sketched SVD 2 versus 3 rows phase transition expected singular vector angle risk"
+      ]
+    },
+    "rationale": "The strongest overlap is the general Wishart weak-eigenvector theorem of Takemura–Sheena and the nullspace left-sketch analysis of Nakatsukasa–Park. The first gives weak limits but not the nonuniformly integrable two-row mean-angle logarithm or the exact three-row law; the second gives probability/perturbation bounds. The inspected full texts, recorded source identifiers, published published-finding corpus searches,  disclosed no evaluated matching risk identity. Priority risk remains for classical Wishart eigenprojector moment formulas and unindexed literature, and no independent originality certificate is claimed.",
+    "residual_risks": [
+      "The exact three-row ratio may be expressible as a known specialized 2x2 Wishart angular-moment integral under a different name.",
+      "The asymptotic s>2 leading coefficient is suggested by a prior weak-limit theorem, though it needs a separate uniform-integrability argument.",
+      "Searches over indexed primary sources and published-finding corpus cannot certify global originality; independent priority verification remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same task and measured principal angle, but source establishes residual and multiplicative perturbation/high-probability bounds rather than the exact 2-vs-3 row expected square-angle laws.",
+        "evidence": "Theorem 2.3 and Section 3 canonical-angle/multiplicative perturbation analysis; MSC 65F20 in PDF cover; arXiv v1 June 2, 2022.",
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00975",
+        "material_read": "Full preprint PDF, including introduction, algorithm definition, Section 2 and Section 3 analytical claims and canonical-angle discussion.",
+        "method": "Retrieved lawful open-access arXiv PDF; inspected extracted Section 2-3 statements and rendered Section 3 opening page.",
+        "title": "A Fast Randomized Algorithm for Computing an Approximate Null Space",
+        "trigger": "Exactly same Gaussian left-sketch trailing right singular-vector object; earliest publicly submitted June 2, 2022."
+      },
+      {
+        "assessment": "Recovery-error estimates, not exact expected squared trailing-vector principal-angle coefficients for two/three Gaussian rows.",
+        "evidence": "2012 paper on sketched-SVD spectral feature recovery and singular-vector perturbation.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.0361",
+        "material_read": "Open-access full arXiv source, introduction and central perturbation/recovery estimates.",
+        "method": "Read arXiv full-text rendering and inspected problem and recovery theorem statements.",
+        "title": "Sketched SVD: Recovering Spectral Features from Compressive Measurements",
+        "trigger": "Foundational study of recovering singular vectors from random sketches cited by the motivating paper."
+      },
+      {
+        "assessment": "A clear nearby underlying weak limit; does not state exact finite-small-eigenvalue mean risk or recover critical logarithmic two-row moment (nonuniform integrability).",
+        "evidence": "Theorem 2: asymptotically independent chi-square eigenvalue ratios and standard-normal normalized eigenvector elements.",
+        "identifier_or_url": "https://www.keisu.t.u-tokyo.ac.jp/data/2002/METR02-13.pdf",
+        "material_read": "Full lawful open PDF, especially Sections 1-2, Theorem 2 and normalized eigenvector limiting laws on p.6.",
+        "method": "Read PDF text and examined rendered PDF Theorem 2 on page 6.",
+        "title": "Distribution of eigenvalues and eigenvectors of Wishart matrix when the population eigenvalues are infinitely dispersed",
+        "trigger": "Most serious statistical equivalence: two-dimensional Wishart eigenvector distribution with a vanishing population eigenvalue."
+      },
+      {
+        "assessment": "Treats a different randomized leading-subspace construction and angle estimators; inspected statements do not imply this finite-s Gaussian left-sketch trailing-vector risk formula.",
+        "evidence": "ArXiv 2022 manuscript with canonical-angle bounds for randomized subspace approximation.",
+        "identifier_or_url": "https://arxiv.org/abs/2211.04676",
+        "material_read": "Public open arXiv full PDF, introduction, main setup and canonical-angle bounds.",
+        "method": "Read extracted manuscript and examined PDF cover and statement of principal construction.",
+        "title": "Efficient Bounds and Estimates for Canonical Angles in Randomized Subspace Approximations",
+        "trigger": "Modern randomized subspace-angle literature that could in principle dominate special sketch models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "672f7b4a-2f0b-44ab-8b08-443b5e4b45e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise mean squared angular error is the natural null-space/smallest-singular-vector recovery observable in sketched SVD (Nakatsukasa–Park 2022). The minimal sketch s=2 has a provably unavoidable logarithmic amplification from near-singular Gaussian projections, and one extra row removes it; s=3 has an exact finite-condition-number benchmark for testing algorithms and perturbation analyses. These are substantive endpoint and oversampling thresholds rather than a routine inequality. Value pertains to a meaningful two-singular-mode test model, not to general spectra or production floating-point behavior.",
+    "status": "PASS"
+  }
+}
