@@ -1,11 +1,21 @@
-# Scientific assessment: two-term cubic-center boundary law
+# Independent mathematical audit
 
-**Correctness — PASS.** The positivity of the velocity quadratic gives a proper first integral, and an exact passage-time integral reduces the large-amplitude problem to the first two moments of a positive function with an integrable square-root singularity near zero and exponential decay at infinity. The Taylor remainder is dominated by its finite second moment, with the endpoint tail exponentially small. The two moment integrals and the positive limiting velocity-skew ratio are evaluated by elementary substitutions. The local period jet comes from an analytic angular coordinate and is independently reproduced by the symbolic checker. Boundaries and the global-maximum inference have been checked separately.
+## correctness
 
-**Originality — PASS within inspected literature.** The 2024 full article proves that these systems are global centers but does not give physical-time period asymptotic coefficients or velocity skew. The 1997 full article supplies local period coefficients but does not quantify the infinite-amplitude orbit. The 2026 general Cherkas article proves non-isochronicity and investigates qualitative boundary periods without the displayed two-term coefficient or extreme-velocity ratio. The new statement is not merely the earlier local coefficient or the fact of non-isochronicity. Indexed search and published-record comparisons did not identify exact covering statements; unindexed literature remains a priority risk.
+PASS
 
-**Value — PASS.** The full natural discriminant region of cubic global centers is considered. The period's explicit two leading terms distinguish universal inverse-amplitude scaling from parameter-dependent correction, while the exponentially sensitive speed-asymmetry limit measures orbit geometry. Both are physical observables. In the open wedge \(3\kappa<\alpha^2<4\kappa\), their global behavior combined with known local theory forces at least one finite-amplitude period maximum; the zero-skew case has strict global period decrease. The result gives information absent from a global-center existence classification.
+PASS. Δ=4κ−α²>0 makes p(v)=1−αv+κv² strictly positive. K(v)=∫0^v u/p(u)du is coercive with unique minimum and gives a proper first integral H=x²/2+K(v), hence precisely one closed orbit through (A,0) for A>0. Original physical period is T=2∫_{v−}^{v+}dv/[p(v)√(A²−2K(v))]. Writing F(t)=1/v+(t)−1/v−(t) yields A·T=2∫_0^{A²/2}F(t)/√(1−2t/A²)dt; F=O(t^−1/2) near zero, exponentially decaying at infinity. Dominated moment expansion and exponentially small endpoint give two terms with O(A^−5) absolute period remainder; angular integration yields I0=2π/√Δ and C=I1/I0 as claimed, strictly positive via κC=log2−(1/2)log(1+z²)+z arctan z. K(v) logarithmic constants give v+/|v−|→exp(−πα/√Δ). Local analytic angular expansion agrees with known coefficient; sign plus T→0 yields finite interior maximum, while α=0 monotonicity follows from decreasing w/v(w). Verified derivations in inspected checker, not its exit line alone.
 
-Closest sources are Appis--Llibre (2024), Rousseau--Toni (1997), and Christopher--Zhang--Zhang (2026); statements and precise noncoverage are compared in `AUDIT.json`. No uniqueness or nondegeneracy of critical periods, uniform boundary estimate, or exhaustive priority guarantee is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Global-center classification is prior; Rousseau–Toni already computed the reduced Kukles local period coefficient; Christopher–Zhang–Zhang prove broad qualitative non-isochronicity using boundary passage-time orders. None of the inspected same-system results supplies this explicit full-parameter physical-time two-term high-amplitude coefficient together with velocity-extrema ratio. The derived period-maximum implication is not claimed as an independent earlier-local novelty.
+
+## value
+
+PASS
+
+PASS. A complete explicit high-amplitude physical-time period expansion and large-orbit asymmetric speed ratio for a natural whole open family sharpen known qualitative global-center results. The interpolation with a known local coefficient yields a motivated interior-maximum existence boundary, without overclaiming uniqueness. These are dynamical observables, not arbitrary parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

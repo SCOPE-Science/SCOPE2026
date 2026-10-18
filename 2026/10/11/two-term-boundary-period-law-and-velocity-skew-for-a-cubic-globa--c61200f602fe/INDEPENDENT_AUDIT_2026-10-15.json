@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:05:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Δ=4κ−α²>0 makes p(v)=1−αv+κv² strictly positive. K(v)=∫0^v u/p(u)du is coercive with unique minimum and gives a proper first integral H=x²/2+K(v), hence precisely one closed orbit through (A,0) for A>0. Original physical period is T=2∫_{v−}^{v+}dv/[p(v)√(A²−2K(v))]. Writing F(t)=1/v+(t)−1/v−(t) yields A·T=2∫_0^{A²/2}F(t)/√(1−2t/A²)dt; F=O(t^−1/2) near zero, exponentially decaying at infinity. Dominated moment expansion and exponentially small endpoint give two terms with O(A^−5) absolute period remainder; angular integration yields I0=2π/√Δ and C=I1/I0 as claimed, strictly positive via κC=log2−(1/2)log(1+z²)+z arctan z. K(v) logarithmic constants give v+/|v−|→exp(−πα/√Δ). Local analytic angular expansion agrees with known coefficient; sign plus T→0 yields finite interior maximum, while α=0 monotonicity follows from decreasing w/v(w). Verified derivations in inspected checker, not its exit line alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christopher–Zhang–Zhang treat all Cherkas global centers and compare whether boundary-period limits are 0, positive or ∞, but no explicit coefficient C_{α,κ} nor speed-skew ratio for this family in inspected §4."
+        ],
+        "reasoning": "Broader dynamical-system parameter sets carry weaker period information, not a dominating two-term constant theorem.",
+        "searches": [
+          "https://arxiv.org/html/2602.07315v1",
+          "https://link.springer.com/content/pdf/10.1007/s00010-024-01051-7.pdf",
+          "Resultary: broad Cherkas polynomial global center period asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/content/pdf/10.1007/s00010-024-01051-7.pdf",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/869FA375B7431E8C5C90F156E2795F8F/S0008414X00029060a.pdf/local_bifurcations_of_critical_periods_in_the_reduced_kukles_system.pdf",
+        "https://arxiv.org/html/2602.07315v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classification identifies p(v)>0 region but not T(A).",
+          "Local coefficient fixes sign near A=0 but cannot alone force global maximum; new T(A)→0 is needed.",
+          "Qualitative nonisochronicity does not imply O(A^-1) time, the explicit correction, or velocity skew."
+        ],
+        "reasoning": "Prior statements provide hypotheses or one local coefficient; the new exact original-time moment computation supplies the quantitative claim and corresponding finite-amplitude existence consequence.",
+        "searches": [
+          "https://link.springer.com/content/pdf/10.1007/s00010-024-01051-7.pdf",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/869FA375B7431E8C5C90F156E2795F8F/S0008414X00029060a.pdf/local_bifurcations_of_critical_periods_in_the_reduced_kukles_system.pdf",
+          "https://arxiv.org/html/2602.07315v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appis–Llibre Thm4(c) recognizes same center domain a2²+4a6<0.",
+          "Rousseau–Toni Lemma 3.2 gives local p2 coefficient only; Christopher et al. §4 addresses asymptotic passage-time qualitative nonisochronicity."
+        ],
+        "reasoning": "Equivalent ODE parameterization is acknowledged; explicit two-term A→∞ period law and peak-velocity ratio are new quantitative statements not equivalent to known global-center/no-isochronicity labels.",
+        "searches": [
+          "https://link.springer.com/content/pdf/10.1007/s00010-024-01051-7.pdf",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/869FA375B7431E8C5C90F156E2795F8F/S0008414X00029060a.pdf/local_bifurcations_of_critical_periods_in_the_reduced_kukles_system.pdf",
+          "https://arxiv.org/html/2602.07315v1",
+          "Resultary: original time cubic global center amplitude period velocity skew"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rousseau–Toni records a local p2 formula, and Appis–Llibre classify parameters, not a high-energy coefficient table."
+        ],
+        "reasoning": "The claimed asymptotic two terms plus ratio are not table lookups; first local coefficient is marked known, avoiding false priority.",
+        "searches": [
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/869FA375B7431E8C5C90F156E2795F8F/S0008414X00029060a.pdf/local_bifurcations_of_critical_periods_in_the_reduced_kukles_system.pdf",
+          "Resultary: Kukles period coefficients tables",
+          "Appis–Llibre global centers Thm4(c)"
+        ]
+      },
+      "rationale": "Global-center classification is prior; Rousseau–Toni already computed the reduced Kukles local period coefficient; Christopher–Zhang–Zhang prove broad qualitative non-isochronicity using boundary passage-time orders. None of the inspected same-system results supplies this explicit full-parameter physical-time two-term high-amplitude coefficient together with velocity-extrema ratio. The derived period-maximum implication is not claimed as an independent earlier-local novelty.",
+      "residual_risks": [
+        "No uniform error claim as Δ→0; strictly fixed parameters.",
+        "An unindexed equivalent period integral evaluation may exist.",
+        "Period maxima are shown to exist, not unique or nondegenerate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_CENTER_ONLY",
+          "evidence": "a2=α, a6=−κ, a4=0 gives global center iff α²<4κ; no physical-time high-amplitude expansion in the relevant theorem and proof.",
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s00010-024-01051-7.pdf",
+          "material_read": "Full open Springer PDF; inspected Theorem 4(c), system definition and proof of same discriminant region",
+          "method": "Publisher open PDF, text and rendered page",
+          "title": "Global centers of a family of cubic systems",
+          "trigger": "Identical cubic center domain and parameters"
+        },
+        {
+          "assessment": "COVERING_LOCAL_ONLY",
+          "evidence": "p2=a2²+…−3a6 under its coordinates, yielding (α²−3κ)A²/24 normalized local period; no boundary A→∞ result.",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/869FA375B7431E8C5C90F156E2795F8F/S0008414X00029060a.pdf/local_bifurcations_of_critical_periods_in_the_reduced_kukles_system.pdf",
+          "material_read": "Full accessible Cambridge PDF with focus on §3.2, Lemma 3.2 and local bifurcations",
+          "method": "Publisher PDF, text plus rendered page 343",
+          "title": "Local Bifurcations of Critical Periods in the Reduced Kukles System",
+          "trigger": "Precisely same local Taylor coefficient"
+        },
+        {
+          "assessment": "QUALITATIVE_NOT_COVERING",
+          "evidence": "The paper classifies period limit behavior near infinity; inspected §4 does not state explicit two-term coefficient or velocity extrema ratio for this family.",
+          "identifier_or_url": "https://arxiv.org/html/2602.07315v1",
+          "material_read": "Full arXiv HTML, introduction, §3 global-center theorem and §4 period limits/nonisochronicity",
+          "method": "Full HTML and relevant section reading",
+          "title": "Global center of polynomial Newton system and its non-isochronicity",
+          "trigger": "Potential stronger general global theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A complete explicit high-amplitude physical-time period expansion and large-orbit asymmetric speed ratio for a natural whole open family sharpen known qualitative global-center results. The interpolation with a known local coefficient yields a motivated interior-maximum existence boundary, without overclaiming uniqueness. These are dynamical observables, not arbitrary parameter slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No endpoint Δ=0 or κ=0; no uniformity approaching discriminant boundary.",
+    "No count of critical periods; local coefficient already in Rousseau–Toni."
+  ],
+  "schema_version": 1
+}
