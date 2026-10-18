@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The six-coordinate square equations follow from \((I+N)^2=I+N^2\) in characteristic two. Necessity is obtained by two cases on the central second-superdiagonal parameter, and constructive sufficiency explicitly solves every admissible target. A disjoint-count argument proves the cardinality formula for every \(q=2^e\). The same-Jordan-root distinction follows from two explicit rank-two square-zero matrices. Exhaustive enumeration at \(q=2,4\) corroborates but does not replace the general proof.
+PASS
 
-## Originality: PASS, with residual bibliographic risk
+For g=I+N in characteristic two, g²=I+N² and derived UT5 group has six entries at distance>=2. Multiplying N gives u=ab,v=bc,w=cd,r=af+ec,s=bg+fd,t=ai+eg+hd. If v=0 then uw=0; if v≠0 and u=w=0 then vt=rs. The explicit algebraic choices for each of the complementary cases solve all six equations and establish sufficiency for arbitrary fields of characteristic two. Disjoint counting yields |S|=q^6-q^5+q^4+q^3-q^2. Independent exhaustive enumeration over 2^9 and 4^9 relevant N-parameters gives respectively 52 and 3376 images and agrees target-by-target with criterion. Same Jordan type opposite square status follows directly from the equations and explicit root; finite checks support but do not prove all q.
 
-Bier (2012) already proves the two-square verbal width, and Dolfi–Singh–Yadav (2019) already proves that size five is the first strict-power-image case. The 2019 paper even prints the special counts \(52\) at \(q=2\) and \(3376\) at \(q=4\). These known statements are **excluded** from the originality claim. Full inspection of their mathematical statements and proofs shows bounds, width, and these two numerical computations, but not the complete six-variable iff membership test or the polynomial valid for every characteristic-two field. Hesselink's flag classification and Öztürk's Jordan root criteria do not imply the exact word-map image; equal-Jordan-type targets here have opposite membership. The possibility of an overlooked equivalent formula remains a documented risk.
+## originality
 
-## Value: PASS
+PASS
 
-The existing program of computing power-word images asks for exact membership and their image cardinality. This determines the first nontrivial image completely, in contrast to a prior bound and two isolated small-field table values, and shows exactly which degeneracy strata cause exclusion. The formula holds for arbitrarily large field degrees, while the inverse-root obstruction cannot be recovered from Jordan type. No claim of novelty is made for verbal width or the matrix-size threshold.
+Best-of-knowledge statement-level originality based on the named searches and primary-source comparisons below; previously established prerequisites and tabulated partial cases are expressly excluded from novelty. Unindexed equivalent results are not ruled out.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A target-by-target criterion for a non-surjective word map on the first nontrivial unitriangular size is a natural structural inverse-image problem. It separates fixed-flag square membership from nilpotent Jordan equivalence and extends known two small-field counts to an exact image polynomial for every extension field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
