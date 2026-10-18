@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The construction prescribes pairwise distinct basis images and extends them to permutation unitaries because input and output dimensions both equal \(Md\). With \(r=\min\{M,d\}\), the two displayed unit range vectors have exactly \(r\) coincident key-index components. When \(d<M\), every remaining component of the first vector has an \(X\)-basis coordinate orthogonal to the distinguished \(|0\rangle_X\), so no additional inner product survives. Therefore their overlap is exactly \(r/M\). The published upper bound gives equality. The finite verifier independently reconstructs the projection ranges for representative dimensions and agrees with the analytic formula.
+## correctness
 
-## Originality
-PASS, scoped to the sharpness statement. The closest primary source, arXiv:2609.32515v1, proves the decoded privacy-test upper bound \(\|PQ\|\le\min\{1,d_C/M\}\) and identifies the shared-system dimension factor in its proof, but the inspected lemma and proof do not supply an equality construction. arXiv:2608.01308v1 has the analogous Bell-target upper bound, again without the inspected sharpness family. arXiv:1602.08898v1 supplies the older privacy-test converse framework rather than this decoder-placement geometry. Semantic searches for shared-receiver overlap sharpness, Bell-projector overlap, and the exact \(d_C/M\) dependence did not reveal a dominating statement. Residual risk remains that the elementary construction appears in older operator-algebra language under different terminology.
+PASS
 
-## Value
-PASS. The factor \(d_C/M\) is the main local incompatibility estimate used by the recent private-capacity strong-converse proof. Exact attainment for every pair \((M,d_C)\) establishes a sharp structural boundary: neither the coefficient nor the dependence on the shared receiver dimension can be improved at this lemma without additional hypotheses. This directly identifies where future improvements to the complete exponent must obtain extra information, while avoiding any claim that the downstream exponent itself is optimal.
+Specified partial decoder maps send distinct orthonormal input basis elements to distinct outputs and therefore extend to permutation unitaries in dimension Md, including d<M because (M-1)d>=M-d. The displayed unit range vectors have r=min(M,d) identical summands and all other summands orthogonal, so inner product r/M. The external overlap upper bound ||PQ||<=min(1,d/M), stated explicitly in Wilde abstract, closes equality. Does not assert channel/capacity exponent optimality.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. The prior bound implies ||PQ||<=d/M but not ||PQ||=d/M; constructing matching range vectors proves the missing opposite inequality. Equality under arbitrary M,d could be pre-existing in unchecked appendices.
+
+## value
+
+PASS
+
+Equality for a sharp upper bound explicitly used as a main ingredient in a private-communication strong converse is a motivated extremal calibration. It shows no universal improvement to the receiver dimension factor without additional hypotheses; it does not claim overall converse exponent sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

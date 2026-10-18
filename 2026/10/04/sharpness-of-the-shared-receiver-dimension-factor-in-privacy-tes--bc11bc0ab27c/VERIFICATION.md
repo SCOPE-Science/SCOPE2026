@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof gives an exact all-dimension construction. The accompanying `verify.py` independently constructs the permutation decoders and the two decoded privacy-test range isometries for representative cases with \(d<M\), \(d=M\), and \(d>M\). It checks that the range bases are orthonormal, that the designated range vectors have overlap \(\min\{1,d/M\}\), and that the largest singular value of the full range-overlap matrix has the same value.
+# Independent mathematical audit
 
-The packaged script was replayed from the packaged bytes and returned `VERIFY_OK`.
+## correctness
 
-The finite replay is not an exhaustive proof over all dimensions; the general proof is the basis-extension and range-vector argument in `RESULT.md`. No claim is made about optimality of the later steps in the full strong-converse theorem.
+PASS
+
+Specified partial decoder maps send distinct orthonormal input basis elements to distinct outputs and therefore extend to permutation unitaries in dimension Md, including d<M because (M-1)d>=M-d. The displayed unit range vectors have r=min(M,d) identical summands and all other summands orthogonal, so inner product r/M. The external overlap upper bound ||PQ||<=min(1,d/M), stated explicitly in Wilde abstract, closes equality. Does not assert channel/capacity exponent optimality.
+
+## originality
+
+PASS
+
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. The prior bound implies ||PQ||<=d/M but not ||PQ||=d/M; constructing matching range vectors proves the missing opposite inequality. Equality under arbitrary M,d could be pre-existing in unchecked appendices.
+
+## value
+
+PASS
+
+Equality for a sharp upper bound explicitly used as a main ingredient in a private-communication strong converse is a motivated extremal calibration. It shows no universal improvement to the receiver dimension factor without additional hypotheses; it does not claim overall converse exponent sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
