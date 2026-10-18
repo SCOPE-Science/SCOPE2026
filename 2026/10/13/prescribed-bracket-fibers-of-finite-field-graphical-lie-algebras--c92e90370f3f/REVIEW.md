@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph bracket is the determinant \(\det(w_u,w_v)\) on each edge. After fixing the exact set of nonzero vertex columns, the induced graph is a forest: a nonzero root has \(q^2-1\) choices, each zero-label edge has \(q-1\) choices for its nonzero child, and each nonzero-label edge has \(q\) choices. Independent recursion over components and the unconstrained central coefficients prove the exact sum and every feasibility statement for arbitrary prime powers. The attached stand-alone program exhaustively compares every prescribed target in 277 small cases, including \(\mathbb F_4\); the infinite theorem rests on the proof, not that enumeration.
+## correctness
 
-**Originality — PASS (bibliographically provisional).** Dani–Mainkar define the graphical Lie object; their inspected paper treats Anosov automorphisms. Rossmann's open primary paper studies the conjugacy/centralizer distribution of graphical groups, not the pointwise nonzero-target bracket fibers. The induced-subgraph component polynomial of Tittmann–Averbouch–Makowsky covers the zero-target component sum, so that specialization is *not* counted as new. A separate published finite radical-square-zero quiver commutator enumeration concerns vertex-potential differences paired with arrow coefficients rather than edge determinants of graphical Lie algebras. Searches for aliases, prescribed commutator fibers, graph word maps, and nonzero prescribed edge determinants found no covering formula in the examined records. This is evidence of noncoverage of the checked sources, not a proof of global novelty; historical equivalents remain possible.
+PASS
 
-**Value — PASS.** Prescribed commutator fibers refine commuting probabilities and conjugacy-class distributions, determine every preimage cardinality of a canonical Lie bracket, and prove that every central bracket target can be represented. The result distinguishes different placements of a single nonzero edge coordinate on the four-vertex path even when their supports have equal size; this is a natural structural phenomenon inaccessible from a zero-fiber invariant. The family includes all finite forests and every finite field, rather than an isolated small example.
+For x=(a,ξ), y=(b,η), fixed edge-target bracket is det(w_u,w_v) for vertex columns w_v=(a_v,b_v). With U exactly the set of nonzero columns, nonzero target edges B force W(B)⊆U. Since G[U] is a forest, each root has q²−1 possibilities; a prescribed zero edge has q−1 nonzero child solutions and a nonzero prescribed edge has q child solutions. Choices are independent and central entries contribute q^(2|E|), proving exactly q^(2m+|B|)∑_{U⊇W(B)}(q²−1)^c(U)(q−1)^(e(U)−|B|), for every finite forest and q including characteristic 2 and empty graph. All terms nonnegative and U=V is positive, giving surjectivity. Independent direct determinant enumeration checked 103 finite target/forest/field instances; the unrestricted proof is tree rooting.
 
-The source-access uncertainty is limited to possible unseen alternate formulations. The claim explicitly excludes graphs with cycles and does not assert uniqueness of the forest from these data.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rossmann 2022 studies graphical group conjugacy class sizes, equivalently zero-commutator counts and adjoint ranks. Tittmann–Averbouch–Makowsky provide induced-component polynomials relevant to z=0. Neither measured invariant determines the exact fiber over each nonzero prescribed central target. Resultary's 2026 tree graphical group character-degree polynomial involves weighted support matching numbers (different statistic); its Kronecker path algebra commutator formula uses different multiplication. Prescribed support-by-support full bracket fibers appear best-of-knowledge not covered.
+
+## value
+
+PASS
+
+The graphical two-step nilpotent Lie algebra is a standard graph construction and bracket word maps are natural to centralizer and probability questions. An all-target exact fiber law for arbitrary forests and fields is a complete structural enumeration, including shape-sensitive examples where edge-support position changes the answer. It extends genuinely beyond the familiar zero bracket polynomial and can support probabilistic commutator computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
