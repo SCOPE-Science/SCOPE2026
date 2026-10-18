@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining bracket and Rota–Baxter identity were reconstructed independently. The full basis-triple system partitions all solutions by the bottom row of the operator matrix. Every branch is solved explicitly, and the only characteristic-sensitive branch is \(a_{31}=a_{32}=0,\ a_{33}\ne0\), where the equation \(2a_{22}^2a_{33}=0\) disappears in characteristic \(2\). The resulting disjoint-stratum sums give the two closed formulas. Exhaustive checks over \(\mathbf F_2\) and \(\mathbf F_3\) reproduce \(112\) and \(1107\).
+PASS
 
-## Originality
+For the exact ternary bracket [x,y,z]=x_3(y_3z_2-y_2z_3)e_2, expanding the weight-zero RB identity on all 27 ordered basis triples gives a complete bottom-row case split. With (a31,a32,a33)=0 all six upper entries are free; with a31!=0 or a31=0,a32!=0 there are two q^3(q-1) and two q^3(q-1)^2 branches. In the final a31=a32=0,a33!=0 branch the relation 2*a22^2*a33=0 forces a22=0 for odd characteristic but not characteristic 2. Totals are q^6+2q^5-q^4-q^3 (odd) and q^6+3q^5-3q^4 (even). Independently enumerated all 2^9 and 3^9 matrices directly from the defining bracket, giving 112 and 1107, with disjoint strata (64,16,16,16) and (729,162,162,54). This symbolically derived case split is valid for all finite fields; the finite tests alone are not its proof.
 
-PASS. The 2024 primary source treats the same example only over an algebraically closed field of characteristic \(0\), and it contains no finite-field census or characteristic-\(2\) analysis. The broader earlier literature inspected does not supply the same point-count formula. Focused statement-level searches found no equivalent odd/even characteristic formulas or the precise excess \(q^3(q-1)^2\). A specialized unindexed computation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The algebra is the concrete example used in a recent \(3\)-Leibniz deformation framework. The result gives a natural exact moduli count over every finite field and identifies a genuine characteristic boundary where naïve base change of the characteristic-zero classification fails by a positive-dimensional family.
+Best-of-knowledge PASS for the two finite-field census polynomials and the characteristic-two excess q^3(q-1)^2 on this fixed nonassociative algebra. Hu–Hou–Song–Zhou Example 2.11 treats exactly this bracket, but its standing characteristic-zero assumption and listed families do not count finite-field operators and miss an extra characteristic-two free parameter. Earlier Li–Li–Zhang work addresses construction and operators but its accessible summary does not imply these exact field counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The fixed 3-dimensional algebra is a natural published test object. Exact number of weight-zero operators over every finite field, including a characteristic-dependent dimension jump, is an independent classification invariant and a useful warning against reducing a characteristic-zero classification mod 2. This is not a random numerical slice or a claim for every 3-Leibniz algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
