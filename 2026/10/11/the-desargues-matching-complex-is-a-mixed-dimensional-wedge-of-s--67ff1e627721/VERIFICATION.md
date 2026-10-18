@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_desargues_homotopy.py` with Python 3.10 or later. No third-party libraries or downloads are required. The verifier reconstructs the graph from subset incidence, verifies an explicit graph isomorphism to \(GP(10,3)\), and exhaustively enumerates all \(113{,}192\) matchings including the empty set. It applies the declared staged face pairing, removes its single empty-face pair to produce an ordinary discrete Morse matching, and topologically sorts all \(680{,}370\) oriented face incidences to prove acyclicity. It derives the full signed integral Morse differential by memoized gradient-path expansion and asserts an exact rank-three primitive image, with three explicit unit columns.
+## correctness
 
-The successful test prints `DESARGUES_HOMOTOPY_VERIFY_OK faces_with_empty=113192 matched_pairs=56567 critical=1x0+8x5+48x6 oriented_incidences=680370 integer_d6=3_unit_pivots homotopy=5xS5+45xS6 gradient_expansions=19573`.
+PASS
 
-The numerical certificate is finite and exhaustive for this graph. The mathematical final step also uses the standard discrete-Morse CW theorem and the classification of maps \(S^5\to\bigvee^8S^5\) by their integral degrees; the verifier does not implement those general theorems. This package provides no external independent audit.
+The final statement is Match(H(5,2))≃(∨5S5)∨(∨45S6), ordinary graph matchings, with graph isomorphism to GP(10,3) encoded in the source. Independently reconstructed all 113,192 matching faces including empty; 56,567 ordinary staged pairs, acyclic directed Hasse graph on 113,191 nonempty faces and 680,370 incidences. One critical 0-cell, eight 5-cells, forty-eight 6-cells. Independent signed integral gradient elimination produced an 8×48 boundary d6 of rank three: each column lies in Z(e0−e1)+Ze3+Z(e6−e7), with columns 2,9,36 equal to those three primitive vectors. Hence invariant factors are (1,1,1) and no torsion; the Hurewicz/π5(∨8 S5)≅Z8 classification of attaching maps and unit CW cancellations leaves five S5 and forty-five S6. The previous F2 ranks alone would be insufficient. Exact source script verify_desargues_homotopy.py blob f510cc2c77b297d0cb38fa886b852a84092543eb read, not relied upon as unexamined log.
+
+## originality
+
+PASS
+
+The closest exactly matched same-graph earlier published result is F2 homology, not a homotopy type; the submitted 56,567-pair acyclic matching and primitive integral Morse differential supply precisely the missing integral attaching information. A separate GP(8,3) wedge theorem and Donovan–Scoville graph families do not dominate this object. Residual risk is unindexed equivalent integral computation.
+
+## value
+
+PASS
+
+A homotopy classification of the ordinary matching complex of the Desargues graph is a natural exact invariant. It resolves the important specific distinction left by known mod-2 homology: whether there is torsion or nontrivial attaching behavior. An explicit integral primitive Morse differential promotes a finite benchmark to a full wedge decomposition, potentially useful for comparing matching complexes of other generalized Petersen and symmetric cubic graphs. No graph-family-wide theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
