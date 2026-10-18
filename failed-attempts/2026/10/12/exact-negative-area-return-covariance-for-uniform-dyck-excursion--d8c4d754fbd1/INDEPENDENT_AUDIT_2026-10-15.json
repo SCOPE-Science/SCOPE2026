@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:49:01.521242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed first-return prime decomposition and the step-height area shift for U d D: A(UdD)=A(d)+2k−1. Thus P(z,q)=zq F(zq²,q) and G(z,q,u)=1/(1−uP). Formal q,u derivatives yield E A_n=4^n/C_n−2n−1, E R_n=3n/(n+2), and mixed moment E(A_nR_n)=3*4^n/C_n−10n−5+2 C_{n+1}/C_n. Independently enumerated every Dyck path for n=1..9, exactly checking area/returns/mixed and second moments, covariance, variance, sign, and all displayed small-n formulas. For all n, K_n=(2n+1)(n+3) C_n/(3*4^n) has K_1=1 and K_{n+1}/K_n=1+n/[2(n+2)(n+3)]>1, proving strict negative sign. Stirling and exact variance identities yield correlation constant; n=1 variance zero so correlation undefined. The finite enumeration alone is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petersen explicitly proves P(q,z)^k counts exactly k prime factors and Σ_{k>=0} P(q,z)^k=1/(1−P(q,z)); also P(q,z)=z C(q,qz)."
+        ],
+        "reasoning": "The family of individual P(q,z)^k already gives the FULL joint distribution indexed by (area, prime count, n), strictly stronger than one covariance and its sign.",
+        "searches": [
+          "Petersen 2019 Chapter 10 equations 10.5 and area-refined analogue",
+          "Dyck path area primitive return count covariance negative joint generating functions Brownian excursion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md blob ce8c38ec8345654c6a9bffb0d5505ccd2c5f9349",
+        "Frozen verify.py blob bf627e34fb1acb8a9428b690f8eee70f2c2f92d7",
+        "Independent Dyck path exhaustive exact moment enumeration n<=9",
+        "Petersen 2019 Chapter 10 full relevant text, DOI 10.1007/978-3-030-18308-0",
+        "Blanco–Petersen arXiv:1206.0803",
+        "Resultary query: Dyck path area primitive return count covariance negative joint generating functions Brownian excursion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit prior identity Σ_k P(q,z)^k with k equal return count; shift q to encode twice lattice area plus n."
+        ],
+        "reasoning": "Apply ∂_u at u=1 to Σ u^kP^k and ∂_q at q=1 to recover the exact mixed moment. Additional coefficient extraction is standard algebra; monotonicity/sign and the correlation rate are derived consequences of the same full joint distribution. Thus the submitted claimed novelty is covered by mathematical implication, not matching wording.",
+        "searches": [
+          "Petersen Chapter10 pp143–146 C(q,z)=sum P(q,z)^k",
+          "Petersen P(q,z)=z C(q,qz)",
+          "Dyck path area primitive return count covariance negative joint generating functions Brownian excursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Completed zero returns, excluding initial and including endpoint, equal the number of prime components in the unique Dyck concatenation.",
+          "The source step-height area is 2*(standard diagonal-lattice area)+n, an affine rescaling determined at fixed semilength."
+        ],
+        "reasoning": "These equivalences map exactly the submitted joint (A,R) model into Petersen’s earlier prime-factor/area-refined Dyck paths.",
+        "searches": [
+          "Dyck path area primitive return count covariance negative joint generating functions Brownian excursion",
+          "T. Kyle Petersen Inquiry-Based Enumerative Combinatorics 2019 Ch 10 pp 143–146",
+          "FindStat St000011 touch points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete symbolic bivariate generating series for area and number of returns is available by reading coefficient of P(q,z)^k, not just a numerical table.",
+          "FindStat enumerates touch points/returns but does not itself establish the area cross-moments."
+        ],
+        "reasoning": "No special-number table is needed: the exact prior coefficient generating function already determines the requested finite moment for every n.",
+        "searches": [
+          "Petersen 2019 Chapter 10 Refined Enumeration",
+          "FindStat St000011"
+        ]
+      },
+      "rationale": "FAIL: Petersen, Inquiry-Based Enumerative Combinatorics (2019), Chapter 10 pp.143–146, FULL relevant primary text inspected, explicitly treats prime decomposition and states P(q,z)^k counts Dyck paths with exactly k prime factors; it then refines these same prime factors by area and proves C(q,z)=Σ_k P(q,z)^k=1/(1−P(q,z)) with P(q,z)=z C(q,qz). Since completed-return count R is exactly the number k of prime factors, introducing u merely replaces that explicitly given series by G(q,z,u)=Σ_k u^k P(q,z)^k=1/(1−uP(q,z)), with the standard affine change from lattice area to step-height area. This prior all-area/all-returns coefficient generator mathematically determines every joint moment; submitted covariance is obtained through routine q,u differentiation and Catalan coefficient simplification. The bare negative sign and correlation constant are tidy consequences of that prior stronger joint enumerator; no genuinely independent invariant remains after this implication. This is a coverage rejection, not a proof failure or an absent-string argument.",
+      "residual_risks": [
+        "Correctness applies only to ordinary uniform Dyck paths, not all excursion models; n=1 correlation undefined.",
+        "Petersen’s area variable is conventional lattice area, requiring the indicated affine conversion to step-height area.",
+        "The prior provides the full generating function and coefficient family rather than displaying this exact rational covariance in words; originality rejection is by mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_COVERAGE",
+          "evidence": [
+            "Chapter 10 explicitly notes P(z)^k counts paths with exactly k prime factors; area additivity gives P(q,z)^k and C(q,z)=1/(1−P(q,z)); the same k is the user’s return statistic.",
+            "Standard u marker gives full joint area-return enumerator, and the covariance is its derivative/corollary."
+          ],
+          "identifier_or_url": "T. Kyle Petersen, Springer 2019, DOI 10.1007/978-3-030-18308-0, Chapter 10 pp.143–146",
+          "material_read": "FULL relevant primary textbook discussion of prime decomposition, C(z)=ΣP(z)^k, q-area refinement C(q,z)=ΣP(q,z)^k and P(q,z)=z C(q,qz), including derivation and peak refinement",
+          "method": "Direct full chapter text reading with located passages around lines 2209–2300 of accessible book copy",
+          "title": "Inquiry-Based Enumerative Combinatorics: One, Two, Skip a Few... Ninety-Nine, One Hundred",
+          "trigger": "Exactly matching prime returns and area-refined Dyck combinatorics"
+        },
+        {
+          "assessment": "DIFFERENT_SECOND_STATISTIC",
+          "evidence": [
+            "The second statistic is noncrossing-partition rank, not the completed-excursion count R_n."
+          ],
+          "identifier_or_url": "arXiv:1206.0803",
+          "material_read": "Primary abstract and accessible manuscript introduction/conceptual summary; area jointly with noncrossing-partition rank, not prime count",
+          "method": "Public primary preprint/bibliographic inspection",
+          "title": "Counting Dyck paths by area and rank",
+          "trigger": "Area refinement jointly with possibly identical statistic"
+        },
+        {
+          "assessment": "AREA_ASYMPTOTIC_FRAMEWORK",
+          "evidence": [
+            "Area asymptotic theory alone is not needed for the strong prior covering conclusion from Petersen."
+          ],
+          "identifier_or_url": "arXiv:0704.2289",
+          "material_read": "Abstract and general area background, not full survey",
+          "method": "Bibliographic comparison",
+          "title": "Brownian excursion area, Wright constants in graph enumeration, and other Brownian areas",
+          "trigger": "General Brownian/Catalan area asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS: The natural quantitative question whether area and primitive-component count anticorrelate has genuine combinatorial meaning; the negative sign at every n and vanishing correlation rate are interpretable dependency facts. They are mathematically valuable as explanations even though the source theorem is already implied by a textbook general decomposition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For uniform Dyck paths of semilength n, with step-height area A_n and completed-excursion count R_n, Cov(A_n,R_n)=[6*4^n/C_n−2(2n+1)(n+3)]/(n+2), negative for n>=2, and Corr(A_n,R_n)~-2/sqrt(10/3−pi)*n^(-1/2).",
+  "limitations": [
+    "Correctness applies only to ordinary uniform Dyck paths, not all excursion models; n=1 correlation undefined.",
+    "Petersen’s area variable is conventional lattice area, requiring the indicated affine conversion to step-height area.",
+    "The prior provides the full generating function and coefficient family rather than displaying this exact rational covariance in words; originality rejection is by mathematical implication."
+  ],
+  "schema_version": 1
+}
