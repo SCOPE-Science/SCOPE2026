@@ -1,39 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For orders at most three, every genuinely incomplete natural-order case reduces to one dropped fill before the final pivot; the resulting IC(0) final pivot is a \(2\times2\) principal-minor Schur quantity and is positive for every SPD matrix. For the signed four-cycle, the signed adjacency satisfies
-\[
-B^2=2I,
-\]
-so the SPD interval is exact. The IC(0) recurrence gives
-\[
-q_4=
-\frac{(1-t^2)(1-3t^2)}
-{1-2t^2},
-\]
-and the first three pivots stay positive throughout the SPD interval. This proves the sharp boundary
-\[
-t=\frac1{\sqrt3}.
-\]
-The condition-number identity is algebraic, and the packaged checker replays the rational special cases exactly.
+## correctness
 
-## Originality
-PASS. The fixed \(4\times4\) Kershaw breakdown matrix is prior work and is not claimed as new. Eijkhout's full 1999 survey explicitly reproduces it and states that its fourth ILU(0) pivot is negative.
+PASS
 
-The new claim is narrower and different: every SPD matrix of order at most three is IC(0)-safe; the Kershaw witness lies in a canonical signed-cycle family with a complete exact phase diagram; and within that family breakdown starts at
-\[
-t=\frac1{\sqrt3},
-\qquad
-\kappa_2=5+2\sqrt6.
-\]
-Targeted database and literature searches found no implication-equivalent statement of those three additions.
+In an SPD matrix of order at most three, the only possible nontrivial natural-order IC(0) dropped fill is position (3,2) when a23=0 and a12,a13≠0. The IC(0) last pivot then equals a33−a13²/a11>0 by the {1,3} principal minor. The displayed four-cycle A(t)=I+tB has B²=2I, so is SPD exactly 0≤t<1/√2. Its IC(0) squared pivots are 1, 1−t², (1−2t²)/(1−t²), (1−t²)(1−3t²)/(1−2t²); within the SPD interval the last is zero at t=1/√3 and negative thereafter. The critical family condition number is (1+√(2/3))/(1−√(2/3))=5+2√6. Kershaw historical witness is 3A(2/3), with pivots (3,5/3,3/5,−5). New independent symbolic factorization verified all identities and the rational witness. Claims are strictly for exact unshifted IC(0), natural order and the displayed family-specific κ, not a global SPD condition threshold.
 
-Residual risk remains because the complete body of Kershaw's 1978 journal article was not accessible through the inspected route, and older incomplete-factorization literature may encode the same family calculation under different notation.
+## originality
 
-## Value
-PASS. Nonpositive incomplete-Cholesky pivots remain a practical robustness problem, motivating shifts, pivot repair, and alternative preconditioners. The result turns a classical isolated counterexample into a sharp local robustness law and establishes the first possible dimension for exact-arithmetic failure. The condition-number threshold is not presented as a global bound, only as the exact onset in the historical Jacobi-scaled signed-cycle family.
+PASS
 
-## Closest literature and limitations
-The closest source is Eijkhout's full survey, which attributes the fixed \(4\times4\) negative-pivot example to Kershaw. Modern robust-IC work gives larger SPD breakdown examples and practical safeguards. The theorem is restricted to unshifted IC(0), natural ordering, and exact arithmetic; the sharp condition-number constant is family-specific.
+The four-dimensional Kershaw counterexample and the possibility of negative incomplete-Cholesky pivots for SPD matrices are firmly prior. Kershaw’s 1978 report and Eijkhout’s 1999 survey document these problems; they are not claimed new. The assessed additions are a universal order≤3 safety proof and exact all-t signed-cycle phase and family-specific κ threshold. The latter calculation follows from the known witness but is not contained in the accessible primary statements. Eijkhout’s full manuscript was searched in lawful OA form unsuccessfully and authorized retrieval returned a disconnected VPN; it is not declared noncovering. Best-of-knowledge acceptance carries material priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+IC(0) breakdown on SPD systems is a practical question motivating shifts and robust preconditioners. The minimal dimension and sharp continuous onset in the signed cycle containing the classical matrix answer a natural robustness question that one isolated witness does not: they quantify how an SPD margin and pivot margin separate. The κ constant is explicitly restricted to the Jacobi-scaled family, not inflated to an unsupported universal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
