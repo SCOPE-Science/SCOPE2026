@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness.** The prime-factor formulas for the arithmetic derivative and Euler totient reduce equality to the exact nonnegative Euler-product deficit \(c-c\prod_{q\ge5,q\mid c}(1-1/q)=2\). The prime factor \(q\) yields the rigorous lower bound \(c/q\) on that deficit, forcing \(c=q\) or \(c=2q\); only the latter works. Dirichlet's theorem justifies infinitude, and a uniform form of the classical prime number theorem proves the exponent-height asymptotic. Exact-arithmetic checks on 2,916 exponent pairs and independent comparisons with OEIS table terms corroborate the proof. No step relies on finite experiments to establish an unbounded assertion.
+
+**Originality.** OEIS A260961 publicly poses the exact global composition equality and lists sample integers, so the object and early examples are not claimed as new. Its complete entry has no formula for the interior \(\{2,3\}\)-smooth slice and no prime-indexed exponent-height asymptotic. Dahl--Olsson--Loiko (arXiv:1108.4762) supplies the arithmetic derivative's general factor formula but does not address the exact totient composition equality. Relevant published results on derivative cycles, derivative-cototient gaps and other totient compositions concern inequivalent equations and do not imply this classification. Full text of several less-direct results was not accessible, so an unindexed equivalent proof remains a residual risk.
+
+**Value.** The original equation is an enumerated arithmetic-function commutation problem, not an artificially introduced equality. Numbers supported on the two smallest primes form its first nontrivial rank-two multiplicative lattice. The exact classification reveals a prime-indexed family, a fixed-exponent infinitude dichotomy, and the main-term count \(X^2/(4\log X)\) in the intrinsic height of that lattice. This is a complete natural subfamily rather than a bounded computation or routine substitution; it does not claim the unrestricted problem is solved.
+
+**Scientific limits.** Boundary exponents, other prime supports, and any global distribution by ordinary magnitude remain outside scope. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

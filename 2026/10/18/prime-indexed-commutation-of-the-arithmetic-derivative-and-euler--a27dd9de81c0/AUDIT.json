@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For integers \\(a,b\\ge2\\), write \\(c=3a+2b\\) and \\(K=2^{a-1}3^{b-2}\\). Then \\(D(2^a3^b)=3Kc\\), \\(D(\\varphi(2^a3^b))=K(c-2)\\), and \\(\\varphi(D(2^a3^b))=Kc\\prod_{q\\mid c,q\\ge5}(1-1/q)\\), where the product ranges over distinct prime divisors. Hence commutation requires an Euler-product deficit of exactly \\(2\\). Any prime \\(q\\ge5\\) dividing \\(c\\) forces \\(c/q\\le2\\); the possibility \\(c=q\\) yields deficit \\(1\\), whereas \\(c=2q\\) yields deficit \\(2\\). Thus \\(a=2u\\) and \\(3u+b\\) prime, with converse. Dirichlet proves the fixed-\\(b\\) infinitude dichotomy. The exact count is \\(\\sum_u(\\pi(X+u)-\\pi(3u+1))\\), giving \\(C(X)\\sim X^2/(4\\log X)\\) by the uniform prime number theorem. The checker independently verified 2916 exponent pairs and comparison to the OEIS entry through 2048.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The nearby cototient-gap result b2439d05e1a7 studies \\(D(n)-(n-\\varphi(n))\\), not \\(\\varphi(D(n))-D(\\varphi(n))\\).",
+        "The 2,3-subderivative periodic-point result 19603ae53ef5 is about iteration of a different map, not the present composition.",
+        "Dahl--Olsson--Loiko establish a general arithmetic derivative prime-factor formula without characterizing its commutator with totient."
+      ],
+      "reasoning": "None of the inspected statements involves the same pair of compositions or implies an all-index classification for \\(n=2^a3^b\\). The general derivative formula is a premise for the proof but not its conclusion.",
+      "searches": [
+        "Euler totient arithmetic derivative commute equality sequence A260961",
+        "published-result ID b2439d05e1a7",
+        "published-result ID 19603ae53ef5",
+        "arithmetic derivative Euler totient equality 2015"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A260961 (entire sequence entry)",
+      "Dahl--Olsson--Loiko, arXiv:1108.4762 (relevant sections and whole-text term search)",
+      "Published mathematical-results entries b2439d05e1a7, 19603ae53ef5, c31759e42cf2, 289dbb59e6a5 (search summaries, with scope limits)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS supplies the global question and test cases, not a theorem for every 2,3-supported interior exponent pair.",
+        "The 2011 paper proves \\(D(n)=n\\sum_{p\\mid n}v_p(n)/p\\). Substitution determines \\(D(n)\\), but computing \\(\\varphi(D(n))\\) requires fresh prime-factor analysis of \\(3a+2b\\).",
+        "The published fixed-multiplier and higher-iterate results concern \\(D(n)=kn\\) and \\(D^k(n)=n\\), not the equality \\(\\varphi(D(n))=D(\\varphi(n))\\)."
+      ],
+      "reasoning": "The theorem extracts a complete parametric classification and a counting asymptotic. No retrieved earlier statement implies both; the general factor formula alone still requires the Euler-product-deficit analysis and prime-number-theorem summation.",
+      "searches": [
+        "OEIS A260961",
+        "arXiv:1108.4762",
+        "published-result ID c31759e42cf2",
+        "published-result ID 289dbb59e6a5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A260961 defines the global condition, displays terms and enumeration code, and has no formula section for the 2,3-smooth interior.",
+        "The alternative algebraic formulation is an Euler-product deficit of \\(2\\) for \\(c=3a+2b\\); prime support forces \\(c=2q\\) with \\(q\\ge5\\) prime."
+      ],
+      "reasoning": "The composition equality, the condition that \\(3a+2b\\) is twice a prime, and the prime test \\(3(a/2)+b\\) are explicitly compared in both directions. The OEIS table confirms early values but does not prove infinitude or give the equivalence.",
+      "searches": [
+        "OEIS A260961",
+        "arithmetic derivative commutes with Euler totient A260961 formula 3u+b",
+        "phi(n prime derivative) equality phi(n) derivative powers 2 3",
+        "phi(D(n))=D(phi(n)) commutation smooth 3-smooth prime solutions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The sequence contains 36 and 324, consistent with (u,b)=(1,2) and (1,4), and supplies a finite table and a computer enumeration program.",
+        "A standalone checker reproduced all listed positive-index terms up to 2048, with the n=1 convention excluded."
+      ],
+      "reasoning": "The finite OEIS term list is acknowledged as exact recorded data but contains no infinite all-exponent classification or \\(X^2/(4\\log X)\\) count. Enumerating numbers does not imply the theorem.",
+      "searches": [
+        "OEIS A260961",
+        "https://oeis.org/A260961",
+        "A260961 prime power 2^a 3^b"
+      ]
+    },
+    "rationale": "The primary object is explicitly published in OEIS A260961 (2015), which enumerates the composition equality without a closed-form classification for 36-divisible 2,3-smooth integers or the exponent-height asymptotic. The 2011 full primary arithmetic-derivative introduction provides the general Leibniz and prime-factor formula, but not this simultaneous composition equality. The named nearby published results concern different functions or equations and do not logically entail the new iff and prime-counting statement. Residual risk: an unindexed proof or undocumented table characterization may exist.",
+    "residual_risks": [
+      "The 2015 sequence may have uncaptured author communications or an unindexed proof not on its public entry.",
+      "Full text of several nonidentical catalog results could not be inspected, although their abstracts concern different equations.",
+      "The present theorem does not address the boundary of the 2,3-smooth exponent lattice or arbitrary prime support."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains direct examples and test code, not an infinite classification for the 2,3-support interior or exponent-height counting formula.",
+        "evidence": [
+          "First author/date August 6, 2015; sample terms include 36, 324, 576.",
+          "No FORMULA or theorem section appears on the full entry."
+        ],
+        "identifier_or_url": "https://oeis.org/A260961",
+        "material_read": "Entire public sequence entry, including description, terms, date, examples, and displayed Maple/Mathematica programs; history endpoint unavailable.",
+        "method": "Full HTML entry reading and independent comparison to listed terms.",
+        "title": "OEIS A260961: Numbers n such that phi(n')=phi(n)'",
+        "trigger": "This is the exact defining equality studied."
+      },
+      {
+        "assessment": "Establishes general factor formula but does not state the totient commutation criterion.",
+        "evidence": [
+          "Theorem 1.0.4: D(n)=n sum alpha_i/p_i.",
+          "No occurrence of totient or Euler in parsed full PDF text."
+        ],
+        "identifier_or_url": "arXiv:1108.4762",
+        "material_read": "Ten-page PDF opened; abstract, contents, definition and proof of Theorem 1.0.4 reviewed; document-wide keyword queries for Euler and totient yielded no matches. Other sections concern derivative inequalities and rational extensions.",
+        "method": "Full-text PDF inspection, section review, PDF page images and targeted text find.",
+        "title": "Investigations on the properties of the arithmetic derivative",
+        "trigger": "Primary general source for the derivative formula and possible earlier nearby theorem."
+      },
+      {
+        "assessment": "Studies D(n)-(n-phi(n)) with small fibers; distinct equation and no displayed logical implication to the proposed commutator.",
+        "evidence": [
+          "The retrieved abstract is a sharp-support classification for a subtraction gap, not function composition."
+        ],
+        "identifier_or_url": "b2439d05e1a7",
+        "material_read": "Title and substantive abstract only; full-text host fetch unavailable.",
+        "method": "Results-catalog abstract and attempted full-text inspection.",
+        "title": "Sharp support thresholds for the arithmetic-derivative cototient gap",
+        "trigger": "Semantic results search retrieved a potentially related arithmetic-derivative/totient statement."
+      },
+      {
+        "assessment": "Classifies periodic points under iteration, not the interaction between totient and arithmetic derivative.",
+        "evidence": [
+          "Abstract gives fixed points 4m and 27m for a distinct subderivative dynamics."
+        ],
+        "identifier_or_url": "19603ae53ef5",
+        "material_read": "Title and substantive abstract only; full-text host fetch unavailable.",
+        "method": "Results-catalog abstract and attempted full-text inspection.",
+        "title": "No nontrivial positive cycles for the {2,3}-arithmetic subderivative",
+        "trigger": "The same two-prime support and an arithmetic derivative appeared in semantic results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a27dd9de-81c0-45c7-a65e-2d4abfa46c56",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "OEIS A260961 poses a natural arithmetic-function commutation problem but supplies enumeration only. The first nontrivial two-prime-support multiplicative semigroup, restricted to its natural interior where both small primes divide the relevant derivative values, admits a complete prime-parametric classification with a fixed-exponent infinitude dichotomy and the asymptotic \\(X^2/(4\\log X)\\). The exact intrinsic exponent-height asymptotic provides structural information rather than an unmotivated finite slice; the unrestricted problem remains open.",
+    "status": "PASS"
+  }
+}
