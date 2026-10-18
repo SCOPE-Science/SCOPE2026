@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Every pair remains uncollected exactly when it covers all omitted edges, so completion is equivalent to minimum vertex cover at least three. An explicit two-state constrained vertex-cover recursion for the ideal fresh-label tree gives shifted NegBin(2,1/2). A union bound over label-reuse hazards until ideal absorption yields TV at most 17/(n-2). A uniform four-step forced path gives exponentially decaying tails and expectation convergence. A restricted-growth count proves the finite exact P(T=5) polynomial. Included standalone exact enumeration confirms rather than replaces the universal reasoning.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Athreya–Mukherjee–Mukherjee, arXiv:2304.01145, conjecture and theorem statements",
+        "Adler–Ross 2001 classical independent subset coupon collection"
+      ],
+      "reasoning": "The primary Markovian source studies fixed r,s and r=s rather than r=n-2,s=2; independent-round classical subset collection does not dominate transition-dependent dense sampling.",
+      "searches": [
+        "\"super-coupon\" \"r=n-2\" \"s=2\" cover time Markov",
+        "\"Markovian\" \"r-subsets\" \"super-coupons\" limit n-r 2",
+        "\"r=n-2\" \"coupon collector\" \"Markov\"",
+        "Markovian random subset coupon collector dense blocks line graph visited edges vertex cover negative binomial limit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.01145 full HTML, initial version 2023-04-03",
+      "Public journal HTML 2025 for the same research article",
+      "Adler and Ross 2001 public abstract and citations",
+      "published-finding corpus actual query: Markovian random subset coupon collector dense blocks line graph visited edges vertex cover negative binomial limit",
+      "Previous own ledger generation g000030 claims and IDs for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full text arXiv:2304.01145, stated r=s result and fixed-parameter regimes",
+        "Adler–Ross 2001 abstract and cited model"
+      ],
+      "reasoning": "Definitions alone do not imply a quantitative dense limit; fixed-r and r=s regimes do not cover r=n-2,s=2, and independent subset draws have a different dependence structure. The derived vertex-cover time-change and finite first-completion formula require new analysis.",
+      "searches": [
+        "\"Markovian\" \"r-subsets\" \"super-coupons\" limit n-r 2",
+        "\"r=n-2\" \"coupon collector\" \"Markov\"",
+        "Markovian random subset coupon collector dense blocks line graph visited edges vertex cover negative binomial limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest graph-cover family result d0cab96518f2 and chain-graph random greedy law 36fe61ce32de concern different objects",
+        "arXiv:2304.01145 model definitions"
+      ],
+      "reasoning": "The result equivalently describes first time the traversed omitted edges have vertex-cover number at least three, or a negative-binomial limit for the dense Johnson-graph walk; neither description appeared in accessible closely related sources.",
+      "searches": [
+        "Markovian random subset coupon collector dense blocks line graph visited edges vertex cover negative binomial limit",
+        "\"shifted negative binomial\" \"Johnson graph\" coupon collection",
+        "\"line graph\" random walk \"cover\" \"vertex cover number\" edges sample",
+        "\"vertex cover\" \"stopping time\" \"line graph\" \"random walk\" complete"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus matched iid occupancy convex-hull law f2238f4c07c8 and discrete occupancy precision law 0606274d4166; neither is a table of Markov times"
+      ],
+      "reasoning": "No matching exact finite-n five-step probability or shifted negative-binomial dense limit in searched mathematical records; database absence is not used as a proof of novelty.",
+      "searches": [
+        "occupancy distribution sample coverage convex hull log concavity generalizations",
+        "Markovian random subset coupon collector dense blocks line graph visited edges vertex cover negative binomial limit",
+        "\"super-coupon\" \"r=n-2\" \"s=2\" cover time Markov"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and primary-literature searches returned no equivalent finite-parameter dense Markovian pair-cover law. The motivating preprint and its later public journal text are examined at the statement and regime level: r=s and fixed-parameter asymptotics neither cover r=n-2,s=2 nor imply the negative-binomial law, TV bound, or exact first-completion probability. Similarity searches yielded graph-cover combinatorics and iid occupancy results with no implication to this stopping-time distribution. Failed targeted published-finding corpus requests are not counted as successful checks; missing indexing remains a risk.",
+    "residual_risks": [
+      "An unindexed classical result on the line-graph walk or graph-exploration cover times could yield an equivalent law.",
+      "Three further targeted published-finding corpus queries failed internally and provide no negative evidence.",
+      "Adler–Ross 2001 full text was not inspected; its independent-round sampling is materially different, but inaccessible details remain a source limitation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the chain but does not provide a dense r=n-2,s=2 shifted-negative-binomial law, an all-ranks vertex-cover stopping rule, or the finite-n five-step probability",
+        "evidence": [
+          "arXiv:2304.01145, original posted 2023-04-03",
+          "Theorem 2.5 treats r=s; Conjecture 2.4 concerns fixed r,s asymptotics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.01145 ; https://arxiv.org/html/2304.01145",
+        "material_read": "Public full text (model definitions, conjectures, Theorem 2.5 and proof sections relevant to asymptotic regimes)",
+        "method": "Read accessible arXiv HTML and compared the quantifiers and claimed asymptotic regime",
+        "title": "On a generalisation of the coupon collector problem (first preprint)",
+        "trigger": "Defines the exact Markovian r-subset chain and collection stopping time"
+      },
+      {
+        "assessment": "No matching dense n-r=2 vertex-cover or explicit negative-binomial limit identified",
+        "evidence": [
+          "2025 journal version linked from arXiv; distinct from first-public-date evidence"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10959-025-01417-w",
+        "material_read": "Publicly available publisher HTML, covering definitions and main results",
+        "method": "Examined accessible journal article text including model and stated results",
+        "title": "On a generalisation of the coupon collector problem (journal version)",
+        "trigger": "Potential later revision of the same preprint with additional results"
+      },
+      {
+        "assessment": "Studies independently selected coupons/subsets, not adjacent Markovian subsets; not evidence for an implication to the new law",
+        "evidence": [
+          "Original paper literature references and public abstract"
+        ],
+        "identifier_or_url": "Adler and Ross, Journal of Applied Probability 38 (2001), 737–746",
+        "material_read": "Public bibliographic descriptions and abstract, not full article",
+        "method": "Compared independence assumption and model",
+        "title": "The coupon subset collection problem",
+        "trigger": "Classical subset coupon collection could dominate the stopping-time result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c215a1f8-9152-4a97-b6c4-180ad36d3522",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original 2023 Markovian super-coupon collector problem motivates understanding the adjacent-subset walk. Its unexplored dense regime r=n-2, s=2 has a qualitatively different O(1) cover time and a complete shifted-negative-binomial limit with quantitative total-variation error, a uniform-integrability argument and an exact finite-n earliest-completion probability. The vertex-cover/edge-exploration reduction is a structural route to further dense-regime analysis, not a routine iid coupon count.",
+    "status": "PASS"
+  }
+}
