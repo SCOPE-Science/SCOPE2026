@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The finite proof is reproduced using the complete, standalone `check_python.py` and `check_cpp.cpp` sources included here. They enumerate every reversal orbit of binary eight-character words, test each possible proper overlap, generate the necessary pairwise-compatibility graph, enumerate every maximal clique, and then test complete selected code sets for every possible forbidden triple splice. The second checker uses integer bitmasks and pivoted Bron--Kerbosch recursion, independently of the first string-based implementation.
+## correctness
 
-```sh
-python3 check_python.py > python_out.txt
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic check_cpp.cpp -o verify_cpp
-./verify_cpp > cpp_out.txt
-cmp python_out.txt cpp_out.txt
-cmp python_out.txt optimal_codes.txt
-```
+PASS
 
-Both checks passed on the packaged artifact sources and yielded exactly twelve eighteen-word self-reflective comma-free codes; the graph-only upper-bound census had sixteen candidate maximum-weight cliques, of which four failed the required third-word overlap test. The definitive aggregate counts appear in the first line of `optimal_codes.txt`.
+Every length-8 reversal-invariant binary dictionary is a union of reversal orbits. The 256 words form 136 orbits, of which 56 are individually comma-free (12 singleton,44 size-two). Pairwise orbit compatibility yields a 56-vertex 929-edge graph; any valid dictionary corresponds to a weighted clique. Independently enumerated ALL 2107 maximal cliques by bitset Bron–Kerbosch; largest weight is 18 with 16 pairwise-eligible maxima. Pairwise compatibility is not sufficient, so every candidate maximum was checked against every proper splice of all ordered codeword pairs. Exactly 12 genuine size-18 dictionaries survive, with 6 palindromes and six reversal pairs each, exchanged in 6 distinct complement pairs. Finite domain is exhaustively covered, not a timeout heuristic; independently computed witness fingerprints match bundled list.
 
-Completeness requires the Bron--Kerbosch maximal-clique traversal; it is not inferred from an arbitrary time-limited graph search or the supplied output alone. The exact theorem holds at binary length eight only. The verification checks correctness of the finite computation; it does not establish independent publication priority or general performance under substitutions, insertions or deletions.
+## originality
+
+PASS
+
+Churchill 2009 introduces W_r(k,n) for reversal-closed comma-free words, gives general upper bounds, including even k, and constructions at other parameters. Its full article does not report all twelve labeled size-18 binary length-8 codes. Fimmel et al 2023 full paper counts length-two and length-three codes and investigates alphabet self-complementation, a different involution. Wang–Tonchev 2009 addresses generic comma-free searches, but only its abstract was accessible; its possible table is explicitly unresolved. No stronger known theorem inspected determines these equality cases.
+
+## value
+
+PASS
+
+Exact maximum plus a complete, exhaustive optimizer census is a natural finite extremal code invariant directly tied to frame-synchronizing reversal-closed dictionaries; full equality classification and complement pairing are mathematically useful independent of a general n theorem. Twelve explicit witnesses and exhaustive correctness provide a replayable complete classification, not an arbitrary random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

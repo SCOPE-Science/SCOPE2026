@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces every reversal-invariant eight-bit dictionary to a weighted clique of a 56-vertex graph, with total upper bound eighteen from exhaustive maximal-clique enumeration. Full triple-overlap checks, crucial because pairwise compatibility alone is insufficient, filter sixteen maximum-weight graph cliques to twelve genuine optimizers. Two independent programs using distinct bit/string and pivoted/unpivoted enumeration methods agree byte-for-byte on all twelve complete codes and the full count profile. Exact program sources and witnesses are embedded, with all quantified ranges explicitly bounded.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Churchill (2009), the directly applicable primary paper defining reversal-invariant self-reflective comma-free codes, gives general bounds and other constructions, not an equality-case census for binary length eight. Fimmel and collaborators (2023) analyze length two and three and a different alphabetwise self-complementary symmetry. Published general comma-free bounds and length-five non-overlapping-code results cannot infer this exact reversal-invariant length-eight optimizer count without new work. A 2009 conference article on isomorphism-rejected general code searches is relevant but its full text was unavailable; an undiscovered equivalent enumeration remains a real uncertainty. Absence of search matches alone has not been treated as a novelty proof.
+PASS
 
-## Value — PASS
-The problem is a natural exact extremal instance of an explicitly introduced and bounded reversal-invariant synchronization-code family, at the first power-of-two blocklength beyond the elementary short constructions. The result settles both maximum size and the entire equality-class structure, including a nontrivial difference between pairwise and genuine triple compatibility, plus symmetry/palindrome profiles. It is not a routine renaming of unrestricted or cross-bifix-free maxima, and it does not claim an unsupplied generalization or practical error-correction guarantee.
+Every length-8 reversal-invariant binary dictionary is a union of reversal orbits. The 256 words form 136 orbits, of which 56 are individually comma-free (12 singleton,44 size-two). Pairwise orbit compatibility yields a 56-vertex 929-edge graph; any valid dictionary corresponds to a weighted clique. Independently enumerated ALL 2107 maximal cliques by bitset Bron–Kerbosch; largest weight is 18 with 16 pairwise-eligible maxima. Pairwise compatibility is not sufficient, so every candidate maximum was checked against every proper splice of all ordered codeword pairs. Exactly 12 genuine size-18 dictionaries survive, with 6 palindromes and six reversal pairs each, exchanged in 6 distinct complement pairs. Finite domain is exhaustively covered, not a timeout heuristic; independently computed witness fingerprints match bundled list.
 
-## Scope and literature limitations
-The proof applies only to the labeled binary length-eight problem. A fully checked finite certificate provides an exact theorem for this single natural case, but no infinite parameter family. The two-page Wang–Tonchev conference proceedings and one older Levenshtein full-text source could not be inspected completely, and possible unindexed earlier enumerations remain a residual originality risk. The detailed comparisons and verification instructions are in the accompanying reports.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Churchill 2009 introduces W_r(k,n) for reversal-closed comma-free words, gives general upper bounds, including even k, and constructions at other parameters. Its full article does not report all twelve labeled size-18 binary length-8 codes. Fimmel et al 2023 full paper counts length-two and length-three codes and investigates alphabet self-complementation, a different involution. Wang–Tonchev 2009 addresses generic comma-free searches, but only its abstract was accessible; its possible table is explicitly unresolved. No stronger known theorem inspected determines these equality cases.
+
+## value
+
+PASS
+
+Exact maximum plus a complete, exhaustive optimizer census is a natural finite extremal code invariant directly tied to frame-synchronizing reversal-closed dictionaries; full equality classification and complement pairing are mathematically useful independent of a general n theorem. Twelve explicit witnesses and exhaustive correctness provide a replayable complete classification, not an arbitrary random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

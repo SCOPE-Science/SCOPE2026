@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every length-8 reversal-invariant binary dictionary is a union of reversal orbits. The 256 words form 136 orbits, of which 56 are individually comma-free (12 singleton,44 size-two). Pairwise orbit compatibility yields a 56-vertex 929-edge graph; any valid dictionary corresponds to a weighted clique. Independently enumerated ALL 2107 maximal cliques by bitset Bron–Kerbosch; largest weight is 18 with 16 pairwise-eligible maxima. Pairwise compatibility is not sufficient, so every candidate maximum was checked against every proper splice of all ordered codeword pairs. Exactly 12 genuine size-18 dictionaries survive, with 6 palindromes and six reversal pairs each, exchanged in 6 distinct complement pairs. Finite domain is exhaustively covered, not a timeout heuristic; independently computed witness fingerprints match bundled list.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Churchill Theorem 6 bounds larger even-length families, but without count of maximal equality codes here.",
+          "Fimmel analyzes words of length 2 or 3, while alphabetwise self-complementation is not word reversal."
+        ],
+        "reasoning": "Generic optimum bounds or a different symmetry/length do not imply the twelve particular reversal-closed optimal codebooks.",
+        "searches": [
+          "Churchill 2009 Theorem 6 even k bound",
+          "Fimmel et al 2023 length-two/three comma-free enumeration",
+          "self reflective comma free binary length eight Wr(8,2) reversal invariant exact maximum"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.37236/114 (Churchill 2009 complete paper)",
+        "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p233.pdf (Fimmel et al full 2023 paper)",
+        "DOI:10.1145/1529282.1529502 (Wang–Tonchev abstract only)",
+        "Resultary search: self reflective comma free binary length eight Wr(8,2) reversal invariant exact maximum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier cited bounds supply neither all twelve codewords sets nor a direct equality-case reduction; the present exhaustive graph enumerator computes the finite instance.",
+          "Fimmel full abstract and scope explicitly cover lengths two and three, not reversal-closed length eight."
+        ],
+        "reasoning": "Neither checked earlier result logically implies both the sharp 18 upper bound and all twelve equality cases; possible uninspected two-page table is carried as risk.",
+        "searches": [
+          "Churchill DOI:10.37236/114 Theorem 6 Appendix A",
+          "Fimmel et al AJC 86 (2023) full text Sections 4–5",
+          "self reflective comma free binary length eight Wr(8,2) reversal invariant exact maximum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Churchill §2 defines self-reflective as reversal-invariant, exactly this object; full article contains no size-18/12-code equality enumeration."
+        ],
+        "reasoning": "Alternative terminology W_r(8,2), self-reflective dictionary and reversal-closed comma-free code was checked; no matching exact equality census in inspected primary texts.",
+        "searches": [
+          "self reflective comma free binary length eight Wr(8,2) reversal invariant exact maximum",
+          "Churchill Wr(8,2) self-reflective word reversal 2009",
+          "reversal invariant binary length eight comma-free maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary 2009 Churchill paper has constructions for length four and odd lengths but no length-eight table.",
+          "The Wang–Tonchev conference abstract describes search tables but not the relevant instance; whole-document noncoverage cannot be asserted."
+        ],
+        "reasoning": "The exact labeled optimum count and explicit codebook list were checked against directly relevant available tables; inaccessible generic-code tables remain a material risk.",
+        "searches": [
+          "Wang Tonchev 2009 algorithm optimal comma free codes isomorphism rejection table",
+          "Wr(8,2) binary length eight maximum 18",
+          "self reflective comma free binary length eight Wr(8,2) reversal invariant exact maximum"
+        ]
+      },
+      "rationale": "Churchill 2009 introduces W_r(k,n) for reversal-closed comma-free words, gives general upper bounds, including even k, and constructions at other parameters. Its full article does not report all twelve labeled size-18 binary length-8 codes. Fimmel et al 2023 full paper counts length-two and length-three codes and investigates alphabet self-complementation, a different involution. Wang–Tonchev 2009 addresses generic comma-free searches, but only its abstract was accessible; its possible table is explicitly unresolved. No stronger known theorem inspected determines these equality cases.",
+      "residual_risks": [
+        "Wang–Tonchev 2009 full conference article was not obtained and might include the exact table.",
+        "Earlier unindexed labeled enumeration might coincide; absence from searched literature does not prove priority.",
+        "The result is strictly for binary length 8 and word-reversal closure, not for unrestricted comma-free code maxima."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_SELF_REFLECTIVE_AND_BOUNDS_NOT_EQUALITY_CENSUS",
+          "evidence": "Theorem 6 provides upper bounds for even word lengths, Appendix A gives constructions for length four/odd lengths; no complete binary length-eight optima table in full paper.",
+          "identifier_or_url": "DOI:10.37236/114",
+          "material_read": "All 15 pages of public PDF accessible; inspected definition §2, Theorem 6 and proof, applications and Appendix A parameters.",
+          "method": "Open primary PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v16i1r25/pdf/ with page images",
+          "title": "Restrictions and Generalizations on Comma-Free Codes",
+          "trigger": "Original self-reflective exact object and potential stronger even-length bounds"
+        },
+        {
+          "assessment": "DIFFERENT_LENGTH_AND_ALPHABET_SYMMETRY",
+          "evidence": "Abstract states exact enumeration for word lengths 2 and 3 and self-complementary alphabet families; not reversal-invariant binary words of length eight.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p233.pdf",
+          "material_read": "Full 38-page primary PDF accessible, inspected abstract, introduction, detailed stated restriction to length 2/3 and nature of alphabet self-complementarity.",
+          "method": "Public PDF text and opening-page image",
+          "title": "Diletter and triletter comma-free codes over finite alphabets",
+          "trigger": "Potential broad stronger code enumerations/symmetry classifications"
+        },
+        {
+          "assessment": "UNRESOLVED_TABLE_OVERLAP",
+          "evidence": "Abstract describes generic search and bounds but cannot exclude a previously tabulated relevant optimal case.",
+          "identifier_or_url": "DOI:10.1145/1529282.1529502",
+          "material_read": "Publisher/repository abstract and bibliographic material only; no lawful full text obtained this run.",
+          "method": "Public abstract and discovery; no whole-document absence inference",
+          "title": "An algorithm for optimal comma free codes with isomorphism rejection",
+          "trigger": "Could contain numeric table of exact length-8 code results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact maximum plus a complete, exhaustive optimizer census is a natural finite extremal code invariant directly tied to frame-synchronizing reversal-closed dictionaries; full equality classification and complement pairing are mathematically useful independent of a general n theorem. Twelve explicit witnesses and exhaustive correctness provide a replayable complete classification, not an arbitrary random slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.37236/114 (Churchill 2009 complete paper)",
+    "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p233.pdf (Fimmel et al full 2023 paper)",
+    "DOI:10.1145/1529282.1529502 (Wang–Tonchev abstract only)",
+    "Resultary search: self reflective comma free binary length eight Wr(8,2) reversal invariant exact maximum"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Wang–Tonchev 2009 full conference article was not obtained and might include the exact table.",
+    "Earlier unindexed labeled enumeration might coincide; absence from searched literature does not prove priority.",
+    "The result is strictly for binary length 8 and word-reversal closure, not for unrestricted comma-free code maxima."
+  ],
+  "residual_risks": [
+    "Wang–Tonchev 2009 full conference article was not obtained and might include the exact table.",
+    "Earlier unindexed labeled enumeration might coincide; absence from searched literature does not prove priority.",
+    "The result is strictly for binary length 8 and word-reversal closure, not for unrestricted comma-free code maxima."
+  ],
+  "schema_version": 1
+}
