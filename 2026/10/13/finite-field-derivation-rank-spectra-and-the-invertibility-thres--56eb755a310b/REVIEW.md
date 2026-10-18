@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every derivation is recovered uniquely from its images on \(e_1,e_2\) and the Leibniz identities. The general seven-parameter matrix and its converse are explicit. The common-zero-diagonal slice is partitioned by \(b_3,a_2,b_4\); outside that slice, the characteristic-dependent projective line arrangement controls full rank. The exceptional characteristic-two rank-two locus is the single exact equation \(b_3^2+a b_4=0\), whose solution count is proved. Four full finite-field enumerations and independent Leibniz linear-system ranks confirm the calculation. No assumption about field primeness is used.
+## correctness
 
-## Originality — PASS, with residual risk
-Burde's 2004 work treats nonsingular derivation existence and prederivations in characteristic zero, not finite-field cardinality spectra. Casas–Ladra–Omirov–Karimjanov (2012) classify complex solvable extensions and use explicit derivations but do not enumerate finite-field derivation ranks. The closest available related published results count ranks of **adjoint operators** rather than arbitrary derivations (and one covers dimensions at least six). Comparison of formulas and hypotheses therefore shows no direct implication. Historical duplicate risk cannot be eliminated by a finite literature search.
+PASS
 
-## Value — PASS
-Whether a nilpotent Lie algebra admits a nonsingular derivation is a structural question studied in the primary literature. This theorem supplies a sharp finite-field descent threshold \(q\ge4\) for a canonical filiform example and refines a qualitative existence question to every rank multiplicity. The characteristic-two exceptional quadratic equation produces a genuinely different lower-rank stratum, and the classification covers every extension field.
+The derivation identity from [e1,e2]=e3,[e1,e3]=e4 forces b1=0 and the seven-parameter triangular matrix with diagonal a,b,a+b,2a+b. Cases a=b=0 produce rank histogram 1,(q³+q²-q-1),(q-1)(2q³-q),(q-1)²q³. For (a,b)≠(0,0), odd q has four distinct projective zero-diagonal lines, each q-1 pairs with rank3; rank4 count (q-1)(q-3)q^5. Even q has b repeated, and b=0 direction contains rank2 exceptional b3²+a b4=0 with (q-1)q^4 cases; rank4 count (q-1)(q-2)q^5. Adding yields given complete polynomials and invertibility iff q>=4, including F4 but not F2,F3. Independent exact prime-field matrix-rank enumeration gave q2 [1,9,30,88,0], q3 [1,32,102,2052,0], q5 [1,144,980,52000,25000]. No extrapolation from these samples supplies the general count.
 
-## Evidence and limits
-The source arXiv:math/0409276v1 (Sections 1–3) motivates nonsingular derivations; arXiv:1203.4772v1 (Sections 2–4) describes complex filiform extensions and related derivation forms. Related published adjoint-rank results are not full derivation-rank results. The program `artifacts/verify.py` performs exact independent arithmetic in sizes \(2,3,4,5\), including \(\mathbb F_4\). General validity rests on the direct proof, and bibliographic coverage is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full derivation ranks over q, rather than adjoint ranks or characteristic-zero existence, determine the sharp q>=4 invertibility threshold and characteristic-two exceptional strata. The closest inspected older structural literature is different in both quantifiers and parameter fields. Historical small-field enumerations remain possible.
+
+## value
+
+PASS
+
+The existence of an invertible derivation is a standard structural distinction for nilpotent filiform Lie algebras; this exact four-dimensional model has a characteristic- and field-order-sensitive threshold q>=4, separating F2,F3 and F4. The full q^7 rank stratification gives a reusable finite-field distribution beyond existence, supported by a nontrivial characteristic-two quadratic rank stratum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
