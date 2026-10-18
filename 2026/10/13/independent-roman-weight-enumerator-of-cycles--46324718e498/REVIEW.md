@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Consecutive label-\(2\) vertices in cyclic order must be at edge distance \(2\), \(3\), or \(4\). The Roman condition forces zeros next to the endpoints, while independence forces the unique middle label \(1\) in a length-\(4\) gap and forbids longer gaps. The converse is immediate from the three local patterns. The coefficient formula follows by distinguishing one label-\(2\) vertex and dividing by the number of such vertices. Direct exhaustive checking through \(n=12\) matches both the literal definition and every coefficient.
+## correctness
 
-## Originality
-PASS, with residual bibliographic risk. The dedicated independent-Roman literature inspected here supplies the definition, bounds, and the scalar cycle equality \(i_R(C_n)=\gamma_R(C_n)\), but not an all-function cycle classification or weight enumerator. The closest previously checked all-function result is for complete multipartite graphs and therefore only subsumes the small identities \(C_3\cong K_3\) and \(C_4\cong K_{2,2}\); the claim is restricted to \(n\ge5\). Targeted searches under cycle, polynomial, weight-enumerator, all-function, gap, and minimum-function formulations did not locate a stronger statement. The remaining risk is an equivalent result in poorly indexed literature or under different terminology.
+PASS
 
-## Value
-PASS. Cycles are a canonical graph family and the scalar independent Roman minimum is already established, making the distribution of all feasible functions a natural next invariant rather than an arbitrary slice. The gap theorem gives a compact structural description, every weight coefficient in closed form, and an exact minimum-function census. These data are not recoverable from the scalar minimum alone and provide a reusable cyclic-composition model for further enumerative questions.
+Any admissible C_n word has at least one label2. Successive 2-labels in cyclic order must be separated by distances 2,3,4, with unique forced interiors 0, 00, or 010; d≥5 forces adjacent positive non-2 internals and fails independence. Conversely every cyclic concatenation is admissible. Distinguishing a 2 and dividing by the number k of 2-labels proves n(k−1)!/(a!b!c!) and weight 2a+2b+3c. Since 3w−2n=2a+c, residue-class analysis gives known minimum ceil(2n/3) and optimizer count 3/n/n(n+1)/6. Exhaustively enumerated labelings n=5..11 independently, reproducing full coefficient arrays and minima. This is an all-orders combinatorial proof, not finite extrapolation.
 
-## Closest literature and limitations
-The closest same-parameter primary source with cycles is Adabi et al. (2012), whose Proposition 3 gives the minimum-value equality for paths and cycles. Ebrahimi Targhi' et al. (2012) give the standard parameter framework and primary classification 05C69. The result here does not claim the scalar minimum as new, does not quotient by dihedral symmetry, and does not cover other Roman variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known independent Roman number of cycles and general bounds are credited. The assertion instead classifies every labeled admissible function at every weight by 2/3/4 edge gaps, deriving a multivariate composition coefficient and exact minimizer numbers. Existing complete-multipartite weight enumerators cover only cycles C3,C4, explicitly excluded.
+
+## value
+
+PASS
+
+The scalar minimum independent Roman number on cycles is known, leaving its full admissible-function distribution a natural graph-enumeration question. A complete all-weight generating polynomial, gap structure, and mod-three exact optimum multiplicities provide precise reusable information for cycles of all sizes. An exact enumerator is a meaningful invariant, not simply recomputation of the minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

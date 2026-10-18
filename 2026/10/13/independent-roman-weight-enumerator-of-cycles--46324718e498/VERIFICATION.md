@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic for every \(n\ge5\). The accompanying `verify.py` is an independent finite stress test of definitions and boundary cases, not an infinite certificate.
+# Independent mathematical audit
 
-For each \(5\le n\le12\), the program enumerates all \(3^n\) labelings of \(C_n\). It checks: (1) the independent Roman neighborhood definition; (2) equivalence with the three allowed cyclic gap patterns; (3) equality of the brute-force weight counts with the closed formula; and (4) the minimum weight and the exact number of minimum-weight functions.
+## correctness
 
-Replay result:
+PASS
 
-`VERIFY_OK n_range=5..12 labelings=797040 irdf_functions=294 criterion_checks=797040 coefficient_checks=144 minimum_checks=8 max_order=12`
+Any admissible C_n word has at least one label2. Successive 2-labels in cyclic order must be separated by distances 2,3,4, with unique forced interiors 0, 00, or 010; d≥5 forces adjacent positive non-2 internals and fails independence. Conversely every cyclic concatenation is admissible. Distinguishing a 2 and dividing by the number k of 2-labels proves n(k−1)!/(a!b!c!) and weight 2a+2b+3c. Since 3w−2n=2a+c, residue-class analysis gives known minimum ceil(2n/3) and optimizer count 3/n/n(n+1)/6. Exhaustively enumerated labelings n=5..11 independently, reproducing full coefficient arrays and minima. This is an all-orders combinatorial proof, not finite extrapolation.
 
-The finite range does not prove the arbitrary-order theorem; the gap argument in `RESULT.md` does.
+## originality
+
+PASS
+
+The known independent Roman number of cycles and general bounds are credited. The assertion instead classifies every labeled admissible function at every weight by 2/3/4 edge gaps, deriving a multivariate composition coefficient and exact minimizer numbers. Existing complete-multipartite weight enumerators cover only cycles C3,C4, explicitly excluded.
+
+## value
+
+PASS
+
+The scalar minimum independent Roman number on cycles is known, leaving its full admissible-function distribution a natural graph-enumeration question. A complete all-weight generating polynomial, gap structure, and mod-three exact optimum multiplicities provide precise reusable information for cycles of all sizes. An exact enumerator is a meaningful invariant, not simply recomputation of the minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
