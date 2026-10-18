@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For any proper coloring the outer neighborhoods are cliques and only the hub can fail PCF, so the success event equals X>=1 for singleton colors among r=q-1 colors. Conditional on the hub color, clique blocks are independent uniform injections. The exact coefficient identity is inclusion-exclusion over singleton events, independently matched to 423,262 direct assignments. For j target colors, uniformly bounded clique sizes give P(all singleton)=(S/r)^j exp(-jS/r)(1+o(1)); multi-target same-block events are O(M/S) relative and sum_i O(1/r²)=O(S/r²)=o(1). Thus E(X)_j~S^j exp(-jS/r)->exp(-jc), for all fixed j, and Poisson convergence follows by factorial moments. Independent tests of 21 more proper-color counts, 24 minimum-palette instances and selected moments passed. Finite testing is supporting, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tom–Vailaya have a general chromatic-symmetric-function matrix for clique sums, so their methods broadly capture exact coloring frequency distributions.",
+        "General singleton occupancy gives a stronger-framework proof for the special case all blocks have order one.",
+        "Search records for Poisson moments of other combinatorial objects are about different laws; e.g., 2026/10/11/SCOPE-a-poisson-asymptotic-for-sharp-fourier-projection-norms-on-unifo--65a32e191d85."
+      ],
+      "reasoning": "A chromatic-symmetric-function identity is broad enough to recover finite counting formulas, but does not itself give the heterogeneous Poisson window without an additional asymptotic analysis. The singleton-block occupancy limit is an included special case only. A general triangular-array occupancy theorem with bounded within-row exclusion might imply the new result; priority risk remains and is explicitly disclosed.",
+      "searches": [
+        "arxiv:2503.19344 (full text), clique sums at one vertex, section on shared-hub triangles",
+        "published-finding corpus: sharp Poisson singleton-color threshold for a uniformly random proper coloring of clique bouquets windmill graphs when number of colors is peripheral order divided by log peripheral order",
+        "published-finding corpus: Poisson limit for singleton occupation in random proper graph coloring independent cliques attached at a hub",
+        "Web: random incidence matrix fixed row sums columns degree one Poisson threshold"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.10874v1 primary PDF, block graphs section and relevant pages",
+      "arxiv:2503.19344 primary article, clique sum formulas and Remark 43",
+      "arxiv:2202.02570 primary abstract/background",
+      "published-finding corpus public record 2026/10/4/SCOPE-exact-proper-conflict-free-colorings-of-complete-multipartite-gr--5943975f038c (summary only)",
+      "published-finding corpus public record 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pradhan–Sharma show a clique-number versus clique-number-plus-one PCF palette dichotomy for block graphs, which covers minimum palette size of equal clique bouquets.",
+        "Tom–Vailaya give an invariant encoding the exact color frequencies for glued cliques; their result can in principle dominate any finite exact named-palette coloring count.",
+        "published-finding corpus 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105 concerns the crown graph and different structure."
+      ],
+      "reasoning": "Pradhan–Sharma chromatic-number existence results do not imply an asymptotic fraction of proper colorings with singleton hub-neighbor colors. Tom–Vailaya frequency invariants theoretically determine fixed finite data but their work, on material read, does not state or prove the required uniform growing-palette Poisson limit. The theorem requires uniform-in-N factorial moment estimates and handles blocks varying without an empirical limiting size distribution. General occupancy literature may be stronger; definitive absence is not proven.",
+      "searches": [
+        "Pradhan and Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arxiv:2608.10874v1, block graph results",
+        "Tom and Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arxiv:2503.19344, Remark 43 and formulas for clique-sums",
+        "published-finding corpus: proper conflict-free vertex coloring clique windmill friendship bouquet block graph number of named palette colorings singleton neighbor hub exact chromatic polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Every peripheral open neighborhood is a clique; PCF is equivalent to existence of a hub-neighbor color of multiplicity one.",
+        "Tom–Vailaya analyze chromatic symmetric functions of graphs glued at a vertex, including shared-hub triangles, and thus encode color-class size data.",
+        "The classical occupancy singleton limit covers the case of clique size one."
+      ],
+      "reasoning": "Reduction to singleton-color occupancy and chromatic-symmetric-function coefficient extraction identifies equivalent encodings. The claim does not assert novelty for the generic finite coefficient or classical independent single draws; it asserts the asymptotic law for independent injective block draws with only a uniform bounded-block hypothesis. No equivalent complete asymptotic statement was found in inspected primary materials.",
+      "searches": [
+        "published-finding corpus: proper conflict-free vertex coloring clique windmill friendship bouquet block graph number of named palette colorings singleton neighbor hub exact chromatic polynomial",
+        "published-finding corpus: chromatic symmetric function glued at a vertex PCF proper conflict free coloring singletons color class",
+        "Web: Poisson law number singleton colors random proper coloring windmill",
+        "arxiv:2503.19344"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-exact-proper-conflict-free-colorings-of-complete-multipartite-gr--5943975f038c addresses complete multipartite rather than one-vertex clique sums.",
+        "published-finding corpus 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc concerns dissociation sets of generalized windmills, not coloring probabilities.",
+        "The exact formula for finite colorings is itself expressly ancillary and potentially recoverable from chromatic-symmetric-function data."
+      ],
+      "reasoning": "No matching table or identity of a graph-coloring probability scaling window for heterogeneous clique bouquets was identified. No novelty is inferred merely because exact entries did not match. The finite count may be encoded by prior chromatic-symmetric-function methods and is not the novel theorem.",
+      "searches": [
+        "published-finding corpus: exact inclusion exclusion formula for number of proper conflict-free colorings of block-star clique-sums with arbitrary clique sizes",
+        "published-finding corpus: counting proper conflict-free colorings of block graphs windmills books and clique bouquets",
+        "published-finding corpus: open neighbourhood conflict free chromatic polynomial of graph windmill union cliques common hub"
+      ]
+    },
+    "rationale": "Principal claim narrowly identified as a uniform Poisson critical-window limit for the hub singleton-color count in proper colorings of clique bouquets of arbitrary bounded heterogeneous block sizes. Pradhan–Sharma cover the chromatic number; Tom–Vailaya contain broader proper-color frequency data and may subsume the finite enumeration; those parameters are explicitly not claimed new. The all-singleton-block classical occupancy case is prior. Database and primary-text comparison did not identify a precise theorem covering this uniform asymptotic. Residual risk remains from general occupancy asymptotics; independent priority audit has not occurred.",
+    "residual_risks": [
+      "Generalized Poisson occupancy results may imply the bounded-row injective-block limit under a different name.",
+      "Chromatic-symmetric-function machinery can subsume the auxiliary finite counting identity; no original status asserted for it.",
+      "Independent bibliographic priority review is unperformed, and abstract-only sources cannot be excluded from containing relevant results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS chromatic-number question but does not state the target Poisson limit; number of required colors is expressly not claimed.",
+        "evidence": [
+          "arXiv first posted 2026-08-11; block graph PCF bound via maximum clique and cut-vertex incidence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.10874",
+        "material_read": "Abstract; PDF section 4.1, pp. 7–9, block-graph coloring and proofs; keyword searches in PDF.",
+        "method": "Direct primary-PDF text and relevant page-image inspection.",
+        "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+        "trigger": "Same PCF definition; block graphs can include shared-hub clique bouquets."
+      },
+      {
+        "assessment": "POTENTIALLY SUBSUMES generic finite palette counting, acknowledged; not found to state the uniform mixed-block Poisson window.",
+        "evidence": [
+          "The chromatic symmetric function records class sizes of proper colorings for glued-at-one-vertex graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.19344",
+        "material_read": "Primary full-text article, especially general clique-sum formulas and Remark 43 illustrating three triangles with common hub.",
+        "method": "Direct primary full-text search and section inspection.",
+        "title": "The chromatic symmetric function of graphs glued at a single vertex",
+        "trigger": "General invariant of proper-color assignments in one-vertex clique sums could subsume finite exact counting."
+      },
+      {
+        "assessment": "Background PCF methods for planar graphs; no full-document not-covering assertion.",
+        "evidence": [
+          "Introduces relevant proper PCF neighborhood coloring context, not a verified complete novelty exclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02570",
+        "material_read": "Accessible primary abstract and bibliographic description.",
+        "method": "Abstract and bibliographic inspection, not represented as full-text checked.",
+        "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods",
+        "trigger": "Definition and prior graph-coloring framework."
+      },
+      {
+        "assessment": "Different graph class, result relates number and count, not the Poisson limit.",
+        "evidence": [
+          "The statement uses singleton color classes in distinct parts of complete multipartite graphs."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-proper-conflict-free-colorings-of-complete-multipartite-gr--5943975f038c",
+        "material_read": "Public result title and mathematical summary returned by research-record search; not full attached paper.",
+        "method": "Semantic research-record search.",
+        "title": "Exact proper conflict-free colorings of complete multipartite graphs",
+        "trigger": "Matched PCF coloring and complete counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d50f6e6e-ef41-41ee-9724-63d350fe9724",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies a sharp, nondegenerate probability window for a natural graph-coloring witness property when the palette scales with graph order. The Poisson parameter and limiting success probability are universal across arbitrary heterogeneous bounded-size clique blocks, requiring new uniform estimates for dependent within-clique color draws. This quantifies abundance of PCF colorings beyond the pre-existing chromatic-number threshold and supports meaningful probabilistic analysis of one-cut-vertex block graphs; not merely an exact finite table or trivial relabeling.",
+    "status": "PASS"
+  }
+}
