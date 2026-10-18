@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the exact implicit relation
-\[
-G_\alpha(Y_{\alpha,p}(\tau))=C\tau\alpha^{1-p}.
-\]
-The critical inequality was independently reduced to \(u/(1+u)\le1-e^{-u}\le u\) for \(u\ge0\). Its integration gives \(0\le G_\alpha(y)-L(y)\le\alpha y\). The uniform first-order potential term was checked by writing the normalized difference as a tail integral of \(q(\alpha x)e^{-x}\), with \(0\le q\le1\) and \(q(0+)=1/2\), so dominated convergence applies without a finite-range truncation.
+# Independent mathematical audit
 
-High-precision numerical quadrature at several \(\alpha\) and \(y\) values satisfied the exact bracket and showed \((G_\alpha-L)/\alpha\) approaching \(y/2\). These finite computations are supplementary checks only.
+## correctness
 
-The proof establishes local uniform convergence on bounded critical-time intervals, local uniform collapse on slower scales, and local uniform saturation on faster scales only away from \(\tau=0\). It does not establish an expansion through the initial boundary layer for \(p>1\), does not treat \(\alpha<0\), and does not address perturbations of the scalar equation.
+PASS
+
+Separation gives G_alpha(y_alpha(t))=C alpha t. The inequality u/(1+u) <=1-exp(-u)<=u implies L(y)<=G_alpha(y)<=L(y)+alpha y for all y in [0,1). The normalized difference is an exponentially weighted tail of q(alpha x)=1/(1-e^{-alpha x})-1/(alpha x), bounded by 1 and converging pointwise to 1/2; dominated convergence of the full L1 error proves the uniform y/2 correction, including continuous extension to y=1. Monotone inversion proves p<1 collapse, p=1 compact-uniform critical profile and p>1 saturation only for tau>0. On tau0<=tau<=T, the mean-value theorem with L'(y)=1/(-log y) yields -alpha Y(-log Y)/2 + o(alpha). No finite numerical test is used to infer any infinite assertion.
+
+## originality
+
+PASS
+
+The 2024 same-object paper distinguishes the divided versus undivided vector fields and must receive credit for that qualitative observation. The 2026 same-object preprint incorrectly treats (1-y^alpha)/alpha as the fixed-time limit. Neither inspected primary theorem gives the all-power time-scale trichotomy, exact inverse-function bounds or uniform first correction. These are the limited originality claim, not the qualitative division/rescaling fact.
+
+## value
+
+PASS
+
+The critical 1/alpha observation scale is intrinsic to the exact singular perturbation: on any other power scale there is no nontrivial profile. A quantitative inverse bracket and uniform first-order state displacement resolve a real normalization issue in the motivating scalar nonlinear relaxation law and can be used as controlled benchmarks, beyond merely renaming time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
