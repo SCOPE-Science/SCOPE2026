@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The analytical argument in `RESULT.md` is the proof for every integer \(n\ge3\). The packaged `verifier.py` is an independent finite-size corroboration, not an exhaustive computational proof over the infinite family.
+## correctness
 
-Run `python3 verifier.py` with Python 3 and NumPy installed. The program constructs actual adjacency matrices for \(C_n\square K_2\), obtains their spectral projectors from an independent symmetric eigendecomposition, sums entrywise projector squares, evaluates all \(2n\) Fourier eigenvalues, tests stochasticity and positive semidefiniteness, and checks the rank classification for \(3\le n\le24\). It additionally enumerates equal-energy ordered Fourier pairs for \(3\le n\le18\).
+PASS
 
-The observed output from the packaged source was:
+The exact character inversion gives each mixing eigenvalue as the number of ordered equal-energy pairs divided by 2n. Equal-layer congruence 2k=a gives the stated baseline spectrum. In the opposite-layer case x_k-x_l=2, where x_k=2cos(2pi k/n). Every conjugate of y=x_k-1 lies in [-1,1], so Kronecker integrality forces y=-1,0,1; only (0,-2),(1,-1),(2,0) survive. Counting their differences yields exactly two modes at 4|n and three at 6|n (disjoint at 12|n). All n>=3 and Fourier multiplicity-one indexing are covered. Independent direct pair-energy counts for all 3<=n<=24 verified all 594 Fourier labels and ranks. This finite check is not substituted for the algebraic proof.
 
-`VERIFY_OK independent_graph_orders=3..24 modes=594 pair_modes=336 matrix_entries=19580 n12_rank=11/24 max_error=1.11e-15`
+## originality
 
-The numerical projector grouping uses an absolute eigenvalue tolerance of \(10^{-8}\) and equality assertions of \(2\cdot10^{-9}\); those tolerances apply only to the finite numerical tests. The unbounded rank theorem instead uses exact Fourier combinatorics and the algebraic-integer norm argument. Reproducibility is limited by the usual numerical linear algebra environment. No independent audit has yet been performed.
+PASS
+
+The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.
+
+## value
+
+PASS
+
+The exact spectrum and rank of an infinite natural Cartesian prism family identify arithmetic transverse resonances invisible to a generic Cartesian-product lower bound; modulo-12 dependence is a motivated quantum-transport invariant, not arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
