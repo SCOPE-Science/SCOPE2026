@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:06:06.833776Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Immutable RESULT.md blob aade80147f84d2a12855f70c443645809afb4c1e",
+        "Arithmetic divisibility derivation from two-digit representation; converse digit inequalities checked",
+        "independent_math_checks.py direct base expansion enumeration for 11 primes"
+      ],
+      "rationale": "For p prime and p<B<=p^2 write p^2=aB+b (1<=a<p, 0<=b<B). If the prime quotient p^2/(a+b) is prime it must equal p, so a+b=p and p(p-1)=a(B-1). Coprimality gcd(a,p)=1 forces a|p-1 and B=pd+1 for d=(p-1)/a; conversely every such d gives valid digits (a,b)=((p-1)/d,p-(p-1)/d) and quotient p. Therefore there are tau(p-1) Moran bases. For Harshad digit sum divides p^2, so it is 1,p or p^2; the last impossible by a(B-1)>0; sum1 forces (a,b)=(1,0), B=p^2, adding exactly one Harshad-only base. Bound p<B<=p^2 is strictly two digits. Exhaustive independent enumeration of all bases for primes 2..79 selected verified both exact sets; proof works every prime without finite extrapolation.",
+      "residual_risks": [
+        "Only prime squares and exactly two-digit base range p<B<=p^2; no classification of bases B<=p.",
+        "Moran quotient prime is part of the definition, not a novel primality criterion for p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing indexed decimal Moran/Harshad classifications and arbitrary-radix sequence implementations do not in their inspected material state a dominating all-prime-square variable-base theorem."
+        ],
+        "reasoning": "A full classification for every integer n across all bases would dominate the result, but none was identified; the calculation is specialized to n=p^2 and two digits.",
+        "searches": [
+          "Moran Harshad prime powers all possible bases arbitrary radix",
+          "Math::NumSeq::MoranNumbers radix",
+          "OEIS A001101 Moran numbers"
+        ]
+      },
+      "checked_sources": [
+        "A. Witno (2010), Numbers Which Factor as Their Digital Sum Times a Prime, complete 5-page text",
+        "Math::NumSeq::MoranNumbers arbitrary-radix documentation (2012)",
+        "OEIS A001101 decimal Moran numbers",
+        "Resultary Moran Harshad prime square digit sum two digit bases tau(p-1) arbitrary radix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior definition ensures quotient prime but only when a specific B digit sum is known; variable B requires solving p(p-1)=a(B-1) with all digit inequalities.",
+          "The previously published decimal constructions do not cover a quantified class of all bases p<B<=p^2."
+        ],
+        "reasoning": "This is a short but complete new divisor-based classification, not an immediate parameter replacement in the inspected previous decimal theorems.",
+        "searches": [
+          "Witno 2010 full Moran paper",
+          "OEIS A001101",
+          "Math-NumSeq 55 arbitrary radix documentation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Witno 2010 formulates Moran numbers using fixed decimal digits and gives decimal examples/constructions.",
+          "Arbitrary radix Moran predicate appears in Math::NumSeq documentation, but no prime-square base-count theorem is specified."
+        ],
+        "reasoning": "Equivalent formulations include digit-sum equals p iff B-1=p d and d|p-1, and a divisor count for varying base; same definitions alone do not imply all-base enumeration.",
+        "searches": [
+          "Moran Harshad prime square digit sum two digit bases tau(p-1) arbitrary radix",
+          "prime square digit sum divisibility radices Harshad Moran variable base",
+          "Witno Numbers Which Factor as Their Digital Sum Times a Prime 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001101 contains decimal Moran terms, not a table enumerating bases B of p^2.",
+          "The implementation exposes the general predicate in parameter radix and does not itself list tau(p-1) base counts."
+        ],
+        "reasoning": "No indexed exact prime-square base table was found; recurrence to known decimal entries is not the same invariant.",
+        "searches": [
+          "OEIS A001101 Moran numbers and references",
+          "Math-NumSeq 55 MoranNumbers radix October 2012",
+          "Witno 2010 Moran decimal tables"
+        ]
+      },
+      "rationale": "Witno's accessible complete 2010 original 'Numbers Which Factor as Their Digital Sum Times a Prime' develops DECIMAL Moran/Niven numbers. A 2012 arbitrary-radix Moran implementation and OEIS A001101 establish that the base-dependent notion is prior. The inspected primary full text and databases do not supply the complete variable-base, fixed-prime-square spectrum B=pd+1 and counts tau(p-1), tau(p-1)+1. This is best-of-knowledge; simple equivalent divisor arithmetic in unindexed recreational literature is a substantial residual risk.",
+      "residual_risks": [
+        "Because proof is elementary, an equivalent observation could preexist in unindexed number-base recreational literature.",
+        "The Harshad and Moran notions, and their arbitrary-base interpretation, are established prior art."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECIMAL_MORAN_NOT_ARBITRARY_BASE_SPECTRUM",
+          "evidence": "The constructions are written for decimal digit sums, e.g. repunits, and do not state all base-B expansions of a fixed prime square.",
+          "identifier_or_url": "2010 Witno article, International Journal of Open Problems in Computer Science and Mathematics 3(2), 132–136",
+          "material_read": "Complete openly available five-page primary text including introduction, decimal examples and constructive propositions",
+          "method": "Direct full-paper HTML/text read",
+          "title": "Numbers Which Factor as Their Digital Sum Times a Prime",
+          "trigger": "Original paper defines Moran numbers and may contain generalized base theorem"
+        },
+        {
+          "assessment": "BASE_DEPENDENT_DEFINITION_PRIOR",
+          "evidence": "The radix parameter demonstrates earlier general-base concept but no enumerative prime-square theorem.",
+          "identifier_or_url": "https://metacpan.org/pod/Math::NumSeq::MoranNumbers",
+          "material_read": "Public API/reference documentation for radix and known release date of Math-NumSeq 55",
+          "method": "Documentation reading",
+          "title": "Math::NumSeq::MoranNumbers documentation",
+          "trigger": "Earlier arbitrary-base predicate predating theorem"
+        },
+        {
+          "assessment": "DECIMAL_SEQUENCE_NOT_BASE_SPECTRUM",
+          "evidence": "A fixed-base number sequence is not a list of how many radices work for p^2.",
+          "identifier_or_url": "https://oeis.org/A001101",
+          "material_read": "OEIS sequence definition, decimal initial data and references",
+          "method": "Direct database entry reading",
+          "title": "OEIS A001101: Moran numbers",
+          "trigger": "Original sequence/database coverage of exact objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Witno 2010 motivates Moran numbers",
+        "Math::NumSeq arbitrary-base Moran predicate",
+        "All-prime exact base spectrum and divisor-function counts"
+      ],
+      "rationale": "For a fixed integer n, counting the bases in which n is Harshad or Moran is a natural arithmetic invariant, rather than a slice selected only after seeing numerical data. Prime squares are the first composite class with a unique prime divisor; restricting to their two-digit representations makes the prime-quotient condition sharp while still ranging over an unbounded set of radices. The exact variable-base spectrum tau(p-1) and one additional Harshad base provide a complete non-tabular benchmark for future base-dependent digital-sum problems. Its short elementary proof and narrow scope limit, but do not erase, this independently usable exact classification.",
+      "residual_risks": [
+        "Elementary nature makes the mathematical advance modest; no inference for p^k k>=3 or other base ranges.",
+        "Relevance rests on exact varying-base digit-sum enumeration, not on a new theorem about primality itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only prime squares and exactly two-digit base range p<B<=p^2; no classification of bases B<=p.",
+    "Moran quotient prime is part of the definition, not a novel primality criterion for p.",
+    "Because proof is elementary, an equivalent observation could preexist in unindexed number-base recreational literature.",
+    "The Harshad and Moran notions, and their arbitrary-base interpretation, are established prior art.",
+    "Elementary nature makes the mathematical advance modest; no inference for p^k k>=3 or other base ranges.",
+    "Relevance rests on exact varying-base digit-sum enumeration, not on a new theorem about primality itself.",
+    "Scientific review of directly fetched Git blobs completed; recursive source tree identity unverified and publication readiness withheld."
+  ],
+  "schema_version": 1
+}
