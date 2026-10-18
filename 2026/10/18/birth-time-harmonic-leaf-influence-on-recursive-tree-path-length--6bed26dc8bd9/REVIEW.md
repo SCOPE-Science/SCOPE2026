@@ -1,0 +1,15 @@
+# Scientific review: birth-time harmonic leaf influence
+
+## Correctness — PASS
+Independent uniform parent choices show exactly that a specified vertex is childless with probability \((j-1)/(n-1)\). Conditional on the event, all later parent choices remain independent uniform choices from the sets excluding \(j\); the conditional total-depth recurrence telescopes to the stated harmonic shift. Summing the label covariances gives \(-(n-2)/4\). For \(n\ge4\), the strictly convex finite profile, its \(u\log u\) scaling and its \(e^{-1}\) minimum are derived by adjacent differences and harmonic asymptotics. Enumerations through nine vertices checked the formulas but are not substituted for the proof. The correlation asymptotic relies on explicitly identified classical marginal variances.
+
+## Originality — PASS, subject to historical priority risk
+The accessible full Dobrow–Fill manuscript treats total path length without labeled leaf conditioning. The publicly accessible Zhang abstract treats leaf-count asymptotics, not joint age-resolved path-length effects; the inaccessible full text leaves a genuine risk. Janson's 2005 paper treats outdegree-profile asymptotics. The 2026 Lundblad–Wagner full text provides a broad generating function for aggregate path/leaf quantities, potentially implying the aggregate cross-moment if further differentiated, but it does not encode birth labels and does not state a harmonic conditional influence profile. The closest published results found concern root-degree/leaf covariance and a forced root-attachment/path-length influence; neither is equivalent to conditioning a specified vertex to have zero children. Searches for the age-indexed conditional statement and for cross-covariances found no dominating published formula. This is not a uniqueness guarantee. Independent literature priority inspection remains warranted.
+
+## Mathematical value — PASS
+The specific mathematical gap is how a vertex's continued childlessness affects the global search-cost statistic in an increasing tree. The exact birth-time profile is structurally stronger than a global covariance: it identifies negative dependence for all nonterminal labels, the unique macroscopic sensitivity scale near \(n/e\), and the exact cancellation that yields a simple linear covariance. These are natural global/local characteristics of the standard recursive-tree model, not arbitrary parameter slices. The result does not assert a downstream theorem or a joint limiting distribution.
+
+## Sources and limitations
+Primary references: Dobrow–Fill (1999), DOI 10.1017/S0963548399003855; Zhang (2015), DOI 10.1214/14-BJPS252; Janson (2005), DOI 10.1002/rsa.20046; Lundblad–Wagner (2026), DOI 10.4230/LIPIcs.AofA.2026.2. The latter article contains an aggregate four-variable generating function and is the strongest plausible broader comparison. Some historical complete texts remained inaccessible. The present proof is restricted to uniform recursive trees and first/second moments.
+
+Self-review: passed. Independent audit: not yet performed.
