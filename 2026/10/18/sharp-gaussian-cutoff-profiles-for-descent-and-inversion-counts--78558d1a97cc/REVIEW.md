@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The exact known ordered-suffix representation reduces the problem to occupancy concentration and uniform-permutation fluctuations. The proof independently checks the variance of unseen-card occupancy, derives conditional tail means and variances for the affected descent and Lehmer contributions, and applies the appropriate Gaussian limit laws. The analysis includes finite shifts, divergence, necessity by subsequences, and precise CDF distance profiles. Exact finite Markov-chain identities were independently checked by `verify.py`.
+
+**Originality (PASS, with priority risk).** Clay's arXiv:2603.09008 establishes the foundational coupling and Gaussian limits in fixed linear-time and post-window regimes, but its displayed results do not state the Gaussian transition profiles at finite \(n\)-scale window offsets or the necessary-and-sufficient occupancy criteria. Its general limit theorems require a limiting touched fraction strictly between zero and one, not the boundary considered here. Athanasiadis–Diaconis treat the full descent set and Feng treats whole-permutation probability metrics at the later coupon-collector threshold; their inspected statements do not imply the two scalar profile formulas. No matching published comparison was identified in the accessed mathematical record search. Broad general results on statistics of random walks remain a genuine possible priority risk.
+
+**Value (PASS).** The result completes a natural cutoff-window question left between known regimes for two canonical permutation statistics. Its precise Gaussian-shift and Kolmogorov-distance curves distinguish two provably different thresholds, and its necessary-and-sufficient occupancy characterization rules out asymptotically premature Gaussian mixing. The statement is a nontrivial distributional boundary theorem, not a renaming of the underlying ordered-suffix coupling.
+
+**Limitations.** No whole-deck total-variation cutoff, local limit estimate, error rate, or joint-statistic result is claimed. Finite computations corroborate the exact coupling but are not proofs of the asymptotic theorem. Independent priority and correctness audit have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
