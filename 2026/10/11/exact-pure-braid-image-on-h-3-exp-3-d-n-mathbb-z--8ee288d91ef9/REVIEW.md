@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source's cellular formula specializes in degree three to a signed permutation plus a correction from pair-support basis vectors to triple-support basis vectors. The resulting pure-generator corrections \(N_{ij}\) kill \(U\oplus V\), map \(W\) into \(V\), and therefore have all pairwise products zero. Direct cancellation gives \(\sum N_{ij}=0\). Restriction to each three-label subsystem reproduces the published rank-two \(P_3\) calculation, forcing equal coefficients in any relation on the three edges of every triangle; connectivity of the complete graph's edge-triangle incidence then makes the all-ones relation unique. The finite checker independently reconstructs and verifies the action through \(n=8\).
+## correctness
 
-## Originality
-**PASS.** The exact primary source proves a general nilpotency bound and computes the \(n=3\), \(k=3\) image, but the inspected full text does not state the all-\(n\) rank or diagonal kernel. Focused searches under finite-subset-space, punctured-disc, pure-braid, rank, and representation aliases found no covering statement. The principal residual risk is a later unindexed computation under different terminology.
+PASS
 
-## Value
-**PASS.** The theorem turns a qualitative abelianity bound and one three-strand example into a complete all-parameter image description, with closed rank and the full relation lattice among the natural pure generators.
+PASS: The source cellular degree-three decomposition is U (single labels), W (unordered pairs), V (triples). Specializing Tuffleys braid-generator formula yields pure-braid operators N_ij that annihilate U,V and map pair classes W into triple classes V. Hence all products N_ij N_kl=0. For each triple of labels, two N_ij contributions to each W basis element cancel, giving sum N_ij=0. Restriction to any triple and projection to its V basis line gives the known n=3 rank-two operator relation, forcing equality c_ab=c_ac=c_bc; connectivity of the complete-graph edge-adjacency by triangles gives the entire integral diagonal relation lattice. Thus the image is Z^{binom(n,2)-1}, n>=3, with n=2 zero. The argument over integers, not merely modular ranks, verifies the exact relation lattice.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge: read Tuffley (2003) cellular formula, theorem on pure-braid nilpotence and the explicit n=3 example. Those furnish technical inputs but not the all-n exact image and complete relation module; the all-n triangle-coupling proof is substantive. No covered all-n statement found in the inspected primary full-text sections or targeted GitHub title search, with Resultary unavailable and unindexed subsequent computations a risk.
+
+## value
+
+PASS
+
+PASS: Determines integral rank and entire global relation lattice of an actual natural topological representation for every puncture count, extending the published smallest nontrivial case. This is a structural family classification, beyond checking a tiny instance or merely applying an elementary abelianization fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

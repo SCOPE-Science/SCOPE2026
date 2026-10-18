@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically from the published cellular action. The replay program `verify.py` is a finite consistency check.
 
-For each \(2\le n\le8\), it constructs the degree-three basis, implements the Artin generators, verifies the braid relations, builds every standard \(A_{ij}\), and checks that every \(N_{ij}N_{kl}\) is zero, that \(\sum_{i<j}N_{ij}=0\), and that the operator lattice has rank \(\binom n2-1\).
+# Independent mathematical audit
 
-The replay output is:
-```
-n=2 H3_basis=3 pure_generators=1 nilpotent_offset_rank=0
-n=3 H3_basis=7 pure_generators=3 nilpotent_offset_rank=2
-n=4 H3_basis=14 pure_generators=6 nilpotent_offset_rank=5
-n=5 H3_basis=25 pure_generators=10 nilpotent_offset_rank=9
-n=6 H3_basis=41 pure_generators=15 nilpotent_offset_rank=14
-n=7 H3_basis=63 pure_generators=21 nilpotent_offset_rank=20
-n=8 H3_basis=92 pure_generators=28 nilpotent_offset_rank=27
-VERIFY_OK all_cases=2..8 formula=binom(n,2)-1
-```
-The arbitrary-\(n\) conclusion is supplied by the proof in `RESULT.md`, not by finite enumeration.
+## correctness
+
+PASS
+
+PASS: The source cellular degree-three decomposition is U (single labels), W (unordered pairs), V (triples). Specializing Tuffleys braid-generator formula yields pure-braid operators N_ij that annihilate U,V and map pair classes W into triple classes V. Hence all products N_ij N_kl=0. For each triple of labels, two N_ij contributions to each W basis element cancel, giving sum N_ij=0. Restriction to any triple and projection to its V basis line gives the known n=3 rank-two operator relation, forcing equality c_ab=c_ac=c_bc; connectivity of the complete-graph edge-adjacency by triangles gives the entire integral diagonal relation lattice. Thus the image is Z^{binom(n,2)-1}, n>=3, with n=2 zero. The argument over integers, not merely modular ranks, verifies the exact relation lattice.
+
+## originality
+
+PASS
+
+PASS best of knowledge: read Tuffley (2003) cellular formula, theorem on pure-braid nilpotence and the explicit n=3 example. Those furnish technical inputs but not the all-n exact image and complete relation module; the all-n triangle-coupling proof is substantive. No covered all-n statement found in the inspected primary full-text sections or targeted GitHub title search, with Resultary unavailable and unindexed subsequent computations a risk.
+
+## value
+
+PASS
+
+PASS: Determines integral rank and entire global relation lattice of an actual natural topological representation for every puncture count, extending the published smallest nontrivial case. This is a structural family classification, beyond checking a tiny instance or merely applying an elementary abelianization fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
