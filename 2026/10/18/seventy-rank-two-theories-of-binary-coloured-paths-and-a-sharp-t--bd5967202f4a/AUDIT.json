@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The two-round EF/first-order normal-form argument gives a necessary-and-sufficient local-profile invariant for all binary-coloured simple graphs. For paths, each pointed type is computed from the vertex, its at most two neighbours, and existence of colour among the remaining non-neighbours. Since the window uses at most three positions, truncating global colour multiplicities at four is exact. Both append transitions are defined, and a completely exhausted 760-state reachability closure yields exactly 70 invariant sets with the exact 2,3,6,10,14,18,10,5,0,2 minimal-length profile counts; thus the certificate is an all-length finite-state proof, not a finite-size enumeration. A distinct direct 32,766-word experiment to length 14 corroborates the same spectrum. Finally any path with the stated extremal profile needs two internal runs of adjacent colour-1 pairs and three runs of colour-0 pairs (each length at least two), hence at least ten vertices; complement gives the second extremal class. Source code and recorded outputs have been executed from included files. No general-graph or rank-greater-than-two statement is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown–Hoshino theorem supplies all ranks but no colours; colouring creates additional unary atomic diagrams.",
+        "Weis–Immerman 2009 supplies structure theorems for the two-variable fragment on words with linear order/directed successor; no calculation of undirected-coloured path rank-two classes.",
+        "A separate calculation of two-coloured directed cycles gives 48 rank-two theories but no path endpoint-window analysis."
+      ],
+      "reasoning": "A stronger logic in a richer signature could in principle imply an undirected-path quotient only with an explicit rank-preserving reduction and quotient computation. The inspected theorems do not provide such a projection and their class counts/structures differ. The present proof covers ordinary FO of rank two with any number of syntactic variables, not merely FO² or counting logic.",
+      "searches": [
+        "finite paths with unary predicates first order quantifier rank 2 classification logical equivalence",
+        "small model property rank two first order adjacency colored paths length ten",
+        "first order rank two logical types of two-colored undirected paths and sharp representative length"
+      ]
+    },
+    "checked_sources": [
+      "Brown and Hoshino, Ars Combinatoria 83 (2007), full relevant material inspected.",
+      "Weis and Immerman, Logical Methods in Computer Science 5 (2009), full relevant material inspected.",
+      "Mwesigye and Truss, Order 28 (2011), especially Theorem 3.4, full relevant material inspected.",
+      "Published result 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112, complete RESULT.md checked.",
+      "Published result 2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5, complete RESULT.md checked."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mwesigye–Truss Theorem 3.4: optimal rank-two bound for two-coloured strict linear orders is 8, different from undirected-coloured paths at 10.",
+        "Brown–Hoshino uncoloured rank-two cutoff 4 is obtained by forgetting colours but loses necessary distinguishing information.",
+        "A rank-two ordered-word classification has 32,530 mixed classes with both order and successor; the finer ordered signature does not itself supply the undirected-path quotient mapping."
+      ],
+      "reasoning": "Neither the same statement nor a direct consequence with exactly these parameters was found in inspected stronger/general primary theorems. The new explicit finite-state projection and minimal-witness proof are needed; consequently the claim is not treated as a routine direct substitution of any named source. Priority risk remains if earlier specialist work implements that same projection.",
+      "searches": [
+        "rank two Ehrenfeucht Fraisse finite paths with named vertex colours exact 70 logical types",
+        "finite paths with unary predicates first order quantifier rank 2 classification logical equivalence",
+        "small model property rank two first order adjacency colored paths length ten"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full Brown–Hoshino (2007) discussion concerns uncoloured path adjacency and rank-two cutoff four; no two named unary predicates.",
+        "Mwesigye–Truss, Theorem 3.4, determines m-coloured strict-linear-order rank-two shortest representatives, m²+2m, so its m=2 value is eight and its pointed characters encode left/right colour sets.",
+        "No direct hit among the returned published-result titles/summaries, including the closest directed-path record 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112."
+      ],
+      "reasoning": "The closest mathematical formulation would be a quotient of all two-colour words under reversal and two-round Ehrenfeucht–Fraïssé equivalence in an undirected adjacency signature. This is explicitly implemented and proved here. A strict linear order, directed successor or uncoloured path cannot be substituted without changing quantified atomic diagrams; none of the compared results contains an equivalent quotient or its 70-element spectrum.",
+      "searches": [
+        "exact number of quantifier rank 2 theories of binary vertex coloured undirected paths 70 length 10",
+        "rank two Ehrenfeucht Fraisse finite paths with named vertex colours exact 70 logical types",
+        "two-coloured undirected paths first order quantifier depth two 70 theories minimum ten"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched published research records for 70 classes, ten-element shortest representatives, coloured paths, rank-two theory and reduct aliases; closest records 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112 and 2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5 do not list these 70 signatures.",
+        "The 70 separate signatures and minimal witnesses are explicitly listed in accompanying certificate_70_types.json; 760-state closure independently verifies exhaustiveness."
+      ],
+      "reasoning": "A previously published numerical table containing precisely these equivalence classes would dominate the claimed figures. No such table appeared in the searched corpus or inspected named primary results; this is a bounded novelty assessment and does not rule out unindexed tables.",
+      "searches": [
+        "exact number of quantifier rank 2 theories of binary vertex coloured undirected paths 70 length 10",
+        "two-coloured undirected paths first order quantifier depth two 70 theories minimum ten",
+        "binary words modulo reversal undirected successor finite-depth theory spectrum"
+      ]
+    },
+    "rationale": "Checked the quantitative all-size claim (70 classes, 62 mixed, sharp least-representative 10, two extremizers), not merely the topic. Brown–Hoshino give uncoloured paths; Mwesigye–Truss give m-coloured linearly ordered structures with the different optimal rank-two bound m²+2m=8 at m=2; Weis–Immerman give order+directed-successor word logic. Two closest published records concern directed paths with no colours and one-red ordered words. Other rank-two calculations cover two-coloured directed cycles (48 types) or ordered words (32,530 mixed types), but neither states nor implies the present undirected adjacency-only quotient. Multiple actual research-record searches located no direct or dominating classification. A specialized earlier solution remains a credible priority risk; absence from searches is not proof of uniqueness.",
+    "residual_risks": [
+      "An unindexed specialist classification of rank-two logic on unary-labelled undirected paths, or a hidden table computed from general finite-model results, could state or imply the numbers 70, 62 and the sharp bound ten.",
+      "A more general theorem on quantifier-rank spectra of graph-labelled word reducts might yield the same numerical quotient as an unpublished corollary; no proof of global novelty is claimed.",
+      "Independent mathematical audit has not been performed; reproducibility check is same-session verification only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uncoloured paths/cycles only; supplies rank-two four-vertex cutoff but not unary-coloured-path spectrum or sharp ten-vertex bound.",
+        "evidence": [
+          "2007 paper explicitly represents graphs as first-order structures with binary adjacency E, with no named unary colours.",
+          "Undirected path two-round saturation occurs at four vertices."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+        "material_read": "20-page primary paper; abstract and game definitions, undirected-path threshold proofs/theorems and concluding scope, including pages 1, 4, 6, 10, 15, 19.",
+        "method": "Full-text PDF opened with relevant pages inspected visually.",
+        "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+        "trigger": "Exact underlying path graph and two-round logical indistinguishability."
+      },
+      {
+        "assessment": "Focuses on FO² with directed successor and linear order, not unrestricted rank-two FO of unoriented path adjacency. Does not give 70-class quotient.",
+        "evidence": [
+          "2009 paper sets a named linear order and considers successor/order word signatures.",
+          "Theorem 5.4 addresses two-variable logical types in a directed/order word context."
+        ],
+        "identifier_or_url": "https://lmcs.episciences.org/1159/pdf",
+        "material_read": "Primary PDF abstract, definitions, central structure theorem and relation to successor; relevant pages 1–4 and 19–20 inspected.",
+        "method": "PDF full-text extraction with visual screenshots of relevant pages.",
+        "title": "Structure Theorem and Strict Alternation Hierarchy for FO² on Words",
+        "trigger": "Logical profile results for coloured words and richer successor language."
+      },
+      {
+        "assessment": "Its language contains strict linear order and unary colours. Theorem 3.4 says g(m,2)=m²+2m, giving eight at m=2; this differs from 70-class adjacency-only path quotient and its ten-vertex sharp bound.",
+        "evidence": [
+          "Publication online 2010-09-07.",
+          "Theorem 3.4 states g(m,2)=m²+2m for finite m-coloured linear orders."
+        ],
+        "identifier_or_url": "https://ir.must.ac.ug/bitstreams/ce8f9fc1-8064-4e56-b7ae-a30dd6b401c0/download",
+        "material_read": "Eleven-page open primary PDF; abstract, Section 1 character theorem, Section 2 and Section 3, notably Theorem 3.4, text and visual pages 1 and 8.",
+        "method": "Full-text PDF analysis and visual inspection of title/precise theorem page.",
+        "title": "Classification of Finite Coloured Linear Orderings",
+        "trigger": "Plausible specialized full-text paper giving complete rank-two coloured-order logic and sharp representative bound."
+      },
+      {
+        "assessment": "Successor-only directed paths, no unary colours; rank q threshold 2^q and cannot imply spectrum of two-coloured unoriented paths.",
+        "evidence": [
+          "Primary statement explicitly excludes unary labels and order predicates.",
+          "At rank two it recovers a length threshold but no colour-profile count."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+        "material_read": "Entire publicly published RESULT.md, including finding, proof, limitations and references.",
+        "method": "Repository primary RESULT.md fetched and read.",
+        "title": "Exact quantifier-rank threshold for finite directed paths",
+        "trigger": "Closest published theorem on finite paths with quantifier rank."
+      },
+      {
+        "assessment": "Exactly one red point in a linearly ordered word, not arbitrary binary-coloured undirected paths; all-rank class formula not applicable to present target.",
+        "evidence": [
+          "All-rank class count (2^q−1)²+2 occurs only in one-red linear-order family."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5",
+        "material_read": "Entire publicly published RESULT.md, including all-rank theorem and proof.",
+        "method": "Repository primary RESULT.md fetched and read.",
+        "title": "Exact quantifier-rank profiles for finite one-red linear orders",
+        "trigger": "Closest published theorem of finite two-coloured rank-two word profiles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd596720-2f4a-4f5e-843b-ede1440f3e49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete rank-two observational quotient for all two-coloured paths is a natural finite-model-theoretic classification, fixing a graph class and the first nontrivial quantifier depth rather than an arbitrary slice. The exact number of 70 theories and the sharp ten-vertex small-model bound identify an effect of colour predicates not captured by the uncoloured four-vertex cutoff, and give a reusable complete finite test basis for rank-two satisfiability over paths. The two exceptional extremal signatures have a structural run-forcing explanation, not simply a black-box count. Value is confined to this precise invariant; the work does not claim a broad complexity breakthrough or higher-depth classification.",
+    "status": "PASS"
+  }
+}

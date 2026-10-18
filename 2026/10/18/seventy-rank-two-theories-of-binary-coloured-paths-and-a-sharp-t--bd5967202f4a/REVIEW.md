@@ -1,0 +1,9 @@
+# Review of the binary-coloured path rank-two classification
+
+**Correctness — PASS.** The defining signature records the existence of every possible quantifier-free two-point diagram relative to a vertex, so the two-quantifier logical equivalence criterion follows by induction on first-order syntax. The append-state invariant is explicitly proved and its count threshold of four is sufficient because the local window has at most three positions. Complete breadth-first transition closure of 760 states gives exactly 70 profiles, a sharp ten-vertex cutoff and the stated histogram. Two different programs agree, and a direct run-structure argument separately establishes the ten-vertex lower bound.
+
+**Originality — PASS, with residual risk.** Brown–Hoshino treat uncoloured paths; Weis–Immerman treat ordered words and directed successor; the two closest published path/linear-order results inspect different languages and claims. Exact projection to an undirected two-colour path quotient and the sharp model bound are absent from the inspected results. Closest works and possible unindexed reductions are identified in AUDIT.json. Searches do not prove uniqueness, and a specialist earlier enumeration remains a genuine priority risk.
+
+**Value — PASS.** This is a complete first-order rank-two classification of a natural labelled graph family, not an arbitrary numerical slice. It gives a sharp small-model theorem for satisfiability over coloured paths and shows a meaningful increase from the uncoloured case (four vertices) to ten with two colours. The structural signature and explicit finite-state certificate support later comparisons of logical fragments on trees and word-reducts. No wider-graph or higher-rank theorem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
