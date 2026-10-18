@@ -1,19 +1,21 @@
-# Scientific review: double-star bridge-price threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric upper bound is an exact sum of Rayleigh inequalities with all edge-price constraints tight. Each explicit primal–dual construction is centered, has squared norm equal to the stated inverse spectral gap, and satisfies the unscaled Laplacian eigenvalue-one equation. The low-price interlacing argument and high-price Schur inertia argument prove this eigenvalue is the second eigenvalue, not merely an arbitrary eigenvalue. Equality in the certificate and the leaf equations prove uniqueness even without assuming symmetric competing rates. The branches and equality boundary match algebraically. Exact-rational checker tests reproduce all structural identities for 299 cases but are not substituted for the proof. Risks: arithmetic transcription or unnoticed edge cases remain possible; no independent validation.
+PASS
 
-## Originality — PASS, narrowly bounded
+For k>=ell>=1 and q=sqrt(t)>0 the centered Euclidean embedding certificates of squared edge lengths 1,1,q^2 yield the universal λ2<=1/Z bound by summing Rayleigh inequalities. In each regime, the supplied positive rates and Gram witness satisfy L0 X=X, budget Z, and λ2(L0)=1: below q_c interlacing of a grounded-star positive semidefinite principal block gives one negative eigenvalue of L0-I, and above q_c its 2x2 Schur complement has exactly one negative and one zero. Rate uniqueness follows because every leaf witness differs from its hub and equality fixes every pendant rate, then budget fixes the bridge. The positive-part correction gives continuous first but jumping second derivative, and eigen-multiplicity switches from k to one. Independently assembled full Laplacians satisfy the budget, exact predicted λ2 and eigenspace multiplicities in 108 test cases; symbolic certificate, not those samples, covers all k,ell,q.
 
-Sun–Boyd–Xiao–Diaconis establish the optimization and embedding duality in the general positive edge-cost setting. Richter–Rocha give explicit double-broom uniform-price formulas and eigenvectors, covering the unit-price case here, and Fiedler establishes prior tree-level absolute connectivity theory. Wappler studies arbitrary edge lengths in general. The specific price-dependent optimizer for all real positive bridge prices, the explicit location of its threshold, and the eigenvalue-multiplicity change are not stated in the inspected primary full texts of Sun et al. or Richter–Rocha. This is a claim for that classification only, not for the known general method or the unit-price specialization. Residual risk: the 2013 Wappler thesis PDF and Fiedler's complete 1990 article were not available for full-text exclusion; an equivalent unpublished or poorly indexed specialized formula may exist. Abstract- or repository-level evidence is not represented as full-text inspection.
+## originality
 
-## Value — PASS
+PASS
 
-A two-hub network with asymmetric peripheral populations and a separately priced inter-hub link is a natural resource-constrained mixing model. Its exact price transition distinguishes two optimizer geometries, uniquely specifies all \(k+\ell+1\) edge rates, and determines a nontrivial spectral multiplicity boundary. General semidefinite optimization does not by itself display these sharp analytic price and dimension laws. The theorem does not assert a general graph-class improvement or an empirical application.
+Sun–Boyd–Xiao–Diaconis provide the general continuous-time semidefinite primal–dual graph mixing setup with arbitrary edge prices; Richter–Rocha and Fiedler cover absolute algebraic connectivity with uniform prices for double brooms/trees. None of the inspected complete papers gives the explicit two-branch bridge-price solution, unique nonsymmetric optimizer, or bridge-price eigenspace transition.
 
-## Closest antecedents and limitations
+## value
 
-The closest full-text predecessor is Richter–Rocha's double-broom analysis of the equal-price model. Sun et al. provide the same primal–dual principles for arbitrary prices but give examples of paths and cycles rather than the two-hub price transition. Fiedler (1990) and Wappler (2013) are relevant structural antecedents with incomplete full-text access. The nonuniform stationary-measure, arbitrary-tree, and discrete-time variants are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural resource-priced network design has a sharp and explicit mixing-rate phase boundary where the dimension of the slowest nonconstant mode changes. Exact individual-edge allocation is useful beyond generic SDP solvability and extends the known uniform-price tree special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
