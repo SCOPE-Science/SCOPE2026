@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic classification and enumeration in `RESULT.md` are the principal proof.
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with Python 3 and the standard library. The script builds actual strong-product graph edges, computes distances from independent breadth-first searches, and tests the general-position predicate for every subset of cardinality \(2m\) in the documented finite range. It checks the structural iff statement, not merely its minimum-set count.
+## correctness
 
-It then performs a separate enumeration by selecting two path positions for each labeled leaf and compares the support-size distribution with the four-term formula. The latter route uses no graph distances.
+PASS
 
-The direct census covers \(m=3\), \(2\le s\le8\); \(m=4\), \(2\le s\le4\); and \(m=5\), \(2\le s\le3\). Positional-pair enumeration reaches \(s=14\) for \(m=3\), \(s=7\) for \(m=4\), and \(s=5\) for \(m=5\). A total of \(1,641,522\) candidate vertex subsets are checked by graph distances.
+For P_s strong K_(1,m), s>=2,m>=3, the strong-product distance is max(path gap,star gap). The standard auxiliary graph linking selected vertices when path gap exceeds star gap has no odd cycle by the chord/sign-alternation argument, so is bipartite; each independent part injects into a GP set of the star of size at most m. A 2m-set forces each part to project onto the unique m-leaf maximum GP set; no centers, each leaf selected exactly twice. Analyze any triple in distinct occupied path layers: two nonadjacent gaps forbid all leaf assignments; a single gap=1 forces disjoint labels in the adjacent pair; both gaps=1 prohibit only threefold repetition, impossible under twice-per-leaf. Five layers force an obstructed triple, and 4-layer sets consist of two disjoint consecutive pairs. Counting support cases gives C(s,2)+(3^m-3)(s-2)+(2^m-2)(s-2)(s-3)+(2^m-2)^2 C(s-2,2). An independent BFS/geodesic brute force for representative (s,m) and leaf-position enumeration confirmed all four cases, with all arbitrary-parameter content supplied by the analytic structural argument. The known scalar gp=2m is credited to Vesel, not newly proved.
 
-Exact replay output is embedded at `artifacts/verification_output.txt`.
+## originality
 
-Finite enumeration is not an infinite certificate. Arbitrary \(s,m\) follow from the self-contained proof of center exclusion, support classification, and the four exhaustive counting cases.
+PASS
+
+The new all-optima distribution uses equality rigidity of the star and geodesic configurations, not simply substituting H=star in gp(P_s strong H). However the uninspected full original might analyze equality beyond the abstract. Equivalent enumerator/top-coefficient claims were sought. Neither material accessed establishes all maximizing sets or four-layer classification; no inference from a scalar gp value alone yields M(s,m). Material priority limits are recorded separately.
+
+## value
+
+PASS
+
+Determines *all* maximizing vertex subsets in a natural two-parameter strong-product graph family, not only the known maximum number: identifies center exclusion and a sharp four-layer support restriction, obtains the exact labeled count/top general-position-polynomial coefficient and its quadratic path-length growth. This is a useful complete equality classification in enumerative GP theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

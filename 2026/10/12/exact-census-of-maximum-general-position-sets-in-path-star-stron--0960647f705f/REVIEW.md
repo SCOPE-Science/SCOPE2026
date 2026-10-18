@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a general-position subset of a path–star strong product, the auxiliary graph joining selected pairs whose path distance exceeds their star distance is bipartite. Its two independent classes each project to a general-position set of the star. At optimum cardinality each class projects bijectively to all the leaves, the unique maximum star GP set for \(m\ge3\). This proves center exclusion and the exactly-twice-per-leaf rule.
+PASS
 
-The product-distance formula then reduces the remaining constraints to triples in distinct path layers. A gap of at least two on both sides is forbidden; one unit gap forces the adjacent leaf sets to be disjoint; three consecutive layers impose no further restriction because no leaf appears three times. This yields the complete support classification and each of the four count terms.
+For P_s strong K_(1,m), s>=2,m>=3, the strong-product distance is max(path gap,star gap). The standard auxiliary graph linking selected vertices when path gap exceeds star gap has no odd cycle by the chord/sign-alternation argument, so is bipartite; each independent part injects into a GP set of the star of size at most m. A 2m-set forces each part to project onto the unique m-leaf maximum GP set; no centers, each leaf selected exactly twice. Analyze any triple in distinct occupied path layers: two nonadjacent gaps forbid all leaf assignments; a single gap=1 forces disjoint labels in the adjacent pair; both gaps=1 prohibit only threefold repetition, impossible under twice-per-leaf. Five layers force an obstructed triple, and 4-layer sets consist of two disjoint consecutive pairs. Counting support cases gives C(s,2)+(3^m-3)(s-2)+(2^m-2)(s-2)(s-3)+(2^m-2)^2 C(s-2,2). An independent BFS/geodesic brute force for representative (s,m) and leaf-position enumeration confirmed all four cases, with all arbitrary-parameter content supplied by the analytic structural argument. The known scalar gp=2m is credited to Vesel, not newly proved.
 
-Independent BFS-distance enumeration and positional-pair counts agree throughout the stated finite ranges. Finite checks corroborate, but the analytic proof establishes all \(s\ge2,m\ge3\).
+## originality
 
-## Originality
+PASS
 
-PASS. The July 2026 path-factor theorem gives the scalar identity \(\operatorname{gp}(P_s\boxtimes H)=2\operatorname{gp}(H)\) and the bipartite lemma, both credited as prior material. Its full text does not classify the star equality cases or count all maximum sets. The foundational general-position-polynomial paper treats other operations, notably Cartesian rather than strong products. Another strong-product paper treats outer/dual/total variants. published-finding corpus and literature searches under star, path–star, strong product, maximum general-position set, coefficient, and enumerator did not locate an implication-equivalent result.
+The new all-optima distribution uses equality rigidity of the star and geodesic configurations, not simply substituting H=star in gp(P_s strong H). However the uninspected full original might analyze equality beyond the abstract. Equivalent enumerator/top-coefficient claims were sought. Neither material accessed establishes all maximizing sets or four-layer classification; no inference from a scalar gp value alone yields M(s,m). Material priority limits are recorded separately.
 
-Residual risks concern differently indexed names for path–star products and recent follow-up work. Search failure is not treated as absolute novelty certification.
+## value
 
-## Value
+PASS
 
-PASS. The theorem gives a complete optimum-set classification in a two-parameter natural family, a sharp four-layer structural cutoff, and a top polynomial coefficient with quadratic path-length growth. The exact count is materially stronger than the known numerical optimum and can be used in enumerative study of general-position polynomials.
+Determines *all* maximizing vertex subsets in a natural two-parameter strong-product graph family, not only the known maximum number: identifies center exclusion and a sharp four-layer support restriction, obtains the exact labeled count/top general-position-polynomial coefficient and its quadratic path-length growth. This is a useful complete equality classification in enumerative GP theory.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
