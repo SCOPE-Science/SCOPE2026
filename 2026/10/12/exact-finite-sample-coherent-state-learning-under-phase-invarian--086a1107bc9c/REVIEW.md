@@ -1,13 +1,21 @@
-# Scientific review: phase-invariant coherent-state learning
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Passive compression preserves the two hypotheses; common-phase integration annihilates cross-sector coherences. Both conditional photon-number states have rank one in each sector with weights equal to nonnegative Poisson mixtures. The rank-two difference has explicitly reconstructed trace and determinant, hence an exact trace norm and optimal Helstrom projectors. Geometric Gaussian weights, truncation bounds, and the local-energy limit follow from direct exponential integration and dominated convergence. The standalone finite-block checker verifies selected matrices independently of the claimed norm expression. Infinite-scope conclusions rest on the displayed algebraic proof, not finite sampling.
+## correctness
 
-**Originality (O): PASS subject to residual literature risks.** The relevant 2014 arXiv/2015 open-access source specifies the identical unknown-amplitude vacuum/reflection task and averaged states in equations (5)--(11), but treats the general finite-training Helstrom norm as analytically difficult and gives nonzero-center asymptotics. Its full available HTML article, mathematical results and Appendix 1 were compared to the new phase-invariant rank-two sector formula; that special exact receiver, Gaussian certified series, and local-energy coefficient are not stated there. The older quantum-template paper is a qubit-pattern-matching problem, not a bosonic circular-amplitude classification. Targeted published-finding corpus, primary-literature and owned-ledger searches yielded no implying result. The phase-twirl/Helstrom ingredients are known; an unindexed reformulation in bosonic comparison or a broader theorem can still cover this specialization, and such a discovery would overturn O.
+PASS
 
-**Value (V): PASS.** The theorem solves the original finite-training Bayes-optimal decision for the full natural phase-invariant intensity-prior class, not a numerical parameter slice. It gives an optimal photon-resolved joint POVM, certified truncations for Gaussian uncertainty, and the singular zero-center local-energy scale left untreated by nonzero-center perturbative analysis. A phase-independent optical source has a direct physical interpretation. It does not claim a passive-only hardware implementation or settle noncircular priors.
+Independent reconstruction: passive compression sends n identical coherent training modes to |sqrt(n)α>; common uniform phase forces orthogonal fixed-total-number sectors. Each sector is a difference of two nonnegative rank-one operators of weights a_k,b_k and overlap q_k=(n/(n+1))^k. Determinant is -a_k b_k(1-q_k), and rank-two spectral formula gives sqrt((a_k-b_k)^2+4a_k b_k(1-q_k)); sum finite in trace norm since Σa_k=Σb_k=1. Correct equal-prior Helstrom risk =1/2−sum/4. Gaussian mixing gives geometric weights. For v=μ²/n, dominated convergence with geometric envelope and n(1−q_k)≤k gives stated polylogarithmic sqrt(n) coefficient. Independently computed n=1,v=1 P_err=0.21356409008208982 and n=10000 local coefficient 0.3374226648786782 versus limit 0.33681343818393766. Tests do not prove infinite sum or limit.
 
-**Closest primary work:** Sentís--Guţă--Adesso, arXiv:1410.8700 (2014), equations (5)--(11), discussion around their equation (7), and Appendix 1; Sasaki--Carlini, arXiv:quant-ph/0202173 (2002), abstract and model description.
+## originality
 
-**Residual risks:** A generic optical phase-twirling theorem may hide an explicit equivalent specialization; the searched literature cannot guarantee absolute novelty. No independent expert or external audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full primary shared-model article gives averaged hypotheses and perturbative Gaussian analysis but not the evaluated all-radial exact Helstrom series or singular circular local scaling; general Helstrom/twirling already known. Best-of-knowledge PASS with explicit stronger-coverage risk.
+
+## value
+
+PASS
+
+Genuine finite-sample Bayes optimum and implementable mathematical photon-number-sector measurement for an entire natural rotationally invariant prior class, with quantitative certified Gaussian truncation and singular learning limit; neither an arbitrary parameter point nor mere application of a supplied numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
