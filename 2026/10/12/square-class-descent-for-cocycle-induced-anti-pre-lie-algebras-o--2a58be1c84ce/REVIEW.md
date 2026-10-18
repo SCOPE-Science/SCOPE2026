@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The construction is reconstructed from the nondegenerate symmetric cocycle equation, with all four products and both anti-pre-Lie identities explicitly verified. The complete affine Lie automorphism group provides normal forms and exact orbit separation. Solving the invariant bilinear-form equations proves that two forms induce the same product precisely when they are scalar multiples. The arbitrary-field argument determines the orbit classification; exhaustive computations for \(\mathbf F_3,\mathbf F_5,\mathbf F_7,\mathbf F_{11}\) reproduce the separate form and product counts. Finite checks are not substituted for general proof.
+PASS
 
-## Originality
+On the nonabelian 2D Lie algebra [e1,e2]=e2 in characteristic !=2, the cyclic commutative cocycle identity for symmetric B is alternating trilinear and hence automatic. Solving B(x◦y,z)=B(y,[x,z]) for symmetric determinant Delta=ac-b²!=0 gives the four explicit products; their commutator recovers the bracket and the anti-pre-Lie identities can be checked on a basis. All bracket-preserving F(e1)=e1+u e2, F(e2)=s e2 reduce forms to c=0 off-diagonal case or c!=0 diagonal square class; isomorphism conditions leave precisely P_infty plus K×/(K×)². Recovering B from a fixed multiplication gives exactly one projective line of forms (scalar fibers). Direct group stabilizer counts produce over odd F_q three product isomorphism classes with orbit sizes q and twice q(q-1)/2, exactly q² fixed-basis products, and 2q-1 unprojectivized form orbits. Independently enumerated ALL nonsingular symmetric matrices and orbits for q=3 (18 forms, 9 products, orbits 3,3,3 and 5 form orbits) and q=5 (100 forms, 25 products, orbits 5,10,10 and 9 form orbits). All-field proof is algebraic, not finite extrapolation.
 
-PASS for the combined arbitrary-field cocycle-to-product orbit classification. The complex two-type result is **prior coverage** in Liu–Bai, Example 2.20 and Proposition 2.10. Their article does not state the square-class descent and both finite-field quotients; the full-text later complex classification also lacks these arithmetic counts. Petersson's general arbitrary-field two-dimensional classification could give the abstract \(P_t\) isomorphism normal forms by different names, and its inaccessible interior remains a genuine risk. Neither the abstract of that work nor the overall finite-field count of Petersson–Scherer identifies the cocycle-induced subset, its scalar fibers, and its two distinct orbit spaces.
+## originality
 
-## Value
+PASS
 
-PASS. The cocycle construction is intrinsic to anti-pre-Lie theory, and the theorem resolves its complete moduli on the first nonabelian Lie algebra. It gives a sharp arithmetic contrast between geometric and finite-field classification and quantifies the difference between cocycle data and induced multiplications.
+Liu–Bai 2022 establish construction and two geometric COMPLEX types. Classification over arbitrary fields of ALL 2D nonassociative algebras (Petersson 2000) may already label square-class twists, so no priority is asserted for abstract normal forms alone. The differentiated result is complete cocycle-to-multiplication scalar-fiber map, affine Lie action, quotient of forms vs quotient of products and exact finite-field orbit arithmetic; checked 2004 general count paper gives total algebra classification, not these restricted cocycle-induced counts. Petersson 2000 interior inaccessible: explicit residual risk, not automatic failure because known statements do not imply the restricted orbit census.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural nondegenerate commutative-cocycle construction of anti-pre-Lie algebras has a genuine arithmetic descent phenomenon from two complex types to square-class-indexed types. Distinguishing raw cocycle orbits from induced multiplication orbits and calculating their exact stabilizers and counts addresses a motivated quotient/classification problem, not a random finite-field slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
