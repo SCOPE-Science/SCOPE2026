@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the free class-two model, the center is exactly \(\Lambda^2V\), and two noncentral elements commute exactly when their quotient vectors are linearly dependent because \(v\wedge w=0\) precisely in that case. This gives the projective equal-part complete multipartite graph directly. The formulas for independence, clique number, chromatic number, degree, spectrum, and graph automorphisms follow exactly from that decomposition, and equality cases identify all maximum independent sets and optimal colorings. The packaged checker reconstructs the bracket relation directly in five finite cases.
+PASS
 
-## Originality
+With bracket [v+z,w+z′]=v wedge w, nonzero v can be paired with a linearly independent w, so center is exactly Lambda^2 V. Exterior wedge of two nonzero vectors is zero precisely on common projective one-spaces over every field, including characteristic 2. Each projective line contributes (q-1)q^C central lifts. The adjacency matrix is (J_k-I_k) tensor J_s, yielding stated spectrum and wreath-product automorphisms. Any independent set stays within one maximal part; proper k-colorings must coincide with parts. Separately spot-checked q=2,r=3: 7 parts of 8, 56 vertices, valency 48 and spectrum 48,-8 six times, zero 49 times. Uniform proof is algebraic, not interpolation from finite instances.
 
-PASS. The 2017 and 2021 free-two-step papers provide the exterior-square model but no noncommuting graph calculation. The 2024 graph paper defines the invariant and studies reconstruction questions but its inspected full text contains no free-two-step or multipartite theorem. Seven semantic-database queries plus direct literature searches under exterior-square, projective, complete-multipartite, chromatic, and spectral formulations found no covering result. A short equivalent observation in finite-geometry literature remains the principal bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. The free two-step nilpotent algebra is the universal class-two object at fixed generator rank, making its exact graph a natural benchmark. The result gives substantially more than a degree count: the whole graph, spectrum, automorphism group, every maximum commuting set, and every optimal coloring are explicit and projectively organized.
+PASS with moderate novelty risk: standard free exterior-square model and generic graph constructions are known, but the inspected literature and Resultary matches do not state the full equal-part projective graph, its extremizers and invariants for the free family. It is a short deduction and possible unindexed observation, not a novel classification of arbitrary class-two Lie graphs.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS at the natural-exact-invariant threshold: noncommuting graphs are a studied invariant of finite Lie algebras; this exact complete family with part structure, independence/coloring, spectrum, and full automorphisms forms a reusable boundary/example. Its proof is elementary once the free bracket is written down, which limits depth but does not turn the complete new natural-family invariant into an arbitrary parameter exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
