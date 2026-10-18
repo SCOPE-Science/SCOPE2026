@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md entire two-involution component argument, path-loop obstruction, PGL2 parity lemma and a=4 Jordan boundary inspected; verify.py source read.",
+        "Independent PGL2 matrix order by modular matrix multiplication, independent exhaustive direct sum/product subset checking p=5,7,11,13 for 32 prime-target pairs in scope05_run127/independent_checks.py.",
+        "Full Tang 2026 primary PDF theorem 2.2 and six-cycle proof read, including source target a=1."
+      ],
+      "rationale": "For p>=5 prime and prescribed a!=0 in F_p, an admissible subset is an independent set in the graph whose sum involution is s(x)=a-x and product involution is i(x)=a/x on nonzero x, including loops at a/2 and square roots of a. The sum matching alone gives (p-1)/2 upper bound. Each nondegenerate component is an alternating path or even cycle, plus collapsed double-colored edges; saturation fails by exactly one only if two distinct product-loop roots are endpoints in the same path. With a=u²!=4, f=s∘i has projective matrix [[a,-a],[1,0]], is semisimple and u is not an eigenline. The f-orbit of u has length its PGL2 order m, and the two roots u,-u lie together iff m is even by the involution-reversal symmetry. At a=4 the matrix is nontrivial unipotent of odd projective order p, so no defect. Hence M_p(a)=(p-1)/2 - 1{a quadratic residue and m even}. Independently computed PGL2 matrix powers and brute-force enumerated ALL subsets for all nonzero a over p=5,7,11,13 (32 complete prime-target tests), matching the formula. The infinite-prime conclusion relies on the component and group-action proof, not those finite examples.",
+      "residual_risks": [
+        "p>=5 and a!=0 are essential; no claim for zero targets, characteristic two, extension fields or extremizer counts.",
+        "Finite brute force covers only small primes but supports the general algebraic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang Proposition 2.1 gives A+A=F_p if |A|>p/2; stronger theorem for avoiding a=1 reaches (p-1)/2.",
+          "The finite-field dense sum-product statements constrain large sumsets/product sets but not a fixed common missing target with exact defect."
+        ],
+        "reasoning": "Neither general density threshold nor the a=1 construction dominates the a-dependent sharp formula or projective-order parity classification.",
+        "searches": [
+          "Resultary search: finite field forbidden target common sum product avoidance max independent set projective order involutions",
+          "Tang Sárközy dense sum product one forbidden target any a",
+          "Shao dense finite fields sums products 2026"
+        ]
+      },
+      "checked_sources": [
+        "Q. Tang, arxiv:2603.29992v2, Theorem 2.2, full six-page PDF",
+        "Shao, arxiv:2604.17117, dense finite-field sum-product context",
+        "Resultary semantic search for prescribed sum/product avoidance and PGL2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplication of A by λ sends forbidden sums a→λ a but products a→λ²a, so no simultaneous universal normalization.",
+          "Tang uses (s∘i)^3=id specifically for a=1, whereas general a has variable order m_p(a)."
+        ],
+        "reasoning": "The new projective-order criterion is not a corollary of Tang’s six-cycle construction or of his universal (p-1)/2 upper bound; the a=1 case is credited as covered.",
+        "searches": [
+          "Tang arxiv 2603.29992 Theorem 2.2 Remark 2.4",
+          "sum-product forbidden target homothety scaling a square nonsquare"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang Theorem 2.2 and full proof treat target 1 with transformations x->1-x and x->1/x.",
+          "Present target-a transform f(x)=a-a/x has a variable projective order m_p(a), giving defect-one cases."
+        ],
+        "reasoning": "The exact equivalent formulation is a maximum independent set in the two-involution colored graph with loops; Tang gives this for the special a=1 graph only, whose orbit geometry differs for general a.",
+        "searches": [
+          "Resultary search: finite field forbidden target common sum product avoidance max independent set projective order involutions",
+          "finite field common prescribed forbidden sum product a involution two-colored graph independent set",
+          "Tang 2026 1 target six-cycle group generalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tang gives examples for target 1 only, not an all-prime all-nonzero-target maximum table.",
+          "Independent brute-force 32 small target cases reproduces M7(1)=3, M7(2)=2, M11(3)=4."
+        ],
+        "reasoning": "Small published examples or bounded finite check tables would not mechanically imply the uniform parity/order theorem for infinitely many primes.",
+        "searches": [
+          "M7(2) forbidden sum product target 2 independent set",
+          "small p Fp sumset product set omission maximizing subsets",
+          "Resultary search: finite field forbidden target common sum product avoidance max independent set projective order involutions"
+        ]
+      },
+      "rationale": "Tang (arXiv 2603.29992, 2026) proves a sharp (p-1)/2 construction avoiding only target 1 and classifies its two-involution graph using the special six-cycle anharmonic group generated by x↦1-x and x↦1/x. For arbitrary a the forbidden sum maps by λ but forbidden product by λ², so a cannot generally be normalized simultaneously to 1. The PGL2 order criterion varies with a (e.g. M_7(1)=3 but M_7(2)=2), genuinely extending rather than restating that theorem. Exact graph independent-set extremum for all nonzero a was not identified by Resultary or finite-field literature comparisons. Tang’s existing general |A|>p/2 bound is weaker than the exact target-specific one-unit defect.",
+      "residual_risks": [
+        "Earlier graph independent-set characterizations under involution/Cayley graph language might recover the target-order criterion.",
+        "Novelty search cannot eliminate unindexed previous formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_TARGET_ONE_COVERAGE",
+          "evidence": "The published construction addresses a=1, projective six-cycles; it does not classify all a or the defect-one event.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.29992",
+          "material_read": "Entire six-page arXiv v2 PDF text, especially Theorem 2.2, §2 component enumeration and source involution transformations; relevant page screenshot also read.",
+          "method": "Lawful arXiv PDF and rendered page, source math compared.",
+          "title": "A counterexample to a conjecture of Sárközy on sums and products modulo a prime",
+          "trigger": "Closest same finite-field problem and target 1 proof."
+        },
+        {
+          "assessment": "BROAD_SUM_PRODUCT_NOT_DECISIVE",
+          "evidence": "General density of entire sumsets/product sets is not the same explicit one-value omission maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.17117",
+          "material_read": "Title, abstract and reference setting, not full paper; no whole-paper noncoverage assertion.",
+          "method": "Arxiv abstract/topic comparison only.",
+          "title": "The sum-product phenomenon for dense subsets of finite fields",
+          "trigger": "Potential broader dense finite-field theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.29992",
+        "https://arxiv.org/abs/2604.17117"
+      ],
+      "rationale": "The exact maximal density for avoiding a fixed nonzero common sum/product target is a natural refinement of Tang’s counterexample to a named finite-field conjecture. The one-unit drop is controlled by nontrivial PGL2 orbit parity, and it explicitly shows why the target-1 construction cannot be uniformized to all a. A sharp complete formula is valuable independently of any general sum-product theorem.",
+      "residual_risks": [
+        "Does not enumerate extremizing sets or treat target zero and extension fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Prime p>=5; target a in F_p^× only.",
+    "Exact maximum size, not count or classification of maximizers.",
+    "Target 1 result is prior; variable-target defect is the assessed extension."
+  ]
+}
