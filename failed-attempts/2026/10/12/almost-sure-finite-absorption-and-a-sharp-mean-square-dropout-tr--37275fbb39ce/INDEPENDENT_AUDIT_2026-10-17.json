@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The update maps are failure (x,e)->(x,x+e) and success (x,e)->(-e,0). Two consecutive successes annihilate the state and occur almost surely. Conditioning on first success gives a_k=q^k+sum_{t=2}^k p q^(t-1)(t-1)^2 a_(k-t); hence A(z)=(1-qz)^2/((1-qz)^3-pqz^2(1+qz)). The positive aperiodic kernel has a unique smallest simple positive root giving the growth rate. W_p(1)=q(2-p)/p^2 crosses one at p=2/3; at criticality the GF pole residue is 2/5. Independent exact Bernoulli trace enumeration verified finite moments. Source theorem correct only for scalar unit step, zero memory, independent on/off compressors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "R4 proves for all s>0 exact scalar mean-square threshold and entire 3x3 moment matrix; current fixed unit s=1 is a special case"
+        ],
+        "reasoning": "R4 is strictly broader in step-size parameter and directly implies the submitted sharp stability boundary. General EF convergence papers were not needed to find coverage.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+          "Stich 2018 arxiv:1809.07599",
+          "Stich Karimireddy arxiv:1909.05350"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "arxiv:1809.07599",
+        "arxiv:1909.05350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R4 displayed two branch matrices, q_cyc(s)=1-2s/p+(2-p)s^2/p^2, and exact threshold 2p/(2-p). At s=1, q_cyc(1)-1=(2-3p)/p^2. Two success matrices at s=1 multiply to zero."
+        ],
+        "reasoning": "The submitted infinite-time threshold, a.s. termination and critical expectation are direct routine calculations from R4. C remains PASS, O/V fail.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior exact EF recursion has update u=e+s x, success x^+=(1-s)x-e, failure e^+=e+s x; setting s=1 gives exactly the current state maps"
+        ],
+        "reasoning": "The prior mean-square condition 0<s<2p/(2-p) specializes at s=1 to p>2/3; the critical case corresponds to moment eigenvalue one.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+          "Resultary semantic: error feedback gradient descent stochastic Bernoulli compression 2/3 mean square vs almost sure absorption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same exact Bernoulli laws in R4; present critical limit 2/5 is a simple residue of specialization, not a known table entry"
+        ],
+        "reasoning": "No finite database dominates independently, but the analytic prior formula gives all parameters of the claimed phase boundary; numerical table differences cannot establish novelty.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+        ]
+      },
+      "rationale": "Failed originality: previously published 2026-10-04 exact same scalar Bernoulli error-feedback recurrence establishes sharp mean-square stability iff 0<s<2p/(2-p), with the explicit two-state success/failure matrices, full moment operator and geometric-waiting-time multiplier E[(1-Js)^2]. Setting s=1 yields exactly the p=2/3 frontier. Two-success finite absorption is immediate from the printed s=1 matrices, and critical 2/5 limit is routine eigenprojection/partial fractions of that known second-moment operator. The conjunction is a straightforward refinement of the established complete boundary, not independent new core mathematics.",
+      "residual_risks": [
+        "Prior paper does not explicitly state exact critical limit 2/5 or sample-path absorption, but both are short mechanical consequences of its displayed complete state matrices and moment operator; rejection does not assert those literal words appear.",
+        "Mean-square divergence does not contradict almost-sure finite hitting because rare large transient errors dominate moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT COVERAGE: all-s sharp stability theorem gives submitted p=2/3 case; success matrices additionally yield a.s. absorption",
+          "evidence": "Prior P(1)=p*s*(2p-(2-p)*s); same geometric step epoch q_cyc(s), setting s=1 gives threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+          "material_read": "Complete published RESULT.md: finding, three-moment operator, four Jury conditions, proof, renewal cycling and limitations",
+          "method": "Read complete primary published mathematical result",
+          "title": "Sharp mean-square stability loss for Bernoulli error-feedback sparsification",
+          "trigger": "Identical scalar Bernoulli EF objective and normalization"
+        },
+        {
+          "assessment": "Background only, decisive same-model prior is R4",
+          "evidence": "Published general theory is not needed to decide rejection.",
+          "identifier_or_url": "arxiv:1909.05350",
+          "material_read": "Method and Bernoulli compressor setting discussed in source and publicly available relevant article material",
+          "method": "Compared algorithm normalization and source discussion; exact paper not used to assert full-text noncoverage",
+          "title": "The Error-Feedback Framework: SGD with Delayed Gradients",
+          "trigger": "Original canonical EF compressor and baseline theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Failed independent value despite correctness: the main mean-square transition is an exact corollary of the earlier same-model sharp step-size theorem, while the two-consecutive-success absorption and critical constant follow by short elementary matrix and rational generating-function calculations; the already known boundary dominates the proposed gain.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+    "arxiv:1809.07599",
+    "arxiv:1909.05350"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Prior paper does not explicitly state exact critical limit 2/5 or sample-path absorption, but both are short mechanical consequences of its displayed complete state matrices and moment operator; rejection does not assert those literal words appear.",
+    "Mean-square divergence does not contradict almost-sure finite hitting because rare large transient errors dominate moments."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DIRECT COVERAGE: all-s sharp stability theorem gives submitted p=2/3 case; success matrices additionally yield a.s. absorption",
+      "evidence": "Prior P(1)=p*s*(2p-(2-p)*s); same geometric step epoch q_cyc(s), setting s=1 gives threshold.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+      "material_read": "Complete published RESULT.md: finding, three-moment operator, four Jury conditions, proof, renewal cycling and limitations",
+      "method": "Read complete primary published mathematical result",
+      "title": "Sharp mean-square stability loss for Bernoulli error-feedback sparsification",
+      "trigger": "Identical scalar Bernoulli EF objective and normalization"
+    },
+    {
+      "assessment": "Background only, decisive same-model prior is R4",
+      "evidence": "Published general theory is not needed to decide rejection.",
+      "identifier_or_url": "arxiv:1909.05350",
+      "material_read": "Method and Bernoulli compressor setting discussed in source and publicly available relevant article material",
+      "method": "Compared algorithm normalization and source discussion; exact paper not used to assert full-text noncoverage",
+      "title": "The Error-Feedback Framework: SGD with Delayed Gradients",
+      "trigger": "Original canonical EF compressor and baseline theory"
+    }
+  ]
+}
