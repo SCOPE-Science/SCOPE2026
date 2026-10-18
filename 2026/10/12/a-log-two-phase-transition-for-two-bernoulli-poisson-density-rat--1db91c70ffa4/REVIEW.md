@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(s=p+q\) and \(\Delta=(p^2+q^2)/s\), the identity \(2pq=s(s-\Delta)\) gives the exact ratios \(r_1=e^s(1-s+\Delta)\) and \(r_2=e^s(1-\Delta/s)\), while \(r_0<1\). The feasible inequalities \(\Delta\le s\le2\Delta\) are exact. At fixed \(\Delta\), \(r_1\) decreases and \(r_2\) increases in \(s\), so their sharp endpoint bounds are \(e^\Delta\) and \(e^{2\Delta}/2\). Endpoint feasibility and equality in the quadratic inequalities give the complete extremizer classification. The strict comparison with \(1/(1-\Delta)\) is verified analytically on both sides of \(\log2\). The standalone checker independently replays the exact formulas on a dense grid but is not part of the proof.
+## correctness
 
-## Originality
-PASS. The primary paper defines the same density ratio and \(\Delta\), proves the \((1-p_*)^-1\) bound, and explicitly conjectures replacement of \(p_*\) by \(\Delta\). Its inspected full text does not isolate or solve the two-active-parameter case. The broader density-ratio paper treats homogeneous binomial laws and therefore covers the one-active and equal-two endpoint families separately, but it does not optimize arbitrary heterogeneous pairs at fixed \(\Delta\) or state the \(\log2\) extremizer transition. Candidate-specific published-finding corpus and web searches did not locate the fixed-\(\Delta\) two-Bernoulli envelope.
+PASS
 
-Residual risk: older relative-error work on binomial or Poisson-binomial approximation may contain an equivalent elementary two-parameter calculation under different language, although the located older abstracts focus on homogeneous binomial approximation or distribution-function relative error.
+Independently derived the Poisson-to-two-Bernoulli density ratios r_0=e^s(1-p)(1-q)<1, r_1=e^s(1-s+Delta), r_2=e^s(1-Delta/s), with s=p+q and 2pq=s(s-Delta). Feasible Delta<=s<=2Delta, with endpoints corresponding respectively to (Delta,0) and (Delta,Delta). At fixed Delta derivative of r1 is e^s(Delta-s)<=0, while derivative of r2 is e^s(1-Delta/s+Delta/s^2)>0. The global envelope is therefore max(e^Delta,e^(2Delta)/2), with crossover Delta=log2 and equality family exactly as claimed, including both at the crossover. Strict comparison with 1/(1-Delta) follows by log-convexity for first branch and decreasing (1-Delta)e^(2Delta) above log2. Independent grid of 2,499 parameter pairs showed at most 8.9e-16 floating overshoot; analytic derivative proof, not grid, covers the continuum and boundaries p=0/q=0.
 
-## Value
-PASS. The result completely resolves the first heterogeneous finite-dimensional case of an explicit open density-ratio conjecture, supplies the exact stronger envelope rather than only the conjectured bound, and identifies a nontrivial structural phase transition in the extremizer at \(\Delta=\log2\). This is a natural sharp classification tied directly to the source problem, not an arbitrary parameter slice.
+## originality
 
-## Closest literature and limitations
-The closest source is Dümbgen--Wellner, arXiv:1910.03444, especially Theorem 1 and the sentence immediately following it. Dümbgen--Samworth--Wellner, arXiv:1905.03009, Section 3.1 and the proof of Theorem 3, is the closest broader density-ratio analysis. The claim is restricted to at most two active Bernoulli parameters and does not address higher support size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact heterogeneous fixed-Delta envelope and log-two endpoint switch were not found in the inspected 2019/2020 original conjecture or 2021 homogeneous binomial density-ratio theorem. Prior homogeneous formulas give the candidate endpoints, but proving all interior heterogeneous pairs are dominated requires the monotone-in-s identity. Best-of-knowledge original complete natural two-Bernoulli layer; older 2005 relative-error paper remains a specific residual equivalence risk.
+
+## value
+
+PASS
+
+This solves a natural complete smallest heterogeneous case of a specifically stated density-ratio conjecture, finding the exact extremizer and nontrivial log2 symmetry-breaking boundary. Those facts control sharp approximation error for a meaningful two-summand Poisson-binomial class and are not a mere generic calculus exercise when the fixed-Delta optimization and two competing masses are taken together.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

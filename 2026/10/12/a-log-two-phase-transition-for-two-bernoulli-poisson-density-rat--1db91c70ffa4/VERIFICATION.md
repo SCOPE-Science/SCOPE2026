@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For two independent Bernoulli variables with parameters \(p,q\), write \(s=p+q\) and \(\Delta=(p^2+q^2)/s\). The proof uses the exact identities
-\[
-2pq=s(s-\Delta),
-\]
-\[
-r_1=e^s(1-s+\Delta),
-\qquad
-r_2=e^s\left(1-\frac{\Delta}{s}\right),
-\]
-and the exact feasible bounds
-\[
-\Delta\le s\le2\Delta.
-\]
-The first ratio decreases and the second increases in \(s\) at fixed \(\Delta\), yielding the two endpoint candidates \(e^\Delta\) and \(e^{2\Delta}/2\). Their equality point is exactly \(\Delta=\log2\).
+# Independent mathematical audit
 
-The standalone `VERIFY.py` reads no external data. It checks the exact ratios against their closed forms on a dense grid of rational Bernoulli parameters, verifies the sharp fixed-\(\Delta\) envelope numerically, checks representative equality cases on both sides of \(\log2\), and verifies that the envelope is strictly smaller than \(1/(1-\Delta)\). The finite checks are regression tests only and are not used to justify the analytic theorem.
+## correctness
 
-Unproved limit: nothing in this package proves the conjectured \(\Delta\)-bound for three or more active Bernoulli parameters.
+PASS
+
+Independently derived the Poisson-to-two-Bernoulli density ratios r_0=e^s(1-p)(1-q)<1, r_1=e^s(1-s+Delta), r_2=e^s(1-Delta/s), with s=p+q and 2pq=s(s-Delta). Feasible Delta<=s<=2Delta, with endpoints corresponding respectively to (Delta,0) and (Delta,Delta). At fixed Delta derivative of r1 is e^s(Delta-s)<=0, while derivative of r2 is e^s(1-Delta/s+Delta/s^2)>0. The global envelope is therefore max(e^Delta,e^(2Delta)/2), with crossover Delta=log2 and equality family exactly as claimed, including both at the crossover. Strict comparison with 1/(1-Delta) follows by log-convexity for first branch and decreasing (1-Delta)e^(2Delta) above log2. Independent grid of 2,499 parameter pairs showed at most 8.9e-16 floating overshoot; analytic derivative proof, not grid, covers the continuum and boundaries p=0/q=0.
+
+## originality
+
+PASS
+
+The exact heterogeneous fixed-Delta envelope and log-two endpoint switch were not found in the inspected 2019/2020 original conjecture or 2021 homogeneous binomial density-ratio theorem. Prior homogeneous formulas give the candidate endpoints, but proving all interior heterogeneous pairs are dominated requires the monotone-in-s identity. Best-of-knowledge original complete natural two-Bernoulli layer; older 2005 relative-error paper remains a specific residual equivalence risk.
+
+## value
+
+PASS
+
+This solves a natural complete smallest heterogeneous case of a specifically stated density-ratio conjecture, finding the exact extremizer and nontrivial log2 symmetry-breaking boundary. Those facts control sharp approximation error for a meaningful two-summand Poisson-binomial class and are not a mere generic calculus exercise when the fixed-Delta optimization and two competing masses are taken together.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:10:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derived the Poisson-to-two-Bernoulli density ratios r_0=e^s(1-p)(1-q)<1, r_1=e^s(1-s+Delta), r_2=e^s(1-Delta/s), with s=p+q and 2pq=s(s-Delta). Feasible Delta<=s<=2Delta, with endpoints corresponding respectively to (Delta,0) and (Delta,Delta). At fixed Delta derivative of r1 is e^s(Delta-s)<=0, while derivative of r2 is e^s(1-Delta/s+Delta/s^2)>0. The global envelope is therefore max(e^Delta,e^(2Delta)/2), with crossover Delta=log2 and equality family exactly as claimed, including both at the crossover. Strict comparison with 1/(1-Delta) follows by log-convexity for first branch and decreasing (1-Delta)e^(2Delta) above log2. Independent grid of 2,499 parameter pairs showed at most 8.9e-16 floating overshoot; analytic derivative proof, not grid, covers the continuum and boundaries p=0/q=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original theorem when lambda<=1 yields rho<=e^Delta; the maximizer p=q=Delta with Delta>log2 has lambda=2Delta>1 and attains 0.5 e^(2Delta)>e^Delta.",
+          "Prior n=2 binomial result identifies p=q endpoint exactly."
+        ],
+        "reasoning": "The lambda<=1 result does not imply the high-Delta branch; knowing both endpoint exact binomial ratios does not imply arbitrary p!=q cannot exceed endpoints. The current optimization supplies this missing implication.",
+        "searches": [
+          "Dümbgen Wellner lambda at most 1 exp Delta theorem",
+          "Antonelli Regoli 2005 Poisson-binomial relative error",
+          "Poisson binomial versus Poisson density ratio sharp 2 Bernoulli Delta log 2 phase transition"
+        ]
+      },
+      "checked_sources": [
+        "Dümbgen and Wellner arXiv:1910.03444",
+        "Dümbgen Samworth Wellner arXiv:1905.03009",
+        "Antonelli Regoli DOI 10.1016/j.spl.2004.11.009 (limited access)",
+        "Resultary Poisson binomial versus Poisson density ratio sharp 2 Bernoulli Delta log 2 phase transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed Delta, assigned derivative proof compares every s in [Delta,2Delta] and shows max at two distinct boundary laws.",
+          "Dümbgen & Wellner explicitly state a conjecture for arbitrary numbers of active Bernoulli parameters; their sufficient smaller-lambda condition does not settle this full two-summand subcase."
+        ],
+        "reasoning": "The general conjecture is unresolved in the inspected 2019 source; the current theorem is a genuine proved special case plus exact envelope. It is not simply renaming the previously known homogeneous ratio.",
+        "searches": [
+          "Poisson binomial versus Poisson density ratio sharp 2 Bernoulli Delta log 2 phase transition",
+          "arXiv:1910.03444v1 conjectured Delta density ratio",
+          "arXiv:1905.03009 binomial density ratio bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dümbgen & Wellner 2019/2020 defines rho and Delta exactly, proves 1/(1-p*) and conjectures replacing p* by Delta.",
+          "Dümbgen, Samworth & Wellner 2021 handles homogeneous binomial special cases but not fixed heterogeneous Delta optimization."
+        ],
+        "reasoning": "Equivalent formulation is optimizing max(r1,r2) along p²+q²=Delta(p+q); the cited papers do not state the two-branch continuum envelope across unequal p,q.",
+        "searches": [
+          "Poisson binomial versus Poisson density ratio sharp 2 Bernoulli Delta log 2 phase transition",
+          "Dümbgen Wellner Poisson binomial Poisson supremum density ratio Delta pstar",
+          "binomial to Poisson density ratio homogeneous n 1 n 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact binomial point-mass table contains the one-active and equal-Bernoulli endpoints only.",
+          "Resultary semantic published findings produced no exact two-parameter table; search was compared at statement rather than numeric match level."
+        ],
+        "reasoning": "A table listing endpoint values does not by itself certify sharpness over the heterogeneous feasible curve; no dedicated discrete database of all pairs exists. Failure to find a table is not proof of originality.",
+        "searches": [
+          "two Bernoulli Poisson density ratio log 2 table bound",
+          "Dümbgen Samworth Wellner 2021 n=2 binomial density ratio",
+          "Poisson binomial versus Poisson density ratio sharp 2 Bernoulli Delta log 2 phase transition"
+        ]
+      },
+      "rationale": "The exact heterogeneous fixed-Delta envelope and log-two endpoint switch were not found in the inspected 2019/2020 original conjecture or 2021 homogeneous binomial density-ratio theorem. Prior homogeneous formulas give the candidate endpoints, but proving all interior heterogeneous pairs are dominated requires the monotone-in-s identity. Best-of-knowledge original complete natural two-Bernoulli layer; older 2005 relative-error paper remains a specific residual equivalence risk.",
+      "residual_risks": [
+        "2005 Antonelli-Regoli relative-error primary full text not obtained; may contain equivalent two-Bernoulli envelope.",
+        "Claim deliberately does not extend to three or more active Bernoulli variables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR; does not state fixed-Delta two-parameter sharp envelope for all lambda.",
+          "evidence": [
+            "Theorem 1 and Theorem 2; Delta conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.03444",
+          "material_read": "Complete lawful arXiv text including density-ratio definition, pstar bound, lambda<=1 logarithmic theorem and conjecture replacing pstar by Delta.",
+          "method": "ArXiv full PDF and rendered theorem pages",
+          "title": "The density ratio of Poisson binomial versus Poisson distributions",
+          "trigger": "Same Delta, rho and conjectured bound"
+        },
+        {
+          "assessment": "ENDPOINT cases only; no proof of unequal-p,q maximization at fixed Delta.",
+          "evidence": [
+            "Homogeneous binomial density-ratio discussion and explicit binomial formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.03009",
+          "material_read": "Full primary article material on binomial-to-Poisson density-ratio formulas, conditions and homogeneous parameter cases.",
+          "method": "Lawful arXiv preprint full text",
+          "title": "Bounding distributional errors via density ratios",
+          "trigger": "Published homogeneous n=1,2 endpoint results may dominate"
+        },
+        {
+          "assessment": "NOT JUDGED non-covering as a whole; possible equivalent elementary two-variable formula is retained as risk.",
+          "evidence": [
+            "2005 article title and focus on relative error, no exact full theorem inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2004.11.009",
+          "material_read": "Bibliographic title and abstract-level material; complete text not accessed.",
+          "method": "Public index/bibliographic metadata only",
+          "title": "On the Poisson-binomial relative error",
+          "trigger": "Closest older possibly equivalent bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a natural complete smallest heterogeneous case of a specifically stated density-ratio conjecture, finding the exact extremizer and nontrivial log2 symmetry-breaking boundary. Those facts control sharp approximation error for a meaningful two-summand Poisson-binomial class and are not a mere generic calculus exercise when the fixed-Delta optimization and two competing masses are taken together.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Allows p or q equal zero but not parameters equal one; Delta in (0,1).",
+    "No resolution for three or more positive Bernoulli parameters; older 2005 relative-error theorem not inspected in full."
+  ]
+}
