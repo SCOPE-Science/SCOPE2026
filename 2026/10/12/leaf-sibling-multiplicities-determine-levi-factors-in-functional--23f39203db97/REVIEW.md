@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the full Leibniz system. Non-sink square relations force non-leaf columns to be diagonal and propagate diagonal coefficients by a factor of two toward the sinks. Mixed products eliminate every off-diagonal term except sink-valued leaf maps and weighted skew maps among leaf siblings. The bracket calculation shows these pieces form the asserted semidirect Lie algebra. The independent packaged finite checker agrees with the dimension formula on all \(892\) labeled admissible forests through dimension \(5\) over two large prime reductions.
+## correctness
 
-## Originality
-PASS. The closest archive source, Camacho–Gómez–Omirov–Turdibaev, classifies rank-
-\(n-1\) derivations and therefore includes chain-like special cases only. The most relevant graph/twin full text, Cabrera Casado–Cadavid–Rodiño Montoya–Rodriguez, focuses on non-degenerate algebras and gives coefficient constraints rather than this degenerate forest solution. Maximal-nilindex and rank-
-\(n-2\) papers likewise cover proper low-corank subfamilies. No inspected source or searched mathematical record states the arbitrary-rank leaf-sibling orthogonal decomposition, its dimension formula, or the solvability threshold. Residual risk remains for specialized low-rank literature not fully accessible.
+PASS
 
-## Value
-PASS. The theorem gives a complete structural invariant for an infinite and naturally graph-defined class, rather than a one-off computation. The exact Levi factor shows that a nilpotent evolution algebra can have a nonsolvable derivation algebra precisely when a parent has at least three leaf children, a sharp and easily testable graph criterion.
+From D(e_v^2)=2e_vD(e_v), each parent vertex has a diagonal derivation column and diagonal coefficients satisfy d_parent,parent=2d_v,v. Thus one depth-scaled parameter per sink. From D(e_u e_v)=0, off-diagonal coefficients from distinct non-sink vertices vanish unless the vertices are siblings; nonleaf columns are already diagonal, so only leaf siblings contribute X satisfying C_p X+X^T C_p=0. Every leaf may map arbitrarily into every sink: these |S||L| coefficients form an abelian ideal B because S and L are disjoint without isolated roots. Separate sibling blocks commute, as do depth-scalings with each orthogonal block, giving the stated Lie semidirect decomposition. In char 0, so(C_p) is semisimple for lambda_p>=3, one-dimensional abelian for lambda_p=2, zero for lambda_p<=1, proving the exact Levi decomposition and solvability boundary. Independent linear-system rank on 3-leaf star with weights (1,2,3) gave dim 7, and a pair of disjoint 1-leaf components gave dim 6; supplied verify.py independently formulates finite derivation equations for 892 small forests but is not taken as an all-dimension proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Established derivation classifications for nondegenerate evolution algebras, maximal nilindex and matrix rank near n-1 concern incompatible or narrower cases. Graph/twin constraints are prior methodology; the exact sibling-leaf orthogonal Lie factors and semisimplicity boundary appear additional for arbitrary functional-square rooted forests in the inspected primary sources.
+
+## value
+
+PASS
+
+Gives a full structural, not merely numeric, derivation Lie algebra classification on an unrestricted natural nilpotent graph family; identifies the exact graph-theoretic onset of a non-solvable Levi factor. The dimension and solvability condition serve as reusable invariants distinguishing branching patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
