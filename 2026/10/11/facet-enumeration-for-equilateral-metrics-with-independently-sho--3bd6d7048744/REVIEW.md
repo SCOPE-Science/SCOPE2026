@@ -1,19 +1,21 @@
-# Scientific review: facet enumeration for independently shortened metric pairs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite Lipschitz polytope, vertexhood is exactly connectedness of the graph of tight inequalities, because active normals are incidence vectors modulo constants. Since the short edges form a disconnected matching for all \(n\ge3\), every extreme potential has a tight cross-edge of length \(1\), and its range is precisely \(1\). Normalizing the range to \([0,1]\), every singleton must be a lower or upper anchor, and every matched pair must be in one of three lower or three upper states. Conversely every listed assignment involving both group polarities is feasible and has a connected tight graph. Counting then yields \(3^k(2^{n-k}-2)\). Polar duality turns the dual-vertex count into the primal facet count. Independent integer-arithmetic enumeration succeeded for \(36\) bounded test cases. The analytic argument, not those finite checks, justifies the universal quantifiers.
+PASS
 
-## Originality — PASS, with residual risk
+For 0<t_i<1 on a matching, every vertex of the dual Lip_0 polytope has connected tight-constraint graph (rank of signed incidence normals equals n-1). Because the k short edges alone cannot connect n≥3 vertices, a tight unit edge forces global range 1; all singleton values are anchors 0 or 1 and each short pair must take exactly one of six lower/upper short-tight states. Both group polarities are necessary and sufficient for a connected tight graph, with an all-to-all tight 0–1 anchor core. Therefore precisely 6^k*2^(n−2k)−2*3^k=3^k(2^(n−k)−2) dual vertices, hence primal facets by polarity. A separately written integer potential enumerator independently counted all vertices for every n=3..6 and k≤floor(n/2), using short lengths 2/6,3/6,4/6. This is corroboration; proof covers all real 0<t_i<1.
 
-García-Lirola et al. (arXiv:1707.09307) and Aliaga–Pernecká (arXiv:1810.11278) study primal free-space extremality. Gordon–Petrov (arXiv:1608.06848) develop Lipschitz-polytope combinatorics and a generic-metric counting framework; their tight-graph criterion is relevant prior structure, but their generic formulas do not cover every metric of this highly symmetric non-generic family, nor provide the stated independent-pair state classification. Higashitani–Jochemko–Michałek (arXiv:1807.07678) cover unweighted graph-metric symmetric edge polytopes, and Çelik et al. (arXiv:2003.06725) cover discrete and other structured metrics. Direct statement/implication comparisons did not reveal the arbitrary matching count. The well-known equilateral case is an included benchmark, not the claim of novelty. Equivalent calculations may still exist in unindexed weighted-metric or polytope literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Disjoint short edges provide a natural independently parametrized deformation of the equilateral metric, isolating multiple local metric defects without complicated consistency constraints. Their facet geometry is surprisingly rigid under independent continuous variation yet has exponential amplification versus the equilateral case: when \(n=2k\), the ratio is asymptotically \((3/2)^k\). The result is a complete closed-form classification for an infinite family of dimensions and continuous parameters, useful for weighted metric polytopes and Lipschitz-free dual geometry; it does not rely on an arbitrary finite table or cosmetic reformulation.
+This is the non-generic matching-contracted equilateral metric family; general tight-edge connectivity appears in Gordon–Petrov, but their generic-metric enumerations and primal molecule results do not entail the exact six-state arbitrary-real-parameter count. Indexed related multipartite-family facet jumps have different short-edge overlap and parameter domain. k=0 equilateral case is classical and not independently new.
 
-## Boundaries
+## value
 
-The theorem does not cover overlapping short edges, the degenerate length-zero case, or the complete face vector. Independent literature verification remains advisable. All listed computations are finite checks supplementary to the proof.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+An entire natural finite metric deformation (any matching and all independent short lengths) has an exact full dual vertex classification and parameter-invariant facet number, sharply changing at boundary t_i=1; a reusable concrete structural enumerative formula, not a random small numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

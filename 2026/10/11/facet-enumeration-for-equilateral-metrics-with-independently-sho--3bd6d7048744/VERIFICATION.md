@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof reduces vertexhood to the rank of incidence normals in the active tight-edge graph; every disconnected tight graph admits a feasible small perturbation. The fact that the short edges form a matching forces a cross-edge, global range one, and exactly the six paired states. The connected complete-bipartite anchor core proves sufficiency. The resulting count follows from disjoint exclusions of all-lower and all-upper assignments and standard polar duality.
+## correctness
 
-The standalone `matching_facet_checker.py` gives a separate finite check. It enumerates all labeled spanning trees using Prüfer sequences, imposes every signed set of tight metric equalities, solves their potentials over integers, and retains the feasible ones. For \(3\le n\le6\) and every admissible \(k\), three independent rational length settings were tested: \(36\) test cases in total (some repeated when \(k=0\)), all matching the analytic classification. Run with `python matching_facet_checker.py` using Python's standard library. This enumeration is exact within its checked sizes, not a certificate for arbitrary dimensions or all real parameters.
+PASS
 
-The duality statement requires real scalar fields and finite-dimensional polyhedral polarity. The claim is restricted to disjoint short pairs with lengths strictly between zero and one. No independent audit has been performed.
+For 0<t_i<1 on a matching, every vertex of the dual Lip_0 polytope has connected tight-constraint graph (rank of signed incidence normals equals n-1). Because the k short edges alone cannot connect n≥3 vertices, a tight unit edge forces global range 1; all singleton values are anchors 0 or 1 and each short pair must take exactly one of six lower/upper short-tight states. Both group polarities are necessary and sufficient for a connected tight graph, with an all-to-all tight 0–1 anchor core. Therefore precisely 6^k*2^(n−2k)−2*3^k=3^k(2^(n−k)−2) dual vertices, hence primal facets by polarity. A separately written integer potential enumerator independently counted all vertices for every n=3..6 and k≤floor(n/2), using short lengths 2/6,3/6,4/6. This is corroboration; proof covers all real 0<t_i<1.
+
+## originality
+
+PASS
+
+This is the non-generic matching-contracted equilateral metric family; general tight-edge connectivity appears in Gordon–Petrov, but their generic-metric enumerations and primal molecule results do not entail the exact six-state arbitrary-real-parameter count. Indexed related multipartite-family facet jumps have different short-edge overlap and parameter domain. k=0 equilateral case is classical and not independently new.
+
+## value
+
+PASS
+
+An entire natural finite metric deformation (any matching and all independent short lengths) has an exact full dual vertex classification and parameter-invariant facet number, sharply changing at boundary t_i=1; a reusable concrete structural enumerative formula, not a random small numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
