@@ -1,0 +1,19 @@
+# Scientific assessment: commuting square-zero pairs over finite dual numbers
+
+## Correctness
+
+**PASS.** The exact object is a labeled ordered pair of commuting square-zero matrices of size three over \(\mathbb F_q[\varepsilon]/(\varepsilon^2)\), with \(q\) odd. Every nonzero square-zero reduction has rank one; its number is \((q^2-1)(q^2+q+1)\). Commuting nonzero reductions annihilate each other. A complete normal form then gives exactly four disjoint reduction strata and their population counts. Substitution of arbitrary first-order perturbations into the three equations yields an explicit homogeneous linear system; its nullities are \(18,10,9,8\), including the crucial odd-characteristic condition \(2h=0\) on the proportional stratum. The resulting finite-field formula follows by exact summation. The included checker independently builds these linear systems, enumerates all commuting square-zero reduction pairs over prime fields \(2\) and \(3\), and checks representative ranks over prime fields \(2,3,5,7\); it returns `VERIFY_OK`. The finite checks corroborate rather than prove the arbitrary odd-prime-power theorem.
+
+## Originality
+
+**PASS, with residual literature risk.** The contribution is the simultaneous *commuting* square-zero **dual-number lift distribution** and its closed labeled count in odd characteristic. The closest established works are single-matrix similarity classifications over finite local principal rings (Avni–Onn–Prasad–Vaserstein, arXiv:0708.1608; Prasad–Singla–Spallone, arXiv:1212.6157), coexistence of field-matrix similarity classes with commuting representatives (Britnell–Wildon, arXiv:1001.0811), and simultaneous *field* conjugacy of commuting matrices (Sharma, arXiv:1409.2698). Each has a strictly different requested invariant or coefficient ring; an orbit classification of one matrix cannot, by itself, give the simultaneous constrained lift count. Previously recorded three-dimensional exterior-algebra representation geometry gives the **anticommuting** equation. Its characteristic-two commuting specialization is already covered and is not claimed; for odd characteristic the proportional-reduction fiber dimension differs (\(9\) here versus \(10\) there). Previously recorded single square-zero \(2\)-by-\(2\) matrices over a different local algebra likewise do not cover it. Actual semantic record searches found no direct match. Searches cannot certify global novelty and inaccessible or unlocated more specialized literature remains a residual risk.
+
+## Value
+
+**PASS.** The object is the representation scheme of the commutative square-zero two-generator algebra in dimension three, evaluated over first-order thickenings of a finite field. Its labeled count measures a natural simultaneous deformation invariant that is not determined by a count over the residue field alone or by single-matrix similarity. Dimension three is the first size admitting two linearly independent nonzero square-zero commuting reductions, so the four distinct strata are structurally forced rather than an arbitrary numerical slice. The odd-characteristic proportional-stratum defect isolates a concrete deformation difference between commutative and exterior relations. The theorem is a complete closed distribution for all odd prime powers, not a small finite census.
+
+## Scope and risk
+
+No reduction of the full scheme to its reduced support is assumed or asserted. The statement does not cover characteristic two, matrix sizes other than three, or similarity-orbit enumerations. Some relevant complete historical sources may not be discoverable; absolute uniqueness and independent validation are not claimed. Publicly documented finite tests are exact checks and do not replace the proof.
+
+Self-review: passed. Independent audit: not yet performed.
