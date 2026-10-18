@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the stopped quantum instrument rather than inferring it only from classical decision probabilities. The first-hit error is the exact gambler's-ruin value \(p_m=p^m/(p^m+(1-p)^m)\). More importantly, every stopped path reaching the same score boundary has a Kraus product proportional to the same positive diagonal operator; this makes each coarse-grained terminal map rank one and fixes the effective Kraus pair uniquely from its two eigenstate probabilities. The coherence, disturbance, and mean-duration formulas then follow directly. Exact-rational recurrence checks in `verify.py` agree with the formulas for multiple nontrivial parameter values and thresholds.
+## correctness
 
-## Originality — PASS
-The direct 2006 source supplies the one-shot sharp inequalities and diagonal equality family. The 2007 adaptive-QND paper supplies repeated Bayesian likelihood updates and likelihood-ratio stopping in experiment. Targeted searches by source identifier, adaptive-QND aliases, Kraus composition, sequential probability-ratio terminology, and the explicit odds-power form did not locate an implication-equivalent theorem connecting these ingredients. Later sequential-testing literature is broader but does not, from the inspected material, supply this exact discrete stopped-instrument closure. Residual risk remains that an equivalent result exists under other weak-measurement or filtering terminology.
+PASS
 
-## Value — PASS
-The exact closure says that an experimentally natural adaptive operation—repeat until enough evidence accumulates—preserves the sharp quantum information-disturbance/decoherence frontier for this extremal instrument. It also gives the explicit renormalization \(p\mapsto p_m\) and exact expected number of elementary measurements, making the statement useful for comparing measurement strength and repetition cost. This is more than a routine restatement of gambler's ruin because the decisive quantum step is the rank-one coarse-graining of infinitely many stopped Kraus histories.
+For an outcome path hitting +m, the diagonal product is (pq)^{N_-/2}diag(q^{m/2},p^{m/2}); all such products are positive scalar multiples, giving Kraus rank one for the whole stopped + completely positive map. Gambler-ruin hitting probabilities produce diagonal effect (q^m,p^m)/(q^m+p^m), giving W_+=diag(sqrt(1-p_m),sqrt(p_m)); reflection gives W_-. Therefore off-diagonal channel multiplier is 2sqrt(p_m(1-p_m)), maximal trace-distance dephasing disturbance (1-2sqrt(p_m(1-p_m)))/2, saturating the same source one-shot bounds. Optional stopping on bounded-interval walk gives E tau=m(1-2p_m)/(q-p). Own exact rational recurrence checks at p=1/4 with m=2,4 and p=2/5 with m=3 confirm the equations, but symbolic path-factor and ruin derivations cover all allowed parameters.
 
-## Closest literature and limitations
-Janssens is the closest mathematical source because it defines the figures of merit and the extremal instrument. Hume, Rosenband, and Wineland are the closest operational source because they use repeated QND readout with real-time Bayesian likelihood-ratio stopping. The theorem is restricted to the symmetric commuting diagonal qubit model and symmetric integer score thresholds; nonideal state changes or asymmetric likelihood increments are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Janssens provides the one-shot equality instruments and sharp bound; Hume et al. use adaptive likelihood stopping in repeated QND readout. The exact preservation of Kraus rank one after sign-only coarse-graining and sharp-bound saturation with m-th-power odds is the assessed substantive synthesis, not a claim to invent sequential likelihood tests.
+
+## value
+
+PASS
+
+A sharp information–disturbance equality family generally need not remain extremal under adaptive repetition and record erasure. Here exact sign-conditioned Kraus rank one shows it does, with an explicit error-versus-measurement-count tradeoff. This is a motivated quantitative benchmark for ideal repeated QND readout, not just an information-theory reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

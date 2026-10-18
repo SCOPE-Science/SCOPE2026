@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof in `RESULT.md` establishes the claim for every \(0<p<1/2\) and integer \(m\ge1\). The computational check is supplementary.
+# Independent mathematical audit
 
-`verify.py` solves, by exact rational Gaussian elimination, the finite first-hit and mean-duration recurrences for several rational \(p\) values and thresholds. For cases where \(\sqrt{p(1-p)}\) is rational, it also solves the stopped-record coherence recurrence exactly and compares it with \(2\sqrt{p_m(1-p_m)}\). The script checks the induced disturbance/frontier identity and prints `VERIFY_OK`.
+## correctness
 
-The computation samples parameters and therefore is not an infinite proof. The general proof uses the exact gambler's-ruin equations and proportionality of all terminal-path Kraus operators. No claim is made for asymmetric detectors, noncommuting measurement steps, or arbitrary stopping regions.
+PASS
+
+For an outcome path hitting +m, the diagonal product is (pq)^{N_-/2}diag(q^{m/2},p^{m/2}); all such products are positive scalar multiples, giving Kraus rank one for the whole stopped + completely positive map. Gambler-ruin hitting probabilities produce diagonal effect (q^m,p^m)/(q^m+p^m), giving W_+=diag(sqrt(1-p_m),sqrt(p_m)); reflection gives W_-. Therefore off-diagonal channel multiplier is 2sqrt(p_m(1-p_m)), maximal trace-distance dephasing disturbance (1-2sqrt(p_m(1-p_m)))/2, saturating the same source one-shot bounds. Optional stopping on bounded-interval walk gives E tau=m(1-2p_m)/(q-p). Own exact rational recurrence checks at p=1/4 with m=2,4 and p=2/5 with m=3 confirm the equations, but symbolic path-factor and ruin derivations cover all allowed parameters.
+
+## originality
+
+PASS
+
+Prior Janssens provides the one-shot equality instruments and sharp bound; Hume et al. use adaptive likelihood stopping in repeated QND readout. The exact preservation of Kraus rank one after sign-only coarse-graining and sharp-bound saturation with m-th-power odds is the assessed substantive synthesis, not a claim to invent sequential likelihood tests.
+
+## value
+
+PASS
+
+A sharp information–disturbance equality family generally need not remain extremal under adaptive repetition and record erasure. Here exact sign-conditioned Kraus rank one shows it does, with an explicit error-versus-measurement-count tradeoff. This is a motivated quantitative benchmark for ideal repeated QND readout, not just an information-theory reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
