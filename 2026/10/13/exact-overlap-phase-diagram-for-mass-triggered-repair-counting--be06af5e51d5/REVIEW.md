@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces any common overlap run to disjoint pre-checkpoint segments of mass at least \(L-U\) packed inside one residual tail of mass at most \(U\). This yields the exact upper multiplicity. Separate explicit constructions attain the bound for every \(L>U\), give arbitrary multiplicity for \(L\le U\), and show the consecutive-separation threshold \(L>2U\) is sharp. The source specialization is obtained without altering its constants.
+## correctness
 
-## Originality
-PASS. The primary paper states the source-specific counting lemma but not the generalized formula. A public review already supplies the key special-case mass comparison for \(L=S_0\), \(U=S_0/4\), so that observation is excluded from the novelty claim. Searches for the parameterized formula, equivalent ratio forms, and stronger overlap classifications found no implication-equivalent published result. Closely related checkpoint papers use different constructions and do not state the mass-triggered interval phase diagram in the inspected material.
+PASS
 
-## Value
-PASS. The exact classification isolates the combinatorial invariant needed by a load-bearing counting step, shows quantitatively why the published constants are safely inside the twofold-overlap regime, and identifies the sharp boundaries at \(L=U\) and \(L=2U\). The result is structural rather than a one-off witness: it applies to every ordered repair system satisfying the same two mass constraints.
+Under u_{j+1}≥p_j+1, strictly increasing v_j, nonnegative masses h_t, each [u_j,v_j] total≥L>0 and tail [p_j+1,v_j]≤U≥0, let δ=L−U. When δ>0, at any index overlapped by r consecutive repair intervals each of r−2 interior precheckpoint portions [u_k,p_k] lies in the first tail and has mass≥δ; these pieces are disjoint, so (r−2)δ≤U and r≤2+floor(U/δ). Source gives explicit valid attaining examples for each ratio and arbitrarily large overlaps when L≤U, with distinct terminal endpoints. For consecutive separation p_{j+1}≤v_j implies next precheckpoint ≥L−U is contained in earlier tail≤U, hence L≤2U; legal two-repair counterexamples exist for L≤2U. Independently checked sample sharp constructions q=1,2,3 and boundary source L=4,U=1. At source constants L=S0,U=S0/4, strict separation implies nonconsecutive disjoint intervals, Σlength≤2n; Jensen and J≤B,n≤Bm give Σlog(n_j+1)≤B log(2m+1). Universal proof, not finite checks, establishes all L,U.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.26873v1, whose Lemma 5.2 contains the target counting conclusion. The public Pith review JUVW4DZL identifies the proof gap and the special source-case mass salvage. arXiv:2609.09152v2 and arXiv:2609.04032v2 contain related checkpoint machinery but no inspected statement implying the sharp generalized formula. The finding does not certify any unrelated theorem in the primary paper, and uncatalogued equivalent combinatorial lemmas remain a residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The special case L=S0,U=S0/4 and a short mass-comparison remedy were already publicly highlighted in a Pith review, so those observations are not new. The full sharp phase classification for arbitrary positive trigger L and tail cap U, the exact floor formula, the boundary L=2U and examples attaining every multiplicity are additional statements not found in the inspected Liu–Ye argument or published mathematical search hits. Elementary disjoint-mass counting may exist elsewhere, a residual originality risk.
+
+## value
+
+PASS
+
+The general sharp mass-ratio phase diagram isolates the precise condition under which overlapping repair intervals admit finite charging bounds. It supplies a structural quantitative lemma with exact borderline counterexamples and explains when a known optimization proof counting step can be salvaged or fails; more valuable than merely fixing an arithmetic sign or repeating the public special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
