@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:01:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/08119bf33b93101414034e23c1f90b0d9c5f9592/2026/10/12/two-adic-order-synchronization-for-complete-digit-sum-arcs-and-e--fb4cbe82115f/RESULT.md",
+        "GitHub verify.py blob be66645753f1e02d918d7370f193d0066536ae63"
+      ],
+      "rationale": "For gcd(b−1,n)=2, any multiple of n has even digit sum; one two-unit-digit multiple b^j+b^k allows concatenation of far-separated shifted copies to realize every positive even target. Strip each full nonunit prime-power factor of n; then large j cancels that part, and the remaining condition is a single b^t=−1 mod m. For odd prime powers the cyclic unit group gives the unique negative-one phase t≡order/2 mod order, compatible iff all v2(order)>0 coincide. The 2-primary factor e≥2 requires b=−1 mod2^e and all odd-component order valuations 1. CRT on unit/nonunit residue classes yields the printed products and sums. Independently enumerated 2734 eligible odd-b/even-n pairs (n≤120,b≤149) by modular power orbits and validated the closed all-base count for every even n≤200. This supports symbolic proof; arithmetic congruence argument supplies universality.",
+      "residual_risks": [
+        "Finite checks bound n and b; full theorem relies on CRT/local unit group argument and digit concatenation without carries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 paper Theorem3 covers only gcd(b−1,n)=1 all N; at d>1 leaves equality criterion open.",
+          "2024 Hamming-average paper treats fixed b=2 and global average over n, not the gcd2 arc classification."
+        ],
+        "reasoning": "Neither stronger coverage nor a duality reduction implies the asserted synchronized local valuations for arbitrary odd bases.",
+        "searches": [
+          "digit sums of multiples directed graphs arcs gcd base minus one equals two",
+          "arXiv 2303.13017 Theorem 2 Theorem 3 Question 1",
+          "arXiv 2412.10839"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.13017",
+        "https://arxiv.org/pdf/2412.10839"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 sufficient condition s_b(n)|d does not force necessity (explicit b=19,n=70 counterexample).",
+          "Prime-power cyclic unit groups and CRT supply new synchronization step."
+        ],
+        "reasoning": "An existing sufficient digit-sum divisibility theorem is not equivalent to or dominating the exact iff; the derived CRT counting formula is additionally beyond the source.",
+        "searches": [
+          "arXiv 2303.13017 Theorem 2 3",
+          "arXiv 2412.10839 Intro",
+          "Resultary digit sums of multiples directed graphs arcs gcd base minus one equals two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality of all positive even digit sums reduces to existence of one digit-sum-two multiple, i.e. b^j+b^k≡0 mod n.",
+          "Removing the nonunit prime-power part n0 yields b^t≡−1 mod m with an eventually large shift."
+        ],
+        "reasoning": "Related minimum-Hamming-multiple results reduce one existential problem, but do not supply all-target equality plus residue counts for variable odd bases.",
+        "searches": [
+          "digit sums of multiples directed graphs arcs gcd base minus one equals two",
+          "multiples digit sum all even numbers gcd b-1 n=2 multiplicative order -1",
+          "arXiv 2303.13017 Question 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A086342, cited in Ionascu–Luca–Merino, tabulates minimum binary Hamming weights M(n), not the exact gcd2 base residue classes.",
+          "No exact table giving C(n) for all even n located."
+        ],
+        "reasoning": "A table of minimal digit-sum-two instances is not a theorem about synchronized order valuations and general n; no direct prior exact match observed.",
+        "searches": [
+          "Resultary digit sums of multiples directed graphs arcs gcd base minus one equals two",
+          "arXiv 2303.13017 examples and questions",
+          "minimal Hamming multiple A086342"
+        ]
+      },
+      "rationale": "The exact phase synchronization criterion and CRT residue-count formulas address the d=2 branch explicitly posed as open in the 2023 digit-sum graph paper. Reading the source Theorems 2–3, Question 1 shows the prior d=1 theorem cannot imply d=2 equality. A binary minimal-weight paper is a different optimization. No exact earlier arithmetic equivalence located.",
+      "residual_risks": [
+        "Multiplicative-order folklore or older modular -1 theorems may encode portions of the criterion; novelty attaches to completeness and exact base-density formula, not the elementary fact that b^t=-1 controls a two-one representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: Theorem3 gives the d=1 all-positive case and Question1 explicitly leaves d>1 open; Theorem2 shows multiples of s_b(n) attainable, not a necessary condition for every even target",
+          "evidence": [
+            "arXiv 2303.13017 Theorem2,3, Question1; citeturn812364view6turn111415view1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13017",
+          "material_read": "Theorems 2 and 3 on p5 and Question 1 on p10 with screenshot; definitions of Out(s_b,n)",
+          "method": "Lawful complete 13-page arXiv PDF open with targeted theorem and question page read",
+          "title": "Phunphayap–Pongsriiam–Noppakaew, An arithmetic function of digit sums",
+          "trigger": "Source poses general gcd(b−1,n)>1 equality and asks necessity of digit-sum divisibility"
+        },
+        {
+          "assessment": "NOT_COVERING for the precise theorem: fixed base two minimal Hamming weight; does not classify all even output digit sums in arbitrary odd base, nor base-density formula",
+          "evidence": [
+            "arXiv 2412.10839 Abstract and §1; citeturn267421view3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.10839",
+          "material_read": "Abstract, initial definitions M(n) as min binary Hamming weight, first page and examples",
+          "method": "Lawful 19-page arXiv PDF opened, first-page and theorem-context text inspected",
+          "title": "Ionascu–Luca–Merino, On average value of minimal Hamming multiple",
+          "trigger": "Nearby stronger small-digit-sum multiples, possible implicit negative-one criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/08119bf33b93101414034e23c1f90b0d9c5f9592/2026/10/12/two-adic-order-synchronization-for-complete-digit-sum-arcs-and-e--fb4cbe82115f/RESULT.md",
+        "https://arxiv.org/pdf/2303.13017"
+      ],
+      "rationale": "Settles a natural previously explicit open gcd2 branch of the digit-sum multiple-arc problem and produces exact base-density arithmetic, including a concrete counterexample to a proposed necessary condition. This is a motivated full classification over all admissible odd bases, not a numerical sample or routine relabeling.",
+      "residual_risks": [
+        "Does not classify gcd(b−1,n)>2 or every attainable digit-sum value when equality fails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full classification concerns odd b and gcd(b−1,n)=2 only; no assertion for larger gcd or full failure-set enumeration.",
+    "Finite mod checks support but do not prove all n."
+  ],
+  "schema_version": 1
+}

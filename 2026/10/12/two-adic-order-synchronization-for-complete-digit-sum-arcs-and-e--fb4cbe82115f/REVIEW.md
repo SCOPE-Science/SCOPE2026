@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The digit-sum modulo \(b-1\) obstruction and carry-free concatenation show that reaching digit sum \(2\) is necessary and sufficient to reach all positive even sums. Every digit-sum-two multiple has the exact form \(b^j(1+b^t)\), and stripping whole nonunit prime-power factors leaves the negative-one power congruence. For odd prime powers, uniqueness of the order-two element makes the \(2\)-valuation of a permissible exponent exactly one less than the \(2\)-valuation of the local multiplicative order. The modulus \(2^e\) forces odd exponents for \(e\ge2\), and an elementary odd quotient gives the precise extra condition. The counting formulas follow from cyclic prime-power unit groups, geometric series and CRT. The independent finite-state and residue-count checks pass for the stated finite ranges, which do not establish the unrestricted theorem by themselves.
+## correctness
 
-**Originality relative to inspected sources (PASS).** The 2023 preprint by Phunphayap, Noppakaew and Pongsriiam (arXiv:2303.13017v1), Section 3 Question 1, explicitly leaves the higher-gcd exact equality problem open; its Theorems 1–3 give an obstruction and a different sufficient condition. The 2025 updated version, Section 3 Question 3.1, repeats the open question. The 2024 binary-Hamming work by Ionascu, Luca and Merino (arXiv:2412.10839v1), Theorem A discussion and prime-power results, concerns base \(2\) and related multiplicative orders, not an exact all-odd-base \(d=2\) classification, incompatible CRT phases or class-density formulas. Targeted semantic mathematical-record searches found no implication-equivalent result; the limitations of semantic indexing and possible unindexed equivalent arguments remain real.
+PASS
 
-**Value (PASS).** The result gives a complete, explicitly stated first nontrivial \(d>1\) branch of a published number-theory question, including composites where individual prime-power solvability fails to synchronize globally. Counting every admissible base modulo fixed \(n\) provides a new exact natural invariant, and the explicit \((b,n)=(19,70)\) example refutes the paper's suggested necessity of \(s_b(n)\mid d\) even though \(d=2\). These are substantive structures and an exact classification, rather than isolated computations or a parameter substitution.
+For gcd(b−1,n)=2, any multiple of n has even digit sum; one two-unit-digit multiple b^j+b^k allows concatenation of far-separated shifted copies to realize every positive even target. Strip each full nonunit prime-power factor of n; then large j cancels that part, and the remaining condition is a single b^t=−1 mod m. For odd prime powers the cyclic unit group gives the unique negative-one phase t≡order/2 mod order, compatible iff all v2(order)>0 coincide. The 2-primary factor e≥2 requires b=−1 mod2^e and all odd-component order valuations 1. CRT on unit/nonunit residue classes yields the printed products and sums. Independently enumerated 2734 eligible odd-b/even-n pairs (n≤120,b≤149) by modular power orbits and validated the closed all-base count for every even n≤200. This supports symbolic proof; arithmetic congruence argument supplies universality.
 
-**Scientific scope and risks.** The classification is confined to \(\gcd(b-1,n)=2\); higher gcd, incomplete attainable sets, and any equivalent result in inaccessible literature are not settled. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact phase synchronization criterion and CRT residue-count formulas address the d=2 branch explicitly posed as open in the 2023 digit-sum graph paper. Reading the source Theorems 2–3, Question 1 shows the prior d=1 theorem cannot imply d=2 equality. A binary minimal-weight paper is a different optimization. No exact earlier arithmetic equivalence located.
+
+## value
+
+PASS
+
+Settles a natural previously explicit open gcd2 branch of the digit-sum multiple-arc problem and produces exact base-density arithmetic, including a concrete counterexample to a proposed necessary condition. This is a motivated full classification over all admissible odd bases, not a numerical sample or routine relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
