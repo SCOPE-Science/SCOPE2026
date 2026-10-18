@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly fixes the reduced two-point-at-infinity compactification and partitions every algebraic parameter. A direct derivative calculation identifies the entire discriminant boundary. On its complement the displayed Cartier–Manin matrix has an invertible semilinear two-dimensional block and a zero block, proving exact \(3\)-rank \(2\) and \(a\)-number \(1\). The two involutions identify one supersingular elliptic quotient and one ordinary genus-two quotient. On the boundary, exact factorization, local complete rings, and explicit normalization maps prove two cusps or two tacnodes, with the stated connected generalized-Jacobian kernel. The quartic elliptic Hasse invariant distinguishes the four supersingular cusp normalizations. The packaged checker reproduces characteristic-three identities; geometry and unbounded quantifiers are proved, not inferred from samples.
+## correctness
 
-**Originality — PASS, with risk.** Katsura (2026), §§3–5, defines a degree-ten singular auxiliary curve, analyzes its Frobenius and quasi-elliptic Mordell–Weil invariants, and gives a classification in his different moduli problem. The newly stated theorem concerns the genus-three degree-eight normalization and the *complete boundary* of its reduced fibers: geometric singularity type, normalized elliptic p-rank and generalized Picard groups. Neither the primary source's inspected theorem statements nor the retrieved general bielliptic article state that combined parameter-boundary result. The nearest published genus-three monodromy, Prym–Tyurin and plane-singularity records concern different curves/invariants and do not imply this classification. Nevertheless a general singular-hyperelliptic or bielliptic theorem may give an implicit specialization; the Ayano (2025) PDF was inspected in its relevant introductory, bielliptic, and reduction sections. Searches are evidence of coverage checked, not proof of absolute global novelty.
+PASS
 
-**Value — PASS.** This gives the entire two-parameter singularity boundary and integral-versus-reducible transition of the involution-fixed even-coefficient symmetry stratum in a natural quasi-elliptic auxiliary family, not a selected arbitrary numeric specialization. It separates the ordinary and supersingular elliptic normalizations by a precise four-point condition, determines additive and toric ranks of the generalized Jacobian, and proves the smooth family has constant mixed p-rank and a-number even as its reduction changes. The geometry is of independent use for degeneration and Picard-family questions. It does not classify relative Picard schemes or quasi-elliptic surface fibers on the boundary.
+Working over algebraically closed characteristic 3 with two smooth infinity charts, f=t^8+b^3 t^6+a^3 t^2+1 has derivative -t(t^2+a)^3; evaluated at the candidate multiple roots it vanishes exactly when ab=1. Independent symbolic characteristic-3 calculation confirmed this and f=(t^2+a)^3(t^2+b^3) when ab=1. Off the boundary genus=3; Hasse–Witt matrix [[a^3,0,1],[0,0,0],[1,0,b^3]], with 2x2 semilinear invertible block (ab)^3-1, gives p-rank2 and a-number1. Involutions t->-t give smooth supersingular elliptic and ordinary genus2 quotients; degree-two maps induce prime-to-3 Jacobian isogeny. At ab=1,a^4!=1, two triple-root cusps normalize to a genus1 quartic and Pic0 extension by Ga^2; elliptic Hasse coefficient (a^4+1)/a^3 singles out four supersingular parameters. If a^4=1, f=(t^2+a)^4 splits into two rational graphs with exactly two contact-two tacnodes; local unit gluing yields Gm x Ga^2. Infinity is smooth in all cases. The local normalization and Picard arguments are geometric, not settled by finite symbolic checks alone.
 
-Closest literature: T. Katsura, arXiv:2609.23430v1, §§3–5 (full HTML inspected); T. Ayano, arXiv:2501.03774v1 (PDF introductory, bielliptic and reduction sections inspected); classical Hasse–Witt and Rosenlicht–Serre normalization formulae. The remaining literature-access and implicit-specialization risk prevents an independent novelty certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Katsura's closely related 2026 paper already stratifies auxiliary arithmetic-genus-four Frobenius ranks according to ab and a^4-type conditions; that overlap is credited. The accepted remainder is full intrinsic reduced degree-eight genus-three/singular-curve geometry and generalized-Jacobian classifications, not a claim that parameter boundary equations were new. Ayano's genus-three bielliptic work is complex-analytic and does not cover characteristic-three singular Picard groups. Best-of-knowledge PASS with implicit-specialization risk.
+
+## value
+
+PASS
+
+This supplies a natural two-parameter symmetry stratum of the degree-ten auxiliary model: all smooth p-ranks, complete singular degeneration classification, normalization elliptic ranks and generalized Picard groups, including distinct four-point exceptional loci. These are exact geometric invariants relevant to degenerations; it explicitly does not classify full relative Picard schemes or quasi-elliptic singular fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
