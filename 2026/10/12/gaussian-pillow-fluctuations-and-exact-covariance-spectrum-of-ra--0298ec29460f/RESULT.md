@@ -1,146 +1,114 @@
-# Gaussian-pillow fluctuations and exact covariance spectrum of random discrete copulas
+# Gaussian-pillow fluctuations and covariance spectrum of random discrete copulas
 
 ## Finding
 
-For the uniform-simplex mixture of **all permutation copulas** introduced in *Random discrete copulas*, the centered checkerboard extension has a nondegenerate functional Gaussian limit at the factorial fluctuation scale. Precisely, for every integer \(k\ge 2\), put \(m=k!\), let \(W=(W_\pi:\pi\in S_k)\) have the \(\mathrm{Dirichlet}(1,\ldots,1)\) law, and let \(\widehat C_\pi\) denote the checkerboard copula induced by the permutation \(\pi\). Define
+Let \(k\ge2\), \(m=k!\), and let \((W_\pi)_{\pi\in S_k}\) have the uniform \(\mathrm{Dirichlet}(1,\ldots,1)\) distribution. For the checkerboard permutation copula \(\widehat C_\pi\), define
 \[
 \widehat Y_k(s,t)=\sum_{\pi\in S_k}W_\pi\widehat C_\pi(s,t),\qquad
-G_k(s,t)=\sqrt{(k!+1)(k-1)}\,\bigl(\widehat Y_k(s,t)-st\bigr).
+G_k(s,t)=\sqrt{(k!+1)(k-1)}\,[\widehat Y_k(s,t)-st].
 \]
-Then, as \(k\to\infty\),
+Then \(G_k\) converges in distribution in \(C([0,1]^2)\), equipped with the uniform norm, to the centered continuous Gaussian field with covariance
 \[
-G_k\ \Longrightarrow\ G \quad\text{in }\bigl(C([0,1]^2),\|\cdot\|_\infty\bigr),
+\operatorname{Cov}(G(s,t),G(u,v))=B(s,u)B(t,v),\qquad
+B(x,y)=\min(x,y)-xy.
 \]
-where \(G\) is a continuous centered Gaussian field, zero on the boundary, with the **Brownian-pillow covariance**
+This is the Brownian pillow. The mean \(\mathbb E\widehat Y_k(s,t)=st\) and the complete *finite-\(k\)* covariance kernel are exactly
 \[
-\operatorname{Cov}\bigl(G(s,t),G(u,v)\bigr)
-=\bigl(\min(s,u)-su\bigr)\bigl(\min(t,v)-tv\bigr).
+\operatorname{Cov}(\widehat Y_k(s,t),\widehat Y_k(u,v))
+ =\frac{K_k(s,u)K_k(t,v)}{(k!+1)(k-1)},
 \]
-The normalization is exact, not only asymptotic: the finite-mesh covariance separates as a product of explicit one-dimensional kernels. Its interior-grid covariance matrix has an explicit two-dimensional discrete-sine spectrum. Furthermore, the unscaled checkerboard fields converge uniformly to independence almost surely under every joint coupling of their individual laws.
+where, for \(1\le r\le k\),
+\[
+ A_{k,r}(x)=\max\{0,\min\{1,kx-r+1\}\},\quad
+ K_k(x,y)=\frac1k\sum_{r=1}^k(A_{k,r}(x)-x)(A_{k,r}(y)-y).
+\]
+The uniform bound \(0\le B-K_k\le1/(4k)\) holds pointwise. At the interior grid points \((i/k,j/k)\), \(1\le i,j\le k-1\), the covariance matrix of \(G_k\) is \(M^{(k)}\otimes M^{(k)}\), with \(M^{(k)}_{ij}=B(i/k,j/k)\). Its exact eigenvectors are products of discrete sine vectors, and its eigenvalues are
+\[
+\Lambda_{r,q}^{(k)}=\frac{1}{16k^2\sin^2(\pi r/(2k))\sin^2(\pi q/(2k))},\qquad 1\le r,q\le k-1.
+\]
+**Mesh-area normalization is essential** when comparing this discrete covariance matrix to the limiting integral covariance operator: for fixed positive \(r,q\),
+\[
+\frac{\Lambda_{r,q}^{(k)}}{k^2}\longrightarrow\frac1{\pi^4r^2q^2},\qquad
+\Lambda_{r,q}^{(k)}\sim\frac{k^2}{\pi^4r^2q^2}.
+\]
+Thus the raw eigenvalues do *not* approach finite limits; they diverge quadratically. The eigenvalues of the matrix representing the integral operator by a two-dimensional Riemann sum are \(\Lambda_{r,q}^{(k)}/k^2\). The unnormalized \(\widehat Y_k\) grid-covariance eigenvalues are \(\Lambda_{r,q}^{(k)}/[(k!+1)(k-1)]\). Finally,
+\[\|\widehat Y_k-st\|_\infty\longrightarrow0\quad\text{almost surely}\]
+for **every joint coupling** of the individual laws across mesh sizes, without independence between different \(k\).
 
 ## Assumptions and scope
 
-All parameters and limits in this section concern **this particular uniform Dirichlet mixture**, not uniform Lebesgue measure on the Birkhoff polytope and not one randomly chosen permutation.
-
-For every \(k\ge2\), each permutation \(\pi\) of \(\{1,\ldots,k\}\) places probability \(1/k\) uniformly in each square \(((r-1)/k,r/k]\times((\pi(r)-1)/k,\pi(r)/k]\), for \(1\le r\le k\). The resulting copula is \(\widehat C_\pi\). It is bilinear on mesh cells. The vector of \(k!\) mixture weights is uniform on the simplex, independently for any given \(k\); **no independence between different mesh sizes is needed** for the almost-sure conclusion.
-
-Set
-\[
-A_{k,r}(x)=\max\{0,\min\{1,kx-r+1\}\},\qquad
-K_k(x,y)=\frac1k\sum_{r=1}^k(A_{k,r}(x)-x)(A_{k,r}(y)-y).
-\]
-The exact identity for all \(s,t,u,v\in[0,1]\) is
-\[
-\operatorname{Cov}\bigl(\widehat Y_k(s,t),\widehat Y_k(u,v)\bigr)
-=\frac{K_k(s,u)K_k(t,v)}{(k!+1)(k-1)},
-\qquad \mathbb E\widehat Y_k(s,t)=st.
-\]
-Writing \(B(x,y)=\min(x,y)-xy\), the one-dimensional kernel satisfies the sharp uniform discrepancy bound
-\[
-0\le B(x,y)-K_k(x,y)\le\frac{1}{4k}.
-\]
-Consequently, the covariance of \(G_k\) converges uniformly to the stated Gaussian covariance.
-
-At the interior grid points \(i/k\), \(1\le i\le k-1\), let \(M^{(k)}_{ij}=B(i/k,j/k)\). The covariance matrix of the vector of values of \(G_k\) on the interior grid is \(M^{(k)}\otimes M^{(k)}\). Its eigenvectors are the products of discrete sine vectors and its \((r,q)\)-eigenvalues, for \(1\le r,q\le k-1\), are exactly
-\[
-\Lambda_{r,q}^{(k)}=
-\frac{1}{16k^2\sin^2(\pi r/(2k))\sin^2(\pi q/(2k))}.
-\]
-The unnormalized \(\widehat Y_k\) covariance eigenvalues are these values divided by \((k!+1)(k-1)\). For each fixed positive \(r,q\), \(\Lambda_{r,q}^{(k)}\to(\pi^4r^2q^2)^{-1}\), the eigenvalues of the limiting integral covariance operator on the square.
+The random law is the image of the *uniform simplex* on all \(k!\) permutations; it is neither one uniformly sampled permutation nor Lebesgue-uniform measure on the Birkhoff polytope. Permutation \(\pi\) places probability \(1/k\) uniformly in each square \(((r-1)/k,r/k]\times((\pi(r)-1)/k,\pi(r)/k]\), \(1\le r\le k\). Its checkerboard distribution function \(\widehat C_\pi\) is bilinear on cells, continuous, and a copula. The Gaussian convergence is weak convergence in the space of continuous fields, not an almost-sure Gaussian fluctuation coupling. The matrix eigenvalues concern *interior grid samples*, while the integral covariance operator uses two-dimensional Lebesgue measure; the corrected comparison therefore includes the \(k^{-2}\) mesh-area factor. All formulae apply for every integer \(k\ge2\).
 
 ## Proof
 
-**Step 1: exact covariance of the permutation checkerboards.** With \(a_r=A_{k,r}(s)\), and analogously for other arguments, the checkerboard copula is
-\[
-\widehat C_\pi(s,t)=\frac1k\sum_{r=1}^k A_{k,r}(s) A_{k,\pi(r)}(t),
-\qquad \sum_{r=1}^k A_{k,r}(x)=kx.
-\]
-For a uniform random permutation \(\pi\), the finite-population covariance formula gives
-\[
-\operatorname{Cov}_\pi\!\left(\sum_ra_r b_{\pi(r)},\sum_ra'_r b'_{\pi(r)}\right)
-=\frac{\sum_r(a_r-\overline a)(a'_r-\overline a')\,\sum_j(b_j-\overline b)(b'_j-\overline b')}{k-1}.
-\]
-Indeed, for the two permuted coordinates, the same-label covariance is the finite-population covariance with denominator \(k\), whereas distinct labels have its negative divided by \(k-1\); summing yields the display. Dividing by \(k^2\) proves
-\[
-\operatorname{Cov}_\pi\bigl(\widehat C_\pi(s,t),\widehat C_\pi(u,v)\bigr)
-=\frac{K_k(s,u)K_k(t,v)}{k-1},\qquad
-\mathbb E_\pi\widehat C_\pi(s,t)=st.
-\]
-For a Dirichlet vector of \(m\) unit parameters, \(\operatorname{Cov}(\sum W_i f_i,\sum W_i g_i)=(m+1)^{-1}\operatorname{Cov}_{I}(f_I,g_I)\), where \(I\) is uniform on its \(m\) indices. Applying this identity proves the exact covariance of \(\widehat Y_k\) and \(G_k\).
+### 1. Exact centered covariance
 
-**Step 2: uniform limit of the one-dimensional kernel.** Write \(x=(j-1+a)/k\) for a point in the \(j\)-th cell, with \(0\le a\le1\). The functions \(A_{k,r}(x)\) are the distribution functions of independent uniform locations conditional on membership in the corresponding cells. If \(U\) is uniform on \([0,1]\), let \(J\) be its cell label. The law-of-total-covariance identity for the indicators \(\mathbf1\{U\le x\}\) and \(\mathbf1\{U\le y\}\) gives
+Write \(a_r(x)=A_{k,r}(x)\). Then
 \[
-B(x,y)=K_k(x,y)+\frac1k\mathbf1\{x,y\text{ lie in the same cell}\}\bigl(\min(a,b)-ab\bigr),
+\widehat C_\pi(s,t)=k^{-1}\sum_{r=1}^k a_r(s)a_{\pi(r)}(t),\qquad
+\sum_{r=1}^ka_r(x)=kx.
 \]
-where \(a,b\) are their within-cell fractions. The discrepancy is nonnegative and at most \(1/(4k)\), proving uniform kernel convergence.
+For uniform \(\pi\), \(\mathbb E\widehat C_\pi(s,t)=st\). For deterministic sequences \(a,a',b,b'\), direct expansion of the diagonal and off-diagonal permutation indicators yields
+\[
+\operatorname{Cov}_{\pi}\left(\sum_ra_rb_{\pi(r)},\sum_ra'_rb'_{\pi(r)}\right)
+=\frac{\left[\sum_r(a_r-\bar a)(a'_r-\bar a')\right]
+\left[\sum_j(b_j-\bar b)(b'_j-\bar b')\right]}{k-1}.
+\]
+The factor \(k^{-2}\) for the two copula evaluations therefore gives \(\operatorname{Cov}_\pi(\widehat C_\pi(s,t),\widehat C_\pi(u,v))=K_k(s,u)K_k(t,v)/(k-1)\). A uniform \(m\)-component Dirichlet vector has \(\operatorname{Cov}(\sum_iW_if_i,\sum_iW_ig_i)=(m+1)^{-1}\operatorname{Cov}_{I}(f_I,g_I)\) for a uniform index \(I\). Applying this to the \(k!\) copulas proves both the exact formula and \(\operatorname{Cov}(G_k(s,t),G_k(u,v))=K_k(s,u)K_k(t,v)\).
 
-**Step 3: exponential representation and finite-dimensional central limit theorem.** Enumerate permutations in any deterministic order and take independent unit-rate exponentials \(E_\pi\). Put \(S_m=\sum_\pi E_\pi\) and \(W_\pi=E_\pi/S_m\). Define the deterministic centered functions
-\[
-h_{k,\pi}(s,t)=\sqrt{k-1}\bigl(\widehat C_\pi(s,t)-st\bigr),
-\quad
-T_k=\frac1{\sqrt m}\sum_\pi(E_\pi-1)h_{k,\pi}.
-\]
-As \(\sum_\pi h_{k,\pi}=0\), the exact relation is
-\[
-G_k=\frac{\sqrt{m(m+1)}}{S_m}\,T_k.
-\]
-Since \(S_m/m\to1\) in probability, the scalar multiplier converges in probability to \(1\). For finitely many evaluation points and any fixed linear combination, the summands of \(T_k\) are independent, centered, and their variance converges by Step 1 to the corresponding linear combination of \(B\otimes B\). The absolute values of \(h_{k,\pi}\) are at most \(\sqrt{k-1}\); because exponentials have a finite third centered absolute moment, the Lyapunov third-moment bound is
-\[
-O\!\left(\frac{k^{3/2}}{\sqrt{k!}}\right)=o(1).
-\]
-Thus every finite-dimensional distribution of \(T_k\) converges to the centered Gaussian distribution with covariance \(B\otimes B\). A zero limiting variance is handled directly by convergence in second moment. Cramér–Wold covers joint distributions.
+### 2. Uniform kernel convergence
 
-**Step 4: functional tightness, including the boundary.** Take two points \(z=(s,t)\), \(w=(u,v)\), and \(D=|s-u|+|t-v|\). Every copula and the product copula are 1-Lipschitz in each argument, so
+Let \(U\) be uniform on \([0,1]\) and let \(J\) label its one of \(k\) equal cells. Then \(a_J(x)=\mathbb P(U\le x\mid J)\). Total covariance of \(\mathbf1_{\{U\le x\}}\) and \(\mathbf1_{\{U\le y\}}\) gives \(B(x,y)=K_k(x,y)+\mathbb E[\operatorname{Cov}(\mathbf1_{\{U\le x\}},\mathbf1_{\{U\le y\}}\mid J)]\). The conditional covariance vanishes unless \(x,y\) belong to the same cell; when they do, writing their within-cell fractions as \(a,b\in[0,1]\), it is \(k^{-1}(\min(a,b)-ab)\). Hence \(0\le B-K_k\le1/(4k)\), uniformly, including cell boundaries.
+
+### 3. Finite-dimensional Gaussian convergence
+
+Enumerate permutations in a deterministic order and take independent standard exponential variables \(E_\pi\). Let \(S_m=\sum_\pi E_\pi\) and \(W_\pi=E_\pi/S_m\). Define deterministic centered functions
 \[
-|h_{k,\pi}(z)-h_{k,\pi}(w)|\le 2\sqrt{k}\,D.
+h_{k,\pi}(s,t)=\sqrt{k-1}\,[\widehat C_\pi(s,t)-st],\qquad
+T_k=m^{-1/2}\sum_\pi(E_\pi-1)h_{k,\pi}.
 \]
-Also, since \(A_{k,r}\) are monotone and each pointwise increment lies between zero and one,
+Since \(\sum_\pi h_{k,\pi}=0\),
+\[G_k=\frac{\sqrt{m(m+1)}}{S_m}T_k.\]
+Chebyshev's inequality gives \(S_m/m\to1\) in probability. The empirical covariance of the deterministic \(h_{k,\pi}\) functions is exactly \(K_k\otimes K_k\), which converges uniformly to \(B\otimes B\) by Step 2. At any finite collection of evaluation points, every fixed linear combination of the triangular-array summands for \(T_k\) has variance tending to the asserted limit, and each \(|h_{k,\pi}|\le\sqrt{k-1}\). Exponential variables have a finite third absolute centered moment; Lyapunov's ratio is bounded by a constant times \(k^{3/2}/\sqrt{k!}\to0\). Cramér–Wold gives joint Gaussian finite-dimensional limits (a vanishing limiting variance is handled by the second moment).
+
+### 4. Uniform functional tightness
+
+For \(z=(s,t)\), \(w=(u,v)\), let \(D=|s-u|+|t-v|\). Every copula is 1-Lipschitz in each variable, so \(|h_{k,\pi}(z)-h_{k,\pi}(w)|\le2\sqrt kD\). Monotonicity of the cell CDF functions and \(0\le a_r\le1\) give
 \[
 K_k(s,s)+K_k(u,u)-2K_k(s,u)
-=\frac1k\sum_r\bigl(A_{k,r}(s)-A_{k,r}(u)-(s-u)\bigr)^2
-\le |s-u|.
+=k^{-1}\sum_r[a_r(s)-a_r(u)-(s-u)]^2\le|s-u|.
 \]
-Apply the Step 1 covariance formula to the horizontal difference at fixed \(t\), noting \(K_k(t,t)\le1/4\); do the same for the vertical difference and use \((a+b)^2\le2a^2+2b^2\). This yields the averaged squared increment bound
-\[
-\frac1m\sum_\pi |h_{k,\pi}(z)-h_{k,\pi}(w)|^2\le \tfrac12D.
-\]
-Rosenthal's inequality at exponent \(8\), with the independent centered exponentials, now implies
+Combine the horizontal and vertical difference bounds with \(K_k(t,t)\le1/4\) and \((x+y)^2\le2(x^2+y^2)\). This yields \(m^{-1}\sum_\pi|h_{k,\pi}(z)-h_{k,\pi}(w)|^2\le D/2\). Rosenthal's eighth-moment bound for the independent centered \((E_\pi-1)h_{k,\pi}\) terms then yields, uniformly in \(k\ge2\),
 \[
 \mathbb E|T_k(z)-T_k(w)|^8
-\le c\left[D^4+\frac{k^4}{(k!)^3}D^8\right]
-\le C D^4,
+\le C\left[D^4+\frac{k^4}{(k!)^3}D^8\right]\le C'D^4,
 \]
-for numerical constants independent of \(k,z,w\), because \(D\le2\) and \(\sup_{k\ge2} k^4/(k!)^3<\infty\). We also have \(T_k(0,0)=0\), and its trajectories are continuous. The two-parameter Kolmogorov–Chentsov tightness criterion, using \(4>2\), makes \((T_k)\) tight in \(C([0,1]^2)\). The Gaussian finite-dimensional limits identify its unique weak limit as the continuous Brownian pillow. Slutsky's theorem for a scalar multiplier gives the asserted **functional** weak convergence of \(G_k\).
+using \(D\le2\) and \(\sup_{k\ge2}k^4/(k!)^3<\infty\). As \(T_k(0,0)=0\) and the paths are continuous, the two-parameter Kolmogorov–Chentsov criterion, with exponent \(4>2\), proves tightness in \(C([0,1]^2)\). Finite-dimensional convergence identifies the Brownian pillow as the unique weak limit of \(T_k\); the scalar normalization in Step 3 converges to one, so Slutsky proves the asserted functional weak convergence of \(G_k\).
 
-**Step 5: exact interior-grid eigenvalues.** On the grid, \(A_{k,r}(i/k)=\mathbf1\{r\le i\}\), so \(K_k(i/k,j/k)=B(i/k,j/k)\). The inverse of the \((k-1)\times(k-1)\) matrix \(M^{(k)}\) is \(k\) times the tridiagonal Dirichlet matrix with diagonal \(2\) and off-diagonal \(-1\). Its eigenvectors are \(\bigl(\sin(\pi r i/k)\bigr)_{i=1}^{k-1}\), with inverse eigenvalues \(4k\sin^2(\pi r/(2k))\). Tensoring the two one-dimensional eigensystems proves the exact spectral formula and its fixed-mode limit.
+### 5. Exact grid spectrum, including the necessary mesh factor
 
-**Step 6: uniform almost-sure collapse without inter-mesh independence.** Since \(\widehat Y_k-st\) is bilinear within each grid cell, its absolute maximum occurs at grid vertices. By the exact variance formula, Chebyshev's inequality, and a union bound over \((k-1)^2\) interior vertices,
+At every interior grid point \(i/k\), \(a_r(i/k)=\mathbf1_{\{r\le i\}}\), hence \(K_k(i/k,j/k)=B(i/k,j/k)\). The inverse of \(M^{(k)}=[B(i/k,j/k)]_{i,j=1}^{k-1}\) is \(k\) times the tridiagonal Dirichlet Laplacian with diagonal 2 and super/subdiagonal \(-1\). Its eigenvectors are \((\sin(\pi r i/k))_{i=1}^{k-1}\), and its eigenvalues are \([4k\sin^2(\pi r/(2k))]^{-1}\). Tensoring the one-dimensional eigensystems establishes the exact two-dimensional formula for \(\Lambda_{r,q}^{(k)}\). For fixed \(r,q\), \(\sin(\pi r/(2k))\sim\pi r/(2k)\) implies \(\Lambda_{r,q}^{(k)}\sim k^2/(\pi^4r^2q^2)\). The limiting *integral* covariance operator is represented at grid spacing \(1/k\) by the matrix \(k^{-2}(M^{(k)}\otimes M^{(k)})\); consequently its eigenvalues approach \((\pi^4r^2q^2)^{-1}\) only **after** multiplying raw grid eigenvalues by \(k^{-2}\). This also directly shows why the unscaled fixed-mode convergence assertion would be false.
+
+### 6. Almost-sure unscaled convergence for every coupling
+
+Both \(\widehat Y_k\) and \(\Pi(s,t)=st\) are bilinear in each mesh cell, so the maximum of \(|\widehat Y_k-\Pi|\) occurs at grid vertices. At each interior grid vertex, the covariance identity gives \(\operatorname{Var}(\widehat Y_k-\Pi)\le1/[16(k!+1)(k-1)]\). A union bound and Chebyshev over the \((k-1)^2\) interior vertices therefore yield
 \[
-\mathbb P\!\left(\|\widehat Y_k-\Pi\|_\infty>\varepsilon\right)
-\le \frac{k-1}{16(k!+1)\varepsilon^2},
-\quad\Pi(s,t)=st.
+\mathbb P\{\|\widehat Y_k-\Pi\|_\infty>\varepsilon\}
+\le\frac{k-1}{16(k!+1)\varepsilon^2}.
 \]
-The upper bounds are summable, so the first Borel–Cantelli lemma implies \(\|\widehat Y_k-\Pi\|_\infty\to0\) almost surely under any joint coupling of the marginal laws.
+These probabilities sum to a finite value over \(k\). The first Borel–Cantelli lemma proves almost-sure uniform convergence under *any* coupling of the prescribed \(k\)-wise laws, without independence between \(k\).
 
-## Verification
+## Verification and limits
 
-The accompanying standard-library script `checker.py` enumerates every permutation for mesh sizes \(2\le k\le6\), checks the cross-point covariance formula on 245 ordered point pairs to floating tolerance, and tests the \(1/(4k)\) kernel error bound. It separately checks 204 discrete-sine eigenvector/eigenvalue identities for \(2\le k\le9\). For \(k=4,5,6\), a reproducibly seeded Dirichlet simulation cross-checks the normalized variance and approximate fourth standardized moment. Run with `python checker.py` from a directory containing the embedded source file. All assertions passed in the recorded execution.
+The unchanged standard-library script `checker.py` checks exact permutation covariance for \(k=2,\ldots,6\), bounded kernel discrepancy, discrete sine matrix eigenrelations through \(k=9\), and selected Dirichlet simulations. Independent rational calculations for \(k=3,4,5\) confirm grid covariance, while numerical fixed-mode values at \(k=4,8,16,32,64\) confirm \(\Lambda_{1,1}^{(k)}/k^2\to\pi^{-4}\) and \(\Lambda_{1,1}^{(k)}\to\infty\). These checks support exact identities and expose the scale correction; Steps 1–6, not experiments, prove the infinite-dimensional statements. No rate of convergence of the Gaussian law, off-grid matrix spectrum, or alternative distribution on the Birkhoff polytope is asserted.
 
-These finite calculations are **not** the infinite-dimensional proof; Steps 1–6 provide the analytic proof. No external numerical library, external data, or inaccessible auxiliary file is needed.
+## Relationship to prior literature
 
-## Relationship to prior work
-
-Kokol Bukovšek, Mojškerc, and Stopar (2026), *Random discrete copulas*, define the simplex-weighted mixture and its bilinear extension. Their Lemma 4.2 establishes covariance reduction to the uniformly selected permutation model **at grid points** and Theorem 4.3 establishes the pointwise grid variance. Their discussion of checkerboard extensions obtains pointwise quantities. Their concluding remarks identify convergence with increasing mesh size as a direction for future work. The exact full continuous covariance kernel, its finite sine eigenspectrum, the factorially rescaled functional Gaussian limit, and the almost-sure sup-norm convergence are not stated in the examined full text; the covariance reduction lemma is **used as compatible prior input** and is not claimed as new.
-
-General quantitative Dirichlet-process central limit theorems, such as Torrisi (2023), supply related Gaussian approximation machinery for finite-dimensional Dirichlet-functionals. Exchangeably weighted empirical-process results provide broader methodological precedents, but their applicability to this triangular family with \(k!\) prescribed deterministic permutation-copula functions, its exact normalization, and the square-indexed functional topology requires additional verification; no exclusivity or blanket priority claim is made. The uniform-Lebesgue Birkhoff-polytope random-matrix model differs from the image of the uniform permutation-weight simplex.
-
-## Limitations
-
-The weak convergence concerns the Dirichlet\((1,\ldots,1)\) mixture over all \(k!\) permutations; it is not a theorem for arbitrary simplex-weight distributions, independently sampled permutations, or a uniform random point in the Birkhoff polytope. Functional convergence is in the topology of uniform convergence in distribution; it does **not** assert an almost-sure coupling of the normalized Gaussian fluctuations. The separate almost-sure statement is only for the unscaled fields and allows arbitrary inter-mesh dependence. The limiting covariance gives no nonasymptotic Gaussian approximation rate. The finite spectrum is for interior grid evaluations, not for all off-grid values. Priority remains subject to independent scholarly verification, particularly against general exchangeably weighted empirical-process theory.
+Kokol Bukovšek, Mojškerc and Stopar, *Random discrete copulas* (arXiv:2603.13953v3, 2026), define the simplex-weighted model and its bilinear extension. Their Lemma 4.2 supplies the compatible grid-point covariance reduction and Theorems 4.3 and 5.3 discuss finite pointwise quantities; these are credited rather than asserted as new. The full functional central limit theorem, uniform covariance kernel, explicit finite-mesh sine spectrum, and coupling-independent almost-sure uniform collapse are additional claims. General exchangeably weighted empirical-process and Dirichlet-Ferguson approximation results supply related background, but their exact applicability to this factorial triangular family and continuous two-parameter topology is not established here. Any older equivalent general triangular-array process theorem remains a potential originality antecedent.
 
 ## References
 
-1. D. Kokol Bukovšek, B. Mojškerc and N. Stopar, *Random discrete copulas*, arXiv:2603.13953, first publicly submitted 14 March 2026; full HTML: https://arxiv.org/html/2603.13953v3 (Definitions 4.1 and 5.1, Lemma 4.2, Theorems 4.3 and 5.3, concluding remarks).
-2. G. L. Torrisi, *Quantitative Multidimensional Central Limit Theorems for Means of the Dirichlet-Ferguson Measure*, ALEA 20 (2023), lawful open article: https://alea.impa.br/articles/v20/20-30.pdf.
-3. J. Præstgaard and J. A. Wellner, *Exchangeably Weighted Bootstraps of the General Empirical Process*, Annals of Probability 21 (1993), pp. 2053–2086 (general empirical-process context; only abstract-level comparison here).
-4. S. Chatterjee, P. Diaconis and A. Sly, *Properties of Uniform Doubly Stochastic Matrices*, arXiv:1010.6136 (different uniform-Birkhoff law).
+1. D. Kokol Bukovšek, B. Mojškerc and N. Stopar, *Random discrete copulas*, arXiv:2603.13953v3 (2026), https://arxiv.org/html/2603.13953v3.
+2. G. L. Torrisi, *Quantitative Multidimensional Central Limit Theorems for Means of the Dirichlet-Ferguson Measure*, ALEA 20 (2023), https://alea.impa.br/articles/v20/20-30.pdf.
+3. J. Præstgaard and J. A. Wellner, *Exchangeably Weighted Bootstraps of the General Empirical Process*, Annals of Probability 21 (1993), pp. 2053–2086.
+4. S. Chatterjee, P. Diaconis and A. Sly, *Properties of Uniform Doubly Stochastic Matrices*, arXiv:1010.6136 (different probability law).
