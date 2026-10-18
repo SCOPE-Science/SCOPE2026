@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Direct scalar Lyapunov equation yields the exact stationary objective. Twice differentiating and Cauchy-Schwarz give the precise directional Hessian lower bound, independent of input dimension and system heterogeneity. The positive finite sum retains the matrix inequality; lower-bound coercivity and barrier growth at the open stability boundary ensure an attained unique minimum. Standard strong-convexity inequalities give the stated global PL bound. An exact rational sharpness family has positive q and curvature tending to 1/2. A symbolic/finite verifier actually executed from the package directory (4211 passing checks).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2503.24371v1, Abstract, section II Assumption II.1 and section III: the guaranteed sample-average policy-gradient convergence is conditional on bounded plant heterogeneity.",
+        "arXiv:2609.04794v1, section V Assumption 3 and Theorem 5: gradient dominance is assumed rather than derived; the general-state result does not certify global convexity in common feedback."
+      ],
+      "reasoning": "The source papers address general-state systems but with weaker landscape conclusions or restrictive assumptions. A theorem under more general state dimensions does not dominate this result without furnishing the same unconditional conclusion on the scalar subclass. No such statement was found in the inspected full texts.",
+      "searches": [
+        "scalar state domain randomized LQR sample average globally strongly convex Polyak Lojasiewicz no heterogeneity arbitrary input dimension",
+        "one-dimensional state multiple-input LQR gain Hessian sharp 1/2 lower bound strongly convex domain randomized across arbitrary distinct plants jointly stabilizing",
+        "\"domain randomized\" \"linear quadratic\" \"no heterogeneity\" \"scalar\"",
+        "arXiv:2503.24371v1 Assumption II.1",
+        "arXiv:2609.04794v1 Assumption 3 Theorem 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.04794v1",
+      "arXiv:2503.24371v1",
+      "arXiv:2604.22138v1",
+      "ECC 2026 Pasdar Yaghmaie SDP primary author PDF",
+      "published-finding corpus entry with stable suffix af3ac449fc4f (2026-10-11)",
+      "published-finding corpus entry with stable suffix 021cc30589a6 (2026-09-20)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 policy iteration: compact-sublevel smoothness and a PL-like condition are separate assumptions; no scalar-state sharp curvature statement.",
+        "2025 policy gradient: small heterogeneity enters main sufficient condition; no arbitrary-heterogeneity landscape statement.",
+        "2026 ReLU: Bellman surrogate convexity in the next policy, not Hessian of stationary sample-average native gain objective.",
+        "2026 SDP paper: optimizing lifted semidefinite and linearly approximated constraints, not the direct universal Hessian of sample-average cost."
+      ],
+      "reasoning": "Each prior result can coexist with this theorem but does not, on its stated hypotheses and conclusions, entail the full explicit, universally sharp curvature inequality for arbitrary actuator dimension and finite plant ensemble. A classical algebraic identity may yield a shorter proof; this is a residual priority uncertainty rather than evidence of published coverage.",
+      "searches": [
+        "arXiv:2609.04794v1 section V Theorem 5",
+        "arXiv:2503.24371v1 Assumption II.1",
+        "arXiv:2604.22138v1 Proposition 1/Lemma 2",
+        "Pasdar Yaghmaie ECC 2026 SDP primary PDF sections II-IV",
+        "one-dimensional state multiple-input LQR gain Hessian sharp 1/2 lower bound strongly convex domain randomized across arbitrary distinct plants jointly stabilizing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.22138v1, section III Proposition 1 and Lemma 2: convexity of a fixed-policy state-action value function and weighted Bellman improvement surrogate; section III Lemma 3: PL for different two-gain neural-controller cost.",
+        "Scalar stationary feedback cost is the rational function of closed-loop pole displayed in the present proof, and is not the Bellman surrogate held fixed during a policy improvement step."
+      ],
+      "reasoning": "Quadratic-over-positive-affine decompositions give a standard route to convexity, but a full logical implication covering an explicit universal matrix-Hessian modulus and its sharpness across an arbitrary finite jointly stabilized ensemble was not established by the inspected publications. The ReLU paper treats different objects and does not state the proposed DR-LQR constant.",
+      "searches": [
+        "LQR scalar state policy cost quadratic over one minus squared closed loop pole exact curvature bound",
+        "\"scalar LQR\" \"convex\" policy gain",
+        "\"scalar LQR cost\" \"strong convex\"",
+        "\"one-dimensional LQR\" \"convex\" feedback gain",
+        "arXiv:2604.22138v1 sections III Lemma 2 and Lemma 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest match published-finding corpus entry with stable suffix af3ac449fc4f (2026-10-11) concerns an unrelated displayed gain sign in a four-dimensional synchronization example.",
+        "published-finding corpus nearby record published-finding corpus entry with stable suffix 021cc30589a6 (2026-09-20) concerns random-curvature SGD step rules rather than LQR feedback gains.",
+        "The examined publications do not present a tabulated family-level universal curvature constant."
+      ],
+      "reasoning": "Actual semantic searches and comparison of returned claims did not reveal a tabulated sharp 1/2 Hessian coefficient. Absence of a database hit is not proof of novelty; this is combined with article-level implication checks.",
+      "searches": [
+        "scalar state domain randomized LQR sample average globally strongly convex Polyak Lojasiewicz no heterogeneity arbitrary input dimension",
+        "one-dimensional state multiple-input LQR gain Hessian sharp 1/2 lower bound strongly convex domain randomized across arbitrary distinct plants jointly stabilizing",
+        "LQR scalar state policy cost quadratic over one minus squared closed loop pole exact curvature bound",
+        "domain randomized LQR scalar state policy gain exact uniform curvature constant",
+        "linear quadratic regulator policy objective strong convexity for one-dimensional state multiple actuators across several plants"
+      ]
+    },
+    "rationale": "The examined 2026 domain-randomized LQR source assumes the needed gradient-dominance condition; 2025 analysis restricts heterogeneity, the nearby SDP study optimizes lifted approximations, and a scalar neural LQR paper proves fixed-policy Bellman surrogate convexity rather than the native stationary domain-randomized cost Hessian. This sharply quantified unconditional multi-system, multi-input claim was not found in the sampled primary literature or exact semantic records; uncatalogued reformulations remain possible.",
+    "residual_risks": [
+      "Classical scalar LQR convexity and standard quadratic-over-linear perspective might contain an equivalent unindexed coefficient and ensemble implication.",
+      "Semantic research indexes are not complete and cannot establish absence of earlier equivalent formulations.",
+      "No external independent priority review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish the claimed scalar-state sharp uniform Hessian bound; assumes gradient dominance for global linear convergence",
+        "evidence": [
+          "arXiv:2609.04794v1, sections II-D, IV-A, V Assumption 3 and Theorem 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.04794",
+        "material_read": "Full browser-readable primary text, including problem setup, sample-average policy improvement, Section V assumptions, proof of Theorem 5, and conclusion",
+        "method": "Read arXiv full HTML rendering of the main and theorem material; cross-checked against author-provided PDF, especially theorem and hypothesis pages",
+        "title": "Policy Iteration for Domain Randomized Linear Quadratic Systems",
+        "trigger": "2026 source with exact common-feedback sample-average objective and gradient dominance hypothesis"
+      },
+      {
+        "assessment": "Sufficient heterogeneity-based global convergence does not state the present unconditional sharp scalar-state Hessian inequality",
+        "evidence": [
+          "arXiv:2503.24371v1, abstract and Assumption II.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.24371v1",
+        "material_read": "Abstract, introduction, section II Assumption II.1, section III convergence claims and theorem structure, appendix overview",
+        "method": "Read arXiv primary full HTML, comparing common-feedback cost and the extra heterogeneity hypothesis",
+        "title": "Policy Gradient for LQR with Domain Randomization",
+        "trigger": "Earlier closest general-state optimization theorem and possible stronger coverage"
+      },
+      {
+        "assessment": "Convexity pertains to lifted SDP approximations and constraints; no directly claimed uniform stationary-policy Hessian modulus or scalar-specific sharpness",
+        "evidence": [
+          "PDF pages 1, 3 and 4, formulas (9), (18), (19)-(24)"
+        ],
+        "identifier_or_url": "https://learn2decide-a022b0.gitlab-pages.liu.se/assets/pdf/sdp-domain-randomization-lqr.pdf",
+        "material_read": "7-page author PDF, focusing on abstract, problem formulae, SDP approximation, Algorithm 1, Propositions 1-2, and stabilizing-controller procedure",
+        "method": "Inspected primary PDF page renderings and text around its full optimization and algorithm statements",
+        "title": "Semidefinite Programming for Domain Randomization in LQR",
+        "trigger": "Same authors and same sample-average optimization objects with convex SDP language"
+      },
+      {
+        "assessment": "Does have strong convexity and PL conclusions, but for a policy-improvement surrogate or two-gain controller within different hypotheses; no identical arbitrary-heterogeneous ensemble sharp Hessian claim",
+        "evidence": [
+          "arXiv:2604.22138v1, section III (21)-(23), Lemmas 2 and 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.22138v1",
+        "material_read": "Abstract, section III Lemma 1, Proposition 1, Lemma 2 and Lemma 3 with proofs",
+        "method": "Read primary HTML and compared fixed-policy Bellman surrogate to true stationary feedback objective",
+        "title": "Global Convergence of Policy Gradient Methods for ReLU Controllers in Linear Quadratic Regulation",
+        "trigger": "Same scalar-state LQR with possibly dominating convexity/PL statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "623354a2-af32-4fe3-856e-8c579c317150",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 DR-LQR policy-iteration theorem requires gradient dominance. A sharp explicit modulus for the actual scalar-state stationary sample-average problem removes that independent geometry hypothesis in a natural heterogeneous-control subclass, and quantifies one common-gain optimization landscape uniformly across arbitrary finite plant ensembles and actuator dimensions. The sharpness family shows the 1/2 factor is a real boundary, not an arbitrary looseness. The result does not claim application to multidimensional states or guarantee other algorithm-specific convergence hypotheses.",
+    "status": "PASS"
+  }
+}
