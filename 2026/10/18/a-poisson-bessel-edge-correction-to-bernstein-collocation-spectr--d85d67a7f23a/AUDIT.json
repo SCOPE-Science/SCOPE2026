@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "Parseval provides the exact row collision integral. A uniform Gaussian comparison follows from logarithmic binomial-vs-exponential control and sin(t/2) bounds, valid at every interior mesh point. The sum of errors is dominated by min(j,n-j)^(-3/2). A Bernoulli–Poisson coupling of order j^2/n and singular-mesh zeta summation yield the absolute O(n^-1/7) remainder. The packaged checker independently matches 12 exact small matrix energies and five Poisson collision integrals; finite observations are not used to prove the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marco–Martínez provide matrix algorithms including singular values but no closed asymptotic norm trace.",
+        "Raşa provides general coincidence integral formulas; no exact discretized grid sum correction.",
+        "Măduţa–Otrocol–Raşa treat binomial parameter inequalities and recurrences, not a summed Hilbert–Schmidt theorem."
+      ],
+      "reasoning": "A general numerical singular-value algorithm cannot imply a sharp analytic constant for a growing uniform grid without an additional theorem; pointwise inequalities likewise do not determine a summable edge correction.",
+      "searches": [
+        "arXiv:0812.3115v1",
+        "arXiv:1412.4971v1",
+        "arXiv:1910.13491v1",
+        "Bernstein operator collocation stochastic matrix evaluated at mesh i/n squared Frobenius Hilbert Schmidt norm asymptotics square root n spectral energy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0812.3115v1 (full text)",
+      "Marco–Martínez, Electronic Journal of Linear Algebra (full text)",
+      "arXiv:1409.1015v1 (main text inspected; screenshot failure)",
+      "arXiv:1412.4971v1 (full text)",
+      "arXiv:1706.05178v1 (full text)",
+      "arXiv:1910.13491v1 (full text)",
+      "Research-record semantic queries for Bernstein collocation trace, Frobenius, binomial coincidence, Bessel and zeta terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary literature yields the single-row integral and binomial/Poisson collision forms, which are explicitly acknowledged as inputs.",
+        "The present proof derives a uniform u^-3/2 estimate, a summable two-edge limit, and a singular zeta Riemann sum; these steps are not statements in the inspected sources."
+      ],
+      "reasoning": "A pointwise identity permits forming the finite sum algebraically, but does not provide its exact additive asymptotic or uniform power-rate remainder. Cesàro results concern a different averaging kernel, so they do not imply this theorem.",
+      "searches": [
+        "arXiv:0812.3115v1",
+        "arXiv:1409.1015v1",
+        "arXiv:1412.4971v1",
+        "arXiv:1910.13491v1",
+        "The Hilbert Schmidt squared Frobenius norm of the equispaced degree n Bernstein Vandermonde matrix has expansion one half square root pi n plus zeta one half over square root pi plus a convergent Poisson Bessel boundary series"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same row function is the binomial index of coincidence in Raşa 2014 and 2017.",
+        "The full matrix statistic is the squared Frobenius/Schatten-2 norm of the Bernstein–Vandermonde collocation matrix; no sum over the entire grid is given in inspected pointwise papers."
+      ],
+      "reasoning": "Mapped Frobenius energy to sum of binomial collision indices, Poisson boundary terms to Bessel I0, and Bernstein operator to Markov binomial kernel. The inspected statements are pointwise shape/integral identities, not this two-term summed asymptotic.",
+      "searches": [
+        "Bernstein operator collocation stochastic matrix evaluated at mesh i/n squared Frobenius Hilbert Schmidt norm asymptotics square root n spectral energy",
+        "Exact finite degree Bernstein polynomial matrix singular values trace Hilbert-Schmidt norm asymptotics",
+        "Wright Fisher binomial transition matrix Hilbert Schmidt norms spectral singular value asymptotics",
+        "Squared Hilbert–Schmidt norm of equispaced Bernstein–Vandermonde collocation matrix; asymptotic expansion sqrt(pi*n)/2 plus boundary Poisson Bessel zeta correction constant",
+        "arXiv:1409.1015v1",
+        "arXiv:1412.4971v1",
+        "arXiv:1706.05178v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual returned closest research records concern generalized Cesàro spectra, equispaced Bergman poles, and finite-dimensional spectral spacing, not the Bernstein collocation matrix.",
+        "Pointwise collision function appears in Raşa papers with no uniform grid table or two-term trace formula."
+      ],
+      "reasoning": "The theorem concerns all n and an infinite Bessel constant; neither an isolated numerical table nor a pointwise collision sequence found in the checks implies this statement.",
+      "searches": [
+        "Exact finite degree Bernstein polynomial matrix singular values trace Hilbert-Schmidt norm asymptotics",
+        "Wright Fisher binomial transition matrix Hilbert Schmidt norms spectral singular value asymptotics",
+        "Squared Hilbert–Schmidt norm of equispaced Bernstein–Vandermonde collocation matrix; asymptotic expansion sqrt(pi*n)/2 plus boundary Poisson Bessel zeta correction constant",
+        "Sharp asymptotic second-order constant for Bernstein binomial Markov transition matrix singular value energy and Renyi entropy",
+        "The Hilbert Schmidt squared Frobenius norm of the equispaced degree n Bernstein Vandermonde matrix has expansion one half square root pi n plus zeta one half over square root pi plus a convergent Poisson Bessel boundary series",
+        "arXiv:1706.05178v1",
+        "arXiv:1910.13491v1"
+      ]
+    },
+    "rationale": "No inspected source implies the uniform-grid Bernstein matrix energy expansion with its exact Poisson–Bessel boundary constant and an absolute O(n^-1/7) rate. The closest sources give singular-value computation or pointwise binomial coincidence formulas; the new aggregation requires a separate singular Riemann-sum and uniform boundary coupling argument. Searches are evidence against located overlap, not proof of absolute priority.",
+    "residual_risks": [
+      "Equivalent Bernstein approximation/finite Markov-chain trace asymptotic might be present in older unindexed material.",
+      "No claim of independent bibliographic certification or priority over every possible source.",
+      "A relevant research-record query returned transient UNAVAILABLE and was not counted as a successful negative search; other queries succeeded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Finite matrix bidiagonalization and computational accuracy; no analytic summed squared singular-value trace asymptotic or Poisson boundary constant identified.",
+        "evidence": [
+          "pp. 1–5 define Bernstein–Vandermonde matrices and Neville factorization",
+          "§4 treats singular-value algorithms, rather than uniform-grid spectral energy expansion"
+        ],
+        "identifier_or_url": "arXiv:0812.3115v1 / https://arxiv.org/pdf/0812.3115",
+        "material_read": "Introduction; §3 matrix definition and factorization; §4 singular-value algorithms; §5 numerical studies; abstract and conclusion",
+        "method": "Available full arXiv PDF with section-level text and rendered-page inspection",
+        "title": "Accurate numerical linear algebra with Bernstein–Vandermonde matrices",
+        "trigger": "Same polynomial basis and singular-value computation; possible stronger matrix theorem"
+      },
+      {
+        "assessment": "Computational factorization for strictly ordered interior nodes; no boundary-inclusive grid-trace asymptotic identified.",
+        "evidence": [
+          "No trace or Frobenius formula in inspected article",
+          "The nodes of the matrix algorithms are interior, whereas the stated limit includes the endpoints"
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1251/1251/1251",
+        "material_read": "Full article, especially abstract, introduction, Neville decomposition and eigenvalue/singular-value computations",
+        "method": "Open-access publisher PDF text/section inspection and representative rendered pages",
+        "title": "Accurate computations with totally positive Bernstein–Vandermonde matrices",
+        "trigger": "Highly similar title and numerical singular spectrum; possible finite-matrix sum"
+      },
+      {
+        "assessment": "Establishes pointwise special-function representations and inequalities, not summation over x=j/n with the explicit edge constant and quantitative error.",
+        "evidence": [
+          "Equations defining S_{n,-1}(x) and S_{n,0}(x) support the pointwise formulas",
+          "No uniform-grid matrix energy expansion identified"
+        ],
+        "identifier_or_url": "arXiv:1409.1015v1 / https://arxiv.org/abs/1409.1015",
+        "material_read": "All main sections on coincidence sums, binomial/Poisson cases, integral representations, Heun equations and bounds",
+        "method": "Full arXiv textual PDF inspection; abstract and version metadata cross-check; PDF screenshots transiently unavailable",
+        "title": "Special functions associated with positive linear operators",
+        "trigger": "Exact binomial collision integral and Bessel representation central to proof"
+      },
+      {
+        "assessment": "Treats pointwise entropy/variance, exact integral formula, and multivariate analogues, not the finite uniform-grid Hilbert–Schmidt trace and its edge constant.",
+        "evidence": [
+          "Example 4.1 gives S_{n,c}(x) integral representation; no summation over all x=j/n"
+        ],
+        "identifier_or_url": "arXiv:1412.4971v1 / https://arxiv.org/pdf/1412.4971",
+        "material_read": "Full 8-page text, especially coincidence definitions, integral formulas and Section 4 on integral operators",
+        "method": "ArXiv primary PDF text and rendered pages",
+        "title": "Rényi entropy and Tsallis entropy associated with positive linear operators",
+        "trigger": "Pointwise collision sum for Bernstein basis, including operator-theoretic framing"
+      },
+      {
+        "assessment": "Proves log convexity in continuous parameter x, not uniform-mesh aggregation or the Poisson edge expansion.",
+        "evidence": [
+          "Theorem 2.1 asserts log-convexity, Corollary 2.2 concavity of entropy"
+        ],
+        "identifier_or_url": "arXiv:1706.05178v1 / https://arxiv.org/pdf/1706.05178",
+        "material_read": "All three pages: intro, theorem, proof and entropy corollary",
+        "method": "Full arXiv PDF text and rendered title/theorem page",
+        "title": "The index of coincidence for the binomial distribution is log-convex",
+        "trigger": "Exact same row collision function may imply claimed asymptotic"
+      },
+      {
+        "assessment": "Contains pointwise recurrences and inequalities, not the two-term aggregate on the uniform node mesh.",
+        "evidence": [
+          "Theorem 4 is an inequality for F_n(x) at fixed x",
+          "Corollary 7 compares F_{n+1}(x) with F_n(x), not their uniform-grid sum"
+        ],
+        "identifier_or_url": "arXiv:1910.13491v1 / https://arxiv.org/pdf/1910.13491",
+        "material_read": "Full eight pages, especially Theorems 1, 4, 5, 6 and Corollary 7",
+        "method": "Full arXiv PDF textual inspection across sections",
+        "title": "Inequalities for indices of coincidence and entropies",
+        "trigger": "Recurrences and inequalities for binomial row collision may already control full trace"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d85d67a7-f23a-477c-becc-19b1f87e974f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unweighted Hilbert–Schmidt energy is a natural spectral statistic of the canonical Bernstein approximation collocation operator. Bulk Gaussian approximations alone do not recover the order-one correction because two Poisson edges survive; the theorem gives the exact constant (zeta plus two Bessel sums), all-degree universality, and a quantitative convergence rate, rather than an arbitrary finite instance. It may inform studies of discrete Bernstein operator spectral energy and mesh-dependent asymptotics; no downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
