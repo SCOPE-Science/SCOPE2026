@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:08:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For symmetric length-two palindromic insertion ab→abba in any monoid context, first symbol and length parity are invariant; the length of the first constant run changes only by +2 if the duplication is strictly inside it, making the four run types invariant. The explicitly displayed independent forward chains for 010 and 011 reach common descendant 01101100001, establishing 010≡011 and its complemented relation. Consequently abuv≡ab for distinct a,b and any two-letter uv: the local relation changes the third symbol to a and fourth to b, giving abab≡ab. Iterated suffix-pair erasure and reduction of initial constant runs by aa↔aaaa supply canonical representatives for each signature. This proves 19 monoid congruence classes (1 empty +2 singleton +2 first letters×2 parities×4 types) and length-slice 1,2,4,6,8 from n>=4. Independent signature enumeration n=0..8 confirms cardinalities, and pinned verifier code checks the chains and finite graph through length14. The infinite classification rests on the symbolic reduction, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Capacity zero for palindromic length at least 2 is asymptotic and says nothing about exact finite symmetric congruence.",
+          "Exact two-error binary code tables in nearby Resultary records concern forward error cones and lengths; they neither dominate nor infer 19 symmetric classes.",
+          "Theorem 12 only gives sufficient common-descendant condition for equal k-block summaries. Binary 010 and 011 have different summaries 10 and 11 but coincide in the submitted symmetric quotient via explicit joins; the theorem therefore does not supply the needed local generator relation."
+        ],
+        "reasoning": "Asymptotic or forward-code statements are not stronger theorems about a symmetric quotient of the free monoid. This direct 010/011 counter-comparison rules out inferring the entire 19-class quotient from Theorem 12 alone.",
+        "searches": [
+          "arXiv:2312.00394 Theorems/Corollary 16",
+          "published Resultary semantic search: binary palindromic duplication length two congruence 19 classes first run parity quotient monoid (top 8)",
+          "Springer 2025 DOI:10.1007/s10623-025-01627-7 Theorem 12 (published general common-descendant sufficient criterion)"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/ACCESS.2020.2995812",
+        "arXiv:2312.00394",
+        "arXiv:2609.00779",
+        "Resultary: binary two-PAL2 code sizes through length eight",
+        "Springer 2025 DOI:10.1007/s10623-025-01627-7, Theorem 12 and Example 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2020 priority deduplication handles forward paths and nonunique palindromic roots; no proof every two binary words with same initial-run signature share a symmetric class.",
+          "2024 capacity result is compatible with a constant lower-bound code and gives no upper bound 8.",
+          "2025 results show flaws in positive-rate 2020 forward codes but are not a disproof of any finite congruence or 8-word invariant lower bound."
+        ],
+        "reasoning": "No identified prior implication yields the exact quotient, though an older rewriting-system normal-form theorem may cover it under different terminology.",
+        "searches": [
+          "arXiv:2312.00394 Section 5",
+          "Zeraatpisheh et al 2020 Section III-A",
+          "published Resultary semantic search: binary palindromic duplication length two congruence 19 classes first run parity quotient monoid (top 8)",
+          "Springer 2025 Theorem 12 and Example 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary palindromic duplication length 2 is the operation uv→uvv^R; symmetric congruence is strictly coarser than directed descendant reachability.",
+          "Source code constructions use priority deduplication and irreducible roots rather than a complete quotient monoid."
+        ],
+        "reasoning": "Related equivalent formulations considered as a finite monoid presentation, unordered move connectivity, common descendant pair and initial-run signatures; no published identical 19-class equivalence was found.",
+        "searches": [
+          "published Resultary semantic search: binary palindromic duplication length two congruence 19 classes first run parity quotient monoid (top 8)",
+          "arXiv:2312.00394 Section 5",
+          "DOI:10.1109/ACCESS.2020.2995812"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finite code-size table 4,8,14,20,28,42,66 differs from exact symmetric quotient classes; not the same invariant.",
+          "No 19-element presented monoid table located."
+        ],
+        "reasoning": "The claim is not merely re-counting a known database; the run-signature classification works at every length.",
+        "searches": [
+          "published Resultary semantic search: binary palindromic duplication length two congruence 19 classes first run parity quotient monoid (top 8)",
+          "Published Resultary: Exact binary two-PAL2 code sizes through length eight"
+        ]
+      },
+      "rationale": "An explicit finite congruence classification of every binary word under the symmetric context-closed palindromic duplication relation is distinct from prior directed forward error-correcting code constructions and capacity-zero theorems. Earlier literature does not, in inspected relevant sections, entail these 19 exact symmetric classes or all fixed-length slice counts.",
+      "residual_risks": [
+        "An exact 19-state quotient could appear in alternative rewriting-system terminology or older code appendices.",
+        "Although key 2020 full-text sections are inspected, an older unindexed rewriting theorem still may duplicate the 19 normal forms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows zero asymptotic rate for k>=2 and forward cone methods, not exact symmetric congruence classes",
+          "evidence": "Definition palindrome duplication T_pal, Corollary 16",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.00394",
+          "material_read": "Complete 18-page PDF, especially definitions Section 2 and palindromic Section 5",
+          "method": "Read published open-access PDF, including relevant theorems, proofs, tables and references",
+          "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+          "trigger": "Same operation, asymptotic capacity zero"
+        },
+        {
+          "assessment": "Studies ancestor roots and proposed forward code construction; does not present the 19-class symmetric congruence. Subsequent 2025 article gives explicit counterexamples to some claimed code constructions, so they are not used as a correctness foundation for this result.",
+          "evidence": "IEEE Access 2020 Section III.A, Example 2 (nonunique p2 roots), Algorithm 1, Lemma 1",
+          "identifier_or_url": "https://www.researchgate.net/publication/341536136_Construction_of_Duplication_Correcting_Codes",
+          "material_read": "Author-posted open-access full-text HTML rendering of IEEE Access 2020 paper, especially definitions of p2-ancestors/roots in Section II, Section III.A priority deduplication, Lemma 1 and Theorems 2–3; later code construction discussion compared but not all pages read line by line",
+          "method": "Read author-posted open-access full text (CC BY 4.0); inspected all materially relevant definitions, priority-deduplication details, limitations and known code statements",
+          "title": "Construction of Duplication Correcting Codes",
+          "trigger": "Known nonunique roots and unbounded-error code constructions"
+        },
+        {
+          "assessment": "Theorem 12 states that equal short prefixes and summaries of distinct k-blocks SUFFICE for common forward descendants. It does not classify the symmetric congruence: for k=2, binary 010 and 011 have different two-block summaries (10 vs 11) yet the source claim proves them equivalent by explicit joins. The 2025 paper refutes 2020 code claims with counterexamples, which does not invalidate the present constant-size invariant code.",
+          "evidence": "Theorem 12, Definition 3, Corollary 16, Example 6 (published 2025 Springer article); arXiv:2312.00394 Section 5",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-025-01627-7",
+          "material_read": "Entire relevant Sections 4 and 5 and Theorem 12 proof and Example 6, plus original arXiv 18-page full text",
+          "method": "Read freely accessible full Springer journal text and lawful arXiv full PDF",
+          "title": "On the coding capacity of reverse-complement and palindromic duplication-correcting codes (published journal revision)",
+          "trigger": "Strongest general published common-descendant theorem, potential implication of 19-state quotient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete finite quotient of a natural DNA storage duplication channel is a structural rewriting-system result: the 19 normal forms are exact for all lengths, supply a compact invariant and yield explicit constant-size unlimited-error correcting code families. The theorem carefully separates symmetric congruence from forward descendant cone intersection and does not claim an optimal code size.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1109/ACCESS.2020.2995812",
+    "arXiv:2312.00394",
+    "arXiv:2609.00779",
+    "Resultary: binary two-PAL2 code sizes through length eight"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 8-word code is a lower-bound construction only; infinite theorem not derived from truncated graph enumeration."
+  ],
+  "schema_version": 1
+}

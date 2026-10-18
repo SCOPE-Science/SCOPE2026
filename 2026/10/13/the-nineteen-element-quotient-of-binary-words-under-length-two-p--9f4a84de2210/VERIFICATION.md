@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducing checks
 
-Execute `python3 verify.py` using a standard Python 3 interpreter. The program constructs each 2-letter palindrome insertion using literal word concatenation and checks both forward derivations yielding the same 11-letter word. It tests signature preservation for every 2- through 13-letter binary word under every possible single insertion; enumerates the undirected duplication graph of words of lengths 2 through 14; compares connected components against signatures on every length slice 2 through 9; and checks all 19 displayed signature types and class counts through length 9.
+# Independent mathematical audit
 
-The program prints `VERIFY_OK` only after all assertions succeed. The exact output for the inspected package was:
+## correctness
 
-`VERIFY_OK primitive_join_paths=4 prefix_signatures_preserved_through_length=13 graph_limit=14 graph_vertices=32764 graph_edges=81924 exact_component_slices=2..9 quotient_size=19`
+PASS
 
-Finite enumeration is not an infinite proof. The uniform canonical reduction and the local identity, with its two explicit forward chains, provide the mathematical proof in `RESULT.md`. No independent audit or validation is represented.
+For symmetric length-two palindromic insertion ab→abba in any monoid context, first symbol and length parity are invariant; the length of the first constant run changes only by +2 if the duplication is strictly inside it, making the four run types invariant. The explicitly displayed independent forward chains for 010 and 011 reach common descendant 01101100001, establishing 010≡011 and its complemented relation. Consequently abuv≡ab for distinct a,b and any two-letter uv: the local relation changes the third symbol to a and fourth to b, giving abab≡ab. Iterated suffix-pair erasure and reduction of initial constant runs by aa↔aaaa supply canonical representatives for each signature. This proves 19 monoid congruence classes (1 empty +2 singleton +2 first letters×2 parities×4 types) and length-slice 1,2,4,6,8 from n>=4. Independent signature enumeration n=0..8 confirms cardinalities, and pinned verifier code checks the chains and finite graph through length14. The infinite classification rests on the symbolic reduction, not finite enumeration.
+
+## originality
+
+PASS
+
+An explicit finite congruence classification of every binary word under the symmetric context-closed palindromic duplication relation is distinct from prior directed forward error-correcting code constructions and capacity-zero theorems. Earlier literature does not, in inspected relevant sections, entail these 19 exact symmetric classes or all fixed-length slice counts.
+
+## value
+
+PASS
+
+A complete finite quotient of a natural DNA storage duplication channel is a structural rewriting-system result: the 19 normal forms are exact for all lengths, supply a compact invariant and yield explicit constant-size unlimited-error correcting code families. The theorem carefully separates symmetric congruence from forward descendant cone intersection and does not claim an optimal code size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
