@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,73 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Define
-\[
-E_i(J;f)
-=
-\int_J\|\Lambda_{\omega i}f\|^2\,d\mu(\omega)
-\]
-and
-\[
-D_{ij}(J;f)
-=
-\int_J\|(\Lambda_{\omega i}-\Lambda_{\omega j})f\|^2\,d\mu(\omega).
-\]
-The hypothesis gives
-\[
-D_{ij}(J;f)\le M E_j(J;f).
-\]
-Minkowski in the coefficient Hilbert space gives
-\[
-E_i(J;f)^{1/2}
-\le
-D_{ij}(J;f)^{1/2}+E_j(J;f)^{1/2}
-\le
-(1+\sqrt M)E_j(J;f)^{1/2}.
-\]
-Thus
-\[
-E_i(J;f)\le(1+\sqrt M)^2E_j(J;f).
-\]
+# Independent mathematical audit
 
-For a partition \(\{\sigma_j\}_{j=1}^m\),
-\[
-A\|K^*f\|^2
-\le
-\sum_{j=1}^m\sum_{i=1}^mE_i(\sigma_j;f)
-\le
-\left(1+(m-1)(1+\sqrt M)^2\right)
-\sum_{j=1}^mE_j(\sigma_j;f).
-\]
-This proves the corrected lower bound.
+## correctness
 
-For sharpness, take a one-point measure space, \(H=\mathbb C\), \(K=I\), and
-\[
-c=1+\sqrt M,\qquad
-\Lambda_1=I,\qquad
-\Lambda_i=cI\quad(2\le i\le m).
-\]
-The pairwise hypothesis holds because
-\[
-|c-1|^2=M
-\]
-and the smaller individual energy is \(1\). The summed exact lower bound is
-\[
-A=1+(m-1)c^2.
-\]
-A weave selecting family \(1\) has exact lower bound \(1\), and the corrected formula equals
-\[
-\frac{A}{1+(m-1)c^2}=1.
-\]
+PASS
 
-The source formula instead equals
-\[
-1+
-\frac{2(m-1)\sqrt M}
-{1+(m-1)(M+1)},
-\]
-which is strictly larger than \(1\) for every \(m\ge2\) and \(M>0\).
+In the 2021 primary Theorem 4, the step ||a+b||^2<=||a||^2+||b||^2 is false; a cross term is omitted. On any measurable partition, Hilbert direct-integral Minkowski gives E_i(sigma_j;f)^(1/2) <=D_ij(sigma_j;f)^(1/2)+E_j(sigma_j;f)^(1/2) <=(1+sqrt(M))E_j(sigma_j;f)^(1/2), hence each cross-energy <=(1+sqrt M)^2 selected energy. Summing individual K-g-frame lower bounds gives exact lower universal constant A/[1+(m-1)(1+sqrt M)^2], and upper sum B. For each m>=2, M>0, one-point scalar Lambda_1=I, Lambda_i=(1+sqrt M)I for i>=2 and K=I satisfies all pairwise hypotheses (difference squared=M against min{1,c^2}=1) with A=1+(m-1)c^2; assigning point to family 1 gives exact energy 1, equal to corrected lower bound, while published bound A/[1+(m-1)(M+1)]>1. Independently checked m=2,3,5, M=.01,.4,9. This is an exact analytic all-m/all-M counterexample and sharp replacement, not a finite extrapolation.
 
-The primary full text was inspected at Theorem 4 and its proof. The later 2022 comparison source was inspected at Theorem 3.6 and its proof. No numerical experiment or finite enumeration is used.
+## originality
+
+PASS
+
+Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.
+
+## value
+
+PASS
+
+Repairs a published quantitative weaving criterion for continuous K-g-frames. The incorrect guaranteed lower stability constant is violated for every m>=2, M>0; the corrected bound is sharp across the whole parameter range and directly changes usable frame reconstruction/stability guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

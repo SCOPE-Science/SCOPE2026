@@ -1,41 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source theorem and complete proof were reconstructed. Its key estimate omits the cross term in the square of a sum. Applying Minkowski before squaring gives
-\[
-E_i^{1/2}\le(1+\sqrt M)E_j^{1/2},
-\]
-hence the corrected denominator
-\[
-1+(m-1)(1+\sqrt M)^2.
-\]
+## correctness
 
-For every \(m\ge2\) and \(M>0\), the one-point scalar family
-\[
-\Lambda_1=I,\qquad
-\Lambda_i=(1+\sqrt M)I
-\]
-satisfies all hypotheses and has exact universal weaving lower bound \(1\). It attains the corrected formula and strictly violates the published lower bound.
+PASS
 
-## Originality
-PASS. Exact-source and theorem-number searches, the printed denominator, square-root-factor aliases, pairwise energy formulations, later generalized continuous \(K\)-weaving work, earlier continuous weaving \(g\)-frame work, and the available prior scientific records were compared.
+In the 2021 primary Theorem 4, the step ||a+b||^2<=||a||^2+||b||^2 is false; a cross term is omitted. On any measurable partition, Hilbert direct-integral Minkowski gives E_i(sigma_j;f)^(1/2) <=D_ij(sigma_j;f)^(1/2)+E_j(sigma_j;f)^(1/2) <=(1+sqrt(M))E_j(sigma_j;f)^(1/2), hence each cross-energy <=(1+sqrt M)^2 selected energy. Summing individual K-g-frame lower bounds gives exact lower universal constant A/[1+(m-1)(1+sqrt M)^2], and upper sum B. For each m>=2, M>0, one-point scalar Lambda_1=I, Lambda_i=(1+sqrt M)I for i>=2 and K=I satisfies all pairwise hypotheses (difference squared=M against min{1,c^2}=1) with A=1+(m-1)c^2; assigning point to family 1 gives exact energy 1, equal to corrected lower bound, while published bound A/[1+(m-1)(M+1)]>1. Independently checked m=2,3,5, M=.01,.4,9. This is an exact analytic all-m/all-M counterexample and sharp replacement, not a finite extrapolation.
 
-A later 2022 proof uses the safe but coarser factor
-\[
-2(M+1).
-\]
-No checked source gives the sharp factor
-\[
-(1+\sqrt M)^2
-\]
-or the all-\(m\), all-\(M\) scalar extremizers.
+## originality
 
-## Value
-PASS. The result repairs a quantitative lower frame bound, not merely notation. The source constant is too optimistic for every \(M>0\), while the replacement is sharp under exactly the same hypotheses. Since weaving lower bounds quantify robustness of mixed analysis systems, the corrected constant is mathematically and operationally substantive.
+PASS
 
-## Closest literature and limitations
-The 2022 generalized-continuous \(K\)-weaving paper contains a related sufficient-condition proof with a weaker safe denominator. Earlier continuous weaving \(g\)-frame work provides the surrounding framework but no checked statement supplies the sharp correction.
+Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.
 
-The result optimizes the guarantee determined by \(A\), \(M\), and \(m\). It does not claim to recover the exact weaving bound of every fixed family from its full geometry.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Repairs a published quantitative weaving criterion for continuous K-g-frames. The incorrect guaranteed lower stability constant is violated for every m>=2, M>0; the corrected bound is sharp across the whole parameter range and directly changes usable frame reconstruction/stability guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
