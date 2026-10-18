@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result supplies an exact squared Hilbert–Schmidt norm by expanding on the normalized monomial basis and summing over all multiindices. The nontrivial finite combinatorial identity follows from generating functions and is checked independently by exact rational calculations in dimensions two through four. Gamma-ratio asymptotics, summable convolution, harmonic convolution, and beta-type convolution rigorously supply the three asymptotic regimes. The proof treats all dimensions \(n\ge2\), weights \(\alpha>-1\), exponents \(\beta>0\), and finite positive Borel measures. The power-log endpoints use classical moment asymptotics and the integral test. The Python calculations corroborate finite identities, not the infinite proof.
+PASS
 
-## Originality — PASS, residual bibliographic risk
+PASS. The weighted Bergman orthonormal basis is E_u(z)=sqrt((ν)_{|u|}/u!) z^u with ν=n+α+1. Unitarily rotate ξ to e1; the kernel power series and positivity of μ give C E_u as a sum over j≥0 with moment μ_{|u|+j}, coefficient (β)_j/j!, and monomial norm ratio sqrt[(ν)_{|u|}/(ν)_{|u|+j} × (u1+j)!/u1!]. Orthogonality of different multiindices in each image and Tonelli collapse the basis squared norms. Summing (u1+j)!/u1! over |u|=k via j!(1-x)^(-j-1)(1-x)^(-(n-1)) yields exactly S_m. This identity is an iff for the polynomial operator's S2 extension, not an assertion of unboundedness otherwise. Write S_m as Γ(m+n)/Γ(m+ν) times convolution d_j*g_{m-j}; d_j~j^(2β-n-1)/Γ(β)^2, g_k~k^(n+α). For 2β<n dominated convergence gives m^(n-1)∑d_j; equality gives a harmonic log; 2β>n gives the Beta integral and m^(2β-1). Positive leading constants imply all displayed moment tests. For μ_{s,r}, Laplace substitution gives Γ(s)m^(-s)(log m)^(-r); integral test supplies sharp r>1/2 or r>1 critical cutoffs. Independently recomputed critical n=2,α=0,β=1 coefficients S_m=1,7/3,47/12,57/10,153/20,341/35 with exact rational arithmetic. Finite coefficients do not establish asymptotics.
 
-Pan, Tong, and Yang, arXiv:2609.03243v1, define this unit-ball operator and give boundedness conditions but no Hilbert–Schmidt classification. Blasco and Pennanen, arXiv:2609.21657v1, study a different Bergman-kernel Cesàro operator on the unit disk, also without the multivariate \(S_2\) phase diagram. Galanopoulos, Girela, and Merchán (JMAA 526, 2023, 127287) previously investigated Hilbert–Schmidt Cesàro operators in dimension one, which is expressly excluded from the new claim. Hu–Tang (2010) studied symbol-driven extended Cesàro/Volterra Schatten ideals on higher-dimensional Bergman balls; Stević (2010) computed Hilbert–Schmidt norms for single radial weighted compositions. These operate by different kernels and neither gives the claimed measure-induced moment convolution. Exact-matching and stronger-implication searches were made against published mathematical findings and primary literature. The complete 2023 article was not accessible through the attempted lawful routes; any as-yet-unidentified stronger extension of its disk conclusions remains a bibliographic risk, not evidence of actual coverage.
+## originality
 
-## Value — PASS
+PASS
 
-Hilbert–Schmidt membership is a motivated compactness/spectral-ideal question left beyond the motivating boundedness classification. The result gives an exact all-measure moment test, a dimension-dependent sharp transition, independence from the Bergman weight parameter, and the complete unusual \(r>1\) logarithmic endpoint at coincident power thresholds. These are reusable structural facts, not numerical samples or a narrow arbitrary parameter choice.
+PASS with a full-text access risk. Pan–Tong–Yang's 2026 exact same-operator arXiv abstract states boundedness between Bergman spaces and into H∞, not Hilbert–Schmidt norm or Schatten membership. Stronger boundedness coverage does not automatically imply S2 (membership is more restrictive). Disk-specific Galanopoulos–Girela–Merchán 2023 contains Hilbert–Schmidt questions, but one-variable formulas cannot by themselves imply the n>=2 multiplicity/trichotomy; Oxford retrieval failed and this paper has not been fully inspected. Toeplitz/Volterra ball results have different kernels. Resultary is down; priority is best-of-checked-knowledge, not a claim of exhaustive novelty.
 
-## Scope and limits
+## value
 
-The proof does not classify non-Hilbert–Schmidt Schatten classes and does not assert that failing the \(S_2\) test implies unboundedness. Positive finite measures are essential for the statement as given. The cited one-variable results and Toeplitz-type Schatten criteria are acknowledged as prior, not redescribed as novel.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. Gives a sharp S2/Schatten-2 criterion and exact norm for the natural measure-induced Cesàro operator on higher-dimensional Bergman balls, with a genuine dimensional transition at β=n/2 and a double logarithmic boundary. Researchers can use the explicit moment-weight test and threshold for concrete inducing measures; this is more than checking boundedness or a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

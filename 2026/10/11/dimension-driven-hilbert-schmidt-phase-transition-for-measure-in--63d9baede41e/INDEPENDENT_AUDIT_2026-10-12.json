@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T09:21:44.429169Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The weighted Bergman orthonormal basis is E_u(z)=sqrt((ν)_{|u|}/u!) z^u with ν=n+α+1. Unitarily rotate ξ to e1; the kernel power series and positivity of μ give C E_u as a sum over j≥0 with moment μ_{|u|+j}, coefficient (β)_j/j!, and monomial norm ratio sqrt[(ν)_{|u|}/(ν)_{|u|+j} × (u1+j)!/u1!]. Orthogonality of different multiindices in each image and Tonelli collapse the basis squared norms. Summing (u1+j)!/u1! over |u|=k via j!(1-x)^(-j-1)(1-x)^(-(n-1)) yields exactly S_m. This identity is an iff for the polynomial operator's S2 extension, not an assertion of unboundedness otherwise. Write S_m as Γ(m+n)/Γ(m+ν) times convolution d_j*g_{m-j}; d_j~j^(2β-n-1)/Γ(β)^2, g_k~k^(n+α). For 2β<n dominated convergence gives m^(n-1)∑d_j; equality gives a harmonic log; 2β>n gives the Beta integral and m^(2β-1). Positive leading constants imply all displayed moment tests. For μ_{s,r}, Laplace substitution gives Γ(s)m^(-s)(log m)^(-r); integral test supplies sharp r>1/2 or r>1 critical cutoffs. Independently recomputed critical n=2,α=0,β=1 coefficients S_m=1,7/3,47/12,57/10,153/20,341/35 with exact rational arithmetic. Finite coefficients do not establish asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "p,q-boundedness for equal exponents is a Carleson-tail criterion; Toeplitz and Volterra Schatten theorems concern differing maps."
+        ],
+        "reasoning": "The S2 norm is stronger than boundedness, and the parameter n/2 multiplicity is absent from a disk-only statement. The latter full text inaccessible, so exact stronger reduction remains residual priority risk.",
+        "searches": [
+          "Pan–Tong–Yang arXiv:2609.03243v1 bounds p,q general",
+          "Hu–Tang 2010 ball extended Cesaro Schatten theorem DOI:10.1090/S0002-9939-10-10365-7",
+          "Galanopoulos–Girela–Merchán JMAA 2023 DOI:10.1016/j.jmaa.2023.127287"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 1fccf07319b4a57002e1faa5cda057853f1af711",
+        "Frozen verify_hs_identity.py 44badf607c74bf5acc20e4381bf0ffb3f423dd02",
+        "Pan–Tong–Yang arXiv:2609.03243 abstract",
+        "Galanopoulos–Girela–Merchán 2023 publisher metadata",
+        "Independent exact critical coefficients S_m for m<=5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A bounded operator need not be Hilbert–Schmidt; the target series can diverge despite finite-measure kernel boundedness."
+        ],
+        "reasoning": "The norm identity requires Hilbert monomial multiplicities; its threshold is not a numerical substitution into boundedness.",
+        "searches": [
+          "Pan–Tong–Yang arXiv:2609.03243v1 abstract",
+          "Frozen RESULT.md proof equations for monomial basis and convolution",
+          "Critical independent coefficients n=2 α=0 β=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary source has the SAME measure-induced operator and parameters for boundedness, while the target concerns Hilbert–Schmidt norm and moment convolution."
+        ],
+        "reasoning": "Comparison made at operator-definition level; no relabeling of the existing boundedness theorem gives exact squared S2 norm.",
+        "searches": [
+          "Pan–Tong–Yang arXiv:2609.03243v1 abstract",
+          "web: Cesaro measure induced unit ball Bergman spaces Schatten Hilbert Schmidt Pan Tong Yang 2026",
+          "Resultary measure-induced Cesaro S2 query failed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source supplies exact positive gamma-weight S_m and β=n/2 logarithm; related accessible abstracts do not display it."
+        ],
+        "reasoning": "No exact n>=2 sequence/tabulation was located; snippets and abstracts do not justify whole-paper NOT_COVERING.",
+        "searches": [
+          "Frozen S_m identity in RESULT.md 1fccf07319b4a57002e1faa5cda057853f1af711",
+          "Pan arXiv:2609.03243v1 indexed summary",
+          "JMAA 526 (2023) article 127287 metadata"
+        ]
+      },
+      "rationale": "PASS with a full-text access risk. Pan–Tong–Yang's 2026 exact same-operator arXiv abstract states boundedness between Bergman spaces and into H∞, not Hilbert–Schmidt norm or Schatten membership. Stronger boundedness coverage does not automatically imply S2 (membership is more restrictive). Disk-specific Galanopoulos–Girela–Merchán 2023 contains Hilbert–Schmidt questions, but one-variable formulas cannot by themselves imply the n>=2 multiplicity/trichotomy; Oxford retrieval failed and this paper has not been fully inspected. Toeplitz/Volterra ball results have different kernels. Resultary is down; priority is best-of-checked-knowledge, not a claim of exhaustive novelty.",
+      "residual_risks": [
+        "Full Pan–Tong–Yang preprint not accessible this execution; abstract only, mathematical coverage not excluded absolutely.",
+        "Galanopoulos–Girela–Merchán 2023 primary full text inaccessible (Oxford VPN disconnected).",
+        "Resultary unavailable.",
+        "Positive finite μ is essential to the stated moment asymptotics/no cancellation; no general Schatten-p criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel family matches; abstract does not mention S2. Cannot declare unread full text noncovering.",
+          "evidence": "Abstract dated 2026-09-03 explicitly says boundedness and H∞ mapping",
+          "identifier_or_url": "https://arxiv.org/abs/2609.03243",
+          "material_read": "Author/title/date, abstract and stated boundedness p,q ranges; arXiv PDF and HTML access failed",
+          "method": "ArXiv primary metadata/abstract; attempted primary full-text URL",
+          "title": "Weighted Cesàro type operators on the weighted Bergman spaces in the unit ball",
+          "trigger": "Same unit-ball operator family and closest priority check"
+        },
+        {
+          "assessment": "Material unavailable; one-dimensional overlap and possible reductions remain risk.",
+          "evidence": "JMAA 526 (2023), 127287; Oxford vpn_disconnected",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2023.127287",
+          "material_read": "Title/bibliographic data and abstract-level domain only; Oxford attempted but vpn_disconnected",
+          "method": "Publisher metadata plus authorized institutional retrieval attempt",
+          "title": "Cesàro-type operators associated with Borel measures on the unit disc acting on some Hilbert spaces of analytic functions",
+          "trigger": "Close one-dimensional Hilbert-Schmidt prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Gives a sharp S2/Schatten-2 criterion and exact norm for the natural measure-induced Cesàro operator on higher-dimensional Bergman balls, with a genuine dimensional transition at β=n/2 and a double logarithmic boundary. Researchers can use the explicit moment-weight test and threshold for concrete inducing measures; this is more than checking boundedness or a single numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 1fccf07319b4a57002e1faa5cda057853f1af711",
+    "Frozen verify_hs_identity.py 44badf607c74bf5acc20e4381bf0ffb3f423dd02",
+    "Pan–Tong–Yang arXiv:2609.03243 abstract",
+    "Galanopoulos–Girela–Merchán 2023 publisher metadata",
+    "Independent exact critical coefficients S_m for m<=5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=2, alpha>-1, beta>0, positive finite inducing measure and specified kernel.",
+    "Non-S2 does not mean unbounded; phase thresholds concern S2 only."
+  ],
+  "residual_risks": [
+    "Full Pan–Tong–Yang preprint not accessible this execution; abstract only, mathematical coverage not excluded absolutely.",
+    "Galanopoulos–Girela–Merchán 2023 primary full text inaccessible (Oxford VPN disconnected).",
+    "Resultary unavailable.",
+    "Positive finite μ is essential to the stated moment asymptotics/no cancellation; no general Schatten-p criterion."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Exact kernel family matches; abstract does not mention S2. Cannot declare unread full text noncovering.",
+      "evidence": "Abstract dated 2026-09-03 explicitly says boundedness and H∞ mapping",
+      "identifier_or_url": "https://arxiv.org/abs/2609.03243",
+      "material_read": "Author/title/date, abstract and stated boundedness p,q ranges; arXiv PDF and HTML access failed",
+      "method": "ArXiv primary metadata/abstract; attempted primary full-text URL",
+      "title": "Weighted Cesàro type operators on the weighted Bergman spaces in the unit ball",
+      "trigger": "Same unit-ball operator family and closest priority check"
+    },
+    {
+      "assessment": "Material unavailable; one-dimensional overlap and possible reductions remain risk.",
+      "evidence": "JMAA 526 (2023), 127287; Oxford vpn_disconnected",
+      "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2023.127287",
+      "material_read": "Title/bibliographic data and abstract-level domain only; Oxford attempted but vpn_disconnected",
+      "method": "Publisher metadata plus authorized institutional retrieval attempt",
+      "title": "Cesàro-type operators associated with Borel measures on the unit disc acting on some Hilbert spaces of analytic functions",
+      "trigger": "Close one-dimensional Hilbert-Schmidt prior"
+    }
+  ]
+}
