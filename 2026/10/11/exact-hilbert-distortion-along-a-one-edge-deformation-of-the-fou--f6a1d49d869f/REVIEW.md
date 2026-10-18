@@ -1,19 +1,21 @@
-# Review: Euclidean distortion of the one-edge four-point metric family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines the Lipschitz dual explicitly, derives the exact norm \(N_t\), and justifies reduction from arbitrary positive quadratic forms to diagonal ones using the complete sign-change isometry group. The unit-ball vertex formulas follow from the six first-octant inequalities. The dual ellipsoid maximum is the maximum of six linear-functional dual squared norms. In the shorter-edge regime, the strictly positive partial derivatives of \(H_t\) prove the global bound. In the longer-edge regime, the nonnegative KKT multipliers certify the global convex minimum. Both are attained by displayed positive-definite quadratic forms, and endpoint equality is handled. Finite rational checks reproduce, but do not replace, those all-parameter arguments. The statement excludes nonmetrics and scalar-field generalizations.
+PASS
 
-## Originality — PASS, with residual risk
+Dual Lipschitz potential differences give N_t(X,Y,Z)=max(|X|/t,|Y|,|Z|+(|X|+|Y|)/2); this remains a metric for 0<t≤2. Independent sign isometries average any feasible quadratic comparison to diagonal without increasing distortion. Exact first-octant polytope corner maximization gives P; dual linear-function norms give Q=max(1/(t²a),1/b,1/(4a)+1/(4b)+1/c). For t≤1, Q-normalized minimization is attained at (a,b,c)=(t^-2,1,4/(3−t²)); for t≥1, P-normalized KKT conditions give ((3−t)/4,(t+1)/4,1). The resulting BM² branches (7−2t−t²)/(3−t²), 1+4/((t+1)(3−t)) match at t=1 and monotonicity shows the unique minimum there. Independently reconstructed polytope constraints and numerically optimized positive diagonal forms at 6 t values including both endpoints, agreement <5×10^-10; analytic proof covers continuum and all nondiagonal forms.
 
-The source- and implication-based comparisons concern the exact squared Euclidean Banach–Mazur distance for **all** \(0<t\leq2\), not simply words used in a title. Godard's four-point tree-metric criterion gives an isometric \(L_1\) classification; it does not calculate this Euclidean distortion. Alexander–Fradelizi–García-Lirola–Zvavitch analyze four-point/equilateral polytope geometry, isometric classification and volume product, whose numerical values do not imply the optimal quadratic ellipsoid distortion. Dilworth–Kutzarova–Ostrovskii give free-space structure and estimates, not the sharp parameter-dependent Euclidean formula. Ostrovska–Ostrovskii give graph transport representations and isometric invariants, not a sharp Euclidean comparison. Specific query variants for one exceptional edge, a rescaled \(A_3\) root, the dual three-variable max norm, and the two rational branches were also compared to indexed mathematical records. An unindexed or differently phrased classical convex-body computation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, exact Hilbertian-distortion profile of a natural family of four-point metrics: deforming just one edge of the equilateral tetrahedral metric through the full metric range. The minimum is unique at the equilateral member, while two geometrically distinct endpoints share the nontrivial limiting squared distance \(7/3\). The piecewise extremal ellipsoids exhibit how the controlling face of the transportation-cost polytope changes at the symmetric parameter. This parameter is also the exact tree-embedding threshold by the historical four-point criterion: the opposite-pair sums are \(t+1,2,2\). The full parameter range and optimization over every linear Euclidean coordinate system make this more than an isolated numerical calculation.
+PASS best knowledge: primary tree-metric and Lipschitz-free polytopal papers classify related L1/isometric structures and root polytope volumes but do not imply this exact t-dependent ℓ2³ ellipsoid profile. Equilateral known endpoint t=1 is explicitly excluded as new alone. Published one-edge weighted cycles, one-exceptional-edge root/ultrametric and three-equal-cluster results concern different metric matrices and do not subsume both branches for this family.
 
-## Sources and limits
+## value
 
-The four closest primary works are Godard, arXiv:0904.3178v1; Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642; Dilworth–Kutzarova–Ostrovskii, arXiv:1807.03814; and Ostrovska–Ostrovskii, arXiv:2112.02689. Their inspected material and precise implication comparisons are recorded in `AUDIT.json`. Search and review cannot exclude unindexed historical equivalents. The theorem is real, three-dimensional, and specific to the described metric family; the optimal ellipsoids are exhibited but not asserted unique.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: full sharp Euclidean distortion as a natural one-parameter deformation of equilateral K4 is a structural classification. The tree-embedding transition t=1 aligns with unique Hilbertian minimum, while global nontilt ellipsoid optimality and both boundary regimes give meaningful information absent from qualitative L1 results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
