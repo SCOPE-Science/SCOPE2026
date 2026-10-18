@@ -1,15 +1,21 @@
-# Scientific review: scale-three Čech homotopy of the dodecahedral graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the intrinsic unit-edge metric, closed radius-\(3/2\) balls, and the exact 20-vertex \(GP(10,2)\) model. Adams–Shukla–Singh's odd-scale facet lemma reduces the nerve to unions of closed neighborhoods over all graph edges. Complete enumeration gives 30 facets, 1,170 nonempty faces and 4,160 Hasse incidences. The supplied deterministic 578-pair matching is checked acyclic and has one critical zero-cell, one critical two-cell and twelve critical three-cells. Exact integer reductions give zero for every Morse differential from dimension three to two; \(\pi_2(S^2)\cong\mathbb Z\) turns these zero degrees into nullhomotopic attaching maps. The resulting wedge, integral homology, and non-shellability follow. Independent finite-field rank checks and Euler characteristic agree. The proof applies only to the stated complex.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The full hypercube-Čech article gives the construction and hypercube classification, not this graph's scale-three homotopy. Previte's dodecahedral table concerns single-vertex distance-neighborhood complexes corresponding to even graph Čech scales. Matsushita's closed-neighborhood construction likewise uses one neighborhood per facet, not edge unions. Other dodecahedral results concerning independence, matching, and Rips complexes make no claim about this nerve; their assertions do not imply the present wedge. Direct statement-level and alias searches did not identify a stronger theorem or exact table that subsumes the claim. Search absence is not a mathematical proof of novelty; unindexed equivalent work remains possible.
+PASS
 
-## Value — PASS
-The dodecahedral graph is a canonical symmetric cubic graph of girth five, and the investigated scale is the first integer scale at which the strict girth-based recovery theorem no longer applies. Its mixed-dimensional integral homotopy type, geometric certificate and non-shellability obstruction answer a motivated structural question, not an arbitrarily chosen numerical invariant. The result makes no unsupported claim about broader graph families or persistence maps.
+For the ordinary dodecahedron GP(10,2), the exact graph Cech r=3 nerve has facets N[u]∪N[v] over its 30 edges. All 30 maximal facets have size six and independent subface construction gives f=(20,150,380,410,180,30), 1,170 nonempty faces. Reconstructed the fixed vertex-order matching: 578 disjoint pairs, one critical vertex, one critical triangle, twelve critical 3-simplices, and full 4,160-Hasse-incidence directed acyclicity. Independently implemented integral orientation of all simplices and recursive elimination of matched 2→3 unit pivots; for each of twelve critical 3-cells the coefficient on the critical 2-cell is exactly zero, not merely zero modulo 2. Thus the Morse 2-skeleton is S² and twelve attaching maps have degree zero in π₂(S²)=Z, giving S²∨(∨^{12}S³). Purity in dimension five rules out shellability. The independent truncated chain-rank check in lower degrees is corroborative; omitted higher boundary ranks do not replace this integral argument.
 
-## Scientific limits
-Exact finite enumeration is used as a certificate for a specified finite object; standard discrete Morse and CW homotopy theory supply the infinite topological implications. Unindexed literature and independent external validation are not settled by this review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the odd scale-three intrinsic Čech nerve of the dodecahedral graph. Previte dissertation Table 3.1 reports dodecahedral single-vertex distance-neighborhood complexes (corresponding to even scales), and Matsushita studies ordinary closed neighborhoods, neither inspected result computes edge-union odd-scale nerve. Adams general graph Cech lemma supplies construction but not this homotopy. Resultary search shows nearby dodecahedral and graph Rips invariants without an implication to this 2D/3D mixed wedge.
+
+## value
+
+PASS
+
+The dodecahedron is a canonical cubic distance-regular/Platonic graph at its first non-girth-stable Čech threshold. The mixed homotopy S²∨12S³, inferred from a vanishing integral attaching-degree matrix rather than just Betti numbers, is a substantive exact finite homotopy invariant and establishes a structural non-shellability obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducing the calculation
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 and its standard library; no other files or network access are needed. The script prints `VERIFY_OK` only after all required assertions pass. It deterministically constructs the 20-vertex dodecahedral graph, generates all 30 closed-neighborhood-union facets, enumerates the entire face poset (1,170 nonempty faces), and matches 578 face pairs. It checks every one of the 4,160 Hasse incidences and topologically sorts the full oriented diagram to prove the matching acyclic. Exact signed integer gradient elimination verifies all twelve critical dimension-three to dimension-two Morse coefficients are zero. Separately, modular simplicial boundary reduction over primes 2 and 3 verifies ranks 19, 131, 248, 150, 30 and reduced Betti sequence 0, 0, 1, 12, 0, 0. The alternating face sum is -10.
+## correctness
 
-The script is a complete finite certificate for this exact complex. It does not establish unproved generalizations, exhaust literature, or independently substitute for the cited combinatorial Čech facet lemma, standard discrete Morse theorem, or the degree classification of maps into the 2-sphere.
+PASS
+
+For the ordinary dodecahedron GP(10,2), the exact graph Cech r=3 nerve has facets N[u]∪N[v] over its 30 edges. All 30 maximal facets have size six and independent subface construction gives f=(20,150,380,410,180,30), 1,170 nonempty faces. Reconstructed the fixed vertex-order matching: 578 disjoint pairs, one critical vertex, one critical triangle, twelve critical 3-simplices, and full 4,160-Hasse-incidence directed acyclicity. Independently implemented integral orientation of all simplices and recursive elimination of matched 2→3 unit pivots; for each of twelve critical 3-cells the coefficient on the critical 2-cell is exactly zero, not merely zero modulo 2. Thus the Morse 2-skeleton is S² and twelve attaching maps have degree zero in π₂(S²)=Z, giving S²∨(∨^{12}S³). Purity in dimension five rules out shellability. The independent truncated chain-rank check in lower degrees is corroborative; omitted higher boundary ranks do not replace this integral argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the odd scale-three intrinsic Čech nerve of the dodecahedral graph. Previte dissertation Table 3.1 reports dodecahedral single-vertex distance-neighborhood complexes (corresponding to even scales), and Matsushita studies ordinary closed neighborhoods, neither inspected result computes edge-union odd-scale nerve. Adams general graph Cech lemma supplies construction but not this homotopy. Resultary search shows nearby dodecahedral and graph Rips invariants without an implication to this 2D/3D mixed wedge.
+
+## value
+
+PASS
+
+The dodecahedron is a canonical cubic distance-regular/Platonic graph at its first non-girth-stable Čech threshold. The mixed homotopy S²∨12S³, inferred from a vanishing integral attaching-degree matrix rather than just Betti numbers, is a substantive exact finite homotopy invariant and establishes a structural non-shellability obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
