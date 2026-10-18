@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact facet presentation was rebuilt and the claim was replayed independently from that presentation. A primitive relation annihilator together with an explicit unimodular maximal minor proves \(H_1(K;\mathbb Z)\cong\mathbb Z\). Exhaustive cycle enumeration gives the \(40+10\) homology split, and exhaustive cone enumeration proves the stated if-and-only-if criterion and the three-apex count.
+## correctness
 
-## Originality
-**PASS.** The closest exact sources are Altshuler's 1977 all-neighborly ten-vertex census, Kühnel--Lassmann's 1985 cyclic census, and Köhler--Lutz's 2005 vertex-transitive census. They cover the exact complex, its topological type, symmetry, and abstract first homology or fundamental group. The inspected texts do not state or imply the empty-triangle homology spectrum or the cone-fillability characterization. Residual risk remains from unindexed historical finite computations.
+PASS
 
-## Value
-**PASS.** Empty triangles are the entire minimum possible simple-cycle layer in this neighborly one-skeleton. Separating that layer into four primitive-generator orbits and one null orbit, then characterizing the null orbit by a local filling condition, is a natural structural invariant of a classical minimal triangulation rather than a routine recomputation of its homology group.
+Independently reconstructed all 35 tetrahedra from four cyclic representatives, with f-vector (10,45,70,35), a complete graph as 1-skeleton, and exactly 70 facial/50 missing triangles. Spanning-tree collapse reduces ∂2 to 70x36 integral cycle relation matrix R with rank 35. Source verifier supplies a 35x35 unimodular minor of determinant -1 and primitive annihilating cocycle, proving H1=Z with no torsion, not merely rational rank one. Independently recomputed the primitive annihilator and evaluated all 50 missing triangles: value distribution +1:30,-1:10,0:10, with 5 cyclic orbits of size 10. Independent apex enumeration yields (0,3) for exactly 10 null triangles and (±1,0) for the other 40; representative (1,2,8) has apices 3,6,7. These finite exhaustive checks cover all faces/triangles/apices of the specified complex; no infinite extrapolation.
 
-## Closest literature and limitations
-The result is specific to the exact ten-vertex cyclic triangulation and to edge-count length. It neither classifies all ten-vertex \(S^2\times S^1\) triangulations nor asserts the cone criterion in arbitrary simplicial \(3\)-manifolds. The exact historical object appears as \(N^{10}_{3611}\) and type \(2_{10}\), so those classifications were treated as direct comparison sources rather than as novelty evidence.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary historical classifications list this exact neighborly type and its facet orbits, but inspected original 1985 full text and the 2005 atlas do not count empty triangles by integral H1 class or characterize local cone-fillability. A highly ranked related Resultary ten-vertex S2×S1 record concerns a *different* f-vector (10,40,60,30) and induced H2 supports, so cannot cover this empty-triangle H1 result. Bounded novelty risk remains for older unindexed finite tables.
+
+## value
+
+PASS
+
+On a canonical neighborly S2×S1 triangulation, the exact integral homology classes of all shortest nonfacial 3-cycles and their local conical fillability classify a natural minimum-support invariant, giving a concrete local criterion for null-homologous shortest cycles. This is object-specific but complete, reproducible and mathematically motivated beyond restating a facet table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
