@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:05:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS on the fully supplied corrected RESULT.md: for odd m≥3 and a=2m−1, the monic Alexander representative satisfies e^(−ax) Delta_a(−e^x)=[sinh(mx)/sinh(x/2)]²−1−4m²cosh²(x/2). The frozen original erroneously had an extra minus in front of e^(−ax); directly substituting x=0 and evaluating Delta_a(−1)=−1 diagnoses it. The repaired identity is verified symbolically (also by Git blob comparison). For x>0, sinh(mx)/(m sinh x) strictly increases from 1 and its required comparison B_m decreases, hence the only negative roots are one simple reciprocal pair. Rescaling z=m²x/2 and applying a simple-root implicit-function expansion yields x_m=√3/(2m²)+9√3/(40m⁴)+O(m⁻⁶). mpmath root solving at odd m=3..101 independently corroborates the residual scaling; it is not the proof of the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader 2026 theorem treats all odd a≥3 and excludes positive roots, stronger on root count and parameter range but silent on asymptotic rate.",
+          "Saurabh establishes the exact polynomial and Fox–Milnor obstruction, a different invariant implication."
+        ],
+        "reasoning": "The broader qualitative classification does not dominate the quantitative asymptotic; no inspected stronger root-asymptotic law does.",
+        "searches": [
+          "Resultary: real-rooted exceptional pretzel family stronger range",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exactly-two-real-alexander-roots-in-lecuona-s-exceptional-pretze--23ad1307c775/RESULT.md",
+          "arXiv:2609.34522v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exactly-two-real-alexander-roots-in-lecuona-s-exceptional-pretze--23ad1307c775/RESULT.md",
+        "https://arxiv.org/pdf/1309.0550",
+        "arXiv:2609.34522v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The qualitative part of the submitted finding is implied verbatim by the older full-text real-root theorem (same polynomial and range).",
+          "The older proof gives a monotonicity uniqueness argument, but has no asymptotic uniform-in-m coefficient calculation."
+        ],
+        "reasoning": "Remove any implication that the pair classification is new; the surviving precise uniform asymptotic requires a new rescaled Taylor/implicit-function argument and is not entailed by the prior theorem statement.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exactly-two-real-alexander-roots-in-lecuona-s-exceptional-pretze--23ad1307c775/RESULT.md",
+          "https://arxiv.org/pdf/1309.0550",
+          "arXiv:2609.34522v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full prior RESULT proves exactly two simple negative reciprocal zeros in the same family but does not compute x_m or its m^-2/m^-4 coefficients."
+        ],
+        "reasoning": "Equivalent root normalization rho_m=e^{x_m} is already known; the new distinct assertion is the expansion log rho_m=√3/(2m²)+9√3/(40m⁴)+O(m⁻⁶).",
+        "searches": [
+          "Resultary: negative real roots pretzel Alexander exceptional family",
+          "Resultary: exceptional pretzel Alexander root logarithm m^-2 asymptotic",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exactly-two-real-alexander-roots-in-lecuona-s-exceptional-pretze--23ad1307c775/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lecuona provides polynomial/factorization data, not a tabulation of the m-dependent logarithmic displacement."
+        ],
+        "reasoning": "The infinitely parametrized two-term asymptotic is not a known finite knot-database entry or mechanical lookup from individual polynomials.",
+        "searches": [
+          "Resultary: pretzel Alexander polynomial root table",
+          "Lecuona 2015 §4, arxiv:1309.0550"
+        ]
+      },
+      "rationale": "The older complete exact-real-root theorem covers the existence, uniqueness, negativity, simplicity and reciprocity of the pair for every odd a≥3. It does NOT state or imply the new quantitative two-term logarithmic root-location asymptotic by mere specialization. The surviving asymptotic is a genuine original refinement, with disclosed qualitative prior coverage.",
+      "residual_risks": [
+        "Qualitative real-root theorem is decisively prior and must be credited.",
+        "Full current Saurabh preprint inaccessible; its uninspected sections may contain auxiliary root asymptotics.",
+        "Equivalence under a different parameter could remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "Exact two simple negative reciprocal roots for every odd a≥3; no log-root m^-2 or m^-4 asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exactly-two-real-alexander-roots-in-lecuona-s-exceptional-pretze--23ad1307c775/RESULT.md",
+          "material_read": "Entire published RESULT.md, including displayed polynomial, Cayley positivity, hyperbolic negative-root argument and relationship to prior work",
+          "method": "Full scientific text retrieved via GitHub read",
+          "title": "Exactly two real Alexander roots in Lecuona’s exceptional pretzel family",
+          "trigger": "Same polynomial, identical negative-root classification"
+        },
+        {
+          "assessment": "NOT_COVERING_QUANTITATIVE_LAW",
+          "evidence": "The polynomial/factorization obstruction is given but no asymptotic displacement law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0550",
+          "material_read": "Full accessible PDF, with closer inspection of Alexander-polynomial computation and exceptional family sections",
+          "method": "arXiv preprint PDF and page inspection",
+          "title": "On the slice-ribbon conjecture for pretzel knots",
+          "trigger": "Foundational parameter family/polynomial"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "The abstract describes algebraic sliceness; no whole-document originality conclusion is drawn from the abstract.",
+          "identifier_or_url": "arXiv:2609.34522v1",
+          "material_read": "Abstract, bibliographic information and polynomial formula as quoted in actual assigned source; full text could not be accessed in this run",
+          "method": "arXiv abstract and source formula cross-check",
+          "title": "Exceptional pretzel knots are not algebraically slice",
+          "trigger": "Same polynomial and exceptional branch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exceptional determinant-one pretzel family has a natural Alexander polynomial whose real-root geometry is relevant to knot invariants. The quantitative m^-2 logarithmic collapse and next coefficient measure how two known reciprocal roots coalesce at −1 across the infinite family, information absent from the stronger qualitative root-count theorem. Not a mere numeric slice or arbitrary reparameterization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Only negative real roots of stated odd-m branch; positive and nonreal roots not classified here.",
+    "Saurabh full preprint not available in this run; earlier qualitative published theorem is acknowledged."
+  ],
+  "schema_version": 1
+}

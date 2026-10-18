@@ -20,7 +20,7 @@ The parameter range is the residual exceptional three-strand pretzel family with
 ## Proof
 Set \(t=-e^x\) with \(x\in\mathbb R\). Direct substitution into the displayed polynomial gives
 \[
--e^{-ax}\Delta_a(-e^x)=\left(\frac{\sinh(mx)}{\sinh(x/2)}\right)^2-1-4m^2\cosh^2(x/2).
+e^{-ax}\Delta_a(-e^x)=\left(\frac{\sinh(mx)}{\sinh(x/2)}\right)^2-1-4m^2\cosh^2(x/2).
 \]
 At \(x=0\) the right side has limiting value \(-1\), so \(t=-1\) is not a root. For \(x\ne0\), division by \(4m^2\cosh^2(x/2)\), together with \(\sinh x=2\sinh(x/2)\cosh(x/2)\), shows that roots are equivalent to
 \[
