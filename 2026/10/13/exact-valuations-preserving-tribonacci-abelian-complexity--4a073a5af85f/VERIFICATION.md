@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier generates a long Tribonacci prefix from \(0\mapsto01\), \(1\mapsto02\), \(2\mapsto0\), then checks occurrence and Parikh-vector differences for the three midpoint witness pairs used in the proof.
+## correctness
 
-Independently of those witnesses, it enumerates all nonzero integer triples \(d\) with
-\[
-d_0+d_1+d_2=0,
-\qquad
-|d_i|\le2,
-\]
-and confirms that there are exactly \(18\), all belonging to the equality or midpoint types. For every weight triple in \(\{0,\ldots,8\}^3\), it checks that the absence of a weighted kernel on those directions is exactly pairwise distinctness plus failure of all three midpoint equations.
+PASS
 
-As a supplementary stress test, the verifier scans a length-\(120000\) Tribonacci prefix, checks observed factor Parikh vectors through length \(120\), and compares additive and abelian class counts for every weight triple in \(\{0,\ldots,4\}^3\).
+For the substitution-fixed Tribonacci word, cited Richomme–Saari–Zamboni 2-balance theorem bounds every same-length factor Parikh difference d by |di|<=2 with sum di=0. An independent integer enumeration found exactly 18 nonzero such vectors: permutations/signs of (1,−1,0),(2,−2,0),(2,−1,−1). A nonzero weight-kernel direction therefore requires equality of two weights or 2ai=aj+ak. Converse: if two weights equal, distinct singletons collide; if midpoint, three concrete factor-pair witnesses 020/101, 01001/20102, 102010102/001020100 have independent verified Parikh differences (1,−2,1),(1,1,−2),(−2,1,1) and occur in an independently generated Tribonacci fixed-point prefix. Hence all six hyperplanes necessary/sufficient for equality of additive and abelian complexity for EVERY length; finite witness search supplements, not replaces published infinite 2-balance theorem.
 
-The infinite theorem uses the published \(2\)-balance theorem; the finite scan is not treated as its proof.
+## originality
 
-Independent audit has not been performed.
+PASS
+
+PASS best-of-knowledge: Popoli–Shallit–Stipulanti proves a general separated-valuation sufficiency for C-balanced words and gives (0,1,3) as one working Tribonacci valuation; no full necessary/sufficient six-hyperplane classification is given in the inspected primary theorem/remark. Richomme–Saari–Zamboni supplies 2-balance but not valuation classification. Resultary semantic query found no implication-equivalent prior entry; this failure alone is not proof of novelty.
+
+## value
+
+PASS
+
+PASS: exact parameter-space classification answers a natural valuation-selection question for a canonical balanced morphic word, identifies the sharp arithmetic-progression obstructions and proves necessity via actual factors. It improves an unbounded sufficient separation recipe to a complete finite hyperplane arrangement rather than a merely computational count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
