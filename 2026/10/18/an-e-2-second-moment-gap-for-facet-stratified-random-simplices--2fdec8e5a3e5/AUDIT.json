@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For independent off-diagonal Dirichlet barycentric columns, means and second moment matrices are computed explicitly. The squarefree coefficient of the mixed determinant correctly gives \\(\\mathbb E(\\det M)^2\\); the rank-two determinant identity is proved for all n, yielding the closed factorial moment. The mean, interior comparison, orientation threshold and signed derangement identity follow from separate algebraic and support arguments. Exact integer derangement-pair sums were checked for n=2..7, and the determinant polynomial identity symbolically for n=2..5. Finite checks corroborate and do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reitzner et al. 2023 §3.3, equations (3.20)–(3.24): introduces constants E_{k,f} for boundary simplex moments but leaves the face-conditioned exact constant unspecified.",
+        "Rademacher 2010, Lemma 4: gives squared simplex moment from identically distributed interior samples by a covariance determinant.",
+        "Reichenwallner 2018 Theorem 3: whole-boundary i.i.d. samples and monotonicity, not fixed distinct face labels."
+      ],
+      "reasoning": "The general coefficient-of-det formula for independent columns is a classical multilinearity tool, but none of these accessible published propositions substitutes in the nonidentical off-diagonal Dirichlet moment matrices and evaluates their mixed determinant. No inspected stronger theorem states the specialized exact factor or e-squared ratio. Generic definitions of the moment do not themselves calculate it.",
+      "searches": [
+        "arXiv:1911.05917 Section 3.3 Lemma 3.1",
+        "arXiv:1008.3944 Lemma 4",
+        "Moments of volumes of lower-dimensional random simplices are not monotone boundary points"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1706.02944 (primary 52A22; first public 2017-06-09)",
+      "arXiv:1911.05917 (first public 2019-11-14; §3.3 read)",
+      "arXiv:1008.3944 (Lemma 4 read)",
+      "DOI:10.1007/s00605-017-1077-3 (Theorem 3 read)",
+      "2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90",
+      "2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+      "2026/10/11/SCOPE-thin-shell-convexity-moments-recover-facet-cone-volumes--5bf5ee80e1b7",
+      "2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The candidate gives \\(\\mathbb E(\\det M)^2=n!/[n^{n-1}(n-1)^n]\\) with a zero-diagonal Dirichlet random matrix and exact comparison with iid interior points.",
+        "Rademacher covariance formula evaluates identically distributed interior samples; it does not imply the mixed determinant for distinct supports without an additional calculation.",
+        "Reitzner et al. define weighted facet-simplex moment constants and derive scaling but do not evaluate their special n-distinct-facet second moment in Section 3.3."
+      ],
+      "reasoning": "The new statement is neither a corollary of a numerical constant evaluated in the cited boundary paper nor a special case of the same-distribution covariance expression; the new rank-two cancellation and strict sampling-design gap must be separately proved. Residual risk: the constant may have been separately evaluated in a different literature.",
+      "searches": [
+        "arXiv:1911.05917 full Section 3.3",
+        "arXiv:1008.3944 full Lemma 4",
+        "arXiv:1706.02944 arXiv date and primary MSC 52A22",
+        "2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is an independent-column stochastic matrix with its diagonal zero; normalized oriented simplex volume equals \\(\\det M\\). Exact explicit pairwise signed cancellation is \\(n\\,n!\\). No matching published statement was found among inspected results."
+      ],
+      "reasoning": "The stochastic-matrix and derangement formulations are algebraically equivalent; searches tested these aliases, not just the title wording. The rank-two determinant evaluation is needed to obtain the explicit closed formula.",
+      "searches": [
+        "zero diagonal independent Dirichlet columns determinant variance exact n factorial n powers",
+        "sign of determinant of zero-diagonal Dirichlet stochastic matrix, orientation transition, signed derangement identity",
+        "\"Dirichlet\" \"derangement\" \"squared determinant\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus exact-semantic queries returned e.g. the unrelated central-section records aa90c887fe90 and d3f9b0447a8e, and the fourth-chord record 45b0568cfb6e. No matching explicit n-dependent formula or tabulated constants were identified.",
+        "Independent finite integer checks n=2 through n=7 derive the signed sums but these computed examples are not claimed to prove novelty."
+      ],
+      "reasoning": "The problem has a natural exact sequence; results were checked for formulas, parameters, and derangement aliases. Absence from a search index alone is not treated as uniqueness proof.",
+      "searches": [
+        "exact second moment of volume of simplex from one independent uniform point on each distinct facet, e squared inflation",
+        "sign of determinant of zero-diagonal Dirichlet stochastic matrix, orientation transition, signed derangement identity",
+        "facet-stratified random simplex versus uniform interior simplex second moment ratio asymptotic e squared",
+        "\"random simplex\" \"one point\" \"each facet\" \"volume\""
+      ]
+    },
+    "rationale": "The 2019 Reitzner–Schütt–Werner full-text Section 3.3 introduces constants for the facet-conditioned random-simplex moments without evaluating the one-sample-per-distinct-facet second moment. Rademacher provides an iid interior covariance identity, not a nonidentical facet-sampling evaluation. Distinct fixed-facet sampling produces the new closed dimension law, the exact interior comparison converging to e squared, and the signed derangement-pair identity. Targeted mathematical-record and literature searches revealed no claim implying these quantities, subject to bibliographic risk.",
+    "residual_risks": [
+      "General mixed discriminants are standard; priority is asserted only for the specialized evaluated moment and consequences, not the coefficient identity.",
+      "Unindexed earlier calculation of this exact facet-conditioned constant or zero-diagonal random-stochastic determinant remains possible.",
+      "The initiating 2017 paper was assessed from abstract and bibliographic metadata, not a full-text examination; the highly matching 2019 paper was examined in its material Section 3.3.",
+      "Independent bibliographic audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines moments and undetermined E_{k,f}; does not evaluate the distinct-facet squared-volume constant claimed.",
+        "evidence": [
+          "2023 full text §3.3 lines 359-411, equation (3.23), Lemma 3.1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-022-00460-2",
+        "material_read": "Section 3.3 Random Simplices in Simplices, equations (3.20)-(3.24), Lemma 3.1, adjacent setup",
+        "method": "Read lawful open-access full-text HTML material",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Direct exact facet-conditioned random-simplex moment framework"
+      },
+      {
+        "assessment": "Only iid points from one interior convex body, not non-identically distributed opposite-facet points.",
+        "evidence": [
+          "2010 arXiv HTML Lemma 4, equation (1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1008.3944v1",
+        "material_read": "Abstract, Lemma 4 and its hypotheses, probability preliminaries and the relevant moment comparison",
+        "method": "Read public arXiv HTML full text relevant sections",
+        "title": "On the monotonicity of the expected volume of a random simplex",
+        "trigger": "Closest covariance/determinant formula potentially subsuming the moment"
+      },
+      {
+        "assessment": "Studies iid boundary or interior samples and monotonicity, not face-conditioned exact second-volume moments.",
+        "evidence": [
+          "2018 article Theorem 3 and definitions of boundary-simplex sampling"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00605-017-1077-3",
+        "material_read": "Introduction, Theorems 1-3, boundary sample definition and consequences",
+        "method": "Read published HTML article material",
+        "title": "Moments of volumes of lower-dimensional random simplices are not monotone",
+        "trigger": "Adjacent published results on independent boundary sampled simplex volumes"
+      },
+      {
+        "assessment": "Smooth convex boundary sampling and asymptotic intrinsic volumes; source has primary MSC 52A22 and does not state a fixed opposite-facet second-moment evaluation in accessible material.",
+        "evidence": [
+          "Cambridge article MSC classification Primary 52A22, arXiv public date 2017-06-09, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.02944",
+        "material_read": "2017 arXiv abstract and 2018 Cambridge article abstract and primary-MSC metadata",
+        "method": "Read abstracts and publisher bibliographic classification; full text not read",
+        "title": "Limit theorems for random polytopes with vertices on convex surfaces",
+        "trigger": "Verified geometric-primary literature establishing the broad stochastic-convex-geometry setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fdec8e5-a3e5-4e89-8536-517ec1da54e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Facet-stratified boundary selection is motivated by moment constants in stochastic convex-geometry research, and choosing exactly one point per simplex facet is a canonical coverage protocol. The infinite-dimensional affine-invariant closed second moment and its exact, asymptotically e-squared amplification over iid interior sampling are meaningful geometric benchmarks; the sharp sign transition and signed derangement cancellation expose additional structure. This is more than a numerical slice, renaming, or merely restating a general coefficient formula. It does not pretend to solve the unsigned first-moment problem.",
+    "status": "PASS"
+  }
+}
