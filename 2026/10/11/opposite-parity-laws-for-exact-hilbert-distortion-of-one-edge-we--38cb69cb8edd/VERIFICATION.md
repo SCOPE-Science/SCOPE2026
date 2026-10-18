@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`, including the graph quotient identification, the symmetrization argument over every Euclidean pullback, the cube-section vertex exhaustion, the branch comparison, and the derivative signs. The accompanying `verify.py` checks the key formula by independently constructing cube-section vertices, projecting edge generators, and evaluating primal and polar quadratic forms with exact rational arithmetic.
+## correctness
 
-Command: `python verify.py` (Python 3 standard library). On the checked build, the script printed `Exact rational instances checked: 56 ALL_PASS`. All represented dimensions \(3\le n\le10\) and rational edge lengths in the test set passed. A finite test cannot certify the theorem for all real parameters; the algebraic proof supplies that quantification. Real Banach--Mazur distance and only one shortened edge are covered. No external or independent audit has been performed.
+PASS
+
+From the frozen RESULT.md, reconstruct the quotient ell_1^{p+1}/span(1,...,1,lambda), the projection polytope K=conv(±Pe_j), and polar weighted zero-sum cube section. The S_p average of any candidate quadratic form is admissible with no larger distortion, so q_c exhausts the unrestricted optimum up to symmetry. Computing q_c on projected generators gives R(c)=max(c,(p−1)/p+lambda²c/p²), meeting at c0=p(p−1)/(p²−lambda²). Exhausting cube-section vertices by parity gives S(c)=E+1/c for odd p and max(p,E+1/c) for even p, with the second branch crossing ordered after c0. On (0,c0] product strictly decreases, and on [c0,∞) increases. Therefore BM²=1+c0E for every p≥2, 0<lambda≤1, and differentiation gives the opposite signs by p parity. Independent exact rational enumeration of the polar vertices and primal points for p=2..7 and lambda=1,1/2,2/3 agreed in 18 cases; these bounded checks support but do not replace the infinite proof. Endpoint lambda→0 is excluded because dimension changes after collapse.
+
+## originality
+
+PASS
+
+Best-of-knowledge new weighted one-edge analytic distortion profile. The complete published unweighted cycle Hilbert-distance theorem covers lambda=1 exactly but does not imply derivatives or values for 0<lambda<1. The general finite-metric Lipschitz-free quotient theorem supplies K and symmetry framework only; exact weighted polar vertex branch optimization is additional.
+
+## value
+
+PASS
+
+An exact optimal Euclidean distortion for a natural graph metric and continuously varying single edge, with a genuine parity-reversing monotonic law, fills a specific Banach-space geometry gap. It is not a relabel of the equal-edge case or a finite lookup: the optimal ellipsoid changes with lambda and the polar vertices have different parity branches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
