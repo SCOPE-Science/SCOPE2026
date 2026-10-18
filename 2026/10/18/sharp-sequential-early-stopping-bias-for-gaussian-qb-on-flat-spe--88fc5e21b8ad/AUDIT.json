@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Complete exact-arithmetic derivation: conditional rotational invariance gives independent chi-square innovations and complement variables; the beta inspection distribution follows from independent gamma ratios; uniform chi-square concentration plus matching upper/lower moderate-deviation estimates proves first stopping at i0-sqrt(2)*epsilon*sqrt(n log n)+o_P(sqrt(n log n)); pruning changes rank by at most one and exact Gram projection yields the error law. Numerical tests corroborate finite identities only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1606.09402",
+        "https://epubs.siam.org/doi/10.1137/17M1141977",
+        "Halko, Martinsson & Tropp (2011), classical Gaussian adaptive rangefinders"
+      ],
+      "reasoning": "Deterministic QB energy subtraction in Yu–Gu–Li does not use a fresh random test at each stopping inspection. General single-inspection probabilistic error estimates do not specify a joint sequential first-hit law or the constant sqrt(2)*epsilon for this normalized identity example. Generic multiple-testing theory is related but a precise reduction and parameter identification are required; uninspected stronger generic theorems remain a residual risk.",
+      "searches": [
+        "sequential randomized residual norm estimates rank selection repeated testing chi square",
+        "randomized low rank adaptive rank estimate repeated residual probes stopping guaranteed correctness 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.06758",
+      "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+      "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+      "https://arxiv.org/abs/1606.09402",
+      "https://epubs.siam.org/doi/10.1137/17M1141977",
+      "Halko, Martinsson & Tropp, SIAM Review 53 (2011)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+        "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "https://arxiv.org/abs/1606.09402"
+      ],
+      "reasoning": "The source implements Y=(I-QQ^T)Omega, tau=epsilon*sqrt(sum||A Omega_j||^2/i), and optional pruning. Those operations permit but do not state the chi-square/Beta reduction and first-hit extreme-value law. Yu–Gu–Li control a different deterministic residual metric; neither result implies the present first-stop law. Theoretical overlap from full 2026 manuscript cannot be definitively excluded.",
+      "searches": [
+        "Smith Do Chen matrix free Frobenius stopping false tolerance probability repeated probes first crossing extreme value",
+        "\"randomized rangefinder\" \"premature\" \"stopping\" error estimation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+        "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "Smith et al., arXiv:2607.06758 (abstract only)"
+      ],
+      "reasoning": "The theorem concerns the first-hit time of fresh orthogonal residual probes, equivalently a triangular array of independent chi-square innovations with an estimated running normalization. Neither full companion routine states this first-hit distribution or its sharp constant. A single beta marginal is not a conditional stopping hazard and does not by itself imply the first-hit asymptotic.",
+      "searches": [
+        "Gaussian QB identity matrix random residual norm repeated stopping time first hit square root n log n early rank error",
+        "randomized low rank approximation \"first passage\" \"chi-square\" stopping rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+        "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "Yu–Gu–Li (2018), fixed-precision QB comparison"
+      ],
+      "reasoning": "No accessed exact benchmark table or published indexed theorem provided the joint innovation law and this asymptotic first-hit constant. The search absence alone is not a novelty proof; the primary method code was compared by explicit implication.",
+      "searches": [
+        "adaptive QB Gaussian Frobenius relative stopping identity beta distribution",
+        "Gaussian QB identity matrix random residual norm repeated stopping time first hit square root n log n early rank error"
+      ]
+    },
+    "rationale": "Actual primary companion implementation and pruning source were inspected completely; the accessible implementation lacks the derived first-hit law, and the 2018 energy-subtraction method has a different stopping statistic. The recorded literature/semantic searches identified no implication covering the exact inspection Beta law together with sharp sequential rank and error constants. Full manuscript access remains a disclosed potential overlap risk.",
+    "residual_risks": [
+      "Motivating arXiv manuscript body could not be inspected: web/OA attempts failed, and institutional full-text access was disconnected. Its companion primary source was read completely.",
+      "General first-passage and Gaussian order-statistics results might imply the limiting constant after a nontrivial reduction under terminology missed by searches; the underlying moderate-deviation tools themselves are standard.",
+      "Theorem is only for flat identity input, block size one and fixed epsilon; it is not a universal randomized QB failure rate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithmically relevant and sufficient to establish exact specialization; does not state the new sequential law",
+        "evidence": [
+          "Source code lines 541–648 in rendered page, including Y=Z-Q*(B*Omega), Err_ind=norm(Y), tau=epsilon*sum_Z/sqrt(i), and Prune_Rank_Fro call"
+        ],
+        "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+        "material_read": "All 128 source lines, especially independent Omega draw, cumulative norm, residual Y, stopping and rank-pruning return branch",
+        "method": "Read the publicly rendered primary MATLAB code, including all functional statements",
+        "title": "randQB_MF_Fro.m (complete primary algorithm source)",
+        "trigger": "Exact implementation of the motivating Gaussian Frobenius QB stopping rule"
+      },
+      {
+        "assessment": "For block size one, at most the immediately previous row is removed, so rank differs from T by one or two",
+        "evidence": [
+          "Source code lines 320–353 in rendered page, including single-row selection and discard"
+        ],
+        "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "material_read": "All 45 source lines, especially row-energy sorting and removal loop",
+        "method": "Read the publicly rendered primary MATLAB code",
+        "title": "Prune_Rank_Fro.m (complete primary pruning source)",
+        "trigger": "Determine whether return rank can differ by more than one at unit block size"
+      },
+      {
+        "assessment": "Abstract does not state sharp repeated-test bias, but unavailable body cannot be certified not covering",
+        "evidence": [
+          "First public arXiv timestamp 2026-07-07 19:41:09 UTC",
+          "Complete method source in linked companion repository"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.06758",
+        "material_read": "Public abstract, bibliographic metadata, and complete companion implementation; manuscript full text unavailable",
+        "method": "ArXiv/OA URL attempts and authorized institutional full-text request; request returned access-disconnected status",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Motivating 2026 paper and earliest public date"
+      },
+      {
+        "assessment": "Explicit deterministic QB energy-subtraction error indicator unlike random repeated stopping; full-text stronger results not excluded",
+        "evidence": [
+          "Abstract describes norm(A)^2 - norm(B)^2 error monitoring under exact arithmetic"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/17M1141977",
+        "material_read": "Publisher and university repository abstracts, source bibliographic record; full body not obtained",
+        "method": "Read accessible publisher and institutional repository text",
+        "title": "Efficient Randomized Algorithms for the Fixed-Precision Low-Rank Matrix Approximation",
+        "trigger": "Closest predecessor for adaptive QB Frobenius stopping criteria"
+      },
+      {
+        "assessment": "Background only; no full-text NOT_COVERING assertion made",
+        "evidence": [
+          "Companion README identifies HMT algorithm 4.2 as spectral-norm baseline, distinct from the analyzed Frobenius relative denominator"
+        ],
+        "identifier_or_url": "SIAM Review 53 (2011), 217–288",
+        "material_read": "Motivating implementation README comparison and bibliographic summaries, not the complete original paper",
+        "method": "Read accessible comparison of the adaptive rangefinder with Gaussian probes",
+        "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Classical Gaussian a posteriori rangefinder stopping tests"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "88fc5e21-b8ad-4125-8a76-f940bc870968",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identity inputs give a canonical flat-spectrum rank-selection calibration. The theorem quantifies a meaningful and previously undocumented first-passage bias from repeated independent fresh residual probes: diverging sqrt(n log n) rank underselection, asymptotic strict accuracy miss, and a universal normalized overshoot constant. This is neither a renaming of a single chi-square tail nor a one-off finite computation; it addresses the algorithmic stopping rule itself.",
+    "status": "PASS"
+  }
+}
