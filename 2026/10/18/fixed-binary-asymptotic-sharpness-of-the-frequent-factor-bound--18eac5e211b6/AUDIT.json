@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every order d a de Bruijn Eulerian cycle provides p=2^d mutually different phase factors at all lengths at least d. The n-l+1 starts distribute modulo p with minimum floor((n-l+1)/p); every length d<=l<=L=floor((n-p+1)/(p+1)) has at least l+1 copies of each phase. This proves the p(L-d+1) lower bound. For n>=64, p=2^floor(log2(n/log2 n)/2) satisfies L>=d, p>sqrt(n/log2 n)/2, and p(d+1)<=sqrt(n log2 n), producing a deficit strictly less than 3sqrt(n log2 n). The published upper bound Phi<=n gives the limit. Independent direct counts for 15 constructions, 8 de Bruijn orders, and 20919 numeric cutoff cases matched; they are support, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bals et al., ESA 2026, Proposition 6, PDF p. 4, exhibits (a_1 ... a_r)^r with n=r^2 and r distinct letters, showing n-2sqrt(n)+2 qualifying factors.",
+        "Bals et al., Theorem 1 has the universal upper bound n, not an alphabet-fixed lower construction."
+      ],
+      "reasoning": "The closest stronger-looking numerical result uses an alphabet growing like sqrt(n), so its witnesses cannot be instantiated over binary for unbounded n. Encoding their distinct letters into binary blocks changes factor lengths and frequencies, and does not imply a saturation ratio of one. The present bound proves a different required quantifier: the alphabet is binary for every n.",
+      "searches": [
+        "asymptotically tight fixed two-letter alphabet bound n frequent factors occurrences exceeding factor length Bals Charalampopoulos Lachish",
+        "Text Indexing From Reporting To Counting ESA 2026 Proposition 6 frequent substrings length smaller than occurrence count fixed binary alphabet tightness",
+        "\"Bals\" \"Verbeek\" binary \"frequent substrings\" tightness"
+      ]
+    },
+    "checked_sources": [
+      "Bals et al., ESA 2026, DOI:10.4230/LIPIcs.ESA.2026.68, publisher full PDF, especially pp. 2-4.",
+      "Bals et al., arXiv:2607.24043, first posted 2026-07-27.",
+      "Tesler, arXiv:1708.03654, abstract only.",
+      "Bernardini et al., arXiv:2504.05917, abstract only.",
+      "Published semantic-index records for distinct-substring complexity, checked as conceptual comparators."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bals et al. Theorem 1 implies only the upper half Phi(T)<=n. Proposition 6 implies a lower construction for alphabets growing with n.",
+        "Tesler, Multi de Bruijn Sequences, arXiv:1708.03654, treats cyclic k-mer multiplicities; this provides a standard combinatorial primitive but the abstract does not state a fixed-binary frequent-factor saturation result."
+      ],
+      "reasoning": "Neither the universal bound alone nor the growing-alphabet example implies existence of binary words whose qualifying-factor count is n-o(n). The de Bruijn phase argument and the floor threshold together establish the missing quantifier; no claim of novelty is made for the de Bruijn existence lemma or the upper bound.",
+      "searches": [
+        "binary string length n contains n minus O(sqrt(n log n)) distinct substrings u occurring strictly more than |u| times; de Bruijn cycle periodic text finite alphabet",
+        "asymptotically tight fixed two-letter alphabet bound n frequent factors occurrences exceeding factor length Bals Charalampopoulos Lachish",
+        "Text Indexing From Reporting To Counting ESA 2026 Proposition 6 frequent substrings length smaller than occurrence count fixed binary alphabet tightness",
+        "\"text indexing from reporting to counting\" binary de bruijn near bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bals et al., ESA 2026 Theorem 1 defines exactly the condition |U|<|Occ_T(U)|. DOI 10.4230/LIPIcs.ESA.2026.68, PDF pp. 2-4.",
+        "Published search results titled Second-order digital oscillation for distinct substrings of a uniform random word and Near-root-n concentration for random distinct-substring complexity count all distinct factors, not factors satisfying frequency greater than length."
+      ],
+      "reasoning": "The equivalent criterion is length strictly smaller than occurrence count, including overlapping occurrences. Searches under both wordings did not return a fixed-binary asymptotic sharpness theorem. General distinct-factor complexity does not imply high recurrence of each counted factor, and the theorem is not a statement about total distinct-substring count.",
+      "searches": [
+        "binary string length n contains n minus O(sqrt(n log n)) distinct substrings u occurring strictly more than |u| times; de Bruijn cycle periodic text finite alphabet",
+        "number of frequent substrings length < count fixed alphabet 2026 upper bound n construction binary",
+        "\"length smaller than the number of occurrences\" \"binary\" \"de Bruijn\"",
+        "\"occurs more times than its length\" binary substrings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed record: Second-order digital oscillation for distinct substrings of a uniform random word (2026/9/19), describes total distinct-factor deficit in a random word.",
+        "Published indexed record: Exact binary closed-rich maxima at lengths 25-27 (2026/10/4), concerns closed-rich factors, not frequency-above-length factors."
+      ],
+      "reasoning": "The published result index queried with exact object, asymptotic scale, and de Bruijn aliases returned results about other string invariants rather than a table or matching threshold claim. The theorem gives witnesses for all n>=64 and cannot be exhausted by a finite table; lack of a hit is not proof of global priority.",
+      "searches": [
+        "de Bruijn cycle periodic repetitions 2^d factor lengths d..L occurrences > length frequent substring census bound",
+        "number of frequent substrings length < count fixed alphabet 2026 upper bound n construction binary",
+        "Text Indexing From Reporting To Counting ESA 2026 Proposition 6 frequent substrings length smaller than occurrence count fixed binary alphabet tightness"
+      ]
+    },
+    "rationale": "The central 2026 paper has the general upper bound Phi<=n and an asymptotically sharp witness on an alphabet with r distinct symbols for length r squared. Its proposition cannot specialize to binary for unbounded r. In the checked material the fixed-binary asymptotically saturated family and all-length explicit estimate were not established. The construction relies on the pair of properties unique de Bruijn phases and high periodic repetition counts, rather than the many-symbol period. Ordinary distinct-substring asymptotics and top-K frequent substring indexing use different statistics. Priority is qualified by unindexed literature risk.",
+    "residual_risks": [
+      "An unindexed earlier fixed-binary construction using another terminology could cover the conclusion.",
+      "Only abstract-level material was examined for Tesler and Bernardini; neither was used for whole-document noncoverage assertions.",
+      "The precise second-order order of n-M_2(n) remains undetermined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the universal upper bound and asymptotic example with a growing r-letter alphabet; not an implication of the binary fixed-alphabet lower bound.",
+        "evidence": [
+          "Theorem 1: no more than n factors with |U|<occ_T(U).",
+          "Proposition 6: for n=r^2, T=(a_1...a_r)^r uses r different letters and has n-2sqrt(n)+2 qualifying factors."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.68",
+        "material_read": "Publisher full PDF, pages 1-4: abstract, introduction, Theorem 1, Lemma 5, Proposition 6 and complete proofs; keyword search over complete 20-page PDF for binary and de Bruijn.",
+        "method": "Official open-access conference PDF, mathematical proof comparison and whole-document text search",
+        "title": "Text Indexing: From Reporting to Counting",
+        "trigger": "Direct source defining the precise statistic and prior sharpness assertion"
+      },
+      {
+        "assessment": "Establishes generalized cyclic k-mer counts; does not establish priority for the newly defined length-vs-frequency statistic on the material read. Full-document noncoverage is not asserted.",
+        "evidence": [
+          "Abstract: multi de Bruijn cycles contain each length-k word exactly m times."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+        "material_read": "Title, abstract, publication metadata; full text not inspected.",
+        "method": "Open preprint abstract and index record",
+        "title": "Multi de Bruijn Sequences",
+        "trigger": "Potential stronger cyclic-factor frequency construction"
+      },
+      {
+        "assessment": "Top-K frequency and utilities, not the same absolute frequency greater than substring length threshold on examined material. Whole-document noncoverage is not asserted.",
+        "evidence": [
+          "Abstract discusses indexing top-K frequent substrings and utility-scored occurrences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.05917",
+        "material_read": "Title, abstract and index description only; full text not inspected.",
+        "method": "Open preprint abstract and paper metadata",
+        "title": "Indexing Strings with Utilities",
+        "trigger": "Nearest frequent-substring indexing work cited by the source paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18eac5e2-11b6-498d-8a79-8bd81be2ec2d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A tightness example requiring a growing alphabet leaves open whether indexing over a fixed two-symbol alphabet can improve the leading worst-case n allowance. Constructing n-o(n) qualifying factors with binary symbols rules out any fixed-factor improvement solely from alphabet cardinality. The result supplies all-length explicit witnesses and verifiable factor-count cutoffs; it does not rely on a general downstream theorem or claim an optimal second-order deficit.",
+    "status": "PASS"
+  }
+}
