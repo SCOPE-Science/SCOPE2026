@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Exact chamber dissection and Gaussian polar reduction rigorously yield the beta-expectation identity. An explicit coupling of Beta(1,n) variables proves strict R_n decrease; analyticity of erfinv at zero, exact beta moments and exponentially small tails prove the two-term expansion uniformly with O(n^-6) error. The radial bound is an exact optimization on the unit sphere. The embedded verification program was executed successfully and compared independent exact n=2,3,4,5 benchmarks, but finite checks are not used as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS identifies 2012 and 2013 project reports explicitly on n-dimensional cylinder intersections and attributes n=4,5 formulas to them. Their complete texts could not be accessed.",
+        "A public 2013 conference abstract describes investigating higher-dimensional intersections without documenting the present two-term asymptotic or cross-dimensional strict inequality."
+      ],
+      "reasoning": "The project reports are mathematically the closest possible broader sources. Although no accessible excerpt asserts the claimed monotonicity or sharp asymptotic, unread full reports could cover them; no definitive negative full-text comparison is claimed. The available statements cover the n=4,5 specializations. This is a material residual historical-priority risk and has been disclosed.",
+      "searches": [
+        "Kong Hildebrand intersecting cylinders asymptotic high dimensional volume",
+        "Steinmetz generalization polar of convex hull of coordinate hyperplane Euclidean unit balls volume asymptotic",
+        "https://conf.math.illinois.edu/igl/Projects-Fall2012/Hildebrand2/report.pdf",
+        "https://faculty.math.illinois.edu/~hildebr/ugresearch/cylinder-spring2013report.pdf",
+        "\"Intersecting Cylinders: From Archimedes and Zu Chongzhi to Steinmetz and Beyond\" \"asymptotic\" \"dimension\""
+      ]
+    },
+    "checked_sources": [
+      "https://conf.math.illinois.edu/igl/Projects-Fall2012/Hildebrand2/report.pdf",
+      "https://faculty.math.illinois.edu/~hildebr/ugresearch/cylinder-spring2013report.pdf",
+      "https://oeis.org/A349579",
+      "https://oeis.org/A349580",
+      "https://arxiv.org/abs/1211.4514",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The entire publicly available three-disk convex-hull RESULT.md was read: the tricylinder is its polar, with dimension-three tricylinder volume 8(2−√2); the article itself computes the primal hull volume, surface area and radii.",
+        "Finch arXiv:1211.4514 full-text sections examined address the convex hull of two disks, a different construction.",
+        "OEIS A349579 gives the 4-dimensional unit-diameter exact volume 3(π/4−atan(√2)/√2) and attributes the unit-radius source to Hildebrand et al. (2012), Kong et al. (2013).",
+        "OEIS A349580 gives the 5-dimensional unit-diameter exact volume 8(π/12−arccot(2√2)/√2) and credits the same reports."
+      ],
+      "reasoning": "The claim quantifies over all integer ambient dimensions and compares R_(n+1) with R_n; results for any finite subset of n cannot imply it. Geometry of convex hulls of two disks and three disks differs from the n-cylinder intersection: the latter is dual to the three-disk hull only in n=3, and volume is not preserved under polarity. No inspected primary-text theorem has hypotheses/conclusion implying the strict R_n chain or the displayed all-n remainder-controlled asymptotic.",
+      "searches": [
+        "sharp asymptotic π over 2 n squared normalized volume n mutually perpendicular cylindrical hyperballs Steinmetz intersection",
+        "Gaussian minimum absolute coordinate Beta erfinverse n-dimensional Steinmetz solid monotonic normalized volume",
+        "Kong Hildebrand intersecting cylinders asymptotic high dimensional volume",
+        "convex hull of unit balls in all coordinate hyperplanes in R^d volume surface area inradius diagonal disks",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a",
+        "https://arxiv.org/abs/1211.4514"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For n=3 the present intersection is the polar of the orthogonal three-disk convex hull. Its triple-cylinder volume 8(2−√2) is classical and fully acknowledged.",
+        "The normalized R_n formula is equivalent to a Beta(1,n) expectation of exp(erfinv(U)^2), and its Gaussian-minimum-coordinate reduction was independently derived in the proof."
+      ],
+      "reasoning": "Known low-dimensional polar and Steinmetz identities cover special cases only; neither implies strict behavior across all dimensions or the π/2-leading, 7π²/4-next coefficient expansion. The Beta/Gaussian reformulations were queried for equivalent statements and not found in the examined publications/index, without inferring uniqueness from a failed search.",
+      "searches": [
+        "all-dimensional intersection of n mutually orthogonal unit circular cylinders x norm squared minus minimum coordinate squared at most 1 volume expansion π/(2n²)",
+        "Gaussian minimum absolute coordinate Beta erfinverse n-dimensional Steinmetz solid monotonic normalized volume",
+        "https://en.wikipedia.org/wiki/Steinmetz_solid",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A349579 gives the 4-dimensional unit-diameter exact volume 3(π/4−atan(√2)/√2) and attributes the unit-radius source to Hildebrand et al. (2012), Kong et al. (2013).",
+        "OEIS A349580 gives the 5-dimensional unit-diameter exact volume 8(π/12−arccot(2√2)/√2) and credits the same reports."
+      ],
+      "reasoning": "Exact 4- and 5-dimensional volumes exist in OEIS and were checked as already known, including the crucial unit-diameter to unit-radius factor 2^n. Their two constants neither tabulate a sequence across all n nor give its strict monotonicity or quantified asymptotic expansion.",
+      "searches": [
+        "https://oeis.org/A349579",
+        "https://oeis.org/A349580",
+        "sharp asymptotic π over 2 n squared normalized volume n mutually perpendicular cylindrical hyperballs Steinmetz intersection",
+        "all-dimensional intersection of n mutually orthogonal unit circular cylinders x norm squared minus minimum coordinate squared at most 1 volume expansion π/(2n²)"
+      ]
+    },
+    "rationale": "The claimed strict dimension monotonicity of normalized cylinder-intersection volume and its sharp two-term high-dimensional defect are not implied by the exact low-dimensional published tables, the inspected three-disk-polar relationship, or the two-disk convex-hull study. Multiple actual conceptual and formula-specific literature/index queries found no covering statement. The 2012–2013 reports investigate the same n-dimensional cylinder family, but their full texts were unavailable; the possibility that they prove stronger results remains an explicit substantive priority risk, not an assertion of noncoverage.",
+    "residual_risks": [
+      "Unread complete Illinois Geometry Lab reports from 2012 and 2013 concern the same n-dimensional cylinder family; they could contain the claimed all-dimensional comparison or asymptotic and require independent full-text priority review.",
+      "Terminology changes and unindexed mathematical sources may hide equivalent monotonicity or asymptotic results; absence from searches is not a novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS n=4 exact volume, not an all-n monotonicity or asymptotic table",
+        "evidence": [
+          "OEIS A349579 gives the 4-dimensional unit-diameter exact volume 3(π/4−atan(√2)/√2) and attributes the unit-radius source to Hildebrand et al. (2012), Kong et al. (2013)."
+        ],
+        "identifier_or_url": "https://oeis.org/A349579",
+        "material_read": "complete OEIS entry including comments, exact formula and listed source dates",
+        "method": "read public HTML entry",
+        "title": "OEIS A349579: four-dimensional Steinmetz solid",
+        "trigger": "exact four-cylinder special case and bibliography"
+      },
+      {
+        "assessment": "COVERS n=5 exact volume, not an all-n monotonicity or asymptotic table",
+        "evidence": [
+          "OEIS A349580 gives the 5-dimensional unit-diameter exact volume 8(π/12−arccot(2√2)/√2) and credits the same reports."
+        ],
+        "identifier_or_url": "https://oeis.org/A349580",
+        "material_read": "complete OEIS entry including comments, formula and references",
+        "method": "read public HTML entry",
+        "title": "OEIS A349580: five-dimensional Steinmetz solid",
+        "trigger": "exact five-cylinder special case and bibliography"
+      },
+      {
+        "assessment": "COVERS primal three-disk hull intrinsic volumes and cites its polar tricylinder volume, no all-n normalized cylinder comparison",
+        "evidence": [
+          "The entire publicly available three-disk convex-hull RESULT.md was read: the tricylinder is its polar, with dimension-three tricylinder volume 8(2−√2); the article itself computes the primal hull volume, surface area and radii."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a",
+        "material_read": "full RESULT.md document with definition, proof, related work, references",
+        "method": "read full publicly available document",
+        "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+        "trigger": "the precise classical n=3 polar counterpart"
+      },
+      {
+        "assessment": "DIFFERENT OPERATION (convex hull) and two disks in dimension three",
+        "evidence": [
+          "Finch arXiv:1211.4514 full-text sections examined address the convex hull of two disks, a different construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.4514",
+        "material_read": "PDF main text pages 1–4 and discussion pages 13–16",
+        "method": "read public arXiv PDF passages",
+        "title": "Convex Hull of Two Orthogonal Disks",
+        "trigger": "historical orthogonal disk geometry"
+      },
+      {
+        "assessment": "UNKNOWN FULL-TEXT COVERAGE. No claim that original report lacks the present theorem",
+        "evidence": [
+          "OEIS dated citation 2012-12-11, exact n=4,5 attributed to the report."
+        ],
+        "identifier_or_url": "https://conf.math.illinois.edu/igl/Projects-Fall2012/Hildebrand2/report.pdf",
+        "material_read": "bibliographic entry and attribution on OEIS only; original full report inaccessible",
+        "method": "attempted lawful public PDF access; consulted independently published bibliographic/formula records",
+        "title": "Applications of n-dimensional Integrals: Random Points, Broken Sticks and Intersecting Cylinders",
+        "trigger": "explicit same-family 2012 source credited by n=4,5 entries"
+      },
+      {
+        "assessment": "UNKNOWN FULL-TEXT COVERAGE; specific priority risk for the exact same family",
+        "evidence": [
+          "OEIS dated citation 2013-04-25, credited n=4,5 formulas and publicly described broader dimensions."
+        ],
+        "identifier_or_url": "https://faculty.math.illinois.edu/~hildebr/ugresearch/cylinder-spring2013report.pdf",
+        "material_read": "OEIS bibliography and public conference-abstract description; original full report inaccessible",
+        "method": "attempted public/open-access PDF retrieval; full report unavailable",
+        "title": "Intersecting Cylinders: From Archimedes and Zu Chongzhi to Steinmetz and Beyond",
+        "trigger": "explicit same-family 2013 research report credited by n=4,5 entries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10e87b3c-b46e-4ac1-8864-085367cd1c71",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The normalized volume defect is a canonical dimensionless invariant for the family of orthogonally intersecting cylinders, whose small-dimensional exact constants were known. The all-dimension strict ordering and sharp asymptotic two-term behavior answer meaningful previously unaddressed comparisons among these solids; the n^-2 volumetric vs n^-1 radial rate distinguishes average-volume geometry from extremal radial behavior. The result is a global classification of one natural asymptotic profile, not an arbitrary parameter slice or table recomputation.",
+    "status": "PASS"
+  }
+}
