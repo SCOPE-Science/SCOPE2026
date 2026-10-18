@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The path-integration kernel is an ancestor indicator; its positive square has the common-initial-path-length kernel. Integrating its diagonal and squared kernel proves the exact second and fourth singular moments. The factored derivative identifies exactly one global fourth-order maximizer. The rooted Dirichlet/Neumann/Kirchhoff eigenvalue variational principle, radial/transverse split and monotone characteristic equation give a unique operator-norm maximizer. The packaged standalone checker passed 172 consistency tests. Infinite-dimensional conclusions do not rely on numerical extrapolation.
+
+**Originality — PASS (best-knowledge assessment).** Literature searches and the relevant inspected sections of Evans–Harris–Lang (arXiv:math/0003215v1), Naimark–Solomyak (DOI:10.1112/S0024611500012272) and Rozhenko (DOI:10.30970/ms.37.1.65-75) treat tree Hardy approximation numbers, tree Laplacian eigenvalue bounds/decompositions and equilateral star-tree determinants, respectively. None of the material inspected states the coupled exact \(\mathcal S_2\), \(\mathcal S_4\), \(\mathcal S_\infty\) branch-placement optimization. Related general spectral principles do not directly imply the three distinct sharp optimizer locations without new exact moment calculations. Historical priority risk remains for alternative formulations in metric-graph and tree-integration literature; absence of a search hit is not novelty proof.
+
+**Value — PASS.** At the same fixed root-to-leaf distance, three standard and naturally comparable singular-value summaries favor three genuinely different geometries. The exact fourth-order transition interpolates between total integrated energy and worst-case amplification, furnishing a motivated boundary case for tree-operator approximation and branch-placement design rather than a special-purpose numerical table.
+
+**Limitations.** Equal branches, one junction, integer \(m\ge2\), fixed root-to-leaf distance, and no asserted intermediate Schatten-order phase diagram. The available primary text was examined in relevant sections, not exhaustively; equivalent historical statements could have been missed.
+
+Self-review: passed. Independent audit: not yet performed.
