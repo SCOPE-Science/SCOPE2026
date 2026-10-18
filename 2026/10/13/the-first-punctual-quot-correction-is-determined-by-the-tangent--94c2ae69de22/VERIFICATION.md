@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem was proved by the filtration-length bound \(\mathfrak m^mM=0\), classification of the unique possible failing Hilbert function \((1,\ldots,1)\) at length \(a+1\), exact tangent-direction parametrization of curvilinear quotient ideals, and an automorphism-orbit calculation for rank-\(n\) framings. No unproved computational extrapolation enters the universal argument.
+# Independent mathematical audit
 
-The included standalone `check_first_quot.py` enumerates all \(3\times3\) commuting nilpotent matrices over \(\mathbb F_2\), all one- and two-vector generating frames, and four relations corresponding to the smooth plane, a cusp, a split node, and a nonsplit node. It checks counts \((7,99)\), \((3,51)\), \((5,75)\), \((1,27)\), respectively. The program's small exhaustive search is a reproducibility cross-check only and cannot certify a universal theorem or novelty.
+## correctness
 
-Scope: rational point counts on reduced punctual Quot spaces; neither full schemes nor motives are compared. Independent audit has not been performed.
+PASS
+
+For S=Fq[[X,Y]], f order a>=2, any finite-length m quotient M satisfies m^m M=0. Hence S^n and (S/f)^n quotient kernels agree for m<=a. At m=a+1 every quotient where f acts nontrivially must have one-dimensional successive maximal-ideal layers, and is necessarily cyclic curvilinear Fq[t]/(t^(a+1)). Each tangent direction [u:v] in P1(Fq) has q^(a-1) such ideals; f annihilates iff initial homogeneous form f_a(u,v)=0. For each excluded ideal, surjective n-frames modulo unit-group yield q^(a(n-1))*(q^n-1)/(q-1) distinct kernels, so the exact deficit is (q+1-Nq(f_a))*q^(an-1)*[n]_q. For f=Y^a-X^b with a<b coprime, Nq=1 and the correction is q^(an)*[n]_q>0. Independently enumerated all commuting nilpotent 3x3 F2 pairs and generating one/two-frames: ambient counts (7,99), cusp (3,51), split node (5,75), anisotropic tangent (1,27), all matching formula. No schematic or motivic assertion.
+
+## originality
+
+PASS
+
+Huang–Jiang–Oblomkov arXiv:2608.16086 provides motivic Quot series over torus-knot singularities mainly for the normalization module; the harder free R^n family is distinguished. Huang–Jiang arXiv:2312.12528 has arbitrary-rank results for multiplicity-two curves, special cases of the present formula, but not an arbitrary leading homogeneous f_a and a>=2 universal direction count. Smooth-ambient Hilbert/Quot coefficients are also prior. The all-leading-form first relation-sensitive point correction is distinct though an older curvilinear Hilbert-scheme lemma might imply it.
+
+## value
+
+PASS
+
+Colength a+1 is an intrinsic first threshold where a curve equation of multiplicity a can affect punctual Quot counts. The sharp universal correction extracts the count of rational projective tangent-cone directions for arbitrary rank, degree and finite field; the torus-knot subfamily shows genuine strict onset. It offers an exact useful invariant of singular curve branches without pretending to determine the rest of the Quot series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
