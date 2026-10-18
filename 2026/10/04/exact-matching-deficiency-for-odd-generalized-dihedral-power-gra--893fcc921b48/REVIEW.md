@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof checks both adjacency notions. Every element of the nontrivial coset is an involution; in the power graph it can only be adjacent to the identity, and in the enhanced power graph any additional adjacency would force commutation, which the inversion action excludes for a nonidentity odd-order kernel element or a distinct coset involution. Thus the coset is a family of pendant vertices at the identity. The odd-order kernel minus the identity is exactly partitioned into inverse pairs, giving the lower bound, while the shared pendant neighbor gives the sharp upper bound. The characterization of every maximum matching follows from equality in those two bounds.
+## correctness
 
-## Originality
-PASS. The closest prior exact formula is Panda–Dalal–Kumar for ordinary dihedral groups, whose kernel is cyclic. Cameron–Swathi–Sunitha give general matching bounds, the odd-order inverse-pair matching, equality between power and enhanced matching numbers, and an explicit open problem asking for formulas beyond their treated classes, but their full text contains no generalized-dihedral matching formula. Brachter–Kaja treat generalized dihedral groups only for chordality and contain no matching result. Targeted published-finding corpus and web searches for generalized-dihedral matching and inversion-semiproduct aliases found no statement equivalent to the present extension to arbitrary odd abelian kernels.
+PASS
 
-## Value
-PASS. Generalized dihedral groups are a standard infinite class extending ordinary dihedral groups. The formula closes the matching problem on the whole odd-kernel generalized-dihedral family, including noncyclic kernels. It also identifies an instructive extremal phenomenon in the 2022 general bounds: \(|I(G)|=|O(G)|\) makes the basic Tutte obstruction vanish, yet the actual deficiency is \(|A|-1\), while the centralizer-based construction bound is exactly sharp.
+For each a∈A, (at)^2=1. Its only power-graph neighbor is identity. In enhanced power graph adjacency implies commutation: at inverts each y∈A, and odd order makes y=y^−1 only for y=1; distinct at,bt cannot commute since their product has odd order while commuting involutions have product order≤2. Thus all m coset vertices are leaves at identity in both graphs. Because m is odd, A\{1} splits into (m−1)/2 inverse adjacent pairs; one leaf matched to identity gives μ≥(m+1)/2. Any matching uses at most one leaf and at most (m−1)/2 internal pairs if identity used, giving equality; every maximum saturates A and leaves exactly m−1 coset involutions. Proof works for all finite nontrivial odd abelian A, independent of finite samples.
 
-The main residual risk is bibliographic: the proof is short once the pendant-coset structure is noticed, so an equivalent observation could occur under different terminology even though the targeted searches did not locate one.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The general equal-matching theorem and ordinary dihedral μ formula are recognized as prior work, but their statements do not directly provide this exact noncyclic generalized-dihedral deficiency and maximum-matching rigidity. Best-of-knowledge originality is retained with search outage documented.
+
+## value
+
+PASS
+
+Completes a natural infinite nonnilpotent group family for two widely studied graph invariants, including matching rigidity and explicit deficiency, addressing a recognized gap between general lower bounds and a precise group-specific upper bound. Noncyclic A is not a mere renaming of the published cyclic dihedral calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

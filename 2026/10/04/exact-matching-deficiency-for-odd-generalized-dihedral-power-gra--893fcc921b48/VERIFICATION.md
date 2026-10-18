@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was reconstructed directly from the generalized-dihedral multiplication law and from the definitions of the power and enhanced power graphs.
 
-Exact symbolic checks:
-- Every element \(at\) in the nontrivial coset satisfies \((at)^2=1\).
-- A coset involution has no power-graph neighbor except \(1\).
-- Enhanced adjacency would force commutation; inversion excludes commutation with a nonidentity element of the odd-order kernel, and two distinct coset involutions cannot commute.
-- The nonidentity kernel elements split into disjoint inverse pairs, each of which is an edge.
-- Since all coset vertices have the same unique neighbor, at most one of them can occur in a matching, giving the sharp upper bound.
+# Independent mathematical audit
 
-`artifacts/verify.py` constructs the groups from the semidirect-product law for kernels \(C_3\), \(C_5\), \(C_9\), and \(C_3\times C_3\). It constructs both graphs from first principles, checks the pendant-coset property, and computes maximum matchings by exact bit-mask dynamic programming. The replay returns `VERIFY_OK`.
+## correctness
 
-Finite computation is not used to justify the universal statement.
+PASS
+
+For each a∈A, (at)^2=1. Its only power-graph neighbor is identity. In enhanced power graph adjacency implies commutation: at inverts each y∈A, and odd order makes y=y^−1 only for y=1; distinct at,bt cannot commute since their product has odd order while commuting involutions have product order≤2. Thus all m coset vertices are leaves at identity in both graphs. Because m is odd, A\{1} splits into (m−1)/2 inverse adjacent pairs; one leaf matched to identity gives μ≥(m+1)/2. Any matching uses at most one leaf and at most (m−1)/2 internal pairs if identity used, giving equality; every maximum saturates A and leaves exactly m−1 coset involutions. Proof works for all finite nontrivial odd abelian A, independent of finite samples.
+
+## originality
+
+PASS
+
+The general equal-matching theorem and ordinary dihedral μ formula are recognized as prior work, but their statements do not directly provide this exact noncyclic generalized-dihedral deficiency and maximum-matching rigidity. Best-of-knowledge originality is retained with search outage documented.
+
+## value
+
+PASS
+
+Completes a natural infinite nonnilpotent group family for two widely studied graph invariants, including matching rigidity and explicit deficiency, addressing a recognized gap between general lower bounds and a precise group-specific upper bound. Noncyclic A is not a mere renaming of the published cyclic dihedral calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
