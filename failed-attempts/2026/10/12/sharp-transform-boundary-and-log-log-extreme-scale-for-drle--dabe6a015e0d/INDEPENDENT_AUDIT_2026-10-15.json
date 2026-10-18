@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob e0ac9c73df4a9d1c499da5b58d5feb52976933b4",
+        "Alazwari et al. original Propositions 1–2, Lemma 2.3 https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf",
+        "/mnt/data/scope_worker04_science_independent.out"
+      ],
+      "rationale": "For the actual two-parameter DRLE distribution alpha>0,beta>=2 obtained by floor discretization of parent survival (1+cx)exp(-lambda x) with lambda=alpha/beta, c=lambda/(beta-1), q=exp(-lambda), the stated S_n=P(X>=n)=(1+cn)q^n is exact. Subtraction gives p_n=q^n(A+Bn), A=1-q(1+c)>0, B=c(1-q)>0; hence G(z)=A/(1-qz)+Bqz/(1-qz)^2, convergence radius 1/q and finite probabilistic MGF iff t<lambda; rational continuation is not expectation when t>=lambda. Exact hazard h_n=1-q-qc/(1+cn) strictly increases to 1-q with gap asymptotic q/n. Logarithmic inversion of (1+cm)exp(-lambda m)=u yields m=(1/lambda)[log(1/u)+loglog(1/u)-log(beta-1)]+o(1), and lattice quantile differs O(1). Independently checked algebraic PGF against the survival and inversion scales numerically. The original 2026 DRLE paper uses S(x)=P(X>x)=S_{x+1}; that harmless shift was accounted for and is not a distinct law. Correctness of these deductions does not establish novelty or value.",
+      "residual_risks": [
+        "The failed assessment does not dispute mathematical correctness; rejection is based on full primary-paper implication and insufficient independent incremental mathematical value."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alazwari Proposition 1 gives the whole law and §3.1 Proposition 2 its exact rational MGF; these determine *every* transform coefficient and survival quantile without any new distribution information."
+        ],
+        "reasoning": "The full original law is mathematically stronger coverage than the claimed derivative properties; the continuous parent and earlier alpha=1 one-parameter DRL are additional background.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf",
+          "doi:10.1038/s41598-025-18711-6",
+          "doi:10.3934/math.2022099"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf",
+        "doi:10.1038/s41598-025-18711-6",
+        "doi:10.3934/math.2022099"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Eq.(3.1) denominator (q exp(t)-1)^2 yields critical t=lambda; its Eq.(2.1) yields S_n=(1+cn)q^n; therefore log S_n=-lambda n+log n+log c+o(1)."
+        ],
+        "reasoning": "Setting u=S_n and solving lambda n=log(1/u)+log n+log c+o(1) gives the displayed loglog correction and constant -log(beta-1) automatically. The source may not explicitly state the latter asymptotic, but direct implication is decisive under the no-covered-corollary originality rule.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Definition 1 sets X=floor(Y), PMF Psi(x)-Psi(x+1) and survival S(x)=P(X>x)=Psi(x+1), while assigned S_n=P(X>=n)=Psi(n). Their hazard Lemma 2.3 has exactly h(x)=(1-q)-cq/(1+cx)."
+        ],
+        "reasoning": "One-unit survival-index normalization reconciles the source and assigned formulas; both use alpha>0,beta>=2 and precisely the same distribution, not merely matching the name.",
+        "searches": [
+          "discrete Ramos Louzada exponential DRLE exact moment generating function domain hazard upper quantiles loglog",
+          "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq.(2.2) explicitly gives the exact PMF for all x>=0; Eq.(2.7) explicitly gives the exact hazard for all x; Eq.(3.1) gives the exact rational moment-generating function for all parameters."
+        ],
+        "reasoning": "This is exact formula coverage, not matching a parameter table: the claimed radius, hazard limit and extreme asymptotic follow from the supplied closed formulas using elementary analytic steps.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf"
+        ]
+      },
+      "rationale": "Decisive earlier full-text coverage: Alazwari et al., AIMS Mathematics 11 (2026), §§2.1–2.4 and §3.1, Eq.(1.1),(2.1)–(2.7), Proposition 1, Lemma 2.3, Proposition 2, already give the same DRLE floor discretization, exact PMF, survival, hazard and rational MGF. The exact radius/positive MGF convergence interval is a direct root-test/geometric-series implication of their closed MGF with double pole and q=e^{-alpha/beta}. The loglog quantile is not explicitly printed there, but follows immediately by logarithmic inversion of their exact survival; it is a mechanically implied asymptotic special consequence, not an independently new nonstandard theorem. Do not represent this as proof that the earlier paper printed the loglog term: it supplies sufficient stronger data to derive it.",
+      "residual_risks": [
+        "The newly written loglog term may not have appeared verbatim in the earlier article; rejection rests on mathematical implication of the exact original survival, not a claim of textual duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original paper explicitly gives the same full distribution, monotone hazard and closed MGF. It does not state the loglog quantile as such, but it mathematically implies it by a direct elementary inversion.",
+          "evidence": "Eq.(2.1)–(2.2) p_n from survival; Eq.(2.7) h_n=(1-q)-cq/(1+cn); Prop.2 Eq.(3.1) rational MGF double pole.",
+          "identifier_or_url": "doi:10.3934/math.20261083; https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf",
+          "material_read": "Entire publisher 38-page PDF available; materially inspected §§1–3, especially Eq.(1.1), (2.1)–(2.7), Proposition 1, Lemma 2.3, Proposition 2, Eq.(3.1), and checked absence of explicit quantile section in table/text search",
+          "method": "lawful publisher full PDF, extracted text and page images 27023–27025",
+          "title": "New discrete Ramos–Louzada exponential–type distribution with applications to biological and COVID-19 data",
+          "trigger": "Same named distribution, same parameters, full MGF and hazard derivation; decisive direct-source comparison"
+        },
+        {
+          "assessment": "Original DRLE paper explicitly notes alpha=1 reduces to the earlier model; stronger two-parameter coverage already decisive.",
+          "evidence": "Alazwari Remark 2 pp.27022 on alpha=1 special case.",
+          "identifier_or_url": "doi:10.3934/math.2022099",
+          "material_read": "Previously indexed full paper relevance and source metadata, but not newly reread in full this turn",
+          "method": "bibliographic and primary-paper Remark 2 comparison",
+          "title": "A discrete Ramos–Louzada distribution for asymmetric and over-dispersed data",
+          "trigger": "Earlier special one-parameter law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-1083.pdf",
+        "doi:10.1038/s41598-025-18711-6",
+        "doi:10.3934/math.2022099"
+      ],
+      "rationale": "The earlier original DRLE paper gives the *exact* PMF/survival, hazard including monotonicity, and the closed rational MGF on the same full parameter domain. The present remaining convergence interval is immediate from a double-pole geometric series; the loglog quantile term is a standard two-line inversion of the original known linear-geometric survival, with only O(1) lattice accuracy and no additional structural, parameter-uniform stability, inferential or extremal theorem. The natural tail question is motivated, but the particular claimed addition is mechanically implied by the published distribution formula and too narrow to support an independent mathematical finding at the stated C/O/V standard.",
+      "residual_risks": [
+        "No independent non-mechanical parameter regime, new inference method or refined lattice oscillation constant remains after subtracting the earlier full two-parameter DRLE formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The failed assessment does not dispute mathematical correctness; rejection is based on full primary-paper implication and insufficient independent incremental mathematical value."
+  ],
+  "schema_version": 1
+}
