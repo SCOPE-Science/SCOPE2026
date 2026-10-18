@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact normal-fan illumination theorem
+# Independent mathematical audit
 
-The mathematical argument is in `RESULT.md`: it proves (i) the exact direction-cell incidence structure from antipodal normal pairs, (ii) sharp vertex-incidence lower bounds, (iii) floor-distributed cyclic-block upper constructions for every positive multiplicity, and (iv) the parity classification of all optimal fractional cell masses by subtracting consecutive vertex saturation equations.
+## correctness
 
-The accompanying finite consistency checker `verify.py` was run from its own file path. It returned `VERIFY_OK` after 1,950 exact cyclic multicover test instances, checking the parity family for 39 tested vertex counts, and validating the closed, strictly convex nonequiangular and noncentrally symmetric six-edge example in exact rational arithmetic. The finite enumeration does not establish the universal theorem; that responsibility belongs to the preceding symbolic proof.
+PASS
 
-Every optimal fractional measure may redistribute mass freely inside a given illumination cell; the theorem specifies the uniquely determined or alternating *cell totals*. Its assumptions explicitly exclude consecutive collinear edges and polygons lacking a paired normal fan. No external or independent audit has been performed.
+For a strictly convex 2r-gon with genuine antipodally matched outward edge-normal fan, a noncritical illumination direction has exactly r consecutive edge normals with negative dot product and therefore illuminates exactly L=r−1 consecutive vertices. Critical directions strictly reduce the count. Incidence counting forces N≥ceil(2rk/L) for k-fold multicover and mass≥2r/L fractional. The balanced discrete start positions floor((2r)j/N) cyclically cover each length-L window either floor(NL/(2r)) or ceil, attaining integer bound; assigning 1/L to each of 2r generic direction cells attains fractional bound. At optimum all mass is off critical rays and every vertex constraint tight, giving cyclic equations sum_{h=0}^{L−1}w_{i−h}=1. Their differences force w_i=w_{i−L}; gcd(2r,r−1)=1 for r even, =2 for r odd, yielding unique uniform or alternating one-parameter solutions. The explicit rational hexagon has positive side lengths, closed edge chain and strictly positive turns but unequal opposite lengths and unequal consecutive angle dot products. Separately checked multiple concrete integer cover cases and rational identities; finite samples not asserted as universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution survives statement-level comparison with current published findings and the accessible primary literature: A strict geometric extension with new optimizer rigidity cannot be deduced merely from values for regular/equiangular polygons or universal upper bounds.
+
+## value
+
+PASS
+
+Exact simultaneous integral/fractional multicovers and complete characterization of optimal fractional measures on a geometrically intrinsic normal-fan class, including nonequiangular and noncentrally symmetric polygons, meaningfully fills the gap between prior regular-polygon laws and general bounds. Parity rigidity of the optimizer face is additional structural content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

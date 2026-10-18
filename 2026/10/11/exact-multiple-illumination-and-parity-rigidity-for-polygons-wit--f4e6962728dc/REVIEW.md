@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For the stated antipodal normal fan, every generic direction illuminates exactly \(r-1\) successive vertices and a critical direction fewer. This yields sharp double-counting bounds. The equidistributed-floor selection attains every integer multiplicity exactly, and the equality equations for fractional weights reduce to a cyclic recurrence with one or two components depending on parity. The explicit rational hexagon checks that central symmetry and equal normal gaps are not covert assumptions. The exact-rational checker covers 1,950 finite cases, but the proof is analytic and unbounded. Scope excludes degenerate adjacent collinear edges.
+## correctness
 
-**Originality: PASS, subject to remaining historical risk.** Sriamorn's primary manuscript gives the formula for *regular* polygons, not for all antipodally paired normal fans, and does not classify optimal fractional cell masses. Naszódi's fractional results are universal bounds and a regular-pentagon example. Gorodzha's recent abstract establishes a universal upper bound and equality criterion, not an exact polygon fan formula; its full manuscript was not accessible in this inspection. Published searches for opposite parallel side directions, multiple illumination, fractional parity rigidity, circular windows and equivalents found no dominating claim. An unindexed extension of the regular-polygon argument remains possible.
+PASS
 
-**Value: PASS.** The original polygon algorithm problem singles out the value of exact multiple illumination on substantial classes. This theorem solves every multiplicity for a geometrically natural continuous class wider than central or equiangular polygons, and identifies the complete fractional optimizer face. The parity-based change from unique optimal cell weights to a one-parameter family is structural and cannot be inferred just from the optimum value. No universal polygon algorithm is claimed.
+For a strictly convex 2r-gon with genuine antipodally matched outward edge-normal fan, a noncritical illumination direction has exactly r consecutive edge normals with negative dot product and therefore illuminates exactly L=r−1 consecutive vertices. Critical directions strictly reduce the count. Incidence counting forces N≥ceil(2rk/L) for k-fold multicover and mass≥2r/L fractional. The balanced discrete start positions floor((2r)j/N) cyclically cover each length-L window either floor(NL/(2r)) or ceil, attaining integer bound; assigning 1/L to each of 2r generic direction cells attains fractional bound. At optimum all mass is off critical rays and every vertex constraint tight, giving cyclic equations sum_{h=0}^{L−1}w_{i−h}=1. Their differences force w_i=w_{i−L}; gcd(2r,r−1)=1 for r even, =2 for r odd, yielding unique uniform or alternating one-parameter solutions. The explicit rational hexagon has positive side lengths, closed edge chain and strictly positive turns but unequal opposite lengths and unequal consecutive angle dot products. Separately checked multiple concrete integer cover cases and rational identities; finite samples not asserted as universal proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution survives statement-level comparison with current published findings and the accessible primary literature: A strict geometric extension with new optimizer rigidity cannot be deduced merely from values for regular/equiangular polygons or universal upper bounds.
+
+## value
+
+PASS
+
+Exact simultaneous integral/fractional multicovers and complete characterization of optimal fractional measures on a geometrically intrinsic normal-fan class, including nonequiangular and noncentrally symmetric polygons, meaningfully fills the gap between prior regular-polygon laws and general bounds. Parity rigidity of the optimizer face is additional structural content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
