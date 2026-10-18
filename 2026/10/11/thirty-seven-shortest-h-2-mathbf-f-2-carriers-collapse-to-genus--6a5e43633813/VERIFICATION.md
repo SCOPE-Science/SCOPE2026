@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete \(93\)-tetrahedron presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs
-\[
-f=(16,109,186,93)
-\]
-and computes
-\[
-\operatorname{rank}\partial_2=93,\qquad
-\operatorname{rank}\partial_3=92.
-\]
-Thus
-\[
-H_2(K;\mathbf F_2)\cong\mathbf F_2.
-\]
+## correctness
 
-For every vertex set of size at most nine, the verifier constructs its complete local \(2\)-cycle space and reduces those cycles modulo ambient tetrahedral boundaries. The exact numbers of supporting subsets at sizes \(1,\ldots,9\) are
-\[
-0,0,0,0,0,0,0,0,37.
-\]
+PASS
 
-For each of the \(37\) minimizers, an elementary-collapse search preserving all nine vertices reaches a complex with \(9\) vertices, \(30\) edges, \(20\) triangles, no tetrahedra, connected one-skeleton, edge degree two, and cyclic vertex links. The Euler characteristic is \(-1\), so each terminal surface is \(N_3\). The verifier then checks that its mod-two fundamental cycle is nonzero in ambient \(H_2\).
+The frozen 93-tetrahedron table yields f=(16,109,186,93), ranks of boundary maps d2=93 and d3=92 over F2, hence H2 dimension 186-93-92=1. The full enumeration of every vertex subset of sizes 1 through 9 gives carrier counts 0,0,0,0,0,0,0,0,37. For each of all 37 nine-vertex carriers, independently replayed elementary free-face collapses preserving vertices yield a connected surface with f=(9,30,20), link cycles at every vertex, and Euler characteristic -1; by classification it is nonorientable genus 3. Every final 20-triangle fundamental mod-two cycle maps to the nonzero ambient H2 class; four carriers were already surfaces. Independently reconstructed finite program from actual Git verify.py facet table, not verifier log; exhaustive bounded support search and certificates do not imply anything about larger supports or integral H2.
 
-Exactly four minimizing induced subcomplexes already have this surface form before any collapse.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=16,109,186,93 H2_F2_dim=1 min_vertex_support=9 carriers9=37 already_induced_N3=4 collapse_to_9vertex_N3=37 ambient_fundamental_class_nonzero=37 support_counts_le9=0,0,0,0,0,0,0,0,37`
+Best-of-knowledge statement-level comparison against directly inspected mathematical texts supports originality of the precise claim, not the source construction or standard lemmas. Each comparison and reading limit is distinguished; inaccessible work is recorded as risk, not proof of uniqueness. Resultary semantic search failed internally and supplies no negative evidence.
+
+## value
+
+PASS
+
+Complete shortest induced-support census, with 37 explicit top-dimensional mod-two carriers and their common nonorientable surface collapse type, is a natural, nontrivial invariant of Lutz’s canonical sixteen-vertex spherical 3-manifold triangulation. It resolves a precise finite topological support gap, not mere recomputation of its f-vector or ambient homology; classification may be useful for minimal representatives and triangulation studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
