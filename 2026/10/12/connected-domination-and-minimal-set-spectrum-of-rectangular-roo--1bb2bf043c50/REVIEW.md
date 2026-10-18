@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph isomorphism \(R_{m,n}=L(K_{m,n})\) converts connected domination to a connected occupied-edge support covering all vertices of at least one bipartition class. Deleting a cycle edge keeps that support connected and dominating; a tree occupying both full classes has a removable leaf. The sole surviving minimal structures are one-sided-spanning trees without degree-one vertices on their proper-support side. This implies the exact Stirling-number formula by the weighted matrix-tree identity, whose Schur-complement determinant is explicitly evaluated. Labeled exponential decomposition yields the full connected polynomial. All boundary cases \(m,n\ge2\) and both orientation choices are covered. Direct exhaustive verification on eleven boards confirms every coefficient and minimality classification but is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with bounded literature risk
+Domination means no unused row and unused column simultaneously; induced rook connectivity equals connectivity of selected incidence edges. Deleting cycle edges and then full-side tree leaves forces a minimal set to be a tree spanning exactly one bipartition side. If the other side has a leaf, its edge can be removed; otherwise every deletion disconnects edges or loses full-side occupancy. The weighted bipartite matrix-tree identity counts trees by column degree, and positive-exponent extraction is b! Stirling(m-1,b), giving both sums and the two integer size intervals. The standard connected labeled graph exponential formula establishes the full EGF. An independently written subset-and-BFS enumerator verified full and minimal counts on four boards including 3x4: 2x2 {2:4}, 2x4 {2:4,4:2}, 3x3 {3:6,4:36}, 3x4 {3:4,4:39,5:72}. Finite cases supplement the all-parameter proof.
 
-The closest same-object treatment is Stephan Mertens, arXiv:2401.00716 (2024), which computes the ordinary domination polynomial of rook graphs and uses the complete-bipartite incidence representation. Its theorem has no connectedness refinement, no classification of minimal connected supports, and no two-interval minimal cardinality spectrum. Kanté et al., arXiv:1407.2053 (2014), and Abu-Khzam et al., arXiv:2205.00086 (2022), address generic minimal connected-domination enumeration complexity, not these family-specific counts; Kanté et al., arXiv:1404.3501 (2014), concerns ordinary minimal edge domination of line graphs, with no connectedness requirement. Checks for equivalent formulations as *connected edge domination of complete bipartite graphs*, stronger coverage and data-table equivalence revealed no decisive covering formula. Earlier work under poorly indexed variant terminology remains a residual risk. This review does not establish absolute novelty or independent priority.
+## originality
 
-## Value — PASS
+PASS
 
-Minimal connected domination is structurally and algorithmically different from ordinary domination. The complete classification gives an explicit exact count for every inclusion-minimal set size, the exact upper inclusion-minimal parameter \(m+n-2\), and a natural sharp and potentially arbitrarily long forbidden size interval when \(n\ge2m\). The full connected-domination polynomial is an additional complete enumeration for the same natural graph family. These statements go beyond a scalar bound, a renamed standard identity, or a tiny numerical improvement; the gap and entire spectrum are intrinsically motivated by the set family.
+The connected support restriction, exact minimal tree structure, and coefficient and gap formulas refine the published ordinary rook domination polynomial and are not implied by the examined general algorithms.
 
-## Scientific limitations
+## value
 
-The special bipartite exponential and tree-enumerator identities are standard tools and not new discoveries in isolation. A conceivable earlier specialization under an unfamiliar name is not excluded. The verifier is finite corroboration; the universal proof is combinatorial. No external assessment or audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Connected domination is a natural graph polynomial not determined by the ordinary one. The complete characterization and Stirling-number size enumerator yield a sharp cardinality gap for minimum-by-inclusion sets on all rectangular rook graphs, an intrinsic usable extremal and enumerative fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

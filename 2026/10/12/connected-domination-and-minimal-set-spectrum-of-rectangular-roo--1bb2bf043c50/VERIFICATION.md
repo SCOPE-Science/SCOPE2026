@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify_rook_connected.py` in the same directory. The supplied source uses only Python's standard library, no external datasets, and no platform-specific paths. It computes \(\mathrm{CD}_{m,n}(z)\) using an independent root-component decomposition recurrence for connected bipartite graphs and the formula based on binomially chosen supports. It computes \(\mathrm{MCD}_{m,n}(z)\) using Stirling recurrences, then independently enumerates every subset of board squares and tests connected domination by rook-neighborhood coverage and breadth-first search. Minimality is determined by checking all single-vertex deletions, and independently checked against the tree and nonleaf structural condition.
+## correctness
 
-All assertions passed for the eleven boards \((2,2),(2,3),(2,4),(2,5),(2,6),(2,7),(2,8),(3,3),(3,4),(3,5),(4,4)\). The verifier reports `VERIFY_OK boards=11 subset_checks=190277 connected_sets=158351 minimal_sets=1548`. For \((3,3)\), it yields coefficients \(6,72,117,84,36,9,1\) in degrees \(3,\ldots,9\) for the complete polynomial and coefficients \(6,36\) in degrees \(3,4\) for the inclusion-minimal polynomial.
+PASS
 
-The program does not prove the result for unbounded \(m,n\); the general proof uses a direct support criterion, graph connectivity, the absence of cycles in minimal supports, a weighted matrix-tree calculation, and the exponential formula. No independent validation or audit has been performed.
+Domination means no unused row and unused column simultaneously; induced rook connectivity equals connectivity of selected incidence edges. Deleting cycle edges and then full-side tree leaves forces a minimal set to be a tree spanning exactly one bipartition side. If the other side has a leaf, its edge can be removed; otherwise every deletion disconnects edges or loses full-side occupancy. The weighted bipartite matrix-tree identity counts trees by column degree, and positive-exponent extraction is b! Stirling(m-1,b), giving both sums and the two integer size intervals. The standard connected labeled graph exponential formula establishes the full EGF. An independently written subset-and-BFS enumerator verified full and minimal counts on four boards including 3x4: 2x2 {2:4}, 2x4 {2:4,4:2}, 3x3 {3:6,4:36}, 3x4 {3:4,4:39,5:72}. Finite cases supplement the all-parameter proof.
+
+## originality
+
+PASS
+
+The connected support restriction, exact minimal tree structure, and coefficient and gap formulas refine the published ordinary rook domination polynomial and are not implied by the examined general algorithms.
+
+## value
+
+PASS
+
+Connected domination is a natural graph polynomial not determined by the ordinary one. The complete characterization and Stirling-number size enumerator yield a sharp cardinality gap for minimum-by-inclusion sets on all rectangular rook graphs, an intrinsic usable extremal and enumerative fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
