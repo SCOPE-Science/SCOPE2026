@@ -1,11 +1,21 @@
-# Scientific review: strict convex-order dispersion in the bi-uniform binomial mixture
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-level probabilities directly normalize and have the binomial mean. On each of the two blocks the binomial mass is monotone toward the central break, so the signed bi-uniform-minus-binomial mass decreases on the left and increases on the right. Equal total mass and equal mean force positive tails and a contiguous negative center; strict binomial monotonicity rules out equality for \(n\ge2\). A chord comparison proves every convex expectation inequality, including strictness for strictly convex test functions. The explicit kink argument proves strict stop-loss ordering for each real interior threshold. The checker reports 11,020 exact rational checks; its finite grid is not the universal proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Groß (arXiv:2607.18083, sections 3–5) defines the bi-uniform law and proves a variance gap; the stronger full convex order and strict stop-loss family were not stated in the inspected original text. The 2024 study by Xia–Lv discusses classical relative-log-concavity implications, but does not compare the specific two-level law. Those criteria do not generally supply the new claim automatically, since the ratio need not be relatively log-concave at the breakpoint. Prior analogous centered uniform/binomial comparisons do not establish all asymmetric means. Targeted published-web, mathematical-record,  found no covering statement; an earlier theorem formulated in another order framework remains possible.
+PASS
 
-**Value — PASS.** The source motivates the bi-uniform mixture specifically as an overdispersed, heavier-tailed alternative to a binomial model, while reporting only variance inflation. Universal convex order confirms increasing dispersion for every convex loss and every stop-loss threshold, and orders the whole continuous mixture family without choosing a particular loss. This is a complete distributional comparison over all sample sizes and all real binomial parameters, not an arbitrary finite parameter slice or a recomputation of variance. The proof uses the structural two-crossing mechanism to establish this substantially stronger property.
+For n>=2, 0<p<1, mean mu=np, k=floor(mu), U is two-level with A=(n+1-2mu+k)/((k+1)(n+1)) for 0..k and C=(2mu-k)/((n-k)(n+1)) for k+1..n. Direct sums normalize and give E U=mu. Binomial PMF b_j increases on 0..k, decreases on k+1..n, so d_j=U_j-b_j decreases on left and increases on right; zero total and first moment plus nonidentity implies d_0,d_n>0 and a central negative run. The affine-secant argument gives Eφ(U)>=Eφ(B) for all convex φ; strictly convex gives strict, and every stoploss threshold t in (0,n) has strict inequality from positive tails. Mixing weights interpolate affinely and endpoints n=1, p=0,1 are exact identities.
 
-The claim concerns the exact bi-uniform law and makes no ordinary stochastic-tail-dominance assertion. Possible equivalence to an unlocated classical peakedness theorem remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Groß introduced the identical two-level distribution and established heavier variance, not all stop-loss inequalities or convex order; classical two-crossing conditions provide the proof mechanism, which is credited. Searches of corresponding Resultary records, prior binomial-vs-uniform and relative log-concave literature did not locate this parameterized strict comparison.
+
+## value
+
+PASS
+
+Full convex order is a substantial distributional strengthening of mere variance ordering for a natural new mean-matched heavy-tail alternative: it simultaneously governs every convex loss and precise stop-loss actuarial comparisons across all mixing weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

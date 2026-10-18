@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:50:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, 0<p<1, mean mu=np, k=floor(mu), U is two-level with A=(n+1-2mu+k)/((k+1)(n+1)) for 0..k and C=(2mu-k)/((n-k)(n+1)) for k+1..n. Direct sums normalize and give E U=mu. Binomial PMF b_j increases on 0..k, decreases on k+1..n, so d_j=U_j-b_j decreases on left and increases on right; zero total and first moment plus nonidentity implies d_0,d_n>0 and a central negative run. The affine-secant argument gives Eφ(U)>=Eφ(B) for all convex φ; strictly convex gives strict, and every stoploss threshold t in (0,n) has strict inequality from positive tails. Mixing weights interpolate affinely and endpoints n=1, p=0,1 are exact identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic two-crossing criteria can imply convex order when signs and equal mean verified.",
+          "No inspected full universal parameter theorem automatically fixes the signs of this specific two-level pmf."
+        ],
+        "reasoning": "General convex-order framework is prior; applying it to derive a complete strict distribution-specific theorem for all n,p requires the verified sign structure.",
+        "searches": [
+          "Müller–Stoyan stochastic-order comparison methods",
+          "Groß arXiv:2607.18083",
+          "Xia–Lv 2024 relative log concavity"
+        ]
+      },
+      "checked_sources": [
+        "Assigned tree b6893887bc3b229605201dcd3b7121766f0c2a8b, RESULT blob 0257b1645603c1a7b242242f3c0ce39b533ca6b8",
+        "Primary Groß text and Resultary semantic query",
+        "Integer-pair exact-rational independent tests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Variance gap E U²>E B² does not imply convex order for general distributions.",
+          "Proved d_j tail-positive/central-negative is the missing condition; no same-source statement of all stoploss comparisons found."
+        ],
+        "reasoning": "The prior variance theorem is insufficient to infer every convex functional. Strict stop-loss comparison additionally uses the two positive tails.",
+        "searches": [
+          "Groß Sections 3–5 full text",
+          "Classical convex two-crossing criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Groß has exactly this bi-uniform pmf; its section 3–5 comparison concerns variance and mixture.",
+          "Classical two-crossing iff convex order is prior but sign pattern must be established for this bi-uniform family."
+        ],
+        "reasoning": "Same random variables but stronger order; equivalence of convex and stop-loss orders is classical and not claimed as new.",
+        "searches": [
+          "Resultary semantic: bi-uniform distribution binomial comparison convex order stop-loss strict Groß mixture",
+          "Groß arXiv:2607.18083 full text",
+          "Xia–Lv DOI 10.1017/S0269964823000293 relative log-concave ordering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published variance figures and sample tables do not fix all stoploss thresholds; no exact all-parameter convex order table found.",
+          "Exact rational independent tests cover 936 discrete n,p cases but not the continuum."
+        ],
+        "reasoning": "The finding is a structural inequality rather than a table recomputation.",
+        "searches": [
+          "Resultary search for bi-uniform and convex order",
+          "Groß arXiv:2607.18083 variance comparisons"
+        ]
+      },
+      "rationale": "Groß introduced the identical two-level distribution and established heavier variance, not all stop-loss inequalities or convex order; classical two-crossing conditions provide the proof mechanism, which is credited. Searches of corresponding Resultary records, prior binomial-vs-uniform and relative log-concave literature did not locate this parameterized strict comparison.",
+      "residual_risks": [
+        "A generic stochastic-order theorem could subsume the two-crossing proof once the mass sign pattern is independently observed.",
+        "Strictness for noninteger t uses analytic support signs, not just tests at integer thresholds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR model and variance, not this full strict convex-order statement in inspected text",
+          "evidence": "Exact two-level definition and heavier-variance comparison identified; distinct claim establishes all convex losses.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.18083",
+          "material_read": "Lawful publicly accessible full primary text copy, sections 3–5 and probability and variance formulas",
+          "method": "Full text reading (public author-hosted/ResearchGate copy)",
+          "title": "A binomial-like probability distribution with heavy tails",
+          "trigger": "Identical bi-uniform model and possible directly covering result"
+        },
+        {
+          "assessment": "RESIDUAL broader relative-log-concavity coverage risk, no demonstrated same-object implication",
+          "evidence": "General conditions differ, and binomial/bi-uniform ratios need not satisfy relative log concavity.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964823000293",
+          "material_read": "Publication summary and theorem applicability compared; not represented as exhaustive full reading",
+          "method": "Accessible bibliographic/summary material",
+          "title": "Log-concavity and relative log-concave ordering of compound distributions",
+          "trigger": "Potential stronger generic stochastic-order argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full convex order is a substantial distributional strengthening of mere variance ordering for a natural new mean-matched heavy-tail alternative: it simultaneously governs every convex loss and precise stop-loss actuarial comparisons across all mixing weights.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned tree b6893887bc3b229605201dcd3b7121766f0c2a8b, RESULT blob 0257b1645603c1a7b242242f3c0ce39b533ca6b8",
+    "Primary Groß text and Resultary semantic query",
+    "Integer-pair exact-rational independent tests"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A generic stochastic-order theorem could subsume the two-crossing proof once the mass sign pattern is independently observed.",
+    "Strictness for noninteger t uses analytic support signs, not just tests at integer thresholds."
+  ],
+  "schema_version": 1
+}
