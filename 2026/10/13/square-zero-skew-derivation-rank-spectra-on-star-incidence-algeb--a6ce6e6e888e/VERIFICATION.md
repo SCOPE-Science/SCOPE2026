@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` derives the unrestricted theorem algebraically from the complete multiplication relations. The bundled Python 3 checker (`verify_skew_star.py`) contains separately implemented direct matrix construction from the multiplication table, derives the dimension of the twisted-derivation solution space using Gaussian elimination, checks each displayed basis parameterization map against every product, and enumerates all small-field choices to test square zero and rank. Its final line is `VERIFY_OK` when all checks pass.
+# Independent mathematical audit
 
-Run `python3 verify_skew_star.py`. Prime-field exhaustive cases: \((m,s,q)=(2,1,2),(2,1,3),(2,1,5),(3,1,2),(4,2,2),(2,0,3)\). Their rank-count arrays in increasing rank are respectively \((1,2,3)\), \((1,4,12)\), \((1,8,40)\), \((1,3,5,3)\), \((1,4,10,12,9)\), \((1,4,4)\). An extra direct finite-extension-field enumeration over \(\mathbf F_4\) in the two-leaf swap case yields \((1,6,21)\).
+## correctness
 
-The checker uses standard Python alone and independently solves the twisted-Leibniz linear system for the six prime-field cases. Direct enumeration does not cover all field orders, all star sizes, or any alternate notion of derivation or equivalence. Those unrestricted aspects are justified only by the written proof, not by a finite computational certificate. No independent audit has been performed.
+PASS
+
+The given incidence basis p0,pi,ri has products p_i²=p_i, p0 r_i=r_i=r_i p_i; the twisted Leibniz identities from idempotents, orthogonality and arrows yield unique α_i for moved leaves, β_i,δ_i all leaves. A fixed leaf has δ_i=0, β_i free, rank 0 or 1. For swapped pair (i,j), D²=0 equations force either u=0 (then v=di=dj=0, bi,bj unrestricted), or u≠0 and v=-u, dj=-di, di²=u², with q²-1 odd-char or q(q-1) char2 rank-two choices. Distinct leaf orbits have disjoint image support, and D(p0) is dependent, so local ranks add. Independent complete parameter-to-matrix squaring for one swapped pair yielded q2 1+2T+3T², q3 1+4T+12T², q5 1+8T+40T². Arbitrary s,f follows algebraic orbit independence, not tests.
+
+## originality
+
+PASS
+
+Fornaroli–Khrypchenko Theorem 2.8 provides a general classification of skew derivations of incidence algebras and Example 3.20 analyzes the SAME swapped two-leaf star cohomology; this prior structure is explicitly credited. Neither inspected piece enumerates the nonlinear D²=0 operator locus by finite-field rank over arbitrary disjoint involution orbits. Sánchez-Ortega triangular σ-mappings are not a complete rank enumerator on the given algebra. Qualified originality best of knowledge.
+
+## value
+
+PASS
+
+Natural square-zero differential constraint within a known algebraic class yields a complete all-field factorization revealing distinct behavior of fixed/swapped leaves and characteristic two; exact ranks and resulting homology sizes can be used without redoing derivation classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

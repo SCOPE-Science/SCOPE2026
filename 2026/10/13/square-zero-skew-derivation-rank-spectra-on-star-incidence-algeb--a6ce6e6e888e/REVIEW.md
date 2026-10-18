@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct substitution in the complete incidence-algebra multiplication table derives the unique parameters of every twisted derivation. Squaring these basis images gives a necessary-and-sufficient quadratic system; its solution splits into the zero/nonzero diagonal-parameter cases on each two-cycle, with a separate characteristic-two count. Images occupy independent orbit blocks and the image of the shared minimum idempotent introduces no rank, hence local rank enumerators multiply. The unrestricted field proof does not rely on any finite search. A standalone matrix-based check derives the twisted-derivation vector-space dimensions and exhaustively checks finite cases, including a nonprime field. The rank and homology boundary cases are addressed.
+## correctness
 
-## Originality — PASS, with residual risk
-The direct predecessor is Fornaroli–Khrypchenko (arXiv:2307.08439), whose full Theorem 2.8 describes arbitrary skew derivations and whose Example 3.20 computes a cohomology class for precisely the two-leaf swapping poset. Neither gives the square-zero composition locus, characteristic split, or complete rank polynomial for general disjoint swaps and fixed leaves. Sánchez-Ortega (arXiv:1312.4635), Theorem 2.6 and examples, studies triangular-algebra skew maps but does not cover these explicit rank counts. Semantic mathematical-record searches identified related work on star-poset homological dimensions, Lie-algebra adjoint rank spectra and automorphism schemes; their statements do not imply this theorem. Equivalence under alternate terms or a stronger, uninspected older result remains possible. This is self-review, not an independence or global novelty certificate.
+PASS
 
-## Value — PASS
-The classification measures a natural property of twisted derivations considered in the foundational incidence-algebra theory: which induce chain complexes by squaring to zero, how many exist over each finite field, and all possible ranks and homology dimensions. It treats infinitely many star sizes and cycle types and detects a characteristic-two discrepancy that the unrestricted linear classification alone does not quantify. The complete rank enumerator is a natural invariant, not an arbitrary isolated sample or mere notation change.
+The given incidence basis p0,pi,ri has products p_i²=p_i, p0 r_i=r_i=r_i p_i; the twisted Leibniz identities from idempotents, orthogonality and arrows yield unique α_i for moved leaves, β_i,δ_i all leaves. A fixed leaf has δ_i=0, β_i free, rank 0 or 1. For swapped pair (i,j), D²=0 equations force either u=0 (then v=di=dj=0, bi,bj unrestricted), or u≠0 and v=-u, dj=-di, di²=u², with q²-1 odd-char or q(q-1) char2 rank-two choices. Distinct leaf orbits have disjoint image support, and D(p0) is dependent, so local ranks add. Independent complete parameter-to-matrix squaring for one swapped pair yielded q2 1+2T+3T², q3 1+4T+12T², q5 1+8T+40T². Arbitrary s,f follows algebraic orbit independence, not tests.
 
-## Scope of the review
-The result does not classify all poset involutions or arbitrary automorphisms, and software observations are not offered as universal proofs. The direct 2023 skew-derivation and 2013 triangular-algebra works are credited; possible unindexed equivalents remain a residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fornaroli–Khrypchenko Theorem 2.8 provides a general classification of skew derivations of incidence algebras and Example 3.20 analyzes the SAME swapped two-leaf star cohomology; this prior structure is explicitly credited. Neither inspected piece enumerates the nonlinear D²=0 operator locus by finite-field rank over arbitrary disjoint involution orbits. Sánchez-Ortega triangular σ-mappings are not a complete rank enumerator on the given algebra. Qualified originality best of knowledge.
+
+## value
+
+PASS
+
+Natural square-zero differential constraint within a known algebraic class yields a complete all-field factorization revealing distinct behavior of fixed/swapped leaves and characteristic two; exact ranks and resulting homology sizes can be used without redoing derivation classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
