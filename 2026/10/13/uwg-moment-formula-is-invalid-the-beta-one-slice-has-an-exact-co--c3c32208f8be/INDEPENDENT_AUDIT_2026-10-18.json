@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:17:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiating stated UWG CDF directly gives f(x)=(1−p)αβ(−log x)^{β−1}exp[−α(−log x)^β]/(x[1−p+p exp(−α(−log x)^β)]²). Substituting y=−log x gives exact moment integral retaining exp(−r y); omitting it yields the incorrect gamma term attributed in the record to printed Eq (5.9). For α=β=r=1,p=1/2, direct elementary integration gives E[X]=2log2−1 (strictly between 0 and1); the recorded published series substitution yields 2log2>1, impossible. For β=1, u=x^α gives the stated Gauss 2F1 expression and at α=2,p=1/2,r=1 exactly π/2−1. Independent mpmath quadrature agrees with the beta-one hypergeometric expression on multiple parameter choices. Formula Eq (5.14) formed by substituting false moment expressions likewise cannot be valid as written, though true MGF and its power series exist.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML publisher abstract confirms raw-moment and MGF derivations appear in the article.",
+          "General integral and beta-one 2F1 follow from the given CDF rather than relying on a new probability theorem."
+        ],
+        "reasoning": "Prior Weibull-geometric papers have different base transformations; their broad moment-theory coverage does not automatically correct this specific equation.",
+        "searches": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML",
+          "Weibull geometric distribution moment formulas 2026 corrigendum"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paper landing at https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML confirms source title, authors and moment focus.",
+          "Elementary counterexample E[X]=2log2−1 versus printed-expression value 2log2 is a sharp internal contradiction under the exact stated distribution."
+        ],
+        "reasoning": "An earlier general moment integral is input mathematics and not claimed novel; the source-specific correction is not implied by the source abstract. Full primary Eq (5.9) not directly inspected here, so original transcription remains a clear verification limitation.",
+        "searches": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML",
+          "unit Weibull geometric distribution raw moments equation 5.9 Namsaw correction beta one"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Correction is equivalently failure to retain e^(−r y) after x=e^(−y), or density moment of geometric compounding.",
+          "For β=1, direct u=x^α substitution yields an exact Euler hypergeometric integral."
+        ],
+        "reasoning": "These are classical integration identities; originality is the precise erroneous published formula and parameter-space discrepancy, not classical transformations.",
+        "searches": [
+          "unit Weibull geometric distribution raw moments equation 5.9 Namsaw correction beta one",
+          "UWG raw moments beta=1 hypergeometric unit Weibull geometric equation error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search for the named 2026 distribution produced no directly covering published correction in top matches.",
+          "Publisher page dated 14 Sep 2026 and lists original article; no linked corrigendum visible on rendered landing."
+        ],
+        "reasoning": "This is not a known-table computation. A published erratum not indexed by these sources remains possible.",
+        "searches": [
+          "unit Weibull geometric distribution raw moments equation 5.9 Namsaw correction beta one",
+          "10.3934/math.20261171 erratum correction Eq 5.9"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for identifying a specific 2026 UWG article equation discrepancy and replacing its raw moments; elementary integration is prior mathematics, not claimed as new general theory. Primary publisher landing/abstract checked, but the publisher full Eq (5.9) could not be independently extracted in this execution; record supplies the literal formula and this remaining source-verification risk is disclosed.",
+      "residual_risks": [
+        "Complete primary displayed Eq (5.9)/(5.14) not independently read; comparison follows frozen record transcription, a material check for later editorial review.",
+        "An already issued corrigendum or alternate valid series convention might alter the correction-priority conclusion.",
+        "Source Table 2 entry is compatible with correct π/2−1; do not claim all published numerics wrong."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Article is real and concerns moment structure; cannot claim firsthand inspection of its precise printed equation this execution.",
+          "evidence": "AIMS Mathematics 11 (2026), 29488–29528, DOI 10.3934/math.20261171",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML",
+          "material_read": "Publisher landing and abstract, journal, date, references and HTML-toggle link; rendered equation 5.9 not exposed; full article not read in this audit",
+          "method": "Opened publisher HTML viewType=HTML and searched within text for 5.9; link rendered abstract/bibliography only",
+          "title": "The unit-Weibull geometric distribution: Mathematical properties, identifiability, and asymptotic analysis with applications to data modeling",
+          "trigger": "Exact named primary paper whose Eqs (5.9) and (5.14) are challenged"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete source-specific moment/MGF formula error can mislead statistical inference, yet one published numeric row agrees with the corrected result. The self-contained analytic counterexample and repaired β=1 closed form directly resolve a useful model-specific technical point rather than merely restating standard probability identities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.aimspress.com/article/doi/10.3934/math.20261171?viewType=HTML"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Primary Eq (5.9) not directly rendered in this audit; original source transcript compared with analytic distribution, material editorial verification risk.",
+    "General β correction is an exact integral, not a claimed universal hypergeometric closed form.",
+    "Do not infer Table 2 numeric values or estimation simulations are wrong."
+  ],
+  "residual_risks": [
+    "Complete primary displayed Eq (5.9)/(5.14) not independently read; comparison follows frozen record transcription, a material check for later editorial review.",
+    "An already issued corrigendum or alternate valid series convention might alter the correction-priority conclusion.",
+    "Source Table 2 entry is compatible with correct π/2−1; do not claim all published numerics wrong."
+  ],
+  "schema_version": 1
+}
