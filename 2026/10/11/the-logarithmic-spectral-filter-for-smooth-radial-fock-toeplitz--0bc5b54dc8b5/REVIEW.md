@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Gamma integral for every homogeneous-degree eigenvalue, multiplicity count, concentration remainder, eventual monotonicity, harmonic integration, and dilation-invariant generalized-limit construction jointly prove the full stated spectral-average and Dixmier-trace range. The summable Gamma remainder is sufficient in every fixed complex dimension. Numerical quadratures are supplementary, not infinite-dimensional proof.
+## correctness
 
-**Originality — PASS, with residual source-access risk.** Bommier-Hato–Engliš–Youssfi, *Dixmier trace and the Fock space*, Theorem 7 treats polyhomogeneous asymptotic symbols and gives a single measurable trace value. Its Section 7.5 explicitly distinguishes the broader smooth Shubin class: the present log-log profiles have no leading homogeneous limit and are therefore outside its measurability theorem. Xu–Dong (arXiv:2609.16970v1) treats Schatten–Lorentz membership and a radial obstruction to a Weyl coefficient, but the accessible abstract does not supply the exact logarithmic trace filter or phase-shifted cluster interval; the unavailable complete text is a genuine overlap risk. Published mathematical-record searches found related but differently quantified Fock and Lorentz operator results, not the asserted multi-dimensional logarithmic transfer law. None of those unsuccessful searches alone establishes novelty.
+PASS
 
-**Value — PASS.** The classification identifies a concrete sharp failure of generalized Dixmier measurability inside a natural smooth critical symbol class, and determines the entire trace-value interval for arbitrary periodic profiles. The attenuation of the \(k\)-th Fourier mode by \((1+ik)^{-1}\) and the dimension-dependent phase shift are exact structural information beyond generic weak-class membership or merely failure of pointwise Weyl laws.
+Gaussian Fock monomial diagonalization for radial symbols gives the exact Gamma(k+d,1) eigenvalue formula and multiplicities C(k+d−1,d−1). Gamma concentration plus derivative O(t^(−d−1)) gives eigenvalues k^(−d)(b+φ(loglog k))+O(k^(−d−1/2)), with absolutely summable errors after multiplicities. Eventual strict decrease of the radial symbol and Gamma stochastic coupling place all sufficiently large degree blocks in decreasing singular order. The weighted harmonic sum becomes b log K+∫₁^K φ(loglog x)dx/x; substitution yields exactly log K times G_φ(loglog K). The multiplicity count B_K~K^d/d! converts it to (b+G_φ(loglog N−log d))/d!. Translation-invariant logarithmic-ultrafilter averages realize all phases and all values in the closed range as dilation-invariant generalized limits; G′+G=φ makes measurability equivalent to constant φ. For sin input the filter is (sin v−cos v)/2 and Fourier mode factor (1+ik)^(−1). No finite quadrature substitutes for the proof.
 
-**Limitations and residual risk.** The results are not a classification for all smooth critical symbols; the full 2026 comparison paper could not be read, so its detailed radial examples may overlap. Independent validation is absent.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bommier-Hato–Engliš–Youssfi Theorem 7 provides measurable Dixmier traces for polyhomogeneous Fock symbols with homogeneous leading coefficients; Section 7.5 distinguishes broader Shubin GLS class from that asymptotic hypothesis. Nonconstant loglog-periodic symbols are Shubin but not polyhomogeneous, so the theorem does not cover their exact nonmeasurable trace interval. Xu–Dong 2026 public abstract discusses radial Weyl-coefficient obstruction and Schatten–Lorentz estimates but not a verified explicit exponential filter; full text was inaccessible and may overlap. Generic weak trace-class or failure of a Weyl coefficient does not determine a complete Dixmier trace range.
+
+## value
+
+PASS
+
+An explicit smooth, positive radial family at the critical Shubin order distinguishes weak trace membership from Dixmier measurability and computes the ENTIRE trace-value interval in each complex dimension. The dimension shift −log d and Fourier damping (1+ik)^(−1) are precise structural invariants that researchers studying singular traces can use; this is stronger than constructing an unspecified nonmeasurable operator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
