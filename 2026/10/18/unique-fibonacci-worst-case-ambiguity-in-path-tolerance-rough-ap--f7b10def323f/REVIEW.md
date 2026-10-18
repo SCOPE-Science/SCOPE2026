@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The map from binary subsets to ternary lower/upper rough statuses is reconstructed from the actual endpoint and interior neighborhoods. The displayed four-state matrices count every preimage exactly. The Fibonacci majorant propagates coordinatewise and has a strict mixed-state deficit whenever the output prefix ceases to be all uncertain, proving uniqueness. The run-composition bijection independently establishes attainment. The standard-library checker exhaustively corroborates all labeled subsets for lengths from two through fourteen; computation is not substituted for proof.
+
+**Originality — PASS, qualified.** The 2013 Järvinen–Radeleczki primary article on tolerance rough sets studies the underlying same-relation rough-set framework and a path example, but the relevant treatment concerns lattice structure, not maximum fiber size. The 2018 Järvinen–Kovács–Radeleczki primary article studies mixed equivalence/tolerance approximations, not the path same-tolerance fibers. A prior result counts the number of distinct output rough pairs for paths and does not imply how these outputs split the input power set. A published Fibonacci ambiguity result for a different binary transverse-read map is analogous but has different observation structure and parameters; a hidden reduction has not been ruled out absolutely. Publication priority remains a genuine risk.
+
+**Mathematical value — PASS.** Worst-case preimage multiplicity is the exact information lost by the rough-approximation map, in contrast to counting the different outputs. The theorem supplies the uniquely most ambiguous rough observation for every path length, its exponential growth law, and an exact linear-time evaluation for every other fiber. It therefore completes a natural information-theoretic aspect of an established infinite family of tolerance approximations rather than a narrow table lookup.
+
+**Closest sources and limits.** See arXiv:1303.6332, arXiv:1811.09609, and the published transverse-read Fibonacci ambiguity research record identified in RESULT.md. The binary path scope, absence of a second-largest-fiber theorem, and potential alternative encoding in earlier literature are material limitations.
+
+Self-review: passed. Independent audit: not yet performed.
