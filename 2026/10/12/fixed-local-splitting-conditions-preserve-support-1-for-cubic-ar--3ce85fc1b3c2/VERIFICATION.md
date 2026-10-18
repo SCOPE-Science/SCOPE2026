@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The included `verify.py` checks only the elementary algebra in the final nonvanishing optimization and a uniform geometric-series bound for fixed Euler factors.
+# Independent mathematical audit
 
-It verifies, for four values of \(\sigma<1\), that the symplectic density for
-\[
-\phi_\sigma(x)=\left(\frac{\sin(\pi\sigma x)}{\pi x}\right)^2
-\]
-gives the average-multiplicity bound \(1/\sigma-1/2\) and hence the nonvanishing lower bound \(5/4-1/(2\sigma)\), tending to \(3/4\) as \(\sigma\to1^-\). It also checks the closed geometric bound \(\sum_{e\ge1}p^{-e/2}=1/(\sqrt p-1)\), which makes every fixed prescribed prime contribute \(O(1/\log X)\) to the explicit formula.
+## correctness
 
-Replay command: `python verify.py`
+PASS
 
-Expected output:
-`VERIFY_OK sigma_cases=4 limit_nonvanishing=0.750000 fixed_prime_geometric_bound=1`
+Under GRH and fixed local S3-forcing splitting prescriptions, the variable-prime trace in the explicit formula changes only through tensoring by fixed local tests: prescribed primes contribute O(1/log X); residue masses cancel with the conditioned field-count denominator, and fixed maximality and dual-S3 inputs preserve the exponent ranges of Ahlquist. Nonnegative squared-sinc test with support sigma<1 gives average central multiplicity at most 1/sigma - 1/2; even functional-equation sign makes any central zero multiplicity at least two, leading to liminf nonvanishing >=3/4. This is conditional on the fixed-local-factor stability of all Shintani/geometric estimates; the accompanying finite code cannot certify them.
 
-The executable check does not certify the Shintani-zeta functional equation, local Fourier transforms, or field-counting estimates. Those analytic inputs are the cited primary results; their stability under fixed local factors is proved in `RESULT.md`.
+## originality
+
+PASS
+
+Ahlquist supplies unconditional-in-local-specification support <1 only for the unconditioned family; local splitting counts are separately available, and his proof explicitly incorporates auxiliary splitting for hard S3 terms. The cited Shankar–Södergren–Templier locally conditioned theorem gives support <2/5, not <1. Combining these nontrivial analytic components gives the stated stronger conditioned density; the possibility Ahlquist intended/implicitly proved the generalization is a real priority risk.
+
+## value
+
+PASS
+
+Fixed finite local splitting types define natural arithmetic subfamilies; support improvement from <2/5 to <1 crosses the threshold that forces a 75% central nonvanishing proportion under GRH, a meaningful arithmetic strengthening beyond a title change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
