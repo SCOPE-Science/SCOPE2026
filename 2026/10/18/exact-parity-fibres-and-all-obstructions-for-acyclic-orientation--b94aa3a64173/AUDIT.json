@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 and every global-parity-feasible signature, choosing n-1 path-edge directions forces all spoke orientations and the hub parity, yielding exactly 2^(n-1) unrestricted orientations. The fan is chordal, so a directed cycle is present iff a directed apex triangle is present. The triangle criterion gives an exact four-state transfer with a one-to-one path/orientation correspondence. The complete reachable-support automaton (C -> A or U; A -> B or C; B -> A or U; U absorbing) proves the even-n paired-bit obstruction and its precise 2^(n/2-1) count, and proves all odd n feasible. The package-path verify.py independently exhausts 699048 literal edge orientations for n=2..10 and 2044 corresponding feasible signature comparisons; transfer-only n=11..16 tests corroborate the unrestricted combinatorial proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.09475v1 Theorems 1.3 and 1.4 characterize Cartesian grids, cylinders and large tori; a fan K_1 join P_n is a different chordal/outerplanar graph family.",
+        "arXiv:2212.03915v1 establishes Gray-code generation for acyclic orientations on chordal graphs (including fans), without parity-fibre closed formulas in its inspected statements and relevant section.",
+        "Standard bounded-treewidth algorithms can decide/count such patterns with generic dynamic programming, but do not directly imply the exact paired-bit obstruction criterion."
+      ],
+      "reasoning": "Graph-class inclusion is considered: a fan lies within chordal graphs, but the chordal generation theorem enumerates unrestricted orientations. A generic polynomial-time count, even if available by specialization of treewidth methods, is not the closed complete classification of forbidden signatures. The stronger algorithmic availability is acknowledged rather than treated as mathematically inapplicable.",
+      "searches": [
+        "acyclic orientations with prescribed indegree parity of chordal 2-trees, clique trees",
+        "acyclic orientation with parity constraint problem 2603.09475",
+        "arXiv:2212.03915v1, Section 2.4 and Theorem 6",
+        "2026/10/4/SCOPE-exact-non-separating-out-branchings-in-acyclic-orientations-of-k--3d0efd785163"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.09475v1: same problem, known parity feasibility, explicit Cartesian-product classifications.",
+      "arXiv:2212.03915v1: chordal graph acyclic-orientation Gray-code generation.",
+      "Stanley 1973, doi:10.1016/0012-365X(73)90108-8: total acyclic orientation enumerator.",
+      "Published mathematical-record search hits on fan dissociation polynomial, parity acyclic orientations of other graph families, and chordal orientation enumeration; their stated invariants differ.",
+      "Accessible prior scientific claim summaries: wheel K_1 join C_m, multi-theta and cactus orientation-parity statements; none contains fans as a covered graph family."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stanley (1973) gives the total number of acyclic orientations via the chromatic polynomial, not a distribution over indegree parity signatures.",
+        "Gravier et al. derive a global mod-two necessary condition and classify certain product graphs. Their full-text theorem statements do not imply the fan-specific paired-bit zero criterion.",
+        "Cardinal et al. generate every chordal acyclic orientation. Such generation can compute individual finite counts but does not state or imply a symbolic closed feasibility classification without additional argument.",
+        "A wheel is K_1 join C_n rather than K_1 join P_n, and removing the rim closing edge changes indegree parities and the directed rim-cycle restriction. A previous wheel parity-fibre formula is not directly applicable.",
+        "Final exact-claim semantic retrieval returned mainly other orientation, parity-automaton and fan dissociation records; the closest acyclic-orientation item concerned complete graphs with a deleted matching, not fan indegree-parity fibres."
+      ],
+      "reasoning": "Compared logical implications rather than titles: the universal parity congruence is previously known and explicitly excluded from novelty. A total sum over fibres cannot recover a given fibre. The wheel theorem covers another edge set; the chordal Gray code enables enumeration but does not contain the exact obstruction family. No searched prior statement dominates the full fan theorem.",
+      "searches": [
+        "acyclic indegree parity orientations of cone over a tree universal hub adjacent every tree vertex dynamic programming exact count",
+        "acyclic orientations of fan graphs with prescribed indegree parity universal apex and path",
+        "arXiv:2603.09475v1 Theorems 1.1–1.4 and Conclusion",
+        "arXiv:2212.03915v1 Theorem 6",
+        "Exact indegree-parity acyclic orientation fibre counts for fan graphs F_n = K_1 join P_n. For even n exactly 2^(n/2-1) impossible signatures: odd parities at both path ends and equal pairs p_(2j-1)=p_(2j). For odd n all feasible signatures realizable. Four-state transfer recurrence."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gravier–Petiteau–Sivignon arXiv:2603.09475v1 defines the equivalent T-odd acyclic orientation problem, with T specifying exactly the vertices of odd indegree.",
+        "Its elimination-game model is equivalent to the existence problem, not an explicit count by indegree-parity vector.",
+        "The fan may also be called a path cone or a chain of triangles with common apex."
+      ],
+      "reasoning": "Translating a parity vector to the T-odd subset does not change the mathematical problem. The present theorem determines exact multiplicities and the complete even-order paired-bit obstruction family for the fan. The inspected same-problem literature treats other graph families, and targeted alias searches identified no statement subsuming these two refinements. Absence from search is not considered proof of novelty.",
+      "searches": [
+        "acyclic orientation prescribed indegree parity fan graph apex path",
+        "fan F_n K1 join P_n oriented parity fibres indegree obstruction alternating binary blocks",
+        "acyclic orientation prescribed indegree parity chordal graph exact counting",
+        "arXiv:2603.09475v1, Sections 1 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The surfaced fan-graph dissociation polynomial record concerns vertex subsets avoiding induced paths of length two, not parity-constrained directed orientations.",
+        "No exact fan indegree-parity orientation table or sequence matching the full parameterized obstruction statement was retrieved in the targeted checks."
+      ],
+      "reasoning": "The claim is not a recomputation of a known table: it holds for every n and every binary vertex signature, provides a proof and exact transfer. Searches are bounded and cannot establish absence of undocumented tables; this remains residual risk.",
+      "searches": [
+        "fan graphs acyclic orientation parity exact obstruction 2^(n/2-1) even path paired neighboring parity bits",
+        "acyclic orientations of fan graphs with prescribed indegree parity",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b"
+      ]
+    },
+    "rationale": "The problem is the established T-odd acyclic-orientation problem. Relevant Gravier et al. results characterize Cartesian products and general source/sink conditions; Cardinal et al. enumerate unrestricted chordal acyclic orientations; Stanley counts unrestricted total acyclic orientations. None of the inspected claims yields the fan parity-fibre counts and explicit even-order paired-bit feasibility obstruction. Queries of matching objects, alias terminology, generic stronger graph families, and mathematical-record neighbours disclosed no covering theorem. The wheel and multi-theta parity-fibre studies concern different edge sets and do not imply a fan formula by specialization. This is a self-review with residual priority risk.",
+    "residual_risks": [
+      "Full article-by-article exhaustive priority review was not performed; a differently named exact fan parity-fibre theorem might exist.",
+      "The 2022 chordal generation paper was read in relevant sections rather than line-by-line throughout; general Gray-code enumeration might be adapted to derive the result but does not state it.",
+      "Generic bounded-treewidth methods may provide linear-time counting on fans; value and novelty are attached primarily to the complete explicit parity-signature obstruction classification, not merely existence of an algorithm.",
+      "The original Stanley 1973 full text was not inspected; only its standard total-count consequence is used."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same parity problem, but its specific theorem families are grids, cylinders, tori, trees and cliques. Its inspected results do not state the fan K_1 join P_n obstruction or give its complete parity multiplicities.",
+        "evidence": [
+          "Theorems 1.3–1.4 address Cartesian products of paths and cycles; Section 4.2 treats trees and cycles; Conclusion identifies grids/cylinders/large tori as the family results.",
+          "General parity congruence is earlier work and is acknowledged as known."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.09475 (v1, 2026-03-10)",
+        "material_read": "37-page open PDF: abstract, contents, introduction, Theorems 1.1–1.4, general elimination-game framework in Section 4.1, relevant basic cases in Section 4.2, opening of grid treatment, Section 4.5 remarks and Section 6 conclusions; page images inspected for introductory and basic-case pages. Not every technical proof of grids and tori was line-read.",
+        "method": "Public full PDF text inspection plus targeted technical-section and theorem reads.",
+        "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+        "trigger": "The motivating paper defines exactly the same indegree-parity-constrained acyclic-orientation problem and gives family-specific existence classifications."
+      },
+      {
+        "assessment": "Provides chordal-graph Gray-code generation for all acyclic orientations, not a symbolic fibre enumeration with specified indegree parity or the fan obstruction characterization.",
+        "evidence": [
+          "Theorem 6 lists chordal acyclic orientations by flips; Section 2.4 formalizes perfect elimination order.",
+          "Section 2.3 notes indegree sequences as zonotope vertices but does not impose coordinatewise parity constraints."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.03915 (v1, 2022-12-07)",
+        "material_read": "36-page open PDF: abstract, introduction, Section 1.3, Sections 2.2–2.5, Theorem 6 and related proof/generation descriptions. First-page image visually examined. Remaining unrelated generation and lattice sections not line-read.",
+        "method": "Public full-PDF targeted primary reading and in-document indegree/parity terminology searches.",
+        "title": "Combinatorial generation via permutation languages. V. Acyclic orientations",
+        "trigger": "Broad chordal-graph acyclic orientation generation, which might dominate a new fan counting claim."
+      },
+      {
+        "assessment": "Total acyclic orientation enumeration does not determine counts split among different prescribed vertex parity vectors.",
+        "evidence": [
+          "The chromatic polynomial at negative one sums over all acyclic orientations, discarding indegree parities."
+        ],
+        "identifier_or_url": "doi:10.1016/0012-365X(73)90108-8",
+        "material_read": "Bibliographic description and the standard chromatic-polynomial evaluation; the original full article was not read in this pass.",
+        "method": "Bibliographic/context comparison rather than full-text inspection.",
+        "title": "Acyclic orientations of graphs",
+        "trigger": "The classical unrestricted total count is a potential source of an implied special-case count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b94aa3a6-4173-435b-9814-11f3ab719a72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The acyclic indegree-parity existence problem is a current motivated graph-orientation problem with subtle obstructions beyond the global parity congruence. Fans are the natural chain-of-triangles maximal-outerplanar family with unbounded order and overlapping triangles. The theorem determines every feasible/infeasible parity prescription and its exact acyclic-orientation multiplicity, not an arbitrary small parameter slice. Its sharp exponential forbidden-family census and odd-even realizability dichotomy are structural and are not implied by general parity feasibility or unrestricted chromatic-polynomial counts. The algorithm and exhaustive checks support reproducibility; neither alone supplies value.",
+    "status": "PASS"
+  }
+}
