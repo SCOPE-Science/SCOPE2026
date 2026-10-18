@@ -1,15 +1,21 @@
-# Self-review of the Heisenberg two-local classification
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The defining half-derivation identity reduces to the exact six-parameter matrix \(D(u,t)=(Bu,\ell(u)+\operatorname{tr}(B)t/2)\). The necessity proof uses pairs on a common central fiber and scalar-multiple pairs; the sufficiency proof explicitly constructs an interpolating half-derivation for independent quotient vectors, proportional quotient vectors with proportional or nonproportional full inputs, one central input, and two central inputs. Arbitrary projected images and arbitrary trace can be fitted simultaneously in dimension two. Finite-field counts follow from projective lines and planes, without extrapolating from computations. Replaying the accompanying script checks all \(q^6\) linear half-derivations at \(q=3,5\) and many independent pairs. Boundary: characteristic different from two; no assertion of exhaustive nonlinear enumeration.
+PASS
 
-## Originality: PASS, with residual risk
+For [x,y]=z central over char!=2, each genuine half-derivation is D_B,ell(u,t)=(B u,ell(u)+(tr B)t/2), with B arbitrary 2x2 and ell a linear form. Two-locality on (w,λw) gives degree-one homogeneity; on (u,s),(u,t) forces quotient g(u) independent of t. In converse, for independent u,v choose B fixed by g on a basis and ell to interpolate h; for collinear nonzero projected vectors choose B with arbitrary prescribed trace and map on one vector, then ell, with the center-only and proportional cases handled separately. Over finite F_q homogeneous functions are independent on projective directions, giving q^(2(q+1)+(q²+q+1))=q^(q²+3q+3); linear two-local maps q^7, genuine half derivations q^6. Independent mod3 Gaussian elimination solved all 1890 unordered point-pair interpolation equations for five randomly generated homogeneous maps; projective counts checked at q=3,5,7. Finite tests are corroboration, not the universal proof.
 
-The motivating arXiv:2610.01556v1 (Section 5, Theorem 24, inspected in full) exhibits central homogeneous perturbations of the identity for filiform algebras; it supplies neither the if-and-only-if classification of arbitrary projected and central homogeneous maps nor the exact odd-field count. Its Section 3.1, Theorem 7 does not provide the full \(n=3\) projected half-derivation block, which was reconstructed independently. arXiv:2402.09818v1 studies solvable extensions with Heisenberg nilradicals rather than the isolated \(H_3\); the 2024 mirror Heisenberg–Virasoro analysis has another algebra and rigidity phenomenon. Targeted comparisons with equivalent two-local terminology, finite-field formulas, and nearby operator-interpolation results yielded no dominating statement. An earlier general operator-reflexivity theorem could conceivably imply the normal form, so novelty remains subject to external literature validation.
+## originality
 
-## Value: PASS
+PASS
 
-This is a natural complete characterization for the smallest nonabelian nilpotent Lie algebra, a base member of the newly studied filiform family. It settles exactly which nonadditive maps are two-local, separates the projected nonlinear freedom from the central freedom, distinguishes seven-parameter linear two-local maps from the six-parameter half-derivations, and yields a precise odd-finite-field census. An existence construction alone cannot answer these questions; the count is an intrinsic, readily reusable invariant of the local interpolation problem.
+The initiating same-algebra theorem proves existence of nonadditive examples only; direct six-parameter H3 operator space yields an iff normal form with arbitrary homogeneous maps and a new odd-field census. Broader solvable and Virasoro objects are distinct. This is a best-of-knowledge determination with interpolation-literature risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete structural description of every nonlinear two-local operator on the first nonabelian nilpotent Lie algebra, plus an exact odd-finite-field enumeration, resolves the natural first-dimensional boundary of the published filiform classification. It gives significantly more than prior existence examples and treats fields beyond C without extra work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
