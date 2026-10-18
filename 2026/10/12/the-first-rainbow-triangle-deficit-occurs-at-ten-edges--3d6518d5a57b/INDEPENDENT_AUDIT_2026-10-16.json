@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:12:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob c8331f859787d955bbd3a0b0350417c31ed6d970",
+        "Inspected packaged verify.cpp blob f2f434646e24a151bdb5275878f0f9a74c61e807",
+        "Independent rainbow_census.cpp (new implementation), PASS all 709801 labeled masks and all 59049 K5 colorings"
+      ],
+      "rationale": "Classical Kruskal–Katona Q(m)=binom(a,3)+binom(b,2) bounds the triangle count with m=binom(a,2)+b. Properly colored small explicit witnesses reach the values [0,0,0,1,1,2,4,4,5,7] for m<=9. To handle m=10,11, discard triangle-free edges; disconnected triangle-bearing components have <=6 triangles. For connected cores on >=8 vertices, minimum degree 2 and average degree <3 force a degree-2 vertex contained in exactly one triangle; deletion + Q gives subthreshold ordinary triangles. Therefore only up to seven vertices need exact finite enumeration. An independently implemented exhaustive graph-mask census checked all 709801 labeled graphs with 10 or 11 edges on 3<=n<=7, showing non-K5 maxima 7 and 8; independent coloring enumeration checked all 3^10=59049 three-colorings of K5 and maximum 7. The elementary K5 repeated-color pigeonhole proof plus edge-budget K5 obstruction completes the unrestricted-vertex result. Exact witness graphs attain 7,8. This is an exhaustive finite-computation certificate attached to an analytic reduction, not extrapolation.",
+      "residual_risks": [
+        "Claims only exact maximum for 0<=m<=11, not all budgets or classification of all extremizers.",
+        "Completeness of the newly written graph enumeration was independently analyzed and its edge-mask coverage checked; no experimental timeout was interpreted as impossibility."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chao–Sankar–Yu derives r<=sqrt(2/27)*m^(3/2), which permits integer 8 (m=10) and 9 (m=11).",
+          "Balogh–Bradshaw–Garcia–Lidicky bound T²<=2RGB also permits 8 and 9 with balanced RGB for 10/11."
+        ],
+        "reasoning": "Neither broader numerical upper bound dominates the exact 7 and 8 claims. The exact small-support reduction is additional.",
+        "searches": [
+          "arXiv:2610.02165v1 full HTML On Colorful Kruskal-Katona Theorems",
+          "arXiv:2511.21061v3 density rainbow triangles properly colored K4",
+          "arXiv:1408.5296v1 3-colored complete graph"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02165v1 full arXiv HTML",
+        "arXiv:1408.5296 primary preprint",
+        "arXiv:2511.21061v3 primary preprint",
+        "Resultary semantic search for rainbow triangle budget 10/11",
+        "Kruskal-Katona triangle shadow theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known bound ceil integer m=10 -> at most8; m=11 -> at most9, whereas new theorem is at most7 and8.",
+          "Known K5 seven-rainbow construction gives a witness and obstruction only when a K5 is present; graphs lacking K5 still need a separate exclusion."
+        ],
+        "reasoning": "Prior results do not imply the first strict deficit at m=10. The contribution is an exact finite extremal boundary across unrestricted graph order.",
+        "searches": [
+          "Chao Sankar Yu arXiv2610.02165v1 exact 3-color constant",
+          "Balogh Hu Lidicky Pfender Volec Young arXiv1408.5296 K5 construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary colorful-KK bound depends on edge count and color count but produces only R(10)<=8, R(11)<=9 after integer rounding.",
+          "The 2014 fixed-vertex K5 seven-rainbow maximum is used as a component, not a full arbitrary-vertex edge-budget classification."
+        ],
+        "reasoning": "The exact finite colored edge-budget profile is not equivalent to the known asymptotic inequality or fixed-vertex extremum; a non-K5 exclusion is necessary.",
+        "searches": [
+          "3 edge colors maximum rainbow triangles edge budget 10 11",
+          "Colorful Kruskal Katona colored triangle bound Chao Sankar Yu arxiv2610.02165",
+          "Balogh Hu Lidicky Pfender Volec Young rainbow triangles 5 vertex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact indexed edge-budget table for m<=11 was located. The assigned claim supplies all twelve values with explicit witnesses and an exhaustive computational step."
+        ],
+        "reasoning": "Absence of a found table alone does not certify priority. The meaningful comparison is with the sharp known general inequalities and previously published K5 count, which are mathematically weaker for these budgets.",
+        "searches": [
+          "maximum rainbow triangles 10 edges 11 edges table graph colored",
+          "Resultary semantic search rainbow triangles three colors exact extremum 10 11"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact 0..11 rainbow-triangle edge-budget profile. Properly credits known KK upper bound, K5 construction, and colorful inequalities. Complete finite-support reduction and independent census provide the missing 10/11 upper bounds.",
+      "residual_risks": [
+        "Possibility of an older unindexed small-edge-budget table or computational extremal result; no proof of absolute bibliographic completeness.",
+        "The 10/11 boundary uses a finite computer census whose assumptions, algorithmic coverage and independently written implementation are disclosed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general sharp asymptotic constant but not discrete m=10/11 bound 7/8; applying its explicit constant yields only <=8/9",
+          "evidence": "Chao, Sankar, Yu, arXiv:2610.02165v1 (2026-10-01)",
+          "identifier_or_url": "https://arxiv.org/html/2610.02165v1",
+          "material_read": "Full available open-access arXiv HTML with theorem statements, proof sections and related-work discussion",
+          "method": "Web arXiv HTML retrieval and focused theorem reading",
+          "title": "On Colorful Kruskal–Katona Theorems",
+          "trigger": "Same r-color rainbow-triangle extremal counting under edge budget"
+        },
+        {
+          "assessment": "Supplies K5 maximum 7, not the non-K5 edge-budget exclusion",
+          "evidence": "Balogh, Hu, Lidicky, Pfender, Volec, Young (2014)",
+          "identifier_or_url": "https://arxiv.org/abs/1408.5296",
+          "material_read": "Main theorem and K5 extremal construction from open primary version",
+          "method": "Open-access arXiv paper/main-result reading",
+          "title": "Rainbow triangles in three-colored graphs",
+          "trigger": "Same rainbow triangles but fixed vertex count"
+        },
+        {
+          "assessment": "At m=10 and 11 integer optimization still permits 8 and 9; no implication of 7 and 8",
+          "evidence": "Balogh, Bradshaw, Garcia, Lidicky 2025/2026",
+          "identifier_or_url": "https://arxiv.org/abs/2511.21061",
+          "material_read": "Main bound T²<=2RGB and equality discussion from preprint",
+          "method": "Open-access arXiv primary text",
+          "title": "Density of rainbow triangles and properly colored K4s",
+          "trigger": "Sharper looking color class inequality might imply exact small counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chao–Sankar–Yu 2026 colorful-KK paper",
+        "Exact m=10/11 small-support and K5 obstruction proof"
+      ],
+      "rationale": "The first edge budget where the three-color rainbow extremum falls strictly below the ordinary Kruskal–Katona triangle maximum is a natural sharp structural boundary in extremal colored graph theory. The exact 10/11 counts answer a motivated small-edge question left open by general inequalities and give a reusable finite cutoff; this is not an arbitrary code recomputation or trivial numerical gain.",
+      "residual_risks": [
+        "Profile ends at 11 edges; larger budgets and extremizer classification remain unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite complete graph census was independently reimplemented for the exactly reduced search range; not a proof for other budgets.",
+    "Publication requires privacy sanitization of public metadata and guard verification."
+  ],
+  "schema_version": 1
+}
