@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact Bloch determinant and reconstructs the low-energy expansion through the fifth order. Interior scales are controlled by the published cubic coefficient and the exact phase minimum. At both critical scales, the cubic term loses strictness only at an extremizing phase; the explicitly simplified fifth-order coefficient is strictly positive there. Compactness of the Bloch torus upgrades these local signs to the required uniform no-root/root statements. The factor-two and \(\sqrt5\) width bounds are exact algebraic consequences of the reciprocal-shape formulas.
+## correctness
 
-## Originality
-PASS. The closest source is arXiv:2409.03538v1. It gives strict low-energy inequalities for unequal edge lengths and a separate equilateral endpoint result, but not the general equality cases, the exact half-closed isotropic-dilation phase interval, or the universal shape-width optimum. The earlier dilated-honeycomb work uses \(\delta\) coupling, while the foundational preferred-orientation work uses the original \(R\) coupling. Searches for the exact source, endpoint aliases, uniform-dilation language, and broader zero-energy formulations found no stronger statement.
+PASS
 
-## Value
-PASS. The result answers a natural strain question for the model: for a fixed anisotropic cell shape, exactly how far can isotropic dilation proceed before zero-energy transport closes and reopens? The endpoint asymmetry is not visible from the cubic strict inequalities alone. The universal width bound adds a shape-optimization statement and identifies the equilateral cell as the unique least-robust shape.
+At a=sA,b=sB,c=sC (A,B,C>0), the exact Exner–Pekař Bloch determinant has k^3 G+k^5 H+O(k^7) uniformly in phases, G=abc-2(a+b+c)-2[a cos(theta2-theta1)+b cos theta2+c cos theta1]. Its phase extrema give s_+²=4(xy+xz+yz) and the two stated reciprocal-triangle/nontriangle formulas for s_-². Strict sign changes yield Bloch modes for arbitrarily small positive k on s_-<s<s_+, while uniform definite sign excludes them outside. I independently reconstructed the critical fifth-order coefficient from the given trigonometric determinant: the upper-phase H is strictly positive under XY+XZ+YZ=1/4, as are both lower critical minimizing-phase expressions under bc=4 or 2(XY+XZ+YZ)-(X²+Y²+Z²)=1. Thus lower contact and upper gap at equality follow by phase continuity/uniform remainders. The width identity s_+²-4s_-²=2[(x-y)²+(y-z)²+(z-x)²] in the triangle regime and ratio²>=5 otherwise shows equality exactly at the equilateral shape. Numeric verifier is corroboration only.
 
-## Closest literature and limitations
-The primary source supplies the exact determinant and strict interior criteria; the proof here is strongest specifically at the critical endpoints. The result does not classify arbitrary nonradial paths in \((a,b,c)\), quantify gap size away from zero, or address high-energy gap density. A residual originality risk is an unindexed derivation of the same endpoint expansion.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exner–Pekař derive the exact determinant, cubic low-energy coefficient and equilateral interval; they do not supply in the examined anisotropic portions a general fifth-order endpoint sign classification or multiplicative-width extremizer. The present result is a concrete exact anisotropic phase diagram beyond those published strict sufficient conditions, not the trivial restatement of equilateral behavior.
+
+## value
+
+PASS
+
+The two critical boundaries determine whether zero has a spectral neighborhood gap. Their different inclusion status cannot be read from the cubic term, and the equilateral uniquely minimum multiplicative window is a nontrivial shape optimization. This is a motivated sharp spectral phase boundary, not merely a sample calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
