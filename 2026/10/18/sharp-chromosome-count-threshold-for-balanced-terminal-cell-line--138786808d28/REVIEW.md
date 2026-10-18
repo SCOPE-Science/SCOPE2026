@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** Exact first- and second-moment identities hold by path independence and common-ancestor classification. The nonstandard correlation bound reduces to ratios of central binomial probabilities and a product inequality. The three-regime split of common-prefix lengths proves vanishing relative variance below the expectation threshold, with Stirling and Markov proving the opposite regime. The shipped checker independently recomputes finite instances and pair bounds. No claim is made about the unresolved critical window.
+
+**Originality (PASS; residual risk).** A targeted search of a published mathematical-research index for complementary telomere-daughter genealogy and growing-dimensional balanced branching found no matching result. The 2026 Baland–Toupance–Villemonais paper was read through its detailed division construction and large-population/CLT scope, and its object differs from the joint large-budget terminal viability problem here. The accessible 2019 Wattis–Qi–Byrne work treats different continuum observables. Neither identified primary source implies the claimed chromosome-count threshold. Stronger unindexed branching-random-walk work under another formulation remains a residual risk; search absence alone is not taken as proof of uniqueness.
+
+**Value (PASS).** The event is the maximal-generation survival of a large collection of independently shortening chromosome-end pairs. The threshold separates expectation extinction from likely survival **despite** genealogical correlations and identifies the exact first-order logarithmic scale at which the many-coordinate burden defeats exponential division growth. Its all-branch correlation analysis is needed to establish sufficiency, rather than merely a one-line first moment or a renamed fixed-dimensional theorem.
+
+Self-review: passed. Independent audit: not yet performed.
