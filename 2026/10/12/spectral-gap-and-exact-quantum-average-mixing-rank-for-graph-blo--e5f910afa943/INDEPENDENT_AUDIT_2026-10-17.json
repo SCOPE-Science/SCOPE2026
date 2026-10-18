@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:43:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed spectral projectors for A(G)⊗J_m, including the merged zero projector E_0⊗P+I⊗Q. Expanded their Hadamard squares: Mhat(B)=Mhat(G)⊗J_m/m²+(2/m)diag(E_0,uu)⊗Q+I⊗[(m−2)I/m+J_m/m²]. The constant-fibre and fibre-difference invariant spaces have dimensions n and n(m−1), exhaust the vertex space and yield the claimed eigenvalues. Positivity follows from the Schur product theorem and E_0 being a projector; invertible base A gives equality. Independent SymPy exact checks from directly diagonalized blow-up projectors reproduced K2 m=2 rank2, K2 m=3 rank6, P3 m=2 rank5, isolated vertex m=3 rank3; finite checks corroborate but do not prove unrestricted scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 source establishes Mhat(G)=Σ E_lambda∘E_lambda; the 2024 blow-up source gives the necessary projector formulas."
+        ],
+        "reasoning": "Combining prior general formulas permits a concise derivation, but neither inspected paper presents the all-base sharp positive gap, simultaneous full-rank dichotomy and complete eigenvalue multiset as a theorem. The resulting direct-corollary risk is acknowledged.",
+        "searches": [
+          "Resultary: quantum average mixing matrix blowup graph independent set lexicographic product exact spectrum rank positive definite gap zero eigenvalue Schur square projectors",
+          "arXiv:2208.08971 Section 2",
+          "arXiv:2308.13887 Section 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.13887v2, Sections 3-4",
+        "arXiv:2208.08971v1, Section 2",
+        "arXiv:1709.03591v1, background/abstract",
+        "Resultary indexed records searched by exact spectral and blow-up aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published blow-up projector and ordinary average Schur-square identity are exactly the inputs of the candidate proof."
+        ],
+        "reasoning": "These prior lemmas imply the result only after the nontrivial Schur-square cross-term accounting and two-sector diagonalization. They cover the ingredients and special consequences but do not visibly state the full theorem; an unrecognized implicit coverage remains possible.",
+        "searches": [
+          "arXiv:2308.13887 Section 3 equation (1)",
+          "arXiv:2208.08971 §2",
+          "arXiv:1709.03591"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhattacharjya–Monterde–Pal give the zero-eigenspace support characterization of two cloned vertices; the source does not give a matrix-wide mixing rank or eigenvalue list."
+        ],
+        "reasoning": "Checked false twins, independent set substitution, lexicographic G[empty_m], average mixing and strong-cospectrality formulations. The two-clone kernel criterion corresponds to a known support property but the all-m spectrum is more than that equivalence.",
+        "searches": [
+          "Resultary: quantum average mixing matrix blowup graph independent set lexicographic product exact spectrum rank positive definite gap zero eigenvalue Schur square projectors",
+          "arXiv:2308.13887 Theorem 2(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed Resultary entry matched the full independent-fibre spectral formula; general small-graph rank tables are not parametric blow-up classifications."
+        ],
+        "reasoning": "The exact database/table check is of the claim and implications, not a claimed proof of novelty from absent results.",
+        "searches": [
+          "Resultary: quantum average mixing matrix blowup graph independent set lexicographic product exact spectrum rank positive definite gap zero eigenvalue Schur square projectors",
+          "arXiv:1709.03591 prior graph average-mixing rank theory"
+        ]
+      },
+      "rationale": "The inspected closest primary statements and indexed results were compared in mathematical substance, not just titles. This independent recognition/evaluation is best-of-knowledge, not a guarantee of publication priority.",
+      "residual_risks": [
+        "The theorem is a short consequence of two well-known published projector formulas; the same calculation might already be in graph-product average-mixing literature under different terminology.",
+        "Absolute originality not established from indexed search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROJECTOR_INPUT_AND_TWO_CLONE_SUPPORT_NOT_FULL_MIXING",
+          "evidence": [
+            "Section 3 lists spectral idempotents of n-fold blow-ups; Theorem 2(2) characterizes cloned strong cospectrality, not Cesàro average mixing eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.13887",
+          "material_read": "Primary PDF §§3–4 including projector equation (1) and Theorem 2(2), with the projector page visually checked",
+          "method": "Read open-access full-text PDF and inspect the exact theorem",
+          "title": "Quantum walks on blow-up graphs",
+          "trigger": "Identical graph blow-up operation and potentially covering spectral theorem"
+        },
+        {
+          "assessment": "GENERIC_MEAN_MIXING_FORMULA_ONLY",
+          "evidence": [
+            "Ordinary average is Σ_lambda E_lambda∘E_lambda; no independent-fibre blow-up classification is established in the inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.08971",
+          "material_read": "Section 2 around page 4 spectral projector Hadamard-square identity and associated discussion",
+          "method": "Primary PDF exact statement/text and visual PDF inspection",
+          "title": "Irrational quantum walks",
+          "trigger": "General mean-mixing identity and rational calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete all-base/all-m spectral classification of long-time quantum transport under graph vertex replication. The universal positive-definite gap for m≥3 and the precise m=2 rank/kernel transition explain a sharp structural change; nullity links to the independently motivated strong-cospectral clone condition. It is not merely a low-order table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite simple base graph G and independent-fibre multiplicity m≥2, the adjacency quantum-walk Cesàro average mixing matrix of B_m(G) has the exact two-sector spectrum: (m−1+λ_i(Mhat(G)))/m and (m−2+2(E_0)_{uu})/m each with multiplicity m−1. Rank is n+number of positive diagonal zero-projector entries when m=2, and nm when m≥3; for m≥3 the universal spectral lower bound (m−2)/m is sharp.",
+  "limitations": [
+    "Equal independent-fibre sizes and ordinary adjacency-Hamiltonian Cesàro average only; no Laplacian, unequal-fibre, instantaneous or sampled-time claims.",
+    "No independent external certificate, mechanized proof, or implied novelty for individual projector lemmas."
+  ],
+  "schema_version": 1
+}

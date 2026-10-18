@@ -1,11 +1,21 @@
-# Scientific assessment: average-mixing spectra of independent-fibre graph blow-ups
+# Independent mathematical audit
 
-**Correctness — PASS.** For any finite simple graph and every equal fibre size at least two, the orthogonal projectors of the blow-up are reconstructed explicitly, including the merged zero eigenspace. Entrywise squares give an exact matrix formula. The clone-constant and clone-difference sectors account for every eigenvalue with multiplicity, and projector positivity establishes the universal bound, sharpness, exact zero criterion and kernel. The accompanying exact and numerical checks confirm sample calculations but are not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The nearest direct primary source, *Quantum walks on blow-up graphs* (arXiv:2308.13887v2, §§3–4), supplies spectral projectors and strong-cospectrality conditions, not average-mixing spectra or ranks. *Irrational quantum walks* (arXiv:2208.08971v1, §2) and *A New Perspective on the Average Mixing Matrix* (arXiv:1709.03591v1, §§1,5) supply general average-mixing formulas and rank theory, not this graph operation's classification. *Unexpected Averages of Mixing Matrices* (arXiv:2308.16378v1, §2) treats the standard average as background while developing general sampling. The construction here combines published ingredients; the potential that this exact block calculation has appeared elsewhere under lexicographic-product or twin terminology is the principal risk. Published projectors and the general Schur formula by themselves do not state the spectral-gap/rank dichotomy, but make it approachable.
+PASS
 
-**Value — PASS.** The result gives a sharp, base-independent positive-definite spectral gap for the full family of at least three clones, whereas the two-clone boundary has a complete vertexwise kernel classification. The equivalence between the rank defect and strong cospectrality provides a motivated bridge between a long-time transport invariant and a state-transfer obstruction. Arbitrarily singular and disconnected base graphs are included. The theorem is not merely a census, a reparametrization, or an isolated calculation.
+Reconstructed spectral projectors for A(G)⊗J_m, including the merged zero projector E_0⊗P+I⊗Q. Expanded their Hadamard squares: Mhat(B)=Mhat(G)⊗J_m/m²+(2/m)diag(E_0,uu)⊗Q+I⊗[(m−2)I/m+J_m/m²]. The constant-fibre and fibre-difference invariant spaces have dimensions n and n(m−1), exhaust the vertex space and yield the claimed eigenvalues. Positivity follows from the Schur product theorem and E_0 being a projector; invertible base A gives equality. Independent SymPy exact checks from directly diagonalized blow-up projectors reproduced K2 m=2 rank2, K2 m=3 rank6, P3 m=2 rank5, isolated vertex m=3 rank3; finite checks corroborate but do not prove unrestricted scope.
 
-**Closest literature and limits.** The 2024 blow-up article gives the key projectors and strong-cospectral condition; the 2022 paper gives the general Schur-squared average. This theorem adds a closed decomposition of the mean mixing matrix and all of its spectral sectors. It applies only to the standard adjacency quantum walk on equal independent fibres. Stronger undiscovered lexicographic-product theorems or already stated consequences of the known projector formula are possible overlap risks. No external independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected closest primary statements and indexed results were compared in mathematical substance, not just titles. This independent recognition/evaluation is best-of-knowledge, not a guarantee of publication priority.
+
+## value
+
+PASS
+
+This is a natural complete all-base/all-m spectral classification of long-time quantum transport under graph vertex replication. The universal positive-definite gap for m≥3 and the precise m=2 rank/kernel transition explain a sharp structural change; nullity links to the independently motivated strong-cospectral clone condition. It is not merely a low-order table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

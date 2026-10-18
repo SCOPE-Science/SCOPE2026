@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible calculation and limits
 
-Run `python3 artifacts/verify.py` with SymPy and NumPy available. The script constructs graph adjacency matrices from edge lists and spectral projectors directly from their exact eigenvalues, and independently computes the spectral projectors of each blow-up adjacency matrix. It verifies all entries of the Schur-squared average against the claimed explicit matrix formula, the rank classification and complete eigenvalue multisets for 14 small exact cases. They include an edgeless one-vertex base, an edge, a path on three vertices, a triangle, a four-cycle, a four-vertex star, and a disconnected edge-plus-isolated-vertex base, each with fibre sizes two and three.
+# Independent mathematical audit
 
-The independent floating-point tests cover 54 more combinations of random undirected graphs on two through seven vertices and fibre sizes two through four. The maximal observed matrix difference between direct spectral calculation and the derived formula was about \(3\times10^{-15}\). The checker verifies the nontrivial boundary examples \(\operatorname{rank}\widehat M(B_2(P_3))=5\) on six vertices and \(\operatorname{rank}\widehat M(B_2(K_{1,3}))=7\) on eight vertices.
+## correctness
 
-A passing replay prints `VERIFY_OK exact_matrices=14 numerical_matrices=54 P3_two_clone_rank=5/6 star_two_clone_rank=7/8` followed by the observed maximum difference. Exact tests establish only their finite cases, and numerical tests are not proofs. The unrestricted statement follows from the two-sector spectral decomposition and positivity argument given in the result. No mathematical software is required for that analytical proof.
+PASS
 
-Scientific limits: no generalization to varying fibre sizes, Laplacian Hamiltonians, instantaneous uniform mixing or nonuniform observation-time averages is claimed. The proof is a mathematical argument reviewed in the same-model channel; no independent audit or certification has been performed.
+Reconstructed spectral projectors for A(G)⊗J_m, including the merged zero projector E_0⊗P+I⊗Q. Expanded their Hadamard squares: Mhat(B)=Mhat(G)⊗J_m/m²+(2/m)diag(E_0,uu)⊗Q+I⊗[(m−2)I/m+J_m/m²]. The constant-fibre and fibre-difference invariant spaces have dimensions n and n(m−1), exhaust the vertex space and yield the claimed eigenvalues. Positivity follows from the Schur product theorem and E_0 being a projector; invertible base A gives equality. Independent SymPy exact checks from directly diagonalized blow-up projectors reproduced K2 m=2 rank2, K2 m=3 rank6, P3 m=2 rank5, isolated vertex m=3 rank3; finite checks corroborate but do not prove unrestricted scope.
+
+## originality
+
+PASS
+
+The inspected closest primary statements and indexed results were compared in mathematical substance, not just titles. This independent recognition/evaluation is best-of-knowledge, not a guarantee of publication priority.
+
+## value
+
+PASS
+
+This is a natural complete all-base/all-m spectral classification of long-time quantum transport under graph vertex replication. The universal positive-definite gap for m≥3 and the precise m=2 rank/kernel transition explain a sharp structural change; nullity links to the independently motivated strong-cospectral clone condition. It is not merely a low-order table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
