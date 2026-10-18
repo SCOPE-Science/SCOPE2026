@@ -1,15 +1,21 @@
-# Scientific assessment: sharp photon-cutoff loss/parity envelope
+# Independent mathematical audit
 
-## Correctness — PASS
-The parity identity follows independently from the vacuum-loss Kraus formula and binomial thinning. Its coefficientwise lower bound uses only \(p_j\ge0\), \(\sum_jp_j=1\), the initial parity constraint \(\sum_{j\ \mathrm{odd}}p_j\le1/2\), and the finite photon cutoff. Both coefficient inequalities are attained simultaneously by precisely the stated two populations. Strict convex minimization determines the unique interior transmissivity; comparison of powers gives the exact even–odd staircase and the unbounded-cutoff limit. Positivity rules out hidden coherence outside the attaining two-level support. Direct Kraus computations on 5,600 numerical cases reproduce the generating-function formula, but are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS (provisional priority assessment)
-The full Kenfack–Życzkowski arXiv text concerns integrated Wigner negativity and individual Fock states. The full Genoni et al. arXiv text contains the binomial loss formula for fixed Fock inputs and a different Gaussian-convex-hull witness. The full Walschaers review addresses phase-space negativity and single-photon representations, not a sharp optimization constrained by initial origin parity across all cutoff states and channel transmissions. An additional closely related study by Filip on adapting non-Gaussian states to loss was accessible only in abstract; it optimizes Gaussian adaptation rather than this cutoff-constrained parity envelope, but its unexplored details leave priority risk. Searches for equivalent generating-polynomial formulations, stronger arbitrary-state inequalities, tables, and exact photon-cutoff optimizers found no demonstrated implication covering the stated all-cutoff bound. Absence of a search match is not conclusive evidence of novelty; independent priority evaluation remains necessary.
+PASS
 
-## Value — PASS
-The value at the origin is directly connected to photon parity, an operational phase-space observable. Imposing an initial nonnegative origin value and finite Fock support asks how strongly attenuation can expose preexisting phase-space negativity at a point where it was initially absent. The sharp all-state/all-transmission optimum, exact optimizer classification, repeated odd-cutoff plateaus, and asymptotic floor are quantitative finite-resource statements rather than an arbitrary coefficient example. The theorem expressly does not say that loss creates total Wigner negativity or quantify integrated negativity.
+Pure-loss Kraus/binomial thinning acts on photon-number probabilities and gives W_out(0)=(2/pi)sum_j p_j(1-2eta)^j even for coherent density matrices. If eta<=1/2 all summands are nonnegative; if eta=1 the output equals the initially constrained Wigner origin. For r=2eta-1 in (0,1), initial parity >=0 says odd population w<=1/2. Even j<=2m implies r^j>=r^(2m), odd j>=1 implies r^j<=r, whence W_out>=(r^(2m)-r)/pi. Equality requires precisely p_1=p_(2m)=1/2 and all other diagonals zero, with positivity allowing only their mutual coherence. Strict convexity of r^(2m)-r gives unique r_m=(2m)^(-1/(2m-1)), B_K and unique attenuation. Adjacent even/odd plateaus and strict decreasing even steps follow directly; limit is -1/pi. K>=2 scope and origin-vs-global-positivity distinction are essential.
 
-## Limitations and integrity
-The inputs can be mixed or coherent but must have bounded photon number; the environment is vacuum and attenuation is Gaussian. The initial condition is local at the origin, not global Wigner positivity. The proof is self-contained and independent of finite sampling; the computations do not certify all cutoff parameters. A potential equivalent literature formulation may exist, notably in less accessible loss-robustness work. No independent scientific audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known Wigner parity and binomial pure-loss identities are prior ingredients. Kenfack–Życzkowski optimize/measure integrated Wigner negativity; Genoni et al. bound origin Wigner values for mixtures of Gaussian states at fixed energy and discuss loss. Neither inspected theorem is an optimization over every cutoff state constrained only by initial origin positivity and all attenuations; no published equality classification or staircase covering the final exact problem was found. This is best-of-knowledge O with uninspected specialized lossy Fock-state literature risk.
+
+## value
+
+PASS
+
+The Wigner function at the origin is a directly measurable parity observable and cutoff limits are natural finite-photon resources. How much loss can expose negative origin parity starting with a nonnegative origin is a precise physically meaningful optimization. The exact floor, optimizer, two-step staircase and asymptotic limit answer that constrained question rather than merely reprinting a known thinning formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
