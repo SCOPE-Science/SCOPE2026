@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T18:16:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source's discrete-time progression parameter gamma is a probability (0<gamma<1); Section 5's equation q*gamma=pc*((beta1+p*beta2)/(1+p))^2 consequently imposes beta1+p*beta2<B=(1+p)*sqrt(q/(pc)). With beta1<B the strictly feasible beta2 interval is (0,(B-beta1)/p). Substitution into R0a=beta1/delta + p*beta2/gamma gives derivative q(1+p)^2*(beta1-p*beta2)/(c*(beta1+p*beta2)^3), so beta2*=beta1/p is feasible iff 2*beta1<B. For B/2<beta1<B the entire nonempty feasible domain is increasing and has only a boundary supremum. Exact rational witness p=q=1/2,c=1,beta1=1,delta=1/2 has 0<beta2<1, source optimum beta2=2 would demand gamma=16/9, and supremum R0a=5/2. The independent checker re-derived all identities symbolically; the proof handles all positive parameters and the equality 2*beta1=B excludes the strict boundary optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shirreff et al. analyze intermediate virulence from transmission versus infection duration, but not the discrete-stage gamma probability constraint of Ripoll-Font.",
+          "The motivating article is exactly the same model and gives the unconstrained critical point, not all feasible regimes."
+        ],
+        "reasoning": "General virulence-tradeoff theory and existence of a stationary point do not imply that point falls inside this model-specific probability region.",
+        "searches": [
+          "web:Shirreff Pellis Laeyendecker Fraser transmission selects intermediate virulence 2011",
+          "web:virulence optimization duration tradeoff infection 2023"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 6a885c5e239165265afa44fa865c6aabae46437a",
+        "Git verify.py 262abb484a8ae71a0dedd4876deb91f097e22074",
+        "DOI:10.3390/math11051092 Section 2/5",
+        "DOI:10.1371/journal.pcbi.1002185",
+        "Resultary topic search for virulence probability feasibility"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source equations imply the inequality upon substitution, but the paper does not state the constrained classification and asserts the optimizer without the necessary inequality.",
+          "The older HIV intermediate-virulence model has a different parameter domain."
+        ],
+        "reasoning": "The new conclusion is an elementary but unasserted and scientifically consequential correction; the prior source algebra provides premises, not the published universally quantified constrained result.",
+        "searches": [
+          "DOI:10.3390/math11051092 Section 2 and Section 5",
+          "DOI:10.1371/journal.pcbi.1002185"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact correction is beta1+p*beta2 < (1+p)*sqrt(q/(pc)), equivalent to gamma<1 under the paper tradeoff.",
+          "Source Section 5 presents beta2*=beta1/p without this admissibility qualifier."
+        ],
+        "reasoning": "An equivalent Lagrange-constrained formulation would impose the bound before maximizing; the source and topical search did not produce this exact constrained case split.",
+        "searches": [
+          "Resultary:virulence optimum outside probability domain pathogen progression transmission",
+          "web:Ripoll Font 2023 Section 5 transmission-duration tradeoff",
+          "web:virulence tradeoff bound progression probability stationary point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located corrigendum to Section 5; the manuscript Figure 3 happens to satisfy 2 beta1<B.",
+          "The rational witness gamma=16/9 follows directly from the printed formula, not a previously catalogued numerical optimizer table."
+        ],
+        "reasoning": "This is an analytical source correction; a database number or the one feasible plotted parameter set cannot settle universal admissibility.",
+        "searches": [
+          "web:\"A Discrete Model for the Evolution of Infection Prior to Symptom Onset\" correction erratum",
+          "Resultary:virulence progression probability admissible optimizer"
+        ]
+      },
+      "rationale": "The 2023 Ripoll-Font paper is the named source of the probability-stage model and its unconstrained optimizer. The specific omitted feasibility inequality, its sharp partition into interior-versus-boundary cases, and an admissible counter-regime have not been identified in the inspected source or related virulence-tradeoff literature. The general evolutionary possibility of intermediate virulence, illustrated by Shirreff et al., predates this result and is not claimed. This is a source-specific error/boundary correction rather than independent invention of optimum calculus; priority remains best of knowledge.",
+      "residual_risks": [
+        "Possibility of an unindexed erratum or corrected implementation; no claim that authors used the erroneous printed formula in code.",
+        "Feasibility concern disappears if gamma is reinterpreted as an unrestricted continuous-time rate, contrary to the model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_HAS_UNQUALIFIED_STATIONARY_OPTIMUM",
+          "evidence": [
+            "Section 5 beta2*=beta1/p and q gamma=pc*barbeta^2; Section 2 gamma is a daily stage-progression probability."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11051092",
+          "material_read": "Available HTML text of model probability definitions, Section 5 tradeoff and optimizer, Figure 3 parameter values, and abstract/conclusion",
+          "method": "Primary published article HTML obtained via searchable published text; PDF full content not claimed read",
+          "title": "A Discrete Model for the Evolution of Infection Prior to Symptom Onset",
+          "trigger": "Same discrete model and exact parameter domain"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": [
+            "General selective mechanism predates the specific discrete probability constraint; not asserted to settle the model-specific correction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1002185",
+          "material_read": "Abstract and paper description of intermediate-virulence transmission-duration selection",
+          "method": "Public bibliographic and abstract material, not full-body negative assessment",
+          "title": "Transmission Selects for HIV-1 Strains of Intermediate Virulence: A Modelling Approach",
+          "trigger": "Broader virulence-tradeoff framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability-domain restriction changes the source's unrestricted evolutionary assertion: an open and physically valid parameter regime has no lawful interior virulence optimum even though the printed derivative has one. It changes admissible model interpretation and mathematically distinguishes strict-probability supremum from an attained unconstrained optimum. The original Figure 3 parameter set lies in the feasible regime, so that particular figure is not overturned. This is more than a cheap sign check because it locates and characterizes a consequential parameter-domain failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the asymptomatic-view reproduction-number optimization under the published fixed-q tradeoff is analyzed.",
+    "The Figure 3 example is feasible; general biological objectives other than R0 not covered."
+  ],
+  "schema_version": 1
+}

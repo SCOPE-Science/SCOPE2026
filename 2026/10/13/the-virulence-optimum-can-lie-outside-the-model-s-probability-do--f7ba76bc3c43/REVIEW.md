@@ -1,31 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source explicitly treats \(\gamma\) as a probability with \(0<\gamma<1\). Combining that domain with its tradeoff gives
-\[
-\beta_1+p\beta_2
-<
-(1+p)\sqrt{\frac{q}{pc}}.
-\]
-The source's unconstrained stationary point \(\beta_1/p\) is therefore feasible exactly when
-\[
-2\beta_1<(1+p)\sqrt{\frac{q}{pc}}.
-\]
-The exact witness makes the reported point require \(\gamma=16/9\), and symbolic differentiation proves monotonicity on the entire valid interval.
+PASS
 
-## Originality
+The source's discrete-time progression parameter gamma is a probability (0<gamma<1); Section 5's equation q*gamma=pc*((beta1+p*beta2)/(1+p))^2 consequently imposes beta1+p*beta2<B=(1+p)*sqrt(q/(pc)). With beta1<B the strictly feasible beta2 interval is (0,(B-beta1)/p). Substitution into R0a=beta1/delta + p*beta2/gamma gives derivative q(1+p)^2*(beta1-p*beta2)/(c*(beta1+p*beta2)^3), so beta2*=beta1/p is feasible iff 2*beta1<B. For B/2<beta1<B the entire nonempty feasible domain is increasing and has only a boundary supremum. Exact rational witness p=q=1/2,c=1,beta1=1,delta=1/2 has 0<beta2<1, source optimum beta2=2 would demand gamma=16/9, and supremum R0a=5/2. The independent checker re-derived all identities symbolically; the proof handles all positive parameters and the equality 2*beta1=B excludes the strict boundary optimum.
 
-PASS. Intermediate-virulence optima from transmission-duration tradeoffs are established. The accepted result is the source-specific probability-domain correction and exact constrained classification. Source-identity, optimizer, feasibility, correction, and prior-ledger comparisons found no equivalent published statement.
+## originality
 
-## Value
+PASS
 
-PASS. The omitted condition changes the paper's unrestricted evolutionary conclusion: in a nonempty valid parameter regime there is no interior optimum in the strict probability model, and every feasible symptomatic transmission rate can be below the asymptomatic rate. The correction therefore changes the qualitative biological interpretation outside the showcased numerical example.
+The 2023 Ripoll-Font paper is the named source of the probability-stage model and its unconstrained optimizer. The specific omitted feasibility inequality, its sharp partition into interior-versus-boundary cases, and an admissible counter-regime have not been identified in the inspected source or related virulence-tradeoff literature. The general evolutionary possibility of intermediate virulence, illustrated by Shirreff et al., predates this result and is not claimed. This is a source-specific error/boundary correction rather than independent invention of optimum calculus; priority remains best of knowledge.
 
-## Closest literature and limitations
+## value
 
-Shirreff et al. provide a primary example of intermediate virulence selected by a different transmission-duration tradeoff. That work establishes the general mechanism but not this discrete-model boundary.
+PASS
 
-The paper's own displayed Figure 3 parameter set remains feasible. The result does not replace the source's evolutionary objective or analyze a rate-based reinterpretation of \(\gamma\).
+The probability-domain restriction changes the source's unrestricted evolutionary assertion: an open and physically valid parameter regime has no lawful interior virulence optimum even though the printed derivative has one. It changes admissible model interpretation and mathematically distinguishes strict-probability supremum from an attained unconstrained optimum. The original Figure 3 parameter set lies in the feasible regime, so that particular figure is not overturned. This is more than a cheap sign check because it locates and characterizes a consequential parameter-domain failure.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
