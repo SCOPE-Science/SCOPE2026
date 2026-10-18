@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:05:08.812683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md formulas (1)–(16), full smoothing argument",
+        "verify.py exact piecewise expressions and stoploss arithmetic",
+        "independent_math_checks.py Fraction recomputation of standardized stoploss"
+      ],
+      "rationale": "Reconstructed the piecewise-rational expectile equation αE(X-e)+=(1-α)E(e-X)+ for the rational three-point X and four-point Y. The complete parameter partition at 1/104,2/11,210/859 yields four exact positive differences s2_Y−s2_X, certified by positive coefficients, a negative quadratic discriminant, increasing-positive quadratic and constant 9/50. Independent exact Fraction stop-loss arithmetic gives mean/MAD standardized S_X(4/5)=1/5 and S_Y(4/5)=73441/569900, gap 40539/569900>0. Smoothing by narrow triangular kernels plus ε of uniform full-interval density converges in W1; monotone-root stability on compact α subintervals and endpoint limits at 0 and 1/2 make the full positive profile gap persist. No explicit numerical smoothing ε upper bound is asserted.",
+      "residual_risks": [
+        "Uniform near-endpoint continuity of the normalized expectile profile requires the stated mean-gap condition and positive endpoint masses; the proof is qualitative in ε, not a numerical certificate for a chosen ε."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eberl–Klar chain <=c => <=mu^d => <=s => <=sf and Theorem 5 <=c => <=s2",
+          "Eberl 2022 discusses normalized expectile skewness and other ordering properties"
+        ],
+        "reasoning": "Both weak orders being implied by a stronger order does not make them mutually comparable. Single-distribution sign equivalences and symmetry characterizations do not cover pairwise counterexamples.",
+        "searches": [
+          "Eberl Klar Theorem 5 convex transform order s2",
+          "Arab Lando Oliveira standardized expectile order skewness",
+          "Eberl expectile based measures skewness 2022"
+        ]
+      },
+      "checked_sources": [
+        "Eberl–Klar 2023 open-access article Remark 6",
+        "Eberl–Klar 2021 Wiley full HTML",
+        "Resultary query expectile skewness s2 order does not imply standardized stop-loss sf order Eberl Klar counterexample",
+        "DOI:10.5445/IR/1000148810"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit open Remark 6 in accessible primary full article",
+          "The s2 and sf common stronger-order inclusions give no implication between the two weaker orders"
+        ],
+        "reasoning": "The strict all-α seed plus continuous approximation supplies an actual counterexample, so existing inclusions cannot imply the disputed direction.",
+        "searches": [
+          "Stochastic orders and measures of skewness and dispersion based on expectiles 2023 Remark 6",
+          "Andreas Eberl dissertation expectile s2 sf symmetry sign"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eberl–Klar 2023 Remark 6 asks if <=s2 implies <=sf or conversely",
+          "Source finite rational seed has exact strict inequality for all 0<α<1/2 and reversed S at 4/5"
+        ],
+        "reasoning": "The equivalent pairwise comparison in standardized stop-loss transforms is exactly the question in Remark 6, not merely sign agreement for one law. The seed and continuous smoothing explicitly refute it.",
+        "searches": [
+          "expectile skewness s2 order does not imply standardized stop-loss sf order Eberl Klar counterexample",
+          "Eberl Klar Remark 6 expectile skewness implication counterexample",
+          "sf versus s2 stochastic orders examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby skewness studies but none with the precise s2-vs-sf implication",
+          "No found exact seed or rational gap in queried publication/database records"
+        ],
+        "reasoning": "No natural exact-value table governs a continuum of α inequalities; searching exact rational data complements rather than proves originality.",
+        "searches": [
+          "Resultary expectile skewness s2 order does not imply standardized stop-loss sf order Eberl Klar counterexample",
+          "expectile s2 sf order rational 40539 569900",
+          "arxiv 2108.06138 Remark 6"
+        ]
+      },
+      "rationale": "Eberl–Klar Remark 6 explicitly leaves the implication in both directions open. Later results on stronger stochastic skewness order or equivalence of positivity for a single distribution do not imply the pairwise implication under s2 and sf; this construction disproves exactly one open direction inside the motivating paper’s atomless interval-support class. No actual coverage identified in targeted Resultary/publication searches; terminology/notation changes remain priority risk.",
+      "residual_risks": [
+        "Unindexed later work or alternative standardized skewness notation could independently answer Remark 6.",
+        "Dissertation full text not freshly re-inspected during this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly open s2 versus sf implication; no counterexample in inspected text",
+          "evidence": "https://link.springer.com/article/10.1007/s00362-022-01331-x, Remark 6",
+          "identifier_or_url": "DOI:10.1007/s00362-022-01331-x; arXiv:2108.06138",
+          "material_read": "Complete public Springer article, §3 definitions, Theorem 5, implication diagram, Remark 6, later examples",
+          "method": "primary OA full HTML read",
+          "title": "Stochastic orders and measures of skewness and dispersion based on expectiles",
+          "trigger": "Source of both exact order definitions and open problem"
+        },
+        {
+          "assessment": "Introduces s2 and its properties; does not state exact s2=>sf implication counterexample",
+          "evidence": "https://onlinelibrary.wiley.com/doi/full/10.1111/sjos.12518",
+          "identifier_or_url": "DOI:10.1111/sjos.12518",
+          "material_read": "Accessible Wiley full HTML, section on expectile-based ordering, definition and theorem statements",
+          "method": "primary full text read",
+          "title": "Expectile-based measures of skewness",
+          "trigger": "Earlier expectile skewness order and its parameter normalization"
+        },
+        {
+          "assessment": "Single-law sign equivalences cannot resolve arbitrary-pair order implication; priority residual risk remains",
+          "evidence": "DOI:10.5445/IR/1000148810",
+          "identifier_or_url": "DOI:10.5445/IR/1000148810",
+          "material_read": "Dissertation section descriptions and theorem statements as recorded in inspected source; complete dissertation not freshly retrieved this run",
+          "method": "prior source material and bibliographic summary",
+          "title": "Quantification of Location, Dispersion, Skewness and Kurtosis",
+          "trigger": "Later dissertation treating both skewness families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Eberl–Klar 2023 Remark 6",
+        "RESULT.md exact sign certificates and smoothing proof"
+      ],
+      "rationale": "Resolves one explicit directional open question in a recently published implication diagram, including the atomless continuous-cdf interval-support class. Unlike finite-grid comparisons, the strict inequality holds for the entire continuum α∈(0,1/2) with an exact rational witness of the sf reversal.",
+      "residual_risks": [
+        "Does not determine the reverse implication <=sf => <=s2; smoothing bound is existential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No determination of converse implication.",
+    "For atomless examples only sufficiently small smoothing ε is proved, without an explicit numerical threshold.",
+    "All potential publication metadata was inspected and contains operational provenance identifiers (scope_run_id).",
+    "Complete recursive Git tree inventory not independently retrievable by the available read-only connector; original assigned source-tree SHA retained, not re-certified."
+  ],
+  "schema_version": 1
+}

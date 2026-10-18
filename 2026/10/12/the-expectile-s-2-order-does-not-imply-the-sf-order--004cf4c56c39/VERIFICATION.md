@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact seed laws are
-\[
-P_X=\frac35\delta_{-83/100}+\frac3{10}\delta_{123/100}+\frac1{10}\delta_{135/100},
-\]
-\[
-P_Y=\frac3{20}\delta_{-9/5}+\frac{27}{50}\delta_{-2/5}+\frac14\delta_{9/10}+\frac3{50}\delta_5.
-\]
+# Independent mathematical audit
 
-The standalone script checks the seed with `fractions.Fraction`. It verifies the means and MADs, support-transition probabilities for the expectile equation, the piecewise formulas at deterministic rational points, and the sign certificates
-\[
-\operatorname{disc}(30074a^2-16688a+2643)=-39452984<0
-\]
-and
-\[
-6872(2/11)^2+8386(2/11)-1521=27939/121>0.
-\]
-It also verifies the exact standardized stop-loss values
-\[
-\widetilde S_X(4/5)=1/5,
-\qquad
-\widetilde S_Y(4/5)=73441/569900,
-\]
-with gap
-\[
-40539/569900>0.
-\]
+## correctness
 
-The analytic smoothing step is verified in the proof rather than by finite computation. Its ingredients are bounded Wasserstein convergence, strict monotone-root stability for expectiles, the endpoint extensions of the normalized \(s_2\)-profile, and continuity of MAD and stop-loss transforms.
+PASS
 
-Expected successful terminal line:
-`VERIFY_OK breaks=1/104,2/11,210/859 sf_gap=40539/569900`.
+Reconstructed the piecewise-rational expectile equation αE(X-e)+=(1-α)E(e-X)+ for the rational three-point X and four-point Y. The complete parameter partition at 1/104,2/11,210/859 yields four exact positive differences s2_Y−s2_X, certified by positive coefficients, a negative quadratic discriminant, increasing-positive quadratic and constant 9/50. Independent exact Fraction stop-loss arithmetic gives mean/MAD standardized S_X(4/5)=1/5 and S_Y(4/5)=73441/569900, gap 40539/569900>0. Smoothing by narrow triangular kernels plus ε of uniform full-interval density converges in W1; monotone-root stability on compact α subintervals and endpoint limits at 0 and 1/2 make the full positive profile gap persist. No explicit numerical smoothing ε upper bound is asserted.
+
+## originality
+
+PASS
+
+Eberl–Klar Remark 6 explicitly leaves the implication in both directions open. Later results on stronger stochastic skewness order or equivalence of positivity for a single distribution do not imply the pairwise implication under s2 and sf; this construction disproves exactly one open direction inside the motivating paper’s atomless interval-support class. No actual coverage identified in targeted Resultary/publication searches; terminology/notation changes remain priority risk.
+
+## value
+
+PASS
+
+Resolves one explicit directional open question in a recently published implication diagram, including the atomless continuous-cdf interval-support class. Unlike finite-grid comparisons, the strict inequality holds for the entire continuum α∈(0,1/2) with an exact rational witness of the sf reversal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

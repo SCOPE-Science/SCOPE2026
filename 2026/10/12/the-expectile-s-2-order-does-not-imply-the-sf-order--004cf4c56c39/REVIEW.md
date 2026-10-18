@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The seed laws are exact rational distributions. Their expectiles are piecewise rational because the expectile first-order equation is linear between support points. The complete \(s_2\)-difference is split at all breakpoints and each piece has an exact positive sign certificate. The \(sf\)-reversal at \(t=4/5\) is an exact stop-loss calculation after exact mean/MAD standardization. The smoothing family has a positive density on a whole interval; compact-profile stability follows from the unique expectile root equation together with explicit endpoint limits, while stop-loss and MAD continuity preserve the strict \(sf\)-violation.
+## correctness
 
-## Originality
-PASS. Eberl and Klar explicitly state the \(s_2\)-versus-\(sf\) implication question as open. Their later dissertation treats both measure families but the inspected results compare signs for one distribution and characterize symmetry, rather than comparing two arbitrary distributions under the two profile orders. Arab, Lando, and Oliveira concern the stronger standardized-expectile skewness order. Candidate-specific record searches found no covering statement. Terminology-based missed literature remains the principal risk.
+PASS
 
-## Value
-PASS. This resolves one direction of an explicitly posed order-theoretic question. The result is global in the profile parameter \(\alpha\), not a finite-grid observation, and the atomless smoothing places it back inside the regularity class used by the motivating paper. It materially changes the implication diagram by proving that \(\le_{s_2}\) is not stronger than \(\le_{sf}\).
+Reconstructed the piecewise-rational expectile equation αE(X-e)+=(1-α)E(e-X)+ for the rational three-point X and four-point Y. The complete parameter partition at 1/104,2/11,210/859 yields four exact positive differences s2_Y−s2_X, certified by positive coefficients, a negative quadratic discriminant, increasing-positive quadratic and constant 9/50. Independent exact Fraction stop-loss arithmetic gives mean/MAD standardized S_X(4/5)=1/5 and S_Y(4/5)=73441/569900, gap 40539/569900>0. Smoothing by narrow triangular kernels plus ε of uniform full-interval density converges in W1; monotone-root stability on compact α subintervals and endpoint limits at 0 and 1/2 make the full positive profile gap persist. No explicit numerical smoothing ε upper bound is asserted.
 
-## Closest literature and limitations
-The closest source is Eberl and Klar, arXiv:2108.06138 / DOI 10.1007/s00362-022-01331-x, Remark 6. Eberl's 2022 dissertation, DOI 10.5445/IR/1000148810, is the closest later source and does not state the pairwise implication in the inspected expectile-skewness section. The converse \(\le_{sf}\Rightarrow\le_{s_2}\) is not resolved here. The smoothing theorem is qualitative in the size of \(\varepsilon\), although the seed and every sign certificate are exact.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Eberl–Klar Remark 6 explicitly leaves the implication in both directions open. Later results on stronger stochastic skewness order or equivalence of positivity for a single distribution do not imply the pairwise implication under s2 and sf; this construction disproves exactly one open direction inside the motivating paper’s atomless interval-support class. No actual coverage identified in targeted Resultary/publication searches; terminology/notation changes remain priority risk.
+
+## value
+
+PASS
+
+Resolves one explicit directional open question in a recently published implication diagram, including the atomless continuous-cdf interval-support class. Unlike finite-grid comparisons, the strict inequality holds for the entire continuum α∈(0,1/2) with an exact rational witness of the sf reversal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
