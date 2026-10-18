@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source recursion specializes exactly to the invariant ray \(L=\{[r:r:1:1]\}\) with scalar map \(f(r)=(r^3+2)/(2r^3+1)\). The exact factorization of \(f^{\circ2}(r)-r\) proves global attraction on \(r>0\), and the cubic normal form \(g(1+u)=1+u-(4/3)u^3+O(u^4)\) yields \(m u_m^2\to3/8\), hence the sharp full-iterate amplitude \(\sqrt3/2\). The checker independently replays the polynomial identities with exact arithmetic.
+## correctness
 
-## Originality
-PASS. The primary source gives the projective recursion and highlights \((q,d)=(4,3)\) as exceptional, but does not state the zero-temperature pair-symmetric global dynamics or sharp amplitude. The later Gu--Wu--Yang positive-temperature uniqueness/power-law result assumes uniqueness at the critical point and does not cover the non-unique endpoint \(q=d+1,w=0\). Jonasson establishes global non-uniqueness for proper colourings at this endpoint, not the invariant-ray relaxation. Targeted scientific searches for the pair-symmetric recurrence, zero-temperature critical ray, and \(\sqrt n\) law returned no covering statement. Residual risk remains from older Bethe-lattice literature available only at abstract level.
+PASS
 
-## Value
-PASS. The endpoint \(q=d+1\) is the exact boundary where global uniqueness fails through frozen colourings. Showing that the most natural balanced 2+2 symmetry channel is instead marginally stable, with a universal \(n^{-1/2}\) amplitude, separates that channel from the mechanism of non-uniqueness and gives a sharp dynamical boundary fact rather than a routine restatement of non-uniqueness.
+Zero-temperature q=4,d=3 projective recursion leaves positive 2+2 ray [r:r:1:1] invariant with exact f(r)=(r³+2)/(2r³+1). Independent rational symbolic calculation shows f strictly decreasing, f(1)=1, and g=f²=(17r⁹+30r⁶+24r³+10)/(10r⁹+24r⁶+30r³+17), with g−r negative (r−1)³ times strictly positive factors on r>0. Hence even subsequences monotone toward only positive g fixed point 1, odd ones converge while alternating. Independent expansion g(1+u)=1+u−4u³/3+2u⁴/3+... gives u_(m+1)^−2−u_m^−2→8/3, hence m u_m²→3/8 and sqrt(n)|r_n−1|→sqrt(3)/2 (r0≠1). Convergence not extrapolated from finite experiments.
 
-Closest literature and limitations are described in `RESULT.md` and `AUDIT.json`. The statement is deliberately restricted to the invariant pair-symmetric ray and makes no claim of full Gibbs uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the exact global dynamics and nontrivial universal amplitude on the natural 2+2 colour-symmetry projective ray at the zero-temperature nonunique endpoint q=d+1=4. De Boer–Buys–Regts analyze a full projective Potts map but four-state uniqueness hypothesis requires d≥4,w>0, excluding d=3,w=0. Gu–Wu–Yang address critical power laws in a regime of uniqueness, not the stated frozen colouring endpoint. Older 1983 Bethe-lattice paper full text was not obtained, leaving historical risk.
+
+## value
+
+PASS
+
+A motivated symmetry-channel analysis resolves why the 4-colour critical full Gibbs nonuniqueness coexists with algebraic 1/sqrt(n) attraction on the balanced 2+2 ray. Universal sharp relaxation amplitude is a substantive quantitative dynamical fact for the natural invariant one-dimensional family. No claim of uniqueness in full 3D message cone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

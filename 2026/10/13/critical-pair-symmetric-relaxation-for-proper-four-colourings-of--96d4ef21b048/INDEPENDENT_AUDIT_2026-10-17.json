@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:05:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Zero-temperature q=4,d=3 projective recursion leaves positive 2+2 ray [r:r:1:1] invariant with exact f(r)=(r³+2)/(2r³+1). Independent rational symbolic calculation shows f strictly decreasing, f(1)=1, and g=f²=(17r⁹+30r⁶+24r³+10)/(10r⁹+24r⁶+30r³+17), with g−r negative (r−1)³ times strictly positive factors on r>0. Hence even subsequences monotone toward only positive g fixed point 1, odd ones converge while alternating. Independent expansion g(1+u)=1+u−4u³/3+2u⁴/3+... gives u_(m+1)^−2−u_m^−2→8/3, hence m u_m²→3/8 and sqrt(n)|r_n−1|→sqrt(3)/2 (r0≠1). Convergence not extrapolated from finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem regimes omit q=4,d=3,w=0, and Gu–Wu–Yang invokes uniqueness for its critical exponent."
+        ],
+        "reasoning": "No inspected more-general theorem was applicable at zero temperature with q=d+1 and nonunique full Gibbs measures.",
+        "searches": [
+          "arXiv:2011.05638 theorem hypotheses q=4 d≥4 w>0",
+          "arXiv:2112.00573 critical uniqueness regime"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2011.05638 full primary Potts paper",
+        "arXiv:2112.00573 metadata",
+        "DOI:10.1088/0305-4470/16/4/018 bibliographic entry",
+        "Resultary semantic pair-symmetric zero-temperature Potts search",
+        "Git assigned RESULT.md sha 58f2eacc7bed242c3f2658565f5c486fe02c78ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier map formula permits substitution to f(r), but critical sign factorization and sharp amplitude are not implied by merely displaying f or proving positive-temperature uniqueness elsewhere."
+        ],
+        "reasoning": "Requires an explicit global one-ray iterate analysis and degenerate parabolic second-iterate asymptotic.",
+        "searches": [
+          "de Boer arXiv:2011.05638",
+          "Gu–Wu–Yang arXiv:2112.00573"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balanced four-colour 2+2 message orbit is alternating one-variable antiferromagnetic recursion, distinct from full Gibbs uniqueness."
+        ],
+        "reasoning": "Do not conflate convergence on invariant ray with uniqueness of all boundary-conditioned Gibbs measures.",
+        "searches": [
+          "de Boer–Buys–Regts arXiv:2011.05638 section 2 recurrence",
+          "Jonasson DOI:10.1016/S0167-7152(02)00054-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed complete r-map amplitude classification found; 1983 phase-diagram article is relevant but only title/abstract read."
+        ],
+        "reasoning": "Bounded search cannot rule out the same one-variable calculation under order-parameter variables.",
+        "searches": [
+          "Resultary semantic Potts Bethe lattice pair-symmetric 1/sqrt(n)",
+          "1983 Peruggi di Liberto Monroy DOI:10.1088/0305-4470/16/4/018 metadata"
+        ]
+      },
+      "rationale": "PASS for the exact global dynamics and nontrivial universal amplitude on the natural 2+2 colour-symmetry projective ray at the zero-temperature nonunique endpoint q=d+1=4. De Boer–Buys–Regts analyze a full projective Potts map but four-state uniqueness hypothesis requires d≥4,w>0, excluding d=3,w=0. Gu–Wu–Yang address critical power laws in a regime of uniqueness, not the stated frozen colouring endpoint. Older 1983 Bethe-lattice paper full text was not obtained, leaving historical risk.",
+      "residual_risks": [
+        "1983 Peruggi–di Liberto–Monroy article may implicitly cover identical projective dynamics; inaccessible full text is a residual priority risk.",
+        "Statement only 2+2 ray, not arbitrary messages or Gibbs uniqueness; no general critical exponent beyond this ratio."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING zero-temperature q=d+1 four-regular ray rate",
+          "evidence": "q=4 d≥4 and w≥1−4/(d+1) with w∈(0,1), excludes w=0,d=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.05638",
+          "material_read": "24-page full arXiv text opened; theorem parameter assumptions, §2.2 projective recursion and §3 convexity/invariance proof",
+          "method": "ArXiv complete PDF with targeted theorem/recurrence line searches",
+          "title": "Uniqueness of the Gibbs measure for the 4-state anti-ferromagnetic Potts model on the regular tree",
+          "trigger": "Original recursion, same q=4 Potts map"
+        },
+        {
+          "assessment": "PARAMETER_REGIME_DIFFERENT; full priority limited",
+          "evidence": "Cited critical decay under uniqueness; present positive balanced ray is at globally nonunique zero temperature.",
+          "identifier_or_url": "arXiv:2112.00573",
+          "material_read": "Abstract and source discussion, not full manuscript read in this execution",
+          "method": "Bibliographic search and package cited result",
+          "title": "Power law decay at criticality for the q-state antiferromagnetic Potts model on regular trees",
+          "trigger": "Nearby critical decay exponent one-half"
+        },
+        {
+          "assessment": "UNDETERMINED old equivalent ray formula",
+          "evidence": "Cannot certify absence of the 2+2 critical amplitude in unread 1983 full text.",
+          "identifier_or_url": "DOI:10.1088/0305-4470/16/4/018",
+          "material_read": "Bibliographic/abstract information only, no original full paper",
+          "method": "Targeted web searches",
+          "title": "The Potts model on Bethe lattices. I. General results",
+          "trigger": "Oldest plausible exactly same one-variable anti-ferro Bethe recursion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated symmetry-channel analysis resolves why the 4-colour critical full Gibbs nonuniqueness coexists with algebraic 1/sqrt(n) attraction on the balanced 2+2 ray. Universal sharp relaxation amplitude is a substantive quantitative dynamical fact for the natural invariant one-dimensional family. No claim of uniqueness in full 3D message cone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2011.05638 full primary Potts paper",
+    "arXiv:2112.00573 metadata",
+    "DOI:10.1088/0305-4470/16/4/018 bibliographic entry",
+    "Resultary semantic pair-symmetric zero-temperature Potts search",
+    "Git assigned RESULT.md sha 58f2eacc7bed242c3f2658565f5c486fe02c78ab"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Zero temperature q=4,d=3; initial r0>0, asymptotic amplitude requires r0≠1.",
+    "1983 Peruggi–di Liberto–Monroy article may implicitly cover identical projective dynamics; inaccessible full text is a residual priority risk.",
+    "Statement only 2+2 ray, not arbitrary messages or Gibbs uniqueness; no general critical exponent beyond this ratio.",
+    "Scientific acceptance is best-of-knowledge and does not imply external expert certification, exhaustive priority, or publication."
+  ],
+  "residual_risks": [
+    "1983 Peruggi–di Liberto–Monroy article may implicitly cover identical projective dynamics; inaccessible full text is a residual priority risk.",
+    "Statement only 2+2 ray, not arbitrary messages or Gibbs uniqueness; no general critical exponent beyond this ratio."
+  ],
+  "schema_version": 1
+}
