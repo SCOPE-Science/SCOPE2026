@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact uniform-edge Markov dynamics plus the degree-two complement guarantee only zero or two vacancies. A tagged forbidden edge obeys a transition ratio \\(1+O(k^{-2})\\) relative to the one-missing-edge model; the telescoping product is \\((K^2-1)/(N^2-1)\\). Joint survival of any 3 or 4 prescribed vertices bounds the conditional chance of another forbidden edge at cutoff K by \\(O(K/N+K^2/N)\\). Exceptional paths have uniformly \\(O(K^{-2})\\) final tagged survival. \\(K\\asymp N^{1/3}\\) yields \\(3(N^2-1)^{-1}(1+O(N^{-1/3}))\\) for every forbidden edge, then disjoint summation yields the claim. A standalone rational-DP script checks 13 instances, and independent 9! edge-order enumeration checks one instance; numerical evidence is supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gamarnik–Goldberg (2008), arXiv:0807.1277, Theorem 5: regular host graphs of degree r and girth at least 4; here G_N has triangles and degree near N.",
+        "Gamarnik–Goldberg (2008), Theorem 6: concentration in host graphs of bounded degree; here only the deleted complement has bounded degree.",
+        "Dietzfelbinger–Peilke–Rink (2012), arXiv:1203.4117, sections 1–3: experiments on sparse random hosts and other selection heuristics.",
+        "Tang–Wu–Zhang (2019), arXiv:1907.05135, abstract and Section 1: oblivious randomized-decision-order approximate guarantees."
+      ],
+      "reasoning": "None of the inspected main theorems has hypotheses and conclusions that dominate a first-order probability of one failing greedy matching on all near-complete degree-two-complement graphs. Sparse-host, high-girth, or approximation-ratio conclusions cannot imply the coefficient 3 in this dense rare-event law.",
+      "searches": [
+        "universal 3/4 rare jamming constant cocktail party graph deleted matching asymptotic random sequential adsorption dimers",
+        "arXiv:0807.1277 Gamarnik Goldberg greedy matching random sequential dimer adsorption degree two deleted edge complement complete graph",
+        "random greedy matching complete graph missing perfect matching cocktail party jamming probability",
+        "arXiv:0807.1277 HTML §2.2 Theorem 5",
+        "arXiv:1203.4117 PDF §2",
+        "arXiv:1907.05135 PDF §§1–2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0807.1277, complete public HTML accessible and inspected at theorem/model/conclusion sections",
+      "arXiv:1203.4117, public PDF inspected pages 1–7 (17-page document)",
+      "arXiv:1907.05135, public PDF inspected pages 1–4 (30-page document)",
+      "doi:10.1002/rsa.3240020104, bibliographic abstract only",
+      "doi:10.1137/0402034, repository and journal abstracts only",
+      "earlier recorded result dcb47f9a-a757-4549-978d-84881f416b30, compared recoverable claim and source identifiers",
+      "Published research-index queries listed under four originality checks and real closest published IDs therein"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier earlier recorded result assumes H_N is one perfect matching: it gives N P_N→3/2 for m_N=N/2 only.",
+        "The current theorem yields N P_N→3 for H_N a full cycle or spanning path and is uniform across all max-degree-two forbidden graphs.",
+        "Gamarnik–Goldberg Theorem 5 uses host girth≥4, whereas dense hosts K_N minus degree-two deletions have triangles for all sufficiently large N."
+      ],
+      "reasoning": "The prior matching example is explicitly subsumed and is not counted as novelty. It does not prove a universal tagged-edge estimate across overlapping forbidden edges, a multi-vertex survival comparison, or the path/cycle consequences. Theorems for regular high-girth hosts and sparse random models do not imply the new statement by parameter substitution or duality.",
+      "searches": [
+        "previous-finding:dcb47f9a-a757-4549-978d-84881f416b30",
+        "arXiv:0807.1277 Theorems 5–6",
+        "For random greedy matching on a nearly complete graph with bounded degree deleted edges, the probability of a nonperfect maximal matching is asymptotically three times the number of forbidden edges divided by number of vertices squared.",
+        "random sequential adsorption dimers dense graphs complement bounded degree unmatched probability asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Random-priority dimer adsorption is equivalent to random-edge greedy maximal matching; arXiv:0807.1277 HTML §1.1 explicitly states uniform random edge selection and deletion of incident edges.",
+        "Published research-index record 2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f concerns average size over maximal matchings, not this process law."
+      ],
+      "reasoning": "The exact equivalent model was searched using matching, dimer/RSA, forbidden-edges, and complement-language formulations. The reviewed titles and accessible materials did not yield the universal failure amplitude; the absence of a search hit is not a uniqueness proof.",
+      "searches": [
+        "For random greedy matching on a nearly complete graph with bounded degree deleted edges, the probability of a nonperfect maximal matching is asymptotically three times the number of forbidden edges divided by number of vertices squared.",
+        "DOI 10.1002/rsa.3240020104 Dyer Frieze randomized greedy matching nearly complete graphs maximal matching failure",
+        "Greedy dimers on K_N minus cycles paths matchings asymptotic coefficient 3m/(N^2-1)",
+        "random greedy maximal matching complete graph minus sparse forbidden edges asymptotic failure probability greedy matching",
+        "random sequential adsorption dimers dense graphs complement bounded degree unmatched probability asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact finite values from two independently implemented methods: for H_N=C_6 at N=6, dynamic programming gives 1/3 and exhaustive 9!-edge-order enumeration gives 120960/362880.",
+        "Earlier recorded result dcb47f9a-a757-4549-978d-84881f416b30 records only the perfect-matching deletion subfamily."
+      ],
+      "reasoning": "The claim is an infinite-family uniform amplitude, not the rediscovery of a finite coefficient from a table. Queries with the explicit candidate coefficient and forbidden-complement families did not locate a table giving the claimed generality. No external table was inspected; finite exact counts are used solely to check the dynamics, not as evidence of novelty.",
+      "searches": [
+        "Greedy dimers on K_N minus cycles paths matchings asymptotic coefficient 3m/(N^2-1)",
+        "uniform random edge priorities random greedy matching rare failure dense graphs complement maximum degree two",
+        "random greedy maximal matching complete graph minus sparse forbidden edges asymptotic failure probability greedy matching",
+        "random sequential adsorption complete graph forbidden edges dimers"
+      ]
+    },
+    "rationale": "The uniform theorem for arbitrary forbidden paths, cycles and nonregular degree-two complements is not implied by the already recorded perfect-matching-deletion special case. Full accessible principal papers study fixed host degree/large girth, sparse random hosts, or oblivious decision-order approximations, rather than the rare two-vacancy law on a dense host with degree-two deleted graph. The novel structural element is an architecture-insensitive leading coefficient with a uniform error bound. Older restricted-access texts leave specific unresolved bibliographic risk.",
+    "residual_risks": [
+      "Dyer–Frieze (1991) complete paper unavailable for section/theorem comparison: unrecognized stronger coverage is possible.",
+      "Pippenger (1989) complete text unavailable; the abstract includes an edge-adsorption variant, so full coverage is not conclusively excluded.",
+      "Unindexed specialized dense greedy-matching or line-graph RSA literature may contain an equivalent asymptotic.",
+      "Review of the 2012 and 2019 papers examined pertinent displayed results and methods but not every appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the uniform dense-host failure coefficient; main theorems require regular high-girth/constant host degree or bound host-degree variance.",
+        "evidence": [
+          "§1.1 explicitly identifies greedy matching as uniform random edge selection followed by removal of incident edges.",
+          "§2.2 Theorem 5 assumes host girth≥4 and Theorem 6 has a host-degree-dependent concentration bound; §§1 and 7 emphasize bounded-host-degree high-girth behavior."
+        ],
+        "identifier_or_url": "arXiv:0807.1277 | https://arxiv.org/html/0807.1277v1",
+        "material_read": "Full-text HTML; introduction and model §1.1, main theorem statements in §2.2 (Theorems 5 and 6), §7 conclusion and references.",
+        "method": "Primary HTML reading with theorem-hypothesis comparison.",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Exact same greedy edge-selection dynamics and an archive-dated source (posted 2008-07-08)."
+      },
+      {
+        "assessment": "Examined material concerns sparse random hosts, degree-based heuristics and cardinality experiments; no dense complement uniform coefficient in read sections, but unread appendices cannot be ruled out merely from snippets.",
+        "evidence": [
+          "§1 describes sparse random graphs with constant expected degree c.",
+          "§2 describes heuristic reductions and uniform random-edge selection as one step among several alternatives; §3 treats experimental sparse host families."
+        ],
+        "identifier_or_url": "arXiv:1203.4117 | https://arxiv.org/pdf/1203.4117",
+        "material_read": "PDF pages 1–7: abstract, introduction, algorithm and model definitions, and the experiment-design section.",
+        "method": "Primary PDF text and rendered page inspection.",
+        "title": "A More Reliable Greedy Heuristic for Maximum Matchings in Sparse Random Graphs",
+        "trigger": "Plausible random-greedy matching extension with precisely documented 2012 source date."
+      },
+      {
+        "assessment": "The inspected statements bound worst-case approximation ratios for oblivious or randomized decision-order protocols, not the near-complete-host two-vertex vacancy asymptotic. Comparison remains limited to inspected portions.",
+        "evidence": [
+          "Theorems 1.1–1.3 state ratios 0.639, 0.531 and 0.501 for algorithms with randomized vertex decision orders or perturbed weights."
+        ],
+        "identifier_or_url": "arXiv:1907.05135 | https://arxiv.org/pdf/1907.05135",
+        "material_read": "PDF first four pages including abstract, §1, prior-work survey, and Theorems 1.1–1.3.",
+        "method": "Primary PDF text and rendered introduction page.",
+        "title": "Towards a Better Understanding of Randomized Greedy Matching",
+        "trigger": "Recent work potentially containing stronger randomized matching guarantees."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: descriptions emphasize general worst-case graphs and forests, not this theorem, but lack of full text creates substantive residual risk.",
+        "evidence": [
+          "Publisher abstract states the main quantitative theorem concerns forests and worst-case/sparse graph performance."
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and bibliographic record only; full text unavailable.",
+        "method": "Bibliographic/abstract comparison, with OA and repository searches; no unsupported whole-text claim.",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational 1991 paper on the same uniform-random-edge greedy model."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: edge RSA is included in the paper; specific dense graph results may occur beyond the summary and remain a risk.",
+        "evidence": [
+          "Repository abstract describes random edge occupation excluding incident edges, and regular large-girth graph occupancy quantities."
+        ],
+        "identifier_or_url": "doi:10.1137/0402034",
+        "material_read": "Institutional repository abstract and journal abstract only; offered PDF access did not succeed.",
+        "method": "Primary repository summary and journal abstract comparison, not a full-text inspection.",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Original physical interpretation and related edge RSA model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f185073-d3cc-4866-80e7-0f8d39c24e35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem distinguishes feasible perfect coverage from rare irreversible jamming, a quantity invisible in limiting adsorption density. The universal leading amplitude is independent of path/cycle location, forbidding-cluster geometry, and regularity, providing a structural theorem for an infinite family not recoverable by mere substitution into the previously recorded deleted-matching result. The uniform error supplies a quantitative reliability scale. The theorem does not assert physical equilibrium or second-order laws.",
+    "status": "PASS"
+  }
+}
