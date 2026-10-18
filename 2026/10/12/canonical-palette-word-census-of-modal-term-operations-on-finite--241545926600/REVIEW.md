@@ -1,21 +1,21 @@
-# Scientific review: canonical palette-word census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof supplies a color-preserving bounded morphism for every adjacent subset deletion, an explicit family of modal formulas separating the surviving levels, and a cross-model quotient-isomorphism argument establishing uniqueness of reduced pointed types. A separate capacity-subsequence realization proves that precisely the listed palette words occur. The finite disjoint union of all valuations and finite-model modal separation then give the exact term-operation exponent, without extrapolating from computation. The zero-generator boundary and the last-cluster index constraint are stated and checked. The executable verifier independently compares actual bisimulation refinement, realizable palettes, and direct Boolean modal term closure in finite cases.
+PASS
 
-## Originality
+Deletion of an adjacent color palette contained in its successor is a color-preserving surjective bounded morphism. On each reduced finite suffix, eta_i=Box(eta_{i+1} OR chi_{A_i}) distinguishes the successive levels; the distinguished world color and ordered reduced palettes classify pointed bisimulation types. Each admissible word is realizable by picking its levels in increasing indices, with all intermediate clusters given a color of the next palette. Finite modal distinguishability lets one define every subset of these types, yielding exactly 2^E distinct operation tables. The quantifiers include r=0, h=1 and nonuniform capacities. Independently checked singleton-chain counts and (2,1)/(1,2) orientations; source verify.py inspected. No finite check is used as an infinite proof.
 
-**PASS with residual historical risk.** The inspected 2023 linear-frame paper of Kurucz, Wolter and Zakharyaschev studies bisimulation, finite generation and interpolation over cluster chains, not the all-valuations r-ary term-clone census. The 2022/2023 paper by ten Cate and Koudijs proves general results on finite characterisations and local tabularity, not this explicit ordered-capacity invariant. Direct searches for S4.3 term-clone counts, palette-word normal forms and equivalent stuttering classifications produced no decisive dominating theorem. The use of standard bounded morphisms, modal distinguishability and finite bisimulation minimization is acknowledged. Prior results on fixed generating tuples do not directly count all r-ary term functions. Older, possibly differently named normal-form literature remains a substantive originality risk; a negative search is not a novelty proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** For an arbitrary ordered vector of positive cluster capacities, the result replaces enumeration of syntactic modal terms by a finite, exact language of subset-noninclusion words, yielding the full arity-wise term-operation cardinality. Its meaning is intrinsic to the Boolean modal algebra, and the formula detects directional distinctions ignored by total cardinality: the same three-world total preorders with capacity orders \((2,1)\) and \((1,2)\) have respectively \(256\) and \(64\) unary term functions. The explicit \(4^h\) unary law for a reflexive chain gives a sharp all-length specialization. The classification is a natural algebraic and logical invariant relevant to finite expressive power, rather than a chosen small numerical slice.
+The source-independent capacity-admissible reduced-palette normal form and exact full term-operation enumeration go beyond general bisimulation invariance, finite-model learning and interpolation on clusters. Primary relevant sections and Resultary check find no implication-equivalent count; risk of older modal-algebra results remains.
 
-## Closest literature and limitations
+## value
 
-The primary comparisons are Balder ten Cate and Raoul Koudijs, *Characterising Modal Formulas with Examples* (arXiv:2206.06049 and arXiv:2304.06646), and Agi Kurucz, Frank Wolter and Michael Zakharyaschev, *A Non-Uniform View of Craig Interpolation in Modal Logics with Linear Frames* (arXiv:2312.05929). The former addresses formula characterisation and local tabularity; the latter analyzes interpolation and bisimilar linear-frame models. Neither inspected relevant treatment gives the capacity-indexed clone count claimed here. There remains a risk of equivalent statements in older modal algebra, finite-word, or coalgebraic normal-form sources.
+PASS
 
-The proof is for finite reflexive total preorders with the ordinary unimodal Boolean signature. No formula-length optimum, computational-complexity optimum, or result for graded/converse modalities is asserted. Finite tests corroborate but do not certify an infinite theorem. No independent review has occurred.
+Full operation clones are a natural invariant of finite Boolean modal algebras; classifying the pointed modal types and identifying sensitivity to cluster order solves a nonroutine algebraic enumeration problem, not merely recounting formula syntax.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

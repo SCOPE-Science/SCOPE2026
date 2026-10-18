@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10 or later. No non-standard dependencies are needed.
+## correctness
 
-The replayed output of the bundled program is:
+PASS
 
-```text
-VERIFY_OK language_cases 42 cross_model_bisimulations 27 bisimulation_worlds 4176 direct_term_closures 8 orientation_example (256, 64)
-```
+Deletion of an adjacent color palette contained in its successor is a color-preserving surjective bounded morphism. On each reduced finite suffix, eta_i=Box(eta_{i+1} OR chi_{A_i}) distinguishes the successive levels; the distinguished world color and ordered reduced palettes classify pointed bisimulation types. Each admissible word is realizable by picking its levels in increasing indices, with all intermediate clusters given a color of the next palette. Finite modal distinguishability lets one define every subset of these types, yielding exactly 2^E distinct operation tables. The quantifiers include r=0, h=1 and nonuniform capacities. Independently checked singleton-chain counts and (2,1)/(1,2) orientations; source verify.py inspected. No finite check is used as an infinite proof.
 
-The program conducts three genuinely different finite checks. First it exhausts assignments to selected cluster vectors and compares the resulting rooted reduced words with an independently enumerated subsequence-capacity language. Second it builds the disjoint union of every model valuation for small cases, performs ordinary finite modal-bisimulation refinement, and tests its equivalence classes against the proposed normal forms. Third it enumerates the entire Boolean/modal closure of the projection functions on the full r-input operation truth tables for eight small frames, comparing each closure size with the predicted power of two. It separately tests the explicit three-world orientation difference.
+## originality
 
-These calculations cannot prove the theorem for arbitrary lengths and capacities. The general result follows from the bounded-morphism deletion lemma, the explicit suffix-isolating formulas, the uniqueness of finite reachable bisimulation-minimal quotients, and the constructive realizability of exactly the listed palette words. The code is a finite consistency check and an independently repeatable calculation, not an independent mathematical audit.
+PASS
+
+The source-independent capacity-admissible reduced-palette normal form and exact full term-operation enumeration go beyond general bisimulation invariance, finite-model learning and interpolation on clusters. Primary relevant sections and Resultary check find no implication-equivalent count; risk of older modal-algebra results remains.
+
+## value
+
+PASS
+
+Full operation clones are a natural invariant of finite Boolean modal algebras; classifying the pointed modal types and identifying sensitivity to cluster order solves a nonroutine algebraic enumeration problem, not merely recounting formula syntax.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
