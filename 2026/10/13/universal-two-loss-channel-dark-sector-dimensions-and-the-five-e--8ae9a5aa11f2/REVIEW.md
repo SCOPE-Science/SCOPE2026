@@ -1,9 +1,21 @@
-# Review of universal two-loss-channel dark-sector dimensions
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is established for all integers \(n\ge2\) and arbitrary nonzero complex jump coefficients. An invertible edge-variable change converts the two lowering constraints into the row nullspace of a signless incidence operator and its ratio-weighted partner. The full left nullspace is parameterized by one \(2\times2\) matrix, and the residual symmetric bilinear constraints reduce to the ranks of explicit three-column rows \((1,s+t,st)\). The rank classification is proved case-by-case, including \(n=2,3,4\), constant ratios, the dominant multiplicity boundary, and pairwise distinct ratios. The explicit stationary-state assertion uses solely two lowering dissipators and a uniform noninteracting number Hamiltonian. The packaged exact-rational verifier returned `VERIFY_OK 379 exact rational rank and vector checks`; it is corroboration, not an infinite proof. No stronger dynamical or experimental robustness is inferred.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The inspected 2026 collective-battery paper constructs dark states for uniform angular-momentum dynamics and its raising/lowering channels; it does not yield the dimension classification for two freely weighted lowering profiles. The inspected 2017 multilevel-decay paper uses distinguishable internal decay transitions, not two independent spatial qubit profiles. The inspected 2022 localized multiphoton waveguide paper studies a different collective-loss structure. Targeted searches for double-channel two-excitation dark spaces, coupling-ratio multiplicities, matrix nullspaces and five-emitter thresholds, together with published-record semantic searches and existing-claim comparison, disclosed no equivalent or stronger explicit classification. This absence is not a guarantee of priority: a recent half-waveguide preprint was only available at abstract level, and the result may be implicitly derivable from unindexed work.
+PASS
 
-**Value — PASS.** A complete classification of the joint decoherence-free space dimension is a natural invariant for an ensemble exposed to two distinguishable emission reservoirs. The exact dimension gives the available encoded-state count, identifies the generic five-emitter onset, and explains the exceptional four-emitter geometry and dominant-ratio jumps. These are motivated structural boundaries, not just isolated finite ranks; the theorem is valid for arbitrary system size and complex spatial profiles.
+Set y_ij=c_i c_j x_ij and r_i=d_i/c_i. Both lower-jump kernels become the two vertex-indexed edge-sum constraints Σ_{j≠i} y_ij=Σ_{j≠i} r_j y_ij=0. Annihilator vectors (α_i,β_i) obey α_i+α_j+β_i r_j+β_j r_i=0; using two distinct anchor ratios gives rank(B)=2n−4+rank(T), where each pair of ratios s,t contributes (1,s+t,st). At n≥5 the rank(T) dichotomy 2 (ratio multiplicity at least n−2) or 3 otherwise follows by choosing anchors and the Vandermonde determinant. For n=4 special equal-pair case rank(T)=1, otherwise 2. For h=1 the signless complete-graph incidence rank is n≥3. A separate rational Gaussian-elimination checker tested 510 integer-partition ratio patterns for n=2..9 and the explicit 5-emitter kernel vector; all matched. The stationary-state corollary requires only the stated scalar number Hamiltonian, no extra Lindblad terms.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for two-excitation simultaneous common kernel classification under two arbitrary nonzero weighted lowering profiles; previous papers on collective singlets and multilevel decay channels do not directly imply the full ratio-multiplicity formula. Plausible recent papers not fully read remain an explicit originality risk.
+
+## value
+
+PASS
+
+Exactly classifies the protected two-excitation common dark space across the natural emitter number and spatial coupling multiplicity parameters, locating the generic five-emitter onset and exceptional four-emitter symmetry. Physically and algebraically motivated structural kernel theorem, not merely a sampled dimension table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
