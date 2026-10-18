@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Fourier orthogonality gives the exact squared-autocorrelation identity, with six singleton positive shifts and three three-term positive shifts. A complete unit-phase gauge reduces the moment to three explicitly displayed nonnegative squares. Their simultaneous vanishing is equivalent to the two ordered pairs of nontrivial cubic roots; their simultaneous maximum identifies the character-phase maximizer. Binary odd-integer obstruction proves its distinct sharp minimum. Difference-frequency injectivity establishes the finite-grid extension without extrapolation. The packaged exact-ring checker verifies all 35 normalized binary/ternary choices, the difference profile, and direct finite-grid subsidiary tests.
+PASS
 
-## Originality — PASS, with residual risks
+PASS: Autocorrelation Parseval gives C(0)=6 and exactly nine pairs of nonzero shifts, six singleton and three triple-pair. After the unique lambda/alpha/beta gauge, the exact fourth moment equals 48+2*(|1+u+v|^2+|1+v+w|^2+|1+u*conj(v)+v*conj(w)|^2). Equality at 48 forces the two conjugate cube-root triples; equality at 102 forces all ones. The coefficient torus is connected, so all intermediate values occur. Odd-integer triple sums give binary min54 with four gauged choices; q-phase reachability iff 3 divides q, with 2q^3 coefficients. Integer differences remain distinct modulo any rectangular torus with m,n>=5. Independent exact arithmetic enumerated all 8 binary and 27 ternary gauged triples and the autocorrelation formula; no finite extrapolation.
 
-The inspected original primary works on polyphase two-dimensional array pairs and quads (Gu et al., arXiv:2108.05657, Sections I–IV; Du–Jiang, arXiv:2204.09372, Sections I–V) address cancellation across multiple arrays. Katz–Ramirez (arXiv:2307.14566, Sections 1, 4 and 5) addresses moments of the demerit-factor distribution for one-dimensional binary sequences, not a sharp extremal value for a single six-point complex array. Published four-point Fourier moment results concern one-dimensional support and cannot imply this six-point two-dimensional cancellation system. Older exact polyphase-array design tables and language variants remain a residual bibliographic risk; failure to find coverage is not itself a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The triangular support is the complete bivariate polynomial basis of total degree at most two, rather than an arbitrarily deleted frequency subset. At this first quadratic simplex layer, exactly three autocorrelation shifts each receive three contributions. The theorem determines when all three can be cancelled **simultaneously**, identifies their unique phase geometry and quantifies the exact binary-versus-ternary merit-factor gap, 2 versus 3. These natural exact single-array invariants are not supplied by general complementary-pair existence theorems. The result does not claim a wider array-family construction or applicability outside this support.
+PASS best-of-knowledge: The published six-mode Fourier rectangle record concerns a 2x3 full rectangle with moment [50,114], not a degree-two triangular simplex with [48,102]; affine lattice transformations preserve collinearity and cannot map these supports. Primary Du–Jiang Theorem IV.3 constructs complementary PAIRS using input pairs, whose summed cancellation does not imply the sharp single-array squared-autocorrelation minimum or its complete equality phase orbits. No stronger matching triangular-aperture optimization found. Older exact polyphase design tables remain a plausible unexcluded risk.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The complete two-variable polynomial basis of total degree<=2 is canonical; its three three-pair autocorrelations form a naturally constrained cancellation system. Exact reachability, complete cubic-root phase orbits and the binary/ternary merit-factor gap (2 vs 3) are motivated single-aperture invariants beyond complementary-array constructions; not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
