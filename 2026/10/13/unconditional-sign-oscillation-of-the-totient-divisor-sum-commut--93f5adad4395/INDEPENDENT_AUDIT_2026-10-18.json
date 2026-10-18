@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On n=2^(k-1) for k>=2, the exact identity C(n)=(M_k-1)/2-phi(M_k), M_k=2^k-1, follows from phi(2^(k-1))=2^(k-2) and sigma(2^(k-2))=2^(k-1)-1. For odd prime k, every q|M_k has order k mod q, so q>=2k+1. The number of distinct prime factors is <=k-1 (otherwise their product exceeds M_k). Product lower bound phi(M_k)/M_k >= 1-(k-1)/(2k+1)>1/2 gives C(n)<0; k=2 handled directly. For multiples of 12, 4095|M_k and phi(4095)/4095=192/455<1/2 imply C(n)>0. The five composite indices 4,6,8,9,10 complete the negative census k<12. Independent exact factorization/phi/sigma arithmetic for k=2..36 gives positives [12,20,24,28,30,36] and C(2048)=319. Euclid plus the progression 12Z supplies infinite negatives/positives; no unproved Mersenne-prime infinitude used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Koninck–Luca establishes unrestricted quotient orders, density/mean/range statements for sigma(phi(n))/phi(sigma(n)).",
+          "General density or unrestricted oscillation cannot imply sign oscillation on powers of two, which have natural density zero."
+        ],
+        "reasoning": "Prior results concern a quantitatively broader input domain but do not imply existence of two signs on this prescribed sparse subfamily.",
+        "searches": [
+          "Resultary semantic: Sigma Euler totient commutator sigma(phi(2^k)) minus phi(sigma(2^k)) prime exponent negative multiples 12 positive",
+          "De Koninck Luca 2007 On composition of Euler function and sum of divisors Theorems 1-5",
+          "Golomb 1993 equality among number theoretic functions"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md SHA 685dfec61406a17fd2a1138b87d60da71162af2f",
+        "verify.py SHA 05806486eb155451ecec86f988f62d92b6d60f58",
+        "Golomb1993 archived manuscript",
+        "DeKoninckLuca2007 DOI:10.4064/cm108-1-4",
+        "OEIS A065395",
+        "Resultary semantic: Sigma Euler totient commutator sigma(phi(2^k)) minus phi(sigma(2^k)) prime exponent negative multiples 12 positive"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-prime order-of-2 argument forces q≡1(mod 2k), giving strict totient ratio >1/2.",
+          "M_12 divides every M_(12m), forcing totient ratio below 1/2."
+        ],
+        "reasoning": "These complementary universally quantified constructions do not follow from prior results about all n or hypothetical infinite Mersenne primes; the proof is elementary but makes an independently useful unconditional claim.",
+        "searches": [
+          "Resultary semantic: Sigma Euler totient commutator sigma(phi(2^k)) minus phi(sigma(2^k)) prime exponent negative multiples 12 positive",
+          "Golomb scanned 1993 manuscript Section 4 theorem",
+          "De Koninck Luca 2007 Theorems 1-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Golomb powers-of-two negative construction refers to a Mersenne-prime infinitude hypothesis; prime-exponent proof here avoids primality of 2^k−1.",
+          "OEIS A065395 sequence data concern n over all naturals; exact progression criteria are not listed in inspected entry."
+        ],
+        "reasoning": "Same composition C but different proven scope: prior global sign oscillation and a conditional geometric subsequence, not unconditional both-sign geometric subsequence with all prime indices.",
+        "searches": [
+          "Resultary semantic: Sigma Euler totient commutator sigma(phi(2^k)) minus phi(sigma(2^k)) prime exponent negative multiples 12 positive",
+          "Golomb 1993 Equality among number theoretic functions power of two Mersenne primes conditional",
+          "OEIS A065395 commutator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A065395 tabulates initial commutator integers and credits Golomb; A116083 is the difference-one locus.",
+          "No inspected table classifies signs over all prime exponents or all multiples of twelve."
+        ],
+        "reasoning": "Ambient sequence values, including C(2048), are not a proof of universal index criteria. Existing tabulation is properly acknowledged.",
+        "searches": [
+          "OEIS A065395",
+          "OEIS A116083",
+          "Resultary semantic: Sigma Euler totient commutator sigma(phi(2^k)) minus phi(sigma(2^k)) prime exponent negative multiples 12 positive"
+        ]
+      },
+      "rationale": "Golomb (1993) proved both signs globally and considered powers of two but his infinite negative power-of-two example was conditional on infinite Mersenne primes. De Koninck–Luca (2007) prove order and density statements on unrestricted integers; those statements do not supply sign oscillation inside a zero-density powers-of-two subsequence. OEIS A065395 catalogs the unrestricted commutator and A116083 a different equality condition, not an all-prime exponent negativity rule with 12-divisible positivity. Focused Resultary and exact-query search revealed no dominating sequence theorem; unindexed elementary observations remain a risk.",
+      "residual_risks": [
+        "Elementary number-theory literature may have an unindexed equivalent conditional-free observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing global oscillation and conditional sparse negative construction; no unconditional all-prime-index result identified",
+          "evidence": "The negative powers-of-two argument cited depends on Mersenne primes.",
+          "identifier_or_url": "https://oeis.org/A006872/a006872_1.pdf",
+          "material_read": "Scanned manuscript, in particular Section 4 sign discussion and reference to Mersenne-prime construction",
+          "method": "Primary archived scan inspection and comparison to cited theorem",
+          "title": "Equality among number-theoretic functions",
+          "trigger": "Same commutator and proposed sign question"
+        },
+        {
+          "assessment": "Global density and range do not yield prescribed power-of-two subsequence oscillation",
+          "evidence": "Unrestricted quotient H(n) and its density results.",
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/87236",
+          "material_read": "Primary full 2007 paper, theorem statements on order, density and distribution of composition quotient",
+          "method": "Read primary PDF theorem framework, compared n domains",
+          "title": "On the composition of the Euler function and the sum of divisors function",
+          "trigger": "Closest stronger global theorem"
+        },
+        {
+          "assessment": "Ambient sequence known; no universal prime-exponent/progression claims visible",
+          "evidence": "Entry credits Golomb 1993 and displays arbitrary n values.",
+          "identifier_or_url": "https://oeis.org/A065395",
+          "material_read": "Sequence entry, comments, references and initial term table",
+          "method": "Read OEIS entry",
+          "title": "OEIS A065395: Commutator of sigma and phi functions",
+          "trigger": "Exact database lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Replacing a conditional negative example with an unconditional infinite subfamily inside the SAME sparse powers-of-two sequence as an explicit positive progression resolves a natural restricted sign-oscillation problem. The result supplies concrete prime-index and 12-divisibility criteria and a sharp first positive instance n=2048. This is more than a routine composite calculation or finite list; the existence proof works for infinitely many exponents with distinct mechanisms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md SHA 685dfec61406a17fd2a1138b87d60da71162af2f",
+    "verify.py SHA 05806486eb155451ecec86f988f62d92b6d60f58",
+    "Golomb1993 archived manuscript",
+    "DeKoninckLuca2007 DOI:10.4064/cm108-1-4",
+    "OEIS A065395",
+    "Resultary semantic: Sigma Euler totient commutator sigma(phi(2^k)) minus phi(sigma(2^k)) prime exponent negative multiples 12 positive",
+    "Pinned METADATA.json blob 54fa0a7d7532aa3c3f1f81e1702e8a6e788e63c4",
+    "Pinned AUDIT.json blob 432945cb8d0b059abaa2c89ff12ecedbb861f8b2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No complete classification of composite exponent indices.",
+    "No density claim over all n and no assumption about Mersenne-prime infinitude."
+  ],
+  "schema_version": 1
+}

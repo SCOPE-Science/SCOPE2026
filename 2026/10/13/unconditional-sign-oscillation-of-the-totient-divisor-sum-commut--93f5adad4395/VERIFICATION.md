@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The script `verify.py` uses only integer arithmetic and the Python standard library. Direct divisor-sum and totient formulas were recomputed separately for all exponent indices \(2\le k\le36\) and compared against the Mersenne reduction. The calculations confirmed that all eleven prime indices through \(36\) yield negative values, the indices divisible by \(12\) yield positive values, the complete set of positive indices in this finite window is \(\{12,20,24,28,30,36\}\), and the first positive index \(12\) gives \(C(2048)=319\).
+## correctness
 
-Exact command: `python3 verify.py`
+PASS
 
-```
-VERIFY_OK k=2..36 positive_indices= [12, 20, 24, 28, 30, 36] first_positive_n=2048 C_2048=319 prime_indices_negative= 11
-```
+On n=2^(k-1) for k>=2, the exact identity C(n)=(M_k-1)/2-phi(M_k), M_k=2^k-1, follows from phi(2^(k-1))=2^(k-2) and sigma(2^(k-2))=2^(k-1)-1. For odd prime k, every q|M_k has order k mod q, so q>=2k+1. The number of distinct prime factors is <=k-1 (otherwise their product exceeds M_k). Product lower bound phi(M_k)/M_k >= 1-(k-1)/(2k+1)>1/2 gives C(n)<0; k=2 handled directly. For multiples of 12, 4095|M_k and phi(4095)/4095=192/455<1/2 imply C(n)>0. The five composite indices 4,6,8,9,10 complete the negative census k<12. Independent exact factorization/phi/sigma arithmetic for k=2..36 gives positives [12,20,24,28,30,36] and C(2048)=319. Euclid plus the progression 12Z supplies infinite negatives/positives; no unproved Mersenne-prime infinitude used.
 
-The script was run successfully from the enclosed source file before packaging. The proof of the claims for every qualifying exponent is algebraic and does not depend on the computational cutoff; no infinite search or independent audit has been performed.
+## originality
+
+PASS
+
+Golomb (1993) proved both signs globally and considered powers of two but his infinite negative power-of-two example was conditional on infinite Mersenne primes. De Koninck–Luca (2007) prove order and density statements on unrestricted integers; those statements do not supply sign oscillation inside a zero-density powers-of-two subsequence. OEIS A065395 catalogs the unrestricted commutator and A116083 a different equality condition, not an all-prime exponent negativity rule with 12-divisible positivity. Focused Resultary and exact-query search revealed no dominating sequence theorem; unindexed elementary observations remain a risk.
+
+## value
+
+PASS
+
+Replacing a conditional negative example with an unconditional infinite subfamily inside the SAME sparse powers-of-two sequence as an explicit positive progression resolves a natural restricted sign-oscillation problem. The result supplies concrete prime-index and 12-divisibility criteria and a sharp first positive instance n=2048. This is more than a routine composite calculation or finite list; the existence proof works for infinitely many exponents with distinct mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
