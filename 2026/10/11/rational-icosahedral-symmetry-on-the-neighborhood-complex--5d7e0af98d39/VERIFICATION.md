@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite exact verification
 
-Run `python3 verify_icosahedral_character.py` (Python 3.9+, standard library only). Successful output starts `VERIFY_OK` and reports a face vector of `(12, 60, 120, 60, 12)`, boundary ranks `(11, 49, 48, 12)` both modulo two and modulo three, reduced mod-two Betti rank 23 in degree two, all 120 symmetry permutations, and the rational irreducible multiplicities described in `RESULT.md`.
+# Independent mathematical audit
 
-The source independently rebuilds the graph from its six edge families, all faces from open neighborhoods, exact boundary columns, all graph automorphisms by partial-adjacency backtracking, the unique antipodal pairing, the 60-element order-five-generated rotation subgroup, and the signed trace of every automorphism on every chain degree. The table of class traces is compared to fixed expectations. Irreducible multiplicities follow by exact integer character inner products; no floating-point arithmetic or third-party packages are involved.
+## correctness
 
-The finite checker establishes the exhaustive finite identities which, together with the standard universal-coefficient, Euler characteristic, Lefschetz, semisimplicity, and \(A_5\)-character-table arguments in `RESULT.md`, prove the rational module decomposition. It is not a computation of the integral equivariant lattice, a proof about other graphs, or an outside independent audit.
+PASS
+
+For the exact 30-edge icosahedron each of 12 open neighborhoods has five vertices; direct face-union construction yields (12,60,120,60,12). Independent mod-2 boundary ranks (11,49,48,12) give β̃₂=23; Euler and rational-rank bound force rational concentration. Fresh networkx VF2 enumeration finds all 120 automorphisms and all-character trace distribution {23:1,3:39,-1:65,-5:15}. Assigned script also supplies A5×C2 subgroup class splits; the χ± values match W6+V5 and 2·1+2·V5. Finite object is exhaustively enumerable; no claim about integral lattices.
+
+## originality
+
+PASS
+
+Full rational A5×C2 module distinguishes central parity and all rotation classes and is strictly finer than the known rank-23 wedge count. Searches and nearby primary source do not establish the full action, subject to residual full-text coverage risk.
+
+## value
+
+PASS
+
+The icosahedron is a canonical symmetry-rich graph. The complete representation, central involution eigenspaces and vanishing G-invariants are natural exact invariants that are not determined by the known 23-sphere homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

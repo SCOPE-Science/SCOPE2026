@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The graph and open-neighborhood simplices are explicitly defined. Exhaustive exact elimination yields the face vector, mod-two and mod-three ranks, and rational homology. All 120 graph automorphisms are generated from first principles, their signed simplicial traces give all rational homology character values by Lefschetz, and the standard \(A_5\) character table yields the claimed \(A_5\times C_2\) decomposition. The packaged verifier is finite, self-contained, and replayed successfully. Rational rather than integral equivariance is claimed.
+## correctness
 
-**Originality: PASS, subject to indexing risk.** The closest published same-object calculation already establishes \(\mathcal N(I)\simeq\bigvee^{23}S^2\), so its nonequivariant content is credited as prior. The full text of that result does not specify an automorphism representation. Neither Matsushita's equivariant box-complex formalism nor Shukla's lower-degree graph-family classification gives the character table or the \(23\)-dimensional rational module. The new assertion distinguishes the parity eigenspaces and the two rotation-fixed classes. Unindexed equivariant calculations under an alternative Hom-complex description remain possible.
+PASS
 
-**Value: PASS.** The standard icosahedron has a canonical nontrivial order-120 symmetry group, making equivariant homology a natural invariant, not an arbitrary parameter slice. The decomposition distinguishes antipodal-even and antipodal-odd topology and proves full-group invariants vanish despite two rotation-invariant classes. This information is not determined by the homotopy type alone and is relevant to equivariant graph-complex topology.
+For the exact 30-edge icosahedron each of 12 open neighborhoods has five vertices; direct face-union construction yields (12,60,120,60,12). Independent mod-2 boundary ranks (11,49,48,12) give β̃₂=23; Euler and rational-rank bound force rational concentration. Fresh networkx VF2 enumeration finds all 120 automorphisms and all-character trace distribution {23:1,3:39,-1:65,-5:15}. Assigned script also supplies A5×C2 subgroup class splits; the χ± values match W6+V5 and 2·1+2·V5. Finite object is exhaustively enumerable; no claim about integral lattices.
 
-The result is limited to rational representations of this specific graph and does not certify integral lattice structure or equivariant homotopy type. No outside independent mathematical assessment was performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full rational A5×C2 module distinguishes central parity and all rotation classes and is strictly finer than the known rank-23 wedge count. Searches and nearby primary source do not establish the full action, subject to residual full-text coverage risk.
+
+## value
+
+PASS
+
+The icosahedron is a canonical symmetry-rich graph. The complete representation, central involution eigenspaces and vanishing G-invariants are natural exact invariants that are not determined by the known 23-sphere homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
