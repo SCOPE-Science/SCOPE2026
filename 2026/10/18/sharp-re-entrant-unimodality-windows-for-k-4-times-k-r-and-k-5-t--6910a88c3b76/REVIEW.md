@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** For every integer \(r\ge3\), a diameter-two induced-path characterization gives the coefficient formula, independently cross-checked with the published corrected formula. All exceptional coefficients and adjacent differences are explicitly derived. Exact sign inequalities show the three regimes for each fixed width; a binomial tail handles every unbounded remaining degree. The five small-instance subset enumerations and 996 arbitrary-precision parameter tests independently support the algebra without being used to extrapolate to infinity.
+
+**Originality — PASS (with priority risk).** The 2024 initiating paper asks which \(T^*(r,a)\) have unimodal general-position polynomials. The complete all-parameter coefficient enumerator is already known and *not* claimed. Rather's 2026 Theorem 5.3 gives it, and Corollary 5.7 settles \(a=3\). The new result identifies exact, nontrivial sharp intervals for both \(a=4\) and \(a=5\), which are not supplied as a theorem, corollary or stated range in the inspected full primary material. Semantic literature and database searches found no equivalent interval classification. A search cannot establish absolute priority; unindexed or contemporaneous material is a residual risk.
+
+**Value — PASS.** Two adjacent, natural sections of the explicit two-parameter unimodality problem are classified for every remaining size, not just tested numerically. The extensive intervening nonunimodal phases, especially the sharp \(a=5\) return at \(r=156\), demonstrate a genuine nonmonotone parameter phenomenon and are motivated directly by the published question. This is a specific, natural, complete subfamily result, not a general solution to the open problem.
+
+**Closest literature and limits.** Iršič et al. (arXiv:2401.05696), Problem 5.2; Rather (arXiv:2603.06930), Theorem 5.3 and Corollary 5.7. The prior coefficient formula covers enumeration; the proposed contribution is the rigorous uniform sign classification for the two widths. No theorem is asserted for \(a\ge6\) or for log-concavity. The tests do not constitute infinite proofs. Independent external evaluation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
