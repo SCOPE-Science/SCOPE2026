@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The state domain is explicit and positivity is controlled by \(a_k,c_k,d_k\ge0\), \(a_k+c_k+d_k=1\), and \(|w_k|^2\le a_kd_k\). A direct Bell contraction gives the exact two-link update, including the factor \(1/2\). The upper-triangular matrix product then proves the heterogeneous \(L\)-link formula by induction. Trace gives the branch probability, while the X-state concurrence formula and an independent partial-transpose eigenvalue calculation both give the exact entanglement criterion. If every \(w_k\ne0\), positivity implies positive branch probability and \(W_L\ne0\), so the endpoint is entangled for every finite \(L\). The source-family specialization reduces exactly to \(\rho_{s^L,\kappa^L}\). The checker reproduces these identities on independent finite contractions and returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. The closest recent source, arXiv:2609.11021v1, proves a universal finite horizon for full-rank links and supplies one explicit two-parameter rank-three family with all-depth persistence. It does not state closure or persistence for the full four-real-parameter kernel face, nor heterogeneous links. The closest older X-state source, arXiv:1311.6784v1 / doi:10.1103/PhysRevA.89.064301, gives general formulas for one Bell swap and threshold conditions, but no repeated right-left chain semigroup or all-length heterogeneous theorem. arXiv:2506.22245v1 studies multi-parameter network paths statistically and does not imply the exact branchwise law. Targeted semantic searches for rank-deficient X-state chains, kernel faces, Bell-swap semigroups, heterogeneous links, and the exact recent source found no covering published-finding corpus record or published statement.
+PASS
 
-Residual risk remains that an older channel-composition or cascade calculation states an equivalent triangular law under different terminology. The searches included X-state, Bell-swapping, repeated-chain, amplitude-damping, rank-deficient, Choi, heterogeneous-link, and entanglement-horizon aliases, and the most relevant full texts were checked at the statement and implication level.
+Each link is PSD precisely when a,c,d>=0, a+c+d=1, |w|^2<=ad, and support has zero |01>. Direct contraction of middle qubits on Phi+ maps two such states to half of rho(a'a,a'c+c'd,d'd,w'w) in the specified orientation. This matches the upper-triangular 2x2 matrix product T_new T_old, and induction over L-1 projections yields normalization factor 2^(1-L) and W product. The partial transpose contains 2x2 block [[0,W],[conj(W),C]]/Z with eigenvalue (C-sqrt(C^2+4|W|^2))/(2Z)<0 iff W!=0; standard X-state concurrence likewise 2|W|/Z. Every entangled input on this face has w!=0, forcing a*d>0 and hence positive success probability for finite L. An independent exact Fraction direct contraction for 3 distinct real links gave (A,C,D,W)=(6/125,14/125,2/25,3/200), branch probability 3/50 and concurrence 1/8, matching induction. The specialization c=a-d returns the homogeneous 2026 paper family; finite checks corroborate, not prove all lengths.
 
-## Value
-PASS. The recent full-rank/no-long-range theorem makes the structure of the low-rank exception mathematically consequential. The finding shows that persistence is not confined to a specially tuned two-parameter example: an entire natural state-space face, including heterogeneous network links, is exactly closed and has a computable success probability and concurrence at every depth. This gives a reusable structural mechanism for constructing and analyzing postselected repeater paths, while cleanly separating conditional entanglement persistence from its probability cost.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The assessed object is NOT merely an L=2 special case or a homogeneous two-parameter family; it is a composition for all finite heterogeneous lengths. A general X-state single-swap formula is an ingredient, but its statement does not itself enumerate this invariant face or articulate the all-length persistence. Trinh full text is inaccessible and might contain hidden equivalent results; priority risk retained rather than claiming it lacks them. The general two-link physics underpins the proof; the claimed contribution is the exact associative oriented invariant face, arbitrary heterogeneous finite depth, and all-length entanglement condition. Full Trinh paper was not available; no whole-text NOT_COVERING claim is made and possible broader prior coverage is a material risk. Residual priority/access caveats explicitly included; no search absence alone is interpreted as novelty.
+
+## value
+
+PASS
+
+Identifies a natural entire rank-deficient X-state face closed under a physically defined postselected Bell-swap operation, with an exact associative triangular-matrix composition and a heterogeneous finite-length entanglement-persistence criterion. It extends the isolated homogeneous rank-three example and supplies a reusable route-level calculation, while clearly distinguishing conditional survival from deterministic or all-branch transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
