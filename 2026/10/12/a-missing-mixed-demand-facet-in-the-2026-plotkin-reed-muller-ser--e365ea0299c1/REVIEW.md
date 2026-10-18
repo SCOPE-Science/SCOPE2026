@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The recursive generator has columns \((1,x)\), so it is the 2020 non-systematic first-order Reed--Muller generator after message-coordinate and column permutations. Transferring that exact theorem gives the corrected two-facet region. Independently, a weighted server-capacity certificate assigns weight \(3\) to the unique \(e_1\) server and weight \(1\) elsewhere; parity of recovery-set cardinality forces weighted cost at least \(3\) for object \(1\) and at least \(2\) for every other object, proving the missing inequality. The proposed request family satisfies the 2026 displayed caps but violates that inequality for every \(m\ge3\). Exhaustive \(m=3\) reconstruction checks all minimal recovery sets and all corrected-polytope vertices.
+PASS
 
-## Originality
+The actual RESULT.md at blob fa95a2c4d1e64a1dd477084ec54ebf7f4b35a07b defines the unit-capacity flow region for columns (1,x) in F_2^(m+1). The unique column (1,0,...,0) receives dual weight 3, other 2^m-1 columns weight 1; any recovery set for the first object has odd size and weighted cost >=3, any recovery for other objects has positive even size and cost >=2. This proves 3 lambda_1+2sum_{i>=2}lambda_i <=2^m+2 for all m. The claimed 2026 enlarged outer region contains (a,b,0,...), a=(2^m+2)/3, b=(2^m-4)/6>0 for m>=3, but its dual cost excess is 2b. The 2020 exact theorem supplies achievability of the two-facet corrected region under k=m+1 coordinate relabel. Exact rational checks performed for m=3,4,5,8 confirm violations; they do not replace the infinite symbolic proof.
 
-PASS. The corrected exact polytope itself is explicitly treated as prior 2020 work, not as a new theorem. The new scientific claim is the source-specific correction: the October 2026 Plotkin-recursive full-region statement conflicts with that exact theorem. Searches by source identifier and title, correction or erratum terminology, and weighted-facet aliases found no public repair or earlier diagnosis. Later Reed--Muller service-rate literature is consistent with the 2020 exact result and does not cover the future 2026 misstatement.
+## originality
 
-## Value
+PASS
 
-PASS. The disputed display is a central service-rate conclusion for a standard storage-code family. Its extra region consists of demand vectors that cannot satisfy server capacity, so the correction prevents an operationally meaningful overestimate. The uniform counterexample and direct dual-capacity certificate make the repair substantive rather than editorial.
+PASS for source-specific 2026 correction, not for the already published exact RM region: the 2020 complete theorem includes the allegedly omitted facet but cannot itself diagnose a specific future misstatement. Search results have not identified a prior public diagnosis of v1. Full 2026 v1/v2 text was inaccessible; this is a high-priority corroboration risk.
 
-The claim is restricted to version 1 of the October 2026 preprint. A later revision may incorporate the correction, and the exact achievability portion is inherited from the cited 2020 theorem.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Correcting the full simultaneous-demand region of a standard storage code removes an entire infeasible family, while preserving correct individual maxima. The independent weighted-capacity certificate localizes the error and has mathematical/operational motivation beyond cosmetic restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
