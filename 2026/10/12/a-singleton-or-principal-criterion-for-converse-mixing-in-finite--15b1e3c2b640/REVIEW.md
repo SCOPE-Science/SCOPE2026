@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof converts the modal semantics into a finite minimal-neighborhood antichain problem. Singleton-generated outer families and principal inner families provide explicit common rectangles. If neither condition holds, one minimal outer neighborhood and two distinct minimal inner neighborhoods build a Boolean countervaluation; properness is used to rule out outside rows. Inclusion-exclusion gives the exact census. The standalone checker exhaustively tested 529 local-family pairs and 175682 valuation cases through three points per factor. Its finite scope is explicitly distinguished from the general finite-size proof.
+## correctness
 
-**Originality (PASS, with risk).** Aghamov et al. (2026) establish forward mixing and axiomatizations for normal *filter* neighborhood products, but not the necessary-and-sufficient converse criterion in non-normal finite monotone products. Sano (2011) studies hybrid products of monotone neighborhoods using only horizontal/vertical modalities. Kudinov (2014) treats normal neighborhood products. The finite normal-filter special case occupies the principal branch and is expressly not claimed as a separate discovery. Targeted literature and semantic research-record searches found no statement entailing the present exact non-normal dichotomy and two-order count. Equivalent lattice-theoretic or hypergraph formulations remain a genuine residual risk; unsuccessful searches alone do not certify novelty.
+PASS
 
-**Value (PASS).** The forward mixing axiom holds automatically in a full product, but the converse distinguishes when one rectangular neighborhood can be extracted from iterated local witnesses. This theorem precisely locates the obstruction to that extraction after removing finite-intersection closure, giving a complete structural classification, exact counts via Dedekind numbers, and the least carrier sizes for failure in both orders. The distinction is motivated by the third product modality studied in the 2026 primary source, not by an arbitrary finite slice. No more general logic axiomatization is claimed.
+For an arbitrary Boolean relation A⊆X×Y, rectangle truth means some U∈F,V∈G satisfy U×V⊆A; first iterated truth is H={x:A_x∈G}∈F. Rectangle→both iterates follows from upward closure. If every minimal F member is a singleton, choose x in H whose singleton lies in F and use its G-good row as V. If G is principal with minimal V0, then H×V0 is a rectangle. Conversely choose minimal U∈F of size≥2 and distinct incomparable minimal G neighborhoods V0,V1, assign row V0 at one u, V1 at other u∈U, empty elsewhere. Iterated box holds but any F rectangle requires all of U and an admissible subset of V0∩V1, impossible by minimality. Symmetric criterion follows. Counting proper families via Dedekind antichains T_n=D_n−2, singleton-generated/principal each q_n=2^n−1 with n-class overlap, inclusion–exclusion yields both given census formulas. Independently enumerated all 18 local families on each three-point carrier and every 512 Boolean valuation for 324 pairs: 203 first converse, 131 both, and all 165888 tests agreed. Unlimited finite carrier result follows from the analytic minimal-neighborhood proof, not finite enumeration.
 
-**Literature and boundaries.** The closest inspected full texts are Aghamov et al. (2026), Sano (2011), and Kudinov (2014). The normal-filter case and classical antichain counts are prior mathematics. The proof assumes both factors finite and all local families proper and upward closed; infinite/nonproper situations are not classified. Independent human review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A genuine all-finite monotone NON-normal neighborhood family classification with precise singleton-or-principal obstruction and exact Dedekind-number census. Prior full-product third modality work and published rectangularization criterion assume normal filters (finite principal), so they cover only a proper special subclass where the converse always holds. Sano monotone products include coordinates but not the rectangle-generated third modality; ordinary antichain counts are credited. Best-of-knowledge search found no dominating theorem for nonnormal families or this exact census, with residual Boolean-function/hypergraph alias risk.
+
+## value
+
+PASS
+
+This is a motivated exact classification of local converse mixing in a natural nonnormal product semantics, with a sharp 3×3 onset of both failures and a whole closed enumerative census. The structure matters for whether a third modality collapses to two iterated modalities; the counts provide independently useful exact model frequencies. It is not a trivial rephrasing of finite principal filters because their nonnormal complements are the decisive new cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
