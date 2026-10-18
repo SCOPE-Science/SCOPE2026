@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` after extracting this file into a directory with the accompanying research documents. No third-party dependencies are used. The script enumerates all 256 four-letter words and retains the 96 with precisely two GC symbols; the 72 candidates with no nonempty proper border form the vertices of a compatibility graph. A deterministic coloring-based maximum-clique enumeration obtains exactly twelve maximum cliques of size twenty. A separate direct generator builds twelve codebooks from the theorem's two endpoint orientations and six two-by-two partitions, independently checks every ordered word pair at overlap lengths one, two and three, and compares the sets. It verifies two symmetry orbits of sizes four and eight under the specified alphabet and reversal transformations.
+## correctness
 
-The finite clique census concerns only these exactly defined four-symbol and four-position parameters. It cannot prove a claim about other lengths or biological synthesis behavior. The independent audit state in the front matter is not evidence of review; independent audit has not occurred. Published work already established the optimum cardinality; this check is for the new equality classification and its details.
+PASS
+
+At length four there are 96 two-GC words and 72 unbordered candidates. Disjoint first-/last-letter sets bound the candidate counts; endpoint sizes (1,3) and (3,1) lose at least two self-bordered words and mixed (2,2) loses two bordered words and at least one from each of three disjoint incompatible pairs, leaving at most 19. Uniform AT-to-GC or GC-to-AT endpoints separate 16 compatible LLRR words from LRLR words, the latter corresponding to arcs between four two-letter blocks with disjoint initial and terminal vertex sets. At most 2*2=4 arcs; equality forces a complete bipartite directed rectangle, six choices of a two-element prefix block set for each endpoint orientation. Thus exactly twelve size-20 codes. Symbol relabeling and word reversal have orbit sizes 4 and 8. A fresh independent exact maximum-clique enumeration on all 72 unbordered balanced words found optimum 20 and precisely the same twelve codes (424 search nodes); this is a finite *exhaustive* domain of size four, not an extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. Prior numeric optimality is a premise, not a proof of the equality classification; explicit endpoint and overlap exclusions plus rectangle saturation are additional content.
+
+## value
+
+PASS
+
+This is the complete equality classification of a natural constrained DNA coding optimum already known numerically: the number of optimal labeled codebooks and both inequivalent two-dimensional block-splitting symmetry types identify all extremizers. It may be useful in codebook design and orbit enumeration; no biological performance or new optimal cardinality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
