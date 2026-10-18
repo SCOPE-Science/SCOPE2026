@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For any word 2*iota<=length. In any fiber that supports index at least two, A,B>=2 and 0<C<AB, which forces index>=2 for all its members. Hence no gap can occur if maximum<=3. Index 4 at length 8 forces four ab/ba pairs, A=B=4 and C=6+t for t in 0..4. Four of these five possible fibers contain displayed index-three witnesses. In the remaining C=8 fiber, the exact equations sum(x_j)=4 and sum(j*x_j)=8 have eight explicitly listed solutions. Exactly choose(4,2)=6 are index-four words, and the two remaining aabbbbaa and bbaaaabb have exactly two arches. This exhausts all lengths<=8 and is corroborated by independent direct subsequence tests on 511 words and bounded-partition recurrence; no finite observation is extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published result Closed-form law for binary subsequence universality gives N_{n,j} summed over all words, with generating function (1+z)/(1-z-2uz^2), rather than conditioned on C. Its entire RESULT.md was inspected.",
+        "arxiv:2610.06717v1 Theorem 3.3 and universal-index results determine minima/maxima for each class, which cannot alone tell whether 3 occurs between 2 and 4."
+      ],
+      "reasoning": "A result covering all n but omitting the fixed subsequence-count statistic C does not logically imply the distribution within any one fiber. An endpoint theorem does not specify internal support. A hypothetical full multivariate count could cover the result, but no such checked source was found.",
+      "searches": [
+        "Exact density of k-universal words within binary 2-deck classes with fixed subsequence ab count, partition generating function",
+        "2026 Subsequence Analysis Problems for Binary Parikh Matrices Fazekas Huang Mercas universality spectrum",
+        "arch factorization three arches four arches fixed inversion number binary Young tableaux",
+        "\"subsequence universality\" \"Parikh matrices\" intermediate values",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.06717v1",
+      "arxiv:2510.07159v1",
+      "doi:10.4230/LIPIcs.ISAAC.2023.4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "Earlier scientific statements on avoiding six scattered length-four patterns within binary Parikh classes and on avoiding the pattern ab^r a within those classes; these do not determine the universality index support."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fazekas–Huang–Mercaş Lemma 2.1 and Corollary 2.2 establish the arch characterization and shortest universal words; Lemma 3.2 obtains C=binomial(k,2)+t for k short arches. These steps are acknowledged as known.",
+        "The source gives existential and universal index bounds, but not that class (4,4,8) contains no member of exact index three.",
+        "The previous proof requires a new eight-partition fiber census plus distinguishable index classification, not merely substitutions into the endpoint formulas."
+      ],
+      "reasoning": "The new statement is not the known k=4 shortest-word form and not just the C=8 existence of some index-4 word. It proves a universal negative at exact index 3 in this fiber, identifies every representative, and proves minimal uniqueness among all shorter fibers.",
+      "searches": [
+        "arxiv:2610.06717v1 Sections 2-5 full-text",
+        "arxiv:2510.07159v1 sections on partitions and binomial equivalence",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md",
+        "Subsequence universality index interval spectrum for all binary words with fixed Parikh matrix number of a b ab subsequences, attainable arch counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.06717v1 identifies fixed (A,B,C) with binary 2-deck/Parikh fibers and defines the universality index; its Sections 3 and 4 give existential and universal endpoints, not intermediate-index realizability.",
+        "arxiv:2510.07159v1, Section 4.2 gives the partition encoding but no joint arch-index spectrum in the examined text.",
+        "Earlier accessible mathematical claims on specific scattered-pattern avoidance spectra were compared by implication; none gives the full subsequence-universality index spectrum."
+      ],
+      "reasoning": "We tested aliases Parikh-matrix, 2-deck, 2-binomial equivalence, scattered subsequence, arch count and exact-length index; the claimed unique first hole depends on the joint invariant (A,B,C,iota), not just class cardinality or endpoint universality.",
+      "searches": [
+        "Subsequence universality index interval spectrum for all binary words with fixed Parikh matrix number of a b ab subsequences, attainable arch counts",
+        "Parikh matrix classes gap in attainable universality indices |u|_a=4 |u|_b=4 |u|_{ab}=8 spectrum 2 4",
+        "minimum length binary word two-deck equivalence class universality index noninterval 8 aabbbbaa ababbaba",
+        "\"2-binomial equivalence\" \"universality index\" interval gap",
+        "\"Parikh matrix\" \"universality\" \"spectrum\" binary class gaps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published table/formula concerns the unconditional binary index distribution, while another concerns density of M-unambiguous words; neither is a table of spectra S(A,B,C).",
+        "The eight solutions to sum x_j=4, sum j x_j=8 were enumerated from scratch and corroborated by the supplied independent partition-counting routine."
+      ],
+      "reasoning": "Searches asked specifically for the 4,4,8 fiber, its eight words, and a noninterval index spectrum; a known generalized Gaussian-binomial coefficient supplies fiber cardinality but not the index-3 exclusion.",
+      "searches": [
+        "minimum length binary word two-deck equivalence class universality index noninterval 8 aabbbbaa ababbaba",
+        "minimum nonconvex attainable k universality spectrum binary Parikh matrix equivalence class",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c"
+      ]
+    },
+    "rationale": "The contribution is neither binary Parikh-matrix parameterization nor existential/universal endpoint arithmetic: it is the first possible strict gap and unique noninterval class through length eight, including its eight representatives. The 2026 source full text studies index endpoints and fixed-pattern probabilities, not the exact attainable intermediate-index set. The full inspected earlier partition analysis gives a bijection but not the index-gap phenomenon. The published overall binary index distribution is an unconditional marginal, incapable by itself of resolving the conditional C=8 class. Seven targeted published-finding corpus queries, three web queries and comparison to earlier relevant published claims found no covering statement; residual unindexed literature risk remains and absence of search hits is not used as a uniqueness proof.",
+    "residual_risks": [
+      "Unindexed or differently named earlier research may contain the same small counterexample or a stronger joint spectrum theorem.",
+      "A general formula for the joint four-variable distribution could logically subsume this classification if one exists; no such covering source was found in checked literature.",
+      "Only initial-length spectra, not arbitrary-length gaps, are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Overlaps in objects, arch lemma and endpoint methods but contains no exact-index internal spectrum or first-gap classification in examined material",
+        "evidence": [
+          "arxiv:2610.06717v1, §§2–5",
+          "2026-10-05 public version date"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "Full public HTML introduction, definitions, Lemma 2.1, Lemmas 3.1-3.2, Theorem 3.3 and Sections 4-5 covering the universal and probabilistic refinements",
+        "method": "Public arXiv HTML full-text inspection and targeted term/section examination",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Same class parameters A,B,C and exact universality indices in fresh 2026 research"
+      },
+      {
+        "assessment": "Establishes the partition correspondence and 2-binomial classes, but no intermediate exact universality-index hole classification identified",
+        "evidence": [
+          "arxiv:2510.07159v1, 2025-10-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+        "material_read": "Open-access PDF abstract, introduction, relevant partition/2-binomial equivalence passages and mathematical case discussion; PDF pages inspected visually",
+        "method": "PDF text inspection and visual page screenshots",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "2-deck equivalence and the 4-by-4 partition encoding used in the proof"
+      },
+      {
+        "assessment": "Its bivariate length/index generating function is unconditioned on Parikh subsequence-pair count C, and therefore does not imply a fiber-specific missing index",
+        "evidence": [
+          "Published record, 2026-10-04, theorem F(z,u)=(1+z)/(1-z-2uz^2)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "Entire public RESULT.md including theorem, proof, relationship and limitations",
+        "method": "Public source code-host read through connected read-only integration",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Possible stronger closed formula encompassing all binary words"
+      },
+      {
+        "assessment": "General regular-language endpoint and counting algorithms do not explicitly furnish the eight-word exact-index fiber classification",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.ISAAC.2023.4; public abstract"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ISAAC.2023.4",
+        "material_read": "Public abstract, scope and statements from publisher landing page",
+        "method": "Publisher open-access metadata/abstract inspection",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Potential general language-level existential/universal framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25f7995c-2c07-4917-8e2d-920d923fe41c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating work studies the extremal existential and universal indices for each fixed (A,B,C) Parikh-matrix class. Knowing endpoints 2 and 4 leaves the natural interval-filling property unresolved. This result supplies its first and unique possible obstruction at the forced minimum length 8, a complete exact fiber and a robust boundary: the five candidate C values are narrowed to one. It is a motivated structural counterexample to a natural question about constrained subsequence universality, not an arbitrary slice or recasting of known endpoint arithmetic.",
+    "status": "PASS"
+  }
+}
