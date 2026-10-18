@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:50:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=1, finite nu>=1 and independent Bernoulli eta sampling, the estimator is unbiased and its variance quadratic has unique oracle minimizer beta=mean(p). Every 0/1 selector mask has positive probability at every finite repetition count; an affine form minimizes at a mask vertex. For beta>0 and k>m eta, the adverse k-item mask comprises k smallest p values, yielding exact beta_crit=min sum p_(1..k)/(k-m eta). Oracle negative deviation selects p_i<mean. Under p_i in [a,b] and contrast kappa=b/a, the extremal two-level population with low fraction sqrt(kappa)/(1+sqrt(kappa)) yields maximum normalized downside (sqrt(kappa)-1)/(sqrt(kappa)+1), proving exact infimum and equality/rationality boundary. Independent rational checks on populations m<=5 and square contrasts verify, but only analytic proof establishes full dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2025 paper analyzes variance and warns of singular/ill-conditioned corrected positive-definite estimators, but not exact beta admissibility for every mask.",
+          "2026 abstract states probabilistic error/invertibility guarantees, not deterministic all-support iff threshold."
+        ],
+        "reasoning": "High-probability invertibility results do not imply positivity on every positive-probability event, however rare. The abstract-only 2026 paper may contain more than its abstract and has not been ruled out.",
+        "searches": [
+          "Polydorides et al 2025 full original PDF DOI:10.1109/SSP64130.2025.11073388",
+          "Polydorides et al 2026 arXiv:2606.08817 abstract on invertibility probability bounds",
+          "probabilistic matrix sketch invertibility versus all-mask deterministic positivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 79f17531d301f53a042c8a5a5bc458bfd896f6ce",
+        "Frozen verify.py blob 74470b32457190e0525f8a30024766dd1bd10569",
+        "DOI:10.1109/SSP64130.2025.11073388 full lawful manuscript equations 13–18",
+        "arXiv:2606.08817 abstract",
+        "Resultary 2026-10-18 relevant semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Variance-optimal control variate is old. Qualitative warning that corrected Gram can become singular does not fix the support-wise critical beta interval.",
+          "The exact result requires evaluating every Bernoulli mask and solving a two-point coefficient-contrast maximization."
+        ],
+        "reasoning": "Neither inspected source statement supplies the needed deterministic all-mask limit. Originality attaches only to sharp guard/equality/contrast extension, not classical variance algebra or elementary affine minimization.",
+        "searches": [
+          "2025 Polydorides et al Eqs 13–18 and discussion of positivity loss",
+          "2026 Polydorides et al arXiv:2606.08817 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2025 original paper gives the Bernoulli sketch and control-variate variance, warns corrected Gram may be singular.",
+          "The closest published Resultary hits concern different Bernoulli product identifiability or Gram positivity but not this support-wise control variate."
+        ],
+        "reasoning": "The old estimator is the same model, so novelty rests only in a separately quantified worst-case support constraint and contrast optimization, not estimator construction. The original warning does not quantify the iff positivity interval.",
+        "searches": [
+          "Resultary semantic query Bernoulli control variate Gram random sketch positivity threshold contrast root kappa sharp matrix",
+          "Polydorides Noori Vandierendonck Woods 2025 equations (13)-(18) and Section III.A",
+          "web query variance-optimal Bernoulli control variate Gram all-mask positive support threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact deterministic contrast threshold or sorted-prefix beta_crit formula in read 2025 source sections.",
+          "Resultary returned no same parameter theorem among ten hits."
+        ],
+        "reasoning": "This is a parameter threshold, not a finite combinatorial table. The proper exact-information check is source equations and indexed findings; absence of a hit cannot establish priority.",
+        "searches": [
+          "Resultary semantic index targeted search for exact Bernoulli Gram positivity coefficient contrast",
+          "2025 Polydorides paper equation-level comparison and tables",
+          "arXiv:2606.08817 searchable abstract"
+        ]
+      },
+      "rationale": "Qualitative nonpositive Gram sketch hazard and variational oracle control coefficient occur in Polydorides et al 2025, equations 13–18, and cannot be credited anew. The exact support-wise all-mask if-and-only-if positivity region, data-dependent threshold and sharp universal coefficient-contrast margin address a different stronger deterministic question than their variance/probabilistic statements. Their 2026 follow-up accessible abstract only describes probability/invertibility bounds; complete text unavailable, retained as risk.",
+      "residual_risks": [
+        "Full June 2026 follow-up paper not inspected, may contain exact bound; abstract alone is not no-coverage evidence.",
+        "Oracle beta=mean(p) requires full parameter population; support-wise failures may be exponentially unlikely, especially with large finite nu.",
+        "Classical bounded mean-absolute-deviation inequalities might give the contrast envelope after reformulation; residual priority concern.",
+        "Original public metadata retains private provenance; publication withheld."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior establishes estimator and qualitative positivity issue, not exact all-mask scalar threshold in inspected material.",
+          "evidence": [
+            "Eq. 13–18 variance/correction and discussion that positive-definite exact Gram can be rendered singular after control variate."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/SSP64130.2025.11073388",
+          "material_read": "Read lawful full Edinburgh author manuscript, equations 13–18, control-variate derivation, discussion of singular/ill-conditioned corrections, and conclusion.",
+          "method": "Primary manuscript PDF extracted text and page screenshot around equations (13)–(18).",
+          "title": "Randomised sketching of parametric linear systems",
+          "trigger": "Same parameter-oblivious Bernoulli Galerkin control variate estimator"
+        },
+        {
+          "assessment": "Abstract concerns probability/invertibility bounds and fusion; hidden deterministic support-wise bound remains a risk.",
+          "evidence": [
+            "Abstract says probabilistic bounds for sketching error, invertibility and estimator variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.08817",
+          "material_read": "Read abstract and indexed metadata; requested arXiv full text and lawful open version did not yield a complete readable primary manuscript; institutional access not reattempted after VPN-disconnected response from another job.",
+          "method": "Abstract only; full-text comparison unavailable.",
+          "title": "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation",
+          "trigger": "Closest same-team follow-up with more advanced sketch fusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact deterministic positivity safeguard for a natural scalar specialization of a matrix estimator has practical structural meaning: quantifies when variance-optimal correction loses Galerkin positivity and why finite averaging cannot remove even rare counterexample masks. Boundary/margin is sharp and dimension-free under bounded coefficient contrast. It is an oracle benchmark, not a deployable online estimator or arbitrary-matrix guarantee.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 79f17531d301f53a042c8a5a5bc458bfd896f6ce",
+    "Frozen verify.py blob 74470b32457190e0525f8a30024766dd1bd10569",
+    "DOI:10.1109/SSP64130.2025.11073388 full lawful manuscript equations 13–18",
+    "arXiv:2606.08817 abstract",
+    "Resultary 2026-10-18 relevant semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Full June 2026 follow-up paper not inspected, may contain exact bound; abstract alone is not no-coverage evidence.",
+    "Oracle beta=mean(p) requires full parameter population; support-wise failures may be exponentially unlikely, especially with large finite nu.",
+    "Classical bounded mean-absolute-deviation inequalities might give the contrast envelope after reformulation; residual priority concern.",
+    "Original public metadata retains private provenance; publication withheld."
+  ],
+  "schema_version": 1
+}
