@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:56:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Actual RESULT.md defines F8 using α³+α+1 and evaluates Tr(xy)+Norm(x+y)=0 at 28 distinct pairs. An independently implemented finite-field construction yields 28 distinct length-7 generator columns with first coordinate 1. Support(U)=28−|G∩U^perp| is a bijective orthogonality identity for the full rank-seven code. Separately from the packaged RREF verifier, enumeration by growing vector-space spans and deduplicating 128-bit membership masks exhausts all subspaces of F₂⁷. Dimension counts 127,2667,11811,11811,2667,127,1 and computed maximum intersections 1,2,4,7,10,16,28 with multiplicities 28,378,315,64,336,63,1 yield all claimed weights (12,18,21,24,26,27,28) and subcode counts (63,336,64,315,378,28,1). This is genuinely exhaustive finite proof for the fixed code, not a sample; it does not prove a claim about all [28,7,12] equivalent classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Four equivalence classes and nested minimum-distance chains are prior; no theorem read in the accessible material gives the full six minimizer counts for the constructed source code."
+        ],
+        "reasoning": "Prior all-class classification does not itself output all individual subcode support-maximizer multiplicities, and an optimum distance profile records existence of good nested chains rather than counting all equality subcodes.",
+        "searches": [
+          "Dodunekov–Encheva–Kapralov 1994 binary [28,7,12] four-class classification",
+          "Encheva–Cohen 1999 chain-condition projective codes",
+          "Freibert–Kim 2014 optimum distance profile studies"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md (blob 94fb490f…) and exact artifacts/verify.py + certificate.json",
+        "Independent subspace grow-and-deduplicate census; 29,210 nonzero proper subspaces with Gaussian binomial class checks",
+        "Liu–Liu–Yu (2026) DOI 10.3934/math.2026112; Dodunekov et al 1994; Freibert–Kim 2014",
+        "Resultary semantic search: extremal generalized Hamming weight minimizer subcode counts binary [28,7,12] Liu Liu Yu affine section multiplicities 63 336 64 315 378 28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The manuscript uses the known support-minimum definition but computes all attaining subspaces independently and exhaustively."
+        ],
+        "reasoning": "Known generalized weights and ordinary weight distributions do not logically imply their equality-layer multiplicities; the new count is not a restatement of the familiar hierarchy.",
+        "searches": [
+          "Liu–Liu–Yu AIMS Math 11 (2026), DOI 10.3934/math.2026112",
+          "Wei 1991 generalized Hamming weights",
+          "Resultary: extremal generalized Hamming weight minimizer subcode counts binary [28,7,12] Liu Liu Yu affine section multiplicities 63 336 64 315 378 28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orthogonality support(U)=28−|G∩U^perp|; 28-point affine F₂⁶ section counts (63,336,64,315,378,28)."
+        ],
+        "reasoning": "The affine-section and subcode-minimizer counts are exactly equivalent; direct comparison was therefore made to generalized weight and point-section literature, not merely the same numeric code parameters.",
+        "searches": [
+          "Resultary: extremal generalized Hamming weight minimizer subcode counts binary [28,7,12] Liu Liu Yu affine section multiplicities 63 336 64 315 378 28",
+          "Liu–Liu–Yu 2026 equation defining the punctured code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary enumerator is ordinary 1+63z^12+63z^16+z^28; multiplicity vector not present in the inspected main source."
+        ],
+        "reasoning": "Ordinary weight enumerator counts codewords; it does not determine general higher-dimensional minimizing-subcode census without additional incidence data. Older class tables remain a residual source risk.",
+        "searches": [
+          "Resultary: extremal generalized Hamming weight minimizer subcode counts binary [28,7,12] Liu Liu Yu affine section multiplicities 63 336 64 315 378 28",
+          "Liu–Liu–Yu 2026 [28,7,12] example",
+          "historical [28,7,12] weight table searches"
+        ]
+      },
+      "rationale": "PASS, best of knowledge for the NEW exact minimum-support subcode multiplicities, not the pre-existing generalized weight values. Relevant original 2026 construction gives the [28,7,12] code and the ordinary weight enumerator 1+63z¹²+63z¹⁶+z²⁸. Earlier classification of four self-complementary classes and optimum-distance-profile work do not, in inspected material, count every r-subcode attaining each generalized Hamming weight. The complete affine-section counts are a stronger invariant than the parameter and nested-distance-profile data. Residual risk of older unpublished or indexed table explicitly retained.",
+      "residual_risks": [
+        "The source example was not assigned unambiguously to one of the four historical permutation-equivalence labels; a different class catalog might secretly tabulate the same counts.",
+        "Not all 1994/1999/2014 full manuscripts were available, so no exhaustive historical noncoverage assertion is made.",
+        "All computations concern the single specified finite code only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers source code and weight enumerator, not the all-r support-minimizer counts",
+          "evidence": "Example with 1+63z^12+63z^16+z^28 and [28,7,12] parameters.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026112",
+          "material_read": "Full accessible article, in particular the finite-field construction, Example 3.7 and ordinary weight distribution",
+          "method": "Read primary full text and compared relevant example/theorem",
+          "title": "Weight distributions of subfield codes from special functions",
+          "trigger": "Exactly the defining trace-norm construction and the [28,7,12] code"
+        },
+        {
+          "assessment": "Four equivalence classes; actual full equality-subcode tables were not verified",
+          "evidence": "Historical classification risk retained instead of asserting whole-document absence.",
+          "identifier_or_url": "Designs, Codes and Cryptography 4 (1994), 57–67",
+          "material_read": "Bibliographic and available classification descriptions; no claim of complete article inspection",
+          "method": "Targeted title/classification comparison",
+          "title": "On the [28,7,12] Binary Self-Complementary Codes and Their Residuals",
+          "trigger": "Same code parameters and possible all-class coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The specified code is a natural extremal few-weight subfield code; counts of all minimal-support subcodes quantify its higher-support geometry, strictly refining both its known [28,7,12] parameters and generalized weight hierarchy. The 64 three-dimensional-section maximizers are an exact nontrivial incidence datum valuable for comparative code geometry and design calculations, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact extremal subcode support multiplicities for the Liu–Liu–Yu binary [28,7,12] code",
+  "limitations": [
+    "The source example was not assigned unambiguously to one of the four historical permutation-equivalence labels; a different class catalog might secretly tabulate the same counts.",
+    "Not all 1994/1999/2014 full manuscripts were available, so no exhaustive historical noncoverage assertion is made.",
+    "All computations concern the single specified finite code only.",
+    "Repository record tree was fully retrieved, sha-matched, and nontruncated; complete repository-root ancestry was not separately recomputed."
+  ],
+  "schema_version": 1
+}

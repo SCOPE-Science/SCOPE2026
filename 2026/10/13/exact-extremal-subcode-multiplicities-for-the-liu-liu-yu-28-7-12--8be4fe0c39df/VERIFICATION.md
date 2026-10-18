@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` is a standalone exact verifier using only the Python standard library.
 
-It constructs \(\mathbb F_8=\mathbb F_2[u]/(u^3+u+1)\), evaluates the trace-norm defining function on all \(64\) pairs, and obtains the exact \(28\)-point defining set. From the evaluation formula it builds the \(7\)-coordinate message representation of every generator column and checks that the columns are distinct, nonzero, and reproduce the published weight enumerator by exhaustive enumeration of all \(128\) messages.
+# Independent mathematical audit
 
-For each \(0\le t\le7\), every \(t\)-subspace of \(\mathbb F_2^7\) is generated exactly once from a reduced-row-echelon basis. The number of generated subspaces is checked against the binary Gaussian binomial coefficient. For every subspace the verifier counts its intersection with the \(28\) generator columns, reproduces the complete histograms stored in `artifacts/certificate.json`, and derives both the generalized Hamming weights and the number of subcodes attaining each minimum.
+## correctness
 
-The computation is exhaustive and finite. It proves no statement about other \([28,7,12]\) equivalence classes, and it does not use finite sampling to infer an infinite claim. Successful replay prints `VERIFY_OK`.
+PASS
+
+PASS. Actual RESULT.md defines F8 using α³+α+1 and evaluates Tr(xy)+Norm(x+y)=0 at 28 distinct pairs. An independently implemented finite-field construction yields 28 distinct length-7 generator columns with first coordinate 1. Support(U)=28−|G∩U^perp| is a bijective orthogonality identity for the full rank-seven code. Separately from the packaged RREF verifier, enumeration by growing vector-space spans and deduplicating 128-bit membership masks exhausts all subspaces of F₂⁷. Dimension counts 127,2667,11811,11811,2667,127,1 and computed maximum intersections 1,2,4,7,10,16,28 with multiplicities 28,378,315,64,336,63,1 yield all claimed weights (12,18,21,24,26,27,28) and subcode counts (63,336,64,315,378,28,1). This is genuinely exhaustive finite proof for the fixed code, not a sample; it does not prove a claim about all [28,7,12] equivalent classes.
+
+## originality
+
+PASS
+
+PASS, best of knowledge for the NEW exact minimum-support subcode multiplicities, not the pre-existing generalized weight values. Relevant original 2026 construction gives the [28,7,12] code and the ordinary weight enumerator 1+63z¹²+63z¹⁶+z²⁸. Earlier classification of four self-complementary classes and optimum-distance-profile work do not, in inspected material, count every r-subcode attaining each generalized Hamming weight. The complete affine-section counts are a stronger invariant than the parameter and nested-distance-profile data. Residual risk of older unpublished or indexed table explicitly retained.
+
+## value
+
+PASS
+
+PASS. The specified code is a natural extremal few-weight subfield code; counts of all minimal-support subcodes quantify its higher-support geometry, strictly refining both its known [28,7,12] parameters and generalized weight hierarchy. The 64 three-dimensional-section maximizers are an exact nontrivial incidence datum valuable for comparative code geometry and design calculations, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
