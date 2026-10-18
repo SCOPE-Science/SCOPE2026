@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:53:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 009edb0a38fe3a653cda112458f00b43be281da4",
+        "verify.py blob 257d5c87c3e113bb174f54161205fd01a1532242",
+        "Independent shore-state capacity enumeration s=2..11,k=1..5"
+      ],
+      "rationale": "For every vertex on B, all neighbors are exactly A, so each color count on A must be ≤floor(m/2); symmetrically B color capacity is floor(n/2). If total k color capacity on either shore < shore size, full coloring impossible. If capacity≥size, any partial nonfull shore uses fewer than size units and cannot have every color saturated, leaving a universally legal color at every uncolored shore vertex. Therefore neither adversarial choices nor interleaving create dead ends; formula and parity threshold follow for all m,n≥2. Boundary m=n=2 gives 2; any odd shore requires 3. Independently enumerated reachable count states for s=2..11, k=1..5.",
+      "residual_risks": [
+        "The proof relies on the exact strong neighborhood-majority definition; results do not hold automatically on general bipartite graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Game paper has cycle theorem and hardness, without biclique exact statement in inspected game sections.",
+          "Static paper gives cycles, complete graphs, global upper bounds, not universal play completion on K_(m,n)."
+        ],
+        "reasoning": "More general complexity bounds neither imply this sharp two-shore classification nor universal completion property.",
+        "searches": [
+          "Chawda et al. arXiv:2609.37796v1 Structural and computational aspects of majority coloring games",
+          "Kalinowski et al. arXiv:2605.23828v1 Strong majority colorings of graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37796v1",
+        "arXiv:2605.23828v1",
+        "Resultary SCOPE005 edge strong-majority threshold",
+        "Resultary 2026/10/4/...dd5898d7bbc5 multipartite majority C"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Capacity feasibility can be inferred from static coloring definition; adversarial impossibility of an incompletable partial state requires the saturation argument.",
+          "Full source text search for complete bipartite in game paper returned no occurrences; specific relevant results are cycles."
+        ],
+        "reasoning": "Claim adds static-to-game equivalence for a natural graph class and proves stronger every-legal-history completion; not entailed by the identified static classification alone.",
+        "searches": [
+          "arXiv:2609.37796v1 strong majority game definitions/structural and computational sections",
+          "arXiv:2605.23828v1 static strong majority definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source game arXiv:2609.37796 distinguishes Alice/Bob alternating legal moves, while static arXiv:2605.23828 only finds full colorings.",
+          "Resultary 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5 is majority C-coloring (not strong majority game)."
+        ],
+        "reasoning": "Biclique and complete bipartite aliases checked; equality of static/game thresholds is itself derived, not a synonym that imports static existence.",
+        "searches": [
+          "Resultary: strong majority coloring game complete bipartite graphs exact game chromatic number",
+          "Search strong majority games biclique K_mn parity capacity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest strong majority edge-coloring Resultary SCOPE005 is about coloring edges, not vertices in the adversarial game.",
+          "No matching all-(m,n,k) game count in returned database summaries."
+        ],
+        "reasoning": "Result specifies an unbounded complete two-parameter game family, not just a small K_(2,3) table; no novelty claim from empty search alone.",
+        "searches": [
+          "Resultary strong majority coloring game complete bipartite search",
+          "Resultary related edge-coloring and multipartite items"
+        ]
+      },
+      "rationale": "Two initiating 2026 papers distinguish static strong-majority coloring and adversarial strong-majority coloring games. The full game paper treats cycles and complexity rather than this complete bipartite exact formula; static parity feasibility alone does not establish every legal play is extendible. Resultary closest majority C- and edge-coloring results are different invariants.",
+      "residual_risks": [
+        "A simple biclique observation could be implicit in earlier game-coloring folklore or an unindexed result.",
+        "Only min degree >=2 family; stars and general bipartite graphs excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The relevant strong-game conclusions address cycles and computational hardness, not the derived K_(m,n) capacity formula.",
+          "evidence": [
+            "arXiv:2609.37796v1, strong majority game definitions and cycle theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.37796",
+          "material_read": "Full PDF opening definitions, strong-majority game sections, results on cycles, complexity; keyword search for complete bipartite",
+          "method": "Accessible 2026 arXiv PDF read and searched",
+          "title": "Structural and computational aspects of majority coloring games",
+          "trigger": "Defines precise game parameter and potential covering biclique theorem"
+        },
+        {
+          "assessment": "The static invariant does not entail the adversarial all-partial-plays extension.",
+          "evidence": [
+            "arXiv:2605.23828v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "Accessible full arXiv HTML/PDF introduction, definition, cycle and complete-graph structural examples",
+          "method": "Full-text accessible inspection",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Potential stronger static theorem implying game bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete bipartite graphs form a canonical two-parameter test of a new adversarial coloring game. A sharp parity transition and the stronger theorem that every legal partial play is extendible give a complete game dynamics classification, not merely a static palette count. Though short capacity proof is simple, it resolves a mathematically motivated, nontrivial distinction between static feasibility and adversarial completion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In strong-majority vertex coloring game for K_(m,n), m,n>=2, every legal play can be completed iff k*floor(m/2)>=m and k*floor(n/2)>=n; minimal game palette size is 2 for both sides even and 3 otherwise.",
+  "limitations": [
+    "For m,n>=2 only; stars have degree-one issues.",
+    "More general bipartite games may have genuine strategic traps."
+  ],
+  "schema_version": 1
+}

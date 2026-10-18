@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic proof reduces play on each bipartition shore to color capacities. For a shore of size \(s\), each color may be used at most \(\lfloor s/2\rfloor\) times. A nonfull dead state can occur exactly when every color is saturated before \(s\) vertices are colored, equivalently when \(k\lfloor s/2\rfloor<s\).
 
-The bundled `verify.py` independently enumerates every reachable occupancy vector for shore sizes \(2\) through \(12\) and palette sizes \(1\) through \(5\), tests the dead-state criterion directly, and checks the resulting game-number formula for all \(2\le m,n\le100\).
+# Independent mathematical audit
 
-Replay output:
+## correctness
 
-`ALL CHECKS PASSED; shore_cases=55; reachable_state_checks=19450; pair_cases=9801; shore_range=2..12; palette_range=1..5; parameter_range=2<=m,n<=100`
+PASS
 
-The enumeration is a finite stress test. The unbounded parameter ranges are justified by the analytic capacity argument, not by computation. No claim is made for graphs with a shore of size \(1\) or for arbitrary bipartite graphs.
+For every vertex on B, all neighbors are exactly A, so each color count on A must be ≤floor(m/2); symmetrically B color capacity is floor(n/2). If total k color capacity on either shore < shore size, full coloring impossible. If capacity≥size, any partial nonfull shore uses fewer than size units and cannot have every color saturated, leaving a universally legal color at every uncolored shore vertex. Therefore neither adversarial choices nor interleaving create dead ends; formula and parity threshold follow for all m,n≥2. Boundary m=n=2 gives 2; any odd shore requires 3. Independently enumerated reachable count states for s=2..11, k=1..5.
+
+## originality
+
+PASS
+
+Two initiating 2026 papers distinguish static strong-majority coloring and adversarial strong-majority coloring games. The full game paper treats cycles and complexity rather than this complete bipartite exact formula; static parity feasibility alone does not establish every legal play is extendible. Resultary closest majority C- and edge-coloring results are different invariants.
+
+## value
+
+PASS
+
+Complete bipartite graphs form a canonical two-parameter test of a new adversarial coloring game. A sharp parity transition and the stronger theorem that every legal partial play is extendible give a complete game dynamics classification, not merely a static palette count. Though short capacity proof is simple, it resolves a mathematically motivated, nontrivial distinction between static feasibility and adversarial completion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
