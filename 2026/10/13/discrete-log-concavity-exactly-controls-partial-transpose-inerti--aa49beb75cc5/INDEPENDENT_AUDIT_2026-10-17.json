@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:17:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding each |psi_k><psi_k| and transposing the qubit produces exactly two positive singleton entries p0/2,p_{n−2}/2 and n−1 disjoint 2-by-2 real symmetric blocks B_k=(1/2)[[p_{k−1},−p_k],[−p_k,p_{k+1}]]. Each block has strictly positive trace and determinant (p_{k−1}p_{k+1}−p_k²)/4; thus the strict/equal/reversed local log-concavity cases give, respectively, one negative, one zero, or two positive eigenvalues. Summation establishes inertia (n+1+V,E,L), including n=2 and zero-extended endpoints. The binomial adjacent-ratio inequality is strict in the interior and the geometric progression has exactly n−3 zero blocks when n≥3. The known universal upper bound n−1 is reached exactly at all strict inequalities. Independent exact rational partial-transpose matrix construction and block determinant tests agree on 33 representative examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnston arXiv:1305.0257 global tightness for NPT negative-eigenvalue dimension.",
+          "Cubitt–Montanaro–Winter arXiv:0706.0705 maximal Schmidt-rank entangled subspace constructions."
+        ],
+        "reasoning": "Global existence and dimension constraints do not determine inertia at every positive diagonal mixture in this explicit simplex. The current theorem is more precise in that parameter domain, though an obscure explicit construction may overlap.",
+        "searches": [
+          "partial transpose inertia discrete log concavity Schmidt-correlated quantum states exact counts negative eigenvalues",
+          "https://arxiv.org/abs/1304.6775"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0706.0705",
+        "arXiv:1304.6775",
+        "arXiv:1305.0257",
+        "arXiv:1906.04517"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rana bound (m−1)(n−1) specializes to n−1.",
+          "Johnston existence theorem attains it but does not impose simplex probability curvature."
+        ],
+        "reasoning": "Prior upper bound is a ceiling not a characterization; this theorem gives a necessary and sufficient criterion for hitting the ceiling in a particular canonical mixture.",
+        "searches": [
+          "partial transpose inertia discrete log concavity Schmidt-correlated quantum states exact counts negative eigenvalues",
+          "https://arxiv.org/abs/1304.6775"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rana arXiv:1304.6775 establishes upper bound on negative partial-transpose eigenvalues.",
+          "Current B_k determinants classify all local p_k²−p_{k−1}p_{k+1} signs."
+        ],
+        "reasoning": "The inertia law could be phrased as negative principal minors or total positivity/log-concavity of the augmented probability sequence. None of the retrieved primary results states that equivalence for these mixtures.",
+        "searches": [
+          "partial transpose inertia discrete log concavity Schmidt-correlated quantum states exact counts negative eigenvalues",
+          "https://arxiv.org/abs/1304.6775"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binomial and geometric families are analytic all-dimensional sequences, not a finite census.",
+          "Representative rational tests n=2..12 are diagnostic only."
+        ],
+        "reasoning": "No tabulated small-d NPT examples prove the if-and-only-if for all n; exact recurrence through all weights is the distinguishing structural result.",
+        "searches": [
+          "partial transpose inertia discrete log concavity Schmidt-correlated quantum states exact counts negative eigenvalues",
+          "https://arxiv.org/abs/1304.6775"
+        ]
+      },
+      "rationale": "The NPT maximal dimension result and negative-eigenvalue upper bound were established by Cubitt–Montanaro–Winter, Rana, and Johnston; they are not attributed to this work. What is new to our best knowledge is the complete exact sign/inertia classification within the natural diagonal mixture simplex, including necessity/sufficiency of local discrete log-concavity, binomial maximizing weights, and geometric zero-mode boundary. A generic block-diagonal proof is elementary once this specific state family is selected, but neither the general maximal count nor its attainment implies this entire weight-dependent classification.",
+      "residual_risks": [
+        "An unindexed application of block-structured partial transposes might state the same log-concavity criterion.",
+        "The theorem concerns only diagonal mixtures of this nearest-neighbor family, not coherent mixtures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides universal maximal negative-eigenvalue count, not established coverage of weightwise inertia; full noncoverage not inferred.",
+          "evidence": [
+            "S. Rana, Phys. Rev. A 87 054301 (2013), main bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.6775",
+          "material_read": "Primary abstract / indexed theorem statement; whole body not retrieved.",
+          "method": "Primary citation and abstract inspection.",
+          "title": "Negative eigenvalues of partial transposition of arbitrary bipartite states",
+          "trigger": "Direct upper bound on the proposed inertia"
+        },
+        {
+          "assessment": "Provides existence/maximal dimension; no located local strict-log-concavity criterion.",
+          "evidence": [
+            "N. Johnston Phys. Rev. A 87 064302 (2013)",
+            "https://www.njohnston.ca/2013/05/non-positive-partial-transpose-subspaces-can-be-as-large-as-any-entangled-subspace/"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1305.0257",
+          "material_read": "Primary abstract and accessible author discussion of maximal NPT subspaces.",
+          "method": "Article abstract plus author explanatory full page text.",
+          "title": "Non-Positive Partial Transpose Subspaces Can be As Large as Any Entangled Subspace",
+          "trigger": "Source of standard NPT-subspace family and global attainability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete natural parametric classification of the inertia for mixtures in the standard nearest-neighbor maximal NPT-subspace family. Discrete curvature in experimentally meaningful mixture weights predicts the number of negative partial transpose eigenvalues and exact zero-mode transitions; the binomial family gives explicit high-dimensional extremizers. It is a motivated family-level structural invariant, not arbitrary tiny-spectrum calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0706.0705",
+    "arXiv:1304.6775",
+    "arXiv:1305.0257",
+    "arXiv:1906.04517"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Positive weights; extension to zeros would create different block-boundary analysis.",
+    "Counts negative eigenvalues, not their absolute magnitudes or negativity."
+  ],
+  "residual_risks": [
+    "An unindexed application of block-structured partial transposes might state the same log-concavity criterion.",
+    "The theorem concerns only diagonal mixtures of this nearest-neighbor family, not coherent mixtures."
+  ],
+  "schema_version": 1
+}
