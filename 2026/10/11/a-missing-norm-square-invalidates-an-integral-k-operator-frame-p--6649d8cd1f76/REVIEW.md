@@ -1,36 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every \(A>0\) and \(t>1\), the singleton scalar family
-\[
-K=I,\qquad
-\Lambda_\ast=\sqrt A\,I,\qquad
-L=tI,\qquad
-a_\ast=-\frac{\sqrt A}{t}
-\]
-is \(A\)-tight and satisfies the printed inequality
-\[
-\frac{A}{t^2}<\frac{A}{t},
-\]
-yet its perturbation is the zero operator. The repaired threshold follows independently from the reverse triangle inequality for analysis operators:
-\[
-\|L\|\|a\|_2<\sqrt A.
-\]
-It yields lower bound
-\[
-(\sqrt A-\|L\|\|a\|_2)^2,
-\]
-and the cancellation example reaches equality, proving sharpness of the strict universal threshold.
+## correctness
 
-## Originality
-PASS. The current/prior owned ledger was checked by the two arXiv identifiers, the later DOI, source titles, and recoverable claim language; no overlapping item was present. Exact-source and semantic searches covered theorem numbering, the printed denominator, the squared perturbation energy, scalar cancellation, and the later Hilbert-\(C^*\)-module version.
+PASS
 
-The closest indexed frame result concerns quantitative smallness for a different controlled-\(K\)-frame perturbation problem. Other close items address reconstruction, diagonal scaling, excess, or dual-frame obstructions. None implies the correction here. The later integral-operator-frame source repeats the same mismatch instead of correcting it.
+PASS. Verified printed Hilbert-space Theorem 3.1 hypothesis ||a||_2² < A/||L|| conflicts with its own proof R=||L||²||a||_2² requiring R<A. For any A>0,t>1 on H=C and singleton measure, K=I, Lambda=√A I, L=tI, a=-√A/t: original A-tight, |a|²=A/t² < A/t, but Lambda+aLK*=0 and no lower K-frame bound. In particular independent exact test A=4,t=3,a=-2/3 cancels. The valid strict universal norm-only threshold ||a||_2² < A/||L||² yields lower bound (√A-||L||||a||_2)^2 via reverse triangle; boundary equality can cancel. Later Hilbert-C* module theorem repeats the mismatch; scalar Hilbert-C module already refutes it, with adjointable-analysis assumptions for the repaired general form.
 
-## Value
-PASS. The printed theorem can label an identically zero perturbation as an integral \(K\)-operator frame. The corrected square restores the actual perturbation scale used by the proof, supplies explicit valid bounds, and is sharp at the cancellation boundary. The fact that the same mismatch was propagated into a later Hilbert-\(C^*\)-module generalization makes the correction reusable rather than local to a typographical display.
+## originality
 
-## Limitations
-The squared-denominator threshold is a sharp universal norm-only guarantee, not a necessary condition for every individual perturbation. The review does not assess other results in the two sources. A nonindexed correction remains a literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS best of knowledge. The usual norm perturbation lemma is standard, but the original mathematical claim is that two identified published theorems print a specific false unsquared denominator and that an explicit scalar example satisfies all their printed hypotheses and destroys their conclusion. Inspected original theorem and later generalization show the same R norm square/printed denominator mismatch; no located erratum or published correction covers these exact statements. Generic frame perturbation theorems do not, without application to these printed claims, themselves supply the source-specific counterexample finding.
+
+## value
+
+PASS
+
+PASS. Correcting a source-specific published theorem is substantive: the printed sufficient condition can accept the identically zero family. The precise sharp universal threshold repairs proofs in both the Hilbert-space and module treatments, preventing incorrect citations and indicating the exact boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

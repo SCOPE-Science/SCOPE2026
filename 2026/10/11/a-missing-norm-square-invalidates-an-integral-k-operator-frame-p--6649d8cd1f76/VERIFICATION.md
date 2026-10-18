@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,64 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the original Hilbert-space theorem, take a one-point measure space and
-\[
-K=I,\qquad
-\Lambda_\ast=\sqrt A\,I,\qquad
-L=tI,\qquad
-a_\ast=-\frac{\sqrt A}{t},
-\qquad t>1.
-\]
-Then
-\[
-\|\Lambda_\ast x\|^2=A\|K^*x\|^2,
-\]
-so the original family is \(A\)-tight. The printed perturbation hypothesis holds because
-\[
-|a_\ast|^2
-=
-\frac{A}{t^2}
-<
-\frac{A}{t}
-=
-\frac{A}{\|L\|}.
-\]
-But
-\[
-\Lambda_\ast+a_\ast LK^*=0.
-\]
-Thus the conclusion fails exactly.
+# Independent mathematical audit
 
-The proof defines
-\[
-R=\|L\|^2\|a\|_2^2.
-\]
-Its lower estimate is
-\[
-\|R_\Gamma x\|
-\ge
-(\sqrt A-\sqrt R)\|K^*x\|.
-\]
-A positive lower bound therefore requires
-\[
-R<A,
-\]
-equivalently
-\[
-\|a\|_2^2<\frac{A}{\|L\|^2}.
-\]
-At equality, the scalar example cancels exactly.
+## correctness
 
-The later Hilbert-\(C^*\)-module theorem has the identical algebraic structure, with
-\[
-R=\|Q\|^2\|c\|_2^2.
-\]
-Its scalar Hilbert-\(\mathbb C\)-module specialization is the same counterexample. For the general module repair, the perturbed adjointable analysis operator is bounded below whenever
-\[
-\|Q\|\|c\|_2<\sqrt A.
-\]
-Then its positive Gram operator is invertible and supplies the required module-order lower frame bound.
+PASS
 
-The primary theorem pages and the later generalization theorem pages were inspected in the actual full-text sources. No numerical experiment, finite enumeration, or approximate certificate is used.
+PASS. Verified printed Hilbert-space Theorem 3.1 hypothesis ||a||_2² < A/||L|| conflicts with its own proof R=||L||²||a||_2² requiring R<A. For any A>0,t>1 on H=C and singleton measure, K=I, Lambda=√A I, L=tI, a=-√A/t: original A-tight, |a|²=A/t² < A/t, but Lambda+aLK*=0 and no lower K-frame bound. In particular independent exact test A=4,t=3,a=-2/3 cancels. The valid strict universal norm-only threshold ||a||_2² < A/||L||² yields lower bound (√A-||L||||a||_2)^2 via reverse triangle; boundary equality can cancel. Later Hilbert-C* module theorem repeats the mismatch; scalar Hilbert-C module already refutes it, with adjointable-analysis assumptions for the repaired general form.
+
+## originality
+
+PASS
+
+PASS best of knowledge. The usual norm perturbation lemma is standard, but the original mathematical claim is that two identified published theorems print a specific false unsquared denominator and that an explicit scalar example satisfies all their printed hypotheses and destroys their conclusion. Inspected original theorem and later generalization show the same R norm square/printed denominator mismatch; no located erratum or published correction covers these exact statements. Generic frame perturbation theorems do not, without application to these printed claims, themselves supply the source-specific counterexample finding.
+
+## value
+
+PASS
+
+PASS. Correcting a source-specific published theorem is substantive: the printed sufficient condition can accept the identically zero family. The precise sharp universal threshold repairs proofs in both the Hilbert-space and module treatments, preventing incorrect citations and indicating the exact boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
