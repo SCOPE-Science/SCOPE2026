@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity and two conjugate-linear isometries force the unique complex minimizer to have reciprocal real quadratic residual. The derivative of its scalar arcsine integral has opposite signs at a=1/4 and a=1/2, giving a unique stationary point for every p>1. The proof of the large-p law rederives the exact positive and negative endpoint substitutions and gamma integrals: P~(2 sqrt(2pi))^-1 (bp)^-3/2 and N~sqrt(2/pi) L^(p-1/2)(bp)^-1/2. Their stationarity balance is L^(p-1/2)~1/(4bp), which yields 4p(1/2-a)=log(4p)+o(1) and the root law. The positive endpoint of F_p is asymptotically (2pi bp)^-1/2 and the negative endpoint is O(p^-3/2), proving the moment law for all real p tending to infinity. The exact p=2 solution and finite computational checks p=2..400 match; computation is supplementary, not an infinite proof. See RESULT.md and checks/check.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2305.16068, Proposition 4.3 gives root bounds involving the unknown optimal norm and Pythagorean constants, not an evaluated p→∞ law.",
+        "arXiv:2310.16010 Sections 3-4 give iteration for coefficients and norm-duality at fixed p without a large-p constant."
+      ],
+      "reasoning": "Although prior theorems cover a broader family of generators for each fixed exponent, the bounds are implicit in the optimal coefficients and have no uniform sharp asymptotic at p→∞. They therefore do not imply the calculated constants for f=1-z.",
+      "searches": [
+        "optimal approximation of 1 by (1-z)(a+bz) in H^p with p growing: global minimizer two endpoint competition",
+        "Cheng Felder Centner 2023 optimal polynomial approximant q_{1,p}[1-z] asymptotic root",
+        "arXiv:2305.16068, Section 4",
+        "arXiv:2310.16010, Sections 3-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.14002",
+      "arXiv:2305.16068",
+      "arXiv:2310.16010",
+      "2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063",
+      "2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4",
+      "2026/10/11/SCOPE-dense-diagonal-zero-locations-for-weighted-bidisk-optimal-approx--9a2efd39d9d3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Centner Theorem 6.3 supplies finite algebraic optimality conditions for even p; obtaining a log(4p)/p correction demands a separate uniform endpoint analysis not in the theorem.",
+        "Centner Example 6.4 lists individual coefficients; even infinitely many isolated fixed-p formulas would not by themselves supply the stated constants without uniform analysis.",
+        "Centner–Cheng–Felder bound involves implicit quantities depending on p and the optimizer and is therefore insufficient to determine the leading asymptotic."
+      ],
+      "reasoning": "The claimed theorem has stricter object specificity but fundamentally different quantitative content: a sharp large-exponent rate and moment prefactor. No inspected source states a theorem from which those constants follow as an immediate specialization. Basic symmetry/variational reductions alone are not presented as the sole value.",
+      "searches": [
+        "Hardy H^p optimal degree-one polynomial approximant to reciprocal of 1-z: coefficient a_p and root approaching -1 as p tends to infinity at rate log(p)/p",
+        "Optimal Polynomial Approximants in Lp Centner Example 6.4 for f(z)=1-z exact large-p coefficient and root boundary-layer log(4p)/p",
+        "degree two polynomials r with r(1)=1 minimization of Lp norm unit circle, palindromic quadratic, asymptotic coefficient half minus log(4p)/(4p)",
+        "arXiv:2112.14002, Theorem 6.3 and Example 6.4",
+        "arXiv:2305.16068, Proposition 4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2112.14002 Example 6.4: degree-one best approximants for 1-z at selected even p; it does not state a p→∞ expansion.",
+        "The residual polynomial formulation r(1)=1 and real reciprocal quadratic is algebraically equivalent to this precise OPA problem; nearest searched records concerned unrelated constrained-polynomial problems."
+      ],
+      "reasoning": "The equivalent best Lp-constrained-quadratic problem has objective integral ∫|1-2as|^pρ(s)ds. The proposed assertion evaluates its unique minimizer as the exponent varies; fixed-even-p tables, a general orthogonality criterion and unrelated minimax quadratic theorems do not contain or entail the sharp logarithmic rate.",
+      "searches": [
+        "Hardy H^p optimal degree-one polynomial approximant to reciprocal of 1-z: coefficient a_p and root approaching -1 as p tends to infinity at rate log(p)/p",
+        "degree two polynomials r with r(1)=1 minimization of Lp norm unit circle, palindromic quadratic, asymptotic coefficient half minus log(4p)/(4p)",
+        "Constrained Lp trigonometric polynomial normalized value at 1 degree two two endpoints Laplace saddle root p asymptotic",
+        "arXiv:2112.14002, Example 6.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2112.14002 Example 6.4 is the closest same-object finite numerical table (p=2,4,6,8,10,20,30), not a table at varying p with proved rate.",
+        "Published mathematical result on one-generator Dirichlet polydisk approximation establishes a radial regularity threshold at degree N, not an H^p exponent asymptotic.",
+        "Published mathematical result on bidisk H² approximation establishes a total-degree n→∞ error rate, not a fixed-degree p→∞ rate."
+      ],
+      "reasoning": "The known direct finite-exponent table does not subsume an all-real-exponent asymptotic theorem. Database near-hits change the space, generator, polynomial degree, or asymptotic parameter, so their theorems do not imply the displayed p-dependent coefficient and root.",
+      "searches": [
+        "Optimal Polynomial Approximants in Lp Centner Example 6.4 for f(z)=1-z exact large-p coefficient and root boundary-layer log(4p)/p",
+        "Finite p tables Centner 2022 first degree OPA 1-z, extrapolation as p infinity, endpoint asymptotic",
+        "2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063",
+        "2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4"
+      ]
+    },
+    "rationale": "Centner arXiv:2112.14002 Example 6.4 already gives this generator and fixed even-p numerical approximants, so those examples and basic OPA theory are excluded from the claimed novelty. Its materially inspected Sections 5-6 do not furnish real-exponent p-to-infinity coefficient/root asymptotics or optimal p-th-moment prefactors. General fixed-p OPA root bounds of arXiv:2305.16068 Section 4 and degree-one algorithms and error dualities of arXiv:2310.16010 Sections 3-4 do not imply these sharp variable-p asymptotic constants. Published-record searches using the direct statement, reciprocal-polynomial and constrained trigonometric formulations returned no claim of this same mathematical asymptotic; nearest results address other generating functions or other asymptotic variables. There is a residual possibility of unindexed equivalent literature, but no decisive unexamined stronger source is presently identified.",
+    "residual_risks": [
+      "The semantic and literature search may miss an earlier equivalent asymptotic stated as an endpoint-constrained trigonometrical extremal problem.",
+      "Numerical examples at selected even p exist in the closest primary source; originality is limited explicitly to the uniform all-real-p sharp rate and moment, not its finite tables."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the object and finite-exponent framework but does not state or imply a uniform sharp variable-exponent boundary layer or residual-moment constant.",
+        "evidence": [
+          "2021 first posting verified at arXiv:2112.14002v1",
+          "PDF page 21 Example 6.4 fixed even-exponent coefficient and root examples",
+          "PDF page 21 Theorem 6.3 algebraic conditions when p is even"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.14002",
+        "material_read": "Full open-access PDF accessed; materially inspected introductory definitions and Sections 5-6, PDF pages 19-22 including Theorem 6.3 and Example 6.4",
+        "method": "Read open-access PDF text and page image; compared the actual coefficient and zero statements and quantifiers to the p→∞ asymptotic",
+        "title": "Optimal Polynomial Approximants in L^p",
+        "trigger": "Same f(z)=1-z, same degree one and fixed-even-p numerical examples in Example 6.4"
+      },
+      {
+        "assessment": "Fixed-exponent root and coefficient inequalities have implicit norm terms; do not imply exact exponent-asymptotic constants for 1-z.",
+        "evidence": [
+          "arXiv:2305.16068 Section 4, Propositions 4.2-4.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.16068",
+        "material_read": "Full open-access PDF accessed; materially inspected Sections 3-5 and Section 4 Proposition 4.3 (PDF page 10)",
+        "method": "Read open-access PDF source text and page image; checked p-dependent bounds against the exact candidate coefficient asymptotic",
+        "title": "Optimal Polynomial Approximants in H^p",
+        "trigger": "Broad theorem of first-degree OPA root estimates across all p>1"
+      },
+      {
+        "assessment": "Analyzes iteration index at fixed exponent and norm bounds, not the log(4p)/p law or p-th residual-moment constant.",
+        "evidence": [
+          "arXiv:2310.16010 Section 3 (linear coefficient iteration), Section 4 (error duality)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.16010",
+        "material_read": "Full open-access PDF accessed; materially inspected Sections 2-4 and PDF page 18 passage from coefficient iteration to error duality",
+        "method": "Read open-access PDF text and page image; checked whether p→∞ limits of the first-degree OPA are supplied",
+        "title": "More properties of optimal polynomial approximants in Hardy spaces",
+        "trigger": "Algorithmic OPA coefficient iteration and sharp error estimates might cover this special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3911c0a6-fb2a-4c23-a923-eb2ec9c4b2af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the explicitly studied canonical generator f=1-z, finite-p approximate zeros appear already in Centner Example 6.4, motivating the sharp quantitative question of their unit-circle approach as p increases. The result gives the first fixed-degree exponent-asymptotic benchmark within the inspected same-object literature: an unexpected logarithmic-over-linear layer, explicit constant 4, and sharp residual p-moment 1/sqrt(2pi p). These precise quantities are not generic consequences of a uniqueness theorem or fixed-p tables; they require an endpoint-dominated balance between polynomial and exponentially small terms and can guide rate questions for related nonlinear Hardy projection examples. No broader theorem or future citation impact is claimed. In particular the coefficientwise limiting residual (1+z^2)/2 has p-th moment ~sqrt(2/(pi p)), twice the optimal p-th moment: asymptotic minimization and substitution of the limiting residual do not commute at the leading moment coefficient.",
+    "status": "PASS"
+  }
+}
