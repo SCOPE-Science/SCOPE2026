@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:18:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From kσ(n)=(k+1)n+kr follows k|n; writing n=kA and injecting divisors Ak|n gives A(σ(k)−k−1)≤r. If composite k=ph with p least prime divisor and h≥p, the proper divisor h forces Ah≤r and p≤r, so n=pAh≤r². If k=p is prime and n=p^a N, p∤N, T=σ(N)−N, multiplicativity yields (p^{a−1}−1)N+(p^{a+1}−1)T=r(p−1). For a=1, T=1 gives precisely r=p+1, N=q≠p prime, the infinite pq family; T≥2 yields n≤r² by smallest-divisor bound N≤T². For a≥2,T≥1 the equation separately bounds p^aT≤r and N≤r, yielding n≤r². For T=0, N=1 and r=1+p+…+p^{a−2}; a=2 gives r=1,p², while a≥3 implies p^a≤(r−1)^3, with equality for a=3. Thus outside pq, n≤max(r²,(r−1)^3), equal to (r−1)^3 when r≥4. Complete r=1,2,3 follow by finite checking after proven bounds, including (2,8),(9,9) and odd-prime 2q for r=3. Independent divisor-sieve regression for n≤25000 and r≤45 found no counterexample; the unbounded proof is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 states for a fixed positive r finitely many n and/or prime-indexed families n=qN with finitely many N; no bound as a function of r."
+        ],
+        "reasoning": "The source covers the equation in full qualitative generality but not quantitatively; the new divisor injection and prime-power split yield a sharp universal cubic exception cutoff, with an independent iff criterion for infinitude.",
+        "searches": [
+          "Sándor 2022 pp.281–284 Theorems 1–5",
+          "Sándor sequel 2022 ψ and φ analogous problems",
+          "Resultary sum-of-divisors searches"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.7546/nntdm.2022.28.2.281-285 full primary journal PDF",
+        "doi:10.7546/nntdm.2022.28.3.525-532 related sequel citation/abstract, not full text",
+        "OEIS A000203 known function definition",
+        "Resultary query: Sándor rational perfect numbers sigma(n)=(k+1)n/k+r cubic cutoff prime semiprime"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old paper gives A[σ(k)−(k+1)]≤r but then a qualitative finiteness argument. Its prime-parameter identity corresponds algebraically to the reviewed (p^{a−1}−1)N+(p^{a+1}−1)T=r(p−1)."
+        ],
+        "reasoning": "The exact global bound and sharpness require bounding all composite N via their least prime divisor and all prime-power exponents; none is supplied by the old qualitative theorem. The semiprime pq family is known and is not credited alone.",
+        "searches": [
+          "Sándor 2022 Theorem 5 proof Eq.(18),(19)",
+          "Sándor 2022 Theorems 2–4 r≤3",
+          "Resultary semiprime divisor sum findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same equation appears in Sándor Theorem 5 as σ(n)=(k+1)n/k+r, but there is no numerical bound on general exceptional n."
+        ],
+        "reasoning": "Equivalent forms include σ(n)−n−n/k=r and k(σ(n)−n)=n+kr. The source yields a qualitative description only; exact cutoff and infinitude criterion are additional, not simple parameter renamings.",
+        "searches": [
+          "Sándor On certain rational perfect numbers 2022 Theorem 5 Eq.(17)",
+          "Resultary rational perfect numbers sigma(n)=(k+1)n/k+r cubic cutoff prime semiprime",
+          "σ(n)-n−n/k=r fixed additive offset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary Theorem 4 printed list for r=3 omits valid (k,n)=(2,8), since σ(8)=15=(3/2)8+3."
+        ],
+        "reasoning": "A general arithmetic function value table cannot certify finite exceptional bounds for all r and all n. The small-offset correction is ancillary to the uniform theorem, not the sole significance.",
+        "searches": [
+          "Sándor pp.282–284 r=1,2,3 classifications",
+          "OEIS A000203 σ(n) table",
+          "Resultary divisor-sum exact cutoff"
+        ]
+      },
+      "rationale": "Sándor (2022) studies the identical shifted σ equation; Theorem 5 gives only qualitative “finitely many exceptions and/or prime-indexed solutions.” It does not state the all-support (r−1)^3 exception cutoff, the iff infinitude test, or infinitely many sharp prime-cube witnesses. The original already treats small offsets and the semiprime phenomenon; those are properly credited. Exact article comparison, not failed title search, supports additional original quantitative information.",
+      "residual_risks": [
+        "A pre-2022 or later note may derive the same sharp cutoff from divisor-sum inequalities.",
+        "The complete sub-cutoff exceptional set for arbitrary r≥4 is not enumerated; the claim explicitly makes no such assertion.",
+        "Sharpness is uniform across infinitely many offsets, not separately for each r."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PRIOR_CUTOFF_ABSENT",
+          "evidence": "Theorem 5 says fixed r yields finitely many n and/or prime families n=qN. No cubic cutoff or exact iff condition is stated; the r=3 printed Theorem 4 lacks n=8.",
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf",
+          "material_read": "Primary five-page PDF mathematical content, especially pp.282–284 Theorems 2–5, proof equations (10)–(19), and references; pages 283–284 visually reviewed",
+          "method": "Official journal PDF text plus page-image verification",
+          "title": "On certain rational perfect numbers",
+          "trigger": "Exact equation and purported prior full classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source theorem gives only a qualitative fixed-offset finiteness/prime-family statement for the same divisor-sum equation. The reviewed result determines exactly which fixed offsets admit infinitely many n, and provides an explicit sharp polynomial cutoff for all other possibilities without restricting prime support. This turns an ineffective qualitative classification into a finite search domain; the prime-cube witnesses demonstrate a genuinely necessary cubic scale. A full finite exceptional census is not required for this theorem to be useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.7546/nntdm.2022.28.2.281-285 full primary journal PDF",
+    "doi:10.7546/nntdm.2022.28.3.525-532 related sequel citation/abstract, not full text",
+    "OEIS A000203 known function definition",
+    "Resultary query: Sándor rational perfect numbers sigma(n)=(k+1)n/k+r cubic cutoff prime semiprime"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No complete list below cutoff for r≥4; theorem gives a provably exhaustive finite search region outside known infinite family.",
+    "Bounded sieve computations are diagnostics, not a proof of the unbounded theorem."
+  ],
+  "residual_risks": [
+    "A pre-2022 or later note may derive the same sharp cutoff from divisor-sum inequalities.",
+    "The complete sub-cutoff exceptional set for arbitrary r≥4 is not enumerated; the claim explicitly makes no such assertion.",
+    "Sharpness is uniform across infinitely many offsets, not separately for each r."
+  ],
+  "schema_version": 1
+}
