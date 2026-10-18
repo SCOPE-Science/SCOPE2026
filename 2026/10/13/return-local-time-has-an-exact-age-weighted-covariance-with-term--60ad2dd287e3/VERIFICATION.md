@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact domain is an iid centered \(\mathbb R^d\)-valued random walk with finite nonzero second moment \(\tau=\mathbb E\|X_1\|^2\), return local time \(L_n=\sum_{k=1}^n\mathbf 1\{S_k=0\}\), and terminal quadratic energy \(\|S_n\|^2\).
+# Independent mathematical audit
 
-The critical proof step is the conditional second moment
-\[
-\mathbb E[\|S_n\|^2\mid S_k=0]=(n-k)\tau,
-\]
-which follows because the post-\(k\) increments are independent of \(S_k\), centered, and have total second moment \((n-k)\tau\). Therefore
-\[
-\operatorname{Cov}(\mathbf 1\{S_k=0\},\|S_n\|^2)
-=-k\tau\,\mathbb P(S_k=0).
-\]
-Summation is exact and contains no limiting argument.
+## correctness
 
-For simple symmetric walk, `checker.py` exhaustively enumerates all sign paths for each length through \(18\), recomputes local time and terminal energy directly, and checks the covariance, local-time variance, endpoint-energy variance, and correlation formulas using exact rational arithmetic. It also checks the general theorem for a centered but nonsymmetric three-point increment law by exact weighted enumeration.
+PASS
 
-The all-\(n\) proof is symbolic. Finite enumeration is supplementary and is not used as evidence of an infinite statement.
+For iid centered R^d increments with finite τ=E||X||²>0, conditional on S_k=0 the independent future has terminal expected quadratic energy (n−k)τ, versus unconditional nτ. Therefore Cov(1_{S_k=0},||S_n||²)=−kτ P(S_k=0), summing yields the exact age-weighted covariance for all n≥1. For one-dimensional simple symmetric walk, odd returns vanish, p_j=binom(2j,j)/4^j and Σ j p_j=N(2N+1)p_N/3, hence Cov=−2N(2N+1)p_N/3. A convolution identity for central-binomial returns gives Var L=2N−3μ_N−μ_N²; Var S_n²=2n(n−1). The asymptotic correlation is −1/(3√(π−2)). Independently enumerated all sign walks n2 through n10 with exact rational arithmetic and checked covariance and both variances.
+
+## originality
+
+PASS
+
+Csáki, Csörgő, Földes and Révész study exactly random-walk local time at the origin and strong approximation of its spatial profile; the inspected abstract/opening scope concerns Wiener-sheet/Brownian approximations, not this finite local-time/endpoint-energy mixed moment. Standard renewal and generating-function methods are acknowledged. A classical Green-function or last-exit identity might imply the covariance under different notation, so best-of-knowledge originality retains that explicit risk.
+
+## value
+
+PASS
+
+The all-n identity determines the sign and exact age-weight of dependence between return occupancy and final quadratic displacement, and a nonvanishing universal asymptotic correlation constant for simple symmetric walk. It is a mathematically motivated mixed local-time invariant, not merely an unrelated toy moment, despite its short conditioning proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
