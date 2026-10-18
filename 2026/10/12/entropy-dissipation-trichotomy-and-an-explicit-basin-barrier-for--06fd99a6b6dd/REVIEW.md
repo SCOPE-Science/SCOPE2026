@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model's exact edge fluxes are those of arXiv:2605.28984v1, equations (2.1)/(3.2). Tangent differentiation of the proposed entropy functional gives precisely the logarithmic flux ratio, yielding strict dissipation at all nonstationary interior states. Boundary regularization for positive times and the compact invariant omega-limit argument establish global convergence; the equilibrium polynomial shows the only possible limits are the three already catalogued by Cao–Gong. The uniform Hessian is a rank-one perturbation with one negative direction and strictly positive other directions, while its path-Laplacian mobility is positive on the simplex tangent space. Endpoint triangular Jacobians have strictly negative eigenvalues for all integer \(k\geq1\). The hyperbolic stable-manifold theorem supplies trajectory-dependent exponential convergence. The central-mean KL identity gives a rigorous uncrossable energy barrier. A standalone exact-arithmetic verifier checks selected identities and an example; it is not substituted for the all-\(k\) proof.
+PASS
 
-## Originality — PASS
+PASS: The polynomial path-flux ODE is simplex-preserving, and for non-endpoint initial states the finite irreducible birth-death transport yields strict positivity at t>0. Differentiation along the tangent simplex shows gradient increments equal log(s q_{j+1}/r q_j), making each dissipation summand nonnegative with equality only at detailed balance. The stationary geometric profile q_j∝z^j and self-consistency polynomial have only z=1, plus two boundary point masses. Strict Lyapunov and connected omega-limit argument force convergence to one of the three isolated equilibria. At uniform, entropy Hessian has one negative and L-1 positive tangent directions and positive logarithmic-mean mobility, hence exactly one unstable Jacobian eigenvalue; endpoint Jacobians have strictly negative eigenvalues for L>=2. Hyperbolic asymptotic rates are orbit dependent. On M=L/2, F-F*=KL(q||uniform)>=0, so sublevel trajectories cannot cross; this proves the sufficient basin test. Independently computed k=2 uniform equilibrium Jacobian with exactly one positive and three negative eigenvalues, Hessian inertia and the rational test q=(625,375,225,135,81)/1441: M=1.0784177654 and F=0.945235672<1.163150810.
 
-Cao–Gong's May 2026 primary manuscript was read at its evolution law, equilibrium census, convergence results, and explicit open questions (especially Sections 3.2–4). Its Theorem 3 proves attracting regions only for \(M<1\) or \(M>L-1\), while Section 4 asks about generic rates and more general basin identification. It does not state or derive the proposed entropy potential, arbitrary-initial-data trichotomy, stable-manifold dimension, or barrier test. Cao–Reed's prior opinion system is a pairwise relative-order persuasion/repulsion process with a separate parameter; Dawson–Sid-Ali–Zhao's Gibbs relative-entropy local stability and Thai's contracting mean-field birth–death model are methodological precedents, not claims covering this bistable absorbing-chain model. General gradient-flow techniques could supply an alternative derivation once the model-specific potential is known; independently unindexed work remains a residual originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For every finite number of opinion states the theorem proves eventual convergence from every probability vector, a result stronger than the published extreme-mean basins, and obtains exponential rates via exact stability indices. The energy sublevel gives explicit sufficient consensus selection within the unresolved generic-mean region. The concrete five-state profile with \(M=1554/1441>1\) is rigorously selected despite lying outside the previously stated left-consensus sufficient region. These are motivated dynamical properties of the source's specific model, not a parameter renaming, textbook invariant, or arbitrary finite enumeration. Full basin separatrices, uniform exponential constants, and finite-agent stochastic behavior remain open.
+PASS best-of-knowledge: Cao–Gong prove only the three equilibria and broad extreme-mean attraction plus the three-opinion global picture; their full text identifies generic finite-state rates/basin regions as open. The exact F dissipation, all-k convergence/hyperbolicity and extended explicit barrier are genuine additional statements under this ODE. General gradient-flow theory offers methods but not the specific F and classification without proving the displayed identities.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The incremental voter model has a natural unresolved global dynamical classification for arbitrarily many opinion levels. An explicit free-energy identity eliminates possible cycles, provides exponential trichotomy and a nontrivial rigorous basin certificate extending the previously known extreme-mean conditions. The boundary has mathematical significance even without exact separatrix or finite-population results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
