@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the tree \(T_q^{(2)}\) directly with center \(c\) and paths
-\[
-c-u_i-v_i-w_i.
-\]
+# Independent mathematical audit
 
-For every labeling it checks the two defining conditions independently of the proof:
+## correctness
 
-1. each label-\(0\) vertex has exactly one neighbor labeled \(2\);
-2. every positive-labeled vertex has a positive-labeled neighbor.
+PASS
 
-It exhaustively checks all labelings for
-\[
-q=2,3,4,
-\]
-namely
-\[
-3^7+3^{10}+3^{13}=1{,}655{,}559
-\]
-labelings. For \(q=3,4\), the exact minimum values and the complete minimum-function sets agree with the theorem. The boundary \(q=2\) is recorded separately.
+Total perfect Roman dominating f:V->{0,1,2} requires each zero exactly one 2-neighbor and each positive vertex a positive neighbor. In Tq^(2) arms c-u_i-v_i-w_i, leaf w_i forces every v_i positive. If center is 0, exactly one u_i=2 and each other arm costs at least3, special arm >=4, yielding 3q+1. For center1, each arm costs >=3 =>1+3q. For center2, u_i=0 forces (u,v,w)=(0,1,1) at cost2; to provide positive neighbor for center, >=1 arm u_i>0 at cost>=3, so total>=2q+3. For q>=3 latter strictly below 3q+1. Equality forces exactly one nonzero-u arm, with either (1,1,1) or (1,2,0), yielding exactly 2q global minima. Independently exhaustively enumerated all 3^(3q+1) assignments for q=2,3,4 (1,655,559 total), obtained (q,min,#opt)=(2,7,24),(3,9,6),(4,11,8), and for q3/4 all minima have center2. Boundary q2 excluded from structural classification. Algebraic center-case proof establishes all q>=3; finite check corroborates.
 
-It also constructs every theorem-predicted minimum function for
-\[
-3\le q\le50
-\]
-and directly verifies the definition, weight, and count.
+## originality
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-q=2: gamma_tRp=7, minimum_functions=24
-q=3: gamma_tRp=9, minimum_functions=6
-q=4: gamma_tRp=11, minimum_functions=8
-full_labelings_checked = 1655559
-constructed_parameter_range = 3..50
-all exhaustive q>=3 minima matched the two exceptional-arm types
-```
+Almulhim 2023 introduces total perfect Roman domination, determines broad upper bounds and equality trees, and calls a subdivided star one subdivision per edge. It does not state the twice-subdivided q-arm exact weight 2q+3 or optimizer count 2q, and known once-subdivided extremal n differs from here (3q+1 vs2q+3). Other Roman/Italian domination literature defines different zero-defender constraints or positive isolation, so variants cannot be substituted. Closest Resultary once-subdivided signed double Italian is unrelated invariant.
 
-The finite checks do not establish the arbitrary-\(q\) theorem. The proof for all \(q\ge3\) is the symbolic center-label and arm-cost argument in `RESULT.md`.
+## value
+
+PASS
+
+This is a natural next uniform subdivision of the star family singled out by foundational extremal theorem. The weight gap q-2 from the universal order bound and exact two-state optimizer family provide structural information beyond the lower bound or single numerical case; useful as benchmark for dynamic programs and characterizing effects of edge subdivision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

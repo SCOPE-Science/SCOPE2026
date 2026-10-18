@@ -1,12 +1,21 @@
-# Review of Total perfect Roman domination of twice-subdivided stars
+# Independent mathematical audit
 
-## Correctness
-PASS. Every middle arm vertex \(v_i\) must be positive: otherwise the leaf is either undefended or isolated in the positive support. When the center is \(0\), exactly one \(u_i\) is labeled \(2\); its arm costs at least \(4\) and every other arm at least \(3\), giving \(3q+1\). When the center is \(1\), every arm costs at least \(3\), giving \(3q+1\). When the center is \(2\), every arm with \(u_i=0\) has the unique minimum state \((0,1,1)\), every arm with \(u_i>0\) costs at least \(3\), and totality forces at least one such arm. This gives \(2q+3\). Equality forces exactly one positive \(u_i\), and its arm is exactly \((1,1,1)\) or \((1,2,0)\). Exhaustive checks at \(q=3,4\) recover exactly these \(2q\) minima.
+## correctness
 
-## Originality
-PASS. The initiating total-perfect-Roman paper is the decisive comparison. It explicitly defines a subdivided star as subdividing every star edge exactly once and places that once-subdivided family in the extremal class with parameter equal to the graph order. It also gives a general perfect-domination upper bound and a characterization of equality in that bound. Neither statement determines the repeated-subdivision value \(2q+3\) or the exact two-state optimizer family. Searches under twice-subdivided-star, balanced-spider, spider, and total-perfect-Roman formulations found no equivalent theorem. Related records on ordinary total Roman, strong Roman, signed double Italian, and perfect Roman variants have different feasibility predicates.
+PASS
 
-## Value
-PASS. The result resolves the first uniform subdivision step immediately beyond a named extremal family in the initiating paper. One subdivision of each star edge gives the maximum possible total-perfect-Roman value, whereas two subdivisions create a linear deficit \(q-2\) from the order and a rigid \(2q\)-element optimizer family. The center-label proof explains the structural transition rather than merely computing a value on a decorative family.
+Total perfect Roman dominating f:V->{0,1,2} requires each zero exactly one 2-neighbor and each positive vertex a positive neighbor. In Tq^(2) arms c-u_i-v_i-w_i, leaf w_i forces every v_i positive. If center is 0, exactly one u_i=2 and each other arm costs at least3, special arm >=4, yielding 3q+1. For center1, each arm costs >=3 =>1+3q. For center2, u_i=0 forces (u,v,w)=(0,1,1) at cost2; to provide positive neighbor for center, >=1 arm u_i>0 at cost>=3, so total>=2q+3. For q>=3 latter strictly below 3q+1. Equality forces exactly one nonzero-u arm, with either (1,1,1) or (1,2,0), yielding exactly 2q global minima. Independently exhaustively enumerated all 3^(3q+1) assignments for q=2,3,4 (1,655,559 total), obtained (q,min,#opt)=(2,7,24),(3,9,6),(4,11,8), and for q3/4 all minima have center2. Boundary q2 excluded from structural classification. Algebraic center-case proof establishes all q>=3; finite check corroborates.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Almulhim 2023 introduces total perfect Roman domination, determines broad upper bounds and equality trees, and calls a subdivided star one subdivision per edge. It does not state the twice-subdivided q-arm exact weight 2q+3 or optimizer count 2q, and known once-subdivided extremal n differs from here (3q+1 vs2q+3). Other Roman/Italian domination literature defines different zero-defender constraints or positive isolation, so variants cannot be substituted. Closest Resultary once-subdivided signed double Italian is unrelated invariant.
+
+## value
+
+PASS
+
+This is a natural next uniform subdivision of the star family singled out by foundational extremal theorem. The weight gap q-2 from the universal order bound and exact two-state optimizer family provide structural information beyond the lower bound or single numerical case; useful as benchmark for dynamic programs and characterizing effects of edge subdivision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
