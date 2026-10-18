@@ -1,17 +1,21 @@
-# Scientific review: the Fermat–Cremona local monodromy calculation
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact defining polynomial is the first family of Theorem 1.8 of Dimca–Ilardi–Pokora–Sticlaru. A torus Jacobian calculation and restrictions of the nonlinear factor to the two line pencils exclude additional singularities. The charts at the two exceptional vertices have the local equation \(U(U+y^m z^m)\), where \(U=y^m+z^m\); the implicit-function theorem gives exactly \(m\) paired smooth branches, with within-pair contact \(m+1\). A shared initial blowup and \(m\) additional blowups on each of the \(m\) tails produce exceptional multiplicities \(2m\) and \(2m+2k\) for \(1\le k\le m\). Their open Euler characteristics, combined with A'Campo's formula, give the claimed local monodromy polynomial. Its degree agrees with the independently calculated Milnor number.
+## correctness
 
-Two published Jacobian relations were reconstructed algebraically; their Saito determinant is exactly \(-4f\) for every \(m\), establishing the global Tjurina number. The other singularities' known local Tjurina values then give the two equal nonordinary values and the global defect. The saved checker independently verifies the universal polynomial identities and performs finite consistency checks. It does not substitute finite experiments for the analytic or resolution proof.
+PASS
 
-## Originality (PASS, with residual bibliographic risk)
-Theorem 1.8 supplies the original free family; Example 6.3 gives the nonlinear component's branch tangent order; Remark 4.8 explicitly indicates that the enlarged singularities are nonquasihomogeneous and deduces their Tjurina values. All three are treated as prior results. The relevant full primary sections contain no explicit exceptional-multiplicity graph or first-homology monodromy characteristic polynomial for the enlarged vertices, nor the complete numerical singularity basket of this first family. A'Campo supplies the **general** resolution-to-zeta formula, not a computation for this curve. Scientific searches for the exact equation, local branch contacts, resolution, and monodromy found no exact earlier computation. A different four-branch conic-pencil monodromy example and unrelated monomial-Cremona surface Milnor calculations do not imply this particular resolution. Older or unindexed material may contain this instance, and absence in searches alone is not a uniqueness proof.
+For every integer m>=2 over C, the torus Jacobian for Q=x^m y^m+y^m z^m+x^m z^m excludes singularities and intersections away from the two pencils and axes. At p_x and p_z the unit-reduced germ U(U+y^m z^m), U=y^m+z^m, has m transverse tangent directions, each containing two smooth branches of pairwise intersection m+1; all cross-direction contacts are one. The first blowup has multiplicity 2m; each tangency of contact m then requires exactly m subsequent blowups with multiplicities 2m+2k (1<=k<=m). A'Campo's Euler characteristics (2-m) for the central open divisor, 0 for intermediate tails, -1 for each terminal tail, give the local H1 characteristic polynomial (1-t)(1-t^(2m))^(m-2)(1-t^(4m))^m. Delta=3m²-m, mu=6m²-4m+1 and degree of the monodromy polynomial agree. Universal polynomial syzygies with Saito determinant -4f give freeness exponents 2m-1,2m and total Tjurina 12m²-6m+1, consistent with known Dimca et al results. Subtract m² nodes and ordinary m-fold point to obtain tau=5m²-2m at each nonordinary vertex. The all-m analytic blowup proof is the justification, not 2,3,4 sample tests; independently rederived Saito identities and resolution numerics in independent_math_checks.py.
 
-## Value (PASS)
-The lead paper singles out these nonquasihomogeneous singularities as the obstruction to a direct local Tjurina computation. The computed embedded resolution gives a structural, parameter-uniform local topological invariant: the complete Milnor monodromy spectrum encoded by a characteristic polynomial of degree \(6m^2-4m+1\). This is more informative than the already-published freeness and Tjurina count and naturally quantifies how much the local topology deviates from the Tjurina algebra. The complete singularity classification and independent arithmetic-genus identity make the claim globally checkable, without claiming a complement Alexander polynomial or resolving unrelated singularities.
+## originality
 
-## Sources and remaining limits
-The object, syzygies and previously established invariants were checked in Dimca–Ilardi–Pokora–Sticlaru, arXiv:2301.01117v1, Theorem 1.8, Section 4.4, Remark 4.8, Example 6.3 (open-access full text, journal DOI:10.1007/s00025-023-02036-9). The classical exceptional-divisor formula is from N. A'Campo, *La fonction zêta d'une monodromie* (1975), DOI:10.1007/BF02565748. The second source was checked bibliographically; its original full text was not available in the inspected access route. This is a standard cited theorem and not claimed to be new. The remaining risk is unindexed overlap, not an unresolved calculation or a certificate of novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The defining polynomial, free exponents and vertex Tjurina values are explicitly prior work in Dimca et al. The separately obtained all-m embedded resolution and A’Campo local first-homology monodromy for the two enlarged vertices were not found in inspected primary sections or semantic corpus. These are distinguishable geometric/topological invariants, even though general resolution methods are classical; best-of-knowledge with unindexed-history risk.
+
+## value
+
+PASS
+
+The explicit embedded resolution and local geometric Milnor monodromy of a free arrangement’s two high-contact singularities are natural topological invariants. The m identical tangent-pair tails give a nontrivial parametric calculation, resolve which nonquasihomogeneous singularities occur, and separate analytic-local topology from previously known freeness/Tjurina data. It is not mere naming or a single tiny numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

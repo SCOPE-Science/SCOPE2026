@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:07:50.996599Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at blob dbb40e075bb626f8fc60c2379061a4b214cd43d3",
+        "Assigned verification/verify.py at blob 516c8c9d89fb18c81efe0b96d2c0bce0524c42e2",
+        "Dimca–Ilardi–Pokora–Sticlaru arXiv:2301.01117v1 Theorem 1.8, §4.4, Remark 4.8, Example 6.3",
+        "N. A’Campo 1975 standard resolution-zeta theorem",
+        "Independent symbolic identity and invariant checker"
+      ],
+      "rationale": "For every integer m>=2 over C, the torus Jacobian for Q=x^m y^m+y^m z^m+x^m z^m excludes singularities and intersections away from the two pencils and axes. At p_x and p_z the unit-reduced germ U(U+y^m z^m), U=y^m+z^m, has m transverse tangent directions, each containing two smooth branches of pairwise intersection m+1; all cross-direction contacts are one. The first blowup has multiplicity 2m; each tangency of contact m then requires exactly m subsequent blowups with multiplicities 2m+2k (1<=k<=m). A'Campo's Euler characteristics (2-m) for the central open divisor, 0 for intermediate tails, -1 for each terminal tail, give the local H1 characteristic polynomial (1-t)(1-t^(2m))^(m-2)(1-t^(4m))^m. Delta=3m²-m, mu=6m²-4m+1 and degree of the monodromy polynomial agree. Universal polynomial syzygies with Saito determinant -4f give freeness exponents 2m-1,2m and total Tjurina 12m²-6m+1, consistent with known Dimca et al results. Subtract m² nodes and ordinary m-fold point to obtain tau=5m²-2m at each nonordinary vertex. The all-m analytic blowup proof is the justification, not 2,3,4 sample tests; independently rederived Saito identities and resolution numerics in independent_math_checks.py.",
+      "residual_risks": [
+        "Classical A’Campo monodromy formula is invoked rather than reproduced from topology; the checker only reconstructs the algebraic and numerical inputs.",
+        "The exact analytic-equivalence type beyond smooth branch contacts is not claimed; no global Alexander polynomial or positive-characteristic conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Dimca et al provide exactly the free family, freeness exponents, singularity tangent information and local Tjurina numerical values.",
+          "A’Campo supplies general zeta from total-transform multiplicities and punctured Euler characteristics, not the multiplicity graph for this family."
+        ],
+        "reasoning": "Prior algebraic arrangements and classical resolution theorem are antecedents but do not directly supply the full exceptional chains, their multiplicities and evaluated monodromy polynomial. They are credited as inputs.",
+        "searches": [
+          "arXiv:2301.01117v1 Theorem 1.8, Remark 4.8, Example 6.3",
+          "A’Campo 1975 La fonction zêta d’une monodromie"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.01117v1",
+        "DOI:10.1007/BF02565748",
+        "Resultary: 2026/10/4/SCOPE-local-resolution-and-monodromy-of-the-type-ii-conic-pencil-singu--370847493292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Freeness and Tjurina formulas already belong to the original source.",
+          "Computing the new paired-contact resolution then applying A’Campo yields factors (1-t^{2m})^(m-2)(1-t^{4m})^m, a separate calculation."
+        ],
+        "reasoning": "The claimed new part is a consequence of a new exact local resolution plus old general theorem; it does not follow mechanically from the source’s freeness or Tjurina equations alone.",
+        "searches": [
+          "Dimca–Ilardi–Pokora–Sticlaru arXiv:2301.01117 Theorem 1.8 and Remark 4.8",
+          "A’Campo 1975 monodromy theorem and free-divisor Saito criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At each exceptional germ the tangent branches form m pairs of contact m+1 and monodromy has factors of degrees 2m and 4m.",
+          "Closest indexed local-resolution result Type-II conic-pencil has four branches and monodromy (t-1)(t^4-1)(t^6-1), a different local germ."
+        ],
+        "reasoning": "The sought equivalent computation must concern the same U(U+y^m z^m) branch germ or topologically isomorphic splice/resolution graph for ALL m, not just free-curve status or a different arrangement; no covering result located.",
+        "searches": [
+          "Resultary query: Fermat Cremona free plane curve arrangement local embedded resolution geometric Milnor monodromy A'Campo 2m paired tangencies",
+          "Web arXiv:2301.01117 Fermat Cremona arrangement singularity resolution monodromy characteristic polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a different conic-pencil Type-II singularity; none of the ranked semantic records reports this Fermat–Cremona m-tail multiplicity profile.",
+          "The inspected paper tabulates/derives Tjurina values, not a table of the full monodromy polynomials for the two new nonordinary vertices."
+        ],
+        "reasoning": "The exact previously known local Tjurina table does not encode the complete resolution graph or geometric monodromy; different germs with similar numerical invariants require separate comparison.",
+        "searches": [
+          "Resultary query: Fermat Cremona free plane curve arrangement local embedded resolution geometric Milnor monodromy A'Campo 2m paired tangencies",
+          "Targeted local monodromy polynomial and contact m+1 arrangement searches"
+        ]
+      },
+      "rationale": "The defining polynomial, free exponents and vertex Tjurina values are explicitly prior work in Dimca et al. The separately obtained all-m embedded resolution and A’Campo local first-homology monodromy for the two enlarged vertices were not found in inspected primary sections or semantic corpus. These are distinguishable geometric/topological invariants, even though general resolution methods are classical; best-of-knowledge with unindexed-history risk.",
+      "residual_risks": [
+        "An older or unindexed explicit local resolution or monodromy computation of the same arrangement may exist.",
+        "The classical A’Campo formula and the original free-exponent/Tjurina calculation are not new; originality is only their family-specific new evaluated resolution/monodromy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FREENESS_TJURINA_NOT_THIS_EXPLICIT_MONODROMY",
+          "evidence": "Theorem 1.8 establishes this family and exponents; Remark 4.8 provides local Tjurina, while the all-m chain resolution and first-H1 monodromy polynomial are not given in inspected sections.",
+          "identifier_or_url": "arXiv:2301.01117v1; DOI:10.1007/s00025-023-02036-9",
+          "material_read": "Accessible primary full-text material at Theorem 1.8, section 4.4, Remark 4.8 and Example 6.3, including family and singularities",
+          "method": "Read relevant complete primary mathematical sections and compare formula-by-formula",
+          "title": "Construction of free curves by adding lines to a given curve",
+          "trigger": "Exact same defining polynomial and possible original resolution"
+        },
+        {
+          "assessment": "GENERAL_TOOL_NOT_EXACT_FAMILY",
+          "evidence": "Euler-characteristic multiplicity product is classical; the specific central and tail multiplicities require a separate germ resolution.",
+          "identifier_or_url": "DOI:10.1007/BF02565748",
+          "material_read": "Classical published resolution-zeta formula as used in the source proof; complete 1975 primary article not inspected",
+          "method": "Theorem-level standard formula comparison, not a claim of reading original entire paper",
+          "title": "La fonction zêta d’une monodromie",
+          "trigger": "General A’Campo formula may imply monodromy from resolution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2301.01117 Theorem1.8, Remark4.8",
+        "A’Campo 1975 general monodromy theorem"
+      ],
+      "rationale": "The explicit embedded resolution and local geometric Milnor monodromy of a free arrangement’s two high-contact singularities are natural topological invariants. The m identical tangent-pair tails give a nontrivial parametric calculation, resolve which nonquasihomogeneous singularities occur, and separate analytic-local topology from previously known freeness/Tjurina data. It is not mere naming or a single tiny numerical substitution.",
+      "residual_risks": [
+        "Does not address global complement monodromy or universal Alexander invariants; value is local family topology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform over complex plane-curve germs for integers m>=2; no claim of positive-characteristic extension or global Alexander polynomial.",
+    "General A’Campo zeta formula is cited; independent checks verify premises and degree rather than topological realization."
+  ],
+  "schema_version": 1
+}
