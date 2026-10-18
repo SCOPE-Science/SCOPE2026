@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the source recurrences with the stated geometric bound \(d_i\ge\delta=d_0-2r_0\), rather than the stronger inequality invoked later in the source. Both coefficient ratios are bounded below by one common \(q>1\). The induction factor \(p=(1+\delta q)/(1+\delta)\) follows exactly from the second-component recurrence, while the fourth-component step is equivalent to the identity \((p-1)/(q-p)=\delta\) plus \(\widetilde b_i/\widetilde a_i>d_i\ge\delta\). The initialization is taken from the actual matrix product. Passing to logarithmic growth rates yields \(\lambda_1(\beta)-\lambda_2\ge\log p>0\). No experiment is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The motivating primary source states strict splitting and a stronger quantitative bound, but its printed coefficient proof contains the incompatible free-flight and rate substitutions described in the finding and does not contain the repaired \(q,p\) induction. The closest earlier primary work concerns spherical obstacles and uses a different mechanism. Exact-source, formula, alias, and implication searches found no equivalent published correction. A residual risk remains for unindexed or unpublished observations.
+PASS
 
-## Value
-PASS. The issue affects the central quantitative proof for the recent ellipsoidal-billiard theorem. The replacement argument works throughout the source's stated range \(\beta>c_1^{-2}\) and gives a concrete positive gap, so it preserves the scientifically important qualitative conclusion without silently strengthening the hypotheses. The result is a class-wide structural repair rather than a numerical spot check.
+Reconstructed the coefficient ratio inequalities: \(a_i/\widetilde a_i=\beta/L_i\ge\beta/L_0>1\), and \((1+\beta x_i)/(1+L_i x_i)\ge(1+\beta x_0)/(1+L_0x_0)>1\) using monotonicity for \(x_i\ge x_0\), \(1\le L_i\le L_0\). Both coefficient sequences therefore dominate by \(q\). With the source comparison \(\widetilde\Delta_i^{(4)}\ge\widetilde\Delta_i^{(2)}\), initial \(\Delta_1^{(2)}=\widetilde\Delta_1^{(2)}\), and \(\Delta_1^{(4)}\ge q\widetilde\Delta_1^{(4)}\), a two-component induction gives \(\Delta_m^{(2)}\ge p^{m-1}\widetilde\Delta_m^{(2)}\) and \(\Delta_m^{(4)}\ge qp^{m-1}\widetilde\Delta_m^{(4)}\). The necessary identities \((p-1)/(q-p)=\delta\) and \(\widetilde b_i/\widetilde a_i>d_i\ge\delta\) were checked symbolically. Passage to logarithmic growth yields the stated positive rate; it does not imply the stronger advertised rate. The uninspected source-specific inequality is stated transparently as an external premise whose verification remains an access risk.
 
-The repair does not prove that the stronger displayed lower bound is false; it only separates what follows from the printed comparison from what remains unproved by that comparison.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The known primary paper claims strict separation with a stronger explicit rate but supplies an internally inconsistent coefficient comparison according to the inspected source-attributed formulas. The audited weaker positive rate is a source-specific proof correction, not a separate billiard discovery. Earlier spherical-obstacle work uses a different symbolic-block argument and does not imply this ellipsoidal coefficient comparison. Best-of-knowledge status carries substantial access limitations.
+
+## value
+
+PASS
+
+A rigorous positive separation rate restores the main qualitative claim of a recent ellipsoidal billiard theorem where the printed quantitative argument is alleged to be invalid; careful distinction from the stronger unproved rate makes the correction mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
