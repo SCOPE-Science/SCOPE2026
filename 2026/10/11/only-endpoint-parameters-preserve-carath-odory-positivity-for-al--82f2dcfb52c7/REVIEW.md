@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A conformal convex-sector construction gives one fixed normalized convex function. Explicit differentiation yields a rational convexity factor and a boundary pole at \(w=i/\sqrt3\). An exact positive residue-sign identity valid for every \(0<\alpha<1\), together with interior continuity, proves unbounded negative real component. The two endpoints follow from elementary convexity. The algebra and selected interior numerical values were independently recomputed; those finite tests are not offered as the proof of the universal claim.
+## correctness
 
-**Originality — PASS.** The origin paper (Grigoriciuc, DOI 10.1007/s41478-026-01067-z, Definition 1 and Conjectures 1–3) proves endpoints and proposes the opposite intermediate claim. An earlier single-parameter sector-map witness supplies no implication to the all-parameter residue-sign theorem. The same author's related operator paper (DOI 10.1007/s11785-026-01945-1) treats higher-dimensional extensions and does not imply this scalar all-parameter classification. Searches for equivalent component formulas, boundary-pole obstructions, and all-parameter counterexamples did not reveal a stronger published statement. Unindexed equivalent literature remains a residual risk.
+PASS
 
-**Value — PASS.** The result settles exactly which interpolation parameters preserve the proposed Carathéodory property universally, proving the strongest possible failure in terms of the real-part infimum at each interior parameter. It resolves a stated structural mathematical conjecture, not a table entry or cosmetic example.
+In the normalized convex class K, f(z)=sqrt((1+z)/(1-z))−1 maps the disk onto a translated convex sector and has f(0)=0,f′(0)=1. In Cayley coordinate w=(1+z)/(1−z), A=zg′/g=(1+w)(1+sqrt(w))/(4sqrt(w)), P=1+zg′′/g′=(1+3w²)/(4w). Direct simplification of the exact Grigoriciuc functional gives hα=(1−α)/Dα+Cα/P, Dα=1−α+αA, Cα=α[(1−α)(A²+1)+(2α−1)A]/Dα. At w0=i/sqrt(3), writing A=u+iv yields u>1/2, v>0 and Im Cα=α(1−α)v[α((u−1)²+v²)+2u−1]/[(1−α+αu)²+α²v²]>0 for EVERY 0<α<1. For w=iy, y approaches 1/sqrt(3) from below: P=i(3y²−1)/(4y) tends to zero in the negative imaginary direction, so Re(C/P) tends to −infinity; move w into Re w>0 by continuity for genuine interior points. For endpoints h0≡1 and h1=1/P, Re P>0 by convexity. The residue sign is uniform in the quantifier α∈(0,1) analytically; source verify_pole.py was read and separate sympy/numeric evaluations corroborated identities, not used as a proof of the universal assertion.
 
-**Scientific limitations.** The assertion concerns the scalar functional, not any specific multidimensional extension operator. The singularity approached is on the boundary, not in the disk. Computation does not replace the analytic proof. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete original 2026 Grigoriciuc article introduces this exact pointwise hα and proposes positive real part at all parameters; it proves endpoint cases rather than the contrary all-interior-parameter theorem. A distinct Resultary record fully read supplies a rational interior negative witness solely for α=1/2 using the same sector map. Its particular parameter counterexample is subsumed by the new all-parameter result but does not imply it, especially the −infinity infimum. The canonical half-plane subclass record establishes positivity for every α within a restricted subclass, not universal convex maps. No covering broader theorem surfaced in two targeted Resultary query formulations; missed/unindexed equivalent full classifications remain a risk.
+
+## value
+
+PASS
+
+Resolves the exact universal parameter set for a recently proposed scalar Carathéodory positivity conjecture, including the strong infimum −infinity at every excluded parameter with a single natural convex-sector witness. This is a complete structural dichotomy rather than an arbitrary additional test point; source conjecture and prior α=1/2 obstruction motivate precisely the remaining interval classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
