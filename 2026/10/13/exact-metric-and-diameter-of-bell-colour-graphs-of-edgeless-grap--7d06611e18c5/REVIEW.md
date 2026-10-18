@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound tracks elements that are never moved along an arbitrary Bell-graph path and shows that they define a matching between the initial and final block families. The upper bound pads both partitions to \(k\) labeled slots, aligns the slots using a maximum-weight block matching, and changes every mismatched element once. Forgetting labels never creates more than \(k\) nonempty blocks, so the construction stays inside \(\mathcal B_k(\overline{K_n})\). The diameter proof uses an expected-weight matching lower bound and a balanced extremal partition. A literal exhaustive verifier agrees for every \(1\le k\le n\le6\).
+## correctness
 
-## Originality
-PASS. The maximum-matching transfer distance between abstract set partitions is known and is treated as prior coverage, not as the novelty. Finbow--MacGillivray's Bell-colour paper gives connectivity, Hamiltonicity, and a join-product rule; Hearn's Bell-colouring paper gives reconstruction theorems. Neither inspected source states the cap-preserving isometry or the exact diameter \(n-\lceil n/k\rceil\). Targeted Bell-colour, partition-reconfiguration, and matching-distance literature searches found no covering Bell-reconfiguration statement. The main residual risk is an older result under partition-distance terminology that explicitly makes the same reconfiguration identification.
+PASS
 
-## Value
-PASS. The theorem determines every shortest-path distance, not only an extremal value, for the basic Bell reconfiguration space of all set partitions under a block cap. It supplies a polynomial-time assignment formulation for shortest paths and a sharp two-parameter diameter. This provides a natural metric baseline for the recent Bell-colouring program.
+For partitions P,Q of [n] with <=k blocks, any length-t single-element-move path leaves at least n-t elements unmoved, which induce a matching of initial and final partition blocks; hence t>=n-mu(P,Q), where mu is maximum intersection-weight bipartite matching. Conversely pad each block family to k common temporary labeled slots, match maximum overlap via slot bijection and recolor each of the n-mu mismatched elements exactly once to its target slot. At most k nonempty slots occur; removing no-change steps gives a path of length <=n-mu. Thus d=n-mu for all 1<=k<=n, and truncated Bell partition graph is isometric in full Bell graph. Random k-slot perfect matching has expected total overlap n/k, so mu>=ceil(n/k); taking P balanced k blocks and Q the one-block partition attains equality, proving diameter n-ceil(n/k). Independent from-scratch BFS and dynamic-programming matching checks agree across every pair for n<=5/all k, 7,777 tested ordered pairs. Unlimited statement is from the matching proof, not finite BFS.
 
-## Closest literature and limitations
-The closest Bell-colouring sources are Hearn, arXiv:2604.13005v1, and Finbow--MacGillivray, arXiv:2512.13864. Rossi's 2015 maximum-matching distance is the closest equivalent partition metric and covers the quantity \(n-\mu(P,Q)\) abstractly. The theorem is limited to the edgeless underlying graph; graph constraints can invalidate the slot-recoloring construction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical partition comparison gives transfer/matching distance n-mu as minimum number of ground elements needing reassignment; this expression itself is NOT claimed new. Finbow–MacGillivray Bell-colour paper defines partition-move graph and studies connectivity/Hamiltonicity, and Hearn reconstructs source graphs; their inspected statements do not give the exact isometric truncation theorem or diameter. A publication equating the classical transfer metric with this identical partition reconfiguration graph under other terminology remains the most material originality risk.
+
+## value
+
+PASS
+
+Determining the exact shortest-path metric and sharp diameter simultaneously for all n and every block cap k is a natural complete invariant of Bell-colour reconfiguration graphs; the cap surprisingly never creates a geodesic detour, which does not follow from knowing classical transfer distance in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

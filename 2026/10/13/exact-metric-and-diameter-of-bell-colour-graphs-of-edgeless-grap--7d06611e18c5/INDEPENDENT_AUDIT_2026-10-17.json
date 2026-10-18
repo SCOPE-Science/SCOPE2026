@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:59:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For partitions P,Q of [n] with <=k blocks, any length-t single-element-move path leaves at least n-t elements unmoved, which induce a matching of initial and final partition blocks; hence t>=n-mu(P,Q), where mu is maximum intersection-weight bipartite matching. Conversely pad each block family to k common temporary labeled slots, match maximum overlap via slot bijection and recolor each of the n-mu mismatched elements exactly once to its target slot. At most k nonempty slots occur; removing no-change steps gives a path of length <=n-mu. Thus d=n-mu for all 1<=k<=n, and truncated Bell partition graph is isometric in full Bell graph. Random k-slot perfect matching has expected total overlap n/k, so mu>=ceil(n/k); taking P balanced k blocks and Q the one-block partition attains equality, proving diameter n-ceil(n/k). Independent from-scratch BFS and dynamic-programming matching checks agree across every pair for n<=5/all k, 7,777 tested ordered pairs. Unlimited statement is from the matching proof, not finite BFS.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bell-colour graph results focus on Hamiltonicity/connectivity and reconstruction, respectively; inspected sections do not state or imply the all-k distance and diameter equality."
+        ],
+        "reasoning": "A general reconfiguration theorem for all graphs would dominate the edgeless case, but neither inspected primary theorem is such a distance classification; transfer distance for arbitrary partitions is an unconstrained edit invariant, not evidence of a same-graph geodesic bound.",
+        "searches": [
+          "Finbow–MacGillivray arXiv:2512.13864v1",
+          "Hearn arXiv:2604.13005v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2512.13864v1",
+        "https://arxiv.org/html/2604.13005v1",
+        "https://doi.org/10.13140/RG.2.1.1654.8328",
+        "Resultary semantic search: Bell k colouring graph edgeless graph partition reconfiguration distance maximum bipartite matching overlap diameter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transfer distance allows reassignment minimizing moved ground elements. Bell graph restricts intermediate configurations to <=k blocks; the constructive padded-recoloring argument proves it costs no additional moves."
+        ],
+        "reasoning": "The current equality is a reduction via matching label padding; it could be recorded as a known fact in older clustering-reconfiguration literature, so best-of-knowledge novelty is claimed specifically for k-Bell isometry/diameter, not for n-mu as a standalone metric.",
+        "searches": [
+          "Rossi 2015 Hamming distance between partitions",
+          "Finbow–MacGillivray 2026 main results",
+          "Hearn 2026 reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block-intersection maximum-weight matching is the established transfer distance between two set partitions."
+        ],
+        "reasoning": "Compared partition-edit, transfer distance, clustering Hamming distance, unlabeled colorings, Bell/Stirling colour graphs and reconfiguration-graph shortest paths. Classical transfer distance overlaps the metric formula but does not automatically establish isometry of the at-most-k reconfiguration graph.",
+        "searches": [
+          "Resultary semantic search: Bell k colouring graph edgeless graph partition reconfiguration distance maximum bipartite matching overlap diameter",
+          "Rossi 2015 Hamming distance between partitions",
+          "Finbow–MacGillivray arXiv:2512.13864v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected all-n,k table/diameter formula for the Bell partition graph; exact small-n BFS from source is a verifier rather than prior tabulation."
+        ],
+        "reasoning": "An existing matching algorithm for partition distance computes n-mu but does not provide the separate graph-invariant maximum n-ceil(n/k) unless feasible moves and caps are analyzed.",
+        "searches": [
+          "Resultary semantic search: Bell k colouring graph edgeless graph partition reconfiguration distance maximum bipartite matching overlap diameter",
+          "Finbow–MacGillivray arXiv:2512.13864v1"
+        ]
+      },
+      "rationale": "Classical partition comparison gives transfer/matching distance n-mu as minimum number of ground elements needing reassignment; this expression itself is NOT claimed new. Finbow–MacGillivray Bell-colour paper defines partition-move graph and studies connectivity/Hamiltonicity, and Hearn reconstructs source graphs; their inspected statements do not give the exact isometric truncation theorem or diameter. A publication equating the classical transfer metric with this identical partition reconfiguration graph under other terminology remains the most material originality risk.",
+      "residual_risks": [
+        "A classical clustering-edit or graph-coloring reconfiguration source could already state that at-most-k partition reassignments realize n-mu exactly and derive the diameter; the identical result under a different name would remove originality.",
+        "The graph is edgeless and permits singleton creation without exceeding k; general graph proper-coloring moves need not satisfy the same isometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_GRAPH_NO_METRIC_IN_INSPECTED_RESULTS",
+          "evidence": "Graph moves reassign one vertex between independent color classes; all partitions proper for an edgeless base. Paper develops Hamiltonicity rather than shortest-path formula.",
+          "identifier_or_url": "https://arxiv.org/html/2512.13864v1",
+          "material_read": "Bell k-colour graph definition, adjacency, graph structural/Hamiltonicity results, and theorem sections searched for distance/diameter",
+          "method": "Accessible full HTML, relevant definitions/results read and term-checked",
+          "title": "Hamiltonicity of Bell and Stirling Colour Graphs",
+          "trigger": "Same graph definition, likely dominating theorem"
+        },
+        {
+          "assessment": "DIFFERENT_PROPERTY",
+          "evidence": "Theorems reconstruct the original graph from the Bell graph, not compute the all-k exact shortest-path metric.",
+          "identifier_or_url": "https://arxiv.org/html/2604.13005v1",
+          "material_read": "Statement of reconstruction results and relevant Bell graph setup; text searched for diameter",
+          "method": "Accessible full HTML, relevant mathematical statements read",
+          "title": "Reconstructing a graph from its Bell colouring graph",
+          "trigger": "Potential same-family graph theorem"
+        },
+        {
+          "assessment": "PRIOR_TRANSFER_METRIC; FULL_TEXT_NOT_CLEARED",
+          "evidence": "The maximum matching-based partition-transfer cost is classical. An explicit proof of Bell k-graph geodesic isometry in inaccessible material cannot be ruled out.",
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.1.1654.8328",
+          "material_read": "Accessible indexed bibliographic and methodological description; complete paper not securely inspected",
+          "method": "Bibliographic text and accessible indexed excerpts",
+          "title": "Hamming distance between partitions, clustering comparison and information",
+          "trigger": "Classical equivalent matching distance and possible complete coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the exact shortest-path metric and sharp diameter simultaneously for all n and every block cap k is a natural complete invariant of Bell-colour reconfiguration graphs; the cap surprisingly never creates a geodesic detour, which does not follow from knowing classical transfer distance in isolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2512.13864v1",
+    "https://arxiv.org/html/2604.13005v1",
+    "https://doi.org/10.13140/RG.2.1.1654.8328",
+    "2026/10/13/exact-metric-and-diameter-of-bell-colour-graphs-of-edgeless-grap--7d06611e18c5/RESULT.md",
+    "Resultary semantic search: Bell k colouring graph edgeless graph partition reconfiguration distance maximum bipartite matching overlap diameter"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A classical clustering-edit or graph-coloring reconfiguration source could already state that at-most-k partition reassignments realize n-mu exactly and derive the diameter; the identical result under a different name would remove originality.",
+    "The graph is edgeless and permits singleton creation without exceeding k; general graph proper-coloring moves need not satisfy the same isometry.",
+    "No whole-package public semantic privacy clearance or full neutral replacement files; not publication-ready.",
+    "The completed review is an independently reconstructed best-of-knowledge C/O/V assessment, not external proof certification."
+  ],
+  "residual_risks": [
+    "A classical clustering-edit or graph-coloring reconfiguration source could already state that at-most-k partition reassignments realize n-mu exactly and derive the diameter; the identical result under a different name would remove originality.",
+    "The graph is edgeless and permits singleton creation without exceeding k; general graph proper-coloring moves need not satisfy the same isometry."
+  ],
+  "schema_version": 1
+}

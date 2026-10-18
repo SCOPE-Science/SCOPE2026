@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically. The bundled `verify.py` is a finite independent stress test of the definitions.
+# Independent mathematical audit
 
-For every \(1\le n\le6\), the program generates every set partition in restricted-growth form. For every \(1\le k\le n\), it retains exactly those partitions having at most \(k\) blocks, constructs adjacency by literal one-element moves, and performs breadth-first search from every retained partition. Separately, it computes the maximum block-intersection matching weight by dynamic programming and checks
-\[
-d(P,Q)=n-\mu(P,Q)
-\]
-for every ordered pair. It also checks
-\[
-\operatorname{diam}\mathcal B_k(\overline{K_n})
-=n-\left\lceilrac{n}{k}
-ight
-ceil.
-\]
+## correctness
 
-Replay command:
+PASS
 
-`python3 verify.py`
+For partitions P,Q of [n] with <=k blocks, any length-t single-element-move path leaves at least n-t elements unmoved, which induce a matching of initial and final partition blocks; hence t>=n-mu(P,Q), where mu is maximum intersection-weight bipartite matching. Conversely pad each block family to k common temporary labeled slots, match maximum overlap via slot bijection and recolor each of the n-mu mismatched elements exactly once to its target slot. At most k nonempty slots occur; removing no-change steps gives a path of length <=n-mu. Thus d=n-mu for all 1<=k<=n, and truncated Bell partition graph is isometric in full Bell graph. Random k-slot perfect matching has expected total overlap n/k, so mu>=ceil(n/k); taking P balanced k blocks and Q the one-block partition attains equality, proving diameter n-ceil(n/k). Independent from-scratch BFS and dynamic-programming matching checks agree across every pair for n<=5/all k, 7,777 tested ordered pairs. Unlimited statement is from the matching proof, not finite BFS.
 
-Expected output:
+## originality
 
-`ALL CHECKS PASSED; n_max=6; bell_vertices_full=278; parameter_graphs=21; ordered_pair_checks=140668; diameter_checks=21`
+PASS
 
-These finite checks are supplementary evidence and do not prove the universal statement.
+Classical partition comparison gives transfer/matching distance n-mu as minimum number of ground elements needing reassignment; this expression itself is NOT claimed new. Finbow–MacGillivray Bell-colour paper defines partition-move graph and studies connectivity/Hamiltonicity, and Hearn reconstructs source graphs; their inspected statements do not give the exact isometric truncation theorem or diameter. A publication equating the classical transfer metric with this identical partition reconfiguration graph under other terminology remains the most material originality risk.
+
+## value
+
+PASS
+
+Determining the exact shortest-path metric and sharp diameter simultaneously for all n and every block cap k is a natural complete invariant of Bell-colour reconfiguration graphs; the cap surprisingly never creates a geodesic detour, which does not follow from knowing classical transfer distance in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
