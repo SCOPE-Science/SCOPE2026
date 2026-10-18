@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Execute `python3 verify_pairs.py` and `python3 verify_transfer.py` in the directory containing those files. Both programs use only the Python standard library. The pair checker compares every pair of `111`-avoiding binary words at lengths 3–11 against the canonical-image equivalence criterion, and verifies the local replacement implication at lengths 3–8; it also checks the length-two boundary. The transfer checker computes the four-state count for lengths 2–100, compares it to the three-term recurrence and enumerates all allowed words directly through length 17.
+## correctness
 
-Observed terminal markers: `PAIR_VERIFICATION_OK` and `TRANSFER_VERIFICATION_OK`. The independently obtained length-2-through-length-16 sequence is `3 5 9 17 31 57 105 193 355 653 1201 2209 4063 7473 13745`.
+PASS
 
-The all-length guarantee follows from the proof's replacement and canonical-equivalence lemmas and Cayley–Hamilton calculation. Finite exhaustive programs alone would not prove the infinite theorem. No formal proof-assistant validation or independent external scientific audit is claimed.
+Changing middle 1 of any 111 triple to 0 cannot destroy any channel distinguishing pair because the two altered blocks of the old word equal isolated symbol 11, and strictly decreases ones. In 111-free words, a differing interior bit would force three consecutive ones on one side to avoid distinguishability. Hence every confusability class is exactly a fiber of π erasing boundary ones next to ones. The fiber representatives R_n are pairwise distinguished and complete. Transfer matrix T on last-two-bit states has characteristic polynomial λ(λ³−λ²−λ−1); checked boundary values yield recurrence at n=5 and Cayley-Hamilton beyond. Independent check: An independent enumeration checked every pair of 111-free words at all lengths n=3..10 against π-equivalence and pairwise separation of all canonical representatives; counts 3,5,9,17,31,57,105,193,355 through n=10. Infinite result rests on the interior-bit argument, not these finite experiments.
+
+## originality
+
+PASS
+
+Cohen–Fachini–Körner prove asymptotic Shannon–Markov capacity and the 111-removal upper growth bound for exactly F. Their inspected 2014 Theorem 1 proof uses a smaller constructive language and does not give the exact all-n clique-fiber partition and tribonacci packing. The 2018 Cao–Cai–Guo–Yeung related one-memory article was identified but its full text was inaccessible, so equivalent finite-n coverage remains a significant risk, not a fabricated exclusion.
+
+## value
+
+PASS
+
+A sharp finite-blocklength code-size sequence is a natural coding invariant even when the asymptotic zero-error capacity is known. Its exact packing removes exponential-equivalence slack and supplies explicit maximizers for every length; the result does not reprove the known capacity exponent as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

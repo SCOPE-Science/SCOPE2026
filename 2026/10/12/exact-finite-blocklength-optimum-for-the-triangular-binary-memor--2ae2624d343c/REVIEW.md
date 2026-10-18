@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The specified finite-length channel has the clique relation used in the proof: a change within a `111` triple cannot remove a pairwise distinguishing witness because the original two affected pairs were `11`, an isolated vertex. Iteration lowers the number of ones and preserves code size. Within the `111`-free language, any differing interior bit would force `111` in the word having a one there. The remaining endpoint-only ambiguity is exactly the canonical projection's fiber, so selecting one representative per fiber both bounds and attains the optimum. The transfer matrix correctly counts these representatives; exact-integer verification independently reproduces the recurrence and finite examples. The result is an all-length symbolic theorem, not an extrapolation of experiments.
+## correctness
 
-**Originality — PASS, qualified by source access.** Cohen–Fachini–Körner (arXiv:1402.0349, public 2014-02-03), inspected through the complete relevant HTML discussion of the triangular channel, determines the exponential capacity but does not give an exact finite-blocklength sequence or the canonical confusability partition. Searches for the channel under graph, Shannon–Markov, and tribonacci formulations found no dominating finite-size theorem. The 2018 Cao–Cai–Guo–Yeung paper reports capacities in its accessible abstract; its full text could not be obtained, leaving a specific risk of equivalent earlier finite-size material. Search nonappearance is not a proof of novelty.
+PASS
 
-**Value — PASS.** Finite-blocklength zero-error packing sizes and explicitly decodable codebooks matter independently of an asymptotic capacity exponent. The equality partition provides a structural explanation of optimality and the rational generating function computes every blocklength exactly; this is a complete natural finite-length invariant, not an isolated tabulation or a small numerical improvement.
+Changing middle 1 of any 111 triple to 0 cannot destroy any channel distinguishing pair because the two altered blocks of the old word equal isolated symbol 11, and strictly decreases ones. In 111-free words, a differing interior bit would force three consecutive ones on one side to avoid distinguishability. Hence every confusability class is exactly a fiber of π erasing boundary ones next to ones. The fiber representatives R_n are pairwise distinguished and complete. Transfer matrix T on last-two-bit states has characteristic polynomial λ(λ³−λ²−λ−1); checked boundary values yield recurrence at n=5 and Cayley-Hamilton beyond. Independent check: An independent enumeration checked every pair of 111-free words at all lengths n=3..10 against π-equivalence and pairwise separation of all canonical representatives; counts 3,5,9,17,31,57,105,193,355 through n=10. Infinite result rests on the interior-bit argument, not these finite experiments.
 
-The principal limitation is lack of a complete full-text comparison with the 2018 one-memory capacity article, plus the absence of independent external review. No capacity-exponent novelty or exhaustive classification of all unrestricted optimal codes is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cohen–Fachini–Körner prove asymptotic Shannon–Markov capacity and the 111-removal upper growth bound for exactly F. Their inspected 2014 Theorem 1 proof uses a smaller constructive language and does not give the exact all-n clique-fiber partition and tribonacci packing. The 2018 Cao–Cai–Guo–Yeung related one-memory article was identified but its full text was inaccessible, so equivalent finite-n coverage remains a significant risk, not a fabricated exclusion.
+
+## value
+
+PASS
+
+A sharp finite-blocklength code-size sequence is a natural coding invariant even when the asymptotic zero-error capacity is known. Its exact packing removes exponential-equivalence slack and supplies explicit maximizers for every length; the result does not reprove the known capacity exponent as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
