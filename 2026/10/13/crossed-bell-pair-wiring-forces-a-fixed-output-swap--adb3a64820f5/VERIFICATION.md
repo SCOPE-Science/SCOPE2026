@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The proof was checked directly from the source's printed resource states and Bell-measurement wiring. The exact resource factorizations are
-\[
-\lvert\Omega_1\rangle=\lvert\Phi^+\rangle_{m_1A_3}\otimes\lvert\Phi^+\rangle_{m_2A_2}\otimes\lvert\Phi^+\rangle_{m_3A_1},
-\]
-and
-\[
-\lvert\Omega_2\rangle=\lvert\Phi^+\rangle_{m_4B_1}\otimes\lvert\Phi^+\rangle_{m_5B_2}\otimes\lvert\Phi^+\rangle_{m_6B_3}.
-\]
-The mentor pairings therefore route \(B_1\) to \(A_3\) and \(B_2\) to \(A_2\). Direct Bell-bra contraction gives local Pauli maps on each route, and tensoring them yields the fixed SWAP on the source's named physical output order.
+# Independent mathematical audit
 
-`artifacts/verify.py` was executed from the packaged path and returned `VERIFY_OK`. It uses only exact integer arithmetic. It checks every Bell-label combination for one chain, both resource factorizations, and the all-plus basis witness. Its finite checks corroborate the symbolic derivation rather than replace it.
+## correctness
 
-Unproved limits: no statement is made about noisy dynamics, hardware fidelity, or whether an implementation silently interprets the logical output order as \(A_3,A_2\). The result is a correction of the ideal named-output recovery rule.
+PASS
+
+The two exact eight-term resources, in the named m1m2m3A1A2A3 and m4m5m6B1B2B3 orders, factor into Bell(m1,A3) Bell(m2,A2) Bell(m3,A1) and Bell(m4,B1) Bell(m5,B2) Bell(m6,B3). Mentor Bell projections connect B1 to A3 and B2 to A2. Independent integer Bell contraction verified ALL 16 mentor/sender Bell-label combinations along a single chain; tensor linearity then sends an arbitrary entangled b1b2 input to (P2 tensor P1)SWAP|psi> in the physical ordered A2A3 register. The all-plus |01> witness maps to |10>, so diagonal corrections alone cannot recover named physical order. Reversing the LOGICAL order A3,A2 eliminates the need for an explicit swap. This is a precise wire-order correction, not a denial of teleportability.
+
+## originality
+
+PASS
+
+The exact crossed source resource permutation and resulting omitted fixed output SWAP are a source-specific correction, despite standard Bell teleportation/swapping identities being prior. No same-source correction found via Resultary or neutral scholarly search. Best-of-knowledge O with material priority risk because v1/v2 full papers inaccessible.
+
+## value
+
+PASS
+
+Correcting a physical output permutation matters for any arbitrary two-qubit state (e.g. |01>) and the fidelity of the printed prescribed recovery; the exact witness and all-branch formula show a protocol implementation correction, while acknowledging that a logical wire-relabeling also solves it. Not merely a cosmetic phase or notation typo if the prescribed A2,A3 physical order is indeed enforced.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

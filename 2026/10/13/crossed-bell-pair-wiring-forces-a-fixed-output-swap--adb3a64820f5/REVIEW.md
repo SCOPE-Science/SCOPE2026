@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the resource-state factorization, mentor-induced Bell-pair routing, single-chain teleportation identity, arbitrary two-qubit tensor extension, and inversion of the resulting map. The source's own all-plus Table 3 coefficient pattern supplies an independent concrete witness. The exact-arithmetic checker replays the algebraic identities; no finite sweep is used to justify the universal statement.
+## correctness
 
-## Originality
-PASS. Exact-source, output-SWAP, crossed-wire, Bell-pair-factorization, Table 3, and implication-equivalent searches found no published correction of arXiv:2610.01684v1. Standard teleportation and entanglement-swapping sources provide general premises but do not derive the source-specific permutation. No matching source-specific correction was found in the checked published literature.
+PASS
 
-## Value
-PASS. The anchor's principal extension is deterministic teleportation of an arbitrary two-qubit state from Bob to Alice. With the source's named physical output order, the printed rule reverses the two logical subsystems. The correction is exact for every branch and every input and is operationally relevant whenever subsequent gates address \(A_2\) and \(A_3\) separately.
+The two exact eight-term resources, in the named m1m2m3A1A2A3 and m4m5m6B1B2B3 orders, factor into Bell(m1,A3) Bell(m2,A2) Bell(m3,A1) and Bell(m4,B1) Bell(m5,B2) Bell(m6,B3). Mentor Bell projections connect B1 to A3 and B2 to A2. Independent integer Bell contraction verified ALL 16 mentor/sender Bell-label combinations along a single chain; tensor linearity then sends an arbitrary entangled b1b2 input to (P2 tensor P1)SWAP|psi> in the physical ordered A2A3 register. The all-plus |01> witness maps to |10>, so diagonal corrections alone cannot recover named physical order. Reversing the LOGICAL order A3,A2 eliminates the need for an explicit swap. This is a precise wire-order correction, not a denial of teleportability.
 
-## Closest literature and limitations
-The closest broader literature is Bennett et al. for one-qubit teleportation, Żukowski et al. for entanglement swapping, and Cao--Zhu--Fang for arbitrary multi-particle teleportation through independent EPR pairs. Those works do not state the new paper's crossed output wiring. The result does not show failure of teleportation up to wire relabelling: declaring the logical order to be \(A_3,A_2\) removes the fixed SWAP. It does not assess the opposite direction, noise, or hardware performance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact crossed source resource permutation and resulting omitted fixed output SWAP are a source-specific correction, despite standard Bell teleportation/swapping identities being prior. No same-source correction found via Resultary or neutral scholarly search. Best-of-knowledge O with material priority risk because v1/v2 full papers inaccessible.
+
+## value
+
+PASS
+
+Correcting a physical output permutation matters for any arbitrary two-qubit state (e.g. |01>) and the fidelity of the printed prescribed recovery; the exact witness and all-branch formula show a protocol implementation correction, while acknowledging that a logical wire-relabeling also solves it. Not merely a cosmetic phase or notation typo if the prescribed A2,A3 physical order is indeed enforced.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
