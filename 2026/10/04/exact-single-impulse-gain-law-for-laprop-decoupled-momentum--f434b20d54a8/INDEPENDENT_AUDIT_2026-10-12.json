@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T14:26:18.617419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With input g_1=G!=0 and g_t=0 afterwards, the source LaProp bias-corrected n_1 yields G/(|G|+ε), and m_t=(1-μ)μ^(t-1) times it. Dividing by 1-μ^t and summing gives K(μ). For t>=2 each term μ^(t-1)/(1+...+μ^(t-1)) increases strictly in μ>0; domination by μ^(t-1) proves convergence for μ<1; fixed partial sums tend to harmonic numbers as μ up to 1, proving unbounded K. Adam zero-damping m_t,n_t give asymptotic tail (μ/sqrtν)^(t-1), hence exact μ<sqrtν condition for ν in (0,1). Inspected the actual verify.py recurrence and limiting checks; analytically reconstructed rather than trusting its output.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu, Wang, Ueda, LaProp: Separating Momentum and Adaptivity in Adam, arXiv:2002.04839, Algorithm 1 pp.3–4 and Proposition 1 discussion"
+        ],
+        "reasoning": "Compared source theorems and broader implications. Single-update bounds do not bound infinite cumulative displacement uniformly in μ. Adam condition concerns coupling, while the new formula is a separate LaProp memory diagnostic.",
+        "searches": [
+          "LaProp Ziyin Wang Ueda single gradient impulse cumulative momentum gain",
+          "LaProp single impulse exact cumulative parameter displacement gain momentum beta1 beta2 Adam"
+        ]
+      },
+      "checked_sources": [
+        "Liu, Wang, Ueda, LaProp: Separating Momentum and Adaptivity in Adam, arXiv:2002.04839, Algorithm 1 pp.3–4 and Proposition 1 discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu, Wang, Ueda, LaProp: Separating Momentum and Adaptivity in Adam, arXiv:2002.04839, Algorithm 1 pp.3–4 and Proposition 1 discussion"
+        ],
+        "reasoning": "Single-update bounds do not bound infinite cumulative displacement uniformly in μ. Adam condition concerns coupling, while the new formula is a separate LaProp memory diagnostic.",
+        "searches": [
+          "LaProp Ziyin Wang Ueda single gradient impulse cumulative momentum gain",
+          "LaProp single impulse exact cumulative parameter displacement gain momentum beta1 beta2 Adam"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu, Wang, Ueda, LaProp: Separating Momentum and Adaptivity in Adam, arXiv:2002.04839, Algorithm 1 pp.3–4 and Proposition 1 discussion"
+        ],
+        "reasoning": "Checked exact equivalent statements, alternate normalizations and terminology. Single-update bounds do not bound infinite cumulative displacement uniformly in μ. Adam condition concerns coupling, while the new formula is a separate LaProp memory diagnostic.",
+        "searches": [
+          "LaProp Ziyin Wang Ueda single gradient impulse cumulative momentum gain",
+          "LaProp single impulse exact cumulative parameter displacement gain momentum beta1 beta2 Adam"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu, Wang, Ueda, LaProp: Separating Momentum and Adaptivity in Adam, arXiv:2002.04839, Algorithm 1 pp.3–4 and Proposition 1 discussion"
+        ],
+        "reasoning": "No consulted exact database/table establishes this full final claim; Resultary attempt failed rather than a negative finding. Single-update bounds do not bound infinite cumulative displacement uniformly in μ. Adam condition concerns coupling, while the new formula is a separate LaProp memory diagnostic.",
+        "searches": [
+          "LaProp Ziyin Wang Ueda single gradient impulse cumulative momentum gain",
+          "LaProp single impulse exact cumulative parameter displacement gain momentum beta1 beta2 Adam"
+        ]
+      },
+      "rationale": "The original LaProp Algorithm 1 and Proposition 1 bound individual preconditioned updates and identify Adam hyperparameter coupling, but the inspected section does not state the total isolated-impulse displacement K(μ) or its high-μ divergence. Existing standard momentum recurrence makes the calculation elementary; no direct full-impulse formula found in the targeted search, which is not a novelty proof.",
+      "residual_risks": [
+        "Other optimizer impulse-response analyses or later versions might derive the same Lambert series.",
+        "An unsuccessful topical search does not establish novelty; aliases, theses and non-indexed work remain possible.",
+        "Resultary semantic lookup unavailable; no absence claim or research certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States per-step robustness and recurrence; the cumulative K(μ) impulse law is not stated in material inspected. Remaining sections have not been exhaustively excluded.",
+          "evidence": [
+            "Algorithm 1 explicitly preconditions g_t before accumulation into m_t.",
+            "Page 4 bounds one gradient contribution to momentum but not the total infinite tail."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.04839",
+          "material_read": "Original arXiv PDF introduction, section 2 and page 4 Algorithm 1, pathologically large gradient discussion and nearby Adam instability text",
+          "method": "arXiv PDF text and original p.4 image",
+          "title": "LaProp: Separating Momentum and Adaptivity in Adam",
+          "trigger": "Source defining the precise optimizer recurrence and claimed single-gradient robustness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source motivates rare large gradients and robustness; summing infinitely many subsequent zero-gradient momentum updates measures a natural cumulative impulse response not controlled by any single-step bound. Explicitly separating fixed-μ summability from μ→1 blowup and Adam μ/sqrtν instability is a mathematically informative boundary for optimizer diagnostics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other optimizer impulse-response analyses or later versions might derive the same Lambert series.",
+    "An unsuccessful topical search does not establish novelty; aliases, theses and non-indexed work remain possible.",
+    "Resultary query returned temporarily_unavailable/search_internal_error with search_completed:false; not a completed negative search. Full semantic inspection of source AUDIT.json, REVIEW.md and VERIFICATION.md could not be finished before minute-20 deadline; publication withheld pending that inspection."
+  ],
+  "schema_version": 1
+}

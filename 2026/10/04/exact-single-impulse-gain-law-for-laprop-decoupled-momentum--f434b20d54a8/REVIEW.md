@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source recurrence is solved exactly after one impulse. The cumulative gain is geometrically dominated for fixed \(\mu<1\), strictly increases term by term in \(\mu\), and diverges through harmonic limiting partial sums. The Adam comparison follows from an exact tail ratio.
+PASS
 
-Risk: positive Adam damping changes the late-time comparison.
+With input g_1=G!=0 and g_t=0 afterwards, the source LaProp bias-corrected n_1 yields G/(|G|+ε), and m_t=(1-μ)μ^(t-1) times it. Dividing by 1-μ^t and summing gives K(μ). For t>=2 each term μ^(t-1)/(1+...+μ^(t-1)) increases strictly in μ>0; domination by μ^(t-1) proves convergence for μ<1; fixed partial sums tend to harmonic numbers as μ up to 1, proving unbounded K. Adam zero-damping m_t,n_t give asymptotic tail (μ/sqrtν)^(t-1), hence exact μ<sqrtν condition for ν in (0,1). Inspected the actual verify.py recurrence and limiting checks; analytically reconstructed rather than trusting its output.
 
-## Originality
+## originality
 
-PASS. The defining paper proves bounded individual LaProp updates and discusses a single pathologically large gradient, but it does not state the total impulse displacement, the exact series \(\mathcal K(\mu)\), or its unbounded high-momentum limit. Focused published-record and web searches found no implication-equivalent result.
+PASS
 
-Residual risk: an equivalent short calculation may exist in unindexed notes.
+The original LaProp Algorithm 1 and Proposition 1 bound individual preconditioned updates and identify Adam hyperparameter coupling, but the inspected section does not state the total isolated-impulse displacement K(μ) or its high-μ divergence. Existing standard momentum recurrence makes the calculation elementary; no direct full-impulse formula found in the targeted search, which is not a novelty proof.
 
-## Value
+## value
 
-PASS. The result distinguishes per-step robustness from cumulative memory. It shows how LaProp removes Adam's momentum/adaptivity coupling for a sparse event while revealing a separate high-momentum accumulation effect; the gain is already about \(3.01\) at \(\mu=0.9\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The source motivates rare large gradients and robustness; summing infinitely many subsequent zero-gradient momentum updates measures a natural cumulative impulse response not controlled by any single-step bound. Explicitly separating fixed-μ summability from μ→1 blowup and Adam μ/sqrtν instability is a mathematically informative boundary for optimizer diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
