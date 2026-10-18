@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The defining recursion yields aligned triples (a_m,1-a_m,a_m). Equal neighboring bits can begin only at residue 2 mod 3. Of four consecutive a_m=x_(2m), one adjacent pair is x_(3j), x_(3j+2), hence equal; therefore there is no 10-bit alternating run. In a period-p cube with gcd(p,3)=1, an equal pair would recur at starting positions with different residues modulo 3 (two positions even in the seam case), impossible. Thus the entire cube alternates. Its period is even, and 3p<=9 yields p=2. The example 101010101 at indices 12..20 proves sharp exponent 9/2, and any period-p factor shorter than a cube has exponent<3. The exact standalone recurrence and digit-parity program tested all eligible periods <=120 over a 50,000-symbol prefix; the proof, not the finite test, is universal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dekking 2023 states the unrestricted exponent-five assertion as a conjecture",
+        "Cassaigne et al. arXiv:2602.21895 establish uniform recurrence and frequency results, without a cube-period theorem",
+        "Blondin-Massé et al. 2007 consider a different generalized Thue–Morse word"
+      ],
+      "reasoning": "Even a global bound of five would not classify all coprime-to-three cube periods or determine their sharp maximum 9/2. The 2026 results concerning symbolic frequencies and Toeplitz differences do not dominate the present factor-period statement; generalized Thue–Morse words are not identical to this rational-base digit-parity word.",
+      "searches": [
+        "Dekking binary 2-3 block substitution 010 101 fractional powers periods coprime to three",
+        "\"Dekking\" \"critical exponent\" \"3/2\" proof",
+        "\"Thue-Morse word in base 3/2\" \"cube\" \"exponent\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.13563 full text",
+      "Dekking and Keane, 2023, accessible full article",
+      "arXiv:2602.21895 accessible full HTML",
+      "OEIS A357448 and dated revision history",
+      "Relevant mathematical literature searches on exact periods, cubes, generalized Thue–Morse exponents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 specifies aligned blocks a,1-a,a but no theorem on all cubes",
+        "The 2023 alternating fourth power establishes only existence, not sharp upper bound",
+        "The 2026 study gives frequency and uniform recurrence theorems, not cube-period rigidity"
+      ],
+      "reasoning": "The established recurrence provides the premise; the new lemma that four consecutive even-sampled symbols cannot alternate, together with the mod-three equal-adjacency obstruction, is required to derive the classification. Neither existence of a fourth power nor known uniform recurrence implies the universal upper bound.",
+      "searches": [
+        "arXiv:2301.13563",
+        "https://ir.cwi.nl/pub/33010/33010.pdf",
+        "arXiv:2602.21895"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dekking, arXiv:2301.13563, Theorem 1 and Conjecture 10",
+        "Dekking–Keane, Section 3",
+        "OEIS A357448 sequence formula"
+      ],
+      "reasoning": "Equivalent forms include an explicit description of length-3p factors with 3 not dividing p and an optimal restricted critical exponent; inspected recurrence and examples do not yield these statements without the new boundary-equality argument.",
+      "searches": [
+        "base 3/2 Thue Morse digit sum parity word powers period not divisible by 3 critical exponent 9/2",
+        "A357448 exact fourth powers fifth powers periodic factors base 3/2 Thue-Morse maximal repetition 9/2 with period coprime to 3",
+        "\"A357448\" \"cube\" \"period\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A357448 supplies initial terms, recurrence and conjectures, not a repetition table",
+        "OEIS revision history September 2022 indicates public approval"
+      ],
+      "reasoning": "The finite digit table contains alternating examples but cannot certify a uniform infinite cube classification or upper bound for arbitrary periods. No matching exact table was located in the inspected resources.",
+      "searches": [
+        "A357448 exact fourth powers fifth powers periodic factors base 3/2 Thue-Morse maximal repetition 9/2 with period coprime to 3",
+        "\"A357448\" critical exponent powers",
+        "OEIS:A357448"
+      ]
+    },
+    "rationale": "The 2023 source poses the general critical-exponent question and proves only the generating recurrence; a related study gives an alternating fourth power but not an upper bound. The later 2026 factor/frequency paper and exact OEIS table do not state or imply the all-period coprime-to-three cube classification or the sharp exponent 9/2. Search across aliases and equivalent formulations found no covering statement. The proof introduces an obstruction from adjacent equalities at mod-three block boundaries. Unindexed equivalent results remain possible.",
+    "residual_risks": [
+      "Unindexed literature on the same rational-base sequence could independently contain an equivalent cube classification.",
+      "Some generalized-word results use differing definitions and encodings; an unrecognized conjugacy could produce implicit coverage.",
+      "No independent originality audit has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the 2-to-3 block recurrence and poses an unrestricted exponent conjecture, but does not classify cubes at periods coprime to three or prove a restricted sharp exponent",
+        "evidence": [
+          "Theorem 1 and Section 2.2 give x(3m),x(3m+1),x(3m+2); Conjecture 10 asks whether the unrestricted exponent is five."
+        ],
+        "identifier_or_url": "arXiv:2301.13563; https://cs.uwaterloo.ca/journals/JIS/VOL26/Dekking/dek25.pdf",
+        "material_read": "Full six-page published article, including Theorem 1, proof by digit-sum recurrence, Section 2.2, Conjecture 10, and references",
+        "method": "Read the accessible full PDF with the main mathematical statements and related conjectures; compared exact factor-period conclusion",
+        "title": "The Thue–Morse sequence in base 3/2",
+        "trigger": "Originating recurrence and explicit critical-exponent conjecture"
+      },
+      {
+        "assessment": "Uses the same recurrence and gives a fourfold alternating example, but does not show all coprime-to-three cubes are alternating or rule out longer restricted powers",
+        "evidence": [
+          "Section 3 presents the 2-to-3 Thue–Morse substitution; an alternating fourth-power factor is discussed in the paper."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/33010/33010.pdf; Advances in Applied Mathematics 148 (2023), 102536",
+        "material_read": "Accessible full PDF, particularly Section 3 and the explicit alternating fourth power",
+        "method": "Compared its substituted-word examples, recurrence, and conclusions on morphicity against cube rigidity and exact restricted exponent",
+        "title": "Two-block substitutions and morphic words",
+        "trigger": "Same block substitution, related repetition examples"
+      },
+      {
+        "assessment": "Establishes properties of the same sequence but no result in the examined sections gives the exact coprime-period cube spectrum or 9/2 restricted exponent; its frequency/uniform-recurrence conclusions do not imply the result.",
+        "evidence": [
+          "Proposition 11 identifies a Toeplitz first-difference word; Theorem 18 concerns letter frequencies, not cube periods."
+        ],
+        "identifier_or_url": "arXiv:2602.21895; https://arxiv.org/html/2602.21895v1",
+        "material_read": "Accessible full HTML: introductory results and section statements concerning morphic encoding, Toeplitz difference word, uniform recurrence, frequencies, and searched the full text for exponents and powers",
+        "method": "Compared the word identities, Toeplitz difference laws, and named theorems to the restricted cube classification",
+        "title": "Symbols frequencies in the Thue–Morse word in base 3/2 and related conjectures",
+        "trigger": "Later primary source on the same word that could imply stronger factor or periodicity results"
+      },
+      {
+        "assessment": "Records the recurrence and a table of sequence values, not an exact periodic-factor classification; first verified public date is September 30, 2022 (approved OEIS entry).",
+        "evidence": [
+          "OEIS lists x(3m)=x(2m), x(3m+1)=1-x(2m), x(3m+2)=x(2m); version #8 approved on September 30, 2022."
+        ],
+        "identifier_or_url": "https://oeis.org/A357448; https://oeis.org/history?seq=A357448&start=10",
+        "material_read": "Full displayed OEIS entry and version history through the September 30, 2022 approval",
+        "method": "Compared recurrence, initial terms, comments, and existing conjectures with theorem and checked earliest public date",
+        "title": "OEIS A357448, including revision history",
+        "trigger": "Exact sequence table and earliest publicly recorded description"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b74d4cb3-e74b-4542-9504-1dfbf38654a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 source explicitly asks for the critical exponent of this rational-base word. The proved statement resolves the sharp exponent for the canonical mod-three period sector forced by its two-to-three block substitution and classifies every cubic factor in that sector, excluding infinitely many potential high-exponent periods. It is a structural obstruction and exact natural partial spectrum rather than an arbitrary cutoff, though the global conjecture remains open.",
+    "status": "PASS"
+  }
+}
