@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a generalized Alexander quandle, each right translation is a right multiplication followed by the defining automorphism. The source's displacement-generation lemma therefore supplies the entire regular copy of \(Q_8\times C_7\), while the identity right translation supplies \(\theta\). Their intersection is trivial, giving the order-\(336\) semidirect product. The factorwise action splits it as \(T^*\times D_{14}\). The source's geometric group has an element of order \(12\), while the split product does not. An exhaustive permutation-group replay confirms all finite claims.
+## correctness
 
-## Originality
-PASS. The primary paper computes the associated marked group and the geometric orbit group but does not identify \(\operatorname{Inn}(P_7)\) or compare it with the orbit group. General quandle references supply only framework. Targeted searches for the object, aliases, group decompositions, and order-spectrum comparison did not locate the same explicit result. The main residual risk is an unindexed computation or database entry.
+PASS
 
-## Value
-PASS. The result separates two same-order symmetry groups naturally attached to the central object of a new realization theorem. This is not an order count: the explicit split structure and order-\(12\) obstruction show that the geometric circle-action symmetry contains extension information not captured by the quandle's inner action. The distinction is directly useful when translating between intrinsic quandle invariants and the geometry of the fibred realizations.
+Reconstructed operation x*y=theta(xy^{-1})y on Gamma=Q8×C7. Right translations are R_{theta(y)^{-1}y} theta; the source displacement-generation premise implies Inn=R_Gamma ⋊ C6, with trivial intersection because theta fixes identity and nontrivial translations do not. Separating coprime C3/C2 actions yields (Q8⋊C3)×(C7⋊C2)=T*×D14 of order 336. T* orders 1,2,3,4,6 and D14 orders 1,2,7 exclude order12; geometric Lambda has f^6=-1 and f order12. Inspected complete 56-point permutation-enumeration code at artifacts/verify_prism_symmetry.py, including independent orbit-group model, full BFS, element orders and 336-size checks. Structural proof establishes result, not verifier output alone.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same-order nonisomorphism comparison appears not established in inspected primary source; this is a qualified new distinction between finite-quandle intrinsic symmetry and the geometric orbit group.
+
+## value
+
+PASS
+
+A natural pair of 336-element symmetry groups associated with the same geometric realization are structurally distinguished, preventing a false identification; explicit element-order invariant is useful to future quandle/geometry comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

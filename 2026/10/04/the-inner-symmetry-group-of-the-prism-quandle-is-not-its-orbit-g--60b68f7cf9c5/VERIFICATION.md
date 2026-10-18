@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(P_7=\operatorname{GAlex}(\Gamma,	heta)\) with \(\Gamma=Q_8	imes C_7\), the exact right-translation formula is
-\[
-S_y=R_{	heta(y)^{-1}y}	heta.
-\]
-The source proves that the displacement elements \(	heta(y)^{-1}y\) generate all of \(\Gamma\). Hence
-\[
-\operatorname{Inn}(P_7)=R_\Gammatimes\langle	hetaangle
-\]
-and has order \(56\cdot6=336\). Because the order-three and order-two pieces of \(	heta\) act on separate factors,
-\[
-\operatorname{Inn}(P_7)\cong T^*	imes D_{14}.
-\]
+# Independent mathematical audit
 
-The source's geometric orbit group has a lift \(f\) with \(f^6=-1\), so \(f\) has order \(12\). The split product \(T^*	imes D_{14}\) has no element of order \(12\), proving nonisomorphism.
+## correctness
 
-The bundled exact verifier constructs the complete right-translation permutation group on all \(56\) elements and independently constructs the two order-\(336\) abstract groups. It prints:
+PASS
 
-`VERIFY_OK quandle_size=56 inn_order=336 displacement_order=56 identity_stabilizer=6 inn_order12=0 lambda_order=336 lambda_order12=112 f_order=12`
+Reconstructed operation x*y=theta(xy^{-1})y on Gamma=Q8×C7. Right translations are R_{theta(y)^{-1}y} theta; the source displacement-generation premise implies Inn=R_Gamma ⋊ C6, with trivial intersection because theta fixes identity and nontrivial translations do not. Separating coprime C3/C2 actions yields (Q8⋊C3)×(C7⋊C2)=T*×D14 of order 336. T* orders 1,2,3,4,6 and D14 orders 1,2,7 exclude order12; geometric Lambda has f^6=-1 and f order12. Inspected complete 56-point permutation-enumeration code at artifacts/verify_prism_symmetry.py, including independent orbit-group model, full BFS, element orders and 336-size checks. Structural proof establishes result, not verifier output alone.
 
-The enumeration is exhaustive over finite groups and is used as an independent check of the symbolic proof.
+## originality
 
-The independent-audit channel has not been performed.
+PASS
+
+The same-order nonisomorphism comparison appears not established in inspected primary source; this is a qualified new distinction between finite-quandle intrinsic symmetry and the geometric orbit group.
+
+## value
+
+PASS
+
+A natural pair of 336-element symmetry groups associated with the same geometric realization are structurally distinguished, preventing a false identification; explicit element-order invariant is useful to future quandle/geometry comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
