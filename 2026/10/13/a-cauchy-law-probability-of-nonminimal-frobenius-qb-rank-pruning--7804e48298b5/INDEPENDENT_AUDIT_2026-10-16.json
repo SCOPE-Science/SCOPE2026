@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With exact unpivoted QR, first block direction q1=(X,epsilon Y)/sqrt(X^2+epsilon^2Y^2) for independent real Gaussians X,Y (X=0 null event). Put s=epsilon^2Y^2/(X^2+epsilon^2Y^2); row energy squares are 1-(1-epsilon^2)s and epsilon^2+(1-epsilon^2)s, summing 1+epsilon^2. Algorithm 3.2 discards a smaller row iff its squared energy is <tau^2 on exact-zero residual. With u=(tau^2-epsilon^2)/(1-epsilon^2), and 0<u<1/2 for epsilon<(2c^2-1)^-1/2, both retained exactly when u<=s<=1-u (ties probability zero). Ratio Y/X is standard Cauchy, giving the difference of two arctangent probabilities. Limit as epsilon->0 is (2/pi) arctan(1/sqrt(c^2-1)). Eckart--Young singular values 1,epsilon show optimal residual epsilon<tau for rank1, while rank0 fails tau<||A||. Actual Frobenius look-ahead at first test rejects with probability at most 1-e^(-c^2 epsilon^2); with a complete rank-two block the next residual is zero and conditional probability differs from the unconditional Cauchy law by at most this rejection probability. Numerically evaluated exact formula at c=sqrt2,epsilon=0.005: 0.499976126 vs limiting 0.5; this is corroboration only. The publisher code explicitly sorts row norms and discards until strict test fails.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broad QB approximation theory gives singular-value optimality and randomized error estimates, but does not give the exact limiting probability for this specific 4x4 example and this greedy pruning."
+        ],
+        "reasoning": "A general near-optimal approximation guarantee does not logically preclude over-retaining a row half the time; singular-value rotation is a different basis-changing procedure.",
+        "searches": [
+          "Smith--Do--Chen arXiv:2607.06758v1 Section 3.2 and Theorem 2",
+          "Yu--Gu--Li arXiv:1606.09402 randomized QB SVD postprocessing",
+          "Liu--Yu arXiv:2508.07553 deflation theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.06758v1 (relevant algorithms read)",
+        "SMART-Algebra companion Prune_Rank_Fro.m and randQB_MF_Fro.m (full code read)",
+        "arXiv:1606.09402 comparison context",
+        "Resultary Frobenius QB Cauchy query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior optimality guarantees rank1 for the exact matrix and prior algorithm dictates row pruning. New Gaussian-Cauchy probability compares them."
+        ],
+        "reasoning": "The exact limiting over-retention event is not stated or implied as a named probability by source row-energy additivity alone without deriving the ratio law, threshold geometry and look-ahead bound.",
+        "searches": [
+          "arXiv:2607.06758v1 Sections 3.1-3.2, Algorithms 2-3",
+          "Eckart--Young--Mirsky singular-value truncation",
+          "Resultary query Frobenius QB block Gaussian Cauchy pruning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm is an ordered row-energy discard rule, with adaptive random test; full source supplies no Cauchy over-retention law."
+        ],
+        "reasoning": "The equivalent statement is a distribution for a basis-dependent rank decision, not a performance restatement or alternative name for Eckart--Young.",
+        "searches": [
+          "Smith--Do--Chen arXiv:2607.06758v1 Algorithms 3.1-3.2",
+          "SMART-Algebra/Adaptive-Matfree-Lowrank Prune_Rank_Fro.m",
+          "Resultary: Frobenius QB block Gaussian Cauchy row pruning rank overestimation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published experiments show near-optimal ranks across benchmark matrices, not an exact two-rank distribution and 1/2 limit. Search returned other ACA/pivoting results, not this QB law."
+        ],
+        "reasoning": "Numerical benchmark ranks/tables cannot substitute for the exact probability on A_epsilon in the claimed parameter regime.",
+        "searches": [
+          "Resultary: Frobenius QB Gaussian block pruning Cauchy rank retention",
+          "Smith--Do--Chen numerical tables experiments near-SVD rank",
+          "SMART-Algebra MATLAB Prune_Rank_Fro source"
+        ]
+      },
+      "rationale": "The primary Smith--Do--Chen method and row-energy greedy pruning are prior. Its algorithms/paper do not derive an exact Cauchy law or a constant nonminimal-rank probability for a natural singular-value-separated family. General QB/SVD rank theory gives optimum rank but not probability of this particular ordered QR pruning choice.",
+      "residual_risks": [
+        "Older blocked QB/QB rank detection literature not exhaustively inspected; exact alias may exist but not identified.",
+        "Finite-precision QR, pivoting, relative tolerance, higher rank families, and hardware efficiency excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ALGORITHM_NOT_EXACT_DISTRIBUTION",
+          "evidence": "Section 3.2 proposes row-energy pruning and reports empirical near-minimal ranks; not Cauchy law.",
+          "identifier_or_url": "https://arxiv.org/html/2607.06758v1",
+          "material_read": "Section 3.1-3.2, Algorithms 2 and 3, Frobenius row-pruning, error sketch and rank discussion",
+          "method": "Primary HTML relevant full sections read",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Direct algorithm and near-minimal-rank claim"
+        },
+        {
+          "assessment": "RULE_CONFIRMED",
+          "evidence": "Prune_Rank_Fro sorts row norms and removes smallest while accumulated energy <tau^2; matrix-free routine performs first sketch acceptance test before QR.",
+          "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank",
+          "material_read": "Full two MATLAB routines, retrieved with Git blob SHAs efd0e53805f50a203b9101f5ea449091d1a0e6b2 and 482595a1953d08424f8d5a0df3e136b9c0dcf0e4",
+          "method": "Primary author code read via repository connector",
+          "title": "Companion MATLAB implementations: Prune_Rank_Fro.m and randQB_MF_Fro.m",
+          "trigger": "Exact source algorithm, including strict stopping inequality and lookahead"
+        },
+        {
+          "assessment": "NOT_EVIDENCE_OF_EXACT_CAUCHY_COVERAGE",
+          "evidence": "Singular-value rotation provides optimum but differs from unpivoted greedy row pruning.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.09402",
+          "material_read": "General QB/SVD postprocessing identified through literature, no full paper inspected in this iteration",
+          "method": "Bibliographic/abstract-level comparison only",
+          "title": "Yu, Gu and Li randomized QB with SVD postprocessing",
+          "trigger": "Potential stronger rank optimality covering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Motivated exact diagnosis of the efficiency criterion introduced for a current adaptive matrix-free algorithm: a natural rank-two spectrum and Gaussian sketch have a limiting one-half chance of returning two rows despite rank-one optimality. The finite exact distribution, limiting threshold law and controlled look-ahead make a nontrivial reproducible boundary to a claimed near-minimal-rank property; routine singular-value optimality alone does not yield this sensitivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For A_epsilon=diag(1,epsilon,0,0), two-column Gaussian sketches with unpivoted QR, absolute Frobenius threshold tau=c epsilon (c>1 and epsilon sufficiently small), the optimal rank is one but Smith--Do--Chen Frobenius row-pruning returns two retained rows with exact finite-epsilon Cauchy-angle probability, converging to (2/pi) arctan[1/sqrt(c^2-1)]. At c=sqrt2 the limit is 1/2. The actual initial-lookahead rejection has probability <=1-exp(-c^2 epsilon^2), so the full matrix-free method has the same limit on the successful first block.",
+  "limitations": [
+    "Real 4x4 diagonal rank-two input, unpivoted two-column real Gaussian sketch, absolute tolerance and successful first-block look-ahead in exact arithmetic only.",
+    "No claim about general rank efficiency or finite-precision effects; event conditioning handled by vanishing first-rejection bound, not by unjustified independence."
+  ],
+  "schema_version": 1
+}

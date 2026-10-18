@@ -1,11 +1,21 @@
-# Review: A Cauchy-law probability of nonminimal Frobenius QB rank pruning
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact QR basis is determined by the first normalized Gaussian column. Its two row norms reduce to a single Cauchy ratio, yielding the exact two-sided probability in Eq. (1). The full algorithm's initial sketch acceptance is treated as a separate event, whose complement has probability at most \(1-e^{-c^2\epsilon^2}\), and the second residual vanishes on successful admission. Rank-one optimality follows from known singular-value truncation. The proof supplies exact hypotheses, boundaries, and the limiting law; rational checks and simulations are supplemental.
+## correctness
 
-**Originality — PASS, with limited residual risk.** Closest: Smith–Do–Chen, arXiv:2607.06758v1, Algorithms 2–3 and Theorem 8; the paper gives the row-pruning algorithm and fixed-row error additivity but does not derive this Gaussian Cauchy rank-retention distribution. Yu–Gu–Li (arXiv:1606.09402) addresses Frobenius QB and SVD postprocessing, while Liu–Yu (arXiv:2508.07553v1) addresses rank-deflation singular-value theory; neither examined full text contains this exact decision-law comparison. Older blocked QB work of Martinsson–Voronin (arXiv:1503.07157) is background, though only its abstract was accessible; an equivalent unindexed formulation remains possible. Published mathematical-record searches also found only related pivoting/ACA results. Search failure is not novelty certification.
+PASS
 
-**Value — PASS.** The theorem answers a motivated rank-efficiency question about a current lightweight pruning rule. At \(\tau=\sqrt2\epsilon\), a completed Gaussian matrix-free block retains *two* rows with limiting probability \(1/2\) although a single rotated singular direction suffices. This is a structural, exact bound on basis-dependent pruning, not a routine relabeling or an isolated unmotivated numeric example. Classical SVD rotation is credited and not presented as a new method.
+With exact unpivoted QR, first block direction q1=(X,epsilon Y)/sqrt(X^2+epsilon^2Y^2) for independent real Gaussians X,Y (X=0 null event). Put s=epsilon^2Y^2/(X^2+epsilon^2Y^2); row energy squares are 1-(1-epsilon^2)s and epsilon^2+(1-epsilon^2)s, summing 1+epsilon^2. Algorithm 3.2 discards a smaller row iff its squared energy is <tau^2 on exact-zero residual. With u=(tau^2-epsilon^2)/(1-epsilon^2), and 0<u<1/2 for epsilon<(2c^2-1)^-1/2, both retained exactly when u<=s<=1-u (ties probability zero). Ratio Y/X is standard Cauchy, giving the difference of two arctangent probabilities. Limit as epsilon->0 is (2/pi) arctan(1/sqrt(c^2-1)). Eckart--Young singular values 1,epsilon show optimal residual epsilon<tau for rank1, while rank0 fails tau<||A||. Actual Frobenius look-ahead at first test rejects with probability at most 1-e^(-c^2 epsilon^2); with a complete rank-two block the next residual is zero and conditional probability differs from the unconditional Cauchy law by at most this rejection probability. Numerically evaluated exact formula at c=sqrt2,epsilon=0.005: 0.499976126 vs limiting 0.5; this is corroboration only. The publisher code explicitly sorts row norms and discards until strict test fails.
 
-**Limitations.** Only a real rank-two diagonal family embedded in \(4\times4\), unpivoted two-column Gaussian QR, absolute tolerance, exact arithmetic, and the specified successful first-lookahead branch are covered. No claim about alternate QR conventions, finite precision, high-dimensional frequency or runtime. Independent examination remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Smith--Do--Chen method and row-energy greedy pruning are prior. Its algorithms/paper do not derive an exact Cauchy law or a constant nonminimal-rank probability for a natural singular-value-separated family. General QB/SVD rank theory gives optimum rank but not probability of this particular ordered QR pruning choice.
+
+## value
+
+PASS
+
+Motivated exact diagnosis of the efficiency criterion introduced for a current adaptive matrix-free algorithm: a natural rank-two spectrum and Gaussian sketch have a limiting one-half chance of returning two rows despite rank-one optimality. The finite exact distribution, limiting threshold law and controlled look-ahead make a nontrivial reproducible boundary to a claimed near-minimal-rank property; routine singular-value optimality alone does not yield this sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
