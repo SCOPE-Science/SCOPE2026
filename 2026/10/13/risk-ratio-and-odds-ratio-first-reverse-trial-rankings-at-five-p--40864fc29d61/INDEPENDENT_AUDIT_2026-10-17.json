@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:57:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive-cell protective balanced n-per-arm tables (a,b), exactly 1≤a<b≤n−1, RR=a/b and OR=a(n−b)/[b(n−a)]. For two tables (a,b),(c,d), compare signs of ad−bc and ad(n−b)(n−c)−bc(n−a)(n−d), all denominators positive; a strict reversal exactly when their product<0. Direct independent Fraction exhaustive pair enumeration gives 0 reversals for n=2,3,4 and exactly one for n=5: (2,3) and (3,4), RR 2/3<3/4, OR 4/9>3/8. n=4 has weak mismatch via OR tie (1,2),(2,3). The exhibited all-n≥5 family A=(n−3,n−2), B=(n−2,n−1) has RR ordering by difference 1 in cross products and OR sign numerator n(n−4)>0. The infinite part is analytic, not extrapolated from finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General statistical caveats for common outcomes, baseline prevalence, and measures crossing studies appear; their inspected abstracts/formulas do not assert the exact n=5 minimum."
+        ],
+        "reasoning": "Broad baseline-risk dependence implies possible opposite ranking in principle, but not the constrained all-positive equal-arm exact boundary, witness uniqueness, or integer family.",
+        "searches": [
+          "Resultary semantic search: minimum balanced trial group size for strict opposite risk ratio odds ratio ranking protective 2x2 table (15 ranked results)",
+          "Davies Crombie Tavakoli 1998 When can odds ratios mislead",
+          "Cummings 2009 relative merits risk ratios odds ratios"
+        ]
+      },
+      "checked_sources": [
+        "Git pinned RESULT.md and verify_rr_or_minimal_reversal.py SHA 65a1f3475782956c45e012ef05925c379e3f4579",
+        "Zhang–Yu JAMA DOI 10.1001/jama.280.19.1690",
+        "Davies et al BMJ DOI 10.1136/bmj.316.7136.989",
+        "Resultary semantic search: minimum balanced trial group size for strict opposite risk ratio odds ratio ranking protective 2x2 table (15 ranked results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classic RR/OR mapping establishes baseline-risk ambiguity; explicit 6 protective tables at n=5 and their order comparison are additional finite arithmetic."
+        ],
+        "reasoning": "The prior formula makes construction routine but does not, without enumerative proof, establish the sharp five-per-arm minimum and unique extremal witness. The mathematical contribution is modest and bounded.",
+        "searches": [
+          "Zhang Yu JAMA DOI 10.1001/jama.280.19.1690 conversion",
+          "Davies BMJ DOI 10.1136/bmj.316.7136.989"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Yu transformation RR=OR/(1−p0+p0 OR) explicitly depends on control risk p0; fixed baseline preserves monotonicity, varying baseline can reverse ordering."
+        ],
+        "reasoning": "The transformation explains why RR and OR differ but does not fix the smallest n with four positive cells. The trial pair evaluates this distinction exactly.",
+        "searches": [
+          "RR odds ratio baseline risk transformation Zhang Yu JAMA 1998",
+          "balanced equal arm 2x2 point estimate rank inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite table enumeration n=2..7: reversals 0,0,0,1,5,12; only n=5 pair is (2,3) versus (3,4)."
+        ],
+        "reasoning": "This is a small exhaustive natural finite cutoff, not claimed to be absent from every teaching source. No exact covering table was found in checked literature.",
+        "searches": [
+          "5 patients per group odds ratio risk ratio reversed study order integer table",
+          "positive cell n=4 n=5 RR OR reversal enumeration",
+          "Resultary semantic search: minimum balanced trial group size for strict opposite risk ratio odds ratio ranking protective 2x2 table (15 ranked results)"
+        ]
+      },
+      "rationale": "Best-of-knowledge baseline-risk-dependent divergence between RR and OR is classic and is not claimed as new; Zhang–Yu, Davies et al., and Cummings explain the mapping and interpretation. The exact finite all-positive balanced sharp strict-reversal onset, unique first pair, weak mismatch onset and all-n realization are not stated in the inspected sources. The arithmetic is elementary; potential textbook/teaching counterexamples remain a material risk, but the sharp constrained boundary is a separate precise statement.",
+      "residual_risks": [
+        "Exact small witness might appear in a teaching article, textbook appendix, or unindexed numerical example.",
+        "Scope excludes unequal arms, zero cells, adjusted odds and confidence intervals.",
+        "The finding is modest and follows by elementary finite enumeration plus an explicit all-n witness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PRIOR_NOT_EXACT",
+          "evidence": "RR=OR/(1−p0+p0 OR) establishes baseline-risk dependence but not minimum balanced n=5 reversal.",
+          "identifier_or_url": "DOI:10.1001/jama.280.19.1690",
+          "material_read": "Original journal abstract and conversion formula, relevant introductory methodological content; no exhaustive fixed-n comparison located",
+          "method": "Public original JAMA page and indexed text",
+          "title": "What's the Relative Risk? A Method of Correcting the Odds Ratio in Cohort Studies of Common Outcomes",
+          "trigger": "Central prior transformation RR↔OR"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "Discusses differences for common outcomes; no examined exact finite minimum for independent balanced tables.",
+          "identifier_or_url": "DOI:10.1136/bmj.316.7136.989",
+          "material_read": "Original abstract and accessible overview of examples; full text not established as inspected",
+          "method": "Public original BMJ listing and indexed material",
+          "title": "When can odds ratios mislead?",
+          "trigger": "Earlier statistical warning for effect measure rankings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cross-study rankings of apparent protective effects can change by choosing OR versus RR at different baseline risks, a concrete interpretation issue. The result pins down the first possible fully positive 2x2 balanced clinical configuration, detects weaker order ties one size earlier, and exhibits persistence for all larger sizes. Despite low computational complexity, the exact natural threshold and unique witness are mathematically motivated rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal n per arm within and across compared trials, all four cells strictly positive, unadjusted point estimates."
+  ],
+  "schema_version": 1
+}
