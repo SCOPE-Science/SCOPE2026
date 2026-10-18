@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof separates the problem into an analytic infinite tail and a finite exact bridge. Strict gamma log-convexity gives
-\[
-\frac{\omega_{n-1}}{\omega_{n-2}}>\sqrt{\frac{2\pi}{n}},
-\]
-which yields the required upper bounds for \(B_n\). A parity-wise bound on \(\Gamma(n/2+1)\) gives
-\[
-A_n>\frac1{2\sqrt n}
-\]
-for every \(n\ge2\). For \(n\ge14\) these inequalities overlap directly. For \(3\le n\le13\), an exact rational certificate proves the stronger \(A_n>1/\sqrt n\), while \(B_n<1/\sqrt n\) is analytic. The case \(n=2\) is symbolic. No floating-point or finite extrapolation is used.
+PASS
 
-## Originality
+Using the source definitions \(r_n=\omega_{n-1}/\omega_{n-2}\), strict gamma log-convexity yields \(r_n>\sqrt{2\pi/n}>\sqrt{6/n}\). Elementary forward-difference arguments imply \(B_n<1/\sqrt n\) for \(n\ge3\) and \(B_n<1/(2\sqrt n)\) for \(n\ge14\). The duplication formula and elementary parity bounds on \(\Gamma(n/2+1)\) give \(A_n>1/(2\sqrt n)\) all \(n\ge2\). The remaining \(3\le n\le13\) have an exact rational lower bound using \(3<\pi<22/7\) and \(\sqrt3<7/4\); an independent integer-fraction reimplementation checked all 11 cases, with smallest normalized ratio \(1944365472/1771561>1000\) at \(n=3\). At \(n=2\), \(A_2^6=4\pi/3>1=B_2^6\). Thus the bound genuinely covers the infinite tail and every finite boundary. The paper\'s Lemma A.2 gives the stated equivalence to branch selection; no assertion about optimal constants is made.
 
-PASS. The primary paper explicitly records only a computation through \(n=100000\) and an asymptotic proof for sufficiently large \(n\). Its degree-\(n\) equation is conditional on the unresolved branch inequality. Version 2 leaves the same gap. Source-specific searches, broader gamma-ratio searches, and the checked owned ledgers found no prior all-dimensional proof.
+## originality
 
-## Value
+PASS
 
-PASS. The result removes a branch ambiguity that the source itself singles out as necessary for solving its crossing parameter. It makes the degree-\(n\) equation for \(\rho_n^*\) unconditional in every dimension \(n\ge2\), replacing a computation-plus-asymptotic coverage gap with a complete proof.
+The full primary v2 text leaves its critical branch inequality justified by experiments to 100000 and an eventual limit, not an all-n proof. The audit verifies a new two-regime bound with a finite exact bridge. The originating lemma supplies equivalence to the geometric branch but not the missing universal inequality.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest literature is Dibble--Hoisington itself: Lemma A.2 gives the exact equivalence, the following paragraph reports verification through \(100000\), and Lemma A.5 proves only eventual positivity. Classical gamma log-convexity is an ingredient rather than a covering result.
+Closing the branch-selection gap in a recently published dimension-dependent geometric constant is mathematically motivated: it makes the authors' explicit crossing equation valid for all dimensions rather than an empirical range and an unspecified tail. The core argument separates an infinite gamma-ratio proof from a small exact rational finite bridge.
 
-The theorem concerns the source's explicit lower-bound constant. It does not prove that constant optimal for the geometric area-versus-displacement problem. A contemporaneous unindexed proof remains a bibliographic risk.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,87 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses two analytic comparison scales.
+# Independent mathematical audit
 
-For
-\[
-B_n
-=
-\left((n-1)\frac{\omega_{n-1}}{\omega_{n-2}}-1\right)^{-1},
-\]
-strict gamma log-convexity gives
-\[
-\frac{\omega_{n-1}}{\omega_{n-2}}
->
-\sqrt{\frac{2\pi}{n}}
->
-\sqrt{\frac6n}.
-\]
-It follows analytically that
-\[
-B_n<\frac1{\sqrt n}
-\quad(n\ge3),
-\]
-and
-\[
-B_n<\frac1{2\sqrt n}
-\quad(n\ge14).
-\]
+## correctness
 
-For \(A_n\), the ball-volume recurrence and duplication formula give
-\[
-A_n
-=
-(2^{n-1}\pi n)^{1/n}
-\left[
-\frac1{\sqrt3\,2^n\pi^{n/2}\Gamma(n/2+1)}
-\right]^{1/(n+1)}.
-\]
-The elementary parity estimate
-\[
-\Gamma\!\left(\frac n2+1\right)
-\le
-\sqrt{\frac{\pi n}{2}}
-\left(\frac n2\right)^{n/2}
-\]
-then yields
-\[
-A_n>\frac1{2\sqrt n}
-\]
-for every \(n\ge2\).
+PASS
 
-Thus the infinite tail \(n\ge14\) is completely analytic.
+Using the source definitions \(r_n=\omega_{n-1}/\omega_{n-2}\), strict gamma log-convexity yields \(r_n>\sqrt{2\pi/n}>\sqrt{6/n}\). Elementary forward-difference arguments imply \(B_n<1/\sqrt n\) for \(n\ge3\) and \(B_n<1/(2\sqrt n)\) for \(n\ge14\). The duplication formula and elementary parity bounds on \(\Gamma(n/2+1)\) give \(A_n>1/(2\sqrt n)\) all \(n\ge2\). The remaining \(3\le n\le13\) have an exact rational lower bound using \(3<\pi<22/7\) and \(\sqrt3<7/4\); an independent integer-fraction reimplementation checked all 11 cases, with smallest normalized ratio \(1944365472/1771561>1000\) at \(n=3\). At \(n=2\), \(A_2^6=4\pi/3>1=B_2^6\). Thus the bound genuinely covers the infinite tail and every finite boundary. The paper\'s Lemma A.2 gives the stated equivalence to branch selection; no assertion about optimal constants is made.
 
-The bundled checker addresses only \(3\le n\le13\). It uses
-\[
-3<\pi<\frac{22}{7},
-\qquad
-\sqrt3<\frac74,
-\]
-and the exact formulas
-\[
-\omega_{2k}=\frac{\pi^k}{k!},
-\qquad
-\omega_{2k+1}
-=
-\frac{2^{k+1}\pi^k}{(2k+1)!!}.
-\]
-After replacing constants in the direction that lowers \(A_n\), the assertion \(A_n>1/\sqrt n\) becomes a rational inequality after raising to \(n(n+1)\). All arithmetic in `verify.py` uses integers and `Fraction`; no floating point is used. The smallest finite normalized certificate is
-\[
-\frac{1944365472}{1771561}>1000.
-\]
+## originality
 
-For \(n=2\),
-\[
-B_2=1,
-\qquad
-A_2^6=\frac{4\pi}{3}>1.
-\]
+PASS
 
-The primary source's Lemma A.2 then converts \(A_n>B_n\) into
-\[
-\rho_n^*>\rho_n
-\]
-for every \(n\ge2\).
+The full primary v2 text leaves its critical branch inequality justified by experiments to 100000 and an eventual limit, not an all-n proof. The audit verifies a new two-regime bound with a finite exact bridge. The originating lemma supplies equivalence to the geometric branch but not the missing universal inequality.
+
+## value
+
+PASS
+
+Closing the branch-selection gap in a recently published dimension-dependent geometric constant is mathematically motivated: it makes the authors' explicit crossing equation valid for all dimensions rather than an empirical range and an unspecified tail. The core argument separates an infinite gamma-ratio proof from a small exact rational finite bridge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

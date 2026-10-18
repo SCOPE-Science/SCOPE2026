@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T02:44:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned exact RESULT.md and verify.py",
+        "Dibble--Hoisington arXiv:2604.02667v1,v2, Appendix A",
+        "independent exact fractions n=3..13"
+      ],
+      "rationale": "Using the source definitions \\(r_n=\\omega_{n-1}/\\omega_{n-2}\\), strict gamma log-convexity yields \\(r_n>\\sqrt{2\\pi/n}>\\sqrt{6/n}\\). Elementary forward-difference arguments imply \\(B_n<1/\\sqrt n\\) for \\(n\\ge3\\) and \\(B_n<1/(2\\sqrt n)\\) for \\(n\\ge14\\). The duplication formula and elementary parity bounds on \\(\\Gamma(n/2+1)\\) give \\(A_n>1/(2\\sqrt n)\\) all \\(n\\ge2\\). The remaining \\(3\\le n\\le13\\) have an exact rational lower bound using \\(3<\\pi<22/7\\) and \\(\\sqrt3<7/4\\); an independent integer-fraction reimplementation checked all 11 cases, with smallest normalized ratio \\(1944365472/1771561>1000\\) at \\(n=3\\). At \\(n=2\\), \\(A_2^6=4\\pi/3>1=B_2^6\\). Thus the bound genuinely covers the infinite tail and every finite boundary. The paper\\'s Lemma A.2 gives the stated equivalence to branch selection; no assertion about optimal constants is made.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source obtains \\(A_n/B_n\to2\\sqrt e\\) and hence only eventual \\(A_n>B_n\\); its finite check to 100000 is numerical.",
+          "Nearby Resultary results concern different convex-distance or constant problems."
+        ],
+        "reasoning": "An asymptotic limit and a large finite numerical run cannot imply all integers without a verified finite threshold; the new bounds close that gap.",
+        "searches": [
+          "Dibble--Hoisington arXiv:2604.02667v2 Lemma A.5 and Appendix A",
+          "Resultary semantic search: Dibble Hoisington area antipodal distance convex hypersurfaces rho branch A_n B_n inequality all n"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.02667v1",
+        "arXiv:2604.02667v2",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its degree-n equation is conditional on the branch inequality.",
+          "The new gamma lower/upper bounds and n3..13 exact bridge establish the condition unconditionally."
+        ],
+        "reasoning": "The result upgrades the source conditional statement, not just its notation or one parameter choice.",
+        "searches": [
+          "arXiv:2604.02667v2 Appendix A branch proof",
+          "Resultary semantic search: Dibble Hoisington area antipodal distance convex hypersurfaces rho branch A_n B_n inequality all n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source proves \\(\\rho_n^*>\\rho_n\\) iff \\(A_n>B_n\\).",
+          "The condition exactly determines whether the source crossing is on its second branch."
+        ],
+        "reasoning": "The published geometric branch selection is equivalent to the assigned explicit gamma/ball-volume inequality.",
+        "searches": [
+          "Resultary semantic search: Dibble Hoisington area antipodal distance convex hypersurfaces rho branch A_n B_n inequality all n",
+          "arXiv:2604.02667v1,v2 Appendix A Lemma A.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent database theorem covering every n was located; the exact assigned Resultary entry is itself.",
+          "The original paper explicitly reports computational confirmation through n100000 only."
+        ],
+        "reasoning": "An all-n statement cannot be inferred from a finite table and an unquantified eventual bound.",
+        "searches": [
+          "Resultary semantic search: Dibble Hoisington area antipodal distance convex hypersurfaces rho branch A_n B_n inequality all n",
+          "arXiv:2604.02667v2 exact symbols \\(A_n,B_n,\rho_n^*\\)"
+        ]
+      },
+      "rationale": "The full primary v2 text leaves its critical branch inequality justified by experiments to 100000 and an eventual limit, not an all-n proof. The audit verifies a new two-regime bound with a finite exact bridge. The originating lemma supplies equivalence to the geometric branch but not the missing universal inequality.",
+      "residual_risks": [
+        "A recent or unindexed independent analytic proof could close the same branch gap; no prior all-n proof appeared in searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_ALL_DIMENSIONAL_GAP",
+          "evidence": "The source proves only eventual positivity plus finite numerical evidence and writes the equation only under the branch condition.",
+          "identifier_or_url": "arXiv:2604.02667v2",
+          "material_read": "Full accessible primary HTML (749 lines), with focused reading of Appendix A Lemma A.2, Lemma A.5, the n<=100000 computational statement and branch equation; compared version-1 wording.",
+          "method": "Open-access full primary article and targeted theorem-page inspection",
+          "title": "Area and antipodal distance in convex hypersurfaces",
+          "trigger": "Exact same geometric constants and stated conditional crossing lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dibble--Hoisington Appendix A",
+        "independent finite rational certificate"
+      ],
+      "rationale": "Closing the branch-selection gap in a recently published dimension-dependent geometric constant is mathematically motivated: it makes the authors' explicit crossing equation valid for all dimensions rather than an empirical range and an unspecified tail. The core argument separates an infinite gamma-ratio proof from a small exact rational finite bridge.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the explicit constants of Dibble--Hoisington, the branch criterion \\(A_n>B_n\\) and hence \\(\\rho_n^*>\\rho_n\\) hold for every integer \\(n\\ge2\\); their conditionally derived degree-\\(n\\) crossing equation therefore applies in all dimensions \\(n\\ge2\\).",
+  "limitations": [
+    "Applies to the source's explicit lower-bound constant, not its optimality.",
+    "The 11 finite cases are established by exact rational inequalities, not merely by numerical sampling."
+  ],
+  "schema_version": 1
+}
