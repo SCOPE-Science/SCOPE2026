@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds all \(96\) published four-simplices and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs
-\[
-f=(15,105,230,240,96).
-\]
-Contracting a spanning tree of the complete one-skeleton leaves a rank-\(91\) graph-cycle lattice. Integral unimodular reduction of the \(230\) triangular-face relations gives
-\[
-\operatorname{diag}(1^{88},0,0,0),
-\]
-so
-\[
-H_1(K;\mathbb Z)\cong\mathbb Z^3.
-\]
+## correctness
 
-All \(455\) vertex triples are classified. Exactly \(230\) are faces and \(225\) are nonfaces. Every nonface has a nonzero primitive exact integral coordinate vector.
+PASS
 
-In the symmetry-adapted basis, identifying a vector with its negative yields exactly
-\[
-(1,0,0),(0,1,0),(0,0,1)
-\]
-with multiplicity \(46\) each,
-\[
-(1,1,0),(1,0,1),(0,1,1)
-\]
-with multiplicity \(18\) each, and
-\[
-(1,1,1)
-\]
-with multiplicity \(33\).
+Inspected complete 96 facet standard-library verifier reconstructing f=(15,105,230,240,96). Graph cycle lattice rank91, 230 triangular relations have 88 unimodular pivots and three zero columns, proving H1=Z³; tracked invertible column changes assign integral coordinates. Exactly 455-230=225 nonfacial triangles; all are primitive and nonzero by gcd of coordinates. Up to orientation seven classes have multiplicities 46,46,46,18,18,18,33. Three explicitly identified missing cycles are a basis cyclically permuted by the verified order-three automorphism; mod 2 gives all seven nonzero classes. Source code was read, with finite loop logic inspected; no opaque code execution.
 
-The published permutation \(a_i\mapsto b_i\mapsto c_i\mapsto a_i\) is checked on the full facet set. It cyclically sends the basis carrier on \((a_1,a_2,b_4)\) to those on \((b_1,b_2,c_4)\) and \((c_1,c_2,a_4)\).
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=15,105,230,240,96 H1_Z=Z^3 graph_triangles=455 facial3=230 empty3=225 all_empty3_nonzero_primitive=yes simple_integral_1_systole=3 unoriented_classes=7 binary_subset_shell=yes singleton_counts=46x3 pair_counts=18x3 triple_count=33 order3_basis_cycle=yes smith=1^88,0^3`
+PASS best-of-knowledge: Bagchi–Datta published all 96 facets, tightness, face vector and order-three symmetry. Tightness and neighborliness explain mod-two nontriviality of missing triangles, but do NOT determine exact integral class primitivity, only seven integral signs or 46^3,18^3,33 multiplicities; no dominating classification seen.
+
+## value
+
+PASS
+
+PASS: The natural canonical small tight four-manifold has a complete shortest integral homology carrier spectrum in a symmetry-adapted lattice basis. The seven-support pattern refines generic tightness and could inform combinatorial homology and symmetry; finite classification motivated by the object, not arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
