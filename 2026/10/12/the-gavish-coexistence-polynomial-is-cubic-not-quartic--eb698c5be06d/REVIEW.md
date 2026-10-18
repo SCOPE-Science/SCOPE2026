@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source formulas make \(r_1,r_2\) affine, \(\Delta\) quadratic, and the Cramer numerators \(N_1,N_2\) quadratic. After the rank-one identities reduce the infection terms, clearing the single denominator \(\Delta\) leaves only products of degree \(2+1\), \(1+2\), or lower. Hence \(\deg P_G\le3\). Exact rational expansion at a positive parameter point gives
-\[
-P_G(s)=s^3+53s^2-356s+260,
-\]
-so degree three is actually attained.
+## correctness
 
-## Originality
-PASS. The motivating source explicitly says degree four immediately before its open root-count question; it does not state the cubic correction. Exact-DOI and statement-level published-finding corpus searches found no equivalent published finding. The closest earlier Gavish–Rabiu work describes a different perturbative quadratic reduction and was later withdrawn, so it neither implies nor covers the exact full-model RUR degree correction.
+PASS
 
-## Value
-PASS. The degree count controls the complexity of the source's stated open problem. Replacing quartic by cubic reduces the maximum algebraic root count and simplifies the discriminant, resultant, and Sturm analysis that the source specifically proposes for classifying coexistence multiplicity.
+PASS: Using the published eight-compartment equilibrium reconstruction, r1,r2 are affine in s; Δ=γ1γ2s²-σ1σ2v1v2r1r2 and Cramer numerators N1,N2 are quadratic or lower. Susceptible residual F_G=A-(v1sN1+v2sN2)/Δ+(θ12/(d12Δ))(γ1σ1r2N1+γ2σ2r1N2), where A affine. Therefore -ΔF_G=-ΔA+v1sN1+v2sN2-(θ12/d12)(γ1σ1r2N1+γ2σ2r1N2), each summand degree<=3. This is a universal algebraic proof rather than sample interpolation. Independently expanded the positive parameter example µ1,γ1=2,γ2=3,β1=3,β2=2,ηi=σi=θi=θ12=1,Λ=10, obtaining P_G(s)=s³+53s²-356s+260, so max degree exactly3. Singular Δ=0/feasibility interval are not part of asserted root classification.
 
-## Closest literature and limitations
-The primary comparison is the 2026 Adenane–Avram–Halanay article itself, because the claim corrects a statement immediately attached to its exact RUR construction. Gavish and Rabiu's arXiv:2311.11318 is related historical context but is a withdrawn perturbative treatment of a different reduction. The accepted result does not solve the full feasible root-count problem or classify stability of coexistence equilibria.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The exact source Adenane--Avram--Halanay 2026 explicitly states P_G has degree four just before its Question 2, despite printed rational equations yielding a universal cubic cancellation/degree bound. Lawfully available full preprint section was read, confirming the incorrect source claim rather than guessing from summaries. Related withdrawn Gavish--Rabiu work's asymptotic quadratic is not the same exact scalar coexistence polynomial; a search of published findings gave no prior cubic correction.
+
+## value
+
+PASS
+
+PASS: Correcting a concrete erroneous polynomial degree in a peer-reviewed paper's posed feasible-equilibrium root-count question changes maximal algebraic root count from four to three and simplifies prospective discriminant/resultant/Sturm analyses. It is a precise, substantive correction of mathematical claims, not an arbitrary computational check; it does not solve full feasible-multiplicity classification or stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
