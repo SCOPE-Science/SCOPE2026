@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Montesinos determinant formula gives \(\det(K_b)=|(3b+5)(8b+13)^2(-3/(3b+5)+16/(8b+13))|=(8b+13)(24b+41)\) on \(b\ge-1\). Strict growth follows from the exact first difference \(384b+832\). Coprimality of the two factors is one, and the second factor is \(2\) modulo \(3\), so the determinant cannot be a square. Fox--Milnor then excludes algebraic sliceness and hence topological sliceness.
+## correctness
 
-## Originality
-PASS. Full-text inspection of Nakamura's source located the parameter family, the two delta-unknotting sites, and the ordinary unknotting-number statement, but not the determinant factorization or nonsliceness conclusion. Baker--Moore state only the general determinant formula. Saurabh supplies the Fox--Milnor implication in another family. semantic literature searches for the exact parameters and determinant returned no equivalent or stronger coverage.
+PASS
 
-## Value
-PASS. The source presents the family as an infinite supply of examples with multiple unknotting delta-moves. The exact determinant formula certifies that the parameter values yield pairwise distinct knot types on a natural infinite half-line, while the nonsquare obstruction places every member outside algebraic and topological sliceness. This adds structural information directly relevant to understanding the family rather than merely recomputing a tabulated invariant.
+The Montesinos double-branched-cover relation matrix [[p,0,0,3],[0,q,0,-8],[0,0,q,-8],[1,1,1,0]] has determinant q(16p-3q) with p=3b+5,q=8b+13. Thus det=(8b+13)(24b+41)>0. Symbolic first difference is 384b+832>0. The factors are coprime (difference of second minus triple first equals 2), while 24b+41=2 mod3 so cannot be square; hence product is nonsquare. Fox–Milnor forbids algebraic sliceness, and topological sliceness implies algebraic. Computation through b=150 only corroborates the symbolic all-b proof. Nakamura local-move construction is an explicitly cited external premise; its recent full text was unavailable in this run, so not independently re-proved. The frozen RESULT source contains literal control characters corrupting alpha/beta/fraction/right KaTeX, independently checked at its Git blob, hence an exact corrected full UTF-8 RESULT.md is supplied.
 
-Closest literature: Nakamura gives the local-move construction; Baker--Moore give the general determinant identity; Saurabh recalls the Fox--Milnor algebraic-sliceness obstruction. The result is limited to the displayed sign-normalized subfamily and does not address concordance order.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact family was introduced by Nakamura; the determinant factorization, strict separation and uniform Fox–Milnor nonsliceness obstruction were not found in matched statement searches or accessible source descriptions. The general determinant lemma and Fox–Milnor factorization are inputs, not the parametrized conclusion. Recent unavailable source full text leaves a substantive residual risk.
+
+## value
+
+PASS
+
+It gives an all-parameter exact concordance obstruction on a naturally motivated two-site delta-unknotting family and certifies pairwise distinction by one invariant. Although the final modular obstruction is short, it answers a concrete topological question about every member of the family rather than an arbitrary numeric slice; no stronger general theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
