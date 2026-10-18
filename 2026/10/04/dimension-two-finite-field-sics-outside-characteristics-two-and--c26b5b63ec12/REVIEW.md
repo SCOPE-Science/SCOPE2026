@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For characteristic different from two and three, the equal-norm tight-frame trace identity and the ETF parameter identity force every four-vector, two-dimensional ETF to have nonzero norm and, after a common rescaling, parameters \((1,1/3,2)\). Sending one vector to \((1,0)\) and using unimodular column scalings leaves the other three in the form \((\mu,\rho u_j)\) with \(u_j\in\mathbb T_q\). Their pairwise condition reduces exactly to \(t^2+t+1=0\) for \(t=u_i^{-1}u_j\), so a primitive cube root in \(\mathbb T_q\) is necessary. The displayed construction makes the same condition sufficient and verifies tightness by \(1+\omega+\omega^2=0\).
+## correctness
 
-## Originality
-PASS. The closest primary source, Greaves--Iverson--Jasper--Mixon, explicitly asks which \((d,q)\) admit \(d^2\)-vector unitary ETFs. Its dimension-two projection table lists selected examples but does not state an all-prime-power classification. Later work by Jorquera--King gives general structural ETF criteria, and Iverson--Mixon gives new modular-Hadamard SIC constructions, but the inspected statements do not imply the characteristic-coprime-to-six criterion \(q\equiv2\pmod3\). The latter construction specializes at \(d=2\) to characteristic three.
+PASS
 
-Residual priority risk: equivalent four-line configurations could occur in specialized finite-geometry literature under terminology not captured by ETF, SIC, Gerzon, or unitary-frame searches.
+ETF trace gives c=2a and a(c-a)=3b. If a=0 then b=0 and all Gram products vanish although the four vectors span a nondegenerate Hermitian plane, impossible. In char ≠2,3, scale a to 1 using surjectivity of F_{q²} norm, hence b=1/3,c=2. A unitary map sends v0 to e1; torus phases normalize other first coordinates to µ with Nµ=1/3 and second coordinates to ρu_j with Nρ=2/3, u_j in T_q. Pairwise norms force (1+2t)(1+2t^-1)=3, equivalent to t²+t+1=0 and primitive cube root in cyclic T_q of size q+1; so q≡2 (mod3). Reverse construction with phases 1,ω,ω² verifies each pair overlap and sum v_iv_i*=2I. Boundary chars 2 and 3 explicitly excluded.
 
-## Value
-PASS. The theorem solves the first nontrivial dimension of the finite-field Zauner pair-classification problem throughout all nonmodular characteristics, gives a sharp necessary-and-sufficient congruence, and supplies a canonical normal form. The norm-one-torus obstruction is structural rather than a finite table computation.
+## originality
 
-## Scientific limitations
-The theorem deliberately excludes characteristics two and three. Characteristic three admits isotropic zero-frame-constant phenomena, and characteristic two makes the normalization identities used here singular. No higher-dimensional classification is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+For the precise normalized four-vector unitary ETF statement in nonmodular characteristic, inspected Greaves–Iverson–Jasper–Mixon poses (d,q) existence as an open classification and tabulates select projected examples, not an all-q iff; later Jorquera–King criteria and Iverson–Mixon modular Hadamard family do not imply the stated q≡2 mod3 equivalence in this domain.
+
+## value
+
+PASS
+
+Solves a natural entire d=2 nonmodular slice of finite-field SIC existence, with a sharp arithmetic obstruction and normal form. It addresses a stated (d,q) classification problem, not an arbitrary small enumerated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
