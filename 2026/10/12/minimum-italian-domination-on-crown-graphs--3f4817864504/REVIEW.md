@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The crown adjacency relation makes the Italian condition equivalent to two indexed shore-total inequalities. Those inequalities rule out weight at most \(3\) for \(n\ge4\), classify every weight-\(4\) function by its shore totals, and separately settle \(n=2\) and \(n=3\). The included exhaustive checker independently confirms the theorem for every \(2\le n\le6\). The computation is a stress test only; the universal conclusion is analytic.
+## correctness
 
-## Originality
-PASS. Searches were performed for the exact crown family under the aliases “Italian domination”, “Roman \(\{2\}\)-domination”, “\(K_{n,n}\) minus a perfect matching”, and weight-\(k\) Italian dominating sets. The closest database records concern restrained domination of crown graphs and Roman/Italian-type enumerators on complete multipartite graphs; their statements do not imply the present result. The initiating 2026 Italian-domination-polynomial paper was inspected in full and treats paths, trees, cycles, and star tables, not crown graphs. A 2019 Italian-domination paper on several graph classes remains a specific residual risk because only its publisher abstract and indexed text were accessible for comparison; crown/biclique searches were checked.
+PASS
 
-## Value
-PASS. The result gives an exact infinite-family minimum and enumerates all minimizers for a canonical dense bipartite graph family. The transition at \(n=3,4,5\) and the stable count \(\binom{n+1}{2}\) are structural, not a routine restatement of the complete-bipartite case, and directly complement recent work that motivates counting weight-\(k\) Italian dominating functions.
+PASS. The indexed edge-deleted bipartite adjacency yields exactly x_i=0⇒Y−y_i≥2 and y_i=0⇒X−x_i≥2. For n≥4 weight ≤3 impossible: if both shore sums positive then a shore total ≤1 forces a zero on the other shore to see ≤1; if all labels on one shore, weight≥n. For weight4, shore totals (1,3),(3,1) fail; (0,4),(4,0) occur only when n=4 as one-shore all-one assignments; (2,2) forces simultaneous zero indices and hence identical side patterns with either one 2 or two 1s. For n3 the only weight3 minima are the two all-one shore functions; Cr2 is two disjoint edges and each K2 has three weight2 patterns, yielding 9. Thus claimed values and counts are exact for all n≥2. Independent bounded-weight enumeration n=2..7 recovered (4,9),(3,2),(4,12),(4,15),(4,21),(4,28), independently from package's exhaustive checker through n6. The arbitrary-n result follows from the shore-total proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete crown minimum-Italian labeling classification and its n=2,3,4 transitions. The definition Roman-{2}/Italian domination predates the claim, and Shao–Zhao 2026's Italian polynomial applies to paths, trees, and cycles, not complete matching-deleted bipartite crowns except the C6 boundary's known scalar. Existing Resultary all-function Roman-{2} weight enumerator concerns complete multipartite graphs including Knn before deletion; a crown for n≥3 is not complete multipartite. A published perfect Roman crown minimum has n paired-2 patterns but cannot imply all two-pair-1 Italian optimizers. Plausible Klostermeyer–MacGillivray 2019 article was accessed only to publisher/indexed text; full lawful Oxford request returned vpn_disconnected and complete overlap remains a material risk, not automatic failure.
+
+## value
+
+PASS
+
+PASS. Exact count and entire support structure of minimizing Roman-{2} functions on the natural perfect-matching-deleted K_nn family is a motivated extremal domination invariant; deletion creates boundary behavior at n3/n4 and a stable combinatorial two-family census. Not merely the known scalar on complete bipartite graphs, and not a needlessly arbitrary finite slice. Does not purport to determine the full domination polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
