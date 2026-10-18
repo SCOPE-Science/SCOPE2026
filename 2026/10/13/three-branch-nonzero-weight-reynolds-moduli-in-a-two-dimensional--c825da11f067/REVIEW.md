@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ternary operation is induced by the binary affine Lie bracket, so the primary source's Lie-to-Lie-Yamaguti transfer reduces the classification to the binary Reynolds equations. Direct expansion gives two scalar equations, whose \(c=0\) and \(c\ne0\) cases yield exactly two affine planes and the square-zero cone. Inclusion-exclusion, determinant rank tests, and explicit conjugation give the finite-field counts and orbit distribution. Exhaustive replay over \(\mathbf F_2,\mathbf F_3,\mathbf F_5,\mathbf F_7\) confirms both Reynolds identities.
+PASS
 
-## Originality
+For bracket [e1,e2]=e1 and induced ternary [[x,y],z], substitution of R=[[a,b],[c,d]] into the weight-mu binary Reynolds identity yields precisely a^2+bc+mu*a*(ad-bc)=0 and c*(a+d+mu*(ad-bc))=0, mu!=0. The source's induced-bracket example implies the ternary identity follows; independent symbolic verification checks this. If c=0, equations split into planes A:{a=c=0} and B:{c=0,d=-1/mu}; if c!=0, elimination gives detR=trR=0, hence R^2=0. N:{R^2=0} is the third component. Intersections A∩B and A∩N are distinct lines and B∩N empty. Every q-element field thus has 3q^2-2q solutions, ranks (1,2q^2-q-1,q(q-1)); conjugation by Aut(L)=[[s,t],[0,1]] gives 2q+2 orbit classes, orbit sizes and rational zeta as claimed. Independent enumeration of every 2x2 matrix and every nonzero weight over F2,F3,F5 verifies counts and automorphism orbits; arbitrary-field result follows by case split not enumeration.
 
-PASS. Teng–Guo Example 3.10 gives exactly one of the three branches but does not claim completeness. The broader Reynolds-Lie source inspected contains no two-dimensional classification. Targeted semantic and web searches found no complete branch decomposition, point count, rank profile, or automorphism quotient. Differently indexed affine-Lie classifications remain a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result completes the primary paper's first explicit two-dimensional nonzero-weight example, identifies two missing structural branches, and shows that invertible Reynolds operators occur in a precisely counted family. The finite-field and automorphism-moduli formulas provide natural reusable invariants of this canonical example.
+The original Teng–Guo primary source Example 3.10 exhibits only the B_mu affine plane for the same Lie–Yamaguti algebra, framed as examples, not an exhaustive algebraic classification. General Reynolds/Rota-Baxter theory of Das is structurally related but not a finite-field 2D fixed-weight classification. The additional A-plane and nilpotent cone and exact geometric, arithmetic and conjugacy data are not supplied by inspected primary statements. Nonzero weight, induced ternary, and automorphism action were compared explicitly to rule out mere basis renaming; residual low-dimensional formula priority risk is stated.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The three-branch decomposition is a complete natural moduli-space description for the source's canonical first example, including a nilpotent component absent from its displayed family. Uniform counts, ranks, invertible stratum, automorphism orbit census and zeta for all finite fields give independently useful structural invariants beyond correctness/reproducibility; finite q cases were not selected arbitrarily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

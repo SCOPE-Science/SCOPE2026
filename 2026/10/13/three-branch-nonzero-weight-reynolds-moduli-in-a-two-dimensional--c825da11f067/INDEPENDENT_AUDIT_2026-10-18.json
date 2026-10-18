@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T18:16:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For bracket [e1,e2]=e1 and induced ternary [[x,y],z], substitution of R=[[a,b],[c,d]] into the weight-mu binary Reynolds identity yields precisely a^2+bc+mu*a*(ad-bc)=0 and c*(a+d+mu*(ad-bc))=0, mu!=0. The source's induced-bracket example implies the ternary identity follows; independent symbolic verification checks this. If c=0, equations split into planes A:{a=c=0} and B:{c=0,d=-1/mu}; if c!=0, elimination gives detR=trR=0, hence R^2=0. N:{R^2=0} is the third component. Intersections A∩B and A∩N are distinct lines and B∩N empty. Every q-element field thus has 3q^2-2q solutions, ranks (1,2q^2-q-1,q(q-1)); conjugation by Aut(L)=[[s,t],[0,1]] gives 2q+2 orbit classes, orbit sizes and rational zeta as claimed. Independent enumeration of every 2x2 matrix and every nonzero weight over F2,F3,F5 verifies counts and automorphism orbits; arbitrary-field result follows by case split not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teng–Guo introduce all weights and general cohomology/deformation principles, but only exhibit a nonzero-weight family in the particular example.",
+          "Das relates twisted Rota–Baxter and Reynolds operators in general; no all-q branch and orbit census for this fixed Lie algebra was found in accessible results."
+        ],
+        "reasoning": "General definitions/classification correspondences do not assert the exact fixed-algebra solution variety or finite-field arithmetic.",
+        "searches": [
+          "arxiv:2406.12859 Reynolds any-weight Lie-Yamaguti",
+          "arxiv:2009.09368 general Reynolds Lie operators",
+          "Resultary:small dimension Reynolds operators finite-field classification"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 1fcb5d607fc750bf65c39eeabacf45f365433f11",
+        "Git artifacts/verify.py 5a47c34925f93e98917831a24cb4442b9903a542",
+        "Teng–Guo arxiv:2406.12859 Examples 2.5,3.7,3.10",
+        "Das arxiv:2009.09368",
+        "Resultary Reynolds-operator topical search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The family in the originating example is exactly the branch c=0,d=-mu^-1; matrices with a=c=0,d other than -mu^-1 and nontrivial square-zero matrices are outside that family.",
+          "The complete classification requires solving two polynomial equations and tracing the affine conjugation action."
+        ],
+        "reasoning": "Published premises allow recomputation but do not directly state or imply the exhaustive three components and moduli counts without additional nontrivial algebraic case and orbit analysis.",
+        "searches": [
+          "Teng–Guo arxiv:2406.12859 Example 3.10",
+          "Teng–Guo arxiv:2406.12859 Definition3.1 and Example3.7",
+          "Das arxiv:2009.09368"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ternary bracket here is [[x,y],z], so the Lie algebra Reynolds identity suffices by Teng–Guo Example 3.7.",
+          "Original Example 3.10 with weight -1/k yields precisely B_mu, but no A or square-zero solution branches."
+        ],
+        "reasoning": "Translation to a Reynolds operator on the underlying affine two-dimensional Lie algebra is an equivalent formulation; checking that formulation produces additional components beyond the cited example.",
+        "searches": [
+          "arxiv:2406.12859 Examples 2.5,3.7,3.10",
+          "Resultary:nonzero Reynolds Lie-Yamaguti two dimensional affine nilpotent classification",
+          "arxiv:2009.09368 Reynolds Lie algebra twisted Rota Baxter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive F2/F3/F5 matrix-and-weight counts are 8,21,65 per fixed nonzero weight, with orbit counts 6,8,12; they are replay evidence, not prior tables.",
+          "No located published 3q^2-2q / 2q+2 formula for this exact operator domain."
+        ],
+        "reasoning": "The uniform polynomial and orbit count encode arbitrary extension-field solutions and are not a recomputation of a known listed numerical table.",
+        "searches": [
+          "Resultary:3q^2-2q Reynolds operators",
+          "web:\"2q+2\" Reynolds operators Lie Yamaguti",
+          "Git artifact verify.py 5a47c34925f93e98917831a24cb4442b9903a542"
+        ]
+      },
+      "rationale": "The original Teng–Guo primary source Example 3.10 exhibits only the B_mu affine plane for the same Lie–Yamaguti algebra, framed as examples, not an exhaustive algebraic classification. General Reynolds/Rota-Baxter theory of Das is structurally related but not a finite-field 2D fixed-weight classification. The additional A-plane and nilpotent cone and exact geometric, arithmetic and conjugacy data are not supplied by inspected primary statements. Nonzero weight, induced ternary, and automorphism action were compared explicitly to rule out mere basis renaming; residual low-dimensional formula priority risk is stated.",
+      "residual_risks": [
+        "An older low-dimensional Reynolds classification in affine Lie-algebra terminology may contain an equivalent basis-normalized result.",
+        "Weight zero is excluded and its operator variety need not have the same components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXAMPLE_IS_ONLY_ONE_BRANCH",
+          "evidence": [
+            "Example 3.10 presents an upper triangular fixed-lower-right family and describes it as a Reynolds-operator example, not a complete fixed-weight census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.12859",
+          "material_read": "Actual arXiv PDF Definition 3.1, Examples 2.5, 3.7 and 3.10, including page featuring the nonzero-weight family",
+          "method": "Primary arXiv PDF read with page image inspection",
+          "title": "Cohomologies of Reynolds Lie-Yamaguti algebras of any weight and applications",
+          "trigger": "Exact algebra, operator definition and published example"
+        },
+        {
+          "assessment": "BACKGROUND_FRAMEWORK",
+          "evidence": [
+            "General Reynolds-operator theory is a relevant alias but does not by itself enumerate the fixed two-dimensional operators or conjugacy classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.09368",
+          "material_read": "Abstract and cited high-level operator-cohomology setting; no full-document absence claim",
+          "method": "Open arXiv bibliographic/abstract evidence; not asserted wholly inspected",
+          "title": "Twisted Rota-Baxter operators and Reynolds operators on Lie algebras and NS-Lie algebras",
+          "trigger": "Broad equivalence under an underlying Lie algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-branch decomposition is a complete natural moduli-space description for the source's canonical first example, including a nilpotent component absent from its displayed family. Uniform counts, ranks, invertible stratum, automorphism orbit census and zeta for all finite fields give independently useful structural invariants beyond correctness/reproducibility; finite q cases were not selected arbitrarily.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification is for one canonical Lie–Yamaguti algebra, not every two-dimensional one.",
+    "Aut-conjugacy is for the fixed algebra, not arbitrary GL2 similarity."
+  ],
+  "schema_version": 1
+}
