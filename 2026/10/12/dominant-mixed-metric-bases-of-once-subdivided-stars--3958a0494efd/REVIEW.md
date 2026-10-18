@@ -1,12 +1,21 @@
-# Review of Dominant mixed metric bases of once-subdivided stars
+# Independent mathematical audit
 
-## Correctness
-PASS. For every arm \(c-u_i-v_i\), the leaf \(v_i\) is the unique landmark that distinguishes the vertex \(u_i\) from the edge \(u_iv_i\); hence every mixed resolving set contains all leaves. Explicit leaf-distance vectors distinguish the center, every support, every leaf, every center-support edge, and every support-leaf edge. The leaf set is therefore the unique mixed basis of size \(q\). It fails domination only at the center, so one additional vertex is necessary, and the only possible minimum additions are the center or one support vertex. The bundled exhaustive checker confirms all minimum sets for \(3\le q\le8\).
+## correctness
 
-## Originality
-PASS. The introducing 2024 primary paper was inspected in full text. It defines dominant mixed metric dimension, lists MSC \(05C12\), and gives exact values for paths, cycles, stars, wheels, friendship graphs, and complete graphs. Targeted searches of that paper found no spider, subdivision, or tree occurrence. Exact and semantic searches under dominant mixed metric dimension, spider, balanced spider, and subdivided star terminology returned the introducing paper and unrelated spider invariants, not this theorem. The ordinary mixed-dimension tree theorem supplies only the leaf-count value and does not determine the additional domination obstruction or the complete optimum family.
+PASS
 
-## Value
-PASS. The once-subdivided star is the first uniform subdivision of a family treated explicitly in the introducing paper. It is a minimal tree family where the ordinary mixed basis ceases to dominate: subdivision moves the leaves two steps from the center, forcing a strict one-vertex increase. The exact \(q+1\)-member basis classification isolates that interaction cleanly and provides a natural boundary case for future spider results.
+For each arm c-u_i-v_i, only v_i distinguishes vertex u_i from edge u_iv_i, so every mixed resolver contains all q leaves. Leaf-distance vectors for c, u_i, v_i, cu_i and u_iv_i have respectively all 2; 1 at i / 3 elsewhere; 0 at i / 4 elsewhere; 1 at i / 2 elsewhere; 0 at i / 3 elsewhere. They are distinct even across arms. Leaves therefore resolve but do not dominate c. Adding c or exactly one u_i dominates; any minimum must be one of these q+1 additions. Independent brute enumeration of every vertex subset through q=5 confirmed counts q+1 and no smaller solution. No finite enumeration is relied on for arbitrary q.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The introducing 2024 paper determines the star and path cases, not the once-subdivided star. The ordinary mixed metric dimension leaf-count theorem gives q, but neither shows the domination-induced one-unit increase nor classifies the q+1 optimal combined sets. Resultary analogues concern distance-k resolving domination or unrelated star invariants rather than simultaneous mixed vertex-edge resolution and domination. No stronger containing theorem located in inspected literature; residual terminology risk is explicit.
+
+## value
+
+PASS
+
+The uniform edge subdivision is the simplest natural modification of a star for which the full mixed basis leaves a vertex undominated. The exact q+1 threshold and complete optimum family isolate how domination interacts with vertex-edge separation. This is a motivated boundary case for broader spider and subdivided-tree classifications, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

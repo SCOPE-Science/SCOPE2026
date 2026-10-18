@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:11:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each arm c-u_i-v_i, only v_i distinguishes vertex u_i from edge u_iv_i, so every mixed resolver contains all q leaves. Leaf-distance vectors for c, u_i, v_i, cu_i and u_iv_i have respectively all 2; 1 at i / 3 elsewhere; 0 at i / 4 elsewhere; 1 at i / 2 elsewhere; 0 at i / 3 elsewhere. They are distinct even across arms. Leaves therefore resolve but do not dominate c. Adding c or exactly one u_i dominates; any minimum must be one of these q+1 additions. Independent brute enumeration of every vertex subset through q=5 confirmed counts q+1 and no smaller solution. No finite enumeration is relied on for arbitrary q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 article lists paths, cycles, stars, wheels, friendship graphs and complete graphs; no all-subdivided-star theorem.",
+          "The distance-k spider result uses vertex-vertex metric k-resolution, not mixed vertex-edge resolution."
+        ],
+        "reasoning": "The searched prior families do not subsume the q-arm length-two spider under the same invariant; a separate ordinary-metric tree result has different hypotheses.",
+        "searches": [
+          "dominant mixed metric dimension subdivided star balanced spider minimum bases",
+          "Alfarisi et al. 2024 PDF full-text search spider/subdivision/tree",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-large-radius-transition-for-distance-k-resolving-dominatio--cf68f00f0c48"
+        ]
+      },
+      "checked_sources": [
+        "https://iapress.org/index.php/soic/article/download/1925/1106/8631",
+        "Kelenc et al. (2017), Mixed metric dimension of graphs, DOI 10.1016/j.amc.2017.07.027 (bibliographic/source result)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-large-radius-transition-for-distance-k-resolving-dominatio--cf68f00f0c48",
+        "Resultary query: dominant mixed metric dimension subdivided star balanced spider minimum bases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Star K_{1,q} needs q leaves and those leaves already dominate the center; subdivided S_q needs one extra center-or-support vertex.",
+          "Ordinary mixed resolving in trees does not impose domination."
+        ],
+        "reasoning": "Replacing each original star edge by a two-edge arm changes the domination property, so neither the known star theorem nor the leaf-count resolving theorem yields the asserted q+1/minimizer result.",
+        "searches": [
+          "dominant mixed metric dimension subdivided star balanced spider minimum bases",
+          "Alfarisi et al. 2024 Theorem 6 on stars",
+          "Kelenc et al. 2017 mixed metric dimension of graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dominant mixed metric basis means a set that separates vertices and edges via d(s,uv)=min(d(s,u),d(s,v)) and also dominates vertices.",
+          "The source paper handles a non-subdivided K_{1,q} but no all-length-two spider classification."
+        ],
+        "reasoning": "A formula for ordinary mixed metric dimension q is not equivalent: L fails to dominate c and the combined optimum is q+1; this extra obstruction and classification are precisely what must be checked.",
+        "searches": [
+          "dominant mixed metric dimension subdivided star balanced spider minimum bases",
+          "dominant mixed metric dimension subdivided stars site:soic exact q+1 all optimum bases",
+          "Alfarisi et al. 2024, Definition 1 and Theorems 4–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The infinite parameter q and all q+1 optimum sets are proved by leaf uniqueness; independently enumerated q=3,4,5 only corroborate.",
+          "No complete optimum family for this exact simultaneous invariant was identified in the inspected sources."
+        ],
+        "reasoning": "A finite table cannot imply the unbounded-q classification; checked nearby numerical examples do not already encode the final theorem.",
+        "searches": [
+          "dominant mixed metric dimension subdivided star balanced spider minimum bases",
+          "mixed metric dimension trees subdivision family optimum sets"
+        ]
+      },
+      "rationale": "The introducing 2024 paper determines the star and path cases, not the once-subdivided star. The ordinary mixed metric dimension leaf-count theorem gives q, but neither shows the domination-induced one-unit increase nor classifies the q+1 optimal combined sets. Resultary analogues concern distance-k resolving domination or unrelated star invariants rather than simultaneous mixed vertex-edge resolution and domination. No stronger containing theorem located in inspected literature; residual terminology risk is explicit.",
+      "residual_risks": [
+        "An unindexed balanced-spider or subdivision-graph paper might contain this exact simultaneous mixed/ordinary domination invariant.",
+        "The formula does not classify arbitrary unequal arm lengths; q=2 is excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem 6 gives non-subdivided star result for n>=7; no subdivided-star or full length-two spider result.",
+          "identifier_or_url": "https://iapress.org/index.php/soic/article/download/1925/1106/8631",
+          "material_read": "PDF definitions, Lemma 2, Theorems 4–9, star proof, search for spider/subdivision; visual pages 2 and 4",
+          "method": "Read searchable article and rendered key primary pages",
+          "title": "Dominant Mixed Metric Dimension of Graph",
+          "trigger": "Introduces exactly the mixed resolving dominating invariant and evaluates stars"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "It concerns distance-k vertex resolving domination on general-length arms, not the mixed vertex-edge invariant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-large-radius-transition-for-distance-k-resolving-dominatio--cf68f00f0c48",
+          "material_read": "Published title and summary only",
+          "method": "Resultary semantic search; inspected abstract/summary",
+          "title": "Sharp large-radius transition for distance-k resolving domination of balanced spiders",
+          "trigger": "Natural spider comparison in published-finding search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform edge subdivision is the simplest natural modification of a star for which the full mixed basis leaves a vertex undominated. The exact q+1 threshold and complete optimum family isolate how domination interacts with vertex-edge separation. This is a motivated boundary case for broader spider and subdivided-tree classifications, not an arbitrary finite instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only q>=3 once-subdivided star S_q; q=2 is a path, arbitrary spiders remain open.",
+    "Finite enumeration q<=5 corroborative, not proof for all q."
+  ]
+}

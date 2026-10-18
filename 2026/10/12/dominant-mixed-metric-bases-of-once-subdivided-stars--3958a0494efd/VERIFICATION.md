@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the once-subdivided star \(S_q\) for
-\[
-3\le q\le8.
-\]
-It computes all vertex-to-vertex distances and represents every graph vertex and edge against each candidate landmark set. It independently checks mixed resolvability and domination.
+# Independent mathematical audit
 
-All subsets of size at most \(q+1\) are exhausted. The complete minimum family is compared with
-\[
-\{v_1,\ldots,v_q\}\cup\{x\},
-\qquad
-x\in\{c,u_1,\ldots,u_q\}.
-\]
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-q=3: gamma_mr=4, minimum_bases=4
-q=4: gamma_mr=5, minimum_bases=5
-q=5: gamma_mr=6, minimum_bases=6
-q=6: gamma_mr=7, minimum_bases=7
-q=7: gamma_mr=8, minimum_bases=8
-q=8: gamma_mr=9, minimum_bases=9
-candidate_subsets_checked = 120444
-all minimum dominant mixed bases matched leaves plus center-or-one-support classification
-```
+For each arm c-u_i-v_i, only v_i distinguishes vertex u_i from edge u_iv_i, so every mixed resolver contains all q leaves. Leaf-distance vectors for c, u_i, v_i, cu_i and u_iv_i have respectively all 2; 1 at i / 3 elsewhere; 0 at i / 4 elsewhere; 1 at i / 2 elsewhere; 0 at i / 3 elsewhere. They are distinct even across arms. Leaves therefore resolve but do not dominate c. Adding c or exactly one u_i dominates; any minimum must be one of these q+1 additions. Independent brute enumeration of every vertex subset through q=5 confirmed counts q+1 and no smaller solution. No finite enumeration is relied on for arbitrary q.
 
-The finite computation is corroborative only. The arbitrary-\(q\) theorem follows from the unique-leaf distinguisher lemma and the explicit mixed representations to the full leaf set.
+## originality
+
+PASS
+
+The introducing 2024 paper determines the star and path cases, not the once-subdivided star. The ordinary mixed metric dimension leaf-count theorem gives q, but neither shows the domination-induced one-unit increase nor classifies the q+1 optimal combined sets. Resultary analogues concern distance-k resolving domination or unrelated star invariants rather than simultaneous mixed vertex-edge resolution and domination. No stronger containing theorem located in inspected literature; residual terminology risk is explicit.
+
+## value
+
+PASS
+
+The uniform edge subdivision is the simplest natural modification of a star for which the full mixed basis leaves a vertex undominated. The exact q+1 threshold and complete optimum family isolate how domination interacts with vertex-edge separation. This is a motivated boundary case for broader spider and subdivided-tree classifications, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
