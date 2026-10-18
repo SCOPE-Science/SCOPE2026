@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete source H-description is used with the correct affine metric. Singleton facets \(x_i=3\) give the candidate radius and a universal upper bound. For all other facets, the proof controls the projected normal by \(H\le\sqrt Q\), converts positivity of the coefficient vector into \(W-H\ge t-\sqrt t\), and combines this with the exact source bound on \(\kappa(k,l)\). This resolves all large supports uniformly. The only five small ambient/support pairs left by the coarse bound are checked by exact rational squared-distance certificates, all strictly positive. Summing singleton constraints proves global optimality and uniqueness.
+## correctness
 
-## Originality
-PASS. The 2017 primary paper was inspected at the exact halfspace construction, singleton-facet observation, and realization theorem, including direct PDF-page inspection. The later Minkowski-sum paper was inspected as the strongest same-object follow-up. Neither source contains inradius, Euclidean, Chebyshev, or radius terminology. Published-result and literature searches under inradius, inball, uniform-center, and facet-distance formulations found no covering statement.
+PASS
 
-## Value
-PASS. The simple permutoassociahedron is a canonical hybrid of permutohedral and associahedral geometry with an explicit but highly nonuniform truncation system. The theorem proves that all those additional cuts leave one exact simplex-scale inball untouched:
-\[
-r_{\mathrm{in}}(PA_n)
-=
-\frac{3^{n+1}-3(n+1)}{\sqrt{n(n+1)}}.
-\]
-It also proves uniqueness of the uniform center and gives the complete contact set: exactly the \(n+1\) singleton facets.
+From the actual RESULT.md and arXiv:1708.02482 H-description, write N=n+1, mu=3^N/N, W=sum normal coefficients, Q=sum squares and P=Q-W²/N; intrinsic distance is (mu W-kappa)/sqrt(P). Singleton has kappa=3, P=n/N and distance (3^N-3N)/sqrt(Nn). For t>=2, H=sqrt(NP/n)<=sqrt(Q)<=W-t+sqrt(t), hence W-H>=t-sqrt(t). Compare kappa<3^(t+1)/2+1 with mu>=3^(t+1)/(t+1); t>=6 wins strictly, other cases reduce to five (N,t) rational inequalities. Independent exact rational reconstruction for n=2..12 checks strict separation and minima 45,1191/2,1683/2,53901/5,118818 at (3,2),(4,2),(4,3),(5,4),(6,5). The symbolic growth inequality, not finite sampling, covers all n>=2. Singleton halfspaces xi>=3 and sum xi=3^N give global radius upper bound and force equality center uniform, proving uniqueness.
 
-## Closest literature and limitations
-The source already implies an upper bound by embedding the polytope in the simplex \(x_i\ge3\), but it does not prove that the simplex inball survives every further permutoassociahedral truncation. That all-facet comparison is the new content. The theorem is specific to this realization; normally equivalent realizations can have different support offsets and different Euclidean inradii.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge no prior determination of the Euclidean inball for this precise exponentially scaled H-realization; face-lattice equivalence or other graph-associahedron inballs do not imply metric data. The original source supplies the defining inequalities but no metric optimization theorem.
+
+## value
+
+PASS
+
+The Euclidean inball is an intrinsic metric invariant of the explicitly normalized simple permutoassociahedron, a natural polytope in associativity/coherence geometry; identifying exactly its n+1 active facets among many nontrivial ones answers a motivated all-dimensions geometric question. Its strict inequality is not an automatic consequence of simplex containment and matters to metric comparison of realizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
