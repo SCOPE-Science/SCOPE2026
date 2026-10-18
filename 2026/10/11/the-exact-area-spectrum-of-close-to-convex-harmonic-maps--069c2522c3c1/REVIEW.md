@@ -1,15 +1,21 @@
-# Scientific assessment of the exact area spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The class is defined by \(\operatorname{Re}(h'-\alpha)>|g'|\), with \(g'(0)=0\), and the exact image area is the Jacobian integral because the maps are injective. With \(p=h'-\alpha\), \(q=g'\), the Schur quotient \(q/p\) vanishes at zero; Schwarz's lemma and Parseval prove the lower bound and the positive coefficient remainder. Equality forces an analytic identity for \(h'\) and the equality case of Schwarz's lemma, giving precisely the quadratic shears. The upper bound follows from Carathéodory coefficients, and two explicit families realize every intermediate value. All \(0\le\alpha<1\) and \(0<r<1\) are handled; infinite total area is explicitly allowed only in the full-disk corollary. The 120 supplementary finite coefficient comparisons passed. Finite tests do not prove the quantified theorem.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Ahamed and Roy's September 8, 2026 source, arXiv:2609.08600v1, was examined throughout, particularly equations (2.3)–(2.4) and their sharp Bohr theorems. It supplies the same **upper** area endpoint but not the lower endpoint, its rigidity, or the complete area spectrum. The new lower result does not follow from the existing one-sided upper coefficient estimate. Direct published-record searches compared possible area/Jacobian/Schur aliases, and relevant earlier available bibliography was considered. Li and Ponnusamy's two older works concern the same harmonic family, but full texts could not be obtained; their available abstracts do not authorize definitive whole-document noncoverage claims. Equivalent unindexed prior results remain possible.
+PASS
 
-## Value — PASS
-This gives the complete natural range of subdisk image areas in a normalized harmonic geometric-function class at **all** radii and parameters, with a unique type of lower extremizer distinct from the analytic upper extremizer. It complements the area term used in recent sharp Bohr work and prevents interpreting the existing upper estimate as the complete area information. It also determines the extended global area spectrum, distinguishing a finite sharp minimum from unbounded total area.
+For p=h'-alpha, q=g', Re p>|q| and p(0)=1-alpha>0, omega=q/p is analytic Schur with omega(0)=0. Schwarz gives |q(z)|<=|z||p(z)|. Parseval on |z|=rho yields mean J>=1-c^2*rho^2+(1-rho^2)*sum_{n>=1}|d_n|^2*rho^(2n). Radial integration gives lower area r^2-c^2*r^4/2 plus a strict positive weighted coefficient remainder. Equality for r>0 forces d_n=0 and Schwarz equality omega=e^{i theta} z; precisely quadratic shears. Caratheodory bounds on p+lambda q provide |d_n|+|e_n|<=2c and the sharp known upper area. Positive-area interpolation is achieved via scaled shears below r^2 and analytic Möbius family above r^2; at r=1 the analytic family makes every finite higher area and the endpoint infinite. Independently integrated 2*rho*(1-c^2*rho^2) to exactly r^2-c^2*r^4/2, with finite polynomial coefficient normalizations checked. Injectivity follows integrating derivative inequality along segments; strict derivative constraint holds for all given explicit maps.
 
-## Scope and evidence
-The proof is analytic and self-contained apart from elementary Schwarz, Fourier and area identities; ordinary computation checks normalizations, not an infinite theorem. The result does not cover other harmonic families or off-center images. The earlier exact upper bound is credited to its source; external independent assessment has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.
+
+## value
+
+PASS
+
+The previous paper gave the sharp upper area bound, but the opposite sharp lower endpoint, rigidity of every minimizer, and exact attainable interval form a complete nontrivial distortion invariant for a natural harmonic close-to-convex class. The exact lower deficit is useful for image area and rigidity, beyond a routine restatement of upper coefficient bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
