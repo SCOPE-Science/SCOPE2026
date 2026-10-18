@@ -1,0 +1,11 @@
+# Scientific review: sharp first-five ranks of finite directed cycles
+
+**Correctness (C): PASS.** The statement fixes an explicit relational successor language and covers every positive cycle length. The back-and-forth recursion is sound and complete for first-order quantifier rank; the finite verifier checks every length through 32 with exact type interning and a valid rotational symmetry reduction. Independently of the computation, the cyclic-arc gap strategy proves five-round equivalence whenever both lengths are at least 32. Together these cover every length; the finite partition includes the sharp boundary at 19. The other four rank thresholds are separately checked. Risk: the middle range is backed by executable exhaustive recursion rather than human-readable individual distinguishing sentences.
+
+**Originality (O): PASS, best knowledge.** The closest general finite-structure result (Pikhurko--Verbitsky 2003) bounds identification complexity but does not calculate cyclic rank profiles. Libkin's Chapter 3 supplies the back-and-forth and locality techniques, not the five sharp thresholds. Albert--Bouvel--Féray introduce the bijection relation framework and qualitative expressibility but no matching finite rank-five cutoff in the sections inspected. A published directed-path cutoff is not stronger coverage: paths have endpoints and a different family of structures. Searches for directed cycle, single-cycle rank-five, successor EF depth, exact parameters and aliases found no covering theorem. Residual risk: unindexed or differently phrased cycle-specific EF tables, and limited inspection of some comparative literature.
+
+**Value (V): PASS.** Directed single-cycle structures are the canonical connected finite models of a binary bijection relation. Their exact rank-profile thresholds give natural, reusable benchmarks for logical locality and small-model indistinguishability, including the nontrivial sharp fifth-rank drop from the elementary sufficient threshold 32 to 19. The result gives all five consecutive initial levels and a universal proof for the infinite tail, not merely a small sample or an arbitrary isolated parameter.
+
+Independent priority checking and formal proof audit would remain useful; no claim about ranks beyond five is made.
+
+Self-review: passed. Independent audit: not yet performed.
