@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The exact elliptic-coordinate gradient reduces the global one-vertex problem to a polynomial inequality. Its sign is established by positive shifted coefficients for t>=1/2 and all 128 exact rational Bernstein coefficients for t in [0,1/2], with P2>=0. The moving-apex path and degeneracies are handled by squared-area vanishing; telescoping yields 9/32. A separate exact symbolic derivative gives the lower witness. The checker reproduces the critical identities and rational coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The earlier bounds in arXiv:2303.13486, Section 4, and arXiv:2602.17630, Section 3, cover arbitrary triangles but with weaker numerical constants."
+      ],
+      "reasoning": "Coverage of the function and of continuity does not imply a strict improvement of the numerical Lipschitz constant. No theorem in the inspected sources has a dominating global quantitative bound as small as 9/32; the new algebraic estimate is independently established.",
+      "searches": [
+        "\"simplex strength\" \"vertex perturbation\" global constant",
+        "Kurlin simplex strength all vertices Lipschitz constant"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.17630, Definitions 2.5 and Theorem 2.8(b), full HTML",
+      "arXiv:2303.13486, Definition 4.1 and Theorem 4.2, full HTML"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.17630 Theorem 2.8(b) establishes |Delta strength| <= 2 sqrt(3) epsilon under three-vertex perturbation.",
+        "arXiv:2303.13486 Theorem 4.2 provides an earlier dimension-dependent global bound with a larger triangle constant.",
+        "The current inequality |Delta strength| <= (9/32) epsilon is strictly stronger for every epsilon>0, and its derivation does not follow numerically from either previous upper bound."
+      ],
+      "reasoning": "The earlier inequalities do not imply the improved constants, because a numerical upper bound B does not imply every smaller bound. The new proof controls an exact Euclidean one-apex derivative and supplies an explicit lower witness for near-optimality.",
+      "searches": [
+        "Anosova Kurlin arXiv 2602.17630 Theorem 2.8 strength stability",
+        "Kurlin arXiv 2303.13486 Theorem 4.2 strength"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2.8(b) in arXiv:2602.17630 defines the same squared-area-over-semiperimeter-cubed strength and gives a 2 sqrt(3) all-vertices perturbation coefficient.",
+        "Theorem 4.2 in arXiv:2303.13486 proves earlier qualitative and loose quantitative Lipschitz estimates."
+      ],
+      "reasoning": "Both earlier theorems have the same or greater domain and thus establish qualitative continuity, but neither supplies the substantially smaller constant 9/32 or a one-vertex coefficient bracket. Alternative Heron-based formulations were considered; no equivalent statement was identified in inspected text.",
+      "searches": [
+        "\"triangle strength\" \"Lipschitz\" \"semiperimeter\"",
+        "\"Anosova Kurlin\" \"sharp\" \"Lipschitz\" triangle",
+        "\"area squared\" \"semiperimeter cubed\" \"Lipschitz\" triangle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant source gives symbolic Heron expressions and a coarse constant, but contains no corresponding one-vertex exact-gradient or rational positivity table."
+      ],
+      "reasoning": "The claim is a universal analytic bound, not an entry in a tabulated finite census. The exact algebraic witness was checked against the continuous formula, not extracted from a preexisting numerical table.",
+      "searches": [
+        "\"triangle strength\" \"3/32\" Lipschitz",
+        "\"geometric simplex strength\" \"9/32\"",
+        "\"567/4\" \"2043\" \"sqrt(13)\" triangle"
+      ]
+    },
+    "rationale": "The two inspected primary strength papers prove earlier continuity and materially larger constants. They do not imply the new 3/32 one-vertex coefficient, the explicit 0.4%-width optimality bracket or the induced 9/32 all-vertex guarantee. Alternative formulations and related published results were searched with no dominating claim detected, subject to unindexed literature risk.",
+    "residual_risks": [
+      "Older unindexed triangle-strength numerical optimizations or differently named Heron-normalized estimates may exist.",
+      "The global upper constant is close to but is not proved equal to the true optimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General continuity and a larger all-vertex coefficient are covered; the presented near-sharp one-vertex bound and 9/32 coefficient are not established there.",
+        "evidence": [
+          "Theorem 2.8(b): lambda_2=sqrt(3) with total bound 2 lambda_2 epsilon.",
+          "Example 2.7: triangle strength equals squared area divided by semiperimeter cubed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.17630",
+        "material_read": "Accessible full HTML text, Definitions 2.5, Example 2.7, Theorem 2.8 and its dimension-two proof in Section 3.",
+        "method": "Read primary full-text HTML, including statement and relevant proof; compared coefficient, hypotheses and sign convention.",
+        "title": "The strength of a geometric simplex is a key ingredient in a polynomial-time classification of unordered point clouds by Lipschitz continuous invariants",
+        "trigger": "Exact definition of triangle strength and the latest published global perturbation estimate."
+      },
+      {
+        "assessment": "Earlier qualitative and coarse quantitative Lipschitz estimate; no corresponding rational global near-optimality bracket found in inspected theorem and proof.",
+        "evidence": [
+          "Theorem 4.2 states a 2 epsilon c_n perturbation estimate; its dimension-two derivation uses a coarse gradient estimate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13486",
+        "material_read": "Accessible full-text HTML, Definition 4.1, Theorem 4.2, dimension-two proof in Section 4 and the descriptor normalization discussion.",
+        "method": "Read primary full-text HTML including mathematical statements, proof and normalization; compared equivalent coefficient inequalities.",
+        "title": "The strength of a simplex is the key to a continuous isometry classification of Euclidean clouds of unlabelled points",
+        "trigger": "Earlier original simplex-strength manuscript and possible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "339d9ed9-ce17-4b9e-9962-0171009d851b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating authors use simplex strength as a noise-stable scalar descriptor, with an explicit but conservative all-vertex coefficient 2 sqrt(3). The certified coefficient 9/32 improves the practical uniform guarantee by more than twelvefold, including degenerate triangles. The one-vertex constant is bracketed within 0.4% of the optimum and its finite rational proof is reusable for exact stability estimates.",
+    "status": "PASS"
+  }
+}
