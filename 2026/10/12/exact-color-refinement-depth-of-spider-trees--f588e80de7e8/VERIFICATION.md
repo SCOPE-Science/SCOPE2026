@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is uniform for all spider trees with at least three legs. The attached `verify.py` independently constructs spiders and implements ordinary color refinement.
 
-It checks every nondecreasing leg-length tuple with \(3\) through \(6\) legs and lengths from \(1\) through \(10\), totaling \(7942\) graphs. For every nonstable refinement round in those graphs, it compares the actual color partition with the typed clipped-distance partition from the proof, totaling \(57570\) round-level comparisons. It also exhaustively checks the fixed-order extremal formula for \(d=3,4,5\) over \(54\) order/leg-count pairs.
+# Independent mathematical audit
 
-The checker returns:
+## correctness
 
-`VERIFY_OK depth_checks=7942 descriptor_round_checks=57570 extremal_checks=54`
+PASS
 
-These computations are corroborative only. They do not replace the all-parameter proof in `RESULT.md`.
+For d>=3 center is unique degree d; round1 splits center, degree1 leaves and degree2 interiors. At radius r>=1 the refinement partition is determined by clipped distance to both ends of each arm: a leaf (leaf,min(L,r)), internal (internal,min(x,r),min(L-x,r)). Induction follows unique oriented neighbors toward center and leaf once boundary types separate. Within longest leg the unresolved middle interval disappears at r=ceil(Lmax/2); among different lengths the last leaf-class distinction occurs at r=L_second_distinct+1, while internal cross-length pairs separate at most one round earlier. Thus the max formula holds for all multisets and multiplicities. For fixed N,d, total arm length N-1 bounds Lmax<=N-d and 2S+1<=N-d, and constructive arm multisets attain floor((N-d)/2)+1; n=d+1 star boundary checked. Independent genuine 1-WL partition simulation for 182 spider lengths (d=3,4, each length<=6) matched formulas. General induction not derived from finite enumeration.
+
+## originality
+
+PASS
+
+Published Krebs–Verbitsky 2014 full PDF develops color refinement and universal-cover lower bounds on general graph families, no spider/starlike/specific arm-length formula. Related Resultary spider results are for Ricci flow, curvature, power domination, etc., not color refinement. Prior almost-equilateral spider special case cannot imply arbitrary distinct arm lengths with two-statistic collapse; best-of-knowledge new exact classification plus fixed-order extremal theorem.
+
+## value
+
+PASS
+
+Ordinary 1-WL stabilization is a central finite-graph invariant; spiders are natural trees with one branching vertex. The formula explains how longest and second-largest distinct legs—not all leg multiplicities—govern exact depth, and maximizes it sharply at fixed order, a reusable canonical family benchmark beyond ad hoc tiny instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

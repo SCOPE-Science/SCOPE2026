@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The center, leaves, and internal vertices separate by degree in round \(1\). Because the center and leaf ends have different types, refinement along every leg is oriented, and the exact round-\(r\) color is captured by the typed clipped-distance descriptor used in the proof. This yields the within-leg threshold \(\lceil L/2\rceil\). For distinct lengths \(L<M\), leaves remain merged through round \(L\) and split in round \(L+1\), while internal cross-length collisions disappear no later than round \(L\); therefore the last cross-length bottleneck is the second-largest distinct length plus one. The fixed-order bound follows from \(L_{\max}\le N-d\) and \(2S+d-1\le N-1\), with explicit extremizing leg multisets. The standalone checker verifies the depth formula on \(7942\) spiders, the descriptor partition on \(57570\) round instances, and the fixed-order extremum on \(54\) parameter pairs.
+## correctness
 
-## Originality
-PASS with residual priority risk. published-finding corpus searches under spider tree, starlike tree, subdivided star, and generalized star terminology together with color refinement, \(1\)-WL, Weisfeiler--Leman, stabilization depth, and arm-length parameters returned no equivalent theorem. Web searches likewise did not locate a spider-specific refinement formula. The highly relevant 2010 spider paper by Bahls--Lake--Wertheim was inspected in full text at the definition and principal-results level; it studies graceful labeling. Krebs--Verbitsky provides only the general refinement-depth framework. The current ledger contains an almost-equilateral two-length special case, but that claim does not imply the arbitrary-multiset reduction to the longest and second-largest distinct lengths or the fixed-order extremal law.
+PASS
 
-## Value
-PASS. Spider trees are a standard named family used across graph labeling and tree-invariant literature. The result gives a complete exact formula for a natural finite-model-theoretic invariant on the entire family, rather than another isolated parameter slice. The collapse from an arbitrary multiset of leg lengths to two statistics is structurally informative, and the sharp fixed-order extremal identifies the worst spiders at each order and leg count.
+For d>=3 center is unique degree d; round1 splits center, degree1 leaves and degree2 interiors. At radius r>=1 the refinement partition is determined by clipped distance to both ends of each arm: a leaf (leaf,min(L,r)), internal (internal,min(x,r),min(L-x,r)). Induction follows unique oriented neighbors toward center and leaf once boundary types separate. Within longest leg the unresolved middle interval disappears at r=ceil(Lmax/2); among different lengths the last leaf-class distinction occurs at r=L_second_distinct+1, while internal cross-length pairs separate at most one round earlier. Thus the max formula holds for all multisets and multiplicities. For fixed N,d, total arm length N-1 bounds Lmax<=N-d and 2S+1<=N-d, and constructive arm multisets attain floor((N-d)/2)+1; n=d+1 star boundary checked. Independent genuine 1-WL partition simulation for 182 spider lengths (d=3,4, each length<=6) matched formulas. General induction not derived from finite enumeration.
 
-## Closest literature and limitations
-The closest object-specific source is Bahls--Lake--Wertheim (2010), which defines spiders and studies graceful labelings. The closest methodological source is Krebs--Verbitsky (2014), which studies color-refinement depth in general. The current ledger's almost-equilateral subdivided-star theorem is the closest prior internal result and is strictly subsumed by the present arbitrary-leg formula. The theorem does not address multi-branch-point trees or higher-dimensional refinement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Krebs–Verbitsky 2014 full PDF develops color refinement and universal-cover lower bounds on general graph families, no spider/starlike/specific arm-length formula. Related Resultary spider results are for Ricci flow, curvature, power domination, etc., not color refinement. Prior almost-equilateral spider special case cannot imply arbitrary distinct arm lengths with two-statistic collapse; best-of-knowledge new exact classification plus fixed-order extremal theorem.
+
+## value
+
+PASS
+
+Ordinary 1-WL stabilization is a central finite-graph invariant; spiders are natural trees with one branching vertex. The formula explains how longest and second-largest distinct legs—not all leg multiplicities—govern exact depth, and maximizes it sharply at fixed order, a reusable canonical family benchmark beyond ad hoc tiny instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
