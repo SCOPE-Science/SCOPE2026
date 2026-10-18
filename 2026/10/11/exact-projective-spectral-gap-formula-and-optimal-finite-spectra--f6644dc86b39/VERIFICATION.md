@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The analytic argument checks the normalization \(1/(2\pi)\) by reducing a \(\pi\)-periodic integrand to \(1/\pi\). For a singleton projective spectrum the unique complementary arc has length \(\pi\), giving \(\omega_2(U)^2=1/2\); for a full projective spectrum there are no open gaps, giving \(1\). For \(q\) equally spaced projective points each gap has length \(\pi/q\), yielding \(\tfrac12+q\sin(\pi/q)/(2\pi)\). The derivative test \(\sin x-x\cos x>0\) is valid for all \(0<x\le\pi\).
+## correctness
 
-Run `python3 verify_phase_gaps.py` using Python's standard library to compare the exact finite-gap formula against midpoint integration of the defining angular radius for both equally spaced and nonuniform examples, and to test the strict Jensen inequality in nonuniform examples. The script checks only finite cases and is not a certificate for the infinite-spectrum assertion; the latter follows from countable additivity in the proof.
+PASS
 
-No external/independent audit has been performed.
+Functional calculus for unitary U gives ||Re(e^(−it)U)||=max_{ζ∈σ(U)}|cos(t−argζ)|=cos d(t,S), with S the compact antipodal spectrum on circle of length π. The period-π angular normalization converts the defining 1/(2π) integral to 1/π ∫cos²d. Each complement gap ℓ contributes deficit (ℓ−sinℓ)/2 and the countable sum is absolutely convergent because Σℓ≤π; no finiteness or atomic-spectrum assumption is imposed. Equality at lower 1/2 requires one gap of length π, i.e. U² scalar; upper 1 requires no gaps, i.e. full projective spectrum. For q distinct projective eigenclasses, concavity of sin and strict monotonicity q sin(π/q) give sharp n-dimensional bound and equality classes. Independent numerical midpoint integration agreed with the exact formula for q=1,2,3 nonuniform and q=8 evenly spaced within 2×10^(−10); these finite checks corroborate rather than prove the infinite spectral statement.
+
+## originality
+
+PASS
+
+The defining Audeh–Moradi–Sahoo paper, read at Theorem 17 and adjacent results, proves only general normal/commuting operator upper/lower bounds and a proportional-Cartesian-parts equality, not exact arbitrary unitary spectral geometry. The novel gap-by-gap functional and finite-dimension equality characterization are not corollaries of those inequalities alone. Related convex-support-function integration could contain an equivalent classical formula, but none was identified in material searches. Originality passes best of knowledge, not historical uniqueness.
+
+## value
+
+PASS
+
+The new numerical radius is a natural operator invariant. The theorem gives exact values for arbitrary continuous/infinite unitary spectra and a complete sharp n-dimensional extremal theorem with all equality spectra, replacing loose general bounds with a spectral-geometric classification. This is not a renamed operator-norm inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
