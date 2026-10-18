@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The induced map \(\pi_{\mathcal K}:\mathcal K(X)\to\mathcal K(Y)\) is continuous, onto, and equivariant. An arbitrary probability lift exists by compactness, and Følner averaging turns it into an invariant lift while preserving its pushforward. The generalized allowed class is functorial under factors: an element \(\bigcup_x I_x x\) with compact \(I_x\subset Z(G)\) maps to \(\bigcup_x I_x\pi(x)\). Hence the full-measure IC-rigidity condition pushes forward exactly. The quantifiers, compactness hypotheses, and use of amenability were checked; no finite experiment is used.
+## correctness
 
-## Originality
-PASS. Kra--Schmieding prove factor heredity for their original discrete-group IC-rigidity, where the permitted compacts are finite. Kanigowski--Kasprzak--Lorenzo-Laguno introduce the enlarged class \(\mathcal K_G(X)\) for non-discrete groups and prove new flow examples, but their full text contains no factor theorem. Searches for factor permanence, quotient stability, flow factors, and generalized IC-rigidity found no equivalent continuous-group statement. The new theorem is not covered by the discrete result because the two definitions differ on non-discrete groups.
+PASS
 
-## Value
-PASS. Factor heredity is a basic structural permanence property for a newly extended rigidity notion. It shows that passing to a quotient cannot create a forbidden invariant random compact even in the flow setting, and it immediately applies to every compact-metric factor of the recent IC-rigid horocycle examples. The statement isolates the exact functorial mechanism needed for the extension rather than merely restating the discrete theorem.
+The induced map π_K:K(X)→K(Y), C↦π(C), is continuous for the Hausdorff/Vietoris topology, onto because π(π^(−1)(B))=B for each nonempty compact B⊂Y, and G-equivariant. Any G-invariant η on K(Y) admits a probability lift λ_0 on K(X) by compactness/surjectivity; amenability gives a G-invariant lift via convex averaging over a Følner/Reiter net (or the amenable fixed-point theorem), preserving the η pushforward at every step. Since λ is concentrated on K_G(X)∪{X}, and the generalized K_G(X) consists of finite unions of compact central orbit segments ∪_{x∈F}{g x:g∈I_x} with I_x compact in Z(G), equivariance takes each such set to the same finite union of central orbit segments in Y; π_K(X)=Y. Therefore η is concentrated on K_G(Y)∪{Y}. This proves the one-way permanence for all lcsc amenable acting groups, nondiagonal actions and possible infinite fibers. Følner sequence is not necessary to assert if amenability is formulated through invariant means and Reiter nets; the compact fixed-point construction is valid. The proof does not identify or classify actual nontrivial flow factors.
 
-## Closest literature and limitations
-The closest result is Kra--Schmieding's discrete factor theorem. The recent arXiv:2609.36397v1 supplies the generalized orbit-segment definition and non-discrete examples but does not state factor permanence. Amenability is essential to the proof as given because it supplies invariant measure lifting. No converse, extension theorem, or nonamenable claim is made.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The precise discrete-group factor-permanence theorem is already in Kra–Schmieding Proposition 3.4/§3.3, so the method of invariant-measure lifting is NOT new. Kanigowski–Kasprzak–Lorenzo-Laguno Definition 2.8 genuinely changes the allowable compact sets from finite sets to finite unions of compact central orbit segments and Theorem C provides non-discrete horocycle examples; their displayed definition does not state a corresponding factor theorem. Equivariant images preserve those central orbit-segment classes, an additional compatibility fact that does not follow from the discrete statement by merely declaring all compacts finite. No checked paper states this generalized factor permanence, though the proof is a short adaptation of prior ideas.
+
+## value
+
+PASS
+
+Factor stability is a natural structural permanence question for the newly enlarged IC-rigidity of non-discrete actions; it determines how the original horocycle examples behave under compact-metric topological quotients. Even though the proof recycles the amenable hyperspace-lifting method from the discrete theory, the precise central compact-orbit-segment image closure is the required new compatibility check. This is a small but reusable mathematical lemma, not merely a title change; no general classification or new flow construction is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
