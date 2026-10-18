@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s>=2, n=(2^(2s)+1)(2^s-1), both cases of Wang--He--Yi--Zheng Lemma 6 supply a five-element support in one residue class mod r_s=n/5 or n/51. Since the BCH code is cyclic, its shifts by t=0,..,r_s-1 are all codewords with disjoint supports. They generate [5,1,5]_2 direct summands, hence W_R=(1+z^5)^r_s, A_5j(C)>=binom(r_s,j) and d_j(C)<=5j. Over GF(2), the two root sum identities were checked independently, including polynomial divisibility for the order-51 pattern and 58 finite arithmetical cases; infinite divisibility is algebraic. The code family, precise normalization and ambient lower bounds are mathematically sound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 already establishes the exact [n,n-8s,5] BCH family, and Lemma 6 gives the entire symbolic support sufficient for translates."
+        ],
+        "reasoning": "A prior theorem need not explicitly name subcode dimensions to dominate immediate cyclic-shift and disjoint-support consequences; it determines them algebraically.",
+        "searches": [
+          "arXiv:2609.00532 Lemma 6 and Theorem 7",
+          "arXiv:2510.22259"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md@afdd0b462f15f483de2395e706e094076a090e24",
+        "Wang He Yi Zheng arXiv:2609.00532v2 Lemma 6 pp6-8 and Theorem 7 pp8-9",
+        "Chen Xie Ding arXiv:2510.22259",
+        "Resultary BCH disjoint repetition translates semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior five-root support lies within a single residue class modulo n/5 or n/51; cyclic shifts preserve membership by the definition on pp1-2 of the same paper."
+        ],
+        "reasoning": "For t=0,..,r-1, the supports of x^t c(x) lie in disjoint residue classes mod r, whence r independent repetition generators. Binomial enumerator, A_5j inequalities and GHW inequalities follow without nonstandard inference. This is decisive direct-implication coverage.",
+        "searches": [
+          "arXiv:2609.00532 p6 Lemma 6 p9 Theorem 7",
+          "binary cyclic code shift of support root-of-unity subgroup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Lemma 6 on pp6-8 explicitly exhibits the two exact root-support templates, subgroup order 5 and order 51."
+        ],
+        "reasoning": "The submitted supported weight-5 codeword is precisely the published root template; the disjoint translate collection is the same cyclic orbit restricted to coset representatives, not an independent construction.",
+        "searches": [
+          "Wang He Yi Zheng Solutions to Three Conjectures and an Open Problem on Binary BCH Codes arXiv:2609.00532",
+          "Resultary BCH distance five Wang He Yi Zheng repetition subcode disjoint weight five cyclic shifts 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact support data E={0,3,21,33,44} and the subgroup order 5 supports appear in Wang et al. Lemma 6."
+        ],
+        "reasoning": "The submitted binomial enumerator is the standard weight enumerator of disjoint repeated blocks and is mechanically fixed by the published template; it is not a new exhaustive spectrum table.",
+        "searches": [
+          "Resultary binary BCH distance five codeword subgroup order 51 repetitions",
+          "Wang He Yi Zheng Lemma 6 order 5 order 51"
+        ]
+      },
+      "rationale": "The complete closely relevant primary paper Wang--He--Yi--Zheng arXiv:2609.00532 Lemma 6 (pp6-8) explicitly supplies the EXACT five subgroup roots for the order-5 case and the EXACT order-51 exponent set {0,3,21,33,44}; Theorem 7 (pp8-9) makes a BCH codeword from them. By the pre-existing defining property of a cyclic code, translating that one word through the r_s distinct residue classes is mandatory, gives pairwise disjoint words immediately, and yields all claimed subcode enumeration and GHW inequalities by elementary independence. Thus the presented theorem is already entailed by the specifically published construction plus the standard definition, despite lacking matching subcode wording in the prior title/theorem; it does not pass O.",
+      "residual_risks": [
+        "The source record cites arXiv v1 whereas the accessible full primary was v2; relevant Lemma 6 root templates match, but version-by-version provenance was not independently diffed.",
+        "The direct consequence is correct, but its publication as new mathematical originality is unsupported; no proposed repair to an intrinsically covered theorem.",
+        "Page retrieval for Wang et al. pp13-24 was blocked by safety checks; this is an access limitation, not permission to infer whole-document negative coverage. Relevant first-family Lemma 6 and Theorem 7 were read in full on pp6-9."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT COVERAGE: actual two support templates and cyclicity imply the entire submitted translate/subcode result, even though authors phrase goal as proving minimum distance.",
+          "evidence": "pp2 definition cyclic code; pp6-8 Lemma 6: omega^0..omega^4 or theta^{0,3,21,33,44}; pp8-9 Theorem 7.",
+          "identifier_or_url": "arXiv:2609.00532v2 (source cites v1)",
+          "material_read": "Complete 29-page PDF was accessible at the publisher tool, but only pp1-12 and 25-29 were actually returned/read; relevant cyclic-code definition, Lemma 6 and Theorem 7 were read on pp2 and 6-9. A separate request for pages 13-24 was blocked by safety checks and was not retried.",
+          "method": "institutionally accessible primary PDF extracted text, page-by-page",
+          "title": "Solutions to Three Conjectures and an Open Problem on Binary BCH Codes",
+          "trigger": "Exact same n,s, BCH code and weight-five support; necessity of primary-source implication analysis"
+        },
+        {
+          "assessment": "Establishes earlier min-distance cases; strongest direct implication is Wang et al. 2026 Lemma 6.",
+          "evidence": "Minimum distance known for s not congruent 2 mod4.",
+          "identifier_or_url": "arXiv:2510.22259",
+          "material_read": "Lawful OA primary paper accessible; relevant family and prior minimum-distance statements inspected.",
+          "method": "arXiv PDF text",
+          "title": "Infinitely many families of distance-optimal binary linear codes with respect to sphere packing bound",
+          "trigger": "Prior partial case of same designed-distance-five BCH family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The macroscopic subcode and weight-spectrum implications are useful to know, but in this precise family every asserted numerical/structural component is an immediate textbook consequence of the exact prior published supported codeword and cyclicity, without a new optimization, classification or unknown bound. It is a routine corollary rather than a distinct motivated mathematical advance satisfying V as an independent finding.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md@afdd0b462f15f483de2395e706e094076a090e24",
+    "Wang He Yi Zheng arXiv:2609.00532v2 Lemma 6 pp6-8 and Theorem 7 pp8-9",
+    "Chen Xie Ding arXiv:2510.22259",
+    "Resultary BCH disjoint repetition translates semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The source record cites arXiv v1 whereas the accessible full primary was v2; relevant Lemma 6 root templates match, but version-by-version provenance was not independently diffed.",
+    "The direct consequence is correct, but its publication as new mathematical originality is unsupported; no proposed repair to an intrinsically covered theorem.",
+    "Page retrieval for Wang et al. pp13-24 was blocked by safety checks; this is an access limitation, not permission to infer whole-document negative coverage. Relevant first-family Lemma 6 and Theorem 7 were read in full on pp6-9.",
+    "No modifications or publication; metadata operational fields need sanitization. Sources remain pinned to immutable commit; no exhaustive Git-tree enumeration."
+  ],
+  "residual_risks": [
+    "The source record cites arXiv v1 whereas the accessible full primary was v2; relevant Lemma 6 root templates match, but version-by-version provenance was not independently diffed.",
+    "The direct consequence is correct, but its publication as new mathematical originality is unsupported; no proposed repair to an intrinsically covered theorem.",
+    "Page retrieval for Wang et al. pp13-24 was blocked by safety checks; this is an access limitation, not permission to infer whole-document negative coverage. Relevant first-family Lemma 6 and Theorem 7 were read in full on pp6-9."
+  ],
+  "schema_version": 1
+}
