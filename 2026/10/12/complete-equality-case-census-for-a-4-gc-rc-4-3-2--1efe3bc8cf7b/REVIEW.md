@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces to an exact finite clique problem on the 72 length-four GC-content-two words satisfying the self reverse-complement constraint. The packaged verifier reconstructs the graph from definitions, enumerates all maximal cliques, independently enumerates all six-cliques, and checks the distance and orbit assertions for every maximum. The published exact optimum \(A_{4}^{GC,RC}(4,3,2)=6\) is also reproduced by the exhaustive graph computation.
+## correctness
 
-## Originality
-PASS. The closest primary source, King (2003), defines the same parameter and records the exact optimum \(6\), but its full text presents bounds, lexicographic constructions, and the exact value rather than a census of all equality cases. Aboluion--Smith--Perkins (2012) describe construction families under the same constraints, not the stated complete equality-case classification. Targeted database and web searches for the exact parameter, \(512\) maxima, equality cases, and orbit classifications did not locate a result implying the present census. Residual risk: an obscure or unindexed finite enumeration may exist.
+PASS
 
-## Value
-PASS. Equality cases of an exact small DNA-code bound are a natural structural object, and here the census exposes a universal perfect-matching pattern shared by all maxima together with a nontrivial 14-orbit decomposition. This is substantially more informative than merely recomputing the already known optimum.
+Single-codeword self reverse-complement feasibility leaves 72 of the C(4,2)*2^4=96 GC2 words. Independent direct distance construction gave 1168 compatibility edges, and a complete pivoted Bron-Kerbosch maximal-clique enumeration yielded size histogram 2:64,4:640,5:1024,6:512. A second direct check of every six-clique independently confirmed self RC distance 4, three disjoint pairwise distance-(4,4) edges forming a perfect matching, and other 12 pairs distance-(3,3). Explicitly generated the coordinate reversal centralizer of order 8 and alphabet Watson-Crick centralizer of order 8 and checked their 64 transformations on every maximum, giving orbit sizes 32x12 and 64x2. This finite graph enumerates all admissible codewords and all feasible codebooks; King provides prior optimum 6.
 
-## Closest literature and limitations
-King (2003) supplies the exact same parameter definition and the exact optimum in Table 1. The present result does not extend the optimum, does not address larger lengths or other GC contents, and does not claim a full automorphism-group classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the same objects and implications with primary prior literature and published research search. Prior optimal values or constructions are fully credited; no inspected stronger theorem implies the final complete classification. This is a best-of-knowledge determination, with the explicitly recorded unread-source risks.
+
+## value
+
+PASS
+
+The exact equality layer of a standard DNA-code packing optimum is a natural complete classification: 512 optimal books, a rigid universal three-pair matching distance structure, and a specific symmetry orbit decomposition. Those structural restrictions matter when choosing inequivalent constant-GC code designs and do not follow mechanically from upper-bound value 6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The package contains `verify.py`, a dependency-free Python verifier. It regenerates the admissible word set, compatibility graph, every maximal clique, an independent list of all six-cliques, the universal distance matching, and the orbit decomposition under the explicitly stated 64-element subgroup.
+## correctness
 
-A fresh packaged replay produced `verification_output.txt`, whose first line is:
+PASS
 
-`VERIFY_OK eligible_vertices=72 edges=1168 maximal_cliques=2240 maximal_hist=2:64,4:640,5:1024,6:512 maximum=6 labeled_maxima=512 self_rc_distance=4 distance4_matching=3 all_other_pairs_distance=3 group_size=64 orbits=14 orbit_sizes=32x12,64x2 stabilizers=2x12,1x2`
+Single-codeword self reverse-complement feasibility leaves 72 of the C(4,2)*2^4=96 GC2 words. Independent direct distance construction gave 1168 compatibility edges, and a complete pivoted Bron-Kerbosch maximal-clique enumeration yielded size histogram 2:64,4:640,5:1024,6:512. A second direct check of every six-clique independently confirmed self RC distance 4, three disjoint pairwise distance-(4,4) edges forming a perfect matching, and other 12 pairs distance-(3,3). Explicitly generated the coordinate reversal centralizer of order 8 and alphabet Watson-Crick centralizer of order 8 and checked their 64 transformations on every maximum, giving orbit sizes 32x12 and 64x2. This finite graph enumerates all admissible codewords and all feasible codebooks; King provides prior optimum 6.
 
-The exhaustive computation is finite. It proves no statement outside the exact parameter \(n=4\), GC-content \(2\), and threshold \(d=3\), and the symmetry calculation concerns only the subgroup defined in the result.
+## originality
+
+PASS
+
+Compared the same objects and implications with primary prior literature and published research search. Prior optimal values or constructions are fully credited; no inspected stronger theorem implies the final complete classification. This is a best-of-knowledge determination, with the explicitly recorded unread-source risks.
+
+## value
+
+PASS
+
+The exact equality layer of a standard DNA-code packing optimum is a natural complete classification: 512 optimal books, a rigid universal three-pair matching distance structure, and a specific symmetry orbit decomposition. Those structural restrictions matter when choosing inequivalent constant-GC code designs and do not follow mechanically from upper-bound value 6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
