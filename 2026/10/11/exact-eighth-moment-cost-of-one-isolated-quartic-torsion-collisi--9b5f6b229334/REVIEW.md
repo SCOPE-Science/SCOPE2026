@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Parseval on the fourth power produces one convolution coefficient for each degree-four exponent triple. The isolated relation merges only the \(a^4\) and \(b^4\) coefficients, adding exactly \(2|a|^4|b|^4\cos(4(\arg a-\arg b))\). The collision-free part is reconstructed from squared multinomial coefficients and equals the displayed symmetric polynomial. After phase alignment, fixing \(|a|^2+|b|^2\) makes the objective strictly increasing in \(|a|^2|b|^2\), so \(|a|=|b|\). The remaining quartic has derivative controlled by a cubic with exactly one root in \((0,1/2)\); endpoint comparison makes this the global maximum. Exact elimination gives the stated cubic for the sharp eighth power. The equality conditions follow from the strict steps.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest broad literature gives the even-moment/additive-relation framework and the \(B_h\) sharp baseline, with strictness when a collision occurs, but not the exact cost of this isolated torsion collision. Searches for the collision relation, the defining cubic, the numerical value, three-character \(\Lambda(8)\) language, and equivalent one-relation formulations found no statement that implies the exact sharp constant and full equality class. The closest specialized indexed result concerns phase response at a first resonance for fixed unimodular coefficients and therefore does not optimize magnitudes.
+## correctness
 
-## Value
-PASS. A single relation is the minimal way a three-character spectrum can leave the collision-free \(B_4\) regime. Quantifying that first defect is a natural boundary problem in even-moment \(\Lambda(p)\) theory: the result gives the exact excess, the optimizer displacement, and all equality cases rather than only the known qualitative strictness.
+PASS
 
-## Closest literature and limitations
-The general \(B_h\) comparison supplies only a collision-free baseline and strictness for non-\(B_h\) sets. Bourgain and Michels supply the broader harmonic-analytic setting. The theorem is limited to the isolated relation \(\lambda_0^4=\lambda_1^4\); extra relations require a different optimization. A residual risk remains that an older exact small-spectrum calculation exists under different terminology.
+The precise hypothesis identifies all 15 degree-four unordered character monomials except λ0⁴=λ1⁴, hence the sole Parseval cross term is 2Re(a⁴̅b⁴)=2x²y² cos(4(arg a−arg b)). The collision-free fourth-convolution polynomial P0 was independently expanded; with x=y=u,z=1−2u it yields exactly Q(u)=56u⁴−192u³+48u²+24u+1. For fixed x+y, dependence on p=xy has nonnegative leading 8p² and strictly positive linear coefficient, forcing x=y. Q’=8(28u³−72u²+12u+3) has unique root u*=0.3347190566… in (0,1/2), and endpoint comparisons are strict. Independent exact Sympy resultant is 1792·(343X³+155931X²−1117059X−1095481), whose only positive root is 7.91378569515…. Thus K=X^(1/8) with all claimed positive magnitude and resonance phase extremizers. The example dual ℤ×ℤ/4 establishes realizability of the isolated collision without an inadvertent extra relation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Checked the precise fourth-convolution collision pattern against classical Λ(p)/B_h theory, published Resultary order-four character pair constants, a different torsion-free first fourth-order resonance {0,1,4}, and four-character moment results. None of those gives the three-character isolated pure torsion collision polynomial and complete extremizers. Prior B_h results predict increased norm but not the numerical cubic. Best-of-knowledge no equivalent or stronger implication identified.
+
+## value
+
+PASS
+
+An isolated quartic torsion relation is the smallest natural deviation from B4 collision-freeness in a three-character spectrum. Its sharp eighth-moment price and exact extremizer mass shift provide a precise benchmark for resonance sensitivity. The exact algebraic constant and equality classification are independently useful beyond generic qualitative strictness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
