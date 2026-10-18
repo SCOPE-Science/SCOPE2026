@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The proof uses the exact finite-dimensional spectral identities for the swap and maximally entangled rank-one tensor, and exact weighted Hölder optimization. The extracted standalone `verify_brauer.py` was run using Python 3 and returned `BRAUER_SCHATTEN_EXACT_BLOCK_CHECK_OK`. Tests check the partial transpose identity, integer matrix relations, quartic Schatten trace expressions, endpoint-compatible scalar formulas and witness ratios for \(2\le n\le5\), but do not prove arbitrary \(n\) or continuous \(p\). The universal proof is in RESULT.md.
+## correctness
 
-The p-dependent formula is restricted to the canonical invariant plane. Only the full two-level endpoint norms and Hilbert–Schmidt norm are claimed. The published motivating qualitative example and inaccessible older comparison source are identified in the scientific discussion. Same-model review is not independent validation.
+PASS
+
+Independent spectral reconstruction: Theta(F)=B and Theta(B)=F. X=aF+bB has singular values |a+nb| (once), |a| (n^2-1 times); QX=(a+b)(F+B)/2 with output singular values (n+1)|a+b|/2 and |a+b|/2 repeated. Weighted l_p/l_q duality yields the stated closed C(p,n) and aligned-phase unique extremizer for 1<p<infinity. The fixed line gives strict C(p,n)>1 except p=2. Transpose on the two-dimensional amplification leg has operator norm <=2, giving full S1 and Sinfinity upper bound 3/2, attained by n=2 embedded witness. Recomputed C(4,2)=1.123497338418034 via exact symbolic radical identity. Finite verify_brauer.py sample loops were inspected, not confused with the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact invariant-plane formula and extremizers across all p,n, not for known qualitative non-2-contractivity. Arhancet provides the same projection and qualitative p=4 failure, while Ando--Sano addresses norms of partial transpose. Neither the accessible abstract nor published-result comparisons supplies a proven implication of the all-p restricted optimization. Full Ando--Sano text and the relevant Arhancet manuscript passages were not accessible in this run; explicit literature priority risk remains.
+
+## value
+
+PASS
+
+The flip and maximally entangled tensor span the smallest partial-transpose-invariant space containing the flip; this is a canonical symmetry module, not an arbitrary two-coordinate slice. Exact all-parameter sharp bounds and equality vectors quantify a natural obstruction, furnish base-dimension-independent two-level witnesses and settle full endpoint norms without claiming unknown full intermediate norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
