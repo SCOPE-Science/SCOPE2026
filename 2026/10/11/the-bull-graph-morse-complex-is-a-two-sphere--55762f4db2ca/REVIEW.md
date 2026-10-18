@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The entire finite Morse complex is reconstructed in two independent ways. All \(98\) nonempty faces and all \(246\) Hasse covers are checked. A \(48\)-pair acyclic discrete-Morse matching leaves exactly one critical \(0\)-cell and one critical \(2\)-cell, which gives \(S^2\). Boundary-rank calculations over four finite fields independently reproduce Betti vector \((1,0,1,0)\).
+## correctness
 
-## Originality
-PASS. Exact and alias searches found no bull-graph Morse-complex computation. Full-text comparison with arXiv:1909.11440 shows that its closest theorems require two leaves sharing one support, exactly one leaf on a cycle, or leaves attached to every base vertex; none covers the bull graph. The general graph results of arXiv:2004.10481 give connectivity rather than the exact homotopy type. The closest exact finite-graph calculations concern different graphs and do not imply the claim.
+PASS
 
-## Value
-PASS. This is a sharp structural boundary example for a published leaf theorem: two leaves on one common support force contractibility, while the canonical bull graph with the two leaves on distinct triangle vertices has Morse complex \(S^2\). It isolates leaf placement as a genuine topological parameter and gives a compact benchmark for future work on leafed unicyclic graphs.
+PASS. Every primitive vertex is an orientation of one of five graph edges, and a simplex is a compatible acyclic partial orientation. The complete face enumeration gives f=(10,33,40,15) and 98 nonempty faces. An independently coded Hasse-poset enumeration produced 246 covers and a 48-pair acyclic discrete-Morse matching, leaving exactly one critical 0-cell and one critical 2-cell; the oriented matching directed graph was independently verified acyclic. By the full discrete Morse collapsing theorem, this yields a CW complex with one 0-cell and one 2-cell, attaching boundary to a point, hence S^2. Numerical Betti checks alone would not establish homotopy.
 
-## Closest literature and limitations
-The closest source is Donovan–Lin–Scoville, arXiv:1909.11440, especially Proposition 17, Theorem 33, and Proposition 34. The claim is deliberately restricted to one graph; no classification of multi-leaf unicyclic graphs is asserted. A substantially differently phrased non-indexed duplicate remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge. Lin–Scoville arXiv:1909.11440v1 Proposition 23 only forces strong collapsibility for TWO LEAVES ON THE SAME SUPPORT, whereas the bull has leaves at distinct triangle vertices; its Example 25 and Proposition 34 treat ONE attached leaf. Other graph-family and finite wheel Morse-complex results have no bull case or covering reduction. Exact bull/acyclic-forest/Morse aliases and Resultary comparisons did not locate an S2 homotopy theorem. An unindexed rooted-forest calculation is possible.
+
+## value
+
+PASS
+
+PASS. The bull graph is the smallest canonical leafed triangle whose two leaves attach to distinct supports, just outside the published same-support collapsibility criterion. Determining that its Morse complex is S2 rather than contractible gives a motivated boundary counterexample and complete natural finite homotopy classification; finite object size alone is not disqualifying. The exhaustive discrete-Morse collapse is substantive beyond tabulating Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

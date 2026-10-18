@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_bull_morse.py`. The script uses only the Python standard library and reconstructs the graph, primitive gradient fields, all simplices, the full Hasse diagram, the discrete-Morse matching, and finite-field chain complexes from definitions.
+# Independent mathematical audit
 
-The expected exact data are: ten primitive fields; face vector \((10,33,40,15)\); \(98\) nonempty faces; \(246\) Hasse covers; \(48\) matched pairs; critical vector \((1,0,1,0)\). The Morse-oriented Hasse diagram must be acyclic. The signed boundary ranks must be \((9,24,15)\) over each of \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\), and \(\mathbb F_7\), giving Betti vector \((1,0,1,0)\).
+## correctness
 
-A successful replay ends with `VERIFY_OK`. The homotopy conclusion rests on the complete acyclic matching; the finite-field computations are independent consistency checks. No statement beyond the specified five-vertex graph is verified.
+PASS
+
+PASS. Every primitive vertex is an orientation of one of five graph edges, and a simplex is a compatible acyclic partial orientation. The complete face enumeration gives f=(10,33,40,15) and 98 nonempty faces. An independently coded Hasse-poset enumeration produced 246 covers and a 48-pair acyclic discrete-Morse matching, leaving exactly one critical 0-cell and one critical 2-cell; the oriented matching directed graph was independently verified acyclic. By the full discrete Morse collapsing theorem, this yields a CW complex with one 0-cell and one 2-cell, attaching boundary to a point, hence S^2. Numerical Betti checks alone would not establish homotopy.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge. Lin–Scoville arXiv:1909.11440v1 Proposition 23 only forces strong collapsibility for TWO LEAVES ON THE SAME SUPPORT, whereas the bull has leaves at distinct triangle vertices; its Example 25 and Proposition 34 treat ONE attached leaf. Other graph-family and finite wheel Morse-complex results have no bull case or covering reduction. Exact bull/acyclic-forest/Morse aliases and Resultary comparisons did not locate an S2 homotopy theorem. An unindexed rooted-forest calculation is possible.
+
+## value
+
+PASS
+
+PASS. The bull graph is the smallest canonical leafed triangle whose two leaves attach to distinct supports, just outside the published same-support collapsibility criterion. Determining that its Morse complex is S2 rather than contractible gives a motivated boundary counterexample and complete natural finite homotopy classification; finite object size alone is not disqualifying. The exhaustive discrete-Morse collapse is substantive beyond tabulating Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
