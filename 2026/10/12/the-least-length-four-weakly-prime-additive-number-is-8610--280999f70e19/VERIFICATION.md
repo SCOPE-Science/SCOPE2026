@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` performs the exact finite search used in the proof. It builds a smallest-prime-factor sieve through \(8610\), obtains every distinct prime divisor of each integer, enumerates all positive powers below that integer for each chosen prime base, and checks every three- and four-base Cartesian product with exact integer addition.
+# Independent mathematical audit
 
-The packaged replay returned:
+## correctness
 
-`VERIFY_OK first_length4=8610 three_reps=0 four_reps=1 factor_primes=2,3,5,7,41 witness=3^8+5^2+7^3+41^2`
+PASS
 
-The finite search proves only the stated least-element boundary through \(8610\). It is not evidence for a density or infinitude claim. The separate symbolic congruence argument rules out two-term representations for every integer, so the exhaustive three-/four-term comparison suffices to identify length exactly \(4\).
+For any n, two-term weakly prime-additive representations are impossible: reduction mod one base p in p^a+q^b=n with p|n implies p|q^b. Independently enumerated exact integer factorizations and every positive power for all n≤8610 and every 4-subset of distinct prime divisors; the only 4-term candidate up to 8610 is 8610, with no 3-term representation and one 4-term witness (3,5,7,41) with powers (3⁸=6561,5²=25,7³=343,41²=1681). The exhaustive finite cutoff fully proves the least element; it does not claim density or infinitude. The pinned verify.py independently reconstructs the same complete search with a smallest-prime-factor sieve and exact Cartesian products.
+
+## originality
+
+PASS
+
+Leung’s length-4 paper proves (subject to prime existence/GRH) infinitude of length-four numbers divisible by any m but no least such value; searched complete primary PDF for 8610 with no match. OEIS A296717 lists 8610 as weakly prime-additive and nonshortest but also several earlier nonshortest values; that alone entails neither exact κ=4 nor its least position, nor unique four-term representation. The finite exhaustive search adds information not present in the database; unindexed brute-force precedent remains a risk.
+
+## value
+
+PASS
+
+The first exact length-four element of a published arithmetic class is a natural sharp finite invariant, not an arbitrary bounded slice. A complete exact search identifies the first boundary and its unique witness, furnishing an unconditional computational benchmark for a class whose general infinitude has conditional proofs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
