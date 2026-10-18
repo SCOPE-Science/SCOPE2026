@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:44:40.483971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-calibration-boundary-for-inverse-cdf-antithetic-monte-carl--83577981ce52/RESULT.md",
+        "Git blob d24365f20a7a3ea9c730023e49a4772f4504e29a",
+        "Git blob bcb2b20ba170fd8ddd6e593c48d3a9e15ec28ec5"
+      ],
+      "rationale": "Conditional on U0>1/2, the B antithetic pairs contribute independent Bernoulli(2(1-U0)) counts, whose uniform mixing gives each c=0..B probability 1/(B+1). The complementary U0<1/2 half yields B plus a uniform number of additional exceedances. Averaging creates masses 1/[2(B+1)] except double central mass j=B+1, the displayed piecewise CDF, first failure alpha*=(B+1)/(2B+1), and maximal excess B/[2(B+1)(2B+1)]. This proves all B>=1, not only finite checks. Independently recomputed exact rational distributions for B=1..100 from the mass/CDF identities and checked first failing j and maximum. Domain: U0 and B latent U independent, strictly increasing continuous F; not generic dependent permutations.",
+      "residual_risks": [
+        "No claim for discrete F, arbitrary antithetic permutations, or estimated null distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exchangeable samples guarantee p-value validity; the 2026 general paper concerns bounds without joint exchangeability."
+        ],
+        "reasoning": "A general sufficiency/bound framework does not yield this exact unconditional mass function or first-failure support index.",
+        "searches": [
+          "arXiv:2204.13581 Theorems 2.2–2.3",
+          "arXiv:2607.23010 Monte Carlo testing without joint exchangeability"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.13581",
+        "DOI:10.1007/s13171-023-00308-8",
+        "arXiv:2607.23010",
+        "Resultary semantic: exact null distribution inverse-CDF antithetic Monte Carlo p-value pairs U 1-U rank beta binomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited reverse-permutation failure at a sub-half alpha cannot imply protected validity for this exact inverse-CDF coupling."
+        ],
+        "reasoning": "Published failure of different antithetic schemes does not entail the present exact half-level boundary.",
+        "searches": [
+          "arXiv:2204.13581 Example 2.2",
+          "Resultary semantic: exact null distribution inverse-CDF antithetic Monte Carlo p-value pairs U 1-U rank beta binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 antithetic example is a reverse-permutation Gaussian Monte Carlo construction invalid at alpha=1/3; it is not the pair U,1-U inverse-CDF law.",
+          "Here the central rank atom has twice every other mass."
+        ],
+        "reasoning": "Neither the type of dependence nor the resulting exact rank distribution agrees with the primary example.",
+        "searches": [
+          "Resultary semantic: exact null distribution inverse-CDF antithetic Monte Carlo p-value pairs U 1-U rank beta binomial",
+          "arXiv:2204.13581 Example 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit matches this same current finding; no older external table of all-B inverse-CDF null rank masses surfaced."
+        ],
+        "reasoning": "The closed formula is a proof for arbitrary B, not an imported precomputed table; absence of external table alone is not proof of novelty.",
+        "searches": [
+          "Resultary semantic: exact null distribution inverse-CDF antithetic Monte Carlo p-value pairs U 1-U rank beta binomial",
+          "inverse-CDF pair U 1-U beta-binomial rank law"
+        ]
+      },
+      "rationale": "The inverse-CDF reflection coupling gives a complete all-B discrete null law. The full primary permutation paper describes antithetic reverse-permutation counterexamples and exchangeability-based validity, not the inverse-CDF rank mass law. Resultary searches returned the same published record and related dependence examples but no prior dominating statement. Best-of-knowledge originality; unindexed equivalent rank identities remain possible.",
+      "residual_risks": [
+        "An equivalent identity may exist in older poorly indexed antithetic Monte Carlo or rank-test literature.",
+        "arXiv:2607.23010 was not inspected in full; do not claim whole-paper NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Example 2.2 constructs reverse-permutation two-resample invalidity; no uniform-mixture centered rank law or all-B formula in the inspected theorem/example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.13581",
+          "material_read": "Open-access primary PDF: theorem statements and Example 2.2 on antithetic permutations; read displayed example and setting, including PDF screenshot page 9 (zero-index 8).",
+          "method": "Compared sampling law and alpha thresholds to inverse-CDF U,1-U model.",
+          "title": "Permutation Tests Using Arbitrary Permutation Distributions",
+          "trigger": "Primary counterexample and exchangeability theorems"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_COMPARISON",
+          "evidence": "Summary gives broad nonexchangeability bounds, no explicit all-B inverse-CDF distribution in read abstract; full body not excluded.",
+          "identifier_or_url": "arXiv:2607.23010",
+          "material_read": "Abstract and summary only; full body not inspected.",
+          "method": "Compared described guarantee type against exact null distribution.",
+          "title": "Monte Carlo testing: non-asymptotic guarantees without joint exchangeability",
+          "trigger": "Recent broader theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2204.13581",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-calibration-boundary-for-inverse-cdf-antithetic-monte-carl--83577981ce52/RESULT.md"
+      ],
+      "rationale": "Complete, reusable calibration of a canonical antithetic resampling design: identifies both protected low-level testing and precise finite-sample anti-conservatism; practically relevant where correct null marginals are mistakenly treated as sufficient for empirical p-value validity.",
+      "residual_risks": [
+        "The result is restricted to one-dimensional exact inverse-CDF reflection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-B theorem relies on continuity and strictly increasing known F and mutual independence of base uniforms.",
+    "Unindexed duplicate rank identities remain a bibliographic risk."
+  ],
+  "schema_version": 1
+}
