@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker represents \(R_{m,n}\) as an \(m\)-by-\(n\) color matrix and verifies the odd-coloring definition directly from each cell's open neighborhood.
+# Independent mathematical audit
 
-It separately checks the symbolic local criterion:
-\[
-(i,j)\text{ has an odd neighborhood color}
-\quad\Longleftrightarrow\quad
-\mathcal R_i\ne\mathcal C_j.
-\]
+## correctness
 
-For the rectangular cases
-\[
-(2,3),\ (2,4),\ (3,4),
-\]
-every proper \(n\)-coloring is enumerated after fixing the first row to remove color-permutation symmetry, and every one is odd.
+PASS
 
-For square orders
-\[
-n=2,3,4,
-\]
-all normalized proper colorings with \(n\) and \(n+1\) colors are enumerated; none is odd. The explicit cyclic \(n+2\)-color construction is then checked directly.
+For a proper coloring each color other than the cell color occurs 0/1/2 times in its open neighborhood according to membership in its row and column palettes, hence odd iff the palettes differ. In m<n an n-coloring must make row palettes size n and column palettes size m, and ordinary n-colorability follows cyclically. For square case n colors fail; n+1 colors imply the multiplicity of each missing row-color equals that of its missing column-color, forcing equal incident palettes. The cyclic construction q=n+2 with row indices Zq\{0,1}, col indices Zq\{0,2}, color a+b has missing consecutive vs distance-two pairs, and these cannot coincide for q>=5. Fresh independent program verified n up to 24, but analytic proof handles all orders.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-rectangular m=2, n=3, normalized proper n-colorings=2, all_odd=2
-rectangular m=2, n=4, normalized proper n-colorings=9, all_odd=9
-rectangular m=3, n=4, normalized proper n-colorings=24, all_odd=24
-square n=2: normalized proper n-colorings=1, odd=0; normalized proper n+1-colorings=3, odd=0; n+2 construction OK
-square n=3: normalized proper n-colorings=2, odd=0; normalized proper n+1-colorings=44, odd=0; n+2 construction OK
-square n=4: normalized proper n-colorings=24, odd=0; normalized proper n+1-colorings=4920, odd=0; n+2 construction OK
-normalized_proper_colorings_checked = 5029
-construction_checked_n = 2..50
-direct neighborhood parity agrees with row/column-set criterion in all enumerated cases
-```
+PASS
 
-The exhaustive portion checks \(5{,}029\) normalized proper colorings. The construction is also replayed for every
-\[
-2\le n\le50.
-\]
+The exact row/column-set criterion and n versus n+2 bound are not implied by Liu--Dou--Yang's path/cycle Cartesian products, the general product bounds or the unrelated complete-multipartite result. The same frozen assignment contains a mathematically overlapping rook result without dated priority; no claim of independent priority of these packages is made. Best-of-knowledge external originality PASS subject to the material duplicate-package risk.
 
-These finite computations corroborate the theorem but do not establish its arbitrary-order quantifiers. The all-order proof is the row/column-set argument in `RESULT.md`.
+## value
+
+PASS
+
+The exact parity surcharge in square rook graphs versus clique-optimal rectangular rook graphs is a natural sharp classification of graph-product odd coloring, with a nontrivial omission-balance obstruction. Independent scientific value is the structural formula, not an assertion that the overlapping sibling packages deserve separate publication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
