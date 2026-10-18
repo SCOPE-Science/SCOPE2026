@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The algebraic proof uses only the following exact finite-field facts: trace transitivity, \(x^{2^e+1}=N_{F/K}(x)\), surjectivity of the norm \(F^\times\to K^\times\), and the nondegenerate absolute-trace pairing on \(K\). These establish the all-even-\(m\) statement without computation.
+# Independent mathematical audit
 
-The bundled `verify.py` supplies an standalone finite check at \(m=6\). It uses the irreducible polynomial `x^6+x+1` for \(\mathbb F_{64}\), verifies every field inverse, checks the trace-transitivity identity for all \(64^2\) pairs \( (a,x)\), verifies norm surjectivity and that the norm-one subgroup has order \(9\), and exhausts every ordered parameter pair in the three regimes of Theorem 3.5.
+## correctness
 
-For all \(1064\) such parameter pairs it confirms the rank-one relative-trace condition, equality with the corresponding norm-hyperplane defining set, an explicit multiplication map to a single canonical defining set, and invariance under all norm-one elements. The canonical defining set has length \(27\), and exhaustive enumeration of all \(64\) messages gives
+PASS
 
-\[
-W(z)=1+36z^{12}+27z^{16},
-\]
+For m=2e and F/K quadratic, x^(2^e+1)=N(x) in K; trace transitivity reduces both binary trace constraints to Tr_K(c_i N(x))=0 with c_i=a_i+a_i^(2^e), hence D=N^(-1)(C^perp\{0}). Surjective norm has fibers size 2^e+1, giving |D|=(2^(e-r)-1)(2^e+1). If C′=sC then C′^perp=s^(-1) C^perp, choose t with N(t)=s^(-1); multiplication by t bijects defining sets and reparameterizes b in the trace code, proving permutation equivalence. The cyclic norm-one kernel of order 2^e+1 acts freely on D. The three source Theorem 3.5 regimes have rank r=1. Independently checked GF64 trace transitivity for all 64*8 input pairs and all 7 nonzero relative-trace scalar normalizations with norm-one invariance; infinite conclusion follows from algebra.
 
-which agrees with the source's Table 2 for \(m=6\). Running `python3 verify.py` prints `VERIFY_OK`.
+## originality
 
-The computation does not certify the infinite theorem by sampling; the infinite claim is established by the proof in `RESULT.md`. No claim is made about the full automorphism group or an exact equivalence classification of the rank-two family.
+PASS
+
+Xiang–Song provide Gold construction and identical two-weight distributions for the three rank-one regimes, but source Theorem 3.5 does not assert code permutation equivalence or norm-one coordinate automorphisms. Same weight enumerator alone never implies permutation equivalence; extra norm/scalar action yields a genuinely stronger classification. No directly covering prior theorem was identified in searches.
+
+## value
+
+PASS
+
+Identifies redundant parameterizations of a published natural binary code family at code-equivalence level, not just equality of enumerators; gives exact orbit decomposition and nontrivial automorphism subgroup, useful for classification, avoiding duplicate constructions, and further code automorphism analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
