@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary Lyapunov equation fixes the covariance to a positive scalar times \((I+tL)^{-1}\). For adjacent vertices of a tree the unique-path cofactor identity gives their squared Pearson correlation as a positive rational ratio of two pinned-minor polynomials. The all-minors rooted-forest identity is a standard combinatorial determinant formula, independently reconstructed for all cases by fraction-free determinants at two integer parameter values. Exhaustive Prüfer-code generation lists every labelled tree through order eight; canonical center codes reduce to all \(47\) unlabelled classes. Exact integer polynomial comparisons cover all \(733\) edge pairs, and the only \(11\) mixed-sign cases factor through the six listed one-positive-root polynomials. The witness rational identity was independently reconstructed and checked. This is an exhaustive *finite-range* theorem, not an infinite-order extrapolation.
+PASS
 
-## Originality — PASS, subject to specialized-coverage risk
+The stationary covariance is sigma²/(2a)*(I+tL)^(-1). For edges uv, the cofactor expansion on a tree gives q_uv=t B_uv/det K with B_uv=det K[V\{u,v}], while q_vv=A_v/det K, hence rho_uv²=t²B_uv²/(A_u A_v). Principal-minor forests enumerate exact positive polynomial coefficients by marking at most two vertices; positivity ensures squared comparison has same sign as Pearson comparison. Independently generated all nonisomorphic trees n=2..8 using NetworkX, computed exact SymPy determinants of K minors (independent from packaged forest-polynomial verifier), and counted 733 edge pairs across 47 representatives: 201 identically equal, 521 uniformly ordered, eleven with exactly one positive root, in six eight-vertex tree classes. SymPy exact factorizations/Sturm positive-root counts and direct rational check matched the six claimed crossing factor families. For E={01,12,05,23,24,56,57}, direct minor calculation yields a positive prefactor times (t²-4t-1) for rho_12²-rho_01², so t=2+sqrt(5) is unique positive rank reversal. Exhaustion is limited to n<=8 and derives its completeness from the independent graph isomorphism generator, not a sample of trees.
 
-Ecological work of Lande, Engen, Sæther, Kendall, Liebhold and colleagues supplies the physical question, stochastic mechanisms and spatial-correlation context. The forest-accessibility literature of Chebotarev and Shamis gives **the identical resolvent matrix** and general forest cofactor identities, so neither the matrix representation nor the forest counting is claimed new. Their published proximity and distance indices, however, are not the stationary *Pearson-normalized edge rank* comparison, and the examined full texts do not contain the eight-vertex boundary, the six exceptional shapes, or the eleven exact crossing cases. Bolin, Simas and Wallin analyze Gaussian Markov fields on metric graphs with different precision structures, not the classification stated here. Related published results about covariance, deterministic synchrony and forest-ratio inequalities were compared for substantive implication, not merely by title, and did not cover the present claim. Broader unknown comparison theorems and incompletely accessible ecological studies remain genuine risks; searches cannot prove global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-For spatial ecological monitoring, the relative strength of correlations between *directly linked* populations is a natural statistic: identical species-level response and noise intensities do not force a fixed order as migration is tuned. The sharp minimal order and exhaustive small-tree topology classification identify the first structural obstruction to treating local synchrony rankings as dispersal-independent. This is a meaningful mathematically complete finite boundary and a reproducible benchmark; the contribution is not a routine covariance calculation or a claim of real-data prediction. It does not address higher orders, weighted/cyclic graphs, empirical population correlations, or independent external confirmation.
+The resolvent kernel, matrix-forest identities and ecological synchrony phenomena are known. The exact threshold at eight habitats, complete six-of-23 topology classification, eleven pair counts and crossing polynomials concern a different nonlinear observable than published forest distance and were not found in the directly inspected original works. Best-of-knowledge novelty retains specialized covariance comparison risk.
 
-## Closest sources and remaining risk
+## value
 
-Engen et al. (2005), DOI:10.1111/j.1365-2656.2005.00942.x, full accessible article; Liebhold et al. (2006), DOI:10.1007/s10144-005-0248-6, full accessible PDF; Chebotarev and Shamis, arXiv:math/0602573 and math/0602070, full original works; Bolin et al., arXiv:2501.03701, full primary preprint. Lande et al. (1999), DOI:10.1086/303240, and Kendall et al. (2000), DOI:10.1086/303350, were available in abstract and published bibliographic form, not fully checked. Their inaccessible contents, and unlocated specialized rank-comparison tables, are the principal residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp first topology/size threshold for rank reversals of adjacent stochastic population synchrony is a natural structural question. The classification identifies exactly which small unweighted dispersal networks exhibit nonmonotone *relative* local correlation under changing coupling, with a closed algebraic witness and exhaustive small-tree census. The exact threshold and six exceptional shapes are useful mathematical data beyond known kernel formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

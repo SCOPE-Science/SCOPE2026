@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:47:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary covariance is sigma²/(2a)*(I+tL)^(-1). For edges uv, the cofactor expansion on a tree gives q_uv=t B_uv/det K with B_uv=det K[V\\{u,v}], while q_vv=A_v/det K, hence rho_uv²=t²B_uv²/(A_u A_v). Principal-minor forests enumerate exact positive polynomial coefficients by marking at most two vertices; positivity ensures squared comparison has same sign as Pearson comparison. Independently generated all nonisomorphic trees n=2..8 using NetworkX, computed exact SymPy determinants of K minors (independent from packaged forest-polynomial verifier), and counted 733 edge pairs across 47 representatives: 201 identically equal, 521 uniformly ordered, eleven with exactly one positive root, in six eight-vertex tree classes. SymPy exact factorizations/Sturm positive-root counts and direct rational check matched the six claimed crossing factor families. For E={01,12,05,23,24,56,57}, direct minor calculation yields a positive prefactor times (t²-4t-1) for rho_12²-rho_01², so t=2+sqrt(5) is unique positive rank reversal. Exhaustion is limited to n<=8 and derives its completeness from the independent graph isomorphism generator, not a sample of trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebotarev-Shamis establish general rooted-forest formulas for every finite graph, an algebraic input.",
+          "Engen et al. analyze spatial synchrony and migration ecologically but do not give exact edge-pair ordering for all small trees."
+        ],
+        "reasoning": "General forest formulas make the calculation possible, but a universal crossing threshold and exhaustive 23-tree classification require sign analysis and a case census; neither prior statement covers these.",
+        "searches": [
+          "Resultary: Gaussian OU inverse Laplacian tree edge Pearson correlations crossover rankings dispersal 8 vertices normalized forest",
+          "primary: arxiv math/0602573 forest metrics for graph vertices",
+          "primary: doi:10.1111/j.1365-2656.2005.00942.x synchrony ecological migration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0602573 complete forest-metrics paper",
+        "arXiv:math/0602070 complete matrix-forest paper",
+        "doi:10.1111/j.1365-2656.2005.00942.x full Engen et al. study",
+        "arXiv:2501.03701 graphical models/GMRF on metric graphs (abstract/intro comparison)",
+        "Resultary semantic query for shifted inverse Laplacian edge Pearson crossing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sources give q(t) and forest interpretation and general synchrony motivation.",
+          "Checking ranks needs zeros of B_e² A_fendpoints - B_f² A_eendpoints for each class, not a formula merely for entries of q(t)."
+        ],
+        "reasoning": "There is no universal edge ranking result implied by the source forests or aggregate synchrony measures; the analytic cofactor comparison and exact finite classification are additional precise statements.",
+        "searches": [
+          "arXiv:math/0602573 normalized versus forest distance formulas",
+          "arXiv:math/0602070 matrix forest theorem",
+          "doi:10.1111/j.1365-2656.2005.00942.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chebotarev-Shamis q=(I+tL)^(-1) is exactly the unnormalized OU covariance kernel.",
+          "The source forest distance d_ij=(q_ii+q_jj-2q_ij)/2 is not the normalized Pearson ratio q_ij/sqrt(q_ii q_jj)."
+        ],
+        "reasoning": "Same matrix and tree objects occur in prior work, but equality of underlying covariance entries does not imply matching orderings of these two distinct nonlinear statistics; no equivalent edge-Pearson classification was located.",
+        "searches": [
+          "Resultary: Gaussian OU inverse Laplacian tree edge Pearson correlations crossover rankings dispersal 8 vertices normalized forest",
+          "Resultary: tree Gaussian Markov edge Pearson synchrony reversal",
+          "web: normalized shifted inverse graph Laplacian neighboring edge correlation crossover minimum eight vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known sequence of unlabeled simple tree counts through eight is (1,1,2,3,6,11,23) but not the requested rank-reversal table.",
+          "Independent exact determinant enumeration yields 733 comparisons, 201 tied, 521 stable, eleven reversing in six classes."
+        ],
+        "reasoning": "A familiar tree count table cannot be treated as covering the new edge-correlation sign table, which depends on all symbolic coupling strengths. The exact graph statistics were generated rather than imported.",
+        "searches": [
+          "Resultary: Gaussian OU inverse Laplacian tree edge Pearson correlations crossover rankings dispersal 8 vertices normalized forest",
+          "web: tree isomorphism counts 1 1 2 3 6 11 23 8 vertices correlation rank reversals"
+        ]
+      },
+      "rationale": "The resolvent kernel, matrix-forest identities and ecological synchrony phenomena are known. The exact threshold at eight habitats, complete six-of-23 topology classification, eleven pair counts and crossing polynomials concern a different nonlinear observable than published forest distance and were not found in the directly inspected original works. Best-of-knowledge novelty retains specialized covariance comparison risk.",
+      "residual_risks": [
+        "Unindexed specialized result on Gaussian Markov graph Pearson edge correlations could contain a stronger crossing classification.",
+        "The exact census covers only n<=8 trees with homogeneous equal-strength noise, no weights, no cycles or nonadjacent pair rankings.",
+        "Forest-distance ordering and ecological field inferences are different observables; result should not be generalized to them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides kernel and related forest distance (q_ii+q_jj-2q_ij)/2, but not normalized Pearson q_ij/sqrt(q_ii q_jj) relative edge rankings or minimum tree size.",
+          "evidence": "The same q(t) is prior; the ratio used by the claim is nonlinear and its sign-change classification is additional.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0602573",
+          "material_read": "Full paper including the definition Q=(I+tL)^(-1), forest distance and parameter dependence; inspected mathematical definitions/sections.",
+          "method": "Read complete arXiv mathematical manuscript and compared the displayed invariants",
+          "title": "The Forest Metrics for Graph Vertices",
+          "trigger": "The same inverse shifted graph Laplacian and rooted-forest interpretation occurs in published graph theory."
+        },
+        {
+          "assessment": "Forest-accessibility formulas are prior machinery, not an eight-tree sharp edge-Pearson reversal classification.",
+          "evidence": "Rooted-forest sums compute inverse entries but do not establish universal edge-order signs or their first crossing shapes.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0602070",
+          "material_read": "Full arXiv manuscript, forest matrix identities and definition sections.",
+          "method": "Read relevant definitions, matrix-forest identities, and mathematical results from the arXiv full text",
+          "title": "The Matrix-Forest Theorem and Measuring Relations in Small Social Groups",
+          "trigger": "Foundational inverse-Laplacian forest interpretation supporting cofactor proof."
+        },
+        {
+          "assessment": "Studies spatial covariance and ecological synchrony inference, not an exact classification of Pearson edge correlations across finite unweighted trees under one homogeneous OU resolvent.",
+          "evidence": "Synchronized stochastic populations and migration can change correlations, but this is not a polynomial sign table over tree isomorphism classes.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2656.2005.00942.x",
+          "material_read": "Full accessible ecological text including setting, methods, synchrony-scale results and discussion.",
+          "method": "Read full journal article and comparison of model/observable with audited OU tree theorem",
+          "title": "Estimating the pattern of synchrony in fluctuating populations",
+          "trigger": "Population-dispersal synchrony motivation and a plausible broader result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp first topology/size threshold for rank reversals of adjacent stochastic population synchrony is a natural structural question. The classification identifies exactly which small unweighted dispersal networks exhibit nonmonotone *relative* local correlation under changing coupling, with a closed algebraic witness and exhaustive small-tree census. The exact threshold and six exceptional shapes are useful mathematical data beyond known kernel formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For stationary homogeneous independently forced OU on a finite simple unweighted tree T, the ordering of adjacent-edge Pearson correlations cannot strictly reverse under positive common dispersal parameter t for |V|<=7; exactly six of the 23 nonisomorphic 8-vertex trees admit reversal, with eleven reversing edge pairs across representatives and exactly one positive crossing per pair; explicit adjacent-edge witness crosses at t=2+sqrt(5).",
+  "limitations": [
+    "Trees of 2..8 vertices only for complete classification; no claims for 9+ or weighted/cyclic graphs.",
+    "Exact OU stationary setting has constant a,d,sigma and independent equal-strength noise; changes in ecological models may invalidate threshold."
+  ],
+  "schema_version": 1
+}
