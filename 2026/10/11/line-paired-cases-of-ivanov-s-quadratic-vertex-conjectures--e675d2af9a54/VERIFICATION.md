@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the line-paired containment theorem, polarity gives
-\[
-K^\circ=
-\left\{
-\sum_i t_iw_i:
--\frac1{\beta_i}\le t_i\le\frac1{\alpha_i}
-\right\}
-\subseteq B^d.
-\]
-Choosing endpoint coordinates with zero mean gives the exact identity
-\[
-\mathbb E\left\|\sum_iT_iw_i\right\|^2
-=
-\sum_i\frac{\|w_i\|^2}{\alpha_i\beta_i}
-\le1.
-\]
-Since \(\|w_i\|\ge1\), the entire proof reduces to
-\[
-\sum_i\frac1{\alpha_i\beta_i}\le1.
-\]
-The two stated bounds then follow from AM--GM and Cauchy--Schwarz. Equality forces every intermediate inequality to be an equality, yielding the regular cross-polytope.
+# Independent mathematical audit
 
-For a line-paired tight frame, the square matrix with columns
-\[
-\sqrt{a_i^2+b_i^2}\,u_i
-\]
-is orthogonal. Thus the polar is an orthogonal box. Its Gaussian vertex distribution is uniform over orthants, and
-\[
-A_\gamma(C)=D+m\otimes m
-\succeq D,
-\]
-where the diagonal entries of \(D\) are
-\[
-\frac14\left(\frac1{a_i}+\frac1{b_i}\right)^2.
-\]
-Operator monotonicity of the positive square root and \(a_i^2+b_i^2=1\) give the claimed trace bound.
+## correctness
 
-The bundled checker uses exact rational arithmetic to replay the endpoint-moment identity, the scalar inequalities on many rational instances satisfying the derived reciprocal-product condition, the equality configuration, and the tight-frame scalar estimate on rational Pythagorean pairs. These finite checks are supplementary and are not used as proof of the all-dimensional theorem.
+PASS
+
+Polar inclusion K°⊂B^d gives an asymmetric parallelotope in dual unit-vector basis w_i. Independent endpoint random variables T_i at 1/alpha_i and -1/beta_i with mean 0 yield E||∑T_i w_i||²=∑||w_i||²/(alpha_i beta_i)≤1. Since ||w_i||≥1, obtain ∑(alpha_i beta_i)^(-1)≤1. Two exact Cauchy–Schwarz steps and AM–GM yield the sharp quadratic and linear sums; equality forces alpha_i=beta_i=sqrt(d) and orthogonal u_i. Tightness of paired frame implies its d vectors sqrt(a_i²+b_i²)u_i form an orthogonal square matrix, so the polar is an axis-aligned box. Gaussian orthant vertex covariance is D+mm^T with D_ii=(1/a_i+1/b_i)²/4≥2, giving tr sqrt≥sqrt2 d by square-root operator monotonicity, with equality balanced. Independent endpoint probability/moment and equalities were algebraically recomputed. This covers all d>=2 under exactly d independent lines, not arbitrary 2d points.
+
+## originality
+
+PASS
+
+Ivanov’s contemporaneous universal conjectures and the Bezdek–Litvak all-configurations linear conjecture are posed, not proved by the inspected bibliographic evidence. The line-paired asymmetric structural class (allowing unequal opposite radii) is more extensive than the equal-length cases advertised in the source account. The argument supplies new polar-parallelotope variance constraints and Gaussian box implication; Resultary searches returned this same record and no stronger proved all-dimensional paired-line classification. Best-of-knowledge pass: the plausible older parallelotope-moment bound and the unavailable full Ivanov source create significant prior-coverage risks, but literature inaccessibility alone does not fail O.
+
+## value
+
+PASS
+
+The canonical cross-polytope combinatorial class is a substantive exact special case of two explicit difficult all-configuration conjectures and a natural vertex-index benchmark. All-dimensional sharp constants and equality rigidity for asymmetric line-paired vertices and paired tight frames furnish reusable structural bounds, not an unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

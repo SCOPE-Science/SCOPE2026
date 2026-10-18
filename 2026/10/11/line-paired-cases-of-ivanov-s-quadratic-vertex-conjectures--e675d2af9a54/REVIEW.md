@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Polarity turns the line-paired convex hull into a parallelotope inside the Euclidean ball. A zero-mean product distribution on its vertices gives
-\[
-\sum_i\frac{\|w_i\|^2}{\alpha_i\beta_i}\le1.
-\]
-Biorthogonality gives \(\|w_i\|\ge1\), reducing the quadratic and linear claims to sharp scalar inequalities. Equality propagates through every step and forces an orthonormal basis with radii \(\sqrt d\). For line-paired tight frames, tightness forces the directions to be orthonormal; the polar is an axis box and its Gaussian vertex second moment is an explicit diagonal covariance plus a positive rank-one mean term. Operator monotonicity of square root then gives the sharp \(\sqrt2 d\) trace bound.
+PASS
 
-## Originality
+Polar inclusion K°⊂B^d gives an asymmetric parallelotope in dual unit-vector basis w_i. Independent endpoint random variables T_i at 1/alpha_i and -1/beta_i with mean 0 yield E||∑T_i w_i||²=∑||w_i||²/(alpha_i beta_i)≤1. Since ||w_i||≥1, obtain ∑(alpha_i beta_i)^(-1)≤1. Two exact Cauchy–Schwarz steps and AM–GM yield the sharp quadratic and linear sums; equality forces alpha_i=beta_i=sqrt(d) and orthogonal u_i. Tightness of paired frame implies its d vectors sqrt(a_i²+b_i²)u_i form an orthogonal square matrix, so the polar is an axis-aligned box. Gaussian orthant vertex covariance is D+mm^T with D_ii=(1/a_i+1/b_i)²/4≥2, giving tr sqrt≥sqrt2 d by square-root operator monotonicity, with equality balanced. Independent endpoint probability/moment and equalities were algebraically recomputed. This covers all d>=2 under exactly d independent lines, not arbitrary 2d points.
 
-PASS. The primary recent source explicitly leaves both quadratic statements open, records only the equal-norm consequence for the first, and cites exact low-dimensional coverage from Bezdek--Litvak. The new line-paired class allows unequal opposite radii in every dimension. Searches across asymmetric cross-polytopes, paired lines, dual parallelotopes, vertex-index sums, and tight-frame box formulations found no theorem implying the two sharp inequalities and equality classification.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves both recent quadratic conjectures on the canonical \(2d\)-vertex cross-polytope combinatorial class and simultaneously proves the stronger Bezdek--Litvak linear benchmark there. It is an all-dimensional structural theorem with rigidity, rather than a finite computation or an arbitrary numerical slice.
+Ivanov’s contemporaneous universal conjectures and the Bezdek–Litvak all-configurations linear conjecture are posed, not proved by the inspected bibliographic evidence. The line-paired asymmetric structural class (allowing unequal opposite radii) is more extensive than the equal-length cases advertised in the source account. The argument supplies new polar-parallelotope variance constraints and Gaussian box implication; Resultary searches returned this same record and no stronger proved all-dimensional paired-line classification. Best-of-knowledge pass: the plausible older parallelotope-moment bound and the unavailable full Ivanov source create significant prior-coverage risks, but literature inaccessibility alone does not fail O.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Ivanov, arXiv:2609.38394v1, whose Section 5 poses the quadratic conjectures and explains their relation to the vertex index. Bezdek--Litvak supply the older all-dimensional conjecture and exact dimensions two and three. General vertex-index estimates do not imply this paired-line result.
+The canonical cross-polytope combinatorial class is a substantive exact special case of two explicit difficult all-configuration conjectures and a natural vertex-index benchmark. All-dimensional sharp constants and equality rigidity for asymmetric line-paired vertices and paired tight frames furnish reusable structural bounds, not an unmotivated finite slice.
 
-The theorem requires exactly one positive and one negative vertex on each of \(d\) independent lines. Arbitrary \(2d\)-point configurations and arbitrary tight frames remain open. An older equivalent parallelotope formulation under different terminology is the main residual bibliographic risk.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
