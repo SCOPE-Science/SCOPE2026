@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-The mathematical proof of the all-order statement and constant-vertex diameter equality is in RESULT.md; no experiment is substituted for those proofs.
+## correctness
 
-With a C++17 compiler run:
+PASS
 
-```sh
-g++ -std=c++17 -O3 verify_fault_profile.cpp -o verify_fault_profile
-./verify_fault_profile
-```
+PASS: Source RESULT.md Sections 1-4 reconstruct all-order hub accessibility, two hub-to-hub routes with only the exceptional common internal words, and the residual strong component after a cut. Bit-complementation and word reversal transfer all exceptions. For deleting 0^k, suffix/prefix zero-run overlap constructs a safe path of length <=k and the pair (1^k,0^{k-1}1) supplies lower bound k. A separate independently implemented bitwise all-deletions/all-ordered-pairs BFS C++ program executed here through k=10 and matched every displayed 9-row histogram, with PROFILE_VERIFIED; independent Python string-based BFS checked k=2..7. The finite enumeration is exhaustive within its stated range, not an all-k diameter formula.
 
-The program builds every vertex-deleted directed binary de Bruijn graph of orders 2 through 10. It computes breadth-first distances from every surviving starting vertex, rejects a survivor digraph as disconnected on finding any unreachable endpoint, and otherwise records its directed diameter. For each order it checks the entire table with exact integer comparisons. Expected success marker: `PROFILE_VERIFIED`.
+## originality
 
-With Python 3 and the standard library run:
+PASS
 
-```sh
-python3 verify_scc_independent.py
-```
+PASS best of knowledge for exact directed induced-survivor articulation set, SCC sizes and finite complete fault-diameter histograms. Classical binary de Bruijn diameter k and vertex connectivity one are prior; neither a generic connectivity number nor route-overlay fault diameter implies the complete per-deletion induced metric. Du-Hwang 1988 full text inaccessible and specialized routing tables may overlap.
 
-The program independently uses string-indexed arcs, a two-pass DFS strongly-connected-component decomposition, and all-surviving-ordered-pair BFS through order seven. It checks the sizes of the three SCCs at every exceptional fault and reproduces the small profile independently. Expected success marker: `INDEPENDENT_VERIFIED`.
+## value
 
-Programs use no external datasets and all finite loops have explicit bounds. The verification does not prove a closed formula for every larger order, and does not provide independent outside review.
+PASS
+
+PASS: Identifies precisely which processor failures partition a standard directed interconnection network and exact latency costs for all remaining failures at network orders 2..10. The nonmonotone three-hop worst-case overhead at k=5 but only two at k=6 is a mathematically meaningful finite boundary, not merely connectivity one or a random small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
