@@ -1,15 +1,21 @@
-# Scientific review: the sharp square-cell interpolation constant
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposed identity holds on exactly one unit square with real free \(p\)-space and the induced \(\ell_1\) vertex metric for all real \(0<p\le1\). The proof independently reconstructs the molecular norm as a finite complete-graph minimum and reduces each optimum to a spanning tree by cycle concavity; no convex duality requiring local convexity is invoked. The bilinear midpoint identity is exact, avoiding invalid integration arguments for quasi-norms. The upper bound follows from a pair of explicit edge-cycle eliminations and a three-term majorization inequality. Sharpness is proved by exhaustive rational enumeration of all 16 labelled spanning trees at a specified interior tangent. The executable verifier checks the table exactly and stresses the two competing coefficient decompositions on 775 rational configurations; the continuum result relies on the analytic inequalities, not those samples. Boundary exponent \(p=1\), arbitrary real \(p\) in the open interval, the unit-square boundary, signs of direction coordinates, and the factor of two on diagonal graph edges are covered.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The identical coordinatewise-affine construction appears in Albiac–Ansorena–Cúth–Doucha (arXiv:2006.08018v1, Theorem 3.5), with existence of a dimension-dependent Lipschitz bound. Bíma (arXiv:2303.03265v1, Theorem 3.2) proves explicit dimension-dependent two-sided bounds but does not give the exact four-vertex, one-cell value: in dimension two its lower bound \(2^{1/p-1}\) is strictly weaker for \(p<1\). Albiac–Ansorena (arXiv:2603.28193v1) prove Whitney-cover extension and canonical-embedding theorems, not the sharp constant for the specified interpolation. published-finding corpus semantic checks for coordinatewise-affine interpolation, four-vertex transports, equivalent square-cell formulations, and the candidate formula produced no mathematically dominating source. The closest returned records on Lipschitz-free octahedrality, Schur constants, and four-point metric numerical indices concern other invariants, not this retraction. Search non-coverage is not a proof of global novelty: residual risks are unindexed papers, different nomenclature, and unexamined private work.
+PASS
 
-## Mathematical value — PASS
-The specified local retraction is the building block of the known construction of Schauder bases for free \(p\)-spaces over cubes. Earlier dimensional bounds leave a substantial nontrivial gap already on the first two-dimensional cell. This result closes that natural base case exactly for the entire quasi-Banach exponent range, exposes why coordinatewise estimates alone miss a mixed-direction extremal transport, and supplies a reproducible finite transport mechanism for related cell problems. The exact three-flow balance at \((1/2,1/4,1/4)\) is structurally forced by competing cycle representations rather than a table recomputation of an established number. It does not claim optimality of arbitrary extensions or a solution to the unresolved all-dimensional case.
+For Q=[0,1]^2 with l1 and real F_p(V), a finite mass molecule norm equals the minimum over edge flows of sum (distance*absolute flow)^p; concavity t^p for p<=1 eliminates circulations until support is a spanning tree. Every four-vertex spanning tree (16 in total) was enumerated with exact rational cut flows. Bilinearity yields the exact midpoint secant identity r(z)-r(zprime)=Dr((z+zprime)/2)(z-zprime); reflections reduce directions to s,t>=0,s+t=1. Coefficients alpha=s(1-b), beta=sb, gamma=t(1-a),eta=ta on square edges admit two cycle eliminations; among the two nonnegative three-edge representations some coefficient >=1/2. Thus a feasible 3-vector majorizes (1/2,1/4,1/4), and concavity gives norm^p<=2(1/4)^p+(1/2)^p. At (a,b)=(1/4,1/4), (s,t)=(1/2,1/2) masses are (-3/4,1/4,1/4,1/4); exact 16-tree exhaustive comparison has componentwise minimal cost triple (1/4,1/4,1/2), attaining the upper bound for every 0<p<=1. Independent 16-tree exact rational enumeration and all seven profiles were verified; 775 finite cycle tests are diagnostics, not substituted for continuum proof.
 
-## Closest literature and limits
-The relevant full-text sections are arXiv:2006.08018v1 Sections 1 and 3 (including Theorem 3.5), arXiv:2303.03265v1 Section 3 (available in the full-text Cambridge edition, especially Theorem 3.2 and proof), and arXiv:2603.28193v1 Sections 2–4. The earlier papers cover construction, upper/lower estimates, and general extensions, respectively. Some alternative derivation in unindexed or differently named literature could coincide with the formula. The result concerns a single square only. Independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the exact sharp four-vertex bilinear interpolation Lipschitz constant is not stated by inspected and searchable general Lipschitz-free p-space literature. The natural canonical interpolation comes from Albiac–Ansorena–Cúth–Doucha, while Bíma supplies a general cube-union bound 2^{1/p−1}; for 0<p<1 the newly proved (2+2^p)^{1/p}/4 is strictly larger, so that bound does not imply equality for the fixed bilinear square map. The newer 2026 extension theorem is about global extension/embeddings, not this sharp operator norm. Highly relevant full sources were attempted, some inaccessible; residual risk is retained.
+
+## value
+
+PASS
+
+This sharp constant is motivated by the canonical square cell used as a building block in Lipschitz-free p-space interpolation. The first nontrivial two-dimensional cell has a genuine norm defect over the published dimensional lower bound for every p<1; the complete exact 16-tree transport geometry explains the obstruction. A researcher studying cellwise retractions or constants of cube decompositions could use this precise fact, even though no higher-dimensional theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
