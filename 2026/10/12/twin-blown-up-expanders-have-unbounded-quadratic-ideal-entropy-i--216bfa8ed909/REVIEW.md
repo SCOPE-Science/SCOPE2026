@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses only the defining multiplication of a graph evolution algebra, matrix rank of the tensor \(A_G\otimes J_2\), propagation of basis squares along connected symmetric edges, Gaussian subspace counting, and the two standard regular-graph Cheeger inequalities. Each step is established in the result under explicit field, regularity and connectivity assumptions. The characteristic-two rank case is covered since \(J_2\) has rank one in any field; the separate basic-ideal example intentionally uses \(\mathbb F_5\), where the change to sum-and-difference coordinates is invertible. The extracted verifier checked all \(2825\) binary subspaces for the six-dimensional case and reproduced \(68\) ideals. For the eight-dimensional example it checked graph expansion, the natural-basis property and the finite-field count \(1121\). No finite census is treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with acknowledged residual risk
-Giacomelli's May 2026 preprint formulated expander evolution algebras and asserted simplicity for the symmetric case (Theorem 3.8). The displayed twin-blowup family supplies a contrary uniformly expanding family and the small \(\mathbb F_5\) member supplies a proper **basic** evolution ideal, not merely an ordinary ideal. The exact count and quadratic abundance sharpen the counterexample. The **general** elementary ideal containment and subspaces-above-square mechanism are covered by Cabrera Casado et al. (2024) and are not claimed new; nor are the Cheeger inequalities or known criteria for simple evolution algebras. The component genuinely assessed as original is the quantitative uniform-expander counterfamily and explicit basic-ideal witness. Searches using ``evolution algebra'', ``expander'', ``twofold/twin blowup'', ``ideal lattice'' and ``Cheeger'' found no decisive prior statement covering that combination. A similar construction with different terminology cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-A recent theorem claimed expansion of a symmetric support graph forces simplicity. A small direct counterexample diagnoses why graph expansion alone does not constrain algebraic rank, while an infinite bounded-degree family demonstrates the **stronger quantitative failure**: ideal counts on the order of \(q^{\Theta(N^2)}\). The result distinguishes ordinary and basic ideals and gives an exact finite-field invariant rather than a single isolated contradiction. It motivates adding algebraic regularity or a rank hypothesis when formulating simplicity statements for expander evolution algebras.
+Tensor identity A_H=A_G⊗J_2 has rank r over every field, even characteristic 2, so dim E²=r and quotient dimension c=2N-r. A nonzero ideal contains some square e_i²; multiplying by adjacent e_j propagates e_j² along every connected symmetric edge, proving E²⊆I. Conversely any subspace I⊇E² is an ideal because E·E⊆E². Counts equal 1+Σ_j [c j]_q, with lower bound q^(floor(N²/4)) from graph subspaces. Real adjacency eigenvalues of H are 2λ_i(G) plus N zeros, yielding h(H)≥h0²/(2d) via standard Cheeger inequalities. K4 blowup has h=3, rank_F5=4, c=4 and 1121 ideals; s_i=e_i0+e_i1 and t_i=e_i0-e_i1 form a natural basis over F5 with proper basic E². Independent computation directly enumerated 8-vertex Cheeger cuts, matrix rank, all Gaussian counts and cross-products of these natural basis vectors; finite tests corroborate the uniform proofs.
 
-## Closest prior literature and limits
-See Giacomelli, arXiv:2605.12672v1, especially Theorem 3.8; Cabrera Casado et al., DOI 10.1007/s13348-024-00435-x, especially Proposition 3.4; and García-Martínez and Pérez-Rodríguez, DOI 10.1007/s00013-026-02251-0. The proof does not classify all expander evolution algebras, all basic ideals, or basis independence for singular structure matrices. Residual historical risk: previous graph-blowup or twin-construction arguments might imply the same example without naming evolution algebras.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Giacomelli arXiv:2605.12672v1 Theorem 3.8 actually asserts symmetric expander evolution algebras are simple, using a connectivity-to-ideal-simplicity step that fails for singular structure matrices. The present explicit connected regular expander counterfamily, full quotient-ideal lattice and eight-vertex BASIC ideal witness mathematically contradict that claim. Earlier papers on evolution ideals and subspaces containing E² supply the background lattice mechanism, which is not claimed as original. The specific robust counterfamily and exact quadratic finite-field ideal entropy were not present in the full target article or retrieved related findings.
+
+## value
+
+PASS
+
+This is a motivated counterexample to a stated 2026 simplicity theorem in the same graph/evolution algebra setting, strengthened to bounded-degree uniform expander families and exact quadratic ideal-abundance asymptotics. The explicit proper basic ideal addresses possible definitional objections. Such a correction is a substantive mathematical boundary with immediate interpretive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

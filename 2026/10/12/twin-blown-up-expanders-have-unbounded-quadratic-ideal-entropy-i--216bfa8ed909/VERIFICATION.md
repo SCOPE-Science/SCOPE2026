@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-Reproduce the finite checks by executing `python3 verify.py`. The script uses only the Python standard library. It checks the adjacency ranks of the twin blowups of \(K_3\) and \(K_4\) over \(\mathbb F_2\), exhaustively counts the \(2825\) subspaces of \(\mathbb F_2^6\) and tests each of them for the ideal property, and verifies the actual count \(68\) against the Gaussian formula. It also enumerates all nontrivial cuts of the two small blowup graphs and confirms the Cheeger constants \(2\) and \(3\).
+# Independent mathematical audit
 
-Over \(\mathbb F_5\), it checks invertibility of the \(K_4\) adjacency matrix, verifies pairwise orthogonality of the eight sum-and-difference basis vectors and closure of the four-dimensional square ideal, and checks the exact Gaussian-ideal count \(1121\). A successful run prints `VERIFY_OK`.
+## correctness
 
-The arbitrary-field ideal-lattice result uses the symbolic argument in `RESULT.md`; its general finite-field count uses the theorem on Gaussian binomial coefficients. The expander-family theorem uses the regular-graph Cheeger inequalities and the spectrum of a Kronecker product. The finite runs are **not** exhaustive for arbitrary \(N\), \(q\), or graph families, and there has been no external independent audit.
+PASS
+
+Tensor identity A_H=A_G⊗J_2 has rank r over every field, even characteristic 2, so dim E²=r and quotient dimension c=2N-r. A nonzero ideal contains some square e_i²; multiplying by adjacent e_j propagates e_j² along every connected symmetric edge, proving E²⊆I. Conversely any subspace I⊇E² is an ideal because E·E⊆E². Counts equal 1+Σ_j [c j]_q, with lower bound q^(floor(N²/4)) from graph subspaces. Real adjacency eigenvalues of H are 2λ_i(G) plus N zeros, yielding h(H)≥h0²/(2d) via standard Cheeger inequalities. K4 blowup has h=3, rank_F5=4, c=4 and 1121 ideals; s_i=e_i0+e_i1 and t_i=e_i0-e_i1 form a natural basis over F5 with proper basic E². Independent computation directly enumerated 8-vertex Cheeger cuts, matrix rank, all Gaussian counts and cross-products of these natural basis vectors; finite tests corroborate the uniform proofs.
+
+## originality
+
+PASS
+
+Giacomelli arXiv:2605.12672v1 Theorem 3.8 actually asserts symmetric expander evolution algebras are simple, using a connectivity-to-ideal-simplicity step that fails for singular structure matrices. The present explicit connected regular expander counterfamily, full quotient-ideal lattice and eight-vertex BASIC ideal witness mathematically contradict that claim. Earlier papers on evolution ideals and subspaces containing E² supply the background lattice mechanism, which is not claimed as original. The specific robust counterfamily and exact quadratic finite-field ideal entropy were not present in the full target article or retrieved related findings.
+
+## value
+
+PASS
+
+This is a motivated counterexample to a stated 2026 simplicity theorem in the same graph/evolution algebra setting, strengthened to bounded-degree uniform expander families and exact quadratic ideal-abundance asymptotics. The explicit proper basic ideal addresses possible definitional objections. Such a correction is a substantive mathematical boundary with immediate interpretive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
