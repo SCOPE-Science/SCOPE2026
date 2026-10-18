@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier checks the Birkhoff-dual equality classification independently of the product proof. It enumerates every labelled partial order on at most five points by assigning each unordered pair one of the three states “incomparable”, “forward”, or “backward” and filtering by transitivity.
+# Independent mathematical audit
 
-For every resulting poset \(P\), it enumerates every upset. An upset is complemented in \(\operatorname{Up}(P)\) exactly when its set complement is also an upset, so the script computes
-\[
-\frac{|\mathrm{EM}(\operatorname{Up}(P))|}{|\operatorname{Up}(P)|}
-\]
-as an exact rational number. It then checks that this ratio is \(2/3\) exactly when the comparability graph of \(P\) has one component of size two and all other components are singletons.
+## correctness
 
-The exhaustive labelled-poset totals for sizes \(1,2,3,4,5\) are
-\[
-1,3,19,219,4231,
-\]
-and the corresponding equality-case counts are
-\[
-0,2,6,12,20.
-\]
-For \(n\ge2\), the latter equal \(n(n-1)\), exactly the number of ways to choose and orient the unique two-element chain component.
+PASS
 
-Replay:
+For finite H, complemented elements are its Boolean center. Splitting at central elements until each factor has trivial center yields H=product H_i, and the excluded-middle fraction is product 2/|H_i|. A non-Boolean trivial-center factor has size at least 3; if two existed the product is <=4/9, so equality 2/3 forces exactly one 3-element chain and only 2-element remaining factors. Conversely C3 x C2^k has ratio 2/3. Finite Birkhoff duality gives one 2-chain plus k isolates; k is unique from |H|. Direct reconstruction checked the factor argument and the package poset enumerator construction, not merely its logged outcome.
 
-```text
-python3 verify_excluded_middle_equality.py
-```
+## originality
 
-Expected final line:
+PASS
 
-```text
-VERIFY_OK 8956 exact assertions
-```
+Bumpus–Kocsis supply the sharp inequality and central-factor multiplicativity; their 3-element equality example does not, in its stated theorem, classify every equality factor. The product normal form is an equality analysis of their proof, not a better inequality. Published methods make this implication particularly short: there is substantial residual risk that it is viewed as an implicit trivial corollary or folklore.
 
-The script also checks for each poset that the number of complemented upsets is \(2^c\), where \(c\) is the number of comparability components. Independent audit has not been performed.
+## value
+
+PASS
+
+A sharp numerical bound has a natural extremal-classification question; this gives all finite Heyting equality cases, admissible orders 3*2^k, uniqueness of the isomorphism type at each order, and a dual-poset geometry. Mathematical significance is narrow and the deduction short, but it is a complete natural equality classification rather than an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

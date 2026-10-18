@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source identifies excluded-middle elements with the Boolean center, proves multiplicativity of degrees under direct products, and in the proof of its sharp \(2/3\) theorem explicitly decomposes at a nontrivial central element. Iterating gives a product of trivial-center factors. A trivial-center factor has exactly two excluded-middle elements, so its degree is \(2/|H_i|\): it is \(1\) exactly for the two-element Boolean factor and reaches \(2/3\) exactly for a three-element factor, necessarily the chain. Multiplicativity then forces exactly one \(C_3\) factor and all remaining factors to be \(C_2\). The converse is immediate.
+## correctness
 
-The finite-poset verifier is independent of that decomposition proof and confirms the dual characterization on every labelled poset of size at most five.
+PASS
 
-## Originality
-PASS. The primary paper states the inequality and says tightness is realized by the three-element Heyting algebra, but the inspected full text does not classify all equality cases. Candidate-specific semantic-index searches and exact web searches under the algebra-product, order-spectrum, extremizer, and dual-poset formulations found no equivalent theorem. The cumulative current and preceding owned ledgers contain several Heyting-algebra findings, but none implies or states this equality classification.
+For finite H, complemented elements are its Boolean center. Splitting at central elements until each factor has trivial center yields H=product H_i, and the excluded-middle fraction is product 2/|H_i|. A non-Boolean trivial-center factor has size at least 3; if two existed the product is <=4/9, so equality 2/3 forces exactly one 3-element chain and only 2-element remaining factors. Conversely C3 x C2^k has ratio 2/3. Finite Birkhoff duality gives one 2-chain plus k isolates; k is unique from |H|. Direct reconstruction checked the factor argument and the package poset enumerator construction, not merely its logged outcome.
 
-The residual risk is uncatalogued folklore: the equality analysis is short once the published product proof is in hand.
+## originality
 
-## Value
-PASS. Sharp inequalities are substantially more informative when their full extremal family is known. The result turns a single sharp example into a complete structural classification, gives the exact order spectrum \(3\cdot2^k\), uniqueness at every admissible order, and a transparent finite-poset normal form.
+PASS
 
-## Closest literature and limitations
-Bumpus–Kocsis is the direct source for the sharp bound and its multiplicative center-decomposition proof. The present theorem does not strengthen the numerical bound; it identifies every finite algebra attaining it. No claim is made about infinite Heyting algebras or other classical principles.
+Bumpus–Kocsis supply the sharp inequality and central-factor multiplicativity; their 3-element equality example does not, in its stated theorem, classify every equality factor. The product normal form is an equality analysis of their proof, not a better inequality. Published methods make this implication particularly short: there is substantial residual risk that it is viewed as an implicit trivial corollary or folklore.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp numerical bound has a natural extremal-classification question; this gives all finite Heyting equality cases, admissible orders 3*2^k, uniqueness of the isomorphism type at each order, and a dual-poset geometry. Mathematical significance is narrow and the deduction short, but it is a complete natural equality classification rather than an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
