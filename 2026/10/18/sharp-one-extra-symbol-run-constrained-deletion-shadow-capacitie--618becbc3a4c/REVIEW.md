@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof specifies \(q\ge2\), \(r\ge q\), \(n=r+1\), and \(0\le t\le q\), and distinguishes unique subsequences from deletion patterns. The previously proved cyclic run-symbol monotonicity lemma reduces the global maximum to \(r\) words; a last-occurrence polynomial recurrence gives the exact deletion-shadow coefficients, including the first order sensitive to the doubled-run position. The position correction is minimized exactly. Finite executable checks confirm the formula on 540 cyclic examples and global maxima on 40,680 enumerated words. The infinite result depends on the proof, not these tests.
+
+**Originality — PASS, subject to stated residual access risk.** Li–Wang–Fu (arXiv:2601.06493) give the cyclic-reduction lemma and divisible-length case, but explicitly leave nondivisible extrema open and do not derive this first \(n=r+1\) formula or its location spectrum. Liron–Langberg (arXiv:1202.1644) investigate the binary setting and equal-run sharpness. Mercier–Khabbazian–Bhargava (DOI 10.1109/TIT.2008.924730) offer related general counting machinery; its full text was unavailable for direct comparison, so a preexisting equivalent theorem remains possible. The indexed literature searches did not show an implication or exact prior table covering this all-alphabet theorem. The cyclic monotonicity lemma itself is not claimed as original.
+
+**Value — PASS.** The first nondivisible run-length regime resolves an identified gap in recent subsequence-deletion bounds. The theorem is uniform over all alphabet sizes and run counts, and detects the first deletion order where the unique double-run position influences the answer. It gives exact sharp bounds and canonical extremal placements rather than a routine numerical substitution.
+
+**Limitations.** No classification of arbitrary noncyclic optimizers is asserted, only of canonical cyclic placements. Nothing beyond \(t=q\), or for more than one extra run symbol, is proved. The older 2008 paper could not be compared at full-text level. Independent verification beyond the explicitly identified executable finite checks and cited mathematical lemma has not been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.

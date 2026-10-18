@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every q>=2,r>=q, n=r+1, exactly one run has length two. Li–Wang–Fu Lemma 10 monotonically reduces all run-label choices to cyclic labels for each fixed composition. The exact distinct-subsequence recurrence H_va=(1+z)H_v-z^(m-p+1)H_prefix, or (1+z)H_v for a new symbol, is derived by bijective last-occurrence counting. Modulo z^(q+1), periodic repeats contribute -z^q, the doubled letter contributes -z(1+z)^(r-1), and delayed repeats after insertion contribute (r-j-q+1)_+ instances of -z^q. The coefficient formula and minimum of two positive parts yield all quantifiers/boundaries. The package checker directly enumerates 540 canonical cyclic examples and 40,680 general words with all t<=q, agreeing with theorem. These finite checks are auxiliary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Theorem 17 requires r|n; Corollary 18 is an upper bound for r not dividing n, not a matching exact formula.",
+        "[2] proves a sharp equal-run binary theorem when r divides n."
+      ],
+      "reasoning": "An all-q closed-form extremum for r+1 length is not a corollary of the looser general bound, and cyclic monotonicity reduces but does not itself determine which doubled-run position maximizes each shadow. [3] generic counting algorithms for given words are not an explicit maximization over all words.",
+      "searches": [
+        "Li Wang Fu 2026 nonbinary deletion r not dividing n arrangement of balanced run lengths position formula",
+        "nonbinary deletion shadow size cyclic run length r+1 q deletions exact balanced position",
+        "Li Wang Fu subsequences when r does not divide n sharp extremum n r+1 nonbinary",
+        "arXiv:2601.06493 Corollary 18 and Conclusion",
+        "arXiv:1202.1644 Theorem III.1 and upper-bound sections"
+      ]
+    },
+    "checked_sources": [
+      "Li, Wang, Fu, arXiv:2601.06493v2, sections IV–VI",
+      "Liron, Langberg, arXiv:1202.1644v1, sections III–V",
+      "Mercier, Khabbazian, Bhargava, IEEE TIT 54(7), 2008, DOI 10.1109/TIT.2008.924730, abstract only",
+      "Published mathematical finding index, seven targeted queries and closest records on q-ary deletion-code redundancy and sequence/subsequence counting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] cyclic-operation monotonicity provides the reduction used by this proof, not the coefficientwise enumeration/placement optimization.",
+        "[1] explicitly states the r not dividing n question remains open.",
+        "[2] establishes a binary equal-run result, while [3] reports general counting machinery without stating this extremum."
+      ],
+      "reasoning": "Together the cited existing results supply a strong tool for maximization but not the exact required coefficient extraction for every q,r or its location penalty. The novel part is the explicit universal formula and optimizer law, not the cyclic operation itself.",
+      "searches": [
+        "cyclic q ary runs one doubled symbol q deletions optimal position balanced run subsequence extremal",
+        "Li Wang Fu 2026 nonbinary deletion r not dividing n arrangement of balanced run lengths position formula",
+        "Li Wang Fu subsequences when r does not divide n sharp extremum n r+1 nonbinary",
+        "Li–Wang–Fu Lemma 10/Theorem 17/Corollary 18",
+        "Liron–Langberg Theorem III.1",
+        "Mercier et al. 2008 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] Lemma 10 gives cyclic monotonicity only; [1] explicitly leaves r not dividing n extremal characterization open (Conclusion).",
+        "[2] binary extremality uses balanced equal-length runs; no all-q n=r+1 deletion-order-q closed form."
+      ],
+      "reasoning": "The possible equivalent descriptions are the cardinality of a t-deletion shadow, number of distinct length-(r+1-t) subsequences, and run-constrained extremal deletion-ball volume. Searches and full-text section comparisons found neither the q-deletion positional loss nor the exact global maximum.",
+      "searches": [
+        "cyclic q ary runs one doubled symbol q deletions optimal position balanced run subsequence extremal",
+        "distinct subsequences cyclic word one doubled letter number of q deletions position optimum",
+        "\"n=r+1\" \"q\" distinct subsequences \"one\" doubled run deletion extremal binomial",
+        "arXiv:2601.06493 sections IV–VI, Lemma 10, Theorem 17, Corollary 18",
+        "arXiv:1202.1644 Sections III–V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] Table 2 compares loose upper bounds at selected nondivisible parameters, not the exact family n=r+1 for all q,r.",
+        "No matching exact n=r+1 formula or full q-deletion positional spectrum identified in the examined indexed finding records."
+      ],
+      "reasoning": "Finite instances may be computable from prior algorithms, but no checked table or database establishes all-q and all-r closed formulas or the canonical optimizer interval. Absence from the inspected records is not a uniqueness proof.",
+      "searches": [
+        "2026 combinatorics on words deletion subsequence overlap reconstruction coding exact finite",
+        "\"n=r+1\" \"q\" distinct subsequences \"one\" doubled run deletion extremal binomial",
+        "nonbinary deletion shadow size cyclic run length r+1 q deletions exact balanced position",
+        "arXiv:2601.06493 Table 2 on nondivisible upper bounds"
+      ]
+    },
+    "rationale": "Li–Wang–Fu [1] proves cyclic reduction but explicitly stops short of characterizing maximal deletion shadows when \\(r\\) does not divide \\(n\\); it gives a general upper bound instead. The new equality for n=r+1 and each t<=q, including the location-dependent q-deletion correction, is neither in their stated results nor supplied by the binary-only balanced case [2]. Mercier et al. [3] count small-deletion shadows but their full text could not be inspected; remaining priority risk is stated. Published-record searches for the exact parameters and equivalent run-label formulations returned coding-redundancy and unrelated distinct-substring statements, not this exact extremal law.",
+    "residual_risks": [
+      "Full text of Mercier–Khabbazian–Bhargava 2008 could not be checked; related special cases may have been known.",
+      "Earlier unindexed equivalence or existing closed formula for the whole first offdivisible family cannot be excluded.",
+      "Global maximality inherits published cyclic-reduction lemma; no independently rederived replacement proof is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves cyclic monotonicity and divisible-length equal-run case, but not exact nondivisible n=r+1 family; open case stated explicitly.",
+        "evidence": [
+          "Lemma 10: cyclic run-label operation does not lower |D_t|.",
+          "Theorem 17 is divisible-length case; Corollary 18 gives upper bound; Conclusion explicitly calls n not divisible by r open."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+        "material_read": "Sections IV-A (Definition 9 and full Lemma 10 proof), IV-C/V (extremal equal-run theorem and general upper bound), Table 2, Section VI conclusion and references",
+        "method": "Lawfully accessible full-text HTML, theorem and section-level comparison",
+        "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+        "trigger": "Same deletion-shadow invariant, run-constrained maximization, very recent paper"
+      },
+      {
+        "assessment": "Binary specialization and equal-run construction do not imply the new general q-ary first nondivisible family.",
+        "evidence": [
+          "Theorem III.1 explicitly assumes integer n/r; binary alphabet.",
+          "Section V treats unbalanced strings as a lower extreme."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1202.1644v1",
+        "material_read": "Introduction, Sections II–V with balanced theorem and upper/lower bounds, conclusion",
+        "method": "Lawfully accessible full-text HTML, theorem statements and scopes inspected",
+        "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+        "trigger": "Earlier binary balanced/unbalanced deletion-shadow extremal work"
+      },
+      {
+        "assessment": "General algorithm and fixed-small-deletion formulas may overlap special numerical instances; full-paper comparison unresolved, but described work does not assert the all-q all-r extremal positioning theorem.",
+        "evidence": [
+          "Abstract advertises algorithms for fixed words, nonbinary formulas and deletion orders 3–5.",
+          "DOI and 2008 publication verified; full-text unavailable."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+        "material_read": "Bibliographic record and abstract only; full paper unavailable by open search or institutional access",
+        "method": "Public abstract and bibliographic metadata; lawful full-text access attempts yielded no text",
+        "title": "On the Number of Subsequences When Deleting Symbols From a String",
+        "trigger": "Historically closest general nonbinary counting framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "618becbc-3a4c-4701-b640-9ac3ac5e5b43",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The January 2026 motivating work explicitly identifies exact extrema when r does not divide length as unresolved. Length n=r+1 is the smallest nondivisible run-rich case: a single extra symbol forms one doubled run. Computing all deletion orders through t=q proves the first order where cyclic symbol repeats make placement matter, with an exact location penalty and a closed optimizer interval for every alphabet/run count. This explains why a generic balanced-upper-bound substitution cannot detect the correct optimum and supplies a reusable short-run benchmark. It is a motivated infinite family rather than an arbitrary isolated numerical invariant; its scope is explicitly limited.",
+    "status": "PASS"
+  }
+}
