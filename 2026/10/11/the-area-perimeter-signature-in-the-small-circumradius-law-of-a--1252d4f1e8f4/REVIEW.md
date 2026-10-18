@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The domain is a fixed compact \(C^2\) convex body with strictly positive curvature and three independent area-uniform points. The circumcircle-coordinate transformation has Jacobian \(2ar^3\), and the exact translation-erosion identity imposes precisely the three-point containment event. The normal-strip proof of the uniform \(O_K(r^2)\) erosion expansion applies to every inscribed triangle, including those not containing the origin. Exact half-gap angular integrals yield \(\mathbb E[a]=3/(2\pi)\) and \(\mathbb E[ap]=64/(3\pi^2)\). Rotational averaging and Cauchy's perimeter formula give the coefficients; integration leaves an \(O_K(t^6)\) remainder. The supplied symbolic program checks the intermediate constants and one full Jacobian case. The proof is all-shape analytic; finite numerical stress tests do not establish the theorem.
+## correctness
 
-## Originality (O): PASS, with residual literature risk
-Bakó-Szabó–Besau–Fodor (arXiv:2608.29975) treats the upper-radius region \([1,\infty)\) for the unit disk, not the small-radius asymptotic for arbitrary \(K\). Le Caër (arXiv:1803.08484) treats only circles **wholly contained** in the unit ball; our event admits protruding circumcircles, precisely relevant to the boundary correction. Published semantic records closest to this finding contain upper-tail asymptotics rather than its lower-tail expansion. Targeted equivalence, asymptotic, table, and stronger-result searches showed no inspected statement implying both coefficients. Residual risk: older integral-geometric or unindexed papers may give this expansion in different language, and no finite search proves global novelty.
+PASS
 
-## Value (V): PASS
-The first shape-sensitive coefficient of the natural three-point circumradius law is universally proportional to boundary length; paired with the area coefficient, this gives an inverse geometric signature. The resulting strict pointwise local disk comparison is a meaningful small-scale stochastic isoperimetric law rather than an isolated numeric constant. The proof identifies the angular mixed area–perimeter moment governing that universality.
+The six-variable circumcircle parametrization x_j=c+r u(θ_j) has Jacobian |det|=2 area(T_θ) r³ for ordered noncollinear triples. Integrating over centers c for which all three points lie in K gives area(K⊖r T). For fixed C² boundary with curvature bounded away from zero, signed tubular normal coordinates show area(K⊖rT)=A−r∫∂K h_T(n) ds+O_K(r²), uniformly over unit-disk-contained triangles T; no requirement that the circle itself lies in K. Independent SymPy integration gives ∫sin a J(a) da=3π/8 and ∫sin²a J(a) da=8/9, yielding E[area(T)]=3/(2π), E[area(T)perimeter(T)]=64/(3π²). Rotation averaging using Cauchy’s perimeter formula gives angular integrals 24π² and 512P/3. Integrating r³ and r⁴ yields the two coefficients with O_K(t⁶). Fixed-area isoperimetric P≥2√(πA), strictly for nondisks, gives eventual strict comparison, with K-dependent cutoff. The proof is analytic; finite Jacobian spot-check or Monte Carlo not substitutes.
 
-## Scientific boundaries
-This is an asymptotic theorem for one fixed smoothly curved body, not an exact finite-\(t\) CDF, a smoothness-free theorem, or a uniform-in-body comparison. Independent scientific checking remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: closest 2026 paper Bakó-Szabó–Besau–Fodor advertises disk circumradius distribution for r≥1, which is not the small-r regime, and Le Caër 2018 full arXiv primary text explicitly separates contained circumcircles from protruding ones and focuses on contained class. A related 2016 Affentranger formula studies probability that entire circumference lies within unit ball. None of the material actually read gives the universal curved-body t⁴/t⁵ area-perimeter expansion. The full text of the plausible 2026 paper could not be accessed in this run and is explicitly retained as an important originality risk rather than pronounced fully noncovering.
+
+## value
+
+PASS
+
+A natural random-triangle statistic encodes the first two Euclidean intrinsic volumes in its low-radius tail, giving a new local stochastic isoperimetric comparison and an exact universal boundary correction. This is a structural all-shape asymptotic, not a small-case coefficient chosen without motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

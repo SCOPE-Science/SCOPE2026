@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Execute `python verify_coefficients.py` with Python 3 and SymPy. The script integrates two elementary trigonometric moments, confirms \(\mathbb E[a]=3/(2\pi)\), \(\mathbb E[ap]=64/(3\pi^2)\), checks the Jacobian of the marked-circumcircle transformation at a nondegenerate ordered triple, and reconstructs the coefficients \(6\pi^2/A^2\) and \(-512P/(15A^3)\) symbolically. It checks the unit-disk specialization \(6\) and \(-1024/(15\pi^2)\). This is a finite algebraic verification of calculations, not a replacement for the continuous uniform remainder proof in RESULT.md. No independent audit has been performed.
+# Independent mathematical audit
 
-The essential all-body step is the normal-strip expansion for \(C^2\) positively curved boundaries. Its uniform \(O_K(r^2)\) bound in the inscribed-triangle parameter is justified directly in the proof; the verifier does not claim machine certification of that geometric fact. Circumcircles may extend beyond the sampling body; this distinguishes the event from work conditioned on wholly contained circles. Numerical Monte Carlo illustrations, if independently generated, are only sanity checks and are not exhaustive proofs.
+## correctness
+
+PASS
+
+The six-variable circumcircle parametrization x_j=c+r u(θ_j) has Jacobian |det|=2 area(T_θ) r³ for ordered noncollinear triples. Integrating over centers c for which all three points lie in K gives area(K⊖r T). For fixed C² boundary with curvature bounded away from zero, signed tubular normal coordinates show area(K⊖rT)=A−r∫∂K h_T(n) ds+O_K(r²), uniformly over unit-disk-contained triangles T; no requirement that the circle itself lies in K. Independent SymPy integration gives ∫sin a J(a) da=3π/8 and ∫sin²a J(a) da=8/9, yielding E[area(T)]=3/(2π), E[area(T)perimeter(T)]=64/(3π²). Rotation averaging using Cauchy’s perimeter formula gives angular integrals 24π² and 512P/3. Integrating r³ and r⁴ yields the two coefficients with O_K(t⁶). Fixed-area isoperimetric P≥2√(πA), strictly for nondisks, gives eventual strict comparison, with K-dependent cutoff. The proof is analytic; finite Jacobian spot-check or Monte Carlo not substitutes.
+
+## originality
+
+PASS
+
+Best-of-knowledge: closest 2026 paper Bakó-Szabó–Besau–Fodor advertises disk circumradius distribution for r≥1, which is not the small-r regime, and Le Caër 2018 full arXiv primary text explicitly separates contained circumcircles from protruding ones and focuses on contained class. A related 2016 Affentranger formula studies probability that entire circumference lies within unit ball. None of the material actually read gives the universal curved-body t⁴/t⁵ area-perimeter expansion. The full text of the plausible 2026 paper could not be accessed in this run and is explicitly retained as an important originality risk rather than pronounced fully noncovering.
+
+## value
+
+PASS
+
+A natural random-triangle statistic encodes the first two Euclidean intrinsic volumes in its low-radius tail, giving a new local stochastic isoperimetric comparison and an exact universal boundary correction. This is a structural all-shape asymptotic, not a small-case coefficient chosen without motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
