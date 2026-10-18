@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,63 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the complete Nijenhuis system directly from
-\[
-e_1^2=e_2,\qquad e_1e_2=e_2e_1=e_3.
-\]
 
-It derives the following necessary consequences in order:
-\[
-x_{13}=0,\qquad
-x_{23}=0,\qquad
-x_{12}=0,
-\]
-\[
-x_{22}=x_{11},\qquad
-x_{33}=x_{11}.
-\]
+# Independent mathematical audit
 
-It then substitutes
-\[
-N_{a,b,c,d}
-=
-\begin{pmatrix}
-a&0&0\\
-b&a&0\\
-c&d&a
-\end{pmatrix}
-\]
-back into every defining equation and verifies that all defects vanish.
+## correctness
 
-The checker independently constructs the automorphism matrix from
-\[
-\phi(e_1)=u e_1+v e_2+w e_3
-\]
-and verifies
-\[
-\phi(e_2)=u^2e_2+2uv\,e_3,\qquad
-\phi(e_3)=u^3e_3.
-\]
+PASS
 
-Symbolic conjugation verifies
-\[
-(a,b,c,d)\mapsto
-(a,ub,u^2c+v(2b-d),ud).
-\]
+On the three-dimensional null-filiform associative algebra e1²=e2, e1e2=e2e1=e3, torsion basis equations force N=[[a,0,0],[b,a,0],[c,d,a]] over any field. Since e1 generates A, every algebra automorphism is determined by φ(e1)=u e1+v e2+w e3 (u≠0), giving φ=[[u,0,0],[v,u²,0],[w,2uv,u³]] and conjugation (a,b,c,d)↦(a,ub,u²c+v(2b−d),ud). Generic [b:d] projective directions allow c elimination; the exceptional direction d=2b has invariant τ=c/b² and a surviving affine modulus. For b=d=0, nonzero square-classes of c produce gcd(2,q−1) orbits; q generic directions and q exceptional values, giving q(2q+1+gcd(2,q−1)) classes over Fq. Independent sympy conjugation plus COMPLETE action orbit census for q=2,3,5 reproduced 12,27,65, respectively. General theorem follows algebraically, not by induction from small q.
 
-Finally, exhaustive finite-field enumeration for
-\[
-q=2,\quad3,\quad5,\quad7
-\]
-gives respectively
-\[
-12,\quad27,\quad65,\quad119
-\]
-conjugacy classes, exactly matching
-\[
-q\bigl(2q+1+\gcd(2,q-1)\bigr).
-\]
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-The finite enumeration is a replay check and is not used in place of the symbolic proof.
+Abdujabborov–Karimjanov–Kodirova 2021 classifies the exact raw 4-parameter Nijenhuis family for this A2 algebra. Karimjanov–Kaygorodov–Ladra 2018 treats homogeneous Nijenhuis only, and the 2024 automorphism paper treats algebra symmetries, neither their orbit quotient. The surviving result is full conjugacy normal forms, exceptional d=2b modulus and all-characteristic finite-field orbit polynomial; no identical statement found in Resultary or inspected primary texts.
+
+## value
+
+PASS
+
+A full classification modulo intrinsic algebra automorphisms is a natural structural refinement of an established complete raw Nijenhuis table. The exceptional d=2b symmetry jump retains a genuine continuous modulus, while all finite fields admit an exact orbit polynomial sensitive to square classes, answering a substantive moduli question rather than renaming matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
