@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The original four-phase equations reduce exactly to two within-pair half-separations and a between-pair mean angle. The two sine products have identical logarithmic derivatives for every lag, yielding a globally lift-independent first integral on the open invariant chart. At quadrature, each \(0<|p|<1\) component is a nonsingular compact one-dimensional oval; a four-quarter quadrature gives the claimed minimal elliptic period. The mean phase is a scalar logarithmic coboundary and has exactly zero net change. Endpoint cases were isolated rather than extrapolated.
+
+**Originality (O): PASS (best-knowledge; residual literature risk).** Compared full relevant texts of Yan et al. (arXiv:2603.02135), Ahnert–Pikovsky (arXiv:0806.1833), Ashwin–Burylko–Maistrenko (Physica D 2008), the common-noise oscillator study arXiv:1812.05883, and the full relevant analysis of Ashwin–Bick–Burylko (arXiv:1603.07937); also compared the available 2018 skew-symmetric-anisotropic-ring abstract and indexed mathematical records. The motivating ring paper observes a Hamiltonian quadrature endpoint without the exact four-ring period and full-state zero-drift statement; the other inspected works consider continuum lattices or inequivalent global-coupling models. The 2009 ring paper and the 2018 anisotropic-ring paper were available only in abstract during this comparison; an equivalent finite-ring result may remain unindexed.
+
+**Mathematical value (V): PASS.** This is an exact dynamical benchmark at the conservative endpoint underlying documented basin-metamorphosis phenomena: a regular foliation, a true (not merely relative) period, a strict period ordering, and the explicit logarithmic separatrix clock. The conservation law also holds away from the conservative endpoint. These determine physically measurable return times and expose a qualitative low-size boundary before more intricate larger-ring dynamics.
+
+**Limits.** Neither the 2009 inaccessible source nor all unpublished finite-ring computations can be excluded by search. Finite diagnostics do not certify continuum or infinite-time statements. The proof is restricted to the four-site equal-coupling model and its indicated invariant sets.
+
+Self-review: passed. Independent audit: not yet performed.
