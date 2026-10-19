@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Tree effective resistance is exactly the sum of reciprocal conductances on the unique path; hence diameter equals the largest sum of two hub-to-leaf radial resistances. For fixed radial resistance, strict convexity of the reciprocal-power expenditure uniquely selects each edge resistance. After normalizing by proposed diameter, the cost is a strictly convex function on pairwise-sum constraints. If all radii are at most 1/2, setting every radius to 1/2 is optimal. If one radius exceeds 1/2, all others must equal its complement and strict convexity reduces to one variable. The interior minimum exists iff its cost aggregate exceeds the sum of the others. Only one aggregate can satisfy this; equality is uniquely balanced. Scaling by the actual budget gives the claimed exact minimum and unrestricted edge-level uniqueness for every positive exponent, including concave conductance-pricing exponents. The exponent transition is proved by monotonicity of a finite sum of powers. The included standalone script passed 1256 rational-input, randomized direct-Laplacian and numerical optimization assertions, which corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi, SIAM Review 50 (2008), sections 5.1 and 8: https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "Chepoi–Noltemeier–Vaxès, Networks 41 (2003), section 1 LP uses 0<=x(e)<=l(e), cost sum c(e)x(e), and bounded initial lengths: DOI 10.1002/net.10055",
+        "Hambrusch–Lim, Parallel Processing Letters 9 (1999), abstract indicates costed edge reductions; full article inaccessible: DOI 10.1142/S0129626499000335"
+      ],
+      "reasoning": "General SDP coverage in Ghosh–Boyd–Saberi implies that a numerical solution exists at exponent one, but contains neither the asserted explicit heterogeneous spider one-exception optimizer nor the nonlinear exponent transition. Chepoi–Noltemeier–Vaxès optimize finite additive decreases under linear prices, and the actual LP cannot specialize directly to an inverse-power final-length cost. The accessible abstract of Hambrusch–Lim does not decide whether a generalized nonlinear reduction could imply the theorem; this remains a named residual risk, not a false assertion of noncoverage.",
+      "searches": [
+        "\"Upgrading trees under diameter and budget constraints\" pdf Chepoi Noltemeier Vaxes",
+        "\"Minimizing the diameter in tree networks under edge reductions\" pdf Hambrusch Lim",
+        "\"minimizing maximum effective resistance\" graph general SDP",
+        "minimax resistance diameter in a spider tree with several legs optimal conductance sizing sharp one-arm dominance price"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh–Boyd–Saberi, MTNS 2006 full conference paper, https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "Ghosh–Boyd–Saberi, SIAM Review 2008, DOI 10.1137/050645452, full relevant sections",
+      "Chepoi–Noltemeier–Vaxès, Networks 2003, DOI 10.1002/net.10055, author-uploaded relevant full-text sections",
+      "Hambrusch–Lim, Parallel Processing Letters 1999, DOI 10.1142/S0129626499000335, abstract and technical-report metadata only",
+      "Current semantic findings indexed under spider-tree power domination, spider-tree curvature distortion, resistance flow polytopes; no exact claim match found",
+      "Accessible earlier electrical-network design claims, particularly a tree-with-optional-chords sum-resistance claim, compared by their mathematical objective"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh et al 2006 conference paper §VII: generic maximum-resistance SDP, but §§I/V concern total-resistance design.",
+        "Ghosh et al 2008 SIAM Review §§2.3,5.1,8: path sum formula; optimal sum-resistance tree allocation; generic minimax SDP extension.",
+        "Chepoi et al 2003 full-text §1: linear reduction cost LP and bounded decreases, distinct from continuous conductance power pricing.",
+        "Relevant historical same-topic tree-and-chords result concerns minimizing trace Laplacian pseudoinverse, proportional to sum of all pair resistances, not maximum pair resistance."
+      ],
+      "reasoning": "The new result retains the already known path-resistance identity and minimax formulation as premises. For every positive exponent, the exact minimax edge assignment follows only after solving a separate strictly convex normalized radius problem; the minimum-sum tree allocation weights edges by cut multiplicities and is generally different. Linear length reduction results cannot imply the nonlinear cost formula merely by relabeling edge lengths. A decisive full-text comparison with the Hambrusch–Lim paper is still unavailable, so there remains an explicit novelty risk.",
+      "searches": [
+        "minimax resistance diameter star tree edge pricing conductance allocation worst pair pairwise resistance",
+        "power law conductance budget weighted spider tree minimax effective resistance diameter optimal branch conductances dominant arm phase transition",
+        "\"spider\" \"optimal\" \"diameter\" \"resistance\" \"conductance\" budget",
+        "\"tree\" \"resistance diameter\" \"convex\" \"budget\" sizing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A. Ghosh, S. Boyd, A. Saberi, MTNS 2006, section VII explicitly proposes general minimax pairwise effective-resistance optimization: https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "V. Chepoi, H. Noltemeier, Y. Vaxès, Networks 2003, equations in section 1 define linear reduction cost, not inverse-power cost: https://www.researchgate.net/publication/220209484_Upgrading_Trees_Under_Diameter_and_Budget_Constraints"
+      ],
+      "reasoning": "Effective-resistance diameter on a tree is the weighted path-length diameter after substitution of edge resistance for length. That identity is already known and not claimed. The edge price law becomes c_e r_e^{-alpha}, however, while the older tree-upgrading article charges c_e x_e for bounded linear length reductions. A general formulation without the explicit spider minimizer is not equivalent to the one-exception closed-form classification. No equivalent all-parameter statement was identified in the inspected sources.",
+      "searches": [
+        "weighted star network optimal maximum effective resistance diameter conductance prices sharp threshold largest price exceeds all others optimal equal edges",
+        "minimax resistance diameter star tree edge pricing conductance allocation worst pair pairwise resistance",
+        "\"maximum effective resistance\" \"spider\" optimization edges weights",
+        "\"minimize maximum effective resistance\" \"tree\" \"conductance\" closed form",
+        "spider tree graph exact minimum maximum pairwise effective resistance with nonlinear power law conductance cost budget one dominant arm radial resistance equalization unique optimizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned spider-tree records concern combinatorial power-domination polynomials, Ricci curvature distortion and distance domination rather than electrical effective-resistance minimax sizing.",
+        "The closest effective-resistance record concerns Euclidean inradius of flow polytopes, not assignment of conductances on a spider tree."
+      ],
+      "reasoning": "Statement/parameter comparisons found no returned table, exact value or corollary imposing the proposed arm-aggregate boundary, or the explicit all-edge conductance formula for arbitrary positive alpha and prices. Semantic database nonmatches by themselves cannot establish global novelty; unindexed equivalent coverage remains possible.",
+      "searches": [
+        "optimal minimize worst pairwise effective resistance weighted tree edge budget all pair demands",
+        "power law conductance budget weighted spider tree minimax effective resistance diameter optimal branch conductances dominant arm phase transition",
+        "heterogeneous branch edge cost power exponent minimization of maximum pairwise effective resistance in trees weighted star general",
+        "spider tree graph exact minimum maximum pairwise effective resistance with nonlinear power law conductance cost budget one dominant arm radial resistance equalization unique optimizer"
+      ]
+    },
+    "rationale": "This work does not claim to originate minimax effective-resistance optimization. Ghosh–Boyd–Saberi explicitly formulate that as a general linear-budget convex SDP in the 2006 primary paper, while their exact tree allocation is for the sum rather than maximum of pair resistances. A relevant author-uploaded full-text tree-upgrading paper (Chepoi–Noltemeier–Vaxès) gives an LP for linearly priced shortening of fixed edge lengths, and therefore its decision variable and cost functional are not the reciprocal-conductance power-cost problem: applying the transformation would require a nonlinear cost that their LP does not treat. The Hambrusch–Lim edge-reduction paper remains an inaccessible plausible comparison and is expressly retained as risk. Published semantic findings about spider domination, curvature and effective-resistance flow-polytopes do not imply this exact all-price minimax network allocation by their statements. The original claimed contribution is the all-power-law, heterogeneous, uniquely optimal spider conductance formula and its one-dominant-arm threshold, not generic convexity or the physical resistance metric.",
+    "residual_risks": [
+      "The complete Hambrusch–Lim 1999 paper and 1998 technical report were not readable despite open-access attempts and an institutional retrieval attempt; stronger coverage or generalizable proofs are not fully excluded.",
+      "A specialized paper on nonlinear inverse-conductance edge-price diameter minimization might be unindexed or use a different network-design terminology. Search nonmatches do not certify novelty.",
+      "The result is an explicit characterization of a natural special family of an already known general minimax problem; it does not claim discovery of the general objective or general SDP formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general linear-budget minimax effective-resistance optimization as a convex SDP, but not the asserted spider-specific power-price optimizer or exponent-dependent aggregate threshold.",
+        "evidence": [
+          "MTNS 2006, first page identifies conference dates July 24–28, 2006.",
+          "Section VII explicitly formulates minimization of maximum effective resistance as a convex SDP."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Full conference paper available; reviewed abstract, relevant tree metric formulas, the analytical barbell discussion and the section VII extension explicitly mentioning maximum effective resistance.",
+        "method": "Publisher-conference author-hosted PDF extracted text plus visual inspection of conference first page.",
+        "title": "Minimizing Effective Resistance of a Graph (conference paper)",
+        "trigger": "Foundational earliest verified publication and possible exact minimax prior coverage"
+      },
+      {
+        "assessment": "Section 5.1 solves minimizing sum of pairwise resistances for trees, not the diameter; section 8 repeats the general minimax SDP observation. These do not imply the specific radius-one-exception formula merely by matching graph topology.",
+        "evidence": [
+          "SIAM Review 50(1), 37–66 (2008), §5.1 and §8, DOI 10.1137/050645452."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Full PDF accessible; read the relevant statements in sections 2.3, 5.1, 8 and visually inspected the extension and tree-analysis pages.",
+        "method": "PDF extracted full-text sections and page inspection",
+        "title": "Minimizing Effective Resistance of a Graph (expanded journal article)",
+        "trigger": "Possible stronger journal coverage and analytical tree corollary"
+      },
+      {
+        "assessment": "The stated problem minimizes diameter by bounded linear reductions of existing edge lengths; its budget is linear in reductions. This does not subsume nonlinear inverse-power final-resistance cost as an ordinary special case.",
+        "evidence": [
+          "Networks 41(1), 24–35 (2003); first published online December 11, 2002; explicit LP formulation in section 1. DOI 10.1002/net.10055."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220209484_Upgrading_Trees_Under_Diameter_and_Budget_Constraints",
+        "material_read": "Author-uploaded complete article available as extracted web text. Read abstract, section 1 problem definitions and LP constraints, and relevant section 2 algorithm material.",
+        "method": "Author-uploaded public full-text reading, including decision variable and budget LP comparison",
+        "title": "Upgrading Trees Under Diameter and Budget Constraints",
+        "trigger": "Same tree-diameter wording and cost budget; a candidate broader theorem"
+      },
+      {
+        "assessment": "Available abstract describes tree-edge reductions to minimize diameter or cost, but does not identify the nonlinear conductance power price or exact spider formulas. Unable to decide whole-document implications conclusively; listed as a residual risk.",
+        "evidence": [
+          "Parallel Processing Letters 9(3), 361–371 (1999), DOI 10.1142/S0129626499000335; Purdue technical report eSD-TR 98-022 (July 1998)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129626499000335",
+        "material_read": "Abstract and technical-report metadata only; full text could not be accessed. No statement about theorems or appendices inferred from missing text.",
+        "method": "Search for arXiv and lawful open-access full texts (Purdue technical report/CiteSeer links unavailable), then institutional retrieval attempt, which returned VPN disconnected.",
+        "title": "Minimizing the Diameter in Tree Networks Under Edge Reductions",
+        "trigger": "Plausible early primary work on the same tree-diameter objective"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8c58c7a-c4a3-43db-886c-72b2a9f04f4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Worst-case pairwise effective resistance naturally quantifies worst source-to-sink performance in a branching resistive network, and assigning conductances under heterogeneous material prices is an actual design decision. The theorem classifies all independent edge allocations on any spider with arbitrary arm lengths and prices, establishes an unexpected one-dominant-arm rigidity and sharp aggregate threshold, and exhibits a genuine change in the unique optimum when the cost power changes on a fixed topology. The nonlinear concave-cost regime is also resolved analytically through convexity of the physical resistance variables. These are structural and scalable optimality facts, not a textbook substitution, arbitrary numerical slice, or modest isolated estimate.",
+    "status": "PASS"
+  }
+}
