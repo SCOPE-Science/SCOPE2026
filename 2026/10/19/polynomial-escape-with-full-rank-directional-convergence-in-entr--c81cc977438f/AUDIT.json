@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every even d>=2 a real orthogonal complex structure J exists; J^T=-J, J^2=-I imply all singular values of W=aI+bJ equal r=sqrt(a^2+b^2), and A_{N,W}=N r^(2-2/N) Id. The repeated-value limit of the published entropy pair quotient is N r^(2-2/N), giving the ambient gradient ((d-1)(1-1/N)/(2r^2)) W; the diagonal-loss gradient is (a-1)I. This yields the exact invariant planar ODE with c=(N-1)(d-1)/(2 beta). For initial a=1, b nonzero, scalar comparison traps 1<=a<= (1+sqrt(1+4c/N))/2 and gives |b| increasing but at most polynomial over finite times; therefore full-rank forward completeness. Bounded |b| would imply a uniform strictly positive derivative, so |b|->infinity. a->1 by boundary trapping. With clock d tau/dt=r^(2-2/N), k=b^2(a-1) solves a uniformly stable linear equation whose coefficients tend to -N and c; thus k->c/N. Differentiating |b|^(2/N) gives derivative tending to 2c/N, yielding the exact polynomial coefficient. The directional limit, d(a-1)^2/2 loss equivalent, and entropy/free-energy logs follow. The packaged Python verifier passed 720625 finite assertions; finite tests are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Treviño theorem 1.1 states generic sup-norm unboundedness for N>2 and explicitly does not prove norm convergence or exclude singular escape.",
+        "Chen–Kotwal–Menon Definition 1.1 restricts its analyzed energies to spectral energies, in contrast to observed-diagonal completion."
+      ],
+      "reasoning": "Generic unbounded limsup does not imply convergence, polynomial rate, completion-loss decay, or a claim about a particular measure-zero invariant plane. The broader spectral-entropy theory supplies analytic ingredients but neither governs the nonspectral completion flow nor subsumes the trajectories. The new depth-two case also lies outside the motivating source’s general N>2 theorem.",
+      "searches": [
+        "dynamical systems deep linear Riemannian gradient inverse temperature diagonal observations 2026",
+        "diagonal matrix completion entropy orthogonal gradient limit 2026",
+        "arXiv:2610.05551v1 Theorem 1.1 and Sections 10-12",
+        "arXiv:2512.06137v1 Sections 1 and 8.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.05551v1, full HTML; Theorem 1.1, Sections 2, 4, 5, 10-12",
+      "arXiv:2512.06137v1, full HTML; Definition 1.1, Section 8.2",
+      "arXiv:2509.09088v3, full HTML; Sections 3.2-3.4, 7.3",
+      "Targeted published-record semantic searches on finite-temperature diagonal completion, equal singular values, skew complex rotations, rate and loss decay",
+      "Targeted public web searches on the same terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main source Theorem 4.5 supplies a general unbounded-below *free energy*, not a dynamical escape law for any fixed initial condition.",
+        "Its zero-loss shear (Proposition 5.1) is an *auxiliary family*, not a forward orbit; a shear has an inversely small singular value, unlike the new equal-singular trajectory.",
+        "Menon–Yu compute entropy and the metric, while Chen–Kotwal–Menon derive regularized flows for spectral objectives."
+      ],
+      "reasoning": "Unbounded free-energy values along static matrices and generic existence of unbounded orbits do not imply a polynomial asymptotic on I+bJ; a zero-loss shear is not dynamically invariant, and has different singular-value behavior. The needed invariant plane, its exact reduced equations, trapping, and rescaled convergence are additional steps. The entire contribution is a specialized consequence of the known formulas; no stronger independent general theorem is claimed.",
+      "searches": [
+        "arXiv:2610.05551v1 Theorems 1.1, 4.5, 5.2, Section 12.4",
+        "arXiv:2512.06137v1 Theorem 1.8, Section 8.2",
+        "arXiv:2509.09088v3 Sections 3.3-3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.05551v1 sections 2.1-2.2 give the operator and entropy, but sections 12.4-12.5 ask rather than answer escape-rate and direction questions.",
+        "arXiv:2512.06137v1 section 8.2 explicitly lists nonspectral matrix completion as a separate open problem."
+      ],
+      "reasoning": "A statement equivalent to this theorem would specify actual forward trajectories on I+bJ at finite temperature and their t^(N/2) norm rate, t^(-2N) observed-loss rate, and signed full-rank normalized direction. The inspected texts contain neither that invariant reduction nor equivalent explicit rate statements. Searches did not identify a matching published statement, but cannot rule out unpublished or unindexed equivalences.",
+      "searches": [
+        "balanced deep linear network diagonal completion finite-temperature escape invariant plane complex structure polynomial t N/2",
+        "matrix completion Boltzmann entropy all singular values equal full-rank escape rotation generator exact rate",
+        "entropic diagonal complex structure escape deep linear network",
+        "arXiv:2610.05551v1, Sections 2, 11, 12.4 and 12.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is an analytic all-time continuous-flow asymptotic, not a finite enumeration or pretabulated number.",
+        "No matching exact rate theorem was encountered in the mathematical-record queries; the closest retrieved records concern unrelated matrix metrics or different numerical methods."
+      ],
+      "reasoning": "Finite tables are not capable of implying a universal all-time asymptotic without additional theorems. No known exact table or indexed theorem provides the full invariant-flow claim; non-detection is not a proof of universal novelty.",
+      "searches": [
+        "balanced deep linear network diagonal completion finite-temperature escape invariant plane complex structure polynomial t N/2",
+        "matrix completion Boltzmann entropy all singular values equal full-rank escape rotation generator exact rate",
+        "deep linear skew-symmetric entropic gradient dynamics"
+      ]
+    },
+    "rationale": "The full motivating source proves almost-everywhere unboundedness (its theorem 1.1 for depth N>2), without quantitative time rates, normalized limits or loss-decay equivalents; section 12.4 identifies these as unresolved questions, and section 12.5 separately discusses finite-temperature N=2. On an explicitly defined isosingular invariant class, this finding derives the precise polynomial escape equivalent, full-rank limit direction and loss decay for all even widths and all depths N>=2. The known entropic metric and spectral entropy are explicitly credited, and the novelty claim is only the specialized invariant dynamics and its asymptotics.",
+    "residual_risks": [
+      "The invariant-plane reduction may be independently accessible from existing entropy and balanced-metric formulas, so an equivalent unpublished or unindexed calculation may predate this statement.",
+      "No claim is made for positive-measure classes of initial conditions or for generic singular-value behavior.",
+      "Self-review is not an independent expert or priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the flow, entropy, generic unboundedness and unbounded free energy, but neither the explicit equal-singular invariant family nor its sharp dynamic escape and loss asymptotics",
+        "evidence": [
+          "Theorem 1.1(v)-(vi): completeness and a.e. unbounded limsup for N>2, expressly without norm convergence",
+          "Sections 2.1-2.2: equations (5)-(6), balanced operator and entropy",
+          "Section 12.4: unresolved escape rate, normalized direction, completion-loss behavior",
+          "Section 12.5: general finite-temperature depth-two problem open"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.05551v1",
+        "material_read": "Abstract, Theorem 1.1, Sections 2.1-2.2, 4.4, 5, 10-12 including full Section 12.4 and finite-temperature depth-two discussion 12.5; compared assertions and formulas",
+        "method": "Direct material inspection of the full HTML preprint and its displayed formulas and proof claims",
+        "title": "Failure of entropic selection for diagonal matrix completion in deep linear networks",
+        "trigger": "Exact same observed-diagonal finite-temperature deep-linear gradient flow; strongest plausible dominating source"
+      },
+      {
+        "assessment": "Restricts dynamical results to spectral energies; observed-diagonal matrix completion is explicitly outside this setting",
+        "evidence": [
+          "Definition 1.1 and Section 1: energies treated are spectral",
+          "Section 8.2: nonspectral matrix completion remains an open problem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.06137v1",
+        "material_read": "Introduction and Definition 1.1; singular-value flow, equal-singular regularity; Section 8.2 and final discussion of nonspectral matrix completion",
+        "method": "Direct HTML manuscript inspection of definitions, theorem statements and scope",
+        "title": "Entropic regularization in the Deep Linear Network",
+        "trigger": "Prior general regularized gradient-flow theorem might imply the isosingular dynamics"
+      },
+      {
+        "assessment": "Supplies foundational entropy and metric but no stated rate/direction/loss theorem for this diagonal-completion invariant trajectory",
+        "evidence": [
+          "Section 3.3: fiber entropy formula",
+          "Section 3.4: balanced Riemannian submersion",
+          "Section 7.3: entropy proposal for regularizing completion without this dynamical theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.09088v3",
+        "material_read": "Overview and Sections 3.2-3.4 (fiber entropy, entropy formula, Riemannian submersion) and entropic regularization discussion in Section 7.3",
+        "method": "Direct full-HTML source inspection of model, exact entropy formula and geometric reduction",
+        "title": "An entropy formula for the Deep Linear Network",
+        "trigger": "Original entropy and balanced metric formulas could dominate any claimed dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c81cc977-438f-45b4-9b99-799179f81049",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating work explicitly distinguishes mere generic unboundedness from sharp escape rates, loss decay and limiting singular-value directions. The class W=aI+bJ is mathematically natural: J is orthogonal complex geometry, the matrices are conformal with exactly coincident singular values and skew perturbations preserve the observed diagonal. The new closed exact ODE yields the full rate t^(N/2), loss t^(-2N), and full-rank normalized direction in *every even width and all depths N>=2*, including a depth-two regime separately identified as delicate. These are quantitative dynamical invariants not inferable from a static entropy-shear or from generic existence; scope is explicitly restricted and no generic theorem is claimed.",
+    "status": "PASS"
+  }
+}
