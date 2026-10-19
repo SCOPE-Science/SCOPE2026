@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A binary non-overlapping code has a single orientation of first and final symbols. The reverse-complement-orbit conflict graph is therefore exhaustive after complementing the orientation if necessary. At each length from two through sixteen, a replayable feasible orbit selection and a valid integer multicover of conflict cliques have equal total weight, proving both directions of exact optimality. The general existence threshold has explicit families for even lengths and odd lengths at least nine; the three exceptional lengths are exhaustively eliminated. All length conventions and the boundary at length one are stated.
+
+**Originality — PASS against inspected literature, with residual risk.** Chee et al. and Blackburn develop general non-overlapping-code bounds and unrestricted construction optima. Their statements do not impose reverse-complement invariance; their maxima do not imply the restricted capacities. The related reverse-complement *avoidance* property in DNA-primer studies is logically different, and the recent unrestricted code-census work does not tabulate involution-closed codes. Targeted record searches found no equivalent theorem or table. An inaccessible or unindexed specialized strand-invariant code study remains a priority risk, so this assessment is not a claim of independently established historical priority.
+
+**Mathematical value — PASS.** Non-overlapping codes support frame synchronization; requiring invariance when words are read on opposite complemented strands is a natural algebraic constraint. It substantially changes capacity: for example, nonempty odd-length codes first appear at length nine, and the exact finite table exhibits strong parity asymmetry. The all-length sharp feasibility threshold and reproducible optimality certificates through sixteen supply precise design limits beyond a routine renaming of unconstrained code bounds.
+
+The exact code sizes at lengths beyond sixteen are not determined, and the construction does not extend to a quaternary alphabet without new arguments. The certification is mathematical and computational within the supplied package; it is not an independent review.
+
+Self-review: passed. Independent audit: not yet performed.

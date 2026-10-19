@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes a complete orientation reduction for nonempty binary non-overlapping codes; reverse-complement orbits are exactly the admissible graph vertices, and mutual prefix/suffix conflicts are exactly its edges. For each n=2..16, certificates.json contains an explicit weighted independent set and an integer conflict-clique multicover whose cost equals the independent-set weight. The standalone standard-library verifier reconstructs the words and graph, checks every clique and coverage inequality, and confirms all fifteen primal/dual equalities. For every even n>=2 the unbordered RC-fixed 0^k1^k gives a code; for odd n>=9 the explicit pair 0^k1101^(k-2) and its RC is proved overlap-free, k=4 separately checked. At odd 3,5,7, the complete 2^(n-2) word search proves every possible orbit invalid. Mathematical finite and infinite scopes are separate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. provide large unrestricted constructions and asymptotic bounds.",
+        "Blackburn provides a general upper bound and unrestricted binary optima.",
+        "Stanovnik–Moškon–Mraz report unrestricted code maxima and structures."
+      ],
+      "reasoning": "Unrestricted maxima upper-bound but generally do not equal the reverse-complement-closed maxima. At length 3 the unrestricted maximum is 1 but the invariant maximum is 0, so none of the broad size statements implies this sharp symmetry-restricted table or the odd-length existence threshold.",
+      "searches": [
+        "\"non-overlapping codes\" Blackburn maximum size 2 to 16",
+        "\"reverse complement\" \"non-overlapping codes\" self-synchronizing",
+        "arxiv:1209.0236 Theorem 1.1",
+        "arxiv:1303.1026 Theorem 2",
+        "doi:10.1007/s10623-023-01344-z Table 1"
+      ]
+    },
+    "checked_sources": [
+      "Chee et al., arXiv:1209.0236 (2012)",
+      "Blackburn, arXiv:1303.1026 (2013)",
+      "Yazdi et al., arXiv:1709.05214 (2017)",
+      "Stanovnik, Moškon and Mraz, DOI:10.1007/s10623-023-01344-z (2024)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn, Section 3, discusses prefix-marker constructions which need not contain reverse-complement partners.",
+        "Chee et al. study optimality of ordinary cross-bifix-free code families at small lengths.",
+        "Yazdi et al. specify reverse-complement matching avoidance of primers, not setwise invariance."
+      ],
+      "reasoning": "The new claim is not a corollary of the unrestricted maximum or of known marker constructions: it imposes a distinct global involution constraint. Conversely, its all-length positivity theorem makes no claim about the unrestricted asymptotic rate or any reverse-complement-avoidance distance theorem.",
+      "searches": [
+        "cross-bifix-free binary reverse-complement maximum length 9 length 16",
+        "\"reverse complement\" \"non-overlapping\" \"invariant\" binary code",
+        "arxiv:1709.05214 f-APD MU codes",
+        "arxiv:1303.1026 Section 3 Construction 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee et al., arXiv:1209.0236, Definitions 2.2-2.3 define the unrestricted prefix/suffix constraint.",
+        "Blackburn, arXiv:1303.1026, pp. 1-7 uses the equivalent terms non-overlapping and cross-bifix-free, but treats no involution closure.",
+        "Yazdi et al., arXiv:1709.05214, pp. 2-3 and 8-9 introduces primer-dimer reverse-complement avoidance, not closure."
+      ],
+      "reasoning": "The same overlap predicate is known under three names, but no inspected source imposes setwise closure under reversal plus complementation. Reverse-complement avoidance forbids certain matches, while closure requires including the complementary reversed codeword; the predicates and consequent capacities differ.",
+      "searches": [
+        "\"reverse-complement invariant\" \"cross-bifix\" code",
+        "\"reverse-complement closed\" \"mutually uncorrelated\"",
+        "\"cross-bifix-free\" \"reverse-complement\" \"invariant\"",
+        "arxiv:1209.0236 (cross-bifix-free = non-overlapping)",
+        "arxiv:1303.1026 (non-overlapping-code equivalence)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 unrestricted table specifies maximum non-overlapping codes for q=2, n<=16 without reverse-complement closure.",
+        "Available published mathematical records on non-overlapping code maxima concern unrestricted code sizes or different alphabets.",
+        "The current finite certificates distinguish orbit weights one and two and check all inter-orbit forbidden overlaps explicitly."
+      ],
+      "reasoning": "An unrestricted capacity table cannot be reused as the invariant table, and no exact invariant-code table with these values was found in the inspected published works. Lack of a matching indexed table is not proof of historical priority; earlier specialized or unindexed exact data remain possible.",
+      "searches": [
+        "\"reverse-complement\" \"non-overlapping\" \"invariant\" binary code",
+        "\"reverse-complement closed\" \"cross-bifix-free\"",
+        "\"reverse complement\" \"cross-bifix-free codes\"",
+        "\"in search of maximum non-overlapping codes\" table 1 n 16"
+      ]
+    },
+    "rationale": "Published unrestricted non-overlapping bounds and tables, although closely relevant, do not impose setwise reverse-complement closure and do not imply the sharply smaller capacities or the existence threshold. The DNA-primer reverse-complement avoidance predicate is different from closure. Targeted research-record and literature queries found no equivalent published result among inspected sources; possible unindexed specialized earlier data is expressly a residual priority risk.",
+    "residual_risks": [
+      "An earlier specialized construction or table of reverse-complement-closed mutually uncorrelated codes could be unindexed or described using other terminology.",
+      "The post-2016 biological DNA-code literature is broad; coverage is evidence-based, not proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general non-overlap construction and bounds; no reverse-complement-closed code spectrum.",
+        "evidence": [
+          "Definitions 2.2-2.3 specify proper prefix/suffix nonoverlap.",
+          "Section 3 gives a marker construction and its proof, with unrestricted codebooks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+        "material_read": "Open-access eight-page PDF; inspected definitions, introduction, construction and proof in Sections 2-3, and searched full indexed text for reverse-complement conditions.",
+        "method": "Full-text open, page inspection and exact-term search",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Original short-length binary cross-bifix-free construction and size bounds"
+      },
+      {
+        "assessment": "Unrestricted optimality does not classify symmetry-closed subcodes.",
+        "evidence": [
+          "The introduction notes unrestricted binary optimum for lengths up to sixteen except length nine.",
+          "Section 3 Construction 1 imposes one prefix marker but no reverse-complement closure."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "Open-access fourteen-page PDF; inspected introductory definitions, Section 2 upper bounds, Section 3 code constructions, and searched document for involution closure.",
+        "method": "Full-text open, page inspection and in-document search",
+        "title": "Non-overlapping codes",
+        "trigger": "Strongest known unrestricted bounds and binary short-length optimality data"
+      },
+      {
+        "assessment": "Reverse-complement *avoidance* and code-design constraints, not equality of codebooks under reverse complement.",
+        "evidence": [
+          "Definition 1 prohibits matching complementary substrings in forward or reverse direction.",
+          "Section 3 defines MU codes independently of closure under reverse complement."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.05214",
+        "material_read": "Open-access fourteen-page PDF; inspected introduction, precise primer-dimer definition, MU/WMU definitions and APD construction discussion.",
+        "method": "Full-text open, page inspection and term search",
+        "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+        "trigger": "Closest reverse-complement constrained synchronization-code comparison"
+      },
+      {
+        "assessment": "Full accessible study enumerates unrestricted optima and does not impose reverse-complement closure.",
+        "evidence": [
+          "Its Table 1 lists unrestricted code optima for n up to sixteen.",
+          "No reverse-complement invariant restriction appears in the searchable material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Lawful open-access full HTML; inspected definitions, computational enumeration section, binary Table 1 and result comparisons, with search for reverse-complement constraints.",
+        "method": "Open-access full-text page read and targeted heading/text search",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "2024 short-length code optimum census potentially covering the exact table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b6d50e8b-ba8c-4c6b-8cfc-d5478cc8be9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The involution constraint is natural when synchronization codewords must be accepted in either complemented strand direction. It changes the feasibility phase diagram (odd lengths 3,5,7 impossible, all odd lengths >=9 possible), not merely a numerical constant. The complete optimality table through length 16 has matching, compact, solver-independent clique multicover certificates, providing exact design limits and a reusable finite method for a distinct combinatorial-code capacity problem.",
+    "status": "PASS"
+  }
+}
