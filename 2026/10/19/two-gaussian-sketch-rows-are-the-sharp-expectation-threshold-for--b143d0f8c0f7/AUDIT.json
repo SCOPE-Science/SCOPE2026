@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For two noncollinear real columns, diagonalize aa^T−bb^T with one strictly positive and one strictly negative eigenvalue to obtain independent chi-squared sums; their ratio is beta-distributed. Apply the exact projection-error height formulas h/alpha and h/beta and the determinant identity h/Lambda for the SVD optimum. The symmetric-beta lower tail decreases for s≥2, giving p_s≤beta/(alpha+beta) and hence E_s≤2h/(alpha+beta)≤2E_*. An equal-norm near-collinear family attains supremum 2 for every s, while a one-row orthogonal small-norm family diverges at inverse square-root rate. Numeric and rational checker supports but does not replace the proof; all boundaries checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 RQRCP theory supplies high-probability pseudo-diagonal dominance with oversampling and is not a sharp uniform expected Frobenius approximation ratio for just two sketch rows.",
+        "Projection-DPP/ARP samples determinants rather than choosing the largest norm after one common Gaussian sketch; its expected-error result concerns a different pivot distribution."
+      ],
+      "reasoning": "The nearby stronger-looking algorithms have different sampling laws or hypotheses, and their available statements do not imply this finite-row universal expectation transition.",
+      "searches": [
+        "Gaussian compressed column subset selection two columns expected projection residual versus singular-value tail upper bound two sketch rows",
+        "minimal Gaussian sketch dimension two rows uniform expected rank one Frobenius error bound RQRCP pivoted QR",
+        "Xiao--Gu--Langou 2018 high-probability pseudo-diagonal dominance theorem",
+        "Cortinovis--Kressner 2026 adaptive randomized pivoting bound",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1804.05138",
+      "https://arxiv.org/abs/1509.06820",
+      "https://arxiv.org/abs/2311.08316",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee/RESULT.md",
+      "48 accessible prior private claims, read solely to exclude overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original RQRCP algorithm provides exactly the initial Gaussian norm-max column pivot but no derived 1-versus-2 row expectation threshold.",
+        "CQRRPT uses a similar initial Gaussian sketch and downstream CholeskyQR, but its complete procedure is outside the one-column comparison.",
+        "MSARP uses conditional projection DPP, complete-pivot ACA chooses residual entries, and weighted-mass ACA relies on stale original weights. None is the common-Gaussian two-column norm-max pivot."
+      ],
+      "reasoning": "Both the algorithmic operation and the expected squared-error functional are matched in the primary paper; the compared secondary work either lacks an exact all-input ratio or changes the pivot mechanism, so no checked statement entails the complete claim.",
+      "searches": [
+        "Gaussian sketched QR column pivot norm misranking probability correlated chi-square two columns oversampling pivot selection",
+        "minimal Gaussian sketch dimension two rows uniform expected rank one Frobenius error bound RQRCP pivoted QR",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a two-column first-pivot norm comparison, the quadratic-form sign reduces to a symmetric Beta lower-tail; Duersch--Gu describes marginal Gaussian norm statistics but not a relative expectation guarantee that holds uniformly at two sketch rows.",
+        "No located literature theorem establishes the combined sharp ratio 2 for all real two-column matrices and the s=1 divergence."
+      ],
+      "reasoning": "Exact symmetric-beta formula is not asserted as a new standalone statistical identity; the considered assertion is the complete sharp numerical approximation law, distinct from known marginal chi-square, F, or QRCP concentration results.",
+      "searches": [
+        "Gaussian sketched QR column pivot norm misranking probability correlated chi-square two columns oversampling pivot selection",
+        "random projection changes ordering of norms two correlated vectors Gaussian sketch pivot",
+        "randomized QR with column pivoting two candidate columns beta F distribution misranking probability exact expected projection approximation",
+        "Xiao--Gu--Langou 2018: Algorithm 2; Duersch--Gu 2015: Gaussian norm statistics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries did not reveal a table classifying two-column sketched QR pivot errors as a function of Gaussian row count and input Gram matrix."
+      ],
+      "reasoning": "The claim is an analytic infinite-parameter theorem, not a finite enumerated value. Absence of a database match is not independent novelty proof.",
+      "searches": [
+        "randomized Cholesky QR CQRRPT Gaussian sketch exact column pivoting failure probability fixed two-column singular spectrum rotation",
+        "randomized QR with column pivoting two candidate columns beta F distribution misranking probability exact expected projection approximation",
+        "first pivot QRCP Gaussian sketch 1 row unbounded expected error two rows universal bounded"
+      ]
+    },
+    "rationale": "Compared the exact Gram-parametrized Gaussian norm-max pivot law and full expected Frobenius bound against inspected primary RQRCP/CQRRPT analyses, Gaussian norm-statistics literature, semantically retrieved published mathematical records, and the accessible 48 preceding claim statements. Prior work establishes Gaussian sketches, beta/chi-square machinery, or different pivot distribution guarantees, but no reviewed claim implies both the uniform sharp 2-row factor and the sharp s=1 impossibility. Residual risk remains from older treatments of two-variable generalized Gaussian quadratic-form comparisons or unpublished work; no claim of exhaustive literature coverage.",
+    "residual_risks": [
+      "An unlocated equivalent statement in older randomized numerical linear algebra or generalized quadratic-form statistics may exist.",
+      "The RQRCP source has an earlier 2017 conference proceedings incarnation, but its precise first public day was not independently authenticated; the 2018-04-13 first arXiv day is verified.",
+      "Semantic mathematical record lookup and accessible literature are not an exhaustive global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the source algorithm; does not state the sharp two-column, two-row expected squared-error classification",
+        "evidence": "Algorithm 2 uses Gaussian left sketch and QR with pivoting; analysis bounds diagonal dominance probabilities with oversampling.",
+        "identifier_or_url": "https://arxiv.org/abs/1804.05138",
+        "material_read": "Full preprint, in particular randomized pivoting algorithm, Gaussian sketch and pseudo-diagonal-dominance analysis",
+        "method": "Read accessible primary mathematical text and compared first pivot, sketch rows, conclusions and error metric",
+        "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations",
+        "trigger": "Defines first pivot by a Gaussian sketch and supplies high-probability guarantees"
+      },
+      {
+        "assessment": "Supplies established distributional background but not the universal numerical approximation theorem",
+        "evidence": "Gaussian norm concentration and column pivot mechanisms; distinct from a sharp expected Frobenius loss under two competitive columns.",
+        "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+        "material_read": "Full open preprint, especially Gaussian norm statistics and selection-bias analysis",
+        "method": "Read algorithm and analytic sections and compared marginal chi-square properties to correlated two-column exact loss",
+        "title": "Randomized QR with Column Pivoting",
+        "trigger": "Earlier treatment of norm statistics in randomized pivot selection"
+      },
+      {
+        "assessment": "Not a source for the exact result; full CQRRPT typically uses at least two rows for two input columns",
+        "evidence": "A common Gaussian sketch is used for preliminary pivoting followed by numerical QR/CholeskyQR, rather than the one-column exact expectation law.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+        "material_read": "Accessible main mathematical text, initial sketch/pivot algorithm and performance guarantees",
+        "method": "Read full main text and matched initial sketched pivot against downstream factorization",
+        "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices (CQRRPT)",
+        "trigger": "Related modern sketch-then-pivot implementation"
+      },
+      {
+        "assessment": "Does not cover this claim: conditional projection DPP and staged pivoting, not largest Gaussian-sketched norm",
+        "evidence": "Record proves multistage product error sharpness for conditional projection DPP and orthogonal CSS after nested sampling.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee/RESULT.md",
+        "material_read": "Entire public mathematical RESULT.md",
+        "method": "Read full theorem, sampling mechanism and proof rather than relying on title similarity",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Closest semantic mathematical record for randomized column-subset expected Frobenius loss"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b143d0f8-c0f7-4f6d-bc11-b8b97e01639b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the minimum number of Gaussian sketch rows needed for any uniform rank-one expected squared-error relative guarantee, a directly motivated parameter of the established sketch-first pivot mechanism, with a sharp universal constant and exact arbitrary-correlation failure law. Explains distinct extremizers: orthogonal ill-conditioned inputs destroy one-row robustness, while equal-norm near-collinear inputs saturate the two-factor even with many rows. This identifies an algorithm-design tradeoff not obtained from general chi-square concentration alone.",
+    "status": "PASS"
+  }
+}
