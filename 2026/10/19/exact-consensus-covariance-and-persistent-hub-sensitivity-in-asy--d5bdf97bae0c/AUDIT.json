@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers finite m≥1 and d≥1, diameter≤ε. Convex-hull invariance makes every edge active. Hub/leaf step identities and conditional E,T,M moments follow by direct algebra. A=M²+aE+bT has vanishing one-step conditional drift for symbolic m. E converges geometrically in expectation to zero; M is a bounded martingale and converges to the common opinion. Bounded convergence and polarization yield the exact covariance, and equal-leaf substitution gives coefficient 1/18. Reproducible rational checks independently test 872 identities, but the infinite conclusion rests on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elboim–Peres–Peretz Corollary 2.4: bounds using π_min and π_max, not equality for star.",
+        "Distributed Averaging Definition 2.1 has global alpha and sampled k-neighbor rules; its Theorem 2.2 concentration estimate assumes regularity."
+      ],
+      "reasoning": "The strongest directly relevant general source handles arbitrary transition matrices and bounds limiting variance, so it does mathematically cover the model class but does not claim the exact coefficient needed here. A stronger general exact formula, if found, would override this originality assessment; see residual risk.",
+      "searches": [
+        "The asynchronous DeGroot dynamics variance limiting consensus arbitrary reversible P Corollary 2.4",
+        "Distributed Averaging in Opinion Dynamics NodeModel arbitrary graph variance concentration",
+        "random consensus Hegselmann Krause variance hub star closed neighborhoods"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12923v2, §1.2 and Theorem 1",
+      "Elboim, Peres and Peretz, 2024, §2 Lemma 2.2, Corollaries 2.4/2.7",
+      "arXiv:2211.17125, Definition 2.1, Theorem 2.2, §5",
+      "AMS MSC2020 91D30: Social networks; opinion dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 1 determines dynamics and convergence-time estimates only; it does not identify exact second moments.",
+        "Source 2 bounds variance of the consensus for any reversible P and the star falls under its hypotheses, but its upper and lower bounds do not coincide for m>1.",
+        "Source 3 uses a fixed common α and random k-neighbor selection, not the same self weights on irregular graphs."
+      ],
+      "reasoning": "There is a conceptual overlap through classical martingale computations, but the exact finite-m star second-moment closure is not the displayed consequence of any identified source. The asymptotic nonzero coefficient for one dissenting hub requires a specific calculation not obtained by replacing graph parameters in the available bounds.",
+      "searches": [
+        "arXiv:2201.12923 Theorem 1 and model §1.2",
+        "Elboim–Peres–Peretz Lemma 2.2 and Corollary 2.4",
+        "Berenbrink et al. Distributed Averaging Definition 2.1 and Theorem 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target is a star specialization of a self-inclusive lazy reversible transition matrix, unlike neighbor-only non-lazy averaging.",
+        "The 2022 bounded-confidence model includes exactly the chosen update rule, but the inspected convergence statements concern hitting times, not final random consensus moments."
+      ],
+      "reasoning": "Re-expressed the target as the exact consensus second moment for a lazy star Markov transition matrix and as a quadratic martingale correction. The general DeGroot martingale identity is relevant but is not an already-evaluated exact star covariance or an explicit nonconcentration law in the inspected paper.",
+      "searches": [
+        "star graph asynchronous DeGroot consensus random limit variance node averaging",
+        "asynchronous Hegselmann Krause star graph random consensus variance",
+        "randomized asynchronous averaging degree dependent star graph exact variance expected consensus",
+        "Asynchronous Opinion Dynamics in Social Networks; arXiv:2201.12923, §1.2",
+        "The Asynchronous DeGroot Dynamics; arXiv:2209.05764, Lemma 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches returned general DeGroot and bounded-confidence analyses, with no accessible exact star covariance table or the 1/18 value."
+      ],
+      "reasoning": "Searched for numerical identity, graph family, and equivalent consensus-variance terminology; no existing exact value was located. Absence of a hit is not proof of priority.",
+      "searches": [
+        "\"1/18\" \"star\" \"consensus\" variance",
+        "\"star graph\" \"asynchronous\" \"consensus\" \"variance\"",
+        "\"star\" \"consensus\" \"variance\" asynchronous opinion Hegselmann"
+      ]
+    },
+    "rationale": "Compared exact self-inclusive star dynamics and finite-m closed form against full-text bounded-confidence convergence results, reversible DeGroot consensus-variance bounds, and an unrelated fixed-alpha/sampled-neighbor consensus-variance model. Their displayed statements do not already give the exact two-term covariance or nonvanishing large-star coefficient. Material risk: a broader but unlocated exact random stochastic-matrix formula may imply it; independently verified priority is not asserted.",
+    "residual_risks": [
+      "General arbitrary-stochastic-matrix moment formulas or older asynchronous gossip literature outside inspected sources could imply this specialization.",
+      "No independent publication-priority audit; search does not prove nonexistence of related work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exactly matching self-inclusive uniform-activation rule. The stated main results bound convergence time and do not state the closed-form covariance for stars or its nonvanishing asymptotic.",
+        "evidence": [
+          "Model §1.2 gives the self-inclusive neighborhood and uniform selection; Theorem 1 concerns expected time to approximate stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.12923v2",
+        "material_read": "Model and Notation, Theorem 1, discussion of convergence and related work; searched full accessible HTML for star and variance.",
+        "method": "Direct inspection of full-text HTML and explicit model equations.",
+        "title": "Asynchronous Opinion Dynamics in Social Networks",
+        "trigger": "Exact social bounded-confidence updating rule and convergence result on arbitrary graphs."
+      },
+      {
+        "assessment": "Its general martingale/energy inequalities apply to the current lazy star, and supply bounds, but its inspected corollaries do not give an exact star second moment or the asymptotic coefficient 1/18. A more implicit general representation may subsume the computation conceptually.",
+        "evidence": [
+          "Lemma 2.2 gives a drift of the squared weighted mean; Corollary 2.4 gives lower and upper variance bounds with π_min and π_max."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21248",
+        "material_read": "Full-text model setup and §§2.1–2.4, including Lemma 2.2, Corollaries 2.4 and 2.7, plus star mentions and examples.",
+        "method": "Direct published full-text HTML examination and targeted in-document searches.",
+        "title": "The Asynchronous DeGroot Dynamics",
+        "trigger": "Plausible dominating general theorem giving variance of asynchronous consensus for any stochastic transition matrix, including self-loops."
+      },
+      {
+        "assessment": "Its NodeModel selects a globally fixed α and k random neighbors, and concentration claim is for regular graphs. It does not cover the degree-dependent self weights of the present full-neighbor star.",
+        "evidence": [
+          "Definition 2.1: fixed alpha and integer k, independent of degree; Theorem 2.2 variance concentration in regular graphs."
+        ],
+        "identifier_or_url": "https://kclpure.kcl.ac.uk/ws/files/221592322/Distributed_Averaging_in_Opinion_Dynamics_2_.pdf",
+        "material_read": "Accepted manuscript pp. 2–4, 6–10, including Definition 2.1, Theorem 2.2 and variance discussion; visually inspected pages 2,3,7.",
+        "method": "Full manuscript opened; targeted text inspection and direct page-image reading.",
+        "title": "Distributed Averaging in Opinion Dynamics",
+        "trigger": "Studies limiting consensus variance in unilateral random-updating networks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5bdf97b-ae0c-46b5-bd7c-9b5f29726371",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact limiting consensus uncertainty is motivated by the published focus on convergence but absence of a variance law for an irregular social network. Stars are the natural extreme heterogeneous hub-and-spoke graph. The result identifies a nonzero 1/18 large-population variance with one disagreeing hub, distinguishing eventual agreement from reliable aggregation. The two-term covariance decomposes individual deviations and collective imbalance for all initial configurations, providing a rigorous nonconcentration mechanism rather than a narrow arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
