@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact two-circle six-point DFT forces the k=0 polynomial to have roots at two distinct positive radii squared, the k=1 quadratic to factor into those roots, the k=2 linear coefficient to vanish, and the k=3 Nyquist phase to vanish exactly under nonzero sine. This yields all four real kernel parameters. For nonzero neighbor coefficient the Hermitian kernel is irreducible tridiagonal, so nullity at most one; for zero neighbor coefficient it is diagonal with at least three nonzero entries since a binomial cannot have two distinct positive roots. Thus every nonzero kernel matrix has rank at least three, excluding differences of rank-one signal matrices. Explicit inequivalent polynomial pairs settle both converse obstructions. The packaged checker gave VERIFY_OK 1430 comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang (arXiv:2607.27719), initial 2026-07-30 abstract, proves a general eleven-measurement lower bound and cites a separate eleven-vector construction.",
+        "Pohl–Li–Boche, Theorem 7, uses 2N+1 and 2N-1 nodes on distinct circles (7+5 for cubic); Section IV was read.",
+        "A contemporaneous discussion of Bodmann–Hammen 2013 identifies their construction as two 2N−1-node circles intersecting in two nodes, not two concentric six-node orbits."
+      ],
+      "reasoning": "Global existence of eleven phase-retrieving vectors, generic 4d-4 existence, or a different 7+5 interpolation design does not imply that every nondegenerate pair of concentric regular hexagons phase-retrieves, or that precisely the two stated obstructions characterize this family.",
+      "searches": [
+        "Phase Retrieval in C4 Requires Exactly Eleven Measurements 2026 arxiv authors",
+        "Pohl Li Boche polynomial phase retrieval 4N-4 concentric circle sampling 2017",
+        "Bodmann Hammen 2013 measurement circle intersecting two circles phase retrieval 4d-4 construction sample points"
+      ]
+    },
+    "checked_sources": [
+      "Pohl–Li–Boche (2017), Section IV and Theorem 7 (primary full text)",
+      "Huang (2026), arXiv:2607.27719 (primary abstract and date)",
+      "Bodmann–Hammen (2013), arXiv:1302.5487 (primary abstract, contemporaneous detailed exposition)",
+      "Philipp (2014), arXiv:1403.4769 (primary abstract)",
+      "Earlier balanced four-plus-four quadratic polynomial classification (compared by claim)",
+      "Semantic mathematics-record results for cubic-phase retrieval and Hermitian lifting aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pohl–Li–Boche Theorem 7 proves a 7+5 sufficient placement, no if-and-only-if angular parameter for 6+6.",
+        "Bodmann–Hammen uses intersecting circle geometry with point overlap.",
+        "Huang’s eleven-sample lower bound gives no sufficient radius-angle condition.",
+        "The prior quadratic 4+4 claim has smaller coefficient dimension, so it does not imply the 6+6 cubic rank analysis."
+      ],
+      "reasoning": "Neither stronger arbitrary-vector sample-count result nor older analytic-polynomial constructions imply this exact sharp concentric-hexagon criterion. The new proof establishes a genuinely different irreducible-tridiagonal-rank mechanism, but historical equivalences not represented in searched sources remain possible.",
+      "searches": [
+        "balanced twelve evaluations cubic polynomial phase retrieval two concentric regular hexagons arbitrary radius angle staggering",
+        "Phase retrieval from 4N-4 measurements Pohl Li Boche 2017",
+        "balanced radial two circle intensity sampling analytic cubic polynomials phase retrieval 12 points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 12 labeled intensities are a real-linear Hermitian measurement map; injectivity of the phase-quotient is equivalent to exclusion of nonzero Hermitian rank-at-most-two kernel elements.",
+        "The 2017 Pohl–Li–Boche theorem constructs 7+5 cubic sampling, not 6+6; its Theorem 7 and proof use outer–inner factorization."
+      ],
+      "reasoning": "The theorem is compared with its Hermitian lifting, finite Vandermonde interpolation, and two-circle phase-retrieval formulations. The exact four-real-parameter kernel and sharp sin(3 relative angle) criterion were not asserted by the inspected general polynomial construction. Similar lifting vocabulary alone does not imply coverage.",
+      "searches": [
+        "balanced twelve evaluations cubic polynomial phase retrieval two concentric regular hexagons arbitrary radius angle staggering",
+        "two circle polynomial phaseless reconstruction tridiagonal Hermitian matrix 6 points per circle",
+        "two circles equal angular samples 6 and 6 polynomial degree three phase retrieval rank two Hermitian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic mathematics-record search returned general cyclic hexagon geometry, Fourier moment theorems, and cyclic Gabor rank results; no identified entry stated an exact two-hexagon cubic phase-retrieval classification.",
+        "One previous eight-measurement result addresses quadratic polynomials and two regular four-point circles, not cubic polynomials with six points per ring."
+      ],
+      "reasoning": "This is a continuous four-parameter geometric family rather than a finite numerical table. The closest observed numerical/design claims are lower-degree or different point sets. Absence of a matching indexed result alone cannot prove priority.",
+      "searches": [
+        "balanced twelve evaluations cubic polynomial phase retrieval two concentric regular hexagons arbitrary radius angle staggering",
+        "cubic polynomial complex phase retrieval six points each two concentric circles twelve phaseless samples tridiagonal kernel",
+        "4 complex coefficient Vandermonde intensity measurement two hexagonal rings Hermitian rank two kernel criterion"
+      ]
+    },
+    "rationale": "A bounded search of published mathematical-record entries, the accessible previous quadratic design, and related source literature found no prior statement whose hypotheses imply the complete two-hexagon cubic criterion. Full text of Pohl–Li–Boche Theorem 7 confirms a different 7+5 design. Broader 11-sample existence and 4d-4 constructions do not imply arbitrary radius-angle hexagon injectivity. Uninspected earlier papers and unindexed equivalent arguments remain explicit priority risks.",
+    "residual_risks": [
+      "Older equivalent six-plus-six designs may be unindexed or hidden within a different polynomial interpolation theorem.",
+      "Full text of Bodmann–Hammen (2013), Huang (2026), and Philipp (2014) was not read; the precise comparison with their uninspected sections is limited.",
+      "Search absence does not certify historical novelty; results are from a bounded literature comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: 7 samples on one circle plus 5 on the other for cubic; no statement of the balanced six-plus-six two-regular-hexagon classification or its angular exceptions.",
+        "evidence": "Theorem 7 sets 2N+1 and 2N-1 samples for degree N, Section IV C; N=3 gives 7+5.",
+        "identifier_or_url": "doi:10.1109/SAMPTA.2017.8024411 | https://www.researchgate.net/publication/319475708_Phase_retrieval_in_spaces_of_analytic_functions_on_the_unit_disk",
+        "material_read": "Full article section IV (finite-dimensional theorem, Lemmas 4-6, Theorem 7, proof, and equations for inner–outer interpolation) in accessible HTML transcription.",
+        "method": "Full-text section-by-section theorem and parameter comparison.",
+        "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+        "trigger": "Closest known analytic-polynomial two-circle construction with twelve cubic intensity measurements."
+      },
+      {
+        "assessment": "NOT_COVERING the structure-specific sufficient and necessary hexagon criterion; establishes a different universal cardinality threshold.",
+        "evidence": "2026-07-30 abstract states general minimum exactly 11, obtained by excluding 10-vector phase retrieval.",
+        "identifier_or_url": "arxiv:2607.27719 | https://arxiv.org/abs/2607.27719",
+        "material_read": "ArXiv abstract and first-public timestamp, corroborated by independent scholarly metadata; arXiv full-text retrieval failed.",
+        "method": "Primary abstract and independent metadata comparison.",
+        "title": "Phase Retrieval in C^4 Requires Exactly Eleven Measurements",
+        "trigger": "Recent sharp universal sample-count theorem for four complex coefficients, used to motivate structured designs."
+      },
+      {
+        "assessment": "No identified implication of a complete concentric-hexagon classification. Full-primary-text limitation retains a historical-priority risk.",
+        "evidence": "Contemporaneous description: 2d-1 evenly spaced nodes on each of two circles intersecting in two nodes; not two disjoint concentric orbits.",
+        "identifier_or_url": "arxiv:1302.5487 | https://arxiv.org/abs/1302.5487",
+        "material_read": "Primary arXiv abstract; contemporaneous technical exposition by D. Mixon explaining its two intersecting circles and duplicate nodes; full primary proof not retrieved.",
+        "method": "Primary abstract plus author-community technical commentary comparing node geometry.",
+        "title": "Stable phase retrieval with low-redundancy frames",
+        "trigger": "Possible older 4d-4 polynomial evaluation construction that might dominate a 12-point example."
+      },
+      {
+        "assessment": "Studies intensity measurements of polynomial and its derivative, not just two angular evaluation hexagons.",
+        "evidence": "Abstract explicitly describes phaseless Fourier measurements of polynomial and derivative.",
+        "identifier_or_url": "arxiv:1403.4769 | https://arxiv.org/abs/1403.4769",
+        "material_read": "Primary abstract; full text not retrieved.",
+        "method": "Comparison of observable model and sampling vector class.",
+        "title": "Phase Retrieval from 4N-4 Measurements",
+        "trigger": "Potential universal twelve-measurement algebraic construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc510109-7745-489e-bd4f-09ea587693cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Balanced two-ring samples are a natural practical measurement design in complex polynomial phase retrieval, while previous sharp-size constructions use asymmetric 7+5 or intersecting rings. The theorem classifies EVERY choice of positive radii and rotation angles and all cubic coefficient vectors, gives two explicit independent geometric obstructions, and exhibits the exact four-dimensional lifted nullspace with a nonstandard tridiagonal rank rigidity proof. This is a motivated structural classification, not a numerical recheck or unmotivated parameter slice.",
+    "status": "PASS"
+  }
+}
