@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The direct payoff-potential identity yields the Gibbs equilibrium. Conditioning on the core gives the exact four-term partition function; its cosh representation proves all integer optimality cases. The paw pinning sums, two decisive sign factorizations and the degree-six threshold polynomial were reconstructed symbolically. Descartes' rule and explicit interval sign checks certify the single positive threshold above one. The packaged verifier reconstructs the statistical-mechanics partition sums by exact finite-state enumeration, without treating enumeration as a proof of all real parameter values.
+
+**Originality — PASS, with residual risk.** The primary 2026 study by Wang, Akyol and Vasconcelos treats network coordination and rationality-dependent design using degree statistics and graph bounds; its inspected results do not give a conditional-pinning exact allocation center or classify the paw's switch between balanced and imbalanced degrees. Relevant published statistical-mechanics comparison and majorization methods were considered: the cosh minimization itself is standard, but those generic facts do not give the evaluated pinned coefficients, phase threshold and sharper graph-design conclusion without further argument. Specialized earlier Ising graph-rearrangement literature may contain an equivalent instance; external historical-priority verification is still advisable.
+
+**Mathematical value — PASS.** This proves a complete design frontier on a motivated constrained family, shows exact temperature neutrality at equal risk, and exhibits a sharp reversal of the low-rationality degree-balance design heuristic. Its value lies in the structurally explained change of topology, not the small numerical threshold alone. Generality is limited to fixed-core, fixed-budget leaf relocation under finite homogeneous log-linear rationality.
+
+Self-review: passed. Independent audit: not yet performed.
