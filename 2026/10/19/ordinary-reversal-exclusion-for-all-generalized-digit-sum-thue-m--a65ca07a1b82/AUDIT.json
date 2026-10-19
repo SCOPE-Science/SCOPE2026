@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes exact block alignment, at most one boundary among the specified gaps, a difference-sequence obstruction for base >=3, and an exhaustive parity-type comparison for base 2 using the impossibility of a constant three-factor. Every n>=4 is covered by its four-subfactor. Every n=3 reversal pair is shown equal. The finite exact parameter checker ran VERIFY_OK and is not substituted for the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche and Shallit (2000), Theorem 8 treats arbitrarily long ordinary palindromes, and its proof excludes sufficiently long palindromes for m>=3; it does not identify intersections of factor sets with reversals of distinct factors.",
+        "Allouche et al. (2025), Theorem 59 treats Golay-Shapiro; Question 62 leaves generalized Thue-Morse moduli >4 open.",
+        "Starosta (2011), Theorem 6 proves dihedral richness, not ordinary reflection complexity."
+      ],
+      "reasoning": "A theorem about no palindromes is only a special case of the present no-reversed-factor property; closure under twisted antimorphisms does not imply ordinary reversal exclusion. The explicit later question is directly narrower than this all-base answer. No inspected primary source supplies dominating all-base coverage.",
+      "searches": [
+        "\"Sums of Digits, Overlaps, and Palindromes\" Allouche Shallit 2000",
+        "\"generalized Thue-Morse\" reversal-free factor length 4 all b m",
+        "\"reflection complexity\" \"generalized Thue Morse\" m>4 conjecture"
+      ]
+    },
+    "checked_sources": [
+      "Allouche and Shallit (2000), DMTCS 4, 1–10, DOI 10.46298/dmtcs.282",
+      "Starosta (2011), arXiv:1104.2476, Proposition 2 and Theorem 6",
+      "Rampersad and Shallit (2003), arXiv:math/0311121, Theorems 5–8",
+      "Allouche et al. (2025), arXiv:2406.09302v4, Question 62 and Propositions 57–58"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 Question 62 explicitly states t_{2,3} reflection=factor identity and poses generalization; this proves it uniformly for all b>=2, m>=3.",
+        "2000 Theorem 8 classifies existence of arbitrarily long palindromes, weaker than excluding distinct reverse pairs.",
+        "2011 Proposition 2 establishes twisted dihedral symmetry; no statement of ordinary reversal-free window length four."
+      ],
+      "reasoning": "The present theorem implies the given t_{2,3} identity and extends the suggested higher-modulus question, while the cited palindrome and twisted-symmetry theorems do not imply the new ordinary reverse-factor exclusion. The implication directions are strict because a non-palindromic factor and its reversal could both occur without any palindrome.",
+      "searches": [
+        "arxiv:2406.09302 Question 62 generalized Thue Morse modulus three four",
+        "arxiv:1104.2476 generalized palindromic richness dihedral",
+        "Allouche Shallit 2000 sum digits palindrome theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche et al. (arXiv:2406.09302v4), Question 62, identifies equality for base two, modulus three and suggests higher moduli without theorem; page 31.",
+        "Starosta (arXiv:1104.2476), Proposition 2 defines twisted antimorphisms k -> x-k and their language closure; these are not ordinary reversal."
+      ],
+      "reasoning": "Equality of reflection and factor complexity at all lengths at least three follows from exclusion of distinct reflected length-three pairs and every reflected length-four factor. A rotated/complemented or twisted reversal statement is not equivalent to ordinary reversal without a matching zero alphabet shift.",
+      "searches": [
+        "\"generalized Thue Morse\" \"reflection complexity\" \"b\" \"m\"",
+        "\"generalized Thue Morse\" \"reversed factor\" \"4\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The all-parameter result concerns infinitely many bases and moduli; no matching tabulated all-base reflection-identity spectrum was located in the inspected material.",
+        "Exact four-letter window exclusion is established symbolically, and the finite checker verifies selected parameter pairs; it is not a recomputation of a known exact table."
+      ],
+      "reasoning": "The mathematical assertion is uniform for unbounded b,m,n, hence no finite enumeration or finite sequence alone entails it. Available numerical series for selected moduli do not dominate it.",
+      "searches": [
+        "\"generalized Thue Morse\" \"reversed factor\" \"4\"",
+        "\"Sums of digits, overlaps, and palindromes\" pdf"
+      ]
+    },
+    "rationale": "2025 Allouche et al. explicitly leave the generalized Thue-Morse reflection identity suggested beyond modulus three (Question 62). The 2000 same-family source concerns palindromes rather than distinct reflected factors; the 2011 same-family source establishes nonidentity twisted dihedral antimorphisms and factor complexity. Indexed mathematical research records and targeted primary searches located no dominating ordinary reversal threshold; unindexed or inaccessible equivalents remain a recorded risk.",
+    "residual_risks": [
+      "A possibly unindexed prior identity for ordinary reflections in generalized digit-sum words could subsume the statement.",
+      "The archived PDF text for the 2000 paper contains garbled equation glyphs in places; the readable theorem statements and proof and its palindrome focus were compared, not every original formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves absence of long ordinary palindromes for m>=3; does not establish no reversed pairs of distinct factors.",
+        "evidence": [
+          "Theorem 8 of DMTCS 4 (2000), pp.8–9 concerns arbitrarily long palindromes iff m<=2."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/282",
+        "material_read": "Abstract, definitions, Theorem 8, proof of palindrome criterion (available PDF text, portions with garbled formula extraction).",
+        "method": "Publisher landing page plus full-PDF text inspection and proof comparison.",
+        "title": "Sums of Digits, Overlaps, and Palindromes",
+        "trigger": "Exactly the same digit-sum words; possible prior stronger palindrome/reversal bound."
+      },
+      {
+        "assessment": "Ordinary reversal is not a member of the specified twisted dihedral anti-automorphisms for general m; no ordinary reverse-free threshold proved.",
+        "evidence": [
+          "Proposition 2 language closure under antimorphisms Psi_x(k)=x-k, Theorem 6 D_m-richness."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1104.2476",
+        "material_read": "Full mathematical source, including section 3 Proposition 2, sections 4–5 with factor and palindrome properties; pages 1–8.",
+        "method": "Direct full-text PDF inspection and first-page visual examination.",
+        "title": "Generalized Thue-Morse words and palindromic richness",
+        "trigger": "Same parametrized b,m family and ordinary factor complexity; plausible stronger dihedral symmetry theorem."
+      },
+      {
+        "assessment": "Constructs and classifies certain reversal-avoiding binary/other words, not digit-sum generalized Thue-Morse all-parameter property.",
+        "evidence": [
+          "Theorems 6 and 8 explicitly build morphic reversal-avoiding words."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0311121",
+        "material_read": "Entire 6-page article, particularly Theorems 5–8 and construction.",
+        "method": "Full-text PDF inspection and visual page view.",
+        "title": "Words avoiding reversed subwords",
+        "trigger": "Potential prior general reversal-avoidance theorem."
+      },
+      {
+        "assessment": "Question 62 gives t_{2,3} identity and suggests larger moduli; no general b,m theorem in that inspected paper.",
+        "evidence": [
+          "Question 62, p.31 explicitly says equality for t_3 and conjectural similarity at moduli >4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
+        "material_read": "Definitions, sections on automatic words (pp.24–31), especially Question 62 p.31, relevant reflection-free Propositions 57–58; references.",
+        "method": "Full-text arXiv PDF inspection.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Exactly the invariant, and the paper explicitly asks for generalized Thue-Morse extension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a65ca07a-1b82-4d15-9811-137c4114012c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the explicit generalization suggested by the direct 2025 reflection-complexity source for every base and every modulus >=3, with a sharp universal cutoff and explanatory structural mechanism, including periodic and aperiodic generalized Thue-Morse words. The result is an infinite natural structural classification rather than a routine isolated finite lookup.",
+    "status": "PASS"
+  }
+}
