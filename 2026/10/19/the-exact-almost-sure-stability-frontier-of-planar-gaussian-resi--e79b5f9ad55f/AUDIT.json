@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The iid-increment construction follows from exact conditional rotational invariance of N(0,I_2), plus almost-sure invertibility. Polar integration gives an exact logarithmic expectation; a monotone derivative ratio proves unique minimizer and one positive zero. Signs are bracketed analytically and by explicit monotone integral bounds. Gaussian fourth moments prove the contrasting sharp second-moment threshold, and the centered iid LIL establishes critical oscillation. Actual included check.py reproduces integrals, roots, and trajectories; none of these finite checks is used to claim an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chayti–Mirrokni–Jaggi, arXiv:2610.13871v1, Sec. 2 Eq. (7)-(9) and Appendix I Eq. (50): exact Gaussian moment law; no pathwise stability theorem in these inspected sections.",
+        "Sayed–Nascimento (2003), Sections 3.8–3.9: pathwise and mean-square rates separated, treated explicitly for scalar tap, with broader multidimensional learning context.",
+        "Altschuler–Parrilo, arXiv:1905.07531, abstract: ergodic formula for matrices that themselves have rank one, in contrast with the present almost surely rank-two update matrices."
+      ],
+      "reasoning": "General random matrix product results may imply an integral formula for rotationally invariant factors, but inspected statements do not fix the two-coordinate threshold and step optimum. The source theorem is about expected squared contraction rather than pathwise exponent. Rank-one-factor product formula does not directly apply to full-rank identity-minus-rank-one updates; only its abstract was accessible in this comparison and it is not declared definitively noncovering beyond the stated factor-rank mismatch.",
+      "searches": [
+        "Partially Informed Stochastic Optimization via Zeroth-Order Residual Tracking Chayti Mirrokni Jaggi arxiv 2610.13871 Lyapunov almost sure Gaussian residual momentum",
+        "exact Lyapunov exponent Gaussian least mean squares isotropic regression any dimension rank one",
+        "\"Gaussian\" \"rank-one\" \"almost sure\" \"step size\" optimization",
+        "\"isotropic\" \"Gaussian\" \"almost-sure\" \"LMS\" stepsize"
+      ]
+    },
+    "checked_sources": [
+      "Chayti–Mirrokni–Jaggi, arXiv:2610.13871v1, Sections 2 and Appendix I",
+      "Sayed–Nascimento (2003), PDF Sections 3.2, 3.8–3.9 and Figure 3.7",
+      "Altschuler–Parrilo, arXiv:1905.07531, abstract and its rank-one factor hypothesis (limited examination)",
+      "Related published mathematical results on KGSM, OSGM and two-row Kaczmarz, compared by scientific implications rather than shared terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.13871v1 Eq. (7)-(9), Appendix I: E||e_k||^2 factor 1-2b+4b^2 is a prior result and by itself cannot determine E log||e_{k+1}||/||e_k|| exactly.",
+        "Sayed–Nascimento Eq. (3.27) and Figure 3.7: generic scalar LMS typical-vs-moment distinction does not imply the angle/radius special-function exponent for Gaussian 2-vectors.",
+        "The published mathematical result \"Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM\" is instead about scalar random-curvature stability."
+      ],
+      "reasoning": "The new claim is not the preexisting recurrence, fourth moment or qualitative possibility of a stability gap. The exact d=2 angular-radial reduction, unique optimum and the numerical endpoint are not logical corollaries of the inspected prior second-moment or single-tap formula without a new angular integration and global derivative analysis.",
+      "searches": [
+        "Partially Informed Stochastic Optimization via Zeroth-Order Residual Tracking Chayti Mirrokni Jaggi arxiv 2610.13871 Lyapunov almost sure Gaussian residual momentum",
+        "zero-noise two-dimensional Gaussian rank-one update almost sure critical beta 0.937087371920279 and optimal beta 0.32440851768778",
+        "Almost-sure Lyapunov exponent of 2-dimensional Gaussian rank-one sketch iteration e_{k+1}=(I-beta u u^T)e_k; exact exponential integral, critical beta 0.937087; mean-square threshold 1/2",
+        "Random Gaussian rank-one multiplicative contractions stochastic gradient descent 2D exact almost-sure stability threshold versus mean-square Gaussian directions",
+        "Randomized Kaczmarz Gaussian overrelaxation two-dimensional almost sure norm contraction while mean square grows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published finding \"Exact mean-square stability frontier and a signed-mean blind spot in KGSM\" analyzes a different two-coordinate system and compares signed-mean with second-moment stability.",
+        "Sayed–Nascimento (2003), pp. 16–18, Eq. (3.27): scalar single-tap LMS uses E log[(1-mu u^2)^2]<0, not the exact two-vector angular integral."
+      ],
+      "reasoning": "Scalar LMS logarithmic moment and dimension-two isotropic Gaussian rank-one vector updates have different samplewise multipliers: the latter integrates an independent random angle. Earlier qualitative pathwise-versus-mean-square separation is not new. No inspected equivalent gives the exact two-coordinate integral, its unique optimum, or its pathwise critical value.",
+      "searches": [
+        "Almost-sure Lyapunov exponent of 2-dimensional Gaussian rank-one sketch iteration e_{k+1}=(I-beta u u^T)e_k; exact exponential integral, critical beta 0.937087; mean-square threshold 1/2",
+        "Random Gaussian rank-one multiplicative contractions stochastic gradient descent 2D exact almost-sure stability threshold versus mean-square Gaussian directions",
+        "\"LMS\" \"Lyapunov exponent\" \"Gaussian\" \"two\" \"step size\" adaptive",
+        "\"least mean squares\" \"almost sure stability\" \"Gaussian\" \"two-dimensional\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding \"Exact mean-square stability frontier and a signed-mean blind spot in KGSM\" does not concern the Gaussian rank-one residual recursion considered here.",
+        "Targeted search returned no exact tables keyed by b_opt=0.3244085176877796 or b_as=0.9370873719202792; search nonreturn is not proof of absence."
+      ],
+      "reasoning": "No retrieved table or published claim lists the same integral or exact critical values. This is a best-knowledge database comparison and not a mathematical assertion of uniqueness in all literature.",
+      "searches": [
+        "zero-noise two-dimensional Gaussian rank-one update almost sure critical beta 0.937087371920279 and optimal beta 0.32440851768778",
+        "isotropic least mean squares rank one Gaussian log growth expected log max of 1-beta X and beta X exponential integral e1 Ei",
+        "two dimensional Gaussian least mean squares almost sure stability Lyapunov exponent learning rate exact",
+        "\"two-dimensional\" \"LMS\" \"Lyapunov exponent\" Gaussian"
+      ]
+    },
+    "rationale": "In the inspected full source arXiv:2610.13871v1, Eq. (7) is the preexisting recurrence and Eqs. (8)-(9) classify second moments, whereas an exact planar almost-sure Lyapunov exponent, unique pathwise optimum and critical boundary were not present in the inspected mathematical statements and appendices. Sayed–Nascimento (2003) already covers qualitative pathwise/moment separation for scalar LMS, which is excluded from novelty. No retrieved records stated the precise new 2D Gaussian constants and classification; residual risks of older general random-product results remain.",
+    "residual_risks": [
+      "Potential older LMS random-matrix-product results may specialize to the same planar integral or numerical constants without the vocabulary of the source model.",
+      "The full body of arXiv:1905.07531 was not examined; abstract-only comparison establishes only the mismatch of main rank-one-factor hypothesis.",
+      "Published literature may be incompletely indexed, and some closely related classical LMS work has not been examined in full. Independent bibliographic review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers update and mean-square stability, not explicit two-dimensional pathwise Lyapunov exponent, minimizer or pathwise boundary",
+        "evidence": [
+          "Source Section 2 Eq. (7): exact homogeneous recursion",
+          "Eqs. (8),(9): c_d=d+2 Gaussian moment law",
+          "Appendix I Eq. (50): beta=1-rho moment-based window"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13871v1",
+        "material_read": "Section 2 definitions, Algorithm 1, Lemma 1, Eqs. (7)-(9), Appendix I.1 and I.2, with inspection of the full online text structure",
+        "method": "Read the accessible full HTML sections and mathematical formulas, including the appendix restatement",
+        "title": "Partially Informed Stochastic Optimization via Zeroth-Order Residual Tracking",
+        "trigger": "Exact source of the noise-free Gaussian tracking recursion and source stability prescriptions"
+      },
+      {
+        "assessment": "Qualitative separation and scalar-tap log criterion established earlier. No identical 2D Gaussian angular/radial exponent or threshold identified in inspected material; conceptual phenomenon explicitly attributed",
+        "evidence": [
+          "Sayed–Nascimento Sec. 3.8 Eq. (3.27): E ln A scalar iid criterion",
+          "Sec. 3.9 and Fig. 3.7: paths may converge when their mean-square curve diverges"
+        ],
+        "identifier_or_url": "https://asl.epfl.ch/wp-content/uploads/publications/book_chapters/wiley_2003_b.pdf",
+        "material_read": "Full available PDF targeted relevant body Sections 3.2, 3.8 and 3.9, page-image checks of pages 16 and 17, and Figure 3.7 discussion",
+        "method": "Read parsed full-text passages and original PDF page screenshots, including Eq. (3.27)",
+        "title": "Energy Conservation and the Learning Ability of LMS Adaptive Filters",
+        "trigger": "Classical LMS literature can dominate claim about pathwise stable despite mean-square divergence"
+      },
+      {
+        "assessment": "Main result concerns products of matrices individually of rank one; current factors I_2-buu^T are rank two almost surely. Coverage elsewhere within this document was not excluded by abstract inspection.",
+        "evidence": [
+          "arXiv:1905.07531 abstract identifies rank-one factor assumption and general Lyapunov exponent design problem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.07531",
+        "material_read": "Accessible abstract and theorem description only; not the full document",
+        "method": "Inspected public abstract and factor-rank assumptions",
+        "title": "Lyapunov Exponent of Rank-One Matrices: Ergodic Formula and Inapproximability of the Optimal Distribution",
+        "trigger": "Potential broader general rank-one random-matrix Lyapunov formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e79b5f9a-d55f-493a-855a-e1d7358e8482",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 residual-tracking paper prescribes a step through the squared-error contraction polynomial. The new complete planar pathwise classification distinguishes its prediction for typical deterministic trajectories from that second-moment condition, quantifies a nontrivial 0.5 to 0.937 convergence window, proves a unique rate-optimal gain distinct from the source moment-optimal gain, and resolves critical behavior. This guides exact interpretation of stochastic sketch stability while expressly not replacing moment bounds for full noisy optimization.",
+    "status": "PASS"
+  }
+}
