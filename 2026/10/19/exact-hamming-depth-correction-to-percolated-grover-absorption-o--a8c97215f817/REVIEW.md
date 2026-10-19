@@ -1,0 +1,11 @@
+# Scientific review: Hamming-depth correction to percolated Grover absorption
+
+**Correctness — PASS.** The model and quantifiers are explicit: integer hypercube dimension at least three, sink at the zero vertex, full-support i.i.d. dynamical edge percolation, standard flip-flop Grover coin, and single-arc starts wholly off the sink. The published complete trapped-attractor theorem reduces eventual absorption to a cycle-space edge projection. The graph-theoretic proof derives the sink-deletion correction by Schur complement, symmetry, and the Boolean heat kernel. Critical scalar and multiplicity identities were checked analytically, and independently replayed sparse-Laplacian and finite-time channel checks agree. Finite numerical tests are not treated as an infinite proof.
+
+**Originality — PASS subject to independent review.** Mareš et al. 2018/2019 establish the methodology and analyze a single three-cube; Mareš et al. 2022 establish the general finite-graph trapped-state recipe. Ambainis et al. 2016 give a related but different electric-circuit method for unpercolated quantum-walk oscillations. Their conclusions do not provide the explicit arbitrary-dimension vertex-deleted cube resistance as a function of Hamming depth, nor the sharp fixed-depth asymptotic coefficient. Both general projector and 3D transport are credited as prior. A hidden equivalence to a known graph-resistance identity remains a priority risk.
+
+**Scientific value — PASS.** The binomial closed form answers a natural source-versus-sink placement problem left quantitative by the general trapping framework; the exact dimension/depth dependence is interpretable as radial shielding of the *additional* sink-deletion effect, and provides a benchmark across network sizes. Its value is not claimed to follow merely from computing a matrix or from implementation reproducibility.
+
+**Limitations.** No uniform estimate is established when initial Hamming depth grows with dimension, and no finite-time absorption-rate bound, alternative coin result, or static-percolation conclusion is claimed. Numerical finite-dimensional agreement is independent corroboration, not exhaustive proof. Further expert inspection of broad effective-resistance literature is warranted for priority.
+
+Self-review: passed. Independent audit: not yet performed.
