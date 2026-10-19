@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact Laplace transform follows from a well-posed regenerative renewal equation; stationary age and OU conditional variance determine the limit. The least-damped nonreal poles are noncancellable and dominate precisely for shapes at least four or shape three below r=4kappa. The cubic pole is positive and dominates at/above equality. Shapes one and two have only real poles. A standalone independent symbolic renewal/matrix checker passed 730 assertions; finite checks are not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eule and Metzger (2015), arxiv:1510.07876, develop the more general arbitrary-reset-clock propagator with numerical or analytic temporal moments for advection and free diffusion.",
+        "Bodrova and Serdyukov (2023), arxiv:2310.14357, section III explicitly restrict reset durations to an exponential distribution in the studied generalized OU model."
+      ],
+      "reasoning": "General renewal theory includes the present stochastic model as a specialization, so claims of novelty for the renewal equation or stationary-moment integral are explicitly excluded. The proposed incremental statement needs a noncancellation argument at complex roots and an all-parameter pole comparison not reported in inspected sources. This is a live implicit-coverage risk, not a proof of uniqueness.",
+      "searches": [
+        "\"oscillations\" \"Erlang\" \"resetting\" variance stochastic",
+        "two stage refractory stochastic resetting spectral damped oscillations relaxation stationary",
+        "Erlang shape three non-Poisson renewal resetting Ornstein Uhlenbeck variance relaxation infinitely many oscillatory crossings stationary variance threshold reset rate four trap stiffness",
+        "arxiv:1510.07876",
+        "arxiv:2310.14357"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.07876 (HTML v1 full main scientific text)",
+      "arxiv:2301.12304 (HTML v1 full scientific model and result sections)",
+      "arxiv:2201.01829 (HTML v3 full model and results sections)",
+      "arxiv:2310.14357 (HTML v3 model and resetting sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Trajanovski et al. (2023) OU+Poisson corresponds to Erlang shape one; their explicit renewal mechanism has no nonreal stage roots.",
+        "Radice (2022) Gamma renewal has free Brownian excursions and a finite-speed return stage, not an OU decay pole competing against reset roots.",
+        "Eule and Metzger (2015) Eq. (2) is a general renewal propagator, from which the starting renewal equation can be derived but the final sharp crossing classification is not separately provided.",
+        "Bodrova and Serdyukov (2023) investigate an exponential reset clock, hence no renewal complex-conjugate root pair."
+      ],
+      "reasoning": "The present claim is not novelty for reset OU stationary variance or for Gamma resetting separately. A general renewal representation contains the building blocks but does not by itself state or settle the dominance, noncancellation, and exact triple-pole boundary at r=4kappa. No inspected broader theorem decisively implies this complete sign-change phase diagram without the additional analysis supplied here.",
+      "searches": [
+        "arxiv:2301.12304",
+        "arxiv:2201.01829",
+        "arxiv:1510.07876",
+        "arxiv:2310.14357",
+        "Stochastic resetting harmonic Brownian motion Erlang shape variance oscillatory crossings non-equilibrium stationary state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eule and Metzger, arxiv:1510.07876, full HTML eqs. (2)-(7), give a general renewal-time representation; the OU variance is one of its possible linear observables.",
+        "Trajanovski et al., arxiv:2301.12304, full text treats harmonic confinement plus resetting with a Poisson clock.",
+        "The candidate equivalent problem is convergence oscillation of the equilibrium backward recurrence age transform, not only OU variance."
+      ],
+      "reasoning": "The variance is an affine rescaling of the renewal-age Laplace observable. The inspected general propagator yields the transform but not the all-stage necessary-and-sufficient complex-pole dominance test; in the Poisson subcase m=1 the claimed infinite-crossing phase does not arise.",
+      "searches": [
+        "\"Erlang\" \"Ornstein Uhlenbeck\" \"renewal\" resetting",
+        "\"Erlang\" \"oscillatory\" \"resetting\" \"variance\"",
+        "\"non-exponential resetting\" \"Ornstein-Uhlenbeck\" \"relaxation\"",
+        "Erlang periodic gamma renewal resetting Ornstein Uhlenbeck harmonic trap damped oscillatory relaxation second moment phase type",
+        "Resetting an Ornstein Uhlenbeck process at gamma Erlang distributed renewal times, stationary variance and time-dependent oscillatory relaxation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for Erlang OU reset transient phase diagrams and results for gamma-distributed resetting returned no exact pole-threshold table.",
+        "published-finding corpus record 2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a treats an OU sensor autocorrelation trend reversal, not resetting or an Erlang stage clock."
+      ],
+      "reasoning": "There is no finite database value being claimed; this is a continuous-parameter qualitative spectral classification. Failed searches do not prove novelty.",
+      "searches": [
+        "\"Erlang\" \"Ornstein Uhlenbeck\" \"renewal\" resetting",
+        "Erlang shape three non-Poisson renewal resetting Ornstein Uhlenbeck variance relaxation infinitely many oscillatory crossings stationary variance threshold reset rate four trap stiffness",
+        "Resetting an Ornstein Uhlenbeck process at gamma Erlang distributed renewal times, stationary variance and time-dependent oscillatory relaxation"
+      ]
+    },
+    "rationale": "The candidate is an all-stage sharp spectral classification of repeated stationary-variance crossings; explicit prior arbitrary-renewal propagators and known Gamma/free-diffusion or Poisson/harmonic specializations do not report the necessary-and-sufficient integer-shape and r/(kappa) boundary with proved nonzero oscillatory residue. This is a same-model comparative originality judgment, not an independence or global uniqueness certification. Broader implicit coverage remains a meaningful risk.",
+    "residual_risks": [
+      "The most consequential risk is the general renewal propagator of Eule--Metzger (2015): an unpublished or overlooked spectral-specialization corollary may have already classified the same poles.",
+      "The checked literature set cannot establish mathematical uniqueness globally; an independent priority review is required.",
+      "The current most recently revised Bodrova--Serdyukov (2026) text was read for scope; its first public version is 2023, and later edits cannot replace earliest-publication evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_RENEWAL_IDENTITY_NOT_EXPLICIT_SHARP_ERLANG_OU_CROSSING_CLASSIFICATION",
+        "evidence": [
+          "Equations (2)-(7) represent arbitrary-renewal reset propagator.",
+          "Equations (8)-(9) and Fig. 2 treat Gamma-reset advection and free diffusion; no OU trap spectral pole classification is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1510.07876v1",
+        "material_read": "Full HTML: abstract, model, renewal master equation (2)-(7), gamma advection moment and free diffusion moment discussion (8)-(9), examples and concluding sections.",
+        "method": "Read and compared explicit assumptions and derived moments against the spectral claim.",
+        "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+        "trigger": "Strongest plausible encompassing arbitrary-renewal result including Gamma clocks"
+      },
+      {
+        "assessment": "COVERS_OU_WITH_EXPONENTIAL_RESETS_ONLY",
+        "evidence": [
+          "Section IV analyzes one-dimensional OU with a constant reset rate; no Erlang shape or all-stage ringing threshold is derived."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.12304v1",
+        "material_read": "Full HTML introduction, sections on one-dimensional OU and its resetting, variance and limiting stationary state, and resetting on comb geometry.",
+        "method": "Examined model resetting law, time-dependent second moments and conclusions.",
+        "title": "Ornstein-Uhlenbeck process and generalizations: particle's dynamics under comb constraints and stochastic resetting",
+        "trigger": "Exact same harmonic OU base model with resetting"
+      },
+      {
+        "assessment": "DIFFERENT_FREE_BROWNIAN_WITH_NONINSTANTANEOUS_RETURN",
+        "evidence": [
+          "Section 2 specifies free Brownian displacement and constant-velocity returns, not a harmonically confined OU excursion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.01829v3",
+        "material_read": "Full HTML model and sections on Gamma resetting, stochastic motion, deterministic returns, stationary limits, first passage.",
+        "method": "Compared the inter-reset generator and return mechanism with the harmonic instantaneous-reset model.",
+        "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+        "trigger": "Same Erlang/Gamma reset-duration family with Brownian particle"
+      },
+      {
+        "assessment": "EXPONENTIAL_RESET_ONLY",
+        "evidence": [
+          "Section III, Eq. (46), sets the duration density to r exp(-rt), ruling out m>1 Erlang stages."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.14357v3",
+        "material_read": "Full HTML introduction, section III resetting law, second moments, asymptotics and discussion.",
+        "method": "Inspected explicit reset-duration density and stationary variance conclusions.",
+        "title": "Non-equilibrium and first-passage properties of generalized Ornstein-Uhlenbeck processes under stochastic resetting",
+        "trigger": "Another same-name generalized OU work with variance relaxation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b694ae5b-a08a-477b-944c-36f696ce369b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural phase diagram for a physically motivated transient observable: renewal regularity causes exponentially damped alternating overshoots that cannot be inferred from the stationary variance alone. The threshold compares the reset clock spectral gap to OU confinement, and its shape-three boundary is nontrivial. Explicit leading damping, frequency and nonzero amplitude predict detectability limits and provide a testable signature of non-Poisson renewal memory.",
+    "status": "PASS"
+  }
+}
