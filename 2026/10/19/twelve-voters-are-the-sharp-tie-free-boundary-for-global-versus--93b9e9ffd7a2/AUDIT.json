@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For two available seats, the second greedy step optimizes the exact global PAV score among the two pairs containing the unique first-stage candidate. Therefore a strict global/greedy disagreement requires the global optimum to exclude the unique most-approved candidate. A nonnegative-integer parameterization gives \\(n=3a+3d_B+3d_C+4+2u+2v+3z+w\\), with \\(d_B,d_C\\ge1\\). The second greedy score difference is \\((v-u)/2\\), forcing \\(u\\ne v\\) and \\(n\\ge12\\). Equality yields exactly two normalized profiles, six after relabeling. Direct scores prove the explicit witness and universal ballots preserve all strict comparisons for every \\(n\\ge12\\). Standalone independent-rule enumeration of 50,387 anonymous profiles with one to twelve voters reports exactly six strict \\(n=12\\) witnesses and none smaller; the general theorem follows from algebra, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Appendix A gives the precise ten-voter nonmonotonicity profile, which has a greedy second-round tie.",
+        "Example 2.5 gives an unrelated 23-voter four-candidate global/greedy difference with strict marginal comparisons.",
+        "No searched published research search record establishes twelve-voter minimal strict disagreement or six classified minimal profiles."
+      ],
+      "reasoning": "The earlier ten-voter example strongly covers any mere claim of divergence; it is NOT claimed here. The 23-voter example proves some tie-free disagreement but has more candidates and voters. Neither implies the lower bound n>=12 plus the complete twelve-voter classification.",
+      "searches": [
+        "Lackner–Skowron 2023 book, Appendix A Proposition A.2 and Chapter 2 Example 2.5",
+        "Search query: \"global PAV versus greedy PAV three candidates two seats threshold 12\"",
+        "Search query: \"Thiele addition method versus optimum committee harmonic score unique popular first-place candidate excluded PAV\""
+      ]
+    },
+    "checked_sources": [
+      "Lackner and Skowron, Multi-Winner Voting with Approval Preferences, Chapter 2 Example 2.5 and Appendix A Proposition A.2",
+      "Janeczko and Faliszewski, arXiv:2305.01769v1, definitions and tie sections",
+      "Dong and Lederer, arXiv:2302.11890v1, sequential characterization text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known ten-voter witness: 2x{a},3x{a,c},3x{b,c},2x{b}; greedy after c has equal marginal scores for a,b, so fails strictness.",
+        "The book 23-voter witness uses four candidates, while the new minimal strict witness has three candidates and twelve voters.",
+        "Characterization/complexity theorems do not state the extremal arithmetic lower bound or exact profile orbit."
+      ],
+      "reasoning": "The final claim is not a restatement of an earlier example or a corollary of the cited general existence statements: it requires strict second-step non-tie, derives a sharp extra two-voter bound, and proves uniqueness of a boundary symmetry class. Hidden broader domination cannot be ruled out without further priority review.",
+      "searches": [
+        "Lackner–Skowron Appendix A Proposition A.2 (explicit ten-voter profile)",
+        "Lackner–Skowron Chapter 2 Example 2.5 (global versus sequential PAV)",
+        "Dong–Lederer arXiv:2302.11890v1 (rule characterizations)",
+        "Janeczko–Faliszewski arXiv:2305.01769v1 (tie complexity)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In a three-candidate two-seat election, global PAV/greedy PAV strict disagreement is equivalent to a uniquely top-approved candidate omitted from the uniquely top-scoring pair, plus a strict comparison of the two possible second choices.",
+        "Dong–Lederer establish general properties of sequential Thiele rules but no exact twelve-voter bound in examined sections."
+      ],
+      "reasoning": "Reduced the apparently different formulations to one complete set of integer inequalities. Known failure of committee monotonicity implies existence of some example, not the minimal tie-free profile or six-class exact enumeration.",
+      "searches": [
+        "Search query: \"greedy proportional approval voting global optimum omission highest approved candidate strict no ties minimum 12 10 voters\"",
+        "Search query: \"sequential Thiele method nonmonotonicity PAV winner of size one omitted from size two optimal\"",
+        "Dong–Lederer arXiv:2302.11890v1, committee monotonicity and sequential valuation sections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Janeczko–Faliszewski provide voting rule complexity and tie-frequency experiments, not exhaustive anonymous twelve-voter profiles.",
+        "The present exact integer-domain enumeration checks all 50,387 relevant anonymous profiles up to twelve voters; it was generated separately rather than copied from an existing table.",
+        "published research search returned unrelated electoral paradox and social-choice entries, rather than a table with the six strict PAV disagreement profiles."
+      ],
+      "reasoning": "No exact twelve-voter count table was identified; absence of a database hit alone is not treated as proof of originality. The analytical parameterization independently proves all six cases.",
+      "searches": [
+        "Search query: \"tie-free minimal disagreement between greedy PAV and optimal PAV exactly three candidates two seats twelve voters\"",
+        "Search query: \"minimal voter profile harmonic Thiele 3 candidates 2 winners 10 votes 12 votes\"",
+        "Janeczko–Faliszewski arXiv:2305.01769v1, Tables 1 and experimental tie-frequency results"
+      ]
+    },
+    "rationale": "The base ten-voter PAV committee-nonmonotonicity example and global/greedy divergence are explicitly prior art (Lackner–Skowron Appendix A Prop A.2 and Example 2.5). Unlike those examples, the final claim isolates the smallest absolutely tie-free disagreement and classifies every anonymous profile at that boundary. Searches of published research and comparison with prior claims did not reveal this twelve-voter six-profile statement. This is provisional best-knowledge originality; broader unexamined classifications remain a priority risk.",
+    "residual_risks": [
+      "The known ten-voter example must not be mistaken for an original counterexample; only the tie-free minimality and full strict classification are assessed.",
+      "An unexamined enumeration, general Thiele monotonicity theorem or computational database may already imply the exact twelve-voter cutoff and six profiles.",
+      "No independent priority or correctness audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OLDER_TEN_VOTER_EXAMPLE_BUT_NOT_EXACT_TWELVE_VOTER_STRICT_CLASSIFICATION",
+        "evidence": [
+          "Appendix A Proposition A.2 explicitly states 2x{a},3x{a,c},3x{b,c},2x{b} and shows one- versus two-seat PAV winners.",
+          "Chapter 2 Example 2.5 supplies a four-candidate, 23-voter PAV/seq-PAV comparison; no sharp three-candidate strict boundary given."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-031-09016-5",
+        "material_read": "Full-text Chapter 2 rule definitions and Example 2.5; Chapter 3 committee-monotonicity discussion; Appendix A Proposition A.2 including the exact ten-voter ballot profile.",
+        "method": "Read relevant sections in lawful publicly accessible full-book text, including Appendix A rather than relying on snippets or abstract.",
+        "title": "Multi-Winner Voting with Approval Preferences",
+        "trigger": "Closest possible direct coverage: the textbook contains PAV/seq-PAV examples and a ten-voter committee-monotonicity counterexample."
+      },
+      {
+        "assessment": "STUDIES_TIES_AND_COMPLEXITY_NOT_THIS_SHARP_FOUR_BALLOT_TYPE_BOUNDARY",
+        "evidence": [
+          "PAV uses harmonic satisfaction, greedy uses incremental PAV score; the paper studies computational uniqueness and frequency of ties.",
+          "No exact three-candidate twelve-voter minimal witness census in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.01769",
+        "material_read": "Open primary full-text definitions of both Thiele and greedy Thiele rules, uniqueness/tie detection sections and experimental tie-frequency results.",
+        "method": "Read primary open full text and inspected relevant theorem and experiment sections.",
+        "title": "Ties in Multiwinner Approval Voting",
+        "trigger": "Tie-independence of both global and greedy winners is central to the claimed boundary."
+      },
+      {
+        "assessment": "GENERAL_RULE_CHARACTERIZATIONS_NO_EXACT_BOUNDARY_OR_CENSUS",
+        "evidence": [
+          "Characterizes sequential PAV as a sequential Thiele rule and explains consistency/committee-monotonicity requirements.",
+          "Does not give the twelve-voter six-anonymous-profile first strict disagreement."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.11890v1",
+        "material_read": "Definitions and main characterizations of sequential valuation, sequential Thiele rules and consistent committee monotonicity; selected proof and appendix portions.",
+        "method": "Read primary arXiv open HTML text and compared theorem hypotheses/conclusions against minimum-electorate strict separation.",
+        "title": "Characterizations of Sequential Valuation Rules",
+        "trigger": "Potential dominating characterization or reduction of sequential PAV to known rules."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93b9e9ff-d7a2-4a2d-97a8-8ee62617bab9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A strictly tie-free comparison removes an important ambiguity identified in multiwinner-tie research. The three-candidate/two-seat domain is the smallest nontrivial committee choice; the first permissible number of voters is a natural finite invariant. Unlike a routine example, the finding gives an exact lower bound, a complete equality classification and an all-larger-electorate witness family. The normal-form identity explains the required extra two voters relative to the previously known tied ten-voter example. Applications include transparent test cases for comparing optimization with its greedy approximation.",
+    "status": "PASS"
+  }
+}
