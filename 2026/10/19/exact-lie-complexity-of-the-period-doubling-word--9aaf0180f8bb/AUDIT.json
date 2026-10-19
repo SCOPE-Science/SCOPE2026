@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The proof verifies p[2j]=0 and p[2j+1]=1-p[j], excludes 11 and 0000, forces all ones in any factor to share parity, excludes odd n>=5 by rotation parity and runs, and explicitly proves that delta induces a bijection between length-m and length-2m Lie classes for every m>=2. The three base values each equal two. The derived formula follows for every n>=1 by halving. Executed verify.py checks both word constructions, equality of factor sets between prefixes of lengths 8192 and 16384, full class counts for 1<=n<=200, and the class-bijection identity for all tested even n. Finite tests corroborate but do not establish the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bell–Shallit Theorem 1.4 proves the automaticity of Lie complexity for all automatic words, not the values for period doubling.",
+        "Cassaigne et al. Proposition 17 proves cyclic complexity at dyadic lengths, and Currie 2023 classifies avoidance/desubstitution.",
+        "Shuo Li 2022 generalizes Lie and extended-Lie bounds without this instance."
+      ],
+      "reasoning": "A general computability theorem does not state the desired automatic sequence. The earlier cyclic-complexity upper bound applies to a larger set of conjugacy classes at selected lengths only, so neither exact positive Lie counts nor absence at other lengths follows from the published statement.",
+      "searches": [
+        "\"Lie complexity of words\" Bell Shallit arxiv 2102.03821 period doubling specific automatic sequence",
+        "\"A note on the Lie complexity and beyond\" Shuo Li period doubling substitution",
+        "\"Lie complexity\" \"period-doubling\" word",
+        "arxiv:2102.03821",
+        "arxiv:2207.05859",
+        "arxiv:1402.5843"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2102.03821 (full PDF)",
+      "arxiv:2207.05859 (primary PDF)",
+      "arxiv:2206.00995 (primary PDF)",
+      "JIS:2023:23.8.2 (primary full PDF)",
+      "arxiv:1402.5843 (primary PDF)",
+      "published-finding corpus semantic records: 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69; 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For any word, Lie complexity is bounded above by cyclic complexity; Cassaigne et al. count two cyclic classes at dyadic lengths only.",
+        "Currie proves parity constraints and the period-doubling forbidden-pattern description, which support the ingredient for the new bijection.",
+        "Bell–Shallit automaticity does not specify where its automaton outputs two or zero.",
+        "Closest published published-finding corpus record on the same word, 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69, counts greedy attractor sites rather than conjugacy classes."
+      ],
+      "reasoning": "The statements concern differing quantifiers: “there exists a rotation that occurs” versus “all rotations occur.” Even knowing cyclic complexity two at dyadic lengths gives only an upper bound on the corresponding Lie count, not equality; it says nothing decisive at odd lengths or 3-times-dyadic lengths. The current proof adds a length-halving bijection and complete support classification, which are not corollaries of a cited stronger numerical statement.",
+      "searches": [
+        "arxiv:1402.5843 Proposition 17 Example 1",
+        "JIS:2023:23.8.2 Theorems 6-7 Lemma 10",
+        "arxiv:2102.03821 Theorem 1.4 Examples 7.1-7.6",
+        "period doubling \"conjugacy classes\" \"factors\" complexity",
+        "\"Lie complexity of words\" Bell Shallit arxiv 2102.03821 period doubling specific automatic sequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bell–Shallit arxiv:2102.03821 §2 defines full cyclic-orbit containment; Examples 7.1–7.6 treat different automatic words.",
+        "Currie JIS:2023:23.8.2 Remark 9/Lemma 10 gives same-parity/desubstitution of factors, not orbit containment.",
+        "published-finding corpus exact-query top match 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 studies dynamical components of a three-block lift."
+      ],
+      "reasoning": "Conjugacy orbit containment in the infinite period-doubling factor language is equivalent to the Lie complexity count by the precise Bell–Shallit definition. A parity-factorization lemma is necessary in the proof but does not state class bijectivity or the count. No relevant query returned the closed formula under a renamed invariant.",
+      "searches": [
+        "Lie complexity period-doubling word conjugacy classes factors exactly 2 powers of two 3 powers of two",
+        "\"Lie complexity of words\" Bell Shallit arxiv 2102.03821 period doubling specific automatic sequence",
+        "period doubling word Lie complexity formula conjugacy classes factors 2021",
+        "\"period doubling word\" \"cyclic complexity\" \"Lie\"",
+        "arxiv:2102.03821",
+        "JIS:2023:23.8.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bell–Shallit full examples table has Thue–Morse, Fibonacci, Tribonacci, Cantor and other words but not period doubling.",
+        "Cassaigne et al. have a dyadic table-equivalent cyclic-complexity statement, which is for a different predicate.",
+        "No closed period-doubling Lie sequence found in the queried published-finding corpus records."
+      ],
+      "reasoning": "The new support is the union of two geometric progressions and the value is constantly two there. Searched source examples, targeted period-doubling phrases, exact dyadic aliases and mathematical database records; no identical sequence table was identified. Absence of a hit is not used alone as a novelty certificate.",
+      "searches": [
+        "Lie complexity period-doubling word conjugacy classes factors exactly 2 powers of two 3 powers of two",
+        "\"Lie complexity of words\" Bell Shallit arxiv 2102.03821 period doubling specific automatic sequence",
+        "period doubling word Lie complexity formula conjugacy classes factors 2021",
+        "period-doubling Lie complexity exact 2^k 3*2^k",
+        "arxiv:2102.03821 Examples 7.1-7.6",
+        "arxiv:1402.5843 Example 1"
+      ]
+    },
+    "rationale": "The full-conjugacy invariant is defined by Bell and Shallit (2021), but their explicit examples omit period doubling. The original 2014 period-doubling cyclic-complexity result uses existence of one representative, and Currie (2023) supplies the parity/desubstitution prerequisite without the new full Lie-class bijection or all-length support formula. Direct published-source comparisons and published-finding corpus semantic searches found no theorem with the same conclusion. The possibility of unindexed equivalent work is retained as residual risk.",
+    "residual_risks": [
+      "A hidden lemma in another work on automatic sequences or Toeplitz factors might be equivalent to the length-halving Lie recurrence without being indexed by the search terms.",
+      "Currie’s desubstitution results and Cassaigne’s cyclic count are related enough that the specialization could have been observed informally; no such stated full classification was found.",
+      "Semantic search alone does not prove global uniqueness or publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general automaticity and examples for Thue-Morse, ternary Thue-Morse variant, Cantor, Fibonacci, Tribonacci, and a constructed word, but no period-doubling Lie formula.",
+        "evidence": "Theorem 1.4 at PDF pp. 2, 9-10; Examples 7.1-7.6 at PDF pp. 11-12.",
+        "identifier_or_url": "arxiv:2102.03821 | https://arxiv.org/pdf/2102.03821",
+        "material_read": "Full 13-page PDF text; especially definition (1), Theorem 1.4, and all Example 7.1-7.6 statements on pp. 10-12; visual inspection of p. 11.",
+        "method": "Read searchable PDF and visually inspected examples page.",
+        "title": "Lie complexity of words",
+        "trigger": "Defines exactly the claimed invariant and supplies automatic-word examples."
+      },
+      {
+        "assessment": "Proves general bounds and automaticity for variants, with no explicitly identified period-doubling class formula.",
+        "evidence": "Abstract and Theorems 1-4 at pp. 1-2, Rauzy graph §3, extended-Lie §4; no period-doubling text match.",
+        "identifier_or_url": "arxiv:2207.05859 | https://arxiv.org/pdf/2207.05859",
+        "material_read": "14-page primary PDF; abstract, introductory theorem list, Rauzy-graph and extended-Lie definitions; searchable full-text checked for period-doubling/doubling.",
+        "method": "Read PDF text including sections 1-4 and targeted full-document term searches; visual inspection of title/abstract page.",
+        "title": "A note on the Lie complexity and beyond",
+        "trigger": "A follow-up on Lie and extended Lie complexity could contain an equivalent special case."
+      },
+      {
+        "assessment": "Exact theorem applies to Sturmian words, not the period-doubling fixed point (which is not Sturmian).",
+        "evidence": "Abstract p. 1; §§2-3 and Sturmian characterization, pp. 2-5.",
+        "identifier_or_url": "arxiv:2206.00995 | https://arxiv.org/pdf/2206.00995",
+        "material_read": "Six-page primary PDF, abstract, introduction, and statement of the Sturmian exact-formula section; searchable full-text checked for period doubling.",
+        "method": "Read mathematical statement and comparison of Lie classes with Rauzy cycles.",
+        "title": "On the Lie complexity of Sturmian words",
+        "trigger": "Specialized exact Lie enumeration potentially dominating an automatic-word case."
+      },
+      {
+        "assessment": "The parity restriction and unique desubstitution are prior art and are expressly acknowledged. No full cyclic-conjugacy/Lie-complexity enumeration appears in the inspected material.",
+        "evidence": "Remark 9 and Lemma 10, PDF p. 4, especially same-parity positions of ones and factorization.",
+        "identifier_or_url": "JIS:2023:23.8.2 | https://cs.uwaterloo.ca/journals/JIS/VOL26/Currie/currie16.pdf",
+        "material_read": "32-page primary PDF; introduction, Theorems 6-7, Remark 9 and Lemma 10 on pp. 3-4, and full-document text queries for conjugate, cyclic, rotation, Lie complexity.",
+        "method": "Read PDF text, visual inspection of page 4, targeted full-document search.",
+        "title": "The Analog of Overlap-Freeness for the Period-Doubling Sequence",
+        "trigger": "Same infinite word, existing forbidden-factor and desubstitution analysis."
+      },
+      {
+        "assessment": "Proves cyclic complexity equals two at powers of two, counting any class with at least one factor representative; does not prove all rotations occur, nor support at 3 times powers of two or zeros elsewhere.",
+        "evidence": "Definition of cyclic complexity, PDF pp. 2-4; Proposition 17 and Example 1, PDF p. 13.",
+        "identifier_or_url": "arxiv:1402.5843 | https://arxiv.org/pdf/1402.5843",
+        "material_read": "17-page primary PDF; definitions §§1-2, §5.1 Proposition 17 and Example 1 (PDF p. 13).",
+        "method": "Read original definitions and relevant proof and example in PDF text.",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Earlier exact cyclic-conjugacy invariant for the same period-doubling word."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9aaf0180-f8bb-401c-b881-75f246b3c7d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an all-length explicit instance of the Lie complexity introduced in 2021 for a canonical aperiodic non-Sturmian automatic word. The proof uncovers an exact substitution-based conjugacy-class bijection, two geometric progressions supporting every nonzero count, and zero-density support. It gives a mathematically motivated classification beyond a table or routine parameter substitution, and distinguishes the stronger universal-rotation statistic from previously available cyclic complexity.",
+    "status": "PASS"
+  }
+}
