@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Directly sum the Landweber normal recursion: the error has mean G^K B^νw and covariance σ² B^(-1)(I-G^K)^2. Simultaneous diagonalization makes the source-ball supremum of the squared whitened bias exactly the stated largest squared spectral ratio, attained at a unit eigenvector times M. Strict monotonicity of noncentral χ² CDF in noncentrality (for positive thresholds) follows from a Poisson mixture of ordered central χ² laws, making its quantile both necessary and sufficient within the fixed ellipsoid family. For B_t=diag(1,t), ω=1/2, expansion of 1-(1-t/2)^K yields the three ν regimes and shows Euclidean-bias-over-minimum-variance inflation grows as t^(-1/2). Verified identities on multiple full-rank matrices using the included Python program (2,605 passed deterministic checks); computations are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Y. Baraud (2004), Confidence balls in Gaussian regression, has a Gaussian mean and confidence-ball objective, but the accessible abstract concerns unrestricted Euclidean mean estimation and does not specify Landweber source-condition filter spectra.",
+        "P. B. Stark (1992), Affine minimax confidence intervals for a bounded normal mean, concerns one-dimensional bounded-mean intervals with competing center choices, not the prescribed full-matrix iterate and covariance-shaped joint ellipsoid.",
+        "The source paper §3.6 focuses randomized approximate covariance and pixelwise intervals rather than the exact fixed-shape minimax radius."
+      ],
+      "reasoning": "General Gaussian confidence-set optimality can dominate a purported all-procedures minimax claim, but no such unrestricted claim is made. Our optimization is only over one-parameter Mahalanobis radii for a fixed center and shape; the ν-dependent blow-up result is specific to a degenerating Landweber normal spectrum. Older full text not accessed remains an equivalence risk, not evidence of non-coverage.",
+      "searches": [
+        "Web query: noncentral chi square exact minimax confidence ball Gaussian bounded mean ellipsoid radius",
+        "Web query: Confidence balls in Gaussian regression Baraud 2004 full work arXiv math/0406425",
+        "Web query: Affine minimax confidence intervals for a bounded normal mean Philip B. Stark",
+        "published-finding corpus semantic query: Gaussian spectral regularization source-ball uncertainty quantification exact confidence radius noncentral chi square"
+      ]
+    },
+    "checked_sources": [
+      "Abhishek and Holman (2026), arXiv:2610.00882v1, §§3.3–3.6, direct primary HTML reading.",
+      "Baraud (2004), arXiv:math/0406425, abstract and bibliographic record only.",
+      "Stark (1992), Statistics & Probability Letters 13, 39–44, publisher abstract only.",
+      "published-finding corpus published finding: Spectral calibration frontier for bagged martingale posterior ellipsoids (2026-10-04), indexed summary only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.6 of the motivating paper proves P(coverage)≥1−α with a central chi-square radius plus b_K^ub / sqrt(λ_min Γ_K), not an exact minimax radius. Its proof explicitly uses the triangle inequality.",
+        "The paper mentions ν=1/2 in its tomography experiment for Sobolev regularity, not as a sharp threshold in spectral confidence-radius boundedness.",
+        "The ν=1/2 boundary follows from the precise ratio (1−ωλ)^K λ^(ν+1/2)/[1−(1−ωλ)^K], whose small-λ exponent is ν−1/2."
+      ],
+      "reasoning": "Existing error covariance and Euclidean bias estimates entail a valid ellipsoid but do not mathematically imply sharp minimality of the stated radius or the transition and divergence comparison as claimed in print. Generic Gaussian/noncentral results supply the probability-theoretic step; the exact spectral source-ball geometry and sharp degeneration comparison are the assessed extension. Prior work with more general confidence sets is not claimed to be surpassed globally.",
+      "searches": [
+        "https://arxiv.org/html/2610.00882v1: Theorem 3.1, Lemma 3.4, Theorem 3.6, §3.6",
+        "https://arxiv.org/abs/math/0406425: Gaussian regression confidence balls",
+        "https://doi.org/10.1016/0167-7152(92)90234-V: affine minimax bounded normal mean",
+        "published-finding corpus semantic query: Abhishek Holman 2610.00882 Theorem 3.6 critical nu 1/2 sharp confidence ellipsoid degenerating singular spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper expresses the error as a shifted Gaussian and covers it by a central-χ²-plus-bias triangle inequality (Theorems 3.1 and 3.6). It does not state the noncentral class-infimum or sharp quantile.",
+        "Noncentral-χ² representation and stochastic monotonicity are classical; they imply the calibration after the explicit whitened Landweber source-ball spectral norm is derived.",
+        "The most similar retrieved published mathematical record, Spectral calibration frontier for bagged martingale posterior ellipsoids, considers covariance mismatch in a different statistical object, not a Landweber source-ball spectral degeneration."
+      ],
+      "reasoning": "The mathematical equivalent of the new source-ball coverage formula is the Gaussian norm test with an attainable bounded noncentral mean after a Landweber-specific covariance whitening. General noncentral-χ² statements provide a proof ingredient, but neither the Landweber bias-to-propagated-noise eigenvalue formula nor its ν=1/2 limiting phase follows without inserting and analyzing the filter. The source paper uses a different, only sufficient, triangle-inequality radius.",
+      "searches": [
+        "published-finding corpus semantic query: Landweber source smoothness one half threshold exact confidence Mahalanobis normal covariance noncentral chi squared regularization bias",
+        "published-finding corpus semantic query: whitened Landweber covariance spectral bias ellipsoid noncentrality minimum uniform coverage",
+        "Web query: \"Landweber\" \"noncentral chi\" \"confidence\" ellipsoid",
+        "https://arxiv.org/html/2610.00882v1 (§§3.3–3.5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus finding found was Spectral calibration frontier for bagged martingale posterior ellipsoids, 2026-10-04, which calibrates bMGP covariance mismatch, not singular Landweber filters.",
+        "The primary paper provides the conservative scalar inflation in Theorem 3.6 and no table or exact noncentral radius over its source ball."
+      ],
+      "reasoning": "Searches exposed no exact tabulation of the stated Landweber normalized-bias spectrum and half-order limit. Absence in a finite index is not a proof of originality; primary-source implication and different underlying mathematical objects are decisive within the accessible materials.",
+      "searches": [
+        "published-finding corpus semantic query: Abhishek Holman Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation bias ellipsoidal confidence region",
+        "published-finding corpus semantic query: Landweber source-condition Gaussian bias noncentral chi-square exact minimax confidence ellipsoid sharp radius",
+        "published-finding corpus semantic query: Abhishek Holman 2610.00882 Theorem 3.6 critical nu 1/2 sharp confidence ellipsoid degenerating singular spectrum",
+        "Web query: \"source condition\" \"noncentral chi-squared\" inverse problem confidence region"
+      ]
+    },
+    "rationale": "Abhishek and Holman, arXiv:2610.00882v1, §3.3–3.5, already establish the exact Gaussian covariance, source-ball Euclidean bias bound, and conservative central-chi-square inflated ellipsoid. These prior claims are retained as prerequisites. Their Theorem 3.6 does not compute the exact source-class worst coverage, noncentral quantile, or half-order singular-spectrum transition. The assessed extension is the explicit sharp covariance-normalized spectral bias, the unique smallest fixed-shape ellipsoid radius, and the ν=1/2 spectral threshold with divergent gap from normwise inflation. Generic noncentral chi-square theory is classical, as is statistical Gaussian-ball theory. Not all older full texts were accessible; equivalent general results remain a residual risk.",
+    "residual_risks": [
+      "A classical general Gaussian confidence-ball theorem might have a formulation implying the restricted sharp radius upon specializing to the Landweber filter; the Baraud and Stark full texts were not inspected.",
+      "The noncentral χ² and worst-shift probability steps are classical; novelty rests on the exact spectral source-ball calibration and ν=1/2 degeneration, not on probability distribution theory.",
+      "The result is not valid as stated for rank-deficient B, data-dependent K, approximate Γ_K, or step sizes that cause sign-changing Landweber modes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Existing sufficient conservative ellipsoid is explicitly recognized; no exact source-ball noncentral χ² calibration or singular-spectrum threshold located.",
+        "evidence": [
+          "Theorem 3.1, eqs (3.7)–(3.8): Gaussian error and covariance.",
+          "Lemma 3.4, eq (3.18): Euclidean bias upper bound.",
+          "Theorem 3.6, eq (3.19): triangle-inequality inflated central χ² ellipsoid.",
+          "§4 remarks use ν=1/2 for tomography source smoothness, not uncertainty calibration transition."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+        "material_read": "Primary HTML introduction, §§3.1–3.6 including full statements and relevant proofs of Theorem 3.1, Lemma 3.4, Theorem 3.6, practical rSVD pixelwise inference, and §4 note on ν=1/2.",
+        "method": "Direct full-text section inspection and textual searches for noncentral and ν=1/2.",
+        "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "trigger": "Identical Landweber iteration, source ball, Gaussian covariance and joint ellipsoid."
+      },
+      {
+        "assessment": "Gaussian regression balls are related statistical background; precise comparison of any full-text general theorem remains unresolved.",
+        "evidence": [
+          "Abstract: Euclidean confidence ball around an unknown Gaussian mean, with nonasymptotic properties and certain optimality criteria."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0406425",
+        "material_read": "Open-access bibliographic record and abstract; the full paper could not be read from the accessible arXiv HTML/PDF endpoints.",
+        "method": "Search, arXiv abstract page and open-access discovery.",
+        "title": "Confidence balls in Gaussian regression",
+        "trigger": "General finite-dimensional Gaussian confidence-ball theory potentially broader than fixed-form calibration."
+      },
+      {
+        "assessment": "Treats one-dimensional bounded normal mean and optimizing an affine interval, not a fixed multivariate Landweber covariance-shaped ellipsoid.",
+        "evidence": [
+          "Publisher abstract describes fixed-length confidence intervals centered on affine functions of a scalar Gaussian observation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-7152(92)90234-V",
+        "material_read": "Publisher abstract and bibliographic record; full article not read.",
+        "method": "Title/abstract/statement-level comparison.",
+        "title": "Affine minimax confidence intervals for a bounded normal mean",
+        "trigger": "Bounded-mean affine confidence calibration as a possible general special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ffa58554-360a-41d4-b22c-994030e8b6bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural source-smoothness exponent determines whether uncertainty regions normalized by the actual propagated covariance must diverge as a problem becomes ill-conditioned. The sharp threshold ν=1/2 and explicit extremizing source vector give an interpretable finite-iteration sensitivity frontier. Existing normwise inflation can be unboundedly larger, even if its Euclidean bias input is sharpened to the exact source-ball supremum. This matters for principled comparisons of uncertainty bounds under regularization; no large-scale computational savings or novel generic Gaussian theorem is claimed.",
+    "status": "PASS"
+  }
+}
