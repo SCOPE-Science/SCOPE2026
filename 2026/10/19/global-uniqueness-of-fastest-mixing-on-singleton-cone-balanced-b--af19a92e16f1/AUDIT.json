@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(m\\ge2\\), averaging reduces only the objective value to two weights. Exact invariant spectrum is [1,1-(2m+1)a,1-a-2mb,(1-a-mb) with multiplicity 2m-2]. For s=1-a and y=mb, max(|s-y|,|s-2y|)>=s/3, equality iff y=2s/3; hub row capacity a<=\\(1/(2m)\\) yields sharp mu>0. The proposed weights attain the bound since |1-(2m+1)a|=\\(1/(2m)\\)<=mu for \\(m\\ge2\\). For any optimal P, Q=mu I-P+J is PSD; averaging Q gives Q(P*) which has nullspace containing both peripheral zero-sum spaces. As the average consists of PSD forms, each original Q annihilates those spaces. This forces every hub-edge vector to be classwise constant, every cross-edge row and column equal, and all peripheral diagonals equal to mu, hence P is automorphism invariant and equal to P*. The proof covers all n=\\(m\\ge2\\) and all feasible real symmetric stochastic matrices. SymPy exact spectra for \\(m=2\\)..9 and 1331 full-matrix numerical checks reproduced it; samples are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al., arxiv:0709.0955, pp.27-28: reduced block SDP applies to every complete multipartite graph, including \\(K_{\\(1,m,m\\)}\\).",
+        "Jafarizadeh arxiv:1008.2588 pp.5-8: equal-cardinality pseudo-distance-regular path or cycle multipartite arrays, unlike classes of sizes \\(1,m,m\\).",
+        "Jafarizadeh arxiv:2501.02421 pp.1-5: clique-lifts of base graphs, rather than replacing vertices by independent classes."
+      ],
+      "reasoning": "A broader, established general reduction indeed covers the invariant-value subproblem, so that reduction is not new. It does not imply the new all-feasible-kernels uniqueness statement: averaging proves existence of one invariant optimizer, not exclusion of nonsymmetric ties. Neither alternative family gives the latter assertion for this graph.",
+      "searches": [
+        "\"fastest mixing\" \"complete multipartite\" stochastic optimal",
+        "\"fastest mixing\" \"complete tripartite\" graph",
+        "arxiv:0709.0955 Section 5.3.2",
+        "arxiv:1008.2588 Section III",
+        "arxiv:2501.02421 Sections 1 and 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955, full paper Section 5.3.2 and nearby examples",
+      "arxiv:1008.2588, paper Section III and relevant structure",
+      "arxiv:2501.02421, paper introduction and clique-lift scope",
+      "published-finding corpus semantic searches for balanced complete tripartite, singleton-cone biclique, and optimal symmetric stochastic kernel",
+      "Accessible same-branch historical claims through complete latest-generation ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An invariant optimizer is available by automorphism averaging in Boyd et al.; their all-k-partite block matrix permits the scalar optimization, but their printed result does not state uniqueness over every permissible edge-weight arrangement.",
+        "The new implication: all optimal P have the full 2m-2 dimensional peripheral zero-sum eigenspace at the upper spectral edge; this forces every nonhub edge weight, using kernel rigidity of a PSD averaged matrix."
+      ],
+      "reasoning": "The strongest prior theorem implies the existence and spectral reduction of invariant optima but NOT, by itself, global uniqueness: averaging can map many optimizers to one. The present positive-semidefinite common-nullspace equality rules out such ties. Thus the value and reduction are properly treated as covered/implied methods, while the all-optimizer rigidity is a non-implied claim.",
+      "searches": [
+        "arxiv:0709.0955 Sections 3, 5.3.2 on complete k-partite graph symmetry",
+        "arxiv:1008.2588 Section III conditions for symmetric K-PPDR",
+        "arxiv:2501.02421 Section 3 clique lifts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0709.0955 Section 5.3.2, pp.27-28: explicit complete-k-partite invariant block diagonalization, no unconstrained uniqueness theorem.",
+        "The closest mathematical-index result concerned a tetrahedral orbit-polytope optimization, not Markov kernels on tripartite graphs; no statement about optimal uniqueness was retrieved."
+      ],
+      "reasoning": "The aliases \\(K_{\\(1,m,m\\)}\\), K_1 join K_{m,m}, singleton-cone balanced biclique and complete tripartite singleton part were compared. A spectral reduction of the symmetric problem is not an assertion that every non-invariant kernel is the same; the latter follows here from equality in positive-semidefinite constraints.",
+      "searches": [
+        "fastest mixing Markov chain on a complete tripartite graph with one singleton part and two equal parts; unique optimal uniform stationary stochastic matrix",
+        "\"cone\" \"complete bipartite\" \"fastest mixing\" probability",
+        "\"join\" \"K1\" \"K_{m,m}\" \"fastest mixing\" Markov",
+        "arxiv:0709.0955 Section 5.3.2 complete k-partite graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant primary paper lists generic complete multipartite block matrices and an SDP, not an entry asserting global uniqueness for \\(K_{\\(1,m,m\\)}\\).",
+        "Retrieved indexed results in the specific-parameter searches concerned unrelated graph invariants or Markov problems, not the all-optimizers claim."
+      ],
+      "reasoning": "The reported scalar value and weights could be derived from the published general reduction. The exact non-invariant uniqueness statement, not a numerical table cell, is the scope of asserted originality. No identical all-kernel entry was found.",
+      "searches": [
+        "complete tripartite K_{1,m,m} fastest mixing symmetric stochastic transition matrix unique global optimum hub edge 1/(2m) cross edge (2m-1)/(3m²)",
+        "complete tripartite graph K_{1,n,n} fastest mixing Markov chain SLEM (2n-1)/(6n) nonnegative symmetric stochastic kernel",
+        "arxiv:0709.0955 Section 5.3.2 optimal tables"
+      ]
+    },
+    "rationale": "The prior all-k-partite spectral reduction (Boyd et al., 2007/2009, section 5.3.2) already supplies the matrices for the invariant SDP and is expressly credited. The distinguishing assertion is that its singleton-cone balanced-biclique optimum is unique among the much larger class of all potentially asymmetric-under-automorphisms kernels. The source shows orbit reductions, not an all-optimizers rigidity theorem; the new nullspace/equality argument is necessary. The 2010 equal-sized pseudo-distance-regular multipartite class and 2020 clique-lifted class are different. Searches of literature and published mathematical claims found no implication of the global uniqueness result, although unindexed equivalence remains a risk.",
+    "residual_risks": [
+      "The exact two-weight invariant optimum is a short consequence of published multipartite block reduction and is not independently novel.",
+      "Unknown or unindexed results might state or imply global uniqueness for this particular graph.",
+      "A general theorem specifically forcing uniqueness of stochastic FMMC on other graph families could conceivably subsume this calculation, but none was identified in inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the complete-multipartite symmetric block reduction, NOT the complete class of all global optimizer matrices or the singleton-cone all-optimizer uniqueness proof.",
+        "evidence": "Section 5.3.2 states that the displayed k+1 blocks can be substituted into a reduced SDP to solve the FMMC problem; no all-feasible-kernel uniqueness theorem is stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Section 5.3.2, pages 27-28 and adjacent complete-bipartite and wheel sections",
+        "method": "Full primary PDF parsed passage, equation-level inspection of invariant decomposition",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "Exact same superfamily: all complete multipartite graphs; possible dominant coverage"
+      },
+      {
+        "assessment": "Does not cover classes (\\(1,m,m\\)) with \\(m\\ge2\\): symmetric K-PPDR networks have all classes of equal size, with neighboring-layer or cyclic connectivity.",
+        "evidence": "Section III.A explicitly requires n_1=...=n_K, and the pictured network connects only consecutive layers.",
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+        "material_read": "Abstract, introduction, Sections II-III pp.3-8 and scope of K-PPDR definitions pp.5-7",
+        "method": "Primary PDF text plus direct visual inspection of page 5 showing the network structure",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "Potential equivalent three-partite explicit formula"
+      },
+      {
+        "assessment": "Clique lifts replace base nodes by cliques; not a stated all-optimal-kernels classification for \\(K_{\\(1,m,m\\)}\\).",
+        "evidence": "Introduction enumerates clique-lifted star, windmill, friendship, symmetric trees and core-star topologies; no complete-tripartite all-optimizer theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+        "material_read": "Abstract, introduction pp.1-5, clique lift description and general scope, relevant table of contents",
+        "method": "Public full-text preprint parsed and searched for complete tripartite/bipartite",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "General later reduction might dominate network-specific exact answers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af19a92e-16f1-40c2-90f5-b13f5648877c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph is the natural balanced bipartite communication architecture augmented by a universal hub. Generic convexity guarantees that a symmetrized optimum exists but says nothing about possible asymmetric alternative allocations. Full global uniqueness is a genuine network-design structural invariant: every hub edge must carry \\(1/(2m)\\), every crossing edge must carry \\((2m-1)/(3m^2)\\), all are essential and the hub must have no holding. The exact improvement over optimally weighted K_{m,m} is \\(1/(6m)\\), quantifying the benefit of the hub. This all-optimizers statement, rather than a simple substitution into the prior SDP block formula, supplies the value.",
+    "status": "PASS"
+  }
+}
