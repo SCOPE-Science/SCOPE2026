@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Full proof: count avoiding words F_{k+3}-1; characterize F_{k-1} surplus and deficit states, force every compensating directed path to have at least k-2 edges, construct paths of precisely k-2 between every source/sink pair and obtain connected Eulerian multigraph. This yields an unrestricted optimal cyclic covering for all integers k>=3. Independent standard-library factor checks for k=3..16 confirm constructions but are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Kitaev–Sun arXiv:2005.00165, introduction and small removal cases",
+        "Moreno–Matamala arXiv:0711.1695, forbidden-language Eulerian construction and irreducibility conditions"
+      ],
+      "reasoning": "General Eulerian existence or lexicographic construction does not give an optimal length when directed transition constraints cause imbalance. The source word-family and repeated-edge minimization were checked for implication, not merely title overlap.",
+      "searches": [
+        "universal cycles forbidden substrings Eulerian irreducible finite type graph",
+        "arxiv:2005.00165",
+        "arxiv:math/0311399"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0311399",
+      "arxiv:0711.1695",
+      "arxiv:2005.00165",
+      "https://oeis.org/A023607"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known cyclic covering result for factors avoiding 111 has a Tribonacci language count and bounded relative overhead",
+        "Current family avoiding 110 has Fibonacci growth and linearly increasing relative overhead",
+        "Burstein–Kitaev arXiv:math/0311399 and Moreno–Matamala arXiv:0711.1695 have different claims"
+      ],
+      "reasoning": "The 111 language is not mapped to the 110 language by reversal or complementation; its theorem therefore cannot imply the displayed forbidden-110 family result. The primary articles do not optimize the extra path length necessary to restore all required edge imbalances.",
+      "searches": [
+        "minimum cyclic covering superstring all binary words avoiding 101 substring de Bruijn overlap optimal postman",
+        "Shortest universal cyclic cover of binary words avoiding 011 110 100 001 with repeats"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala arXiv:0711.1695, sections 1–4 on lexicographic minimum de Bruijn words",
+        "Burstein–Kitaev arXiv:math/0311399, sections 1 and 3 on unavoidable sets"
+      ],
+      "reasoning": "Shortest circular superstring, Chinese-postman augmentation of constrained de Bruijn edge families, and universal-cycle variants were compared. The inspected theorems give different objectives (lexicographic minimization or exact-once existence), not the minimum repeated covering cycle for avoid-110.",
+      "searches": [
+        "shortest cyclic superstring forbidden 110 binary",
+        "de Bruijn universal cycle forbidden 110 optimal overlap",
+        "arxiv:0711.1695"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A023607 records an integer sequence agreeing with the overhead after an index shift"
+      ],
+      "reasoning": "The scalar sequence is known as a Fibonacci product; the claim is its new exact role as a sharp edge-augmentation cost and optimal cyclic-cover formula, which the numerical table by itself neither asserts nor proves.",
+      "searches": [
+        "OEIS A023607 Fibonacci product n F(n+1)",
+        "8, 16, 29, 53, 94, 166, 290, 504 cyclic sequence"
+      ]
+    },
+    "rationale": "Inspected full-text primary sources on unavoidable patterns, minimal lexicographic forbidden-language de Bruijn sequences, and universal-cycle existence do not cover the sharp repeated shortest-cycle optimization. The previously recorded avoid-111 theorem is a different language with different counts. OEIS records the numerical Fibonacci-product sequence, not its cyclic-cover interpretation. Residual unindexed coverage cannot be ruled out.",
+    "residual_risks": [
+      "Specialized treatments of postman tours in reducible forbidden-factor de Bruijn graphs may contain an equivalent theorem under different terminology.",
+      "Some older theses and archival documents on de Bruijn graphs for general languages were not fully accessible; no broad absence claim is inferred from snippets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering this repeated-edge shortest restricted covering cycle",
+        "evidence": "Studies sets of unavoidable patterns and their combinatorial properties, not the quantified cyclic host minimization.",
+        "identifier_or_url": "arxiv:math/0311399",
+        "material_read": "Full arXiv PDF, sections 1–3 and main theorems",
+        "method": "Read text and compare quantified language/objectives",
+        "title": "On unavoidable sets of word patterns",
+        "trigger": "Unavoidable word-pattern and cyclic-cover background"
+      },
+      {
+        "assessment": "Does not supply the stated minimum cycle length or sharp overhead for avoid-110",
+        "evidence": "Minimizes lexicographic order among de Bruijn sequences for suitable forbidden languages, not total length of a repetition-allowing cover.",
+        "identifier_or_url": "arxiv:0711.1695",
+        "material_read": "Entire nine-page preprint, statements, constructions, hypotheses, remarks",
+        "method": "Compared lexicographic-minimum problem and irreducibility conditions with unrestricted edge-multiset minimization",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Directly relevant forbidden-factor de Bruijn construction title"
+      },
+      {
+        "assessment": "Not a shortest repeated covering length result for avoid-110",
+        "evidence": "Investigates subsets admitting universal cycles, particularly few removed words, rather than optimal postman repetition overhead.",
+        "identifier_or_url": "arxiv:2005.00165",
+        "material_read": "Full accessible preprint, introduction, small-removal results, concluding discussion",
+        "method": "Compared exact-once existence enumeration with unrestricted shortest-length repeats",
+        "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+        "trigger": "Closest universal cycle existence/counting approach"
+      },
+      {
+        "assessment": "Numeric overhead sequence is recorded, not the present optimization theorem",
+        "evidence": "Fibonacci product agrees after reindexing; no equivalent covering theorem established by sequence agreement.",
+        "identifier_or_url": "https://oeis.org/A023607",
+        "material_read": "Sequence definition and numerical values",
+        "method": "Compared numerical formula to cyclic-cover meaning",
+        "title": "OEIS A023607",
+        "trigger": "Exact Fibonacci-product integer sequence overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3498587-5395-4375-a738-41ad8f0a577a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp all-k minimum cyclic coverage with an unrestricted host, elementary constructive Euler tour, and a linearly divergent relative overhead provide substantive structural and operational information. It is distinct from generic Fibonacci counting or a finite numerical table.",
+    "status": "PASS"
+  }
+}
