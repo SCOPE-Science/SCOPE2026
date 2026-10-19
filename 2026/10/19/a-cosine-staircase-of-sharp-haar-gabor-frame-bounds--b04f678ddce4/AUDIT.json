@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The Walnut normalization is 1/b; the two Haar translates give C_0=2, C_{±1}=-1 on exactly specified half-translation subintervals, and C_k=0 for |k|>=2 when 1<b<2. Fibers split into Dirichlet Jacobi chains of at most L=ceil(b/(2-b)) with positive-measure longest-chain witnesses. The explicit sine eigenbasis establishes both *optimal* frame bounds and the critical quadratic law. The exact-rational checker independently tests overlap identities and finite grids, without substituting computation for the all-real proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c addresses the triangular hat spline, not the discontinuous Haar window.",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148 concerns tent-spline edge overlaps and distinct lattice parameters.",
+        "Faulhuber--Shafkulovska arXiv:2204.02917 Sections 1-2 list hyperbolic secant and one-/two-sided exponential windows, not the Haar window."
+      ],
+      "reasoning": "A different smooth spline or exponential generator has a different Walnut Gram operator; exact spectrum for those windows cannot imply the Haar step-frequency formula. The 2022 Haar frame-set classification is broader in parameters but strictly weaker in spectral information.",
+      "searches": [
+        "published-finding corpus: Half-translation Haar wavelet Gabor frame discontinuous staircase spectral bounds with step transitions beta=2m/(m+1) and quadratic critical collapse",
+        "published-finding corpus: finite Gabor frames explicit spectrum B spline rational lattice exact frame bounds",
+        "Web: Gabor frame bound optimizations Faulhuber Shafkulovska 2204.02917 full text"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2205.06479",
+      "https://arxiv.org/abs/2204.02917",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qualitative frame-set theorem implies only that A(b)>0 in the subcritical band, with no asserted B(b) or sharp decay constant.",
+        "The new proof supplies the full path-Jacobi spectrum with exact maximal fiber sizes at every real modulation, plus an explicit critical limit."
+      ],
+      "reasoning": "Knowing which operators are invertible, even for all parameters, does not determine their smallest and largest eigenvalues. Other published window-specific spectral results do not transfer through unitary equivalence to the Haar profile.",
+      "searches": [
+        "arxiv:2205.06479 Theorem 1.1 and Sections 2,3,6",
+        "arxiv:2204.02917 Introduction and Section 2",
+        "published-finding corpus: Complete sharp Gabor frame bound spectrum for the Haar function at translation alpha=1/2 and all modulations beta in (1,2), involving ceiling beta/(2-beta) and cosine of pi divided by path length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dai--Zhu arXiv:2205.06479 Theorem 1.1 gives a frame-set characterization but not the eigenvalue staircase.",
+        "The normalized Haar translate used here is the same window as their centered Haar function."
+      ],
+      "reasoning": "Compared after translation covariance of the window and the standard modulation-sign convention. Their frame criterion confirms positivity on this family but does not give the two explicit endpoints and their discontinuity thresholds.",
+      "searches": [
+        "published-finding corpus: Complete sharp Gabor frame bound spectrum for the Haar function at translation alpha=1/2 and all modulations beta in (1,2), involving ceiling beta/(2-beta) and cosine of pi divided by path length",
+        "published-finding corpus: Haar Gabor half translation alpha one half exact optimal frame bounds beta 1 to 2 cos pi tridiagonal spectral staircase",
+        "Web: Haar Gabor frame bounds exact cosine tridiagonal half translation",
+        "Web: Haar Gabor systems explicit sharp frame bounds 1/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact spectral table was returned by these searches.",
+        "The Dai--Zhu full-text theorem and the relevant Section 6 address frame/nonframe conditions through invariant sets; no path-length cosine table was identified."
+      ],
+      "reasoning": "Search nonappearance is not a novelty proof. The specific closest available source was inspected for an exact eigenvalue/count table, and none was located; old unindexed calculations remain a residual risk.",
+      "searches": [
+        "published-finding corpus: Ron Shen Janssen Zak explicit optimal lower upper constants step Haar window 1/2 all modulation parameters",
+        "Web: Haar Gabor frame bounds exact cosine tridiagonal half translation",
+        "Web: Gabor Haar frame bounds ceiling staircase 2-b",
+        "arxiv:2205.06479 whole-document searches: frame bound, optimal frame, cos, Walnut"
+      ]
+    },
+    "rationale": "Dai--Zhu arXiv:2205.06479 proves a qualitative Haar frame-set theorem; its relevant theorem and arguments do not determine sharp operator spectral constants. Faulhuber--Shafkulovska arXiv:2204.02917 treats exponential and hyperbolic-secant windows and integer redundancy, not this half-translation Haar staircase. Actual published-finding corpus searches (below) retrieved hat-spline exact bounds for a different window, which cannot imply Haar spectral values. No exact all-real half-translation formula was found; the best-knowledge assessment remains contingent on older unindexed literature.",
+    "residual_risks": [
+      "An older unindexed exact Haar frame-bound computation using polyphase/Janssen/Ron--Shen matrices may encode the same spectral staircase.",
+      "The conclusion concerns the particular half-translation Haar generator, not a universal discontinuity rule for all compact windows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAME_SET_KNOWN_NOT_SHARP_SPECTRAL_STAIRCASE",
+        "evidence": [
+          "Theorem 1.1 is a qualitative necessary/sufficient frame-set criterion.",
+          "Section 6 derives frame conditions via invariant sets, not the stated two optimal constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.06479",
+        "material_read": "Full accessible arXiv text consulted with targeted reading of Theorem 1.1, introductory frame-region statements, Ron--Shen characterization discussion, Sections 2 and 6, and whole-text phrase searches; PDF first page visually inspected.",
+        "method": "Compare exact hypotheses after time translation; search for explicit frame bound formulas, cosine spectra and path decompositions.",
+        "title": "Frame set for Gabor systems with Haar window",
+        "trigger": "Exact same Haar window and Gabor frame set; closest primary source."
+      },
+      {
+        "assessment": "NOT_COVERING_HAAR_WINDOW",
+        "evidence": [
+          "Introduction and Section 2 enumerate hyperbolic-secant, cut-off exponentials, and one-/two-sided exponential windows; no Haar profile.",
+          "Integer-redundancy optimization differs from an all-real beta spectral staircase at a fixed half-translation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.02917",
+        "material_read": "Full manuscript PDF accessible; title, abstract, introduction, Sections 1-2 and the list of proof sections inspected, with first page visually examined.",
+        "method": "Compare window family, translation/modulation parameter restrictions and quantitative conclusions.",
+        "title": "Gabor frame bound optimizations",
+        "trigger": "Highly relevant sharp Gabor frame-bound paper and possible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b04f678d-dce4-4f10-9643-d23473c42bc9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete spectral law for the canonical Haar wavelet with translation matched to its half-support: all real modulations, sharp reconstruction constants, infinitely many jump thresholds and a universal quadratic approach to critical density. It is structurally more informative than mere frame/nonframe status and can guide deterministic conditioning; no wider frame-set classification is needed for its value.",
+    "status": "PASS"
+  }
+}
