@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The kernel is specified explicitly: first truncate the fractional round-up probability to a denominator of \(b=2^r\), then sample one of the two bounding integers. The strict absorbing threshold, full count, closed two-state transition matrix, stationary and finite-time laws, sharp threshold, and integer-resonance identity each follow algebraically from this kernel. The absorbing count includes its exact equality boundary. The executable independently checks 6,089 rational parameter cases; no finite enumeration is treated as a proof of the universal result. The result is limited to one final rounding operation, exact affine proposals and a fixed grid.
+
+## Originality — PASS (with residual risk)
+The 2024 limited-precision stochastic-rounding article defines this per-operation kernel, proves its per-operation bias and studies arithmetic error; that already known kernel and local bias are credited. The new claim concerns the complete all-integer absorbing-state classification and the sharp bit–stepsize threshold together with the stationary GD staircase and nonmonotonicity. The full relevant analysis of the motivating paper and the methods/claims of the 2023 stochastic fixed-point GD and 2025 few-random-bit studies were compared at the level of implications; none states or yields the displayed exact dynamics without a separate Markov derivation. Closest mathematical-record findings on additive-noise signSGD, generic recursive-gradient noise floors and deterministic quantized negative-slope contractions cover distinct update rules. There remains a genuine possibility of an equivalent older treatment in the broad rounding/finite-state Markov literature. An unsuccessful search is not a proof of uniqueness.
+
+## Value — PASS
+The number of nonoptimal fixed points diverges as the learning rate decreases, and the explicit \(2^r\eta\tau=1\) frontier quantifies how many random bits are needed to avoid artificial stationary traps in the canonical strongly convex test. The integer bit–stepsize staircase additionally proves that a larger step can worsen the stationary optimization bias, which general local rounding-error bounds do not decide. This exact phase diagram of a natural test algorithm is a meaningful design boundary, not merely a restatement of its one-step rounding bias. It does not purport to optimize an actual hardware design or prove multidimensional convergence.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every absorbing lattice state is characterized by its full one-step transition law and the strict 1/b displacement cutoff; the integer cardinality is an exact ceiling count. On the invariant pair {0,1}, the transition matrix is explicit and diagonalization yields stationary and finite-time laws for all admissible b, eta, tau. The bias identity and integer-resonance staircase are algebraic. Exact rational verification covers 6089 cases, but infinite/all-parameter conclusions rest on the proof. Equality cases and initialization scope are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2408.03069, Sections 3-6: general bias and error bounds for arithmetic, summation, inner products, and numerical examples",
+        "arxiv:2301.09511: convergence theory with stochastic fixed-point rounding",
+        "arxiv:2504.20634, few-random-bit rounding sampling/implementation and bias"
+      ],
+      "reasoning": "A general one-step biased-rounding inequality does not imply the complete recurrence classes, exact absorbing count, all-parameter stationary measure, or parameter resonance. Related work on bias, stochastic-gradient errors and hardware approximations is not a stronger theorem for the precise chain. Coverage remains uncertain for less easily indexed older Markov-chain literature.",
+      "searches": [
+        "limited precision stochastic rounding spurious absorbing fixed points convex quadratic exact count nonstationary traps geometric extinction",
+        "quantized SGD stochastic rounding fixed point Markov chain invariant distribution stationary expectation exact quadratic",
+        "non-commuting limits random bits step size stochastic rounding optimization stationary bias freezing"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2408.03069",
+      "https://arxiv.org/pdf/2301.09511",
+      "https://arxiv.org/pdf/2504.20634",
+      "published-finding corpus 2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c",
+      "published-finding corpus 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878",
+      "published-finding corpus 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2408.03069: truncated finite-bit rounding probability and local bias, not a GD invariant measure",
+        "arxiv:2504.20634: rounded random-threshold construction and local bias, not absorption counts",
+        "published-finding corpus 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878 uses additive-noise signSGD, not this chain",
+        "published-finding corpus 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1 concerns SARAH recursion, not rounded gradient descent"
+      ],
+      "reasoning": "The new theorem assumes the previously known kernel but draws distinct global conclusions about all absorbing lattice states and phase transitions. The closest retrieved algorithms have different transition probabilities and cannot imply the stated formulas by specialization. The distinction is scientific implication rather than wording or numerical coincidence.",
+      "searches": [
+        "fixed point stochastic rounding unbiased vs truncated finite-random-bit stationary distribution exact two-state gradient descent",
+        "finite-bit stochastic rounding stochastic quantization discrete lattice gradient descent absorbing states stationary biased equilibrium",
+        "limited precision stochastic rounding finite random bits gradient descent strongly convex quadratic freezing trapping phase transition learning rate Bernoulli quantization two state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2408.03069, Definition 4, identifies the finite-bit truncation kernel and its local bias",
+        "arxiv:2301.09511 treats ideal stochastic rounding gradient-descent error, not the present finite-random-bit transition matrix"
+      ],
+      "reasoning": "The equivalent formulations are a finite-bit Bernoulli probability quantizer, a one-dimensional quantized affine contraction with a random threshold, and a two-state Markov stationary law. The primary authors derive the rounding kernel but not all spurious absorbing integers or stationary step-bit phase transitions; ideal stochastic rounding has different transitions and a stationary mean independent of stepsize.",
+      "searches": [
+        "finite random bits stochastic rounding scalar quadratic gradient descent absorbing states sharp threshold eta 2^r tau equals one stationary bias floor 2^r eta tau",
+        "stochastic fixed point rounding bit-step product stationary Bernoulli law floor(m tau)/m gradient descent quadratic",
+        "finite-precision stochastic rounding SGD stationary probability floor ceiling phase diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c analyzes a deterministic negative-slope map, not the positive-slope stochastic rounding chain",
+        "Results searched by method, numerical source and exact characteristic parameters yielded no known table of this stationary staircase"
+      ],
+      "reasoning": "Neither a numerical database entry nor exact enumeration covering this infinite parameter family was located. A search miss is not evidence of novelty by itself; the listed overlapping retrieved item has a different deterministic map with incompatible Markov properties.",
+      "searches": [
+        "2024 El Arar Fasi Filip Mikaitis limited-precision stochastic rounding Rosenbrock 2408.03069 gradient descent traps",
+        "El Arar Fasi Filip Mikaitis 2024 limited precision stochastic rounding 65G50 Markov invariant distribution quantized gradient descent",
+        "truncated Bernoulli rounding probability floor(bq) bias two-state Markov chain quantized affine contraction absorbing interval"
+      ]
+    },
+    "rationale": "The limited-bit rounding definition and its local downward bias are credited to 2024 primary literature; the new object is the fully classified finite-bit quadratic GD chain. Targeted primary comparisons, corresponding known mathematical results, and accessible existing claims yielded no stronger theorem implying the simultaneous absorbing-state count, sharp critical bit-step threshold, stationary distribution and nonmonotone integer resonance. Older equivalent finite-state quantization literature remains a risk.",
+    "residual_risks": [
+      "A generic older finite-state Markov or numerical quantization theorem could imply part of the formulas under relabeling; indexing and searches cannot prove first publication.",
+      "The 2025 few-random-bit rounding literature supplies equivalent kernels, though its inspected statements did not cover the combined optimization dynamics.",
+      "Only the accessible primary texts and searchable mathematical records have been compared; no human priority verification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the truncating rounding kernel; no complete all-integer GD absorption classification or exact finite-bit stationary staircase found in the studied sections",
+        "evidence": [
+          "Definition 4, Eq. (6), PDF p. 6",
+          "Section 3 local bias Eq. (7), PDF p. 7",
+          "Sections 4-6 focus on numerical arithmetic errors and experiments"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.03069",
+        "material_read": "Full PDF introduction and definition, Sections 3-6 and relevant numerical experiments and references",
+        "method": "Read open-access primary PDF, including mathematical definition and bias proof",
+        "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+        "trigger": "Defines the exact finite-random-bit operator on which the new recurrence is based"
+      },
+      {
+        "assessment": "Ideal unbiased and deliberately biased fixed-point SR schemes are analyzed; the exact finite-random-bit threshold and stationary staircase are not asserted",
+        "evidence": [
+          "arxiv:2301.09511, algorithm and convergence model"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.09511",
+        "material_read": "Open-access primary PDF abstract, numerical setup, rounding assumptions, convergence statements",
+        "method": "Read PDF primary mathematical statements and their assumptions",
+        "title": "On the Convergence of the Gradient Descent Method with Stochastic Fixed-Point Rounding Errors under the Polyak–Łojasiewicz Inequality",
+        "trigger": "Possible more general theorem for finite-precision gradient descent"
+      },
+      {
+        "assessment": "The random-threshold kernel and its biased local statistics overlap and are credited; no recurrence-wide absorption count or stationary quadratic optimization law identified",
+        "evidence": [
+          "arxiv:2504.20634, sampling construction and bias analyses"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.20634",
+        "material_read": "Open-access primary PDF sections defining SR with few random bits, analysis and appendix",
+        "method": "Read PDF primary definitions, error analysis, numerical applications",
+        "title": "On Stochastic Rounding with Few Random Bits",
+        "trigger": "Potential overlapping exact finite-random-bit rounding construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4535432-5d98-4fdf-ad32-ba2c130078f9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete natural scalar strongly convex model yields a sharp bit-budget/step threshold separating finitely many nonstationary artificial traps from none, with trap count diverging as eta tends to zero; exact stationary mean and an integer-step resonance show that raising the stepsize can worsen long-run bias. These global design boundaries do not follow from known single-step rounding error bounds and are structurally motivated rather than arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
