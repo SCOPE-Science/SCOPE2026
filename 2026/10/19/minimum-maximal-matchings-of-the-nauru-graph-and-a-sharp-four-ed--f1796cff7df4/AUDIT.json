@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The cubic graph has 36 edges, each selected matching edge edge-dominates at most five, hence every maximal matching has at least eight edges. Exhaustive independent eight-set plus complementary perfect-matching enumeration finds exactly 90 minimum maximal matchings; a separately designed C++ matched/unmatched decision tree independently obtains precisely the same canonical 90 states. Complete 4005 unordered-pair comparison yields 0, 180, 180 and 522 edges for budgets 1–4, respectively. Independent certificate checker reconstructs all graph edges, maxinality, transitions and all-source BFS distances. Three isomorphic 30-state, degree-four, radius/diameter-five components at budgets 2 and 3 follow; budget 4 is connected, radius 3 and diameter 4. Rotational/reflection automorphisms are verified explicitly. Verification uses actual included source files and complete certificate, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1204.2727v1 displays existence of a matching of eight edges in GP(12,5).",
+        "DOI:10.4230/LIPIcs.ITCS.2021.57 studies reconfiguration with an allowed one-edge drop in matching cardinality.",
+        "published-finding corpus 2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f"
+      ],
+      "reasoning": "Prior minimum-size bound is acknowledged, not new. The general reconfiguration paper allows changes and non-maximal intermediates, and does not imply exact no-slack graph on all 90 minimum maximal Nauru matchings. Average maximal matching bounds do not specify this count or transition edges.",
+      "searches": [
+        "GP(12,5) Nauru graph edge dominating sets minimal matchings min 8 count 90 2-edge exchange three 30-vertex components",
+        "line graph of Nauru graph minimum independent dominating sets 90, reconfiguration under token jumping, size eight",
+        "cubic symmetric Nauru graph minimal maximal matching exact number edge domination polynomial",
+        "minimum maximal matching reconfiguration 4 edge simultaneous exchanges sharp connectivity threshold Nauru",
+        "matching reconfiguration cardinality slack forbidden maximal matching moves"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1204.2727v1",
+      "https://pageperso.lis-lab.fr/guilherme.fonseca/perfection.pdf",
+      "doi:10.4230/LIPIcs.ITCS.2021.57",
+      "doi:10.1137/0138030",
+      "Joffard thesis, chapter 6",
+      "2026/10/11/SCOPE-the-nauru-independence-complex-is-bigvee-4-s-5-vee-s-6--7c319734d8d8",
+      "2026/10/4/SCOPE-the-franklin-graph-is-the-unique-twelve-vertex-cubic-bipartite-e--f490f3f3f842",
+      "2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f",
+      "2026/10/11/SCOPE-the-petersen-matching-complex-is-a-wedge-of-five-two-spheres-and--80050a324367"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yannakakis and Gavril 1980 edge dominating sets framework, DOI:10.1137/0138030.",
+        "Brazil et al., arxiv:1204.2727v1, 2012, establishes eight-edge Nauru example.",
+        "Solomon and Solomon, DOI:10.4230/LIPIcs.ITCS.2021.57, permitted cardinality slack.",
+        "published-finding corpus 2026/10/11/SCOPE-the-nauru-independence-complex-is-bigvee-4-s-5-vee-s-6--7c319734d8d8"
+      ],
+      "reasoning": "The previously known eight-edge example plus degree-three edge domination proves the minimum scalar, but provides neither completeness of 90 optima nor their 4005-pair transition matrix. The independent-complex topology and other graph/family claims concern mathematically different state spaces. A general connectivity theorem allowing cardinality slack cannot imply connectivity at no-slack budgets 1–4.",
+      "searches": [
+        "Nauru graph GP(12,5) reconfiguration exact optimum matching counts",
+        "Nauru graph edge domination number eight minimum maximal matching reconfiguration 2-edge 4-edge flips disconnected",
+        "line graph of Nauru graph minimum independent dominating sets 90, reconfiguration under token jumping, size eight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minimum maximal matchings equal minimum independent edge-dominating sets; equivalently minimum independent dominating sets of the line graph.",
+        "published-finding corpus 2026/10/11/SCOPE-the-nauru-independence-complex-is-bigvee-4-s-5-vee-s-6--7c319734d8d8"
+      ],
+      "reasoning": "Searches included maximal matching, edge domination, independent dominating sets of the line graph and reconfiguration wording. The Nauru independence-complex result concerns vertex independent sets, not minimum maximal edge matchings or their exchange geometry.",
+      "searches": [
+        "Nauru graph GP(12,5) minimum maximal matching 90 configurations, exchange graph two matching edges changed 3 components of 30, four-edge threshold to connect",
+        "Nauru graph edge domination number eight minimum maximal matching reconfiguration 2-edge 4-edge flips disconnected",
+        "Nauru graph perfect matching all maximal matchings switching exchange graph",
+        "GP(12,5) Nauru graph edge dominating sets minimal matchings min 8 count 90 2-edge exchange three 30-vertex components",
+        "minimum independent edge dominating sets line graph of Nauru GP(12,5) exchange"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1204.2727v1 Nauru matching existence/example but no exhaustive table or reconfiguration classification in inspected section.",
+        "published-finding corpus search hits closest: 2026/10/11/SCOPE-the-nauru-independence-complex-is-bigvee-4-s-5-vee-s-6--7c319734d8d8; 2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f"
+      ],
+      "reasoning": "Targeted table, named graph, alias and exact-parameter searches found no corresponding Nauru-state or exchange table. No online search establishes absence in unindexed or inaccessible supplemental tables.",
+      "searches": [
+        "\"Nauru graph\" \"minimum maximal matchings\" \"90\"",
+        "\"NauruGraph\" \"MaximalMatchings\"",
+        "\"minimum maximal matching\" \"reconfiguration\"",
+        "Nauru graph exact edge dominating set count 90"
+      ]
+    },
+    "rationale": "The earliest identified primary Nauru graph paper arxiv:1204.2727v1 explicitly displays eight-edge maximal matching; the scalar saturation number is therefore prior work. The present finite classification and sharp no-slack simultaneous substitution threshold were not found in the inspected Nauru source or related matching reconfiguration articles. The judgment is provisional: searches cannot establish uniqueness and unindexed tables remain a risk.",
+    "residual_risks": [
+      "A different source may have tabulated these exact 90 matchings or the same exchange graph without searchable title/abstract.",
+      "The entire classical 1980 publisher text and all potential supplementary datasets were not available for complete coverage checks.",
+      "The finding is finite, graph-specific; no infinite-family generalization is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known eight-edge example; does not supply 90 matching count or budgeted no-slack exchange graph in inspected material",
+        "evidence": [
+          "arxiv:1204.2727v1",
+          "https://pageperso.lis-lab.fr/guilherme.fonseca/perfection.pdf"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1204.2727 (v1, 2012-04-11)",
+        "material_read": "Original first-version public record and its Nauru construction; lawful open-access full-PDF matching example on page 9 in later author-hosted version",
+        "method": "direct original record and inspected PDF page",
+        "title": "The Cost of Perfection for Matchings in Graphs",
+        "trigger": "Primary 2012 source specifically displaying Nauru minimum maximal matching"
+      },
+      {
+        "assessment": "Different matching feasibility and slack conditions; exact 90-state optimum-maximal reconfiguration classification is not implied",
+        "evidence": [
+          "doi:10.4230/LIPIcs.ITCS.2021.57"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2021.57",
+        "material_read": "Open-access PDF pp. 1–4, including problem definition and permitted intermediate cardinality loss",
+        "method": "primary PDF direct text and displayed page inspection",
+        "title": "A Generalized Matching Reconfiguration Problem",
+        "trigger": "Potentially stronger general matching-reconfiguration theorem"
+      },
+      {
+        "assessment": "Provides general edge domination framework, no accessible numerical Nauru classification; full text remains a residual risk",
+        "evidence": [
+          "doi:10.1137/0138030"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0138030",
+        "material_read": "Public bibliographic and summarized foundational statements; full article was not obtained",
+        "method": "bibliographic record and targeted scientific comparison",
+        "title": "Edge Dominating Sets in Graphs",
+        "trigger": "Classical edge domination baseline"
+      },
+      {
+        "assessment": "State space is edge dominating sets without matching constraint and hence does not cover minimum maximal matching transitions",
+        "evidence": [
+          "Joffard thesis chapter 6, pp. 99–101"
+        ],
+        "identifier_or_url": "doctoral thesis, Joffard, chapter 6 (2020)",
+        "material_read": "Accessible thesis chapter 6 pp. 99–101 (text excerpt)",
+        "method": "direct full-text chapter excerpt",
+        "title": "Reconfiguration of edge dominating sets",
+        "trigger": "Exact edge domination reconfiguration possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1796cff-7df4-4ac9-8bd5-0eb3235ad4c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Nauru graph is a natural classical symmetric cubic benchmark in the edge-domination/saturation-number literature. Minimum maximal matchings are independent edge-dominating sets; analyzing the minimum set alone does not determine whether one efficient solution can transform into another without increasing resources. The complete 90-state classification exhibits a sharp change from 90 frozen optima at one edge, to three isomorphic 30-state four-regular reconfiguration regions at two and three edges, to a connected finite graph with sharp diameter four at four-edge simultaneous substitutions. This identifies a substantive optimality/mobility boundary and a symmetry-enforced obstruction, not a routine parameter increment or arbitrary slice.",
+    "status": "PASS"
+  }
+}
