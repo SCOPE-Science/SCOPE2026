@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A uniform labeled double-occurrence word maps to a uniform perfect matching (each matching has exactly q! labelings). A length-2k Abelian-square window entails a perfect cross-half pairing, yielding exact probability k!(2q-2k-1)!!/(2q-1)!!. The expected-count sequence has strictly increasing successive ratio and exponentially small end term; the full longer-window sum is 2/(2q-1)+O(q^-2). For adjacent matched pairs, counting disjoint edges of a length-2q path yields the exact binomial moments; their comparison with Poisson(1) moments via binomial inversion and absolute summation proves O(1/q) in total variation. Exhaustive q=1..7 checks of every window/moment matched. No finite experiment is used to prove the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici and Puzynina, arxiv:2207.09937 Section 4.3, report average Abelian-square behavior for fixed binary alphabets and combinatorial maximum/minimum results.",
+        "Grytczuk et al., arxiv:2308.13882, Sections 1-2 concern shuffles and fair splittings; contiguous equal-Parikh half windows are a stricter local statistic."
+      ],
+      "reasoning": "Fixed-alphabet average factor counts cannot give Poisson(1) in a family whose alphabet increases with length and every symbol has multiplicity exactly two. Arbitrary shuffle-square existence does not force any contiguous equal-Parikh adjacent halves. Standard Poisson laws for sparse matching edges cover only half-length one, leaving the substantial task of uniformly excluding longer windows.",
+      "searches": [
+        "\"Abelian squares\" \"random word\" probability",
+        "\"perfect matching\" \"abelian square\" words",
+        "arxiv:2207.09937 Section 4.3 Abelian square factors",
+        "arxiv:2308.13882 Section 2 shuffle squares"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1811.11739, abstract/sections 1-4",
+      "arxiv:2207.09937, Sections 2, 4.3, 5.1, arxiv classification 68R15",
+      "arxiv:2308.13882, introduction/Sections 2.1-2.3/Gauss-code discussion",
+      "Targeted scholarly keyword searches for double-occurrence words plus Abelian squares and random matching interpretations",
+      "Semantic mathematical-record checks of claim, aliases, rare matching-pair Poisson asymptotics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cruz et al. Theorem 4.1 applies to paired insertion sites and repeat/return-word equivalences, without uniform random matching laws.",
+        "Fici and Puzynina explicitly distinguish Abelian-square occurrences and distinct factors and give fixed-binary-word averages.",
+        "Grytczuk et al. Theorem 1 treats fair necklace splittings; no locality constraint or counting distribution of all windows is imposed."
+      ],
+      "reasoning": "The present exact E[A_{q,k}] requires k! cross-window perfect matchings and a uniform bound over every k up to q; the cited structural findings do not bound this tail. The Poisson rare-edge component is elementary matching theory, but the full Abelian-square total-variation statement is not merely its corollary without the new length-uniform rare-tail lemma.",
+      "searches": [
+        "arxiv:1811.11739 equivalent double occurrence word insertions",
+        "arxiv:2207.09937 average abelian square factors Section 4.3",
+        "arxiv:2308.13882 variations on shuffle squares fair splitting",
+        "\"random perfect matching\" \"adjacent pairs\" poisson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1811.11739, Introduction and Theorems 3.26/4.1 classify equivalence of inserted repeated/return words, not expected counts of contiguous Abelian squares.",
+        "arxiv:2207.09937, Sections 4.3 and 5 survey Abelian-square count and avoidance, not the uniform each-symbol-twice ensemble."
+      ],
+      "reasoning": "Relabeling a double-occurrence word gives a perfect matching on ordered positions. In that equivalent formulation, a length-2k Abelian square is exactly a window whose k edges form a perfect left-right matching; the present result derives its exact probability and global rare-pattern limit. Mathematically proximate double-occurrence insertion and Abelian-pattern results do not imply this probability. A possible matching-language synonym outside indexed sources remains unresolved.",
+      "searches": [
+        "\"double occurrence words\" \"abelian squares\" random",
+        "\"double occurrence\" \"abelian square\" probability",
+        "\"abelian square free double occurrence words\" Poisson",
+        "arxiv:1811.11739 Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exhaustive values for q=1..7 were computed against the matching representation with all 146599 normalized double-occurrence words.",
+        "arxiv:2207.09937 discusses Abelian-square-free word counts in fixed alphabets; it does not tabulate the present double-occurrence-word avoidance event."
+      ],
+      "reasoning": "The result is an infinite Poisson-limit theorem, not a recitation of a known finite list or table. Small-q counts are reproducibility checks. No exact table of this growing-alphabet uniform-multiset event was found in the checked material; a separately indexed table remains a residual risk.",
+      "searches": [
+        "\"double occurrence\" \"abelian square\" exact enumeration",
+        "\"random words each letter occurs twice\" \"abelian square\"",
+        "\"permutations of multisets\" abelian squares poisson"
+      ]
+    },
+    "rationale": "The specific result is a quantitative Poisson(1) limit for the total number of contiguous Abelian-square occurrences in uniformly random double-occurrence words, including a 1/q total-variation rate, exact finite-window expectations, and negligible longer windows. The inspected full-text material concerns fixed-alphabet Abelian repetitions, structural insertions in double-occurrence words, or noncontiguous shuffle squares; their conclusions do not imply these statements. Poisson limits for selected rare matching edges are recognized as related foundational methodology, not claimed as original. Relevant exact terms and mathematical implications were searched in available literature and mathematical-record indexes. No exact prior theorem was identified; unindexed equivalence remains a risk.",
+    "residual_risks": [
+      "An unindexed or differently named chord-diagram/perfect-matching consecutive-edge theorem may imply the full joint Abelian-square statement.",
+      "The general Poisson law for adjacent matched pairs is not claimed to be new; originality rests on the reduction of all longer Abelian squares to an O(1/q) correction and the exact finite-window formula.",
+      "No independent external mathematical audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: deterministic insertion equivalence and repeat/return classes, not random contiguous Abelian-square incidence.",
+        "evidence": [
+          "Publicly posted 2018-11-28; Theorem 4.1 enumerates insertion-equivalence types, not random word moment distributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.11739",
+        "material_read": "Abstract; Sections 1, 2, 3.1, 3.3; Section 4 summary, particularly Theorems 3.26 and 4.1.",
+        "method": "Inspected available open full-text HTML, including formal statements and their comparison with matching-window criterion.",
+        "title": "Insertions Yielding Equivalent Double Occurrence Words",
+        "trigger": "Exactly the same fixed-multiplicity double-occurrence word class and repeat/return-pattern language."
+      },
+      {
+        "assessment": "NOT_COVERING: fixed-alphabet and worst-case repetitions are not the uniform each-letter-twice growing-alphabet limit.",
+        "evidence": [
+          "Section 4.3 presents Theta(n sqrt n) average number of distinct Abelian-square factors for uniform binary words, and Section 5 concerns avoidability.",
+          "First public arXiv version 2022-07-20, MSC 68R15 recorded at arxiv abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.09937v2",
+        "material_read": "Definitions in Section 2; Sections 4.3 and 5.1, especially average fixed-binary-word counts and avoidance thresholds.",
+        "method": "Inspected legal open-access full-text HTML and statement context, checking sample-space and counted invariant.",
+        "title": "Abelian Combinatorics on Words: a Survey",
+        "trigger": "Direct Abelian-square counting and avoidance coverage; explicitly classified under MSC 68R15."
+      },
+      {
+        "assessment": "NOT_COVERING: shuffle-factor realizability and fair splitting are not distributions of contiguous Abelian-square occurrences.",
+        "evidence": [
+          "First public arXiv date 2023-08-26; Theorem 1 concerns fair necklace splitting, rather than the random matching probability of local squares."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.13882",
+        "material_read": "Abstract, Introduction, Sections 2.1-2.3, Gauss-code discussion and related conclusions.",
+        "method": "Inspected available full-text HTML and compared the splitting definition with the contiguous two-half Parikh constraint.",
+        "title": "Variations on shuffle squares",
+        "trigger": "Shuffle squares and even-multiplicity words include double-occurrence words but use noncontiguous splitting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9583140b-7aac-4b49-8981-0b4634fa8269",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Abelian-square avoidance is a central phenomenon in word combinatorics; doubling each symbol while letting the alphabet grow is a natural non-iid occupancy model from double-occurrence/Gauss words. The result shows a quantitatively sharp phase distinction: unlike a fixed-binary-alphabet random word with many repetitions, a uniform double-occurrence word has only Poisson(1) total local Abelian-square occurrences and a nonzero limiting global avoidance probability. The exact cross-matching window probability plus O(1/q) all-length suppression identifies the structural reason and is useful in studying rare contiguous patterns in chord diagrams.",
+    "status": "PASS"
+  }
+}
