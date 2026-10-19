@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(K\\ge1\\), the source update (3.6) reduces to an explicit four-dimensional state matrix; its symbolic determinant equals the quartic displayed in RESULT.md. The zero-flow polynomial factors exactly, and classical strict Jury inequalities yield \\(-1<a_K<1/3\\). The physical root moves to \\(1-3\\varepsilon/[2(1+\\kappa)]+O(\\varepsilon^2)\\), while strictly unstable roots persist. Equality cases are excluded. The 469-assertion algebraic/numerical verifier cross-checks the state matrix and parameter regimes, but finite checks are not used to establish the infinite-time theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 first-order iteration has a one-step-in-time Euler update, so its same algebraic coupling expression does not give BDF2 spectral necessity.",
+        "The 2023 higher-order fixed-stress formulation uses an L-stabilized iteration and adaptive iteration count; it is not the final-sweep-undamped fixed-K recurrence."
+      ],
+      "reasoning": "Stronger results for a different first-order or stabilized algorithm cannot subsume the exact scalar amplification law of the paper-specific second-order scheme.",
+      "searches": [
+        "poroelasticity iterative splitting fixed K BDF2 Schur complement exact characteristic polynomial stability sharp unconditional coupling",
+        "second order iterative BDF2 splitting poroelasticity sharp even odd iterations coupling two steps omega < 2 while sufficient omega < 1",
+        "arXiv:2304.12224 §§3-4",
+        "arXiv:2311.14400 §§2-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.12699 (full relevant sections)",
+      "arXiv:2304.12224 (full relevant sections)",
+      "arXiv:2311.14400 (full relevant sections)",
+      "arXiv:2203.16664 (source description/abstract only, one-pass BDF2)",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/pamm.202400011 (HTML inspected sections)",
+      "published mathematical research records on BDF2 positivity and SOR curvature frontiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published general sufficient inequality \\(3\\omega^K<(2+\\omega)^{K-1}\\) covers the strict odd-\\(K\\) range, but not \\(K=2,\\omega=3/2\\).",
+        "Published numerical even-K advantage establishes qualitative observation only.",
+        "At \\(K=2,\\omega=3/2\\), the limiting parasitic roots have modulus \\(3/\\sqrt{14}<1\\), while the published sufficient inequality fails."
+      ],
+      "reasoning": "The new scalar necessity and odd/even cutoff explicitly separate what follows from the original theorem and what the original tests suggest. The first-order recurrence cannot imply a distinct fourth-degree BDF2 characteristic.",
+      "searches": [
+        "arXiv:2403.12699 Proposition 4.1 and §5.1",
+        "arXiv:2304.12224 §§3-4",
+        "second order iterative BDF2 splitting poroelasticity sharp even odd iterations coupling two steps omega < 2 while sufficient omega < 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source §5.1 reports better even-\\(K\\) performance numerically, not an all-\\(K\\) modal polynomial.",
+        "Source Proposition 4.1 proves the sufficient \\(3\\omega^K<(2+\\omega)^{K-1}\\) inequality; the proposed even-\\(K\\) result requires only \\(\\omega^K<(2+\\omega)^{K-1}\\) in the scalar limit."
+      ],
+      "reasoning": "A necessary/sufficient small-positive-flow 4x4 spectral threshold is stronger than the source’s numerical observation, and contradicts any interpretation of the sufficient general bound as necessary for even K.",
+      "searches": [
+        "Altmann Deiml 2024 second-order iterative decoupling poroelasticity BDF2 inner iterations relaxation sharp stability threshold coupling scalar counterexample",
+        "Altmann Deiml second order poroelasticity damping gamma 2/(2+omega) BDF2 exact scalar characteristic (z-1)(z-1/3)(z^2+2az-a) K parity stability",
+        "arXiv:2403.12699 §3.6, §4, §5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source Figure 5.1 is a graph of empirical thresholds and a sufficient bound, not a table of exact scalar spectral roots.",
+        "Targeted mathematical research-record results concerned SOR, generic BDF2 positivity, or other splitting methods, not the present amplification matrix."
+      ],
+      "reasoning": "No exact existing table or database value encountered supplies the all-K scalar characteristic polynomial or sharp even-K boundary. Search absence alone does not establish novelty.",
+      "searches": [
+        "poroelasticity semi explicit second order finite decoupling inner iterations weak flow zero step limit Jury Schur scalar spectrum",
+        "Altmann Deiml \"second-order\" \"even\" iterations threshold stability coupling exact",
+        "BDF2 poroelasticity \"even\" \"odd\" inner iterations stability coupling parity analysis"
+      ]
+    },
+    "rationale": "The source expressly observes the even-K phenomenon but only supplies a uniform sufficient inequality; it does not give the sharp modal BDF2 characteristic factorization, opposite-sign Schur cutoffs, or epsilon-positive perturbative necessity. The analogous first-order threshold belongs to a distinct scheme. Targeted published-record and primary-source comparisons found no dominating claim. Residual older-literature and revision risks are documented rather than treated as proof of uniqueness.",
+    "residual_risks": [
+      "An older modal stability analysis of the same fixed-sweep BDF2 scheme could express the parity threshold under different notation.",
+      "A later revision or journal text may contain a sharper result beyond the specifically inspected primary arXiv material.",
+      "The result is only a scalar limiting small-positive-flow classification; equality cases and multidimensional matrix interactions remain open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL SUFFICIENT plus EXPERIMENTAL PARITY, not a covering exact scalar threshold",
+        "evidence": "Eq. (3.6), condition (4.3), p.15 paragraph noting even-sweep counts of two and four outperform odd-sweep counts in experiments.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.12699",
+        "material_read": "PDF §3.5--3.6 (scheme), §4 incl. Proposition 4.1/Theorem 4.5 and Remark 4.6, §5.1 and Figure 5.1; full-page figure inspected",
+        "method": "Full-text PDF sections and rendered p.15 figure, with equations compared directly",
+        "title": "A second-order iterative time integration scheme for linear poroelasticity",
+        "trigger": "Identical algorithm, coupling, sweep count and source stability condition"
+      },
+      {
+        "assessment": "NOT_COVERING: first-order Euler recurrence rather than two-step BDF2 and its spectrum",
+        "evidence": "§3.4 gives fixed K on an Euler step; §4 relates first-order pressures rather than the scalar quartic.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.12224",
+        "material_read": "PDF §§3.3--3.4 and §4, especially equations (3.2) and (4.3)--(4.8)",
+        "method": "Full-text PDF targeted sections with side-by-side update comparison",
+        "title": "A novel iterative time integration scheme for linear poroelasticity",
+        "trigger": "Precursor uses same relaxation and bound numerically equal to the even-K scalar threshold"
+      },
+      {
+        "assessment": "NOT_COVERING: stabilized fixed-stress iteration, not the undamped-final fixed-sweep recurrence",
+        "evidence": "§3 equations (3.3)--(3.8) derive L-stabilized contraction and tolerance-controlled inner iterations.",
+        "identifier_or_url": "https://arxiv.org/pdf/2311.14400",
+        "material_read": "PDF introduction, §2 operators/BDF discussion, §3 stabilized iteration and contraction, bibliography",
+        "method": "Full-text PDF targeted sections, comparison of actual split equations and termination rules",
+        "title": "Higher-order iterative decoupling for poroelasticity",
+        "trigger": "Alternative BDF2/higher-order poroelasticity iteration might dominate"
+      },
+      {
+        "assessment": "NOT_COVERING from inspected parts: nonlinear extension and first-order prescription; second-order scalar spectral law not identified",
+        "evidence": "Section 3.3 states the first-order linear bound \\(\\omega^K<(2+\\omega)^{K-1}\\).",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/pamm.202400011",
+        "material_read": "Accessible HTML abstract, §1 and §3.3 first-order iteration description",
+        "method": "Rendered accessible publisher full-text sections",
+        "title": "Iterative time integration for poroelasticity with nonlinear permeability",
+        "trigger": "Related secondary extension of first/second order iterative schemes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8b59f06-72a9-4906-9f66-23830d42c268",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating source itself documents unexplained even-\\(K\\) stability improvements in Figure 5.1. For \\(K=2\\), the exact \\(0<\\kappa<2\\) small-flow stability interval instead of the general theorem’s sufficient \\(0<\\kappa<1\\) interval is a quantitatively meaningful strengthening on a natural scalar spatial eigenmode. The parity-dependent modal law helps assess inner-sweep budgets without claiming PDE or nonlinear stability.",
+    "status": "PASS"
+  }
+}
