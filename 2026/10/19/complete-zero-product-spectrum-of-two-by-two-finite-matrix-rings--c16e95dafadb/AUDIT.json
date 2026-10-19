@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Direct rank-one matrix-ring multiplication gives kernel-image adjacency and exact Kronecker block reduction. Inclusion-exclusion yields (Bf)_ij=s(r_j+c_i-f_ji)-delta_ij f_ii. The symmetric/skew array decomposition has verified dimensions and explicit 2×2/1×1 actions; their determinants give all characteristic factors. Nonzero reduced determinants imply sharp rank and nullity; sign and discriminant checks give inertia/energy. Exact standalone tests directly enumerate all ring products q=2,3,4,5 and compare polynomial coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2021 Theorem 3.16 does address every finite matrix ring including M2, via spectral quotient not evaluated",
+        "2026 Theorem 4.1 applies only to odd prime quaternion moduli and bounds rather than determines nullity"
+      ],
+      "reasoning": "The 2021 general result covers the underlying finite graph algorithmically but does not assert the exact closed uniform factor or sharp invariants. The 2026 work narrows the family and leaves reduced spectrum open, and cannot dominate full-field symbolic evaluation.",
+      "searches": [
+        "Zero divisor graph Lipschitz quaternion ring modulo odd prime full adjacency spectrum rank nullity eigenspaces",
+        "Exact nullity q(q+1)(q-2), rank (q+1)(2q-1), and complete adjacency characteristic polynomial with quadratic factors for zero-divisor graph of M2(Fq)",
+        "arXiv:2106.15977v1 Thm3.16 and Thm4.3; arXiv:2603.20947v1 Thm4.1, Cor4.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.20947v1 HTML §§2–4,6–7",
+      "arXiv:2312.09934v1 HTML §§2–3",
+      "arXiv:2106.15977v1 HTML §§1–4",
+      "published-finding corpus published semantic hits on same-graph domination and related ring graph spectra",
+      "Targeted web searches for M2 zero-divisor graph characteristic polynomial/spectrum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021: implicit generalized-join quotient for the ring",
+        "2023: corrected quotient eigenvalues explicitly identified as a difficult remaining computation",
+        "2026: exact block but rank upper bound only",
+        "New: invariant subspaces I,F,D(a),S(a), skew gradient and row-sum kernels diagonalize entire quotient"
+      ],
+      "reasoning": "The new spectral factorization is not an immediate relabeling or numerical substitution into any published formula; it requires deriving and exhausting the type-quotient representation. It is compatible with prior block reductions and genuinely strengthens their rank/nullity conclusions.",
+      "searches": [
+        "Complete adjacency spectrum and characteristic polynomial of the undirected zero-divisor graph of the full two-by-two matrix ring over a finite field via projective kernel-image ordered pairs; eigenvalues and multiplicities",
+        "Zero-divisor graph of matrix algebra M_2(F_q) eigenvalue multiplicities quadratic sqrt(q^4-8q+8) rank kernel image spectral graph",
+        "arXiv:2106.15977v1 Thm3.16",
+        "arXiv:2312.09934v1 Cor3.4",
+        "arXiv:2603.20947v1 Thm4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Masalkar et al 2023 Cor.3.4: forced factors plus eigenvalues of diagonally corrected type quotient",
+        "Rather 2026 Thm4.1: forced factors plus χ_B; only spectral radius determined separately"
+      ],
+      "reasoning": "Rewriting the proposed formula as the exact closed characteristic polynomial of the corrected quotient reveals two quadratic factors and three scalar branches, not supplied in those sources. The weaker quotient description makes instancewise diagonalization possible but is not the stated explicit symbolic result.",
+      "searches": [
+        "Complete adjacency spectrum and characteristic polynomial of the undirected zero-divisor graph of the full two-by-two matrix ring over a finite field via projective kernel-image ordered pairs; eigenvalues and multiplicities",
+        "Full characteristic polynomial of kernel-image incidence adjacency matrix on ordered pairs of lines: eigenvalues plus/minus q-1, cubic standard component, two-cell quotient",
+        "Zero-divisor graph of matrix algebra M_2(F_q) eigenvalue multiplicities quadratic sqrt(q^4-8q+8) rank kernel image spectral graph",
+        "arXiv:2312.09934v1 §3; arXiv:2603.20947v1 §4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 Table 1 gives nullity lower bounds 12 for q=3 and 90 for q=5, rather than equality",
+        "2023 §3 states bound methods and a quotient, not a table of all-field polynomials",
+        "published-finding corpus direct searches returned no same polynomial or discriminant"
+      ],
+      "reasoning": "The new theorem proves these known lower bounds exact for every field and supplies exact spectral multiplicities and energy beyond finite displayed cases; no located table states the full invariant.",
+      "searches": [
+        "Exact nullity q(q+1)(q-2), rank (q+1)(2q-1), and complete adjacency characteristic polynomial with quadratic factors for zero-divisor graph of M2(Fq)",
+        "Bilal Ahmad Rather 2603.20947 lower nullity bound sharp equality complete spectrum finite matrix ring",
+        "arXiv:2603.20947v1 §6 Table 1",
+        "arXiv:2312.09934v1 §3"
+      ]
+    },
+    "rationale": "Inspected highly relevant primary full texts and searched published-finding corpus for same ring, aliases, explicit polynomial, rank and discriminants. A 2021 general semisimple spectral reduction and 2023–2026 direct reductions are credited; they provide implicit quotient spectra/bounds, not the newly evaluated uniform two-quadratic factorization and exact nullity/energy. Published indexed same-graph domination has no implication for characteristic polynomials. No novelty claim is based solely on absent search hits.",
+    "residual_risks": [
+      "Published broad 2021 quotient reduction permits an instancewise spectral calculation, so the novelty is a closed general evaluation, not the first computability result.",
+      "An unindexed or alternative source could have diagonalized the corrected quotient; exhaustive bibliographic uniqueness cannot be guaranteed.",
+      "An indexed same-graph domination record was accessible as a scientific summary but its full repository page was not available through this browsing route; its domination statement is distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes B=(p-1)H-D, nullity lower bound and two-cell Perron quotient; does not diagonalize B or state full characteristic polynomial or sharp nullity equality; restricted to odd primes for its matrix-ring identification.",
+        "evidence": [
+          "Theorem 4.1: χ_A(z)=z^{p(p+1)(p-2)}(z+1)^{(p+1)(p-2)}χ_B(z).",
+          "Corollary 4.2 and Table 1 state nullity ≥ p(p+1)(p-2).",
+          "Theorem 4.4 gives only spectral radius of 2×2 quotient."
+        ],
+        "identifier_or_url": "arXiv:2603.20947v1, https://arxiv.org/html/2603.20947v1",
+        "material_read": "Full HTML sections 2, 3, 4 including Theorems 3.3, 4.1, 4.4, Corollary 4.2; numerical Table 1, §6 and energy discussion §7",
+        "method": "Read primary public HTML mathematical statements, block formulas and numerical table",
+        "title": "Block Structure and Spectrum of Zero-Divisor Graphs of Lipschitz Quaternion Rings Modulo n",
+        "trigger": "2026 direct same zero-product graph for odd prime matrix rings; claims nullity lower bound, spectral radius"
+      },
+      {
+        "assessment": "Gives full spectrum implicitly as eigenvalues of corrected quotient plus forced zeros/negative ones, and obtains bounds using Weyl; explicitly reports corrected quotient difficult to diagonalize. Does not contain all-q closed polynomial.",
+        "evidence": [
+          "Corollary 3.4 expresses spectrum using σ(T+A(H)).",
+          "Following paragraph says computing corrected quotient eigenvalues is difficult; Proposition 3.6 gives Weyl inequalities."
+        ],
+        "identifier_or_url": "arXiv:2312.09934v1, https://arxiv.org/abs/2312.09934",
+        "material_read": "Primary arXiv HTML sections 2 and 3, including class reduction Corollary 3.4, discussion preceding Proposition 3.5 and eigenvalue bounds",
+        "method": "Read main results/derivation; compare exact corrected quotient versus proposed polynomial",
+        "title": "On spectrum of the zero-divisor graph of matrix ring",
+        "trigger": "Older paper on exactly the matrix ring and the ordinary undirected graph"
+      },
+      {
+        "assessment": "Provides generalized-join compression and an implicit finite quotient-matrix spectral computation for all finite matrix rings, but no uniform explicit two-quadratic factorization for n=2 or derived symbolic inertia and energy.",
+        "evidence": [
+          "Theorem 3.16 states spectrum in terms of eigenvalues of a quotient C_A of order l; Theorem 4.3 extends the method to direct products.",
+          "No all-q factored polynomial matching the claim is stated in the inspected parts."
+        ],
+        "identifier_or_url": "arXiv:2106.15977v1, https://arxiv.org/abs/2106.15977",
+        "material_read": "Primary arXiv full text introduction and §2–§4, especially Theorem 3.16 for M_n(F_q) and Theorem 4.3 for semisimple products",
+        "method": "Read statement/quotient construction and compare implication",
+        "title": "Spectra of the zero-divisor graph of finite rings",
+        "trigger": "Potential stronger broad theorem for finite semisimple matrix rings, direct novelty challenge"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c16e95da-fadb-423f-aa1b-d9cc77bd14d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 work leaves an order-(p+1)^2 eigenproblem and only nullity bounds. This result produces a uniform finite-field closed factorization and settles exact rank, -1 multiplicity, inertia, and energy for all q; these are motivated global invariants of a natural matrix-ring zero-product relation, not arbitrary small-field values.",
+    "status": "PASS"
+  }
+}
