@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Invert the almost-surely nonsingular 2-by-2 Gaussian Gram to derive an exact lower triangular compressed matrix and eigenvector ratio. Haar invariance of the 2-by-3 matrix null line identifies r=(Z1/Z3,Z2/Z3) for independent complex normals. A separate circular-normal denominator is independent of Z2, establishing |eta|^2=q V/U for independent Exp(1) variables, CDF z/[q+(1-q)z], and mean Phi(q) by exact integration. The complex ratio for the eigenvalue gives a tail gamma^2/(t^2+gamma^2) and divergent second moment. The q~(b/a)^2 theta^2 expansion yields the exact logarithmic coefficient. The packaged standalone verify.py was run successfully, but is supportive rather than a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao, arXiv:2604.01037v1: square complex-Gaussian generalized pencil and high-probability eigenvector angle bounds, Section 4; no exact finite-sample squared-angle CDF or moment classification in inspected sections.",
+        "Nakatsukasa–Tropp, Fast Randomized Algorithms, Section 6: sketched Rayleigh–Ritz using embedding sketch/oversampling; Section 6.8 notes complex Ritz eigenvalues can arise for Hermitian problems, but does not calculate this finite-dimensional tail.",
+        "Haas–Nakatsukasa, arXiv:2506.01207: deterministic approximate eigenvalue error bounds rather than random Gaussian projective angle distributions."
+      ],
+      "reasoning": "Shao establishes convergence with high probability and does not thereby imply the exact expectation or infinite variance; a probability tail bound at a fixed confidence level cannot determine the logarithmic mean. Embedding-based sketched Rayleigh–Ritz with oversampling changes the geometry and inverse-moment behavior. Deterministic eigenvalue estimates give no distribution. No inspected stronger theorem implies the complete model-specific statement.",
+      "searches": [
+        "Nakatsukasa Tropp sketched Rayleigh Ritz square gaussian Petrov Galerkin eigenvalue distribution heavy tail",
+        "\"Rayleigh Ritz\" \"mean square\" \"Gaussian\" sketch eigenvector",
+        "Shao arXiv:2604.01037 Sections 4.2–4.3; Nakatsukasa–Tropp Section 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.01037v1, HTML complete relevant primary sections",
+      "Nakatsukasa–Tropp sRR draft, full relevant chapter and page images",
+      "arXiv:2506.01207 primary PDF and relevant result",
+      "Published mathematical records and directed alias/parameter/implication queries including IDs listed in evidence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shao, arXiv:2604.01037v1: square complex-Gaussian generalized pencil and high-probability eigenvector angle bounds, Section 4; no exact finite-sample squared-angle CDF or moment classification in inspected sections.",
+        "Nakatsukasa–Tropp, Fast Randomized Algorithms, Section 6: sketched Rayleigh–Ritz using embedding sketch/oversampling; Section 6.8 notes complex Ritz eigenvalues can arise for Hermitian problems, but does not calculate this finite-dimensional tail.",
+        "Haas–Nakatsukasa, arXiv:2506.01207: deterministic approximate eigenvalue error bounds rather than random Gaussian projective angle distributions.",
+        "A high-probability bound on angle convergence is compatible with expectation of order theta-squared times log inverse theta and even with unbounded second moment for another output."
+      ],
+      "reasoning": "The result is not a renaming of the existing linear angle-in-probability guarantee. The exact independent exponential ratio yields a new quantified mean-square logarithmic loss; likewise a high-probability bound on an unrefined eigenvalue does not establish or refute its unbounded second moment. The deterministic Rayleigh–Ritz solution on the identical W is exactly w1, giving a nontrivial direct comparison. Prior residual-filter bounds, deterministic Ritz bounds and oversampled sketch statements have different operators or quantifiers.",
+      "searches": [
+        "arXiv:2604.01037v1 full Sections 1,4,5",
+        "Nakatsukasa–Tropp Section 6 sketched Rayleigh–Ritz",
+        "randomized Rayleigh Ritz exact finite sample normalized eigenvector squared sine CDF q exponential ratio logarithmic mean-square theta squared log inverse theta",
+        "arXiv:2506.01207"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao, arXiv:2604.01037v1: square complex-Gaussian generalized pencil and high-probability eigenvector angle bounds, Section 4; no exact finite-sample squared-angle CDF or moment classification in inspected sections.",
+        "Haas–Nakatsukasa, arXiv:2506.01207: deterministic approximate eigenvalue error bounds rather than random Gaussian projective angle distributions.",
+        "Direct equivalence reduction: the square test pencil is lower triangular and its eigenvector coefficient is a ratio of two independent complex normals, so a claim about a complex projective Gaussian line could imply the same result even without Ritz terminology."
+      ],
+      "reasoning": "The underlying scalar complex Gaussian ratio is classical and is not a novelty claim. The inspected Ritz literature does not state its full propagation to the normalized geometric Ritz angle, exact expectation and logarithmic small-angle excess. General results on complex projective Gaussian ratios could cover pieces; an equivalent older Ritz-specialized formulation remains an acknowledged residual risk.",
+      "searches": [
+        "Square complex Gaussian randomized Rayleigh Ritz Petrov Galerkin eigenvector angle exact distribution Cauchy projective ratio logarithmic expected squared error",
+        "complex Cauchy matrix inverse Gaussian projected eigenvalue infinite variance Ritz vector mean-square logarithmic",
+        "\"randomized Ritz\" \"Cauchy\" \"moment\" \"eigenvector\"",
+        "arXiv:2604.01037v1; arXiv:2506.01207"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 compares normal-matrix spectral filters; its sharp Rayleigh-residual gain result neither specializes to nor implies random square-test Ritz distribution.",
+        "Published record 2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03 concerns conjugate-gradient critical tolerance fluctuations, not randomized Rayleigh–Ritz.",
+        "No relevant fixed-parameter table or previously published finite-sample law was observed in these returned mathematical records; this is not a completeness certificate."
+      ],
+      "reasoning": "This is an analytic distribution identity, not a finite numerical constant in a benchmark table. The nearest retrieved records concern residual filtration or conjugate-gradient iteration-count distributions, neither the same matrix pencil nor same normalization. No exact tabulation was found, but retrieval limitations remain.",
+      "searches": [
+        "randomized Rayleigh Ritz exact finite sample normalized eigenvector squared sine CDF q exponential ratio logarithmic mean-square theta squared log inverse theta",
+        "randomized Ritz eigenvalue complex Cauchy infinite second moment square Gaussian test petrov galerkin positive semidefinite diagonal",
+        "Nian Shao Stabilizing Rayleigh Ritz procedure by randomization 2604.01037 analysis Gaussian complex Ritz squared angle finite sample",
+        "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+      ]
+    },
+    "rationale": "The exact normalized eigenvector CDF and mean, 2(b/a)^2 theta^2 log(1/theta) mean-square penalty, and divergent second moment of the raw Ritz value for the explicitly specified square complex-Gaussian Ritz pencil are not stated in the inspected original high-probability theorem or directly implied by the inspected oversampled-sketch and deterministic Ritz literature. The Gaussian ratio identity is classical and not claimed novel; specialized equivalent earlier presentations remain a documented risk.",
+    "residual_risks": [
+      "An older complex multivariate-Cauchy or random Petrov–Galerkin paper might explicitly state this exact geometric angle law under an equivalent projective-coordinate description.",
+      "Published-record semantic search is neither exhaustive nor a uniqueness proof.",
+      "The claim is restricted to square complex-Gaussian sketches; standard oversampling results do not automatically transfer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes randomized Rayleigh–Ritz mechanism and high-probability error; inspected text does not state exact 3-by-3 angle CDF, sharp mean-square logarithm, or infinite second moment of the raw complex Ritz value",
+        "evidence": "Shao, arXiv:2604.01037v1: square complex-Gaussian generalized pencil and high-probability eigenvector angle bounds, Section 4; no exact finite-sample squared-angle CDF or moment classification in inspected sections.",
+        "identifier_or_url": "https://arxiv.org/html/2604.01037v1",
+        "material_read": "Original arXiv full HTML, algorithm and high-probability theorems in Sections 1 and 4, and numerical Section 5.3; checked distribution/moment terminology across text",
+        "method": "Read the primary manuscript and compared the actual generalized pencil, hypotheses, projected output, and probability quantifiers",
+        "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+        "trigger": "Exact same randomized generalized compressed eigenproblem and source for motivating gap"
+      },
+      {
+        "assessment": "Uses sketch embedding and normally oversampled setting; no exact finite-sample squared-angle law for square iid complex-Gaussian test or logarithmic mean excess found in inspected relevant material",
+        "evidence": "Nakatsukasa–Tropp, Fast Randomized Algorithms, Section 6: sketched Rayleigh–Ritz using embedding sketch/oversampling; Section 6.8 notes complex Ritz eigenvalues can arise for Hermitian problems, but does not calculate this finite-dimensional tail.",
+        "identifier_or_url": "https://tropp.caltech.edu/drafts/NT21-Fast-Accurate-draft.pdf",
+        "material_read": "Primary PDF full relevant Sections 1.3 and 6, especially discussion of embedding sketches, comparison theory and nonreal eigenvalues in Section 6.8",
+        "method": "Read full relevant chapter and examined page images for core setup and Section 6.8",
+        "title": "Fast Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Foundational sketched Rayleigh–Ritz construction and possibly broader random sketch coverage"
+      },
+      {
+        "assessment": "Does not determine the distribution or moments of the square complex-Gaussian pencil",
+        "evidence": "Haas–Nakatsukasa, arXiv:2506.01207: deterministic approximate eigenvalue error bounds rather than random Gaussian projective angle distributions.",
+        "identifier_or_url": "https://arxiv.org/pdf/2506.01207",
+        "material_read": "Relevant main theorem, setup and estimates of original paper, inspected in PDF and its rendered page image",
+        "method": "Compared assumptions and quantified deterministic eigenvalue errors against stochastic generalized sketch-eigenvector distribution",
+        "title": "Sharp error bounds for approximate eigenvalues and singular values from subspace methods",
+        "trigger": "Possible stronger deterministic Rayleigh–Ritz approximation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8d6ea4a-8318-479a-9b80-8f2637cf21c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A new exact stochastic reliability benchmark shows that the published probabilistic linear-angle accuracy guarantee for a randomized Rayleigh–Ritz eigensolver may coexist with a sharp logarithmic degradation in expected squared-angle and infinite raw-eigenvalue variance, even in a simple well-conditioned Hermitian diagonal example. The complete CDF and exact coefficient quantitatively guide selection of meaningful performance metrics and assessment of refining or oversampling, without claiming those variants are proved.",
+    "status": "PASS"
+  }
+}
