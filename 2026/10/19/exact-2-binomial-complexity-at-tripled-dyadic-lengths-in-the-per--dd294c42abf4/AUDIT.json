@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The binary scattered-subsequence counts reduce bijectively to (one-count t, weighted zero-based one-index sum J). Every even-length factor is exactly an even-start E(u) or odd-start O(u) image of an occurring half-length factor, with no missing boundary positions; both maps have \\(t_{\\mathrm{new}}=m-t\\), \\(J(E)=m^2-2J-t\\) and \\(J(O)=m(m-1)-2J\\). At old outer weights, \\(t_{\\mathrm{new}}\\) is odd, so E/O J parities differ and the two injective profile images are disjoint. At central weight \\(t=2^k\\), images are arithmetic progressions of common spacing \\(2^{k+1}\\) displaced by one spacing, giving \\(k+4\\) terms and the displayed minimum recurrence. The length-three base exhausts five factors. Therefore all k follow inductively. The packaged program independently and exhaustively checks all factor profiles for \\(0\\le k\\le13\\) using the three valid adjacent-letter pairs; a separate valuation-generated prefix agrees through \\(k=10\\). No finite test is treated as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lejeune thesis 2021 §4.5 p116 explicitly says it is not able to precisely compute the period-doubling 2-binomial complexity.",
+        "Rigo–Stipulanti–Whiteland 2022 §7.1 gives related binomial-complexity comparisons and families; no all-length period-doubling formula dominating this non-dyadic profile was located.",
+        "Nearby published work on period-doubling 3-block difference lifts and greedy attractors concerns different invariants."
+      ],
+      "reasoning": "A complete formula for all lengths, or a general theorem on every residue \\(3\\cdot2^k\\), would subsume the claim. Read direct competing thesis pages and relevant later discussion; the reported conclusions are qualitative or about other objects and do not imply the numerical or profile formula.",
+      "searches": [
+        "period doubling 2 binomial complexity 2-regular Parikh matrix factors",
+        "Lejeune period doubling 2 binomial complexity non dyadic length 3*2^k central profile",
+        "period doubling 2 binomial complexity non powers of two explicit 2024 2025",
+        "https://arxiv.org/html/2201.04603v2"
+      ]
+    },
+    "checked_sources": [
+      "https://orbi.uliege.be/handle/2268/149313",
+      "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+      "https://arxiv.org/html/2201.04603v2",
+      "https://oeis.org/A052968",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lejeune Proposition 4.5.1: equality with ordinary factor complexity at dyadic lengths, strict comparison at non-dyadic lengths; no exact non-dyadic count or central layer profile.",
+        "Published period-doubling 3-block cocycle-fibre rank result concerns group extensions, not 2-binomial factor classes.",
+        "Published result on all binary length-limited contiguous-pair composition spectra does not give classes of scattered subsequences occurring inside a specific infinite word."
+      ],
+      "reasoning": "The theorem is not a corollary of dyadic equality, a strict inequality away from powers of two, an adjacent-pair substring reconstruction law, or a finite plotted table. It adds an explicit infinite non-dyadic identity plus a finer exact one-index weighted spectrum.",
+      "searches": [
+        "exact 2-binomial complexity period doubling at lengths 3 times powers of two 2^(k+1)+k+3",
+        "period-doubling word 2-binomial equivalence counts three weights 2^k - 1 2^k plus 1 arithmetic progression",
+        "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+        "https://arxiv.org/html/2201.04603v2",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary 2-binomial equivalence at fixed length is equivalent to equality of (t,J), since scattered 01 count equals J - binom(t,2).",
+        "Lejeune 2021 §4.5 pp115–116 treats the same period-doubling morphism 0->01,1->00 and same binomial invariant, but not the arithmetic-progression statement."
+      ],
+      "reasoning": "Searched alternate descriptions using weighted-position sums, scattered 01 counts, Parikh matrices and explicit tripled-dyadic scale. The full relevant thesis passage does not give the proposed exact infinite profile; its qualitative result lacks the number or position-sum distribution of classes.",
+      "searches": [
+        "period-doubling infinite word 2-binomial classes length 3*2^k equals 2^(k+1)+k+3",
+        "period doubling scattered 01 weighted position sum 3*2^k central Hamming weight AP",
+        "period doubling word scattered subsequence 01 counts equivalence factors lengths 2^k",
+        "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lejeune 2021 Figure 4.2 plots initial numeric values to n=70 but does not state a general formula for tripled dyadic lengths.",
+        "OEIS A052968 contains numerically identical terms after an index shift; the entry defines an unrelated arithmetic enumeration and does not identify counts of period-doubling 2-binomial classes or prove their value."
+      ],
+      "reasoning": "Finite plotted initial terms and a coincident integer sequence are not the invariant-specific all-exponents theorem. Explicit finite values might have been previously computed; the novelty claim concerns the proved infinite family and central-weight arithmetic progression.",
+      "searches": [
+        "binomial complexity period-doubling non powers 3 6 12 24 48 96 192 5 8 13 22 39 72 137",
+        "https://oeis.org/A052968",
+        "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf"
+      ]
+    },
+    "rationale": "The most direct prior comparison is Lejeune 2021 §4.5, pp115–117, which inspects this exact word and its 2-binomial complexity, shows a finite plot through length 70 and a qualitative power-of-two/non-power comparison, and states that precise values were not obtained. The theorem here determines an infinite non-dyadic family and each exact Hamming-weight layer, which cannot be deduced from those qualitative comparisons alone. Rigo–Salimov 2013 develops the invariant on other word families, and Rigo–Stipulanti–Whiteland 2022 §7.1 does not supply this formula. Searches of relevant indexed and published sources uncovered no matching earlier word-specific theorem, although an unindexed prior proof could exist.",
+    "residual_risks": [
+      "An unindexed, unpublished, or later paper could independently derive the same all-exponents non-dyadic identity or its weighted-sum profile.",
+      "The published numeric plot through n=70 overlaps the first several numerical instances, so those individual finite values alone are not claimed as original.",
+      "Two nearby published findings were assessed from their mathematical summaries rather than complete main texts; their clearly different objects make direct implication implausible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines 2-binomial equivalence; computes Sturmian and Thue–Morse cases, not the stated period-doubling tripled-dyadic law",
+        "evidence": "Original repository available 27 May 2013; contents study Sturmian and Thue–Morse binomial complexity.",
+        "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+        "material_read": "2013 author preprint, including definition and family-specific results",
+        "method": "Read open-access primary text and original repository record",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+        "trigger": "Foundational published source for the invariant and verifiable archive source date"
+      },
+      {
+        "assessment": "Closest prior work, establishes qualitative comparisons and limited numerical plot but does not establish full claimed tripled-dyadic values",
+        "evidence": "Printed p115 Proposition 4.5.1; p116 text states lack of precise determination; plot through n=70.",
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+        "material_read": "Full relevant §4.5 pages 115–117 including Proposition 4.5.1, Figure 4.2, and discussion of failed precise computation",
+        "method": "Read open-access full-document text and page images for printed pp115–116",
+        "title": "On the k-binomial equivalence of finite words and k-binomial complexity of infinite words",
+        "trigger": "Directly studies same period-doubling word and invariant"
+      },
+      {
+        "assessment": "Discusses related complexity comparisons, not this period-doubling exact non-dyadic spectrum",
+        "evidence": "Section 7.1 and definition sections; primary MSC 68R15.",
+        "identifier_or_url": "https://arxiv.org/html/2201.04603v2",
+        "material_read": "Open-access full-text sections on binomial equivalence and §7.1 plus surrounding context",
+        "method": "Read arXiv HTML manuscript version 2201.04603v2",
+        "title": "Characterizations of families of morphisms and words via binomial complexities",
+        "trigger": "Later broad primary paper on binomial complexities and morphic words"
+      },
+      {
+        "assessment": "Matching numbers arise from independent arithmetic construction; no period-doubling word connection is stated",
+        "evidence": "The entry gives \\(a(n)=1+2^{n-1}+n\\) for \\(n>0\\) and discusses powers of five.",
+        "identifier_or_url": "https://oeis.org/A052968",
+        "material_read": "Definition, initial terms, formulas and comments",
+        "method": "Read entry including initial terms and interpretations",
+        "title": "OEIS A052968",
+        "trigger": "Exact integer sequence coincidence with proposed formula"
+      },
+      {
+        "assessment": "Different invariant: component count and cocycle fibre rank, not 2-binomial equivalence classes",
+        "evidence": "The stated result describes minimal components of a three-block difference lift modulo kappa.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899",
+        "material_read": "Published result title and abstract-level claim; not source full text",
+        "method": "Compared published mathematical summary and parameters",
+        "title": "Exact component and fibre-rank law for the three-block period-doubling lift",
+        "trigger": "Highly ranked published overlap hit with same period-doubling object"
+      },
+      {
+        "assessment": "Its observations are limited contiguous-window compositions on arbitrary binary words, not scattered 2-binomial classes of period-doubling factors",
+        "evidence": "Its headline formulas apply to every binary word under a different equivalence relation.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "material_read": "Published result title and abstract-level claim; not source full text",
+        "method": "Compared the defined observations and full-domain quantifiers",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Nearby published result about binary word equivalence and count profiles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd294c42-abf4-4800-8090-4e2a86000319",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The previous direct period-doubling analysis had qualitative dyadic versus non-dyadic information and a bounded plot but no exact infinite non-dyadic spectrum. The proved tripled-dyadic family determines infinitely many values with a nontrivial additive logarithmic term: \\(b(3\\cdot2^k)=2^{k+1}+k+3\\), a distinct exact profile for all three Hamming weights, and a closed central arithmetic progression. These are natural 2-binomial invariants, not arbitrary parameters; the result supplies structural data about how the substitution refines scattering statistics. It neither claims an all-length formula nor needs a separate application theorem to be meaningful.",
+    "status": "PASS"
+  }
+}
