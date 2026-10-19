@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The proof constructs graded tensor-chain decompositions explicitly in characteristic three, solves a transparent three-component recurrence, verifies strict distinctness of the quotient lengths, and counts symmetric-form ranks via standard finite-field orthogonal-group orders. Exhaustive three-variable \(\mathbb F_3\) calculations and additional independent finite-field matrix computations reproduce the predicted graded chains. They support, but do not replace, the universal proof.
+
+**Originality — PASS (qualified).** The ungraded tensor-product formula in Carlson–Friedlander–Pevtsova, Appendix 10, and classical symmetric-form counts are prior mathematics explicitly credited; neither separately supplies the graded starting-degree polynomials and their exhaustive quadratic-rank frequencies. The two-generator truncated-group-algebra situation is also known and is not claimed as a new special case. The sources on monomial complete intersection Lefschetz properties classify multiplication by *linear* forms and their powers, rather than arbitrary quadratic forms of rank greater than one. Searches for direct quadratic-form rank/Jordan/Hilbert equivalences found no exact statement, but possible implication from an unlocated specialized graded tensor or Hilbert-function theorem remains a residual risk.
+
+**Value — PASS.** In a natural family of modular group algebras and Artinian complete intersections, degreewise images matter and ungraded Jordan partitions do not determine quotient Hilbert functions. The finding supplies a complete, rank-controlled graded classification and exact field-point counts for every number of generators and every finite field of characteristic three, with a fully explicit separation of all strata. This is more informative than a single numerical example or a count of known quadratic forms.
+
+**Limitations.** The result concerns only *homogeneous quadratic* operators in characteristic three. Some ingredient decompositions and the form-rank counts were previously known; no priority claim is made for these ingredients. No independent mathematical audit has been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
