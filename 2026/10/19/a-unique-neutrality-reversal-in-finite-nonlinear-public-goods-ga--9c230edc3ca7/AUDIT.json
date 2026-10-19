@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The conditional hypergeometric expected payoff gap is affine in X and is established from exact factorial-moment identities. The one-step transition ratio equals exp(-w Δ_X), giving the closed fixation denominator. The full four-way parameter classification follows from Jensen, strict convexity of the exponential sum, its exact first derivative at zero and sign of the endpoint prefixes. In strict-reversal windows, the population-size asymptotic follows from compact-uniform Riemann-sum convergence and the unique positive integral crossing. A standard-library independent calculation checked 1777 exact-payoff, recurrence and illustrative asymptotic assertions; none of the infinite assertions is inferred solely from finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hindersin–Wu–Traulsen–García (2019), DOI 10.1038/s41598-019-43102-z, discuss general finite evolutionary-game fixation computation and selection strengths.",
+        "Wu–García–Hauert–Traulsen (2013), DOI 10.1371/journal.pcbi.1003381, study extrapolation of fixation rankings from weak selection."
+      ],
+      "reasoning": "Generic fixation recurrences are compatible with but do not explicitly settle the sign and number of positive roots of the model-specific Laplace sum minus N, or its population-size scaling. The 2013 robustness result for favored ranking is strictly weaker in the dimension relevant to neutrality reversal. Conceivable uninspected general results about convex exponential sums remain a residual risk.",
+      "searches": [
+        "linear marginal multiplication factor cooperator defector fixation probability all selection strengths n-person public goods",
+        "arxiv:2404.13728 Hauert McAvoy 2024 finite N-player n-person nonlinear public goods Fermi selection intensity fixation probability ρ_C greater than neutral but eventually less than neutral unique crossover synergetic and discounted strong selection scaling",
+        "https://www.nature.com/articles/s41598-019-43102-z",
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003381"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2404.13728",
+      "https://arxiv.org/html/2404.13728v3",
+      "https://www.nature.com/articles/s41598-019-43102-z",
+      "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003381"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hauert–McAvoy (2024), Eq. (31a): the sign of the first-order selection coefficient is determined by r1+2rn−3K.",
+        "This first derivative does not determine the sign for arbitrary positive w when some payoff prefixes are negative: the explicit N=6,n=3,r1=4,rn=7 example crosses at w≈5.5922885958."
+      ],
+      "reasoning": "The prior weak-selection condition implies local advantage only, not global advantage or its unique loss at strong selection. The original general fixation equation permits deriving the new result but is not itself a proof of all-strength monotonicity/crossover and population asymptotics. The source’s numerical stationary distributions are not the absorbing mutation-free fixation probability. The claimed uniqueness, exact windows and scaling therefore require additional analytical arguments.",
+      "searches": [
+        "fixation probability greater than neutral at weak selection but below neutral at strong selection; unique selection intensity crossover quadratic exponential sums",
+        "Hauert McAvoy frequency dependent returns nonlinear public goods 2024 selection strength neutral fixation probability synergy discounting reversal unique crossover inverse population size Riemann integral",
+        "https://arxiv.org/html/2404.13728v3",
+        "https://www.nature.com/articles/s41598-019-43102-z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hauert–McAvoy (2024), arXiv:2404.13728, Eq. (26), fixes an exact exponential-sum representation, while Eqs. (31)–(34) give only the linear-in-selection coefficients.",
+        "Wu et al. (2013), DOI 10.1371/journal.pcbi.1003381, compare the ratio of the two mutant fixation probabilities under exponential fitness."
+      ],
+      "reasoning": "We compared equivalent formulations in terms of birth-death potential partial sums, exact fixation/neutral threshold, unique positive root in selection intensity and the different favored/advantageous concepts. The known relative fixation ratio depends on the terminal prefix only and does not imply the neutral benchmark crossover, which depends on the whole prefix exponential sum.",
+      "searches": [
+        "frequency-dependent returns nonlinear public goods games Hauert McAvoy 2024 finite Moran Fermi selection intensity fixation probability ρ_C greater than neutral but eventually less than neutral unique crossover synergetic and discounted strong selection scaling",
+        "fixation probability greater than neutral at weak selection but below neutral at strong selection; unique selection intensity crossover quadratic exponential sums",
+        "Hauert McAvoy frequency dependent returns nonlinear public goods 2024 selection strength neutral fixation probability synergy discounting reversal unique crossover inverse population size Riemann integral",
+        "https://arxiv.org/html/2404.13728v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 paper reports analytical weak-selection inequalities and selection-dependent numerical stationary distributions but no exact table of the finite-N neutrality-crossing strength or an asymptotic positive root in wN.",
+        "The nearest semantic research-record hit addresses pairwise assortativity and evolutionary branching; it is not an exact n-person fixation table."
+      ],
+      "reasoning": "The new object is a continuum all-parameter characterization rather than an isolated value. Comparison included explicit formula, example parameter pairs, and aliases using neutrality, fixation, Fermi, Moran, Laplace-transform and selection-strength terms; no actual inspected table provides the same coverage. A negative database search alone is not treated as novelty proof.",
+      "searches": [
+        "frequency-dependent returns nonlinear public goods games Hauert McAvoy 2024 finite Moran Fermi selection intensity fixation probability ρ_C greater than neutral but eventually less than neutral unique crossover synergetic and discounted strong selection scaling",
+        "Hauert McAvoy frequency dependent returns nonlinear public goods 2024 selection strength neutral fixation probability synergy discounting reversal unique crossover inverse population size Riemann integral",
+        "arxiv:2404.13728 Hauert McAvoy 2024 finite N-player n-person nonlinear public goods Fermi selection intensity fixation probability ρ_C greater than neutral but eventually less than neutral unique crossover synergetic and discounted strong selection scaling",
+        "2026/10/4/SCOPE-a-quadratic-pairwise-game-where-assortativity-creates-an-evoluti--f981c124b719"
+      ]
+    },
+    "rationale": "The underlying public-goods game, its general fixation formula, affine payoff structure and weak-selection condition appear in Hauert and McAvoy (2024) and are not claimed as original. The compared primary text does not provide the all-strength strict selection-neutrality reversal classification, unique crossing/maximum, or the explicit 1/N critical-strength law. Hindersin et al. (2019) provide generic fixation theory, not the nonlinear-game parameter windows; Wu et al. (2013) compare the relative fixation ordering, a mathematically different property. Related searched published findings concern pairwise assortativity, not this exact multiperson absorption problem. More general prior convex-exponential-sum or fixation results remain a priority risk.",
+    "residual_risks": [
+      "Publication-priority checking is not exhaustive; general exponential-polynomial sign or evolutionary fixation results could subsume aspects of the classification.",
+      "The source uses a general finite-population model and provides the starting fixation identity; originality applies to further analytical implications, not that starting identity.",
+      "Independent review of the analytical derivation and historical novelty has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers original game, general birth-death fixation formula and weak-selection threshold, but not the full intensity reversal classification or 1/N crossing law",
+        "evidence": "Equations (26a,b), (29a,b), (30a,b), (31a,b), (32)–(34); Section 4.2.2 plots numerical stationarity for selected strengths.",
+        "identifier_or_url": "https://arxiv.org/html/2404.13728v3",
+        "material_read": "Abstract; Section 4 finite dynamics; subsections 4.1 and 4.2; formulas (26), (29)–(34); subsequent stationary-distribution subsection and discussion",
+        "method": "Read accessible arXiv full HTML around governing equations and finite-population fixation results, compared claim-level implications",
+        "title": "Frequency-dependent returns in nonlinear public goods games",
+        "trigger": "Same nonlinear n-person public-goods model, fixation equation and weak-selection analysis"
+      },
+      {
+        "assessment": "Supports general birth-death formula; does not imply the sharp nonlinear-public-goods parameter windows or uniform Nw scaling",
+        "evidence": "Generic fixation formula and discussion of selection-intensity thresholds being transcendental outside limiting approximations.",
+        "identifier_or_url": "https://www.nature.com/articles/s41598-019-43102-z",
+        "material_read": "Abstract; Direct analytical calculation and fixation probability sections; discussion of varying selection intensity and general recurrence",
+        "method": "Read openly accessible article full HTML sections and equations, compare general statements to the model-specific uniqueness theorem",
+        "title": "Computation and Simulation of Evolutionary Game Dynamics in Finite Populations",
+        "trigger": "Possible broader finite-population fixation and strength-comparison theory"
+      },
+      {
+        "assessment": "Studies robustness of favored ordering (rho_C versus rho_D), not the comparison against neutrality (rho_C versus 1/N); no implication for single-mutant neutrality reversal",
+        "evidence": "Statements on relative fixation probabilities with exponential payoff-to-fitness mapping.",
+        "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003381",
+        "material_read": "Abstract; two-strategy sections and selection-intensity comparisons; discussion",
+        "method": "Read full open article HTML and compared the exact statistics being ordered",
+        "title": "Extrapolating Weak Selection in Evolutionary Games",
+        "trigger": "Possible all-strength implication from weak selection in two-strategy evolutionary games"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c230edc-3ca7-4ccd-89df-c06292e96242",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact unique finite threshold answers a substantive, model-specific interpretation question omitted by weak-selection theory: cooperation may remain favored over defection while losing neutral fixation advantage as selection grows. It gives complete parameter windows for synergy and discounting, a unique optimal intensity, rigorous finite examples and a well-defined inverse-population scale. These are motivated changes in qualitative fixation behavior across strengths and population sizes, rather than an arbitrary numerical slice or a restatement of known first-order coefficients.",
+    "status": "PASS"
+  }
+}
