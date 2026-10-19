@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonalization of A^T A+epsilon D for A=L/sqrt(2), independent folded-uniform conditioning, a strict-convexity/single-crossing proof of negative covariance for every 0<epsilon<2, and exact triangular-law moment calculations for -3/sqrt(805). The seven-file package includes a replayable verifier with 4038 deterministic assertion groups; all infinite/continuous assertions are supplied by the proof, not finite tests. The 3x3 A is square, as required by the motivating method.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2407.04634v2 Theorems 4 and 6 give a gap lower-tail result and residual upper bound for general matrices.",
+        "arXiv:2305.02535 abstract discusses gap-dependent Krylov low-rank approximation bounds rather than joint perturbation statistics for two-dimensional nullspaces."
+      ],
+      "reasoning": "The general bounds do not imply a signed covariance because separate upper or tail bounds admit many positive/negative couplings. The exact 3x3 joint calculation therefore is not a corollary of the cited general sufficient estimates.",
+      "searches": [
+        "Random diagonal perturbation spectral gap versus nullspace alignment trade-off Lanczos",
+        "graph Laplacian diagonal random perturbation eigenvalue spacing eigenvector error correlation",
+        "arXiv:2305.02535",
+        "arXiv:2407.04634v1 Sections 2.1–2.3",
+        "arXiv:2407.04634v2 Sections 2.1–2.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.04634v1 (full relevant text)",
+      "arXiv:2407.04634v2 (full relevant text)",
+      "arXiv:2305.02535 (abstract only)",
+      "doi:10.1137/24M1674881 (journal abstract/metadata only)",
+      "Previously accessible exact two-dimensional nullspace marginal level-repulsion result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kressner–Shao arXiv:2407.04634v1/v2 gap and residual theorems are separately quantified.",
+        "Prior marginal boundary-orientation level-repulsion statement includes the zero-noise spacing distribution for the present graph but excludes subspace residual correlation.",
+        "The new strict sign uses an exact conditional mean and a single-crossing argument; neither appears as a stated implication in inspected primary literature."
+      ],
+      "reasoning": "Even knowing the full marginal gap and the full marginal residual distribution does not in general fix covariance, and the known marginal gap result alone is weaker still. The new conditional U-shape and universal negative covariance require a coupling calculation using the shared uniform diagonal entries; the prior general theorem does not specialize to this conclusion without new analysis.",
+      "searches": [
+        "Random diagonal perturbation of disconnected graph Laplacian one edge and one isolated vertex; exact joint eigenvalue-gap and invariant-subspace residual law",
+        "Random diagonal perturbation spectral gap versus nullspace alignment trade-off Lanczos",
+        "Uniform diagonal perturbation edge plus isolated vertex Laplacian: joint covariance of small eigenvalue gap and perturbed eigenspace residual, nonmonotone conditional mean",
+        "arXiv:2407.04634v1 Sections 2.1–2.3",
+        "arXiv:2407.04634v2 Sections 2.1–2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.04634v1 Sections 2.1-2.3 contain only separate marginal bounds.",
+        "arXiv:2407.04634v2 Sections 2.1-2.3 do not discuss joint gap-error covariance or conditioning on invariant-subspace error.",
+        "The closest previously documented two-dimensional nullspace result concerns the distribution of the first-order eigenvalue spacing; it does not give the joint residual distribution."
+      ],
+      "reasoning": "The joint object is (lambda2-lambda1, ||A Q||_2^2) under the same diagonal draw. A marginal level spacing distribution does not identify its coupling with the random invariant-subspace error. A separate deterministic perturbation bound supplies neither the conditional profile nor the covariance sign.",
+      "searches": [
+        "Random diagonal perturbation of disconnected graph Laplacian one edge and one isolated vertex; exact joint eigenvalue-gap and invariant-subspace residual law",
+        "Eigenvalue splitting gap and eigenvector error covariance for rank-one positive semidefinite 3x3 matrix under uniform diagonal noise",
+        "Uniform diagonal perturbation edge plus isolated vertex Laplacian: joint covariance of small eigenvalue gap and perturbed eigenspace residual, nonmonotone conditional mean",
+        "Exact conditional mean spacing given eigenvector leakage, uniformly random diagonal perturbation of rank-one Laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked previously accessible mathematical claims for a same-object exact gap/residual coupling; the closest is a prior marginal nullspace level-spacing formula.",
+        "Primary arXiv preprint full-text inspection found no exact joint table or expectation."
+      ],
+      "reasoning": "A marginal level-spacing table and associated inverse gap moments do not determine E[gap | residual], Cov(gap,residual), or a weak-noise correlation coefficient. No covering joint table was identified; absence of a search hit is not itself a novelty proof.",
+      "searches": [
+        "Eigenvalue splitting gap and eigenvector error covariance for rank-one positive semidefinite 3x3 matrix under uniform diagonal noise",
+        "Exact conditional mean spacing given eigenvector leakage, uniformly random diagonal perturbation of rank-one Laplacian",
+        "random diagonal perturbation null space residual eigenvalue gap jointly exact"
+      ]
+    },
+    "rationale": "The examined 2024 and 2025 versions of the relevant Lanczos work bound eigenvalue separation and nullspace residual separately, while the nearest prior exact two-dimensional nullspace analysis gives marginal spacing laws and inverse-gap cutoffs. Neither supplies the signed joint covariance, the finite-strength strictly negative association, or the nonmonotone conditional gap/error profile. A specialist equivalent formulation cannot be excluded absolutely.",
+    "residual_risks": [
+      "Exact joint statistics may have been derived elsewhere under degenerate perturbation theory, graph diagonal disorder, or spacing-error coupling terminology.",
+      "The journal version was not independently available in full; the updated lawful arXiv manuscript was inspected instead.",
+      "Only the minimal graph model is classified; it cannot be generalized to arbitrary graph Laplacians without new work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers basic algorithm and marginal gap/residual estimates; no joint covariance law or conditional gap–residual profile found.",
+        "evidence": "Theorem 4 gives lower-tail spacing, Theorem 6 bounds nullspace residual; both are separate estimates.",
+        "identifier_or_url": "https://arxiv.org/html/2407.04634v1",
+        "material_read": "Full introduction, Algorithm 1, Section 2.1 (eigenvalue repulsion), Section 2.2 (nullspace residual), Section 2.3 (principal angles), convergence setup, and references.",
+        "method": "Accessible full arXiv HTML text, equations and stated theorems inspected.",
+        "title": "A randomized small-block Lanczos method for large-scale null space computations",
+        "trigger": "Identical iid uniform diagonal perturbation and two-zero-mode nullspace setting."
+      },
+      {
+        "assessment": "Maintains separate perturbative gap/residual analysis; no exact joint gap-error covariance or finite-strength conditional profile.",
+        "evidence": "Revised Theorems 4 and 6, and Section 2.3 principal-angle bounds.",
+        "identifier_or_url": "https://arxiv.org/html/2407.04634v2",
+        "material_read": "Full introduction and algorithm, Section 2.1 through 2.3, spectral gap and residual theorems, convergence setup, and references.",
+        "method": "Accessible revised full arXiv HTML equations and theorem text inspected.",
+        "title": "On a randomized small-block Lanczos method for large-scale null space computations",
+        "trigger": "Subsequent revised version of the same primary manuscript."
+      },
+      {
+        "assessment": "Different problem objective (low-rank approximation); cannot certify whole-document noncoverage from abstract.",
+        "evidence": "Abstract describes singular-value gap tail bounds in low-rank approximation, not a numerical nullspace residual.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.02535",
+        "material_read": "Accessible abstract and bibliographic context only.",
+        "method": "Abstract inspection (full text not inspected).",
+        "title": "On the Unreasonable Effectiveness of Single Vector Krylov Methods for Low-Rank Approximation",
+        "trigger": "Cited source for gap-sensitive Krylov convergence and random perturbation."
+      },
+      {
+        "assessment": "Potential uninspected version, but the full updated arXiv v2 was accessible and separately inspected; residual version-completeness risk retained.",
+        "evidence": "Journal publication online 2 April 2026, first manuscript submitted 5 July 2024.",
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/24M1674881",
+        "material_read": "Publication metadata, title, keywords, and abstract only; full journal body not independently read.",
+        "method": "Public bibliographic and abstract page.",
+        "title": "On a Randomized Small-Block Lanczos Method for Large-Scale Null Space Computations",
+        "trigger": "2026 journal edition could contain additional results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c40be50-ef43-4e06-afd2-dfe9458f028e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural minimal two-component graph lets both relevant quantities in random-diagonal nullspace computation be measured under the same draw. The exact negative-covariance theorem for all admissible amplitudes and an interior reversal in conditional expected spacing give information neither marginal spacing probabilities nor residual bounds provide; this can calibrate joint risk modeling for Krylov nullspace approximation. The model is narrow but motivated and supplies a complete nonlinear conditional law, not a single arbitrary numerical instance.",
+    "status": "PASS"
+  }
+}
