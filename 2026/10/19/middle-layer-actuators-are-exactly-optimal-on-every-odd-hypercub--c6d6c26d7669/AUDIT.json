@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact Walsh diagonalization yields eigenspace dimensions C(n,j) and PBH lower bound C(2r+1,r). The known harmonic Young decomposition of V_j into pair-difference sectors is explicitly sourced. On each sector the exact group-Walsh restriction equals alpha=(-2)^t(-1)^floor((j-t)/2) C(r-t,floor((j-t)/2)), never zero for n=2r+1 and t<=j<=r; orthogonality of the images gives injectivity. Frequency complements cover j>r. Even-central-layer frequency-complement dependence is exact. Standalone program passed 25,752 finite modular-rank/coefficient assertions; infinitely quantified result relies on proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Notarstefano–Parlangeli arXiv:1203.0129 formulates spectral-multiplicity lower bounds and more general grid controllability tests for arbitrary vertex selections; its examined Section V treats small-grid bricks and polynomial evaluations, not a closed-form all-odd-hypercube minimum or a middle-layer determinant.",
+        "Zhang–Camlibel–Cao 2011, pages 759–764, abstract, multi-leader section and conclusion: conditions for distance-regular graphs; constructive examples given for cycles and complete graphs rather than all binary cubes.",
+        "The published q-ary Hamming-sphere sampling theorem explicitly requires q>=3 and treats mixed Fourier degrees, not separate homogeneous Walsh degrees of q=2."
+      ],
+      "reasoning": "Generic necessary/sufficient rank tests can decide any particular actuator set only after evaluating its eigenspace restrictions. They do not mathematically imply the presented uniform closed-form optimal set without the nontrivial all-degree harmonic scalar calculation. The q-ary result does not permit alphabet q=2 and concerns a distinct mixed-band operator.",
+      "searches": [
+        "Minimum number of single-vertex leaders to make Laplacian dynamics on odd-dimensional hypercube Q_{2r+1} controllable equals binomial(2r+1,r), actuating all Hamming weight r vertices",
+        "Controllability and minimal sensors for Cartesian power of K2 hypercube graph, maximal adjacency eigenvalue multiplicity",
+        "arxiv:1203.0129: Section V Lemma 5.1, Theorem 5.3 and Remark 5.4",
+        "Zhang, Camlibel, Cao 2011 distance regular controllability full text",
+        "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres: published RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1203.0129 (PDF Section V and conclusion)",
+      "arxiv:1406.0142 (PDF harmonic basis and slice sections)",
+      "Zhang–Camlibel–Cao CDC-ECC 2011 PDF",
+      "Published q-ary Fourier-sampling RESULT.md (explicit q>=3)",
+      "semantic research-record queries and published claim summaries for binary Walsh balls, mixed bands, zero forcing and controllability"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 controllability paper establishes generic PBH multiplicity necessity and polynomial grid criteria, but neither proves that the central slice simultaneously injects every homogeneous Boolean Fourier eigenspace nor states its even-dimensional single-layer obstruction.",
+        "The 2014 harmonic-slice basis theorem provides the necessary decomposition but not this Fourier kernel nonvanishing argument.",
+        "The 2026 q-ary nonbinary mixed-band theorem has a nonzero shell-equation kernel, not contradictory because it mixes Fourier degrees and q>=3."
+      ],
+      "reasoning": "The current theorem is a constructive sharp specialization that requires proving a family of rank identities. It is not a formal corollary of mere multiplicity or existence of a harmonic basis: the displayed coefficients must be calculated and shown nonzero. A full exhaustive cross-literature survey was not performed, leaving priority risk.",
+      "searches": [
+        "Minimum number of single-vertex leaders to make Laplacian dynamics on odd-dimensional hypercube Q_{2r+1} controllable equals binomial(2r+1,r), actuating all Hamming weight r vertices",
+        "Exact controllability of Boolean hypercube using middle-weight vertex layer, PBH, Krawtchouk coefficients",
+        "middle level cube Laplacian controllability spectral multiplicity binomial vertex layer Walsh character restriction full rank",
+        "arxiv:1203.0129: Remark 5.4",
+        "arxiv:1406.0142: Theorem 4.1",
+        "published q-ary all-degree sampling RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yuval Filmus (arXiv:1406.0142) proves an orthogonal Young/harmonic basis of functions on a Boolean slice; the pair-difference basis is standard. His statement is about harmonic slice functions rather than invertibility of each homogeneous Walsh level restricted to a central slice or minimal network-actuator placement.",
+        "The central-layer Fourier matrix has a known Johnson-scheme decomposition, but the exact nonzero coefficients across every level and PBH-optimal construction require an additional calculation."
+      ],
+      "reasoning": "An equivalent statement would show injectivity on the middle layer for every Walsh eigenspace and attain the maximum-eigenspace multiplicity lower bound. The inspected harmonic-basis result gives the crucial decomposition, not the target control theorem or coefficient nonvanishing; therefore it is a premise rather than a direct covering theorem.",
+      "searches": [
+        "Walsh-Hadamard transform character table restricting every homogeneous Fourier eigenspace to central Hamming sphere, odd Boolean cube, full column rank, nonzero Johnson scheme eigenvalues",
+        "middle level cube Laplacian controllability spectral multiplicity binomial vertex layer Walsh character restriction full rank",
+        "\"Walsh\" \"fixed weight\" \"full rank\" \"even\" \"odd\" restriction",
+        "arxiv:1406.0142: Lemma 2.3 and Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or exact integer-sequence entry for the all-odd-dimensional minimal number and constructive central-layer actuation was identified in the checked sources.",
+        "Exact modular ranks n=3,5,7,9 obtained independently in artifacts/verify.py; these are consistency checks, not a public novelty database."
+      ],
+      "reasoning": "This is an infinite, explicitly parameterized minimum-location classification, not a lookup of a small finite table. Results on Hamming balls, degree-mixed Fourier bands, or undirected graph multiplicity alone do not constitute an exact row-selection/leader-placement table.",
+      "searches": [
+        "Walsh-Hadamard transform character table restricting every homogeneous Fourier eigenspace to central Hamming sphere, odd Boolean cube, full column rank, nonzero Johnson scheme eigenvalues",
+        "rank of the Walsh Fourier transform homogeneous degree j restricted to a single central Hamming sphere of the odd Boolean cube; nonzero Krawtchouk harmonic eigenvalues",
+        "\"Hamming sphere\" \"controllable\" hypercube Laplacian eigenvectors",
+        "\"middle layer\" \"controllability\" \"hypercube\"",
+        "arxiv:1203.0129",
+        "arxiv:1406.0142"
+      ]
+    },
+    "rationale": "The novel control statement is the constructive attainment of the PBH multiplicity bound by one middle Hamming layer in every odd cube, requiring a nontrivial simultaneous rank result for individual homogeneous Walsh eigenspaces. Detailed comparisons with grid-control, distance-regular control, harmonic slice bases, and published nonbinary Fourier-sampling work do not yield direct coverage. This is best-knowledge originality, not proven uniqueness in all literature.",
+    "residual_risks": [
+      "Older association-scheme identities could implicitly imply the rank result under a different notation.",
+      "Some published material outside the inspected primary sections or unindexed studies might contain the exact minimal-vertex placement.",
+      "No independent human literature verification or mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic tests and the lower bound are included as prior work; no explicitly evaluated all-odd-hypercube minimal central-slice construction in inspected result sections.",
+        "evidence": "Section V Lemma 5.1 gives multiplicity bound; Remark 5.4 generalizes higher dimensions via an eigenvector restriction determinant, but does not evaluate that determinant on the middle weight layer.",
+        "identifier_or_url": "arxiv:1203.0129; https://arxiv.org/pdf/1203.0129",
+        "material_read": "PDF pages 1–5 and 24–29, including Section V lower-bound lemma, high-multiplicity Remark 5.4, discussion and conclusions.",
+        "method": "Read full-text sections and inspected page images of Section V and conclusion.",
+        "title": "Controllability and observability of grid graphs via reduction and symmetries",
+        "trigger": "Grid Laplacians include Cartesian powers of a two-vertex path, hence all hypercubes; potentially dominating control theorem."
+      },
+      {
+        "assessment": "Provides classical harmonic slice basis and orthogonality; not the all-level homogeneous group-Walsh injection or minimal control placement; correctly attributed in proof.",
+        "evidence": "Lemma 2.3 pair-difference basis, Theorem 4.1 orthogonal slice basis.",
+        "identifier_or_url": "arxiv:1406.0142; https://www.cs.toronto.edu/~yuvalf/WimmerFriedgut.pdf",
+        "material_read": "PDF pages 1, 4–5, 8–11; Lemma 2.3, Theorem 4.1, Johnson-scheme discussion and related-work section.",
+        "method": "Read parsed mathematical statements and inspected their page images, checking basis construction, norms and decomposition.",
+        "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+        "trigger": "Contains a harmonic Young/Johnson basis necessary for the rank proof and possible broader Fourier restriction coverage."
+      },
+      {
+        "assessment": "Discusses general multi-leader necessary/sufficient tests and constructs cycle/complete graph choices, not the claimed family and middle-layer formula.",
+        "evidence": "Abstract and paper outline explicitly specialize selected leader sets to cycles and complete graphs.",
+        "identifier_or_url": "https://pure.rug.nl/ws/files/13905758/2011ProcCDCZhang.pdf",
+        "material_read": "PDF abstract, introduction, multi-leader comparison and cycle/complete-graph selection passages, together with inspected page 3; not an exhaustive line-by-line reading of every page.",
+        "method": "Read relevant PDF text passages and inspected an extracted PDF page image.",
+        "title": "Controllability of diffusively-coupled multi-agent systems with general and distance regular coupling topologies",
+        "trigger": "Distance-regular graphs include hypercubes; possible stronger multi-leader characterization."
+      },
+      {
+        "assessment": "Explicitly restricted to q>=3 nonbinary alphabet and mixed degree<=d, whereas this result uses separate homogeneous q=2 degrees; not a direct implication.",
+        "evidence": "Statement opens with q>=3 and operator of mixed-degree Fourier projection; it explicitly calls out binary slice work as prior.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90/RESULT.md",
+        "material_read": "Entire published RESULT.md, including finding hypotheses q>=3, proof, limitations and references.",
+        "method": "Read raw repository file by authorized public read-only connector.",
+        "title": "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+        "trigger": "Highly similar Fourier-sampling and harmonic-coefficient language; important potential coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6d6c26d-7669-4cc0-8025-22f195ba7b02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural network-control resource minimum with an exact eigenvalue multiplicity lower bound but non-obvious attainability by coordinate-selector inputs. The explicit central Hamming-layer construction is globally size-optimal for every odd dimension, and the even-dimensional full-layer parity obstruction supplies a sharp design boundary. It gives an exact benchmark and a vanishing actuator fraction of order 1/sqrt(n), not a routine substitution or finite table.",
+    "status": "PASS"
+  }
+}
