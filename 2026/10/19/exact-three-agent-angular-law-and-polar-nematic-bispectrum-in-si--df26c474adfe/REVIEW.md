@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For three distinct agents, applying the microscopic generator to a neutral integer Fourier monomial closes exactly on pair correlations and that one triple correlation. The proof derives and solves both stationarity equations, verifies strictly positive denominators for every admitted parameter, covers parity and zero-index boundary cases, and establishes the sign and finite-size limits. The included standalone finite-state generator checker passed 400 comparisons. Finite experiments are not substituted for the analytic argument.
+
+**Originality — PASS, within searched material.** Zheng (arXiv:2604.20251) establishes this annealed copying model and second-order mesoscopic polar/nematic theory, including even-mode coupling invariance. The new claim is specifically the exact full three-distinct-agent joint Fourier spectrum and the mixed polar--nematic bispectral parity law, not those prior results. The nearest binary contrarian and multistate noisy-voter literature was examined as described in AUDIT.json; no source explicitly stating the present signed continuous-angle three-site classification was identified. A general genealogical/coalescent multi-point theorem could imply it, and the multistate-voter full text was inaccessible; novelty remains subject to that residual risk.
+
+**Value — PASS.** This is a natural complete finite-\(N\) three-particle marginal, rather than a hand-selected coefficient. The exact law resolves infinitely many angular harmonics into two nontrivial parity classes, separates pair-collision contamination from genuine three-site polar--nematic order, and quantifies its \(N^{-2}\) suppression. It provides a structural benchmark for the published second-order mesoscopic theory, with different responses to polar and nematic sign competition.
+
+**Limitations.** Independent uniform turning, annealed globally mixed copying with partner sampling including self, and at least three agents are required; quenched roles and spatial movement are excluded. General coalescent coverage remains a live originality risk. This review is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
