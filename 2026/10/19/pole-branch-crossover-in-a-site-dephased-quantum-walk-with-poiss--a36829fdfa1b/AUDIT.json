@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Model is a bounded trace-class Lindblad generator plus Poisson reset. Exponential reset contraction gives a unique stationary state; a site-monitoring renewal with exact Bessel squared free kernel yields the normalized Fourier formula. Algebraically separating the rational simple pole from the square-root branch and evaluating the Fourier cut gives the exact positive integral, checked independently against quadrature and finite-ring Liouvillians. Watson’s lemma proves distinct fixed-rate prefactors, and dominated convergence on the rescaled branch integral plus quadratic pole–edge separation yields the erfc crossover for all sequences gamma_m sqrt(m/C_gamma)→u≥0. Boundary gamma=0, symmetry, variance and r,h restrictions are explicitly treated. The checker is corroborative, not proof of infinite-volume assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wald–Böttcher arxiv:2008.00510, PDF 13pp, sections on quantum-walk resetting and equations 29–34: general resetting of quantum stochastic walks on finite networks, including a steady-state formula, but no spatial weak-projector-dephasing limit on the integer lattice.",
+        "Bressanini–Benedetti–Paris, arxiv:2204.01836, open full article sections 2 and 4: finite-graph Haken–Strobl position dephasing, no Poisson reset or long-distance tail crossover.",
+        "Solenov–Fedichkin arxiv:quant-ph/0506096, PDF pages 1–4: decoherent finite-cycle coherent walk with no stationary reset tail."
+      ],
+      "reasoning": "The known stationary reset-resolvent applies broadly, so existence and the renewal framework are prior knowledge and not counted as new. None of the inspected broader works derives a simultaneous limit in which a pole separates quadratically from a square-root branch point; their stated classifications do not imply an explicit erfc coalescence without additional asymptotic analysis. The possibility of a different broad singularity theorem that implies this specialization is a residual risk.",
+      "searches": [
+        "quantum walks resetting with local Lindblad dephasing: spatial invariant distribution, variance, kurtosis and singular tails",
+        "\"From classical to quantum walks with stochastic resetting on networks\" Wald Böttcher arxiv 2008.00510",
+        "site dephasing Poisson resetting quantum walk on line position stationary probability distribution",
+        "\"Decoherence and classicalization of continuous-time quantum walks on graphs\" Bressanini Benedetti Paris 2022 DOI"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:quant-ph/0506096, PDF model and results",
+      "arxiv:quant-ph/0609128, PDF Bessel distribution theorem",
+      "arxiv:2008.00510, PDF sections on resetting and stationary quantum walks",
+      "arxiv:2204.01836 / DOI:10.1007/s11128-022-03647-x, OA text Haken–Strobl sections",
+      "published-finding corpus semantic results from exact and alias queries listed in checks; nearest unrelated indexed IDs noted"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Wald–Böttcher article obtains a general reset stationary kernel (around equations 29–34); this implies the reset-Laplace method but not the evaluated Haken–Strobl infinite-line kernel or coalescent scaling theorem in its stated results.",
+        "The Bressanini et al. Haken–Strobl model is site-dephased, but has no reset r and thus no pole-generated spatial exponential state to compare with a dephasing-free branch cut.",
+        "The Bessen coherent-walk amplitudes imply the gamma=0 Bessel representation, not the gamma>0 pure pole and uniform gamma→0 transition."
+      ],
+      "reasoning": "Credited Bessel, site-monitoring and reset-resolvent facts are inputs. The final claim concerns the noncommuting large-distance and zero-dephasing limits: pure exponential at any fixed positive dephasing, square-root prefactor at zero dephasing, and an exact complementary-error-function scaled interpolation. None of the materially inspected statements covers that crossover as a consequence of a stronger quantified theorem. Generic contour/singularity analysis tools are standard, but their specialization and uniform proof are substantive. A yet-unlocated broader result may imply it.",
+      "searches": [
+        "Poisson resetting on the integer line under Haken Strobl site dephasing quantum walks exact stationary Fourier kernel square-root pole spatial tail exponential prefactor",
+        "stochastic resetting Haken Strobl site dephasing one-dimensional tight-binding quantum walk coalescing branch-point pole stationary spatial tail gamma^2 scaling erfc",
+        "quantum stochastic walk stochastic reset transition coherent Bessel decay to pure exponential tails any positive dephasing",
+        "\"From classical to quantum walks with stochastic resetting on networks\" Wald Böttcher arxiv 2008.00510",
+        "\"Haken Strobl\" \"resetting\" stationary infinite quantum walk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text Bessen, arxiv:quant-ph/0609128, derives unitary continuous-time walk distributions, not reset-dephased stationary pole/branch tails.",
+        "Full-text Wald–Böttcher, arxiv:2008.00510, equations 29–34 discuss general quantum-walk resetting, but not the matched weak-dephasing branch point and pole.",
+        "published-finding corpus semantic searches returned 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17, 2026/9/19/SCOPE-schatten-phase-transitions-biased-sign-resolvents--7421eebe6032 among leading results; their stated objects are respectively classical elephant-walk tails and Schatten resolvents, not the present quantum model."
+      ],
+      "reasoning": "Checked equivalent expressions through Fourier inversion, the reset resolvent, Haken–Strobl monitoring, and special-function asymptotics. Fourier/Laplace rewriting recovers a transform but does not automatically establish the precise different fixed-rate tail prefactors or the erfc profile in a coalescing singularity limit. The indexed closest records lack the same generator, scaled limit and asymptotic statement.",
+      "searches": [
+        "Poisson resetting on the integer line under Haken Strobl site dephasing quantum walks exact stationary Fourier kernel square-root pole spatial tail exponential prefactor",
+        "quantum walks resetting with local Lindblad dephasing: spatial invariant distribution, variance, kurtosis and singular tails",
+        "stochastic resetting Haken Strobl site dephasing one-dimensional tight-binding quantum walk coalescing branch-point pole stationary spatial tail gamma^2 scaling erfc",
+        "\"Haken Strobl\" \"resetting\" stationary infinite quantum walk",
+        "\"dephasing\" \"resetting\" quantum walk \"Bessel\" distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact formulas, table, or numerical reference for the fixed-rate spatial-tail coefficients or the weak-dephasing erfc limit; named nearest hits such as 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17 concern an unrelated classical reinforced-walk passage profile.",
+        "The statement is an analytical all-site limit theorem rather than a finite database/tabled invariant."
+      ],
+      "reasoning": "A preexisting full exact distribution formula or tail table would supersede a different wording. Queries targeted both the transformed probability distribution and the asymptotic coefficients; no covering table was identified. Search failure is not conclusive priority evidence, and the general Fourier-kernel literature remains acknowledged.",
+      "searches": [
+        "Poissonian quantum reset and projective site monitoring exact Laplace-Fourier density and erfc scaling",
+        "coherent to incoherent crossover in reset quantum lattice walk: pure exponential versus inverse square root algebraic stationary tail",
+        "Poissonian quantum reset and projective site monitoring exact Laplace-Fourier density and erfc scaling"
+      ]
+    },
+    "rationale": "Literature-inspected free coherent Bessel distributions, pure site decoherence, and general network resetting are acknowledged antecedents. The final new claim is their singular pole–branch merger with a universal closed erfc transition and noncommuting limits, not the standard reset resolvent or bare Fourier transform. Material inspection of four highly relevant sources found no theorem with the same generator and quantified m→∞, gamma→0 window. Semantic database results were compared by object and implication; residual priority risk acknowledged.",
+    "residual_risks": [
+      "An unlocated article may already analyze the exact Haken–Strobl propagator with stochastic resetting and obtain an equivalent crossover.",
+      "A general special-function singularity-coalescence theorem could imply the universal erfc formula for this specialization without naming quantum walks.",
+      "The earlier Haken–Strobl literature could contain the unreset Fourier–Laplace kernel; this is not represented as novel, but its exact prior reach was not exhaustively inventoried.",
+      "Independent expert and publication-priority audits are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FINITE-CYCLE DECOHERENCE, NOT_COVERING the Poisson-reset infinite-line stationary pole–branch crossover.",
+        "evidence": "Defines continuous-time coherent cycle walks with environmental decoherence; no reset rate or origin-reset state and no m→infinity, gamma√m fixed erfc theorem.",
+        "identifier_or_url": "arxiv:quant-ph/0506096 (2005-06-13)",
+        "material_read": "PDF pages 1–4, model equations and dynamics; site decoherence on a finite cycle and associated asymptotic discussion.",
+        "method": "open-access arXiv PDF text and page inspection",
+        "title": "Continuous-time Quantum Walks on a Cycle Graph",
+        "trigger": "Earliest verified archive-era model; decoherence on discrete graphs and potential equivalence to reset-stationary properties."
+      },
+      {
+        "assessment": "COVERS the free coherent walk Bessel kernel as a prior ingredient; NOT_COVERING the combined site-dephasing reset crossover.",
+        "evidence": "Unitary walk distributions without site-dephasing Lindblad term or Poisson-reset renewal.",
+        "identifier_or_url": "arxiv:quant-ph/0609128 (2006-09-18)",
+        "material_read": "PDF theorem statement and proof pages 1–4 on explicit continuous-time quantum-walk distributions.",
+        "method": "arXiv full PDF text and PDF-page inspection",
+        "title": "Distributions of continuous-time quantum walks",
+        "trigger": "Exact Bessel distributions could supply the gamma=0 limit, potentially dominating a claimed novelty."
+      },
+      {
+        "assessment": "COVERS general reset-resolvent methodology but NOT_COVERING a specific infinite-line Haken–Strobl site-projector kernel or gamma→0,m→infinity pole/branch coalescence.",
+        "evidence": "Steady-state quantum stochastic walk on networks and coherent resetting discussed; no fixed-r,h weak-position-dephasing m-dependent erfc law or branch-cut coefficient classification.",
+        "identifier_or_url": "arxiv:2008.00510 (2020-08-02), DOI:10.1103/PhysRevE.103.012122",
+        "material_read": "13-page arXiv full PDF, specifically network generator, resetting formalism, stationary equations 29–34 and conclusion (PDF pages 5–7).",
+        "method": "arXiv PDF text and relevant page images",
+        "title": "From classical to quantum walks with stochastic resetting on networks",
+        "trigger": "Highly relevant alternative derivation of quantum-walk stationary reset probabilities; must test dominating coverage."
+      },
+      {
+        "assessment": "COVERS site-dephasing model as a standard ingredient; NOT_COVERING Poisson resets or long-distance stationary spatial erfc crossover.",
+        "evidence": "Analyzes finite-graph quantum/classical dynamical distance, intrinsic and site dephasing, but lacks the reset generator and infinite integer-lattice asymptotic spatial probabilities.",
+        "identifier_or_url": "arxiv:2204.01836, DOI:10.1007/s11128-022-03647-x",
+        "material_read": "Open-access complete article, definitions in section 2 and dynamical comparisons in section 4, including position-basis decoherence discussion.",
+        "method": "lawful OA full HTML, with arXiv version identified",
+        "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+        "trigger": "Direct Haken–Strobl position-dephasing model could dominate the site-dephasing part."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a36829fd-fa1b-40e2-86d7-945147e2da5c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For fixed positive reset rate the stationary site distribution has a physically interpretable spatial-decay tail. The sharp change of the algebraic prefactor at exactly zero dephasing creates a nonuniform small-noise limit, and its distance scale proportional to gamma^{-2} is a measurable crossover. Exact positive pole/branch decomposition and universal erfc scaling resolve a motivated singular boundary of quantum-to-classical transport, going beyond a routine stationary resolvent computation. The result is analytically self-contained for an infinite natural network; extensions to disorder or finite observation time remain open.",
+    "status": "PASS"
+  }
+}
