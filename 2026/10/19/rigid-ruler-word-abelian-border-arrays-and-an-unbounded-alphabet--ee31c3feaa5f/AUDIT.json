@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "All i≥1 are handled: when i is a power of two the terminal symbol is new, so the array entry vanishes; otherwise the minimum positive border is d=2^{ν2(i)}, since the suffix of length d equals the prefix exactly while every shorter suffix contains a letter absent from its prefix. For the converse, previous-letter choices at powers of two force a forbidden shorter border; at other indices the known Parikh counts cancel in the mandated length-d border equation and force the unique next symbol. Direct prefix/suffix counting to n=512 and exhaustive restricted-growth generating-word enumeration to n=16 passed; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Habib–Shamil–Rahman 2021 Proposition 3.1 and Lemma 3.1 concern binary words; Section 4 provides upper bounds using letter equivalence but explicitly notes higher-alphabet failure of injectivity.",
+        "Duval–Lecroq–Lefebvre 2005 studies ordinary border arrays and minimal alphabets using exact word equality; an Abelian border can exist without an exact border.",
+        "Fici et al. arXiv:2207.09937, Abelian borders discussion near Theorems 38–40 discusses shortest-border counts, not complete arrays."
+      ],
+      "reasoning": "Binary rigidity does not imply arbitrary-alphabet rigidity, as the 2021 counterexample confirms. The ordinary border-array minimal-alphabet theorem uses a strictly stronger observation, so even if it covers the same ruler instance for exact borders, it cannot establish that every word sharing only the weaker Abelian data has the same letter partition. The asserted uniform alphabet lower bound therefore is not an implied corollary of those results.",
+      "searches": [
+        "abelian border array nonbinary unbounded alphabet shortest border ruler word Zimin",
+        "\"abelian border array\" \"alphabet size\" lower bound",
+        "Duval Lecroq Lefebvre Border Array on Bounded Alphabet",
+        "arXiv:2207.09937 Abelian Combinatorics on Words survey"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.00259v1, §3–5",
+      "Goč et al. (2014), On the Number of Abelian Bordered Words",
+      "Berera et al. (2023), Electronic Journal of Combinatorics P3.11",
+      "Duval, Lecroq, Lefebvre (2005), Border Array on Bounded Alphabet (abstract/metadata)",
+      "arXiv:2207.09937v2, abelian-border subsection"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 Proposition 3.2 shortest/longest border complementarity is explicitly reused; no novelty asserted for it.",
+        "The same work supplies a larger-alphabet collision between 011021 and 012022, demonstrating non-injectivity in general, but not negating a rigid special family.",
+        "The 2005 ordinary border-array reconstruction uses exact equality rather than Parikh equivalence; those conditions cannot be substituted without a separate proof."
+      ],
+      "reasoning": "The new implication is that a specific full-length numerical Abelian-border array determines every equality among positions across ALL alphabets; the proof establishes this through a new case distinction at powers of two and Parikh cancellation at other indices. This yields an exact alphabet requirement and logarithmic global lower bound, neither stated nor forced by the cited general counting bounds.",
+      "searches": [
+        "arXiv:2111.00259v1 Propositions 3.2 4.1 4.2",
+        "\"Border Array on Bounded Alphabet\" Duval Lecroq Lefebvre 2005",
+        "\"ruler word\" \"abelian border\" sequence",
+        "arXiv:2207.09937 Abelian borders"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2111.00259v1 defines longest Abelian-border array and shows unrestricted alphabets can admit distinct non-letter-equivalent generators (Section 4).",
+        "Berera et al. 2023, Section 1 identifies ruler word 01020103... as square-free word, without analysis of Abelian-border arrays.",
+        "Goč et al. 2014 uses Abelian-border lengths to enumerate bordered/unbordered words, not to invert a complete array."
+      ],
+      "reasoning": "The candidate is an all-length inverse uniqueness statement under equality of Parikh-prefix/suffix counts, stronger than the existence of exact borders and distinct from Zimin pattern avoidance. No equivalent statement appears in inspected primary passages; Zimin terminology was searched expressly.",
+      "searches": [
+        "\"Zimin\" \"abelian border array\"",
+        "\"ruler sequence\" \"abelian border\" arrays",
+        "\"ruler word\" \"abelian border\" sequence",
+        "\"Zimin words\" \"abelian borders\" arrays",
+        "arXiv:2111.00259v1 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Habib–Shamil–Rahman 2021 Proposition 4.1 provides a ternary array-count upper bound; Proposition 4.2 gives a Bell-number upper bound over unbounded alphabets, neither a table of alphabet-minimizing realizations nor the ruler array.",
+        "The inspected survey discusses enumerations of (un)bordered words but no list of minimum alphabets for longest-Abelian-border arrays."
+      ],
+      "reasoning": "An upper bound on the number of all possible arrays or on the number of words with a border does not specify the least alphabet needed for one array. No applicable table or database entry was located by the explicit observation/formula searches; absence is not proof of novelty.",
+      "searches": [
+        "\"abelian border arrays\" \"unbounded alphabet\"",
+        "\"abelian border array\" \"logarithmic\" alphabet",
+        "Zimin 01020103 longest abelian border arrays log alphabet representation",
+        "arXiv:2111.00259v1 Section 4"
+      ]
+    },
+    "rationale": "Published binary uniqueness and border-length duality are explicitly reused and not claimed as new. The proof isolates an all-alphabet rigid inverse family and exact minimum alphabet cardinality not implied by binary bounds, conventional exact-border arrays, unbordered-word counts, or square-free ruler-word constructions. Sources and residual risk are itemized below.",
+    "residual_risks": [
+      "Classical border-array/Zimin literature may contain an equivalent Abelian-specific rigidity corollary under different terminology; the closer ordinary-border article was compared using abstract/metadata, not its full text.",
+      "Searches and one indexed mathematical-record database are not a proof of publication novelty; equivalence could be unindexed or embedded in a different paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-alphabet ruler rigidity theorem; does establish shortest/longest duality, which is acknowledged",
+        "evidence": [
+          "arXiv:2111.00259v1 pp. 2–7, Section 4 first paragraph and Propositions 4.1, 4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.00259",
+        "material_read": "Full nine-page primary preprint, especially Definition 2.1, Section 3 Propositions 3.1–3.5, Sections 4–5 and references",
+        "method": "Read extracted full-text page lines, including higher-alphabet results and counterexample",
+        "title": "Counting and Verifying Abelian Border Arrays of Binary Words",
+        "trigger": "Definition, inverse problem and larger-alphabet coverage"
+      },
+      {
+        "assessment": "NOT_COVERING complete prefix-by-prefix border-array rigidity; enumerates unbordered/ bordered words",
+        "evidence": [
+          "Primary PDF pp. 1–3, Section 4 larger alphabet enumeration"
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/on-the-number-of-abelian-bordered-words-with-an-example-of-43gdbru0k3.pdf",
+        "material_read": "Abstract, definitions, Sections 2–4 and relevant enumeration statements",
+        "method": "Primary PDF extracted text with page-level inspection",
+        "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+        "trigger": "Potential stronger abelian-border characterizations and larger-alphabet count"
+      },
+      {
+        "assessment": "NOT_COVERING Abelian-border arrays; investigates square-free lexicographic extensions",
+        "evidence": [
+          "Electronic Journal of Combinatorics 30(3) P3.11, abstract and §1"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i3p11/pdf/",
+        "material_read": "Title/abstract/introduction and ruler-word definition on page 1, followed by in-document terminology search",
+        "method": "Original PDF page image and extracted text",
+        "title": "The Lexicographically Least Square-Free Word with a Given Prefix",
+        "trigger": "Same infinite ruler/Zimin word construction"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVATION (exact border equality), not treated as a full-text noncoverage certificate",
+        "evidence": [
+          "Duval, Lecroq, Lefebvre (2005), abstract describes constructing a word of minimal alphabet from ordinary border array"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/2850918_Border_Array_on_Bounded_Alphabet",
+        "material_read": "Author-supplied abstract and bibliographic metadata; full original paper not read",
+        "method": "Abstract-level scope comparison; explicit lower confidence than full-text inspection",
+        "title": "Border Array on Bounded Alphabet",
+        "trigger": "Possible dominating minimal-alphabet theorem for conventional border arrays"
+      },
+      {
+        "assessment": "NOT_COVERING the displayed array or all-alphabet inverse rigidity in inspected relevant passages",
+        "evidence": [
+          "Survey §6.4 and Theorems 38–40, no matching border-array or ruler entries in within-document search"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.09937v2",
+        "material_read": "Abelian borders subsection near Theorems 38–40 and searches for border array/ruler",
+        "method": "Open HTML subsections and within-document text searches",
+        "title": "Abelian Combinatorics on Words: A Survey",
+        "trigger": "Potential later synthesis dominating the 2021 result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ee31c3fe-aa5f-4767-a121-29e8444e3d17",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit infinite family of numeric Abelian-border arrays is uniquely reconstructible on arbitrary alphabets despite higher-alphabet ambiguity in general. The exact per-array alphabet threshold produces an unbounded logarithmic worst-case necessary-alphabet lower bound, directly addressing the structural higher-alphabet inverse problem raised by the 2021 source. It is not a mere enumeration of witness letters: all alternative lower-alphabet realizations are ruled out. No global optimality of the lower bound is claimed.",
+    "status": "PASS"
+  }
+}
