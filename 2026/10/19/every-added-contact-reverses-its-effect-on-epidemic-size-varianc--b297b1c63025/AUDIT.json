@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Conditional on two distinct open components, uniform-root first- and second-moment increments are exactly 2ab/n and 3ab(a+b)/n. Expanding the centered second moment gives the displayed exact difference; the all-edges-failed event makes A positive at each interior probability. The p->0 expansions follow from the all-edges-failed event and bounded moments. At mu>=3n/4, a+b<=n makes the expectation nonpositive while the -p^2 A^2 term is strictly negative; connectedness gives mu->n as p->1. The standalone verifier checks 12908 finite labeled graph-edge-probability combinations with exact rational arithmetic, including 5756 high-mean test cases, but universality rests solely on the proof. No unproved lemma or computational extrapolation is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moore--Newman [1] studies Watts--Strogatz small-world ensembles, deriving outbreak-size distribution and variance with model parameters; this is not arbitrary-edge variation on a fixed finite graph.",
+        "Becchetti et al. [2] proves phase/component-size properties of stochastic power-law small-world models, not an all-graphs variance insertion bound.",
+        "Kenah--Robins [3] develops a directed epidemic-percolation network for general infectious-period distributions; their broader SIR model is not the restricted independent-bond model."
+      ],
+      "reasoning": "The ensemble variance results could specialize to some fixed random-network families, but their reported theorems do not quantify the effect of adding every missing edge nor yield the uniform mean-threshold inequality. The general epidemic-percolation formalism cannot subsume the claim without an additional edge-variance argument.",
+      "searches": [
+        "bond percolation outbreak size variance nonmonotonic adding edges graph epidemic final size distribution variance",
+        "\"variance\" \"outbreak size\" \"adding edges\" decrease epidemic",
+        "random cluster size variance graph edge addition crossing sign probability bond percolation susceptibility second moment"
+      ]
+    },
+    "checked_sources": [
+      "Moore and Newman (2000), arXiv:cond-mat/0001393v1, https://arxiv.org/html/cond-mat/0001393v1",
+      "Kenah and Robins (2006/2007), arXiv:q-bio/0610057v5, https://arxiv.org/html/q-bio/0610057v5",
+      "Becchetti et al. (2022), arXiv:2205.08774v2, https://arxiv.org/html/2205.08774v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1], arXiv full text equations for the first two outbreak moments in one family.",
+        "[2], arXiv full text introductory equivalences and main phase statements.",
+        "[3], arXiv full text introduction and general SIR counterexample to naive bond-percolation equivalence."
+      ],
+      "reasoning": "The implication 'an added edge increases mean final size' is already routine under monotone percolation and is not claimed new independently. However neither mean monotonicity nor the existence of an outbreak-variance formula in a specified graph ensemble entails the universal low/high variance reversal and sufficient 3n/4 threshold for arbitrary fixed graphs. The merger calculation supplies the missing nontrivial implication.",
+      "searches": [
+        "\"Exact solution of site and bond percolation on small-world networks\" arxiv Moore Newman",
+        "2009 network SIR percolation mapping epidemic cluster size Kenah Robins Newman paper",
+        "mean size of connected component containing uniformly random vertex monotone edge addition variance nonmonotonic outbreak size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moore--Newman [1], sections on generating function and outbreak-size mean/variance; exact ensemble moments, no fixed-graph edge variation.",
+        "Becchetti et al. [2], section 1 and appendix A; full-bond percolation, Reed--Frost equivalence.",
+        "A mathematical covariance study titled 'Three-point connectivity exactly controls component–triangle covariance' addresses random component counts and triangle counts, not the uniformly rooted cluster size."
+      ],
+      "reasoning": "Equivalent terminology includes Reed--Frost final size, independent cascade influence spread, percolation susceptibility, size-biased rooted cluster size, and network reliability. None of the checked exact statements implies an all-connected-graphs edge-insertion variance sign reversal; A nearby covariance result concerns different random variables.",
+      "searches": [
+        "root cluster size variance susceptibility edge insertion universal sign reversal high p low p",
+        "Reed Frost SIR independent bond percolation final outbreak size variance adding contact edge positive for small transmissibility negative for high transmissibility uniform seed",
+        "\"variance of component size\" \"edge addition\" percolation",
+        "\"variance of outbreak size\" \"edge addition\" percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite-graph table or claimed exhaustive classification was relied upon; the theorem is a universal identity with a three-vertex illustration.",
+        "Existing work on component-count/triangle-count covariance uses different random variables and therefore does not subsume the rooted outbreak variance formula."
+      ],
+      "reasoning": "The three-vertex calculation is illustrative, not novelty derived from a table. The general statement is not an instance of a checked exact-statistic database entry, and named nearby covariance results concern different observables.",
+      "searches": [
+        "nonmonotonic variance component size addition missing edge bond percolation epidemic finite graph",
+        "epidemic final size uncertainty saturation contact edge nonmonotone variance"
+      ]
+    },
+    "rationale": "The universal implication is not merely the standard percolation--epidemic equivalence or ordinary expectation monotonicity: every individual edge insertion increases variance at low transmissibility and reduces it at high transmissibility, with an all-graphs quantitative high-mean criterion. Examined primary sources [1]-[3] do not state or imply the universal finite-graph edge-insertion variance reversal or the 3n/4 guarantee. Searches for equivalent and broader mathematical statements found related percolation covariances but no subsuming result. Unindexed equivalent work remains a genuine risk.",
+    "residual_risks": [
+      "An equivalent theorem might appear under 'susceptibility variance', 'influence-spread variance', 'reliability polynomial sensitivity' or other terminology not captured by semantic searches.",
+      "The qualitative reversal may follow as an unremarked consequence of a general stochastic-order moment theorem outside the inspected literature.",
+      "Broader non-independent SIR models do not inherit this result automatically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Results concern generating-function distribution, mean and variance in a Watts--Strogatz random ensemble; no arbitrary fixed-graph single-edge variance response theorem.",
+        "identifier_or_url": "arxiv:cond-mat/0001393v1; https://arxiv.org/html/cond-mat/0001393v1",
+        "material_read": "Full arXiv HTML sections covering small-world construction, size-biased outbreak origin, generating functions, moments, percolation threshold, bond extension, conclusions and references.",
+        "method": "Open full arXiv HTML and inspect formulas and paragraph scope; check variance occurrences.",
+        "title": "Exact solution of site and bond percolation on small-world networks",
+        "trigger": "Close primary source: variance of epidemic-size distribution under bond percolation."
+      },
+      {
+        "assessment": "MODEL_SCOPE_WARNING_NOT_COVERING",
+        "evidence": "Paper explicitly demonstrates that general SIR with random infectious periods is not independent-bond percolation; no variance edge-insertion identity.",
+        "identifier_or_url": "arxiv:q-bio/0610057v5; https://arxiv.org/html/q-bio/0610057v5",
+        "material_read": "Full arXiv HTML introduction, epidemic-percolation construction, in/out-component definitions, generating-function results and final-outcome description.",
+        "method": "Inspect full arXiv HTML and search for variance terminology.",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Check whether the epidemic/percolation correspondence or broader model already entails the proposed claim."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Results are component-size/diameter phase laws for random power-law small-world graphs, not variance effects of adding a designated edge in every fixed graph.",
+        "identifier_or_url": "arxiv:2205.08774v2; https://arxiv.org/html/2205.08774v2",
+        "material_read": "Full arXiv HTML introduction, related-work discussion, main results on small-world percolation regimes, definition of full-bond process and independent-cascade correspondence; appendix structure.",
+        "method": "Inspect full arXiv HTML and search for edge insertion and variance; none found.",
+        "title": "Bond Percolation in Small-World Graphs with Power-Law Distribution",
+        "trigger": "Closest finite-graph percolation and independent-cascade equivalence, possible stronger graph-structural result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b297b1c6-3025-42ac-8cb3-6eec0ba4bbfc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim resolves a natural uncertainty-versus-average-size tension for any single contact addition in an otherwise arbitrary finite connected epidemic network: mean final size always rises, yet outbreak-size variance must switch from increasing to decreasing with transmissibility. The explicit 3n/4 sufficient criterion gives a topology-independent diagnostic. This is a universal qualitative boundary, not an arbitrary numerical slice, a standard exercise in monotonicity, or a small finite lookup; the model restriction and nonoptimality of the criterion are disclosed.",
+    "status": "PASS"
+  }
+}
