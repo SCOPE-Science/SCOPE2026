@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The lower bound is the published factor-two theorem for the Lyndon representative (author postprint proof inspected on pages 6–7). The upper bound is a complete 67-row finite certificate. The standalone verifier independently recomputes 67 forward BWTs by sorting all rotations, checks primitive periods, tests unclustered adjacent outputs, and confirms cyclic run counts equal ceiling of half the length. All checks passed. Embedding 0,1,2 in any larger ordered alphabet preserves the BWT and counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici et al. (2026) guarantee unclustered outputs for all lengths, but their theorem does not minimize input cyclic runs.",
+        "Mantaci et al. (2017), Theorem 1 bounds run-amplification by two without constructing equality cases at each prescribed length.",
+        "Kumallagov (2026) provides certain infinite arithmetic progressions of witness lengths conditional on modular primitive-root properties, not a blanket consecutive-length construction."
+      ],
+      "reasoning": "General existence without extremal run count and a universal lower bound without matching witnesses do not imply the whole present window. The arithmetic-family argument may subsume scattered entries, but no evidence indicates it implies every length in 14..80. The exact theorem is the joint consecutive-window statement.",
+      "searches": [
+        "Burrows Wheeler transform completely unclustered ternary primitive necklace minimum cyclic runs upper witness at all lengths n 14 to 80",
+        "\"Kumallagov\" \"U_k(14)\"",
+        "\"Kumallagov\" \"n = 14\" \"conjecture\" BWT",
+        "Mantaci Restivo Rosone Sciortino BWT 2 runs Lyndon clustering ratio theorem original PDF \"ratio\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.01267 (accessible abstract, technical summaries)",
+      "DOI:10.4230/LIPIcs.CPM.2026.13 (open HTML)",
+      "DOI:10.1007/978-3-319-66396-8_21 (open author PDF)",
+      "Indexed published mathematical research search: exact invariant, one-cycle equivalent, table and dominance variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.01267 articulates the sharper minimization objective and conjectures unrestricted equality.",
+        "CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.13, Theorem 2 proves existence of unclustered BWT outputs at every n and k≥3.",
+        "Mantaci et al., DOI:10.1007/978-3-319-66396-8_21, proof of Theorem 1 establishes the factor-two ratio upper bound."
+      ],
+      "reasoning": "Combining the two earlier general theorems gives a lower bound and nonempty feasible sets, not witnesses attaining the bound. The new exact finite interval requires showing the stronger simultaneous run property at every length. Its certificate supplies those missing implications directly.",
+      "searches": [
+        "An extremal problem for completely unclustered Burrows-Wheeler images small values conjecture n 2026",
+        "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets theorem primitive necklace",
+        "\"clustering ratio\" \"at most 2\" BWT Mantaci original"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kumallagov (2026), arXiv:2606.01267: the paper defines the same minimum and states the all-length sharpness conjecture, but the accessible abstract gives only small values and special arithmetic families.",
+        "Fici et al., CPM 2026, Lemma 8 gives the one-cycle criterion for primitive BWT images; the present certificate uses precisely this criterion but adds the sharp Hamming count."
+      ],
+      "reasoning": "The one-cycle LF/Hamming formulation is mathematically equivalent to the minimum cyclic-run problem on primitive necklaces, not a different novelty claim. Searched for both formulations. No inspected source covers all consecutive lengths 14..80, although individual lengths may already follow from earlier special-family constructions.",
+      "searches": [
+        "LF standard permutation single n cycle Hamming distance to sorted BWT half length exact 14 80",
+        "David Kumallagov An extremal problem for completely unclustered Burrows Wheeler images U_k(n) conjecture",
+        "\"completely unclustered\" \"n=80\" \"cyclic runs\" \"primitive necklace\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed technical reviews of arXiv:2606.01267 list initial entries only, through at most length 12, with some discrepancy in the stopping point.",
+        "The primary abstract reports small values and an open sharpness conjecture; no accessible directly inspected database or table gives the full 14..80 window."
+      ],
+      "reasoning": "The early table and some selected arithmetic lengths are credited as prior coverage. The full consecutive 67-length dataset is not implied by those entries; no exact larger table was found. The inaccessible primary preprint appendix creates a specific residual risk rather than proof of absence.",
+      "searches": [
+        "\"U_3(n)\" \"80\" Burrows Wheeler Kumallagov",
+        "\"Kumallagov\" \"n=12\" \"n=13\" BWT",
+        "\"Kumallagov\" \"n=80\" \"BWT\"",
+        "\"U_k(n)\" \"9\" \"10\" Burrows Wheeler 2026"
+      ]
+    },
+    "rationale": "Existing primary results give the universal lower bound, unclustered existence, some small values and sparse arithmetic sharpness families; their accessible statements do not cover all consecutive lengths 14..80. Full access to one directly relevant 2026 paper was unavailable, so special-case duplication remains a disclosed risk, not an assertion of literature uniqueness.",
+    "residual_risks": [
+      "Relevant Kumallagov primary full text was not readable in accessible sources; an appendix might contain part of the same consecutive window.",
+      "Unindexed tables or notes might give the same finite witnesses.",
+      "The result provides no uniform construction beyond n=80; scattered n in the interval were already covered by earlier arithmetic families."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms motivation, prior lower bound and selected cases; cannot certify that an unseen appendix has no overlapping table",
+        "evidence": [
+          "Metadata gives earliest publicly indexed source date 2026-05-31; abstract states the sharpness conjecture and partial arithmetic construction.",
+          "Summaries report small cases through at most 12 and an exception at 6."
+        ],
+        "identifier_or_url": "arXiv:2606.01267",
+        "material_read": "ArXiv submission metadata, abstract and indexed detailed technical summaries; primary full text not accessible",
+        "method": "Read accessible metadata/abstract, searched indexed summaries for small values, conjecture and arithmetic-family coverage; tried public preprint and lawful access paths",
+        "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+        "trigger": "Exactly the same invariant U_k(n) and sharpness conjecture"
+      },
+      {
+        "assessment": "Shows an unclustered BWT exists at each length but does not establish minimum cyclic-run equality at all these lengths",
+        "evidence": [
+          "Theorem 2 guarantees unclustered BWT outputs for q≥3.",
+          "Lemma 8 characterizes primitive BWT outputs by one-cycle standard permutation."
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.CPM.2026.13",
+        "material_read": "Open-access HTML: abstract, introductory results, definitions, one-cycle criterion (Lemma 8), later general-existence claims",
+        "method": "Read full-text HTML relevant sections and compared hypothesis/conclusion with exact input-run minimization",
+        "title": "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets",
+        "trigger": "Possible general existence result that could imply present witnesses"
+      },
+      {
+        "assessment": "Provides the lower bound, not all prescribed-length equality cases",
+        "evidence": [
+          "Theorem 1 proves r(BWT(v))≤2r(v) for Lyndon v.",
+          "Proof partitions BWT into lexicographic first-letter blocks and bounds each block by twice the corresponding input-letter run count."
+        ],
+        "identifier_or_url": "DOI:10.1007/978-3-319-66396-8_21",
+        "material_read": "Author-postprint PDF, initial definitions and BWT reconstruction; Theorem 1 and proof on pages 6–7",
+        "method": "Inspected text and page rendering of full open postprint, including the bound proof that splits the BWT into first-letter blocks",
+        "title": "Burrows-Wheeler Transform and Run-Length Enconding",
+        "trigger": "Factor-two inequality needed for sharp lower bound; possible universal sharpness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b9a7b94-f54a-4959-8258-def289569e6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same recent paper frames n≥7 equality as a structural extremal conjecture. Sixty-seven consecutive exact sharp values through length 80 (rather than one next integer) form a meaningful contiguous finite cutoff, provide compact replayable examples for all remaining initial lengths, and validate proposed future constructions against a broad edge-case dataset. No infinite theorem is inferred.",
+    "status": "PASS"
+  }
+}
