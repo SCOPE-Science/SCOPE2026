@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The standard Rudin–Shapiro doubling identities yield a four-state 2-morphism. Its complete eight adjacent-state-pair closure enumerates all length-eight factors by starting parity, and a reproducible exact test establishes the two disjoint sets (24 even, 32 odd). This forces equal long factors to start with the same parity. Decimation of equal even- or odd-start factors produces equal half-length factors; base values at lengths 1–10 are enumerated. Induction for every n>=11 proves the lower first-collision bound 2R(ceil(n/2)) and constructs the unique previous match at zero using the even recurrence. The exact closed formula and liminf/limsup follow. The verifier compares a morphic generator to independent binary arithmetic on 131072 positions and exhaustively checks first collisions for lengths 1–1024 and nine larger cases. The finite checks corroborate but do not replace infinite induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicholson–Rampersad arXiv:1507.08206, introduction and theorem list discuss general properties and explicit other-word formulas.",
+        "Lü–Chen–Wen–Wu arXiv:1606.06935, Theorems A/B concern abelian complexity regularity and limit function box dimension, not exact first repeated factors."
+      ],
+      "reasoning": "General bounds for initial non-repetitive complexity and counts of abelian classes do not imply the sharply located first collision or the same unique matching index. A potential dominating all-length result was not identified in the inspected primary documents or targeted searches.",
+      "searches": [
+        "Rudin Shapiro word repetition function first occurrence subword recurrence",
+        "Rudin Shapiro word first repetition factor prefix",
+        "Golay Rudin Shapiro prefix repetitions initial nonrepetitive complexity R(n)=2^{ceil log2(n)+1}"
+      ]
+    },
+    "checked_sources": [
+      "Nicholson & Rampersad (2015), arXiv:1507.08206",
+      "Lü, Chen, Wen & Wu (2016), arXiv:1606.06935",
+      "OEIS A350774, Rudin–Shapiro abelian complexity (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1507.08206 focuses on initial repetitions of the Thue–Morse, Fibonacci and Tribonacci words.",
+        "arXiv:1606.06935 proves recurrences for abelian factor counts of the same underlying Rudin–Shapiro sequence, not exact factor positions.",
+        "The classical Rudin–Shapiro doubling recurrence is known, but the parity-recognition lemma and first-collision induction do not follow from the published abelian-complexity results."
+      ],
+      "reasoning": "The first paper matches the invariant but not the sequence; the second matches the sequence but not the invariant. Neither theorem can imply this all-length first-repetition position and uniquely earlier match without further nontrivial analysis.",
+      "searches": [
+        "\"initial non-repetitive complexity\" \"Rudin-Shapiro\"",
+        "Rudin-Shapiro word initial non-repetitive complexity exact first repeated factor first collision function powers of two",
+        "Rudin Shapiro 8 factor phase distinguish parity morphism first repetition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicholson–Rampersad, arXiv:1507.08206, definition and treatment of Thue–Morse/Fibonacci/Tribonacci; full-text string search for Rudin and Shapiro had no match.",
+        "Lü–Chen–Wen–Wu, arXiv:1606.06935, defines abelian complexity by Parikh-vector equivalence rather than exact prefix collisions."
+      ],
+      "reasoning": "The present function is initial exact-factor collision index. It cannot be equated to global factor complexity, abelian complexity, or mere prefix recurrence. The early repetition is uniquely at the prefix except at lengths three through five. Neither inspected work states an equivalent Rudin–Shapiro initial-collision law.",
+      "searches": [
+        "\"initial non-repetitive complexity\" \"Rudin-Shapiro\"",
+        "\"Rudin-Shapiro\" \"inrc\" complexity",
+        "Rudin-Shapiro word initial non-repetitive complexity exact first repeated factor first collision function powers of two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table matching the stated first-repetition values was surfaced in the targeted searches.",
+        "The inspected established data on Rudin–Shapiro abelian complexity (for example OEIS A350774) concern a different function."
+      ],
+      "reasoning": "No indexed exact initial-repetition table was observed. Absence from a database is not positive proof of originality; a matching table in an unindexed source remains possible.",
+      "searches": [
+        "\"1, 1, 4, 4, 4, 16, 16, 16, 32\" rudin shapiro",
+        "\"Rudin-Shapiro\" \"initial nonrepetitive complexity\" first occurrence",
+        "\"Rudin-Shapiro\" \"first repetition\" factor prefix"
+      ]
+    },
+    "rationale": "Inspected primary full text by Nicholson and Rampersad (arXiv:1507.08206), which introduced the target invariant and gives exact formulas for other infinite words, contains no Rudin–Shapiro case. Inspected Lü–Chen–Wen–Wu (arXiv:1606.06935) gives Rudin–Shapiro abelian complexity, a different statistic that does not determine exact initial factor collisions. Focused public searches and prior-result comparisons found no equivalent statement or dominating theorem. This is best-knowledge originality, not certified uniqueness.",
+    "residual_risks": [
+      "A previously published but unindexed exact Rudin–Shapiro first-repetition formula or an overlooked equivalent theorem could exist.",
+      "The finite parity certificate should be independently reimplemented or hand-checked; while exhaustively generated from proven morphic coverage, it has not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides definition and exact Thue–Morse/Fibonacci/Tribonacci formulas, no Rudin–Shapiro statement.",
+        "evidence": [
+          "arXiv:1507.08206 page 1 abstract and pages 2–5 introduction and definitions; no hits for Rudin/Shapiro in document text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1507.08206",
+        "material_read": "Full-text indexed PDF, introduction, definition, stated theorem coverage and full-text searches for Rudin and Shapiro (neither occurring); pages 1–5 inspected materially.",
+        "method": "Open-access arXiv PDF parsed text plus visual page checks",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Exact invariant and foundational paper"
+      },
+      {
+        "assessment": "Its abelian counts and 2-regularity do not determine exact first repeated factors.",
+        "evidence": [
+          "arXiv:1606.06935 Theorems A/B, section 2.3 recurrence and definition of abelian equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1606.06935",
+        "material_read": "Open-access PDF abstract, introduction, abelian-complexity definitions and Rudin–Shapiro recurrence on pages 1–4; indexed searches for non-repetitive and first repetition (no hits).",
+        "method": "Open-access arXiv PDF parsed text plus visual checks of pages 1 and 4",
+        "title": "On the abelian complexity of the Rudin-Shapiro sequence",
+        "trigger": "Same automatic word and adjacent complexity literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd57e8b0-4a5b-4029-be09-05302a95a163",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact all-length solution for the established initial non-repetitive complexity invariant of a classical 2-automatic word, beyond finite census. Sharp power-of-two jump law, unique matching position, and normalized limit inferior two/limit superior four are useful structural information for comparing prefix repetition across automatic words. The phase-recognition lemma explains the phenomenon and the theorem is not a standard abelian-complexity corollary.",
+    "status": "PASS"
+  }
+}
