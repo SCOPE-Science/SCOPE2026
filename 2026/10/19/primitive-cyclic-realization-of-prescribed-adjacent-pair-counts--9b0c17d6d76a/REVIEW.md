@@ -1,0 +1,15 @@
+# Scientific review: primitive circular transition profiles
+
+## Correctness
+**PASS.** Balanced connected support is equivalent to existence of an Euler tour. Without branching, strong connectivity and balance force one directed cycle with equal multiplicities, and its unique symbol necklace has least period equal to the cycle length. With branching, sorting first-return excursions at a branching symbol makes their type necklace primitive. Any rotational period of the resulting symbol word would induce a rotational period on that type necklace; this implication uses the exact set of occurrences of the cutting symbol and is valid even when excursion lengths differ. The exceptional divisor count follows by choosing active symbols and a directed cycle. Exhaustive independent checks of every word over one through four symbols within the stated finite ranges verify both the direct primitive-status classification and the constructive witness.
+
+## Originality
+**PASS with residual literature risk.** The closest accessible full papers treat counts of cyclic Markov types, balanced frequency matrices, Eulerian circuit uniqueness, and generalized de Bruijn necklaces. Total counts of balanced profiles do not imply their partition into primitive-realizable and forced-periodic classes; uniqueness of edge-distinguished tours is logically different from primitivity of the circular vertex-symbol output. Textual searches and structured mathematical-record searches did not identify the stated all-parameter characterization or its divisor-sum corollary. A folkloric or unindexed equivalent formulation cannot be ruled out and independent review remains needed.
+
+## Value
+**PASS.** The distinction between forced periodicity and merely the presence of a periodic solution matters for exact reconstruction from aggregate adjacent-pair observations. The result identifies the complete obstruction for every alphabet and length, gives a uniform constructive existence proof, and counts the obstruction profiles exactly, rather than giving only an algorithm or a finite table. It shows that common factors in the observed multiplicities do not generally force periodicity, and that the exceptional family stays uniformly bounded at fixed alphabet size even while the universe of observable types grows. It does not claim a formula for all primitive realizations or a higher-order analogue.
+
+## Closest literature and limits
+Jacquet–Knessl–Szpankowski (2012, DOI `10.1109/TIT.2012.2191476`) count Markov types and their connected Eulerian matrices; Obscura Acosta–Tomescu (arXiv:2208.08522, sections 1–2) study unique Eulerian edge tours and safe walks; the MFCS 2025 generalized de Bruijn/Burrows–Wheeler paper treats a distinct restricted necklace problem. No examined result states or implies the primitive-profile dichotomy. General novelty beyond examined material is unverified. Finite tests support but cannot replace the infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.

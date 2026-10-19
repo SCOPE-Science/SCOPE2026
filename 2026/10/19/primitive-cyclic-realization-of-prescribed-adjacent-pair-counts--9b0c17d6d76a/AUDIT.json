@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Balanced connected positive support gives and is given by an Eulerian tour. Every unbranched balanced connected support is a directed simple cycle with equal multiplicity; its word has exact least period equal to the number of active vertices. At a branching vertex, an Euler tour splits into first-return excursions of at least two different types. Regrouping each type contiguously makes the excursion-type circular list primitive, and any nontrivial cyclic symbol-word period would induce a nontrivial excursion-list period. Thus a primitive word exists. Exceptional matrices correspond bijectively to a choice of a d-symbol directed cycle and a multiplicity n/d>=2, yielding the divisor sum. Direct exhaustive finite tests and constructive witnesses check q=1..4 in stated ranges, without being used as infinite proof. No hidden assumptions about self-loops, inactive symbols, or edge distinguishability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "MFCS 2025, Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform, Sections 2–4: restricted generalized de Bruijn necklaces, BWT conditions, and Eulerian graph counts.",
+        "Jacquet–Knessl–Szpankowski 2012, Theorem 1: asymptotics of total cyclic Markov-type counts rather than individually primitive-realizable classes."
+      ],
+      "reasoning": "A stronger universal periodicity-forcing theorem or an exact per-profile enumeration would cover this. The indexed and full-text materials examined treat a restricted class of de Bruijn/BWT necklaces or count all Markov types, which do not identify the profiles without primitive realizations. This does not exclude unindexed folklore.",
+      "searches": [
+        "\"Markov type\" \"primitive words\" cyclic",
+        "\"primitive\" \"Eulerian\" \"word\" \"adjacency matrix\"",
+        "\"aperiodic\" \"Euler circuit\" \"multigraph\" vertex sequence",
+        "doi:10.4230/LIPIcs.MFCS.2025.48; generalized de Bruijn words"
+      ]
+    },
+    "checked_sources": [
+      "Jacquet, Knessl, Szpankowski, IEEE Trans. Inf. Theory 58 (2012), DOI 10.1109/TIT.2012.2191476",
+      "Obscura Acosta, Tomescu, arXiv:2208.08522 (v1 2022, v2 2023), DOI 10.1016/j.ipl.2023.106421",
+      "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform, MFCS 2025, DOI 10.4230/LIPIcs.MFCS.2025.48"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Obscura Acosta–Tomescu arXiv:2208.08522, Introduction Corollary 1 and Section 2 proof: uniqueness of distinct-edge Eulerian circuits and mandatory safe walks, not smallest period of symbol output. Their Section 1.3 explicitly distinguishes occurrences by edges versus nodes.",
+        "Jacquet–Knessl–Szpankowski 2012, definitions and main theorem: balance/connectivity and total type asymptotics; the primitive versus periodic-only partition is not implied by the published scalar counts."
+      ],
+      "reasoning": "Classical Eulerian feasibility is a premise, not the claim. Multiplicity may yield multiple edge-distinguished Euler tours but only one periodic symbol word (a repeated simple cycle), so prior uniqueness criteria neither imply nor refute the stated criterion. Markov-type totals sum over unknown primitive statuses; recovering that partition requires the new excursion argument. Stronger directly covering results were not identified in the examined material.",
+      "searches": [
+        "Simplicity in Eulerian Circuits Uniqueness and Safety Acosta Tomescu 2022 repeated parallel arcs vertex-labeled word periodicity",
+        "Counting Markov Types Balanced Matrices Eulerian Graphs Jacquet Knessl Szpankowski 2012 primitive periods and necklaces",
+        "periodic-only Markov classes of fixed length q-ary cyclic words, exact proper-divisor formula for transition count matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacquet–Knessl–Szpankowski 2012, Section 1 and Section 2.1: cyclic Markov types are connected balanced adjacency matrices, with no primitive-period characterization in inspected main results.",
+        "Obscura Acosta–Tomescu arXiv:2208.08522, Section 1.3 and Section 2: node-label versus edge-label appearance and safe Euler tours are explicitly distinguished."
+      ],
+      "reasoning": "Recasting the claim as an aperiodic-necklace member of a fixed first-order circular Markov type gives an equivalent question. The inspected primary works give ambient Eulerian feasibility and edge-distinguished tour uniqueness, not the dichotomy for whether there exists at least one primitive vertex-word realization. Searches for alias formulations found no direct published equivalent.",
+      "searches": [
+        "\"primitive\" \"Markov type\" \"aperiodic\" Eulerian circuit adjacency counts",
+        "\"primitive Eulerian circuit\" \"multigraph\" \"periodic\"",
+        "Primitive necklaces under fixed cyclic bigram Markov type, cyclic word realizations of transition count matrix, first-return excursions block sorting",
+        "arXiv:2208.08522; doi:10.1109/TIT.2012.2191476"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jacquet–Knessl–Szpankowski 2012, Sections 2.1–2.2: total connected balanced matrix enumeration and generating-function relation, but no table identifying which profiles are exclusively periodic.",
+        "Direct finite check: 95 feasible ternary length-six pair profiles, of which exactly 8 lack any primitive witness; 3317 feasible quaternary length-eight profiles, of which exactly 16 lack one."
+      ],
+      "reasoning": "A table of all feasible profiles is not the same as classification of those with no primitive realization. A finite table at selected parameters cannot imply the all-parameter graph criterion or divisor formula. No exact reference table of the forbidden subset was identified.",
+      "searches": [
+        "ternary cyclic digram composition spectrum enumeration Eulerian profile matrix strongly connected support n length",
+        "all feasible ternary circular 2-gram count matrices and their generating functions",
+        "Every Eulerian adjacency frequency profile of a circular word admits a primitive aperiodic realization unless its support is one directed simple cycle with equal parallel-edge multiplicity; count exceptional matrices by divisor sum binomial q choose d factorial d minus one"
+      ]
+    },
+    "rationale": "An individual cyclic Markov-type class containing some primitive necklace is a different property from feasibility, total type count, uniqueness of edge-distinguished Euler tours, or a constrained de Bruijn family. Inspected primary sources give these nearby statements but not a primitive-member existence dichotomy for all q,n or the count of periodic-only profiles. Specific equivalent/broader/exact-table/implication comparisons recorded. Residual folklore/unindexed literature risk remains; no independent novelty audit.",
+    "residual_risks": [
+      "Short combinatorial classification may have an equivalent folkloric or unindexed statement; no exhaustive worldwide negative literature claim is made.",
+      "Some published sources discuss edge-distinguished circuits; translation to vertex-symbol periodicity is nontrivial and must not be conflated with them.",
+      "Published Markov-type enumeration or other advanced formulas could in principle yield the same classifier by additional arguments; no directly covering implication was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Eulerian feasibility and total type counts/asymptotics; no result in examined portions distinguishes existence of an aperiodic/primitive cyclic vertex-word member of a fixed type.",
+        "evidence": [
+          "PDF https://artefacts-discovery.researcher.life/full_text/DA-2/cc/cc28bc3ddc01373e89bfc1d1c1d511cc/full_text/f29fab770ca8a46454cae7527194f716.pdf",
+          "DOI 10.1109/TIT.2012.2191476, pp. 2–11, especially Section 2.1."
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2012.2191476",
+        "material_read": "Full accessible PDF: introduction definitions of cyclic matrices, Sections 2.1 and 2.2, main theorem and generating functions (PDF pp. 1–11), including count comparison of balanced and connected matrices.",
+        "method": "Full-text mathematical comparison of exact object, parameters, cyclic conventions, and resulting implication; equations (4)–(5), Lemma 1, Theorem 1.",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "Exact cyclic order-two Markov-type balance matrix, graph connectivity, and enumeration are nearest ambient objects."
+      },
+      {
+        "assessment": "Characterizes uniqueness of edge-distinguished Eulerian circuits and safe walks; not a primitive cyclic symbol-label realizing word with specified ordered pair counts. Repeated simple-cycle matrices can have many edge-distinguished tours but still force a periodic symbol word.",
+        "evidence": [
+          "https://arxiv.org/html/2208.08522v2 Sections 1.1, 1.3, 2, 3",
+          "arXiv first public v1 17 August 2022: https://arxiv.org/abs/2208.08522"
+        ],
+        "identifier_or_url": "arXiv:2208.08522",
+        "material_read": "ArXiv full HTML: Abstract, Introduction Sections 1.1–1.3, main theorem, Section 2 proof and Section 3 conclusion, including discussion of parallel edges and edge-versus-node appearance.",
+        "method": "Direct full-text inspection of hypotheses and theorem consequences; compared edge-tour uniqueness, safe subwalks, and unlabeled repeated edge outputs.",
+        "title": "Simplicity in Eulerian Circuits: Uniqueness and Safety",
+        "trigger": "Could plausibly subsume a condition that all realizations are periodic if edge-tour structure is rigid."
+      },
+      {
+        "assessment": "Related necklace and Euler-tour enumeration, but no general fixed-adjacent-pair profile primitive-existence characterization or exceptional divisor sum.",
+        "evidence": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol345-mfcs2025/html/LIPIcs.MFCS.2025.48/LIPIcs.MFCS.2025.48.html"
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.MFCS.2025.48",
+        "material_read": "Full open HTML Sections 2–4, including definitions of primitive necklaces, generalized de Bruijn words, and Euler-tour counts (Theorems 9–12); inspected discussion of BWT and uniform alphabet counts.",
+        "method": "Compared restricted de Bruijn/BWT objects and Euler-circuit counts with arbitrary cyclic first-order transition-count matrices.",
+        "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+        "trigger": "Examines primitive necklaces, Eulerian circuits, and generalized de Bruijn words, a plausible adjacent area."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b0c17d6-d76a-4350-95c0-155b0b878d3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete for-all-alphabets, all-lengths structural characterization for when transition-count data force a periodic output, with a constructive primitive witness otherwise, is a natural reconstruction property. The sharp divisor-sum count identifies exactly the exceptional observable Markov types; the fixed-alphabet count stays uniformly bounded, and even highly divisible transition counts need not force periodicity. These statements distinguish observation-level forced periodicity from possible periodic realizations and from uniqueness of Euler tours. The theorem is not merely a finite table, normalization, or a renaming of Eulerian feasibility. It does not claim larger-order or exact multiplicity enumeration results.",
+    "status": "PASS"
+  }
+}
