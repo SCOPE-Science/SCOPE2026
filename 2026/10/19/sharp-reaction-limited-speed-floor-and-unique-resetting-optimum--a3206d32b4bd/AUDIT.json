@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "A fresh killed Green-resolvent calculation gives q=k exp[-(sqrt(U^2+4Dr)-U)L/(2D)]/[k+sqrt(U^2+4Dr)] and the renewal time (1-q)/(rq), reproducing the published normalization independently. In the dimensionless variable t the objective is [(1+eta(M+t)) exp(t)-1]/[t(2M+t)]. A verified entire-series identity shows the derivative numerator has one negative-to-positive coefficient transition, yielding exactly one simple positive root and a nondegenerate global optimizer, including M=0. The global lower bound follows strictly from e^t-1>0, (M+t)/(2M+t)>=1/2 and e^t/t>=e. Global minimizers approach t=1 as drift grows; perturbation yields the constant correction -k/(eL) to the optimal rate and the full 1/U term of the optimized time. The published weak-drift expansion combined with the nondegenerate optimizer proves an initially negative optimal-rate derivative and a later increase, hence turnover existence. Executable check.py passed 476 symbolic and numerical assertions; these tests support normalization, not the infinite proof. No assumptions of perfect absorption, outward drift, uniqueness of drift-speed turnover, or uniformity in k are made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Whitehouse, Evans, Majumdar, arXiv:1301.2489v1, Sections 2-4 covers finite reactivity but no drift.",
+        "Ray, Mondal, Reuveni, arXiv:1811.08239v1, first-passage drift/restart and absorbing-boundary sections treats drift with a perfectly absorbing boundary.",
+        "Mazzolo, arXiv:2609.22527v1, Section III.3.2 and Appendix A.2/A.5, equations (160)-(166),(182)-(185) includes arbitrary drift in the forward formula and numerically one inward-drift turnover; its proven uniqueness statement is for zero drift."
+      ],
+      "reasoning": "Generic Poisson restart and resolvent results derive the forward expression, not its parameter-uniform optimization properties automatically. The 2013 and 2018 settings omit one of the two essential elements (constant drift and finite reactivity). The 2026 source covers the model broadly but only the weaker optimized consequences explicitly; its exact formula creates an implicit-coverage risk recorded below.",
+      "searches": [
+        "Brownian drift towards partially absorbing delta target repeated resetting reaction-limited strong advection optimal reset timing universal e constant",
+        "partially reactive point trap drift reset optimal rate nonmonotonic universal inward drift all parameters uniqueness minimum",
+        "\"strong drift\" \"partially absorbing\" \"resetting\" \"rate\"",
+        "\"finite reactivity\" \"resetting\" \"drift\" asymptotic optimal"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arXiv:2609.22527v1",
+        "scope": "Full relevant drift and Appendix A optimization sections",
+        "title": "Mazzolo (2026)"
+      },
+      {
+        "identifier": "arXiv:1301.2489v1",
+        "scope": "Finite partial absorption and resetting",
+        "title": "Whitehouse–Evans–Majumdar (2013)"
+      },
+      {
+        "identifier": "arXiv:1811.08239v1",
+        "scope": "Perfect absorption and drifted resetting",
+        "title": "Ray–Mondal–Reuveni (2018)"
+      },
+      {
+        "identifier": "semantic mathematical record index",
+        "scope": "Seven direct source/claim/alias queries with comparison to closest returned scientific statements; non-exhaustive.",
+        "title": "Published mathematics record comparisons"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mazzolo Appendix A.2: uniqueness at U=0 only; A.5: first derivative at zero U and representative numerical turnover; Eq. 185: exact drifted mean formula at arbitrary U.",
+        "Whitehouse et al.: finite reactivity and optimized mean without drift; Ray et al.: inward drift with perfect target and a different reset phase."
+      ],
+      "reasoning": "Direct restatement of Eq. 185, the U=0 uniqueness, initial derivative sign, or the plotted single turnover would be covered. The present result uses a new all-integer coefficient-sign proof, derives strict eL/k for every finite U and rate, and proves globally the large-U rate and mean asymptotics and existence of a turnover for every positive D,L,k. It is plausibly new relative to the statements inspected, though algebraically derivable from an existing forward formula and perhaps implicit in broader methods.",
+      "searches": [
+        "strong inward drift asymptotics optimal Poisson reset rate partially absorbing delta killing trap r*=U/L-k/(e L), minimum absorption eL/k",
+        "Alain Mazzolo Diffusion with stochastic resetting in the presence of a delta killing trap Drift-controlled survival regimes arXiv 2609.22527",
+        "partially reactive point trap drift reset optimal rate nonmonotonic universal inward drift all parameters uniqueness minimum",
+        "\"partial absorption\" \"deterministic\" \"resetting\" \"drift\" \"e\"",
+        "\"delta killing\" \"strong drift\" reset \"optimal\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mazzolo, arXiv:2609.22527v1, Section III.3.2 and Appendix A.2/A.5, equations (160)-(166),(182)-(185) gives the equivalent drifted forward renewal objective but does not establish all-inward-drift uniqueness or the strong-drift sharp floor.",
+        "The equivalent limiting deterministic renewal picture still requires analyzing finite-reactivity local-time accumulation: the present theorem gives a strict global finite-U bound and sharp limit."
+      ],
+      "reasoning": "The source forward resolvent is algebraically equivalent to the current T_U(r), and this exact overlap is credited. It does not logically assert that all parameter-specific optimizers are unique nor extract the large-U coefficient and universal bound. Perfect absorption changes the limiting mechanism and cannot imply a positive finite-k floor.",
+      "searches": [
+        "strong inward drift asymptotics optimal Poisson reset rate partially absorbing delta killing trap r*=U/L-k/(e L), minimum absorption eL/k",
+        "resetting imperfect target fast deterministic drift local time sharp lower bound e distance/reaction velocity",
+        "stochastic resetting partial absorption constant drift strong drift optimal resetting rate linear velocity distance mean absorption e distance reactivity",
+        "diffusion partially absorbing point drift resetting large negative drift asymptotic mean first passage time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic queries did not retrieve a directly matching table or theorem for the four newly assessed optimized conclusions. One retrieved publication concerns general restart variance envelopes, not the partially absorbing drifted point trap.",
+        "The Mazzolo article explicitly tabulates/example-numerically reports an inward-drift turnover at D=1, k=2, L=1, which is acknowledged rather than presented as a new observed phenomenon."
+      ],
+      "reasoning": "The newly assessed result is analytic all-parameter uniqueness and asymptotic sharp bound, not a new numerical optimal-rate entry or re-analysis of the already plotted example. No database nonmatching search is construed as proof of exhaustive coverage.",
+      "searches": [
+        "Alain Mazzolo Diffusion with stochastic resetting in the presence of a delta killing trap Drift-controlled survival regimes arXiv 2609.22527",
+        "Alain Mazzolo 2609.22527 delta killing constant inward drift globally unique resetting optimum universal e L/k lower bound",
+        "sharp universal e distance/reactivity lower bound optimal mean capture stochastic resetting strong inward advection",
+        "\"partial absorption\" \"drift\" \"optimal resetting rate\" large drift delta trap",
+        "stochastic resetting delta sink drift optimized mean first passage strong bias reactivity"
+      ]
+    },
+    "rationale": "Novelty is confined to a joint all-positive-parameter inward-drift theorem: unique reset-rate optimum for each inward speed, sharp universal reaction-limited mean-time floor eL/k, explicit strong-inward-drift optimal-rate and optimal-time corrections, and turnover existence at every fixed finite reactivity. The source Mazzolo obtains the exact drifted forward mean (Eq. 185), driftless unique optimizer (Appendix A.2), first-order drift response (Appendix A.5), and numerical turnover only for an illustrative parameter tuple; those statements are acknowledged, not relabeled as novel. The earlier partially absorbing paper is driftless, while the prominent drifted paper treats a perfectly absorbing target. Search is evidence of examined comparisons, not a guarantee of global uniqueness.",
+    "residual_risks": [
+      "The main 2026 article contains a completely equivalent finite-parameter forward formula, so some asymptotic or optimization consequences could be viewed as implicitly covered by later readers or as direct consequences under routine methods; new coefficient-sign uniqueness and sharp reaction-limited floor are the asserted non-routine components.",
+      "Unlocated general renewal-optimization theorems could imply portions, despite targeted research-record and primary-literature queries.",
+      "Semantic search is non-exhaustive and may rank unrelated research above relevant theorems; absence of a direct returned match cannot certify global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME MODEL, forward MFPT and driftless uniqueness already covered; arbitrary-inward uniqueness, sharp eL/k floor, and strong drift expansion not identified; A.5 contains a numerical nonmonotone example.",
+        "evidence": "Mazzolo, arXiv:2609.22527v1, Section III.3.2 and Appendix A.2/A.5, equations (160)-(166),(182)-(185); arXiv first submitted 2026-09-18 19:33:29 UTC.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.22527",
+        "material_read": "Full-text HTML extraction of Introduction, Sections II-III and Appendix A.1-A.5, including optimization proof and the arbitrary-drift extension, equations (154)-(185).",
+        "method": "Read accessible arXiv HTML primary text and compared its optimization hypotheses and conclusions algebraically.",
+        "title": "Diffusion with stochastic resetting in the presence of a delta killing trap: Drift-controlled survival regimes",
+        "trigger": "Identical drifted delta-killing-reset model and the nearest prior forward mean and reset-rate optimization."
+      },
+      {
+        "assessment": "Does not cover all-U>0 inward-drift optimization or its drift-induced asymptotic floor.",
+        "evidence": "Whitehouse, Evans, Majumdar, arXiv:1301.2489v1, Sections 2-4; first public 2013-01-11.",
+        "identifier_or_url": "https://arxiv.org/abs/1301.2489",
+        "material_read": "Accessible arXiv extracted text of model, forward mean and optimizations, including relevant portions of Sections 2-4.",
+        "method": "Compared parameter restrictions: finite partial reaction but no constant drift.",
+        "title": "Effect of Partial Absorption on Diffusion with Resetting",
+        "trigger": "Classical direct finite-reactivity target comparison used in the 2026 paper."
+      },
+      {
+        "assessment": "Perfect target changes the limiting rate and can have zero optimal restart; not a covering finite-reactivity theorem.",
+        "evidence": "Ray, Mondal, Reuveni, arXiv:1811.08239v1, first-passage drift/restart and absorbing-boundary sections; first public 2018-11-20.",
+        "identifier_or_url": "https://arxiv.org/abs/1811.08239",
+        "material_read": "Accessible full-text extraction of drift-diffusion absorbing-boundary derivations and appendix around optimized restart.",
+        "method": "Compared target boundary assumptions and implications as finite-reaction versus perfect absorption.",
+        "title": "Péclet number governs transition to acceleratory restart in drift-diffusion",
+        "trigger": "Strong-drift restart optimization and possible zero-optimal-reset phenomenon."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3206d32-b4bd-45ae-bd4d-f44d02781acc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 primary study identifies survival regimes for a partially absorbing drifted target and numerically observes nonmonotone reset-rate selection. The precise optimization gap has a physical reason: rapid inward advection reduces encounter residence time, so the unavoidable reaction latency sets the sharp eL/k speed floor, which is not present for a perfect target. A globally unique optimal reset rate for every inward speed provides an unambiguous design rule; the leading U/L law, finite-reactivity -k/(eL) correction and diffusion-sensitive correction to minimum time quantify the competing transport and capture limitations. Proving turnover exists for every finite reactivity qualitatively strengthens a single plotted parameter example. These are nontrivial structural classification/asymptotic facts rather than mere reformatting of the forward mean or an arbitrary narrow numerical benchmark.",
+    "status": "PASS"
+  }
+}
