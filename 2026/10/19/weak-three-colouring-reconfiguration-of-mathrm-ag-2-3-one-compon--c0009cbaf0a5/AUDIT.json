@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact nine-vertex, twelve-line system, three distinguished colours and single-site moves are defined. The line-free arc argument proves every class has size at most four; the pair/incidence identity rules out two-colourings and classifies the strict bicolourings. Both standalone checked implementations enumerate all 19683 ternary words or equivalently all ordered partitions into line-free subsets, build all legal arcs of the recolouring graph, and run complete breadth-first search from every one of the 3762 states. Their identical fingerprints and full outputs establish one component, 16848 edges, radius nine, diameter ten, precise degree/eccentricity/type and strict-bicolouring-distance profiles. The exact proof is finite; no infinite extension or unexecuted certificate is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araujo-Pardo–Martínez-Sandoval, arXiv:2601.19043, sections on minimum arc-chromatic palettes, order-four affine-plane colourings and concluding open problems: https://arxiv.org/pdf/2601.19043",
+        "Cardinal–Demaine–Eppstein–Hearn–Winslow, arXiv:1805.04055v1, introduction and section 2: Boolean/2-colour NAE3SAT reconfiguration on varying planar instances, not fixed 3-colour affine plane: https://arxiv.org/html/1805.04055v1"
+      ],
+      "reasoning": "Minimum-palette existence and constructions do not imply that the entire fixed-palette solution graph is connected, much less its exact diameter/eccentricity profile. PSPACE-completeness for variable Boolean instances neither includes 3-colour states nor implies connectivity of this finite instance.",
+      "searches": [
+        "affine plane of order 3 3-colorings hypergraph reconfiguration graph connected components",
+        "reconfiguration of weak 3-colorings finite affine planes and Steiner triple systems",
+        "Exact connected weak 3-colorings of Hesse AG(2,3) Steiner triple system 9 under recoloring single point: 3762 states, 16848 edges, radius 9 diameter 10; strict bicolorings 162 degree 8."
+      ]
+    },
+    "checked_sources": [
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v6i1r25/pdf/",
+      "https://arxiv.org/pdf/2601.19043",
+      "https://arxiv.org/html/1805.04055v1",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v6i1r25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing existence theorem asserts only at least one strict bicolouring of order nine, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v6i1r25/pdf/",
+        "Arc-chromatic paper gives minimum palette and unrelated order-four census, https://arxiv.org/pdf/2601.19043",
+        "Boolean NAE single-variable flip paper establishes complexity for an input family, https://arxiv.org/html/1805.04055v1"
+      ],
+      "reasoning": "Existence of one coloured partition implies no quantitative connectivity of 3762 states; generalized minimum-colourability implies neither an edge census nor an all-pairs geodesic bound. Strict bicolouring alone would misleadingly suggest frozen configurations, but allowing rainbow triples changes the state space. General decision-complexity hardness gives no diameter of this particular instance.",
+      "searches": [
+        "Exact connected weak 3-colorings of Hesse AG(2,3) Steiner triple system 9 under recoloring single point: 3762 states, 16848 edges, radius 9 diameter 10; strict bicolorings 162 degree 8.",
+        "One-site recolouring graph of arc-proper 3-colorings nine point affine plane Hesse configuration has single component diameter 10; 4,4,1 strict three-bicolorings all isolated in induced graph",
+        "Bicoloring Steiner Triple Systems Colbourn Dinitz Rosa 1999 May 24"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Colbourn–Dinitz–Rosa 1999, introduction: weak means nonmonochromatic triples and strict bicolouring means exactly two colours on every triple; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v6i1r25/pdf/",
+        "Araujo-Pardo–Martínez-Sandoval 2026, definition: an arc-proper colouring is a partition into no-three-collinear colour classes; https://arxiv.org/pdf/2601.19043"
+      ],
+      "reasoning": "Weak vertex colouring, arc-proper plane colouring, nonmonochromatic 3-uniform hypergraph colouring and 3-valued not-all-equal assignments agree on configurations. Strict bicolouring is a proper subset with no rainbow blocks, not the same reconfiguration domain. Inspected equivalent-terminology results address palette/existence, not single-site reachability or distances.",
+      "searches": [
+        "single-vertex recoloring weak proper colorings of affine plane AG(2,3) point-lines nonmonochromatic triples",
+        "affine plane of order 3 3-colorings hypergraph reconfiguration graph connected components",
+        "reconfiguration of weak 3-colorings finite affine planes and Steiner triple systems",
+        "One-site recolouring graph of arc-proper 3-colorings nine point affine plane Hesse configuration has single component diameter 10; 4,4,1 strict three-bicolorings all isolated in induced graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Colbourn–Dinitz–Rosa 1999, printed table in section 2.2, page 10: a 3-bicolouring with colour-class split 4,4,1 exists for order nine; this table does not enumerate the weak-colouring reconfiguration graph. https://www.combinatorics.org/ojs/index.php/eljc/article/download/v6i1r25/pdf/"
+      ],
+      "reasoning": "The tabulated class-size split and optimal palette were known and are not presented as new. No inspected exact graph database or table contains all 3762 weak colourings, 16848 legal transitions or the exact metric distribution. Negative searches are evidence of limited coverage, not proof of global novelty.",
+      "searches": [
+        "AG(2,3) Hesse configuration exact 3762 labeled nonmonochromatic point 3-colorings 16848 adjacent recoloring edges diameter 10",
+        "Steiner triple system of order 9 weak 3-coloring 162 configurations size 4 4 1 recoloring graph radius 9",
+        "3-coloring reconfiguration of Hesse nine-point affine plane connected and degree sequence 8 9",
+        "Hesse affine plane nine point weak 3 coloring reconfiguration single point recoloring bicoloring graph"
+      ]
+    },
+    "rationale": "Inspected literature yields the strict 3-bicolouring split (4,4,1), the weak/arc chromatic number and complexity of 2-colour NAE reconfiguration, but not a single-point reconfiguration theorem, graph size, connectivity or metric for weak 3-colourings of the fixed affine plane AG(2,3). A semantic mathematical-database comparison of this precise claim under aliases returned adjacent but logically noncovering work. The exact finite graph characterization is therefore original to the best accessible comparisons, with explicit unindexed-work priority risk.",
+    "residual_risks": [
+      "Equivalent unindexed papers or results phrased as finite constraint-system geometry could cover all or some graph parameters.",
+      "No independent external review of the two exhaustive programs or literature-priority search has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Previously gives existence of 3-bicolouring and class split (4,4,1), but no vertex recolouring state graph, edge counts or connectivity/distance characterization.",
+        "evidence": [
+          "Weak and strict bicolouring defined on printed pages 1–2; table on printed page 10 lists 9/(4,4,1)/yes; DOI 10.37236/1457."
+        ],
+        "identifier_or_url": "doi:10.37236/1457; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v6i1r25/pdf/",
+        "material_read": "Full searchable sixteen-page PDF; introduction, necessary conditions, order-nine row of the section-2.2 table on printed page 10, and remaining theorem statements. Printed page 10 visually inspected.",
+        "method": "Open-access complete PDF, page-text review, targeted text searches for reconfiguration and local switching, and page-image inspection.",
+        "title": "Bicoloring Steiner Triple Systems",
+        "trigger": "Defines exact weak/strict colouring distinction and prints size split at order nine."
+      },
+      {
+        "assessment": "Arc-proper palette minimization and constructions, including different-order enumeration; no studied AG(2,3) single-site state-transition graph or diameter in inspected sections.",
+        "evidence": [
+          "Discussion/open problems on printed page 14 addresses arc chromatic minima and larger finite-plane orders, not recolouring distances."
+        ],
+        "identifier_or_url": "arxiv:2601.19043; https://arxiv.org/pdf/2601.19043",
+        "material_read": "The twenty-two-page open PDF, definitions, finite-plane constructions, enumeration discussions and concluding section 6, with visually inspected page 14.",
+        "method": "Open arXiv PDF, textual theorem/terminology comparisons, section and page-image review.",
+        "title": "The arc chromatic number for Galois projective planes, affine planes and Euclidean grids",
+        "trigger": "Arc-proper affine-plane colouring is the exact equivalent configuration class; potentially stronger colourability result."
+      },
+      {
+        "assessment": "Boolean not-all-equal SAT for variable planar instances uses a 2-state alphabet, and does not imply the three-colour Hesse-configuration graph structure.",
+        "evidence": [
+          "arXiv v1 dated 2018-05-10; Theorem 2.2 is PSPACE-completeness for Planar Monotone NAE 3-SAT reconfiguration."
+        ],
+        "identifier_or_url": "arxiv:1805.04055v1; https://arxiv.org/html/1805.04055v1",
+        "material_read": "ArXiv open HTML abstract, introduction, definitions and section 2 (planar Boolean NAE3SAT complexity); full paper section navigation inspected.",
+        "method": "Open full-text HTML, compare colour alphabet, clause graph constraints and exact quantifiers.",
+        "title": "Reconfiguration of Satisfying Assignments and Subset Sums: Easy to Find, Hard to Connect",
+        "trigger": "Closest known single-variable reconfiguration model for nonmonochromatic triples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0009cba-f0a5-464a-8755-e7062f79b948",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-site reconfiguration under the minimum weak colouring palette is a canonical constraint-dynamics question on the unique affine plane of order three. Exact connectedness and worst-case distance make the minimum palette computationally navigable rather than just existential; the structurally notable 162 strict bicolourings are mutually frozen if the strict constraint remains, yet are all connected without adding any colour upon allowing rainbow blocks. Exact degree/metric distributions provide a natural fully specified benchmark for hypergraph-colouring dynamics; the claim is not merely a recomputation of a known table.",
+    "status": "PASS"
+  }
+}
