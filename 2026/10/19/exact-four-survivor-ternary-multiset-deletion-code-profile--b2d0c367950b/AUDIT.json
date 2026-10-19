@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Exact output intersection I<=3 is equivalent to correcting n-4 deletions. Heavy-coordinate assignment bounds heavy words by 3. For n>=10 no light exists; for 7<=n<=9 pairwise light intersections are >=2n-9>=5, so at most one light. At n=6 each light contains one of three four-element receivers, so at most three lights. At n=5 nine explicitly listed incompatible triples cover each of twelve light vectors at least twice, yielding <=4 light, with >=4 pairwise intersection within triples. Explicit witnesses attain upper bounds 7,6,4,3. The bundled checker independently constructs compatibility graphs, validates witnesses and finite certificates at n=5..10, and reproduces VERIFICATION_OK; it is not the proof of the infinite tail.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.05636v1 Theorem 12 gives a general F_q(n,k)<=q F_q(n-1,k-1) bound and <=q^k; for q=3,k=4 this is <=81, not the exact 3-to-7 profile.",
+        "arxiv:2601.05636v2 Proposition 12 concerns k=3, while its Proposition 17 covers one deletion, corresponding here only to n=5.",
+        "The 2016 general bounds and March 2026 deletion-ball analysis do not state or imply these sharp small-length values in the inspected passages."
+      ],
+      "reasoning": "The stronger-looking general formulas do apply to these parameters but yield bounds too loose for n>=6. Results for three survivors impose the stronger I<=2 condition and hence do not imply this I<=3 classification.",
+      "searches": [
+        "arxiv:2601.05636v1 Section 3.6 Theorem 12 (recursive puncturing)",
+        "arxiv:2601.05636v2 Section 4.4 Proposition 12 and Section 5.3 Proposition 17",
+        "arxiv:1612.08837 Theorem 17",
+        "arxiv:2603.18322 multiset deletion bounds and deletion-ball geometry"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05636v1 Section 3.6 Theorem 12",
+      "arxiv:2601.05636v2 Sections 4.2–4.4 and 5.3",
+      "arxiv:2603.18322",
+      "arxiv:1612.08837 Theorem 17",
+      "Published exact ternary three-survivor RESULT.md (2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known one-deletion formula S_3(5,1)=7 is the n=5 case and is not claimed as new.",
+        "The earlier exact ternary three-survivor result S_3(n,n-3)=4,4,3,... gives no equality for n>=6 and does not prove the four-survivor classification.",
+        "The v1 general bound S_3(n,n-4)<=3^4=81 is not sharp; the present maximum is <=6 for n>=6."
+      ],
+      "reasoning": "The final theorem includes known n=5 for continuity but its substantive n>=6 optima, intermediate plateaux, and sharp n=10 stabilization threshold are not corollaries or special cases of the specific previously inspected claims.",
+      "searches": [
+        "arxiv:2601.05636v1 Theorem 12",
+        "arxiv:2601.05636v2 Proposition 17",
+        "Published exact ternary three-survivor multiset deletion profile",
+        "ternary unordered multiset deletion code four symbols survive exact S_3(n,n-4)",
+        "Exact profile ternary multiset deletion codes with four symbols remaining: S_3(n,n-4)=7 n5,6 n6,4 n7 to n9,3 n>=10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model represents multisets as 3-part nonnegative compositions; the intersection threshold I(x,y)<=3 is equivalent to minimum deletion distance >=n-3 and ordinary L1 distance >=2(n-3).",
+        "The published general framework of arxiv:1612.08837 supplies bounds rather than these four-survivor exact finite optima."
+      ],
+      "reasoning": "Equivalent multiset-intersection, simplex lattice packing, and scaled L1-metric statements were compared. The general equivalence is acknowledged; an exact 7,6,4,4,4,3,... optimum was not found in the inspected relevant statements.",
+      "searches": [
+        "ternary unordered multiset deletion code four symbols survive exact S_3(n,n-4)",
+        "fixed alphabet multiset deletion four surviving symbols q=3 exact classification",
+        "three-coordinate simplex packing minimum L1 distance 2(n-3) weight n optimal size seven six four three",
+        "triangle simplex lattice point packing distance n-3 codes three symbols",
+        "arxiv:1612.08837, discrete-simplex/Lee metric formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 v2 exact ternary table covers radius one, hence n=5 for this problem but not n>=6.",
+        "A published ternary three-survivor exact profile yields 4,4,3,... under I<=2, not the current profile under I<=3.",
+        "The relevant recent deletion-ball article has no identified four-survivor exact table."
+      ],
+      "reasoning": "An exact known endpoint is explicitly credited, and the entire nontrivial parameter range n>=6 was compared to published numerical tables and formulas. No exact record dominating the full claim was located.",
+      "searches": [
+        "Exact profile ternary multiset deletion codes with four symbols remaining: S_3(n,n-4)=7 n5,6 n6,4 n7 to n9,3 n>=10",
+        "four-survivor ternary multiset codes stabilization at n=10 exact four survivor",
+        "three-ary unordered multiset 4-deletion outputs distance code n=6 size six",
+        "arxiv:2601.05636v1 and v2 exact benchmark sections",
+        "arxiv:2603.18322 search n-4 and tables"
+      ]
+    },
+    "rationale": "The result n=5 is known and explicitly attributed. Inspected January and July 2026 versions of the same closest source, its general recursive bound and small-survivor formulas, a related March 2026 study, the 2016 simplex framework, and the full closest published three-survivor result. None yields the complete four-survivor exact profile for n>=6. A residual unindexed/disguised-equivalence risk remains; searches are not asserted to prove novelty.",
+    "residual_risks": [
+      "A prior exact fixed-k simplex packing result may use different notation and escape searchable indexes.",
+      "No independent external mathematical audit has been completed.",
+      "The n=5 endpoint is published prior art, retained only as part of the full profile."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General all-k upper bound covers parameters but is far weaker than exact four-survivor values",
+        "evidence": [
+          "Theorem 12 states F_q(n,k)<=q^k; q=3,k=4 gives <=81."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v1",
+        "material_read": "Sections 3.3 through 3.6; Theorem 12 and its proof, plus definition of the model",
+        "method": "Full-text HTML inspection including Theorem 12 and nearby equations",
+        "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions (version 1)",
+        "trigger": "Same code, general high-deletion puncturing bound, and ternary cases"
+      },
+      {
+        "assessment": "Three-survivor and radius-one results; one already-known n=5 value; not covering n>=6 four-survivor classification",
+        "evidence": [
+          "Proposition 12 bounds k=3; Proposition 17 gives exact single-deletion values S_3(n,1), including S_3(5,1)=7."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+        "material_read": "Abstract, introduction, model definition, Sections 4.2–4.4, 5.3, and conclusions",
+        "method": "Full-text HTML relevant sections and precise theorem comparison",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results (version 2)",
+        "trigger": "Closest dedicated primary source for multiset deletion coding"
+      },
+      {
+        "assessment": "No exact ternary four-survivor table or statement found in inspected material",
+        "evidence": [
+          "Focuses on polynomial constructions, deletion-ball geometry and bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+        "material_read": "Rendered full-text sections discussing deletion balls, geometric bounds and explicit parameters, plus abstract",
+        "method": "Section-level text inspection and n-4 search",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Same metric and recent multi-parameter geometric bounds"
+      },
+      {
+        "assessment": "Framework generalizes object but gives no matching finite exact four-survivor ternary profile",
+        "evidence": [
+          "Theorem 17 is a parameterized upper-bound family; no exact 7,6,4,4,4,3 profile in the inspected claims."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Definition of multiset deletion distance and theorem giving general code bounds (including Theorem 17)",
+        "method": "Rendered HTML full-text navigation and general-bound comparison",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Original discrete-simplex code framework and potential stronger general formula"
+      },
+      {
+        "assessment": "Gives exact three-survivor profile, requiring I<=2, not the four-survivor I<=3 profile",
+        "evidence": [
+          "S_3(n,n-3)=4 at n=5,6 and =3 at n>=7, whereas four-survivor profile includes six at n=6 and four at n=7..9."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md",
+        "material_read": "Complete RESULT.md including proof, assumptions, bounds, and relationship to prior literature",
+        "method": "Read primary result text and compare intersection thresholds and parameter implications",
+        "title": "Exact ternary multiset deletion codes when three multiset elements survive",
+        "trigger": "Closest indexed public result in the same fixed-alphabet high-deletion regime"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2d0c367-950b-4f94-8b46-b2eb3d91b801",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of surviving symbols is a natural parameter in unordered-multiset deletion channels. This complete ternary four-survivor profile determines all finite-length optimal code sizes, including two exceptional short regimes and the exact pure-code stabilization at length ten. The finite n=5 and n=6 certificate structures and the entire plateau are motivated by the code definition rather than an arbitrary input slice; a general downstream theorem is not claimed.",
+    "status": "PASS"
+  }
+}
