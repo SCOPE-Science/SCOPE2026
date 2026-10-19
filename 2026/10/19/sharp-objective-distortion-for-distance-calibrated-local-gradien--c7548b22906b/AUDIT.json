@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Algebra expands the normalized-gradient quadratic step exactly in spectral moments. Convex-chord majorization of the third by the second moment is sharp at endpoint eigenvalues; differentiating yields the explicit maximizing squared mass and factored sharp cubic criterion. The sharp <5 bound follows from m3<=kappa m2, m1>=1, while a chi-square representation for a random sphere coordinate proves convergence in probability to five for 1<gamma<2. The exact kappa=8 radical counterexample and scalar optimization spot-checks independently reproduce the formulas; no finite experiments are used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.08850v1 Theorem 3.5: distance contraction; not function-value bound.",
+        "published-finding corpus 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789: sharp scaled Polyak objective factor for a different scalar step.",
+        "published-finding corpus 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe: fraction of optimal decrease for Cauchy trust-region points."
+      ],
+      "reasoning": "The source theorem concerns Euclidean squared-distance contraction at the radius, whereas the present claim sharpens neither its constant nor its distance conclusion. It asks a different question: one-step objective ascent and sharp fivefold distortion under that same radius. Cauchy model-optimality and fixed-scale Polyak factors do not dominate this iteration without an additional identity, which is not present in the inspected material.",
+      "searches": [
+        "sharp Kantorovich moment inequality optimal radius normalized gradient function values phase transition 7.306674 5 factor high dimensional random vector",
+        "local linear minimization oracle LMO BroxGD 2605.08850 condition number objective monotonicity threshold",
+        "published-finding corpus 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "published-finding corpus 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+        "published-finding corpus 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+        "arxiv:2605.08850v2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.08850v1",
+      "https://arxiv.org/abs/2605.08850",
+      "https://richtarik.org/",
+      "https://arxiv.org/html/2609.33383v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "published-finding corpus semantic query results for all six recorded strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.5 of arXiv:2605.08850v1 bounds Euclidean distance squared.",
+        "published-finding corpus 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789 uses eta=gamma f/||grad||^2 with fixed gamma; present eta=theta ||x||/||grad||, so the ratio of step coefficients is moment-dependent."
+      ],
+      "reasoning": "The closest published same-algorithm theorem does not imply objective descent from Euclidean contraction, and the closest objective paper uses a different iterate-dependent coefficient prescription. The new cubic threshold and fivefold amplification are not direct substitutions into the established fixed-gamma Polyak formula. The source v2 full text remains an explicitly retained residual comparison risk.",
+      "searches": [
+        "Broximal gradient descent local linear minimization oracle objective rise function value distance contraction smooth strongly convex quadratic radius 2sqrt(mu L)/(mu+L)",
+        "Local LMO is Secretly a Projection Method Broximal Gradient Descent objective ascent spectral 2 sqrt mu L / (mu+L)",
+        "https://arxiv.org/html/2605.08850v1",
+        "https://arxiv.org/html/2609.33383v1",
+        "published-finding corpus 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "BroxGD unconstrained local linear oracle is a normalized gradient step with radius theta||x||.",
+        "arXiv:2609.33383v1 shows projection equivalent when radius <= Polyak radius."
+      ],
+      "reasoning": "The current update is a radial-length normalized gradient step, rather than an exact-line-search or fixed-coefficient Polyak gradient step. A projection or Fejer representation implies distance statements only; for this smooth quadratic, f is the Q-energy, which is not ordered by Euclidean distance.",
+      "searches": [
+        "Broximal gradient descent local linear minimization oracle objective rise function value distance contraction smooth strongly convex quadratic radius 2sqrt(mu L)/(mu+L)",
+        "Local LMO is Secretly a Projection Method Broximal Gradient Descent objective ascent spectral 2 sqrt mu L / (mu+L)",
+        "fivefold function gap inflation despite Fejer monotonicity for SPD quadratics with distance adaptive normalized gradient trust radius",
+        "arxiv:2609.33383v1",
+        "arxiv:2605.08850v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches completed with ranked results; closest 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789 and 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe have different update rules.",
+        "May 2026 paper Section 4 contains a two-dimensional quadratic numerical example but no exact threshold in the inspected full text."
+      ],
+      "reasoning": "No retrieved exact published-finding corpus record identifies the claimed normalized-gradient strong-convexity radius together with the cubic threshold, the sharp factor five, or the random high-dimensional limit. This is best-knowledge comparison, not database-proven uniqueness.",
+      "searches": [
+        "Broximal gradient descent local linear minimization oracle objective rise function value distance contraction smooth strongly convex quadratic radius 2sqrt(mu L)/(mu+L)",
+        "sharp Kantorovich moment inequality optimal radius normalized gradient function values phase transition 7.306674 5 factor high dimensional random vector",
+        "local linear minimization oracle LMO BroxGD 2605.08850 condition number objective monotonicity threshold",
+        "Local LMO is Secretly a Projection Method Broximal Gradient Descent objective ascent spectral 2 sqrt mu L / (mu+L)",
+        "fivefold function gap inflation despite Fejer monotonicity for SPD quadratics with distance adaptive normalized gradient trust radius",
+        "2026 Broximal Gradient Descent Local LMO strongly convex quadratic optimal radius exact condition number 7.306674433 objective descent threshold 2 dimensional diagonal spectral endpoints, normalized gradient method increase despite distance contraction, sharp 5-fold objective amplification"
+      ]
+    },
+    "rationale": "Completed semantic originality searches compared exact statement implications with the same-oracle 2026 strong-convexity theorem, the September 2026 projection interpretation, and published results on scaled Polyak, Cauchy trust-region, and fixed-step gradient methods. The same-oracle source proves distance rather than objective contraction, and scaled Polyak uses a different scalar step. No identical/dominating statement was located; the expanded 2026 revision and complete underlying result summaries leave candid residual overlap risk.",
+    "residual_risks": [
+      "The 121-page September 2026 arXiv:2605.08850v2 full paper was not read; its publicly described changes were checked.",
+      "Complete contents of the closest published scaled-Polyak finding were not independently retrieved; its substantive claim summary and exact fixed-coefficient formula were compared.",
+      "No database search can prove global uniqueness; a presently undiscovered stronger prior result could still cover the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.5 provides Euclidean squared-distance contraction, not the exact function-objective threshold or high-dimensional amplification",
+        "evidence": [
+          "arXiv:2605.08850v1, Theorem 3.5 and Eq. (11)-(12); lines 349-361 of https://arxiv.org/html/2605.08850v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.08850v1",
+        "material_read": "May 2026 full-text introduction, Theorem 3.5, its proof lemmas, quadratic examples and relevant appendices",
+        "method": "primary complete HTML text with theorem and proof inspection",
+        "title": "Local LMO: Constrained Gradient Optimization via a Local Linear Minimization Oracle",
+        "trigger": "The source introduces the exact distance-calibrated radius and its full-space local linear oracle"
+      },
+      {
+        "assessment": "Its summary does not establish the present sharp objective threshold or the typical fivefold amplification, but coverage inside the expanded full text remains a residual risk",
+        "evidence": [
+          "arXiv:2605.08850v2, September 28, 2026 revision, 121-page note",
+          "https://richtarik.org/ September 28, 2026 research update"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.08850",
+        "material_read": "Public bibliographic record, abstract, version history and detailed authors' public 2026-09-28 description of changes; the 121-page v2 body was not read",
+        "method": "arXiv metadata and author public news at https://richtarik.org/ ; full HTML request exceeded accessible size",
+        "title": "Broximal Gradient Descent: A Projection-Free Sister of Projected Gradient Descent",
+        "trigger": "Expanded later version of directly relevant source"
+      },
+      {
+        "assessment": "Establishes distance/Fejer properties and a projection representation under different radius assumptions, not objective monotonicity or sharp distortion at the present radius",
+        "evidence": [
+          "arXiv:2609.33383v1, Eq. (4), Theorem 2, and introduction lines 92-151"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.33383v1",
+        "material_read": "Full HTML introduction, Theorem 2, the Polyak-radius restriction, Section 3, and Fejer discussion",
+        "method": "primary full-text inspection and comparison of distance versus function value and radii",
+        "title": "Local LMO is Secretly a Projection Method!",
+        "trigger": "Same oracle and possible Fejer-monotonicity implication"
+      },
+      {
+        "assessment": "Its scaled Polyak step has a fixed coefficient relative to the Polyak step; here the normalized-gradient coefficient varies with the spectral moments. The fixed-scale bound does not imply the new exact radius-specific threshold or dimension-dependent amplification; possible uninspected broader statements remain a residual risk",
+        "evidence": [
+          "published-finding corpus hit 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+          "Published summary gives Polyak critical kappa 7+4sqrt(3), distinct from this local-ORACLE critical root 7.306674433..."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "material_read": "Published index title and substantive claim summary, not complete underlying public files",
+        "method": "published-finding corpus semantic-search retrieved summary and direct formula comparison",
+        "title": "Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics",
+        "trigger": "Closest database record combining SPD quadratics, objective monotonicity, and sharp condition numbers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7548b22-906b-4ae6-9a25-fd0e899afa0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 radius is chosen to certify the strongest uniform distance contraction, but distance is not the optimized objective. The exact condition-number frontier resolves when a natural theoretical radius is nevertheless an objective descent step; beyond it, an explicit two-dimensional counterexample and a universal sharp fivefold inflation show the boundary is not cosmetic. The random high-dimensional construction makes the almost-fivefold inflation typical rather than an isolated example. This informs radius safety and metric choice without asserting a general smooth-nonlinear theorem.",
+    "status": "PASS"
+  }
+}
