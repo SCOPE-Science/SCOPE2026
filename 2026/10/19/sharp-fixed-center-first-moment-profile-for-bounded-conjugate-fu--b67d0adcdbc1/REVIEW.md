@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For any positive real centre and bounded imaginary component, harmonic comparison in the half-strip yields the sharp extremal harmonic measure. Its Fourier expansion has independently integrated coefficients \(2/\lambda_j^2\); conformal disk-to-half-strip maps attain equality at each centre. Strict interior comparison and radial boundary theory give the if-and-only-if inner-function equality criterion. Differentiation of the exact odd series and a uniform Taylor expansion prove the two-parameter logarithmic corner law. Independent numerical integral and derivative checks are supportive but not the proof.
+
+**Originality — PASS, with priority risks.** The motivating 2026 preprint's stated theorem is a sharp *linear* inequality for \(p>1\), while the endpoint linear constant diverges at \(p=1\). Its proof supplies harmonic-majorant ideas but not the specific exact two-parameter \(p=1\) frontier, the full equality classification or the uniform corner asymptotics. Searches for mean-constrained endpoint conjugate inequalities, the half-strip dilogarithm profile and equivalent analytic/conformal statements did not reveal the same result. The older Baernstein (1978) and Essén–Shea–Stanton (2002) papers are notable unresolved priority risks because their broad methods could subsume some aspects; available bibliographic material does not establish that they already state or imply the full profile. No exhaustive novelty claim is made.
+
+**Value — PASS.** The fixed-centre sharp \(L^1\) law survives exactly where the recent \(L^p\) constant degenerates; its log-singular boundary, finite-slope off-centre regime, uniform two-parameter crossover, and structural equality class settle a natural quantitative endpoint rather than an arbitrary numerical special case. Exact attainment holds for every allowed parameter pair.
+
+**Scope and limitations.** Sharp for holomorphic functions mapping into a half-strip; not asserted as a sharp inequality within finite-degree polynomial subclasses. The critical boundary is approached by limits only. The identified older general inequality literature must be assessed for historical priority before attributing an exclusive first discovery.
+
+Self-review: passed. Independent audit: not yet performed.
