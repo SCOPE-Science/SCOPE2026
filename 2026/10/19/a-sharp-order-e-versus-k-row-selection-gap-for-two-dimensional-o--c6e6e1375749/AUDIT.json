@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The orthonormal-frame identity supplies a row with perpendicular energy >=1/(N-1); determinant/trace bounds give sigma_min^2 >=1/[2(N-1)]. Every E-optimal pair therefore has condition number <=sqrt(2(N-1)). The explicit axis-supported N-row frame has orthonormal columns, all E-optimal pairs with singulars (a,2t) and condition sqrt(N-3), and another pair tI with condition one. The embedded checker reproduced exhaustive pair comparisons in representative dimensions and 4,600 random-frame diagnostics; the infinite result is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Avron–Boutsidis study minimization of the selected inverse singular value and lower bounds relative to the whole matrix.",
+        "Drmač–Gugercin Q-DEIM bounds the inverse of selected submatrices of orthonormal bases.",
+        "Neither inspected relevant section optimizes condition number in a competing selector and then compares global optima."
+      ],
+      "reasoning": "Bounds on the absolute E-optimal inverse singular value do not imply a growing ratio to a distinct K-optimal subset; the construction supplies the comparison and a separate universal upper bound. Existing generic bounds may, however, imply one side of the sharp-order argument.",
+      "searches": [
+        "orthonormal two-column matrix row subset maximum smallest singular value dimension-dependent condition number gap",
+        "arxiv:1201.0127 Sections 1 and 4",
+        "arxiv:1505.00370 Section 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.07158 Sections 3.1–4",
+      "arxiv:1505.00370 Section 2",
+      "arxiv:1201.0127 Problem 1 and Section 4",
+      "doi:10.1137/110850268 public abstract",
+      "Published records b03d8e4c7818,30698826464a,d549f7251aa1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bergermann recommends a least-singular-value objective for row subset sketches; it does not state equivalence with condition-number minimization.",
+        "Avron–Boutsidis derive spectral pseudoinverse selection guarantees but do not compare E and K optimum selectors.",
+        "Ye–Zhou focus on polynomial-regression K-optimality."
+      ],
+      "reasoning": "Known separation of E and K criteria may suggest a counterexample, but the particular result requires that all E-optimal choices can be sqrt(N)-suboptimal, plus a general O(sqrt(N)) upper bound. Those quantities were not found as consequences of inspected premises.",
+      "searches": [
+        "For every real n-by-2 matrix with orthonormal columns choosing two rows maximizing minimum singular value versus minimizing condition number; worst-case ratio sqrt n",
+        "orthonormal two-column matrix row subset maximum smallest singular value dimension-dependent condition number gap",
+        "arxiv:2604.07158",
+        "arxiv:1201.0127",
+        "doi:10.1137/110850268"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.07158 Section 3.1 formulates max sigma_min(SV), and uses distortion from whitened singular values.",
+        "doi:10.1137/110850268 distinguishes K-optimal designs for polynomial regression.",
+        "Published closest two-sensor Fourier-frame record b03d8e4c7818 addresses structured Fourier sampling only."
+      ],
+      "reasoning": "The claimed invariant is the multiplicative ratio of two globally optimized selectors on the SAME orthonormal frame, with a matching upper bound and lower family. Neither a general E-optimality criterion nor a study of K-optimal polynomial designs implies the comparison without extra quantitative arguments.",
+      "searches": [
+        "For every real n-by-2 matrix with orthonormal columns choosing two rows maximizing minimum singular value versus minimizing condition number; worst-case ratio sqrt n",
+        "E-optimal 2-row subset K-optimal condition number gap square root number rows tight frame",
+        "E-optimal versus condition-number-optimal sensor design",
+        "arxiv:2604.07158 Sections 3.1 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned published records include Fourier two-sensor condition numbers and preconditioned row-coherence bounds.",
+        "No queried published index title/summary or inspected published table reports the exact orthonormal-frame E/K extremal comparison."
+      ],
+      "reasoning": "Database retrieval is semantic rather than exhaustive: no found matching table is not proof of novelty. The specific nearby records optimize different matrices or criteria.",
+      "searches": [
+        "For every real n-by-2 matrix with orthonormal columns choosing two rows maximizing minimum singular value versus minimizing condition number; worst-case ratio sqrt n",
+        "E-optimal 2-row subset K-optimal condition number gap square root number rows tight frame",
+        "orthonormal two-column matrix row subset maximum smallest singular value dimension-dependent condition number gap",
+        "Published record 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+      ]
+    },
+    "rationale": "Related design criteria and individual E-selection guarantees are established prior mathematics. The specific cross-objective sharp-order extremal comparison on orthonormal two-dimensional frames is not covered by the inspected statements or retrieved indexed published results; bibliographic uncertainty remains, including older unindexed E/K design comparisons. The originality claimed is precisely the matching sqrt(N) order and all-E-optimal construction, not the distinct existence of E/K objectives.",
+    "residual_risks": [
+      "Older experimental-design literature may express an equivalent comparison under another nomenclature or parameterization.",
+      "The Ye–Zhou full paper was not materially available for this comparison; its abstract describes a narrower structured domain.",
+      "Semantic published-record retrieval and open-literature searching are not exhaustive bibliographic proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes E-objective but does not identify it with global K-optimality, and does not quantify the E/K selector ratio for arbitrary orthonormal two-column frames.",
+        "evidence": [
+          "Section 3.1 equation (25): maximize smallest singular value of sampled basis.",
+          "Section 4 compares deterministic row selection strategies."
+        ],
+        "identifier_or_url": "arxiv:2604.07158",
+        "material_read": "Introduction and Sections 3.1–4; objective equation (25), distortion discussion and DEIM/Q-DEIM descriptions",
+        "method": "Accessible arXiv full-text HTML in the publication record",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Defines the least-singular-value row-subset objective motivating the comparison"
+      },
+      {
+        "assessment": "Studies inverse norm of selected submatrix and pivoted QR; does not give the competing E/K global-optimum comparison.",
+        "evidence": [
+          "Section 2 studies selected-submatrix inverse norm and its bounds.",
+          "Remark 3 cites a square-root dimension lower bound for inverse singular values, a different extremal object."
+        ],
+        "identifier_or_url": "arxiv:1505.00370",
+        "material_read": "Introduction and Section 2, especially Q-DEIM inverse-norm bounds and Remarks 3–4",
+        "method": "Accessible arXiv full-text HTML in the publication record",
+        "title": "A New Selection Operator for the Discrete Empirical Interpolation Method",
+        "trigger": "Primary Q-DEIM literature on selecting rows of orthonormal matrices"
+      },
+      {
+        "assessment": "Optimizes selected-submatrix pseudoinverse norm and develops lower bounds for that objective, without a second condition-number-optimal selector.",
+        "evidence": [
+          "Problem 1 states minimum pseudoinverse-norm subset selection.",
+          "Section 4 lower bounds compare selected submatrices to the whole matrix."
+        ],
+        "identifier_or_url": "arxiv:1201.0127",
+        "material_read": "Problem 1, Section 1 lower-bound summary, and Section 4 spectral lower-bound formulation",
+        "method": "Accessible arXiv full-text HTML in the publication record",
+        "title": "Faster Subset Selection for Matrices and Applications",
+        "trigger": "Potentially dominating earlier subset-selection extremal guarantees"
+      },
+      {
+        "assessment": "Specialized polynomial regression design; no whole-document exclusion is inferred.",
+        "evidence": [
+          "Abstract treats K-optimal polynomial regression designs; lacks a statement of arbitrary two-column orthonormal row-subset E/K gaps."
+        ],
+        "identifier_or_url": "doi:10.1137/110850268",
+        "material_read": "Journal bibliographic metadata and abstract only; full text not inspected",
+        "method": "Publisher public abstract",
+        "title": "Minimizing the Condition Number to Construct Design Points for Polynomial Regression Models",
+        "trigger": "K-optimality might cover the two-objective contrast"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6e6e137-5749-46ec-a56f-965b079a30f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deterministic row-subset embedding algorithms optimize least singular value to protect approximation error; condition distortion is a separate natural objective. The new construction shows their global optima can deviate by unbounded sqrt(N), and the universal inequality proves this is the correct dimensional scale, rather than just an isolated numerical or zero-risk warning. The limitation is structural, on exactly orthonormal two-column inputs, and relevant to interpreting E-optimal row selection; it does not claim full solver-performance consequences.",
+    "status": "PASS"
+  }
+}
