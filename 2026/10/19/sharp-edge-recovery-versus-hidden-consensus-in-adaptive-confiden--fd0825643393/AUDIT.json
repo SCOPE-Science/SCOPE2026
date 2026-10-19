@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Directly reconstructible proof under every integer n>=3: keeping the single dyad inactive gives a fixed row-stochastic complete-minus-one-edge update. The maximum discrepancy on all other edges contracts by 1/(n-1), maintaining their confidence inequalities; the missing pair disagreement is exactly d/(n-1)^t while its bound is c0*delta^t, giving the sharp strict-inequality cutoff. Conserved degree-weighted mean yields permanent-case consensus; after recovery the complete average yields exact one-step consensus. The mediator-versus-endpoint two-variable recurrence yields the finite consensus-value correction. The current package verify.py passed 720 exact-rational trajectories, including the critical equality, with no inference from finite tests to the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schawe–Fontaine–Hernández arXiv:2102.10910 treats bridge-mediated consensus with fixed confidence; its abstract does not claim multiplicative pairwise confidence recovery thresholds.",
+        "Vasca–Bernardo–Iervolino, Automatica 129 (2021) 109683, uses a different heterophilic adaptation and proves practical consensus.",
+        "Journal of Complex Networks DOI:10.1093/comnet/cnac055 studies rewiring with an opinion tolerance threshold, not Li–Luo–Porter multiplicative dyadic bounds.",
+        "Continelli–Pignotti, Mathematical Control and Related Fields (2024), DOI:10.3934/mcrf.2024029, analyzes an attractive-lacking HK model under different interaction assumptions."
+      ],
+      "reasoning": "These broader theories may ensure consensus but do not imply the stated sharp decision whether an initially absent dyad becomes receptive under the exact cited confidence update. We did not assume that generic consensus implies edge recovery.",
+      "searches": [
+        "arXiv:2102.10910",
+        "Bernardo Vasca Iervolino time-varying confidence bounds Hegselmann Krause threshold 2024 convergence",
+        "DOI:10.1093/comnet/cnac055",
+        "Convergence to consensus results for Hegselmann-Krause type models with attractive-lacking interaction 2024"
+      ]
+    },
+    "checked_sources": [
+      "Li–Luo–Porter arXiv:2303.07563v3, model §§2.2 and theorems §§3.1, conclusion §6.2, appendices",
+      "Li–Luo–Porter DOI:10.1137/23M1558951, publication and MSC metadata",
+      "Schawe–Fontaine–Hernández arXiv:2102.10910 (abstract)",
+      "Vasca–Bernardo–Iervolino DOI:10.1016/j.automatica.2021.109683 (abstract)",
+      "adaptive bounded-confidence network model DOI:10.1093/comnet/cnac055 (HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2303.07563v3 Theorem 2: confidence tends to zero or one, and inter-cluster confidence tends to zero.",
+        "arXiv:2303.07563v3 Theorem 3: the effective graph is eventually constant and its edges join nodes of equal limit opinion.",
+        "Published 2026 finding on a seven-agent switching proximity digraph uses a distinct nonadaptive model and does not analyze this multiplier-threshold dyadic rule."
+      ],
+      "reasoning": "Neither limit-only statement fixes which outcome holds within the same limit-opinion cluster; specifically neither entails \\(\\delta\\leq1/(n-1)\\) versus \\(\\delta>1/(n-1)\\), integer switching time, nor the finite-consensus-value correction. The seven-agent proximity switching result is not a stronger covering result for this model.",
+      "searches": [
+        "arXiv:2303.07563v3 (Theorems 2–4)",
+        "Li Luo Porter adaptive confidence Hegselmann Krause complete graph missing one edge exact reactivation threshold delta 1/(n-1)",
+        "adaptive confidence HK model three agents mediation consensus unreceptive edge sharp confidence decay rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Luo–Porter arXiv:2303.07563v3, §§2.2 and 3.1: same exact update rule, but Theorems 2–3 give eventual confidence and graph convergence, not the sharp missing-edge criterion.",
+        "arXiv:2303.07563v3 §6.2 explicitly proposes determining how parameters affect unreceptive pairs with identical limit opinions and the role of mediator agents."
+      ],
+      "reasoning": "We checked both edge resurrection and unreceptive consensus wording. The named result is not merely a restatement of the already known existence of nonreceptive consensus: it supplies an if-and-only-if threshold for every population size, the first return time, and exact consensus value within a natural invariant family.",
+      "searches": [
+        "\"adaptive confidence\" \"n-1\" \"receptive\" network opinion",
+        "\"Li\" \"Luo\" \"Porter\" \"complete graph\" \"three\" \"confidence\" mediated consensus",
+        "adaptive confidence HK model three agents mediation consensus unreceptive edge sharp confidence decay rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Table 3 and Figure 3 report numerical weighted edge fractions over sampled parameters, not an exact population-indexed edge-recovery threshold.",
+        "The source §3.1 theorem establishes eventual graph constancy without specifying an exact first-recovery time."
+      ],
+      "reasoning": "The claimed \\(1/(n-1)\\) law is an analytical regime boundary, not an entry reproduced from the original tables. No exact parameter-indexed table or database found in inspected relevant materials.",
+      "searches": [
+        "\"adaptive-confidence\" \"effective graph\" \"mediator\" theorem",
+        "Li Luo Porter adaptive confidence absorbing effective graph consensus exact switching thresholds",
+        "arXiv:2303.07563v3 Table 3 and §§5.1, 6.2"
+      ]
+    },
+    "rationale": "The motivating preprint and same-paper journal metadata, model theorems, numerical tables, open-problem discussion, related adaptive opinion models, and published mathematical findings were checked at the statement/implication level. The source gives eventual limit graphs but does not derive a sharp n-dependent if-and-only-if reactivation boundary, the exact switching time, or the associated final-value law. No stronger covering result was found; publication-index and partial-text limitations remain explicit.",
+    "residual_risks": [
+      "Published research indexes cannot establish uniqueness, and inaccessible specialist material could contain related exact examples.",
+      "The journal full text was not separately inspected beyond its accessible same-paper arXiv version and metadata.",
+      "The two related general consensus papers were compared from abstract/model material rather than full proofs; model-rule differences limit potential implication but do not eliminate all literature risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source explicitly establishes eventual graph constancy and leaves parameter-dependent mediator behavior open; the exact complete-minus-one-edge phase classification is not supplied in examined results.",
+        "evidence": [
+          "arXiv:2303.07563v3 lines 133–145 (equations), 203–210, 308–324 (theorems), 540–548 (open direction), 555ff (appendix distinct model)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.07563v3",
+        "material_read": "Abstract and primary MSC; update equations (2)–(3); statements and selected proofs of Theorems 2–4; numerical results in §§5.1–5.2; conclusion §6.2; relevant extracts from DW appendix A/B.",
+        "method": "Read accessible arXiv HTML full-text sections and targeted proof/appendix passages.",
+        "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds",
+        "trigger": "Exactly the same synchronous adaptive-confidence model and primary mathematical source"
+      },
+      {
+        "assessment": "Same-paper edition, not treated as independent evidence that its full text was inspected.",
+        "evidence": [
+          "Publisher DOI landing page: online April 9, 2025; MSC 91D30; arXiv first posted March 14, 2023."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1558951",
+        "material_read": "Publisher metadata, abstract, primary MSC 91D30 and publication history only; separate full journal text not inspected.",
+        "method": "Read publisher public landing page and cross-reference the lawful arXiv full text.",
+        "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds (journal version)",
+        "trigger": "Final published version and MSC confirmation"
+      },
+      {
+        "assessment": "Fixed-confidence model and network-mediated consensus; no evidence of the multiplicative dyadic confidence law. Not a full-text NOT_COVERING certificate.",
+        "evidence": [
+          "arXiv:2102.10910 abstract describes bridge effects on cluster formation and fixed confidence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.10910",
+        "material_read": "Abstract and model description only.",
+        "method": "Read arXiv abstract page returned by literature search.",
+        "title": "The bridges to consensus: Network effects in a bounded confidence opinion dynamics model",
+        "trigger": "Plausible mediator/bridge terminology and consensus result"
+      },
+      {
+        "assessment": "Heterophilic node-threshold adaptation rather than this dyad-specific multiplicative decline; exact implication unlikely, residual full-text access caveat noted.",
+        "evidence": [
+          "Institutional record describes heterophily, maximum neighbors and practical consensus criteria."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2021.109683",
+        "material_read": "Institutional record abstract, bibliographic details and adaptation description; full journal text unavailable in this check.",
+        "method": "Read open institutional repository abstract and bibliographic record.",
+        "title": "Practical consensus in bounded confidence opinion dynamics",
+        "trigger": "Alternative adaptive confidence rule might imply same threshold"
+      },
+      {
+        "assessment": "Random rewiring rather than a persisting underlying complete graph with confidence decay, so its reported phases do not imply this threshold.",
+        "evidence": [
+          "Oxford Academic article introduction discusses stochastic Deffuant–Weisbuch updates and rewiring on opinion disagreement."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/comnet/cnac055",
+        "material_read": "Open HTML introduction, described update/rewiring and results.",
+        "method": "Read Oxford Academic full HTML relevant introduction and model/results passages.",
+        "title": "adaptive bounded-confidence model of opinion dynamics on networks",
+        "trigger": "Adaptive model on networks with consensus and edge changes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd082564-3393-4ef3-8dab-1f5e0ebdba19",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly leaves the influence of parameters and mediator agents on missing receptive links open. This infinite family isolates the exact competition between mediated opinion contraction and declining receptiveness: the critical 1/(n-1) boundary changes with network size, separates permanent tie loss despite consensus from eventual reactivation, and gives an exact waiting time and consensus outcome. These are substantive mechanism and design facts beyond the known generic convergence theorems, without claiming global classification or empirical social validity.",
+    "status": "PASS"
+  }
+}
