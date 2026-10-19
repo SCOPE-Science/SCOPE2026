@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "A complete five-step proof establishes conditional design unbiasedness, Gaussian conditional error, OLS Student mixture via Schur complement plus Cramer--Wold, exact inverse-beta moment spectrum, and a unique continuous pilot risk minimum with verified integer-neighbor rule. Tests in standalone verify.py passed 4675 checks. Pilot a=p or p+1 correctly gives infinite unconditional second moment despite finite almost-sure observations. No finite-test-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchet et al., arXiv:2305.16527, full-text Sections 1 and 3, establish Sobolev nonparametric quadrature rate conditions, not a finite-N Gaussian OLS pilot law.",
+        "Stanley et al., arXiv:2605.23016, full-text Sections 2--4, study pilot-estimated covariance and multifidelity control-weight sensitivity, not a disjoint OLS predictor of per-example gradients.",
+        "Riaño, arXiv:2609.04082 §§3–4, equations (11) and (16)–(17), explicitly reproduces an earlier exact unbiased single-split estimator and develops a general variance decomposition for a distinct partition-fit estimator. It does not calculate the Gaussian OLS Student error law, all absolute moments or the exact optimal gradient-budget split.",
+        "Sanguiao Sande and Zhang, arXiv:2003.11423, original exact-design-unbiased subsampling estimator and optional Rao--Blackwell averaging, already prior art for the general estimator architecture."
+      ],
+      "reasoning": "These mathematically broader model-assisted/control-variate treatments have different estimators or risk targets and do not imply the specific finite-N distribution and allocation coefficients without additional calculation. Ordinary survey-sampling literature is a remaining overlap risk.",
+      "searches": [
+        "When can Regression-Adjusted Control Variates Help? Rare Events, Sobolev Embedding and Minimax Optimality",
+        "Sample correlation adjustments for robust Multi-fidelity Monte Carlo under limited pilot sampling",
+        "pilot control variate inverse Wishart regression Gaussian small sample variance",
+        "model-assisted estimation with a training subsample: a two-phase sampling approach with design-based variance estimation",
+        "Design-unbiased statistical learning in survey sampling"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.27171",
+      "https://arxiv.org/abs/2305.16527",
+      "https://arxiv.org/abs/2605.23016",
+      "https://doi.org/10.1080/01621459.1997.10474031",
+      "https://arxiv.org/abs/2609.04082",
+      "https://arxiv.org/abs/2003.11423"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pohjankukka--Heikkonen (2026) give the original difference estimator and conditional unbiasedness; the appendix specifies regularized KRR with no OLS Wishart analysis.",
+        "Blanchet et al. discuss fixed Sobolev functions and nonparametric quadrature; Stanley et al. optimize pilot-estimated covariance, neither supplying the all-moment OLS distribution.",
+        "Sitter (1997) abstract describes two-phase survey regression and variance estimation; full treatment not read and therefore remains a named risk.",
+        "Riaño (2026) explicitly states the Sanguiao Sande--Zhang single-split formula equivalent to the present finite-sample correction structure, and a more general variance framework for a different estimator. These cover unbiasedness and abstract variance decomposition but do not derive the Gaussian OLS pilot distribution or sharp allocation law."
+      ],
+      "reasoning": "The new theorem does not reclaim known HT, OLS or Student ingredients. None of the materially inspected manuscript results entails the exact finite-population Student mixture, its moment spectrum and the sharp gradient-budget split as a stated result. Specialized earlier survey literature might contain this assemblage, so residual risk is explicit.",
+      "searches": [
+        "arXiv:2606.27171 full text Sections 2.2, 3, 4 and Appendix (Algorithm 1; covariance; KRR model)",
+        "arXiv:2305.16527 full text introduction and Section 3 regression-adjusted quadrature",
+        "arXiv:2605.23016 full text methodology and pilot variance",
+        "Sitter 1997 JASA 92:780-787 abstract",
+        "arxiv:2609.04082 full-text §§3,4 equations (11), (16)--(17) and appendix",
+        "arxiv:2003.11423 original single-split estimator and Rao--Blackwell source (abstract; formula verified through arxiv:2609.04082)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pohjankukka--Heikkonen (arXiv:2606.27171, Algorithm 1) give two-stage design-adjusted gradient estimation; an exact Gaussian OLS Student scale-mixture and optimized split are not stated in the inspected article.",
+        "Student regression is a classical coefficient-estimation law, distinct from the coupled finite-population gradient estimate with a disjoint correction sample."
+      ],
+      "reasoning": "The exact distribution is equivalent to a beta inverse scale mixture. Classical Student regression alone only gives pilot-coefficient error, not the sampled finite-population corrected gradient or its optimal allocation. No direct equivalent of the full statement was retrieved.",
+      "searches": [
+        "model-assisted difference estimator ordinary least squares Gaussian training pilot exact Student t mixture chi-square degrees freedom predictive residual sample selection",
+        "Gaussian finite population model-assisted stochastic gradient estimator trained pilot least squares inverse Wishart infinite risk n1 p+1 optimal pilot allocation",
+        "two phase sampling regression estimator pilot size optimal sqrt budget estimate auxiliary regression coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The theorem is a parametric Gaussian law and integer pilot allocation, not the value of a pretabulated numerical invariant. The inspected original and related publications did not display the claimed full distribution or threshold."
+      ],
+      "reasoning": "This is a continuum Gaussian distribution law and finite integer allocation, not an invariant from a preexisting numerical table. No exact database/table coverage was found; absence from search is not proof of global novelty.",
+      "searches": [
+        "OLS pilot model-assisted gradient signal-to-noise variance reduction threshold uniform minibatch finite population",
+        "model-assisted OLS sampling infinite variance Gaussian"
+      ]
+    },
+    "rationale": "Originality is asserted only for the integrated exact Gaussian two-stage gradient-estimation law (Student scale mixture, all moments, finite-population risk and optimized pilot split). The originating 2026 paper states the estimator but not this calculation; classical constituent identities are explicitly attributed, and possible specialized survey precedents remain a residual risk. Sanguiao Sande--Zhang (2020 preprint, 2021 journal) previously proved the exact general unbiased single-split estimator and Riaño (2026) contrasts it with a different general variance framework; neither is credited as a new estimator herein.",
+    "residual_risks": [
+      "The Sitter 1997 two-phase survey regression article was only accessible in abstract; its detailed formulas could have overlapping Gaussian specializations.",
+      "Generalized regression estimators, Gaussian inverse-Wishart risk, Student laws and split-sample control variates are classical; the novelty case depends on the combined algorithm-specific exact result, not on these ingredients.",
+      "Search coverage cannot prove no other unindexed paper derives the same exact combination.",
+      "Only the directly relevant portions of the 23-page 2020 design-unbiased survey paper were materially inspected; unexamined sections remain a small possible specialization overlap risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIONS_AND_GENERAL_IDENTITY_ONLY: no exact random unregularized OLS pilot law, full moments or optimal finite split in reviewed material",
+        "evidence": [
+          "2026-06-25 public first submission",
+          "Section 3 Algorithm 1 trains on an always-included pilot and corrects sampled complement",
+          "Appendix uses regularized KRR rather than OLS"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.27171",
+        "material_read": "Full manuscript web text, sections on HT/difference variance, Algorithm 1, empirical split sizes and kernel ridge appendix, including equations (12)--(14) and (22)--(25)",
+        "method": "Read primary arXiv full HTML/text; inspect model and mathematical implications",
+        "title": "Stochastic Gradient Optimization with Model-Assisted Sampling",
+        "trigger": "Exact source algorithm and pilot design"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: minimax nonparametric moment quadrature, no finite-population OLS pilot gradient distribution",
+        "evidence": [
+          "Equal half-sample nonparametric regression then quadrature control variate",
+          "Rates over smoothness classes rather than finite-N Student-mixture coefficients"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.16527",
+        "material_read": "Primary full web text, introduction, Section 3 algorithm and nonparametric Sobolev rate statements",
+        "method": "Read original arXiv text and compare estimator, domain and quantifiers",
+        "title": "When can Regression-Adjusted Control Variates Help? Rare Events, Sobolev Embedding and Minimax Optimality",
+        "trigger": "Potential stronger regression-control-variate result"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: pilot covariance uncertainty for multifidelity estimators, rather than pilot OLS gradient regression",
+        "evidence": [
+          "Focus on covariance/correlation estimation uncertainty and MFMC allocation, not OLS-trained Horvitz--Thompson correction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.23016",
+        "material_read": "Primary web text, abstract, sections 2--4 and descriptions of appendix numerical work",
+        "method": "Read arXiv text and compare pilot object and statistical target",
+        "title": "Sample correlation adjustments for robust Multi-fidelity Monte Carlo under limited pilot sampling",
+        "trigger": "Related 2026 pilot-variance and allocation study"
+      },
+      {
+        "assessment": "UNRESOLVED_POSSIBLE_SPECIALIZATION",
+        "evidence": [
+          "Published JASA abstract addresses two-phase regression estimator variance, but does not display the exact Gaussian sample-pilot Student mixture or optimum; cannot rule out full-text overlap"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/01621459.1997.10474031",
+        "material_read": "Accessible published abstract only; full text not obtained",
+        "method": "Abstract inspection; no full-text negative coverage assertion",
+        "title": "Variance Estimation for the Regression Estimator in Two-Phase Sampling",
+        "trigger": "Potential older survey regression dominance"
+      },
+      {
+        "assessment": "GENERAL_ESTIMATOR_PREEXISTS_BUT_EXACT_GAUSSIAN_LAW_NOT_COVERED: explicitly identifies earlier Sanguiao Sande--Zhang unbiased single split, while focusing on algorithm-agnostic design variance for a distinct partition trained estimator",
+        "evidence": [
+          "Equation (11) exhibits the exact prior single-split correction structure; eqs. (16)--(17) concern variance decomposition for another estimator",
+          "The paper gives tree-type detailed variance and no Gaussian OLS inverse-Wishart moment/allocation theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.04082",
+        "material_read": "Full primary HTML: introduction; Sections 2, 3 (including eq. 11), 4.2 (Theorem 1, eqs. 16--17), and inspection of Gaussian/OLS/Student and allocation topics",
+        "method": "Read 799-line web text, compare the single-split estimator against differently weighted partition estimator and the quantifiers of its general variance theorem",
+        "title": "Model-assisted estimation with a training subsample: a two-phase sampling approach with design-based variance estimation",
+        "trigger": "Highly relevant recent two-phase training-and-correction source with general variance formulas"
+      },
+      {
+        "assessment": "ORIGINAL_GENERAL_ESTIMATOR_PROVED_PREVIOUSLY: original Eq. (1) exactly the same generic single-split difference structure with weighted OLS; full Gaussian OLS radial/absolute-moment/integer pilot optimality not stated in inspected results",
+        "evidence": [
+          "Section 2.1 Eq. (1) exactly the pilot-plus-complement estimator for arbitrary fixed finite population and weighted least-squares trained on the pilot",
+          "Section 2.2 Eq. (3) variance decompositions from which the present conditional variance identity is recoverable; the new claim does not assert either component as novel",
+          "Inspected sections do not contain Gaussian inverse-Wishart all-moment spectrum or the sharp signal-to-noise/budget-allocation boundary."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.11423",
+        "material_read": "Full primary 23-page arXiv PDF, Section 1, Section 2.1--2.2 including equations (1)--(3), first two variance examples and the analytical introduction; directly inspected pages 3--4 visually",
+        "method": "Read first five PDF pages as text and figures, including original OLS/WLS training estimate and design-unbiased single-split equation; compare its quantifiers against exact Gaussian pilot risk",
+        "title": "Design-unbiased statistical learning in survey sampling",
+        "trigger": "Original historical source of design-unbiased single-split estimator cited by Riaño"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebab9bf7-dd10-4572-8899-714c23666f8d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source gradient method spends part of its actual sampling budget learning a predictor. This theorem shows a sharp moment-collapse boundary for unregularized linear pilots and, at equal gradient-query count, a nontrivial exact pilot allocation and signal-to-noise criterion for improved accuracy. It is a motivated reliability/resource benchmark, not an arbitrary parameter slice; no improvement of the source KRR implementation is claimed.",
+    "status": "PASS"
+  }
+}
