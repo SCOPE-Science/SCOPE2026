@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact tangent-chart differentiation of the specified normalized quadratic-eigenvector iteration yields independent two-state blocks \\(P_j(z)=z^2-[1-\\eta(1-p)\\Delta_j]z+\\eta p\\Delta_j\\). Three necessary-and-sufficient real-quadratic Schur inequalities collapse to restrictions at \\(\\Delta=L\\), and standard discrete linearization proves local exponential attraction strictly within the interval. At and beyond its boundary the lowest-mode root reaches or exceeds the unit circle. Direct factorization of the critical Jordan matrix gives \\(\\|M^k\\|_2=k+\\sqrt{k^2+1}\\). The standalone checker passed 288 spectral-root cases, 144 finite-difference actual-map derivative checks and 100 deterministic matrix-power/norm tests; these finite tests are supplemental, not exhaustive proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 Wang–Hu–Wai, Theorem 2, requires a sufficient upper bound involving component spread and delay, not a necessary threshold; material at https://www.researchgate.net/publication/411716720_Incremental_Aggregation_on_the_Grassmannian_for_Asynchronous_Eigenspace_Computation",
+        "2023 Wang–Jiao–Wai–Gu derives sufficient local linear convergence via bounding cached-gradient perturbations; Theorem 1, Section 4 and Appendix at https://proceedings.mlr.press/v206/wang23j/wang23j.pdf",
+        "Lóczi (2019) treats multistep stability-region subsets in BDF, Enright and IMEX families, not manifold polar eigensolvers: https://link.springer.com/article/10.1007/s11075-019-00775-x",
+        "The closest published mathematical-result query concerning a different optimizer was 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668; its harmonic-mean buffer momentum stability formula is for a distinct recurrence, not the cached Riemannian eigengradient update."
+      ],
+      "reasoning": "The 2026 and 2023 full algorithm studies concern the same general eigenvector setting but their explicit sufficient conditions and Lyapunov bounds do not imply that the fixed one-step two-component scheme has a uniquely optimal quarter-stale fraction or the exact critical Jordan amplification. General Schur theory can recover the linear recurrence once supplied but does not itself describe the eigensolver application.",
+      "searches": [
+        "GRASSIA asynchronous PCA exact local stepsize spectral gap maximum eigenvalue minus minimum characteristic polynomial stability",
+        "two component Grassmann incremental aggregated polar iteration cached gradient sharp local linear stability spread",
+        "web: Grassmannian PCA asynchronous polar eigenvectors delayed convergence exact sharp stepsize",
+        "2026 source arxiv:2608.04406v1 Theorem 2",
+        "2023 source PMLR v206 wang23j Theorem 1",
+        "2026 asynchronous Grassmannian incremental aggregation Wang Hu Wai necessary sufficient local stability step size"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/411716720_Incremental_Aggregation_on_the_Grassmannian_for_Asynchronous_Eigenspace_Computation",
+      "https://proceedings.mlr.press/v206/wang23j/wang23j.pdf",
+      "https://link.springer.com/article/10.1007/s11075-019-00775-x",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1002/0470868279.ch4 (background abstract only)",
+      "published-finding corpus ID 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "published-finding corpus ID 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+      "published-finding corpus ID 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+      "Published finding 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668",
+      "Published finding 2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 theorem: explicit sufficient stepsizes scale conservatively with maximum delay, and do not classify all scalar multipliers: https://www.researchgate.net/publication/411716720_Incremental_Aggregation_on_the_Grassmannian_for_Asynchronous_Eigenspace_Computation",
+        "2023 theorem: sufficient locally convergent regime with no optimal split parameter: https://proceedings.mlr.press/v206/wang23j/wang23j.pdf",
+        "2019 multistep source develops general stability-root machinery, but studies other parametric method families: https://link.springer.com/article/10.1007/s11075-019-00775-x",
+        "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12 analyzes exact steepest descent modes, not asynchronous polar eigensolvers.",
+        "2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57 studies an independent nilpotent-Jordan norm optimization, not the specified eigensolver; the 2x2 shear norm is in any case elementary and is claimed only as one piece of the joint eigensolver boundary classification."
+      ],
+      "reasoning": "Neither source PCA theorem gives a necessary condition or a matrix-power transient formula for the particular two-component delayed polar update. The classical multistep polynomial machinery supplies a proof ingredient and does not constitute a prior statement of the entire specialized result. The closest mathematical-result hit is a distinct steepest-descent perturbation problem, so it does not imply this theorem. Residual risk of a stronger unlocated multistep-to-manifold transfer theorem is stated explicitly.",
+      "searches": [
+        "delay tau stale Grassmannian polar retraction principal component eigenvector update exact local stability 2 sin(pi/(4 tau+2))",
+        "GRASSIA asynchronous PCA exact local stepsize spectral gap maximum eigenvalue minus minimum characteristic polynomial stability",
+        "two-step explicit multistep linear eigenvector retraction Riemannian gradient one quarter lag optimal absolute stability",
+        "2026 source algorithm and Theorem 2",
+        "2023 source algorithm and Theorem 1",
+        "Lóczi 2019 Sec. 2 and 5 root conditions",
+        "polar eigensolver one step delayed gradient one quarter optimal stepsize four spectral spread double negative one Jordan threshold",
+        "two step stale gradient normalized eigenvector current three quarters previous one quarter Schur stability 4 over L Jordan"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-state eigensolver Jacobian equals a two-step scalar linear multistep test equation with coefficients (1-p,p); the generic Schur polynomial framework is explicitly present in https://link.springer.com/article/10.1007/s11075-019-00775-x",
+        "The 2026 source specifies an extrinsic polar update and sufficient local step restrictions, but its inspected theorem does not state the sharp mixed-latency spectral law: https://www.researchgate.net/publication/411716720_Incremental_Aggregation_on_the_Grassmannian_for_Asynchronous_Eigenspace_Computation"
+      ],
+      "reasoning": "Generic real-quadratic Schur inequalities determine stability once the eigensolver Jacobian is derived. This established equivalence is acknowledged as a lemma, not presented as novel. The located results do not state the full fixed-lag polar principal-eigenspace reduction with its optimal stale fraction and Jordan-norm law. A mathematically identical specialized multistep treatment remains a possible uncovered source.",
+      "searches": [
+        "delay tau stale Grassmannian polar retraction principal component eigenvector update exact local stability 2 sin(pi/(4 tau+2))",
+        "delayed gradient descent scalar quadratic exact sharp stability 2 sin(pi/(4 tau+2)) asynchronous eigenspace",
+        "two-step explicit multistep linear eigenvector retraction Riemannian gradient one quarter lag optimal absolute stability",
+        "web: \"3/4\" \"1/4\" \"absolute stability\" multistep",
+        "https://link.springer.com/article/10.1007/s11075-019-00775-x",
+        "polar eigensolver one step delayed gradient one quarter optimal stepsize four spectral spread double negative one Jordan threshold",
+        "two step stale gradient normalized eigenvector current three quarters previous one quarter Schur stability 4 over L Jordan"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted search of mathematical finding records located related but different techniques: stochastic delay Gauss–Seidel 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "Stale-basis SOAP output collapse 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+        "No inspected equation/table in https://www.researchgate.net/publication/411716720_Incremental_Aggregation_on_the_Grassmannian_for_Asynchronous_Eigenspace_Computation or https://proceedings.mlr.press/v206/wang23j/wang23j.pdf tabulated the optimal one-quarter gradient mixture or its critical companion norm."
+      ],
+      "reasoning": "No numerical or symbolic table checked gave the exact fixed-lag polar-eigensolver phase diagram. The named database results investigate Gauss–Seidel second moments and optimizer basis staleness, not this two-state manifold derivative. Search nonhits alone do not prove uniqueness.",
+      "searches": [
+        "asynchronous principal component eigenvector delayed gradient convex mixture fresh stale one-step exact Schur stability quarter 4/L",
+        "quadratic gradient descent 75% current 25% previous delayed gradient largest stable step 4 over lipschitz",
+        "optimal convex combination stale current gradient two-step iteration stability 1/4 coefficient",
+        "web: \"1/4\" \"4\" \"linear multistep\" stability interval",
+        "gradient mixing fresh stale PCA eigenspace local companion double root negative one transient amplification"
+      ]
+    },
+    "rationale": "The 2026 original asynchronous Grassmannian source and closely related 2023 Riemannian aggregated PCA study provide sufficient convergence guarantees, not the specific exact necessary-and-sufficient mixture frontier or optimal stale proportion and critical Jordan power law. The scalar Schur/LMM test is explicitly recognized as prior mathematics; novelty is limited to the algorithm-specific full implication. Targeted mathematical-record searches found no coverage, subject to residual literature risk.",
+    "residual_risks": [
+      "General multistep polynomial-stability theory is broad; a prior explicit specialization of the same two-step coefficients could subsume the scalar threshold, even though the eigensolver transfer was not located.",
+      "Selected pages rather than every page of the 2023 PDF were materially reviewed; an appendix could contain a closer special case.",
+      "No external independent novelty or correctness audit is available; literature search cannot certify global uniqueness.",
+      "The singular norm of a 2-by-2 shear is a standard calculation, not separately novel; value and originality concern the algorithm-specific joint phase boundary and its critical amplification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact fraction-optimized two-component one-step stability domain or critical Jordan-norm law identified in the inspected material.",
+        "evidence": [
+          "Source manuscript header confirms v1 dated 2026-08-05.",
+          "Theorem 2 supplies sufficient local restrictions including inverse dependence on delay and spectral spread.",
+          "The algorithm aggregates cached component gradients extrinsically and normalizes by a polar retraction."
+        ],
+        "identifier_or_url": "arxiv:2608.04406v1 | https://www.researchgate.net/publication/411716720_Incremental_Aggregation_on_the_Grassmannian_for_Asynchronous_Eigenspace_Computation",
+        "material_read": "Full public HTML manuscript text; Algorithm 1, convergence Theorems 1–2, local-gradient derivation, and relevant appendix portions.",
+        "method": "Full-text HTML reading and section/term comparisons with the specified gradient mix and the resulting Jacobian.",
+        "title": "Incremental Aggregation on the Grassmannian for Asynchronous Eigenspace Computation",
+        "trigger": "Direct motivating 2026 source with the exact extrinsic polar aggregation algorithm."
+      },
+      {
+        "assessment": "Existing sufficient deterministic linear-rate estimates do not assert necessary exact local stability by a fresh/stale coefficient or the boundary matrix-power law.",
+        "evidence": [
+          "Section 4 treats cached-gradient difference as bounded perturbation.",
+          "Theorem 1 is a sufficient local convergence guarantee for finite delays, not a sharp mixed-step phase diagram."
+        ],
+        "identifier_or_url": "pmlr:v206:wang23j | https://proceedings.mlr.press/v206/wang23j/wang23j.pdf",
+        "material_read": "Published PDF title/abstract, algorithm formulation, Theorem 1 and its Section 4 proof, selected appendix pages and references.",
+        "method": "Material reading from publisher-hosted full-text PDF including algorithm and convergence-section text.",
+        "title": "Incremental Aggregated Riemannian Gradient Method for Distributed PCA",
+        "trigger": "Highly relevant prior asynchronous PCA/eigenvector method using cached gradients."
+      },
+      {
+        "assessment": "Schur–Cohn ingredients and general stability-region optimization are standard, but analyzed multistep families are BDF/Enright/IMEX rather than this polar delayed eigensolver.",
+        "evidence": [
+          "Section 2.2 defines Schur polynomials; Section 5 analyzes a cubic IMEX characteristic family and stability-angle optimum.",
+          "No rank-one polar gradient, spectrum-spread ceiling, or critical two-state eigensolver matrix appears in the inspected sections."
+        ],
+        "identifier_or_url": "DOI:10.1007/s11075-019-00775-x | https://link.springer.com/article/10.1007/s11075-019-00775-x",
+        "material_read": "Full open-access HTML Sections 1–2, 5, selected appendix, the Schur–Cohn root-condition definitions and optimization cases.",
+        "method": "Compared characteristic-polynomial families, parameters, and theorem implications.",
+        "title": "Optimal subsets in the stability regions of multistep methods",
+        "trigger": "Potential mathematical equivalence through multistep polynomial stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba229539-33dc-4b56-a17c-106b8ca39c39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed one-iteration cache delay is a natural model in asynchronous principal-eigenvector extraction. The unique optimal 25% stale fraction doubles the sharp locally stable step ceiling from \\(2/L\\) to \\(4/L\\), while the exact linear Jordan growth at that ceiling gives a concrete safety obstruction. The result discriminates permissible local step size from faster convergence and is a motivated complete continuum-parameter classification, not an arbitrary sample value.",
+    "status": "PASS"
+  }
+}
