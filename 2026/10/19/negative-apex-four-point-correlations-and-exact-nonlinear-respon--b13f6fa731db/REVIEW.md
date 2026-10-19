@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS (self-review).** The compensating rung parameter is exactly the one for which the decoration-iteration sum leaves two independent zero-field Ising chains, and the apex conditional expectation is \(u(A_i+B_i)/2\). Reconstructing the chain's even multipoint moments gives the four-distinct-site moment and its connected subtraction. All repeated-index cumulants are included before summing; the five multiplicity classes and geometric triple-gap series give the announced infinite-volume fourth-cumulant density. Geometric summability for \(\rho<1\) justifies the thermodynamic limit. Symbolic simplification and 38 independent numerical/symbolic finite-periodic checks passed. The strong-leg equivalent follows from \(1-\tanh(J/T)\sim2e^{-2J/T}\).
+
+## Originality
+**PASS (self-review, with residual priority risk).** Chapman–Tomasello–Carr, arXiv:2405.20749, full text §§1–5 and Appendix A, establishes the same Hamiltonian, compensation relation, two-point spectral formulas and linear top-spin response but does not state a connected four-apex identity or evaluate a fourth-cumulant density. Hutak et al., arXiv:2008.03753, §§1–3 and Eqs. (1)–(7), already establish the effective decoupling and the standard-chain interpretation; neither the compensation condition nor generic transfer matrices are new. Focused searches for the four-point identity, nonlinear top susceptibility, equivalent connected cumulant, and the same integrated formula produced no matching statement among checked published results. The general transfer-matrix formalism and textbook Ising-chain multipoint identities make the answer derivable in principle; this is a genuine prior-implication risk and requires independent priority examination. No uniqueness claim follows from database partitioning.
+
+## Value
+**PASS (self-review).** The top-spin linear susceptibility and pairwise length scales are already central experimental observables in the motivating ladder. The cubic top-spin response is the next natural nonlinear susceptibility, and its evaluated sign, all-distance crossed-pair ratio, exact density, and \(e^{6J/T}\) amplification identify a distinct measurable nonlinear signature at the known compensation point. This is a structural, all-separation law rather than a numerical parameter slice or a restatement of decoupling alone. It is not a positive-temperature phase-transition claim.
+
+## Limitations and residual risks
+Only positive temperature, positive leg/apex couplings, exact compensated negative rung coupling, zero external field, and no direct apex coupling are established. The earlier decoration transformation and general transfer machinery potentially subsume derivational steps; an equivalent prior explicit specialization may exist. External priority certification and independent validation are absent. The finite-size tests are numerical checks of, not substitutes for, the all-parameter proof.
+
+Self-review: passed. Independent audit: not yet performed.
