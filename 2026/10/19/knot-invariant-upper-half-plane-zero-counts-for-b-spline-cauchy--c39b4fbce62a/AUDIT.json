@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The Hermite–Genocchi normalization yields F_n0=1/P; differentiation supplies the exact higher-order rational form. The numerator recurrence has degree nm and Q_m(a_j)=P′(a_j)^m. Even complete homogeneous polynomial positivity holds by a direct independent-exponential-moment identity. Odd derivatives are strictly monotone on pole gaps and cross zero once because adjacent residue signs alternate. Degree and complex conjugation give exactly n floor(m/2) upper zeros with multiplicity. The four family boundaries n=1, m=0,1 and all derivative parities are included. The checker gives 28 independent finite algebraic cross-checks but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mallat and Waldspurger prove analytic Cauchy-wavelet uniqueness/stability and discuss zero-related phase effects, not the exact spline-knot zero census.",
+        "Böttcher et al. record Hunter positivity for even complete homogeneous polynomials and the probability-normalized spline/divided-difference relationship, but not this all-order upper-half-plane count."
+      ],
+      "reasoning": "The positivity theorem gives an essential sign lemma but does not by itself state the global rational numerator degree, the odd-order simple root census, and the analytic upper-half-plane number. Their combination is transparently derived here. Priority remains qualified because such a combination could have appeared in prior rational-function literature.",
+      "searches": [
+        "\"Cauchy wavelet of arbitrary nonuniform Curry Schoenberg B splines equal rational reciprocal polynomial derivative\"",
+        "Mallat and Waldspurger arxiv:1404.1183, phase-retrieval theory",
+        "Böttcher et al. arxiv:2001.01658, complete homogeneous symmetric polynomial positivity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1006.1996",
+      "arxiv:2001.01658",
+      "doi:10.5186/aasfm.2013.3847",
+      "arxiv:1404.1183"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baxter and Brummelhuis supply Hermite–Genocchi divided-difference integration, from which the rational transform reduction follows.",
+        "Hunter even symmetric-homogeneous positivity is acknowledged as an established input.",
+        "Neither Langley’s growth-theory reciprocal-derivative theorems nor Mallat–Waldspurger’s phase-retrieval results directly entail the quantified knot-independent zero census as stated."
+      ],
+      "reasoning": "The closest sources separately support the algebraic transform reduction, the strict even-sign lemma, and a distinct application motivation. The present statement combines them with a degree/noncancellation argument and odd inter-pole monotonicity to obtain a complete exact count. It is explicitly not represented as new positivity or a new Cauchy formula.",
+      "searches": [
+        "Baxter and Brummelhuis arxiv:1006.1996 Theorem 4.2",
+        "Böttcher et al. arxiv:2001.01658 §§1–2",
+        "Langley 2013 theorem statements",
+        "Mallat and Waldspurger arxiv:1404.1183 introductory phase retrieval and zeros"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The statement is equivalent to an exact zero count for the derivatives of the reciprocal polynomial together with a real-gap parity law.",
+        "Langley 2013 studies nonreal zeros in a growth-theoretic meromorphic/entire setting, explicitly contrasting functions not of rational-polynomial-exponential type; its stated conclusions do not give this exact finite-degree count."
+      ],
+      "reasoning": "The literature on derivatives of real meromorphic reciprocals is a genuine alias search, not merely a matching-title check. No inspected theorem with the same finite rational numerator, exact count, and all-orders quantifiers was located. Its absence from searches does not prove global novelty.",
+      "searches": [
+        "\"Real-rooted polynomial product of distinct linear factors, m-th derivative of its reciprocal: n*floor(m/2) zeros in upper half plane\"",
+        "\"derivatives of reciprocals of polynomials all real poles odd derivative nonreal zero count\"",
+        "Langley 2013 DOI:10.5186/aasfm.2013.3847"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact symbolic checks in checker.py concern four knot tuples and seven orders only; they are not claimed to be a previously unknown census table.",
+        "No inspected published result or mathematical record supplies a tabulated all-knot, all-order zero count of n floor(m/2)."
+      ],
+      "reasoning": "The claimed invariant ranges over arbitrary real knot tuples and every integer order, so isolated numerical tables would not establish complete coverage absent a stronger theorem. No decisive covering table was found.",
+      "searches": [
+        "\"Exact upper-half-plane zeros of B spline analytic Cauchy transforms via Hermite Genocchi divided differences\"",
+        "\"Upper half plane zeros of spline Cauchy wavelet transforms knot-independent exact number\"",
+        "\"B spline Cauchy transform zeros rational high derivative Hardy half plane\""
+      ]
+    },
+    "rationale": "The exact all-orders arbitrary-knot upper-zero count and real-root parity classification were compared to source identities, known Hunter positivity, reciprocal derivative literature and analytic Cauchy-wavelet theory. The classical inputs are fully acknowledged. No inspected source provides the identical quantified complete count. Priority risk persists for older unindexed rational-function results; independent novelty certification is not claimed.",
+    "residual_risks": [
+      "The parity and degree arguments use classical positivity and elementary polynomial reasoning, so the exact census might be latent or stated in older classical work not retrieved by the searches.",
+      "An unindexed analytic-wavelet or rational-function source could state an equivalent formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes classical simplex/divided-difference identity, not Cauchy zero counts",
+        "evidence": [
+          "Theorem 4.2, PDF p. 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.1996",
+        "material_read": "Full Theorem 4.2 and the surrounding derivation on PDF pages 7–8, together with the introduction and divided-difference definitions",
+        "method": "Full-text PDF extraction with relevant page-image inspection",
+        "title": "Functionals of Exponential Brownian Motion and Divided Differences",
+        "trigger": "Archived Hermite–Genocchi identity for the spline probability measure"
+      },
+      {
+        "assessment": "Provides the vital positivity lemma and probability-spline interpretation; the exact nonreal zero census is not stated in inspected main results",
+        "evidence": [
+          "Introduction pp. 1–2; §1 spline normalization and Hunter positivity, PDF pp. 3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.01658",
+        "material_read": "Introduction and main results, including the Hunter even-degree positivity statement and Curry–Schoenberg probability normalization on PDF pp. 1–4",
+        "method": "Full-text PDF extraction, term searches and page-image inspection",
+        "title": "Weighted Means of B-Splines, Positivity of Divided Differences, and Complete Homogeneous Symmetric Polynomials",
+        "trigger": "Potential dominating positivity theorem and identical spline normalization"
+      },
+      {
+        "assessment": "Theorems address broad real meromorphic growth and infinitary zero phenomena, not the finite all-knot exact count",
+        "evidence": [
+          "Introduction and Theorem 1.1, PDF p. 1"
+        ],
+        "identifier_or_url": "https://www.acadsci.fi/mathematica/Vol38/vol38pp855-871.pdf",
+        "material_read": "Full-text theorem statements and introduction, with PDF page-image inspection of the first page",
+        "method": "Full-text PDF extraction plus page-image inspection",
+        "title": "The reciprocal of a real entire function and non-real zeros of higher derivatives",
+        "trigger": "Closest semantic topic: nonreal zeros of derivatives of reciprocals"
+      },
+      {
+        "assessment": "Supports application motivation but does not state the spline-rational upper-zero census",
+        "evidence": [
+          "Introduction pp. 1–4; discussions of holomorphic phase reconstruction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.1183",
+        "material_read": "Introduction/overview and discussions of analytic zeros and phase stability, with inspected PDF pages",
+        "method": "Full-text PDF extraction and page-image inspection",
+        "title": "Phase retrieval for the Cauchy wavelet transform",
+        "trigger": "Primary Cauchy-wavelet zero-set relevance and phase-retrieval motivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c39b4fbc-e62a-490f-b324-b622c0493856",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural parameter-uniform classification of zero count for Cauchy transforms of arbitrary nonuniform probability B-splines in every integral order; it is not a single example or routine numeric increment. The exact upper-half-plane count is the finite zero/Blaschke complexity of a family used in analytic signal transforms; the odd-order boundary theorem gives nontrivial distribution independent of spacings. Individual complex zero positions and phase-retrieval stability are not claimed.",
+    "status": "PASS"
+  }
+}
