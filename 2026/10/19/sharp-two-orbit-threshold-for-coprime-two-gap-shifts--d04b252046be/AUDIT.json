@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The return-gap coding is bijective on primitive shift orbits, and pure gap words yield only least periods a,b. The four-transition word \\(A^{r-1}BAB^{s-1}\\) is primitive unless \\(r=s=2\\), as any proper power of a four-transition cyclic word must be a square of a two-transition word. For every n>max((a+1)b,2(a+b)), the unique representative \\(1\\le r\\le b\\) with \\(ar\\equiv n\\pmod b\\) yields \\(s\\ge2\\); either \\(s\\ge a+1\\) and two distinct positive representations exist, or \\(2\\le s\\le a\\), \\(r\\ge2\\), \\((r,s)\\ne(2,2)\\), giving two distinct primitive necklaces. At the endpoint \\(n=(a+1)b\\) exactly one primitive mixed necklace \\(A^bB\\) occurs; the only alternate dominating endpoint is \\((a,b)=(2,3)\\), \\(n=10\\), with only \\(AABB\\) primitive. No unproved algebra or infinite computer enumeration is used. The actual standalone Python program passed 18094 zeta/necklace exact comparisons, 6120 sharp-threshold finite instances, and 192 independent cyclic-word enumerations. These are diagnostics; the general proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Jong's broader FP/SFT theorems classify allowed period sets, not the number of different orbits at each allowed period (Section 1, Theorem 3.19).",
+        "Dastjerdi–Jangjoo's finite-S dynamical zeta expression covers all gap sets and determines counts implicitly; it supplies a known computational input, but no parameter-uniform least n after which there are at least two primitive orbits.",
+        "Doering–Pavlov 2019 Theorems 1.1–1.6 classify period-support sets realizable by SFTs, not exact primitive-orbit multiplicity cutoffs."
+      ],
+      "reasoning": "A stronger theorem that explicitly bounded the last multiplicity-one period for arbitrary finite gap alphabets would subsume the result, but none appears in the inspected published sources. The general zeta formula is an exact description of a generating series; this claim extracts and proves a new sharp inequality over infinitely many coefficients for all coprime two-gap parameters. Crucially neither entropy nor positive-support classification implies that n has at least two orbits.",
+      "searches": [
+        "S-gap shift exactly two allowed gaps a-1 b-1 coprime lengths: least period set with number of primitive periodic orbits at least two, sharp conductor max(ab+b,2a+2b)+1, necklaces",
+        "two-loop renewal shift primitive cyclic words weighted by a,b periodic orbit multiplicity conductor least n with two distinct periodic orbits for every later length",
+        "\"S-gap shifts\" \"number of periodic points\" gap lengths a b zeta",
+        "\"S-gap shift\" \"two\" \"periodic orbits\" count",
+        "arxiv:2510.10848v1",
+        "arxiv:1108.3414v1",
+        "arxiv:1108.3242",
+        "https://cs.du.edu/~rpavlov/MDRP_periods.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Huub de Jong arxiv:2510.10848v1 and OA Cambridge 2026, Theorem 3.19; full relevant primary text",
+      "Dastjerdi and Jangjoo arxiv:1108.3414v1, Corollary 2.3; complete relevant zeta sections",
+      "Doering and Pavlov 2019, original 11-page PDF, relevant main theorems and graph translation",
+      "Dastjerdi and Jangjoo arxiv:1108.3242 abstract / secondary citation only; limited inspection",
+      "Published mathematical-record semantic searches using the five exact source and claim queries above, with closest scientific statement comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.19 gives n with \\(Q_n>0\\), but has no information differentiating \\(Q_n=1\\) and \\(Q_n\\ge2\\).",
+        "The zeta formula gives formal p_n and hence Q_n for each fixed n by Möbius inversion. It does not present the exact maximal n of Q_n<2 or the exceptional pair (2,3).",
+        "The new proof establishes an explicit sufficient uniform upper cutoff using modular representatives and a four-transition primitive-necklace lemma; equality at the bound follows from an explicit classification of possible block counts."
+      ],
+      "reasoning": "Logical determination of any individual coefficient by previously known rational zeta is candidly recognized. The new theorem is the optimal closed-form all-parameter infinite coefficient inequality and final obstruction; it is neither the known exact zeta formula nor a relabeling of the known LPS support theorem. A historical non-obvious extraction of the same sharp cutoff would negate priority and is retained as a residual risk.",
+      "searches": [
+        "S-gap shift exactly two allowed gaps a-1 b-1 coprime lengths: least period set with number of primitive periodic orbits at least two, sharp conductor max(ab+b,2a+2b)+1, necklaces",
+        "sharp final period supporting fewer than two primitive shift orbits for finite S-gap shifts with allowed gap lengths a,b coprime; maximum ((a+1)b) except 2,3",
+        "arxiv:2510.10848v1",
+        "arxiv:1108.3414v1",
+        "https://cs.du.edu/~rpavlov/MDRP_periods.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "De Jong, Theorem 3.19: least-period SUPPORT is the almost-sum closure of allowed return lengths, not their multiplicity.",
+        "Dastjerdi–Jangjoo, Corollary 2.3: zeta(t)=1/(1-t^a-t^b), from which one derives exact primitive orbit counts by Möbius inversion; this enumeration is explicitly acknowledged as prior.",
+        "Primitive gap necklaces have weighted physical length a r+b s. Direct cyclic binary enumeration independently agrees with the symbolic encoding for 192 finite cases."
+      ],
+      "reasoning": "The theorem is equivalent to a sharp statement about the last n for which the Möbius-inverted zeta coefficient divided by n is less than two, or a sharp threshold for two distinct primitive weighted necklaces. The searched equivalent descriptions use all three phrasings. Known zeta data determine exact coefficients but the sharp uniform last-obstruction formula is not directly stated or proven in the examined sources. The arithmetic/cyclic run argument addresses that additional problem; matching a generating function does not by itself identify the sharp symbolic inequality.",
+      "searches": [
+        "S-gap shift exactly two allowed gaps a-1 b-1 coprime lengths: least period set with number of primitive periodic orbits at least two, sharp conductor max(ab+b,2a+2b)+1, necklaces",
+        "two-loop renewal shift primitive cyclic words weighted by a,b periodic orbit multiplicity conductor least n with two distinct periodic orbits for every later length",
+        "gap shift exact periodic orbit counting necklace Möbius two gap lengths positive coefficients Frobenius",
+        "\"S-gap shifts\" \"number of periodic points\" gap lengths a b zeta",
+        "\"S-gap shift\" \"two\" \"periodic orbits\" count",
+        "\"S-gap shifts\" \"orbit counting\" \"necklaces\"",
+        "arxiv:2510.10848v1",
+        "arxiv:1108.3414v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Five actual semantic searches of published mathematical records, each returning 35–50 nearest results, exposed no table of exact last singleton lengths for the coprime two-gap family.",
+        "Closest related publicly indexed results included \"An exact divisibility law for embeddings of modular gap shifts\" (about embeddings) and \"Positive critical periodic content for the {rho,rho^2} contraction pair\" (about metric separation, not periodic orbit multiplicity).",
+        "The relevant sections of the original de Jong, Dastjerdi–Jangjoo, and Doering–Pavlov primary papers were inspected; none states the sharp last-singleton parameter formula."
+      ],
+      "reasoning": "The family is infinite in the coprime parameters; finite computed tables cannot prove the all-parameter formula. The checker tests 6,120 finite threshold instances, but the published-data comparison focuses on whether existing work already gives the exact sharp parametric expression, not whether a few numerical examples are known. Failed retrieval of an unrelated source cannot establish priority.",
+      "searches": [
+        "gap shift exact periodic orbit counting necklace Möbius two gap lengths positive coefficients Frobenius",
+        "sharp final period supporting fewer than two primitive shift orbits for finite S-gap shifts with allowed gap lengths a,b coprime; maximum ((a+1)b) except 2,3",
+        "two-gap shifts periodic orbit multiplicity at each length primitive binary necklaces least period singleton threshold gap lengths",
+        "\"two-gap\" \"unique periodic orbit\" length shift",
+        "\"S-gap\" \"number of periodic orbits\" exact two gap",
+        "\"periodic orbit\" \"two gap lengths\" one",
+        "\"S-gap shift\" \"number of primitive orbits\""
+      ]
+    },
+    "rationale": "The assessed result is the exact last length with fewer than two distinct primitive shift orbits in the coprime two-gap family, not the already known S-gap zeta function, the general necklace enumeration, or the period-existence spectrum. The full examined de Jong Theorem 3.19 treats the support of positive primitive orbit counts only. Dastjerdi and Jangjoo Corollary 2.3 supplies a generating function from which the orbit counts can be derived in principle, but does not give the all-parameter sharp multiplicity-two cutoff or identify its exceptional pair. The short but nontrivial two-versus-four-transition argument and sharp endpoint classification establish the optimal cutoff. No exact equivalent was found in the targeted record searches or inspected relevant primary results. Residual historical priority risk is acknowledged; this is not an exhaustive novelty certificate.",
+    "residual_risks": [
+      "A historical result in run-length-limited coding, renewal-system multiplicity theory, or weighted primitive necklaces could already state the same last-singleton conductor under different language.",
+      "The known full zeta series is stronger as coefficient data; priority hinges on whether the sharp all-parameter inequality was previously extracted, not on the novelty of coefficient computation.",
+      "The earlier S-gap topology paper arxiv:1108.3242 was not fully inspected; its abstract gives no indication of this invariant, but that limited comparison is not a whole-document noncoverage finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_SHARP_CUTOFF; establishes period support, not last orbit multiplicity obstruction",
+        "evidence": "Theorem 3.19 says LPS(X(S)) is the almost sum-closure; introduction states embedding needs counts q_n; Theorem 3.19 counts existence not exact Q_n.",
+        "identifier_or_url": "arxiv:2510.10848v1; https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/on-sets-of-periodic-orbit-lengths-in-finitely-presented-dynamical-systems/A4984CCDB44619E0F7894EFF03314324",
+        "material_read": "Complete accessible Section 3.3 (definition, Theorem 3.19 and proof); introduction including Krieger orbit-count condition; Section 4.3 realization and scope; publication and MSC metadata",
+        "method": "Read primary OA Cambridge full HTML with direct section navigation and cross-check arXiv v1 first date",
+        "title": "On Sets of Periodic Orbit Lengths in Finitely Presented Dynamical Systems",
+        "trigger": "2025 literature-led primary 37C25 paper and exact two-gap LPS classification"
+      },
+      {
+        "assessment": "COVERS_KNOWN_ENUMERATION_NOT_STATED_OPTIMAL_THRESHOLD; material mathematical implication analyzed",
+        "evidence": "Corollary 2.3 states zeta(t)=1/(1-sum_{j in S} t^(j+1)); for S={a-1,b-1} gives 1/(1-t^a-t^b), furnishing fixed-n periodic orbit counts via Möbius, but neither last-singleton length nor its all-parameter sharp formula is given.",
+        "identifier_or_url": "arxiv:1108.3414v1; https://www.researchgate.net/publication/51967666_Computations_on_Sofic_S-gap_Shifts",
+        "material_read": "Full text relevant definition, abstract, characteristic polynomial proof region and Corollary 2.3 with zeta formula and proof",
+        "method": "Read the author-uploaded complete preprint text and the formal finite-S zeta expression",
+        "title": "Sofic S-gap Shifts, Entropy Function and Bowen–Franks Groups / Computations on Sofic S-gap Shifts",
+        "trigger": "General full zeta might subsume candidate via exact periodic orbit counts"
+      },
+      {
+        "assessment": "NOT_COVERING_MULTIPLICITY_THRESHOLD; classifies supports and realizability",
+        "evidence": "Theorems 1.4–1.6 and 3.8–3.10 classify possible sets of least periods, no exact number-two cutoff for fixed two-gap SFT.",
+        "identifier_or_url": "https://cs.du.edu/~rpavlov/MDRP_periods.pdf",
+        "material_read": "Abstract and complete theorem statements 1.1–1.6; graph reductions and statements 3.1–3.10; associated PDF page image",
+        "method": "Read primary PDF extracted text, cross-check page 5 screenshot",
+        "title": "A Characterization of the Sets of Periods within Shifts of Finite Type",
+        "trigger": "Earlier finite-type period and primitive cycle theorems could subsume cutoff"
+      },
+      {
+        "assessment": "INCOMPLETE_SOURCE_COMPARISON; abstract emphasizes SFT/sofic/flow/topology, not multiplicity cutoff",
+        "evidence": "ArXiv:1108.3242 abstract states SFT iff finite/cofinite and sofic iff eventual periodicity; no orbit-threshold result in the accessible material.",
+        "identifier_or_url": "https://arxiv.org/abs/1108.3242",
+        "material_read": "Accessible arXiv abstract and original classification citation via de Jong and Dastjerdi–Jangjoo later paper",
+        "method": "Search publisher and arXiv record, compare stated theorem scope; full paper not materially read for this comparison",
+        "title": "Dynamics and Topology of S-gap Shifts",
+        "trigger": "Original S-gap SFT characterization and chance of older equivalent theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d04b2520-46be-4504-81c5-bf6d9c9bad60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the simplest nontrivial finite S-gap shift with two return lengths, and the invariant is the natural first primitive-orbit multiplicity threshold, motivated by the difference between support-only period spectra (de Jong) and orbit-count constraints in Krieger embedding. Unlike a table of a few numerical instances, the result is a sharp complete two-parameter conductor, detects an exceptional pair, and characterizes the final one-orbit obstruction by structural run and modular arguments. It does not claim an embedding theorem, a more-than-two-gap classification, or novel zeta coefficients; these limits are explicit.",
+    "status": "PASS"
+  }
+}
