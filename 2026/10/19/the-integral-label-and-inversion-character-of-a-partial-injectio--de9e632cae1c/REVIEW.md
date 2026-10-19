@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** Distinct singleton partial injections commute if and only if they have no source/target cross-equality. Their commuting-clique face poset maps equivariantly to the nonempty disjoint ordered-pair poset, with contractible simplex lower fibers. The latter is the mixed-sign face poset of a cross-polytope, and its complement of opposite pure-sign facets retracts equivariantly onto the coordinate-sum-zero sphere. Permutation determinants and antipodal degree give the exact integral character. Exhaustive small-rank calculations verify the chain traces and boundary Betti numbers.
+
+**Originality (O): PASS subject to a specific residual access risk.** Jonsson's directed bipartite digraph complex already has sphere homotopy type, so the non-equivariant result is not treated as new. The assessed assertion is the explicit \(S_n	imes C_2\) *integral homology module*, including the inversion parity. Araújo–Bentz–Konieczny address semigroup commuting graphs, not this homology character. Semantic searches of published related findings and recoverable historical claims did not uncover a dominating statement. Jonsson's chapter body was inaccessible, so it remains possible that its proof or a remark already contains the same equivariant result; absence from a summary is not novelty proof.
+
+**Value (V): PASS.** The representation records how two canonical algebraic symmetries orient the nontrivial topological cycle, a property the known abstract sphere homotopy type does not determine. Its dimension-dependent inversion parity distinguishes action-level invariants of naturally occurring commuting complexes and supplies a uniform orientation module rather than a finite numerical coincidence.
+
+**Closest literature and limitations.** J. Jonsson, *Simplicial Complexes of Graphs*, Chapter 15 (2008, DOI:10.1007/978-3-540-75859-4_15); J. Araújo, W. Bentz, J. Konieczny, arXiv:1205.1664 (2012). The entire Jonsson chapter was not inspected, so priority of the equivariant increment remains at risk. This is a rank-one subcomplex statement, not the homology of the full monoid's commuting graph. The proof is provided but independently unreviewed.
+
+Self-review: passed. Independent audit: not yet performed.
