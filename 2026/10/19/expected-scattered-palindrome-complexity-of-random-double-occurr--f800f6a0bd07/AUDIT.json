@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exact count: full-support palindromes have 2m or 2m-1 letters, with m! even words and m! possible odd palindromes, each embedded in 2m-1 distinct one-letter superwords; divide by (2m)!/2^m, then sum over supports. Asymptotic: weighted sinh series concentration m/sqrt(q)->1/sqrt(2), product sampling factor tending to exp(-1/4). Direct rational exhaustive means q=1..5 corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1811.11739 studies double-occurrence return insertions, not average number of distinct scattered palindromes",
+        "arXiv:1901.07502 treats longest palindrome lengths, not first moments",
+        "A known sharp extreme value alone cannot determine the average of a nonconstant statistic; the current theorem sums explicit support-wise probabilities"
+      ],
+      "reasoning": "The general single-word DP computes counts for individual words but does not explicitly imply a closed all-q average and the e^(-1/4) correction without summing over every multiset permutation. Longest-subsequence length results concern a different observable.",
+      "searches": [
+        "arXiv:1811.11739 full text on double occurrence insertions",
+        "arXiv:1901.07502 full text on palindromic subsequence lengths",
+        "web: \"balanced words\" \"palindromic subsequences\" expected"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1811.11739",
+      "arXiv:1901.07502",
+      "LeetCode:730"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1811.11739 studies double-occurrence return insertions, not average number of distinct scattered palindromes",
+        "arXiv:1901.07502 treats longest palindrome lengths, not first moments",
+        "A known sharp extreme value alone cannot determine the average of a nonconstant statistic; the current theorem sums explicit support-wise probabilities"
+      ],
+      "reasoning": "The earlier maximum describes extremal arrangements and cannot fix the average; arXiv double-occurrence return insertion equivalence and longest-palindrome lengths do not entail the support-weighted first moment.",
+      "searches": [
+        "previously accessible exact sharp maximum claim for double-occurrence palindrome counts",
+        "arXiv:1811.11739 theorem on equivalent insertions",
+        "LeetCode:730 distinct-palindrome individual input counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1811.11739 studies double-occurrence return insertions, not average number of distinct scattered palindromes",
+        "arXiv:1901.07502 treats longest palindrome lengths, not first moments",
+        "A known sharp extreme value alone cannot determine the average of a nonconstant statistic; the current theorem sums explicit support-wise probabilities"
+      ],
+      "reasoning": "Compared aliases random Gauss words, double-occurrence words, balanced multiplicity-two words and scattered palindromic subsequences. No equivalent exact expectation found in accessible searches; failed search alone is not proof of novelty.",
+      "searches": [
+        "web: \"expected number\" \"palindromic subsequences\" \"double occurrence\"",
+        "semantic published records: Uniform random two-occurrence word number distinct palindrome subsequences by support expected 2m/(2m-1)!!"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1811.11739 studies double-occurrence return insertions, not average number of distinct scattered palindromes",
+        "arXiv:1901.07502 treats longest palindrome lengths, not first moments",
+        "A known sharp extreme value alone cannot determine the average of a nonconstant statistic; the current theorem sums explicit support-wise probabilities"
+      ],
+      "reasoning": "No exact double-occurrence average table matching the rational means or sinh asymptotic was located. An unindexed table remains possible.",
+      "searches": [
+        "semantic published records: Average palindromic subsequence count for random Gauss word with q chords stretched exponential exp sqrt(2q)",
+        "web: \"random Gauss word\" \"palindromic\" \"subsequence\""
+      ]
+    },
+    "rationale": "The inspected primary papers and semantic/public searches did not establish this uniform first moment or constant-factor asymptotic; extant sharp maximum is a different functional.",
+    "residual_risks": [
+      "Unindexed literature could contain the same average-case formula.",
+      "General counting algorithms in principle evaluate finite cases, but an explicit all-q mean or sharp asymptotic was not observed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "different observable: return factors and insertion equivalence, not expected scattered palindrome counts",
+        "evidence": "Introduction, definitions of DOW, return patterns, insertion theorems",
+        "identifier_or_url": "https://arxiv.org/abs/1811.11739",
+        "material_read": "original full text, definitions and principal insertion/equivalence results",
+        "method": "original arXiv full text and rendered PDF",
+        "title": "Insertions Yielding Equivalent Double Occurrence Words",
+        "trigger": "precisely the same word class"
+      },
+      {
+        "assessment": "longest palindrome length and related conjectures, not average number of distinct values",
+        "evidence": "Sections 2–4 and their longest-length propositions",
+        "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+        "material_read": "seven-page original text, introduction and main theorems",
+        "method": "original arXiv full text and rendered PDF",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "palindromic scattered subsequences"
+      },
+      {
+        "assessment": "not an all-alphabet first-moment theorem",
+        "evidence": "Problem 730 description",
+        "identifier_or_url": "https://leetcode.com/problems/count-different-palindromic-subsequences/",
+        "material_read": "problem statement and examples",
+        "method": "read publicly available exact individual-word task",
+        "title": "Count Different Palindromic Subsequences",
+        "trigger": "general input-counting algorithms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f800f6a0-bd07-49cd-b905-14cd9efcf8da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Computes a nontrivial average-case complexity invariant for a natural unbounded random-word family. The stretched-exponential asymptotic and finite-population correction e^(-1/4) reveal a substantial distinction from its exponential worst-case behavior.",
+    "status": "PASS"
+  }
+}
