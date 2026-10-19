@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The composite objective has positive-definite exact Hessian \\(I_2\\) and convex \\(|x_1+x_2|\\). The unique P-proximal first direction and H-conjugate full-rank second direction satisfy explicit exact optimality equations. Two strict scalar subdifferential tests force \\(\\alpha_2=0\\), the first scalar quadratic determines \\(\\alpha_1=D/K\\), and the third line has \\(\\alpha_3=1\\). The unique joint minimizer has the independent subgradient certificate at \\((1,-1)\\), yielding exact value \\(-1\\). Algebra gives \\(R_N=\\delta^2(1+h^2)^2/[2(1+h^2\\delta^2)]\\) and \\(N^2R_N\\to25/2\\). Exact-rational package verifier checks finite representative values; it is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tseng 2001 JOTA 109, 475–494: examined full author-hosted text §§2–5 and examples §6; addresses convergence and coordinatewise regularity, not this exact combined-ray decrease fraction.",
+        "Chen–Yang June 2026 full text sections 4.3–4.5: a decoupled surrogate is introduced for a multiobjective scheme, without an exact ratio theorem for the three-line local model."
+      ],
+      "reasoning": "Classical coordinate descent warns about nonsmooth coupling. A general convergence theorem under separability or regularity does not automatically imply the precise structured proximal first direction, extra ray search, and asymptotic vanishing decrease fraction; nonetheless an older encompassing negative example remains possible and is acknowledged.",
+      "searches": [
+        "arxiv 2603.16573 Chen Yang P2GM CM exact 2D subspace model one dimensional splitting ratio conjugate momentum",
+        "strongly convex composite f(x)=1/2||x||^2 linear plus |x1+x2| diagonal preconditioner poor one sweep two coordinate subproblems ray",
+        "Tseng 2001 block coordinate descent nondifferentiable minimization nonseparable nonsmooth coordinatewise stationary full coupling absolute value fixed point exact line minimization"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/wp-content/uploads/2026/03/PreConPG.pdf",
+      "https://optimization-online.org/?p=34046",
+      "https://arxiv.org/abs/2603.16573",
+      "https://www.researchgate.net/publication/408106792_Second-order_Methods_for_Multiobjective_Composite_Optimization_Preconditioning_Strategies_Subspace_Variants_and_Inexact_Solutions",
+      "https://arxiv.org/abs/2606.26792",
+      "https://econpapers.repec.org/article/sprjoptap/v_3a109_3ay_3a2001_3ai_3a3_3ad_3a10.1023_5fa_3a1017501703105.htm",
+      "https://www.mit.edu/~dimitrib/PTseng/papers/archive/bcr_jota.pdf",
+      "2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+      "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a",
+      "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Yang 2026 Optimization Online equation (6), (19)–(27), and convergence section: independently minimized 1D directions with third refinement, no same-model optimality factor guarantee.",
+        "Chen–Yang June 2026 §§4.3–4.5: a separable surrogate is used, distinct from a theorem on the fraction of the exact coupled optimum.",
+        "SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe assumes a smooth SPD quadratic trust-region model; nonsmooth coupling here invalidates the smooth diagonal-separability argument."
+      ],
+      "reasoning": "The motivating descent/convergence theorem is logically compatible with arbitrarily poor *relative* local joint-model decrease: every constructed step still has positive absolute decrease. A smooth trust-region Cauchy bound does not apply due to the absolute-value nonsmooth coupling, and the later multiobjective surrogate discussion does not imply this exact rational obstruction.",
+      "searches": [
+        "Chen Yang 2026 preconditioned proximal gradient conjugate momentum orthogonalized two one-dimensional subproblems nonsmooth subspace objective arbitrarily poor relative minimizer",
+        "two independent line minimizations followed by ray line search nonsmooth coupled l1 proximal Newton model no approximation factor",
+        "published result search: structured proximal subspace independent line solve last ray accuracy bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Optimization Online equation (6) and (19)–(27): same method objects; no quoted fixed fraction-of-joint-decrease theorem.",
+        "Published nearest result 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4, which concerns Ritz curvature positivity rather than nonsmooth coupled line-minimization quality."
+      ],
+      "reasoning": "Checked reformulations as relative objective decrease, subspace-solver approximation ratio, single-pass coordinate splitting error, and a joint-vs-separable proximal Newton model. Neither inspected source section nor nearby published mathematical result implies the displayed ratio. Failure to find a match does not prove novelty.",
+      "searches": [
+        "Chen Yang 2026 preconditioned proximal gradient conjugate momentum orthogonalized two one-dimensional subproblems nonsmooth subspace objective arbitrarily poor relative minimizer",
+        "two independent line minimizations followed by ray line search nonsmooth coupled l1 proximal Newton model no approximation factor",
+        "subspace proximal Newton conjugate directions metric orthogonal nonseparable regularizer line search can capture arbitrarily small fraction optimal decrease",
+        "2026 Chen Yang P2GM CM subspace exact line minimization failure approximation vanishing fraction",
+        "exact three line minimizations proximal Newton tangent orthogonal and final line can be arbitrarily worse than coupled subspace solver"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic hits included 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a and 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe; neither discusses this rational integer family."
+      ],
+      "reasoning": "The object is a symbolic family of local optimization models, not a known finite database or tabulation. Searches for the exact algorithm and approximation fraction returned no tabulated values for the proposed quantity; no uniqueness inference is made.",
+      "searches": [
+        "nonsmooth composite optimization diagonal quadratic Newton model basis H conjugate two separate line minimizations same point no positive descent approximation factor coupling l1",
+        "2026 Chen Yang P2GM CM subspace exact line minimization failure approximation vanishing fraction",
+        "published result search: Chen Yang 2026 preconditioned proximal gradient conjugate momentum subspace two one dimensional solves exact ratio"
+      ]
+    },
+    "rationale": "The source defines the exact three independent/combined line minimizations and a structured operator preconditioner but offers descent/convergence rather than any exact constant fraction of the jointly optimized nonsmooth two-dimensional model. The new formula is a quantified sharp asymptotic obstruction under source-realizable local structure. Full primary text comparisons and multiple published-results semantic queries found no dominating statement. General nonsmooth coordinate-descent limits are prior art; this exact setup and rational rate are the claimed novel contribution, subject to independent review and residual risks.",
+    "residual_risks": [
+      "Tseng (2001) was inspected in full through a lawful archived copy without identifying the exact three-line construction. Other older nonsmooth coordinate-descent or model-splitting literature may nonetheless contain an equivalent example.",
+      "Later revisions of arXiv:2603.16573 beyond the accessible Optimization Online manuscript could explicitly discuss approximation quality; no full revision-by-revision comparison was made.",
+      "The example is local to an admissible second basis direction; it is not a certified occurrence along a full multi-iterate trajectory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit three-line procedure and descent/global convergence, without any claimed uniform relative fraction of best coupled model decrease. The present construction is a distinct quantitative limitation, not a refutation of proved convergence.",
+        "evidence": [
+          "Optimization Online PDF equations (6) and (19)–(27), PDF pp. 7 and 13–15",
+          "https://optimization-online.org/wp-content/uploads/2026/03/PreConPG.pdf"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/03/PreConPG.pdf",
+        "material_read": "PDF pp. 1–7, 12–16, 18–20, especially equations (6), (19)–(27), convergence passages and bibliography.",
+        "method": "Read extracted full document sections and visually checked page 14 equations (21),(22),(24)–(27).",
+        "title": "Preconditioned Proximal Gradient Methods with Conjugate Momentum: A Subspace Perspective",
+        "trigger": "Same exact preconditioner and two scalar model minimizes plus ray refinement."
+      },
+      {
+        "assessment": "Addresses a distinct multiobjective construction with independent surrogate penalties, rather than the present exact scalar one-model three-line ratio. The one-objective restriction is conceptually related, but no exact bound/counterexample covering this statement was located in inspected sections.",
+        "evidence": [
+          "Sections 4.3 (split surrogate), 4.4 (approximate model), 4.5 (linear-operator case); arXiv:2606.26792",
+          "https://www.researchgate.net/publication/408106792_Second-order_Methods_for_Multiobjective_Composite_Optimization_Preconditioning_Strategies_Subspace_Variants_and_Inexact_Solutions"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/408106792_Second-order_Methods_for_Multiobjective_Composite_Optimization_Preconditioning_Strategies_Subspace_Variants_and_Inexact_Solutions",
+        "material_read": "Public author-uploaded text sections 4.1–4.5 including equations (19)–(37), discussion of approximate model, and abstract/conclusion.",
+        "method": "Read accessible full-text rendered scientific sections and searched relevant theorem/approximation terminology.",
+        "title": "Second-order Methods for Multiobjective Composite Optimization: Preconditioning Strategies, Subspace Variants and Inexact Solutions",
+        "trigger": "Same two authors and later explicit decoupled surrogate for nonsmooth terms and operator-aware preconditioning."
+      },
+      {
+        "assessment": "The examined statements concern convergence of sequential coordinate minimization under special separability/regularity assumptions, along with stationarity and related examples. They do not state a relative-decrease fraction for the structured three-line local model; conceptually adjacent older coordinate-splitting work remains a general risk.",
+        "evidence": [
+          "https://www.mit.edu/~dimitrib/PTseng/papers/archive/bcr_jota.pdf",
+          "https://econpapers.repec.org/article/sprjoptap/v_3a109_3ay_3a2001_3ai_3a3_3ad_3a10.1023_5fa_3a1017501703105.htm"
+        ],
+        "identifier_or_url": "doi:10.1023/A:1017501703105",
+        "material_read": "Author-archived full PDF, especially pp. 1–5, 8–10, 14–17 (definitions, regularity, convergence examples) and bibliographic abstract.",
+        "method": "Read open archival full text hosted by MIT, inspected the central coordinatewise regularity discussion and examples, and visually checked PDF pp. 5 and 9.",
+        "title": "Convergence of a Block Coordinate Descent Method for Nondifferentiable Minimization",
+        "trigger": "Classical nonsmooth coordinatewise minimization and separability constraints may subsume the conceptual obstruction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ff28cb56-6b1c-451e-80f0-4aa362af0ddd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly uses two decoupled one-dimensional local proximal solves to approximate a two-dimensional joint nonsmooth model. The exact relative model decrease, rather than correctness or vague stability, is a natural indicator of solution quality. The theorem quantifies a severe obstruction: a family with identity Hessian and the prescribed \\(A^{\\mathsf T}A\\) preconditioner admits positive but vanishing \\(\\Theta(N^{-2})\\) relative model decrease despite an entire two-dimensional trial space and an extra ray refinement. It indicates why guarantee-driven implementations may need a coupled small-dimensional solve or condition-dependent accuracy control. No broad convergence theorem or algorithmic failure is claimed.",
+    "status": "PASS"
+  }
+}
