@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "PASS: For each exactly specified n=2^k with 1<=k<=10 the complete finite set of n*n (start,length) cyclic substrings is grouped by literal equality; all resulting coverage masks are exact. The recorded upper set intersects every mask. The 1-to-21 selected factor weights are nonnegative exact integers over denominators at most eight, with per-coordinate sum at most the denominator. Summing these dual constraints bounds every attractor below by the weighted total; the ceiling equals the explicit upper size in all ten cases (including 51/8 rounding to seven at n1024). Sorting distinct masks by cardinality and deleting masks with a contained predecessor computes all inclusion-minimal masks; their irredundancy follows by taking each mask complement. A standard-library checker reconstructs every input word and all masks directly from the embedded package, checks all inequalities, factor counts, antichain counts, and succeeds. No infinite extrapolation is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faro, Marino, Pavone, arxiv:2610.10950v1, Section 1 and 3, proves an ordinary Thue-Morse minimal-coverage antichain, not a circular paperfolding antichain.",
+        "Romana 2023 proves general checking and NP-completeness, without a paperfolding exact table.",
+        "Schaeffer--Shallit, arxiv:2012.06840, discusses ordinary attractors of automatic sequences, not the present ten circular instances."
+      ],
+      "reasoning": "A universal checking algorithm or general minimal-mask reduction does not compute the inclusion-minimal family or its cardinalities on these ten specific circular words. The general ordinary automatic-sequence theory neither identifies exact circular weights nor provides a dominating theorem for this claim.",
+      "searches": [
+        "published-finding corpus: paperfolding string attractor interval factor hitting",
+        "published-finding corpus: fractional lower bound circular attractor factor weighted covering automatic word paperfolding",
+        "web: circular string attractors Mantaci Restivo Romana 2023 full paper pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.10950v1, accessible full text (ordinary Thue-Morse coverage results)",
+      "https://ceur-ws.org/Vol-3587/9885.pdf, Romana 2023 (circular checking/general theory)",
+      "arxiv:2602.16152v1 and accessible revised HTML (ordinary Fibonacci/period doubling)",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/8/SCOPE079/RESULT.md (ordinary paperfolding exact prefixes)",
+      "arxiv:2012.06840 (automatic-sequence ordinary attractors)",
+      "Prior finite circular classification of other word families, compared for implication but differing sequence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Romana 2023 Lemma 4 converts an ordinary attractor of w to a circular attractor of w with a NEW sentinel letter appended; the changed word is not the same paperfolding prefix.",
+        "Faro--Marino--Pavone treat ordinary Thue-Morse words, not the circular regular paperfolding word; their irredundant antichain is not a paperfolding table.",
+        "Accessible prior record contains ordinary exact minima at k7..10, but no circular occurrence masks or rational lower packings."
+      ],
+      "reasoning": "Direct implication fails: an ordinary minimum for w need not bound the circular minimum of the same w, because the allowed occurrence sets differ; indeed the two exact sizes differ at the length-8 instance. There is no reduction in the examined literature from the listed ordinary Thue-Morse coverage counts to the circular paperfolding counts, nor any stronger paperfolding result that subsumes the current finite exact statements.",
+      "searches": [
+        "published-finding corpus: paperfolding regular paperfolding word circular attractor optimal pairs prefixes",
+        "published-finding corpus: circular string attractor ordinary regular paperfolding prefix dyadic 2^k",
+        "arxiv:2610.10950v1 Sections 1--3, title and full-text queries paperfolding/circular",
+        "Romana 2023 Section 3 and Lemma 4 ordinary-to-circular reduction with an added sentinel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Romana 2023, https://ceur-ws.org/Vol-3587/9885.pdf, Definition 1 (circular-factor crossing), and algorithms/general complexity; no paperfolding-specific result.",
+        "Published linear paperfolding computation, https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE079, RESULT.md, lists ordinary minima rather than circular ones.",
+        "At length 8, the reported ordinary minimum 2 differs from the now-certified circular minimum 3."
+      ],
+      "reasoning": "Checked aliases circular factor, necklace, cyclic string attractor, dyadic prefix, paperfolding, and coverage mask. Circular and ordinary position coverage are not equivalent: wraparound creates additional factors and occurrences. Equal integer optima at some lengths do not imply circular factor-coverage antichains or circular optimality.",
+      "searches": [
+        "published-finding corpus: paperfolding regular paperfolding word circular attractor optimal pairs prefixes",
+        "published-finding corpus: circular string attractor ordinary regular paperfolding prefix dyadic 2^k",
+        "web: regular paperfolding word string attractor circular factors minimum",
+        "Romana 2023 full text: paperfolding [no matches]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full accessible RESULT.md of the prior paperfolding dyadic-prefix record tabulates ordinary factor counts and ordinary minimum sizes, with factor-count 410351 at n=1024; its factor universe excludes wraparound substrings.",
+        "Present certificate has 868847 circular factors at n=1024 and 55 distinct inclusion-minimal circular position-coverages.",
+        "Numerical equality for ordinary and circular minima at n128, 256, 512, 1024 does not identify the distinct canonical circular constraint counts 31, 39, 47, 55."
+      ],
+      "reasoning": "Searched both exact numbers and aliases/parameters. The closest pre-existing finite table is explicitly for noncircular substrings and cannot be used as an exact table of circular coverages. No already-covered circular paperfolding table was found in inspected records. This is a best-knowledge conclusion, not uniqueness proven by a search failure.",
+      "searches": [
+        "published-finding corpus: cyclic circular regular paperfolding prefix exact minimum attractor 1024 512 256 6 7",
+        "published-finding corpus: minimum circular attractor paperfolding 2 power 4 8 16",
+        "web: regular paperfolding circular attractor",
+        "Published linear record: 2026/9/8/SCOPE079, RESULT.md full-text"
+      ]
+    },
+    "rationale": "PASS within inspected evidence: The recent arxiv:2610.10950v1 identifies the canonical-coverage question for ordinary Thue--Morse, not circular paperfolding. Romana 2023 gives circular definitions/checking but no specialized paperfolding table. The closest publicly available dyadic paperfolding record gives ordinary, noncircular factor coverage; its numerical values coincide for k>=4, yet ordinary and circular differ at k=3 and its ordinary n1024 factor count is 410351 versus the present 868847 circular factors. No examined covering theorem or exact circular table was found after semantic searches and direct full-text comparisons. Unindexed or inaccessible earlier exact circular computations remain a residual priority risk, not a claim of proof of absolute uniqueness.",
+    "residual_risks": [
+      "Equivalent earlier circular paperfolding numerical/antichain tables may exist in unindexed or inaccessible literature.",
+      "The finite circular minima beyond length 16 numerically match known ordinary minima; novelty resides in circular validity/lower certificates and irredundant circular coverages, not the matching integers alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: ordinary Thue-Morse, different sequence and noncircular factor domain; no paperfolding or circular result.",
+        "evidence": [
+          "arxiv:2610.10950, sections 1.4, 1.7, 2.4, 3.2; minimal ordinary coverage antichains of Thue-Morse words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.10950 (v1, first public October 7 2026)",
+        "material_read": "Abstract, Introduction sections 1.1--1.8, Related Work section 2, Preliminaries and minimal-coverage reduction in section 3, and full-text search for paperfolding and circular.",
+        "method": "Read publicly accessible arXiv HTML/text and inspect statement/quantifiers and central coverage-definition paragraphs; searched entire document text for paperfolding/circular.",
+        "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue--Morse Words",
+        "trigger": "Very recent closest mathematical question: canonical factor-coverage antichain and smallest attractors in an automatic sequence."
+      },
+      {
+        "assessment": "NOT_COVERING: general algorithm and decision complexity; no paperfolding-specific spectrum or canonical coverage count.",
+        "evidence": [
+          "Definition 1 p3; Lemma 4 p7 discusses sentinel augmentation; no occurrence of the term paperfolding."
+        ],
+        "identifier_or_url": "https://ceur-ws.org/Vol-3587/9885.pdf",
+        "material_read": "Full accessible twelve-page PDF text with close inspection of Introduction, Definition 1, Lemma 1, checking algorithm, complexity reduction, and conclusion; screenshot of first page; entire-document search for paperfolding.",
+        "method": "Read primary OA proceedings PDF; inspected general reduction and exact parameter quantifiers.",
+        "title": "Algorithmic View on Circular String Attractors",
+        "trigger": "Defines exact cyclic occurrence concept and could contain a general theorem implying paperfolding optima."
+      },
+      {
+        "assessment": "NOT_COVERING: ordinary attractors for Fibonacci, period doubling, and extended Thue-Morse; no circular regular-paperfolding statement.",
+        "evidence": [
+          "arxiv:2602.16152v1 first public February 18 2026; cited results are ordinary-factor attractor claims."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+        "material_read": "Abstract, Introduction, Related Work and later-version coverage of Thue-Morse, with full-text paperfolding term search.",
+        "method": "Read accessible full HTML/text and distinguish first-submitted scope from revised version.",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Recent paper classifying attractors of other canonical automatic words."
+      },
+      {
+        "assessment": "NOT_COVERING: provides ordinary attractor minima and upper bounds, not circular minima or circular position-coverage antichains. Numerical coincidences are acknowledged.",
+        "evidence": [
+          "Its first dyadic stages have ordinary minima (1,2,2,3,4,5) at lengths 2..64, contrasting with circular (1,2,3,3,4,5); ordinary n1024 factor count 410351 versus circular count 868847."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/8/SCOPE079/RESULT.md",
+        "material_read": "Entire accessible 5,115-byte RESULT.md, including statement, numeric tables, proof/evidence, limitations and definitions.",
+        "method": "Read published GitHub source through repository file-read interface and compare full statements/implications.",
+        "title": "Exact minimal string attractors for Rudin--Shapiro and regular-paperfolding dyadic prefixes",
+        "trigger": "Directly same paperfolding sequence and dyadic parameters; strongest possible numerical overlap."
+      },
+      {
+        "assessment": "NOT_COVERING: general ordinary attractor logic/decision theory, not specified finite circular-paperfolding profile.",
+        "evidence": [
+          "arxiv:2012.06840, introductory abstract and automatic-prefix attractor theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+        "material_read": "Full accessible HTML, theorem/introduction sections on automatic sequences, and sequence families treated.",
+        "method": "Compared relevant stated automatic-sequence ordinary-attractor results with finite circular masks.",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "General automatic-sequence results might subsume dyadic paperfolding prefix attractor statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ffdec887-6749-4034-81a6-76309278c095",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: Natural dyadic scales of a canonical 2-automatic word form a motivated finite classification, including the first of the examined dyadic lengths requiring seven circular-attractor positions. Beyond numerical optima, the complete irredundant circular coverage hypergraph is enumerated at all ten scales; at n1024 it has 55 essential masks for 868847 distinct circular factors, and 21 rationally weighted factors provide a compact sharp lower certificate. These masks characterize every circular attractor regardless of cardinality and are not available from the pre-existing ordinary-factor data. The proof does not assert all-length behavior or all optimal-set counts.",
+    "status": "PASS"
+  }
+}
