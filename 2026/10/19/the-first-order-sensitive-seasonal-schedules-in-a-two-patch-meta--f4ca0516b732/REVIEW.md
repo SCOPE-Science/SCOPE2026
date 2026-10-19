@@ -1,0 +1,15 @@
+# Scientific assessment: two-patch seasonal-order theorem
+
+## Correctness
+PASS. The model specifies positive phase-specific diagonal growth matrices and a common symmetric stochastic migration matrix. Conjugate-transpose reversal of each factor, cyclic trace invariance, and the order-independent determinant prove invariance for every ordering through three phases. Exact four-phase trace differences are polynomial identities, not extrapolations from samples. Because the determinant is held fixed, the Perron-root inequalities follow without an unstated eigenvector hypothesis. A separate exact-rational threshold calculation gives strict opposite signs of \(\det(I-Q)\) with common determinant strictly between zero and one. The bundled checker reproduces these calculations from the present files. The result is strictly about linear low-density growth.
+
+## Originality
+PASS, with residual literature risk. Caswell and Trevisan (1994) provide phase-specific sensitivity of ordered population matrix products; Roth and Caswell (2016) and Caswell (2019) state general order sensitivity and cyclic phase invariance. These statements do not imply invariance under *all* permutations of at most three patch-specific seasonal growth phases. Schreiber (2010) and Schreiber and Li (2011) concern temporal heterogeneity and selection on dispersal rather than the exact four-season ordering problem. The compared public materials do not provide the three cross-difference factorizations, universal all-parameter ranking, or exact invasion-threshold reversal. General two-matrix norm-rearrangement results are not the same object: their repeated symmetric factors and spectral norm differ from four distinct positive demographic factors and Perron growth. Full text of certain older papers was inaccessible; an unindexed equivalent algebraic theorem remains possible.
+
+## Mathematical value
+PASS. The question asks a policy-relevant structural one: when can the order of fixed environmental conditions, rather than changes to any condition itself, change whether a rare metapopulation expands? The exact three-class ranking of all four-phase schedules requires only relative habitat-fitness order, a directly interpretable ecological quantity. The precise minimum of four phases and the rational example separating growth from decline demonstrate a genuine qualitative planning effect, not merely a marginal numerical gain. This does not imply that seasons can actually be rearranged in every ecological setting.
+
+## Scope and literature
+References: Caswell and Trevisan (1994), DOI 10.2307/1937455; Schreiber (2010), DOI 10.1098/rspb.2009.2006; Schreiber and Li (2011), DOI 10.1080/17513758.2010.525667 / arXiv:1007.5267; Roth and Caswell (2016), DOI 10.1111/2041-210X.12622; Caswell (2019), DOI 10.1007/978-3-030-10534-1_8. Assumptions: two patches, symmetric and phase-independent dispersal, strictly positive within-phase demographic multipliers, linear periodic growth. Limitations: no >4-phase optimizer and no stochastic or nonlinear persistence theorem.
+
+Self-review: passed. Independent audit: not yet performed.
