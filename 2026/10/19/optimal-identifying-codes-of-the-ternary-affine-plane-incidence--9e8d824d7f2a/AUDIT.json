@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Every closed-neighborhood trace is explicit on the 21-vertex point-line graph. Prior maximum-degree bound yields size >=9 and P attains it. Independent full-size-nine enumerations using (i) pairwise nonempty distinct traces and (ii) all neighborhood/symmetric-difference hitting constraints agree on all 109 masks, equal to the 1+36+72 geometric family. Independent checks also reject all 203490 size-eight masks. Every single swap is enumerated and matches a direct cone-over-line-graph characterization and four Pappus bi-Cayley coordinate models, with a nine-point/nine-line explicit isomorphism. All 432 affine transformations and all-source BFS independently verify three orbits and component radii and diameters. The standalone local package verify.py was executed successfully; only finite order three is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravier et al. arXiv:1411.5275, Proposition 2: for 21 vertices and maximum degree four, the established bound gives gamma_ID at least ceil(42/5)=9; construction by all nine points supplies equality. The value nine therefore has no novelty claim.",
+        "Gravier et al. arXiv:1411.5275, Sections 2-4: fractional bounds for vertex-transitive graphs and examples of strongly regular adjacency graphs from generalized quadrangles, not an irregular 21-vertex point-line Levi graph.",
+        "Bousquet et al. arXiv:1407.5833 treats hereditary-class VC-dimension and approximation for interval graphs; source-wide searches for affine or incidence yielded no matching classification.",
+        "Foucaud et al. arXiv:1107.0207, Sections 2-5 are about identifying codes of line graphs; our object H is not a line graph, while L(H) occurs only as an exchange component."
+      ],
+      "reasoning": "Any general degree bound strong enough to prove the minimum nine is expressly recognized as existing. The final classifier has all 109 minima, three symmetry orbits, exact exchange isomorphism, five components and their distances. No inspected broader theorem or specialized graph class entails those further statements. In particular, applying line-graph identifying-code results to the derived cone would conflate the original code graph with its reconfiguration graph.",
+      "searches": [
+        "Web: Identifying codes in vertex-transitive graphs and strongly regular graphs (arXiv:1411.5275)",
+        "Web: identifying codes in hereditary classes of graphs and VC-dimension (arXiv:1407.5833)",
+        "Web: identifying codes in line graphs (arXiv:1107.0207)",
+        "published-finding corpus: Identifying codes of bipartite incidence graphs of Steiner 2-designs, affine planes q=3, exact lower bounds and all minimum codes",
+        "published-finding corpus: Minimum identifying code reconfiguration single vertex swap exchange graph components of identifying codes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1411.5275 (full OA PDF, Proposition 2 and generalized quadrangles sections)",
+      "arXiv:1407.5833 (full OA PDF, VC-dimension and approximation statements)",
+      "arXiv:1107.0207 (full OA PDF, distinguishing original graph vs line graph)",
+      "DOI:10.1002/jgt.21686 (line-graph publication abstract, compared with OA version)",
+      "https://docs.magma-maths.org/Geometry/FinitePlanes/graph-code.html (exact incidence graph model)",
+      "published-finding corpus:2026/10/4/SCOPE-all-identifying-codes-of-thick-chain-graphs--78225de9eb51 (relevant identifying-code theme, inapplicable family)",
+      "published-finding corpus:2026/10/4/SCOPE-all-identifying-codes-of-connected-threshold-graphs--234765ead845 (relevant identifying-code theme, inapplicable family)",
+      "published-finding corpus:2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4 (same geometry, different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known gamma_ID(G)>=2|V(G)|/(Delta(G)+1) immediately implies minimum >=9; P is a size-nine identifying code, so min=9 is a known-bound corollary. The accepted originality target does not rely on this value being new.",
+        "The source 1411.5275 contains no finite 109-optimizer list, nor reconfiguration adjacency for AG(2,3); its graph class is vertex-transitive strongly regular and cannot specialize to a bipartite (4,3)-biregular graph.",
+        "The exact record SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4 concerns metric Vietoris-Rips homotopy of this geometry, not identifying code traces or exchanges.",
+        "The exact record SCOPE-the-pappus-independence-complex-is-bigvee-10-s-4--81f85f0cc9c6 concerns the independence complex of the Pappus graph, not an identifying-code exchange decomposition."
+      ],
+      "reasoning": "A general lower bound plus an upper-bound witness proves gamma_ID=9 but logically says nothing about the number or shape of all minimizers. Complexity, approximation, and graph-homotopy results also do not imply the precise incidence-cone/Pappus decomposition. Distinct graph constructions happen to share Pappus terminology, but the implication comparison uses the state space and moves, not the graph name.",
+      "searches": [
+        "arXiv:1411.5275 Proposition 2 maximum-degree identifying-code lower bound",
+        "arXiv:1107.0207 introduction hypergraph transversal reformulation and line-graph theory",
+        "arXiv:1407.5833 main results identifying-code VC-dimension",
+        "published-finding corpus: Minimum identifying code in incidence graph of affine plane AG(2,3), equivalence class under affine automorphism and minimum-code exchange connectivity",
+        "Web: identifying codes point line incidence graph affine plane of order q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An identifying code is a transversal of all closed neighborhoods and pairwise symmetric differences: arXiv:1107.0207, introduction, pp. 1-2; the present code checks this exact equivalent formulation.",
+        "A graph identifying code differs from ordinary locating-dominating when code vertices themselves must also be distinguished; both point and line vertices are included here.",
+        "published-finding corpus search closest hit 2026/10/4/SCOPE-all-identifying-codes-of-thick-chain-graphs--78225de9eb51: closed-neighborhood identification in chain graphs, not affine incidence graphs."
+      ],
+      "reasoning": "The symbolic condition is exactly equality and nonemptiness of closed-neighborhood traces; its hitting-set dual is fully checked. Neither published-finding corpus nor targeted public searches identified a matching Hesse/Levi/Steiner-triple-system point-line code classification. Chain graphs have nested bipartite neighborhoods; the girth-six incidence graph of the affine plane contains incomparable line neighborhoods, so those exact formulas do not imply this claim.",
+      "searches": [
+        "published-finding corpus: Identifying codes in incidence graphs of affine planes order 3 and unique code orbit / reconfiguration at optimal cardinality",
+        "published-finding corpus: Hesse (9_4,12_3) incidence graph identifying code: point-line minimum 9 and optimal-code exchange graph K_{1,36} disjoint union four Pappus graphs",
+        "published-finding corpus: optimal identifying code point line Levi graph affine plane AG(2,3) codeword deletion triangle parallel lines",
+        "Web: identifying codes incidence graphs affine; identifying code Levi graph plane; Hesse configuration identifying code exchange graph",
+        "Web: identifying code Pappus affine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus exact-parameter query closest hit 2026/9/13/SCOPE033 concerns STS(21) Pasch counts, not the 21-vertex AG(2,3) Levi graph; no exact 109-code table returned.",
+        "published-finding corpus exact exchange query closest hit 2026/10/4/SCOPE-all-identifying-codes-of-connected-threshold-graphs--234765ead845 is an unrelated threshold-graph enumeration.",
+        "Magma handbook documents the precise 9-point/12-line affine incidence graph but no identifying-code minima table: https://docs.magma-maths.org/Geometry/FinitePlanes/graph-code.html ."
+      ],
+      "reasoning": "The numerical identity 109, the three 1/36/72 geometric optimizer families, and the cone plus four Pappus isomorphism were searched together and separately. No accessible exact table or published record with equivalent implications was found. This is evidence of a gap, not proof of absence from all possible literature.",
+      "searches": [
+        "published-finding corpus: 21-vertex incidence graph of affine plane order 3 has identifying code number 9 with 109 minimum identifying codes and four 18-vertex Pappus reconfiguration components",
+        "published-finding corpus: Hesse (9_4,12_3) incidence graph identifying code: point-line minimum 9 and optimal-code exchange graph K_{1,36} disjoint union four Pappus graphs",
+        "Web: identifying codes graphs affine plane Hesse configuration 109 minimum code",
+        "Web: identifying codes on specific small graphs computed graph atlas 21 vertices minimum code table",
+        "Web: Hesse graph identifying domination resolving identifying sets"
+      ]
+    },
+    "rationale": "The general degree lower bound for 9 is prior art and is not counted as a new finding; see Proposition 2 of arXiv:1411.5275. The final claim is the exact three-family optimizer classification (1,36,72) and its exchange-graph isomorphism to a 37-vertex cone over the original incidence line graph plus four Pappus graphs. Searches for Hesse/affine order-three incidence graph, closed-neighborhood identifying codes, exact nine-element optimizers, aliases, and exchange connectivity returned no statement-level coverage. The closest primary works give bounds/adjacency-graph or line-graph results, not this irregular bipartite incidence case. Relevant published prior mathematical-record hits on chain/threshold graphs are structurally inapplicable. The checker proves correctness, not novelty; residual unindexed computations remain a genuine risk.",
+    "residual_risks": [
+      "Some unpublished, not electronically indexed, or differently named small-graph enumeration could contain an equivalent optimizer census or exchange component decomposition.",
+      "Originality is based on checked accessible research records and primary-source comparison; it is not established by a negative search alone and is not independently reviewed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS minimum-size lower bound (and hence value nine together with an elementary witness), but NOT_COVERING the final optimal-set census/exchange theorem in examined sections. The source graph families are different.",
+        "evidence": "Proposition 2 lower bound gamma_ID>=2n/(Delta+1); Sections 3-4 focus on regular/strongly regular adjacency graphs, generalized quadrangle table; no affine-plane Levi optimizer classification found.",
+        "identifier_or_url": "arXiv:1411.5275; https://arxiv.org/pdf/1411.5275",
+        "material_read": "Accessible 26-page full PDF; inspected introduction, definition and degree-bound propositions on pp. 1-4 and detailed generalized-quadrangle construction and table in Sections 4.3.1-4.3.2, pp. 16-19; source-wide text searches for affine and incidence graph.",
+        "method": "Original open-access arXiv PDF, visual page inspection and source-wide text search",
+        "title": "Identifying codes in vertex-transitive graphs and strongly regular graphs",
+        "trigger": "Primary archival literature led to graph identifying codes; Proposition 2 potentially gives an exact bound."
+      },
+      {
+        "assessment": "NOT_COVERING the exact optimum-code reconfiguration and geometric census; statements concern hereditary class bounds and approximations.",
+        "evidence": "Main results formulate VC-dimension dichotomy and approximation, not exact small-incidence-graph optimizer enumeration; no affine/incidence matches.",
+        "identifier_or_url": "arXiv:1407.5833; https://arxiv.org/pdf/1407.5833",
+        "material_read": "Accessible 17-page full PDF, abstract/intro and main problem statements inspected, source-wide search for affine and incidence keywords.",
+        "method": "Original open-access arXiv PDF and text search",
+        "title": "Identifying codes in hereditary classes of graphs and VC-dimension",
+        "trigger": "Possible generic specialization to bipartite incidence graphs."
+      },
+      {
+        "assessment": "NOT_COVERING because it optimizes identifying codes in L(G), whereas the final claim optimizes codes in the original irregular incidence graph H and only later describes L(H) as part of the exchange graph.",
+        "evidence": "Definitions 1/5 and Sections 2-5 distinguish edge-identifying codes of G (= identifying codes of L(G)); no affine-plane optimizer census.",
+        "identifier_or_url": "arXiv:1107.0207; https://arxiv.org/pdf/1107.0207",
+        "material_read": "Accessible 20-page full PDF, Definitions 1 and 5, introduction, section outline and exact class-specific propositions; source-wide text searches for affine and incidence.",
+        "method": "Original open-access arXiv PDF and text search",
+        "title": "Identifying codes in line graphs",
+        "trigger": "Potentially stronger specialized exact theory because the final exchange component involves a line graph."
+      },
+      {
+        "assessment": "Confirms graph construction but has no identifying-code minimum-set or exchange graph results.",
+        "evidence": "Example displays 9 points, 12 lines and incidence neighbors only.",
+        "identifier_or_url": "https://docs.magma-maths.org/Geometry/FinitePlanes/graph-code.html",
+        "material_read": "Public documentation example showing the full 21-vertex adjacency list of FiniteAffinePlane(3).",
+        "method": "Online documentation text",
+        "title": "Planes, Graphs and Codes (Magma handbook)",
+        "trigger": "Potential exact database/table for the Hesse configuration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e8d824d-7f2a-4a03-99c1-aaa62607c109",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The affine plane of order three is the smallest odd-order affine plane with four distinct line directions; its 21-vertex Levi graph is a canonical point-line sensor-identification instance. Minimum size alone is already given by known bounds; the exact classification of optimum codes and the obstruction to moving among them without leaving the optimal budget are structural questions of independent significance. The four Pappus components exhibit a non-obvious recurrence of a classical 9_3 configuration in the geometry of optimum-code exchanges, while the remaining codes realize a line-graph cone. This supplies an exact, natural reconfiguration benchmark, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
