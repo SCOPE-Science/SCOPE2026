@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The original greedy MAS criterion has been rechecked against the exact one-step automaton. The only reachable positions in run j are first-position states with multiplicities \\(F_{j-2}\\), \\(F_{j-1}\\), and interior positions with multiplicity \\(F_j\\). All possible transitions from each state are explicitly covered, exploiting minimum run length two. The only possible terminal edges yield \\(F_r\\) and \\(F_{r+1}\\) by last-letter class, including an independent r=2 base case. Greedy embedding uniquely labels each path by an output MAS and prevents duplicated counting. A separate direct subsequence enumerator confirms all 124 tested small-run tuples; larger parameter tests agree. No finite experiment is used for universal quantification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. describe all MAS by a general directed acyclic graph and prove polynomial-delay enumeration; general algorithms alone do not state the exact count on this infinite class.",
+        "Adamson et al., arXiv:2407.18599, bound all absent subsequences of fixed length for universality classes, not inclusion-minimal absent subsequences counted over all lengths."
+      ],
+      "reasoning": "The general enumeration framework includes the family as algorithmic inputs, but the claimed explicit invariant and terminal-symbol refinement are additional consequences, not an asserted result of those publications. All-absent and shortest-absent counts cannot be substituted for minimal-absent antichain cardinality.",
+      "searches": [
+        "arXiv:2108.13968 Sections 3 and 4",
+        "arXiv:2407.18599 full paper title Tight Bounds for the Number of Absent Subsequences",
+        "minimal absent subsequences four run binary words classification 0^a1^b0^c1^d"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.13968, PDF Sections 2-4",
+      "arXiv:2407.18599, public PDF introduction and main bounds",
+      "arXiv:2504.21471, public PDF introduction and algorithms",
+      "Published research record on extremal numbers of shortest absent subsequences of binary words",
+      "Previous published count for undoubled alternating binary blocks (01)^k"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior theorem provides path admissibility; the present proof newly classifies all possible reachable states as one interior family and two first-position families, then solves their Fibonacci recurrence.",
+        "The first worked two-run example is a proper specialization; undoubled alternating-run MAS length spectrum has different assumptions."
+      ],
+      "reasoning": "The exact \\(F_{r+2}\\) number and split \\(F_r\\) versus \\(F_{r+1}\\) are not directly stated by the observed source claims. They follow from new family-specific state analysis using a previously established general characterization; novelty of the **consequence**, not of the criterion, is the asserted distinction.",
+      "searches": [
+        "Fibonacci exact number minimal absent subsequences binary words with r alternating runs each of length at least two (0^{a_1}1^{a_2}cdots)",
+        "minimal absent subsequences of binary words with r alternating runs each length at least two exactly Fibonacci F_{r+2} MAS count under run dilation invariant",
+        "arXiv:2108.13968 Theorem 3.1 and 4.21",
+        "arXiv:2407.18599 arXiv abstract and paper introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche et al., arXiv:2108.13968, Theorem 3.1 gives a greedy characterization; Example 3.3 has exactly three MAS for the binary two-run word 0011.",
+        "The general MAS enumerator in arXiv:2504.21471 addresses arbitrary words without supplying the Fibonacci run count."
+      ],
+      "reasoning": "Using alternative terms minimal forbidden scattered subsequences, subsequence-antidictionary, greedy MAS automaton, and alternating run dilation led to general MAS criteria, but no encountered formula \\(F_{r+2}\\) for every binary word with all runs length >=2. The two-run example is a strict special case, not the infinite closed form.",
+      "searches": [
+        "Fibonacci exact number minimal absent subsequences binary words with r alternating runs each of length at least two (0^{a_1}1^{a_2}cdots)",
+        "minimal forbidden scattered subsequence number doubled alternating binary word (0011)^k",
+        "subsequence-antidictionary run-length Fibonacci independent run lengths binary",
+        "minimal absent subsequences of binary words with r alternating runs each length at least two exactly Fibonacci F_{r+2} MAS count under run dilation invariant",
+        "arXiv:2108.13968 Theorem 3.1; example 3.3",
+        "arXiv:2504.21471 full PDF MAS enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary source lists the value three for 0011 only; that finite table entry is included by the present theorem.",
+        "No matching full parameter-uniform table was identified in the consulted publications and research-record searches."
+      ],
+      "reasoning": "A single sample or a binary undoubled-run length spectrum does not give the exact all-run-length>=2 formula or its terminal split. No claim that an absence from search proves global uniqueness.",
+      "searches": [
+        "minimal absent subsequences of binary words with r alternating runs each length at least two exactly Fibonacci F_{r+2} MAS count under run dilation invariant",
+        "published minimal absent subsequence fixed-run Fibonacci sequence",
+        "arXiv:2108.13968 Example 3.3 0011"
+      ]
+    },
+    "rationale": "The published general characterization of minimal absent subsequences and the example 0011 are explicitly acknowledged, and the precise novel consequence is the parameter-uniform Fibonacci MAS antichain count plus terminal-letter split for arbitrary binary runs of lengths at least two. Related prior results count shortest MAS, all absent subsequences, or single-letter-run families; those statements do not imply the exact all-run-length>=2 formula without the specialized state analysis. Targeted literature and mathematical research-record comparisons found no equivalent explicit theorem. Residual risk from unindexed historical results persists.",
+    "residual_risks": [
+      "An equivalent closed count might be implicit or explicit in unindexed specialist language literature.",
+      "The previously known general greedy criterion makes some ingredients standard, so the value comes from the nontrivial full run-state classification, not from the criterion itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Greedy criterion and two-run example are prior work; exact Fibonacci count invariant for binary words with arbitrary doubled or longer runs was not found",
+        "evidence": [
+          "Theorem 3.1, pp. 203-204 (PDF pages 4-5)",
+          "Example 3.3 (PDF page 6)",
+          "Theorem 4.21 general algorithmic representation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Definition 2.4; Theorem 3.1 proof; Example 3.3; later construction of general MAS enumeration graph; subsection on particular example families",
+        "method": "Full primary PDF inspected by section and keyword searches for Fibonacci and run",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Same MAS definition and plausible broad theoretical coverage"
+      },
+      {
+        "assessment": "Its counted objects are all absent subsequences of specified length, not the minimal absent antichain of words with fixed run complexity",
+        "evidence": [
+          "arXiv:2407.18599 abstract and main problem definition"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+        "material_read": "Abstract, definitions, motivating introduction and central bounds on absent subsequences of fixed length",
+        "method": "Primary public PDF inspected at abstract, introduction and theorem portions",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Closest source on exact counts of absent subsequences"
+      },
+      {
+        "assessment": "Output-sensitive general algorithms, no observed exact F_(r+2) formula for all long-run binary words",
+        "evidence": [
+          "arXiv:2504.21471 introduction and theorem on enumeration complexity"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+        "material_read": "Abstract, introduction, main enumeration theorem and relevant algorithmic sections",
+        "method": "Accessible primary full PDF inspected and searched for run-specific and Fibonacci formulas",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Plausible stronger coverage of enumerating every MAS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc7e6a1a-652c-4cb7-8c2c-132b66292d2f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact infinite-family evaluation of a naturally defined antichain size for every number of runs and arbitrary run lengths >=2, with a sharp Fibonacci growth law and separate letter-ended counts. It proves a substantive run-dilation invariance not manifest in general enumeration algorithms, and provides a structural baseline for analyzing isolated-letter runs or larger alphabets. It is not a finite census, routine fixed input substitution, or an unsupported downstream application.",
+    "status": "PASS"
+  }
+}
