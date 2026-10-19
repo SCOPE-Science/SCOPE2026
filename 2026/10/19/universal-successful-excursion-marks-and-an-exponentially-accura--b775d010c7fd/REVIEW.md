@@ -1,0 +1,19 @@
+# Scientific review: universal successful-excursion marks
+
+## Correctness
+
+**PASS.** The claim is precisely about a circle with one absorbing point, constant \(D>0\), independent fresh spatial draws and independent Poisson resets, and equal local power exponent \(\beta-1>-1\) on both sides. The first-exit Laplace transform solves the two-endpoint boundary-value problem, and the success-conditioned terminal-trial transform follows from a geometric renewal. Endpoint Laplace integration yields the normalized joint Laplace transform, which gives the two Gamma marginals and their exact \(1/\sqrt2\) limiting correlation. The quantitative total-variation bound is obtained by coupling each trial with a half-line motion until an opposite-endpoint exit, bounding that exit by a hyperbolic-sine solution, truncating the half-line power intensity at distance \(a\), and controlling the Gamma tail and normalization. The scaled total search time is asymptotically independent of marks by an explicit failed-trial geometric Laplace transform. The external verifier passes 219 deterministic assertions; those are consistency checks, not substitutes for infinite-domain proof.
+
+## Originality
+
+**PASS, with a substantive implicit-coverage risk.** The 2026 ring paper, arXiv:2605.08414v1, already provides the survival/mean-time identity for arbitrary spatial reset distributions. More importantly, the closely related 2025 distributed-reset article, arXiv:2507.14483, Section V and Eqs. (26)–(29), **already derives the general last-reset-point density and the Brownian hitting-time density**. Those are directly acknowledged and explicitly excluded. The claim assessed here is the coupled distance/duration joint limiting law (not simply its location marginal), its universal correlation, and a new *joint total-variation* finite-ring error bound for the natural pure-power reset family. The 2025 paper's principal compact-support cases exclude the target, whereas the present density's support meets the target. The 2023 frequent-reset first-passage theorem gives the *unmarked* exponential limit, also excluded from novelty. The inspected full texts and searched mathematical records did not exhibit the marked-law/two-sided-explicit-bound combination. Since they contain general transforms from which parts of the result might be recoverable by further asymptotic arguments, independent originality review is important.
+
+## Value
+
+**PASS.** The final successful excursion, rather than only total completion time, determines which relocation sites actually contribute to target detection and how long their final trips last. An exact universal correlation between these two observables and a joint (not marginal) exponentially small geometry-error estimate are useful for experimental interpretation and for deciding when the half-line model approximates a finite ring. The target-side power exponent gives a sharp classification of whether arbitrarily frequent resets help or catastrophically hinder the mean search time. The result is not a mere numerical recomputation of an existing table.
+
+## Closest literature and limits
+
+The strongest direct prior overlap is Julián-Salgado, Dagdug and Boyer (2025), particularly their general final-reset-point density and Lévy–Smirnov Brownian first-passage density. The 2026 ring article supplies the original geometry and renewal formulas; Linn and Lawley (2023) supply the general unmarked frequent-reset exponential limit. The present proof depends on the local-density assumption and, for the explicit total-variation estimate, the stated symmetric pure-power family. A general transform could implicitly entail parts of the joint law; this is a residual originality risk, not evidence of an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
