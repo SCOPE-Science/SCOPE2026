@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "On an SPD quadratic, a nonterminal ball step is y=(I+sH)^(-1)x with s>0. Within each occupied dyadic eigenband the coordinate decrement factors have ratio less than two, so band displacement is at most twice the band-norm decrease. Telescoping and Cauchy-Schwarz prove 2 sqrt(p) D, while sign-preserving coordinate monotonicity proves sqrt(d) D. Each nonterminal fixed-radius movement has length h, establishing finite-call complexity. Geometrically spaced eigenvalues and disjoint gradient-flow time intervals give (exp(-1/2)-exp(-1))sqrt(p) arclength; on every compact nonzero segment the backward-Euler recurrence converges to the normalized gradient-flow curve, transferring the lower bound to liminf h N_h. The standalone checker passed 80671 finite checks; proof does not depend on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gupta, Balakrishnan and Ramdas, arXiv:1908.01089: sharp order sqrt(log kappa) for ordinary gradient flow and fixed-step gradient descent, not variable-resolvent ball-proximal orbits.",
+        "Richtarik and Li, arXiv:2609.35147: general O_d(1+D/h) finite termination and finite length."
+      ],
+      "reasoning": "The existing gradient-flow statement does not logically bound a discrete variable-resolvent path without further comparison. The new dyadic proof supplies such control; the general dimension-dependent theorem does not imply the spectral bound.",
+      "searches": [
+        "Exact ball proximal point method Broximal constant radius SPD quadratic finite termination number of steps bounded by square root logarithm of spectral condition number, dyadic eigenvalue groups",
+        "Normalized implicit gradient ball-prox trajectory length strongly convex quadratic square root log condition number sharp lower bound",
+        "arxiv:1908.01089 Theorems 10 and 18",
+        "arxiv:2609.35147 Theorem 4.1, Corollary 4.9 and discussion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.35147v1 (2026-09-28)",
+      "arxiv:2502.02002 (2025-02-04)",
+      "arxiv:1908.01089v4 (first posted 2019-08-02)",
+      "published mathematical research record 6eb2c5b9c996 (different Hellinger-kernel adaptive method)",
+      "published mathematical research record 18ebe14ebda2 (different composite trust-region gradient)",
+      "published mathematical research record 0eec6412acfe (Cauchy trust-region quality)",
+      "published mathematical research record 1925adb68013 (different coordinatewise finite-length optimizer)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.35147 Section 4: general convex trajectory length with a dimension-dependent constant.",
+        "arXiv:1908.01089 Theorems 10 and 18: same order only for gradient flow and ordinary gradient descent; discussion identifies proximal methods as a further direction.",
+        "arXiv:2502.02002: ball-proximal setup and generic convergence estimates."
+      ],
+      "reasoning": "Combining the quoted prior results motivates but does not itself give a discrete arbitrary-radius spectral-band estimate. The proof here derives a new monotone-resolvent per-band inequality and a separate local implicit-Euler lower-bound transfer.",
+      "searches": [
+        "Richtarik Li A Sharper Theory of Ball-Proximal Optimization 2609.35147 scalar positive definite quadratic eigenvalue condition number iteration length",
+        "arxiv:2609.35147 versus arxiv:1908.01089 versus arxiv:2502.02002"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gruntkowska et al., arXiv:2502.02002: exact normalized implicit ball step is prior.",
+        "Richtarik and Li, arXiv:2609.35147: Proposition 1.1 establishes the same known update equivalence."
+      ],
+      "reasoning": "The update rule is not itself novel. The new step-by-step estimate is on the decay of every occupied dyadic eigenband, telescoped uniformly for all positive radius sequences. Neither compared source states that quantitative result.",
+      "searches": [
+        "broximal Euclidean ball proximal point Hessian eigenbands finite cumulative travel path length sqrt log kappa",
+        "quadratic ball-proximal point path length spectral bands implicit resolvent condition number",
+        "arxiv:2502.02002 Sections 1.2-1.4 normalized implicit proximal",
+        "arxiv:2609.35147 Proposition 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 6eb2c5b9c996 concerns Hellinger-kernel adaptive gradient on an invariant ray; 18ebe14ebda2 concerns composite trust-region gradient cycling.",
+        "Published record 0eec6412acfe concerns Cauchy trust-region decrease; 1925adb68013 concerns finite length for a different coordinate update."
+      ],
+      "reasoning": "No equivalent quantitative algorithmic result or exact table was identified. These are different objectives or update maps; absence from the finite index is not proof of uniqueness.",
+      "searches": [
+        "broximal Euclidean ball proximal point Hessian eigenbands finite cumulative travel path length sqrt log kappa",
+        "quadratic ball-proximal point path length spectral bands implicit resolvent condition number",
+        "exact ball constrained quadratic minimize over Euclidean ball trust region repeated finite termination oracle sharp spectral bound",
+        "Richtarik Li A Sharper Theory of Ball-Proximal Optimization 2609.35147 scalar positive definite quadratic eigenvalue condition number iteration length",
+        "arxiv.org/abs/2609.35147 searched for spectral and condition number",
+        "published mathematical research-record semantic searches for broximal, quadratic, variable resolvent, path length"
+      ]
+    },
+    "rationale": "The established implicit ball-proximal step and the known quadratic gradient-flow square-root-log path-length phenomenon are credited. The accepted new mathematical implication is a uniform, nonasymptotic, arbitrary-radius length estimate for a different implicit variable-resolvent algorithm, the resulting fixed-radius finite-call bound, and a matching lower-order transfer. Searches and paper-section comparisons found no stronger coverage, subject to unindexed-source risk.",
+    "residual_risks": [
+      "An unindexed implicit-proximal or quadratic trust-region path-length theorem may already cover the statement.",
+      "The sharp-order ordinary gradient-flow result is prior work; originality is limited to its nonasymptotic arbitrary-radius ball-proximal transfer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General O_d(1+D/h) complexity and exact normalized implicit step are known; an SPD eigenband path-length bound was not identified in relevant text.",
+        "evidence": [
+          "arXiv:2609.35147 Table 1 and Proposition 1.1; Section 4 and Corollary 4.9; discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.35147",
+        "material_read": "Introduction, normalized implicit-step Proposition 1.1, Sections 4.1 and 4.2, Corollary 4.9, Discussion from accessible full text",
+        "method": "Read the relevant substantive sections of the primary arXiv HTML text, including theorem statements and discussion.",
+        "title": "A Sharper Theory of Ball-Proximal Optimization: Convergence and Radius Selection",
+        "trigger": "Motivating exact-ball-oracle paper and closest finite-call benchmark"
+      },
+      {
+        "assessment": "Defines the algorithm and normalized implicit step but gives no eigenband-resolved trajectory-length theorem in inspected material.",
+        "evidence": [
+          "arXiv:2502.02002 Definition 1.1 and Sections 1.3-1.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.02002",
+        "material_read": "Definitions 1.1, Sections 1.3 and 1.4 and corresponding relevant convergence overview in accessible full text",
+        "method": "Read relevant primary arXiv HTML sections rather than relying on an abstract.",
+        "title": "The Ball-Proximal (=“Broximal”) Point Method: a New Algorithm, Convergence Theory, and Applications",
+        "trigger": "Original ball-proximal method, prior equivalent formulations"
+      },
+      {
+        "assessment": "Already proves the spectral exponent and geometric lower construction for ordinary gradient flow and gradient descent; not for ball-proximal variable-radius implicit paths.",
+        "evidence": [
+          "arXiv:1908.01089v4 Theorems 10 and 18, Discussion, page images"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.01089",
+        "material_read": "55-page PDF opened, abstract, Section 2.3 Theorem 10, Section 4.2 Theorem 18, Discussion; visual inspection of PDF pages 1 and 9",
+        "method": "Read primary PDF text and view theorem-page screenshots.",
+        "title": "Path Length Bounds for Gradient Descent and Flow",
+        "trigger": "Strongest plausible dominating result for the spectral logarithmic exponent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e81d7046-5c50-4bb7-aa5d-6b8ce727cf7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A general exact ball-proximal method has a dimension-dependent linear termination bound and a potentially quadratic dimension-free bound. For the motivated SPD quadratic subclass, the new theorem supplies a radius-schedule-independent length certificate with only square-root logarithmic condition-number dependence, plus a sharp-order geometric-spectrum family. This provides a reusable ideal-oracle numerical-optimization benchmark distinct from previously known gradient-flow results, without claiming practical speedup or exact optimal constants.",
+    "status": "PASS"
+  }
+}
