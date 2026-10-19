@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The four-state morphism has exactly eight occurring adjacent state pairs, as explicitly enumerated and proved closed. Every factor at a dyadic length is among the finite windows crossing those pairs. The packaged C++ program executes the exhaustive enumeration and exact cyclic-class grouping for all ten claimed lengths. Additional independent normalizations include direct parity-based Rudin–Shapiro prefix agreement, an independent direct-factor census through length \(64\), and naive rotation checks through length \(32\). Computation is exhaustive for the stated finite domain only.
+
+**Originality — PASS against inspected sources.** The 2014 cyclic-complexity paper studies structural results and other infinite words, not this dyadic Rudin–Shapiro cyclic orbit distribution. The 2018 follow-up studies Fibonacci and Thue–Morse words, not Rudin–Shapiro. Searches for both the exact counts and equivalent cyclic-rotation/necklace descriptions found no stronger result asserting this finite multiplicity spectrum. Prior Rudin–Shapiro factor, abelian, and string-attractor results concern different invariants. Residual risk: an unindexed exact earlier computation or an unstated derivation in complete factor-graph descriptions.
+
+**Value — PASS.** The orbit *multiplicity* distribution, not just a raw list of factor counts, is a natural structural invariant of a classical automatic word. Its unexpectedly rigid split into four fully represented necklaces, two partially represented necklaces, and all remaining singleton necklaces at ten successive doubling scales gives nontrivial exact finite benchmarks for cyclic factor complexity. At length \(8\) the distribution is different; the certified range begins at the first observed stabilized scale \(16\). No general theorem beyond that range is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

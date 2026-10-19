@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Finite exact proof reduces all length-2^k factors to all offsets in concatenations of eight occurring adjacent substitution state blocks. Each of the eight state pairs appears in a fixed-point prefix and their set is substitution-closed. The included self-contained C++17 verifier exhaustively enumerates all words and least-rotation classes at each k=4,...,13, checking the claimed distribution. Execution returned VERIFY_OK. Independent definitions of the binary sequence, direct factor sets up to n=64, and brute least rotations up to n=32 cross-check normalization and canonicalization; no infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2014 paper proves general periodicity/aperiodicity theorems and studies Toeplitz, paperfolding, Thue–Morse and Sturmian words; it contains no Rudin–Shapiro word analysis.",
+        "2018 paper abstract and §§2–3 explicitly restrict concrete analyses to Fibonacci and Thue–Morse; no Rudin–Shapiro occurrence in text."
+      ],
+      "reasoning": "General theorems imply qualitative unboundedness for aperiodic words, not ten numerical values or orbit-size distributions. Factor complexity gives total factors but cannot uniquely determine distribution across rotation classes; abelian complexity coarsens by arbitrary permutations.",
+      "searches": [
+        "cyclic factor complexity Rudin Shapiro 16 58 32 122 64 250 128 506",
+        "Rudin-Shapiro cyclic complexity of dyadic length factors: four full conjugacy classes, two size-two classes, all other factors unique under rotation",
+        "arXiv:1402.5843 full HTML §5; INTEGERS 18A A12 entire text"
+      ]
+    },
+    "checked_sources": [
+      "Cassaigne et al., arXiv:1402.5843v5, full HTML sections 1–5, particularly §5.1–§5.3; initially submitted 2014-02-24",
+      "Krawchuk–Rampersad, INTEGERS 18A (2018), 13-page article A12, abstract, §2 and §3",
+      "Published finding-index searches for Rudin–Shapiro factor necklaces, dyadic counts, rotations, and aliases; closest IDs recorded in source inspections and prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At powers of two, the published 2018 Thue–Morse formula is for c_t(n), not c_r(n); the sequences differ and neither factor set contains the other in a way yielding the claimed counts.",
+        "2014 cyclic-complexity structure supplies definitions and lower bounds, but does not constrain Rudin–Shapiro cyclic orbits to the candidate multiplicities."
+      ],
+      "reasoning": "This claim is not a special case of a published Thue–Morse computation or an elementary restatement of total factor complexity; it tabulates exact counts for the Rudin–Shapiro factor language and the finer orbit-occupancy invariant. Potential unindexed Rudin–Shapiro-specific coverage remains a residual originality risk.",
+      "searches": [
+        "binary Rudin Shapiro sequence exact cyclic complexity n powers of 2 necklace orbit multiplicity 4n-6",
+        "factors of Rudin-Shapiro fixed point exact cyclic conjugacy class distribution full rotation classes dyadic 8192",
+        "arXiv:1402.5843 sections 3–5",
+        "INTEGERS 18A article §2 proposition 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv:1402.5843 definition identifies cyclic complexity with the count of conjugacy classes of occurring factors; the candidate refines this to the occupancy distribution of each necklace.",
+        "Krawchuk–Rampersad, INTEGERS 18A A12, pp.1–3, defines the same conjugacy relation and gives a dyadic Thue–Morse count, not a Rudin–Shapiro one."
+      ],
+      "reasoning": "Rotation/necklace/conjugacy are the direct equivalent formulations; the exact three-level Rudin–Shapiro occupancy census was not obtained by these searches. Thue–Morse is a different fixed point and its dyadic formula cannot imply this one.",
+      "searches": [
+        "binary Rudin Shapiro sequence exact cyclic complexity n powers of 2 necklace orbit multiplicity 4n-6",
+        "factors of Rudin-Shapiro fixed point exact cyclic conjugacy class distribution full rotation classes dyadic 8192",
+        "web: Rudin Shapiro \"cyclic complexity\" rotation factors cyclic conjugacy classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual Indexed published records concerned Rudin–Shapiro Fourier filter mixtures, string attractors, and unrelated cyclic invariants, none giving the pair (16,58) or three-level class multiplicities.",
+        "The inspected INTEGERS 18A Table for cyclic complexity contains Thue–Morse and Fibonacci, not Rudin–Shapiro."
+      ],
+      "reasoning": "No indexed exact value table or dominating orbit census was found in the material actually searched; this is limited search evidence, not proof of global uniqueness.",
+      "searches": [
+        "cyclic factor complexity Rudin Shapiro 16 58 32 122 64 250 128 506",
+        "Golay-Rudin-Shapiro sequence necklace classes factor rotation orbit size distribution at n=2^k",
+        "indexed published-finding search: dyadic Rudin Shapiro cyclic class multiplicity",
+        "web: Rudin Shapiro cyclic complexity 4n-6"
+      ]
+    },
+    "rationale": "Full-text comparison with the founding cyclic-complexity article (2014) and the explicit dyadic case-study (2018) found neither this Rudin–Shapiro orbit spectrum nor a dominating assertion; relevant Published finding-index searches show other Rudin–Shapiro invariants and unrelated cyclic problems. Residual risk of an obscure earlier exact computation is acknowledged; novelty is not inferred solely from absent search hits.",
+    "residual_risks": [
+      "An unindexed Rudin–Shapiro cyclic-complexity calculation in an older specialized paper might already contain these ten values or imply the spectrum.",
+      "The search of published indexed abstracts is not equivalent to complete inspection of all historical factor-graph articles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines invariant and treats Sturmian, Toeplitz, paperfolding, Thue–Morse; no Rudin–Shapiro-specific dyadic orbits",
+        "evidence": "Cassaigne et al., arXiv:1402.5843v5, full HTML sections 1–5, particularly §5.1–§5.3; initially submitted 2014-02-24",
+        "identifier_or_url": "https://arxiv.org/html/1402.5843v5",
+        "material_read": "Full HTML article, introduction, statements and proofs, sections 2–5 including §5.1–§5.3",
+        "method": "Read HTML article and inspected all named sections; searched within full text for Rudin",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Founding definition, potential general coverage of automatic words"
+      },
+      {
+        "assessment": "Provides Thue–Morse n=2^k count and Fibonacci results, but no Rudin–Shapiro analysis",
+        "evidence": "Krawchuk–Rampersad, INTEGERS 18A (2018), 13-page article A12, abstract, §2 and §3",
+        "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "material_read": "Full 13-page published article, abstract, §§2–3, proof of Proposition 1, example tables and conclusions",
+        "method": "Read PDF extracted text and visually inspected the relevant PDF proof page; in-document Rudin search",
+        "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+        "trigger": "Highly relevant exact power-of-two cyclic complexity for an automatic word"
+      },
+      {
+        "assessment": "String-attractor cardinalities are hitting-set invariants, not factor necklaces; no implication to the occupancy distribution",
+        "evidence": "Indexed published record SCOPE079 provides lengths and attractor numbers, with no cyclic-factor classes.",
+        "identifier_or_url": "2026/9/8/SCOPE079",
+        "material_read": "Published title and complete indexed finding summary",
+        "method": "Compared the recovered mathematical statement, not its title alone",
+        "title": "Rudin–Shapiro string-attractor ledger result",
+        "trigger": "Search match involving the identical automatic word"
+      },
+      {
+        "assessment": "Concerns circulant Fourier rank defects; does not count binary factor rotation classes",
+        "evidence": "Published indexed summary explicitly discusses invertible circulants and Nyquist defects.",
+        "identifier_or_url": "2026/10/11/SCOPE-rational-rudin-shapiro-filter-mixtures-have-only-zero-and-nyquis--ef4ab1fef012",
+        "material_read": "Published title and complete indexed finding summary",
+        "method": "Compared object and property of Fourier filters with combinatorial factor orbits",
+        "title": "Rational Rudin–Shapiro filter mixtures",
+        "trigger": "Nearest source-word match in published research index"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8d92a3d-7313-40c9-8b5e-ced79ee8f579",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is not an arbitrary choice of ten parameters: dyadic lengths are the intrinsic block scales of the four-state uniform substitution, and n=16 is the observed onset of a rigid multiplicity spectrum absent at n=8. The complete orbit-occupancy census for ten consecutive substitution scales (rather than only raw complexity) gives exact reproducible benchmarks for the natural cyclic complexity of the classical Rudin–Shapiro sequence; four necklaces retain all rotations while almost all others have only one representative. These observations motivate structural investigation without pretending to prove an infinite formula.",
+    "status": "PASS"
+  }
+}
