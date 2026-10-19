@@ -1,0 +1,44 @@
+# Two spare guards suffice for optimal secure-domination reconfiguration in the Desargues graph
+
+## Finding
+Let \(D=H(5,2)\) be the Desargues graph. Its secure domination number is \(\gamma_s(D)=8\), and it has exactly 155 minimum secure dominating sets, all containing four vertices from each bipartition class. The natural automorphisms have three orbits of respective sizes \(5\), \(30\), and \(120\) on these optima.
+
+No two optima admit a direct one-vertex exchange while remaining secure dominating. However, form an auxiliary graph \(X\) by joining two optimal sets when each has exactly two elements absent from the other. This graph is connected and has 750 edges, vertex degrees \(24\) on the five-element orbit, \(6\) on the thirty-element orbit and \(10\) on the 120-element orbit. Moreover, \(\operatorname{rad}(X)=\operatorname{diam}(X)=4\).
+
+Under token-addition/removal moves (TAR), requiring *every intermediate set* to be secure dominating, a capacity of nine guards does not allow any two distinct optima to communicate, whereas capacity ten does: this two-spare-guard threshold is sharp. At capacity ten, the largest shortest-path distance between optimal configurations equals 16.
+
+## Assumptions and scope
+The vertex set consists of the ten two-element subsets and ten three-element subsets of \([5]=\{0,1,2,3,4\}\). A two-subset is adjacent to a three-subset exactly when it is contained in that three-subset. Thus \(D\) has 20 vertices and 30 edges. A dominating set \(S\) satisfies \(N[S]=V(D)\). It is *secure dominating* if for every \(u\in V(D)\setminus S\) there exists \(v\in S\cap N(u)\) with \(N[(S\setminus\{v\})\cup\{u\}]=V(D)\). The new placement after defending an attack is required to dominate, **not necessarily to remain secure dominating**. This distinction is essential to the theorem.
+
+Define the TAR capacity-\(k\) graph as having all secure dominating sets \(S\) with \(|S|\leq k\) as vertices, adjacent exactly when their symmetric difference contains one vertex. Distances in this graph are evaluated only between its 155 minimum vertices. Direct exchanges are changes that remove one vertex and add another with no intermediate capacity increase. The auxiliary graph \(X\), in contrast, joins optima whose symmetric difference has four vertices; an edge of \(X\) corresponds to four TAR moves at capacity ten.
+
+## Proof
+**Exact finite classification.** List the 20 vertices lexicographically, first the two-subsets and then the three-subsets. Represent each candidate set by a 20-bit integer. For each selected mask, compute the closed-neighborhood union and test the domination condition. For each unselected vertex, exhaust its (at most three) selected neighbors and test whether moving that guard yields a dominating set. The standard-library program `checks/verify_incidence.py` implements precisely this finite predicate and enumerates every cardinality from zero through eight. Its counts are zero for each size zero through seven and 155 for size eight. For every accepted size-eight mask, exactly four vertices belong to each side.
+
+The automorphisms induced by all 120 permutations of \([5]\) and the map replacing a two-subset or three-subset by its complement in \([5]\) form 240 explicit permutations of the 20 vertices. Applying these to accepted masks gives three disjoint orbits of sizes \(5\), \(30\), and \(120\), exhausting the 155 masks. Exact representatives and all 155 masks appear in `checks/certificate.json`; the verifier tests their automorphism action and the complete orbit partition.
+
+**Local exchange gap and connectivity.** Exhausting all \(\binom{155}{2}\) unordered pairs of optimal masks finds none with symmetric difference two and exactly 750 with symmetric difference four. The resulting graph \(X\) has degree distributions \(24^5\), \(6^{30}\), and \(10^{120}\). Breadth-first search from all 155 vertices proves connectivity and eccentricity exactly four at every vertex. A spanning tree with 154 edges is supplied in the certificate and independently checked against the enumerated edges.
+
+**Sharp capacity.** Secure domination is upward closed: if \(S\) is secure dominating and \(S\subseteq T\), then for each \(u\notin T\), any defender from \(S\) remains valid because replacing that defender in \(T\) gives a superset of the already dominating replacement in \(S\). Therefore, if two minimum secure sets \(S,T\) differ by two removals and two additions, the four-step sequence
+\[
+S\;\longrightarrow\;S\cup\{a\}\;\longrightarrow\;S\cup(T\setminus S)\;\longrightarrow\;T\cup\{b\}\;\longrightarrow\;T
+\]
+is secure throughout, for distinct \(a\in T\setminus S\) and \(b\in S\setminus T\); its cardinalities are eight, nine, ten, nine, eight. Since \(X\) is connected and has diameter four, any two optima connect by at most 16 TAR moves at capacity ten.
+
+For capacity nine, any path departing from an eight-element optimum must enter a nine-element set and next return to some eight-element secure set. Two different eight-element subsets of the same nine-element set differ by a single exchange. No two optima do, so such a path cannot reach a different optimum. Finally, the certificate gives two disjoint optima, so any one-vertex-addition/deletion path between them makes at least eight removals and eight additions, or at least 16 moves. Together with the upper bound, the optimal-pair diameter at capacity ten is exactly 16.
+
+## Verification
+Run `python3 checks/verify_incidence.py checks/certificate.json` from the extracted package. Compile `checks/verify_petersen.cpp` with `c++ -O2 -std=c++17` and run its executable; this separately constructs the generalized Petersen representation \(P(10,3)\), enumerates all secure sets of cardinality at most eight, checks the two-exchange graph, and verifies an explicit incidence-graph isomorphism. Run `python3 checks/crosscheck.py` to compare the C++-mapped optimal masks and the complete incidence certificate. The stored outputs are `checks/verify_incidence.output.txt` and `checks/verify_petersen.output.txt`. The certificate is finite and complete, not a sample; the code performs exhaustive checks rather than assuming its contents.
+
+## Relationship to prior work
+Burger, Cockayne, Gründlingh, Mynhardt, van Vuuren and Winterbach (2004) define and investigate secure domination and higher-order defense. Burger, de Villiers and van Vuuren (2013) give general algorithms for the minimum secure domination number and report finite results for grid and small circulant graphs. Haddadan and collaborators (2015) study TAR reconfiguration of ordinary dominating sets, without requiring each state to be secure dominating. The investigated literature supplies the definitions, methods, and motivation, but the inspected sections do not supply this Desargues-specific 155-state orbit classification or the two-spare-guard threshold. The arbitrary-graph algorithms explain how a scalar secure domination number could be computed; they do not entail the stated configuration and distance data without a new instance-specific calculation.
+
+## Limitations
+All numerical claims concern the 20-vertex Desargues graph only. The 155-state classification and the radius/diameter four assertion rest on transparent, finite exhaustive checking, separately implemented in two graph representations; they do not imply analogous results for larger bipartite Kneser graphs. Connectivity is among **minimum** secure sets, not all secure sets below the capacity: some larger secure sets may be in other components. No general theory of secure-set exchange thresholds is claimed. The full text of some earlier general papers was not accessible, and unindexed computations remain an originality risk. No external independent audit or certification has been performed.
+
+## References
+1. A. P. Burger, E. J. Cockayne, W. R. Gründlingh, C. M. Mynhardt, J. H. van Vuuren and W. Winterbach, *Finite Order Domination in Graphs*, J. Combin. Math. Combin. Comput. **49** (2004), 159–175. https://combinatorialpress.com/article/jcmcc/Volume%20049/vol-049-paper%2011.pdf
+2. A. P. Burger, A. P. de Villiers and J. H. van Vuuren, *Two Algorithms for Secure Graph Domination*, J. Combin. Math. Combin. Comput. **85** (2013), 321–339. https://combinatorialpress.com/article/jcmcc/Volume%20085/vol-085-paper%2020.pdf
+3. H. B. Merouane and M. Chellali, *On Secure Domination in Graphs*, Information Processing Letters **115** (2015), 786–790. https://doi.org/10.1016/j.ipl.2015.05.006
+4. A. Haddadan, T. Ito, A. E. Mouawad, N. Nishimura, H. Ono, A. Suzuki and Y. Tebbal, *The Complexity of Dominating Set Reconfiguration*, first posted 2015. https://arxiv.org/abs/1503.00833
+5. W. F. Klostermeyer and C. M. Mynhardt, *Secure Domination and Secure Total Domination in Graphs*, Discuss. Math. Graph Theory **28** (2008), 267–284. https://doi.org/10.7151/dmgt.1405
