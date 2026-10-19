@@ -1,0 +1,15 @@
+# Review of the finite Turán box rigidity theorem
+
+## Correctness — PASS
+The one-dimensional odd-cycle bound is the sum of two nonnegative Fourier samples at the two closest points to the antipodal angle; equality sets both samples to zero. The even-cycle case has an explicit sharp interval of imaginary coefficients. For the product problem, the mass inequality can be iterated in any coordinate order. Global equality therefore makes every coordinate-axis restriction optimal. In odd coordinates, averaging nonnegative Fourier coefficients across the other dual coordinates propagates each axis zero to a whole Fourier hyperplane. Inversion in the other coordinates and a nonsingular two-equation system force identical factors on every spatial slice. The resulting unique tensor product has the stated zeros. An even coordinate supplies a genuine continuum of tensor extremizers. Direct finite Fourier checks passed on 81 tests, but infinite-dimension and all-order generality rests on the proof.
+
+## Originality — PASS, with limits
+The scalar product law is previously covered by the Cartesian-product Turán constant of Kolountzakis–Révész, Corollary 2; it is explicitly excluded from the novelty claim. Gorbachev–Manoshina's one-dimensional small-support linear programming provides an additional relevant precursor. The finding instead classifies **all complex equality cases** for every all-odd finite product box and shows the sharp even-side failure of uniqueness. The inspected results state scalar extrema and one-dimensional constructions, not a uniform multi-coordinate equality-face rigidity theorem. Searches compared Cartesian products, positivity, tensorization, equality, uniqueness, and Fourier contact hyperplanes. No equivalent or stronger formulation was identified. Because a general equality-case discussion outside the inspected sources might subsume this result, independent literature verification remains appropriate.
+
+## Mathematical value — PASS
+The underlying problem is the natural finite-group Turán extremum for small Cartesian supports, where scalar tensorization alone does not determine whether non-product extremizers can occur. The theorem settles the optimizer-identifiability question for every odd product and supplies an exact parity obstruction to rigidity. The complete forced Fourier zero mask of the unique optimizer gives a directly usable spectral certificate, and the proof explains how contact zeros propagate across independent coordinates rather than merely asserting a product construction. These structural consequences are independent of the already known scalar optimum.
+
+## Limitations
+No complete even-coordinate optimizer polytope is claimed; a continuum suffices for the parity dichotomy. The statement is limited to three-point cyclic boxes, not arbitrary Cartesian supports. Finite numerical tests do not certify the general theorem. Uninspected or implicitly equivalent equality-case literature is a residual novelty risk.
+
+Self-review: passed. Independent audit: not yet performed.
