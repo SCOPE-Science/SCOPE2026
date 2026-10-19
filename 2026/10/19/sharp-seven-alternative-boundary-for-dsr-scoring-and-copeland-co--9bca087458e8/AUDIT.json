@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The pivot-score identities are directly reconstructed from the source Algorithm 2 in a tournament. Exact C99 loops over all 2^(n(n-1)/2) bit masks at n=2..7 give counts (0,0,0,0,0,5040), and zero disjoint winners at all sizes. Independent Boolean Python recomputes witness scores and all 7! relabelings, yielding orbit size 5040. Equivariance and equality with total count prove the unique orbit. The claim is finite and does not extrapolate beyond n=7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The April 2025 journal abstract retains the n<=4 containment statement.",
+        "The later December 2025 tournament article abstract discusses noncoincidence with Copeland for a dominating-set-relaxed solution, but gives no sharp cutoff/count, and its detailed rule was inaccessible."
+      ],
+      "reasoning": "The later paper may cover existence of divergence for a related partition-based method, so existence alone is not claimed as a novel contribution. The finite first-order classification and exact orbit count are not implied by the accessible abstract. Possible full-text coverage remains the principal originality risk, not something ruled out.",
+      "searches": [
+        "DSR-scoring Copeland containment conjecture first fails seven alternatives 5040 asymmetric tournament",
+        "Fujun Hou DSR-scoring Copeland winners subset conjecture exact seven candidates 5040 tournaments single isomorphism class",
+        "DSR-scoring tournament counterexample 7 vertex Copeland winning set",
+        "doi:10.1016/j.eswa.2025.130835 abstract",
+        "doi:10.1080/03081079.2025.2493189 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.16373v1 (relevant complete HTML sections)",
+      "doi:10.1080/03081079.2025.2493189 (publisher abstract only)",
+      "doi:10.1016/j.eswa.2025.130835 (abstract only)",
+      "published-finding corpus semantic searches on exact rule, aliases, seven-vertex cutoff, 5040 and Copeland; closest identifiers given"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hou 2024 proves n<=4 containment and identifies >4 as a question.",
+        "Hou 2025 journal abstract repeats only n<=4.",
+        "Hou 2025/2026 newer tournament article abstract states noncoincidence in general for a related tournament solution, without disclosing minimum order or exact seven-vertex types."
+      ],
+      "reasoning": "The n<=4 theorem does not imply n<=6 or first failure at seven. General noncoincidence, even for the same rule, neither implies no smaller counterexample nor uniqueness or exact frequency at seven. However, a covering theorem could exist in the inaccessible full text; this risk is documented.",
+      "searches": [
+        "arxiv:2403.16373v1 Proposition 7 and conclusion",
+        "doi:10.1080/03081079.2025.2493189 abstract",
+        "doi:10.1016/j.eswa.2025.130835 abstract",
+        "DSR-scoring Copeland containment conjecture first fails seven alternatives 5040 asymmetric tournament",
+        "Hou 2403.16373 tournament Copeland 7 alternatives counterexample unique"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hou 2024 Algorithm 2 supplies a score from pivot-specific DSR partitions; its tournament specialization is reconstructed by U_z, D_z, q_z and psi in RESULT.md.",
+        "Hou 2024 Proposition 7 establishes subset for n<=4, not n=7."
+      ],
+      "reasoning": "A tournament-solution equivalence, parameter re-expression, or score rescaling would cover the result only if it entailed the same sharp first failure and complete seven-vertex isomorphism classification. No inspected source did so.",
+      "searches": [
+        "Fujun Hou 2024 dominating-set-relaxed scoring rule DSRP seven candidates Copeland winner set 7 vertex tournament counterexample",
+        "Hou 2403.16373 tournament Copeland 7 alternatives counterexample unique",
+        "dominating-set-relaxed-scoring tournament Copeland 7 elements unique tournament noncontainment",
+        "https://arxiv.org/abs/2403.16373 (Algorithm 2)",
+        "arxiv:2403.16373v1 §4/§6.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed seven-vertex table concerns Banks and uncovered, with 13,440 exceptions in four orbits.",
+        "The present table concerns DSR versus Copeland with 5,040 exceptions in one orbit; the defining rules differ."
+      ],
+      "reasoning": "Matching vertex number or tournament enumeration methods does not imply coverage. Neither the exact DSR statistic nor its 5,040-count was identified in accessible tables or indexed findings.",
+      "searches": [
+        "Fujun Hou 2024 dominating-set-relaxed scoring rule DSRP seven candidates Copeland winner set 7 vertex tournament counterexample",
+        "DSR-scoring Copeland containment conjecture first fails seven alternatives 5040 asymmetric tournament",
+        "Hou 2403.16373 tournament Copeland 7 alternatives counterexample unique",
+        "non-Copeland maximal DSR scoring tournament seven vertex rare counterexample",
+        "Fujun Hou DSR-scoring Copeland winners subset conjecture exact seven candidates 5040 tournaments single isomorphism class",
+        "dominating-set-relaxed-scoring tournament Copeland 7 elements unique tournament noncontainment",
+        "DSR-scoring tournament counterexample 7 vertex Copeland winning set",
+        "2026/10/4/SCOPE-complete-seven-alternative-banks-uncovered-disparity-census--956fe67b3bf6",
+        "2026/10/4/SCOPE-complete-seven-alternative-banks-uncovered-disparity-census--956fe67b3bf6"
+      ]
+    },
+    "rationale": "Hou (2024), Sections 4 and 6.3, defines this DSR score and establishes Copeland containment only to four vertices, asking explicitly about larger tournaments. The new theorem gives the exact first failure, total count, and single isomorphism class. Targeted published mathematical record and literature searches identified no theorem with those conclusions. The Dec 2025 tournament solution paper is a significant inaccessible possible covering source and is explicitly disclosed; the accessible abstract mentions noncoincidence, not the sharp seven-vertex classification.",
+    "residual_risks": [
+      "The 2025/2026 same-author tournament paper full text, inaccessible through lawful routes attempted, could establish an equivalent sharper result or describe a different score with a related counterexample.",
+      "The 2025 social welfare journal full technical text was not accessed; its abstract alone cannot establish noncoverage.",
+      "Other unindexed social-choice literature may contain the exact first-boundary census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER_SHARP_SEVEN_BOUNDARY; proves n<=4 and asks about larger n",
+        "evidence": "Sections 4.1–4.2, Proposition 7, final paragraph of Section 7.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.16373",
+        "material_read": "Abstract; §§3.1, 4.1–4.2 with Algorithm 2; §6.3 Proposition 7; conclusion",
+        "method": "Accessible full-text HTML inspected at the relevant definitions, scoring procedure and theorem statements",
+        "title": "A new social welfare function with a number of desirable properties",
+        "trigger": "Defines the exact score and states the open Copeland containment question"
+      },
+      {
+        "assessment": "UNCERTAIN_FULL_TEXT; accessible abstract only states n<=4 Copeland containment",
+        "evidence": "Publisher abstract, published online April 21, 2025.",
+        "identifier_or_url": "https://doi.org/10.1080/03081079.2025.2493189",
+        "material_read": "Publisher abstract and indexed publication metadata only",
+        "method": "Publisher abstract accessed; full technical body not available in retrieved material",
+        "title": "A social welfare function based on dominating set relaxations",
+        "trigger": "Later same-author journal treatment of motivating rule"
+      },
+      {
+        "assessment": "MATERIAL_UNRESOLVED_OVERLAP_RISK; related solution may differ from 2024 DSR scoring, abstract does not establish sharp n=7 count or orbit uniqueness",
+        "evidence": "December 2025 abstract, DOI and publication metadata; cannot assert appendix absence.",
+        "identifier_or_url": "https://doi.org/10.1016/j.eswa.2025.130835",
+        "material_read": "Publisher-indexed abstract and bibliographic summaries, no full text",
+        "method": "Searched arXiv and lawful open-access versions; full text unavailable; institutional-access attempt could not proceed with disconnected institutional VPN",
+        "title": "A tournament solution based on dominating-set-relaxed partitions",
+        "trigger": "Same-author later partition-based tournament solution reports general noncoincidence with Copeland"
+      },
+      {
+        "assessment": "DIFFERENT_CHOICE_RULES",
+        "evidence": "Banks versus uncovered, 13,440 tournament disparities and four orbits, versus present DSR versus Copeland 5,040 and one orbit.",
+        "identifier_or_url": "2026/10/4/SCOPE-complete-seven-alternative-banks-uncovered-disparity-census--956fe67b3bf6",
+        "material_read": "Indexed mathematical claim summary, not full independent paper",
+        "method": "Semantic search of published research records",
+        "title": "Complete seven-alternative Banks–uncovered disparity census",
+        "trigger": "Closest exact small-tournament census in indexed published research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bca0874-58e8-4ff2-8dbb-683810064f84",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating published work explicitly poses the containment question past four candidates. Sharp first failure at seven, complete one-orbit classification, and rarity 315/131072 explain exactly where its proposed universal refinement ceases to hold; a meaningful structural obstruction, not an arbitrary small numerical improvement.",
+    "status": "PASS"
+  }
+}
