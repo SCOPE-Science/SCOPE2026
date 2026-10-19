@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A direct mixed central-pair identity forces preservation of the one-dimensional center. The full identity then reduces *if and only if* to the multiplier equation \(\omega((A-cI)v,(A-cI)w)=c(c-\lambda)\omega(v,w)\). Exhaustive disjoint scalar strata split into totally isotropic images versus symplectic similitudes. Gaussian/isotropic basis counts and the symplectic group order supply exact coefficients. No computational sample is used as an infinite proof. Checks cover binary dimension five and lower-dimensional all-weight direct identities, with additional randomized higher-rank identities.
+
+**Originality — PASS within searched and inspected coverage.** Ji–Hua's and Zhu–Wu's articles explicitly classify the three-dimensional Heisenberg case, and Rathee's 2024 treatment likewise addresses dimension three. Those cases are excluded. A preexisting arbitrary-dimensional Heisenberg Nijenhuis classification implies the totally isotropic singular branches; priority is *not* claimed for these. The additional full-rank symplectic-similitude fibers, which contribute to the higher-dimensional full-census theorem, are not covered by those results or the indexed research records examined. Searches under both Lie Rota–Baxter and conformal symplectic/Yang–Baxter terminology were made. A possible equivalent older result or inaccessible stronger theorem remains a priority risk.
+
+**Value — PASS.** The statement gives a natural exact counting and rank-refinement invariant for an infinite family of Lie algebras, all finite fields and both weight regimes. It distinguishes a genuine symplectic-similitude region from the previously studied isotropic region. The dramatic dimension-five binary shift between zero and nonzero weight makes the exact invariant structurally informative.
+
+**Closest sources and limits.** Ji and Hua (2018), DOI `10.11568/kjm.2018.26.1.53`; Zhu and Wu (2018), DOI `10.12988/pms.2018.81012`; Rathee (2024), arXiv:`2402.15428`; Guo, Lang and Sheng (2021), DOI `10.1016/j.aim.2021.107834`. This work counts operators, not their orbits; some literature comparisons have incomplete coverage. Independent validation has not been done.
+
+Self-review: passed. Independent audit: not yet performed.
