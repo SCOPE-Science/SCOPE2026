@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Each ball lifts to at most the sum of its future residual layer sizes. Adjacent layer sums are bounded by U+1; even/odd pairings give the exact finite ceiling. For fixed q, short balls contain at most a constant number of states while long balls have average layer density at most U/2+o(U). The binary copy-with-gap languages have U=2^(d+1)-1 and at least 2^d(T+1) distinct residuals in a root ball of radius d+T, proving the constant 1/2 sharp when T=d^2. The independent literal-word checker reconstructed 24 witness languages and 1000 seeded random languages; finite checks corroborate but do not prove the asymptotic theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.24246, Theorems 4--6 and Section 6: a known upper bound, lower bound and upper/lower multiplicative comparison; fixed-alphabet matching is proposed for further work.",
+        "arXiv:2606.00663 concerns NFAs rather than the two deterministic estimators."
+      ],
+      "reasoning": "Neither inspected source asserts the fixed-alphabet ceiling on the lower-to-upper estimator ratio. The published approximation bound permits much larger ratios for long words; its unbounded-alphabet equality witness is outside the fixed-alphabet asymptotic.",
+      "searches": [
+        "deterministic finite language bandwidth upper lower bounds strictly different for binary alphabet",
+        "Deterministic Bandwidth of Finite Languages fixed alphabet sharp half-gap layer upper and ball lower",
+        "Bandwidth of Nondeterministic Finite Automata arxiv:2606.00663"
+      ]
+    },
+    "checked_sources": [
+      "Cho, Fazekas, Wiedenhoft, arXiv:2608.24246, submitted 2026-08-25, relevant full-text sections read.",
+      "Cho et al., arXiv:2606.00663, submitted 2026-05-30, abstract only.",
+      "Relevant semantic published mathematical research records for estimator aliases and fixed-alphabet half-gap, actual queries recorded above."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper proves LB <= exact DFA bandwidth <= U and U <= 1+(2D-1)LB.",
+        "The new comparison adds B <= max(q,ceil((2U+1)/3)) and a sharp ratio limit 1/2; these are not consequences of the published numerical bounds alone.",
+        "The primary paper discusses fixed-alphabet matching as future work; the new theorem excludes matching when U diverges, without excluding bounded-valued matching families."
+      ],
+      "reasoning": "A comparison of logical implications rather than titles: the older sandwich and approximation bounds allow equality at arbitrarily large U, while the new theorem forbids it for every fixed q. Establishing this requires the newly proved layered-ball argument. The source could motivate a derivation but does not state or establish this one.",
+      "searches": [
+        "Cho Fazekas Wiedenhoft fixed alphabet no equality position unfolding residual ball",
+        "arxiv:2608.24246 Sections 3, 5 and 6",
+        "Bandwidth of Nondeterministic Finite Automata 2026 Cho Fazekas"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cho--Fazekas--Wiedenhöft, arXiv:2608.24246, Sections 5--6 defines the two estimators and proves their sandwich bound.",
+        "No equivalent half-gap theorem was found in the examined primary text or in retrieved mathematical abstracts."
+      ],
+      "reasoning": "The new statement is a quantitative reverse comparison and sharp limiting ratio between two estimators, not a rephrasing of the established sandwich relation or the linear-in-maximum-word-length approximation.",
+      "searches": [
+        "fixed alphabet residual ball lower bound cannot attain layer unfolding bound alphabet size q",
+        "sharp one half ratio residual ball position unfolding bounds finite language deterministic automaton binary",
+        "arxiv:2608.24246 Sections 5.1-5.3: residual-ball and position-unfolding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches retrieved neighboring automata and coding claims but no table or record of the two named deterministic-bandwidth estimators with the claimed one-half envelope.",
+        "The source arXiv:2608.24246 contains no enumerated database of the claimed asymptotic ratios."
+      ],
+      "reasoning": "The theorem is an all-language structural inequality and a sharp asymptotic envelope, not the lookup of a finite invariant or known numerical table. Database absence does not prove novelty.",
+      "searches": [
+        "position-unfolding upper bound U residual-ball lower bound LB fixed alphabet equality only bounded deterministic bandwidth 2026 finite languages",
+        "word finite language DFA bandwidth double layer growth local residual radius upper bound 1/2 separation"
+      ]
+    },
+    "rationale": "A material reading of Cho--Fazekas--Wiedenhöft, arXiv:2608.24246, Sections 1--6, found definitions, a sandwich inequality, a coarse approximation bound and an unbounded-alphabet equality example, but not the sharp fixed-alphabet estimator separation. Their fixed-alphabet question is addressed here in the unbounded-value regime. Searches against published research summaries did not identify stronger covering claims. The risk of an unindexed equivalent statement is retained.",
+    "residual_risks": [
+      "An equivalent inequality or half-gap may be implicit in older graph-bandwidth literature not indexed by the searches.",
+      "The NFA precursor complete text was not available, although it concerns a different automaton model.",
+      "No independent human mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes B<=bw<=U and a multiplicative estimate using longest accepted word, but does not cover the sharp fixed-alphabet half-gap or binary witness ratio.",
+        "evidence": [
+          "arXiv:2608.24246 Sections 5.1, 5.2, 5.3 and 6; first submission 2026-08-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24246",
+        "material_read": "Full-text accessible rendering: introduction, model definitions, hierarchy witness, Theorems 4--6, the matching-bounds example and final discussion.",
+        "method": "Material text reading and direct implication comparison to the new bound.",
+        "title": "Deterministic Bandwidth of Finite Languages",
+        "trigger": "Origin of the exact estimator definitions and an explicit fixed-alphabet matching-bounds question."
+      },
+      {
+        "assessment": "Addresses NFA bandwidth, not the pair of deterministic residual estimators; lower relevance, and the limited read remains an access risk.",
+        "evidence": [
+          "arXiv:2606.00663; accessible author/title/abstract metadata."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.00663",
+        "material_read": "Accessible abstract and indexed description only; complete text not obtained.",
+        "method": "Abstract-level scope comparison; no full-document noncoverage inference.",
+        "title": "Bandwidth of Nondeterministic Finite Automata",
+        "trigger": "Precursor defining circular bandwidth for NFAs and finite-language hierarchy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2aa4498-50a7-4f70-a7f2-38df48c1e98c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp factor-two asymptotic separation is a structural obstruction to equality of the two natural, efficiently computable bounds at unbounded bandwidth over any fixed alphabet. It answers the high-value unbounded regime of a concrete fixed-alphabet question in the originating paper and gives explicit binary witnesses showing the constant cannot be strengthened. The result is not a parameter-renamed existing inequality, finite table lookup or numerical exercise.",
+    "status": "PASS"
+  }
+}
