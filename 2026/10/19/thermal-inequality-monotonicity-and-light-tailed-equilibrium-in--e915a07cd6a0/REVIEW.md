@@ -1,0 +1,19 @@
+# Scientific review: bounded trap-diffusion equilibrium
+
+## Correctness — PASS
+
+The paper's stated symmetric-neighbor Metropolis acceptance rule gives the exact reversible single-unit law with site weights proportional to \(e^{\phi_i/T}\). Independence of money units then supplies the finite multinomial count distribution. The sampled Gini (not merely the Gini of mean counts) is strictly Schur-convex in the sampling probabilities, as established by conditioning two categories on their total and using a symmetric, strictly convex binomial Bernstein polynomial. Colder Gibbs distributions strictly majorize hotter distributions; the exact vacancy formula is strictly Schur-convex too. The thermodynamic mixed-Poisson limit follows by law of large numbers, uniform binomial-to-Poisson approximation, and conditional bounded differences. Uniformly bounded mixing intensities imply a super-exponential tail by Chernoff's inequality. Exact rational detailed-balance and finite-observable checks and an explicit finite-size thermodynamic check were executed from the supplied program. All quantified statements have explicit boundary and regularity hypotheses.
+
+## Originality — PASS, with residual risk
+
+The primary 2026 paper specifies the hopping mechanism and presents finite-run numerical temperature-dependent Pareto fits and nonmonotonic Gini/vacancy responses, but does not state the exact stationary multinomial formula, a finite-sample strict thermal-order theorem, or a fixed-positive-temperature mixed-Poisson thermodynamic law. Its 2023 precursor uses stochastic savings-based pairwise wealth transactions, not independent-unit hops; the 2025 fixed-amount-liquidity model uses yet another transfer rule. Generic detailed balance, Gibbs thermal ordering, and Poisson approximation are prior mathematical methods and are not claimed as discoveries. Searches under source names, equilibrium aliases, multinomial Schur-convexity, and mixed-Poisson tails did not locate an implication-equivalent result for this specified model. Priority is not independently certified: a general theorem for multinomial occupancy inequality may subsume part of the proof, and unavailable or differently indexed literature remains a risk.
+
+## Mathematical value — PASS
+
+The two experimentally reported intermediate-temperature peaks concern central quantitative observables of the source model. This result proves that such peaks cannot describe genuine equilibrium under the model's microscopic hopping rule; it identifies a precise mechanism for interpreting finite-run observations without claiming their measured values are wrong. It simultaneously derives an explicit high-population wealth histogram and rules out a true fixed-temperature Pareto tail despite its numerical appearance. The finite \(M\) strict-Gini statement is stronger than a deterministic mean-wealth inequality argument. These conclusions specify a testable asymptotic distinction between metastable finite-time data and invariant wealth statistics, rather than a generic normalization or type check.
+
+## Closest sources and limitations
+
+Primary: E. Aydiner, *A New Model for the Income Distribution*, arXiv:2610.08143v1 (October 6, 2026), Sections III–V. Predecessor: E. Aydiner, A. G. Cherstvy, R. Metzler and I. M. Sokolov, *Universal Pareto laws in agent-based exchange models: debt and varying initial-money distributions* (2023), DOI:10.1140/epjb/s10051-023-00579-y. Related but different rule: J. Liuh, arXiv:2511.08202v1 (2025). Scope is independent money units, quenched bounded site depths, fixed positive temperature before the large-system limit, and genuine equilibrium rather than a fixed-step simulation. The conclusion does not cover occupancy-dependent transactions, finite-time extrema, or temperature tending to zero with system size.
+
+Self-review: passed. Independent audit: not yet performed.

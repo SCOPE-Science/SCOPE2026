@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Under symmetric cycle proposals the Metropolis edge flow is exactly min(exp(phi_i/T),exp(phi_j/T))/2, giving unique Gibbs weights for a single unit and a multinomial invariant count law for independent units. The top-k Gibbs masses strictly increase with inverse temperature for nonconstant depths. Vacancy is strictly Schur-convex. For sampled (rather than mean) Gini, conditioning a pair on its total occupancy gives a symmetric convex binomial Bernstein polynomial with strict midpoint curvature for at least two units, establishing strict Schur-convexity. Bounded quenched depths and \\(M/L\\to m\\) give uniform binomial-to-Poisson approximation; a bounded-differences variance estimate proves empirical histogram convergence; a uniformly bounded Poisson intensity gives the stated Chernoff tail. Actual finite rational detailed balance and exact expectation tests passed from the standalone code. Edge conditions (equal depths, one unit, possible even-cycle period, fixed T) are explicitly distinguished.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Known detailed-balance and Gibbs facts yield \\(p_i\\propto\\exp(\\phi_i/T)\\).",
+        "Boland and Proschan (1987), Statistics & Probability Letters 5, 317–322: Schur-convexity of a multinomial maximum-likelihood function, a different functional.",
+        "Yakovenko and Rosser (2009), arxiv:0905.1518: overview of exponential versus Pareto distributions in kinetic exchange."
+      ],
+      "reasoning": "Generic stationary reversible-walk, majorization, and Bernstein-operator results provide proof ingredients; they do not by themselves state the model-specific joint claim about actual sampled wealth-count Gini, vacant sites, and bounded-depth empirical mixed-Poisson asymptotics. A previously formulated general occupancy theorem could subsume pieces and remains a priority risk; no direct dominating result was identified.",
+      "searches": [
+        "Metropolis independent wealth particles fixed traps Gibbs majorization inequality decreases temperature Poisson mixture wealth distribution",
+        "multinomial equilibrium random walkers expected Gini index strictly increases with inverse temperature and empty site fraction majorization",
+        "Schur convexity expected Gini pairwise absolute deviation multinomial occupancy no wealth power law bounded trap",
+        "expected Gini coefficient multinomial distribution Schur convex probability vector majorization",
+        "Gibbs Boltzmann distribution temperature majorization order monotone entropy inequality"
+      ]
+    },
+    "checked_sources": [
+      "Aydiner (2026), arxiv:2610.08143v1, full arXiv HTML Sections II–VI",
+      "Aydiner, Cherstvy, Metzler, Sokolov (2023), DOI:10.1140/epjb/s10051-023-00579-y, PDF text Sections 1–2",
+      "Liuh (2025), arxiv:2511.08202v1, public abstract and recoverable stationary-map claim",
+      "Boland and Proschan (1987), Statistics & Probability Letters 5, 317–322, abstract",
+      "Yakovenko and Rosser (2009), arxiv:0905.1518, abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.08143v1: the given numerical finite-run Gini and vacancy functions are nonmonotone; no infinite-time stationary proof is offered.",
+        "DOI:10.1140/epjb/s10051-023-00579-y, page 3: random saving and wealth-dependent transfers.",
+        "arxiv:2511.08202v1: fixed-amount liquidity-constrained transactions, not reversible fixed-depth hopping."
+      ],
+      "reasoning": "Numerical finite-horizon plots do not imply or contradict the exact invariant-law theorem at nonuniform mixing times. The savings and liquidity models do not reduce to independent Gibbs walkers by a parameter substitution. Classical generic results are acknowledged as potentially covering sublemmas but not found as a published implication-equivalent statement about this recent model.",
+      "searches": [
+        "Ekrem Aydiner A New Model for the Income Distribution kinetic trap diffusion Metropolis money hopping fixed potential exact stationary Gibbs multinomial monotonic Gini no Pareto",
+        "2026 Aydiner trap diffusion stationary wealth distribution finite independent money particles Poisson mixture Gibbs thermal no Pareto asymptotic proof",
+        "multinomial equilibrium random walkers expected Gini index strictly increases with inverse temperature and empty site fraction majorization",
+        "Universal Pareto laws in agent-based exchange models: debt and varying initial-money distributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.08143v1 Sections III–V: exact Metropolis unit rule and nonmonotone finite-run observations.",
+        "Aydiner et al. 2023 equation (3): wealth-weighted pair transfer, not independent Metropolis units."
+      ],
+      "reasoning": "Single-unit reversible Gibbs distribution is equivalent to the exact micro-rule at genuine equilibrium. Multinomial occupancy then follows from independent units, but the cited paper does not develop that representation or its Gini/Poisson consequences. Earlier wealth-exchange models with varying saving coefficients are not equation-equivalent.",
+      "searches": [
+        "Ekrem Aydiner A New Model for the Income Distribution kinetic trap diffusion Metropolis money hopping fixed potential exact stationary Gibbs multinomial monotonic Gini no Pareto",
+        "Metropolis independent wealth particles fixed traps Gibbs majorization inequality decreases temperature Poisson mixture wealth distribution",
+        "2026 Aydiner trap diffusion stationary wealth distribution finite independent money particles Poisson mixture Gibbs thermal no Pareto asymptotic proof",
+        "site:arxiv.org/abs/2610.08143"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source paper contains fitted Pareto curves for \\(L=100\\) and 50,000 steps, not a table of exact multinomial/Gini formulas.",
+        "Nearby published result titled Exact pair-balancing law for Gini dispersion of Poisson-binomial sums concerns the Gini dispersion of a Poisson-binomial scalar sum, not cross-site multinomial wealth counts.",
+        "The earlier stationary wealth result linked to arxiv:2511.08202 uses a fixed outflow plus Poisson arrivals, not Metropolis thermal traps."
+      ],
+      "reasoning": "No located exact table or research record has the same temperature-indexed finite Gini/vacancy and thermodynamic limiting wealth histogram. The neighboring Gini record and the earlier wealth stationary law have different observables or generators.",
+      "searches": [
+        "Ekrem Aydiner A New Model for the Income Distribution kinetic trap diffusion Metropolis money hopping fixed potential exact stationary Gibbs multinomial monotonic Gini no Pareto",
+        "2026/10/6 wealth temperature-dependent Pareto exponent trap diffusion nonmonotonic Gini 2610.08143",
+        "2026 Aydiner trap diffusion stationary wealth distribution finite independent money particles Poisson mixture Gibbs thermal no Pareto asymptotic proof",
+        "Schur convexity expected Gini pairwise absolute deviation multinomial occupancy no wealth power law bounded trap",
+        "arxiv:2610.08143",
+        "arxiv:2511.08202"
+      ]
+    },
+    "rationale": "The primary 2026 paper reports numerical Pareto-like distributions and nonmonotone Gini/vacancy curves but supplies no exact stationary-law obstruction. The 2023 predecessor uses partner-wealth-dependent saving exchanges, while the nearby 2025 stationary-wealth model uses another mean-field map. The exact combined conclusion for the cited unit-hopping model (finite-M strict Gini and vacancy thermal monotonicity together with a fixed-positive-temperature mixed-Poisson limit excluding Pareto tails) was not found in actual source/alias searches or recoverable own claims. Reversibility, Gibbs majorization, Schur-convexity and Poisson approximation are credited as prior methods; historical priority remains an explicit risk.",
+    "residual_risks": [
+      "A broader unpublished or differently indexed theorem about the multinomial Gini under majorization could subsume the finite Gini substatement; absolute novelty is not certified.",
+      "The result is strictly conditional on independent-unit hopping and genuine stationarity; a simulation with interacting units or a finite stopping horizon lies outside the theorem.",
+      "The comparison with the 2023 predecessor used the full extracted trading-rule text, not its illustrative figures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the rule and finite-run numerical observations, but no proof of multinomial equilibrium, strict finite-size thermal Gini/vacancy ordering, or a fixed-density mixed-Poisson limit.",
+        "evidence": [
+          "Section III: quenched depths uniform [0,1], nearest-neighbor Metropolis acceptance min(1,exp[-(phi_i-phi_j)/T]), independent traversal of money particles.",
+          "Section IV: finite 100-site, 1000-unit and 50000-step protocol, Pareto fits and intermediate-temperature vacancy/Gini peaks.",
+          "Section V: interpretation as stationary power-law tails despite finite numerical observation."
+        ],
+        "identifier_or_url": "arxiv:2610.08143v1; https://arxiv.org/abs/2610.08143",
+        "material_read": "The accessible complete arXiv HTML text, especially Sections II–VI; equations (2), (11), (12), descriptions of Metropolis rates in Section III and simulation steps, Figures 5–6 commentary and discussion.",
+        "method": "Read arXiv full-text HTML extracted through its public arXiv page; compared micro-rules with claimed infinite-time equilibrium observables.",
+        "title": "A New Model for the Income Distribution",
+        "trigger": "Exactly the independent money-unit Metropolis ring model being analyzed; numerical claims of temperature-dependent Pareto fits and nonmonotonic vacancy and Gini."
+      },
+      {
+        "assessment": "Different random-saving exchange mechanism: wealth moved depends on amounts held by both trading agents; no independent-money-unit Metropolis product measure or theorem on temperature monotonicity of sampled Gini.",
+        "evidence": [
+          "Page 3, equation (3): updated wealth depends on the partners through \\(1-\\lambda_i\\)x_i+\\(1-\\lambda_j\\)x_j and saving propensities.",
+          "Page 3, equation (4): pairwise trade transfer depends on current counterparties, unlike unit hopping."
+        ],
+        "identifier_or_url": "DOI:10.1140/epjb/s10051-023-00579-y; https://www.agnld.uni-potsdam.de/~rmetzler/papers/2023_AydCherMeSo_EPJB96.pdf",
+        "material_read": "Accessible PDF text, title and abstract, Sections 1–2 and equations (3)–(4) on page 3, including saving propensities and pairwise trading. Graphical material was not treated as inspected.",
+        "method": "Read PDF text extracted by the public web PDF viewer; evaluated the actual pairwise wealth-dependent exchange equations instead of inferring from the title.",
+        "title": "Universal Pareto laws in agent-based exchange models: debt and varying initial-money distributions",
+        "trigger": "Same lead author and motivating paper cites the predecessor; plausibly covers alternative finite-site wealth exchanges."
+      },
+      {
+        "assessment": "A mean-field recursion with obligatory one-unit outflow and random Poisson arrivals, not a Gibbs landscape of independently hopping units; does not imply strict thermal ordering for a fixed-depth Metropolis chain.",
+        "evidence": [
+          "Published abstract: fixed-amount transactions and liquidity-constrained agent exchange.",
+          "Recoverable result: \\(X_{n+1}=(X_n-1)_++\\operatorname{Poisson}(\\lambda)\\), distinct from reversible lattice unit hops."
+        ],
+        "identifier_or_url": "arxiv:2511.08202v1; https://arxiv.org/abs/2511.08202",
+        "material_read": "Public arXiv abstract and recoverable claim of the existing stationary mean-field unit-transfer theorem; not a full-text inspection.",
+        "method": "Compared the specified transition rule and stationary object from available scientific summaries.",
+        "title": "How Fixed-Amount Transactions and Liquidity Constraints Amplify Wealth Inequality: A Kinetic Model Deviating from the Maximum Entropy Benchmark",
+        "trigger": "Prior finite-wealth stationary-law research in the same economics area; possible stronger static coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e915a07c-d6a0-4065-9377-f2e2320a1a1c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cited 2026 model makes temperature-dependent Pareto fits and an intermediate-temperature inequality peak central to its interpretation. The result proves a substantive finite-particle strict inequality for the actual sampled Gini and vacant-site fraction, so an equilibrium peak is impossible under the paper's own specified micro-rule. It also identifies an explicit thermodynamic money distribution and a super-exponential tail bound, separating finite-range power-law fits from true equilibrium scaling. These are mathematically motivated structural conclusions with direct implications for interpreting the new model, beyond a normalization check. Limits and finite-time risks are stated.",
+    "status": "PASS"
+  }
+}
