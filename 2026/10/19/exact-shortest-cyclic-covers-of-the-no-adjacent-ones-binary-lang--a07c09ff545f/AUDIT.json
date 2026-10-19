@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each \\(k\\ge2\\), the first-one potential \\(p=-\\lambda\\) has shift increment at most \\(1\\) for all binary de Bruijn edges; the sum on precisely the \\(F_{k+2}\\) required no-`11` edges is \\(-(F_k-1)\\). Every cyclic host therefore needs at least \\(F_k-1\\) extra factor occurrences, even if host factors `11` are allowed. Repeating once each edge \\(0u0\\) with legal nonzero \\(u\\) of length \\(k-2\\) adds exactly \\(F_k-1\\) edges, balances all vertices, and leaves a strongly connected legal graph; an Euler tour is an attaining cyclic host with no forbidden factors. The \\(k=2\\) boundary and Fibonacci counts were explicitly checked. Standalone finite verifier tests orders \\(2\\)–\\(12\\) and independently optimizes full-graph cases \\(2\\)–\\(5\\); finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchet-Sadri–Lohr, 2015, Section 5, reduces any eligible factor-set instance to min-cost flow and proves correctness of that algorithm.",
+        "Tan–Shallit, 2013, discusses general bounds on shortest circular witnesses for representable factor sets.",
+        "Au, arXiv:0904.3997, bounds shortest sequences for p-powers with conjugacy-class arguments; no structural inclusion of the no-`11` dictionary follows."
+      ],
+      "reasoning": "The general min-cost-flow theorem covers computability of a numerical optimum for each finite input, but no inspected statement yields the parametric Fibonacci–Lucas evaluation or the optimal legal-host construction without solving a new infinite family of flow problems. These symbolic and structural claims are therefore not simply restatements of the algorithm.",
+      "searches": [
+        "Computing Minimum Length Representations of Sets of Words of Uniform Length Blanchet-Sadri Lohr DOI arxiv publication 2015 MSC",
+        "Shallit Tan sets represented as the length n factors of a word 2013 2014 arxiv",
+        "DOI:10.1016/j.tcs.2015.06.038"
+      ]
+    },
+    "checked_sources": [
+      "Yu Hin Au, arXiv:0904.3997, original public posting 2009-04-25, full text sections on primitive and power dictionaries.",
+      "Tan & Shallit, arXiv:1304.3666v1, full text, initial public date 2013-04-12.",
+      "Blanchet-Sadri & Lohr, DOI:10.1016/j.tcs.2015.06.038, full author-contributed text, Section 5 particularly.",
+      "Focused public literature searches for no-adjacent-ones / golden-mean universal cycles, shortest circular representations, and Fibonacci de Bruijn covers."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blanchet-Sadri–Lohr Section 5 explicitly specifies a generic balancing flow and Eulerization, with total length equal to required edges plus flow cost.",
+        "The present theorem proves that cost symbolically equals \\(F_k-1\\) for every k>=2 by a potential valid even with forbidden host factors, and constructs an attaining integral flow on legal edges only.",
+        "Au, arXiv:0904.3997, addresses primitive words and p-power dictionaries, which neither contain nor dominate the full no-`11` target family for all orders."
+      ],
+      "reasoning": "Each prior algorithmic output can evaluate a fixed \\(k\\), and its framework contains the optimization problem, but its stated results give no finite description of the optimal cost across all \\(k\\). The candidate supplies a previously unreported evaluation and a stronger statement: requiring the host also to avoid 11 never increases the optimum. This extra analysis is not a mechanical numerical substitution into an explicit known formula.",
+      "searches": [
+        "Shallit Tan sets represented as the length n factors of a word 2013 2014 arxiv",
+        "Computing Minimum Length Representations of Sets of Words of Uniform Length Blanchet-Sadri Lohr DOI arxiv publication 2015 MSC",
+        "arXiv:1304.3666v1",
+        "DOI:10.1016/j.tcs.2015.06.038"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tan–Shallit, arXiv:1304.3666v1, sections 1–4, discusses exact-versus-at-least-once factor representations and general shortest witnesses but not the all-no-`11` set.",
+        "Blanchet-Sadri–Lohr, DOI:10.1016/j.tcs.2015.06.038, Section 5, gives the covering-walk formulation.",
+        "Au, arXiv:0904.3997, Section 3, examines shortest factor covers of p-power dictionaries, not the golden-mean/no-`11` target language."
+      ],
+      "reasoning": "Checked the aliases forbidden 11, golden-mean binary words, Fibonacci binary strings, circular factor cover, cyclic shortest common superstring, de Bruijn covering wal\\(k\\), and Lucas overhead. The nearest formulations are general witness-length problems, not an explicit formula for this language family. Exact semantic equality was not found in the inspected materials.",
+      "searches": [
+        "\"shortest\" \"Fibonacci\" \"de Bruijn\" \"no consecutive\" word covering",
+        "shortest cyclic word containing all binary strings of length n without adjacent ones Fibonacci Lucas",
+        "\"de Bruijn\" \"Fibonacci\" \"shortest\" \"no consecutive ones\"",
+        "arXiv:1304.3666v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tan–Shallit arXiv:1304.3666v1 contains experimental studies of different short-witness questions rather than a no-`11` family table.",
+        "Blanchet-Sadri–Lohr, Figure 3 and Section 5, exhibits an unrelated twelve-edge instance of length 17, not the Fibonacci family."
+      ],
+      "reasoning": "No published exact-value sequence or table implying the all-orders formula was identified in these searches or in the inspected primary papers. This absence is limited to what was actually inspected, not a proof that no such table exists.",
+      "searches": [
+        "\"minimum length\" \"no consecutive ones\" \"de Bruijn\" universal cycle",
+        "\"no consecutive 1s\" \"de Bruijn\" \"repeat\" minimal"
+      ]
+    },
+    "rationale": "Full-text comparison found Yu Hin Au’s treatment of primitive-word and power dictionaries (arXiv:0904.3997) and the classical shortest factor-witness framework in Tan–Shallit (arXiv:1304.3666v1) and the general circular min-cost-flow algorithm in Blanchet-Sadri–Lohr (DOI:10.1016/j.tcs.2015.06.038). None of these inspected texts states the exact Fibonacci–Lucas length for all no-11 binary target words, the unit-increment potential on the unrestricted host graph, or the exact \\(0u0\\) duplication pattern. The general algorithm computes finite instances but does not state this parametric symbolic optimum. Targeted aliases were searched; no directly covering statement was found, subject to residual literature risk.",
+    "residual_risks": [
+      "General min-cost-flow tools can compute every fixed order; an unindexed separate symbolic evaluation may exist, including under constrained-coding terminology.",
+      "The exact comparisons are against accessible inspected primary material and search results, not every publication in the literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies primitive words and p-power dictionaries, not binary words whose only adjacent forbidden pattern is 11; neither a dominating all-orders closed formula nor the same balanced augmentation appears.",
+        "evidence": [
+          "2009 first arXiv posting; Section 3, especially Proposition 14 and Algorithm D, concerns p-powers rather than avoidance of consecutive ones."
+        ],
+        "identifier_or_url": "arXiv:0904.3997; https://arxiv.org/pdf/0904.3997",
+        "material_read": "Full-text PDF sections on primitive-word de Bruijn covers and Section 3 on shortest sequences containing all p-powers; abstract and statement comparisons.",
+        "method": "Read open PDF text and introductory page image; located the exact dictionary definitions and shortest-cover lower bounds.",
+        "title": "Generalized de Bruijn words for Primitive words and Powers",
+        "trigger": "Generalized shortest cyclic covers for restricted dictionaries in a closely related de Bruijn framework."
+      },
+      {
+        "assessment": "General combinatorics of factor-set representation and weak shortest-witness bounds; no exact Fibonacci–Lucas no-11 target-language theorem located.",
+        "evidence": [
+          "2013 first-public arXiv v1 dated 12 April 2013, abstract and Sections 1–4; no Fibonacci-specific theorem in the inspected full text."
+        ],
+        "identifier_or_url": "arXiv:1304.3666v1; https://arxiv.org/pdf/1304.3666",
+        "material_read": "Full preprint, 12 pages; introduction, shortest-witness bounds and factor-set representation sections.",
+        "method": "Read open full PDF text and page image, checked candidate aliases and theorem statements.",
+        "title": "Sets Represented as the Length-n Factors of a Word",
+        "trigger": "Exact circular factor-set witness and minimum-length literature; primary 68R15 source."
+      },
+      {
+        "assessment": "Reduces each feasible factor-set problem to min-cost flow, but no explicit all-k no-11 formula, first-one potential, or repeated legal-factor family appears in inspected material.",
+        "evidence": [
+          "Section 5 specifies the network and illustrates a different twelve-edge length-17 instance; conclusion on general algorithmic results."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.tcs.2015.06.038; https://www.researchgate.net/publication/281940256_Computing_Minimum_Length_Representations_of_Sets_of_Words_of_Uniform_Length",
+        "material_read": "Author-contributed full-text manuscript including introduction, definitions, Section 5, lemmas 9–10, examples, and final sections.",
+        "method": "Read lawful full-text HTML manuscript text, with focused inspection of Section 5 min-cost-flow construction and worked instance.",
+        "title": "Computing Minimum Length Representations of Sets of Words of Uniform Length",
+        "trigger": "Closest general algorithm for minimum circular words representing a given factor set."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a07c09ff-545f-49a1-bbba-18ee4f5f5344",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The golden-mean/no-adjacent-ones language is a natural constrained binary sequence family, not an arbitrary sliced example. The exact Lucas length and Fibonacci repetition overhead resolve a full infinite family of minimum circular factor-cover instances. The proof also establishes the non-obvious equality between unrestricted hosts and constraint-respecting hosts, with an explicit sparse duplication construction and a sharp dual witness. These are structurally meaningful beyond a routine count of legal words.",
+    "status": "PASS"
+  }
+}
