@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Every arbitrary feasible kernel has Fourier Rayleigh values 1-pbar-u*qbar and 1-pbar-v*qbar. Their minimax and the hub stochasticity bound give the historical exact optimum, attained by the explicit invariant kernel. At spectral error epsilon, scalar crossing gives mean-weight error O(epsilon); the first-harmonic PSD residual is at most epsilon+sqrt[2(mu+epsilon)(1+u/v)epsilon]. Its imaginary coordinate difference controls rim-weight variance via the cycle Poincare inequality; its real part controls spoke-weight error. Each step is an analytic all-m proof. Independently coded finite Jacobi spectral checks passed 22532 assertions for m=4..19, corroborating but not proving the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao, SIAM Review 2004, establishes the general SDP for symmetric stochastic Markov chains.",
+        "Boyd et al. arXiv:0709.0955v1 Theorem 2.1 explicitly says that some optimal transition matrix belongs to the fixed-point symmetry subspace; it does not assert that all optimizers do."
+      ],
+      "reasoning": "General SDP and symmetry-reduction frameworks do not logically enforce uniqueness because the operator norm is not strictly convex. They establish globally optimal value and at least one symmetric optimizer; ruling out other optimizers and deriving an explicit modulus need the additional PSD saturation and cycle Fourier-Poincare argument.",
+      "searches": [
+        "fastest mixing Markov chain on graphs with symmetries",
+        "fastest mixing Markov chain wheel graph weighted hub ring optimal transition probabilities",
+        "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "https://arxiv.org/html/0709.0955v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1 §1.1, §2.2 and §5.3.3",
+      "doi:10.1137/070689413",
+      "doi:10.1137/S0036144503423264",
+      "doi:10.1080/15427951.2005.10129100",
+      "doi:10.1109/ECC.2015.7330635",
+      "Public mathematical research records: wheel Löwner ellipsoid and tetrahedral Markov spectral stability (unrelated objective/graph)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0709.0955v1 Section 5.3.3: invariant wheel optimal probabilities p=1/m, q=(1-1/m)/(2-cos(2pi/m)-cos(2pi floor(m/2)/m)); exact SLEM also given.",
+        "Gerencsér–Hendrickx–Van Dooren, 2015, studies spectral gap of chains on a cycle, including inhomogeneous and nonreversible perturbations, not wheel-network two-sided SLEM edgewise rigidity.",
+        "Earlier related wheel continuous-time algebraic-connectivity designs concern a budgeted one-sided Laplacian eigenvalue objective, not stochastic row constraints and absolute two-sided discrete-time SLEM."
+      ],
+      "reasoning": "Precisely the earlier optimum value and invariant construction are implied by prior work. Neither that existence theorem, continuous-time wheel spectral-gap optimization, nor cycle perturbation results imply the quantitative all-edge square-root stability for unrestricted symmetric discrete-time wheel kernels. The claim is confined to this additional assertion.",
+      "searches": [
+        "https://arxiv.org/html/0709.0955v1",
+        "https://real.mtak.hu/173919/",
+        "optimal mixing wheel graph asymmetric edge probabilities uniqueness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955v1, Section 5.3.3, equations (31)–(33), derives the invariant optimizer and SLEM, not an all-edge quantitative spectral-to-weight deviation estimate.",
+        "Public mathematical-record search: closest wheel hit 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0 concerns a wheel edge-polytope Löwner ellipsoid rather than Markov SLEM."
+      ],
+      "reasoning": "The old closed formula and any permutation-invariant representative are not counted as original. Searching uniqueness, inhomogeneous weights, spectral error bounds, and Fourier recovery produced no same-object-and-same-claim coverage in examined records.",
+      "searches": [
+        "wheel graph fastest mixing Markov chain unique optimal stochastic transition matrix unrestricted asymmetric edge weights hub rim spectral rigidity",
+        "fastest mixing wheel graph optimizers uniqueness symmetric stochastic no other solutions Fourier first harmonic",
+        "wheel graph \"fastest mixing\" \"unique\"",
+        "https://arxiv.org/html/0709.0955v1#S5.SS3.SSS3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record query yielded SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe (quantitative stability but for a different tetrahedral Markov family).",
+        "Boyd et al. wheel table/formulas give unique invariant parameters but make no table of all unrestricted optimizers or edgewise near-optimal deviations."
+      ],
+      "reasoning": "Neither the wheel row of the 2007 source nor the retrieved record results encode the presented unrestricted wheel stability inequality. Matching only wheel shape, mathematical optimization methods, or an unrelated stability law does not imply exact coverage.",
+      "searches": [
+        "wheel graph SLEM near optimal transition probabilities edgewise quantitative stability sqrt epsilon Fourier Poincare",
+        "rigidity stability fastest mixing reversible Markov chain wheel graph homogeneous optimal edge weights",
+        "wheel graph optimal mixing probability spoke rim Boyd Diaconis Parrilo Xiao",
+        "global error bound spectral norm minimizer wheel graph Markov semidefinite optimization"
+      ]
+    },
+    "rationale": "The known invariant optimal transition weights and minimum SLEM are explicitly credited to Boyd–Diaconis–Parrilo–Xiao Section 5.3.3. The evaluated new claim concerns every noninvariant feasible optimizer and a global explicit near-optimal error bound on all independently weighted spoke and rim edges. Generic symmetry averaging proves existence, not uniqueness or quantitative stability, and generic SDP formalism does not provide the displayed graph-specific constants. Targeted public research-record and primary-paper comparisons did not reveal an equivalent statement; incomplete indexing is a residual risk.",
+    "residual_risks": [
+      "A public technical-report record is dated May 2007 without an exact day; arXiv v1 on 2007-09-06 is the verified day-level source date, not a proven absolute first public circulation.",
+      "An unindexed later source or non-obvious general stability theorem could imply the same wheel estimate.",
+      "The 2005 symmetry-analysis full text was not materially reviewed; no claim of whole-document noncoverage is made.",
+      "No independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN_VALUE_AND_INVARIANT_OPTIMIZER; no unrestricted edgewise stability bound in material read",
+        "evidence": "Theorem 2.1 states existence of an invariant optimum; Section 5.3.3 equations (31)–(33) explicitly fix two invariant edge orbits and minimum SLEM.",
+        "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+        "material_read": "Section 1.1 on exact SDP; Section 2.2 Theorem 2.1 and proof; Section 5.3.3 wheel formulas, decomposition and surrounding discussion",
+        "method": "Accessible full-text HTML, inspected relevant proof and wheel section, not only abstract",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Exact known wheel benchmark and plausible complete optimizer classification"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK; no specific wheel inequality in inspected material",
+        "evidence": "General symmetric-stochastic fastest-mixing SDP without wheel-specific edge recovery.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Full official paper overview/abstract and citation; SDP model cross-compared with arXiv:0709.0955v1 Section 1.1",
+        "method": "Official full description and subsequent primary detailed setup",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational optimization formulation potentially dominating graph-specific results"
+      },
+      {
+        "assessment": "Residual comparison risk; no NOT_COVERING verdict from abstracts alone",
+        "evidence": "The official summary concerns orbit graph eigenvalue/multiplicity analysis, not displayed wheel quantitative robustness.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/symmetry.html",
+        "material_read": "Official source abstract and mathematical focus; detailed full text was not inspected",
+        "method": "Official source summary; treated as partial access for the specific comparison",
+        "title": "Symmetry Analysis of Reversible Markov Chains",
+        "trigger": "Potential stronger general orbit-eigenvector uniqueness theory"
+      },
+      {
+        "assessment": "Different graph and objective, not decisive coverage",
+        "evidence": "Optimization on a cycle and inhomogeneity/nonreversibility, while current claim is wheel, symmetric two-sided SLEM, edgewise stability.",
+        "identifier_or_url": "https://real.mtak.hu/173919/",
+        "material_read": "Repository abstract, graph/object and assumptions",
+        "method": "Repository record and abstract; no complete document exclusion inferred",
+        "title": "Spectral gap of Markov chains on a cycle",
+        "trigger": "Prior nonhomogeneous and nonreversible mixing perturbations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e39a0cae-ecd2-42c7-8976-79384aa78b63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Known symmetry averaging cannot distinguish unique from multiple inhomogeneous design implementations. The theorem gives a complete optimizer classification and a quantitative global sensitivity certificate: any nearly fastest chain has individually prescribed edge weights within an explicit O_m(sqrt(epsilon)) RMS bound, under no rotational-invariance hypothesis. This is relevant to interpreting approximate SDP solutions and robustness of network transition design. It does not merely recalculate the known optimal value, and sharpness of the bound is not claimed.",
+    "status": "PASS"
+  }
+}
