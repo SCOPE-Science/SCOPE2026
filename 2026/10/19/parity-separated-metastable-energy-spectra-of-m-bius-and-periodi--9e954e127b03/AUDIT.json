@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For cubic antiferromagnetic Ising spins, the exact single-flip cost is \\(2J(3-2a)\\), with \\(a\\) the number of equal-spin neighbors; blocking is equivalent to \\(a\\le1\\). The explicit 16-state transfer \\(T\\) counts aligned edges in a rung and its forward legs. Its row-swap involution \\(Q\\) gives the Möbius closure by \\(\\operatorname{tr}(T^nQ)\\), while \\(\\operatorname{tr}(T^n)\\) gives the periodic closure. The exact symbolic characteristic polynomials of the two invariant sectors are \\(t^6(t^2-z^2)(t^2-t-z^2)\\) and \\(t^4(t^2+t+z^2)\\). Their power sums yield the displayed closed energy polynomials for all \\(n\\ge3\\). Coefficient parity and the exceptional \\(2z^n\\) monomial prove the total-variation result; analytic Perron-root dominance proves entropy and the first two limiting cumulants. The packaged verification program executed exact symbolic determinants and independently exhaustive graph checks for \\(3\\le n\\le9\\). The finite tests are supplemental, not substitutes for the all-size transfer proof. No dynamics-of-attraction claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Masui, Southern & Jacobs, Physical Review B 39 (1989), DOI:10.1103/PhysRevB.39.6925, abstract reports recursive enumeration of disordered spin-glass/ferromagnet strips; full text unavailable.",
+        "Spirin, Krapivsky & Redner, arXiv:cond-mat/0105037v1 (2001), PDF opening and model sections explicitly concern zero-temperature ferromagnetic hypercubic Glauber dynamics.",
+        "Kalinin & Berloff, Communications Physics 5 (2022), 20, full open Results section concerns global ground-state minimization on Möbius ladders."
+      ],
+      "reasoning": "The standard general approach of finite-width recursion covers methodology but does not by itself supply the Möbius boundary polynomial. The 1989 source might contain an unrecognized dominating formula, so residual uncertainty remains. The 2001 source treats different ferromagnetic geometry; the 2022 source treats ground minima, not all local minima.",
+      "searches": [
+        "Metastable states of Ising spin glasses and random ferromagnets Masui Southern Jacobs pdf 1989",
+        "Möbius ladder antiferromagnetic Ising zero temperature metastable stable spin states entropy single spin flip",
+        "zero temperature Glauber dynamics Ising ladder number metastable configurations transfer matrix golden ratio"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0105037v1, first public preprint 2001-05-02, inspected pages 1-2",
+      "DOI:10.1038/s42005-021-00792-0, HTML full Results on Möbius ladders inspected",
+      "DOI:10.1103/PhysRevB.39.6925, publisher abstract only; full text inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kalinin–Berloff (2022), full article Results Möbius ladder section, reports even-n frustration with 2n degenerate ground states and algorithmic minimization properties.",
+        "An accessible earlier periodic two-leg ferromagnetic ladder result determines its strictly frozen polynomial; the n-even untwisted Ising antiferromagnet is bipartite gauge equivalent, and this baseline is explicitly excluded from independent novelty.",
+        "Masui–Southern–Jacobs (1989), abstract provides general recursive metastability tools but is not enough to compare its unpublished-in-abstract detailed strip results."
+      ],
+      "reasoning": "The 2022 ground-state result implies one lowest-degree coefficient, but not the all-energy twisted polynomial or parity-separated law. Periodic even-n gauge equivalence explains the reference baseline but does not transfer to the even-\\(n\\) Möbius antiferromagnet (which has odd frustrated cycles), and does not determine the twisted Q trace. The full 1989 text cannot be ruled out decisively, and is retained as an access-related risk.",
+      "searches": [
+        "Computational complexity continuum within Ising formulation of NP problems Möbius ladder metastable ground state 2n",
+        "Möbius ladder antiferromagnetic Ising zero temperature metastable stable spin states entropy single spin flip",
+        "Metastable states of Ising spin glasses and random ferromagnets Masui Southern Jacobs pdf 1989"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-spin-flip stability on a cubic unweighted antiferromagnet is exactly the condition that equal-spin edges form a matching; equivalently spins define a locally maximal cut.",
+        "Nature Communications Physics DOI:10.1038/s42005-021-00792-0, Results: Möbius ladder graphs, explicitly treats that maximum-cut Ising graph.",
+        "The cubic-ladder transfer formula is also a weighted locally maximal-cut enumeration; no inspected source states the Möbius-twisted all-energy polynomial."
+      ],
+      "reasoning": "The matching and locally maximal-cut rewrites are fully equivalent to the claim, not different topics. Searches under these aliases returned general methods, Möbius graph homology and ground-state studies, but no equation of the new twisted full polynomial. No unique novelty follows from search alone.",
+      "searches": [
+        "Möbius ladder antiferromagnetic Ising zero temperature metastable stable spin states entropy single spin flip",
+        "Möbius ladder Ising metastable states golden ratio Lucas n antiferromagnetic number local minima",
+        "Möbius ladder spin-flip-stable states generating polynomial frustrated edges transfer matrix zero temperature 3-regular antiferromagnet",
+        "locally maximal cut counts Möbius ladder prism Ising spin configurations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct table of finite-n blocked-state energy polynomials for Möbius ladders was located in the inspected literature.",
+        "The same-graph 2022 article reports 2n ground-state degeneracy for even n, recovered as the coefficient of z^2 in the twisted polynomial, rather than an all-energy table."
+      ],
+      "reasoning": "Existing ground-state counts do not fix the exponentially many excited local minima. Failure to locate an exact table is a search result only and does not certify global novelty.",
+      "searches": [
+        "Möbius ladder Ising metastable states golden ratio Lucas n antiferromagnetic number local minima",
+        "Möbius ladder spin-flip-stable states generating polynomial frustrated edges transfer matrix zero temperature 3-regular antiferromagnet",
+        "locally maximal cut counts Möbius ladder prism Ising spin configurations",
+        "Möbius ladder maximal cuts enumeration spin glasses metastable configurations Fibonacci"
+      ]
+    },
+    "rationale": "The specific all-n Möbius-twisted metastable energy polynomial and its near-disjointness from the periodic boundary energy law were not implied by the inspected papers or the accessible prior claim comparisons. Kalinin–Berloff 2022 already gives the even-n Möbius ground degeneracy \\(2n\\) and it is not asserted as new. Even-n periodic antiferromagnetic ladders are gauge-equivalent to known ferromagnetic periodic-ladder blocked-state generating functions and are baseline, not independently novel. The contribution rests on the twisted-sector all-energy enumeration and parity distinction. The 1989 broad metastability-strip paper could not be inspected in full, which is a nontrivial residual coverage risk, not evidence of noncoverage.",
+    "residual_risks": [
+      "Masui–Southern–Jacobs 1989 paper potentially contains a general finite-strip recursion whose specific homogeneous antiferromagnetic Möbius specialization could dominate; its full text could not be assessed.",
+      "Unindexed locally maximal-cut / matching-polynomial literature could contain a mathematically equivalent twisted count.",
+      "Independent verification of originality has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the even-n ground-state degeneracy 2n and general graph; DOES NOT establish or state an energy-graded census of all single-flip minima or the periodic-versus-Möbius separation.",
+        "evidence": [
+          "Results section identifies two frustrated edges and 2n ground-state degeneracy for even n; it discusses optimization runtime rather than local-minimum energy polynomial."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s42005-021-00792-0",
+        "material_read": "Full HTML article, especially the Introduction, Results / Möbius ladder graphs and Figure 1 discussion (lines 62-146 of available HTML).",
+        "method": "Accessible open full text read and compared actual statements",
+        "title": "Computational complexity continuum within Ising formulation of NP problems",
+        "trigger": "Exact same antiferromagnetic Möbius ladder and ground-state count"
+      },
+      {
+        "assessment": "Presents homogeneous FERROmagnetic Glauber dynamics on hypercubic lattices and stability concepts, not a Möbius-ladder antiferromagnetic energy census in the material inspected.",
+        "evidence": [
+          "arXiv:cond-mat/0105037v1, stamped 2 May 2001; introductory and model sections state ferromagnetic couplings and hypercubic geometry."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0105037",
+        "material_read": "Preprint first two PDF pages, including introduction and the complete Model subsection.",
+        "method": "Primary PDF text plus page-image inspection",
+        "title": "Freezing in Ising Ferromagnets",
+        "trigger": "Historical archived primary model of zero-temperature single-spin-flip freezing"
+      },
+      {
+        "assessment": "Plausible methodological predecessor. The abstract specifies random spin-glass and ferromagnet strips but is insufficient to declare whole-article noncoverage; flagged as residual risk.",
+        "evidence": [
+          "Physical Review B 39 (1989), 6925-6933 abstract describes recursive metastability counts for strips of width up to six."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevB.39.6925",
+        "material_read": "Publisher abstract only; full article could not be obtained from OA search or authorized institutional downloader at this execution.",
+        "method": "Publisher abstract and bibliographic metadata; lawful full-text access was not obtained",
+        "title": "Metastable states of Ising spin glasses and random ferromagnets",
+        "trigger": "Recursive finite-width spin-strip metastability counts may imply a stronger general result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e954e12-7b03-4c8a-8a52-c7666d2bd6e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete energy-resolved locally stable Ising census of the benchmark Möbius topology is a motivated, natural invariant of the metastable energy landscape. Changing one global seam separates the two blocked-state energy distributions into almost disjoint residue classes, while the entropy, mean bond frustration per rung, and variance density remain exactly the same in the thermodynamic limit. This topology-sensitive distinction is not a routine restatement of the known ground-state degeneracy or the known periodic-even baseline. It supplies an all-n benchmark for constrained local-search and spin-glass studies without claiming quench dynamics or experimental impact.",
+    "status": "PASS"
+  }
+}
