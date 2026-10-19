@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Definitions include empty word, binary alphabet, Dyck balance, exact subsequence index and all integer boundaries. Greedy arch equivalence is explicitly justified. Multiplication of the actual three-state zero/one matrices under the unique Dyck first-return grammar yields four formal power-series equations; the constant-term unit forces c=0, after which exact elimination proves (1-t)(H-1)=tu(1-tu)H^2. Catalan substitution and coefficient extraction give all n,k, and the unique maximal-degree term j=k gives C_k/(k-1)!. The packaged verification independently checks all Dyck words through semilength 8 by direct pattern subsequence tests, recurrence coefficients through 27, and Catalan finite differences through index 17. Finite tests corroborate but do not prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The regular-language counting theorem in arxiv:2311.10658 requires a finite automaton, whereas unbounded Dyck words are nonregular.",
+        "Arxiv:2304.04583 uses unrestricted alphabet words and does not impose the Catalan prefix balance.",
+        "Source arxiv:2301.06145 counts Dyck factors of specific automatic words, not every Dyck word stratified by arch count."
+      ],
+      "reasoning": "The general algorithmic arch theory supplies the index statistic, not the balanced-prefix-conditioned refined counting law. Intersecting a finite arch automaton with a context-free Dyck grammar requires a new matrix algebraic elimination; no inspected stronger theorem specifies the answer or implies its Catalan-polynomial leading coefficients without substantial special analysis.",
+      "searches": [
+        "Dyck path k-subsequence universality arch index distribution Catalan substitution generating function H=1 + tu(1-tu)/(1-t) H^2",
+        "Dyck words greedy arch factorization bivariate generating function Catalan polynomial fixed universality index",
+        "balanced parenthesis Dyck words subsequence universal index Catalan C_k leading asymptotic fixed k",
+        "arxiv:2311.10658 Section 4 counting regular languages",
+        "arxiv:2304.04583 Section 3 unrestricted arch counts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.04583, introduction, Theorem 2.4 and Section 3",
+      "arxiv:2311.10658, introduction and Section 4",
+      "arxiv:2301.06145, Sections 2-4",
+      "published-finding corpus e77c4e8d9f37, published unrestricted-binary exact law",
+      "Own accessible 2026-10_week2 ledger generation 45, all 45 recoverable claim strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adamson (2023) gives full-word counting and the arch criterion, which are used rather than claimed as new.",
+        "Adamson et al. (2023) give finite-automaton counting, but Dyck is a nonregular pushdown language.",
+        "Mol et al. (2023) give an automatic-factor Dyck enumeration, not this statistic.",
+        "Own ledger items 7665df35, 12e3cab5 and 239f3512 concern respectively run-length avoidance, proper words, and palindromes, all different languages."
+      ],
+      "reasoning": "None of the compared claims logically determines A_{n,k} for all Dyck words: they either quantify over a different language with no conditioned count, or over finite-state languages excluding unbounded nesting. The current proof contributes the exact Dyck first-return weighted matrix elimination; it is not a substitution of a parameter in a cited formula.",
+      "searches": [
+        "Dyck path k-subsequence universality arch index distribution Catalan substitution generating function H=1 + tu(1-tu)/(1-t) H^2",
+        "Dyck words greedy arch factorization bivariate generating function Catalan polynomial fixed universality index",
+        "arxiv:2304.04583 Theorem 2.4 and Section 3",
+        "arxiv:2311.10658 Theorem 4.8",
+        "arxiv:2301.06145 Theorem 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "ArXiv 2304.04583: arch count equals universality index, but its enumeration is unrestricted.",
+        "ArXiv 2301.06145: Dyck paths are studied with nesting and automatic factors, not Dyck universality index.",
+        "Published record e77c4e8d9f37 states the unconstrained binary-word law (1+t)/(1-t-2ut^2), not the Dyck conditioned law."
+      ],
+      "reasoning": "Equivalent notions of arches, k-richness and subsequence universality were compared. The Dyck-conditioned series is not the unrestricted binary law: it reduces to Catalan at u=1 rather than 2^length, and has a nonrational algebraic relation rather than the unrestricted rational expression. No equivalent Dyck-conditioned statement surfaced.",
+      "searches": [
+        "Dyck word balanced parentheses subsequence universality index all binary patterns Catalan",
+        "Dyck words k-subsequence universal Catalan distribution",
+        "Dyck path k-subsequence universality arch index distribution Catalan substitution generating function H=1 + tu(1-tu)/(1-t) H^2",
+        "Dyck words greedy arch factorization bivariate generating function Catalan polynomial fixed universality index",
+        "\"Dyck\" \"universality index\" subsequence",
+        "published-finding corpus: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Dyck counts for semilength 1 to 6 are 1; 1,1; 1,3,1; 1,5,7,1; 1,7,18,15,1; 1,9,34,56,31,1, obtained by direct exhaustive enumeration.",
+        "No matching table or exact formula identified by the specified searches; the classical Catalan table records only row sums."
+      ],
+      "reasoning": "The result is a complete two-parameter exact table formula and a closed generating function. A Catalan number table alone cannot recover its joint index distribution. Absence of a search hit is not treated as a proof of uniqueness.",
+      "searches": [
+        "Dyck word balanced parentheses subsequence universality index all binary patterns Catalan",
+        "Dyck words k-subsequence universal Catalan distribution",
+        "balanced parenthesis Dyck words subsequence universal index Catalan C_k leading asymptotic fixed k",
+        "\"Dyck\" \"universality index\" subsequence",
+        "published-finding corpus: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "rationale": "Compared the actual proposition domains and implications of three highly relevant 2023 primary texts plus the closest published unrestricted-binary research record and own available claims. None contains or implies without a new weighted Dyck-grammar argument the full Catalan substitution A_{n,k} or its polynomial Catalan-leading law. Best-knowledge conclusion retains possible undiscovered equivalence risk.",
+    "residual_risks": [
+      "An unindexed article or thesis could contain a Dyck-constrained exact arch-count law; the checked published literature is not exhaustive.",
+      "The public research record offered a summary and link; the separate GitHub full-text page was inaccessible, so overlap assessment used the recovered mathematical statement and comparisons.",
+      "Generic context-free weighted-grammar tools can in principle compute algebraic series; the mathematical novelty assessed is the explicit scalar Catalan substitution and all-index coefficient law, not that general technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains arch-index equivalence and unrestricted word counting/ranking, but not the prefix-nonnegative Dyck-conditioned two-variable Catalan-substitution theorem.",
+        "evidence": [
+          "Theorem 2.4 equates k-universality with k arches.",
+          "Section 3 counts words in the full alphabet power via an arch suffix recurrence, without Dyck nonnegative-prefix constraints.",
+          "Full-text searches for Dyck and Catalan gave no match."
+        ],
+        "identifier_or_url": "arxiv:2304.04583; https://arxiv.org/abs/2304.04583",
+        "material_read": "ArXiv full-text rendering, introduction, Section 2 arch definitions and Theorem 2.4, Section 3.1--3.2 counting recurrences and Section 4 ranking description.",
+        "method": "Read extracted full text with targeted searches for Dyck, Catalan and balanced; compared the counting domains and exact formulas.",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Foundational arch definition and unrestricted k-universal word counting; potential stronger counting framework."
+      },
+      {
+        "assessment": "Counting mechanism is for finite automata/regular languages, not the unbounded Dyck language. No closed Dyck-index generating function is given.",
+        "evidence": [
+          "Theorem 4.8 concerns an input NFA and a length-specific k-universal accepting-path count.",
+          "Its finite-state path table has no stack-height Dyck constraint.",
+          "Full-text searches for Dyck and context-free found no match."
+        ],
+        "identifier_or_url": "arxiv:2311.10658; https://arxiv.org/abs/2311.10658",
+        "material_read": "ArXiv full-text rendering, introduction and contribution claims, Sections 2 and 4 including the path counting tables and Theorem 4.8.",
+        "method": "Read domain assumptions and counting statements; searched extracted manuscript for Dyck and context-free.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Strongest nearby general language-restricted counting paper, potentially subsuming a special Dyck case."
+      },
+      {
+        "assessment": "Studies Dyck factors of automatic words, nesting level and repetition avoidance. It does not state the joint universality-index distribution over all Dyck words.",
+        "evidence": [
+          "Theorems 11--17 concern Thue-Morse/automatic-sequence Dyck factors.",
+          "No full-text occurrence of universality; the subsection matching subsequence is about automatic-sequence factor indexing rather than global scattered-subsequence universality."
+        ],
+        "identifier_or_url": "arxiv:2301.06145; https://arxiv.org/abs/2301.06145",
+        "material_read": "ArXiv full-text rendering, introduction, Sections 2--4 (power avoidance, Thue-Morse Dyck factors and enumerations).",
+        "method": "Read theorem statements and the Dyck-factor enumeration section; searched entire extracted manuscript for universality and subsequence.",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Same Dyck objects; plausible that a refinement or appendices might include universality enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de1c4ebd-16b9-4fe5-94af-d88837530260",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Dyck excursions are the standard nonregular Catalan language and binary subsequence universality is a natural global containment invariant. The new closed bivariate algebraic law solves every length/index count, exhibits an exact Catalan polynomial hierarchy at fixed index, and recovers Catalan row sums. These consequences go beyond textbook Catalan enumeration or a small finite slice and can support exact random-Dyck containment probabilities.",
+    "status": "PASS"
+  }
+}
