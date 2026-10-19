@@ -1,0 +1,144 @@
+{
+  "claim_to_evidence": {
+    "computations": [
+      "verification/verify.py: 59 exact-rational independent full-configuration comparisons",
+      "verification/verify.py: symbolic fourth-degree hypergeometric moment identity",
+      "verification/verify.py: 5 finite-size balance-window evaluations"
+    ],
+    "critical_steps": [
+      "Exact lumped birth/death generator and hypergeometric stationary law.",
+      "Diagonalization of the centered linear and quadratic intensity modes with nonzero eigenvalues \\(N\\) and \\(2(N-1)\\).",
+      "Exact falling-factorial moments to degree four and orthogonal norm.",
+      "Tilted-generator second derivative and rate-normalized Fano factor.",
+      "Positive-factor equality cases and large-N algebraic crossover."
+    ],
+    "domain": "Integers \\(a,b\\ge1\\), \\(N=a+b\\ge4\\), \\(1\\le k<N\\), homogeneous rate-one symmetric exclusion on K_{a,b}, uniform stationary start, all successful hops counted.",
+    "unproved_limits": [
+      "Does not derive third or higher count cumulants or full count law away from exact Poisson cases.",
+      "Does not prove Poisson convergence of the entire count process when F tends to one.",
+      "No independent proof audit or exhaustive literature uniqueness certificate."
+    ]
+  },
+  "correctness": {
+    "rationale": "The complete-bipartite fixed-particle Markov chain is reversible under the uniform configuration measure. Lumping onto occupancy J gives exact u_j and d_j, whose quadratic escape rate splits into exactly two orthogonal hypergeometric modes with relaxation rates \\(N\\) and \\(2(N-1)\\). The tilted-generator Poisson identity gives the second count cumulant, and factorial-moment formulas through degree four produce the displayed positive two-term rational ratio. Denominators are nonzero for \\(N\\ge4\\). The Poisson equality cases and joint \\(N^{-1/4}\\) expansion follow by direct algebra. The embedded verification code passed 59 independently rebuilt full-state exact rational Poisson-equation comparisons and symbolic all-parameter fourth-moment factorization; finite tests support but do not replace the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mendonça gives complete bipartite exclusion generator eigenvalues but not tilted jump-count cumulants.",
+        "Roche--Derrida--Douçot abstract describes full counting statistics for exclusion-based mesoscopic conductors, not an explicit all-compositions bipartite SSEP Fano or joint balance theorem."
+      ],
+      "reasoning": "General matrix-eigenvalue counting methods include the candidate as a calculable special model in principle, but no accessed stronger theorem supplies the evaluated finite rational formula and its equality/crossover classification. The full text of Roche--Derrida--Douçot was not inspected, so equivalent broader spectral formulas remain a named residual risk.",
+      "searches": [
+        "arXiv:1207.4106v4, Sections 2/4/6: complete bipartite eigenvalues and mixing",
+        "arXiv:cond-mat/0312659 abstract: mesoscopic full counting statistics and exclusion models",
+        "Bernoulli Laplace urn model number of swaps continuous time activity noise second cumulant orthogonal Hahn polynomials"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1207.4106v4: Sections 2, 4 and 6 (primary full-text generator and spectrum comparison)",
+      "arXiv:1202.0774: Introduction and beginning of Section II (primary text defining static activity)",
+      "arXiv:cond-mat/0312659: abstract only (broader full-counting framework; unresolved full-text coverage risk)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first two lumped occupation eigenvalues \\(N\\) and \\(2(N-1)\\) are obtainable from the source generator, but source coverage does not contain the projection of quadratic hop intensity onto two Hahn modes.",
+        "The static activity cumulants of arXiv:1202.0774 are cumulants of configuration A, not scaled time cumulants of C_T."
+      ],
+      "reasoning": "The claimed finite expression follows only after computing hypergeometric third/fourth moments and solving a tilted counted-jump Poisson equation. That computation is mathematically reducible to existing eigenvalue technology and must not be described as a new model or new spectrum. The exact Poisson surfaces and \\(N^{-1/4}\\) joint-balance asymptotic are then implications of the evaluated expression, not independent novelty claims.",
+      "searches": [
+        "arXiv:1207.4106 Section 4: unperturbed generator spectrum",
+        "arXiv:1202.0774 Introduction/Section II: static activity cumulants",
+        "arXiv:cond-mat/0312659 abstract: full-counting-statistics framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1202.0774 defines a static configuration activity A, not the accumulated jump count C_T; the paper studies one-dimensional totally asymmetric hopping.",
+        "arXiv:1207.4106 Section 4 treats un-tilted eigenspectra, with no jump-count tilted generator or closed two-cumulant formula in the inspected sections."
+      ],
+      "reasoning": "The words activity, current, exclusion, and bipartite do not identify the same random variable. The candidate uses the time-integrated successful-exchange process under homogeneous undirected complete-bipartite rates. The static activity generating function and un-tilted spectral table do not by themselves state its variance-to-mean ratio; the latter can nevertheless supply ingredients.",
+      "searches": [
+        "SSEP complete bipartite K a b particle number k successful transfers total jump counting stationary Fano factor hypergeometric exact variance",
+        "Bernoulli Laplace urn model number of swaps continuous time activity noise second cumulant orthogonal Hahn polynomials",
+        "arXiv:1202.0774: instantaneous activity versus integrated current, Introduction paragraphs 17-43",
+        "arXiv:1207.4106: bipartite graph eigenspectrum, Section 4",
+        "Exact long-time Fano factor for counting every successful exchange in symmetric exclusion on complete bipartite graph K(a,b) with k particles; equality Poisson and quartic N^(-1/4) balanced crossover"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic research-record queries returned graph homology/configuration, stationary-statistics, Bernoulli-product and unrelated bipartite results rather than the stated activity count identity.",
+        "Related earlier mathematical claims on inclusion, run-and-tumble cycles, voter dynamics, and resetting exclusion do not imply the present complete-bipartite successful-jump Fano formula."
+      ],
+      "reasoning": "Comparisons were made by process, exact observable, quantifiers and parameter domain, not by literal title/phrase agreement. A finite indexed search cannot prove absence of an equivalent claim; an earlier table outside the queried corpus remains possible.",
+      "searches": [
+        "SSEP complete bipartite K a b particle number k successful transfers total jump counting stationary Fano factor hypergeometric exact variance",
+        "Bernoulli Laplace urn model number of swaps continuous time activity noise second cumulant orthogonal Hahn polynomials",
+        "bipartite exclusion jump-count Poisson degenerate exactly balanced density star graph anomalous scaling N one quarter",
+        "symmetric simple exclusion on complete bipartite graphs counting every successful jump total activity Fano factor exact finite size",
+        "complete bipartite activity exclusion Fano factor Bernoulli Laplace (literature search)",
+        "Bernoulli Laplace number of jumps variance continuous time (literature search)",
+        "Exact long-time Fano factor for counting every successful exchange in symmetric exclusion on complete bipartite graph K(a,b) with k particles; equality Poisson and quartic N^(-1/4) balanced crossover"
+      ]
+    },
+    "rationale": "The full relevant model/spectrum treatment by Mendonça develops the un-tilted generator, eigenvalues, and stationary vectors, but not the exact long-time count of all successful hops or its quartic joint-balance scaling. Stinchcombe--de Queiroz define a different instantaneous activity variable on directed one-dimensional TASEP; this is not an integrated jump count. The exact nonnegative two-mode rational expression, its Poisson equality cases and joint \\(N^{-1/4}\\) window were not identified in inspected sources or targeted semantic record searches. Broader Hahn-polynomial/full-counting-statistics deductions remain a residual originality risk; no novelty is inferred from absence of search hits alone.",
+    "residual_risks": [
+      "An equivalent evaluated Fano ratio may have been derived elsewhere under Hahn-polynomial, Bernoulli--Laplace or spin-exchange counting terminology.",
+      "The full text of arXiv:cond-mat/0312659 was not inspected and may contain useful general reductions; its abstract alone cannot establish NOT_COVERING.",
+      "Search-index coverage and synonyms are incomplete; independent historical originality verification is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS un-tilted model, ordinary spectrum and stationary law, NOT identified as covering the computed all-jump Fano formula or balance window in sections inspected.",
+        "evidence": [
+          "Section 4 identifies the bipartite generator and finite spin-mode eigenspectrum.",
+          "Section 6 explicitly suggests subsequent investigation of stationary current fluctuations on graphs.",
+          "First posted 2012-07-17 (arXiv v1)."
+        ],
+        "identifier_or_url": "arXiv:1207.4106v4; https://arxiv.org/html/1207.4106v4",
+        "material_read": "Primary full-text HTML, including abstract/introduction, Section 2 generator, complete Section 4 equations (15)--(18), Section 5 multipartite extension, and Section 6 outlook; other sections were not exhaustively examined.",
+        "method": "Opened and read primary full-text HTML by section; checked relevant generator, spectral formulas and concluding outlook.",
+        "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+        "trigger": "Same homogeneous complete-bipartite exclusion generator, high-priority exact prior."
+      },
+      {
+        "assessment": "NOT SAME observable or graph: static instantaneous available-hop count on 1D directed TASEP, not actual cumulative jump count on undirected biclique.",
+        "evidence": [
+          "Introduction explicitly calls A an instantaneous configuration snapshot and distinguishes it from dynamic particle displacements.",
+          "Equation (1) defines A as a sum of occupation-pair indicators.",
+          "Eq. (6) generates static moments of A, not g(s)=lim T^-1 log E exp(s C_T).",
+          "First posted 2012-02-03."
+        ],
+        "identifier_or_url": "arXiv:1202.0774; https://arxiv.org/abs/1202.0774",
+        "material_read": "Full-text-converted primary article, Introduction lines defining global static activity, contrast with integrated current, Section II beginning and transfer-matrix moments through equations (16); not all later numerical sections.",
+        "method": "Read primary indexed article text and located integrated/current definitions and static cumulant equations.",
+        "title": "Statistics of current activity fluctuations in asymmetric flow with exclusion",
+        "trigger": "Closest use of the technical phrase current activity fluctuations in exclusion."
+      },
+      {
+        "assessment": "General full-counting methodology known; precise complete-bipartite formula not established or excluded from abstract; residual risk preserved.",
+        "evidence": [
+          "Abstract describes current counting in mesoscopic exclusion-like conductors and leading-eigenvalue approach; first posted 2003-12-27."
+        ],
+        "identifier_or_url": "arXiv:cond-mat/0312659; https://arxiv.org/abs/cond-mat/0312659",
+        "material_read": "Bibliographic and abstract-level arXiv description only; no claim of having examined full article.",
+        "method": "Inspected indexed abstract and scope of systems.",
+        "title": "Mesoscopic Full Counting Statistics and Exclusion models",
+        "trigger": "Broader exclusion-model counted-current theory could dominate a special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc3de8c4-b944-4406-b3cd-6819861b41c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For exclusion gas transport on dense bipartite networks, total jump-count fluctuations are a meaningful kinetic observable not determined by stationary density or ordinary relaxation spectrum alone. This all-size exact law resolves a complete Poisson-vs-overdispersed classification and identifies a two-channel cancellation boundary with an explicit finite-size \\(N^{-1/4}\\) joint scaling. It gives a natural universality/crossover fact instead of an arbitrary low-dimensional instance, while not claiming a general current large-deviation theorem.",
+    "status": "PASS"
+  }
+}
