@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every strictly positive starting state, physical rate and step, and every nonnegative cancellation coefficient, the independent Patankar stage equations yield exact transfers stated as equations (1)--(3) in the proof. Taking the cancellation coefficient to infinity gives the three exact constants, because the flux ratio approaches the conserved mass. Explicit positive formulas establish both state components positive and conservation. The exact ODE displacement remains nonzero. The standalone checker solves independent rational linear systems across a parameter grid; it is supplemental, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026-02-16 full manuscript arXiv:2602.14392, §§3–5 and conclusions: applied flux balancing for Euler equations and contact discontinuities.",
+        "2022 preprint arXiv:2210.11845, stability theorem and two-species nonlinear example."
+      ],
+      "reasoning": "Flux balancing in a spatial Euler discretization is not a theorem on adding an arbitrary smooth positive exactly cancelling two-way reaction to an unchanged ODE; local fixed-point stability of an explicitly specified PDS is likewise not a uniform-in-representation one-step error-control result. A general method property from those papers therefore does not subsume this positive conserved counterexample.",
+      "searches": [
+        "modified Patankar error estimate stiffness masking hidden reversible reaction flux stage difference",
+        "modified Patankar Runge Kutta same ODE different production-destruction splitting balanced cancelling artificial flux arbitrarily slow numerical advance embedded error estimate",
+        "Patankar Runge Kutta fictitious reactions cancel stiffness accuracy control",
+        "modified Patankar flux decomposition same ODE ambiguity artificial reaction flux numerical behavior"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.14392",
+      "doi:10.1007/s10915-026-03496-1",
+      "arXiv:2210.11845",
+      "Relevant semantic research records concerning embedded estimator resonance and time-step positivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.14392: statements concern density versus energy flux weighting, Euler contact preservation and CFL performance.",
+        "doi:10.1007/s10915-026-03496-1: MPRK22(1) and its embedded formula and PID controller, not an arbitrarily large unchanged-dynamics cancellation flux.",
+        "arXiv:2210.11845: Lyapunov stability around a nonlinear PDS equilibrium, not estimator calibration."
+      ],
+      "reasoning": "The prior algorithm formula is necessary to derive this example but does not assert or cover its quantified limit over all c>=0 for a fixed ODE. The closest error-estimator resonance in a separate Runge–Kutta pair does not imply a decomposition-gauge family for positivity-preserving MPRK22. Explicit formulas here distinguish the new logical claim from these premises.",
+      "searches": [
+        "MPRK22(1) embedded first-order stage estimator becomes arbitrarily small under zero-net positive bidirectional reaction flux, same ODE, unchanged vector field, error persists",
+        "modified Patankar error estimate stiffness masking hidden reversible reaction flux stage difference",
+        "modified Patankar Runge Kutta same ODE different production-destruction splitting balanced cancelling artificial flux arbitrarily slow numerical advance embedded error estimate",
+        "MPRK22 gauge invariance representation dependence canceling bidirectional flux Patankar estimator blind"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 adaptive-controller article, doi:10.1007/s10915-026-03496-1, §§2.2.1,2.2.3,3: underlying algorithm and embedded norm, and acknowledgement of nonuniqueness.",
+        "2022 stability preprint arXiv:2210.11845 §§1–2: a different nonlinear two-pool PDS and stability, no representation-gauge comparison."
+      ],
+      "reasoning": "Nonuniqueness of an equation’s PDS representation by itself does not imply that both embedded outputs freeze at different sharp inverse-flux rates. A general embedded-pair definition also does not imply reliability failure. No equivalent exact limiting theorem was identified in the inspected relevant materials.",
+      "searches": [
+        "MPRK22(1) embedded first-order stage estimator becomes arbitrarily small under zero-net positive bidirectional reaction flux, same ODE, unchanged vector field, error persists",
+        "Patankar Runge Kutta representation invariance production destruction artificial cancelling reactions two species exact gauge asymptotic",
+        "MPRK22 gauge invariance representation dependence canceling bidirectional flux Patankar estimator blind",
+        "Patankar stage difference embedded method decomposition sensitivity artificial reversible flux large parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest semantic records include a Fehlberg RK4(5) estimator resonance and standard one-step positivity-boundary analyses, with different integrators/parameters; no matching MPRK artificial-flux limit identified.",
+        "Relevant 2026 and 2022 source papers present numerical examples and general methods rather than a table of the present coefficient limits."
+      ],
+      "reasoning": "The claim is an all-parameter symbolic asymptotic and a no-uniform-error-calibration implication, not a retrieval of a previously tabulated finite invariant. A failure to locate an exact table does not itself establish novelty.",
+      "searches": [
+        "MPRK22 gauge invariance representation dependence canceling bidirectional flux Patankar estimator blind",
+        "MPRK22(1) embedded first-order stage estimator becomes arbitrarily small under zero-net positive bidirectional reaction flux, same ODE, unchanged vector field, error persists",
+        "Patankar Runge Kutta representation invariance production destruction artificial cancelling reactions two species exact gauge asymptotic"
+      ]
+    },
+    "rationale": "The specific mathematical statement is the precise artificial-bidirectional-flux limit of the MPRK22(1) embedded pair for an unchanged positive two-pool ODE, together with complete masking of error estimates and positive/conservative outputs. Prior texts supply the established method, nonunique PDS representations, generic embedded-error control and other flux-balancing concerns, but accessible relevant sections do not imply the derived exact limiting constants or estimator-to-true-error divergence.",
+    "residual_risks": [
+      "Specialized earlier literature may already mention the same redundant-reaction masking mechanism, despite no equivalent mathematical theorem being identified in accessible sources.",
+      "The published Euler flux-balancing manuscript and the older adaptive-controller article approach representation and error control from different settings; possible uninspected appendices or other specialist papers remain a bibliographic limitation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains flux-balancing for Euler density/energy and contact discontinuities, not the arbitrary canceling positive polynomial PDS added to a fixed two-pool ODE, and no embedded-estimator asymptotics.",
+        "evidence": [
+          "MSC 65M06, 65M08, 65M20, 65M22 printed on p.2; p.6 definition of PDS; §§4–5 flux treatment; summary p.23."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.14392",
+        "material_read": "Full accessible 27-page manuscript; introduction, scheme definitions in §§3–4, application/experiments §5, summary and references, with relevant figures and equations checked",
+        "method": "Open-access PDF text plus page images for scheme/flux definitions and application",
+        "title": "Flux-Balanced Patankar-type Schemes for the Compressible Euler Equations",
+        "trigger": "Fresh public 2026 analysis of MPRK flux representations and physical balance"
+      },
+      {
+        "assessment": "PDS nonuniqueness and standard embedded discrepancy are present, but the two-way cancelling mass-action gauge and its inverse-parameter constants are not established there. Earlier arXiv preprint predates recent cutoff and is not used as the dated primary source.",
+        "evidence": [
+          "Equation (11) is the exact stage/final map; §2.2.3 gives embedded sigma; equation (18) defines weighted RMS estimate."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-026-03496-1",
+        "material_read": "Accessible full-text HTML, especially §2.2.1 equation (11), §2.2.3 embedded formula, §3 equation (18), and opening PDS discussion",
+        "method": "Full-text article and equation-level comparison",
+        "title": "Using Machine Learning to Design Time Step Size Controllers for Stable Time Integrators",
+        "trigger": "Defines MPRK22(1) embedded method and weighted error control relevant to precise masking claim"
+      },
+      {
+        "assessment": "Analyzes stability of a fixed symmetric nonlinear PDS, not unchanged-dynamics decompositions or suppression of a first-order embedded estimator.",
+        "evidence": [
+          "Introduction and equation (2) specify square-law exchange; §§1–2 derive stability and experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.11845",
+        "material_read": "Accessible full 7-page preprint, including method definition, nonlinear test system, fixed-point theorem, proof and experiments",
+        "method": "Open-access arXiv PDF and full-text mathematical implication comparison",
+        "title": "A Stability Analysis of Modified Patankar–Runge–Kutta methods for a nonlinear Production–Destruction System",
+        "trigger": "Earlier directly relevant two-species PDS and same second-order Patankar family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0e96b60-cac5-4e38-a91a-bff3a4759d66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a practical and mathematically motivated failure of an otherwise positive/conservative adaptive integration architecture: arbitrarily tiny embedded discrepancy is generated solely by nonunique positive flux representation with unchanged physical vector field, not by a numerical error tolerance choice or stiff ODE. Exact asymptotic coefficients show that the sharp mechanism persists for all positive states and timesteps. This gives a reproducible structural stress test and demonstrates that formal order, positivity, and conservation alone cannot justify representation-uniform error control. No downstream improvement or general integrator theorem is claimed.",
+    "status": "PASS"
+  }
+}
