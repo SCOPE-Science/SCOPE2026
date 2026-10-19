@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each of 16 de Bruijn graph vertices the local incoming-to-outgoing edge matching is one of two bijections; all \\(2^{16}\\) assignments are tested, accepting exactly single-cycle permutations. Independent DFS of Euler circuits starting with 00000 gives an identical 2048-member normalized set. Distinct five-bit circular windows preclude borders of length 5 through 31. Both full direct prefix/suffix checking and centered circular-square checking through border length four agree on all 65536 rotations. Fixed \\(u_1=16\\) and \\(u_2=4\\) follow from uniform length-2 and length-4 factor counts. Exact seven-profile table and orbit-cell sums reproduce the claimed distribution, moments and 528 orbits. Attached code reruns these tests and has no external dependencies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holub–Müller (2015) characterizes words with exactly two unbordered conjugates.",
+        "Clokie–Gabric–Shallit (2019) proves unrestricted bound and existence; unrestricted length-32 maximum is 16, but the present maximum over de Bruijn cycles is 10.",
+        "Harju–Nowotka (2004) abstract and later reviews describe general border correlations; full article unavailable."
+      ],
+      "reasoning": "General theorems imply qualitative bounds and definitions, not exact conditional frequencies over all 2048 de Bruijn cycles. Known unrestricted extrema neither force the restricted three-valued spectrum nor its orbit multiplicities.",
+      "searches": [
+        "\"Border correlation of binary words\" Harju Nowotka pdf 2004",
+        "https://arxiv.org/abs/1504.02222",
+        "https://arxiv.org/abs/1904.08187",
+        "order 5 de Bruijn sequences unbordered rotations spectrum 8 9 10"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.02222",
+      "arxiv:1904.08187",
+      "doi:10.1016/j.jcta.2004.07.009",
+      "Blanchet-Sadri–Clader–Simpson 2008/2010 manuscript",
+      "OEIS:A321162",
+      "public de Bruijn definitions and Euler-circuit literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blanchet-Sadri–Clader–Simpson, 2008 manuscript conclusion: population distributions of refined border correlations suggested as a direction, not this special full-word census.",
+        "Holub–Müller, 2015 introduction and §2: binary fully bordered class has exactly two unbordered conjugates; our de Bruijn family has 8–10.",
+        "Clokie–Gabric–Shallit, 2019 §§3-4: unrestricted extremal attainability and expected counts; no de Bruijn subclass or profile frequencies."
+      ],
+      "reasoning": "The new theorem is not a corollary of a general upper bound: it requires exhaustive information about the de Bruijn constraint, all shortest border lengths and reversal/complement orbit partitions. Even unrestricted statements that realize counts 8–10 do not count how many order-five de Bruijn cycles realize them.",
+      "searches": [
+        "\"Border Correlations of Partial Words\" population distribution 2008",
+        "\"de Bruijn\" \"unbordered\" \"conjugates\" count",
+        "https://arxiv.org/abs/1504.02222",
+        "https://arxiv.org/abs/1904.08187"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clokie–Gabric–Shallit (2019), §§1 and 3-4: unbordered conjugate counts and general maxima, not de Bruijn-conditioned distributions.",
+        "Blanchet-Sadri–Clader–Simpson (2008 manuscript), §2 and §4: refined border-correlation images defined for arbitrary/partial words."
+      ],
+      "reasoning": "Shortest-border census is equivalent to the multiset of minimal local periods of all rotations; numerical unbordered conjugate count is its zero component. Checked both phrases and the centered-square formulation. No displayed prior theorem gives the exact seven cell frequencies for binary order-five universal cycles.",
+      "searches": [
+        "\"de Bruijn\" \"unbordered rotations\" number",
+        "\"de Bruijn\" \"unbordered\" \"conjugates\" count",
+        "binary de Bruijn sequences border correlation unbordered conjugates order five",
+        "https://arxiv.org/abs/1904.08187"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A321162 tabulates maximal possible unbordered conjugates among all binary words at each word length, not distributions restricted to de Bruijn sequences.",
+        "The accessible published tables of general refined border correlations do not tabulate the 2048 order-five de Bruijn classes."
+      ],
+      "reasoning": "No matching exact table for the triples (unbordered, shortest border three, shortest border four) or seven frequencies was located. A table of global maxima is mathematically a different quantity.",
+      "searches": [
+        "https://oeis.org/A321162",
+        "\"de Bruijn\" \"unbordered\" \"border\" circular",
+        "binary de Bruijn sequence border correlation unbordered conjugates order five"
+      ]
+    },
+    "rationale": "The 2008/2010 refined border-correlation theory studies general and partial words; the inspected 2015 full paper proves a structural characterization of words with exactly two unbordered rotations; the 2019 full text proves unrestricted maximum/attainability/expectation results. No inspected source implies the seven exact order-five de Bruijn profile cells. Published mathematical-record searches found no equivalent. Inaccessibility of the plausible 2004 primary full text remains a specific unresolved historical-priority risk, but later comprehensive treatments and the available abstract provide no strong-coverage evidence.",
+    "residual_risks": [
+      "The full original 2004 Harju–Nowotka article was inaccessible; an appendix could conceivably discuss special de Bruijn sequences.",
+      "An unindexed earlier exhaustive computation or unpublished distribution could match the seven-cell table.",
+      "No external independent scientific verification has taken place."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Defines fully bordered as exactly two unbordered rotations and gives a structural characterization; none of the order-five de Bruijn 2048 class counts are determined.",
+        "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+        "material_read": "Full HTML introduction, definitions, preliminary lemmas and the §2 theorem characterizing fully bordered words; not merely search snippets.",
+        "method": "Opened arXiv textual full article, examined specific definitions and theorem statements.",
+        "title": "Fully bordered words",
+        "trigger": "Closest work on the few-unbordered-conjugates extremal regime and primary 68R15 literature"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Classifies maximum possible unbordered rotations and general attainability in arbitrary words, not exact de Bruijn-restricted counts or shortest-border triples.",
+        "identifier_or_url": "https://arxiv.org/abs/1904.08187",
+        "material_read": "Full article as accessible textual HTML; Introduction and §§3-4 theorems, methods and comparisons.",
+        "method": "Read primary arXiv textual article sections, including Theorems 3, 9 and 13 and proof outlines.",
+        "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+        "trigger": "General unbordered-conjugate maxima and attainability, plausible broader coverage"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Develops refined β-prime correlations for full/partial words; no order-five de Bruijn population classification is stated in inspected mathematical sections.",
+        "identifier_or_url": "https://www.researchgate.net/publication/220544393_Border_Correlations_of_Partial_Words",
+        "material_read": "Author-uploaded complete public text: introduction, §2 definitions, §3/4 correlation theorems, §5 critical points and §6 conclusion.",
+        "method": "Inspected available primary manuscript text, including exact statements and concluding suggestion to investigate populations.",
+        "title": "Border Correlations of Partial Words",
+        "trigger": "Introduces shortest-border correlation and population-distribution perspective"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+        "evidence": "Abstract discusses characterization of general border correlation and upper bounds, not the specific order-five de Bruijn frequencies; absence cannot be certified from abstract alone.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+        "material_read": "Abstract and published summaries in subsequent primary literature; original entire paper not available.",
+        "method": "Examined the accessible abstract and later scholarly summaries; the original article could not be read in full.",
+        "title": "Border correlation of binary words",
+        "trigger": "Original binary border-correlation work most likely to dominate a special-case theorem"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "A maximum over unrestricted binary words of each length cannot supply the seven-cell distribution over order-five de Bruijn cycles.",
+        "identifier_or_url": "https://oeis.org/A321162",
+        "material_read": "Sequence definition, values, comments and references.",
+        "method": "Inspected complete accessible sequence entry.",
+        "title": "OEIS A321162: Maximum number of unbordered conjugates for a binary word of length n",
+        "trigger": "Potential exact numerical database coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebb07211-2f9c-4306-be22-50dbca1c3bd7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unbordered conjugates and shortest borders are established string invariants, and de Bruijn cycles are canonical universal cyclic words. The complete order-five constrained distribution (seven refined profiles) is neither a one-off arbitrary slice nor a direct consequence of the unrestricted extremal theory; it exhibits strong rigidity (only 8–10 unbordered cuts of 32) and records symmetry-orbit frequencies. Order five is the first substantial full binary family (2048 cycles), and these exact benchmarks inform conjectures and constructions at higher orders without making unsupported extrapolation.",
+    "status": "PASS"
+  }
+}
