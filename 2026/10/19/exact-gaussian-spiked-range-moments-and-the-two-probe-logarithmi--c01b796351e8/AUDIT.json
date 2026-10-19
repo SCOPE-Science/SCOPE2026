@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The block Gaussian Schur-complement calculation reduces the Euclidean left-projection loss to independent chi-square ratios, with an exact beta transform. Gamma-density integration yields the hypergeometric moment. Dominated convergence below the moment boundary, a rescaled beta integral above, and a controlled logarithmic integral at equality prove all sharp constants. The small-N chi-square CDF proves the rare-event constant. Symbolic exact-rational and high-precision checks reproduced the formulas and asymptotics. Assumptions n>s, 0<epsilon<1, integer p, and fixed dimensions are explicit; no finite experiment is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gu studies Gaussian randomized subspace iteration and expected norm bounds, notably with inverse-Gaussian tail considerations.",
+        "Diouane et al. analyze general expected and probabilistic low-rank errors under much broader matrix assumptions.",
+        "The stated mean-squared moment and exact rare-event coefficient are finer than a generic expectation-of-norm bound."
+      ],
+      "reasoning": "General bounds do not imply equality in this concrete family. No stronger theorem with an exact specialized inverse-Wishart loss distribution and all its moment asymptotics was identified in material read.",
+      "searches": [
+        "Halko Martinsson Tropp gaussian power iteration spiked matrix expected squared Frobenius error exact formula",
+        "randomized SVD rank one Gaussian sketches rare event fractional moments spectral gap",
+        "arxiv:1408.2208: section 5 Gaussian bound",
+        "arxiv:2206.08793: low-rank error bounds"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2408.04503",
+      "https://arxiv.org/pdf/1804.02614",
+      "https://arxiv.org/pdf/1408.2208",
+      "https://arxiv.org/pdf/2206.08793"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The construction A^2 Omega on a symmetric PSD matrix is pre-existing and is not claimed as an invention.",
+        "One-probe Cauchy/chi-ratio phenomena are classical; separate earlier single-probe 2x2 range residual and Nyström spectral moments concern different random residual operators.",
+        "Neither generic bounds nor prior one-probe cases determine the s=2 logarithmic phase of the multi-column Gaussian left-range loss."
+      ],
+      "reasoning": "The final claim isolates the exact all-probe distribution, moment and rare-event laws plus the sharp s=2 boundary for the left factor; no assertion of novelty for Gaussian QR itself or for general matrix power iteration.",
+      "searches": [
+        "arxiv:2408.04503: Theorems 2.1, 3.1; Algorithm 3.1",
+        "arxiv:1804.02614: Algorithms 1 and 2; Gaussian random bounds",
+        "arxiv:1408.2208: Gaussian inverse starting matrices",
+        "Power iteration Gaussian low rank approximation small tail epsilon critical sketch width 2 logarithmic and 3 moment threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact law is equivalent to a transformed Beta((n-s)/2,s/2) distribution and to the reciprocal of a one-dimensional Gaussian inverse-Wishart quadratic form.",
+        "Palitta–Portaro Algorithm 3.1 identifies range(A A^T Omega), but its Theorem 3.1 states an expectation-norm inequality, not an exact distribution.",
+        "Saibaba Algorithm 1 uses a power-iterated sketch and derives canonical-angle and norm bounds."
+      ],
+      "reasoning": "The inverse-Wishart equivalence is explicitly accounted for. Its existence alone supplies the classical underlying distribution, but not a documented published formula covering all the fixed-spectrum loss moments and the sharp s=2 log/critical moment and rare-event asymptotics as one result. A precise equivalent full-text result would defeat priority and is a residual risk.",
+      "searches": [
+        "randomized subspace iteration spiked diagonal matrix exact expected Frobenius projection error Gaussian chi-square ratio power iterations",
+        "arxiv \"row-aware randomized SVD\" \"spiked\" \"moments\" Gaussian",
+        "Gaussian randomized range finder power iteration rank-one spike moment phase transition half moment Cauchy singular direction first column no oversampling",
+        "spiked diagonal singular spectrum Gaussian range finder QR projection exact beta distribution oversampling two logarithmic expected Frobenius error",
+        "arxiv:2408.04503: Algorithm 3.1; arxiv:1804.02614: Gaussian starting-guess bounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest identified mathematical records concern adaptive pivoting expected-error factors and deterministic spectral filtering, not this equal-tail Gaussian range projection.",
+        "Standard beta and inverse-chi-square tables provide ingredients of the proof but do not by themselves state the new algorithm-dependent range-loss boundary."
+      ],
+      "reasoning": "No exact recorded table or published classification matching this family and all sketch sizes was found. Search incompleteness remains a risk, not proof of uniqueness.",
+      "searches": [
+        "2024 Palitta Portaro row-aware randomized SVD exact finite-dimensional Gaussian one-vector error distribution, weighted spectral leakage law, row subsampling",
+        "Row aware randomized SVD Palitta Portaro two-pass one-vector two-level singular spectrum sharp expected squared Frobenius projection error chi-square ratio",
+        "one spike Gaussian randomized subspace iteration E[(I-P) e1 norm squared] chi square ratio k columns sharp oversampling threshold",
+        "semantic mathematical-record searches for row-aware randomized SVD; Gaussian range finder; beta distribution; two-probe logarithm"
+      ]
+    },
+    "rationale": "Compared the mathematical implications of the range bounds of Palitta–Portaro 2024, Saibaba 2018, Gu 2014, and Diouane et al. 2022 with the new exact fixed-spectrum Gaussian chi-square/beta distribution and full moment/rare-event phase law. Existing work establishes the algorithms, inverse-Gaussian heavy tails, and general error bounds; it does not provide the exact stated two-probe logarithmic boundary or its sharp coefficients in the inspected material. Related preceding calculations for one Gaussian probe and Gaussian Nyström do not imply the multi-column compressed inverse-Gram law as stated. The full-text comparisons reduce but do not eliminate independent priority uncertainty.",
+    "residual_risks": [
+      "Classical inverse-Wishart integration may yield the same exact beta loss formula elsewhere under different terminology; independent literature-priority review remains outstanding.",
+      "The inspected primary sources are broad and some subparts were inspected by theorem passages rather than every line.",
+      "Result concerns only left projectors, not the separately constructed output approximation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identifies the already known left sketch and proves expectation-norm inequalities, not the exact chi-square/beta loss phase law",
+        "evidence": [
+          "arxiv:2408.04503, pp. 3–9, Algorithms 2.1 and 3.1, Theorem 3.1; arXiv v1 posted 2024-08-08, latest v4 2025-07-31"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.04503",
+        "material_read": "Full-text Algorithms 2.1 and 3.1, Theorems 2.1, 2.2, 3.1 and 3.2; examples and discussion of two-pass left-range error",
+        "method": "primary mathematical PDF, page and theorem text comparison",
+        "title": "Row-aware Randomized SVD with applications",
+        "trigger": "same algorithm and one-spike regime"
+      },
+      {
+        "assessment": "Broad deterministic/random error upper bounds, no inspected exact spiked family loss distribution with moment boundary",
+        "evidence": [
+          "arxiv:1804.02614, Algorithm 1: Y=(AA*)^q A Omega; §3 and Gaussian bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.02614",
+        "material_read": "Introduction, §2 Algorithm 1, Gaussian starting-guess discussion, canonical angle and norm bound sections",
+        "method": "primary 25-page open full-text PDF, passages of mathematical statements read",
+        "title": "Randomized subspace iteration: Analysis of canonical angles and unitarily invariant norms",
+        "trigger": "stronger general Gaussian subspace iteration analysis"
+      },
+      {
+        "assessment": "Provides Gaussian projection/spectral expectation bounds; inspected statements do not supply this exact s-probe phase law",
+        "evidence": [
+          "arxiv:1408.2208, section 5 randomized iteration error estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.2208",
+        "material_read": "Gaussian sketch analysis in §§2–5, especially expected Gaussian norm estimates around Theorem 5.7",
+        "method": "primary 45-page open full-text PDF, theorem/proof-region reading",
+        "title": "Subspace Iteration Randomization and Singular Value Problems",
+        "trigger": "classical Gaussian subspace iteration and inverse Gaussian tails"
+      },
+      {
+        "assessment": "More general bounded-error framework but no inspected equality for the specified beta-transformed chi-square law",
+        "evidence": [
+          "arxiv:2206.08793, low-rank error analysis sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.08793",
+        "material_read": "Introduction, model assumptions, deterministic and probabilistic error-bound theorem passages, related discussions",
+        "method": "primary 26-page open full-text PDF, theorem-focused reading",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "plausibly dominating general randomized approximation theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c01b7963-51e8-4315-886f-239f17eec66a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The power-pass versus probe-count tradeoff is motivated by the row-aware construction and the known need for Gaussian oversampling. A sharp logarithmic s=2 boundary gives a natural minimal sketch-size distinction overlooked by general expectation-norm bounds. The exact constants quantify when the left sketch reaches the best possible rank-s Frobenius floor and when rare large errors persist. These results diagnose algorithm behavior rather than merely recording a renamed distribution; they are limited to an instructive spiked family.",
+    "status": "PASS"
+  }
+}
