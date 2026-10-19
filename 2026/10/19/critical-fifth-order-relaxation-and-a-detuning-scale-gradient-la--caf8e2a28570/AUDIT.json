@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact trigonometric reduction gives a cubic root with coefficient c=-40/sqrt(34*pi). A smooth center graph has w=mu*c*x^3/(1-mu)+O(x^5), giving reduced drift -3*C*mu*c^2*x^5/(1-mu)+O(x^7); telescoping |x|^{-4} yields 9600*C*mu/[17*pi*(1-mu)]. The vertical line is the unique local strong-stable leaf. Fixed points reduce to two explicit quadratics in sin(x)^2, yielding precise +sqrt(epsilon) roots and hyperbolic spectral types. In the time-scaled problem, the memory defect contracts as mu^n+O(epsilon), and Euler consistency plus a compact-interval Gronwall argument proves finite-horizon convergence to the global gradient ODE. The checked standalone symbolic/finite diagnostic program printed VERIFY_OK; finite tests are not the infinite proof. See RESULT.md Proof sections 1-4 and walker_verifier.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "T. Gilet, Dynamics and statistics of wave-particle interactions in a confined geometry, Phys. Rev. E 90 (2014) 052917, DOI:10.1103/PhysRevE.90.052917, equations 9-20, Figure 2",
+        "A. Rahman and D. Blackmore, Neimark--Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers, arXiv:1507.08057 (2015), sections 2-4",
+        "A. Rahman and D. Blackmore, Exotic Bifurcations Inspired by Walking Droplet Dynamics, arXiv:1708.07593 (2017), sections 2-3, 5-6",
+        "Published indexed comparison 2026/9/20/SCOPE-rabinovich-quintic-pump-threshold-and-critical-slowing--811a42ee7416"
+      ],
+      "reasoning": "Generic center manifold and adiabatic elimination principles imply possible fifth-order exponents when a cubic forcing zero occurs; the generic principles alone neither identify the physically specified unique harmonic cancellation nor supply the exact rate, stationary coefficient/spectral census, or the global polynomial gradient trajectory in its coupled singular time scaling. The closest indexed Rabinovich result has quintic relaxation in a different continuous wave ODE, not a theorem on this two-dimensional discrete Gilet recurrence. The primary literature compares different parameter directions and hyperbolic regimes, without a stronger overlapping theorem.",
+      "searches": [
+        "Critical fifth-order center manifold for Gilet walking droplet two-harmonic wave map, inverse fourth power relaxation and square root shape detuning epsilon squared slow time",
+        "wave walker algebraic critical n^-1/4 rescaling shape beta epsilon^-2 metastability fifth order normal form",
+        "Gilet wave particle map sin 3x sin 5x mode cancellation critical fixed point algebraic relaxation quintic 2014 2015"
+      ]
+    },
+    "checked_sources": [
+      "T. Gilet, Dynamics and statistics of wave-particle interactions in a confined geometry, Phys. Rev. E 90 (2014) 052917, DOI:10.1103/PhysRevE.90.052917, equations 9-20, Figure 2",
+      "A. Rahman and D. Blackmore, Neimark--Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers, arXiv:1507.08057 (2015), sections 2-4",
+      "A. Rahman and D. Blackmore, Exotic Bifurcations Inspired by Walking Droplet Dynamics, arXiv:1708.07593 (2017), sections 2-3, 5-6",
+      "MSC2020 37G10: bifurcations of singular points in dynamical systems",
+      "Indexed record 2026/9/20/SCOPE-rabinovich-quintic-pump-threshold-and-critical-slowing--811a42ee7416"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "T. Gilet, Dynamics and statistics of wave-particle interactions in a confined geometry, Phys. Rev. E 90 (2014) 052917, DOI:10.1103/PhysRevE.90.052917, equations 9-20, Figure 2",
+        "A. Rahman and D. Blackmore, Neimark--Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers, arXiv:1507.08057 (2015), sections 2-4",
+        "A. Rahman and D. Blackmore, Exotic Bifurcations Inspired by Walking Droplet Dynamics, arXiv:1708.07593 (2017), sections 2-3, 5-6",
+        "Published indexed comparison 2026/9/20/SCOPE-rabinovich-quintic-pump-threshold-and-critical-slowing--811a42ee7416"
+      ],
+      "reasoning": "Gilet: fixed-point equations and ordinary hyperbolic stability, plus qualitative diagrams, imply part of the local census but give no conclusion for the neutral root at exactly 3 cos beta+5 sin beta=0, where spectral stability is inconclusive. Rahman--Blackmore 2015: the Neimark--Sacker parameter calculations require nonzero coupling through wave slopes and do not imply a critical fifth-order convergence rate. Rahman--Blackmore 2017: homoclinic trajectories of saddles at varying coupling are not the local shape-collision scaling of this statement. Other models with exponent 1/4 share normal form type but not the claimed model-specific coefficients or process limit. None dominates the combined new claim.",
+      "searches": [
+        "Critical fifth-order center manifold for Gilet walking droplet two-harmonic wave map, inverse fourth power relaxation and square root shape detuning epsilon squared slow time",
+        "Wave particle coupling map w_{n+1}=mu(w_n+Psi(x_n)), x_{n+1}=x_n-C w_n Psi'(x_n), higher order neutral fixed point, fifth order drift",
+        "Gilet wave particle map sin 3x sin 5x mode cancellation critical fixed point algebraic relaxation quintic 2014 2015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "T. Gilet, Dynamics and statistics of wave-particle interactions in a confined geometry, Phys. Rev. E 90 (2014) 052917, DOI:10.1103/PhysRevE.90.052917, equations 9-20, Figure 2",
+        "A. Rahman and D. Blackmore, Neimark--Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers, arXiv:1507.08057 (2015), sections 2-4",
+        "A. Rahman and D. Blackmore, Exotic Bifurcations Inspired by Walking Droplet Dynamics, arXiv:1708.07593 (2017), sections 2-3, 5-6"
+      ],
+      "reasoning": "Searched equivalent stationary-wave descriptions under spatial origin, sine-wave combinations, neutral multipliers, a cubic wave zero, and a fifth-order center drift. Equation (9) and test family equation (20) of Gilet fix the exact objects. The inspected Rahman--Blackmore results use the same map but address generic Neimark--Sacker branches or invariant-curve homoclinic interactions; neither gives the critical beta, inverse-fourth drift coefficient or epsilon^{-2} process limit. Figure 2 in Gilet already includes the qualitative stationary-branch collision and is expressly not presented as an original isolated count.",
+      "searches": [
+        "Normal form at beta = pi - arctan(3/5) for Gilet sine(3x) sine(5x) wave walker, five equilibria and gradient crossover",
+        "Wave particle coupling map w_{n+1}=mu(w_n+Psi(x_n)), x_{n+1}=x_n-C w_n Psi'(x_n), higher order neutral fixed point, fifth order drift",
+        "Rahman Blackmore 2015 walker map sin3x sin5x critical beta pi arctan(3/5) neutral origin"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "T. Gilet, Dynamics and statistics of wave-particle interactions in a confined geometry, Phys. Rev. E 90 (2014) 052917, DOI:10.1103/PhysRevE.90.052917, equations 9-20, Figure 2",
+        "Indexed mathematical record 2026/9/20/SCOPE-rabinovich-quintic-pump-threshold-and-critical-slowing--811a42ee7416"
+      ],
+      "reasoning": "Compared Gilet figure 2 stationary branch plots and exact critical analytic coefficients against accessible indexed mathematical findings. Its graphical stationary count can be anticipated from the source, but figure 2 is not a tabulation of the nonhyperbolic x^{-4}/n slope or a trajectory-level epsilon^{-2} scaling law. No exact table or inspected record supplies those coefficients. Search nonmatches were treated as supporting but not conclusive bibliographic evidence.",
+      "searches": [
+        "Normal form at beta = pi - arctan(3/5) for Gilet sine(3x) sine(5x) wave walker, five equilibria and gradient crossover",
+        "walker map codimension-one trigonometric mode cancellation five local equilibria 3 sinks 2 saddles",
+        "Critical fifth-order center manifold for Gilet walking droplet two-harmonic wave map, inverse fourth power relaxation and square root shape detuning epsilon squared slow time"
+      ]
+    },
+    "rationale": "The complete new claim is a coupled local singular-shape theorem: sharp critical inverse-fourth relaxation, exact five-versus-one fixed-point split, and a detuning-dependent polynomial gradient scaling limit for the original Gilet wave map. Gilet (2014) already established its fixed point families and plotted shape-dependent branches, so branch counts in isolation are not presented as new. Rahman--Blackmore (2015) considers Neimark--Sacker bifurcations of hyperbolic wave zeros; their formulas do not cover an exactly vanishing wave slope. Their 2017 work concerns distant homoclinic interaction as coupling changes. The closest indexed quintic critical calculations are for different systems; no inspected primary text or indexed claim implies the concrete coupled result. Standard center manifold methods are transparently credited; unknown/unindexed priority remains a limitation, not an assertion of uniqueness.",
+    "residual_risks": [
+      "Generic fifth-order center-manifold asymptotics are established mathematics; the original contribution is the concrete combined critical-shape and detuning-crossover classification, not that exponent in isolation.",
+      "Earlier, unindexed studies of precisely this wave-shape cancellation may exist. Independent historical priority assessment has not been performed.",
+      "The experimental fluid system is not analyzed, and no conclusions for simultaneous damping limit mu approaching one follow.",
+      "The standalone checker contains finite numerical comparisons and cannot verify every initial condition or the asymptotic theorem independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source covers fixed-point equations, spectral tests for ordinary roots, and plotted shape branch collisions; not the nonhyperbolic critical decay coefficient or singular shape-detuning trajectory law.",
+        "evidence": [
+          "T. Gilet, Dynamics and statistics of wave-particle interactions in a confined geometry, Phys. Rev. E 90 (2014) 052917, DOI:10.1103/PhysRevE.90.052917, equations 9-20, Figure 2",
+          "https://orbi.uliege.be/bitstream/2268/178755/1/Generic.pdf#page=3",
+          "https://orbi.uliege.be/bitstream/2268/178755/1/Generic.pdf#page=4"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178755/1/Generic.pdf",
+        "material_read": "Ten-page author preprint; original model equations 9-20, fixed-point stability derivations, shape-family figure 2 and its caption, transition-to-chaos section and final discussion.",
+        "method": "Continuous parsed text for equations and relevant sections, inspected source PDF page images for exact signs and figure caption.",
+        "title": "Dynamics and statistics of wave-particle interactions in a confined geometry",
+        "trigger": "Original map and two-harmonic family are the exact subject of the theorem."
+      },
+      {
+        "assessment": "Its Neimark--Sacker analysis is organized around changing damping/coupling at ordinary root configurations; zero-slope harmonic shape collision and its detuning-scaling limit are not established.",
+        "evidence": [
+          "A. Rahman and D. Blackmore, Neimark--Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers, arXiv:1507.08057 (2015), sections 2-4",
+          "https://arxiv.org/abs/1507.08057"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.08057",
+        "material_read": "Full HTML text and detailed sections 2-4, model equation 1, shape equation 41, Lyapunov coefficient conditions and conclusions.",
+        "method": "Direct examination of full-text HTML and equation/claim comparison.",
+        "title": "Neimark--Sacker bifurcation and evidence of chaos in a discrete dynamical model of walkers",
+        "trigger": "Closely related analysis of the same discrete map and identical two-sine function."
+      },
+      {
+        "assessment": "Focuses on attracting invariant-circle and saddle-manifold interactions as coupling varies, rather than fixed-point collision at the critical two-harmonic wave-shape ratio.",
+        "evidence": [
+          "A. Rahman and D. Blackmore, Exotic Bifurcations Inspired by Walking Droplet Dynamics, arXiv:1708.07593 (2017), sections 2-3, 5-6",
+          "https://arxiv.org/abs/1708.07593"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.07593",
+        "material_read": "Full-text introductory model and summaries of Theorems 1-2, sections 2-3, examples in section 5 and concluding remarks section 6.",
+        "method": "Direct examination of arXiv full-text HTML; comparison of parameters and hypotheses.",
+        "title": "Exotic Bifurcations Inspired by Walking Droplet Dynamics",
+        "trigger": "Plausible stronger follow-up on Gilet-map bifurcations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "caf8e2a2-8570-4fef-88f5-0194b46ac042",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The harmonic ratio beta_* is a natural threshold within Gilet's published shape family because its wave excitation slope changes sign and the usual linear hyperbolic analysis loses force. The result gives the exact physical iteration relaxation coefficient at criticality and a resolved transition on spatial scale sqrt(epsilon) and slow time epsilon^{-2}; the limiting gradient process distinguishes three local sinks separated by two saddles from a unique sink. The structure predicts near-collision residence times and basin selection for the specified classical discrete walker toy model. Qualitative fixed-point plots alone, generic center manifold exponents alone, and numerical reproduction alone do not supply this paired exact dynamic limit.",
+    "status": "PASS"
+  }
+}
