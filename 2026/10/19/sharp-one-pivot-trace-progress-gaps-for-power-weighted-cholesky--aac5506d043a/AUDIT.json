@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact trace gain is (A²)ii/Aii. The beta=1 expectation is tr(A²)/tr(A); uniform expectation is bounded by the top eigenvalue via the Rayleigh quotient. Cauchy–Schwarz over r−1 remaining eigenvalues and one-variable maximization yield the exact factor (1+sqrt(r))/2. A block Gram family approaches equality for every rank r; an explicit three-coordinate example and the 2x2 identity settle minimal dimension. For every fixed real beta>1, a second block family has uniform gain asymptotic to T and beta-weighted gain tending to one. All quantifiers and rank/positive-diagonal boundaries are stated. Standalone exact-rational checker executed successfully; numerical checks only corroborate, they do not prove infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2410.03969 proves an accelerated scheme simulates the baseline RPCholesky distribution and studies block sampling, not universal uniform-versus-power gain ratios.",
+        "arXiv:2207.06503, Thm. 5.1 provides multi-step best-rank approximation error bounds; these bounds do not imply the proposed exact one-step ratio against uniform sampling.",
+        "An indexed published result titled \"Worst-case sharpness of multistage adaptive randomized pivoting\" concerns adaptive randomized pivoting over stages and projection error, not power-weighted single Cholesky pivots."
+      ],
+      "reasoning": "The closest broader algorithms have different comparison targets (best rank approximation, accelerations, or multistage pivot products). Their stated conclusions cannot establish a uniform-rule advantage of asymptotic size T over superlinear diagonal weights on rank two. An indexed 2026 RPCholesky analysis remained inaccessible in full and is a residual, not a certified noncoverage statement.",
+      "searches": [
+        "Gibbs exponent beta greater than one randomly pivoted Cholesky unbounded slowdown relative to uniform on rank two positive semidefinite matrix",
+        "randomly pivoted Cholesky diagonal residual sampling trace PSD matrix exact expectation probability selection block equicorrelation stopping time finite rank",
+        "power weighted Cholesky diagonal beta phase transition trace reduction PSD rank two rare high leverage replicated columns",
+        "arXiv:2410.03969, Section 4, expected residual comparison"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.06503 (Chen–Epperly–Tropp–Webber), primary full text",
+      "arXiv:2404.11487 (Steinerberger), primary full text",
+      "arXiv:2410.03969 (Epperly–Tropp–Webber), primary full text",
+      "arXiv:2608.20633 (Epperly), abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The standard first-pivot identity yields Delta_1=tr(A²)/tr(A) and is explicitly acknowledged as prior work.",
+        "The new comparison uses the Rayleigh gain of every individual pivot, a rank-constrained spectral maximum, an asymptotically extremizing block Gram family, and a separate beta>1 counterexample.",
+        "Steinerberger exponent-two Frobenius progress does not imply a positive trace-progress advantage; the norms and performance comparators differ."
+      ],
+      "reasoning": "Published statements supply an input identity but not the full new claim. Direct logical implication requires extra spectral optimization and matching extremal/counterexample constructions not contained in the material inspected. Search incompleteness, particularly the inaccessible 2026 paper, remains an explicit risk.",
+      "searches": [
+        "arXiv:2207.06503 Eq. (5.3) Phi(A) expected residual",
+        "arXiv:2404.11487 Section 2 Gibbs beta=0 beta=1 beta=2",
+        "arXiv:2410.03969 Theorem 4.1, Lemmas 4.4–4.6",
+        "randomly pivoted Cholesky one-step uniform pivot comparison rank dependence matrix Schatten ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Epperly–Tropp–Webber, arXiv:2207.06503, Sec. 5.1, gives the mean residual A−A²/tr(A), which implies the known canonical-rule gain but does not present the sharp uniform-rule comparison.",
+        "Steinerberger, arXiv:2404.11487, Secs. 1.2 and 2.3, treats the Gibbs power rule and reports some uniform-favorable behavior in experiments; its main theorem is Frobenius-oriented."
+      ],
+      "reasoning": "Uniform-pivot comparison is not a restatement of the published expectation identity. Its exact rank-r supremum needs spectral optimization and a coherent duplicated-row extremizing family; the smallest rank-two reversal and beta>1 divergence require distinct constructions. No explicit equivalent theorem was located in the inspected full texts or indexed mathematical records.",
+      "searches": [
+        "randomly pivoted Cholesky can be worse than uniform pivoting expected trace decrease rank 3 rank two counterexample",
+        "randomized partial Cholesky sharp square root rank comparison uniform pivot and diagonal weighted first step",
+        "\"diagonal sampling\" \"uniform sampling\" \"trace\" \"worse\" Nyström",
+        "arXiv:2207.06503, Eq. (5.3) and Section 2.3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2207.06503 Table 1 and Appendix C tabulate errors and sample-complexity comparisons, not the exact factor (1+sqrt(r))/2 or the 3x3 rank-two reversal.",
+        "arXiv:2404.11487 Table 1 reports empirical finite-iteration residual ratios for several pivot powers rather than a one-pivot symbolic rank-dependent extremum.",
+        "The directly constructed matrices have explicit analytical expected gains checked independently of any pre-existing numerical table."
+      ],
+      "reasoning": "No exact database entry or table yielding the claimed universal supremum, minimal reversal dimension, and superlinear power failure was identified in these comparisons. Absence from searched tables is not a proof of uniqueness.",
+      "searches": [
+        "randomly pivoted Cholesky trace optimal sampling improvement probabilities covariance pivot gain",
+        "rank dependent worst case ratio uniform and diagonal sampling one column Nyström sqrt r",
+        "arXiv:2207.06503, Figure 1, Table 1, Appendix C",
+        "arXiv:2404.11487, Figure 3 and Table 1"
+      ]
+    },
+    "rationale": "Full-text mathematical comparisons found the expected-residual identity and Gibbs sampling family as prior knowledge, but no covering exact rank-sharp uniform comparison, minimal 3x3 reversal, or all-superlinear-exponents rank-two divergence. The distinctions are by statements and implication rather than titles. Main unresolved bibliographic risk is a plausible later RPCholesky preprint whose full text could not be accessed; unindexed equivalents are possible.",
+    "residual_risks": [
+      "Full text of arXiv:2608.20633 was inaccessible despite bounded attempts, so its relationship to the claim is unresolved.",
+      "Unindexed or differently named equivalent sharp-rank sampling comparison results may exist.",
+      "This is a one-pivot result; it should not be presented as a multi-step performance theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the exact expected-residual formula and related uniform sampling guarantees, not the single-pivot worst-case rank ratio or superlinear-exponent divergence statement.",
+        "evidence": [
+          "Equation (2.6), Equation (5.3), Theorem 5.1, Appendix C.3, Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.06503",
+        "material_read": "Algorithm 1 (page 2), pivot rules and Gibbs family (pages 4–6), Theorem 5.1 and expected-residual proof (pages 18–20), uniform comparison Appendix C (pages 27–30); relevant tables and references.",
+        "method": "Primary manuscript pages examined with text extraction and page-image inspection.",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Original rule and closest general contraction theorem"
+      },
+      {
+        "assessment": "Power-two sampling is analyzed for Frobenius progress, while some examples favor uniform sampling; no explicit universal trace-gain gap or unbounded rank-two beta>1 family appears.",
+        "evidence": [
+          "Section 1.2, Theorem in Section 2.1, Table 1 on page 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.11487",
+        "material_read": "Introduction and beta rules (pages 1–2), Frobenius-norm theorem and greedy discussion (pages 3–4), experimental comparisons (pages 4–6), mathematical argument and references (pages 6–10).",
+        "method": "Primary full manuscript text and representative PDF page images examined.",
+        "title": "Randomly Pivoted Partial Cholesky: Random How?",
+        "trigger": "Direct treatment of beta-powered diagonal Gibbs pivoting"
+      },
+      {
+        "assessment": "Preserves the distribution of diagonal-proportional RPCholesky and studies accelerated efficiency; does not make the new first-step uniform-versus-beta comparison.",
+        "evidence": [
+          "Section 2.2, Theorem 4.1, Lemma 4.4, comparative Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.03969",
+        "material_read": "Algorithm description and rejection proposal (pages 5–8), comparative experiments (pages 12–14), and central error analysis (pages 14–22).",
+        "method": "Full-text section inspection with manuscript page image.",
+        "title": "Embrace rejection: Kernel matrix approximation by accelerated randomly pivoted Cholesky",
+        "trigger": "Strongly related same-pivot-distribution accelerated method and theory"
+      },
+      {
+        "assessment": "Coverage of exact one-pivot comparison undetermined; not counted as full-text noncoverage.",
+        "evidence": [
+          "Abstract describes improved best-rank residual error and concentration bounds, not the target comparison; full-paper uncertainty remains."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20633",
+        "material_read": "Search-result abstract and bibliographic metadata only; neither full PDF nor HTML was accessible.",
+        "method": "Attempted primary PDF, abstract, alternate HTML, and lawful direct access; full text unavailable.",
+        "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+        "trigger": "Later analysis of same base algorithm that could contain stronger statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aac5506d-043a-47ef-bb94-b8f4fc578130",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Gibbs pivot powers are an actual numerical-algorithm design choice; the quantitative question whether more diagonal exploitation improves immediate approximation quality is motivated directly by the cited methods. The exact rank-r supremum measures the largest possible penalty of the canonical rule relative to exploratory uniform sampling, and a minimal 3x3 counterexample makes the limitation concrete. The complete beta>1 rank-two divergence identifies a substantive qualitative loss of robustness; the answer is not a renaming or arbitrary data slice and is useful for selecting or safeguarding pivot powers.",
+    "status": "PASS"
+  }
+}
