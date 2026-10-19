@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A parity-based isomorphism between odd-position suffixes and the previous-level sentinel suffixes gives \(B_n=1\alpha(B_{n-1})1^{2^{n-1}-1}\). The same ordering for odd-position cyclic rotations follows because crossing the final-to-first seam compares \(1\) against any positive-letter image at least \(2\), reproducing the parent sentinel order; thus \(C_n=\beta(B_{n-1})1^{2^{n-1}-1}\). Solving these recurrences, and separately treating \(n=1,2\), proves the exact complete transforms and the claimed run counts. The standalone verifier compares independent sorting algorithms through \(n=16\). Finite verification supports, but does not replace, the proof.
+
+**Originality — PASS against the inspected sources, with residual risk.** The original BWT algorithm, Zimin pattern-search/avoidance papers, binary Sturmian BWT results, episturmian clustering characterization, and fixed-alphabet morphic BWT run analyses were compared at the level of their statements and hypotheses. None of the inspected material supplies the two complete, all-level Zimin transforms or entails the descending-block formulas: notably, the present transforms have more runs than alphabet symbols, so results that characterize *clustering* do not imply them. Mathematical-record and indexed literature searches did not identify an equivalent expression. A hard-to-index source or another equivalent expression remains possible; Berstel's full text was inspected through a secondary-hosted mirror of the survey.
+
+**Mathematical value — PASS.** Zimin palindromes are canonical recursively nested words, while BWT runs govern compressed text-index structure. The result gives the entire ordered transformation, not merely a small numeric improvement. It explicitly shows a change from \(2^n-1\) to \(2n-1\) linear runs and explains the mechanism via a repeatable suffix-order recursion. Its logarithmic-in-length run profile is meaningful despite the growing alphabet; the statement does not claim a compression bit-cost theorem.
+
+Primary sources: Burrows–Wheeler (1994), Rytter–Shur (2014), Cooper–Rorabaugh (2014), Berstel (2007, full survey via alternate OA mirror), Frosini et al. (2022), Ferenczi–Zamboni (2023). All links appear in `RESULT.md`.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The 2-uniform order-preserving mapping of parent suffixes to odd-position next-level suffixes proves the sentinel recursion; replacing parent terminal zero by a cyclic seam comparison symbol one still preserves order because all other comparison symbols are at least two, proving the cyclic recursion. Explicit induction yields every output symbol; small levels \\(n=1,2\\) are separately accounted for; for \\(n\\ge3\\) every displayed block has positive length and changes symbol. Independent direct rotation and suffix-doubling computations match through \\(n=16\\); finite verification is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferenczi–Zamboni (2023), Section 2 Definition 1 and Theorem 1, studies clustering, which demands contiguous symbols and at most one block per letter.",
+        "Frosini et al. (2022) analyze fixed-alphabet purely morphic BWT run-growth, not full ordered transforms for Zimin words over a new letter at each level."
+      ],
+      "reasoning": "The studied Zimin cyclic outputs have \\(2n-1>n\\) runs for all \\(n\\ge3\\); thus they do not satisfy the clustering hypothesis and the clustering classification cannot imply the claimed full output. Asymptotic fixed-alphabet growth statements do not entail all block exponents.",
+      "searches": [
+        "\"Burrows-Wheeler\" \"episturmian\" palindromes transforms runs",
+        "\"BWT\" \"standard episturmian\" exact run formula",
+        "\"Burrows Wheeler\" \"ruler word\" \"Zimin\"",
+        "arXiv:2202.02609",
+        "arXiv:2305.18986"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mit.edu/~6.454/www_fall_2002/bwt/burrowswheeler94.pdf",
+      "https://arxiv.org/html/1409.8235v1",
+      "https://arxiv.org/abs/1409.3080",
+      "https://arxiv.org/pdf/2202.02609",
+      "https://arxiv.org/pdf/2305.18986",
+      "https://scispace.com/pdf/sturmian-and-episturmian-words-a-survey-of-some-recent-1gmtegmbr0.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burrows–Wheeler gives a general transform definition, not evaluated on recursive Zimin words.",
+        "The Rytter–Shur and Cooper–Rorabaugh papers concern Zimin pattern searching and avoidance.",
+        "Berstel reviews binary Sturmian clustering; the family here uses alphabets of growing cardinality.",
+        "Ferenczi–Zamboni cluster results do not determine nonclustered Zimin last columns."
+      ],
+      "reasoning": "A general sorting algorithm can compute the transform separately at each length but does not by itself imply these all-n explicit block formulas. None of the inspected prior theorems dominates the exact ordered recurrence in its hypotheses and conclusions.",
+      "searches": [
+        "Burrows–Wheeler SRC Research Report 124 Algorithm C 1994",
+        "Rytter Shur arXiv:1409.8235",
+        "Cooper Rorabaugh arXiv:1409.3080",
+        "Berstel Sturmian Episturmian words CAI 2007 BWT",
+        "Ferenczi Zamboni arXiv:2305.18986"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact Zimin/Ruler BWT formula surfaced in these indexed phrase searches; primary BWT report and Zimin papers instead address algorithm definition or pattern avoidance.",
+        "Recursive Zimin word is the dyadic ruler sequence by the recurrence, so the alternative label was also checked."
+      ],
+      "reasoning": "Both cyclic-rotation and sentinel-suffix last-column formulas were compared, with synonyms (ruler word, nested palindrome, standard episturmian) and not merely the number of runs. Matches for unrelated BWT algorithms do not establish equivalence.",
+      "searches": [
+        "\"Burrows-Wheeler\" \"Zimin\" words transform",
+        "\"BWT\" \"Zimin\" sequence",
+        "\"Burrows-Wheeler\" \"ruler sequence\"",
+        "\"Zimin word Burrows Wheeler transform exact BWT\"",
+        "\"BWT of Zimin words run-length encoding Zimin ruler sequence\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed queries retrieved no table of all-level cyclic or sentinel Zimin BWT results.",
+        "All-level formulas here are proved by symbolic recursion and not extrapolated from the verified first sixteen levels."
+      ],
+      "reasoning": "Finite small-level tables, if discovered elsewhere, could corroborate values but would not automatically include the symbolic all-level ordered-last-column classification. Database absence alone is not novelty proof.",
+      "searches": [
+        "\"Zimin\" \"Burrows Wheeler\" BWT run count",
+        "\"Zimin\" \"BWT\" \"2n-1\"",
+        "\"ruler sequence\" \"Burrows Wheeler\" run spectrum"
+      ]
+    },
+    "rationale": "The cyclic and terminal-symbol transforms are computed in full for every Zimin level. Detailed searches of indexed literature and mathematical records, plus inspection of the foundational BWT report, primary Zimin literature, fixed-alphabet morphic BWT papers, and episturmian clustering papers, found no identical or logically stronger statement that yields these descending-block formulas. The strongest apparent episturmian clustering characterization is inapplicable: clustering entails ≤n runs for an n-letter alphabet, whereas these Zimin outputs have \\(2n-1\\) runs for \\(n\\ge3\\). An unindexed equivalence or unexamined broader source remains a residual risk; absence from databases is not treated as proof of uniqueness.",
+    "residual_risks": [
+      "Indexing misses preprints or formulations without Zimin in title/keywords; no absolute novelty proof is asserted.",
+      "All claims are bounded to the specified ordered alphabet and exact cyclic/sentinel conventions; different conventions produce different output.",
+      "The Berstel survey was inspected via an accessible full-text mirror after the original author-hosted PDF timed out; the inspected BWT theorem is binary, but unrelated literature could still contain another formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original transform definition and implementation; does not compute the complete Zimin recurrence or the claimed output.",
+        "evidence": "Report dated 1994-05-10; Algorithm C sorts all rotations then reads last column; its suffix-array formulation adds an EOF symbol.",
+        "identifier_or_url": "https://www.mit.edu/~6.454/www_fall_2002/bwt/burrowswheeler94.pdf",
+        "material_read": "24-page PDF, title/date and original Algorithm C plus relevant suffix-array explanation (pp. 1–8 of main report).",
+        "method": "Opened and examined original report text and representative page image.",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Defines the original cyclic BWT and sentinel/suffix sorting interpretation."
+      },
+      {
+        "assessment": "Deals with pattern matching against Zimin structures and not their BWT.",
+        "evidence": "The article develops Zimin-pattern searching algorithms; no BWT theorem among the inspected statements.",
+        "identifier_or_url": "https://arxiv.org/html/1409.8235v1",
+        "material_read": "Full indexed HTML, introduction, the Zimin definitions, main pattern-search constructions and scope.",
+        "method": "Opened arXiv full-text HTML and searched for Burrows/BWT.",
+        "title": "On Searching Zimin Patterns",
+        "trigger": "Primary Zimin word/pattern literature and naming."
+      },
+      {
+        "assessment": "Results are on unavoidable patterns and avoidance lengths, not cyclic/sentinel BWT.",
+        "evidence": "No transformation or lexicographically sorted rotation formula in the inspected content.",
+        "identifier_or_url": "https://arxiv.org/abs/1409.3080",
+        "material_read": "Accessible arXiv text, recursive Zimin definition and avoidance results.",
+        "method": "Opened arXiv record and inspected accessible article text.",
+        "title": "Bounds on Zimin Word Avoidance",
+        "trigger": "Primary structural treatment of Zimin patterns."
+      },
+      {
+        "assessment": "Its fixed-alphabet purely morphic growth analysis does not imply an exact ordered last-column decomposition for the expanding-alphabet finite Zimin recursion.",
+        "evidence": "General logarithmic run-growth analysis, without these Zimin word block formulas.",
+        "identifier_or_url": "https://arxiv.org/pdf/2202.02609",
+        "material_read": "Full 20-page arXiv PDF available; read abstract, setup, main morphic run statements and scope; searched text for Zimin.",
+        "method": "Opened paper PDF and examined primary statements and their alphabet assumptions.",
+        "title": "Logarithmic Equal-Letter Runs for BWT of Purely Morphic Words",
+        "trigger": "Potentially stronger BWT run theorem for morphic words."
+      },
+      {
+        "assessment": "Its clustering criterion concerns one BWT block per distinct symbol (at most alphabet-size runs). For Zimin level \\(n\\ge3\\) the explicit output has \\(2n-1\\) runs, exceeding n, hence lies outside clustering. The general criterion does not specify full BWT values.",
+        "evidence": "Definition of clustering and Theorem 1 on page 3; finite-alphabet classification of clustering, not nonclustering block spectra.",
+        "identifier_or_url": "https://arxiv.org/pdf/2305.18986",
+        "material_read": "Opened original 22-page PDF; read full abstract, section 1, section 2 definitions and Theorem 1, with page-image inspection.",
+        "method": "Direct PDF textual reading and title-page image inspection.",
+        "title": "Clustering and Arnoux–Rauzy Words",
+        "trigger": "Plausible broad BWT classification for episturmian-related palindromes."
+      },
+      {
+        "assessment": "Theorem 45 explicitly assumes binary alphabet and yields two-run transforms of strongly balanced words; no all-level Zimin multi-alphabet last-column formula is stated.",
+        "evidence": "Section 7 discusses BWT of Sturmian words; Theorem 45 is an iff characterization restricted to words over a two-letter alphabet.",
+        "identifier_or_url": "https://scispace.com/pdf/sturmian-and-episturmian-words-a-survey-of-some-recent-1gmtegmbr0.pdf",
+        "material_read": "Accessible full 25-page PDF mirror; section 7, Theorems 45 and 47, plus statement and scope of episturmian definitions.",
+        "method": "Read original survey full-text mirror, located BWT section and inspected exact hypotheses and conclusions.",
+        "title": "Sturmian and Episturmian Words (A Survey of Some Recent Results)",
+        "trigger": "Survey with potential more general BWT classification extending binary Sturmian words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "962e2739-477e-41ce-be74-f73657acea87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives two full closed-form BWT strings for every level of a canonical recursively palindromic pattern rather than a run-growth bound alone. It explains by exact suffix ordering why all \\(2^n-1\\) alternating runs in the input become only \\(2n-1\\) linear runs in the cyclic transform, an explicit and nontrivial structural phenomenon relevant to run-length text indexes, with a growing alphabet caveat.",
+    "status": "PASS"
+  }
+}
