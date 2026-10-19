@@ -1,0 +1,15 @@
+# Scientific review: universal Poisson-reset dispersion crossover
+
+## Correctness
+**PASS.** The assumptions include all real symmetric positive-definite planar translation–rotation mobility matrices with nonzero cross-coupling. The proof explicitly retains the Stratonovich-to-Itô drift, decomposes each cycle into an angular-endpoint term and an independent conditional martingale, and applies the regenerative centered-reward covariance formula. The exact Poisson integrals yield \(z_L^2=2/[(k+1)^3(k+2)]\) and the signed dispersion contrast \(2r|b|^2(k^3+k^2+k-2)/[(k+1)^3(k+4)]\). The cubic is strictly increasing for positive arguments, establishing existence and uniqueness of the crossover. The symbolic identity and independent random-cycle Monte Carlo comparisons in `verify.py` passed. Numerical agreement is corroboration, not the proof of the limit.
+
+## Originality
+**PASS, with residual risk.** Cleuren–Eichhorn's 2026 full text develops the same full mobility Langevin model and fixed-interval mean drift, then explicitly raises random reset protocols and diffusion control as future directions. Chaki–Olsen–Löwen's 2024 full text computes orientational-Poisson diffusion only in a model with independent body-frame angular and translational noise, so the translation–rotation cross-coupling and its excess covariance are absent. A related active-particle orientation-reset study uses propulsion dynamics rather than thermal cross-coupling. The closest prior fixed-interval endpoint-displacement calculation (opaque identifier `5398fb95-45c2-4296-a3d5-00ccdae40c85`) entails the deterministic comparison but does not give the Poisson timing fluctuation, full covariance expression, or universal sign root. The root and physical implication were not located by claim-directed searches. Standard renewal-reward covariance machinery is acknowledged as prior, and prior derivability from broader stochastic-process methods remains a residual risk.
+
+## Value
+**PASS.** Position-based colloidal separation performance depends on fluctuation directions, not only mean drift. Reset-time randomness introduces extra longitudinal dispersion and **reverses the ordering** relative to every deterministic-reset interval. The strictly universal critical ratio gives an experimentally interpretable separation of regimes; in the physically natural isotropic-Schur-complement family it is visible directly in total measured positional dispersion without baseline subtraction. Arbitrarily small nonzero hydrodynamic cross-coupling preserves the mathematical threshold, although small amplitudes may be difficult to resolve experimentally.
+
+## Limits and comparisons
+All claims are for idealized instantaneous resets, overdamped free-space passive diffusion, fixed mobility, and the long-time variance rate. The baseline-adjusted excess is not interchangeable with the total covariance for anisotropic Schur complements. Underlying model and general renewal limit are not claimed new. Independent confirmation by a different investigator has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
