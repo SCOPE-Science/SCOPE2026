@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The diagonal/off-diagonal incidence inequalities hold for all multiplicity patterns. The special six-word and ordinary four-word triple gadgets each use every ordered distinct-letter pair exactly twice, and the selected parallel class supplies one remaining incidence per diagonal pair. The Ray-Chaudhuri--Wilson existence theorem supplies the required designs for every stated order. The standalone exact checker reconstructs orders three and nine. The equality-case assertions follow from equality in every resource inequality.
+
+**Originality — PASS, subject to residual risks.** Kiah--Wei--Zeng, arXiv:2609.21395v1, Theorem 23 supplies a general finite-length upper bound; its best specialization here is \(q^2+q\), not the sharp \(2q^2/3+q\), and its explicit constant-list constructions concern different regimes. Kong--Tamo--Wei, arXiv:2408.10961v1, treat unique rather than two-list decoding. Related published length-three deletion **covering** values optimize the opposite incidence direction and do not imply the present maximum. Classical resolvable and directed triple systems provide ingredients but the exact list-code formula and its equality constraints were not located. The full text of Lin, arXiv:2609.26650v1, could not be retrieved; its identified statements concern binary codes and asymptotic bounds. Previously unindexed directed-design or deletion-code results remain possible.
+
+**Value — PASS.** This exact infinite congruence class is a natural design-theoretic boundary for the shortest nontrivial list-deletion channel. It improves the sharpness of the relevant published general bound by a quadratic term, gives constructive output-perfect codebooks, and identifies restrictions on all extremizers, not just a finite enumeration. It makes no unsupported claim for other alphabet orders.
+
+Self-review: passed. Independent audit: not yet performed.
