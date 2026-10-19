@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly lists and exhausts the complete labeled orbit for m,n>=2, derives a symmetric N-regular operator, reduces it into 6+2(m-1)+2(n-1)+(m-1)(n-1) dimensions, exactly factors its characteristic polynomial, and proves all quartic Laplacian roots >1 by polynomial coefficient positivity. Exact independent graph-neighborhood BFS and symbolic char-polynomial verification pass for 16 size pairs; finite tests support but do not substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adcock et al. report finite n<=9 orbit statistics and a qualitative empirical stationary law, and explicitly suggest analyzing mixing rates.",
+        "Tzitrin treats local equivalence, not Markov transition eigenvalues."
+      ],
+      "reasoning": "Finite orbit enumerations cover small sizes but do not establish an all-sizes exact quartic eigenvalue factorization and gap. Qualitative full orbit classification is not, by itself, a spectral mixing theorem.",
+      "searches": [
+        "Random local complementation quantum graph state Markov mixing spectral gap",
+        "arXiv:1910.03969 full sections 2,3,4",
+        "arXiv:1805.05968 Sec. III.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1805.05968v1",
+      "https://arxiv.org/html/1910.03969v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tzitrin proves qualitative orbit completeness up to permutation.",
+        "Adcock states that random LC mixing rates remain to be formalised.",
+        "The graphical-zonotope and tetrahedral orbit results refer to distinct transition matrices and spaces."
+      ],
+      "reasoning": "Orbit enumeration and local-equivalence rules do not logically imply the explicit spectral polynomial or inequality showing the gap exactly 1/N without a new representation decomposition and positivity proof. Unrelated random-walk spectra cannot dominate this theorem merely because they also involve a bipartite graph or an orbit.",
+      "searches": [
+        "Tzitrin 2018 complete biclique LC orbit Section III.1",
+        "Adcock 2019/2020 local complementation orbit random walk Section 4",
+        "Published complete bipartite graphical zonotope spectral gap",
+        "Published tetrahedral orbit polytope random walk spectral stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tzitrin Sec. III.1 directly states the complete biclique orbit up to vertex permutation.",
+        "Adcock et al. Sec. 4 explicitly proposes formalizing random orbit-walk mixing rates."
+      ],
+      "reasoning": "The orbit graph itself, including its qualitative possible local-complementation moves, is known or readily derived from Tzitrin. The new statement instead identifies all eigenvalues, multiplicities, and the sharp one-sided gap for every labeled biclique size; neither inspected full text has this spectral formulation.",
+      "searches": [
+        "arXiv:1805.05968 Sec. III.1 biclique binary star LC orbit",
+        "arXiv:1910.03969 Sec. 2.3 and Sec. 4 random LC orbit walks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Adcock supplies catalogues of orbit graphs and invariants to limited qubit size.",
+        "Tzitrin provides an orbit up to graph isomorphism."
+      ],
+      "reasoning": "Known tables may encode individual small instances and the orbit structure, but neither directly tabulates this symbolic exact transition spectrum as a function of both part sizes. The novelty claim deliberately excludes recomputing any finite table value.",
+      "searches": [
+        "Adcock et al. orbit enumeration n<=9 supplementary description, arXiv:1910.03969",
+        "Tzitrin biclique full orbit diagram arXiv:1805.05968"
+      ]
+    },
+    "rationale": "Qualitative biclique LC orbit structure is known from Tzitrin and explicitly not claimed as new. Adcock et al. catalog limited-size orbit graphs and explicitly suggest mathematically investigating mixing rates, but do not present this full labeled biclique Markov spectrum and universal sharp gap. Closest retrieved published spectral walks use inequivalent state spaces. No stronger covering spectral theorem was identified in inspected literature; residual risk of unindexed equivalence is acknowledged.",
+    "residual_risks": [
+      "An unindexed paper using a different name for the same weighted graph-state-orbit Markov operator could contain an equivalent spectrum.",
+      "The spectral result is for a classical Markov process on LC-equivalent graph-state representatives and should not be confused with coherent quantum-walk mixing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS unlabeled orbit structure; DOES NOT PRESENT the labeled orbit transition spectrum or random-walk Poincare gap",
+        "evidence": [
+          "Section III.1 states the complete biclique LC orbit up to vertex permutation and exhibits the biclique-to-binary-star route."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.05968v1",
+        "material_read": "Full text, in particular Sec. III.1, the complete-orbit statement at lines corresponding to discussion after Claim 1 and Figures 4–6",
+        "method": "Direct primary HTML full-text inspection",
+        "title": "On the local equivalence of complete bipartite and repeater graph states",
+        "trigger": "Biclique LC orbit and possible claim subsumption"
+      },
+      {
+        "assessment": "Finite orbit mapping and empirical random-walk stationarity are covered; authors explicitly suggest formal mixing-rate analysis; the all-size biclique exact spectrum is not presented",
+        "evidence": [
+          "Section 2.3 studies exhaustive finite orbit maps; Section 4 explicitly proposes further investigation of random-orbit-walk mixing rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.03969v2",
+        "material_read": "Full text, Sections 2–4, particularly orbit definition, limited-size orbit enumeration, and discussion paragraphs on scrambling and mixing rates",
+        "method": "Direct primary HTML full-text inspection",
+        "title": "Mapping graph state orbits under local complementation",
+        "trigger": "Known LC orbit graphs and random walk mixing rates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "957bc652-48cd-4d7b-95bf-a2a6bbd59db4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adcock et al. identify the random-LC mixing-rate question in quantum-network scrambling. The full analytic spectral decomposition for arbitrary biclique part sizes and the size-sharp relaxation time settle a motivated infinite-family case beyond the prior finite tables. Distinguishing one-sided from absolute gap prevents an unjustified total-variation claim.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** All graph types and labels are explicitly defined. Exhaustive vertex-local-complementation rules prove reachability and closure. A six-dimensional invariant quotient, row- and column-zero modules, and a doubly centered matrix module give the complete characteristic polynomial with dimensions matching the orbit. The quartic shifted to \(t=1-h\) has strictly positive coefficients for \(h\ge0\), proving the exact smallest positive Laplacian eigenvalue. The supplied standalone checker directly rebuilds the graphs and verifies the transition operator, self-loop weights, and characteristic polynomial for 16 finite size pairs. The analytical proof covers arbitrary part sizes, not just the checked examples.
+
+**Originality — PASS (literature-conditioned).** Tzitrin (2018, arXiv:1805.05968, Sec. III.1) already describes the complete biclique orbit up to permutations. That structural fact is explicitly excluded from the originality claim. Adcock et al. (2019/2020, arXiv:1910.03969, Secs. 2–4) provide finite LC-orbit maps and explicitly identify random-complementation mixing-rate analysis as a further question. Neither checked full text supplies the exact biclique transition spectrum or the all-sizes, imbalance-independent one-sided relaxation gap. Additional comparison with available published spectral-walk research did not identify a stronger statement from which the formula follows. A differently named equivalent walk remains a residual literature risk.
+
+**Value — PASS.** This addresses the specific mathematical mixing-rate question identified by Adcock et al. for graph-state scrambling. It replaces finite orbit visualizations and empirical stationarity with an exact transition-spectrum formula and size-sharp relaxation times over an infinite, physically relevant graph-state family. The full quartic spectrum also separates the one-sided gap from the absolute spectral radius, making the conclusion more precise than a qualitative mixing observation.
+
+**Limitations.** Both part sizes must be at least two; graph labels and uniform vertex-selection probabilities matter. A one-sided spectral gap need not equal the absolute spectral gap; exact total-variation mixing and physical quantum noise are not computed. Prior qualitative orbit classifications remain prior results. External independent audit has not been performed.
+
+**Closest sources.** Tzitrin (arXiv:1805.05968), complete full-text Section III.1; Adcock et al. (arXiv:1910.03969), full text Sections 2–4 and discussion of scrambling. Related spectral-walk literature concerns different state spaces and does not dominate this statement.
+
+Self-review: passed. Independent audit: not yet performed.
