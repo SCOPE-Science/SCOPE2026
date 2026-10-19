@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** Subgroups are classified by their vector-space kernel, complement divisor, and conjugating translation coset. Intersections are computed exactly: the complement survives if and only if two affine cosets meet, and the number of compatible lift pairs is \(p^{n-r}\). A Gaussian intersection count then gives the full meet-order profile; summing trivial-intersection partners gives all degrees. The proof treats boundary types, whole-group and identity exclusions, and arbitrary composite complement order. Independent enumeration of 12 small-parameter degree/meet checks agrees with the formulas.
+
+**Originality — PASS within inspected coverage.** The 2021 Khudhur–Haji–Khasraw and 2022 Ramdani–Wardhana–Awanis articles concern *cyclic* dihedral kernels and metric graph invariants, not the uniform elementary-abelian subgroup meet-distribution theorem. Lee–Rekvényi 2026 supplies a general diameter-two criterion, and that covered corollary is expressly excluded from originality. Related subgroup-commutativity findings concern permutability, not intersections. Searches under affine Frobenius, generalized dihedral, subgroup lattice, intersection profile, and vertex-degree terminology did not return an equivalent published formula. Residual priority risk remains from unexamined older general full texts, especially any universally applicable subgroup-lattice intersection enumeration.
+
+**Value — PASS.** The result classifies a natural full pairwise subgroup incidence invariant and determines the degree spectrum and edge count of the original subgroup intersection graph in an infinite family. Unlike a diameter or connectivity result, it distinguishes kernel dimensions and different complement divisor types (for example, complement types of orders \(2\) and \(6\) produce different vertex degrees at the same kernel rank), giving structural information useful for graph comparison and testing subgroup-lattice invariants.
+
+The finite checker is supporting evidence, not a general proof. Historical novelty is not guaranteed, and independent mathematical review has not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
