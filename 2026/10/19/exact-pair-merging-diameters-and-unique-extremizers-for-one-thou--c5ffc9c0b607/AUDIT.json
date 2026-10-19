@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact inverse-edge construction and BFS shortest-path proof cover every off-diagonal unordered pair. The C++17 code recomputes all transitions and tests 1,510,524,000 unordered pairs over 1000 fully specified instances, rejecting missing distances or discrepant maxima/multiplicities. The independently implemented explicit pair graph oracle agrees for k≤40 and forward BFS from farthest pairs for k in {1,16,17,40,101,499,500,501,999,1000}. Result is strictly finite k≤1000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 8.1 establishes the same diameter equation only for 1≤k≤16; Conjecture 8.2 explicitly posits it for all k, but is not a theorem. The paper reports computations for 17≤k≤30 without their proof-level certification.",
+        "The 2018 originating thesis was not accessible for comparison."
+      ],
+      "reasoning": "A conjecture is not stronger proved coverage. Its finite proved range is properly subsumed by the new exhaustive range, while the previously reported 17..30 values leave 31..1000 plus uniqueness and finite certificate uncovered.",
+      "searches": [
+        "https://ideosphere.ai/papers/cwa-series-v1.pdf §8 Theorem 8.1 / Conjecture 8.2",
+        "published-finding corpus: automata Dzyga Szykula 3k+6 5k^2+34k+44 merging diameter 1000",
+        "Web: Dzyga Szykula pairwise merging diameter A_k 2026"
+      ]
+    },
+    "checked_sources": [
+      "M. Szykuła (2026), arxiv:2608.24245v1, §2.3",
+      "The compress-with-another threshold of A_k, 2026, full accessible paper §8",
+      "published-finding corpus related automaton profiles: 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba; 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f; 2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The survey presents the family and compress-with-another conjecture without an all-pairs diameter formula.",
+        "The later manuscript proves the proposed formula through k=16, reports k≤30 as calculation, poses it as an all-k conjecture, and does not give the k≤1000 upper bound or unique maximizing-pair classification."
+      ],
+      "reasoning": "Exact pair distances for each k≤1000 neither follow from the survey nor from the 16-case theorem; uniqueness of a maximizing pair likewise does not follow from attaining a maximum or a diameter formula. Every pair is enumerated in the new finite certificate.",
+      "searches": [
+        "arxiv:2608.24245v1 full §2.3 and Figure 3",
+        "https://ideosphere.ai/papers/cwa-series-v1.pdf §§2,8 and references",
+        "published-finding corpus: \"pairwise merging diameter\" \"A_k\" extremal pair uniqueness k 17 1000"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pairwise merging diameter equals maximum shortest collision-path distance in the unordered pair graph. The 2026 survey discusses distinguished-state compression, a minimum over partners, not this maximum over all pairs.",
+        "The 2026 diameter manuscript §8 explicitly separates maximum-over-pairs Conjecture 8.2 from the distinguished-state minimum."
+      ],
+      "reasoning": "Compared unordered-pair shortest collision distances, pair synchronization, maximum pair rendezvous, and the different quantification in compress-with-another; no inspected equivalent claim covers k=17..1000 or the unique extremal pair.",
+      "searches": [
+        "published-finding corpus: Dżyga Szykuła A_k merging diameter unique farthest pair floor((k+2)/2) k=1000 3006 1258511",
+        "Web: \"pairwise merging diameter\" \"A_k\" extremal pair uniqueness k 17 1000",
+        "arxiv:2608.24245v1 §2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant primary paper says the first ten diameter values were not matched in OEIS at its stated search date, and reports only first thirty values computationally.",
+        "published-finding corpus search hits concerned distinct automaton families, including classical Černý and Wielandt automata, not the named A_k family."
+      ],
+      "reasoning": "Known first-few entries and a conjectured closed form do not constitute an exact, exhaustive table of all 1000 certified cases or a unique-extremizer classification. Search absence is not treated as proof of priority.",
+      "searches": [
+        "https://ideosphere.ai/papers/cwa-series-v1.pdf §8 sequence and OEIS discussion",
+        "published-finding corpus: pair graph maximum merging distance for Szykuła 3k+6 construction k 2026",
+        "Web: Szykula Dzyga pair merging diameter sequence 21 33 47 65 83 2026"
+      ]
+    },
+    "rationale": "The nearest published diameter theorem covers only k≤16, plus uncertified computational remarks through 30; the same formula for all k is explicitly conjectured rather than proved. The new exhaustive 1000-parameter finite proof and unique-extremizer classification are not implied by that scope. published-finding corpus and available own claims were compared, with inaccessible thesis and possible unindexed work explicitly acknowledged.",
+    "residual_risks": [
+      "2018 thesis not fully accessible",
+      "Similar exhaustive tables or a proof beyond k=16 may be available in unindexed literature",
+      "Publication priority cannot be proved merely by a negative search"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the original concerns a distinguished-state compression minimum, not the full pair-diameter classification",
+        "evidence": [
+          "arxiv:2608.24245v1, section 2.3, Figure 3, first posted 2026-08-25"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Primary public arXiv v1 §2.3 including automaton schematic and conjecture; arXiv first-public-date and MSC context",
+        "method": "Read the accessible original document including the family transitions, figure, and conjecture statement; compared claim quantifiers",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Original introduction and family definition of the relevant automata"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: establishes formula for k≤16 and numerical evidence to 30 but explicitly leaves all-k formula conjectural; does not claim k≤1000 or unique maximizer",
+        "evidence": [
+          "§8 Theorem 8.1 proves k≤16",
+          "§8 Conjecture 8.2 conjectures every k≥1",
+          "§8 states k=17..30 were only computed, not proved",
+          "§2 fixes boundary transitions and explicitly notes inaccessible 2018 thesis"
+        ],
+        "identifier_or_url": "https://ideosphere.ai/papers/cwa-series-v1.pdf",
+        "material_read": "Accessible 10-page full PDF, especially §1 scope, §2 complete automaton definition and missing boundary transitions, §8 Theorem 8.1 and Conjecture 8.2, and §9 open questions; full-paper text searched for farthest extremizer",
+        "method": "Inspected and compared exact theorem quantifiers, proven cutoff, computational remarks, conjecture, and source provenance",
+        "title": "The compress-with-another threshold of the series A_k: an upper bound 4n/3 for every k, exact values to n=186, and a one-letter correction",
+        "trigger": "Closest exact diameter theorem and potential encompassing claim"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS: historical priority risk, not affirmative evidence of coverage",
+        "evidence": [
+          "The accessible 2026 manuscript expressly reports being unable to obtain this thesis and notes its provenance"
+        ],
+        "identifier_or_url": "Michalina Dżyga, University of Wrocław (2018), cited by Szykuła 2026",
+        "material_read": "Not available: no full text inspected; bibliographic reference and provenance statement alone",
+        "method": "Sought public access and compared the accessible secondary description, without inferring a whole-document negative",
+        "title": "Synchronizing automata with extremal properties (master’s thesis, 2018)",
+        "trigger": "Original provenance and potential historical priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5ffc9c0-b607-4528-894f-ec0dee9fd1b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact and independently reproducible finite cutoff for a stated open synchronization invariant, proving 984 additional consecutive parameter values beyond the published theorem and locating one unique extremal unordered pair for all 1000 instances. The 3006-state largest example and 1.51 billion pair-distance evaluations provide substantive resolution of the natural finite domain, not an arbitrary small slice or a proof of the all-k conjecture.",
+    "status": "PASS"
+  }
+}
