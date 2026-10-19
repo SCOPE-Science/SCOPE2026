@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "At the population minimizer, independent Gaussian training and validation gradients reduce the projected hypergradient exactly to N/sqrt(chi-square_d), independent of batch size. Conditional second validation acceptance and chi-square size bias yield the exact d+2 tail factor. Dominated convergence establishes d=1 and d>=3 limits; a uniform logarithmic split establishes the d=2 coefficient. Checked all positivity, cap, normalization, q=0 tie, limits and exact arithmetic. The attached standalone script passed 70 independently constructed test families; infinite-domain conclusions rely on the proof, not the test count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2609.11751v2, Section 3 convergence guarantees under relative-gradient noise",
+        "arxiv:2505.23081v2, deterministic online scaling framework",
+        "arxiv:2006.04740 abstract on stationary multiplicative-noise tails"
+      ],
+      "reasoning": "Prior convergence results require relative gradient noise, violated at the Gaussian noninterpolating optimum; they cannot specialize to this model. General heavy-tail results for stationary SGD do not establish this independent two-step projected hypergradient/null-step formula. Only inspected portions of older heavy-tail work are used, with remaining uncertainty documented.",
+      "searches": [
+        "Exact stationary covariance and parameter optimization of online-scaled stochastic gradient descent in scalar or diagonal quadratic models with noisy gradients",
+        "Sharp finite sample phase transitions and stability of stochastic gradient methods with online scaling and low rank preconditioning",
+        "Stochastic online scaled gradient OSGM SGD hypergradient out-of-sample independent validation batch noise floor minibatch invariance",
+        "stochastic gradient online scaling hypergradient independent validation student t ratio Gaussian null step dimension risk 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.11751v2",
+      "https://arxiv.org/abs/2609.11751",
+      "https://arxiv.org/html/2505.23081v2",
+      "https://arxiv.org/abs/2006.04740",
+      "published-finding corpus indexed record 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.11751v2 Algorithm 2 establishes the algorithmic recursion but no corresponding finite two-step risk identity",
+        "published-finding corpus id 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6, scalar random-curvature OSGM target and stability; independent Gaussian additive noise assumption differs",
+        "arxiv:2505.23081v2 deterministic feedback does not include validation noise"
+      ],
+      "reasoning": "Known Gaussian/chi-square identities plus the published algorithm permit deduction once the specific model is analyzed; such ingredients do not imply the exact null-step size-biased acceptance or the three capped eta risk equivalents without the new integration. Search and inspection support provisional noncoverage rather than proving global uniqueness.",
+      "searches": [
+        "In Gaussian quadratic optimization with independent training and evaluation mini-batches, projected hypergradient learning has Student-t(d) normalized feedback and a sharp dimension d=1 linear, d=2 eta squared log eta, d>=3 eta squared accepted null-step risk at optimum",
+        "Stochastic hypergradient descent Gaussian normalized gradient score Cauchy law projection clipping dimension one dimension two logarithmic error",
+        "Stochastic online scaled gradient OSGM SGD hypergradient out-of-sample independent validation batch noise floor minibatch invariance",
+        "stochastic hypergradient normalized noise Cauchy ratio probabilistic distribution learning rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.11751v2, Section 3.1; comparison includes exact independent-validation hypergradient definition",
+        "Student Gaussian/chi-square ratio identity, classical; not itself a novel claim",
+        "published-finding corpus id 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6: random-curvature population feedback result, not exact additive Gaussian accepted risk"
+      ],
+      "reasoning": "The exact target is the law of projected Gaussian inner-product/gradient-norm feedback jointly with the second independently validated null-step risk, including sharp eta exponents and coefficients. An isolated Student-ratio statement is equivalent only to one starting lemma, not the full theorem; the indexed scalar-curvature result is not an implication of the finite Gaussian acceptance identity.",
+      "searches": [
+        "Out-of-sample hypergradient projection Gaussian ratio Student t heavy-tailed gradient normalization minibatch dimension risk clipping logarithmic divergence stochastic online scaled gradient",
+        "Stochastic hypergradient descent Gaussian normalized gradient score Cauchy law projection clipping dimension one dimension two logarithmic error",
+        "hypergradient Cauchy stochastic gradient optimization",
+        "hypergradient Student t distribution SGD normalization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus id 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 indexed summary",
+        "arxiv:2609.11751v2 Algorithm 2 and Theorem 3.3",
+        "Classical Cauchy and Student-t densities explain the unprojected moment threshold"
+      ],
+      "reasoning": "No exact database/table covering the full projected, independently validated two-update three-regime risk was located. Classical distribution tables already give the Student-ratio density and related moments, which are not presented as new. The cap-dependent accepted d=1 coefficient and size-biased validation factor are compared as composite, not as a single known distribution moment.",
+      "searches": [
+        "In Gaussian quadratic optimization with independent training and evaluation mini-batches, projected hypergradient learning has Student-t(d) normalized feedback and a sharp dimension d=1 linear, d=2 eta squared log eta, d>=3 eta squared accepted null-step risk at optimum",
+        "Out-of-sample hypergradient projection Gaussian ratio Student t heavy-tailed gradient normalization minibatch dimension risk clipping logarithmic divergence stochastic online scaled gradient",
+        "Gaussian ratio Student t squared positive part moment dimension 2 hypergradient"
+      ]
+    },
+    "rationale": "The publication introduces independent validation and null steps, and the Student ratio is classical. The specific two-update accepted excess-risk identity and three sharp dimension-dependent small-learning-rate coefficients were not present in the inspected primary material or indexed mathematical comparisons, which concern relative-noise convergence, deterministic scaling, random-curvature feedback, or different tail mechanisms. Residual specialized earlier-publication risk remains.",
+    "residual_risks": [
+      "No exhaustive literature uniqueness guarantee; specialized earlier hypergradient/Cauchy-ratio calculations may exist under different terminology.",
+      "The broader stochastic heavy-tail paper was compared only through its abstract, not its full text; it is not a decisive unresolved comparison because its stated stationary multiplicative-noise setting differs.",
+      "The available published-finding corpus record is a ranked summary, not a full article inspection; the described random-curvature setting and parameters do not imply the present additive-Gaussian formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the method and proves different relative-gradient-noise convergence statements; does not state the exact Gaussian two-update accepted risk or dimension-one/dimension-two boundary.",
+        "evidence": [
+          "arxiv:2609.11751v2, Section 3.1 Algorithm 2, Eq. (4), Assumptions 3.1–3.2, Theorem 3.3",
+          "arxiv:2609.11751v2, Section 2.2 and Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.11751v2",
+        "material_read": "Algorithm 2; Section 2.2; Section 3.1 feedback equation (4), noise assumptions and convergence theorem; Section 5.1; Appendix A counterexample and the related-work discussion.",
+        "method": "Inspected openly accessible full-text HTML, searched relevant sections and equations.",
+        "title": "Stochastic Gradient Methods with Online Scaling",
+        "trigger": "Source of the independent validation hypergradient and null-step update evaluated in the theorem."
+      },
+      {
+        "assessment": "Deterministic online scaling and null-step rules imply the feedback definition, but not an independent Gaussian training/validation two-update risk or its three sharp regimes.",
+        "evidence": [
+          "arxiv:2505.23081v2 Sections 3 and 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.23081v2",
+        "material_read": "Main framework, scalar hypergradient feedback and projection in Section 3, null-step setup in Section 7, and related introductory statements.",
+        "method": "Inspected openly accessible full-text HTML in cited sections.",
+        "title": "Gradient Methods with Online Scaling Part I: Theoretical Foundations",
+        "trigger": "Closest deterministic precursor to the normalized hypergradient online scaling construction."
+      },
+      {
+        "assessment": "Studies heavy-tailed stationary SGD from multiplicative stochastic recursions; no established coverage of finite two-update projected independent-validation hypergradient risk. Whole-text coverage not asserted.",
+        "evidence": [
+          "arxiv:2006.04740 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.04740",
+        "material_read": "Abstract and publication-level framing only; the whole primary document was not inspected.",
+        "method": "Reviewed arXiv abstract and comparison against theorem subject.",
+        "title": "The Heavy-Tail Phenomenon in SGD",
+        "trigger": "Plausible broader tail literature in stochastic optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7f97c97-e7e2-4e9f-866f-388e83ce8bf4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published independent-validation normalized hypergradient divides by a random gradient norm. At the noninterpolating population optimum, the dimension changes small-learning-rate accepted risk from order eta to eta^2 log(1/eta) to eta^2; the exact cap-dependent Cauchy coefficient and the d+2 validation size bias quantify what a null step actually mitigates. Minibatch size reduces primal risk by 1/b without stabilizing the scale proposal distribution, a useful boundary-design distinction. The claim is not a generic textbook restatement and does not claim global convergence.",
+    "status": "PASS"
+  }
+}
