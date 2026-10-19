@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact scalar oscillator map recovered independently from published stages using ε²=ω²/2. Its modal squared norm/determinant is Q(s); H(0)=0, H'(0)=-4/3, H''>0 yield a unique positive root. K=H+sH' has exactly one positive root, giving global optimal damping. Blockwise determinant characterizes symplecticity; distinct ω prohibit common h>0. Taylor expansion yields h^-3 long-time physical energy law. `verify.py` passed 1,537 checks including rigorous rational root brackets and 750 independent stage comparisons. Zero coordinate quotient is handled by exact-frequency continuous extension; arbitrary Hamiltonians are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gu–Chen–Jung 2025 journal §5: numerical stability-region plots and scalar R(z); Example 5: finite-time Duffing bounded energy",
+        "2008 EFRK paper (doi:10.1016/j.cam.2007.05.016) gives broad coefficient conditions for a different fitted family and constructs generally symplectic implicit formulas",
+        "published-finding corpus published record (opaque suffix 23eb200336ce) treats an embedded Fehlberg RK4(5) estimator; not this RBF rule"
+      ],
+      "reasoning": "A full explicit stability-region characterization could in principle determine the harmonic boundary numerically, but the earlier work presents a formula and plot, not a global analytic uniqueness/optimal-damping/multifrequency/long-time classification. The broader invariant-preserving EFRK results address different schemes and cannot imply the numerical Gaussian roots without a new specialization and proof.",
+      "searches": [
+        "arxiv 2403.08253 Explicit radial basis function Runge Kutta Gu Chen Jung Gaussian shape harmonic oscillator",
+        "Gaussian two stage Runge Kutta RBF strong conservation oscillators symplectic",
+        "\"Structure preservation of exponentially fitted Runge Kutta methods\" pdf",
+        "Runge Kutta harmonic oscillator numerical damping long time energy growth decay stability function numerical dissipation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.08253v1 §§3.1,5,6",
+      "doi:10.1007/s11075-025-02121-w §§3.1,5,6",
+      "doi:10.1016/j.cam.2007.05.016 abstract, introduction, Thm.3.1 and conclusions",
+      "doi:10.1137/0724041 abstract only",
+      "published-finding corpus searched records published-finding corpus: published-finding corpus published record (opaque suffix 4fc68d9c8d50) — low-cost Langevin UBU not RBF RK",
+      "published-finding corpus searched records published-finding corpus: published-finding corpus published record (opaque suffix 23eb200336ce) — Fehlberg error estimator not harmonic RBF map",
+      "local prior 3016d962-c708-4043-af89-94cb5e9044ab and 4fe0aa7a-bade-40a4-9251-f32afde8f924"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2403.08253v1 Eq.(12), Eq.(15), §5 gives the original algorithm, optimized shape, and R(z). These are accepted as prior premises.",
+        "Gu–Chen–Jung 2025 Example 5 observes bounded energy but does not prove a nonzero exact symplectic timestep.",
+        "Accessible local earlier item 3016d962-c708-4043-af89-94cb5e9044ab concerns RK4 plus global energy projection, whereas here no projection is made."
+      ],
+      "reasoning": "Applying the RBF stability function to a harmonic eigenvalue determines the scalar energy factor; that base formula is covered. The additional strict-convexity proof identifies exactly one positive special step, gives the unique optimum and precise longtime power-law scaling, and excludes simultaneous symplecticity for unequal frequencies. These conclusions are not directly stated or subsumed by earlier claims about other algorithms; nevertheless prior qualitative stability plots make exact-novelty credit potentially limited.",
+      "searches": [
+        "two-stage Gaussian radial basis Runge-Kutta imaginary axis energy amplification long-time 1/h^3 damping",
+        "arxiv 2403.08253 Explicit radial basis function Runge Kutta Gu Chen Jung Gaussian shape harmonic oscillator",
+        "Gaussian two stage Runge Kutta RBF strong conservation oscillators symplectic",
+        "\"radial basis function\" \"Runge–Kutta\" \"symplectic\" oscillator 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2403.08253v1 §§3.1,5 supplies R(z) but no theorem about its harmonic determinant having a unique positive zero",
+        "doi:10.1016/j.cam.2007.05.016 studies generally invariant-preserving exponentially fitted Runge–Kutta schemes with different coefficient structure",
+        "published-finding corpus published record (opaque suffix 4fc68d9c8d50) studies stochastic UBU, not Gaussian RBF-RK2"
+      ],
+      "reasoning": "Equivalent formulations include |R(i hω)|=1, det(M)=1, M^TJM=J and exact quadratic energy conservation. The first published RBF paper explicitly supplies R, so qualitative intersection with the imaginary axis was already visible. It does not state or prove the unique nonzero coincidence, global damping minimizer, multi-frequency obstruction or long-time energy law. The EFRK structure theorem has different coefficients and does not instantiate the Gaussian shape parameter.",
+      "searches": [
+        "two-stage Gaussian radial basis Runge-Kutta imaginary axis energy amplification long-time 1/h^3 damping",
+        "RBF Runge Kutta 2403.08253 symplectic h omega single special step",
+        "\"Structure preservation of exponentially fitted Runge Kutta methods\" pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gu–Chen–Jung 2024 Fig.1 and 2025 §5: plots rather than tables giving exact harmonic symplectic or energy-minimum roots",
+        "Direct full-text inspection of the 2024 HTML and open-access 2025 journal version: no matching quantified values or h^{-3} profile",
+        "published-finding corpus source/claim/parameter searches returned different methods and no exact RBF table"
+      ],
+      "reasoning": "The exact positive root and global damping minimum are given as analytically unique implicit constants with rational sign certificates, not entries reproduced from a known result table. Numerical decimal values illustrate these proved implicit constants.",
+      "searches": [
+        "two-stage Gaussian radial basis Runge-Kutta imaginary axis energy amplification long-time 1/h^3 damping",
+        "RBF Runge Kutta 2403.08253 symplectic h omega single special step",
+        "\"1.2559542909\" \"RBF\" Runge Kutta"
+      ]
+    },
+    "rationale": "Motivating 2024 arXiv and 2025 open journal papers supply RBF method, optimized shape and R(z), plus graphical stability; these are expressly not claimed. Analytic uniqueness of accidental harmonic symplecticity, the global damping optimum, incompatible multiple frequencies and exact long-time energy profile were not found in inspected primary versions, targeted published-finding corpus or local previous claims. Earlier general EFRK symplectic schemes differ. Residual risk: qualitative boundary is implicit in published stability plot and priority is not independently established.",
+    "residual_risks": [
+      "The original source stability diagram already qualitatively shows the imaginary-axis stability boundary. Exact quantified refinements may be seen as natural derivations from the published scalar R rather than high-priority new mathematical territory.",
+      "Exhaustive coverage of pre-2024 fitted-Runge–Kutta literature is not guaranteed; 1987 phase-error article inspected only at abstract level.",
+      "published-finding corpus semantic search and local claims do not certify global novelty or independent priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines method/stability function and qualitatively plots regions; no complete harmonic symplectic/energy-minimum/long-time theorem located",
+        "evidence": "arxiv:2403.08253v1, §3.1 Eq.(12),(15), §5 R(z) and Fig.1",
+        "identifier_or_url": "https://arxiv.org/html/2403.08253",
+        "material_read": "2024 v1 header/date/MSC; introduction; two-stage formulas in §§2 and 3.1; stability-function and figure discussion in §5; §6 introduction/Example 6.1; other selected passages.",
+        "method": "Targeted full-text inspection of public arXiv HTML plus PDF title-page visual check; not an exhaustive line-by-line reading of all 27 pages.",
+        "title": "Explicit radial basis function Runge-Kutta methods (2024 preprint)",
+        "trigger": "Exact original two-stage method and 2024 source date"
+      },
+      {
+        "assessment": "Published source does not state special harmonic-step uniqueness, global damping optimum, multi-frequency obstruction or the h^{-3} law; its stability plot and energy observation are credited",
+        "evidence": "doi:10.1007/s11075-025-02121-w, §§3.1,5,6",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-025-02121-w",
+        "material_read": "2025 open journal page: introduction, §3.1 algorithm, §5 stability function, §6 Duffing Example 5, conclusions, selected appendix/reference passages.",
+        "method": "Targeted publisher open-access HTML section inspection and exact-word searches for imaginary, positivity and energy; not a claim of exhaustive reading of every paragraph.",
+        "title": "Explicit radial basis function Runge-Kutta methods (2025 online, 2026 volume)",
+        "trigger": "Updated version of motivating preprint with potentially expanded results"
+      },
+      {
+        "assessment": "Studies general EFRK with symplectic coefficient constraints and distinct fourth-order two-stage formulas, not the two-stage third-order Gaussian RBF method or its exceptional frequency step",
+        "evidence": "J. Comput. Appl. Math. 218 (2008) 421–434, abstract, Thm.3.1, conclusions",
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2007.05.016",
+        "material_read": "Accessible publisher indexed text: abstract, introduction, Theorem 3.1 statements, §5 conclusions and reported applications; remaining full text not verified.",
+        "method": "Public publisher-indexed text rendering and method comparison; no claim of complete PDF inspection.",
+        "title": "Structure preservation of exponentially fitted Runge–Kutta methods",
+        "trigger": "Plausible broader structure-preservation theorem for fitted schemes"
+      },
+      {
+        "assessment": "Phase-error-designed RK methods; possible background overlap but cannot assert whole-paper noncoverage from abstract",
+        "evidence": "SIAM J. Numer. Anal. 24 (1987), 595–617, abstract",
+        "identifier_or_url": "https://doi.org/10.1137/0724041",
+        "material_read": "Public abstract and bibliographic metadata only; full article not accessed",
+        "method": "Publisher abstract; comparison limited to stated method and topic",
+        "title": "Explicit Runge–Kutta (–Nyström) Methods with Reduced Phase Errors for Computing Oscillating Solutions",
+        "trigger": "Older phase-fitting theory potentially covering oscillator phase accuracy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf1acf03-0d5d-4f7d-9d7e-6d72af68004f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source motivates bounded numerical energy and a generally symplectic extension. This theorem gives a rigorous calibration of what its existing method does on canonical oscillators: one exceptional exact-energy/symplectic step with nonzero phase error, impossible simultaneous tuning for unequal modal frequencies, one globally strongest artificial damping step and a quantitative h^-3 long-time degradation law. It is not a renaming or table recomputation and does not make unsupported nonlinear or global symplecticity claims.",
+    "status": "PASS"
+  }
+}
