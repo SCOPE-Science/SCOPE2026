@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions every cyclic rotation by maximal circular source run, first-run residual length, and whether the next distinct symbol is lower or higher. Comparisons of first different symbols fix group and residual order, and lex order of continued periodic tails is preserved under positive letter-wise powers. At each integer boundary multiple h_a q the last column spells the fixed word B_{a,epsilon}(q); in all intervening positions it consists of a positive string of a, of length (h_a-1)R_{a,epsilon}(q). The complete BWT decomposition follows by accounting for every position exactly once, including circular boundaries and equal rotations; replacing positive monochromatic lengths cannot change run heads. The monochromatic case is immediate. The embedded stand-alone checker independently confirms the whole BWT in 38,792 exhaustive expanded cases and 220 separate suffix-doubling cases, but these finite calculations are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantaci et al., TCS 698 (2017), Theorem 3.3 and Proposition 3.9, https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf",
+        "Frosini et al., arXiv:2202.02609 (full manuscript), https://arxiv.org/pdf/2202.02609"
+      ],
+      "reasoning": "General bounds and monotonicity cannot yield full equality because a nondecreasing integer quantity may grow, and numerical equality does not force the ordered run-label pattern. Growth estimates under purely morphic iteration concern different quantifiers and cannot imply arbitrary-source letterwise power invariance.",
+      "searches": [
+        "BWT run count invariant under stretching each run by a common integer factor",
+        "BWT run count exact invariant uniformly stretched letters across arbitrary finite ordered alphabets and word lengths",
+        "Logarithmic equal-letter runs for BWT of purely morphic words arXiv 2202.02609",
+        "Measuring the clustering effect of BWT via RLE Proposition 3.9"
+      ]
+    },
+    "checked_sources": [
+      "Burrows-Wheeler 1994 original report",
+      "Mantaci et al. 2017 full author postprint, Proposition 3.9 and Theorem 3.3",
+      "Frosini et al. 2022 full arXiv manuscript",
+      "Published research records queried under letter expansion, stuttering and BWT run count aliases",
+      "Accessible relevant prior mathematical claim statements for related morphic BWT questions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mantaci et al. 2017, Proposition 3.9: expanding a letter cannot decrease run count; Theorem 3.3: an upper bound in terms of source-word runs.",
+        "Frosini et al. 2022: asymptotic run-growth bounds for iterated morphisms.",
+        "Accessible prior binary expansion finding concerns 0 -> (01)^h and 1 -> (10)^h, which is a distinct non-stuttering morphism and proves at most a count identity."
+      ],
+      "reasoning": "Neither monotonicity nor an upper bound implies eventual saturation at exponent two; neither says anything about preservation of run-head order. The previously accessible alternating-power result expands each bit to an alternating binary word, so cannot imply symbolwise constant-block stuttering for all alphabets.",
+      "searches": [
+        "Measuring the clustering effect of BWT via RLE proposition 3.9 expansion inequality",
+        "Burrows Wheeler transform run count of letterwise powers exact invariance",
+        "BWT stuttering morphism letter repetition power morphism h ≥2 run invariant cyclic rotations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching exact all-parent, all-ordered-alphabet run-head saturation statement was located by these targeted formulations; closest full-text source: Mantaci et al. 2017, Proposition 3.9."
+      ],
+      "reasoning": "Renaming letters and stretching each character could rephrase the theorem as run-label stability of the BWT under a stuttering morphism. Prop. 3.9 is monotonic rather than a stabilization result, and does not recover the ordered sequence of run heads.",
+      "searches": [
+        "\"Burrows-Wheeler\" \"stuttering\" \"run\"",
+        "\"BWT\" \"a^k\" \"b^k\" runs",
+        "BWT stuttering morphism letter repetition power morphism h ≥2 run invariant cyclic rotations",
+        "Burrows Wheeler transform power of word morphism run count uniform stretching letters 2020"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Compared accessible previous exact BWT-related findings, including a binary alternating-block expansion identity and finite-morphic BWT spectra; none tabulates or gives the general independent-power saturation.",
+        "Published exact run evaluations for special morphic families are not a table of all finite ordered-alphabet words."
+      ],
+      "reasoning": "An exact table would need to encode all source words and independently chosen exponents; the inspected general records give no such decomposition, while finite word-family special cases cannot subsume these unrestricted quantifiers.",
+      "searches": [
+        "For every finite word over an ordered alphabet, Burrows Wheeler transform run count of letter-uniform dilation morphism a -> a^h stabilizes for h>=2",
+        "Burrows-Wheeler transform exact block decomposition under letterwise duplication 0->00 1->11 versus alternating expansion",
+        "BWT run count exact invariant uniformly stretched letters across arbitrary finite ordered alphabets and word lengths"
+      ]
+    },
+    "rationale": "The closest full-text 2017 treatment establishes an expanding-letter monotonicity inequality and a bound involving source runs, neither implying equality of the complete ordered BWT run-label sequence after simultaneous duplication, even over arbitrary ordered alphabets with independent powers. The 2022 purely-morphic study addresses asymptotic growth under iteration, not a one-step exact universal formula. The original 1994 technical report introduces cyclic sorting but no letterwise-power rigidity. Relevant accessible prior research-record statements and terminology variants did not disclose equivalence. Unindexed equivalent results remain possible.",
+    "residual_risks": [
+      "A semantically equivalent lemma may exist in older compression-indexing or morphic-string literature under terminology missed by searches.",
+      "Not all non-open-access monographs or independent human expert assessments were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the BWT convention used here but neither character-power operations nor run-head stabilization.",
+        "evidence": "Technical report cover dates 10 May 1994; cyclic block-sorting algorithm in early text.",
+        "identifier_or_url": "Digital SRC Research Report 124, 1994-05-10; https://www.cl.cam.ac.uk/teaching/2425/Bioinfo/papers/burrows_wheeler.pdf",
+        "material_read": "Full report introduction and sections defining ordered cyclic rotations and last-column extraction; checked report cover for original dated public reference.",
+        "method": "Full PDF text and original-page visual inspection",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Original definition and earliest dated reference"
+      },
+      {
+        "assessment": "Shows a nondecreasing run-count property under one-letter expansion, not the ordered-pattern rigidity for all powers at once.",
+        "evidence": "Proposition 3.9 concerns an inequality, not the claimed equality for h_a>=2; Theorem 3.3 yields a bound.",
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf ; DOI 10.1016/j.tcs.2017.07.015",
+        "material_read": "Full author postprint, emphasis on Theorem 3.3, Proposition 3.9, their definitions and arguments about expanding a letter.",
+        "method": "Search within complete lawful PDF, read relevant propositions and surrounding proof, examine original page image.",
+        "title": "Measuring the clustering effect of BWT via RLE",
+        "trigger": "Directly relevant expansion theorem, rough run bounds"
+      },
+      {
+        "assessment": "Concerns run-count growth for iterated morphisms, not a one-step all-parent independent-alphabet-dilation run-head decomposition.",
+        "evidence": "Theorems analyze length-asymptotic growth for morphic families rather than all arbitrary parent words.",
+        "identifier_or_url": "arXiv:2202.02609; https://arxiv.org/pdf/2202.02609",
+        "material_read": "Full arXiv manuscript through the main morphic-word theorems, examples and discussion; original-page visual inspection.",
+        "method": "Lawfully accessible full-text arXiv PDF, read mathematical statements and theorem discussions.",
+        "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+        "trigger": "Strongest related growth-classification work for morphisms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abb2b837-e23d-4086-8289-71cd45d18c94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "BWT run count and ordered run structure directly measure the clustered output of a central text-indexing transform. Here the entire cyclic BWT under arbitrary independently letter-wise-powered input is characterized, showing parameter rigidity at the sharp natural threshold h_a=2. This is an unbounded structural theorem about an established compression invariant, stronger than monotonicity and beyond an isolated finite table; it could simplify analysis of BWT indices under homopolymer or symbol-stuttering preprocessing. It does not assert invariant run lengths or sentinel-BWT behavior.",
+    "status": "PASS"
+  }
+}
