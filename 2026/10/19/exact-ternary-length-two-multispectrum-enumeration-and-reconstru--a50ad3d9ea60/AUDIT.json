@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The Euler-trail characterization gives necessary/sufficient feasibility. Disjoint support-size strata and unique endpoint imbalance make the full rational enumeration exhaustive, with disconnected 3-vertex cross-arc patterns subtracted before loop insertion. All six directed endpoints are disjoint; rational simplification and pole orders yield the stated formula and exact period. Independently generated word profiles agree for n=1..11 and matrix criterion enumeration for edge totals 0..12. Finite checks corroborate rather than prove the infinite result. All boundary and labeling assumptions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corollary 11.2.8 is an asymptotic expression for Q_n(3), consistent with the leading term 7n^6/8640 but silent on exact finite coefficients and the period-six correction.",
+        "Gabrys–Milenkovic 2018 constructs codes for growing substring length; its results neither explicitly enumerate nor imply exact fixed-read-length-two ternary fibers."
+      ],
+      "reasoning": "A stronger asymptotic in the same general model does not determine an exact rational generating function. Its leading constant was treated as known, not as a new result. A code construction in a distinct logarithmic-read regime is not a dominating exact result.",
+      "searches": [
+        "2012 Jacquet–Knessl–Szpankowski, Section 2.3 and asymptotic corollary",
+        "Drmota–Szpankowski, Analytic Information Theory, Section 11.2.2 Corollary 11.2.8",
+        "arxiv:1804.04548 Sections II–III and reconstruction code objectives",
+        "published-finding corpus: number of ternary length n words by adjacent 2-gram multiset edge-count matrix; three-state Markov types exact rational generating function"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.2012.2191476",
+      "doi:10.46298/dmtcs.2768",
+      "https://www.cs.purdue.edu/homes/spa/temp/ait22.pdf",
+      "arxiv:1607.02279",
+      "arxiv:1804.04548",
+      "arxiv:1912.11108",
+      "published-finding corpus:2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "published-finding corpus:2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior circular ternary enumeration is restricted to balanced closed Euler circuits and does not specify the six ordered distinct-endpoint trail counts.",
+        "The exact binary two-read count handles a two-symbol alphabet and has lower-dimensional degree constraints; embedding it cannot enumerate 3-symbol profiles.",
+        "The ternary length-two *rankings* study compares order relations among counts, not equality of exact matrices or their number.",
+        "The general noncyclic decomposition expresses the quantity as cyclic types plus six endpoint-specific quantities; the endpoint-specific latter are bounded, not evaluated, in the inspected source."
+      ],
+      "reasoning": "The new endpoint-imbalance enumeration and exact disconnected-support subtraction evaluate precisely the missing terms in known reductions. None of the close statements logically gives every coefficient of the claimed rational series without additional nontrivial counting. No broader equivalence was found.",
+      "searches": [
+        "published-finding corpus: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+        "Accessible previous circular ternary directed-pair-profile classification, item 0e84d9af-067e-4664-bd2f-34bef29713b3",
+        "Jacquet–Knessl–Szpankowski 2012 Section 2.3, eq. (29), and Drmota–Szpankowski eq. (11.40)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The term order-one noncyclic Markov type and the length-two directed substring-profile vector denote the same matrix of 2-gram counts, without an endpoint marker.",
+        "Jacquet–Knessl–Szpankowski 2012, Section 2.3, states an exact endpoint decomposition (their eq. (29)) followed by inequalities (30)–(31), not an exact q=3 noncyclic generating function.",
+        "Chang et al. 2016, Theorem 2.2(i), gives exact P_q(n,l) only for l≤n<2l, hence at l=2 only n=2,3."
+      ],
+      "reasoning": "Alias matching was performed at the level of the matrix invariant. Neither the inspected noncyclic Markov-type statement nor the finite-length substring-profile theorem supplies the all-length ternary numerator and denominator. They are genuinely close rather than merely differently named.",
+      "searches": [
+        "published-finding corpus: exact generating function ternary non-cyclic Markov types finite length 3 letters linear bigram profile reconstruction code",
+        "published-finding corpus: exact count noncyclic Markov types three symbols connected Eulerian directed multigraph three vertices",
+        "Web: exact generating function number of Markov types noncyclic ternary strings length count 3 state Markov types",
+        "arxiv:1607.02279, Section 2 and Section 3",
+        "2012 DOI:10.1109/TIT.2012.2191476, Section 2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact searches for initial coefficients identified no table with the claimed exact ternary open-trail count.",
+        "The published finite-length exact result in Chang et al. stops at n=3 for read length 2."
+      ],
+      "reasoning": "Negative indexed search is not a uniqueness proof, but the inspected exact table scope does not subsume n≥4 or the infinite generating function. No uninspected tabulation is represented as checked.",
+      "searches": [
+        "Web: \"1, 9, 24, 65, 156, 342, 683\" Markov types",
+        "Web: \"9,24,65,156,342\" bigram count",
+        "published-finding corpus: ternary directed adjacent pair multiset finite n profile count 1 9 24 65 156 342",
+        "Chang et al. arxiv:1607.02279 Theorem 2.2"
+      ]
+    },
+    "rationale": "The same invariant occurs as order-one noncyclic Markov type, but exact all-length q=3 closed GF not found in the inspected original journal/book treatments: those give a reduction plus asymptotic bounds and leading coefficient. Chang et al. finite exact theorem l≤n<2l covers l=2 only n=2,3; 2018 reconstruction-code paper addresses growing read length. Related published database results on binary linear and ternary circular/order ranking do not imply the absent six endpoint contributions. The new finite coefficients, rational numerator and exact oscillation were compared on statements, with residual unindexed-literature risk.",
+    "residual_risks": [
+      "An unindexed enumeration or tabulation might contain an equivalent exact noncyclic three-symbol Markov-type generating function.",
+      "Some secondary works or uninspected appendices could imply an equivalent finite formula; no universal negative-literature claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers asymptotic linear count and an exact reduction, not exact finite-length q=3 linear coefficients. Closest foundational theory.",
+        "evidence": [
+          "Section 2.3 eq. (29) leaves |Q_n(a,b)|; inequalities (30)–(31) bound it; summary states noncyclic count is asymptotically a factor 7."
+        ],
+        "identifier_or_url": "https://artefacts-discovery.researcher.life/full_text/DA-2/cc/cc28bc3ddc01373e89bfc1d1c1d511cc/full_text/f29fab770ca8a46454cae7527194f716.pdf",
+        "material_read": "Full-text introduction, definitions of cyclic/noncyclic types, ternary balanced-matrix example, Section 2.3 on linear Markov types and statements (29)–(31), abstract and main theorem statements.",
+        "method": "Searched accessible PDF and compared definition, key theorem and equations to current 2-gram matrix enumeration.",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "Exact same invariant under Markov-type terminology and stronger 2012 journal treatment"
+      },
+      {
+        "assessment": "Leading asymptotic coefficient is known. No exact noncyclic q=3 GF is stated in examined section.",
+        "evidence": [
+          "Printed page 326 Corollary 11.2.8 provides an asymptotic count; the endpoint term in eq. (11.40) remains unevaluated."
+        ],
+        "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/temp/ait22.pdf",
+        "material_read": "Sections 11.2.1 and 11.2.2 around printed pages 323–326, including balanced ternary GF, equation (11.40), inequalities (11.41)–(11.42), Corollary 11.2.8; relevant Section 11.3 background.",
+        "method": "Inspected full-text PDF targeted sections and page renders, compared finite exact versus asymptotic statements.",
+        "title": "Analytic Information Theory: From Compression to Learning, Chapter 11",
+        "trigger": "Book chapter specifically entitled Counting Non-Cyclic Markov Types, plausible stronger coverage"
+      },
+      {
+        "assessment": "Theorem 2.2(i) exact only when l≤n<2l, hence length two or three for l=2; the present series determines all n.",
+        "evidence": [
+          "Theorem 2.2(i) requires l≤n<2l; Section 3 confirms that restricted exact-enumeration regime."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.02279",
+        "material_read": "Full-text HTML abstract, Introduction, Section 2 definitions and Theorem 2.2, and Section 3 opening on exact enumeration.",
+        "method": "Compared stated parameter ranges with q=3 and l=2.",
+        "title": "Rates of DNA Sequence Profiles for Practical Values of Read Lengths",
+        "trigger": "Explicit exact enumerations of 2-gram profile vectors may dominate current formula"
+      },
+      {
+        "assessment": "Analyzes binary reconstruction codes with L varying as logarithm of length, not the exact fixed L=2 ternary maximum.",
+        "evidence": [
+          "Dated 2018-04-12 initial preprint; Introduction and main results focus on L around log n; Section II defines reconstruction code."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+        "material_read": "Full-text HTML abstract and Sections I–II including the definition of L-multispectrum, main theorem aims and Sections III–V summaries.",
+        "method": "Read the primary work scope and checked for a finite-length ternary L=2 exact code-size formula.",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Primary research direction: reconstructible codes under unordered substring multispectra"
+      },
+      {
+        "assessment": "Does not identify an exact q=3, L=2, all-length count in the material examined; not taken as evidence about uninspected appendices.",
+        "evidence": [
+          "Preprint 2019-12-23, reconstruction model and main results overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.11108",
+        "material_read": "Accessible abstract and primary-paper introduction/problem statements and key results overview.",
+        "method": "Compared observation model and result scope.",
+        "title": "Reconstruction of Strings from their Substrings Spectrum",
+        "trigger": "Related string-reconstruction theory with multiset substring observations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a50ad3d9-ea60-4091-a94c-68f919fd00a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural invariant of unordered 2-gram reconstruction for a labeled three-symbol source is determined at every length, including its exact noiseless maximum codebook size and six-period finite-size fluctuations. The exact three-symbol endpoint and support-connectivity effects go beyond earlier binary/cyclic formulas and asymptotic leading order. The coefficient 7/8640 is explicitly recognized as already implied by earlier Markov-type asymptotics. No unsupported efficient construction, alphabet-general theorem, or error-correction benefit is claimed.",
+    "status": "PASS"
+  }
+}
