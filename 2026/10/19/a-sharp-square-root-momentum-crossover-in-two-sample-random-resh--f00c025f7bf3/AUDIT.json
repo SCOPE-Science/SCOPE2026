@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Exact two-step noise cancellation gives Y_next=A^2 Y+q ξ with q=r(b-r,1) and iid symmetric signs. Strict Jury conditions 1-b>0, r>0, and 2(1+b)-r>0 give Schur stability, a unique stationary covariance, and decay of any deterministic start. All entries of an explicit symmetric covariance matrix satisfy the discrete Lyapunov equation by symbolic identity; the iid comparison uses its own Lyapunov equation. Taking explicit limits proves the separate r^3 and r^2 powers and the uniform b≈sqrt(r) crossover. The embedded checker additionally passed 30 fully enumerated exact-rational covariance comparisons and five independently iterated numerical recurrences; those finite checks corroborate rather than replace the infinite-time proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qiu and Milzarek analyze general nonsmooth/nonconvex RR momentum complexity and last iterates under different regimes, not the exact stationary fixed-step scalar noise floor.",
+        "The 2024 SMG algorithm explicitly fixes the momentum anchor within each epoch, whereas the current heavy-ball recurrence carries the previous-step velocity.",
+        "The 2020 reshuffling analysis is for plain reshuffling, not persistent heavy-ball momentum. The 2022 power-spectral-analysis paper explicitly treats momentum with random reshuffling; its accessible MATLAB experiment reports stationary variance averaged over all individual updates rather than the two phases separately. A time average does not determine the conditional completed-epoch covariance."
+      ],
+      "reasoning": "General upper bounds and all-step power-spectral variances do not imply the sharp separate phase constants or the square-root boundary without a further phase-resolved calculation. The full 2022 source paper could not be retrieved, however, so possible broader phase-resolved results there are an explicit originality risk. The distinct epoch-anchored and iid models cannot cover the stated raw heavy-ball random reshuffling merely by reparametrizing a learning rate.",
+      "searches": [
+        "random reshuffling stochastic gradient momentum invariant stationary covariance constant stepsize variance scaling",
+        "random reshuffling momentum small learning rate stochastic error second moment equilibrium quadratic",
+        "random reshuffling with heavy ball momentum exact asymptotic stationary covariance constant step two samples",
+        "arXiv:2403.03180",
+        "arXiv:2006.05988",
+        "arXiv:2206.00632"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.18452 (original public date 2024-04-29; inspected later accessible full-text revision)",
+      "arXiv:2403.03180 (method and convex rate, 2024)",
+      "arXiv:2006.05988 (random reshuffling without momentum, 2020)",
+      "arXiv:2307.15196 (momentum with independent gradient noise, 2023/2024)",
+      "arXiv:2206.00632 (2022: abstract and primary author-supplied MATLAB code inspected; full text unavailable)",
+      "NeurIPS 2020 Random Reshuffling is Not Always Better (primary conference PDF)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the 2024 direct RRM model, generic complexity estimates control finite-horizon stationarity; the stationary quadratic invariant covariance and the contrast of r-cubic/r-quadratic phases are not stated in inspected parts.",
+        "The 2023/2024 small-learning-rate SGDM paper uses i.i.d. stochastic gradients and does not analyze within-epoch random permutations.",
+        "The 2020 Random Reshuffling is Not Always Better paper primarily concerns deterministic/noiseless quadratic product comparisons and lacks carried heavy-ball memory."
+      ],
+      "reasoning": "A theorem on iid noise cannot directly imply the paired-sign epoch input q=r(b-r,1), which drives the new scale. A general Lyapunov theorem supplies a solution method but not a ready-made specific numerical corollary. The exact phase-resolved rational evaluation and sharp joint limit are the new model-specific implications; universal stochastic-momentum properties are not claimed.",
+      "searches": [
+        "Qiu Milzarek 2024 Random Reshuffling with Momentum Nonconvex Problems two quadratic constant step stationary error",
+        "random reshuffling momentum restores order alpha cubed noise floor if momentum scales as square root stepsize",
+        "arXiv:2404.18452",
+        "arXiv:2307.15196"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 RRM preprint defines incremental heavy-ball updates and bounds shuffled gradient sums; its Sections 1–4 and Appendix A do not provide the displayed exact invariant covariance or the two-parameter asymptotics.",
+        "Wang et al. analyze momentum with independently sampled gradient noise, as stated in the model definition; independent noise lacks the within-epoch anticorrelation."
+      ],
+      "reasoning": "Translations to AR(2) sampling or stationary Lyapunov covariance are natural equivalences and were actively considered. Existing iid or general shuffling analyses do not state, from their displayed conclusions alone, the exact pair-reshuffled covariance and its critical b/sqrt(r) dependence. Classical covariance solvability itself is credited.",
+      "searches": [
+        "heavy-ball random reshuffling two component symmetric quadratic exact stationary variance first moment invariant law epoch stepsize",
+        "RRHB random reshuffling heavy-ball constant stepsize quadratic exact stationary second moment epoch",
+        "arXiv:2404.18452",
+        "arXiv:2307.15196"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of mathematical findings with exact stationary, epoch, Lyapunov, momentum, and crossover terminology returned related but different optimizer/model formulas, not an exact covariance table matching the claimed two-parameter rational expression.",
+        "The 2022 spectral-density study reports a numerical stationary variance calculation for momentum and reshuffling. Its accessible experiment code averages error across time rather than giving both phase-conditioned components, so it is not an exact table for the new claim."
+      ],
+      "reasoning": "No retrieved exact phase-resolved formula or table directly covered this model. This is positive comparative evidence only; database noncoverage is not a proof of novelty.",
+      "searches": [
+        "two component quadratic heavy ball random reshuffling momentum noise floor sharp alpha beta crossover",
+        "shuffling SGD heavy ball momentum beta times square root eta critical crossover stationary epoch error",
+        "random reshuffling heavy ball destroys variance reduction order stepsize two component quadratic"
+      ]
+    },
+    "rationale": "The sharp stationary heavy-ball random-reshuffling covariance and its jointly singular b≈sqrt(r) crossover are not direct instances of the accessible claims in the 2024 RRM, SMG, RR, and independent-noise momentum literature. Targeted alias, exact-parameter, and broad-coverage comparisons did not identify a dominating statement. Generic Schur/Lyapunov mathematics is prior art and is explicitly not claimed new; the specific completed-epoch versus intermediate-phase decomposition and its asymptotic boundary supply the original component. Search cannot establish uniqueness, and equivalent older switching-system formulas remain a concrete residual risk.",
+    "residual_risks": [
+      "The 2022 Domingo-Enrich momentum-reshuffling variance paper is exceptionally close; its available author code reports all-step averages and does not give phase decomposition, but the inaccessible full text might contain a stronger phase-resolved statement.",
+      "Unindexed or inaccessible older momentum/reshuffling analyses may use a dual parametrization, or a later full version may subsume the special asymptotic.",
+      "Applicability does not extend to arbitrary finite sums, general Hessian spectra, or within-epoch averages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct algorithm source, but inspected theorems and appendix do not state the exact stationary covariance or small-momentum crossover; later revisions may have different authors.",
+        "evidence": [
+          "Heavy-ball update with component permutation and velocity carry-over, as given at the beginning of the accessible PDF.",
+          "Constant-step complexity corollary and Appendix A weighted-without-replacement lemma, neither a stationary scalar Lyapunov solution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.18452",
+        "material_read": "The accessible later arXiv revision: introduction, algorithm and theoretical discussion on PDF pp. 1–8; sampling-variance lemma on pp. 16–17; and constant-stepsize comparison appendix on pp. 22–23. Original submission metadata dated 2024-04-29.",
+        "method": "Open-access arXiv full-text PDF sections inspected with equations and algorithm formulas.",
+        "title": "Random Reshuffling with Momentum for Nonconvex Problems: Iteration Complexity and Last Iterate Convergence",
+        "trigger": "Exact RRM algorithm used in the new comparison and 2024 public anchor."
+      },
+      {
+        "assessment": "Momentum in this algorithm is an epoch-anchored gradient term, not previous-step heavy-ball velocity; its convergence-rate results do not give the new exact stationary formula.",
+        "evidence": [
+          "Algorithm 1 uses an epoch-start anchor moment in each component update.",
+          "The paper studies a rate under convexity, not a phase-specific invariant covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.03180",
+        "material_read": "ArXiv 32-page PDF, introduction and Algorithm 1 on pp. 1–4, with associated method description and stated rate results.",
+        "method": "Open-access arXiv full-text PDF inspected at the actual algorithm and related-work sections.",
+        "title": "Shuffling Momentum Gradient Algorithm for Convex Optimization",
+        "trigger": "Potentially stronger coverage for strongly convex momentum-based shuffling."
+      },
+      {
+        "assessment": "Supports the importance of without-replacement correlations, but has no persistent heavy-ball memory; it does not imply the b-dependent crossover.",
+        "evidence": [
+          "Finite-sum random-reshuffling convergence framework, without the heavy-ball recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.05988",
+        "material_read": "ArXiv PDF, abstract, introduction, main theoretical framework and principal convergence discussions in the opening sections.",
+        "method": "Open-access arXiv PDF text and page images reviewed.",
+        "title": "Random Reshuffling: Simple Analysis with Vast Improvements",
+        "trigger": "Closest classical no-momentum random reshuffling bounds and baseline."
+      },
+      {
+        "assessment": "The stochastic oracle independently samples gradient noise; the covariance regimes are not for exactly cancelling within-epoch permutations.",
+        "evidence": [
+          "The algorithm samples independent stochastic gradients and studies weak trajectory approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.15196",
+        "material_read": "Full-text arXiv HTML, abstract, Sections 1–2 and related-work discussion of small-step SGDM and stochastic-gradient noise.",
+        "method": "Open-access HTML mathematical model and theorem statements inspected.",
+        "title": "The Marginal Value of Momentum for Small Learning Rate SGD",
+        "trigger": "Potential general small-learning-rate momentum equivalence."
+      },
+      {
+        "assessment": "Treats noiseless matrix-product and sampler-ordering phenomena without the persistent momentum and noninterpolation forcing in the new model.",
+        "evidence": [
+          "Noiseless convex-quadratic assumptions in the small-step product analysis; no exact carried-momentum stationary covariance."
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "Open-access conference PDF, introduction, stochastic sampling product-comparison setup, and Sections 4–5 conclusions.",
+        "method": "Primary conference paper page images and relevant theorem text inspected.",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "Check whether a stronger random-shuffle versus iid theorem implies the new comparison."
+      },
+      {
+        "assessment": "The implementation measures mean squared errors averaged across all iterations, whereas the present claim gives both separately resolved phases. Its frequency-domain all-step stationary spectral density does not by itself specify the completed-epoch variance. An unknown theorem in the inaccessible paper could nevertheless cover the phase-resolved claim, so originality risk is material.",
+        "evidence": [
+          "The README explicitly describes averaging MSE over many iterations for SGDM_RR.",
+          "The MATLAB code computes mean(iterates_dist_SGDM_RR(mean_first:mean_last).^2) and a spectral-density integral, without a split by epoch phase."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.00632",
+        "material_read": "The publicly accessible abstract and author-supplied reproduction repository README and complete MATLAB file sgdm_averages.m. Full PDF could not be retrieved from arXiv or lawful open-access mirrors; an authorized alternative full-text request was unavailable.",
+        "method": "Primary abstract and complete primary author-supplied implementation inspected; full mathematical text inaccessible.",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Highly relevant previous analysis of momentum and reshuffling stationary variance, with potential to subsume the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f00c025f-7bf3-41ea-b5b3-e3f58079b0f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest noninterpolating strongly convex random reshuffling objective exposes how memory transports a within-epoch random gradient into the next epoch and changes the ratio of phase variances. The exact parameter transition b=O(sqrt(r)) needed to preserve the cubic epoch-end noise-floor power distinguishes fixed, vanishing, and zero momentum and gives a concrete tuning boundary. The phase-specific intermediate-step variance and with-replacement comparator quantify the remaining noise and the retained variance-reduction benefit, so the statement answers a natural algorithmic question rather than reporting an unmotivated numerical value. Limitations to this phase and model are clearly acknowledged.",
+    "status": "PASS"
+  }
+}
