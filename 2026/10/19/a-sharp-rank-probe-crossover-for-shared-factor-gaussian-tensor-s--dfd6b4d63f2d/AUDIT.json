@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Under explicit real Gaussian independence conditions, conditional variance is S and the normalized right sum is independent chi-square_ell, so exact factorization SW holds. Origin densities yield coefficients a_S and a_W with positive fixed singular values. The product-convolution lemma proves all three asymptotics including the logarithmic boundary. Gamma and Mellin calculations recover the constants; tail integration yields a sharp moment cutoff. The strong law proves an almost sure random limiting estimate. The standalone SciPy checker independently reproduces finite integral probabilities and special-case closed forms, but is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The cited OSE theorem assumes both Gaussian factor matrices are independently sampled, excluding a column-repeated factor.",
+        "Generic independent tensor-probe upper/lower tail statements cannot be applied to correlated columns without proving the missing independence conditions."
+      ],
+      "reasoning": "The independence required by broader OSE or trace-estimation guarantees is violated when the same left factor repeats across all columns; indeed the estimator has a random nondegenerate almost sure limit, contradicting any uniform vanishing-error consequence. A previous independent-factor small-ball formula does not imply the dependent-law constants.",
+      "searches": [
+        "crossed factor Gaussian norm estimation random Khatri Rao shared left factor dependency convergence rank ceiling",
+        "reused Gaussian probe factor product quadratic form chi-square lower tail exact rank bottleneck",
+        "random Kronecker subspace embedding correlated columns one factor common singular probability",
+        "shared random factor Khatri Rao matrices infinitely many columns random Gram matrix non concentration",
+        "arxiv:2405.11962v1 Theorem 5",
+        "arxiv:2309.04952v1 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2405.11962v1",
+      "arxiv:2004.06433v2",
+      "arxiv:2211.12175v1",
+      "arxiv:2309.04952v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Single-probe rank-one Gaussian bounds have no parameter for the common-left/independent-right multicolumn coupling.",
+        "Independent-factor multi-probe formulas produce a different tail exponent for rank below probe count; they do not imply the shared-factor exponent or persistent random limit."
+      ],
+      "reasoning": "The exact difference is one shared left Gaussian vector versus separately sampled left Gaussians. Even for fixed rank two and three probes, an independent-pair probability has cubic inverse-tail power whereas the dependent construction has quadratic power; a theorem covering the independent experiment cannot logically imply the latter.",
+      "searches": [
+        "matrix bilinear probing fixed left Gaussian many right vectors exact reciprocal moment cutoff",
+        "independent right sketch vectors share Gaussian left vector inverse moment minimum rank sample sharp smallball",
+        "arxiv:2004.06433v2 Theorem 2.2",
+        "arxiv:2211.12175v1 Section 3.3",
+        "arxiv:2405.11962v1 Theorems 3 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published Khatri–Rao papers use independently drawn columns in both factor matrices.",
+        "The shared factor gives exactly one common Gaussian quadratic form multiplied by a chi-square variable.",
+        "No located paper identifies the three tail regimes for this shared-factor construction."
+      ],
+      "reasoning": "The new law can be rewritten as the lower tail of a product of two independent quadratic forms. That probabilistic reduction is classical in technique and is not asserted new. The claim includes precise constants, the critical logarithm and nonconcentration under a specific dependent tensor-sketch design, unlike the independent-column models in the inspected references.",
+      "searches": [
+        "common factor reused Gaussian Khatri Rao sketch small ball rank min sample sharp logarithmic critical rank",
+        "shared left Gaussian factor multiple independent right Gaussian bilinear probes product chi square rank phase transition",
+        "Gaussian shared vector sketch columns u tensor v_j product chi-square Khatri Rao low tail",
+        "reused factor Gaussian tensor sketch sample size infinity conditional variance random limit inconsistent norm estimate",
+        "arxiv:2405.11962v1 Sections 1-2",
+        "arxiv:2004.06433v2 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic records concern Gaussian maxima (2026/10/4/SCOPE-small-threshold-rank-constrained-gaussian-maxima-are-governed-by--d208eae303a2) and block-product anti-concentration (2026/9/20/SCOPE-exact-block-product-small-ball-constants--cf3421945354), not a reused-factor matrix sketch.",
+        "No exact rank-versus-probe entry appeared in the completed searches."
+      ],
+      "reasoning": "Neither a matching finite table nor a theorem containing this bilinear factor-reuse probability law was identified. This is a bounded literature/database comparison, not a mathematical proof of global novelty.",
+      "searches": [
+        "Kronecker tensor sketches shared factor exact small ball r equals ell logarithmic anti concentration",
+        "rank sample crossover for repeated factor tensorized sketches sharp coefficient inverse moments",
+        "Gaussian bilinear sampling fixed left vector repeated right vectors law of large numbers Frobenius norm inconsistent",
+        "published-finding corpus semantic search: exact rank/probe phase, shared factor, chi-square product"
+      ]
+    },
+    "rationale": "Targeted completed published-finding corpus searches and primary full-text comparisons distinguish the repeated-left-factor coupling from standard independent-column Khatri–Rao sketches. Existing independent-factor rank-one small-ball results cannot imply this different distribution: the predicted tail exponent is rank-capped in the dependent construction. The exact phase constants and infinite-probe random limit for this particular algorithmically natural coupling were not located. Residual unindexed-equivalence risks are explicitly recorded.",
+    "residual_risks": [
+      "A generic product chi-square small-ball asymptotic may occur in probability theory without the matrix-sketch interpretation; no originality is asserted for that lemma.",
+      "Searches cannot exhaust unindexed or differently named shared-random-factor constructions.",
+      "The 2024 lead paper does not itself implement the factor-reused variant; application consequences are limited to this exact hypothetical design."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: independent Gaussian factor matrices across columns, while the new model repeats one factor.",
+        "evidence": [
+          "arxiv:2405.11962v1, lines around 66-87 and Theorems 3/5 in Section 2, equations of random Khatri–Rao construction"
+        ],
+        "identifier_or_url": "arxiv:2405.11962v1",
+        "material_read": "Full HTML Sections 1, 2 including Theorems 3 and 5, and application setup",
+        "method": "Original arXiv HTML, inspected equations defining factor independence",
+        "title": "Subspace embedding with random Khatri–Rao products and its application to eigensolvers",
+        "trigger": "Most directly related modern Khatri–Rao eigensolver source"
+      },
+      {
+        "assessment": "Covers independent rank-one probes but not the new across-column shared factor or rank-vs-ell phase diagram.",
+        "evidence": [
+          "arxiv:2004.06433v2, Sections 2-3, original arXiv abstract reports primary MSC 65F35"
+        ],
+        "identifier_or_url": "arxiv:2004.06433v2",
+        "material_read": "Original arXiv HTML Sections 2-3 including Theorem 2.2 and repeated probe discussion",
+        "method": "Original arXiv HTML full text",
+        "title": "Norm and trace estimation with random rank-one vectors",
+        "trigger": "Single-probe norm small-ball and high probability methods, verified primary MSC 65F35"
+      },
+      {
+        "assessment": "Independent left and right draws per probe, not a shared left factor.",
+        "evidence": [
+          "arxiv:2211.12175v1, Section 3"
+        ],
+        "identifier_or_url": "arxiv:2211.12175v1",
+        "material_read": "Original arXiv HTML Section 3.3, statement and surrounding discussion",
+        "method": "Original arXiv HTML",
+        "title": "Randomized sketching of nonlinear eigenvalue problems",
+        "trigger": "Prior bilinear Gaussian probes for matrix function validation"
+      },
+      {
+        "assessment": "Different trace estimator and independence model; no shared-left fixed-matrix inverse estimator small-ball law located.",
+        "evidence": [
+          "arxiv:2309.04952v1, tensor trace variance and independent sampling framework"
+        ],
+        "identifier_or_url": "arxiv:2309.04952v1",
+        "material_read": "Original arXiv full-text mathematical sections on tensor probe variance and sampled probe constructions",
+        "method": "Original arXiv HTML",
+        "title": "Hutchinson’s estimator is bad at Kronecker-trace-estimation",
+        "trigger": "Possibly dominating analysis of dependent tensor probes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dfd6b4d6-3f2d-4256-84c7-d62a7fedb8ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reusing a sampled factor is an economically motivated attempt to reduce structured-sketch sampling and setup cost. The sharp rank/probe phase boundary and nondegenerate infinite-sample limit explain precisely why repeated right-factor samples cannot compensate: moment existence stops at matrix rank even if the number of probes grows. This is a structural risk for a natural computational modification, not merely a renamed Gaussian product or a small numerical gain.",
+    "status": "PASS"
+  }
+}
