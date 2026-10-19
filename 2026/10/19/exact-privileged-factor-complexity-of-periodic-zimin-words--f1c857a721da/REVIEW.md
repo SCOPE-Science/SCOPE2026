@@ -1,0 +1,15 @@
+# Scientific review: exact privileged-factor complexity of periodic Zimin words
+
+## Correctness — PASS
+The rank-\(k\) palindrome-center threshold follows from the two-adic valuation at neighboring positions, including the exceptional circular seam. Odd centers are uniquely labeled and even centers occur only at the seam. The complete-return proof treats regular gaps, the exceptional gap, the largest-letter center, and even-length seam centers. Published rich/privileged equivalences then transfer the explicit palindrome formula to privileged words. Two independent palindrome algorithms and an independent recursive privileged-word checker agree on the finite domains described in `VERIFICATION.md`. Residual risk: the unlimited-length conclusion requires the written reflection and return-word arguments, not just the finite tests.
+
+## Originality — PASS (self-review)
+Inspected Glen–Justin–Widmer–Zamboni, arXiv:0801.1656, notably Sections 2–3: periodic richness is characterized abstractly but the Zimin-periodic all-length factor spectrum is not supplied. Inspected Peltomäki, arXiv:1210.3146, notably Section 3 and Section 5: privileged factor definitions and strict episturmian complexity are given, not the present finite-alphabet periodic ruler specialization. Inspected Schaeffer–Shallit, arXiv:1508.02074, for general automatic-sequence methods and the named sequence families; no periodic Zimin/ruler classification is given. Dedicated search queries for cyclic Zimin, privileged complexity, and the dyadic palindrome law did not identify an identical or dominating statement. The result is not implied solely by the existing rich-word equivalence, because the rank-resolved number of palindromes and proof of richness in this specific family must still be supplied. Residual risk: prior work not indexed or inaccessible may contain an equivalent formula; these searches do not certify historical priority.
+
+## Mathematical value — PASS
+The precisely defined invariant is the number of distinct privileged factors at **every** length of a natural canonical periodic word, not an arbitrary finite-window computation. The formula reveals a dyadic staircase in odd lengths and rigidity in even lengths, while the equality of privileged and palindromic complexities follows from a new direct complete-return description of the family. The exact circular total is a useful consequence, not a separately inflated contribution. This connects two established notions of factor complexity to the ruler/Zimin recursion and gives a complete structural benchmark for comparing periodic richness against nonperiodic examples.
+
+## Limits and independence
+Symbols must remain distinct; identifying letters may destroy the formula. Other palindrome periods need not be rich. Published characterizations are credited and the numerical verifier does not prove an infinite theorem. No independent review of the mathematical proof has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
