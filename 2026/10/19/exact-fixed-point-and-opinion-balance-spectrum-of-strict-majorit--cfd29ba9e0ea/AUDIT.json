@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 each vertex has exactly three distinct neighbors; unequal rung requires horizontal agreement on both sides and propagates around the cycle, hence only the two globally separated states. Equal rungs reduce exact fixedness to forbidding isolated cyclic words. Marked-run compositions counted with n/r multiplicity give full mass spectrum. Even independent edge subsets of a cycle, evaluated by a 2x2 transfer-matrix trace at z=+1 and -1, give Lucas plus 2cos(nπ/3). These steps prove the infinite result. Independently coded exhaustive brute-force tests for n=3..9 and exact mass-sum checks through n=200 passed 40,688 comparisons; these do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zehmakan arxiv:2302.06760v1, first posted 2023-02-14, proves random-majority cycles have only two fixed colorings and keep-tie majority cycle fixed colorings grow as the golden ratio power.",
+        "The expanded journal article (DOI 10.1007/s10458-024-09651-y) proves a cycle no-solitary-color characterization and sketches the parity-matching construction. Its appendix gives a doubled-copy preservation of synchronized trajectories for certain even-degree networks, not an exhaustive statement about all doubled-network fixed states.",
+        "Arkhipov arxiv:2406.07026v1 explores fixed states on random regular graphs and internal cuts; no prism classification is stated."
+      ],
+      "reasoning": "The source cycle theorem gives the synchronized subclass after a graph lift, but leaves open existence of additional asymmetric fixed states. The new propagation lemma excludes all non-global rung mismatches, and the size-refined formula has no source counterpart. Broad general graph theorems do not state this exact count in the inspected texts.",
+      "searches": [
+        "\"Majority opinion diffusion: when tie-breaking rule matters\" Zehmakan arxiv preprint submitted",
+        "arxiv:2302.06760v1 Sections 2, 5, Appendix A",
+        "doi:10.1007/s10458-024-09651-y Theorems 2.7-2.8 and Appendix",
+        "\"counting\" \"majority\" \"fixed points\" \"Cartesian product\" K2",
+        "\"prism graph\" \"majority dynamics\" \"fixed points\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.06760v1",
+      "doi:10.1007/s10458-024-09651-y",
+      "arxiv:2406.07026v1",
+      "targeted mathematical research records for majority prisms, internal cuts, majority coloring, Lucas enumeration",
+      "accessible prior research claims involving majority dynamics on small connected graphs and cycles (mathematically noncovering)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Zehmakan cycle proof establishes no-isolated cyclic words, which matches the synchronized part of the present classification and is explicitly credited.",
+        "Zehmakan appendix does not rule out mixed column types at a fixed point; that exclusion requires a separate degree-three rigidity argument.",
+        "Arkhipov provides the fixed-state/internal-partition equivalence but not an exact prism enumeration."
+      ],
+      "reasoning": "The new statement is not implied by the prior cycle result alone: one must prove that no stable configuration on the product graph has a mixture of equal and unequal rungs, and determine all separate-layer exceptions. Once this step is shown, standard cyclic-composition arithmetic yields the complete blue-balance spectrum. Modest proof complexity is disclosed; its structural interpretation and exact class distribution underlie the value assessment.",
+      "searches": [
+        "arxiv:2302.06760v1 stable cycle colorings appendix even-degree graph duplication",
+        "doi:10.1007/s10458-024-09651-y Theorem 2.8 and Section 5.3",
+        "arxiv:2406.07026v1 majority dynamics internal partitions",
+        "strict majority fixed points cubic circular ladder prism C_n cartesian K_2 enumeration internal partitions local minimum Ising metastable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arkhipov arxiv:2406.07026v1 defines internal cuts as partitions with at least half of each vertex neighbors on its own side, and notes that majority fixed points give internal cuts.",
+        "For degree three this is exactly the condition of two same-color neighbors; hence the present size-resolved fixed-state count also counts labeled internal partitions.",
+        "Targeted search did not identify an exact count of cubic prisms under these synonyms."
+      ],
+      "reasoning": "The internal-cut and zero-temperature single-spin-flip stable interpretations are mathematically equivalent for odd degree. Equivalence is included in the search scope, not used as a novelty claim. Existing general definitions do not imply the prism-specific closed spectrum without classifying mismatched rungs.",
+      "searches": [
+        "strict majority fixed points cubic circular ladder prism C_n cartesian K_2 enumeration internal partitions local minimum Ising metastable",
+        "binary majority coloring prism graph stable count Lucas number 2cos n pi/3",
+        "\"circular ladder\" \"metastable\" \"Ising\" configurations Fibonacci",
+        "arxiv:2406.07026v1 sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches were made for precise formulas, terminology variants and total-count sequences, rather than inferring novelty from absence of a matching title.",
+        "The accessible published cycle results are asymptotic and do not tabulate the cubic prism blue-opinion distribution."
+      ],
+      "reasoning": "No exact database or table covering the prism size-refined invariant was located; this is not proof of absence. Particular attention remains warranted to Ising ground/local-stability enumerations.",
+      "searches": [
+        "\"circular ladder\" \"majority\" \"stable\" colorings",
+        "\"prism graph\" \"internal partitions\" binary",
+        "\"local minima\" \"ferromagnetic Ising\" \"prism\" count",
+        "binary majority coloring prism graph stable count Lucas number 2cos n pi/3"
+      ]
+    },
+    "rationale": "Zehmakan arxiv:2302.06760v1/journal DOI 10.1007/s10458-024-09651-y proves and motivates a related cycle count but not the full prism classification, exact labeled count or size-refined spectrum; its appendix preserves one synchronized subclass of states. Arkhipov arxiv:2406.07026v1 develops internal-partition terminology without prism enumerations. Broad synonyms and index queries were compared. Residual risk persists of a covering enumeration under Ising or cellular-automaton language; originality is same-model provisional, not independent priority certification.",
+    "residual_risks": [
+      "A broader Ising metastability or binary cellular automata paper may contain an equivalent enumeration not found by the targeted accessible queries.",
+      "The published cycle theory already supplies much of the synchronized-pattern enumeration; the newly claimed portion is the prism mismatch rigidity and its exact balance spectrum, not a general new counting method.",
+      "No independent proof or priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS underlying cyclic no-isolated-run characterization and synchronized lift but NOT the full prism mismatch classification or size spectrum",
+        "evidence": [
+          "arXiv version v1 first publicly dated 2023-02-14; cycle fixed states RMM=2, MM=Theta(phi^n).",
+          "Appendix construction uses two copies linked at even-degree vertices to simulate the original dynamics under tie-free updates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.06760",
+        "material_read": "Original full public arXiv-rendered text: model definitions, cyclic stable-coloring proof, fixed-color experiment section, appendix doubled-copy proof",
+        "method": "Full-text reading of accessible arXiv rendition and formula/graph comparison",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Earliest public motivating source and possible direct coverage of prism fixed states"
+      },
+      {
+        "assessment": "NOT COVERING exact cubic prism and blue-count distribution; exact cycle-related proof acknowledged",
+        "evidence": [
+          "Theorem 2.8 counts no-isolated runs on cycles only asymptotically; Section 5.3 nominates vertex transitivity in fixed coloring counts.",
+          "Section 5.1 defines its “2-cycle” as C_n with distance-two chords, not the cubic prism C_n Cartesian K_2."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-024-09651-y",
+        "material_read": "Open-access journal HTML: Sections 1, 2.7-2.8, 5.1, 5.3, 6 and Appendix",
+        "method": "Direct full-text reading of pertinent proofs, definitions, experiments and appendix",
+        "title": "Majority opinion diffusion: when tie-breaking rule matters",
+        "trigger": "Expanded journal version of the motivating primary source"
+      },
+      {
+        "assessment": "COVERS equivalence to internal partitions on regular graphs, not exact prism family enumeration",
+        "evidence": [
+          "arXiv:2406.07026v1 first dated 2024-06-11.",
+          "Sections 1-3 study random regular graphs and majority dynamics, with no prism-specific composition or count formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.07026v1",
+        "material_read": "Public full HTML: abstract, introduction, oscillation section, internal-cut section, and references",
+        "method": "Reading exact graph definitions and statements and searching for prism/ladder or exact counts",
+        "title": "Majority Dynamics and Internal Partitions of Random Regular Graphs: Experimental Results",
+        "trigger": "Possible stronger regular-graph fixed point and internal partition coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cfd29ba9-e0ea-4a00-96b3-1f08e1b502d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full equilibrium opinion-balance spectrum, including a sharp minimal surviving minority size and exponential abundance, is a natural structural invariant of the simplest degree-three vertex-transitive extension of a social influence cycle. Adding a rung removes tie-breaking and changes random-majority fixed-state abundance from two to exponential; the exact normalized blue-count distribution and rigidity classification go beyond the known asymptotic cycle result. This is not an arbitrary finite table or a claim about practical outcomes. It does not determine attraction probabilities or metastable cycles.",
+    "status": "PASS"
+  }
+}
