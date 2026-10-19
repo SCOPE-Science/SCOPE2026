@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The prescribed Gram matrix is SPD for every n>=2 and 0<alpha<1. Similarity to the cyclic coordinate Gauss-Seidel operator is exact. Its strictly positive (n-1)-square Perron block and an explicit positive geometric eigenvector give an exact spectral radius t^n, with t determined by a single-positive-root polynomial. Reparameterization gives a strictly monotone exponential quadrature equation. Uniform Riemann approximation and Lambert W branch selection give the n-infinity limit. Uniform trapezoidal expansion gives the first finite-size correction, and bounded derivatives furnish the uniform near-simplex expansion with coefficient (4n-2)/(3n). The near-orthogonal endpoint follows from the exact exponential root equation. Independent exact-rational and numerical tests, run from the provided program, completed 307 checks. Finite checks do not substitute for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 abstract reports bounds based on fixed matrices, row norms and correlations, not an evaluated Lambert W or finite-n correction.",
+        "Lee and Wright §2.3 Eq. (2.17) explicitly invokes delta<=3/4; Eqs. (2.18) and (3.15) analyze a positive-correlation regime.",
+        "Appendix A of Lee and Wright explicitly restricts detailed bounds to δ in [0,0.4]."
+      ],
+      "reasoning": "A general tight convergence bound for a cyclic algorithm need not explicitly determine the spectral radius, and a general matrix formula does not by itself evaluate its high-dimensional signed-equicorrelation limit or first correction. The 2026 paper is plausibly broader and could imply parts of this specialization; only its complete abstract was available, so this remains the highest source-access risk. The older paper studies the same matrix with a generally permitted negative sign but gives cyclic-rate estimates for delta<=3/4 and small positive delta, corresponding to positive off-diagonal entries.",
+      "searches": [
+        "cyclic Kaczmarz obtuse equiangular normalized rows negative correlation near simplex exact sweep spectral radius positive Perron limit",
+        "negative equicorrelation cyclic coordinate descent high dimension sharp asymptotic Lambert W and finite n correction",
+        "cyclic Kaczmarz on simplex frame near singular exact spectral rate two times distance to singularity",
+        "Gauss Seidel matrix I minus alpha/n all ones off diagonal Lambert W convergence",
+        "arxiv:1604.07130 Lemma 4.1; DOI:10.1093/imanum/dry040 equations (1.17), (2.15), (2.17)-(2.18), (3.15)",
+        "arxiv:2609.32034 first posted September 25 2026 and published abstract",
+        "arxiv:2609.32034v1 abstract",
+        "doi:10.1093/imanum/dry040 §2.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.32034v1 (abstract and bibliographic release record)",
+      "arxiv:1604.07130 (full online text, Sections 4.1--4.3)",
+      "doi:10.1093/imanum/dry040 (full online text, Sections 1--3)",
+      "mathematical research-record searches: signed equicorrelation, cyclic Kaczmarz, Lambert W, Perron eigenvalues"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun and Ye: c∈(0,1), fixed n and c→1; a different sign and limiting regime.",
+        "Lee and Wright: δ∈(0,n/(n−1)) includes the signed range, but their derived cyclic bounds use δ<=3/4.",
+        "The new result specifies the complete evaluated limit and its first finite correction, not merely an upper bound for a generic input."
+      ],
+      "reasoning": "The claim is an explicit new evaluation of a known exactly computable matrix family, not a new algorithm or characteristic polynomial. Sun-Ye polynomial analysis at c>0 cannot be used by merely replacing positive c with negative c without proving the positive Perron branch and taking n→∞ on the c=-alpha/(n-1) scale. Lee-Wright supplies an explicit matrix but no spectral evaluation, limit, finite-size error, or uniform singular-end expansion. The 2026 source might provide stronger bounds but the complete text was unavailable; uncertainty is retained.",
+      "searches": [
+        "negative off diagonal constant Gram cyclic Gauss Seidel Perron eigenvalue Lambert W equation exp(x)=1+x/alpha regular simplex",
+        "cyclic Kaczmarz obtuse equiangular normalized rows negative correlation near simplex exact sweep spectral radius positive Perron limit",
+        "negative equicorrelation cyclic coordinate descent high dimension sharp asymptotic Lambert W and finite n correction",
+        "cyclic Kaczmarz on simplex frame near singular exact spectral rate two times distance to singularity",
+        "Gauss Seidel matrix I minus alpha/n all ones off diagonal Lambert W convergence",
+        "arxiv:1604.07130 Lemma 4.1; DOI:10.1093/imanum/dry040 equations (1.17), (2.15), (2.17)-(2.18), (3.15)",
+        "arxiv:2609.32034 first posted September 25 2026 and published abstract",
+        "arxiv:1604.07130 Lemma 4.1",
+        "doi:10.1093/imanum/dry040 Eq. (2.15)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun and Ye Lemma 4.1 uses c in (0,1), with complex roots near c→1.",
+        "Lee and Wright eq. (2.15) gives the sweep matrix for a broader delta range but no exact Lambert-W negative-correlation limiting law."
+      ],
+      "reasoning": "Cyclic Kaczmarz is transformed by an invertible frame matrix into cyclic coordinate descent/Gauss-Seidel on the signed equicorrelation Gram matrix, so those aliases were explicitly compared. Earlier Sun-Ye geometric eigenvector relations are credited, but the negative-correlation Perron selection and limiting Lambert branch are not stated in its positive-correlation regime.",
+      "searches": [
+        "negative off diagonal constant Gram cyclic Gauss Seidel Perron eigenvalue Lambert W equation exp(x)=1+x/alpha regular simplex",
+        "cyclic Kaczmarz obtuse equiangular normalized rows negative correlation near simplex exact sweep spectral radius positive Perron limit",
+        "negative equicorrelation cyclic coordinate descent high dimension sharp asymptotic Lambert W and finite n correction",
+        "arxiv:1604.07130 §4.3 and Lemma 4.1",
+        "doi:10.1093/imanum/dry040 §2.2-2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Two-row cyclic overrelaxation studies a defective two-step optimum, not arbitrary n negative equicorrelation.",
+        "Maximal-distance Kaczmarz coherence investigates residual spikes, not fixed cyclic sweep Perron radius.",
+        "Inverse-positive optimal coordinate sampling optimizes an iid sampling distribution rather than this deterministic sweep."
+      ],
+      "reasoning": "Targeted searches of mathematical publication records and accessible historical mathematical claim summaries produced neighboring two-row cyclic Kaczmarz, arbitrary-row coherence and inverse-positive random sampling results, but no complete finite-n negative-equicorrelation eigenvalue and Lambert W limit tabulation. No universal uniqueness claim is inferred from these incomplete search results.",
+      "searches": [
+        "negative off diagonal constant Gram cyclic Gauss Seidel Perron eigenvalue Lambert W equation exp(x)=1+x/alpha regular simplex",
+        "cyclic Kaczmarz obtuse equiangular normalized rows negative correlation near simplex exact sweep spectral radius positive Perron limit",
+        "negative equicorrelation cyclic coordinate descent high dimension sharp asymptotic Lambert W and finite n correction",
+        "cyclic Kaczmarz on simplex frame near singular exact spectral rate two times distance to singularity",
+        "Gauss Seidel matrix I minus alpha/n all ones off diagonal Lambert W convergence",
+        "published two-row cyclic Kaczmarz finite-horizon study",
+        "published Kaczmarz coherence residual-spike study",
+        "published inverse-positive coordinate-sampling study"
+      ]
+    },
+    "rationale": "The exactly permutation-invariant matrix family, basic Gauss-Seidel sweep and positive-correlation root technique are known and specifically credited. The assessed contribution is the negative-equicorrelation near-simplex scaling: exact positive Perron root, evaluated Lambert-W dimension limit, signed finite-size correction and dimension-uniform sharp near-singular expansion. Sections of two highly relevant primary full texts were examined: Sun and Ye treat positive correlations and their positive-singular limit; Lee and Wright allow either sign in the matrix definition but their studied quantitative cyclic-rate regime is the positive-offdiagonal range. These results do not state the present negative-branch limiting classification. Accessible current-source abstract and mathematical research records yielded no implication-equivalent statement. The full 2026 source remained inaccessible, and unindexed equivalences cannot be excluded; the residual risk is documented rather than erased.",
+    "residual_risks": [
+      "Full text of the motivating 2026 Kaczmarz preprint was not available for a line-by-line originality comparison; the abstract alone cannot settle stronger-theorem implications.",
+      "The matrix family and the underlying Gauss-Seidel sweep are explicitly known from Lee and Wright; an earlier unindexed evaluation of the same spectral limit could exist.",
+      "A general published convergence characterization might subsume the asymptotic rate but not the evaluated Lambert W and finite-size correction; this relationship warrants independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Material risk remains; the abstract states general tight and relaxed convergence bounds but does not establish the exact signed-equicorrelation Lambert law. Full-text NOT_COVERING is not asserted.",
+        "evidence": [
+          "arXiv:2609.32034, first submission 2026-09-25; abstract states tight convergence bounds using a fixed input-dependent matrix and row correlations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.32034",
+        "material_read": "Public bibliographic first-release record, abstract and accessible summary only; full manuscript not obtained.",
+        "method": "Direct preprint record and lawful abstract/metadata mirrors; attempted institutional source after free-source access failed.",
+        "title": "Tight Convergence Bounds for the Classical Kaczmarz Method",
+        "trigger": "Same iterative method, first released September 25, 2026, and motivates a quantitative exact-rate question."
+      },
+      {
+        "assessment": "The paper assumes positive constant off-diagonal correlation c in (0,1) for its hard instance, focuses on the singular positive-correlation limit and does not state the negative-correlation n-asymptotic Lambert W formula.",
+        "evidence": [
+          "Section 4.3 defines c∈(0,1) and Lemma 4.1 gives q-polynomial eigenvalues.",
+          "Section 4.2 studies c→1 with fixed n, unlike the signed c=-alpha/(n-1) limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.07130",
+        "material_read": "Full HTML manuscript, including Sections 4.1--4.3 and Lemma 4.1 with the roots and examples.",
+        "method": "Read full-text HTML mathematical statements, root equations and relevant proof portions.",
+        "title": "Worst-case Complexity of Cyclic Coordinate Descent: O(n²) Gap with Randomized Version",
+        "trigger": "Exact equicorrelation characteristic-root technique and possible broader algorithmic equivalence."
+      },
+      {
+        "assessment": "The exact Gauss-Seidel matrix and broad matrix family are prior work; the paper explicitly develops rates around small delta and positive correlations and does not state the Lambert-W negative near-simplex scaling or sharp finite-size corrections.",
+        "evidence": [
+          "Eq. (1.17) δ∈(0,n/(n−1)) genuinely includes δ>1, hence negative correlations; this is credited.",
+          "Section 2.3 simplifies rates under δ<=3/4, with small-δ comparisons; Eq. (2.15) is the exact known sweep matrix.",
+          "Appendix A explicitly assumes n≥10 and δ∈[0,0.4] for its detailed recurrence bounds, excluding the negative-correlation parameter range δ>1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/dry040",
+        "material_read": "Full accessible HTML manuscript: Sections 1--3, Eqs. (1.17), (2.3), (2.15), (2.17)--(2.18), (3.15), and Appendix A assumptions.",
+        "method": "Inspected full online mathematical article, matrix definitions and published quantitative claims.",
+        "title": "Random permutations fix a worst case for cyclic coordinate descent",
+        "trigger": "Defines the exact same permutation-invariant Gram matrix, with formal parameter domain permitting negative off-diagonal correlations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7f05cf8-7e35-4eea-a9fb-34b2118f175b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Regular-simplex and near-simplex normalized frames are canonical highly symmetric input geometries for row-projection solvers. The exact asymptotic per-cycle rate for negative correlations is a natural invariant for which generic row-coherence bounds obscure the correct dimension dependence. The nontrivial Lambert W limit interpolates the weak-coupling and near-rank-deficient regimes, while the signed O(1/n) correction quantifies finite row-count deviations. The uniform sharp near-singular coefficient of two and second-order finite-n coefficient provide a genuine quantitative boundary. The result supplies a reproducible exact benchmark, not an arbitrary parameter-table recomputation or a claim about unspecified practical algorithms.",
+    "status": "PASS"
+  }
+}
