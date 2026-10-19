@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Every specified binary16 input is exactly q/2^24 with explicitly reconstructed IEEE significand/exponent bits. Exact integer rational nearest-even rounding computes each edge in both maps; a full graph decomposition checks every one of the 15361 starting states, cycles and tree depths, and basin-weighted rational averages use exact Voronoi input rounding widths summing to 2^25. All finite assertions and both means were reproduced from the actual included verify.py; a separate NumPy native float16 computation agreed on all 30722 edges. Domain is finite, so enumeration is exhaustive, not an unjustified infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galias, DOI:10.1109/TCSII.2021.3081604, specifically single/double precision, not binary16.",
+        "Persohn–Povinelli, DOI:10.1016/j.chaos.2011.12.006, studies finite-bit PRNG orbit periodicity, but no accessible evidence of the particular IEEE binary16 two-evaluation comparison.",
+        "Klower et al., DOI:10.1038/s41598-023-37004-4, finds generic Float16 fixed-point stabilization, not exact expression-order invariant means."
+      ],
+      "reasoning": "Methods for enumerating finite directed graphs or observing floating-point cycles do not imply numerical entries for this different binary16 map pair; precise rounded edges must be calculated.",
+      "searches": [
+        "floating point chaotic logistic map finite precision evaluation order exact 15361 positive half values collapse zero basin period 40 period 5",
+        "Periodic orbits of logistic map in single and double precision implementations Galias 2021",
+        "Analyzing Logistic Map Pseudorandom Number Generators for Periodicity Induced by Finite Precision Floating-Point Representation Persohn Povinelli 2012"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21203/rs.3.rs-2223046/v1",
+      "doi:10.1038/s41598-023-37004-4",
+      "doi:10.1109/TCSII.2021.3081604",
+      "doi:10.1016/j.chaos.2011.12.006"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 original preprint posted 8 November 2022 (DOI:10.21203/rs.3.rs-2223046/v1) studies the Bernoulli map; 2023 expansion adds the logistic numerical phenomena.",
+        "Generic fixed-point stabilization or universal eventual periodicity does not fix the state transition table or complete basins."
+      ],
+      "reasoning": "The new claim implies explicitly that the same set of states and same nearest-even policy may have extremely different global basin allocations and expectation of long-time orbit means solely because of rounding placement. The earlier finite-precision phenomena are compatible with both maps and hence do not imply either exact classification.",
+      "searches": [
+        "The logistic map parameter 4 computed using IEEE 754 binary16 rounding, exact global cycle enumeration versus order of arithmetic operations, 5- and 40-period attractors and two uniform-ensemble Cesaro means",
+        "Periodic orbits in chaotic systems simulated at low precision logistic map Float16 unstable fixed points gain stability",
+        "Galias 2021 systematic study single double precision implementations of logistic map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two indexed logistic-map maps have exact integer-specified arithmetic semantics and distinct invariant means; no identified record reports both full graphs.",
+        "2023 publication DOI:10.1038/s41598-023-37004-4 compares number formats and rounding modes, not precisely these two round placements."
+      ],
+      "reasoning": "Algebraic re-expression of 4x(1-x) is equivalent over real numbers but not under intermediate rounding. We compared semantic operation sequences and exact graph invariants, not merely titles.",
+      "searches": [
+        "The logistic map parameter 4 computed using IEEE 754 binary16 rounding, exact global cycle enumeration versus order of arithmetic operations, 5- and 40-period attractors and two uniform-ensemble Cesaro means",
+        "Half precision logistic recurrence with single rounding exact polynomial versus staged rounding of product 4*x*(1-x): full-state enumeration 15361 values and invariant measures",
+        "logistic map half precision floating point algebraically equivalent expressions parenthesization cycle period 5 40"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2023 figures are bifurcation diagrams and numerical samples; no inspected table lists both complete binary16 graphs or these two exact rational means.",
+        "A separate precise binary16 enumeration for the generalized Bernoulli map with parameter 3/2 concerns a different map and rounding semantics; it cannot be a table for logistic 4x(1-x)."
+      ],
+      "reasoning": "Comparisons target the actual bit grid, periods (5 versus 40), exact Voronoi basin weights, and arithmetic evaluation semantics. No exact matching database/table was located in the checked material, although uninspected supplements remain a genuine risk.",
+      "searches": [
+        "binary16 float16 logistic map f(x)=4x(1-x) exact all 15361 state cycle basin sizes 5-cycle 40-cycle evaluation order fused sequential rounding",
+        "logistic map floating point finite precision complete graph basin census fused multiply add cycle 40 period",
+        "logistic map float16 5 cycle period 40 numerical computing expression order rounding"
+      ]
+    },
+    "rationale": "The 2022 full-text preprint treats finite-precision Bernoulli dynamics and numerical orbit methods; its original version has no logistic experiment. The 2023 expanded open-access paper discusses logistic Float16 fixed points and periodic collapse but does not supply the comparison of exact versus staged binary16 rounding with all 15361 states, exact periodic cycle spectra, basin-weighted uniform-real-start means and 2774 edge discrepancies. The exact 2021 Galias analysis uses single and double precision, and the 2012 Persohn/Povinelli finite-bit generator work does not establish this binary16 expression-order benchmark. No matching full statement surfaced from actual result-record searches; priority risk from uninspected supplemental tables remains.",
+    "residual_risks": [
+      "The 2023 journal article supplementary material and software are not fully inspected for exact expression-order tables.",
+      "An earlier unindexed finite-bit computation or executable implementation may incidentally contain the exact maps; no absolute priority claim is possible.",
+      "The 2012 finite-precision logistic article was inspected only through the institutional abstract, not its full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected 2022 version is restricted to generalized Bernoulli and Lorenz 1996 examples and does not contain the logistic-map comparison.",
+        "evidence": [
+          "Full-text cover posted date and Section 3, DOI:10.21203/rs.3.rs-2223046/v1."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/365212711_Periodic_orbits_in_chaotic_systems_simulated_at_low_precision",
+        "material_read": "Accessible full-text reproduction: cover with posted date (8 November 2022), introduction, Section 2 numerical-orbit methods, Section 3 generalized Bernoulli application including precision and fused arithmetic discussion, and concluding results.",
+        "method": "Inspect full-text HTML representation of the public preprint, including methods and central claims.",
+        "title": "Periodic orbits in chaotic systems simulated at low precision (2022 preprint)",
+        "trigger": "Earliest public version of the motivating source; relevant whole-document priority check."
+      },
+      {
+        "assessment": "The text establishes known qualitative Float16 logistic periodic-orbit artifacts, without the pair of exact defined evaluation orders, all-state graph census or exact uniform-real-start average calculations.",
+        "evidence": [
+          "DOI:10.1038/s41598-023-37004-4; logistic-map section discusses Float16, Posit16 and BFloat16 spurious fixed points and cycle collapse."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-023-37004-4",
+        "material_read": "Indexed full primary text and article sections “The logistic map with various number formats”, “Periodic orbits and number formats” and “Conclusions”; figure descriptions of Float16 fixed-point stabilization and attractor collapse.",
+        "method": "Inspect accessible open-access indexed article text and results, compare the model and numerical conclusions.",
+        "title": "Periodic orbits in chaotic systems simulated at low precision (2023 expanded journal article)",
+        "trigger": "Same logistic map and same binary16 format."
+      },
+      {
+        "assessment": "Relevant methodology but different hardware precision, without binary16 evaluation-order comparison.",
+        "evidence": [
+          "DOI:10.1109/TCSII.2021.3081604."
+        ],
+        "identifier_or_url": "https://badap.agh.edu.pl/publikacja/137584",
+        "material_read": "Institutional bibliographic abstract and available results excerpt confirming coverage of single and double precision, with basins and maximum entry times.",
+        "method": "Read institutional bibliographic summary and indexed source excerpt.",
+        "title": "Periodic orbits of the logistic map in single and double precision implementations",
+        "trigger": "Systematic graph-cycle and basin analysis of precisely the logistic map."
+      },
+      {
+        "assessment": "Potential methodological antecedent and residual overlap risk; no known calculation of the precise binary16 one-round versus staged-round pair.",
+        "evidence": [
+          "DOI:10.1016/j.chaos.2011.12.006."
+        ],
+        "identifier_or_url": "https://epublications.marquette.edu/electric_fac/104/",
+        "material_read": "Institutional abstract describing finite-bit orbit periods from 3 to 23 bits and seed-space analyses; full paper not inspected.",
+        "method": "Inspect institutional abstract and result description.",
+        "title": "Analyzing Logistic Map Pseudorandom Number Generators for Periodicity Induced by Finite Precision Floating-Point Representation",
+        "trigger": "Older systematic finite-bit logistic-cycle studies may imply a subcase."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0b5cb02-a700-4833-8feb-34c16cfbe3e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete bit-exact comparison of two natural evaluation semantics for the iconic fully chaotic logistic map quantifies the large influence of intermediate rounding on global invariant numerical statistics. The two long-cycle periods are 5 and 40, zero-basin masses differ drastically, and the exact uniform-real-start Cesaro means differ by about 0.33219 (a factor above 75). Finite-precision implementation fidelity is a motivated research question explicitly discussed by the 2022/2023 source; this new exact benchmark is not a routine consequence of finite-state periodicity.",
+    "status": "PASS"
+  }
+}
