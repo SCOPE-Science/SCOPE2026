@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim specifies exact-degree complex spherical harmonics, four unit tetrahedral nodes, and two tangential directional derivatives per node. The differentiated addition theorem reduces the operator rank to a rational Gram matrix. Its eight-dimensional symbolic determinant factors into three explicitly displayed linear terms with multiplicities two, three, and three. Exact rational row reduction establishes all small-degree ranks, with a second harmonic-polynomial evaluation construction agreeing through degree six. The classical Legendre Bernstein inequality bounds the factors away from zero for all degrees at least thirteen. The checker was executed from the included source and returned VERIFY_OK. The analytic tail does not rely on extrapolated experiments.
+
+**Originality — PASS, subject to stated residual risk.** Comparisons were made by mathematical implication rather than title: standard scalar/derivative addition theorems do not specify tetrahedral rank; all-frequency strictly positive vector kernels imply no single-frequency full-rank result; scalar harmonic evaluation at twelve vertices of a different tetrahedrally symmetric orbit has different domain and measurements. Specific scholarly searches and published mathematical-record searches did not reveal a theorem proving the isolated degree-three and degree-five rank losses or the all-degree recovery. Unindexed tables of octahedral/tetrahedral vector harmonics remain an originality risk, and independent priority is not established.
+
+**Mathematical value — PASS.** Tangent-vector interpolation at a canonical four-point spherical design is a natural constrained sampling invariant. The rank is unexpectedly nonmonotone: full surjectivity at degree four fails sharply in degree five, with three explicit compatibility equations, and recovers forever in degree six. The complete finite-node, all-degree classification supplies an exact boundary for when this physically meaningful gradient-sampling map is onto; it is not just a computation of an arbitrarily selected coefficient.
+
+Scientific limits: no conditioning bound, no other tetrahedral node perturbations, and no independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.

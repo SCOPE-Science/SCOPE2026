@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact intrinsic tangent gradient samples at four tetrahedral vertices yield an eight-by-eight Gram with entries d,x,z by differentiating the Legendre addition formula. The generic determinant factors exactly into powers 2,3,3 of three explicit linear factors, checked by symbolic expansion from the declared coordinates. Rational row reduction establishes all degree-zero through degree-twelve ranks; a separate harmonic-polynomial basis check reproduces degrees one through six and verifies the stated nullspace constraints. For every degree at least thirteen, Bernstein and Legendre recurrence/differential identities give strict bounds 6X+9/sqrt(l)<3 and 18X+9/sqrt(l)<9, ruling out every factor. All integer cutoffs and positive definiteness/normalization are addressed. The included checker executed successfully; no extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weniger arxiv:math-ph/0505018v1, Section 2 and 7",
+        "Bouzas arxiv:1103.2982v1, angular-momentum projection and addition theorems",
+        "Sun-Dong-Huang arxiv:2608.05547v1, Sections 2,4,5"
+      ],
+      "reasoning": "Strictly positive definite matrix-valued spherical kernels with spectral weights across many degrees can interpolate tangent data because the summed Gram matrix is positive definite; they do not force each exact-degree summand to be nonsingular. In fact the current degree-five summand has rank five. Scalar spherical interpolation at twelve other points also lacks the derivative functionals and so cannot imply this conclusion.",
+      "searches": [
+        "tangential vector spherical harmonics interpolation matrix valued kernels positive definite single degree",
+        "spherical harmonics tangential derivative evaluation tetrahedron arbitrary degree rank",
+        "spherical harmonics tangential derivative evaluation maps gradient sampled at vertices of regular tetrahedron anomalous harmonic degree 5 and degree 3 rank loss"
+      ]
+    },
+    "checked_sources": [
+      "Weniger arxiv:math-ph/0505018v1, Section 2 and 7",
+      "Bouzas arxiv:1103.2982v1, angular-momentum projection and addition theorems",
+      "Sun-Dong-Huang arxiv:2608.05547v1, Sections 2,4,5",
+      "DLMF 18.14.3 Bernstein bound",
+      "published record: Complete normalized quartic tensors of the five Platonic solids",
+      "published record: Two-level Slepian spectrum for point stars in finite Grassmann schemes",
+      "accessible own mathematical ledger through generation 96, recoverable titles/claims for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Weniger arxiv:math-ph/0505018v1, Section 2 and 7",
+        "Bouzas arxiv:1103.2982v1, angular-momentum projection and addition theorems",
+        "Sun-Dong-Huang arxiv:2608.05547v1, Sections 2,4,5",
+        "DLMF 18.14.3 (Legendre bound)"
+      ],
+      "reasoning": "Differentiating the general scalar addition theorem supplies the Gram entry but does not yield its tetrahedral determinant factorization, degree-specific zeros, or all-degree nonzero proof. The general matrix-valued interpolants in the 2026 paper aggregate spectral degrees, so positive definiteness does not imply fixed-degree nonsingularity. DLMF provides a tail bound but not the exact small-degree exceptions. Hence none of these inspected results is a stronger statement subsuming the final claim.",
+      "searches": [
+        "spherical harmonics tangential derivative evaluation maps gradient sampled at vertices of regular tetrahedron anomalous harmonic degree 5 and degree 3 rank loss",
+        "degree five spherical harmonic gradient vanishes on tetrahedron tangent jets three relations rank five",
+        "single-frequency vector spherical harmonics on tetrahedron pointwise rank full interpolation except degree three and five",
+        "tetrahedral spherical harmonic exact degree tangent gradients rank deficient at fifth order vector spherical harmonic interpolation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weniger arxiv:math-ph/0505018v1, Section 2 and 7",
+        "Bouzas arxiv:1103.2982v1, angular-momentum projection and addition theorems",
+        "Sun-Dong-Huang arxiv:2608.05547v1, Sections 2,4,5",
+        "published record: Two-level Slepian spectrum for point stars in finite Grassmann schemes",
+        "published result: Fourth-order design strength is the sharp affine equal-area rigidity threshold (affine facet-area rigidity, not single-degree tangent harmonic sampling)"
+      ],
+      "reasoning": "The claim could equally be expressed as tetrahedral Hermite interpolation, first-order tangent jet sampling, rank of the Hessian of the single-degree Legendre reproducing kernel, or surjectivity of a vector-spherical-harmonic restriction map. Weniger and Bouzas provide gradient/addition identities, but no tetrahedral jet sampling ranks; the Grassmann-scheme Slepian result concerns different underlying finite geometry and not these tangent gradients.",
+      "searches": [
+        "spherical harmonics tangential derivative evaluation maps gradient sampled at vertices of regular tetrahedron anomalous harmonic degree 5 and degree 3 rank loss",
+        "degree five spherical harmonic gradient vanishes on tetrahedron tangent jets three relations rank five",
+        "single-frequency vector spherical harmonics on tetrahedron pointwise rank full interpolation except degree three and five",
+        "tetrahedral spherical harmonic exact degree tangent gradients rank deficient at fifth order vector spherical harmonic interpolation",
+        "vector spherical harmonics tetrahedral symmetry gradient point evaluation matrix rank fifth degree",
+        "At four vertices of a regular tetrahedron, gradient evaluation of degree five spherical harmonics has rank five, three tangent measurement linear constraints, while degree four and all degrees six and above rank eight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact rational determinant and rank computations: attached verify_tetra.py",
+        "published result titled Complete normalized quartic tensors of the five Platonic solids (tetrahedral moments, not tangent-gradient ranks)",
+        "published scalar truncated-tetrahedron orbit sampling result (12 scalar samples, unlike 4 vector measurements)"
+      ],
+      "reasoning": "No directly matching table for the rank-eight tangent-gradient Gram family or the degree-five rank-five entry was located. The Platonic quartic tensors are fourth moments of point distributions rather than first-jet derivative interpolation. This is a search limitation rather than a claim of exhaustive database coverage.",
+      "searches": [
+        "tetrahedral vector spherical harmonics tangent gradient nodal interpolation tabulation degree 5",
+        "degree five tetrahedral spherical harmonic gradient sampling rank 5",
+        "spherical harmonic icosahedral tetrahedral orbit tangential interpolation ranks"
+      ]
+    },
+    "rationale": "A derivative-evaluation kernel follows formally from the classical harmonic addition theorem, but the exact rank sequence 0,3,5,6,8,5,8,..., its sharp fifth-degree rank-three deficiency with explicit annihilators, and permanent full rank above degree five require the new exact tetrahedral determinant calculation plus an all-degree nonzero argument. The mathematically closest full-text inspected sources do not supply or imply the exact-degree four-vertex rank formula. Targeted published-mathematical-record searches returned different harmonic samples, different nodes or all-frequency interpolation rather than this claim. Absence of a match is not itself proof of novelty; unindexed older group-symmetric vector harmonics could overlap.",
+    "residual_risks": [
+      "Older unindexed tetrahedral- or octahedral-group vector-harmonic interpolation tables might encode equivalent ranks under symmetry-adapted bases.",
+      "No independent external mathematical/publication-priority verification has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Derives spherical tensor gradient and addition identities. Does not provide ranks of tetrahedron-point tangential evaluations degree by degree.",
+        "identifier_or_url": "arxiv:math-ph/0505018v1",
+        "material_read": "Introduction and Sections 2 and 7 of the 55-page freely accessible primary PDF",
+        "method": "Full-text inspection, including tensor-gradient and addition-theorem formulas",
+        "title": "The Spherical Tensor Gradient Operator",
+        "trigger": "Foundational addition/gradient identities potentially directly expressing derivative sampling"
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "General spin/tensor harmonic projector identities, without a tetrahedral rank census or fifth-degree singularity.",
+        "identifier_or_url": "arxiv:1103.2982v1",
+        "material_read": "Angular-momentum projector and addition-theorem discussion of the 21-page primary PDF",
+        "method": "Open-access PDF reading",
+        "title": "Addition theorems for spin spherical harmonics. I. Preliminaries",
+        "trigger": "Potential vector-harmonic addition theorem directly implying the Gram classification"
+      },
+      {
+        "assessment": "NOT_IMPLYING_SINGLE_DEGREE",
+        "evidence": "General matrix-valued vector kernels have spectral multipliers across harmonic degrees; the positive all-degree aggregate has no implication that every exact-degree component Gram matrix has full rank.",
+        "identifier_or_url": "arxiv:2608.05547v1",
+        "material_read": "Sections 2, 4, 5 and interpolant construction of the 30-page primary PDF",
+        "method": "Open-access primary PDF reading, including kernel positive-definiteness assumptions and interpolation discussion",
+        "title": "Divergence-free interpolation of tangential vector fields via matrix-valued kernels",
+        "trigger": "Strongest plausible broad tangential interpolation theorem covering four special nodes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c35cd3d-1fee-44ed-83c6-3d273fca825c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Surjectivity of finite-node intrinsic gradient interpolation in a single spherical-harmonic eigenspace is an intrinsic sampling invariant. At the four regular tetrahedral nodes, degree four is onto (eight independent tangent coordinates), degree five unexpectedly loses three conditions (rank five), and every degree six and above recovers all measurements. Three explicit degree-five compatibility equations give directly usable obstructions. This nonmonotone exact-degree behavior is not implied by generic low-pass interpolation or general addition identities; the complete all-degree result is a motivated classification rather than arbitrary parameter slicing.",
+    "status": "PASS"
+  }
+}
