@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The real lift is written in an orthonormal Frobenius coordinate basis, and the discrete Fourier transform of the three outer intensities yields one real two-by-two block and two scalar blocks. The squared spectrum is therefore exact. A strictly increasing crossing function has one root; before it a trace/determinant argument proves decreasing conditioning, and after it Loewner monotonicity of a two-by-two matrix proves increasing conditioning. Equality at the crossing gives the triple lower singular level. Explicit Fourier inversion establishes full Hermitian injectivity. The embedded checker verifies the algebra and concrete instances; no finite search is substituted for the global proof.
+
+## Originality — PASS, subject to the stated residual risk
+The closest published findings concern existence of discrete infinite-signal phase-retrieval samples, the minimal number of generic almost-everywhere complex measurements, and statistical optimal tomography. The original 14-page de Dios Pont et al. paper was inspected, including its finite-dimensional norming proposition and main construction; these do not specialize to this four-point condition-number objective. Tetrahedral qubit measurements are normalized and have outer squared radius two, while the raw Gaussian Fock design has a different spectral optimization and a unique transcendental optimum. The actual comparisons do not reveal this formula or its threefold spectral balancing. Full text of the recent principal preprint and the older Nunn et al. paper were accessible and relevant sections inspected; the separate August 2026 minimal-measurement preprint was abstract-only. An unindexed equivalent is still possible. The assertion of originality is provisional rather than an independent priority certificate.
+
+## Value — PASS
+Four measurements are the minimum for real-linear injectivity on the four-dimensional Hermitian two-by-two space. An equilateral triple plus the center is a simple, physically meaningful one-parameter coherent-sampling design. The result determines the exact unique best Gaussian radius, the optimal noise-amplification factor, a full inverse, and a threefold degenerate low singular spectrum, supplying actionable information beyond generic injectivity or numerical design.
+
+## Closest literature and limits
+De Dios Pont–Greilhuber–Liehr–Taylor (arXiv:2609.28341), Xu (arXiv:2608.15003), Nunn et al. (arXiv:0911.4310), and the tetrahedral-qubit sampling construction were compared at the level accessible in this review. The September 2026 paper was inspected as an original 14-page PDF (Theorem 1.1, finite-dimensional norming inequality, tail bounds, main proof and appendix); Nunn et al. was inspected from its original 16-page PDF with attention to Fisher-information and minimal-tomography criteria. The August 2026 manuscript remained abstract-only. The result is restricted to the raw Gaussian four-point equilateral family and does not address arbitrary samples, probability-normalized POVMs or noise covariance matrices.
+
+Self-review: passed. Independent audit: not yet performed.
