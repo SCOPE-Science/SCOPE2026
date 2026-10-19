@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "A positive accepted binary index implies acceptance of each nonzero canonical suffix, yielding b_(q2^m+r)<=b_r. Splitting any length-2^m factor at the aligned block boundary proves the prefix maximizes weight. Accepted positive l-bit numbers correspond bijectively to compositions of l-1 using tiles 1,2, counted by Fibonacci F_l; including b_0=1 gives F_(m+2). The binary prefix 101 forces zero blocks of arbitrary dyadic size. Consecutive window weights differ by <=1, so exactly F_(m+2)+1 Parikh vectors occur. Independent generators and exhaustive finite windows through m=11 were checked, but not used to infer infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Parreau et al. 2015 concerns 2-abelian regularity of period-doubling and Thue–Morse",
+        "Cicalese et al. Theorem 3 states a general identity but gives examples for paperfolding, Thue–Morse, Sturmian, not this specialization"
+      ],
+      "reasoning": "A theorem computing extremal factors for every 2-automatic word would dominate the claim, but the inspected theorems are structural identities or different-sequence specializations. They do not imply the explicit Fibonacci value without new Baum–Sweet suffix and tiling arguments.",
+      "searches": [
+        "web: 2-abelian complexity automatic sequences period doubling Thue Morse Parreau Rigo Rowland Vandomme",
+        "arxiv:1811.06273 §5 Theorem 3",
+        "arxiv:1405.3532 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1404.2824",
+      "https://arxiv.org/pdf/1811.06273",
+      "https://arxiv.org/abs/1405.3532",
+      "https://annals.math.princeton.edu/1976/103-3/p12",
+      "https://oeis.org/A086747"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burcsi et al. Lemma 6 Fibonacci count concerns extension of alternating prefix-normal words",
+        "Cicalese et al. formula relates abelian complexity to extremal weights but does not calculate the latter for Baum–Sweet"
+      ],
+      "reasoning": "The Fibonacci number in the 2014 paper arises from avoiding adjacent ones among extensions, which is not the same count as Baum–Sweet allowed binary digit strings. The new theorem needs the separate suffix-closure lemma and all-zero blocks, so neither cited statement logically subsumes it.",
+      "searches": [
+        "arxiv:1404.2824 Lemma 6 and Section 7",
+        "arxiv:1811.06273 Theorem 3",
+        "web: \"Baum-Sweet\" \"abelian complexity\" Fibonacci"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1811.06273, Theorem 3, equates Parikh-spectrum width with extremal weights",
+        "Baum–Sweet dyadic coordinatewise domination is the specific missing extra statement"
+      ],
+      "reasoning": "An equivalent claim would assert that the maximal number of 1s in Baum–Sweet length-2^m factors is F_(m+2), with an all-zero factor, or would state that its dyadic abelian complexity is F_(m+2)+1. The generic prefix-normal-form identity does not specify these maxima. No equivalent was found in inspected material.",
+      "searches": [
+        "web: \"Baum-Sweet\" \"prefix normal\"",
+        "web: \"Baum-Sweet\" \"abelian complexity\" Fibonacci",
+        "arxiv:1811.06273 §5 Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A086747 records the underlying digit sequence, not the length-2^m Parikh spectrum.",
+        "Relevant public source searches did not locate an exact dyadic Parikh-spectrum table."
+      ],
+      "reasoning": "A digit table for the automatic sequence is not an exact table of all factor Parikh vectors over unbounded dyadic lengths; finite terms alone cannot establish the theorem. No exact spectrum table appeared in the inspected published material.",
+      "searches": [
+        "web: OEIS A086747 Baum-Sweet sequence Fibonacci prefix counts",
+        "web: \"Baum Sweet\" \"abelian complexity\" Fibonacci",
+        "web: \"Baum-Sweet\" densest factors prefix maximum ones"
+      ]
+    },
+    "rationale": "Compared the exact mathematical statement against inspected primary prefix-normal full texts and relevant automatic-word literature, including aliases through extremal factor weights. The closest general theorem relates abelian complexity to extremal weights but does not compute the Baum–Sweet dyadic extremal counts. No direct overlap was found; unindexed coverage remains possible.",
+    "residual_risks": [
+      "An unindexed or differently titled paper may contain the same specialization.",
+      "The 1976 foundational article and the 2015 higher-abelian article were not read in full; no full-document exclusion is asserted.",
+      "Some online scientific retrievals were unavailable, so literature coverage is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General enumeration and normal-form methods; no asserted dyadic Baum–Sweet Fibonacci abelian-complexity formula",
+        "evidence": [
+          "Section 3 enumerates prefix-normal words; Section 7 concerns algorithms; Lemma 6 Fibonacci counts extensions of alternating words, not Baum–Sweet factors",
+          "In-document search yielded no Baum occurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.2824",
+        "material_read": "Full-text PDF available; read introduction, definitions, Sections 3 and 7, Theorems 1–2 and Lemma 6, and searched the entire parsed text for Baum and Fibonacci; title-page image inspected.",
+        "method": "Open-access arXiv full text read and in-text searches for Baum and Fibonacci",
+        "title": "Normal, Abby Normal, Prefix Normal",
+        "trigger": "Foundational prefix-normal and binary jumbled pattern matching formulation"
+      },
+      {
+        "assessment": "General formula expresses abelian complexity through extremal weights. It does not provide Baum–Sweet extremal weights or the precise Fibonacci specialization. The 2018 initial arXiv posting is outside the archival anchor but was examined as a stronger-coverage risk.",
+        "evidence": [
+          "Theorem 3, pages 11–12, formula for abelian complexity via prefix-normal forms",
+          "Subsection 5.2 treats paperfolding and Thue–Morse, not Baum–Sweet",
+          "In-document search yielded no Baum occurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.06273",
+        "material_read": "Full-text PDF available; read introduction, definitions, Section 5 and Theorem 3 with the specific case studies, searched the entire parsed text for Baum; title-page image inspected.",
+        "method": "Open-access arXiv paper reading with in-document search for Baum",
+        "title": "On Infinite Prefix Normal Words",
+        "trigger": "Potentially stronger published relationship of prefix normal forms and abelian complexity"
+      },
+      {
+        "assessment": "Studies 2-abelian regularity for Thue–Morse and period-doubling; cannot be treated as full-text exclusion and no Baum–Sweet claim visible in inspected abstract",
+        "evidence": [
+          "Abstract specifies Thue–Morse and period-doubling 2-abelian complexity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+        "material_read": "Abstract and bibliographic statement, not full text",
+        "method": "Open-access abstract inspection",
+        "title": "A New Approach to the 2-Regularity of the l-Abelian Complexity of 2-Automatic Sequences",
+        "trigger": "Potential dominating theorem for automatic-word abelian complexity"
+      },
+      {
+        "assessment": "Defines the classical object, but no full-document novelty exclusion claimed",
+        "evidence": [
+          "Annals of Mathematics volume 103 (1976), pages 593–610"
+        ],
+        "identifier_or_url": "https://annals.math.princeton.edu/1976/103-3/p12",
+        "material_read": "Publisher bibliographic landing page only; primary article full text not read",
+        "method": "Historical source identification",
+        "title": "Continued fractions of algebraic power series in characteristic 2",
+        "trigger": "Original sequence source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf1a8d87-9888-4743-a25b-851b3072ee09",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Abelian complexity counts the number of distinguishable jumbled factor profiles. The exact formula F_(m+2)+1 across every power-of-two length is a natural infinite-scale quantitative invariant, and the stronger coordinatewise suffix-closure property supplies structural explanation. It is unbounded with Fibonacci-in-exponent growth unlike several familiar bounded-complexity automatic words. No arbitrary finite cutoff, parameter renaming or routine table increment is involved.",
+    "status": "PASS"
+  }
+}
