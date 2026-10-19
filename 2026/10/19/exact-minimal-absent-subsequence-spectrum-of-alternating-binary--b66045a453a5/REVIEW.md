@@ -1,0 +1,9 @@
+# Scientific review: alternating-word minimal absent subsequences
+
+**Correctness — PASS.** The greedy terminal-position equality is proved directly for the infinite alternating source; the complete deletion-loss classification covers the first, interior, and last positions, including adjacent-length boundaries. The formal run enumeration establishes the bivariate rational generating function for every positive source length parameter. The univariate recurrence follows from the characteristic polynomial; direct finite scanning and independent rational-series coefficient calculations corroborate lengths through \(m=7\). The proof, not the finite tests, covers every \(m\ge1\).
+
+**Originality — PASS within checked evidence.** The 2025 enumeration paper provides general DAG and optimal-delay algorithms rather than the alternating-family length spectrum. The earlier general MAS characterization and the distinct shortest-absent-subsequence extremal result do not imply the displayed coefficient formula without further specialization and derivation. Searches for 'alternating periodic word', 'minimal absent scattered subsequences', 'Padovan', and rational generating functions found no explicit stronger or equivalent statement. The 2023 Troníček chapter remains a specific uninspected risk; its abstract describes general methods but not this enumeration, and non-coverage is not inferred from the abstract alone.
+
+**Value — PASS.** The alternating family is a canonical periodic test object for scattered subsequence theory. The answer gives a complete, all-length classification, a refined size profile and exact exponential-growth recurrence in an area where general enumeration algorithms do not supply transparent parameter-dependent formulas. The precise recurrence is not presented as a general theorem for all periodic words.
+
+Self-review: passed. Independent audit: not yet performed.
