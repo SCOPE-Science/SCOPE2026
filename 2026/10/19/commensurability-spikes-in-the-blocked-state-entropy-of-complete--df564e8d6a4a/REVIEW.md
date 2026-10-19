@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (PASS)
+The first-colour-site change in monochromatic-edge energy equals the difference of opposite-side colour multiplicities. In a positive-energy local minimum, one shared colour forces every colour to appear on both sides, after which the two minimization conditions force uniform multiplicities on each side. A simultaneous cross-part swap of two different colours decreases the energy by exactly two. The proper-colouring factor comes from onto assignments on the first part, the balanced factor from two multinomial counts, and the two entropy subsequences follow from fixed-palette chromatic asymptotics and Stirling. These steps cover all integer \(q\ge3\), \(a,b\ge1\), and the claimed boundaries. A standalone, direct-energy exhaustive checker passed all 25,300 labelled cases and 1,986 two-site tests, but computation is not used as an infinite proof.
+
+## Originality (PASS within inspected sources; residual risk)
+The stable-graph-colouring condition is **not new**: Kun, Powers and Reyzin (2013, arXiv:1308.3258v1) define it generally and prove existence and game-theoretic bounds. Proper-colouring ground-state counts are standard via Sokal (1999). A later exact half-split result for majority-C colourings gives the **binary equality slice**, not the full antiferromagnetic stability family; its same-colour inequality is opposite to the one studied here. No inspected source states the exact all-palette two-sublattice one-site blocked energy enumerator, its two-site elimination, and the nonconvergent arithmetic entropy. These additions are not a direct consequence of the prior generic existence and price-of-anarchy results. The key risk is that the easy-to-derive complete-bipartite special case may exist under game-theoretic language not captured by the inspected references or searches; absence from search is not a uniqueness certificate.
+
+## Mathematical value (PASS)
+The object is a natural exactly solvable Potts/anti-coordination benchmark, and the invariant is the complete count by energy of locally blocked configurations. The theorem reveals an unexpectedly large **size-commensuration effect**: almost all blocked configurations have positive edge-conflict energy along divisible sizes, yet they disappear entirely at adjacent sizes and under just two-site cooperative moves. The exact entropy nonexistence is an extensive effect, not a small coefficient correction; it provides a caution that metastable complexities may not possess thermodynamic limits even on a simple graph sequence.
+
+## Limitations and closest literature
+The result is for strictly negative-energy recolourings, not conventional dynamics that accepts zero-energy changes. It does not prove any kinetic convergence rate or finite-temperature statement. The most relevant predecessor is Kun, Powers and Reyzin (2013) for the identical local-equilibrium notion; Sokal (1999) supplies only the proper-colouring baseline. A potentially unindexed complete-bipartite enumeration remains a live literature risk. No independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
