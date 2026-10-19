@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "All integer q>=3,k>=1: palindrome recursion and k-level aligned blocks yield an exhaustive candidate list. First copy contributes a concrete length-m proper border; final-copy candidate has no border because a nonzero period would replicate its last one past its support. Reversal closure and monotone one-count prove exactly 2^k distinct factors. Independent finite KMP enumeration matched 24 parameter pairs, only corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Charlier–Rampersad–Shallit supply automaticity/regularity of counting functions for all automatic sequences and example values for Thue–Morse, but no explicit all-q Cantor classification."
+      ],
+      "reasoning": "Algorithmic enumeration and general regularity do not logically give the explicit value 2^k nor list the exact factors at q^k without specialization; inspected texts lack that specialization.",
+      "searches": [
+        "unbordered factors of uniform morphic automatic sparse Cantor words exact counting classification",
+        "generalized Cantor sequence unbordered factors at substitution-power lengths 3^k q^k 2^k all factors classified",
+        "arxiv:1102.3698 Theorems 2 and 24, Example 28",
+        "\"unbordered\" \"Cantor-like sequences\" factor"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1102.3698",
+      "arxiv:1211.1301",
+      "doi:10.1016/j.tcs.2015.12.022",
+      "Targeted topical and alias search terms in originality comparisons",
+      "Primary literature checked for stronger coverage and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lü et al. treat the same Cantor substitutions but give factor and permutation complexity; generic factor totals do not encode presence/absence of borders. Conjugacy, Abelian pattern counts and minimal absent word results do not supply the claimed border-free count."
+      ],
+      "reasoning": "None of these stronger-looking adjacent invariants implies exact counts of distinct unbordered factors; unbordered status tests arbitrarily long equal prefix/suffix. The new exact factor list is strictly finer than these counts.",
+      "searches": [
+        "doi:10.1016/j.tcs.2015.12.022 sections 3-4",
+        "Cantor word cyclic factor complexity versus border-free complexity",
+        "generalized Cantor higher Abelian factor complexity versus border-free factors",
+        "Cantor word minimal absent factors versus unbordered present factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem counts border-free, unbordered, primitive-with-no-shorter-prefix-suffix factors, and their reversals at lengths q^k; inspected arxiv:1211.1301 Section 5 and arxiv:1102.3698 example 28 concern different words."
+      ],
+      "reasoning": "Border-free and unbordered are definitional synonyms. Primitive is weaker than unbordered, so general primitive-factor counts cannot supply the exact result; conjugacy and reversal do not change the required input word. No equal theorem located in inspected sources; nondetection does not prove uniqueness.",
+      "searches": [
+        "unbordered factor complexity generalized Cantor word mu(1)=10^(q-2)1 mu(0)=0^q at lengths q^k equals 2^k, palindrome recursion",
+        "number of unbordered factors of Cantor sequence triadic n=3^k unbordered factors",
+        "\"unbordered\" \"Cantor word\" count q^k",
+        "\"Cantor sequence\" \"unbordered factor\" counts 2016"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record search hits addressed paperfolding, automata, word attractors and coding rather than Cantor unbordered counts. arxiv:1211.1301 supplies a distinct Thue–Morse table and period-doubling constant-two example."
+      ],
+      "reasoning": "No examined entry or exact-count table contains the claimed power-scale Cantor formula. Such a negative result is only a bounded search observation, not a global uniqueness certificate.",
+      "searches": [
+        "complete unbordered-factor complexity of generalized Cantor fixed point 1->10^(q-2)1 0->0^q",
+        "number of unbordered factors of Cantor sequence triadic n=3^k unbordered factors",
+        "arxiv:1211.1301 first pages and Section 5"
+      ]
+    },
+    "rationale": "No equivalent or dominating claim was found among targeted mathematical-record searches and directly inspected primary full texts. The strongest generic result establishes regularity/decidability, not a specialized closed form. Same-family Lü et al. concerns permutation/factor complexity and does not imply the border classification. Residual unindexed-literature risk is explicit; this is a bounded self-review.",
+    "residual_risks": [
+      "An equivalent special-case formula in a poorly indexed Cantor-word or unbordered-factor source may have escaped the search.",
+      "Automatic-sequence machinery might yield the formula after an unreported specialization; inspected sources do not state it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: existence/regularity and a Thue–Morse example, not exact generalized Cantor counts",
+        "evidence": [
+          "Theorem 2 proves existence-of-unbordered-length property automatic; Example 28 treats Thue–Morse. arxiv:1102.3698, pp.4,22–23."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1102.3698",
+        "material_read": "Full PDF sections 1–3 and 9, with Theorem 2, Theorem 24 and Example 28; title/abstract and arXiv original submission metadata",
+        "method": "Read source text and page image; checked named statements and their example sequence",
+        "title": "Enumeration and Decidable Properties of Automatic Sequences",
+        "trigger": "General all-automatic-sequence decisiveness could dominate a specialized count"
+      },
+      {
+        "assessment": "Not covering: detailed Thue–Morse unbordered counts and period-doubling examples, not the generalized Cantor family",
+        "evidence": [
+          "arxiv:1211.1301 main theorem and final examples distinguish Thue–Morse from period-doubling."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.1301",
+        "material_read": "12-page full-text abstract, theorem statements and Section 5 on other automatic words; page images including first and final sections",
+        "method": "Read open-access arXiv PDF, specific theorem hypotheses and target words",
+        "title": "On the Number of Unbordered Factors",
+        "trigger": "Same exact word invariant with potentially broad applicability"
+      },
+      {
+        "assessment": "Not covering: factor and permutation complexity, not full border-free classification",
+        "evidence": [
+          "Introduction explicitly fixes 1->10^r1 and 0->0^(r+2); Section 3 describes total factor counts; Section 4 gives permutation counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+        "material_read": "Accessible full HTML text including Introduction, Sections 3 and 4, theorem and proposition statements",
+        "method": "Read indexed full HTML exposition and compare object and invariant; PDF not required to access same article",
+        "title": "On the permutation complexity of the Cantor-like sequences",
+        "trigger": "Same exact fixed-point family with explicit factor statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b981c0d0-1f1c-423d-b46a-c881b155dce7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of distinct unbordered factors is a natural combinatorics-on-words invariant (important for border-free matching), distinct from total factor or permutation complexity. This establishes a complete infinite family of natural lengths for every Cantor-like automatic word, a closed list of factors, and the exact parameter-dependent growth exponent log_q(2). Neither a small arbitrary finite slice nor a routine rephrasing of prior complexity tables.",
+    "status": "PASS"
+  }
+}
