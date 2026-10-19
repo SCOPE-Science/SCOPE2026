@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal rank-one projector identity yields exact same-sample update I-kP; enumeration of four words yields diagonal expected squared-error matrices, and three exact factorizations give the sign equivalence. Strict derivative and endpoint inequalities give existence and uniqueness of the critical step. SymPy exact polynomial resultant/Sturm signs show that the frontier is the unique root of the stated sextic in (3/2,2). Exact rational witness checked, with 28,701 further matrix/parameter tests; computational tests are not substitutes for the analytic continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Emmanouilidis–Vidal–Loizou (2024) analyzes RR SEG under small step restrictions (Theorem 2.1 includes gamma_2=2 gamma_1 and a restrictive upper bound).",
+        "Liu (2026) analyzes shuffled SGD finite-epoch objective performance for step regimes requiring eta <= 1/(6 Lmax), not the k>1 test family.",
+        "Earlier RR rate papers establish epoch-rate bounds, not exact fixed two-step operator comparisons."
+      ],
+      "reasoning": "The known general guarantees do not quantitatively dominate or directly imply the exact sign change of the worst-start Euclidean-square error at effective k approximately 1.645. Comparison respects their stated step domains and metrics; there is no contradiction with known small-step RR advantages.",
+      "searches": [
+        "arXiv:2403.07148 Algorithm 1 and Theorem 2.1, pp. 2 and 5",
+        "arXiv:2606.32005 Theorem 1 and introduction",
+        "arXiv:1510.08560 abstract/convergence rate",
+        "arXiv:2106.06880 source statement"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.07148 (original preprint)",
+      "arXiv:2103.07079 (PSD matrix-product literature)",
+      "arXiv:2606.32005 (later shuffled-SGD comparison)",
+      "arXiv:1510.08560 (classic RR rates)",
+      "arXiv:2106.06880 (commuting quadratic-rate limits)",
+      "Actual semantic mathematical-record searches on formulations, step regimes, projections and RR sampling",
+      "Accessible prior research claims for the present subject family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source establishes a small-step sufficient RR rate theorem, but the witness takes gamma_1=10/3 and gamma_2=1/2 while it assumes gamma_2=2 gamma_1 and bounded gamma_1.",
+        "Yun–Sra–Jadbabaie PSD-factor product statements omit indefinite overrelaxed B_i; their appendix also recognizes counterexamples to other PSD-word inequalities.",
+        "The published finding “Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation” concerns cyclic Kaczmarz relaxation; “Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz” concerns first-order bias cancellation in inconsistent cyclic projection. Neither gives a stochastic squared-error sampling comparison."
+      ],
+      "reasoning": "Neither old qualitative reshuffling-rate results nor related Kaczmarz phase statements entail a sharp, necessary-and-sufficient one-epoch expectation-over-squared-norm comparison after taking a supremum over initial vectors. The condition-two witness and full step threshold are outside the inspected implication scope.",
+      "searches": [
+        "arXiv:2403.07148 full PDF, introduction/Algorithm 1/Theorem 2.1 and appendices",
+        "arXiv:2103.07079 full PDF, especially Appendix B p. 17",
+        "Published mathematical-record query: random reshuffling versus with replacement extragradient sharp two component planar projector contraction switching reversal",
+        "Published mathematical-record query: random reshuffling worse than with replacement least squares two samples non commuting projector reflection squared norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Because P_i^2=P_i, same-sample SEG with gamma_2=1/2, gamma_1=2k is exactly component gradient descent with effective step k.",
+        "Yun–Sra–Jadbabaie Appendix B discusses four variants of noncommutative arithmetic-geometric-mean matrix inequalities under PSD-factor hypotheses."
+      ],
+      "reasoning": "The reformulation as overrelaxed SGD does not evade a known theorem. The factor I-kP_i is indefinite for k>1, excluding the PSD product comparison; nevertheless older two-projection/SGD identities remain a residual novelty risk.",
+      "searches": [
+        "Published mathematical-record query: random reshuffling worse than with replacement least squares two samples non commuting projector reflection squared norm",
+        "Published mathematical-record query: random permutation versus independent sampling two noncommuting symmetric contractions sign indefinite sharp comparison",
+        "Yun–Sra–Jadbabaie 2021 Appendix B, arXiv:2103.07079"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned mathematical records concerned SVRG stability, randomized Kaczmarz, multistage pivoting, projected spectra and rates; none supplies the claimed exact sextic or rational 5/729 comparison.",
+        "The proposed quartic word enumeration can be reproduced from the embedded verifier and is not obtained by quoting a known table."
+      ],
+      "reasoning": "No exact table/source found that contains the phase or covers it as a special case; this is bounded search evidence, not a proof of unique discovery.",
+      "searches": [
+        "Published mathematical-record query: random reshuffling with replacement comparison finite epoch stochastic extragradient same sample rank one quadratic overrelaxation phase threshold",
+        "Published mathematical-record query: same sample stochastic extragradient random reshuffling two rank-one positive semidefinite operators worst case mean square one epoch worse than with replacement sampling overrelaxation",
+        "public web: random reshuffling with replacement worse two rank one quadratics overrelaxed gradient descent stochastic exact rate"
+      ]
+    },
+    "rationale": "No inspected primary statement covers the exact two-step sharp worst-initial-error RR-versus-IID comparison for non-PSD but nonexpansive overrelaxed rank-one factors; published SEG bounds concern smaller steps and different performance guarantees. Equivalent overrelaxed-SGD interpretation explicitly tested. Targeted database, public literature and accessible prior-claim comparisons found no implied statement. Some earlier projection or matrix-product theory could conceal an equivalent statement.",
+    "residual_risks": [
+      "An older stochastic-projection or noncommutative contraction-products theorem may establish equivalent exact two-dimensional inequalities under different notation.",
+      "The new threshold is specific to a restricted equal-strength planar component family and a single mean-square epoch, not arbitrary optimization problems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same-sample SEG and RR, but does not give a sharp large-effective-step two-component one-epoch mean-square reversal frontier",
+        "evidence": [
+          "p.2 same-sample update z^+=z-gamma_1 F_i(z-gamma_2 F_i(z)) and uniform-permutation update",
+          "p.5 Theorem 2.1 gamma_2=2 gamma_1 and restrictive bound gamma_1<=mu/[10 Lmax sqrt(10n^2+2n+54)]"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.07148",
+        "material_read": "Full primary article accessible, including introductory definition and Algorithm 1, Theorem 2.1 and relevant proof/appendix context",
+        "method": "Open preprint PDF, inspect algorithm statement, convergence theorem and its parameter assumptions; compare to exact two-step metric",
+        "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+        "trigger": "Algorithm and small-step improved-rate claim directly motivate the new comparison"
+      },
+      {
+        "assessment": "Covers related PSD-factor comparisons but not negative-eigenvalue nonexpansive operators when k>1",
+        "evidence": [
+          "Appendix B p.17 explicitly states PSD hypotheses and discusses squared-product expected norm forms and counterexamples to other variants"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.07079",
+        "material_read": "Main statement and Appendix B p.17 on symmetrized noncommutative AMGM matrix-product and squared norm variants",
+        "method": "Open full-text preprint PDF and compare the PSD factor assumptions with actual B_i spectrum",
+        "title": "Can Single-Shuffle SGD be Better than Reshuffling SGD and GD?",
+        "trigger": "Potential stronger matrix arithmetic-geometric-mean inequality for sampling without replacement"
+      },
+      {
+        "assessment": "Theorem guarantees an averaged objective error/rate bound under small step eta<=1/(6 Lmax); does not assert the disputed pointwise matrix ordering at k=5/3",
+        "evidence": [
+          "Introduction and Theorem 1 give explicit limited stepsize and averaged objective rates"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.32005v1",
+        "material_read": "Accessible full HTML introduction and Theorem 1 hypotheses and performance metric",
+        "method": "Read available original preprint HTML and compare theorem step restrictions and objective-error guarantee against exact Euclidean-square factor",
+        "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+        "trigger": "Recent broad claim of RR domination may subsume a two-component counterexample"
+      },
+      {
+        "assessment": "Worst-case ill-conditioning and epoch counts, not the two noncommuting rank-one factor phase for condition two",
+        "evidence": [
+          "Source abstract refers to ill-conditioned problems and commuting quadratic components"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.06880",
+        "material_read": "Source abstract and introductory statements concerning commuting quadratic instances",
+        "method": "Search literature and inspect publication overview",
+        "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+        "trigger": "Known worst-case RR versus IID finite-budget comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "978e1dd6-4e74-4728-9ca6-3f2455423fd4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A quantitative, exact phase separating RR and IID worst-start squared-error performance despite each step being nonexpansive answers a natural gap in comparative stochastic optimization. The condition-two rational witness avoids generic ill-conditioning excuses; the sharp sextic step and angular frontier enable reproducible parameter selection and theory benchmarking rather than a trivial finite enumeration.",
+    "status": "PASS"
+  }
+}
