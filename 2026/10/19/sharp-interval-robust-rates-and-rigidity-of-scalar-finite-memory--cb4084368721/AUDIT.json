@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For any finite FIR history, \\(p_a(z)=z^{H-1}(L(z)-a)\\), where \\(L(z)=z-\\sum_{j=0}^{H-1}k_jz^{-j}\\). If all characteristic polynomials have roots in a disk of radius \\(R<t/2\\), the Laurent map omits the entire drift segment outside that disk. Composition with the inverse Joukowski map of the slit plane, followed by inversion, yields a disk self-map with \\(g(0)=0\\) and \\(g\\prime(0)=t/(2R)>1\\), contradicting Schwarz lemma. At equality \\(R=t/2\\), its equality case forces \\(g(\\zeta)=\\zeta\\), hence \\(L(z)=z+c+t^2/(4z)\\), which uniquely determines every feedback coefficient. The explicit constructed quadratic factor has discriminant \\((a-c)^2-t^2\\le0\\) and all nonzero roots of modulus \\(t/2\\) across the entire interval; the static case is an exact endpoint norm identity. The argument handles every finite \\(H\\) and every allowed drift; computational checks are supplementary and not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Katbab and Jury (1990), DOI:10.1080/00207179008934138, describe necessary and sufficient robust Schur-stability tests for interval-plant characteristic polynomials.",
+        "Fonte (ACC 2008) studies simultaneous stabilization of plant segments using a continuous-time framework and controller conditions.",
+        "Fujinami et al. (2026), arXiv:2609.16300v1, analyze finite-sample FIR-LQR policy gradients and a discrete scalar two-plant stabilization example."
+      ],
+      "reasoning": "General robust-stability criteria might yield individual stability decisions, but none of the inspected statements supplies a universal exact minimax rate across all finite FIR orders plus its unique optimizer. The Katbab--Jury full-text omission prevents a definitive noncoverage assertion about that paper.",
+      "searches": [
+        "2026 scalar discrete LQR with history-dependent FIR feedback robust common stabilization drift a in an entire interval sharp optimal contraction spectral radius equals interval half-width divided by two",
+        "Joukowski conformal map Schwarz lemma scalar FIR simultaneous stabilization uncertain interval width four cannot extend with higher order",
+        "exact robust Schur stability controller gain interval width four delayed feedback unique two tap",
+        "robust stabilization scalar uncertain interval a discrete time dynamic controller width 4 Joukowski map max stability interval"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.16300 (full accessible manuscript HTML; first publicly submitted 2026-09-14)",
+      "https://doi.org/10.1080/00207179008934138 (abstract only)",
+      "https://skoge.folk.ntnu.no/prost/proceedings/acc08/data/papers/0199.pdf (opening PDF material)",
+      "https://doi.org/10.3390/mca21020025 (abstract and opening material)",
+      "https://doi.org/10.1137/S0363012991218815 (abstract)",
+      "Public research findings index semantic matches for scalar LQR curvature and BB spectral weighting (mathematically distinct)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fujinami et al. 2026, Example II.1: static failure and one-lag success for the TWO plants with drifts -1.1 and 1.1. This is an existential special instance and has no universal lower bound or uniqueness conclusion.",
+        "A separately indexed scalar-state LQR strong-convexity finding concerns static common feedback and gradient dominance of stationary quadratic cost; it does not imply the delay-memory robust spectral frontier.",
+        "Katbab--Jury 1990 is an interval-polynomial stability criterion, not visibly a characterization of smallest achievable root disk across arbitrary controller memory."
+      ],
+      "reasoning": "The final claim quantifies a worst-case spectral rate for the CONTINUUM of drifts, proves optimality over all memory orders, and classifies all optimizers. Prior example, generic polynomial stability tests, and cost-landscape results are not logically sufficient to infer its all-order sharp numerical constant without an additional analytic extremal argument.",
+      "searches": [
+        "2026 scalar discrete LQR with history-dependent FIR feedback robust common stabilization drift a in an entire interval sharp optimal contraction spectral radius equals interval half-width divided by two",
+        "Joukowski conformal map Schwarz lemma scalar FIR simultaneous stabilization uncertain interval width four cannot extend with higher order",
+        "arXiv:2609.16300 Policy Gradient over History-Dependent Policy Classes for LQR with Domain Randomization interval robust simultaneous stabilization memory length",
+        "finite impulse response feedback scalar x(t+1)=a x(t)+u(t) entire interval a stable maximum length 4 two-step lag one-lag controller"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The characteristic family is equivalently a Laurent-map avoidance problem: the full real interval must be omitted by the exterior image of the fixed-feedback Laurent polynomial.",
+        "Schwarz equality produces the unique inverse-Joukowski extremizer, not a generic stability-multiplier or sign flip."
+      ],
+      "reasoning": "Searched for the inverse-Joukowski/Schwarz-lemma version as well as FIR and simultaneous-stabilization wording; accessible matches treat different optimization objects. Any stronger conformal-avoidance theorem exactly specialized to this affine scalar family could cover the claim, so older theory remains a bibliographic risk.",
+      "searches": [
+        "minimax robust spectral radius over scalar interval uncertain drift for all FIR histories Joukowski Schwarz lemma unique stabilizer one delayed state tap",
+        "interval polynomial z^H - a z^(H-1) plus fixed coefficients minimizing worst root radius half interval half width complex slit map",
+        "Joukowski conformal map Schwarz lemma scalar FIR simultaneous stabilization uncertain interval width four cannot extend with higher order",
+        "simultaneous stabilization of scalar plants x next = ax + u by fixed memory two, exact threshold interval width four"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked public research findings included a static scalar LQR objective-curvature result and a fixed-spectral-weight BB iteration result; neither uses the identical scalar uncertain-drift FIR robust spectral-rate problem.",
+        "The relevant arXiv article provides a pairwise numerical controller example, not a table of continuum interval minimax radii."
+      ],
+      "reasoning": "This is not a finite database-invariant computation. Searched the public mathematical research index for the source, parameter range, spectral-radius objective, delay-memory aliases and inverse-Joukowski formulation; closest identified items do not imply the all-interval sharp rate.",
+      "searches": [
+        "minimax robust spectral radius over scalar interval uncertain drift for all FIR histories Joukowski Schwarz lemma unique stabilizer one delayed state tap",
+        "exact robust Schur stability controller gain interval width four delayed feedback unique two tap",
+        "arXiv:2609.16300 Policy Gradient over History-Dependent Policy Classes for LQR with Domain Randomization interval robust simultaneous stabilization memory length",
+        "Fujinami Lee Matni 2026 history-dependent FIR LQR domain randomization scalar plants uncertain drift interval exact width robust Schur stabilization"
+      ]
+    },
+    "rationale": "The 2026 motivating paper constructs a one-lag stabilizer for two discrete scalar drifts and studies policy gradient, not an exact minimax rate for the full drift interval and all history lengths. The derived interval theorem includes the unique optimal coefficients for every history length and a conformal-map obstruction proving memory saturation. Classical interval-Schur and simultaneous-stabilization publications cover broader decision frameworks, but the accessible inspected material did not establish the same specialized sharp minimax/rigidity statement. The unresolved full-text comparison with the 1990 interval-Schur paper is explicitly retained as a material residual risk; mathematical novelty has not been equated with a failed search.",
+    "residual_risks": [
+      "The 1990 Katbab--Jury interval-Schur-stability paper is a plausible closely related source whose full text was not available; an equivalent specialization cannot be ruled out.",
+      "General classic simultaneous-stabilization and conformal avoidance theory could contain equivalent extremal formulations with different notation.",
+      "The theorem does not cover time-varying switching of the unknown drift or general dynamic output-feedback controllers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The scalar two-plant example and history-length curriculum are prior; no continuum minimax spectral-radius or equality-case rigidity theorem was identified.",
+        "evidence": [
+          "Section II Example II.1 gives drifts ±1.1 and a stabilizing one-lag coefficient -0.21; main Theorem III.1 concerns policy-gradient convergence under bounded heterogeneity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.16300",
+        "material_read": "Full accessible HTML text including Introduction, Section II Example II.1, FIR equations (6)-(9), main results in Section III and supporting discussion and appendices.",
+        "method": "Read source manuscript HTML and compared controller form and theorem hypotheses.",
+        "title": "Policy Gradient over History-Dependent Policy Classes for LQR with Domain Randomization",
+        "trigger": "Recent FIR-LQR domain-randomization paper whose two-drift example motivates exact robust interval stabilizability."
+      },
+      {
+        "assessment": "A relevant general necessary/sufficient interval stability test; specialized sharp minimax rate cannot be ruled out from abstract alone.",
+        "evidence": [
+          "The abstract describes a generalized Box Theorem for interval plant characteristic polynomials and prescribed segment checks."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00207179008934138",
+        "material_read": "Accessible publisher abstract and bibliographic record only; full article was not accessible.",
+        "method": "Compared exact published abstract, DOI, and the distinct question of optimizing radius over any FIR order.",
+        "title": "Robust Schur-stability of control systems with interval plants",
+        "trigger": "Potential prior coverage of continuum polynomial-family robust Schur stability."
+      },
+      {
+        "assessment": "The addressed plant-segment conditions are in a different continuous-time transfer-function framework, not visibly the exact discrete scalar FIR memory saturation.",
+        "evidence": [
+          "The paper frames segment simultaneous stabilization through continuous-time characteristic and frequency conditions."
+        ],
+        "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/acc08/data/papers/0199.pdf",
+        "material_read": "Accessible PDF introductory pages, objectives, and the control framework (not a complete line-by-line review).",
+        "method": "Read the paper PDF text and inspected its opening page image; checked model class.",
+        "title": "Conditions for the Simultaneous Stabilizability of a Segment of Systems",
+        "trigger": "Same plant-segment concept and simultaneous stabilization."
+      },
+      {
+        "assessment": "Distance to a Schur-stability region for an affine controller subset; available summary did not contain the claimed all-order drift-interval extremal constant.",
+        "evidence": [
+          "The abstract discusses fixed-order affine compensation and Schur-stable polynomials."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/mca21020025",
+        "material_read": "Accessible abstract and opening description only.",
+        "method": "Compared fixed-order controller objective and polynomial family to interval minimax-rate formulation.",
+        "title": "Fixed Order Controller for Schur Stability",
+        "trigger": "Finite-order discrete Schur stabilizing controller parameterization."
+      },
+      {
+        "assessment": "A general finite-family decision-theory result; the accessible abstract does not establish the new exact interval spectral-rate formula.",
+        "evidence": [
+          "The abstract analyzes conditions for simultaneous stabilization of three or more finite plants via avoidance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0363012991218815",
+        "material_read": "Accessible abstract only.",
+        "method": "Compared finite-family transfer-function avoidance claims with an entire real-interval fixed FIR companion family.",
+        "title": "Simultaneous Stabilization of Three or More Plants: Conditions on the Positive Real Axis Do Not Suffice",
+        "trigger": "Classic analytic-interpolation and simultaneous-stabilization background."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb408436-8721-4750-bc7c-44e0894f8ebc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 FIR-LQR work uses history expansion to enable joint stability for sampled plants but leaves an exact interval-wide robust memory benefit unexplained. This theorem quantifies the sharp gain from one delayed observation, proves complete saturation for every larger finite-memory class, gives the unique optimal feedback, and doubles the exact admissible uncertainty-width threshold. It resolves a natural robust controller architecture decision by a nontrivial complex-analytic extremal obstruction rather than rephrasing the given two-plant example.",
+    "status": "PASS"
+  }
+}
