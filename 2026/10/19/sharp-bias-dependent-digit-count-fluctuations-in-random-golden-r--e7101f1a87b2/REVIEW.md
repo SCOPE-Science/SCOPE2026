@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The three atom images and their full-branch probabilities yield a genuine three-state stationary Markov chain, with stationary masses \(\pi=(q,p,1-q)/(1+p)\). Successive switch-return excursions have \(L-1\) geometric with success probability \(p\), and independent Bernoulli marks determine the emitted-digit reward. The regenerative central limit theorem applies because all required moments are finite. Direct evaluation of \(\operatorname{Var}(R-ho L)/\mathbb E L\) gives the claimed positive quadratic profile, its exact endpoint infimum, and its unique fair-bias maximum. The separate tilted transfer-matrix computation and exact \(\mathbb Q(\sqrt5)\) checks agree with this formula. Proof applies for each fixed \(q\in(0,1)\). The finite checker is corroboration rather than an infinite theorem.
+
+## Originality — PASS (with explicit residual risk)
+Dajani–Kraaikamp (2003) already give algebraic-base random expansions and Markov models; Dajani–de Vries (2005, 2006) already give, respectively, the maximal-entropy fair-digit law and the biased absolutely continuous law. Baker–Dajani (2015, Example 1.1) already analyze the golden switch-return full branches, so neither the three-state reduction nor the geometric return mechanism is claimed as new. Their inspected statements do not give the evaluated asymptotic digit-count variance \(V(q)\), the sharp bias optimization, or the numerical contrast with independent fair digits. General finite-chain CLTs could yield the variance once a nontrivial reward calculation is supplied, and an unindexed earlier treatment may already have done so. This residual historical-priority risk is acknowledged, not concealed.
+
+## Value — PASS
+Digit-frequency fluctuations are intrinsic observables of the random expansion algorithm and distinguish its natural absolutely continuous laws from the maximal-entropy Bernoulli digit law. The full bias profile has a unique dynamical-noise maximizer and a sharp endpoint envelope: the fair-choice variance \(0.4736067977\ldots\) is \(5.295\ldots\) times the deterministic-choice limit, despite identical switch-return timing for every bias. This is a motivated exact invariant across a natural one-parameter family, not a newly named parameter slice or an arbitrary enumeration. No new general Markov or regenerative CLT is claimed.
+
+## Closest literature and limitations
+The closest theorem-bearing descriptions are the random-expansion Markov partition in Dajani–Kraaikamp (2003), the natural and maximal-entropy invariant laws in Dajani–de Vries (2005/2006), and the golden full-branch switch-return map in Baker–Dajani (2015). These inputs leave a real historical-priority risk concerning implicit or unindexed specializations. The present theorem treats the golden base, stationary absolutely continuous law, and independent Bernoulli switch choices; it does not cover general bases, deterministic initial points, or arbitrary nonstationary switching.
+
+Self-review: passed. Independent audit: not yet performed.
