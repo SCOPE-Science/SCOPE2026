@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For a substring of length ell starting at residue r, the number of increasing wrap transitions is floor((r+ell-1)/q), and its greedy subsequence embedding in the opposite increasing-period source uses one new period per other (descending) adjacent pair. Thus embedding is equivalent to ell-1-wraps<=m-1. Optimizing the wrap count gives min(n-1,ceil((ell-1)/q)), yielding the three exact length bounds; intersecting the residue inequalities lists every optimal distinct factor and counts them. The proof treats ell=1, n=1, all endpoints and every q>=2,m,n>=1. Direct enumeration independently checked 567 full parameter triples and 70,756 factor cells. Neither finite enumeration nor any old analysis is used as an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golan et al. (2026), DOI:10.4230/LIPIcs.CPM.2026.27, Sections 1-6; general LCSS complexity, generic greedy query algorithm and approximation.",
+        "Li, Deka and Deka (2023), arXiv:2308.00925, Sections 1-3; general LCSS recurrence and O(|X||Y|) algorithm.",
+        "Li et al. (2023), arXiv:2308.01322, Sections 1-2; constrained LCSS recurrence, not a periodic-family enumeration."
+      ],
+      "reasoning": "General exact LCSS algorithms logically compute each finite pair but give neither a closed expression in the three free integer parameters nor all distinct optimal words. The older LCS result about opposite periodic words concerns scattered embeddings in both words; a LCS bound alone does not determine which of them are a contiguous factor of the other word. In the balanced q=3,m=n=4 example, the hybrid optimum is 6 while an ordinary common subsequence has length at least 7.",
+      "searches": [
+        "LCSS length of reverse-ordered period words exact min(q*n,m+n-1,m+ceil(m/(q-1)))",
+        "\"Exploring the Gap Between LCS and LCStr\" arxiv submitted",
+        "https://arxiv.org/html/2308.00925v1",
+        "https://arxiv.org/html/2308.01322v1"
+      ]
+    },
+    "checked_sources": [
+      "Golan et al. (2026), DOI:10.4230/LIPIcs.CPM.2026.27, Sections 1-6; general LCSS complexity, generic greedy query algorithm and approximation.",
+      "Li, Deka and Deka (2023), arXiv:2308.00925, Sections 1-3; general LCSS recurrence and O(|X||Y|) algorithm.",
+      "Li et al. (2023), arXiv:2308.01322, Sections 1-2; constrained LCSS recurrence, not a periodic-family enumeration.",
+      "Direct exact, alias, and stronger-coverage searches for periodic LCSS and reversed permutation subsequence-substring formulas."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 LCSS hardness proof uses a cyclic-subsequence reduction (Lemma 14), which does not evaluate the present q,m,n family.",
+        "The 2023 general recurrence has no all-parameter period-descent analysis.",
+        "An existing periodic common-subsequence result gives length information under two scattered-embedding requirements; that cannot certify contiguity in the reversed-period word."
+      ],
+      "reasoning": "The new claim strengthens numerical LCSS evaluation on a natural parametric family to a closed form and complete optimum-factor identities. An ordinary LCS length, and even a theorem that maximal LCS words are longest, is compatible with many distinct possible LCSS phase sets, so it does not imply the new formula.",
+      "searches": [
+        "maximal common subsequences reversed periodic permutations exact length 2m-1",
+        "subsequence-substring matching for reverse periodic sequences arxiv 2026",
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2026.27",
+        "https://arxiv.org/abs/2308.00925"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golan et al. (2026), DOI:10.4230/LIPIcs.CPM.2026.27, Sections 1-6; general LCSS complexity, generic greedy query algorithm and approximation.",
+        "Sections 2-3 of arXiv:2308.00925 formulate the same hybrid objective using suffix subsequences but do not specialize to opposite permutation periods.",
+        "Cyclic subsequence appears as a hardness-reduction intermediate in Section 3 of the 2026 article, not as a count of maximizers of periodic inputs."
+      ],
+      "reasoning": "Equivalent objective names LCSS/LCSSeqSStr and descriptions as substring-of-one/subsequence-of-other were checked. The new theorem fixes two opposite repeated permutations and classifies all optimal factor phases; this is not merely an alternative name for a previously displayed formula.",
+      "searches": [
+        "LCSS reversed ordered cyclic permutation repeated words closed form",
+        "\"LCSS\" \"periodic\" \"permutations\" subsequence substring",
+        "\"longest common subsequence-substring\" \"cyclic\" \"reversed\"",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.27/LIPIcs.CPM.2026.27.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published exact formula/table or optimal-phase census was returned by those searches.",
+        "The only exact results in inspected relevant primary texts are general-purpose recurrences or algorithmic bounds rather than q,m,n enumerations."
+      ],
+      "reasoning": "A failed database search is not a proof of novelty; the direct inspected texts and implication comparison provide the positive reason for distinguishing this classification. The search risk is noted below.",
+      "searches": [
+        "hybrid longest common subsequence substring cyclic descending ascending permutations complete spectrum longest factors",
+        "\"longest common subsequence-substring\" \"periodic\" formula",
+        "\"longest common subsequence substring\" \"alternating\" words",
+        "\"LCSS\" \"periodic\" \"permutations\" subsequence substring"
+      ]
+    },
+    "rationale": "Complete explicit maximizer phases and the formula min(qn,m+n-1,m+ceil(m/(q-1))) do not appear in the three inspected primary texts, which treat algorithms and complexity for arbitrary strings. Exhaustive semantic published-record queries, equivalent wording searches, and direct comparisons to related periodic LCS and cyclic-subsequence statements found no implication of the exact phase classification. General algorithms solve concrete instances but do not state this symbolic theorem. Unindexed equivalents remain a real priority risk, so novelty is limited to the inspected evidence.",
+    "residual_risks": [
+      "Unindexed preprints, theses, or a different exact combinatorial formulation may already imply the phase formula.",
+      "Not every section of the constrained companion paper was read; its direct relevance to the unconstrained specific periodic class is lower than the two fully inspected primary texts.",
+      "Search rankings are not an exhaustive bibliography, and a general-purpose LCSS algorithm can numerically reproduce the formulas on bounded parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General results and a cyclic-subsequence reduction do not state or immediately imply the opposite-period closed form or count of optimizing factors",
+        "evidence": "Sections 1-6, notably Problem 1, Lemma 14, Theorem 16, Theorem 20, conclusion",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.27",
+        "material_read": "Full accessible HTML, introduction, preliminaries, hardness, multi-string algorithm, approximation and conclusion (sections 1-6)",
+        "method": "Read HTML section text and searched within its full text for periodic and permutation inputs, cyclic reductions, and exact special-case formulas",
+        "title": "Exploring the Gap Between LCS and LCStr",
+        "trigger": "Direct motivating contemporary treatment of the asymmetric LCSS problem"
+      },
+      {
+        "assessment": "General dynamic-programming algorithm only; no opposite-period formula or complete set of optimal factors",
+        "evidence": "arXiv:2308.00925v1, pp. 2-5",
+        "identifier_or_url": "https://arxiv.org/abs/2308.00925",
+        "material_read": "Entire six-page preprint, including proof of Facts 1-2 and Algorithm A",
+        "method": "Read source HTML and PDF text and visually inspected a proof page",
+        "title": "An Algorithm for the Longest Common Subsequence and Substring Problem",
+        "trigger": "Original definition and earliest algorithm for identical hybrid objective"
+      },
+      {
+        "assessment": "The material read develops pattern-constrained dynamic programming; no periodic two-power classification was identified in that material",
+        "evidence": "arXiv:2308.01322v1, abstract and sections 1-2",
+        "identifier_or_url": "https://arxiv.org/abs/2308.01322",
+        "material_read": "HTML introduction and recursion sections 1-2",
+        "method": "Read abstract and definitions/recurrences in HTML; did not rely on unread sections for a negative whole-document assertion",
+        "title": "An Algorithm for the Constrained Longest Common Subsequence and Substring Problem",
+        "trigger": "Closest named extension subsuming the unconstrained problem in principle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5b55efb-5c69-405b-b6dd-0ea8e3c04a7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 LCSS complexity analysis motivates structured classes of the asymmetric subsequence-substring objective. Opposite periodic permutations are a canonical maximal-order-conflict input family; the theorem gives its exact optimum and all attaining distinct factors, and proves a linear separation from ordinary LCS for any fixed alphabet size at least three. This is an exact natural infinite classification, not an arbitrary parameter slice, routine code output, or claim about general LCSS complexity.",
+    "status": "PASS"
+  }
+}
