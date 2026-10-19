@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The analytic proof starts with an independently checked first integral and an exact rescaled physical-time quadrature. The uniform comparison is the covariance inequality for an increasing/decreasing function under a one-parameter exponential tilt, with exact worst-case constant \(3\). The limiting profile and its asymptotics have explicit integrable majorants, so neither finite tests nor pointwise limit swaps are used as infinite proofs. The packaged script replays symbolic identities and auxiliary quadrature checks.
+
+**Originality (PASS subject to priority risk).** The originating 2023 global-center paper establishes the parameter family, not the singular joint-limit profile. The closest published study *Strict period decrease and sharp large-amplitude laws for quintic global centers* establishes strict period monotonicity and fixed-parameter large-amplitude limits, and explicitly identifies nonuniformity in the velocity-coupling parameter as a limitation. The new statement gives one uniformly valid quantitative enclosure and a finite-to-infinite crossover profile across that boundary; neither follows from the *fixed-parameter limits alone*. The exact quadrature in the predecessor does supply a starting point, so equivalent estimates elsewhere remain a genuine priority risk. Broader multiplier and period-function sources were consulted only at accessible abstract/metadata level, with that access limitation recorded.
+
+**Value (PASS).** The zero-coupling and fixed-positive-coupling limits have different amplitude laws, making the singular scaling \(\\(\alpha A^4\)\) a specific natural gap, not an arbitrary observable. The dimensionless strictly monotone crossover gives a quantitative transition law, while the explicit uniform error controls every rate at which velocity coupling approaches zero. This supports effective finite-amplitude predictions, unlike two disconnected pointwise asymptotics.
+
+Limits: the normalized result requires \(\\(\beta>0\)\); its error is a rigorous bound, not an optimal constant or full next-order expansion. Independent historical and mathematical checking remains desirable.
+
+Self-review: passed. Independent audit: not yet performed.
