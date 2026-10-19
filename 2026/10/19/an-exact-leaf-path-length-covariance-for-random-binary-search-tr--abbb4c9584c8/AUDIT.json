@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Uniform-root permutation decomposition gives independent size-conditioned subtrees. The boundary-corrected leaf expectation differs from an affine function only at sizes zero and one, giving exact root covariance \\(-4(H_{n-1}-1)/(3n)\\). Substituting into the total-covariance recurrence and summing an explicit rational/harmonic series proves \\(\\operatorname{Cov}(L_n,P_n)=-[n(n+1)-6]/(9n)\\) for every sample size at least two. A local-peak indicator proof gives Var(L_n)=2(n+1)/45 for n>=4; the Quicksort exact variance identity then gives the sharp correlation prefactor. Standalone exact-rational recurrences checked sample sizes through 80; exhaustive uniform insertion permutations checked sizes two through eight (46,232 permutations). Finite checks corroborate, not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chern–Fuchs–Hwang–Neininger, arXiv:1501.05135, Section 5.2, Theorems 5.4 and 5.6, https://web.math.nccu.edu.tw/mfuchs/dep-m-ary-st-r1-w-app.pdf",
+        "Chern et al. Theorem 5.4 gives covariance asymptotic to an unspecified general E_R times n for d<=5; Theorem 5.6 gives asymptotic independence.",
+        "Published indexed result published-research-id:6d69fbada9a9 involves squared root imbalance and path length, not leaf count."
+      ],
+      "reasoning": "The d-dimensional quadtree theorem includes d=1 and already covers the qualitative asymptotic claims. Its statement and inspected proof passage do not specify the finite-n expression or the dimension-one constant; the new statement is quantitatively stronger. The root-imbalance covariance describes a different regressor and alone does not imply leaf/path-length covariance.",
+      "searches": [
+        "Dependence and phase changes in random m-ary search trees",
+        "Leaf and path length bivariate generating function random binary search trees",
+        "published-research-id:6d69fbada9a9"
+      ]
+    },
+    "checked_sources": [
+      "Chern–Fuchs–Hwang–Neininger, arXiv:1501.05135, Section 5.2, Theorems 5.4 and 5.6, https://web.math.nccu.edu.tw/mfuchs/dep-m-ary-st-r1-w-app.pdf",
+      "Devroye (1991), Limit Laws for Local Counters in Random Binary Search Trees, Theorem 2, https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+      "Sedgewick–Flajolet, Trees chapter, sections 6.8–6.9, https://aofa.cs.princeton.edu/60trees/",
+      "arXiv:1406.6883 (abstract only)",
+      "published-research-id:6d69fbada9a9",
+      "published-research-id:3b3e0426b1ba",
+      "published-research-id:ab0acf44833f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chern–Fuchs–Hwang–Neininger, arXiv:1501.05135, Section 5.2, Theorems 5.4 and 5.6, https://web.math.nccu.edu.tw/mfuchs/dep-m-ary-st-r1-w-app.pdf",
+        "Devroye (1991), Limit Laws for Local Counters in Random Binary Search Trees, Theorem 2, https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+        "Sedgewick–Flajolet, Trees chapter, sections 6.8–6.9, https://aofa.cs.princeton.edu/60trees/",
+        "Nearest indexed other-tree entries: published-research-id:3b3e0426b1ba; published-research-id:ab0acf44833f"
+      ],
+      "reasoning": "Chern Theorem 5.4 entails only \\(\\operatorname{Cov}(L_n,P_n)=E_Rn+o(n)\\) and Theorem 5.6 entails asymptotic independence; neither statement determines \\(E_R=-1/9\\) or finite-size corrections, nor the exact sharp correlation prefactor. The new formula implies both special-case asymptotic facts once marginal variances are known. Devroye gives only the separate leaf CLT. Random recursive tree root attachments and Cayley tree endpoint dependence cannot imply a BST joint formula under an equivalence of models.",
+      "searches": [
+        "Random one-dimensional quadtree number of leaves and path length correlation sharp n to power minus one half 0.81299",
+        "Random binary search tree leaf count total internal path length covariance exact finite sample",
+        "Exact covariance total internal path length and terminal vertex count (leaves) in random binary search tree, n(n+1)-6 over 9n negative",
+        "Chern Fuchs Hwang Neininger Theorem 5.4 random quadtrees dimension one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chern–Fuchs–Hwang–Neininger, arXiv:1501.05135, Section 5.2, Theorems 5.4 and 5.6, https://web.math.nccu.edu.tw/mfuchs/dep-m-ary-st-r1-w-app.pdf",
+        "Devroye (1991), Limit Laws for Local Counters in Random Binary Search Trees, Theorem 2, https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf"
+      ],
+      "reasoning": "Quicksort comparisons equal the internal path length of the associated random BST, and binary search trees are one-dimensional random quadtrees. These are equivalent object representations, not separate novelty claims. The searched joint theorem establishes asymptotic decorrelation but does not state the exact all-n covariance.",
+      "searches": [
+        "Random binary search tree leaf count total internal path length covariance exact finite sample",
+        "Quicksort comparisons correlation number of terminal singleton partitions, binary search tree leaves finite n",
+        "\"random binary search tree\" \"leaves\" \"internal path length\" covariance",
+        "Chern–Fuchs–Hwang–Neininger, arXiv:1501.05135, Section 5.2, Theorems 5.4 and 5.6, https://web.math.nccu.edu.tw/mfuchs/dep-m-ary-st-r1-w-app.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Devroye (1991), Limit Laws for Local Counters in Random Binary Search Trees, Theorem 2, https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+        "Sedgewick–Flajolet, Trees chapter, sections 6.8–6.9, https://aofa.cs.princeton.edu/60trees/",
+        "Indexed mathematical-literature searches for exact rational sample-size covariance returned no directly matching BST leaf/path-length entry."
+      ],
+      "reasoning": "Marginal leaf-count identities and classical path-length identities are present, but they do not determine the mixed moment. Searches did not expose a complete exact covariance table; lack of hits is evidence of limited search only, not a proof of novelty.",
+      "searches": [
+        "Exact covariance total internal path length and terminal vertex count (leaves) in random binary search tree, n(n+1)-6 over 9n negative",
+        "Degree-zero vertex count joint quicksort comparison cost covariance rational formula -(n+1)/9+2/(3n)",
+        "Leaves total path length random binary search tree root-split covariance negative 1/9",
+        "\"leaf\" \"path length\" \"-1/9\" \"search tree\"",
+        "\"covariance\" \"leaves\" \"path length\" \"binary search trees\" exact"
+      ]
+    },
+    "rationale": "A 2015 primary paper analyzes precisely the same BST leaf/path-length pair and proves asymptotic linear covariance and independence, so the qualitative phenomenon is covered. However its dimension-one covariance coefficient is left as a suitable constant and it does not give an all-n closed form or explicit sharp correlation prefactor. The present formula and localized harmonic cancellation materially strengthen that theorem. Devroye 1991 establishes leaf marginal limits, while indexed related results target root imbalance or different tree models. Non-exhaustive literature access leaves explicit residual risks.",
+    "residual_risks": [
+      "Some older algorithm-analysis reference may have an equivalent leaf/Quicksort-cost mixed-moment formula not exposed by targeted title/full-text searches.",
+      "The Holmgren–Janson fringe-tree paper was not read in full; it might contain a stronger general mixed-moment implication.",
+      "Semantic mathematical-index retrieval cannot establish uniqueness or rule out unpublished/private overlapping results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known covariance order and asymptotic independence; does not display the exact sample-size formula or specify E_R at dimension one.",
+        "evidence": [
+          "Page 31 theorem 5.4: covariance asymptotically E_R*n for 1<=d<=5, E_R a suitable constant.",
+          "Page 33 theorem 5.6: independence of limiting normalized path length and leaf count, d=1 identified with standard BST/Quicksort."
+        ],
+        "identifier_or_url": "arXiv:1501.05135; https://web.math.nccu.edu.tw/mfuchs/dep-m-ary-st-r1-w-app.pdf",
+        "material_read": "Full available text with focused inspection of Section 5.2 (PDF pages 30–33) and Theorems 5.4/5.6, including their proof context and dimension-one interpretation.",
+        "method": "Public author-posted PDF; text and page-image inspection",
+        "title": "Dependence and phase changes in random m-ary search trees",
+        "trigger": "Direct same-observable coverage for dimension-one random quadtrees"
+      },
+      {
+        "assessment": "Contains marginal leaf mean/CLT/variance scale and local counter, no result on leaf/path-length cross-covariance in inspected sections.",
+        "evidence": [
+          "Theorem 2 identifies asymptotic leaf variance \\(2/45\\).",
+          "Leaf local-counter indicators are two-dependent and represented by nearby insertion-time ranks."
+        ],
+        "identifier_or_url": "https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+        "material_read": "Introduction, general local-counter method, Theorem 2 and its leaf-count proof and remarks (PDF pages 1–5); inspected text and page images.",
+        "method": "Lawful author-hosted full PDF",
+        "title": "Limit Laws for Local Counters in Random Binary Search Trees",
+        "trigger": "Leaf-count marginal, exact local-peak construction and variance"
+      },
+      {
+        "assessment": "Marginal mean/path-length asymptotics and additive recursion; no mixed leaf–path covariance in consulted sections.",
+        "evidence": [
+          "Random BST internal-path-length mean and variance asymptotics described.",
+          "The source distinguishes Catalan binary-tree and permutation-induced BST probability models."
+        ],
+        "identifier_or_url": "https://aofa.cs.princeton.edu/60trees/",
+        "material_read": "Online chapter sections 6.4, 6.8 and 6.9",
+        "method": "Public HTML",
+        "title": "Trees / The Analysis of Algorithms",
+        "trigger": "Basic path-length and tree mean/variance identities"
+      },
+      {
+        "assessment": "Unable to determine whether an unstated general result implies the finite cross-covariance. Risk retained, not classified as NOT_COVERING.",
+        "evidence": [
+          "Abstract concerns fringe-tree functions; no direct sample-size covariance statement visible in the accessed abstract."
+        ],
+        "identifier_or_url": "arXiv:1406.6883",
+        "material_read": "Abstract and bibliographic entry only, no complete text",
+        "method": "Public abstract; attempted arXiv and lawful open-access copies; full text not available in this execution",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees",
+        "trigger": "Possible general fringe-tree mixed-statistic or additive-functional theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abbb4c95-84c8-4cf2-a91c-504314ff5013",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Local BST leaf count measures branching shape whereas global path length is exact comparison cost; their nontrivial dependence affects simultaneous normal/global-algorithmic observations. The finite identity supplies all boundary effects and the missing explicit leading constant in known linear covariance asymptotics, and quantifies decorrelation with an exact nonzero sharp coefficient. The root-rank decomposition reveals a structural cancellation; the same precision is not a routine marginal substitution. This is a motivated exact joint theorem without any claim of an independent audit or a broader multivariate limit law.",
+    "status": "PASS"
+  }
+}
