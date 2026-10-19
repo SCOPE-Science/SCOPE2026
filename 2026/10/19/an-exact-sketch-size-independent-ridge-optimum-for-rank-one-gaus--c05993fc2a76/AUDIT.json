@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Direct orthogonal decomposition yields error squared ||r||²+||(lambda p-sqrt(W)Z r)/(W+lambda)||², with W chi-square and Z Gaussian independent. The Gaussian-angle integral gives mean ||r||²=ab, mean ||p||²=a²-ab+b². Differentiated risk has strictly positive W-factor and one unique zero at lambda=ab/(a²-ab+b²). Chi-square negative moments yield exact p<s cutoff and E1/W=1/(s-2); positive ridge bounds all moments. Isotropic trace and beta tail follow by orthogonality. Embedded verifier uses symbolic identities and 6049 deterministic direct/analytic comparisons; those corroborate but are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa (2020) analyzes unregularized GN and numerical truncated pseudoinverses, not finite positive normalized-core ridge risk",
+        "Epperly–Webber (2026) exact Gaussian sketched least-squares error and GN dimension bounds concern unregularized pseudoinverses",
+        "Source (2024) Theorem 2 gives moment bounds with both oversampling parameters >=4, not a sharp positive penalty for single right direction"
+      ],
+      "reasoning": "A general theorem about ridge-regularized Gaussian sketch risk could dominate this finite benchmark, but none was found in inspected primary full texts or searched records. The 2026 general sharp error bound is a genuine close mathematical comparator but contains no ridge parameter. No assertion of exhaustive originality is made.",
+      "searches": [
+        "two by two diagonal matrix randomized rank one Nyström ridge lambda optimizer expected Frobenius error b1 b2 singular values",
+        "Gaussian oblique rank-one sketched projection regularization Frobenius loss Student t moment blowup left oversampling",
+        "randomized Runge Kutta Nyström ridge regularization sketch risk bias variance trace Frobenius identity matrix",
+        "arxiv:2009.11392v1 generalized Nyström risk",
+        "arxiv:2605.19096v2 Theorem 4.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.06384v1 (full HTML, Eq 9 and Thm 2)",
+      "arxiv:2009.11392v1 (algorithm and error results)",
+      "arxiv:1609.00048v1 (foundational GN framework)",
+      "arxiv:2605.19096v2 (exact unregularized risk Sections 2.1 and 4.1)",
+      "Previously available overlapping trace and one-sided range findings for implication comparison",
+      "Mathematical research-record semantic results for the listed search phrases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previous trace-law proof implies Student-type zero-ridge behavior but not the positive ridge risk optimizer",
+        "One-sided range-finding theorem implies E||qperp^TB||²=ab, which is the known first risk term",
+        "General unregularized GN bounds imply finite-moment conditions only in specified ranges; they do not directly minimize a newly defined ridge loss"
+      ],
+      "reasoning": "Combining prior exact unregularized risk and projection expected baseline still requires the positive-ridge bias calculation, explicit angular expectation of q^TB, and global derivative proof. The result is not a restatement or corollary of a supplied numerical constant, although the derivation uses classical linear regression tools.",
+      "searches": [
+        "randomized low rank Runge Kutta generalized Nystrom finite rank exact moment thresholds and sketch size",
+        "trace versus Frobenius error tradeoff ridge normalization Nyström Gaussian matrices",
+        "QR normalized generalized Nystrom 2x2 ridge inverse Gram Gaussian expected Frobenius error lambda ab over a squared minus ab plus b squared",
+        "Gaussian sketched least squares rank one optimal Tikhonov ridge parameter independent sample count anisotropic diagonal matrix",
+        "\"generalized Nyström\" \"ridge\" \"optimal\" \"Gaussian\"",
+        "\"generalized Nystrom\" \"Tikhonov\" error Frobenius risk Gaussian",
+        "own historical claims f25020d6-80e1-482a-a3e9-99a90e939e55 and ac662662-438d-4839-8ef7-55c192e228c4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2024 source Eq (9) defines unregularized QR-normalized Nyström; no positive ridge",
+        "2026 Epperly–Webber Section 2.1 gives exact Gaussian unregularized least-squares risk, Section 4.1 unregularized Nyström bounds",
+        "Prior own rank-one trace finding f25020d6-80e1-482a-a3e9-99a90e939e55 analyzes a Student denominator but not normalized-core ridge Frobenius loss"
+      ],
+      "reasoning": "Unregularized inverse Gram and Student laws are special cases of the new risk only at ridge zero. Classical rank-one ridge regression is structurally closely related and may independently yield the same bias–variance formula; the assessed statement additionally averages the anisotropic Gaussian right sketch and establishes a unique, sketch-count-independent positive optimum and trace conflict. No inspected statement gives the entire claim.",
+      "searches": [
+        "generalized Nyström independent Gaussian left right sketches ridge regularized normalized core exact Frobenius risk optimal regularization singular values",
+        "QR normalized generalized Nystrom 2x2 ridge inverse Gram Gaussian expected Frobenius error lambda ab over a squared minus ab plus b squared",
+        "Gaussian sketched least squares rank one optimal Tikhonov ridge parameter independent sample count anisotropic diagonal matrix",
+        "arxiv:2605.19096v2 Section 2.1 sketched least squares",
+        "arxiv:2409.06384v1 Eq (9)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved indexed exact risk table or parameter match for ab/(a²-ab+b²)",
+        "Previously recorded rank-one trace law has different target functional and zero ridge",
+        "Prior one-sided Gaussian projection finding ac662662-438d-4839-8ef7-55c192e228c4 contains the ab baseline, not two-sided ridge risk"
+      ],
+      "reasoning": "No exact table match in queries; the shared ab factor is explicitly acknowledged as covered and not used as a novelty claim. Absence of a database match alone cannot establish novelty.",
+      "searches": [
+        "rank one generalized Nyström approximation identity 2x2 gaussian independent left right sketches exact Student t heavy tails moment divergence oversampling",
+        "generalized Nyström independent Gaussian left right sketches ridge regularized normalized core exact Frobenius risk optimal regularization singular values",
+        "two by two diagonal matrix randomized rank one Nyström ridge lambda optimizer expected Frobenius error b1 b2 singular values",
+        "\"generalized Nystrom\" \"ridge\" \"Frobenius\" expected error",
+        "\"Nyström\" \"ridge regularization\" \"Gaussian sketch\" risk matrix"
+      ]
+    },
+    "rationale": "Existing sources already cover unregularized generalized Nyström, its exact Gaussian sketch-and-solve residual and Student-type heavy tails, and one-sided range residual ab. The new claimed component is an explicitly defined QR-normalized positive-ridge two-sided sketch, its exact fully averaged risk, unique s-independent penalty, and trace-objective conflict; inspected primary full texts and targeted mathematical-record searches did not establish this. Classical ridge regression could conceal an equivalent earlier formulation, so priority remains an open residual risk.",
+    "residual_risks": [
+      "A known but differently phrased one-dimensional ridge regression formula may imply the sample-independent optimum for this small benchmark.",
+      "Published specialized Gaussian matrix-sketching literature may contain equivalent positive-ridge risk formulas under different notation.",
+      "published-finding corpus semantic matching is not exhaustive and full scholarly corpus was not all inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unregularized method and general moment bounds; no positive normalized-core ridge risk optimum",
+        "evidence": [
+          "Eq (9) Q[(Psi^T Q)^dagger Psi^T Z]_r; Theorem 2 p,ell>=4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.06384v1",
+        "material_read": "Section 2.3, equations (7)–(9), Theorem 2 and discussion of left/right Gaussian matrices, plus integrator use in Sections 2.4 and 3",
+        "method": "Inspected accessible arXiv full HTML, compared exact algorithm and loss/penalty parameters",
+        "title": "Randomized low-rank Runge-Kutta methods",
+        "trigger": "Same QR-normalized GN sketch used in time integration"
+      },
+      {
+        "assessment": "Unregularized error bounds and numerical rank truncation, not risk-optimal normalized-core ridge",
+        "evidence": [
+          "No textual ridge or regularization result identified in full HTML search"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2009.11392v1",
+        "material_read": "Unregularized generalized Nyström definitions and expected error bounds, and stable pseudoinverse implementation discussion",
+        "method": "Inspected complete accessible arXiv HTML around the algorithm and risk analysis; searched ridge and regularization terms",
+        "title": "Fast and stable randomized low-rank matrix approximation",
+        "trigger": "Foundational generalized Nyström and pseudoinverse stabilization"
+      },
+      {
+        "assessment": "Earlier sketched least-squares approximation is an acknowledged ancestor; no inspected statement gives this ridge optimizer",
+        "evidence": [
+          "2017 unregularized GN Theorem 4.3 identified explicitly as predecessor by Epperly–Webber (2026)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.00048",
+        "material_read": "Public article and its unregularized generalized Nyström approximation framework, with published expected error bounds cross-identified in newer papers",
+        "method": "Examined accessible arXiv material and the theorem cross-references in the 2026 comparator",
+        "title": "Practical sketching algorithms for low-rank matrix approximation",
+        "trigger": "Earlier full general sketched least-squares and low-rank methods"
+      },
+      {
+        "assessment": "Strongly covers unregularized expected error and dimension allocation, but its risk theorem does not optimize positive ridge",
+        "evidence": [
+          "Theorem 2.1 exact zero-ridge sketch-and-solve mean-square loss; Theorem 4.2 unregularized generalized Nyström bounds; no ridge/Tikhonov term"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.19096v2",
+        "material_read": "Sections 2.1, 4.1, 4.2, especially Theorems 2.1 and 4.2, plus keyword scans for ridge, Tikhonov, regularization",
+        "method": "Full HTML direct inspection and literal keyword search",
+        "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+        "trigger": "Potential stronger complete Frobenius error theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c05993fc-2a76-42cd-878a-4cc079c0053e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural low-rank stage approximation with independent left and right Gaussian sketches needs sensible small-sample regularization: for one/two left test rows zero ridge has infinite mean-square error, while the theorem supplies finite risk and an exactly optimal, sketch-count-independent positive penalty for all s>=1. It also identifies a quantitative clash between Frobenius approximation quality and trace fidelity on isotropic matrices, clarifying what regularization can and cannot preserve. The exact 2x2 benchmark is limited but motivated by recurrent generalized Nyström stage approximation, rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
