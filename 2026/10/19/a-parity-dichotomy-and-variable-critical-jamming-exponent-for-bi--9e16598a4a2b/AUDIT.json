@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "All path copies on a given bipartition-size pattern have equal multiplicity; this yields exact transition \\(p=(a-r)/(a+b-2r)\\). The deterministic even-path count is exact. For odd k, gamma-ratio normalization makes the imbalance a martingale; predictable quadratic variation tends to \\(1/(k-2)\\) times N, with small late-stage tail because 2/k<1 and martingale jumps \\(o(\\sqrt N)\\). The terminal min-class barrier differs from |D|=S by at most 2r, yielding the powered normal law. Macroscopic imbalance follows from the same martingale uniformly away from the boundary. The actual package checker passed 11 exhaustive labelled-state comparisons, 564 rational drift tests, 6300 even stoichiometric identities, and six exponent identities. No finite experiment was used to prove an infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spencer (1995) proves near-perfect greedy packings for regular hypergraphs with small pair codegree.",
+        "Rödl–Thoma (1996) concerns asymptotic packing and greedy hitting/acceptance counts in broadly regular hypergraphs.",
+        "For balanced complete bipartite fixed-k path systems, regularity and small codegree explain a weaker o(N) vacancy statement but do not determine its N^theta distribution."
+      ],
+      "reasoning": "The sharp powered-Gaussian distribution and exponent indexed by every odd path length are strictly stronger than generic almost-perfect packing, and the off-balance setup is nonregular. Only abstracts were accessible for two publications; latent specialized corollaries are a risk.",
+      "searches": [
+        "Asymptotic packing via a branching process (Spencer 1995)",
+        "Asymptotic packing and the random greedy algorithm (Rödl–Thoma 1996)",
+        "random greedy packing P5 P7 complete bipartite graphs finite-size critical jamming anomalous 3/8 exponent"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "doi:10.1103/RevModPhys.65.1281",
+        "relation": "physical RSA background",
+        "source": "Evans 1993"
+      },
+      {
+        "id": "doi:10.1002/rsa.3240070206",
+        "relation": "general random greedy hypergraph packing",
+        "source": "Spencer 1995"
+      },
+      {
+        "id": "doi:10.1002/(SICI)1098-2418(199605)8:3<161::AID-RSA1>3.0.CO;2-W",
+        "relation": "asymptotic packing",
+        "source": "Rödl–Thoma 1996"
+      },
+      {
+        "id": "https://algo.inria.fr/flajolet/Publications/FlDuPu06.pdf",
+        "relation": "urn correspondence and explicit excluded sign assumption",
+        "source": "Flajolet–Dumas–Puyhaubert 2006"
+      },
+      {
+        "id": "earlier special-case statement",
+        "relation": "k=3 previously covered; no new claim for k=3",
+        "source": "Known 3-vertex bipartite path result"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The three-vertex case proves one value of the exponent and does not imply the all-k identity theta_k=(k-2)/(2(k-1)) or variance 1/(k-2).",
+        "Positive-balance urn asymptotics do not imply a stopped negative-balance model without new martingale and boundary arguments.",
+        "Even paths retain exactly equal quantities of each bipartition class per adsorption, yielding a distinct deterministic outcome."
+      ],
+      "reasoning": "The central parity comparison and uniform family of weak limits are not formal restatements of any single previously checked special case. The proof uses genuinely different k-dependent variance summability at the stopping boundary.",
+      "searches": [
+        "random greedy packing P5 P7 complete bipartite graphs finite-size critical jamming anomalous 3/8 exponent",
+        "balanced sacrificial urn stopping time Gaussian powered limiting law simultaneous removal r from both classes one additional",
+        "Spencer (1995), abstract",
+        "Flajolet et al. (2006), Sections 3, 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact path-count process maps, after shifting each class count by r, to a two-color decreasing urn with row removals (r+1,r) and (r,r+1) and total balance -k.",
+        "The fully sacrificial urns in Flajolet–Dumas–Puyhaubert §6 explicitly require positive balance sigma>0, and Theorem 4 gives Gaussian composition at deterministic times, not the absorbing vacancy stopping distribution."
+      ],
+      "reasoning": "A generic urn analogy is a genuine mathematical reduction, but the inspected published theorem assumes a different sign of the net balance and supplies neither the terminal hitting law nor the path-length parity comparison. A potentially unindexed negative-balance urn hitting-time theorem remains possible.",
+      "searches": [
+        "balanced sacrificial urn stopping time Gaussian powered limiting law simultaneous removal r from both classes one additional",
+        "asymptotic packing via branching process Spencer 1995",
+        "Flajolet Dumas Puyhaubert fully sacrificial urn positive balance",
+        "Flajolet–Dumas–Puyhaubert (2006), Section 6 / Theorem 4, PDF pages 31–32"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest returned records address static released packings or random greedy independent sets, not path-embedding adsorption with an absorbing two-color removal chain.",
+        "A known three-vertex-path case has k=3 and critical exponent 1/4; it is excluded from the new odd-path statement."
+      ],
+      "reasoning": "No inspected table or returned exact result supplies the \\(k\\ge5\\) family or even–odd dichotomy. Absence in a semantic search alone does not prove uniqueness.",
+      "searches": [
+        "random sequential adsorption disjoint odd length paths on complete bipartite graph K_mn length 5 k-vertex alternating path jammed unmatched count critical scaling N^3/8",
+        "random greedy packing P5 P7 complete bipartite graphs finite-size critical jamming anomalous 3/8 exponent",
+        "one parameter odd path length 2r+1 adsorption bipartite imbalance jamming fraction |delta|^(2r+1)/2r",
+        "complete bipartite random sequential deposition P_5 P_7 odd path k-mer parity dependent residual vacancy fluctuation exponent",
+        "random greedy packing alternating paths in complete bipartite graph critical finite-size vacancy Gaussian 3/8",
+        "published-finding corpus nearest: 2026/10/4/SCOPE-exact-uniform-released-packing-on-complete-bipartite-graphs--7b706d1b874b",
+        "published-finding corpus nearest: 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f"
+      ]
+    },
+    "rationale": "No inspected source states the combined deterministic even-length and general odd-length critical fluctuation law for complete bipartite path deposition. The previous 3-vertex-path special case does not imply any \\(k\\ge5\\) rate or distribution. General almost-perfect hypergraph packings are weaker, and the fully sacrificial urn theory inspected has positive rather than negative balance. Full-text gaps and equivalent negative-balance urn literature remain documented.",
+    "residual_risks": [
+      "The full text of Spencer (1995), Rödl–Thoma (1996), Evans (1993), and Pippenger (1989) was not inspected; unmentioned corollaries cannot be categorically ruled out.",
+      "An unindexed stopping-time theorem for negative-balance two-color sacrificial urns might imply part or all of the powered-Gaussian statement.",
+      "The full text of the 1989 source remained unavailable; exhaustive bibliographic exclusion is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general machinery, but explicit positive total urn balance in Section 6 and deterministic-time composition results; does not directly state absorbing negative-balance path laws",
+        "evidence": "PDF §6 equation (69) requires sigma>0; our row sums are -k; Theorem 4 concerns the normal limit of a color count at fixed time.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlDuPu06.pdf",
+        "material_read": "PDF abstract, introduction, page 15 first-integral section, pages 31–32 Section 6 and Theorem 4; page images and extracted text",
+        "method": "Full-text PDF search, direct relevant sections and page-image inspection",
+        "title": "Some exactly solvable models of urn process theory",
+        "trigger": "Exactly matching two-color balanced-urn abstraction and possible stronger coverage"
+      },
+      {
+        "assessment": "Covers near-optimal packing under side conditions; cannot exclude specialized terminal-scale estimates without full text",
+        "evidence": "1995 abstract states only almost-sure asymptotically optimal packing under side conditions.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240070206",
+        "material_read": "Publisher abstract and bibliographic page; full text unavailable",
+        "method": "Published publisher page abstract and theorem description",
+        "title": "Asymptotic packing via a branching process",
+        "trigger": "Broad random greedy hypergraph theorem may imply balanced near-perfect path packing"
+      },
+      {
+        "assessment": "Asymptotic hypergraph packings and greedy acceptance counts, not a visible sharp terminal centered distribution; unexamined complete text is residual risk",
+        "evidence": "1996 publisher abstract describes sparse-codegree regular hypergraphs and asymptotic packing performance.",
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199605)8:3<161::AID-RSA1>3.0.CO;2-W",
+        "material_read": "Published abstract; full text unavailable",
+        "method": "Publisher bibliographic and abstract search",
+        "title": "Asymptotic packing and the random greedy algorithm",
+        "trigger": "Broad quantitative random greedy hypergraph coverage"
+      },
+      {
+        "assessment": "Establishes model motivation and general methodology; not full-text evidence that no equivalent formula appears in the review",
+        "evidence": "1993 abstract concerns RSA/CSA lattice kinetics and exact one-dimensional analysis.",
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+        "material_read": "Publisher abstract and publication metadata",
+        "method": "Publisher abstract reading",
+        "title": "Random and cooperative sequential adsorption",
+        "trigger": "Historical physical model and possible broad earlier RSA coverage"
+      },
+      {
+        "assessment": "Addresses vertex and edge independent occupancy on locally tree-like graphs, not visibly odd long paths; unable to rule out hidden adjacent statements in full text",
+        "evidence": "1989 abstract identifies regular graphs and graphs with sparse short cycles; full text not obtained.",
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Repository abstract and metadata; linked copy not accessible",
+        "method": "Repository abstract reading and attempted lawful linked full text",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Early vertex/edge random greedy packing with potential stronger graph results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e16598a-4a2b-412c-9be4-c22d60042055",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result classifies a natural physical stoichiometric parity effect: odd alternating molecules amplify randomness into \\(N^{\\theta}\\) terminal vacancies even on balanced substrates, while even molecules give bounded deterministic defects. It quantifies the critical imbalance window with an explicit noncentral powered-normal law for every odd path length \\(k\\ge5\\), and proves positive macroscopic kinetic waste on a substrate with an exact full packing. This is a general structural result and a qualitative parity distinction, not a one-parameter recomputation or mere simulation.",
+    "status": "PASS"
+  }
+}
