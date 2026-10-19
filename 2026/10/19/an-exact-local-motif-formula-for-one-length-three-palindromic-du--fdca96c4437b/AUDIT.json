@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For gap d between duplicate sites, cancellation gives AB=B reverse(V). Gaps 1 or 2 force a constant window; for d>=3, periodicity and the uniquely palindromic rotation of a nonconstant ternary block give the three distance-3/4/5 motifs. All larger gaps have an intermediate equal descendant; motif edges are precisely consecutive output-class edges, so count = positions minus edges. Indicator expectations yield exact formula. Standalone direct enumeration of 745596 words also validates edges and means.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2312.00394 states zero coding capacity for any-number length-at-least-two PAL errors; no exact-one local sphere distribution is given in its theorems.",
+        "arXiv:2602.01151 studies disjoint long duplications, generic GV bounds and length-one reverse-complement code constructions."
+      ],
+      "reasoning": "Coding capacity of unrestricted repeated errors and code redundancy cannot determine the exact length-three one-step degree of each individual input word. The upper bound in arXiv:1707.00052 is strictly looser for inputs containing the three nonconstant motifs.",
+      "searches": [
+        "arxiv:2312.00394 palindromic duplication all-step capacity",
+        "arxiv:2602.01151 palindromic/reverse-complement redundancy bounds",
+        "palindromic duplication three palindrome word descendants n - runs - factor occurrence closed formula enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1707.00052",
+      "https://arxiv.org/abs/1712.09345",
+      "https://arxiv.org/abs/2312.00394",
+      "https://arxiv.org/abs/2602.01151"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 paper computes collision equality conditions and subtracts constant-run redundancies only, yielding a general bound; it itself notes extra PAL3 nonconstant collisions.",
+        "The result claimed here subtracts three explicitly classified nonconstant patterns and proves their edges are exactly independent in the class-rank count."
+      ],
+      "reasoning": "General equality conditions imply the present theorem only after a new periodicity, rotation and consecutive-class-edge argument; they do not state it, whereas their upper bound is not equality for 010010. The PAL2 records address a different duplication length and thus do not subsume PAL3.",
+      "searches": [
+        "arxiv:1707.00052 §3.3 length-three 010010 counterexample and upper bound",
+        "palindromic duplication fixed length three same descendant positions collisions finite word sphere cardinality exact characterization",
+        "reverse complement duplication length two one-step descendant collision sphere formula palindromic tandem finite string"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1707.00052 §3.3 gives exact formulas at duplication lengths 1,2 and an upper bound for greater lengths; its Appendix supplies general equality conditions.",
+        "arXiv:1712.09345 explicitly displays the length-three collision at 010010 but not the four-motif enumeration."
+      ],
+      "reasoning": "The older equality conditions are a starting relation, not an exact local-motif census. The new proof resolves all distances, identifies consecutive equivalence-class edges, and sums them. No observed identical or stronger statement; an unindexed equivalent remains possible.",
+      "searches": [
+        "palindromic duplication fixed length three same descendant positions collisions finite word sphere cardinality exact characterization",
+        "exact formula palindromic duplication length 3 sphere size patterns 4 constant abaaba baaaaba bbaabbab for all words",
+        "arxiv:1707.00052 §3.3 and Appendix 0.A",
+        "arxiv:1712.09345 §3 and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results contain PAL2 correcting-code constants and one-step PAL2/TAN2 spheres; no recorded exact per-word PAL3 four-motif formula.",
+        "The 2017 source explicitly states its length-three example but lists no full PAL3 sphere-size table."
+      ],
+      "reasoning": "No exact table or formula covering the claimed full alphabet/length domain was found in the actual checked records. Search incompleteness is an acknowledged residual risk, not a uniqueness proof.",
+      "searches": [
+        "exact formula palindromic duplication length 3 sphere size patterns 4 constant abaaba baaaaba bbaabbab for all words",
+        "single palindromic duplication length 3 sphere expectation q-ary collision classes pattern avoidance",
+        "reverse complement duplication length two one-step descendant collision sphere formula palindromic tandem finite string",
+        "arxiv:1707.00052 §3.3 exact PAL2 and PAL3 upper bound"
+      ]
+    },
+    "rationale": "Two directly on-point primary full texts provide collision equations and only an upper bound for length-three and higher palindromic sphere sizes; they do not present the all-q all-n four-motif identity. Relevant capacity and code-construction papers use different invariants. Actual previously published result and accessible prior-claim comparisons show PAL2 and tandem code results that do not imply a PAL3 count. Equivalence elsewhere remains a risk.",
+    "residual_risks": [
+      "A specialized derivation of the 2017 collision equations may have independently obtained this exact identity under other terminology.",
+      "Semantic search coverage and secondary indexing are necessarily incomplete; numerical experiments alone cannot establish priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Essential precursor; no four-motif PAL3 equality formula observed; general condition requires nontrivial classification.",
+        "evidence": "§3.3 explicitly states collision equations are knotted and gives exact cases one/two, then an upper bound for larger lengths.",
+        "identifier_or_url": "https://arxiv.org/abs/1707.00052",
+        "material_read": "Full available arXiv HTML: definitions, §3.3, general upper bound, and Appendix 0.A equivalence conditions.",
+        "method": "Read primary text and compare its exact length-one/two lemmas and general bound to the present exact-one PAL3 output formula.",
+        "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+        "trigger": "Same channel and direct question of per-word palindromic duplication sphere sizes."
+      },
+      {
+        "assessment": "Records PAL3 example 010010 but does not classify all nonconstant motifs or exact per-word PAL3 spheres.",
+        "evidence": "§3 notes rho3(010010,0)=rho3(010010,3), then states only an upper bound for lengths at least three.",
+        "identifier_or_url": "https://arxiv.org/abs/1712.09345",
+        "material_read": "Full available arXiv HTML including §3 and Appendix B.",
+        "method": "Checked its length-three nonconstant example, Lemma 12 and subsequent upper-bound lemma, and conditions in Appendix B.",
+        "title": "Duplication-Correcting Codes",
+        "trigger": "Expanded primary work with possible stronger coverage or appendices."
+      },
+      {
+        "assessment": "Different invariant; zero asymptotic capacity does not imply the new local sphere equality.",
+        "evidence": "Introduction and §5 address capacity with unlimited operations.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.00394",
+        "material_read": "Available arXiv HTML introduction, definitions and main results on capacity.",
+        "method": "Compared their any-number-error coding-capacity quantity to exact one-step output degrees.",
+        "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+        "trigger": "Potential implication from an all-length palindromic duplication result."
+      },
+      {
+        "assessment": "Results concern code construction/redundancy, with no direct four-motif single PAL3 sphere classification found.",
+        "evidence": "Main results: disjoint long duplication correction, Gilbert–Varshamov bounds, and length-one reverse-complement constructions.",
+        "identifier_or_url": "https://arxiv.org/abs/2602.01151",
+        "material_read": "Available full arXiv HTML abstract, introduction, principal theorem statements and sections on code construction.",
+        "method": "Checked the studied channels and claimed parameters against fixed-length-one-step per-word sphere counts.",
+        "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+        "trigger": "Recent directly named source could subsume PAL3 sphere formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fdca96c4-437b-47d3-bdbf-f9b6e3a9c700",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Length three is the first nontrivial palindromic duplication length beyond the published exact length-one/two sphere formulas, where extra nonconstant collisions defeat run-only counting. Resolving an exact per-input q-ary sphere and mean by four local motifs provides a natural structural invariant useful in channel analysis and packing-bound calculations, not an arbitrary small-instance census.",
+    "status": "PASS"
+  }
+}
