@@ -1,0 +1,15 @@
+# Scientific review — sharp two-anchor Gaussian–Fock interpolation and three-node collision law
+
+## Correctness — PASS
+The normalized Fock Gram identity and anchor Schur complement are exact. The novel global step reduces strict maximality to the elementary auxiliary function \(F_a(u)=\cosh u-a\sinh(u)/u\): its derivative changes sign at most once, from negative to positive, since \(A(u)=u^2\sinh(u)/(u\cosh(u)-\sinh(u))\) increases strictly. The endpoint comparison proves strict positivity of the determinant's derivative toward the midpoint for every positive anchor separation, including both boundary cases. Direct block diagonalization verifies the three exact midpoint Gram eigenvalues; Taylor expansion and a rank-one compression give the three collision scales. The packaged checker completed 431 high-precision comparisons. No finite enumeration is used as an infinite proof.
+
+## Originality — PASS, best knowledge
+The full Gaussian-kernel Fekete-point design of Karvonen–Särkkä–Tanaka (arXiv:1912.07316) is a very close antecedent. Its explicit Gaussian optimization in §4.1 uses a *truncated* kernel, whereas the new finding optimizes the *full normalized kernel*, for arbitrary positive anchor separation, and gives the complete midpoint spectrum and collision coefficients. Narayan–Yan–Zhou (arXiv:2104.06291) supply greedy/discrete kernel-design methods without this closed-form two-anchor extremum; Escudero–Haimi–Romero (arXiv:2004.12922) treat infinite Fock multiple sampling and density rather than sharp three-node geometry. The general Gram Schur complement and Gaussian kernel are prior mathematics, not novel claims. Claim-level comparisons against indexed research and historical claim summaries found no covering statement. Potential equivalent older Gaussian-process bridge or radial-basis interpolation formula remains a material, acknowledged bibliographic risk. Published priority has not been independently certified.
+
+## Mathematical value — PASS
+With two fixed Gaussian evaluations, locating the *worst* unconstrained evaluation point is a natural and directly consequential design/reconstruction question. The result makes this location uniquely explicit at every scale and gives an exact magnitude rather than a coarse bound. The associated spectral collision law quantifies how the unique weakest information direction and total condition number degrade, including a sharp optimizable coefficient. This is a substantive kernel-sampling boundary, though restricted to the first nontrivial three-site design and without noisy/multidimensional generalization.
+
+## Closest literature and residual limitations
+Primary comparisons: arXiv:1912.07316 §§2.1, 4.1 and numerical examples, arXiv:2004.12922 §§1–2, arXiv:2104.06291 §§2–4. The all-width proof is specific to real collinear positions and the Gaussian kernel; the small-separation results fix the interior fraction strictly between zero and one. The existence of an equivalent older closed-form interpolation theorem cannot be excluded.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Direct exact normalized reproducing-kernel Gram calculation plus Schur complement. The nonstandard global midpoint lemma follows by differentiating e^{-h²}(cosh(Lh)-e^{-L²/2}); the auxiliary threshold A(u) is strictly increasing and above u, so the relevant function attains its maximum only at endpoints, with unique strict midpoint optimum. Symmetry block diagonalization yields exact eigenvalues. Rank-one compression and Taylor determinant expansion give sharp L² and L⁴ collision coefficients. Packaged mpmath checker independently reproduced 431 finite comparisons; experiments are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karvonen–Särkkä–Tanaka, arxiv:1912.07316, numerical approximate Fekete design for full kernels versus explicit Gaussian optimization of truncated kernels, §4.1.",
+        "Narayan–Yan–Zhou, arxiv:2104.06291, discrete and greedy determinant design.",
+        "Escudero–Haimi–Romero, arxiv:2004.12922, Fock density and multiple sampling."
+      ],
+      "reasoning": "A theorem optimizing arbitrary full Gaussian Fekete sites would subsume the fixed-anchor case, but the inspected explicit convex Gaussian theorem is instead about finite-dimensional kernel truncations. General sampling-density theorems imply neither finite three-site Gram optimality nor sharp collision constants.",
+      "searches": [
+        "arxiv:1912.07316",
+        "arxiv:2104.06291",
+        "arxiv:2004.12922",
+        "Gaussian Fock 3 coherent states collision nonsymmetric nodes relative gap smallest Gram eigenvalue sharp constant optimal midpoint"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1912.07316",
+      "arxiv:2004.12922",
+      "arxiv:2104.06291"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general power-function identity is taken as prior input and explicitly attributed, not represented as new.",
+        "The Gaussian truncated Gram has different entries from the untruncated normalized Gaussian Gram.",
+        "The derivative-multiplicity cluster collision question has a distinct four-or-more-dimensional Hermite derivative structure."
+      ],
+      "reasoning": "Existence of determinant-optimal approximate Fekete points does not imply the exact global midpoint location or its value. A general Gaussian density criterion does not imply a finite sharp stability formula. Previous Hermite cluster eigenvalue rates do not directly yield an arbitrary three-value-site collision law. Scope and implications, rather than similar titles, were compared.",
+      "searches": [
+        "arxiv:1912.07316 §4.1 Gaussian truncated kernel",
+        "arxiv:1912.07316 §2.1 power function",
+        "Fock Hermite three nodes divided differences exact local stability optimal midpoint collision",
+        "Karvonen Sarkka Tanaka 1912.07316 exact Gaussian kernel Fekete three point fixed endpoints midpoint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1912.07316 §2.1 gives reproducing-kernel power functions and the Schur-complement interpretation; §4.1 treats truncated-kernel Fekete optimization.",
+        "arxiv:2104.06291 §2 relates Gaussian-process uncertainty to kernel interpolation but has no all-separation two-anchor closed form among the inspected statements."
+      ],
+      "reasoning": "The same finite three-point problem can be expressed as normalized Gaussian-kernel determinant optimization, maximal conditional variance between two fixed Gaussian-process observations, or optimal residual of a normalized Fock coherent state. The existing standard Schur-complement identity does not imply which interior position uniquely maximizes its value for every positive distance. No exact matching all-separation + three-scale theorem was found; broad Gaussian-process bridge literature remains a risk.",
+      "searches": [
+        "sharp three point Gaussian kernel exact Fekete fixed endpoints maximizing determinant middle point power function norm",
+        "Gaussian squared exponential covariance conditioned on two observations exact maximum posterior variance midpoint closed form 1 minus exp",
+        "three collinear normalized Fock reproducing kernels power function Gaussian interpolation variance sharp two endpoint",
+        "\"Gaussian kernel\" \"power function\" \"midpoint\" two points",
+        "\"squared exponential\" \"midpoint\" \"variance\" \"two observations\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No displayed exact three-point Gaussian eigenvalue/collision table in the primary text inspected; indexed mathematical claims closest concern cyclic Fourier triples and Gaussian Gabor biorthogonals, not real three-site Fock sampling."
+      ],
+      "reasoning": "The claim concerns a continuous arbitrary-distance family, not a finite census that could be hidden in an exact database. Targeted table, coefficient, and eigenvalue-alias searches found no complete matching resource. Negative search findings are not a proof that one does not exist.",
+      "searches": [
+        "three point Gaussian reproducing kernel Gram matrix near collision smallest eigenvalue a^2(1-a)^2/(4(a^2-a+1))",
+        "three-point Gaussian Gram eigenvalues coalescing nodes asymptotic epsilon^4 gap coefficient",
+        "D optimal design gaussian radial basis interpolation one additional point fixed endpoints equidistant midpoint determinant",
+        "\"Gaussian kernel\" \"maximum\" \"power function\" interval midpoint"
+      ]
+    },
+    "rationale": "Best-knowledge claim-level comparison found no directly covering full-Gaussian two-fixed-anchor all-distance determinant maximum plus three eigenvalue collision law. Exact Fekete work explicitly optimizes truncated Gaussian kernels in its tractable theorem; general power-function/Schur identities are prior inputs. One possibly equivalent older Gaussian-process conditional-variance bridge result remains a genuine risk; no global priority or independent certification is asserted.",
+    "residual_risks": [
+      "Equivalent older two-anchor squared-exponential Gaussian-process bridge/power-function theorem may exist under alternate terminology.",
+      "Exact finite three-node collision coefficients might occur in uncatalogued RBF condition-number or coherent-state interpolation literature.",
+      "No human independent historical literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general kernel power function and Fekete framework; explicit Gaussian optimization in §4.1 applies to truncated orthonormal polynomial kernel, not this full-kernel three-site sharp theorem",
+        "evidence": [
+          "arxiv:1912.07316 §§2.1,4.1; first public 2019-12-16"
+        ],
+        "identifier_or_url": "arxiv:1912.07316",
+        "material_read": "Introductory framework, §§2.1 and 4.1, relevant Gaussian optimization and numerical sections on approximate Fekete points",
+        "method": "Read relevant full-text sections of the publicly accessible arXiv manuscript, comparing full versus truncated Gaussian kernels",
+        "title": "Kernel-based interpolation at approximate Fekete points",
+        "trigger": "Direct match of Gaussian kernel and determinant/Fekete objective"
+      },
+      {
+        "assessment": "Infinite sampling and density conditions, including multiple samples, not exact finite 3x3 kernel Gram optimization",
+        "evidence": [
+          "arxiv:2004.12922 §§1–2; first public 2020-04-27"
+        ],
+        "identifier_or_url": "arxiv:2004.12922",
+        "material_read": "Introduction, main sampling/interpolation results and definitions in §§1–2",
+        "method": "Read relevant sections of the open-access arXiv text",
+        "title": "Multiple sampling and interpolation in weighted Fock spaces of entire functions",
+        "trigger": "Primary Fock sampling and interpolation classification"
+      },
+      {
+        "assessment": "General greedy/discrete computational kernel-point design and uncertainty, not a fixed-two-anchor exact full Gaussian three-node optimum and collision spectrum",
+        "evidence": [
+          "arxiv:2104.06291 §§2–4; first public 2021-04-13"
+        ],
+        "identifier_or_url": "arxiv:2104.06291",
+        "material_read": "Introductory problem statement and relevant method and design portions of §§2–4",
+        "method": "Read relevant open-access arXiv full-text sections",
+        "title": "Optimal design for kernel interpolation: applications to uncertainty quantification",
+        "trigger": "Kernel uncertainty and determinant design might dominate the proposed result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e0fb897-7495-4951-aebd-0d4cdc24fe95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural exact maximal uncertainty between two prescribed Gaussian/Fock sampling sites is shown to occur uniquely at the midpoint at every separation, with a closed sharp error scale. The same configuration has a fully explicit Gram spectrum and the general three-site collision develops an exactly quantified weak information mode, including sharp fractional-location leading coefficient and midpoint condition-number blowup. These facts distinguish reconstruction geometry beyond ordinary density criteria; no general multi-anchor result is claimed.",
+    "status": "PASS"
+  }
+}
