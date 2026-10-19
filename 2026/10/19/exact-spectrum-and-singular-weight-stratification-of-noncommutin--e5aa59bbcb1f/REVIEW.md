@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The finite Stone–von Neumann dimension and regular multiplicity counts give the full representation decomposition. The nondegenerate symplectic projection guarantees uniformly distributed one-dimensional character pairs. Primitive-root quantum binomial and trace vanishing prove the exact nonabelian characteristic polynomial; the cyclic recurrence proves geometric nullity one at the singular boundary, even when the characteristic polynomial has a multiple root. The all-prime and all-dimension proof is symbolic; 15 exact independent modular full-matrix ranks corroborate the two sources of nullity.
+
+**Originality (PASS, residual risk).** The published Heisenberg representation framework and general Cayley-digraph representation factorization do not evaluate the specific weighted noncommuting three-tap spectrum or provide the exact geometric kernel formula. Exact comparisons were made with published cyclic/abelian three-term Fourier uncertainty results; those lack the nonabelian irreducible sector, so neither implies the new formula. The unweighted characteristic-three instance is only one specialization of the all-prime, all-weight theorem. Searches have not found direct exact coverage, but old quantum-torus literature could contain an equivalent formulation; search absence alone is not a priority certificate.
+
+**Value (PASS).** This is a complete natural singular-weight classification for the minimum support allowing noncommutativity in finite Heisenberg group convolution. It distinguishes discrete abelian phase resonances from a continuous Fermat hypersurface, includes their simultaneous occurrence, identifies precise rank jumps in every dimension, and explains the change in the unweighted filter between characteristic three and larger odd primes. The quantity has a direct operational interpretation as lost Fourier information.
+
+**Limitations.** Only odd primes, noncommuting pairs and three coefficients are covered. The formulas are complex-geometric; separate modular rank checks are not an infinite proof. Historical priority remains subject to specialist inspection.
+
+Self-review: passed. Independent audit: not yet performed.
