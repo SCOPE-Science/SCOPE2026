@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For any primitive 2-cycle, shift coordinates enforce the unique unordered pair u+v=−(1+sigma+delta), alpha=alpha*−(u−v)^2/4, so the global real count is exact. Direct multiplication of two Jacobians yields P(lambda)=lambda^3−(1+E−delta^2−4h)lambda^2+E lambda−delta^2. A reciprocal Schur reduction produces three necessary and sufficient strict positivity inequalities 4(1+delta^2)h, 4(1−delta^2)(Wflip−h), 4delta^2(WNS−h). Algebraic factorization E−(1−2delta^2)=(sigma+delta)^2+(3delta−1)(delta+1) proves mechanism cases, equality and the delta=1/3 sharp border. All critical polynomial identities were checked by packaged standalone SymPy code, with 68 supplementary parameter tests; none of the finite tests is treated as the infinite proof. At neutral spectra, the claim asserts no nonlinear dynamics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hampton–Meiss 2022 Section II supplies general (trace,second-trace,determinant) bifurcation surfaces for any 3D map, but no exact parameter pullback for the primitive two-cycle.",
+        "Hampton–Meiss 2023 Section 4 has analytic anti-integrable bounds and Section 5 computed low-period continuations, not a dominance theorem covering all finite parameters."
+      ],
+      "reasoning": "Generic Schur/Jury criteria and anti-integrable continuation are broader tools, not broader proved conclusions: neither implies the exact polynomial coefficients on this unique two-cycle or the sharp delta transition without new orbit elimination and parameter factorization.",
+      "searches": [
+        "Hampton Meiss 2022 quadratic diffeomorphism period-two attractor multipliers explicit transition locus",
+        "three-dimensional generalized Hénon quadratic map exact primitive period-two orbit existence stability Neimark Sacker bifurcation strong moderate contraction",
+        "arXiv:2305.06302v1 Sections 3–5; arXiv:2206.07855v1 Sections II–V"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.07855v1, full HTML material including Sections II, III, IV, V and conclusions",
+      "arXiv:2305.06302v1, full HTML material, Sections 3–5 and conclusions",
+      "Zheng et al. (2018), accessible map and bibliographic description (not full body)",
+      "Public mathematical findings titled Complete prime-two orbit classification for the Bogdanov map, Complete prime-period-two spectrum and sharp sink boundary of the Duffing map, One primitive two-cycle in the classical Tinkerbell map (different maps, no implication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-point flip parameter already follows from arXiv:2206.07855v1 Eq. (12), so the creation threshold alone is not claimed as independently novel.",
+        "The new two-step Floquet polynomial has middle coefficient E independent of alpha, yielding a global explicit Schur region and a delta=1/3 border neither derived nor implied by the inspected numerical examples."
+      ],
+      "reasoning": "The pre-existing fixed-point flip criterion explains the collision of a fixed point and a period-two branch but cannot alone establish uniqueness of all primitive two-cycles for arbitrary real phase-space points, their entire attracting domain or which spectral instability must occur first. The present explicit elimination plus Schur reduction supplies that additional implication.",
+      "searches": [
+        "For the orientation-preserving three-dimensional Hénon map (δz+α−σy+x²,x,y), unique primitive two-cycle for α<−(1+σ+δ)(3+3σ−δ)/4; exact attracting 2-cycle Schur region −1<σ<1−2δ, period-doubling versus Neimark-Sacker loss separated by δ=1/3 and (σ+δ)²=1−2δ−3δ².",
+        "arXiv:2206.07855v1 Eqs. (3)–(13) and Section V; arXiv:2305.06302v1 Section 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2206.07855v1 Eq. (15) writes the exact lag-three scalar recurrence used here, Eq. (12) gives the fixed-point flip rather than the two-step sink domain.",
+        "arXiv:2305.06302v1 Section 5.1 numerically continues period-two and other cycles; its analytic period doubling formula concerns the fixed point."
+      ],
+      "reasoning": "A shift-coordinate, lag-three recurrence and the equivalent Gonchenko parameters are compared with the same model, not treated as distinct systems. Under these formulations the inspected results do not supply the global two-cycle count or exact stable-band and exit-type formulas.",
+      "searches": [
+        "three-dimensional generalized Hénon quadratic map exact primitive period-two orbit existence stability Neimark Sacker bifurcation strong moderate contraction",
+        "polynomial recurrence Hénon map all period-two orbits existence threshold Schur stability exact",
+        "arXiv:2206.07855v1 Eq. (1), (15), Sections III and V, and arXiv:2305.06302v1 Section 5",
+        "Gonchenko M1 M2 B three dimensional Hénon map unique period two cycle explicit Schur stable wedge sigma delta flip Neimark Sacker exact determinant one third"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hampton–Meiss 2022 Table 1 is a generic multiplier-surface table; its figures locate periodic attractors numerically.",
+        "Hampton–Meiss 2023 Table 2 reports approximate continuation bifurcation values on one contraction slice, not the exact three-parameter period-two classification."
+      ],
+      "reasoning": "The inspected tabulations are not an exact database or full table of primitive-two-cycle counts and sink intervals in (alpha,sigma,delta). Publicly indexed records on period-two orbit counts for the Bogdanov, Duffing and Tinkerbell maps concern different systems.",
+      "searches": [
+        "polynomial recurrence Hénon map all period-two orbits existence threshold Schur stability exact",
+        "Hampton Meiss 2022 quadratic diffeomorphism period-two attractor multipliers explicit transition locus",
+        "arXiv:2206.07855v1 Table 1, Figures 4–6; arXiv:2305.06302v1 Table 2"
+      ]
+    },
+    "rationale": "The 2022 source derives general 3D multiplier geometry, an explicit fixed-point flip locus, and numerically illustrates period-two orbits; it does not state or establish the exact all-real-space primitive two-cycle census, closed sink wedge and delta=1/3 transition surface. The 2023 same-author continuation research develops anti-integrability and numerical low-period tracking, with an analytic fixed-point flip criterion, but no full two-cycle Schur result. Related published planar two-cycle theorems address different maps and do not imply this three-dimensional result. Novelty is assessed against inspected material rather than inferred from missing search hits.",
+    "residual_risks": [
+      "Priority may exist in an earlier work on the same quadratic recurrence under alternative Gonchenko coordinates (M1,M2,B), or in a longer dynamical-bifurcation source not located during the search.",
+      "The older Zheng et al. full text was not read here; its explicitly reported model is different, limiting relevance, but a hidden broader treatment cannot be categorically excluded.",
+      "No external independent priority or mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides common map, generic multiplier conditions and fixed-point flip, and shows period-two attractors numerically, but does not establish the exact full sink wedge or sharp contraction threshold.",
+        "evidence": "Eqs. (1),(12),(15), Table 1 and Section V.1 numerical period-doubling sequence.",
+        "identifier_or_url": "https://arxiv.org/html/2206.07855v1",
+        "material_read": "The HTML full text: introduction and Eq. (1), Sections II–III including Eqs. (3)–(13), Sections IV–V and plotted period-two continuation examples, conclusion.",
+        "method": "Read exact recurrence, fixed-point bifurcation derivations, characteristic-multiplier conditions, parameter illustrations and period-two discussion; compared their hypotheses and logical conclusions with the new all-parameter two-step statement.",
+        "title": "Visualizing Attractors of the Three-Dimensional Generalized Hénon Map",
+        "trigger": "Identical three-dimensional quadratic map and period-two examples at two contraction strengths."
+      },
+      {
+        "assessment": "Records analytic AI-state existence and fixed-point doubling plus numerical low-period orbit tracking; neither proves the all-parameter finite two-cycle sink domain or delta=1/3 transition.",
+        "evidence": "Section 5.1 Table 2 reports numerical low-period bifurcation values; paragraph after Table 2 compares analytic fixed-point flip with numerical continuation.",
+        "identifier_or_url": "https://arxiv.org/html/2305.06302v1",
+        "material_read": "HTML text: Introduction, anti-integrable correspondence and existence bounds, Section 5 and especially Section 5.1/Table 2, Conclusions.",
+        "method": "Matched the map after scaled coordinates and identified which statements are theorems and which are numerical continuation output.",
+        "title": "Connecting Anti-integrability to Attractors for Three-Dimensional, Quadratic Diffeomorphisms",
+        "trigger": "Same authors and same one-quadratic-term Hénon family with low-period orbit continuation."
+      },
+      {
+        "assessment": "The model and fixed-point results exposed in accessible material are not an implication of this exact two-cycle classification; residual uncertainty is maintained for uninspected body.",
+        "evidence": "The compared map squares a lagged variable rather than the current x coordinate.",
+        "identifier_or_url": "https://doi.org/10.1186/s13662-018-1622-y",
+        "material_read": "Accessible bibliographic abstract and source descriptions of the 3D delayed-quadratic model; full body not inspected in this run.",
+        "method": "Compared the explicitly stated delayed-coordinate quadratic map to the current-coordinate quadratic recurrence; no whole-document exclusion is inferred.",
+        "title": "Bifurcations and chaos in a three-dimensional generalized Hénon map",
+        "trigger": "Similar three-dimensional quadratic map and published fixed-point bifurcation claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b857e7ec-12d1-4097-8559-ff6198f41f94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originators numerically contrast a strongly contracting 3D Hénon orbit which period-doubles with a moderately contracting orbit which undergoes a complex pair crossing. The new theorem gives a complete global primitive-two-cycle count, an exact finite-parameter attraction wedge, and an analytical phase boundary at determinant delta=1/3 between possible and impossible flip-first destabilization. This naturally interprets those numerically observed alternatives, is stronger than a fixed-point flip formula, is not a routine arbitrary parameter slice and does not claim unrelated higher-period results.",
+    "status": "PASS"
+  }
+}
