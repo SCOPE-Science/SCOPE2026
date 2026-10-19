@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** A complete leaf-extension generator with tree-centre canonical forms enumerates every isomorphism class through ten vertices; exact matching numbers for every edge subset produce all bivariate coefficient arrays. The independent rooted recursion confirms the colliding witnesses. Distinct diameters establish nonisomorphism. The link to odd-characteristic graphical-group character degrees is a known rank formula, correctly delimited as prior art.
+
+**Originality — PASS within searched evidence.** Rossmann (2021) discusses graph-group character degrees, while the existing published-finding corpus tree-graphical-group theorem already gives the polynomial and recursion. Neither inspected statement supplies the sharp first collision at order ten or the unique ten-vertex pair. The generalized-cospectral-tree cutoff of twelve concerns different invariants. Searches for tree-character-profile twins, maximum-matching support twins, and reconstruction collisions did not find a direct prior assertion. Residual risk: a graph-polynomial uniqueness census using different terminology may already establish this finite cutoff. The published-finding corpus tree finding was accessible as a published summary but not as a complete checked manuscript.
+
+**Value — PASS.** This is the first exact reconstruction failure threshold for a natural, complete group character-degree invariant in the tree graphical-group family. Unlike a random small-table count, it gives an exhaustive lower bound, uniquely classifies first collisions, identifies two explicit minimal witnesses, and is relevant whenever character degrees are used to distinguish groups or their defining trees. No universal tree-reconstruction theorem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
