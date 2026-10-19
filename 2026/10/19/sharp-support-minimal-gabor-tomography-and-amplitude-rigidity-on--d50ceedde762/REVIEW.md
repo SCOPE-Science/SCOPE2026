@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+The finite Weyl matrices form an orthogonal operator basis, and the complete Gabor projector orbit has frame eigenvalues \(v|A_g(t,\chi)|^2\). Difference-set incidence makes each nonzero-shift ambiguity a single product of window coefficients. Its modulus is therefore independent of all window phases. Counting the \(k(k-1)=v-1\) nonzero differences proves the absolute support lower bound and forces perfect difference sets at equality. At zero shift, the exact Fourier transform of the amplitude probability vector supplies the full rank criterion. The flat character-sum identity yields all three eigenvalues and multiplicities.
+
+For the sharp inequality, the pair-product identity \(2\sum_{i<j}p_ip_j=1-\sum_i p_i^2\) gives an explicit variance deficit relative to the two smallest amplitudes. The claim that the coefficient is best possible is justified by strictly positive distributions with one weight tending to one and all others tending to zero; the exact smallest frame eigenvalue along this sequence is \(v\varepsilon^2\). The proof covers all stated finite abelian groups conditionally on an existing difference set; no numerical extrapolation is required. The standalone exact-incidence and numerical Weyl-action checker supports the algebra but does not replace it.
+
+## Originality — PASS, with residual historical risk
+Bojarovska–Flinth (arXiv:1503.05800), Theorem 2.3, already supplies the general Gabor operator-frame bounds; their difference-set section supplies full-rank examples. Bojarovska–Paternostro (arXiv:1507.01829) already supplies the unweighted difference-set coherence and optimally sparse **fusion-frame** construction. Their results are credited rather than presented as new. The present claim is a separately quantified extremal problem: optimization **over all windows with the smallest feasible coordinate support**, complete classification of the optimizers, an exact weighted full-rank criterion, and a globally sharp variance penalty. The fusion-frame sparsity optimization has different variables and objective, while known two-sparse multiwindow span capacity has multiple windows and does not imply this single-window minimax or rigidity law.
+
+Historical overlap remains possible, particularly a less-indexed treatment of weighted perfect-difference-set Gabor tomography. The stated scientific priority is therefore limited to a documented comparison, not an independent guarantee of first discovery.
+
+## Mathematical value — PASS
+A smallest-support complete measurement system addresses the joint design constraints of sensing sparsity, identifiability of every operator, and worst-direction noise amplification. Singer's projective-plane difference sets provide an infinite, arithmetic family where the absolute information-completeness support floor is attainable. The claim identifies all optimal designs, shows that phases are free, and quantifies precisely why uneven intensities cannot be equally stable. The strict amplitude-rigidity estimate is especially pertinent when a nominally flat instrument has calibration drift. This is a complete natural extremal classification, not a single numerical recomputation or an arbitrary finite slice.
+
+## Limitations and comparison risks
+The finding uses classical Weyl spectral formulas and classical difference-set constructions, and they are not claimed as original. It gives the linear lifted-operator condition number, not an unconditional noise guarantee for nonlinear pure-state phase retrieval. Its uniqueness is among supported windows with cardinality at most the information-theoretic floor; designs with larger support may condition better. Two primary papers were inspected in their relevant proofs and sections; the available searches cannot exclude a historically equivalent unpublished or obscure treatment.
+
+Self-review: passed. Independent audit: not yet performed.
