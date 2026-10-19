@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The explicit mean solves the finite-state first-step recursion, and the explicit quartic variance solves the exact law-of-total-variance recursion with correct absorbing and boundary cases. A uniform reset word ensures finite moments and uniqueness. Polynomial residuals vanish identically; separately constructed rational Markov systems verify all initial pairs at n=3..8. The asymptotic coefficient follows from the leading terms at the unique worst-mean pair.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev 2014 proves the maximum expected pair-merging time, not the fluctuation profile.",
+        "Kisielewicz et al. 2013 (online) treat sampled-automaton shortest reset lengths and algorithms, not repeated random input on a fixed pair."
+      ],
+      "reasoning": "A general absorbing-Markov-chain fundamental matrix can algorithmically compute arbitrary moments at each fixed n, but does not itself explicitly evaluate this all-n all-pair quartic. Gusev first moments and a general variance identity do not individually state or imply this particular evaluated second-moment polynomial.",
+      "searches": [
+        "complete state-by-state random-input synchronization time distribution expectation variance classical Cerny automaton",
+        "Cerny automata random inputs variance hitting time Gusev 2014 2020",
+        "arxiv:1404.6731 Theorems 3 and 4",
+        "doi:10.1007/s10878-013-9682-0 sections 6-7"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1404.6731",
+      "doi:10.1007/s10878-013-9682-0",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gusev exact worst-mean expression agrees with specialization of the displayed mean (not original).",
+        "The 2013 random-automata study describes variance across randomly sampled deterministic reset thresholds, a different experiment."
+      ],
+      "reasoning": "Knowing expected pair-merging times cannot determine variances without the transition kernel and a new solved second-moment system. The earlier model fixes a kernel, so this theorem is derivable from it, but its novel content is the evaluated uniform formula and nonconcentration ratio rather than a restatement of a mean or a standard moment identity.",
+      "searches": [
+        "arxiv:1404.6731 §3 Theorem 3 Theorem 4 and recurrence equations (14)-(20)",
+        "doi:10.1007/s10878-013-9682-0 experimental variance section 7.6",
+        "Cerny automaton expected synchronization time two states random letters formula n cubed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1404.6731 §3 analyzes expected coalescence time; its moment equations solve only first moments.",
+        "Searches for paired hitting-time variance, coalescence dispersion and variance coefficient yielded no same expression."
+      ],
+      "reasoning": "The all-pair variance is equivalent to an exact second-hitting-moment formula once means are known; Gusev supplies means but not second moments. Different notation or exchanging a and b does not remove the need for a variance computation.",
+      "searches": [
+        "exact variance of synchronization time for pairs of states in Černý automata with independent uniform random input",
+        "second moments hitting times pair automata Černý C_n Bernoulli random letters",
+        "random synchronization Černý automaton pair coalescence time coefficient of variation sqrt(2/3)",
+        "\"Černý automaton\" \"variance\" \"random walk\" pair",
+        "arxiv:1404.6731 §3 equations (14)-(20)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact pair variance table or formula was located among the targeted records and inspected literature.",
+        "The two closest published automata records concern deterministic rank thresholds and shortest-reset word multiplicity."
+      ],
+      "reasoning": "Existing records with the same automaton do not index the random-input hitting-time variance for all initial pairs. This is an evidence-limited negative search, not a proof of bibliographic completeness.",
+      "searches": [
+        "exact variance of synchronization time for pairs of states in Černý automata with independent uniform random input",
+        "second moments hitting times pair automata Černý C_n Bernoulli random letters",
+        "\"Cerny\" \"variance\" \"random letters\" \"synchronization\"",
+        "published record 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "published record 2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0"
+      ]
+    },
+    "rationale": "Gusev (2014), Section 3, Theorems 3-4 and equations (14)-(20), gives first-moment results for this exact model, but not a second-moment equation solved for every initial pair, nor the quartic variance or nonzero limiting relative deviation. The complete article on shortest reset words concerns a distinct random variable. Semantically targeted searches of mathematical records and accessible own claims find no stronger covering statement. Residual risk of an unindexed or alternate-form variance theorem remains.",
+    "residual_risks": [
+      "Full-text inspection was concentrated on the closest primary article and the relevant sections of the companion source; unindexed work might already have a variance profile.",
+      "Several published-search matches were available only as short summaries; they were used to prioritize comparisons, not to assert exhaustive noncoverage of their full texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest primary source; first moments and worst-pair expectations only, not variance or all-pair second moments",
+        "evidence": [
+          "Theorems 3 and 4 are expectations, with recurrences (14)-(20) for first moments.",
+          "Its final Section 4 summarizes cubic expected coalescence times, without fluctuation statements."
+        ],
+        "identifier_or_url": "arxiv:1404.6731",
+        "material_read": "Complete mathematical development of Section 3 (PDF pages 5-10), introduction, stated theorems and conclusions",
+        "method": "Read original lawful arXiv PDF text and inspected mathematical equation pages",
+        "title": "Synchronizing Automata with Random Inputs",
+        "trigger": "Same automaton, same independent random-input process and exact mean formulas"
+      },
+      {
+        "assessment": "Different experiment: random automaton and its optimal reset threshold, rather than fixed automaton under iid random input",
+        "evidence": [
+          "Section 7.6 variance concerns the random variable of shortest reset lengths among automata.",
+          "The article gives no Cerny random-input pair coalescence variance profile."
+        ],
+        "identifier_or_url": "doi:10.1007/s10878-013-9682-0",
+        "material_read": "Open-access article introduction, Section 6 mathematical analysis and Section 7 random-automaton reset-length distribution and variance",
+        "method": "Read HTML full article relevant sections",
+        "title": "Computing the Shortest Reset Words of Synchronizing Automata",
+        "trigger": "Pre-2016 work about synchronizing automata, random observations and variance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef896327-20af-43a3-bbff-15b0b4ad6711",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-size variance profile and the nonvanishing asymptotic relative standard deviation quantify uncertainty in recovery under random inputs for a classical hard-to-reset automaton. The fluctuation invariant is naturally motivated and not contained in a deterministic length or mean-only result; this is neither a routine parameter change nor a finite table.",
+    "status": "PASS"
+  }
+}
