@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness (C): PASS
+
+The core vector is derived independently by comparing all coalition worths with incoming-weight sums and then applying complement-coalition bounds. A direct random-arrival calculation computes the Shapley share contributed by each recipient, giving the exact matrix identity \(\phi-c=(Q-I)h\). Irreducibility of the reverse random walk makes all nonnegative stationary vectors proportional to the positive stationary law, yielding the three exhaustive indegree regimes and unique projective calibration. For reciprocal common-weight graphs, a graph-Laplacian Dirichlet identity and the strict monotonicity of \(f(d)\) prove the componentwise-regularity criterion and exhibit a blocking complementary coalition. The arguments cover any finite admissible graph without limiting experiments. The independently formulated `verify.py` checks 771 connected labeled undirected graphs on two through five vertices and exact directed rational examples; it is corroboration, not a substitute for proof.
+
+## Originality (O): PASS, with priority risk
+
+The 2026 primary paper supplies the forward Shapley formulas and the singleton core for *arbitrary* directed weighted trust graphs; the 2024 precursor supplies the game and core existence. Those are explicitly acknowledged. The claim here concerns a different, inverse graph-design question: the complete characterization, including existence, nonexistence and unique ratios, of **positive destination-homogeneous edge weights** that force two allocation rules to agree. The proof passes through a column-stochastic reverse-graph Markov chain and its unique positive stationary law, plus an exact reciprocal-network rigidity/energy theorem, none of which are stated in those papers. This is not a new general Shapley evaluation algorithm. Source text was inspected for the same game objects and parameters, and the available mathematical records and previous findings were searched for equivalent consequences, broader coverage and variant phrasings. No result explicitly subsuming the inverse-classification theorem was found. The possibility that specialized unpublished work or an unstated corollary of a general forward formula has already established the classification remains a genuine historical-priority limitation; no independent audit has occurred.
+
+## Mathematical value (V): PASS
+
+Fairness-stability compatibility is a central interpretation gap in this exact trust-network model. The theorem resolves a natural inverse calibration problem for recipient-uniform trust assessments, rather than merely evaluating a few graph examples. It sharply separates three graph topologies, supplies an explicit unique weight design in the feasible nontrivial case, and identifies an absolute obstruction when indegree-one and higher-indegree vertices coexist. The reciprocal specialization shows exactly when a standard uniform-weight social network admits a fair and coalitionally stable trust score, with an explicit blocking coalition on every irregular component. It provides a usable structural classification and calibration rule, not a change of notation or a numerical table.
+
+## Closest literature and limits
+
+The primary comparison is Ryzák–Kroupa (2026), arXiv:2605.18157v1, Sections 2–5, which establishes a forward formula and a singleton core. Bandhana–Kroupa–García (2024) gives the same underlying game but does not characterize calibration. Khmelnitskaya–Selcuk–Talman (2016) treats a different directed graph-constrained TU-game Shapley concept; only its abstract was available in this comparison, so broader related literature remains a priority risk. Arbitrary per-edge weights and non-strongly connected digraphs are outside the theorem. Exact finite replay does not certify infinite cases and no external validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
