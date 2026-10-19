@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For lengths 1–10, 16-letter substitution blocks and allowed adjacent ancestors {00,01,10} exhaust all factors in just 48 slices. All fourteen scattered-pattern counts follow from a stated exact induction, giving a single third-binomial doubleton at length ten and none earlier; both seed signatures and their order-four distinction are exhibited. For any morphism, every target scattered-pattern count of order at most three is a fixed linear combination of source scattered counts of order at most three; injective substitution preserves distinctness. Thus iterates are genuinely different equivalent factors for every nonnegative power, with no inference from mere finite testing. Independent finite-prefix and integer-recurrence checks corroborate the argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 Thue–Morse paper treats fixed points of a different morphism (0→01, 1→10), not the period-doubling substitution (0→01, 1→00).",
+        "The 2022 article covers general morphic and binomial-complexity principles but singles out period-doubling third-binomial behavior only as a computational observation."
+      ],
+      "reasoning": "The explicit period-doubling first-defect statement does not follow from the known Thue–Morse results by substituting the word name; the two substitutions and their factor languages differ. General morphism stability supplies the last step after, but not the construction or sharp minimality of, the collision seed.",
+      "searches": [
+        "3-binomial equivalent period doubling factors 10 times powers of two morphism infinite collision",
+        "period doubling word factor lengths 2^m-1 2^m+1 3-binomial complexity equal factor complexity",
+        "Computing the k-binomial complexity of generalized Thue--Morse words"
+      ]
+    },
+    "checked_sources": [
+      "Rigo–Stipulanti–Whiteland, arxiv:2201.04603, Section 7.1 (author-uploaded full text)",
+      "Lejeune–Rigo–Rosenfeld, arxiv:2001.11732 (repository abstract and theorem overview)",
+      "Lejeune–Leroy–Rigo, DOI:10.1016/j.jcta.2020.105284 (published abstract; Thue–Morse)",
+      "Lejeune 2021 doctoral thesis, http://hdl.handle.net/2268/259266 (bibliography and citation only; full text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lejeune–Rigo–Rosenfeld (2020) describes general k-binomial equivalence and gives an algorithm for order two; its accessible abstract does not state a period-doubling third-order factor classification.",
+        "Rigo–Stipulanti–Whiteland (2022) says computer experiments suggest a third-binomial deficit for period-doubling, cites Lejeune (2021) for a separate order-two theorem, and does not establish the new exact first-failure theorem in the inspected section."
+      ],
+      "reasoning": "The current claim identifies the minimal length and sole collision among a specific infinite word’s factors, then proves an unbounded family by combining the seed with a morphism lemma. Neither a general lower bound for arbitrary binary words nor a second-binomial count implies this factor-specific third-binomial classification.",
+      "searches": [
+        "Rigo Stipulanti Whiteland 2022 period doubling third binomial complexity",
+        "arxiv:2001.11732",
+        "arxiv:2201.04603"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, arXiv:2201.04603, Section 7: for the period-doubling word, third-binomial complexity is reported experimentally to be strictly below factor complexity.",
+        "No first-collision length or explicit dyadic sequence of equivalent factors is stated in the inspected period-doubling discussion."
+      ],
+      "reasoning": "The earlier experimentally observed strictness is qualitatively related, but not an already proved finite threshold with a unique witness or a proof of strictness at infinitely many prescribed dyadic lengths. The exact statement is stronger than a numerical observation.",
+      "searches": [
+        "period doubling morphism 0 to 01 1 to 00 3-binomial complexity first collision factors length 10 0101010001 1000101010",
+        "Rigo Stipulanti Whiteland 2022 period doubling third binomial complexity",
+        "arxiv:2201.04603 Section 7.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest directly relevant article gives a theorem about second-binomial complexity at powers of two but only an empirical statement about third-binomial complexity.",
+        "No inspected primary text or indexed result supplied the sequence (2,3,5,6,8,10,11,12,14,15) of third-binomial class counts through length ten for period-doubling factors."
+      ],
+      "reasoning": "The length-ten count 15 and unique doubleton are verified from a complete factor certificate rather than a pre-existing table. Search failure alone is not considered a guarantee of unique discovery.",
+      "searches": [
+        "period doubling word k-binomial inequivalent factors b3(10) 15 factor complexity 16",
+        "\"period doubling\" \"binomial complexity\" \"3-binomial\"",
+        "word 0101010001 1000101010 binomial equivalent"
+      ]
+    },
+    "rationale": "The closest explicitly relevant full-text discussion (arxiv:2201.04603 §7) gives only a computational strictness indication for third-binomial period-doubling and cites a proven second-binomial theorem; it does not establish the exact initial failure or a proved infinite dyadic witness family. The corresponding Thue–Morse formulas and general binary order-two equivalence results do not imply the period-doubling order-three collision. Several actual semantic and phrase searches returned no exact indexed equivalent, but absence is not proof of novelty and an inaccessible 2021 thesis remains a real residual risk.",
+    "residual_risks": [
+      "The full 2021 Lejeune doctoral thesis was inaccessible and might contain an unindexed equivalent length-ten example.",
+      "A general theorem or enumerated data in other uninspected literature could subsume the proposed sharp threshold.",
+      "No general formula for B_3(n) of the period-doubling word is claimed or implied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The period-doubling statement is an experimental strictness observation, not an explicit minimal collision classification or a proved infinite dyadic family.",
+        "evidence": "Section 7.1 paragraph beginning “Even with an apparently simple situation”; second-binomial property credited to the 2021 thesis, then computer experiments for third-binomial complexity.",
+        "identifier_or_url": "arxiv:2201.04603 / https://www.researchgate.net/publication/380248131_Characterizations_of_families_of_morphisms_and_words_via_binomial_complexities",
+        "material_read": "Public author-uploaded full-text rendering: abstract, discussion of morphic examples, Section 7.1 including the period-doubling passage, and adjacent theorems and references.",
+        "method": "Accessed full-text HTML rendering and compared mathematical assertions and substitutions.",
+        "title": "Characterizations of families of morphisms and words via binomial complexities",
+        "trigger": "The only primary publication found that explicitly discusses third-binomial complexity of the period-doubling word."
+      },
+      {
+        "assessment": "General 2-binomial classification does not immediately supply third-binomial period-doubling factor class counts.",
+        "evidence": "The paper describes a complete binary 2-binomial equivalence algorithm and broad structural results, not a period-doubling third-binomial table in the inspected accessible material.",
+        "identifier_or_url": "arxiv:2001.11732 / https://orbi.uliege.be/handle/2268/249124",
+        "material_read": "Published repository abstract and theorem overview for the binary 2-binomial case.",
+        "method": "Read accessible HTML abstract and theorem summary; did not assert exhaustive full-text exclusion.",
+        "title": "On the binomial equivalence classes of finite words",
+        "trigger": "General characterization of binomial equivalence potentially stronger than an instance-specific result."
+      },
+      {
+        "assessment": "Cannot exclude uninspected third-binomial examples or a stronger theorem; treated as residual risk rather than a negative coverage assertion.",
+        "evidence": "Rigo–Stipulanti–Whiteland (2022), Section 7.1, attributes the second-binomial statement to thesis Proposition 4.5.1.",
+        "identifier_or_url": "http://hdl.handle.net/2268/259266",
+        "material_read": "Only thesis title, bibliographic citation and its attributed 2-binomial Proposition 4.5.1 from the citing article.",
+        "method": "Attempted official persistent URL; full text was inaccessible.",
+        "title": "On the k-binomial equivalence of finite words and their applications",
+        "trigger": "2021 thesis cited in the closely relevant 2022 article for the period-doubling word."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2426d75-ed82-4a60-b0db-2c8c2224960c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The earliest length where scattered-order-three statistics cease to determine a factor of the canonical period-doubling automatic word is an intrinsic, sharply defined reconstruction invariant. The complete initial equivalence-class classification and unique natural witness sharpen a previously merely experimental complexity separation. The morphic propagation gives proven information-theoretic ambiguity at unbounded dyadic lengths, rather than a routine isolated value; all claimed scope boundaries are explicit.",
+    "status": "PASS"
+  }
+}
