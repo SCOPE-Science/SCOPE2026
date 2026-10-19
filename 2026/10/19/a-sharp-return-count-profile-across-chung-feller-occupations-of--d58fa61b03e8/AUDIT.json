@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For uniform 2n-step symmetric bridges, the marked excursion generator F=1/(1-u(P(x)+P(y))) is exact. Differentiation yields the conditional Catalan convolution; comparing successive occupations leaves a strictly positive central Catalan sum, handling all n and parity boundaries. A uniform Catalan tail bound justifies the asymptotic Riemann limit. Independent excursion signs and exact generating-series extraction give Cov((A-n/2)^2,K)=-n(n-1)4^n/[48 binom(2n,n)], with equality only at n=1. The standalone verifier passed 25,711 corroborative tests, including exhaustive bridges through length 16. No finite experiment is taken as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banderier & Flajolet 2002, Basic analytic combinatorics of directed lattice paths, bridge and excursion generating-function sections, PDF at https://www-lipn.univ-paris13.fr/~banderier/Papers/tcs_banderier_flajolet_2002.pdf.",
+        "Lachal 2010 arxiv:1003.5009 full text, bridge endpoint/occupation formula Theorems 6.1-6.2."
+      ],
+      "reasoning": "General algebraic path enumeration and unmarked occupation generating functions have sufficient combinatorial reach to be starting points for the present derivation. They do not immediately yield its evaluated conditional return-count profile and strict sign theorem; those would require the return-marked specialization and nontrivial coefficient comparison. Implicit coverage by other uninspected specialized results remains possible.",
+      "searches": [
+        "\"random walk bridge occupation time fixed number of zero returns exact distribution moments\" (published-finding corpus)",
+        "\"simple symmetric random walk bridge conditional occupation time positive excursions number of returns conditional variance Catalan excursion lengths\" (published-finding corpus)",
+        "\"conditional number of excursions given time positive Dyck bridge Chung Feller Catalan convolution\" (web)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1003.5009, full accessible text",
+      "doi:10.1073/pnas.35.10.605, indexed first-page theorem; full page scan not read",
+      "Banderier–Flajolet 2002 OA paper relevant sections",
+      "Pitman 1999 Brownian local-time paper relevant sections",
+      "published-finding corpus semantic search for bridge excursions, positive sojourn, conditioned zero returns, Catalan kernels, and centered occupation covariance",
+      "Accessible own claim-ledger titles/claims for bridge, returns, local time, and occupation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chung & Feller 1949 Theorem 2A implies marginal uniformity of occupation but does not by itself determine the conditional mean of K.",
+        "Lachal arxiv:1003.5009 evaluates bridge positive sojourn distributions, not a joint marked return-count distribution.",
+        "Previously accessible own claim 83173eaf-c17d-40f6-b7dc-95d85a34f819 analyzes an unconditioned walk maximum jointly with zero-returns, not conditioned bridge occupation.",
+        "Previously accessible own claim 254aad83-cd24-40d5-a5e0-d83005dc8f25 analyzes Brownian bridge pointwise absolute height versus local time, not finite bridge occupation-return regression."
+      ],
+      "reasoning": "Neither the random-walk maximum–return-count result nor the Brownian bridge local-time result implies a finite bridge conditional expectation across exact occupation levels. A generator with the same primitive excursion building block becomes stronger only if it explicitly retains both excursion count and positive occupation and evaluates the coefficient ratios and signs. The checked earlier sources do not state such a theorem.",
+      "searches": [
+        "\"Chung Feller law random walk bridge positive occupation time conditioned number of returns to zero, conditional expected excursion count strictly unimodal\" (published-finding corpus)",
+        "\"random walk bridge occupation time fixed number of zero returns exact distribution moments\" (published-finding corpus)",
+        "own ledger title/claim/parameter/alias dedup for walk return count, Brownian bridge local time, positive occupation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chung & Feller 1949, Theorem 2A: only the uniform conditional distribution of positive sojourn time is explicitly identified in retrieved full-text indexing; DOI 10.1073/pnas.35.10.605.",
+        "Lachal arxiv:1003.5009, Theorems 6.1-6.2: sojourn-time and endpoint joint distributions, without an explicit return-count variable."
+      ],
+      "reasoning": "Aliases searched include zero-returns, excursions, local time, positive sojourn, Chung–Feller occupation, and Dyck-bridge decomposition. The precise claim conditions the number of returns on the complete positive occupation, which is absent from the stated Chung–Feller occupation marginal and Lachal endpoint marginal.",
+      "searches": [
+        "\"Chung Feller bridge conditional number of excursions sojourn time variance Dyck path excursion decomposition\" (published-finding corpus)",
+        "\"simple symmetric walk bridge positive sojourn count excursion number joint Catalan bivariate generating function conditional expectation\" (published-finding corpus)",
+        "\"Chung Feller expected number of returns conditioned occupation equal half bridge excursions\" (web)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest search returns include 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17, concerning elephant cover times rather than bridge occupation-return moments.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-neutral-periodic-fiber-length-spectrum-for-the-heterochaos--0d87905dcc5d concerns reflected Dyck bridges in a distinct deterministic geometry problem."
+      ],
+      "reasoning": "No directly matching evaluated conditional bridge-return table or exact coefficient formula appeared in the queried mathematical database results. Search nonappearance is not treated as proof of novelty.",
+      "searches": [
+        "\"exact negative covariance return count squared centered occupation time simple random walk bridge\" (published-finding corpus)",
+        "\"simple random walk bridge covariance squared occupation time number of returns to zero\" (web)",
+        "\"Brownian bridge local time occupation positive time conditional expectation symmetric unimodal\" (published-finding corpus)"
+      ]
+    },
+    "rationale": "The assessed new claim concerns the return-marked Chung–Feller bridge law and the exact conditional return-count profile. The 1949 Chung–Feller occupation theorem and Lachal 2010 endpoint/occupation generating functions do not themselves provide return-count marking. The evaluated strict unimodality and centered quadratic covariance were not identified in inspected accessible passages or targeted record searches, although general path-combinatorial machinery could implicitly imply them; historical priority remains provisional.",
+    "residual_risks": [
+      "Chung–Feller 1949 later scanned pages could contain an implicit or explicit joint return-count formula; full-text access was limited.",
+      "Generic path generating functions in earlier work may implicitly yield the coefficient formula when marked by excursions; this is not a historical priority certification.",
+      "Search indexing may omit obscure published formulas using alternative terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers occupation and endpoint, not a return-marked joint distribution or evaluated conditional count profile.",
+        "evidence": "2010-03-25 original arXiv posting; Theorems 6.1–6.2 and MSC primary 60G50.",
+        "identifier_or_url": "https://arxiv.org/abs/1003.5009",
+        "material_read": "Full accessible arXiv HTML text; definitions, generating functions, and Theorems 6.1–6.2",
+        "method": "Inspected relevant full-text sections and compared quantified variables and formulas",
+        "title": "Sojourn time in Z+ for Bernoulli random walk on Z",
+        "trigger": "Same bridge model and exactly the Chung–Feller positive occupation statistic"
+      },
+      {
+        "assessment": "Contains general enumeration machinery, but inspected results do not evaluate occupation-conditioned number of returns.",
+        "evidence": "Banderier–Flajolet, Theoretical Computer Science 281 (2002), bridge and excursion generating functions.",
+        "identifier_or_url": "https://www-lipn.univ-paris13.fr/~banderier/Papers/tcs_banderier_flajolet_2002.pdf",
+        "material_read": "Introduction, bridge/excursion framework and corresponding corollary; first-page PDF visual inspected",
+        "method": "Accessible OA PDF text inspection of relevant theorems and definitions",
+        "title": "Basic analytic combinatorics of directed lattice paths",
+        "trigger": "Broad generating functions of paths, bridges and excursions might dominate a coefficient formula"
+      },
+      {
+        "assessment": "Continuous Brownian bridge local time, not the discrete occupation-conditioned number of returns; no direct finite implication.",
+        "evidence": "Pitman, Séminaire de Probabilités XXXIII (1999), pp. 388–394.",
+        "identifier_or_url": "https://www.numdam.org/item/SPS_1999__33__388_0.pdf",
+        "material_read": "Introduction, relevant statements and formulas; PDF first-page visual inspected",
+        "method": "Lawful open-access PDF inspected",
+        "title": "The distribution of local times of a Brownian bridge",
+        "trigger": "Potential continuous analogue or stronger local-time dependence theorem"
+      },
+      {
+        "assessment": "Theorem 2A supplies uniform bridge occupation; remaining uninspected pages preserve historical-priority risk and are not claimed NOT_COVERING.",
+        "evidence": "PNAS 35 (1949), 605–608; DOI 10.1073/pnas.35.10.605, Theorem 2A.",
+        "identifier_or_url": "https://doi.org/10.1073/pnas.35.10.605",
+        "material_read": "Indexed original PDF first-page text containing theorem statements (especially Theorem 2A); PDF rest inaccessible to full reading",
+        "method": "OA original PDF indexed text and PubMed bibliographic landing page; direct full PDF retrieval encountered access challenge",
+        "title": "On fluctuations in coin-tossing",
+        "trigger": "Original Chung–Feller occupation theorem is closest historical prior art"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d58fa61b-03e8-4e0b-82cd-5a38b106c089",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positive occupation time and zero-return count are canonical joint bridge path functionals, but their linear covariance vanishes by sign symmetry. The precise full-size conditional return regression is strictly maximized by balanced occupation, has explicitly classified parity modes, and admits a nontrivial macroscopic shape with O(sqrt(n)) central growth against bounded endpoint returns. The exact negative centered quadratic covariance captures meaningful nonlinear dependence relevant to excursions and local-time/occupation studies. These are not standard marginal Chung–Feller facts or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
