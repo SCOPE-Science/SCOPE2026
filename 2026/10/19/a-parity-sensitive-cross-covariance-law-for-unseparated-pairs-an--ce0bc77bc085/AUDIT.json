@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each \\(n\\ge3\\), the two marginals are \\(1/n\\). When a fixed-point site touches the chosen succession edge, both images are prescribed, giving joint probability \\(1/[n(n-1)]\\). Otherwise conditioning on a fixed value leaves \\((n-1)(n-2)\\) ordered image pairs, exactly \\(n-1-c_j\\) of which are consecutive, where \\(c_j\\) is one at an endpoint and two in the interior. Subtraction proves every matrix entry. Scaling the matrix and inspecting its first and interior columns yields the complete alternating left kernel, proving the even/odd rank. Row and column sums yield all aggregate identities; \\(n=2\\) is handled directly. Actual standalone code independently exhausts \\(n=2\\) to \\(8\\) and checks matrix rank to \\(40\\). No unproved infinite inference comes from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Fu 2024, sections 2–4: joint \\((\\mathrm{exc},\\mathrm{drop},\\mathrm{fix})\\) and \\((\\mathrm{jump},\\mathrm{des},\\mathrm{lsuc})\\) generating functions; these do not jointly mark fixed points and succession positions for the same permutation.",
+        "Yiting Li 2015, sections 1 and 6: straight ménage restrictions use \\(\\pi(i)\\ne i+1\\), a different condition from \\(\\pi(i+1)=\\pi(i)+1\\).",
+        "Published related fixed-point/descent calculation: descent uses relative ordering and lacks the exact-consecutive-value condition."
+      ],
+      "reasoning": "A stronger theorem would need a same-permutation joint generating function with enough position labels to differentiate into this full covariance matrix, or explicit conditional laws. The inspected broader equidistribution results and enumerators do not provide such data; an unknown uninspected general enumerator is a residual risk, not an affirmative implication.",
+      "searches": [
+        "For uniform permutation succession indicators A_i = 1{pi(i+1)=pi(i)+1} and fixed-point indicators F_j=1{pi(j)=j}, cross covariance positive at boundary or incidence and negative in bulk, parity rank matrix n-1 versus n-2",
+        "Diaconis Evans Graham succession fixed point same permutation rank parity alternating uncorrelated contrasts",
+        "Diaconis Evans Graham unseparated pairs fixed points coupling dependence",
+        "arxiv:2402.02743",
+        "arxiv:1502.06068",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ]
+    },
+    "checked_sources": [
+      "berkeley:statistics-technical-report-822",
+      "arxiv:1308.5459",
+      "arxiv:2402.02743",
+      "arxiv:1502.06068",
+      "https://dmtcs.episciences.org/2846",
+      "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+      "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+      "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diaconis–Evans–Graham 2013 §1 Theorem 1.1 and §2 proof: the law of either point process is fixed; joint occurrence of a succession and fixed point within the same permutation is not supplied.",
+        "Chen–Fu 2024 §4: their bijection transports statistics between permutations, not a simultaneous mixed moment under the identity coupling.",
+        "The fixed-point/descent cross-covariance profile treats \\(\\pi(i)>\\pi(i+1)\\), which is disjoint from the positive exact succession event, and cannot infer its mixed probabilities."
+      ],
+      "reasoning": "Neither the marginal equality nor the descent-based formula implies the displayed covariance signs or the odd/even rank. The new claim computes the missing identity-coupled joint events and then a nontrivial rank classification. It does not reassert the known marginal equality as a novel theorem.",
+      "searches": [
+        "Diaconis Evans Graham succession fixed point same permutation rank parity alternating uncorrelated contrasts",
+        "unseparated pairs fixed points covariance conditional incidence and boundary uniform permutations",
+        "arxiv:1308.5459",
+        "arxiv:2402.02743",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Evans–Graham 2013, Theorem 1.1: equality in law of unseparated-position and restricted fixed-point sets.",
+        "Chen–Fu 2024, Introduction and Theorem 4.3: succession/left-succession and fixed-point bijections, not simultaneous indexed mixed moments."
+      ],
+      "reasoning": "The relevant aliases are unseparated pairs, adjacent positive successions, bonds, and fixed points. The marginal random-set equivalence is not equivalent to same-sample cross covariance: independent, identical, and permutation-derived couplings can have the same marginal laws but different mixed second moments. A bijection matching sets across different permutations likewise does not calculate within-one-permutation correlations.",
+      "searches": [
+        "permutation successions fixed points covariance",
+        "unseparated pairs fixed points joint cross covariance matrix adjacency successions fixed positions",
+        "permutation successions bonds pi(i+1)=pi(i)+1 and fixed point indicators joint exact covariance",
+        "arxiv:1308.5459",
+        "arxiv:2402.02743"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously published related findings include fixed-point/descent and inversion covariance profiles and do not provide a succession/fixed-point cross-covariance table.",
+        "Direct literature searches for succession/fixed-point covariance returned Diaconis–Evans–Graham and related marginal/statistic papers, but no explicit indexed table."
+      ],
+      "reasoning": "This is a bounded negative search, not a proof of global database uniqueness. The observed closest statements differ in their random variables. No exact indexed covariance matrix, parity rank, or alternating-null contrast was found in the checked sources.",
+      "searches": [
+        "For uniform permutation succession indicators A_i = 1{pi(i+1)=pi(i)+1} and fixed-point indicators F_j=1{pi(j)=j}, cross covariance positive at boundary or incidence and negative in bulk, parity rank matrix n-1 versus n-2",
+        "unseparated pairs fixed points covariance conditional incidence and boundary uniform permutations",
+        "permutation successions fixed points covariance",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+      ]
+    },
+    "rationale": "The indexed cross-covariance in a single uniform permutation is not determined by the known equality in distribution of succession-position and restricted fixed-point sets. The Diaconis–Evans–Graham paper establishes that marginal set identity but no within-permutation cross covariance. Chen–Fu treats bijective equidistribution and different joint statistics, not this \\((n-1)\\)-by-\\(n\\) cross matrix. The closest indexed covariance result located concerns fixed points and descents; a descent depends on an inequality, not an exact \\(+1\\) difference. No overlapping succession/fixed-point claim was identified in the sources compared. Possible implicit coverage in uninspected earlier multi-statistic enumerations remains a stated priority risk.",
+    "residual_risks": [
+      "An older refined succession/fixed-point joint enumerator not located by the bounded searches could implicitly imply the indexed formula.",
+      "The 2010 adjacency/descents article was accessible only by its abstract; its full text could contain additional observations not visible in the retrieved material.",
+      "No independent literature or scientific validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_EQUIDISTRIBUTION_ONLY for this comparison; no within-permutation indexed cross-moment theorem located",
+        "evidence": "Theorem 1.1 identifies the laws of the sets S_n and T_n separately. Section 2 counts arbitrary forced successions without simultaneous fixed-point constraints.",
+        "identifier_or_url": "https://arxiv.org/abs/1308.5459",
+        "material_read": "Theorem 1.1, Remark 1.2, full marginal-set counting proof in §2, Markov construction §3, and sections on bijections and circular analogues",
+        "method": "Public primary full text (HTML rendered from arXiv) with searches for covariance, joint moments, and conditioning",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Exact same two natural random sets and possible direct or dominating theorem"
+      },
+      {
+        "assessment": "Related equidistribution and separate bivariate enumerations do not provide the same-permutation indexed mixed covariance",
+        "evidence": "§2 equation (2.2), §3 generating functions and §4 Theorem 4.3 distinguish transported statistics from the pair A_i,F_j on the same permutation.",
+        "identifier_or_url": "https://arxiv.org/pdf/2402.02743",
+        "material_read": "Full accessible primary PDF text: introduction, definitions and §2 grammar for (exc,drop,fix), §3 for (jump,des,lsuc), and §4 set-valued bijections through Theorem 4.3",
+        "method": "Primary arXiv PDF text extraction via literature reader; visual screenshot request failed (source transport); mathematical text inspected",
+        "title": "A Grammar of Dumont and a Theorem of Diaconis-Evans-Graham",
+        "trigger": "Refinement of the succession–fixed-point equivalence might dominate indexed covariance"
+      },
+      {
+        "assessment": "The ménage condition on pi(i)=i+1 is a different event from adjacent-image successions pi(i+1)=pi(i)+1; no statement subsumes the indexed mixed covariance",
+        "evidence": "§1.1 defines straight ménage permutations using pi(i) ≠ i or i+1; §6 formulas mark those conditions, not adjacent-image differences.",
+        "identifier_or_url": "https://arxiv.org/html/1502.06068v1",
+        "material_read": "Introduction §1 and structural cycle-enumeration §6, including definitions and generating functions",
+        "method": "Primary public arXiv HTML full text, definitions compared directly",
+        "title": "Ménage Numbers and Ménage Permutations",
+        "trigger": "Possible joint enumeration of events named successions and fixed points"
+      },
+      {
+        "assessment": "Its documented joint variables are adjacencies, descents, and Mahonian statistics, not indexed fixed-point indicators; incomplete material inspection remains a risk",
+        "evidence": "Abstract describes number of adjacencies and descents; does not mention fixed-point cross moments.",
+        "identifier_or_url": "https://dmtcs.episciences.org/2846",
+        "material_read": "Published abstract and bibliographic information only; related HAL full text access was denied",
+        "method": "Public repository abstract; attempted primary full text blocked",
+        "title": "On the joint distribution of adjacencies, descents and some Mahonian statistics",
+        "trigger": "Old work on consecutive values at adjacent positions might contain mixed indicators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce0bc77b-c085-4e16-930f-d4cc9807f710",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The known equality in distribution of two shuffle-diagnostic point processes naturally motivates measuring their *same-sample* dependence. The theorem fully resolves an indexed covariance-sign classification with positive boundary/incidence but negative interior entries and shows a sharp rank loss exactly for odd \\(n\\), equivalent to an uncorrelated alternating succession mode. The rank classification is not a marginal-law corollary; the boundary-dominated aggregate dependence and parity-null mode are structurally informative for linear prediction and null diagnostics. No downstream general theorem is claimed.",
+    "status": "PASS"
+  }
+}
