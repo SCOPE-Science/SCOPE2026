@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof uses an exact change of variables on each of four inverse branches, proving a joint product measure for the next state and current label. Conditioning on the initial state and previous choices gives exactly one fresh Bernoulli entropy per step. The entropy difference produces the complete finite-block information identity, not merely an asymptotic. The universal rate bounds follow from an explicit strictly convex integral and are sharp at excluded parameter boundaries. Algebraic and independent numerical checks are reproducible with `verify.py`.
+
+**Originality — PASS, subject to priority risk.** The source's quadratic maps, linear probabilities and uniform invariant measure are prior discoveries, not a new theorem. Its materially inspected Section 5 does not give the four-label IID law, finite-horizon initial-state mutual-information identity, or the optimized global rate interval. Searches also considered general skew-product descriptions and branch-entropy/expansion equivalences: these provide methodological background but no identified theorem computing this complete specialization. Because the main proof uses standard Jacobian and entropy operations, earlier unindexed derivations remain a meaningful risk.
+
+**Value — PASS.** The four-observable structural independence is counterintuitive for nonlinear, position-dependent switching, and the exact all-horizon information budget quantifies how increasingly fine initial-state information is encoded into a random-looking output sequence. The sharp rate interval across the full natural parameter domain distinguishes perfect balanced four-symbol output from changing information acquisition; neither follows merely from the existence of Lebesgue stationary density without the branchwise calculation.
+
+**Closest literature and limitations.** Góra–Li–Boyarsky–Proppe, arXiv:1404.7455v1, Section 5, is the identical model and its known stationary measure. Bahsoun–Bose–Quas (2008) concerns general representations. No uniqueness of all invariant measures or assertion for deterministic initial states is made. Standard information/Jacobian identities could subsume the abstract technique, and historical priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
