@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Explicit four disjoint rotation classes and reverse ordering prove exact transfer for all primitive cyclically 11-free inputs. The parity-indexed preceding-symbol calculation gives the four blocks. The period-doubling word has odd ones count and length a power of two, proving primitivity. The transfer segments give BWT_0 recurrence, BWT_1 all zeros, and exactly two new linear runs at each level k>=3. Base BWT(W_2)=1000. Direct and cyclic suffix-doubling checkers independently verify finite instances but are not invoked as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DLT 2022 main theorem: O(log n) for binary pure morphic words",
+        "CPM 2023 Proposition 31: theta additive sensitivity Omega(sqrt(n)) on a constructed family",
+        "IWOCA 2019 Theorems 2,5: exact BWT recurrences on distinct substitutions"
+      ],
+      "reasoning": "General O(log n) covers growth order only, not equality 2k-2. Theta sensitivity on other inputs does not force any particular growth on its fixed-point approximants. The earlier exact recurrences use other substitutions and do not imply the four-block theta transfer.",
+      "searches": [
+        "arxiv:2202.02609",
+        "doi:10.1007/978-3-030-25005-8_32",
+        "doi:10.4230/LIPIcs.CPM.2023.10",
+        "exact Burrows Wheeler transform run count 2m minus 2 on m-fold period doubling substitution 0->01 1->00"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.4972",
+      "doi:10.1007/978-3-030-25005-8_32",
+      "arxiv:2202.02609",
+      "doi:10.4230/LIPIcs.CPM.2023.10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Currie et al. 2013 Theorem 6 characterizes infinite extremal words, different optimization",
+        "DLT 2022 bounds are order-of-growth statements",
+        "CPM 2023 period-doubling examples have increments 0,2,4 depending on input and Lemma 29 exhibits arbitrary increases"
+      ],
+      "reasoning": "Infinite extremal lex words do not order all finite circular conjugates; a bound O(log n) does not fix the exact coefficient and offset; and constructed high-sensitivity examples are not the fixed-point iterates. Thus none implies the new equality or its explicit transfer.",
+      "searches": [
+        "arxiv:1301.4972",
+        "arxiv:2202.02609",
+        "doi:10.4230/LIPIcs.CPM.2023.10",
+        "exact Burrows Wheeler transform run count 2m minus 2 on m-fold period doubling substitution 0->01 1->00"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "BWT described equivalently as sorted cyclic conjugates and last-column transformation; CPM 2023 Section 2",
+        "IWOCA 2019 Theorems 2 and 5 exact transformed words for other morphisms"
+      ],
+      "reasoning": "Looked for rotation sorting, last-column words, conjugate-order transfer and cyclic 11 avoidance, not only identical formula notation. No inspected theorem is equivalent to the four-block complemented reversal identity.",
+      "searches": [
+        "period doubling 0 maps to 01 1 maps to 00 BWT run count 2k-2 cyclic rotations exact",
+        "Burrows Wheeler last column period-doubling fixed point finite approximants substitution recursive BWT",
+        "lexicographic sorted conjugate BWT of binary words avoiding cyclic 11 transfer inverse complemented reverse",
+        "arxiv:2202.02609",
+        "doi:10.4230/LIPIcs.CPM.2023.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously recorded exact distributions for binary words with exactly three ones concern fixed-weight BWT runs, not period-doubling substitution iterates.",
+        "Previously recorded fixed-weight maximal-run asymptotics keep the number of ones fixed while word length grows; period-doubling iterates have exponentially growing weight."
+      ],
+      "reasoning": "No matching exact BWT run table or equivalent all-k formula in inspected records; finite experiments are not originality evidence and unindexed tables remain possible.",
+      "searches": [
+        "period doubling 0 maps to 01 1 maps to 00 BWT run count 2k-2 cyclic rotations exact",
+        "Burrows Wheeler last column period-doubling fixed point finite approximants substitution recursive BWT",
+        "cyclic BWT exact recurrence of period doubling prefix equal-letter runs 2 log2 length minus 2",
+        "BWT period doubling morphic words exact runs cyclic rotations"
+      ]
+    },
+    "rationale": "Comparisons of full primary text, claim implications and nearby mathematical research records found no statement determining BWT(theta^k(0)) or the general 11-avoiding word transfer. The general morphic logarithmic bound is substantially weaker; the period-doubling sensitivity constructions apply to other inputs, so neither implies the exact k-dependence. Indexed historical BWT claims concern all indexed words of a fixed Hamming weight, not this increasing-weight substitution sequence or its exact BWT last column. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "An unindexed older explicit BWT computation for period-doubling approximants could cover the identity.",
+      "Unpublished or unavailable mathematical records may contain an equivalent formulation.",
+      "The cyclic sentinel-free BWT normalization differs from sentinel-based texts and could conceal terminological overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: orders shift-orbit infinite words, not finite cyclic rotation BWT or run counts",
+        "evidence": [
+          "arxiv:1301.4972, Theorem 6; morphism and hypothesis in Section 6"
+        ],
+        "identifier_or_url": "arxiv:1301.4972",
+        "material_read": "Full PDF 14 pages, especially Section 6 and Theorem 6 on period-doubling extremal infinite words",
+        "method": "Opened lawful arXiv full PDF; examined statement and proof region",
+        "title": "Extremal words in morphic subshifts",
+        "trigger": "Same 0->01,1->00 period-doubling morphism and lexicographic order"
+      },
+      {
+        "assessment": "NOT_COVERING: addresses Thue–Morse, generalized Fibonacci, compositions; does not state present period-doubling BWT transfer",
+        "evidence": [
+          "IWOCA 2019, Theorems 2 and 5 and the listed substitutions"
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-030-25005-8_32",
+        "material_read": "Full lawful openly available 12-page preprint; Sections 3.1, 3.2, 3.3 and Theorems 2 and 5",
+        "method": "Read complete text from institutional lawful OA manuscript",
+        "title": "Burrows–Wheeler Transform of Words Defined by Morphisms",
+        "trigger": "Exact BWT structures for substitution-generated finite words, plausible general theorem"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: bounds binary morphic BWT at logarithmic scale but no coefficient/offset or transfer identity for theta",
+        "evidence": [
+          "arxiv:2202.02609, introduction and main BWT upper-bound results"
+        ],
+        "identifier_or_url": "arxiv:2202.02609",
+        "material_read": "Full 20-page arXiv article; introduction, definitions, main statements, proof and examples",
+        "method": "Opened arXiv full PDF and read statement ranges and sections for exact cases",
+        "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+        "trigger": "General O(log n) upper bounds may dominate exact run claim"
+      },
+      {
+        "assessment": "NOT_COVERING: arbitrary specially chosen input words yield unbounded increases; no iteration formula on theta^k(0). General sensitivity statement cannot imply exact restricted growth",
+        "evidence": [
+          "CPM 2023, Example 18, Lemma 29, Proposition 31"
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2023.10",
+        "material_read": "Full 18-page lawful OA article; Sections 4–6, Example 18, Lemma 29, Proposition 31",
+        "method": "Read primary PDF and checked construction of theta-sensitive input words",
+        "title": "On the Impact of Morphisms on BWT-Runs",
+        "trigger": "Explicit analysis of theta=(ab,aa), possible same-substitution implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4c26c16-cc06-4b93-9be4-982ce8d63981",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "BWT run count is a standard precise measure of compressibility and compressed-index size. A sharp all-level formula identifies the exact coefficient and offset in a non-Sturmian automatic family, beyond a general asymptotic bound. A reusable exact BWT last-column transfer for every primitive cyclic 11-avoiding binary word supplies structural explanation and potential algorithmic utility.",
+    "status": "PASS"
+  }
+}
