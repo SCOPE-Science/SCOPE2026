@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** The minimum is established by complete enumeration of every \(k\)-subset of the thirty-vertex set for \(1\le k\le5\), using the exact defining 990 edge-pair separation constraints. The first implementation enumerates all 4560 bases and 37320 jumps and executes 4560 complete BFS distance calculations. A second C++17 program independently reconstructs the graph and checks the same claims with base-five edge-distance signatures and its own all-source BFS. The complete state, transition, and distance-seven-pair lists are bundled and reproducible. This is a finite theorem: neither selective experiments nor nonterminating search are used as evidence. All definitions and endpoint conventions are explicit.
+
+**Originality — PASS, subject to residual literature risk.** The primary edge-metric-dimension paper [1] supplies the invariant but, in the inspected passages and targeted search, does not state the present graph-specific minimum or reconfiguration classification. The classical Tutte–Coxeter incidence sources [2–3] supply the graph, not the edge-resolution census. Nearest mathematical-record results address ordinary vertex metric bases, crown or half graphs, or unrelated Tutte–Coxeter homology, with no implication yielding all of the present results. Different graph objects and different distinguished pair sets are not equivalent. We did not find a covering paper, database entry, or table; the absence of one from the searches cannot guarantee publication priority.
+
+**Value — PASS.** Edge metric dimension is a canonical edge-identification invariant, while the unique 30-vertex cubic eight-cage is a distinguished incidence graph. Exact minimum landmark count, complete optimal-set census, and guaranteed transformation among optima without temporarily using extra landmarks answer a natural sensor-selection and reconfiguration question. The exact largest required number of exchanges is seven, and the simultaneous 13/17-degree and 6/7-eccentricity split reveals substantive nonuniform structure. No assertion about all cubic cages is made.
+
+**Limits.** No independent external mathematical audit has been performed. Equivalent unindexed computational work may exist. All claims are restricted to the specified Tutte–Coxeter incidence graph and the specified one-replacement adjacency.
+
+**References.** [1] arXiv:1602.00291v1 (2016-01-31), https://arxiv.org/pdf/1602.00291; [2] AMS Visual Insight (2015-08-15), https://blogs.ams.org/visualinsight/2015/08/15/tutte-coxeter-graph/; [3] Brouwer, https://aeb.win.tue.nl/graphs/GQ22.html.
+
+Self-review: passed. Independent audit: not yet performed.
