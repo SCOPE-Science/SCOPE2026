@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Unit-step Gaussian subspace Newton is exactly a rank-one Euclidean orthogonal projection in energy variables. The pushed-forward Haar law has the stated Poisson density and its Fourier harmonics give all needed normalized fourth moments. They yield a positive 2x2 second-moment matrix with the displayed eigenvalues. Perron-Frobenius and positivity of every nonzero squared-coordinate start prove one common kth-root limit. Explicit algebra proves strict separation from the one-step bound and the condition-number asymptotics. The packaged symbolic plus angular quadrature checker passed 38 checks; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2208.09585v2 §§3.1,3.4 uses smallest eigenvalue of the first moment of the random projection",
+        "arxiv:1111.0194v2 §§4–5 gives smooth/strongly-convex convergence rates",
+        "arxiv:1210.5114v3 §4 and Appendix A treats Gaussian moments in another recurrence"
+      ],
+      "reasoning": "The general smooth strongly-convex and Gaussian projection bounds imply some uniform geometric convergence, but do not fix the exact faster asymptotic exponent for each nonzero starting vector. The distinct planar Hessian-estimation recurrence does not cover the state-error transfer operator.",
+      "searches": [
+        "random pursuit planar quadratic Gaussian random direction exact line search long-run mean square rate operator fourth moment",
+        "random pursuit uniformly random directions 2d quadratic exact contraction sqrt condition number Gauss Newton",
+        "\"random pursuit\" \"exact\" \"asymptotic\" \"two\" quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2208.09585v2",
+      "arxiv:1111.0194v2",
+      "arxiv:1210.5114v3",
+      "arxiv:2211.05727v1",
+      "SIAM J. Math. Data Sci. 6 (2024) journal metadata and MSC 65F10",
+      "Published mathematical index semantic comparisons of Haar randomized quadratic and Gaussian sketching results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2208.09585v2 eq(7) identifies sharp uniform-in-time worst-case contraction \\(\rho_1\\)",
+        "arxiv:2208.09585v2 Corollary 3.14 bounds \\(\\lambda_{\\min}\\) of expected rank-one projection",
+        "arxiv:1111.0194v2 analyzes expected one-step progress"
+      ],
+      "reasoning": "A uniform bound \\(\\mathbb E F(x_k)\\le \rho_1^kF(x_0)\\) does not imply equality of the fixed-initial-state asymptotic exponential rate. The strict identity \\(\rho_\\infty<\rho_1\\) for anisotropic curvature proves their conclusions are different. The new exact second-moment operator eigenvalue and its 3/2 asymptotic improvement require fourth moments absent from the cited first-moment bounds.",
+      "searches": [
+        "Gaussian sketch-and-project 2x2 positive definite one-row exact asymptotic expected squared error rate fourth moments spectral radius (3+q^2+sqrt(1+14q^2+q^4))/8",
+        "random pursuit planar quadratic Gaussian random direction exact line search long-run mean square rate operator fourth moment",
+        "Haar one-dimensional random subspace Newton anisotropic two-dimensional covariance recursion angular Poisson kernel square-root condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2208.09585v2 §3.1; equivalent as Gaussian sketch-and-project with A=B=H",
+        "arxiv:1111.0194v2 §2: exact random-line-search oracle"
+      ],
+      "reasoning": "Both Random Pursuit and rank-one Gaussian sketch-and-project realize the same update on a planar quadratic. The inspected named results concern expected one-step factors, not the Perron eigenvalue of the iid repeated fourth-moment operator; the exact fourth-moment long-run rate is not a consequence of these first-moment statements.",
+      "searches": [
+        "Gaussian sketch-and-project 2x2 positive definite one-row exact asymptotic expected squared error rate fourth moments spectral radius (3+q^2+sqrt(1+14q^2+q^4))/8",
+        "random pursuit planar quadratic Gaussian random direction exact line search long-run mean square rate operator fourth moment",
+        "Haar one-dimensional random subspace Newton anisotropic two-dimensional covariance recursion angular Poisson kernel square-root condition number",
+        "stochastic random projections 2D angular central Gaussian four moment eigenvalue convergence random Kaczmarz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific mathematics index searches surfaced Haar-moment subspace descent results with different updates but no matching independent-sketch planar long-run radical rate.",
+        "arxiv:1210.5114v3 supplemental appendix includes 2×2 recurrence for a different operator"
+      ],
+      "reasoning": "No inspected exact-result record, benchmark table, or symbolic formula matches the covariance dynamics of independent planar exact Newton sketches. The absence of matches is limited search evidence, not a proof of global novelty.",
+      "searches": [
+        "Gaussian sketch-and-project 2x2 positive definite one-row exact asymptotic expected squared error rate fourth moments spectral radius (3+q^2+sqrt(1+14q^2+q^4))/8",
+        "\"1+14q^2+q^4\" \"random\" projection"
+      ]
+    },
+    "rationale": "A direct comparison of the exact independence assumptions, fourth-moment covariance operator, and initial-state quantifier against the published source analyses found no covering statement: the strongest directly related sources quantify a one-step/uniform guarantee, while the new theorem computes the strictly sharper fixed-initial-state long-run mean-square exponent. Published-priority coverage beyond inspected sources is not certified.",
+    "residual_risks": [
+      "Theoretical priority risk from alternative stochastic alternating-projection, angular central Gaussian, or exact random-line-search terminology not fully indexed in the inspected literature.",
+      "Independent mathematical review and broader publication-priority certification have not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm and sharp one-step/uniform-in-time rate known; does not establish repeated fourth-moment transfer eigenvalue or its sharp asymptotic gap.",
+        "evidence": [
+          "arxiv:2208.09585v2 §1 equations (1)–(3)",
+          "arxiv:2208.09585v2 §3.1 equations (6)–(10)",
+          "arxiv:2208.09585v2 §3.4 Corollary 3.14"
+        ],
+        "identifier_or_url": "arxiv:2208.09585v2",
+        "material_read": "Full text: Sections 1, 2.2–2.4, 3.1, 3.4, 4 including Gaussian projection lemmas and available appendices; compared update (1), projection (6), rate (7), Corollary 3.14 and scope of expected-projection results.",
+        "method": "Lawful open arXiv HTML with equation-level text inspection",
+        "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+        "trigger": "Direct source model: Gaussian sketch-and-project projection and its rate certificate"
+      },
+      {
+        "assessment": "Algorithm and generic expected convergence known; no identical fourth-moment planar eigenvalue characterization found.",
+        "evidence": [
+          "arxiv:1111.0194v2 §2 definition of exact line-search oracle",
+          "arxiv:1111.0194v2 §§3–5 bounds",
+          "arxiv:1111.0194v2 §6.2 quadratic tests"
+        ],
+        "identifier_or_url": "arxiv:1111.0194v2",
+        "material_read": "Original 35-page open PDF: main Sections 1–5, especially exact line search definition and expected progress, quadratic benchmark discussion, and supporting appendix; searched for anisotropic long-run moment rates.",
+        "method": "Open arXiv full PDF with page inspection and selected passage/appendix reading",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Potentially dominating original analysis of Haar one-direction exact line search on quadratics"
+      },
+      {
+        "assessment": "One-step progress and a different Hessian-estimator recurrence; not the asserted rate for the independent exact line-search state-error process.",
+        "evidence": [
+          "arxiv:1210.5114v3 §4 expected progress",
+          "arxiv:1210.5114v3 §5 randomized Hessian estimation",
+          "arxiv:1210.5114v3 Appendix A moment identities"
+        ],
+        "identifier_or_url": "arxiv:1210.5114v3",
+        "material_read": "Open 42-page PDF: Sections 3–5 and relevant appendix moments/2×2 recurrence for Hessian estimation; distinguished the separate Hessian-estimator tensor from the state-error projector.",
+        "method": "Open arXiv full PDF with rendered first-page inspection, full-text search, selected section and appendix reading",
+        "title": "Variable Metric Random Pursuit",
+        "trigger": "Anisotropic random-line-search and Gaussian fourth-moment analysis may dominate the claim"
+      },
+      {
+        "assessment": "Includes safeguards and nonlinear least-squares global guarantee; it does not imply the exact unsafeguarded planar independent-Gaussian asymptotic energy law.",
+        "evidence": [
+          "arxiv:2211.05727v1 §1 reduced model (2)",
+          "arxiv:2211.05727v1 §3 Algorithm 1",
+          "arxiv:2211.05727v1 §4 Theorem 1"
+        ],
+        "identifier_or_url": "arxiv:2211.05727v1",
+        "material_read": "Full open HTML: Sections 1–4, specifically reduced model (2), algorithm (3)–(4), and high-probability global rate theorem.",
+        "method": "Lawful open arXiv HTML full-text inspection",
+        "title": "A Randomised Subspace Gauss-Newton Method for Nonlinear Least-Squares",
+        "trigger": "Reduced exact Gauss–Newton quadratic model equivalent to update"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abea5628-bc9b-4fd3-ac2a-a956f1bcecd9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact rank-one Gaussian sketch law in the smallest anisotropic case displays a structurally meaningful distinction between the standard sharp uniform-in-time certificate and the genuinely faster asymptotic mean-square rate. A closed fourth-moment recursion computes arbitrary iteration counts and a nontrivial 3/2 high-condition-number gap, pertinent to interpreting convergence guarantees. It is not a cosmetic renaming or arbitrarily selected finite numerical value.",
+    "status": "PASS"
+  }
+}
