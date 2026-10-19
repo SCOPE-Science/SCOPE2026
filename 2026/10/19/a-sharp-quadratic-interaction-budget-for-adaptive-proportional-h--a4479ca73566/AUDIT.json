@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction: conditional increment of A-count is +b with chance (1-p)a/(a+b), -a with chance (1-p)b/(a+b), and 0 on rewiring, so its conditional mean is zero and second moment is exactly (1-p)ab. The quadratic discordance potential X(N-X) has drift -(1-p)ab, with ab >= ell-1. Finite truncation gives E[min(t,tau)] <= i(N-i)/((1-p)(ell-1)), permitting monotone and bounded passage to the stopped exact budget. Restarting the uniform conditional mean bound and Markov inequality gives geometric tail. Every connected static pair graph achieves equality; a single size-ell hyperedge with one dissenter is sharp for the ell factor. verify.py independently passed 4888 exact rational assertions including finite topology-switching chains; finite checks do not replace the infinite-domain argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rogers–Gross (2013), arXiv:1304.4742, pair-based proxy and SDE reduce a pairwise system to approximate one-dimensional consensus times",
+        "Horstmeyer–Kuehn (2019), arXiv:1909.05812, triadic majority pressure changes the opinion count drift",
+        "Golovin–Mölter–Kuehn (2023), arXiv:2308.03640, full-group proportional unanimous voting and two adaptive schemes",
+        "Kim et al. (2024), arXiv:2407.11261, annealed-uniform mean-field exit times for a focal-node q-observation voting process; different event generator"
+      ],
+      "reasoning": "Classical bounded-martingale stopping principles give a general *method*; direct use requires the exact conditional second moment of simultaneous group copying. The inspected papers do not formulate a general theorem with this local variance in arbitrary time-varying hypergraphs or the sharp event-count factor. Majority-persuasion rules fail the key conditional zero drift and therefore do not dominate this statement.",
+      "searches": [
+        "\"adaptive voter\" \"absorption time\" \"N^2\" rewiring",
+        "hypergraph voter process finite size exact consensus time upper bound martingale",
+        "\"coevolving voter\" quadratic absorption time martingale disagreement"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.03640",
+      "doi:10.1002/andp.202300342",
+      "doi:10.1103/PhysRevE.105.054307",
+      "arxiv:1909.05812",
+      "arxiv:1304.4742",
+      "arxiv:2407.11261"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Golovin et al., arXiv:2308.03640, sections on update rules and magnetization: expectation conserved under proportional voting, numerical long metastability observed",
+        "Papanikolaou et al., Phys. Rev. E 105 (2022), 054307: majority-dependent group dynamics with nonconserved magnetization",
+        "Rogers and Gross, arXiv:1304.4742, equation (8): approximation to pairwise model consensus time using a slow-manifold reduction",
+        "Kim et al., arXiv:2407.11261, group voter process changes one node rather than all members; its mean-field consensus time does not imply a stopped whole-hyperedge budget"
+      ],
+      "reasoning": "A previously established conservation of expectation does not quantify event-to-event dispersion and does not imply finite expected absorption without an additional positive-variance argument. The new claim supplies ab exactly, uses its minimum to prove finite absorption for any history-dependent rewiring, and relates terminal fragmentation to cumulative mixed-group interactions. The pre-existing pairwise time results are not stronger hypergraph estimates. No independent priority certification is claimed.",
+      "searches": [
+        "Golovin Molter Kuehn Polyadic Opinion Formation adaptive voter model hypergraph proportional voting 2023",
+        "\"Consensus from group interactions\" \"time\" hypergraphs adaptive voter 2022",
+        "\"Consensus time and conformity in the adaptive voter model\" quadratic",
+        "\"adaptive voter model\" \"quadratic upper bound\" \"updates\" 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.03640, Results: proportional group selection a/(a+b) and first-moment magnetization conservation",
+        "arXiv:1304.4742, equation (8) and slow-manifold time approximation concern a pairwise adaptive model and physical-time scaling",
+        "Kim et al., arXiv:2407.11261, definition of group-driven voter model: one focal node flips; no simultaneous group unanimity"
+      ],
+      "reasoning": "Potential equivalents include quadratic martingale exposure, active-edge event complexity, fixation stopping budgets and fragmentation energy identities. The source first moment follows from zero conditional drift, but it does not itself specify the conditional variance ab or the exact terminal stopped formula. The pairwise time approximation does not imply an all-finite-hypergraph event bound as stated.",
+      "searches": [
+        "\"hypergraph voter\" \"quadratic variation\" consensus",
+        "\"proportional voting\" hypergraph \"quadratic\" \"consensus\" absorption",
+        "\"adaptive voter model\" \"expected\" \"number of updates\" \"quadratic\"",
+        "\"group-driven voter model\" \"time\" hypergraphs Kim Porter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2308.03640, magnetization and stochastic simulations provide no exhaustive finite-chain absorption-time tables",
+        "Finite exact rational state systems recomputed directly in verify.py; no published table of the claimed universal bound was identified in the inspected sources"
+      ],
+      "reasoning": "The claim is an all-finite-system analytic budget, not a tabulated invariant or a lookup of particular parameter cells. An exact probability table for small networks would not independently imply its quantified uniform bound.",
+      "searches": [
+        "\"Polyadic Opinion Formation\" proportional voting martingale magnetization active hyperedges",
+        "\"stochastic coevolving hypergraph group proportional consensus exact quadratic bound active-edge interaction count\"",
+        "\"martingale discordant pair exposure variance fragmentation identity in voter hypergraphs\""
+      ]
+    },
+    "rationale": "The motivating complete article derives the group copying rule and first-moment magnetization conservation, but its source sections on magnetization, simulation and discussion do not derive a stopped quadratic discordance-exposure identity, an all-topology active-event count bound, or a geometric tail. The earlier hypergraph and simplicial papers use majority-like group influence; the pairwise adaptive consensus paper analyzes slow-manifold approximate time laws. Structural martingale methods are standard, not asserted new. Comparisons of statement and proof implications identified no direct covering result among the inspected materials; generic optional-stopping tools are acknowledged. Some priority uncertainty remains.",
+    "residual_risks": [
+      "The bound follows from a classical martingale-variance mechanism; a specialist result phrased abstractly rather than as a hypergraph voter theorem may contain the exact conclusion.",
+      "Comparisons were limited to accessible primary source material, targeted literature retrieval and ranked mathematical research records; absence of a matching search hit does not prove priority.",
+      "The original source uses different event/physical-time normalization in some numerical plots; the claim states active-event and unit-rate-clock conventions explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_MODEL_NOT_DIRECT_COVERAGE",
+        "evidence": "Results: two update mechanisms, proportional group voting chooses opinion A with frequency a/(a+b); magnetization conservation under proportional voting; section on simulations shows metastability but no uniform finite-time bound",
+        "identifier_or_url": "https://arxiv.org/abs/2308.03640",
+        "material_read": "full accessible HTML sections describing update rules, magnetization, simulations, fragmentation and discussion (including original group-selection formula)",
+        "method": "arXiv full-text HTML; compared first-moment equations with stopped second moment and finite-time claims",
+        "title": "Polyadic Opinion Formation: The Adaptive Voter Model on a Hypergraph",
+        "trigger": "same group propagation and adaptation rules, primary motivating gap"
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_MECHANISM",
+        "evidence": "Abstract and Section II: majority/minority threshold influence; subsequent numerical consensus-time plots and mean-field magnetization; unlike unbiased proportional unanimous voting",
+        "identifier_or_url": "https://www.sg.ethz.ch/publications/2022/papanikolaou2022consensus-from-group/PhysRevE.105.054307.pdf",
+        "material_read": "PDF introduction, model and numerical consensus-time and analytical-magnetization portions, including pp. 1-2 and 4-7",
+        "method": "read PDF text with visual page checks; compared propagation mechanism and time claims",
+        "title": "Consensus from group interactions: An adaptive voter model on hypergraphs",
+        "trigger": "plausible earlier hypergraph consensus work"
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_MECHANISM",
+        "evidence": "Section II rules R0–R2 add majority persuasion within 2-simplices, not uniform-vertex unanimous group copying",
+        "identifier_or_url": "https://arxiv.org/abs/1909.05812",
+        "material_read": "accessible HTML introduction, Sections II–III model, peer-pressure rule and main numerical discussion",
+        "method": "read arXiv full-text HTML; compared conditional expectation of third-order opinion updates",
+        "title": "An adaptive voter model on simplicial complexes",
+        "trigger": "possible triadic voter and rewiring result"
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING",
+        "evidence": "Pair-based proxy and slow-manifold SDE, equation (8) gives approximate physical consensus time linear in N for its pairwise adaptive process; no arbitrary hyperedge-size theorem",
+        "identifier_or_url": "https://arxiv.org/abs/1304.4742",
+        "material_read": "accessible HTML introduction, exact pairwise update description, equations (1)–(11), modeling approximations and consensus-time laws",
+        "method": "read arXiv full text; compared event vs physical-time observables, approximation vs exact finite state",
+        "title": "Consensus time and conformity in the adaptive voter model",
+        "trigger": "possibly broader adaptive consensus-time theory"
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_MECHANISM_NOT_COVERING",
+        "evidence": "arXiv:2407.11261, group-driven voter model definition: each step chooses a focal node and flips only that node based on q observations; mean-field formula treats annealed uniform hypergraphs with logarithmic exit time. Neither is the proportional simultaneous unanimous hyperedge update under adaptive rewiring.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.11261",
+        "material_read": "full accessible arXiv HTML introduction, group-driven voter definition and mean-field exit-time section, including update rules near lines 23–32 and finite-population discussion",
+        "method": "read primary arXiv full text and compare simultaneous hyperedge adoption versus single focal-node switching; compare uniform annealed means versus arbitrary adaptive events",
+        "title": "Competition between group interactions and nonlinearity in voter dynamics on hypergraphs",
+        "trigger": "close subsequent paper claiming accelerated consensus on hypergraphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4479ca7-3566-41ef-bec6-8cc321bf6796",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating literature observes a slow stochastic active phase in proportional polyadic opinion models but lacks a rigorous uniform work budget. The exact stopped variance identity gives a topology- and rewiring-independent ceiling on active interaction count and a geometric tail, even with fragmented terminal states. It provides a measurable exact account of cumulative discordant pair exposure and identifies the sharp minimal-group-size factor, with connected-graph equality showing the quadratic event-count order is not a loose artifact. The claim is a structural model-specific theorem, not a merely reparameterized finite example.",
+    "status": "PASS"
+  }
+}

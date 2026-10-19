@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (C): PASS
+The conditional increment under proportional unanimous voting has mean zero and second moment exactly \((1-p)ab\). The quadratic potential \(X(N-X)\) therefore loses expected mass \((1-p)ab\) per active event. Since \(ab\ge\ell-1\), truncation proves a finite mean stopping time before any optional-limit passage; monotone and bounded convergence then give the exact terminal identity. The conditional uniform bound gives the geometric tail. Connected-graph equality and the one-edge sharpness construction verify both sharpness assertions. The included `verify.py` passed 4888 exact rational assertions on representative finite systems. This is a complete analytic proof, not an empirical extrapolation.
+
+## Originality (O): PASS with residual priority risk
+The direct motivating article [1] establishes expectation-level conservation of magnetization and studies metastability numerically and with mean-field motif equations, but does not state the stopped *quadratic* discordance budget or a universal hypergraph active-event upper bound. The group-influence rule in [2] and the peer-pressure rule in [3] are majority-biased, so their convergence-time discussion does not imply the stated theorem. The pairwise adaptive analysis [4] uses a diffusion/slow-manifold approximation and not this finite-system exact hypergraph identity. The group-driven model [5] updates a *single focal opinion* per event rather than imposing unanimous opinion across an entire sampled hyperedge. Available mathematical research-record searches and accessible historical claim comparisons did not identify a covering result. A general stochastic-process theorem can supply the technique, and an unlocated specialized statement remains possible; first-priority status has not been independently established.
+
+## Value (V): PASS
+For proportional voting, long-lived metastable activity is a central question in [1]. The proof gives a universal, topology-free finite-population work budget and exponential-tail guarantee despite arbitrary adaptive network change. It additionally identifies precisely how terminal fragmentation subtracts from the cumulative mixed-hyperedge activity budget. This is a structural statement for every finite network and rewiring strategy under stated update rules; the exact constant is attained even in a connected pairwise system, and the active-hyperedge lower-size factor is sharp. It is not a new generic martingale method; the meaningful object-specific implication is the contribution.
+
+## Limitations and closest literature
+The bound concerns active interactions and is not a mean-field prediction, unconditional consensus guarantee, or a threshold calculation. Strict propagation probability and unbiased proportional copying are necessary. References [1]–[5] in `RESULT.md` are the closest inspected papers; more general published optional-stopping formulations might indirectly subsume the bound.
+
+Self-review: passed. Independent audit: not yet performed.
