@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact Bernoulli run-count expectation includes interior, boundary and all-lossfree events; the annealed limit follows from a Laplace principle. For the typical limit, longest-run union bounds and simultaneous count bounds give the upper envelope; disjoint independent loss-marker/run/loss-marker blocks give the matching lower envelope for all interior scale choices. Pointwise probability convergence, strict post-cutoff gap and derivative discontinuity follow. The packaged finite standard-library checker completed 25,026 assertions including exhaustive small Bernoulli words; no infinite claim is based on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agarwal et al., Annalen der Physik 529 (2017), review of rare-region effects and sample-dependent relaxation, DOI 10.1002/andp.201600326.",
+        "Longhi, Optics Letters 51 (2026), DOI 10.1364/OL.604778, earlier photonic model with stretched-exponential annealed decay."
+      ],
+      "reasoning": "General Griffiths arguments describe rare-region control and non-self-averaging; the checked descriptions do not imply an explicit finite-volume Bernoulli weighted-run variational law with cutoff and deterministic coefficients. However, a general weighted-renewal large-deviation theorem remains a plausible source of implicit coverage.",
+      "searches": [
+        "Griffiths rare regions sample survival Bernoulli run stretched exponential finite size typical versus disorder averaged log L crossover",
+        "finite size disorder averaged vs typical stretched exponential Griffiths 1d random traps segments logarithmic crossover survival"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/qute.70425",
+      "https://arxiv.org/abs/2607.03205",
+      "https://doi.org/10.1364/OL.604778",
+      "https://doi.org/10.1002/andp.201600326"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Longhi, Advanced Quantum Technologies (2026), full Section 4 and Appendix C: sample coarse-grained sum equation (C6), mean replacement (C10), continuum integral (C11), saddle (C14), stretched exponents (C17)–(C18).",
+        "Longhi, Optics Letters (2026) preview: averaged transmission over independent disorder and stretched-exponential attenuation; no full-text verification of other statements."
+      ],
+      "reasoning": "The unrestricted annealed saddle is already proved in prior work and has therefore been expressly excluded as a new finding. Combining that model with a random longest-region cutoff requires an additional concentration/lower-construction proof to establish a *typical* exponent, not merely truncating the expectation. The prior paper does not supply such a proof or its explicit crossover, as far as the inspected material shows.",
+      "searches": [
+        "Griffiths finite size quenched annealed survival logarithmic crossover longest rare region",
+        "Stefano Longhi Griffiths anomalous absorption sparse loss photonic lattice finite size annealed quenched loss-free intervals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Longhi, Advanced Quantum Technologies (2026), Appendix C (C6) gives individual region sums and (C10)–(C18) gives a disorder-average law. No typical finite-volume logarithmic crossover is stated in the inspected complete text."
+      ],
+      "reasoning": "The proposed typical rate is an optimization restricted by the sample longest run; a formal continuum saddle of the disorder mean is unrestricted. These are not interchangeable formulations. The observed finite-size crossover concerns random realization counts, which are not fixed by the ensemble sum alone.",
+      "searches": [
+        "Griffiths rare regions sample survival Bernoulli run stretched exponential finite size typical versus disorder averaged log L crossover",
+        "random Bernoulli intervals length logarithm finite size quenched survival Laplace sum rare region finite size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed record searches returned related spectral and finite-size crossover theorems for different mathematical objects, not a table or an exact same-observable record."
+      ],
+      "reasoning": "The candidate is a continuous-parameter asymptotic stochastic theorem, not a tabulated small-size graph invariant. No exact database identity or stronger table was located; this does not prove global uniqueness.",
+      "searches": [
+        "Stefano Longhi Griffiths anomalous absorption sparse loss photonic lattice finite size annealed quenched loss-free intervals",
+        "quenched finite random interval survival rate inf_{y<=xi} y/xi+t/y^beta rare regions Griffiths"
+      ]
+    },
+    "rationale": "Only the joint finite-volume, fixed-sample logarithmic constrained-saddle law, its sharp second-order cutoff and its strict mean/typical exponent gap are advanced. The Bernoulli rare-region phenomenology, annealed sum and saddle are explicit in the cited source and are not advanced as original. Literature and record comparisons did not identify the joint quenched statement. Residual uncertainty remains from a partially accessible earlier related primary source and potential general renewal-process coverage.",
+    "residual_risks": [
+      "The complete text of the earlier Optics Letters paper could not be inspected; only its publicly available preview was read.",
+      "A general theorem for exponentially tailed renewal rewards or quenched survival might implicitly imply the constrained variational law without matching terminology.",
+      "The claimed theorem is limited to a model surrogate, not an exact microscopic quantum prediction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the model, two decay exponents, single-realization approximate sum and annealed saddle, but not the derived quenched joint scaling limit.",
+        "evidence": [
+          "Article first published 2026-08-30.",
+          "Appendix C (C6) and (C10)–(C18), Section 4 discussion of individual realizations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/qute.70425",
+        "material_read": "Complete publicly accessible HTML, model and Section 4, Appendix B and complete Appendix C including equations (C6)–(C18), references.",
+        "method": "Full-text scientific equation and implication comparison.",
+        "title": "Statistical Quantum Mpemba Effect From Griffiths Rare Regions",
+        "trigger": "Same loss-free segments, exponents and model-specific annealed relaxation."
+      },
+      {
+        "assessment": "The accessible material states disorder-averaged stretched-exponential attenuation for the uniform mode, not the proposed typical logarithmic crossover; cannot establish full-text absence.",
+        "evidence": [
+          "arXiv initial public posting 2026-07-03.",
+          "Optics Letters 51, 4068–4071, DOI 10.1364/OL.604778.",
+          "Figure captions show 1,000-realization average and time-dependent transmittance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.03205",
+        "material_read": "arXiv record, abstract, publisher first-page preview and figure captions; complete text was not accessible.",
+        "method": "Read accessible preprint indexing and publisher preview; attempted arXiv full text and publisher full text.",
+        "title": "Griffiths anomalous absorption in sparse-loss photonic lattices",
+        "trigger": "Earlier public use of the sparse-loss Griffiths mechanism, relevant to the first-public-date and novelty scope."
+      },
+      {
+        "assessment": "General phenomenology and broader sample/mean distinction; no same Bernoulli weighted-run joint-time formula in examined material.",
+        "evidence": [
+          "Agarwal et al. (2017), sections on thermal-phase Griffiths effects and broad distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/andp.201600326",
+        "material_read": "Accessible abstract and substantial review excerpts on rare-region statistics, slow relaxation and sample variability.",
+        "method": "Scientific comparison of review statements, not a complete-paper noncoverage assertion.",
+        "title": "Rare-region effects and dynamics near the many-body localization transition",
+        "trigger": "Possible general Griffiths rare-region theorem dominating specific sample-versus-average scaling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7b02379-6496-4db8-bdbb-2fe3fbb6b6cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite experimental landscapes are sample-specific, while the source phenomenology averages rare loss-free regions. The theorem identifies precisely when extreme regions needed by the unrestricted saddle cease to exist in a typical finite sample, creates an explicit sharp crossover, and quantifies a strict polynomial mean-versus-typical gap. For the two physically motivated exponents it discriminates fourth-power from second-power logarithmic time boundaries. The application is a mathematically defined surrogate with an explicit experimentally relevant validity limitation, not an arbitrary parameter slice or a recomputed known mean.",
+    "status": "PASS"
+  }
+}
