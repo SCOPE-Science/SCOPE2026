@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The proof compares all unrestricted cyclic hosts with a flow on the full binary overlap graph. Each required-graph deficit source v must send one additional path to a target beginning 11; no path shorter than the index r(v) of the first 11 can do so. The bijection v=p11s -> 11s reverse(p) connects the source and a unique target with an allowed path of exactly r(v) steps. Balanced strong connectivity gives an Euler cycle. Counting p by Fibonacci numbers and s by Tribonacci avoidance yields the exact rational generating function. Recurrences and poles were recalculated; constructive Euler cycles k=3..16 and separate full-graph min-cost flows k=3..10 passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Compeau–Pevzner–Tesler (2011), Box 1 and Eulerian discussion, gives the balanced complete-alphabet de Bruijn construction, not the unbalanced 111-free subgraph.",
+        "Kapun–Tsarev (2013), abstract and Definitions, studies paired-graph soundness/hardness, not forbidden-pattern overlap-graph exact optimal length."
+      ],
+      "reasoning": "General shortest closed-walk algorithms would produce finite answers after graph construction but do not logically supply this parametric closed form, the explicit bijection or the limit ratio. The 111-forbidden subgraph is unbalanced from k=4 onward.",
+      "searches": [
+        "\"111\" \"Chinese postman\" \"de Bruijn\" words avoiding",
+        "doi:10.1038/nbt.2023",
+        "arxiv:1307.7806"
+      ]
+    },
+    "checked_sources": [
+      "Burstein–Kitaev, arXiv:math/0311399 (2003)",
+      "Compeau–Pevzner–Tesler, DOI:10.1038/nbt.2023 (2011)",
+      "Kapun–Tsarev, arXiv:1307.7806 (2013)",
+      "Edmonds–Johnson (1973), general directed Chinese postman framework (bibliographic comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical de Bruijn cycles contain every binary word at equal multiplicity one but require all 2^k words, so cannot imply the strict optimum for the 111-free target set.",
+        "The case of forbidding 11 has different allowed-word growth and does not yield the new 111-free Fibonacci–Tribonacci excess by parameter specialization.",
+        "General postman flow optimality proves only an optimization framework, not its all-k explicit evaluation."
+      ],
+      "reasoning": "The new theorem asserts a precise optimum over unrestricted cyclic hosts for a fixed proper regular language and a constructive structural solution. Earlier full-alphabet de Bruijn statements and other forbidden languages do not dominate it.",
+      "searches": [
+        "arxiv:math/0311399",
+        "doi:10.1038/nbt.2023",
+        "arxiv:1307.7806",
+        "length of shortest binary cyclic word containing every 111-avoiding length k word shortest superstring generating function x^4(1+2x)/((1-x-x^2)(1-x-x^2-x^3))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In a length-k factor overlap graph, cyclic coverage is equivalent to a closed directed walk covering every allowed k-edge. Burstein–Kitaev arXiv:math/0311399 defines universal cycles of word patterns, not a cyclic covering of all words avoiding a fixed binary factor."
+      ],
+      "reasoning": "Compared the explicit k-window coverage and allowed repetitions with universal cycles, pattern avoidance, and directed postman variants; pattern-u-cycle existence does not imply the all-k minimum and generating function.",
+      "searches": [
+        "shortest cyclic superstring covering all length k binary strings avoiding 111; Eulerization directed de Bruijn graph mincost postman exact k values",
+        "three-consecutive-ones avoiding cyclic universal words de Bruijn shortest cyclic cover 111-free words",
+        "\"forbidden 111\" \"de Bruijn\" \"Eulerian\"",
+        "arxiv:math/0311399"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit checked sequence of optimal lengths is 7,14,28,53,102,194,367,692 at k=3..10, and the proof supplies a rational generating function for all k. No matching table was identified in the returned topical sources."
+      ],
+      "reasoning": "Searching an exact initial length and overhead sequence found no supported table with the same definition. A lack of matching search results is not itself a uniqueness proof.",
+      "searches": [
+        "minimum cyclic covering word for all 111-free k-factors, exact length sequence 7 14 28 53 102 194 367 692",
+        "\"tribonacci\" \"cyclic superstring\" word",
+        "\"1, 4, 9, 21, 45, 93, 188\" shortest forbidden 111 superstring"
+      ]
+    },
+    "rationale": "The inspected primary literature contains the de Bruijn graph method, generic pattern-universal cycles and paired-graph hardness, but no formula for optimal covers of all binary words avoiding 111. The novel part assessed is the exact all-k Fibonacci–Tribonacci excess, the optimal reversed-prefix matching, and the unrestricted-host lower bound; generic Eulerian or directed postman reductions are prior knowledge. Searches cannot rule out unindexed equivalents.",
+    "residual_risks": [
+      "Equivalent exact values or an identical reversed-prefix construction could be stated in unindexed or differently titled constrained de Bruijn or superstring literature.",
+      "The generic Chinese postman literature is broad; algorithmic solvability does not rule out a specialized closed-form theorem elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different: unavoidable pattern sets and universal cycles for patterns; no shortest cyclic covering cost for the 111-avoidance language was found in inspected material.",
+        "evidence": [
+          "arXiv:math/0311399, pp. 1, 5, 8–11; Theorems 3.7–3.8."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0311399",
+        "material_read": "Title/abstract, introduction, section 2 results, section 3 pattern-overlap graph, Theorems 3.7–3.8 and universal-cycle discussion.",
+        "method": "Accessible arXiv full-text PDF search, page text and visual page inspection.",
+        "title": "On unavoidable sets of word patterns",
+        "trigger": "Universal cycles and overlap graphs are closest linguistic aliases."
+      },
+      {
+        "assessment": "Gives the complete full-alphabet balanced graph construction; does not evaluate the 111-avoiding target family.",
+        "evidence": [
+          "Compeau et al. (2011), Box 1, p. 988; pp. 988–990."
+        ],
+        "identifier_or_url": "https://www.rna.uni-jena.de/teaching/hochdurchsatzsequenzierung/publications/Compeau_2011_de_Bruijn_graphs.pdf",
+        "material_read": "Box 1, pp. 987–989 and directed Eulerian graph discussion.",
+        "method": "Author-accessible PDF with page text and figure visual inspection.",
+        "title": "How to apply de Bruijn graphs to genome assembly",
+        "trigger": "Canonical shortest cyclic superstring and Euler-tour reduction."
+      },
+      {
+        "assessment": "Studies sound covering cycles in paired de Bruijn graphs and general complexity, not a closed formula for the present ordinary forbidden-word graph.",
+        "evidence": [
+          "arXiv:1307.7806, pp. 1–3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.7806",
+        "material_read": "Abstract, introduction, section 2 definitions and Section 3 beginning.",
+        "method": "Accessible arXiv full-text PDF text and visual page inspection.",
+        "title": "On NP-Hardness of the Paired de Bruijn Sound Cycle Problem",
+        "trigger": "Potentially stronger covering-walk statement in a related graph formalism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ff92cb98-59d3-4f67-aa9c-2e96208cd3eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial three-consecutive-ones binary shift has a natural optimal periodic k-window test problem. The result gives the exact all-window-length optimum even if forbidden words can be used as shortcuts; the optimal host nevertheless stays in the shift. The explicit path matching and positive limiting overhead (about 61.7 percent) characterize a genuine structural constraint, not a finite routine calculation.",
+    "status": "PASS"
+  }
+}
