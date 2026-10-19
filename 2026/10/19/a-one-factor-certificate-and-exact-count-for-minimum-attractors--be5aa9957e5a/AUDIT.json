@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every q>=2, k>=1, 0<=r<q, lower bound q comes from singleton factors. The proof checks all short nonwrapping, short wrapping, and long factors; every missed factor forces the three explicit boundary selections and the canonical crossing factor misses exactly those. The formula follows by exact product counting, including k=1 and r=q-1. An exhaustive separate implementation verified all 117132 candidate selections in 108 parameter cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.13647 §4 Theorem 23 and §6 Corollary 37 construct attractors and address optimal size for a different class of morphic fixed points.",
+        "CPM 2026 Theorem/sections 3 and 4 characterize Fibonacci and period-doubling attractors, not this periodic permutation family."
+      ],
+      "reasoning": "General small-attractor existence and cardinality lower bounds do not determine which q-subsets work or count them. The cited complete classifications are for other word families, with no evident implication to arbitrary q injective periods.",
+      "searches": [
+        "\"periodic words\" \"minimal string attractors\" characterisation",
+        "\"String Attractors of Fixed Points of k-Bonacci-Like Morphisms\"",
+        "all minimum size string attractors and enumeration for every finite prefix of injectively labeled periodic word (a1 ... aq)^omega"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.13647",
+      "arxiv:2211.01660",
+      "doi:10.4230/LIPIcs.CPM.2026.33",
+      "arxiv:1709.05314",
+      "public 2026 binary attractor-classification record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gheeraert–Romana–Stipulanti prove specific attractor positions and minimal sizes, but do not classify all q-sized sets for W_{q,k,r}.",
+        "Banbara et al. complete all minimum attractors for two nonperiodic morphic word families; neither word has every distinct letter exactly once per period.",
+        "The known binary special case is exactly the q=2,r=0 restriction of the claim."
+      ],
+      "reasoning": "The prior statements do not imply the universal single-factor criterion and explicit count for every q,k,r. Existing q=2 coverage is subtracted from claimed novelty; the stronger arbitrary q and partial-prefix theorem remains separately motivated.",
+      "searches": [
+        "arxiv:2302.13647 Theorem 23 Corollary 37 string attractors prefixes",
+        "CPM 2026 The Smallest String Attractors of Fibonacci and Period-Doubling Words sections 3 4 5",
+        "all smallest attractors in two exceptional antipalindromic pseudostandard families"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complete-prefix theorem includes r=0 periodic powers and general q; in q=2 the count specializes to k^2-1, known previously in a binary periodic family.",
+        "The located 2026 Fibonacci/period-doubling complete descriptions involve aperiodic morphic families, not arbitrary injective periodic prefixes."
+      ],
+      "reasoning": "An equivalent condition would enumerate every one-symbol-per-letter minimum attractor for W=(a0...a(q-1))^k followed by any prefix. The binary complete-period theorem is implied by this theorem, not vice versa. No full equivalent general-q condition was located.",
+      "searches": [
+        "\"string attractors\" periodic word distinct letters powers count smallest",
+        "\"number of minimum string attractors\" periodic",
+        "periodic word distinct-letter cycle smallest substring hitting position sets; attractor count n=qk+r arbitrary q, boundary suffix, exceptional missed crossing factor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research record: All smallest attractors in two exceptional antipalindromic pseudostandard families (2026), states the binary complete-period count n^2-1.",
+        "Direct enumeration checked all one-per-letter sets for q=2..6 across 108 parameter triples; no claim of full infinite verification is made from these finite checks."
+      ],
+      "reasoning": "The binary table/formula covers q=2,r=0 but not all q>=3 or nonzero r. No exact general-q truncation table was found; this alone is not a proof of novelty.",
+      "searches": [
+        "Exact characterisation of minimum string attractors of permutations repeated k times, counts k^q-k^(q-2), all q ≥ 3.",
+        "\"smallest attractors\" \"(01)^n\" \"n^2\"",
+        "\"attractors\" \"abc\" periodic minimum"
+      ]
+    },
+    "rationale": "The relevant complete texts on morphic fixed points (arXiv:2302.13647) and smallest Fibonacci/period-doubling attractors (CPM 2026) solve different families. The known binary complete-period result is explicitly a special case and is not separately claimed new. The new statement covers all injective cycle lengths and every cutoff, with a single-factor certificate; no dominating theorem was identified in the inspected material. Full text of one relevant indexed binary-special-case record was inaccessible; possible unindexed stronger coverage is a residual risk.",
+    "residual_risks": [
+      "The publicly indexed binary count is already known; novelty applies to the all-q, all-prefix classification and one-factor criterion, not the q=2,r=0 case.",
+      "The complete text of the most closely matching public binary attractor classification could not be fetched.",
+      "Unindexed literature could contain a stronger general theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different morphic fixed-point family; exhibits and bounds particular attractors, not all minimum sets of injective periodic prefixes",
+        "evidence": "Definition of attractor and size lower bound in §4, Theorem 23 and Corollary 37 on chosen positions and optimal cardinalities.",
+        "identifier_or_url": "https://arxiv.org/html/2302.13647v2",
+        "material_read": "HTML Introduction, §2 preliminaries, §4 Theorem 23/Proposition 21, §6 Corollary 37 and references relevant to periodic families",
+        "method": "Full-text HTML read with theorem-to-claim implication comparison",
+        "title": "String attractors of some simple-Parry automatic sequences",
+        "trigger": "Primary MSC-tagged 2023 study of finite-prefix string attractors and optimality"
+      },
+      {
+        "assessment": "Complete but confined to Fibonacci and period-doubling families; not a general periodic-permutation-prefix result",
+        "evidence": "§3–4 named word families and counts, §5 discusses extensions to arbitrary prefixes of those particular sequences.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.33/LIPIcs.CPM.2026.33.html",
+        "material_read": "Full-text HTML introduction, definitions/lemmas, §3 Fibonacci, §4 period-doubling, §5 discussion",
+        "method": "HTML examination of scope and explicit characterizations",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Highly relevant complete characterizations of all minimum attractors"
+      },
+      {
+        "assessment": "Binary (01)^n case is covered and excluded from the novelty assertion; broader q>=3 / partial-prefix theorem not shown by summary",
+        "evidence": "Search synopsis states the exact binary count n^2-1.",
+        "identifier_or_url": "Indexed public mathematical research record (2026-10-04); full text unavailable",
+        "material_read": "Search index metadata and summary only; complete source could not be fetched",
+        "method": "Compared published search summary with q=2, r=0 specialization",
+        "title": "All smallest attractors in two exceptional antipalindromic pseudostandard families",
+        "trigger": "Closest found binary exact-count special case"
+      },
+      {
+        "assessment": "Its q-sized lower bound and attractor existence do not settle all position sets in injective periodic prefixes",
+        "evidence": "Abstract states attractor size equals the number of distinct letters in any episturmian factor.",
+        "identifier_or_url": "https://arxiv.org/abs/2211.01660",
+        "material_read": "Abstract and scope statement",
+        "method": "Abstract-level implication screening",
+        "title": "String attractors of episturmian sequences",
+        "trigger": "Nearby broad class with minimal alphabet-size attractors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be5aa995-7e5a-4cb8-82b8-aea9d012bd31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides exact all-optimal position classification and a single-factor necessary-and-sufficient test across the whole natural family of injectively periodic words, for every finite prefix and arbitrary alphabet size; reveals suffix-end boundary phase and q-independent complete-period failure fraction. Not merely the previously known minimum cardinality.",
+    "status": "PASS"
+  }
+}
