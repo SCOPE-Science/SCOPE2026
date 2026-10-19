@@ -1,0 +1,11 @@
+# Scientific review: first-three support positions
+
+**Correctness — PASS.** The cycle-rank formula follows by contracting the largest-sum perfect matching, obtaining \(d\) paths from the middle sum, and counting cycles of the third sum as selected arcs of a modular permutation. The arithmetic formula holds for every \(0\le a<b<c\), including loop and parallel-edge cases after contraction. A separate new-matching argument constructs an infinite acyclic completion of every admissible triple. The primary literature's incidence-forest characterization then establishes the word existence claim. The executable checker confirms 14,190 small triples and 2,505 finite extension stages, but these finite checks do not replace the infinite proof.
+
+**Originality — PASS within examined evidence.** The nearest 2026 primary work proves an incidence-forest characterization and gives a sufficient fast-growth construction; the accessible abstract does not state an exact three-position arithmetic condition. Its full text was not personally accessible, so an unobserved equivalent proposition in that paper is a substantive residual priority risk. A separately published logarithmic support-envelope bound was inspected through its full research statement and review; it controls occupancy, not which individual triples are permissible or their cycle rank. Targeted literature and mathematical-record searches found no direct closed-form covering theorem. Lack of search hits is not a proof of global novelty.
+
+**Value — PASS.** The first three marked positions are the first nontrivial support size: one or two antidiagonals form a forest automatically. The result gives a complete natural infinite-parametric classification, distinguishes non-arithmetic-progression obstructions invisible to the Sidon test, and shows every allowable finite triple genuinely extends to a globally extremal infinite word. The exact cycle rank quantifies how far a forbidden triple is from the forest condition. It neither claims a general four-point classification nor an infinite family of unrelated invariants.
+
+The main residual risk is historical priority of an equivalent three-diagonal graph result or an unexamined part of the originating article. No independent scientific validation was conducted.
+
+Self-review: passed. Independent audit: not yet performed.
