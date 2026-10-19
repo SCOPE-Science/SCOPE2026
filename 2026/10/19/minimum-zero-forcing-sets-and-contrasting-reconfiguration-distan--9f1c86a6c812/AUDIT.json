@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Finite exhaustive proof on the explicit 18-vertex incidence graph. Independent C++ and Python implementations enumerate every subset of sizes 1–7, reproduce 6912 minimum configurations with no smaller forcing sets, reconstruct each legal jump/slide and both connected graphs. C++ breadth-first search from all 6912 roots verifies radii, diameters and eccentricity distributions. Python independently verifies 216 base automorphisms, 35 orbits and BFS from all orbit representatives, reproducing every graph invariant. Four packaged source/output artifacts can be replayed; finite proof does not imply any result for larger graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gentner–Rautenbach arXiv:1608.00747 proves \\(Z(G)\\ge(g-2)(\\delta-2)+2\\) for girth 5 or 6; for the Pappus graph this gives six, not seven.",
+        "Davila–Kenter arXiv:1406.0482 establishes lower bounds on zero forcing and does not discuss reconfiguration graph distances."
+      ],
+      "reasoning": "A general lower bound or generic construction algorithm does not imply exact optimal configuration multiplicities or exact 6912-state exchange-graph eccentricities. The known class-wide results are weaker than the specific finite classification.",
+      "searches": [
+        "zero forcing set reconfiguration graph Heawood Pappus graph minimum zero forcing sets token jumping and token sliding",
+        "minimum zero forcing sets of the biaffine incidence graph 3 by 3, 7 black vertices 6912",
+        "arXiv:1608.00747v1 full text; theorem on large-girth lower bounds",
+        "arXiv:1406.0482v2 full text; theorem on girth-dependent lower bounds"
+      ]
+    },
+    "checked_sources": [
+      "AIM group 2008 (original zero forcing definition and maximum-nullity relation)",
+      "arxiv:1406.0482v2 full accessible text",
+      "arxiv:1608.00747v1 accessible primary text",
+      "arxiv:2009.00220v1 full accessible text",
+      "DistanceRegular.org Pappus graph page",
+      "published-finding corpus semantic hits identified in comparison fields; prior own ledger recoverable historical claims checked for deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Geneson–Haas–Hogben give exhaustive algorithms for general zero-forcing set reconfiguration and ask about efficient graph distances, but do not derive numerical distances for Pappus.",
+        "The present finite computation instantiates general algorithms on a specifically defined graph, with an independent orbit-reduced verification of all 6912 eccentricities."
+      ],
+      "reasoning": "General decidability or exponential-time enumeration algorithms logically permit computing these invariants, but do not specify them; a routine possibility of computation is not a prior theorem implying the exact claims without running a new, object-specific census. No stronger graph-family classification containing these exact numbers was found.",
+      "searches": [
+        "arXiv:2009.00220v1 Section 6 computational results and algorithms",
+        "arXiv:1406.0482v2 Sections 3–4",
+        "published-finding corpus semantic search Pappus graph Biaff(3) zero forcing reconfiguration 6912 min forcing sets 97524 token jump transitions diameter 7; token sliding 10962 transitions diameter 18"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complete text of Geneson–Haas–Hogben arXiv:2009.00220v1, Sections 1–6, defines zero forcing graph as optimal sets differing by one vertex; contains no Pappus-graph case.",
+        "Reconfiguration graphs here use precisely that token-jumping operation and additionally token sliding along an original edge."
+      ],
+      "reasoning": "The optimal-set graph in the published definition is equivalent to the jump graph here, so differing names do not create novelty. The full manuscript gives general properties and computational complexity rather than the 18-vertex Pappus calculation; no equivalent statement of its 6912 states, 97524 jumps, 10962 slides, or radii/diameters was located.",
+      "searches": [
+        "Pappus graph Biaff(3) zero forcing reconfiguration 6912 min forcing sets 97524 token jump transitions diameter 7; token sliding 10962 transitions diameter 18",
+        "minimum zero forcing sets of the biaffine incidence graph 3 by 3, 7 black vertices 6912",
+        "Pappus graph zero forcing number 7 token sliding center radius 16 648 configurations",
+        "Search of arXiv:2009.00220v1 full text for “Pappus” (no match)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DistanceRegular.org Pappus entry identifies the underlying graph, but does not tabulate these zero-forcing exchange-graph invariants.",
+        "Targeted published-finding corpus records on Pappus concern topology or graph-configuration homology, not optimal zero forcing; separate records on zero forcing concern fan graphs, trees, or other graph families."
+      ],
+      "reasoning": "The graph identification/database entry is not an exact result table for the present invariant. Unindexed computations and supplemental tables remain possible and are explicitly a residual risk.",
+      "searches": [
+        "Pappus graph Biaff(3) zero forcing reconfiguration 6912 min forcing sets 97524 token jump transitions diameter 7; token sliding 10962 transitions diameter 18",
+        "minimum zero forcing sets of the biaffine incidence graph 3 by 3, 7 black vertices 6912",
+        "Pappus graph zero forcing number 7 token sliding center radius 16 648 configurations",
+        "Web searches: “zero forcing number Pappus graph minimum zero forcing sets seven”; “Pappus graph zero forcing graph reconfiguration token sliding”; “Pappus graph zero forcing polynomial number zero forcing sets 6912”"
+      ]
+    },
+    "rationale": "General minimum-rank/zero-forcing introductions, girth lower bounds and full-text primary work on zero-forcing reconfiguration give definitions, inequalities and algorithms; none of the inspected source statements covers or implies the exact minimum-set multiplicity and both exchange-graph centrality spectra for the Pappus graph. Actual published-finding corpus semantic searches and available own-ledger historical claim comparisons found no covering claim. These search results are not a proof of global novelty; unindexed publications and tables are residual risks.",
+    "residual_risks": [
+      "Unindexed published tables or full-text supplements could record the same Pappus graph computation.",
+      "Independent literature-priority and external mathematical audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives general bounds but neither 6912-state classification nor reconfiguration distances.",
+        "evidence": [
+          "Main theorem derives \\(Z(G)\\ge2\\delta-2\\) for girth at least 5; no Pappus-specific result.",
+          "First public preprint 2014-06-02 shown on arXiv record."
+        ],
+        "identifier_or_url": "arxiv:1406.0482v2; https://arxiv.org/html/1406.0482v2",
+        "material_read": "Full accessible HTML, including introduction, preliminaries, main results, conjecture and references.",
+        "method": "Section-by-section examination and title/keyword comparison.",
+        "title": "Bounds for the Zero-Forcing Number of Graphs with Large Girth",
+        "trigger": "Girth-constrained forcing lower bounds might settle the minimum in a cubic graph."
+      },
+      {
+        "assessment": "Lower bound six for Pappus, below exact seven; no optimal-set enumeration or exchange diameter.",
+        "evidence": [
+          "For girth \\(6\\) and minimum degree \\(3\\) proves lower bound \\((6-2)(3-2)+2=6\\)."
+        ],
+        "identifier_or_url": "arxiv:1608.00747v1; https://arxiv.org/abs/1608.00747",
+        "material_read": "Full accessible paper HTML and theorem statements, not only abstract.",
+        "method": "Inspect main zero-forcing inequalities and definitions.",
+        "title": "Some Bounds on the Zero Forcing Number of a Graph",
+        "trigger": "Sharp large-girth bound might imply exact minimum."
+      },
+      {
+        "assessment": "Matching move definition and general computational framework; no computed Pappus graph or its exchange distances.",
+        "evidence": [
+          "Abstract defines adjacency by changing one vertex of a minimum zero forcing set.",
+          "Section 6 gives general enumeration algorithms, not a Pappus numerical table; full-text “Pappus” search has no match."
+        ],
+        "identifier_or_url": "arxiv:2009.00220v1; https://arxiv.org/html/2009.00220v1",
+        "material_read": "Entire accessible manuscript including Sections 1–6 and full computational section through conclusion.",
+        "method": "Read definition, family results, computations and check occurrences of Pappus.",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Exact same optimal-set token-jumping graph, plausible coverage."
+      },
+      {
+        "assessment": "Supports identification only; no zero forcing counts, jumps, slides or diameters.",
+        "evidence": [
+          "18-vertex cubic symmetric graph identified as biaffine incidence graph of order three."
+        ],
+        "identifier_or_url": "https://www.math.mun.ca/distanceregular/graphs/pappus.html",
+        "material_read": "Web graph database identification and construction summary.",
+        "method": "Check graph order, regularity, and biaffine incidence description.",
+        "title": "Pappus graph",
+        "trigger": "Validate canonical graph object and incidence representation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f1c86a6-c812-4283-9f85-8472d1896428",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 18-vertex Pappus graph is a canonical cubic symmetric incidence graph, and minimal zero forcing concerns matrix nullity and propagation/controllability. The exact 6912-state structural census answers a natural optimal-seed mobility question beyond the minimum seed number. In particular, unrestricted exchanges preserve distance-homogeneity of eccentricity seven, while local slides retain connectivity but create diameter eighteen and three eccentricity classes. Exact finite classification and a verified 216-automorphism reduction are substantial object-specific results, not arbitrary numerical slices or a textbook deduction.",
+    "status": "PASS"
+  }
+}
