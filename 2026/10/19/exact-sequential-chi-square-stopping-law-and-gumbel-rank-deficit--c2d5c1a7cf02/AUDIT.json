@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For the identity matrix and an exact orthogonal projector of rank m, the new independent normalized Gaussian residual block has squared Frobenius norm chi-square(b*m)/b, conditionally independent of earlier outcomes. This gives the finite first-success product including the rank-zero endpoint and the exact false-acceptance probability. Stirling/gamma-density moderate deviations uniformly on sqrt(q log q) windows and Chernoff truncation convert the hazard sum to sqrt(2q)/b^(3/2) times an integrated normal tail. At beta solving beta^2+4 log beta=log(q/(pi*b^3)), this sum tends to exp(-x), squared hazards vanish, and the survival product tends to exp(-exp(-x)). Last-block-only pruning changes the rank by at most b=o(sqrt(q)/(beta)), so Slutsky transfers the law. Exact orthogonality, scalar threshold, block-grid and fixed-b assumptions are explicit. Executed standalone numerical code passed 784 finite consistency, QR and numerical comparisons. No finite experiment substitutes for the asymptotic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu and Qu arXiv:2610.03321v1, Section 4 and Appendix B: simultaneous validation for a predetermined nested family from reused Gaussian probe responses; not the fresh probe/block updates of the theorem.",
+        "Gorman et al. arXiv:1810.04125, Algorithm 5 and Appendix A: relative/absolute HSS criteria and per-estimator exponential deviation bounds, no exact sequential identity/Gumbel law in the inspected parts.",
+        "Smith, Do, Chen arXiv:2607.06758v1, Remark 3.3 credits earlier indicators and separates its pruning contribution."
+      ],
+      "reasoning": "General Gaussian concentration statements can bound individual false decisions but do not themselves imply the exact first-success distribution or its sharp extreme-value centering; shared-probe guarantees do not dominate independent fresh-probe stopping without a calibration margin. The previously proved relative-tolerance first-order theorem does not fix Gumbel fluctuations.",
+      "searches": [
+        "Information Limits of Low-Rank Approximation Certification chi-square repeated nested stopping Gaussian",
+        "adaptive randomized low rank QB stopping with Gaussian residual indicators premature stopping chi square identity matrix multiple testing Gumbel log n",
+        "arxiv:2610.03321v1",
+        "arxiv:1810.04125"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.06758v1",
+      "arxiv:1810.04125",
+      "arxiv:2310.09417v1",
+      "arxiv:2610.03321v1",
+      "88fc5e21-b8ad-4125-8a76-f940bc870968",
+      "77e11f8220ee",
+      "008b7842a13f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier unit-block relative QB claim yields only a normalized leading rank deficit and relative-error excess, which cannot distinguish different O(sqrt(n/log n)) fluctuation limits.",
+        "The present result proves full independent finite products for b fixed and absolute threshold and identifies Gumbel fluctuations in a narrower normalized window.",
+        "The current-source paper provides algorithm steps and single-inspection unbiasedness but no product/extreme-value inference in inspected sections.",
+        "Pearce et al. arXiv:2310.09417v1, Sections 3–4: Schur-complement-based, LU-pivoted interpolative decomposition, not QB orthogonal projection."
+      ],
+      "reasoning": "The old first-order limit is mathematically insufficient to imply a Gumbel law; infinitely many second-order distributions share that first-order limit. Its random relative denominator differs, so even its finite inspection-event formulas are not the claimed fixed-absolute products. The new theorem is not merely a renamed special case of the old claim, but gives new finite laws and fluctuation scales for each fixed b. It does acknowledge that the qualitative high-probability miss and b=1 leading coefficient were already known.",
+      "searches": [
+        "88fc5e21-b8ad-4125-8a76-f940bc870968",
+        "arxiv:2607.06758v1",
+        "arxiv:1810.04125",
+        "arxiv:2310.09417",
+        "arxiv:2610.03321v1",
+        "Smith Do Chen 2607.06758 uniform identity matrix rank pruning Gaussian error indicator early stopping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Smith, Do, Chen arXiv:2607.06758v1, Algorithm 2, Sections 3.1–3.3: independent Gaussian residual-block test with pruning but no Gumbel rank law identified in inspected material.",
+        "Prior mathematical claim 88fc5e21-b8ad-4125-8a76-f940bc870968: unit-block relative stopping with random cumulative input norm, first-order sqrt(n log n) shortfall and miss probability one; does not state second-order limit.",
+        "Gorman et al. arXiv:1810.04125, Sections 2.4–2.5: different sampled HSS stopping and Chernoff bounds."
+      ],
+      "reasoning": "Aliases considered: fresh Gaussian look-ahead QB, sequential Hutchinson Frobenius norm estimator, first-passage chi-square product, flat-spectrum stopping, identity-matrix rank deficit. None of the compared statements supplies both the exact independent finite product for a prescribed absolute tolerance and the Gumbel law at fixed arbitrary block width.",
+      "searches": [
+        "Smith Do Chen adaptive matrix-free QB identity spectrum Frobenius stopping chi-square rank shortfall Gumbel block size",
+        "flat spectrum randomized QB absolute tolerance fixed b Gumbel law stopping rank",
+        "arxiv:2607.06758v1",
+        "88fc5e21-b8ad-4125-8a76-f940bc870968"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier mathematical claim 88fc5e21-b8ad-4125-8a76-f940bc870968 is explicitly the closest available same-source record; its statement has no exact finite product or second-order Gumbel limit.",
+        "Relevant other retrieved record IDs include opaque mathematical record 008b7842a13f and opaque mathematical record 77e11f8220ee, addressing distinct deterministic SVT and randomized pivoting processes.",
+        "Finite product is computed from the chi-square CDF, not imported from any preexisting database/table."
+      ],
+      "reasoning": "No exact table or record containing these finite stopping probabilities, block-calibrated quantiles and the distributional second-order law was identified. Presence of another rank-stopping record with unrelated sampling is not equivalent coverage. Record search cannot prove uniqueness.",
+      "searches": [
+        "Gumbel extreme value law for first passage of independent chi-square lower tails with linearly decreasing degrees of freedom",
+        "randomized QB algorithm identity matrix fixed tolerance rank deficit sqrt(n log n) premature stop",
+        "earlier accessible own claims: title/claim scan for 2607.06758, adaptive QB, Gaussian stopping, Gumbel, chi-square"
+      ]
+    },
+    "rationale": "The motivating 2026 paper defines the fresh-block normalized Gaussian estimator and rank-pruning algorithm, but the inspected proof, algorithm and experimental sections do not supply the exact identity-spectrum sequential first-success law or its Gumbel fluctuations. Earlier private claim 88fc5e21-b8ad-4125-8a76-f940bc870968 establishes a leading sqrt(n log n) shortfall for unit-block *relative* threshold with a random cumulative denominator; the leading qualitative pathology is prior work and is not claimed here. A block-general exact *absolute* finite law and second-order Gumbel normalization do not follow by implication from that claim. A 2018/2019 HSS stopping preprint gives marginal Gaussian concentration with a different rule; the 2023 LUPP interpolative-decomposition preprint uses a Schur-complement estimator; 2026 shared-probe certification analyzes reuse of validation and calibrated stopping rather than newly generated uncalibrated QB blocks. Mathematical-record searches for source title, stopping law aliases, Gumbel, block width and chi-square found no claimed equivalent; nonindexing remains a risk, not a novelty proof.",
+    "residual_risks": [
+      "Unindexed mathematical papers or general sequential chi-square extreme-value results might contain an equivalent theorem.",
+      "The preliminary version of the HSS work and accessible related sections were inspected; a journal revision could contain additional details not recovered here.",
+      "The earlier same-source unit-block relative result already covers the high-probability failure and leading deficit; only the absolute finite product, fixed-b extension and centered Gumbel fluctuations are assessed as new.",
+      "The finite Gumbel approximation converges slowly for numerical dimensions; this is not a proof defect but a practical calibration limitation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The algorithm and marginal unbiasedness are prior; the exact first-success product and block-general Gumbel law were not located in inspected content.",
+        "evidence": "Algorithm 2 lines 193–224: Omega_i=randn(n,b)/sqrt(b); success is tested on ||Y_i|| before QR; pruning only the last block. First public date 2026-07-07, primary MSC 65F55.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.06758",
+        "material_read": "Full open arXiv text; Algorithm 2, Sections 3.1 and 3.2 (error estimator, normalized Gaussian draws, stopping/pruning), Remark 3.3 and Section 5 numerical interpretation; searched throughout for Gumbel and rank stopping.",
+        "method": "Primary lawful arXiv HTML reading and full-text searches",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Defines the exact randomized QB estimator and pruning steps"
+      },
+      {
+        "assessment": "Related Gaussian Frobenius sampling with different HSS decisions and per-sample exponential bounds; no equivalent first-success Gumbel result in inspected text.",
+        "evidence": "Algorithm 5 uses residual sample ratio, R-diagonal tests and post-hoc RRQR; Appendix A bounds marginal quadratic forms using Chernoff.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.04125",
+        "material_read": "Lawful arXiv full text: Section 2.4 Algorithm 5, Section 2.5 single-estimator analysis, Appendix A probability bounds; searched full document for stopping and chi-square.",
+        "method": "ArXiv HTML primary-text inspection",
+        "title": "Matrix-free construction of HSS representation using adaptive randomized sampling",
+        "trigger": "Underlying prior randomized matrix-free HSS stopping technique cited by the motivating paper"
+      },
+      {
+        "assessment": "Different LU-pivoted skeleton approximation/Schur-complement indicator, not the orthogonal QB first-success law.",
+        "evidence": "Sections 3.2 and 4 develop ID/CUR error proxy from partially pivoted LU, with no flat-projector chi-square stopping identity established.",
+        "identifier_or_url": "https://arxiv.org/html/2310.09417v1",
+        "material_read": "Sections 1, 3 error estimation via Schur complement, 4 adaptive randomized LUPP, and section-navigation review of Appendix 7.",
+        "method": "Open arXiv HTML full-text section inspection",
+        "title": "Adaptive Parallelizable Algorithms for Interpolative Decompositions via Partially Pivoted LU",
+        "trigger": "Earlier Gaussian residual sketch used to drive adaptive matrix approximation"
+      },
+      {
+        "assessment": "Certification of independently defined candidates via reused validation, not fresh independent block-stopping without calibration; no corresponding identity QB Gumbel theorem identified.",
+        "evidence": "Section 4 reduces simultaneous decisions along a shared-probe nested chain to boundary decisions, whereas the new theorem tests independent samples at each changing projector.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.03321",
+        "material_read": "ArXiv open full text: Sections 3.2, 4.1–4.2, relevant Appendices B and E; inspected title, abstract, repeated-check path results and searched for Gumbel.",
+        "method": "ArXiv primary text reading with section/appendix comparisons",
+        "title": "Information Limits of Low-Rank Approximation Certification",
+        "trigger": "Potential broader recent theorem about adaptive and repeated Gaussian validation"
+      },
+      {
+        "assessment": "Covers the leading unit-block relative-threshold failure but does not cover the new absolute fixed-block finite law or second-order Gumbel statement.",
+        "evidence": "Claim specifies running empirical input norm, single-column probes and first-order sqrt(n log n) rank deficit; lacks chi-square product for absolute block test and any Gumbel limit.",
+        "identifier_or_url": "88fc5e21-b8ad-4125-8a76-f940bc870968",
+        "material_read": "Complete recoverable prior claim statement only; no old review, artifacts or proof were inspected.",
+        "method": "Statement-and-implication comparison for duplicate screening",
+        "title": "Previously available Gaussian QB flat-spectrum rank-deficit theorem",
+        "trigger": "Direct overlap with the same motivating preprint and flat identity test"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2d5c1a7-cf02-414b-b719-87bd942e7bf9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the explicit matrix-free fresh-block randomized QB stopping rule, the full exact finite stopping distribution enables calibrated failure risk computation, and the nontrivial Gumbel limit supplies a sharp second-order quantile correction beyond existing leading unit-block estimates. The result reveals a sequential multiple-inspection issue left unresolved by an unbiased one-step indicator. Block width changes failure risk at finite n, while any fixed b eventually has false acceptance probability one; last-block pruning does not repair it. This identifies a motivated, actionable mathematical boundary of randomized rank determination. The theorem intentionally does not imply significant relative error excess, since the actual relative miss vanishes, or provide guarantees for general spectra.",
+    "status": "PASS"
+  }
+}
