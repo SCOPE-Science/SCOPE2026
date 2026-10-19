@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Direct generator multiplication and root-syndrome nullspace each exhaust exactly 2^16 distinct codewords; all 31 integer weight rows agree exactly. The proof of b=9..15 uses the independently checked fourteen rank-13 columns and exact endpoint counts, and b=5..16 MDS is based on d_5=20 exhaustive lower bound plus explicit generator witness and window monotonicity. Computational finite certificate is included in complete standalone source files; no extrapolation to other lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shi–Özbudak–Solé stability: W_b=W_k for b>=k; here k=16, and known stability is credited. Vega and Zhu et al. require irreducible cyclic families; target check polynomial is reducible and code dimension 16, while irreducible degree for n=31 divides 5."
+      ],
+      "reasoning": "No stronger theorem in inspected materials yields all width-2..15 coefficients or the exact MDS-onset statement. Formally overlapping b>=16 coverage is not claimed as independent novelty.",
+      "searches": [
+        "finite exact cyclic b-symbol weight distribution of primitive BCH code length 31 designed distance seven",
+        "doi:10.1109/TIT.2021.3069772",
+        "doi:10.1007/s10623-023-01193-w",
+        "arxiv:2110.00805"
+      ]
+    },
+    "checked_sources": [
+      "Sun–Li–Ding DOI 10.1109/TIT.2023.3307732, author full text",
+      "Shi–Özbudak–Solé DOI 10.1109/TIT.2021.3069772, author full text",
+      "Vega DOI 10.1007/s10623-023-01193-w, full open HTML",
+      "Zhu–Shi–Özbudak arxiv:2110.00805, abstract/code-family",
+      "OEIS A028382 Hamming-weight table",
+      "Published research search: 2026/9/8/SCOPE080",
+      "Published research search: 2026/9/18/SCOPE-binary-bch-period-six-seven-minimum-distances--19e0cb0027e7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun–Li–Ding Example 19 gives [31,16,7] ordinary Hamming parameters; it does not determine the cyclic width-five distance 20. The other published BCH result concerns a separate length-4161 family. Shi–Özbudak–Solé upper-width stability is acknowledged."
+      ],
+      "reasoning": "Knowing Hamming d_1=7 does not fix d_5 or the multiplicities; no inspected prior result implies the exact transition or complete width-2..15 distribution. A source not indexed or an overlooked exact recurrence may still exist.",
+      "searches": [
+        "BCH [31,16,7] is maximum distance separable in cyclic 5-symbol metric d5=20",
+        "primitive binary BCH 31 16 7 five-symbol distance 20 MDS full b-symbol weight enumerator",
+        "[31,16,7] code d_5 20 b-symbol MDS",
+        "doi:10.1109/TIT.2023.3307732",
+        "2026/9/18/SCOPE-binary-bch-period-six-seven-minimum-distances--19e0cb0027e7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact target is equivalent to enumerating cyclic zero-run multiset statistics for all 65,536 BCH codewords; Shi–Özbudak–Solé address b-symbol weights via the standard sliding-window representation, but their general bounds/stability do not provide this table."
+      ],
+      "reasoning": "Equivalent cyclic-gap and polynomial-root descriptions were searched and compared by implications, not titles. Known generic stability for b>=16 is explicitly excluded from the claimed originality. The intermediate 14 window histograms and the MDS cutoff are not entailed by the inspected generic statements.",
+      "searches": [
+        "complete b-symbol weight enumerator all window widths of binary primitive BCH [31,16,7] cyclic code",
+        "binary BCH [31,16,7] cyclic length 31 joint zero run spectrum b-symbol pair weight counts",
+        "[31,16,7] code d_5 20 b-symbol MDS",
+        "https://www.researchgate.net/publication/350508739_Geometric_Approach_tob-Symbol_Hamming_Weights_of_Cyclic_Codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A028382 tabulates ordinary Hamming weights for [31,16,7], identical to W_1 in the new table. Published SCOPE080 enumerates different b=2 codes of lengths 8, 12, 14, and does not cover [31,16,7] or this all-b spectrum."
+      ],
+      "reasoning": "The matching ordinary row is explicitly acknowledged as covered; the new result determines every cyclic width 2..15 row in SPECTRUM.csv and derives the high-width law from run uniqueness.",
+      "searches": [
+        "complete b-symbol weight enumerator all window widths of binary primitive BCH [31,16,7] cyclic code",
+        "binary BCH [31,16,7] cyclic length 31 joint zero run spectrum b-symbol pair weight counts",
+        "https://oeis.org/wiki/List_of_weight_distributions",
+        "2026/9/8/SCOPE080"
+      ]
+    },
+    "rationale": "Actual published-record searches returned no published result implying the full b=2..15 tables or the b=5 MDS transition for this exact code; primary-source inspection distinguishes known Hamming counts, general b>=16 stability, and irreducible-code formulas. A genuine residual priority risk remains for unindexed prior work.",
+    "residual_risks": [
+      "Earlier unindexed b-symbol table or exact cyclic-gap enumeration for the same BCH code could cover some or all of the present claim.",
+      "Full primary text of the specialized irreducible two-weight article was not inspected, although its stated irreducibility hypothesis does not include this code.",
+      "Width-five minimum 20 could have appeared as an unpublished or unindexed specialist result; no such exact coverage was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes parameters [31,16,7] and generator-root context; does not present a full b-symbol weight table for this code.",
+        "evidence": [
+          "p. 1: first public date 28 August 2023; pp. 3/6: C(5) construction and Example 19 [31,16,7]; paper addresses ordinary Hamming distances and duals."
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2023.3307732; https://cse.hkust.edu.hk/faculty/cding/JOURNALS/it242.pdf",
+        "material_read": "Accessible primary text: definitions in Sec. I, BCH construction in Sec. III, Example 19 on p. 6, and concluding discussion; not every page read line-by-line",
+        "method": "Full-text source and page-1 PDF visual inspection; focused reading of definitions, theorem and Example 19",
+        "title": "An Infinite Family of Binary Cyclic Codes With Best Parameters",
+        "trigger": "Exact BCH code, primitive root and original parameter source"
+      },
+      {
+        "assessment": "General bounds and dimension-threshold stability; stability for b>=16 is acknowledged, but no intermediate b=2..15 distribution of this BCH code is established.",
+        "evidence": [
+          "Introduction main-contributions paragraph: enumerator at width b>=dimension k equals width-k enumerator; other main results are bounds and irreducible-related cases."
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2021.3069772; https://www.researchgate.net/publication/350508739_Geometric_Approach_tob-Symbol_Hamming_Weights_of_Cyclic_Codes",
+        "material_read": "Author-shared text: abstract and introduction, statements of main results and stability theorem, definitions and pertinent code-class descriptions; not line-by-line review of all sections",
+        "method": "Primary-paper text inspected for assumptions, theorem conclusions, BCH applications and enumerator formulas",
+        "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+        "trigger": "General b-symbol bounds or stability could subsume an exact BCH result"
+      },
+      {
+        "assessment": "Covers semiprimitive irreducible cyclic codes, not the reducible-check-polynomial [31,16,7] BCH code.",
+        "evidence": [
+          "Section 1: cyclic code is irreducible iff its parity-check polynomial is irreducible; section 2 treats dimension r=ord_n(q), which is 5 for n=31 over F2, not target dimension 16."
+        ],
+        "identifier_or_url": "doi:10.1007/s10623-023-01193-w; https://link.springer.com/article/10.1007/s10623-023-01193-w",
+        "material_read": "Full open-access HTML: abstract, introduction, definitions and main code-family assumptions, with results sections",
+        "method": "Compared parity-check-polynomial irreducibility and code dimension with the exact BCH target",
+        "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+        "trigger": "Plausible complete b-symbol distribution theorem"
+      },
+      {
+        "assessment": "Abstract only: covers a specified irreducible two-weight family, not the present code; unresolved full-body risk is recorded, but premise itself excludes the target.",
+        "evidence": [
+          "Abstract specifies only a class of irreducible cyclic codes with two nonzero b-symbol weights."
+        ],
+        "identifier_or_url": "arxiv:2110.00805; https://arxiv.org/abs/2110.00805",
+        "material_read": "Abstract and code-family description, not full PDF",
+        "method": "Compared declared irreducible two-weight hypothesis to target BCH dimension and reducible check polynomial",
+        "title": "Complete b-symbol weight distribution of some irreducible cyclic codes",
+        "trigger": "Complete b-symbol distributions might imply the proposed claim"
+      },
+      {
+        "assessment": "Covers only the Hamming marginal b=1, not width-indexed cyclic b-symbol enumerators.",
+        "evidence": [
+          "Entry A028382 gives traditional Hamming weight distribution of the binary [31,16,7] BCH code."
+        ],
+        "identifier_or_url": "https://oeis.org/wiki/List_of_weight_distributions",
+        "material_read": "BCH [31,16,7] row and identifier",
+        "method": "Compared listed ordinary Hamming histogram with width-one histogram computed from both complete enumerators",
+        "title": "List of weight distributions, A028382",
+        "trigger": "Exact database coverage of [31,16,7] ordinary Hamming weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf34348e-fdf4-4fbd-af25-a069509a1f82",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The BCH [31,16,7] code is a canonical member of a published family, and complete b-symbol window distributions are natural invariants for overlapping read channels. Exact MDS-onset widths 5..16, the full intermediate-weight classification and rank-derived geometric coefficient law are substantive structural refinements, distinct from the known Hamming histogram or stability b>=16. No larger-family theorem is claimed.",
+    "status": "PASS"
+  }
+}
