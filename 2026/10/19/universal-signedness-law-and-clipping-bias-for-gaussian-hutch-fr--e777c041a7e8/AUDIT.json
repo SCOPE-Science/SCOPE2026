@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly fixes real independent Gaussian sketches, reduces arbitrary rectangular matrices using SVD, computes energy-term variances, verifies Lyapunov fourth-moment decay under the stated effective-rank hypothesis, applies a continuous chi-square law at the zero threshold and uniform integrability to clipping. Gamma size-bias identities give exact bias, and constrained rate-function minimization establishes a unique rank-one saddle at u=v=2 with its curvature and leading prefactor. The 2026 primary variance formula is independently reconstructed and credited. Computations in verify.py check finite algebra, gamma constants and seeded experiments, not infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2609.28472v1, Sec. 2 exact variance and Secs. 3-5 weighted estimator / numerical work",
+        "arxiv:2010.09649, Algorithm 1 projector and PSD residual trace terms",
+        "Classical multivariate Lyapunov CLT / chi-square gamma tail facts"
+      ],
+      "reasoning": "The 2026 primary theorem covers first two moments and approximation rates, not the shape of the signed limit, clipping expectation or rank-one saddle constant. General CLT and Laplace theorems are used to prove the statements but contain no Hutch#-specific decomposition. Hutch++ is nonnegative for PSD matrices due to its projection formula, so it does not dominate the signed-Hutch# result.",
+      "searches": [
+        "Hutch++ reusing same Gaussian probes for range and residual estimator bias adaptive trace estimation",
+        "Hutch# effective rank distribution",
+        "Hutch# negative probability nonnegative 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.28472v1 full accessible primary",
+      "arxiv:2010.09649 full accessible primary methods",
+      "arxiv:2608.28135v1 accessible primary introduction and methods",
+      "doi:10.1137/21M1447623 publisher abstract / secondary comparison",
+      "Public scholarly searches for signed Gaussian Frobenius norm estimators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.28472v1, Theorem 1.1: unbiasedness and variance 2(F(A)^2+tr((A^TA)^2))/r^2",
+        "arxiv:2010.09649, Alg. 1: PSD residual quadratic is nonnegative",
+        "arxiv:2608.28135v1, Sec. 3: separate operator-valued Hutchinson/Hutch++ Gaussian trace estimators"
+      ],
+      "reasoning": "The exact variance is acknowledged prior coverage, not claimed novel. It alone cannot determine the non-Gaussian high-effective-rank distribution (moments do not fix an arbitrary finite law), negative probabilities, or positive-part bias. The rank-one signed probability and its saddle exponent concern the new 2026 Hutch# formula, not the earlier Gaussian Hutchinson or projector-based Hutch++ estimator.",
+      "searches": [
+        "2026 Hutch# negative norm estimator",
+        "Hutch# negative probability nonnegative 2026",
+        "Hutch# positive part estimator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.28472v1, estimator (2), proof of Theorem 1.1: exact variance but no signed weak limit",
+        "arxiv:2010.09649, Algorithm 1: a distinct projection-based estimator with nonnegative PSD residual"
+      ],
+      "reasoning": "Equivalent descriptions are a centered product of independent Wishart deviations and a Gaussian-chaos cross bilinear statistic. Neither name, alias nor mathematical statistic of this specific Hutch# signed limit was found; a generic Gaussian-chaos label is not equivalent coverage.",
+      "searches": [
+        "2026 Hutch# negative norm estimator",
+        "Hutch# chi-square negative",
+        "Hutch# effective rank distribution",
+        "Hutch# negative probability nonnegative 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2010.09649, Algorithm 1: no sign table for the distinct Hutch# estimator",
+        "Full arxiv:2609.28472v1 contains variance and RMSE plots, not negative probability tables",
+        "The inspected scholarly sources contain no corresponding q_r or delta_r tables"
+      ],
+      "reasoning": "No exact database/table for q_r, delta_r or p_r for this estimator was identified. Search is bounded and not a proof of absence; the exact constants here follow from the proof rather than from retrieved tables.",
+      "searches": [
+        "2026 Hutch# negative norm estimator",
+        "Hutch# chi-square negative",
+        "Hutch# effective rank distribution",
+        "Hutch# positive part estimator"
+      ]
+    },
+    "rationale": "The defining estimator and its exact variance are credited to Chen--Halikias--Musco--Persson (arxiv:2609.28472v1). Full accessible primary text was inspected; it does not state the signed high-effective-rank weak limit, persistent probability of negative estimates, clipping-bias formula, or rank-one saddle asymptotic. Hutch++ and operator infHutch have different estimator formulas. Targeted scholarly searches did not identify equivalent or mathematically dominating claims. Residual risk: unindexed unpublished variants and incompletely read secondary Nyström literature.",
+    "residual_risks": [
+      "No completeness certificate for all scholarly literature or unindexed publications.",
+      "2022 improved Hutch++ article inspected only via publisher abstract; different described algorithm, but hidden overlap cannot be excluded.",
+      "General Gaussian CLT and chi-square large-deviation facts are classical; novelty is their application and exact signed/clipping phenomenon for the specific 2026 estimator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior covers estimator, unbiasedness, exact variance and weighted comparisons; no signedness or clipping/tail theorem detected",
+        "evidence": [
+          "Theorem 1.1 and Sec. 2 formula var = 2/r^2 (S_4^4+F^4)",
+          "Sec. 3 optimized weighted estimator; Sec. 5 RMSE spectra experiments, no negative-value law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28472",
+        "material_read": "Abstract, Sections 1-5 and Appendix A, including Theorem 1.1, Eq. (7), weighted interpolation, empirical analyses and references",
+        "method": "Accessible arXiv HTML full text with targeted text searches for negative, nonnegative, exact and distribution",
+        "title": "Hutch#: Optimal non-adaptive Frobenius norm estimation",
+        "trigger": "Exact same proposed estimator, possible complete prior coverage"
+      },
+      {
+        "assessment": "Different estimator; nonnegative PSD structure does not cover Hutch# signed limit",
+        "evidence": [
+          "Algorithm 1, projector Q and quadratic PSD residual",
+          "Hutch# paper Sec. 5.2 explicitly compares different estimators"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.09649",
+        "material_read": "Accessible full-text Sections 1.1-1.3, Algorithm 1 and PSD projection / stochastic residual formula; checked methods comparison in 2026 source",
+        "method": "Accessible arXiv HTML full text",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Canonical related trace estimator that might have stronger general guarantees"
+      },
+      {
+        "assessment": "Different infHutch / infHutch++ operator norms, not two-sided Hutch# control variate",
+        "evidence": [
+          "Eq. (5) H_m(A) mean Gaussian norm square; Theorem 4 concentration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.28135",
+        "material_read": "Full accessible introduction, Sections 2.1-2.3 and 3.1 operator-valued Gaussian sample estimator and gamma variance bounds",
+        "method": "Accessible arXiv HTML primary text",
+        "title": "Stochastic trace estimation for positive trace-class operators",
+        "trigger": "Contemporary Gaussian operator trace-estimation universality"
+      },
+      {
+        "assessment": "Distinct Nyström / Hutch++ projection framework; complete source not inspected, small residual bibliographic risk",
+        "evidence": [
+          "Publisher abstract names adaptive Hutch++ and Nyström++; no claim about nonadaptive Hutch# estimator introduced later"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M1447623",
+        "material_read": "Publisher abstract, method descriptions and 2026 primary comparison to Nyström++",
+        "method": "Publisher abstract and the 2026 full primary literature review, not full original article",
+        "title": "Improved Variants of the Hutch++ Algorithm for Trace Estimation",
+        "trigger": "Related adaptive variance reduction and one-pass Nyström++"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e777c041-a7e8-4a34-8480-5ab404cc80d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a strictly positive squared Frobenius norm, an unweighted two-sided estimator with one independent Gaussian probe per side has asymptotically 15.73% negative output frequency even along sequences of matrices of diverging effective rank. Positivity clipping creates 25.78% asymptotic relative upward bias, directly affecting log-based or positivity-constrained downstream uses. The rank-one and spectrally flat sketch-budget negative tails have different exponents, producing a nontrivial and natural spectral robustness classification beyond a variance bound. No generalization to weighted Hutch# or other sketches is claimed.",
+    "status": "PASS"
+  }
+}
