@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "All finite n and fixed weights are covered, including empty and unary cases. Three arches suffice to match any three-bit target, and if fewer arches exist a subsequence constructed from last letters of greedy arches and a missing remainder letter cannot occur. The unique binary arch and unary remainder decomposition gives R(1+A+A²). For both symbol multiplicities >=3, the zero-, one-, and two-arch contributions are 0, 2, and 3(n-2)-2, respectively. The coefficient computation follows from H(u,v)-H(u-1,v-1)=3(u+v)+4. Independent direct exhaustive matching verifies 131071 words and 153 length/composition pairs through length 16; the universal proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2311.10658 §§4, theorem 28 and corollary 30, computes k-universal accepted-word counts for arbitrary DFA; prescribed length and weight are DFA-recognizable conditions.",
+        "arXiv:2304.04583 §§3.1–3.2, general length-only counting and ranking, not a closed conditional formula."
+      ],
+      "reasoning": "A broad counting algorithm is able to evaluate any specified finite input parameters after encoding the constraint. That computational reach does not assert, imply by direct specialization, or display the closed uniform formula across every weight. No stronger closed-form parameter law was identified.",
+      "searches": [
+        "arch factorization binary words bivariate generating function number of complete alphabets given number zeros ones",
+        "binary words of prescribed Hamming weight k-universal scattered subsequences exact number binomial coefficient",
+        "k-Universality of Regular Languages arXiv:2311.10658 theorem 28 corollary 30"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.04583",
+      "arXiv:2311.10658",
+      "arXiv:2104.09063",
+      "arXiv:2610.06717 (abstract only)",
+      "published Closed-form law for binary subsequence universality (complete RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published published-finding corpus-indexed RESULT.md for Closed-form law for binary subsequence universality: N_{n,j} with length and arch count, no weight variable.",
+        "arXiv:2610.06717 accessible abstract: characterizes exists/forall universality for Parikh-matrix fibers and approximates the fraction with a fixed target subsequence, rather than giving an exact count of simultaneous coverage of eight length-three patterns.",
+        "arXiv:2311.10658 full §4 gives a general finite automaton counting procedure."
+      ],
+      "reasoning": "The prior length-only distribution equals the sum over all Hamming weights of the refined counts and cannot force each summand. An existential/universal characterization for a smaller Parikh-matrix fiber does not furnish its precise number of universal words; a single-pattern approximation is different from an exact simultaneous eight-pattern count. The general algorithm can compute instances, but the all-weight cancellation is the new structural assertion.",
+      "searches": [
+        "Closed-form law for binary subsequence universality",
+        "Subsequence Analysis Problems for Binary Parikh Matrices arXiv:2610.06717",
+        "\"3-universal\" \"3(n-2)\" binary scattered"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.04583 §3 counts all length-n k-universal words, without fixing Parikh vector.",
+        "Closed-form law for binary subsequence universality, published RESULT.md, states F(z,u)=(1+z)/(1-z-2uz^2), with z marking total length and u arches only; neither variable resolves the Hamming weight.",
+        "arXiv:2104.09063, definitions and arch structure for circular/power universality, not weight-conditioned counts."
+      ],
+      "reasoning": "The closest equivalent is the length-only distribution of arch counts; specializing a multivariate word enumerator to identical zero and one weights loses information. The fixed-composition equality of all interior deficiency coefficients does not follow from that specialization. Search did not reveal an alternate statement with the same invariant.",
+      "searches": [
+        "fixed Parikh vector composition distribution subsequence universality index binary words bivariate generating function arches",
+        "weight independent number of fixed composition binary words not 3-universal scattered subsequences",
+        "\"3-universal\" \"fixed composition\" binary",
+        "\"Parikh\" \"universality index\" enumeration binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed all-composition table or formula with the specified arithmetic expression was returned by the actual searches.",
+        "Existing length-only counts in the complete published closed-form RESULT.md do not fix k ones."
+      ],
+      "reasoning": "No exact table row, sequence, or formula giving the full two-parameter invariant was identified. Finite checks are independently generated, not copied from a database, and negative search alone is not regarded as a uniqueness certificate.",
+      "searches": [
+        "Exactly 3(n-2) binary words of length n and fixed Hamming weight k fail to contain all subsequences of length three when 3<=k<=n-3",
+        "\"3(n-2)\" \"subsequence\"",
+        "binary 3-universality fixed weight enumerator nonuniversal words count 3(n-2)"
+      ]
+    },
+    "rationale": "Exact all-composition three-universality deficiency was compared against Adamson 2023 length-only counting, an indexed closed-form length/universality-index law whose full RESULT.md was inspected, a general DFA-language counting theorem, and literature on binary Parikh-matrix constraints. The inspected theorems do not state this pointwise Hamming-weight uniformity. A length-only distribution cannot logically determine each conditional coefficient without the new multivariate analysis. A genuine bibliographic risk remains from unindexed equivalent formulations and an inaccessible related 2026 full text.",
+    "residual_risks": [
+      "An alternate fixed-composition enumeration might exist under a different terminology or outside indexed sources.",
+      "The full text of arXiv:2610.06717 could not be inspected; the available abstract supports a related but different question.",
+      "No independent specialist novelty review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed-weight uniform-deficit statement; covers length-only count and arch methods.",
+        "evidence": [
+          "arXiv:2304.04583 theorem 1 (greedy arches), §3 heading and §3.2 length-only counting; sole Parikh discussion is a different example."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+        "material_read": "Full primary PDF pp. 1–6, definitions, theorem 1 and §3 counting recurrences, and text search for Parikh.",
+        "method": "Read and compared definitions, counting setup, formulas and scopes in primary full text; inspected rendered page 4.",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Counting and greedy arch characterization for binary universality"
+      },
+      {
+        "assessment": "BROADER_ALGORITHMIC_METHOD, not the exact all-weights formula.",
+        "evidence": [
+          "arXiv:2311.10658 §4 theorem 28/corollary 30 permits counting DFA-accepted universal words but does not present this conditional symbolic coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+        "material_read": "Primary PDF introduction, definitions, §4 counting theorem 28 and corollary 30, and keyword search for Parikh.",
+        "method": "Read text and rendered page 16, including the DFA accepted-word counting theorem.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Potentially dominating general algorithm for constrained counting"
+      },
+      {
+        "assessment": "NOT_COVERING: focus is circular universality and word powers, not conditional source enumeration.",
+        "evidence": [
+          "arXiv:2104.09063 definitions 2 and 6 and motivation of repeated words."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Primary PDF introduction and preliminaries pp. 1–3, definitions and arch/remainder analysis.",
+        "method": "Read and inspected rendered page 3 and text.",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Arch/remainder literature with possible multivariate refinements"
+      },
+      {
+        "assessment": "DOES_NOT_COVER fixed-weight coefficients; establishes the x=y length specialization and complete length/index distribution.",
+        "evidence": [
+          "RESULT.md: F(z,u)=(1+z)/(1-z-2uz²) and length-only U(n,k,2); no Hamming-weight-refined count."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "Complete published RESULT.md retrieved and compared, including finding, proof, prior work, and limitations.",
+        "method": "Repository file retrieval, mathematical implication comparison of the full statement and proof.",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Closest published research statement, formula for all-length universality-index distribution"
+      },
+      {
+        "assessment": "ABSTRACT_DOES_NOT_STATE the all-composition exact count; unresolved full-text comparison is recorded as residual risk.",
+        "evidence": [
+          "arXiv:2610.06717 abstract: exists/forall universality in Parikh-matrix fibers and additive approximation to occurrence probability of a single pattern."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "Accessible abstract and bibliographic details only; full paper not obtained.",
+        "method": "Read the abstract; attempted primary PDF/html and alternate open-access route; full text remained inaccessible.",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Recent research on binary Parikh-conditioned universality, potential overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db1d7f47-1617-4bdb-a097-ef9b504efe96",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem exactly resolves the natural fixed-composition distribution of binary three-subsequence universality for every length, instead of aggregating over all compositions. The unexpected constant absolute number of failures across every interior Hamming-weight class is a robust structural feature with a sharply characterized boundary. It gives an exact conditional probability relevant for constrained words, not just an isolated small computation or rebranding of a standard lemma.",
+    "status": "PASS"
+  }
+}
