@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Reconstruction from the published unrelaxed SAV equations yields an exact rational first-step map. For squared initial amplitude at least two, the map is globally objective-descending. For amplitudes below two, the exact same-energy crossing reduces to \\(h\\,d(u)\\le2\\) for steps no larger than one. A strictly concave d(u) has a unique positive maximizer, with \\(d(u)<2\\) for negative u, proving the global sharp constant and all equality cases. Linearization at either minimum covers every step above one; the explicit epsilon scaling establishes \\(F(x^+)\\sim1/(64\\varepsilon^4)\\) while \\((r^+)^2\\sim\\var\\(\\varepsilon^2\\)/16\\). The package script checks exact rational algebra and witnesses, high-precision critical root and symbolic limits; sampled points are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published convex/Lipschitz sufficient rules do not apply globally to the unbounded-gradient nonconvex quartic.",
+        "Improved and weighted SAV papers use different discrete state maps to recover energy control.",
+        "Generic observations that modified-energy descent need not imply true-energy descent do not determine a sharp all-state time-step threshold."
+      ],
+      "reasoning": "A stronger theorem for the same exact algorithm and assumptions would dominate, but the inspected broader results address either different schemes or weaker qualitative phenomena. Global descent of this particular rational step cannot be concluded from an inapplicable convex Lipschitz hypothesis.",
+      "searches": [
+        "nonconvex gradient flow discrete gradient energy dissipation multiple solutions quartic double well mean value discrete gradient",
+        "scalar auxiliary variable gradient descent nonconvex energy function true objective increases while modified auxiliary energy decreases",
+        "modified SAV energy decay but original objective grows unbounded near stable quartic minima",
+        "arxiv:2301.02942 Section 4.2 convex convergence results",
+        "arxiv:2405.03403 Theorem 2.1 and Section 4.1",
+        "arxiv:2411.17403 Sections 2-3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2301.02942v2 (Sections 2.1-2.2,3,4)",
+      "https://arxiv.org/abs/2405.03403 (full text Sections 1-2,4.1)",
+      "https://arxiv.org/abs/2304.11288 (HTML introduction and classical/relaxed construction)",
+      "https://arxiv.org/abs/2411.17403 (full text Sections 2-3)",
+      "published-finding corpus semantic search nearest scientific statements for SAV, quartic, one-step original-energy cutoffs and objective spikes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known prior claims supply the scheme and auxiliary-energy law, and already recognize original-energy increases in related SAV schemes.",
+        "The present proof adds the strict concavity reduction d(u), sharp minimax h_star strictly below the local \\(h=1\\) threshold, complete equality classification and \\(\\varepsilon^{-4}\\) original-energy blowup against \\(\\varepsilon^2\\) auxiliary decay."
+      ],
+      "reasoning": "Combining the cited prior qualitative statements does not directly imply the numerical constant or exact all-initialization threshold. While the new calculation uses published formulas and elementary analysis, the complete sharp global classification is the assessed distinct content. Priority remains subject to unindexed literature.",
+      "searches": [
+        "unrelaxed SAV Liu Shen Zhang 2023 quartic double well exact monotone threshold energy",
+        "gradient descent quartic double well energy stability maximum principle polynomial stepsize stable",
+        "Liu Shen Zhang 2301.02942 discrete gradient scalar auxiliary variable unrelaxed one step exact threshold critical step",
+        "modified SAV energy decay but original objective grows unbounded near stable quartic minima",
+        "arxiv:2301.02942 equations (2.4)-(2.5) and Section 4",
+        "arxiv:2304.11288 Sections 1-2",
+        "arxiv:2405.03403 Sections 2,4.1",
+        "arxiv:2411.17403 Sections 2-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact method is a rational rescaled gradient step alpha=h/(1+h beta).",
+        "The Liu-Shen-Zhang original source states this map but no sharp nonconvex quartic original-energy frontier.",
+        "The iSAV paper addresses original energy by changing the scheme and explicitly observes preexisting qualitative original-energy failures."
+      ],
+      "reasoning": "Equivalent references were compared after substituting L=0, q=1/2, \\(F(x)=(x^2-1)^2/4\\) and \\(C=1/4\\). The exact defining property is a universal if-and-only-if cutoff, not merely original-energy nonmonotonicity. No inspected equivalent formula supplies the unique maximizer of d(u) or the divergent mismatch scaling.",
+      "searches": [
+        "SAV gradient descent scalar quartic double well global objective monotonicity sharp stepsize 0.974932804",
+        "original energy monotonicity sharp global time step scalar auxiliary variable method double-well quartic f(x)=(x^2-1)^2/4 C=1/4",
+        "Liu Shen Zhang 2301.02942 discrete gradient scalar auxiliary variable unrelaxed one step exact threshold critical step",
+        "arxiv:2301.02942 Section 2.1 and Section 4.1-4.4",
+        "arxiv:2405.03403 Sections 2,4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected original paper tables concern quadratics, Rastrigin, Rosenbrock, phase retrieval, and recommendations, not scalar double-well all-state energy descent.",
+        "The most relevant publicly retrieved research findings concern different optimization algorithms or stabilized Allen-Cahn time stepping."
+      ],
+      "reasoning": "Exact values, critical parameter, equality cases, and family of energy-divergent examples were checked against available publicly retrievable records. No matching numerical table or closed-form boundary was retrieved; absence in search is limited evidence and not mathematical proof of priority.",
+      "searches": [
+        "average vector field discrete gradient method double well quartic gradient flow multiple implicit roots branch stability timestep bifurcation",
+        "SAV gradient descent scalar quartic double well global objective monotonicity sharp stepsize 0.974932804",
+        "original energy monotonicity sharp global time step scalar auxiliary variable method double-well quartic f(x)=(x^2-1)^2/4 C=1/4",
+        "sharp threshold SAV line search exact one-step scalar nonconvex quartic 0.9749",
+        "scalar auxiliary variable original energy non-monotone quartic gradient",
+        "public mathematical-record nearest hits 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98",
+        "arxiv:2301.02942 Section 3 numerical tables"
+      ]
+    },
+    "rationale": "Known SAV schemes, their modified-energy decrease, and generic failures of original-energy monotonicity are prior work. Inspected primary text and retrievable public mathematical records do not supply the combined sharp all-initialization h-star cutoff for the specified Liu-Shen-Zhang unrelaxed scalar optimization step, its unique nonstationary equality case or the quantified divergent discrepancy. General method-level coverage and related positive-energy corrections are distinguished by their assumptions and implication scopes; residual literature priority risk is retained.",
+    "residual_risks": [
+      "Related specialized SAV analyses may be unindexed or use distinct terminology and could have an equivalent exact quartic calculation.",
+      "Other prior proofs of sufficiently small-step original-energy descent do not automatically settle the exact boundary but may contain implicit optimization that was not identified.",
+      "This result gives no independent priority or peer-review certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the exact unrelaxed update and modified-energy decrease, plus general convergence and quadratic analyses. The inspected nonconvex examples concern other objectives, and no derived global original-energy quartic threshold or divergence construction occurs in inspected material.",
+        "evidence": [
+          "Section 2.1 equation (2.5) gives r_next and theta_next; Theorem 1 proves \\(r^2\\) decrease.",
+          "Section 2.2 explicitly distinguishes r_next from sqrt(f(theta_next)+C) and introduces relaxation.",
+          "Section 4.2 treats convex Lipschitz cases; Section 4.4 considers quadratic objectives."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.02942v2",
+        "material_read": "Accessible primary HTML; Section 2.1 equations (2.3)-(2.5), Theorem 1, Section 2.2 relaxation, Section 3 numerical examples and Section 4 convergence, especially Sections 4.1-4.4.",
+        "method": "Direct reading of full mathematical HTML and targeted in-document text searches.",
+        "title": "An efficient and robust SAV based algorithm for discrete gradient systems arising from optimizations",
+        "trigger": "Direct algorithm and possible prior threshold or nonconvex calculation"
+      },
+      {
+        "assessment": "Confirms the already-known qualitative failure of original energy monotonicity for standard SAV and proves stability for an altered stabilized iSAV method. Its PDE schemes do not state the all-initialization h_star cutoff for the specific Liu-Shen-Zhang scalar optimization step.",
+        "evidence": [
+          "Introduction explicitly acknowledges observed counterexamples to original-energy decrease.",
+          "Section 2.2 replaces auxiliary initialization each iteration and adds stabilization, unlike the present unrelaxed step.",
+          "Section 4.1 documents double-well PDE simulations and original-energy increases for standard SAV, not the exact scalar cutoff."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.03403",
+        "material_read": "Accessible primary mathematical full HTML: introduction, Section 2.1 standard SAV, Section 2.2 improved SAV scheme and theorem, and Section 4.1 double-well experiments.",
+        "method": "Direct reading of rendered primary full-text HTML and targeted section searches.",
+        "title": "Improved scalar auxiliary variable schemes for original energy stability of gradient flows",
+        "trigger": "Plausible stronger exact statement on original-energy monotonicity for the double well."
+      },
+      {
+        "assessment": "Focuses on relaxation and optimal modified-energy approximation, rather than an exact one-step descent frontier of the unrelaxed scalar optimization method.",
+        "evidence": [
+          "Section 2 reviews classical and relaxed SAV; main contribution is EOP-SAV/IMEX schemes, not the target rational scalar map."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.11288",
+        "material_read": "Accessible primary HTML introduction and Sections 2.1-2.2 describing classical SAV/relaxed SAV; later design summarized in introductory and construction statements.",
+        "method": "Direct reading of primary mathematical HTML.",
+        "title": "A novel energy-optimal scalar auxiliary variable (EOP-SAV) approach for gradient flows",
+        "trigger": "Possible general dominating SAV correction and exact energy-descent comparison."
+      },
+      {
+        "assessment": "States qualitative original-versus-modified energy disparities and studies a different weighted SAV scheme and nonlinear scalar solvability. Does not provide the target exact h_star equality for an unrelaxed Liu-Shen-Zhang gradient step.",
+        "evidence": [
+          "Section 2.1 equation (2.9) is a modified-energy law and warns it does not imply original-energy descent.",
+          "Section 3 equation (3.3) is a weighted update with a different auxiliary equation and possible nonlinear solves."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.17403",
+        "material_read": "Accessible primary full-text HTML introduction, Section 2 comparison of energy notions, Section 3 weighted construction and Remark 1 on quartic nonlinear equation.",
+        "method": "Direct reading of primary mathematical HTML.",
+        "title": "A weighted scalar auxiliary variable method for solving gradient flows: bridging the nonlinear energy-based and Lagrange multiplier approaches",
+        "trigger": "A broader weighted SAV formulation that could imply an exact energy-stability condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8e4d9b5-435f-4e0c-ade1-a6969e9adc7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise global one-step objective-descent threshold is a natural algorithm-safeguard invariant, fixed by a canonical double-well model and its positive auxiliary shift. The strict gap \\(h_*<1\\) exhibits a failure missed by local linear stability, and the unbounded objective-versus-auxiliary mismatch quantifies the physical importance of distinguishing true and modified energy. This is not just a cheap example of increase: all real initializations, the sharp boundary and equality cases, and an explicit severe scaling are classified without invoking downstream results.",
+    "status": "PASS"
+  }
+}
