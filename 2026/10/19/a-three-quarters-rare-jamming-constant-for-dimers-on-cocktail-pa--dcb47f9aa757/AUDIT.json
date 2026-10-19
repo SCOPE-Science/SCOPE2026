@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact edge count C(m,2)-p yields all three (p,s) transitions; exchangeable tagged forbidden pairs give telescoping one-pair survival bounds and a two-pair survival moment bound. The single-remaining-pair survival factor 3/(4k^2-1) combines with k=floor(n^(1/5)) to give the proven 3/(4n)+O(n^(-6/5)); a separate labeled-subset exact dynamic program agrees for n<=7, and first/second moment bounds were checked for n<=18. Numerical convergence is not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gamarnik--Goldberg 0807.1277, Section 2.2 Theorem 5 and Corollary 5: fixed r>=3, graph girth g>=4, bounds on normalized expected greedy matching size; cocktail-party graphs have girth three and r=2n-2.",
+        "Pippenger (1989) accessible abstract discusses few-short-cycle regular graphs and graph-edge occupancy, not the claimed exact cocktail-party coefficient."
+      ],
+      "reasoning": "Even a result that typical coverage tends to one does not imply the 1/n-scale failure probability or its constant. The relevant high-girth hypotheses explicitly fail for the present family.",
+      "searches": [
+        "randomized greedy algorithms regular graphs finite girth exact results matching 0807.1277",
+        "Pippenger Random Sequential Adsorption on Graphs 1989 full text",
+        "arxiv:0807.1277"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0807.1277 open full text (2008-07-08 first preprint)",
+      "DOI:10.1002/rsa.3240020104 published abstract (1991)",
+      "DOI:10.1137/0402034 original abstract (1989)",
+      "DOI:10.1214/aoap/1177005436 abstract (1993)",
+      "DOI:10.1103/RevModPhys.65.1281 review abstract (1993)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dyer--Frieze--Pittel (1993), DOI 10.1214/aoap/1177005436, abstract: sparse random graphs and random trees, with mean, variance, and central limit behavior.",
+        "Evans (1993), DOI 10.1103/RevModPhys.65.1281, surveys adsorption kinetics, mainly physical lattices.",
+        "The bipartite crown graph deletes a cross-part perfect matching from K_{n,n}; here all remaining cross-pair connections are allowed in a complete n-partite graph with parts of size 2."
+      ],
+      "reasoning": "Neither the algorithmic generality of the earlier works nor a normalized coverage limit logically entails the new 3/4 coefficient. The prior crown-graph probability 2/n involves a different graph and cannot be substituted into the current Markov chain.",
+      "searches": [
+        "random sequential adsorption dimers cocktail party graph complete graph minus perfect matching",
+        "Dyer Frieze Pittel 1993 average performance greedy matching algorithm complete graph exact probability",
+        "random sequential adsorption on graphs Pippenger 1989"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dyer--Frieze (1991), DOI 10.1002/rsa.3240020104, describes precisely the uniform-next-available-edge algorithm but its accessible abstract emphasizes broad fixed-graph approximation and forests; the complete paper was not accessible.",
+        "Gamarnik--Goldberg, arXiv:0807.1277, Section 1.1 identifies the same greedy-edge rule, but Theorem 5 is about graph families of fixed degree and girth at least four."
+      ],
+      "reasoning": "Random-priority adsorption and uniform-edge greedy matching are equivalent (identical conditional edge selection). Matching the algorithm does not entail the quantitative distribution on this particular dense graph. Vertex-first selection is not equivalent and is excluded.",
+      "searches": [
+        "random greedy maximal matching complete graph minus perfect matching cocktail party graph jamming probability asymptotic",
+        "Random-order greedy maximal matching of cocktail party graph K_{2n} minus a perfect matching probability that two vertices remain uncovered asymptotic three quarters divided by n",
+        "doi:10.1002/rsa.3240020104"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-results searches returned a study of acyclic signatures of complete graphs minus matchings, and studies of random greedy maximal independent sets on multipartite graphs; neither supplies edge-priority matching failure probabilities.",
+        "Exact low-n rational values were obtained by new recurrences, rather than copied from a published table."
+      ],
+      "reasoning": "Graph equality without equality of invariant does not give coverage. Searches did not surface a published exact table for the edge-greedy jamming probability.",
+      "searches": [
+        "complete multipartite graph K_{2,2,...,2} edge-priority random greedy matching failure probability asymptotic",
+        "cocktail party graph random greedy edge matching unmatched probability",
+        "random greedy matching cocktail party graph probability"
+      ]
+    },
+    "rationale": "No examined primary statement, inspected full-text theorem, public mathematical-results match, or accessible own earlier claim entails the asymptotic 3/4 rare-failure coefficient for uniformly random edge-dimer adsorption on the cocktail-party graph. The graph is different from the bipartite crown family and prior fixed-degree/high-girth mean matching-size bounds cannot determine this probability. There is nonzero residual risk in uninspected older full texts.",
+    "residual_risks": [
+      "Full texts of Pippenger (1989) and Dyer--Frieze (1991) were inaccessible after lawful public attempts; an equivalent special-case theorem there cannot be categorically ruled out.",
+      "Bibliographic search cannot establish global uniqueness; titles with no model-specific details may conceal more specialized related results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: main exact quantitative assertions concern fixed-degree high-girth classes and expected matching sizes; cocktail-party graph violates girth and degree assumptions.",
+        "evidence": [
+          "Section 1.1 identifies uniform edge choice for GREEDY matching.",
+          "Theorem 5 requires graph girth g>=4 and fixed r>=3; its conclusion is an expected matching-size bound, not 1/n failure probability."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0807.1277",
+        "material_read": "Full-text PDF, introduction and algorithm definition on pp. 1-3; Theorem 5, Corollary 5 and Theorem 6 with hypotheses on p. 7; proof framing in adjacent sections",
+        "method": "Open-access arXiv PDF textual reading plus direct rendered-page inspection",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Same uniform-next-edge greedy matching rule and broad regular-graph theorems"
+      },
+      {
+        "assessment": "UNCERTAIN_FULL_TEXT: main advertised results are approximation performance and forests. Cannot certify that no unadvertised special case concerns this graph.",
+        "evidence": [
+          "1991 publisher abstract specifies the next edge is randomly chosen from those remaining.",
+          "The highlighted sharp value 0.7690... is for forests, not a dense complete multipartite graph."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and article metadata; full text not retrieved",
+        "method": "Publisher abstract, searches for lawful open copy, unsuccessful",
+        "title": "Randomized Greedy Matching",
+        "trigger": "Identical edge-selection rule and analysis on fixed graphs"
+      },
+      {
+        "assessment": "UNCERTAIN_FULL_TEXT: reported results concern few short cycles; dense cocktail-party graphs have many triangles. Possible hidden specialty result cannot be ruled out.",
+        "evidence": [
+          "The abstract explicitly mentions a variant with edges occupied and endpoints excluded.",
+          "The stated graph families involve sparse or few-short-cycle structures."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Publisher and author-repository abstracts including the edge-adsorption paragraph; repository full-text endpoint inaccessible",
+        "method": "Original publishing metadata and institutional repository abstract; open full text attempt unsuccessful",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Original edge-based adsorption model and graph-theoretic jamming results"
+      },
+      {
+        "assessment": "NOT_A_DIRECT_DOMINATOR: focus on sparse random graphs and random trees, not exact rare failure in dense deterministic cocktail graphs.",
+        "evidence": [
+          "The abstract explicitly limits its detailed average and CLT results to sparse random graphs and random trees."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005436",
+        "material_read": "Author-uploaded abstract and bibliographic metadata; no full text inspected",
+        "method": "Published abstracts",
+        "title": "The Average Performance of the Greedy Matching Algorithm",
+        "trigger": "Broadly related expected greedy matching performance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dcb47f9a-a757-4549-978d-84881f416b30",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph is a canonical sparse deletion of the complete-graph adsorption substrate. The complete graph always deposits a perfect matching whereas the perturbation produces a quantitatively sharp 1/n failure probability despite asymptotically full coverage; the exact 3/4 constant is not recoverable from the coverage limit. The new finite-state reduction gives an exact finite-n benchmark and a mathematically motivated explanation through late surviving forbidden pairs, not an arbitrary table computation.",
+    "status": "PASS"
+  }
+}
