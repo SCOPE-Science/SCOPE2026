@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (same-model).** The Gaussian STFT identity is integrated term by term for the bounded five-tone tempered signal; the nonvanishing factor reduces all zeros to a reciprocal quartic. The associated quadratic in \(\cosh w\) has discriminant \(4q^2(2s-1)(4s^2+2s-1)\), and its only two physical discriminant zeros give the asserted critical gaps. Exact positivity at \(y=\pm1\) excludes unlisted collisions. The inverse-cosh classification proves every spatial and frequency zero, its analytic multiplicity, and the phase charge. The embedded checker independently reproduces the exact discriminant factorization and 2,109 finite formula, zero, and critical-derivative comparisons. Numerical checks do not replace the proof.
+
+**Originality — PASS (qualified self-review).** The inspected 2026 Chand–Nolen–Wu primary full text explicitly analyzes two harmonic components, not this symmetric five-tone model; its Gaussian and holomorphic structures are properly credited. The indexed finite Fourier/STFT comparisons have different domains and statements. Searches for the five-tone Laurent quartic, discriminant factors, two critical gaps, and phase-zero geometry did not identify an equivalent result. Residual risk: basic exponential-polynomial technology is classical, and an unindexed or implicit earlier special-case treatment may exist.
+
+**Value — PASS (same-model).** The equal-amplitude symmetric five-tone comb is the first natural centered harmonic comb with two outer frequency pairs. Its sharp two-stage singularity pattern (four temporal zeros, an off-axis rectangle, then four spectral zeros) and exact double-collision scales are a meaningful structural benchmark for phase-singularity tracking, beyond rephrasing a generic Gaussian integral formula.
+
+**Scope and limits.** This is a self-contained result for exactly five equal-amplitude equally spaced tones and the stated Gaussian normalization. It makes no claims for general amplitudes, other windows, ridge counts, phase-retrieval stability, noisy signals, or independent historical certification. The full-text literature comparison covers the motivating two-component source; broader historical priority remains qualified.
+
+Self-review: passed. Independent audit: not yet performed.
