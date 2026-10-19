@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Uniform Dirichlet cyclic spacing model gives E[J], E[U], E[JU] by exact simplex shifts. The strict convexity calculation for log Q (including the n=5 edge case) yields a unique root before 1/3 and monotonicity a unique root after 1/3; compact-uniform expansion and small-epsilon bracketing give the asymptotic root scales. The bundled script independently checks rational identities and finite grids; numerical tests are not substituted for analytic proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huffer (1988), doi:10.1017/S0021900200041644: accessible abstract describes joint moments of uncovered length V and uncovered-gap count G, not isolated-arc count J.",
+        "Holst and Hüsler (1984), doi:10.2307/3213617: abstract concerns joint limit distributions of gaps, uncovered proportion, largest and smallest gap."
+      ],
+      "reasoning": "A full joint distribution of (G,V) need not determine E[JV] because adjacency in J is lost when only total number G of excessive spacings is retained. Huffer full text was not accessible and cannot be marked NOT_COVERING wholesale; hidden stronger formulas remain a residual risk.",
+      "searches": [
+        "Some results concerning random arcs on the circle Huffer 1988 joint moments conditional distribution",
+        "random coverage of the circle Holst Husler joint limit distributions gaps uncovered proportion",
+        "Random intervals on a circle, isolated connected components vs total vacant measure; sharp finite n covariance phase diagram"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC1821341/",
+      "https://statistics.stanford.edu/technical-reports/some-results-concerning-random-arcs-circle",
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/on-the-random-coverage-of-the-circle/E38B9A1E8EE6F095E0438710F41DA7B6",
+      "https://arxiv.org/abs/1502.00404",
+      "published mathematical-record Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+      "published mathematical-record Three-point connectivity exactly controls component–triangle covariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moriarty et al. (2007) Proposition 2 bounds total-variation error for the number of uncovered gaps; Proposition 3 treats line intervals and the Discussion states the focus is error bounds.",
+        "Huffer (1988) publicly available abstract reports conditional V given G and mixed V,G moments but does not state J."
+      ],
+      "reasoning": "A Poisson gap-count approximation and its error bound do not entail a finite-n covariance between isolated-arc count and covered length, much less the exact two-switch diagram. Huffer could imply a derivation if its underlying higher-order spacing patterns were treated; its complete text was not verified.",
+      "searches": [
+        "Bounds on the distribution of the number of gaps when circles and lines are covered by fragments Moriarty 2007 full article",
+        "Some results concerning random arcs on circle Huffer 1988 pdf",
+        "Covariance between number of isolated arcs and union coverage length on circle with equal randomly placed arcs, exactly two changes of sign as length grows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moriarty et al. (2007), https://pmc.ncbi.nlm.nih.gov/articles/PMC1821341/ : section Results, propositions 1-3, and Methods/Discussion concern gap counts and Poisson approximation.",
+        "published mathematical-record closest similar result Exact missing-mass covariance identity and sign reversal for successive species discoveries is an occupancy/discovery model, not circular arc isolation."
+      ],
+      "reasoning": "The isolation statistic counts adjacent exceedance *pairs*, while the published uncovered-gap statistic counts individual exceedances. Those are not equivalent random variables, including when the number of exceedances is fixed. No inspected claim asserts the exact mixed covariance or two-root sign theorem.",
+      "searches": [
+        "Covariance between number of isolated arcs and union coverage length on circle with equal randomly placed arcs, exactly two changes of sign as length grows",
+        "Dirichlet uniform spacings covariance between adjacent exceedance pair count and sum of clipped spacings, two sign reversals",
+        "random arcs circle \"isolated arcs\" covered length covariance",
+        "random uniform circle spacing isolated vertices coverage length covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest high-scoring result Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks concerns intersections of radius-b disks, a different functional.",
+        "Nearest stochastic covariance item Three-point connectivity exactly controls component–triangle covariance concerns bond percolation components/triangles, not arc isolation."
+      ],
+      "reasoning": "Neither queried published mathematical-record records nor the accessible primary article provided a tabulation of the two covariance zeros or an exact adjacency-sensitive mixed moment. Search and partition coverage do not prove global uniqueness.",
+      "searches": [
+        "published mathematical-record: Covariance between number of isolated arcs and union coverage length on circle with equal randomly placed arcs, exactly two changes of sign as length grows",
+        "published mathematical-record: Dirichlet uniform spacings covariance between adjacent exceedance pair count and sum of clipped spacings, two sign reversals",
+        "published mathematical-record: Random intervals on a circle, isolated connected components vs total vacant measure; sharp finite n covariance phase diagram",
+        "published mathematical-record: Stochastic geometry arc coverage number of singleton components vs covered area exact covariance dual transition"
+      ]
+    },
+    "rationale": "The primary 2007 article addresses gap count distributions and approximation, while the isolated-component count is an adjacency-sensitive statistic, and the two-switch covariance law requires an additional three-gap moment. Four topical published mathematical-record queries and literature searches identified no direct dominating exact claim. Historical priority remains provisional because a relevant 1988 full text could not be materially read.",
+    "residual_risks": [
+      "Huffer (1988) full text unavailable, so unseen generalized joint patterns might imply the formula.",
+      "Other historical circle-coverage generating functions could contain equivalent derived moments.",
+      "published mathematical-record semantic retrieval and accessible local ledgers are incomplete global-priority evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not directly cover adjacent-gap isolation count, covered-length covariance, or two roots",
+        "evidence": [
+          "Propositions 1-3 give Poisson approximation/error bounds for uncovered gap count, not the joint statistics of isolated components and coverage.",
+          "The article explicitly says its contribution is approximation with error bounds in Discussion."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1821341/",
+        "material_read": "Full accessible HTML including Results, Discussion, and references (text lines 85-190); not downloadable supplementary PDF",
+        "method": "Read primary HTML sections and searched within for isolated and covariance",
+        "title": "Bounds on the distribution of the number of gaps when circles and lines are covered by fragments: Theory and practical application to genomic and metagenomic projects",
+        "trigger": "Same congruent arc coverage model; potential exact gap-count statistics"
+      },
+      {
+        "assessment": "No full-text not-covering conclusion; adjacency-sensitive isolation statistic is distinct from gap count; possible implicit coverage remains risk",
+        "evidence": [
+          "Accessible abstract specifies joint moments of V and G, with G number of uncovered gaps.",
+          "Stanford report SOL ONR 392 dated June 1987; manuscript link was not retrievable."
+        ],
+        "identifier_or_url": "https://statistics.stanford.edu/technical-reports/some-results-concerning-random-arcs-circle",
+        "material_read": "Abstract and bibliographic details; full article not retrieved",
+        "method": "Checked Cambridge bibliographic page, Stanford report page and arXiv/open-access alternatives; institutional access unavailable",
+        "title": "Some results concerning random arcs on the circle",
+        "trigger": "Joint moments of uncovered length and number of gaps may dominate covariance claim"
+      },
+      {
+        "assessment": "Joint weak limits for uncovered gap count/proportion differ from finite-n covariance-sign phase classification",
+        "evidence": [
+          "Abstract lists joint limits of uncovered proportion, gap number and largest/smallest gap lengths."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/on-the-random-coverage-of-the-circle/E38B9A1E8EE6F095E0438710F41DA7B6",
+        "material_read": "Abstract and journal metadata only",
+        "method": "Read accessible bibliographic/abstract record",
+        "title": "On the random coverage of the circle",
+        "trigger": "Asymptotic joint laws for random arc coverage"
+      },
+      {
+        "assessment": "Interval connectivity/isolation threshold theorem, not same circle covered-length joint moments",
+        "evidence": [
+          "First arXiv post 2015-02-02; abstract proves logarithmic connectivity and no-isolate thresholds on an interval."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.00404",
+        "material_read": "ArXiv abstract and initial submission timestamp; PDF unavailable",
+        "method": "Reviewed abstract; PDF and HTML alternatives unavailable",
+        "title": "A curious gap in one-dimensional geometric random graphs between connectivity and the absence of isolated node",
+        "trigger": "Isolation probability in one-dimensional geometric random networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9db6cf3-0072-4971-8eff-08f300a9279f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For fixed finite n>=5 the same two natural circular-coverage observables exhibit two rigorously classified covariance sign transitions, with distinct algebraic and exponentially narrow length scales. This is not a normalization check, narrow table recomputation or routine constant refinement; it reveals a nonmonotone relation between isolation and effective coverage relevant to random fragment layouts.",
+    "status": "PASS"
+  }
+}
