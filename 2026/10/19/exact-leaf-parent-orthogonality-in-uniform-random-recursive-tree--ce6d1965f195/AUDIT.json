@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The marked increasing-tree root decomposition is exact, including exclusion of singleton child subtrees from protected roots. Differentiation gives all three initial-value formal ODEs; direct algebra proves c(z)=z b'(z)/2-z^3/[12(1-z)]. Since there are (n-1)! trees, n[z^n] extracts expectations; for n>=3 this gives Cov(L,P)=-n/12. The Bernoulli attachment variance recurrence establishes Var(L)=n/12 and the deterministic partition gives Cov(L,Q)=0. Direct exhaustive exact enumeration through n=9, 118 independently computed coefficient identities through degree 120, and boundary/nonindependence examples passed; finite tests are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holmgren--Janson 2014/2015 develops broad fringe-statistic limit laws; its abstract does not claim finite-size exact orthogonality.",
+        "Toofanpour--Javanian--Imany-Nabiyyi 2022 considers protected/nonprotected level profiles and asymptotic covariances, not a finite-size total count of rooted leaves with direct leaf parents."
+      ],
+      "reasoning": "General asymptotic Gaussian laws and marginal mean/variance analyses do not logically force an exact zero covariance for each n. The uninspected full Holmgren--Janson paper is a residual implicit-coverage risk; its abstract alone is not treated as a full-document noncoverage certificate.",
+      "searches": [
+        "arxiv:1406.6883",
+        "doi:10.1214/EJP.v20-3627",
+        "doi:10.1137/S0040585X97T991040",
+        "random recursive tree joint distribution leaves protected nodes mixed moment covariance orthogonality"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.0665v1 (full HTML)",
+      "doi:10.1239/jap/1429282623 (full accessible article)",
+      "arxiv:1406.6883 (abstract only)",
+      "arxiv:2511.04085 (accessible text excerpt)",
+      "doi:10.1137/S0040585X97T991040 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Devroye--Janson gives a protected-root probability limit from the fringe tree; this is an expectation, not a finite-n joint law.",
+        "Mahmoud--Ward computes E(P) exactly and bounds Var(P), neither of which gives Cov(L,P).",
+        "Hartle--Krapivsky evaluates the leaf-degree distribution and mentions variance experiments; the accessible evidence does not assert Cov(L,Q)=0."
+      ],
+      "reasoning": "Protected-node expectations, standalone leaf variance, and marginal degree distributions do not imply the new zero covariance. The mixed marked-root identity in the proof is needed. Broad joint-statistic machinery could subsume the identity if all finite coefficients were computed; priority is not independently certified.",
+      "searches": [
+        "random recursive tree joint distribution leaves protected nodes mixed moment covariance orthogonality",
+        "arxiv:1310.0665v1",
+        "doi:10.1239/jap/1429282623",
+        "arxiv:2511.04085"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Devroye--Janson 2013 defines protected nodes and computes proportions, not a leaf/protected mixed moment in the random-recursive-tree section.",
+        "Hartle--Krapivsky 2025 defines zero leaf-degree and leaf-neighbor counts, but the accessible full scientific exposition emphasizes marginal leaf-degree distributions rather than the exact cross moment."
+      ],
+      "reasoning": "The partition implies an equivalent all-size statement Cov(leaves, distinct leaf parents)=0 and a generating-function identity for the leaf/protected mixed derivative. The closest inspected source uses a similar zero-leaf-neighbor class but a different undirected-root convention, and no identical cross-covariance identity was found. Absence of an explicit statement is not a proof of priority.",
+      "searches": [
+        "random recursive tree leaf count number of vertices with at least one leaf child covariance exactly zero nonindependent",
+        "protected nodes leaves covariance -n/12 in uniform random recursive trees",
+        "arxiv:1310.0665v1",
+        "arxiv:2511.04085"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mahmoud--Ward 2015 gives the exact mean and variance-growth analysis of protected counts, not a reported leaf/protection cross-moment in the inspected article.",
+        "Explicit increasing-tree derivative and exact enumeration give the claimed mixed moment here."
+      ],
+      "reasoning": "No exact joint table or equivalent finite-size covariance identity was located in the inspected primary work. The classical separate leaf variance and protected-node mean do not determine their cross-covariance.",
+      "searches": [
+        "protected nodes leaves covariance -n/12 in uniform random recursive trees",
+        "doi:10.1239/jap/1429282623",
+        "random recursive tree exact leaves protected nodes covariance -n/12"
+      ]
+    },
+    "rationale": "Inspected primary protected-node literature establishes marginal means/limits, while the new result is an exact all-size cross-covariance and cancellation to zero with distinct leaf parents. Alternative formulations and general fringe-profile work were compared for substantive implication, not title similarity. A related 2025/2026 leaf-neighbor-degree paper and an inaccessible full 2014/2015 general fringe-limit study present residual implicit-coverage risk; independent priority audit has not occurred.",
+    "residual_risks": [
+      "The 2014/2015 Holmgren--Janson full paper was inaccessible despite preprint and lawful open-access attempts; a more general exact two-fringe moment formula might implicitly specialize to this covariance.",
+      "Hartle--Krapivsky (2025/2026) contains closely related leaf-degree categories; available excerpt is not full-document evidence of noncoverage.",
+      "Further historical bivariate random-recursive-tree mixed-moment papers not retrieved could imply the exact coefficient identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes protected-node proportion via fringe subtrees; no exact finite-n leaf/protected cross-covariance identified in inspected text",
+        "evidence": [
+          "2013 preprint, primary MSC 60C05; section 7 treats recursive trees and limiting protected proportion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.0665v1",
+        "material_read": "Full arXiv HTML; introduction, statement of fringe-tree limits, and section 7 on random recursive trees",
+        "method": "Read accessible primary HTML text and compare theorem statements and section-specific formulas",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "First-public archived primary source; identical model and protected-node definition"
+      },
+      {
+        "assessment": "Mean of protected count agrees with the derived coefficient b; variance bound and marginal statistics do not establish exact Cov(L,P)",
+        "evidence": [
+          "2015 Journal of Applied Probability 52(1) 290–297; exact protected-node mean and variance growth"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1429282623",
+        "material_read": "Full eight-page accessible article; theorem and exact-mean and variance arguments",
+        "method": "Read public PDF text and compared explicit recursive moment formulas",
+        "title": "Asymptotic Properties of Protected Nodes in Random Recursive Trees",
+        "trigger": "Same protected-node count and exact expectation"
+      },
+      {
+        "assessment": "General limit theory could include an exact mixed-moment formula not inspected; material residual risk, not decisive coverage found",
+        "evidence": [
+          "arXiv:1406.6883; Electronic Journal of Probability 20 (2015) DOI 10.1214/EJP.v20-3627"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+        "material_read": "Abstract and bibliographic statement; full text inaccessible after arXiv and open-access attempts",
+        "method": "Compared scope of abstract and theorem-level summaries; did not infer full-text absence",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees",
+        "trigger": "General possible domination of any two fringe statistics"
+      },
+      {
+        "assessment": "Plausible overlap but uses undirected leaf-neighbor convention and studies marginals; exact rooted finite-n mixed covariance not established by accessible material",
+        "evidence": [
+          "First preprint 6 November 2025; marginal leaf-degree law; zero-leaf-neighbor class defined as leaves plus protected nodes under its degree convention"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.04085",
+        "material_read": "Accessible article text excerpt, introduction, notation and figure description; full preprint PDF unavailable",
+        "method": "Compared zero-leaf-neighbor category and marginal leaf-degree statistics with rooted direct-child count",
+        "title": "Statistics of leaves in growing random trees",
+        "trigger": "Counts vertices with zero or positive leaf-neighbor degree, plausibly equivalent to leaf-parent statistic"
+      },
+      {
+        "assessment": "Level-profile asymptotic covariances do not directly imply the claimed exact finite-n orthogonality; full text not assessed",
+        "evidence": [
+          "Published November 2022; asymptotic expected values, variances, covariance of level profiles"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0040585X97T991040",
+        "material_read": "Abstract and publication metadata only",
+        "method": "Checked abstract for level-profile/asymptotic versus exact-total scope",
+        "title": "Normal Limit Law for Protected Node Profile of Random Recursive Trees",
+        "trigger": "Protected/nonprotected covariance may dominate all-size partition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce6d1965-f195-4384-9a86-8428187d52af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaves, protected vertices, and distinct parents of leaves are canonical local-shape classes. Their exact all-size orthogonality is unexpected since the counts are not independent and are connected by a structural partition. The exact negative covariance and an explicit bivariate generating-function cancellation yield a reusable joint-moment tool, not a marginal identity or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
