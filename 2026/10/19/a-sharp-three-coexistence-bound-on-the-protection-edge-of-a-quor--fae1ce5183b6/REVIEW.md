@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The independent realized-game payoff subtraction reproduces the precise edge gain sequence. The two increasing Bernstein-coefficient blocks admit a single possible downward jump, hence at most three sign changes and at most one positive-to-negative crossing. Descartes' rule bounds mixed edge roots with multiplicity. Exact rational sign evaluations give three disjoint witness roots at the smallest eligible size, and the full-system Jacobian formulas establish strict saddle/sink/source classifications. The embedded standard-library checker passed direct exact-arithmetic tests. No computation is used as an infinite proof.
+
+**Originality: PASS, with residual risk.** The motivating 2026 source derives the model and displays a numerical boundary saddle–node pair, but the inspected full-text equations, results, and relevant appendices do not supply a uniform sharp three-root count or the exact minimal-size triple. The Bernstein variation theorem is known from Peña–Lehmann–Nöldeke and is credited; the contribution is its model-specific coefficient specialization together with sharp admissible construction and full planar stability. No close claim was found in targeted research-record and literature comparisons. Journal-version or unindexed equivalent results remain possible; this is not an independent originality certificate.
+
+**Mathematical value: PASS.** The source relies on numerical branch searches that explicitly do not establish an exhaustive equilibrium census. The sharp all-group-size bound, smallest possible four-member realization, and a hyperbolic extra boundary source close a motivated multiplicity gap for the precise model, without extrapolating numerical figures into a global claim. The fact that up to three mixed states still allow at most one stable state on the boundary distinguishes equilibrium multiplicity from the number of protective attractors.
+
+Limitations: Only the specified deterministic three-strategy game and the defector–protector edge are covered. Local stability does not imply a global basin classification; finite-population effects are not addressed.
+
+Self-review: passed. Independent audit: not yet performed.
