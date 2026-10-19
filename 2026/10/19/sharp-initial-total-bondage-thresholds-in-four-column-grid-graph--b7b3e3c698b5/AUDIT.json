@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A complete width-four row-state dynamic program exactly minimizes total dominating sets after edge deletions and exhausts every isolate-free one-, two-, and three-edge set at lengths 5,7,8. The admissible/damaging cut counts for sizes 1..3 are (31/0,461/0,4369/40), (45/0,986/0,14004/727), and (52/0,1322/0,21884/0). Explicit 3-,3-,4-edge witnesses raise gamma_t from 8 to 9, 10 to 11, and 12 to 13. The separate original-optimum enumerator lists 256,121,2916 minimum total dominating sets and reproduces all cut counts by selected-neighbor survival tests, invoking the exact monotonicity equivalence. Both executable source files and their outputs are included. This is finite exhaustive proof, not an induction over arbitrary lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hu–Lu–Xu Theorem 5.1 gives equalities for lengths congruent to 1 or 4 mod 5 and only upper bounds in the three target residue classes.",
+        "Gamlath–Wei Theorems 1–6 concern general planar, tree, multipartite, and degree-bound regimes rather than exact 5-by-4, 7-by-4, or 8-by-4 values."
+      ],
+      "reasoning": "Neither a stronger all-length four-column exact theorem nor a generic bound implies any of the new lower bounds. The preceding known special cases are for different residues or different rectangular dimensions; they cannot subsume this theorem.",
+      "searches": [
+        "exact total bondage number 8 by 4 grid 5 by 4 7 by 4",
+        "total bondage grid 4 columns stronger bounds recent authors",
+        "arXiv:2401.16615v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1109.3929v1 (2011; same-family primary full relevant section)",
+      "doi:10.1016/j.dam.2012.06.012 (publisher Section 5)",
+      "arXiv:2401.16615v1 (2024; later general bounds)",
+      "doi:10.1155/2013/595210 (definition/survey subsection)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hu–Lu–Xu Lemma 5.3 gives the three-edge witness for length 7, but not an argument excluding one- or two-edge witnesses.",
+        "Hu–Lu–Xu Lemma 5.4 gives four-edge witnesses at lengths 5 and 8, but not a proof excluding a three-edge failure at length 8 nor the smaller three-edge failure at length 5.",
+        "Gamlath–Wei states bounds with greater generality but without the exact equalities or triple-cut census."
+      ],
+      "reasoning": "Prior upper bounds imply only the inequalities b_t<=3 or <=4. A matching lower bound cannot follow from an upper bound, and the old upper witnesses alone do not count minimal damaging cuts. The new proof supplies exhaustive missing lower-bound certificates and a better five-row witness.",
+      "searches": [
+        "The total bondage number of grid graphs lemma 5.4 n equals 8 modulo 5",
+        "2018 2020 exact total bondage number grid P_n P_4 5 7 8",
+        "arXiv:1109.3929v1 Section 5",
+        "arXiv:2401.16615v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hu–Lu–Xu Section 5 explicitly treats the identical total-bondage edge-removal invariant and leaves the three targeted exact values as upper bounds only.",
+        "Xu 2013 survey Section 8.1 defines total bondage with the no-isolated-vertices deletion condition."
+      ],
+      "reasoning": "The statement was tested under the aliases total bondage, total domination robustness, deleting edges without isolates, and rectangular Cartesian path grids. In all formulations the novel information is the three exact lower bounds and counts, not new notation or a different edge-deletion convention.",
+      "searches": [
+        "total bondage number G_{5,4} G_{7,4} G_{8,4} 3 3 4 sharp upper bounds",
+        "total bondage number 5 4 grid exact three",
+        "arXiv:1109.3929v1",
+        "doi:10.1016/j.dam.2012.06.012"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Hu–Lu–Xu four-column table records only upper bounds for all three targeted lengths, not equalities or damaging-cut multiplicities.",
+        "The targeted publicly indexed mathematical-result retrieval returned central-graph total-domination and unrelated grid-cut/homology records, not the target edge-deletion census."
+      ],
+      "reasoning": "No exact overlapping table was found among inspected sources or indexed matches; negative database search is insufficient to prove uniqueness. The residual possibility of an unindexed thesis or computation is explicitly recorded.",
+      "searches": [
+        "P5 square P4 total domination bondage 3 P7 P4 P8 P4",
+        "grid total bondage edge failures 4-width Cartesian paths 05C25",
+        "total bondage number G_(5,4)",
+        "total bondage number G_n4 equality for 0 mod 5"
+      ]
+    },
+    "rationale": "Hu–Lu–Xu (2011 arXiv v1, published 2012), Section 5, states only bounds b_t(G_{5,4})<=4, b_t(G_{7,4})<=3, b_t(G_{8,4})<=4 and supplies some upper witnesses. The new exact lower bounds close precisely these gaps; the five-row three-cut improves an upper bound, and the seven- and eight-row cases prove sharpness. Exact cut counts 40 and 727 are not implied by their statements. The later Gamlath–Wei general bounds and Xu survey provide no exact result for these grids in inspected material. Public search and retrieved mathematical-record matches produced no dominating stronger statement. This is best-knowledge originality, not a claim of uniqueness proved by search.",
+    "residual_risks": [
+      "No claim of absolute precedence: unpublished, unindexed or obscure finite computations might already include these exact triples or cut counts.",
+      "No general n theorem is asserted or implied.",
+      "Independent external mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only upper bounds for n=5,7,8; no exact values or triple-deletion census for these n in the inspected relevant full section",
+        "evidence": [
+          "Preprint posted 2011-09-19; Section 5 bounds: n=7 <=3, n=5,8 <=4; constructions for upper bounds provided."
+        ],
+        "identifier_or_url": "arXiv:1109.3929v1; https://arxiv.org/html/1109.3929v1",
+        "material_read": "Abstract, Section 1 definitions, the four-column result in Section 5 including Lemmas 5.3, 5.4, Theorem 5.1, and proof constructions",
+        "method": "Read lawful open HTML main text and full relevant publisher-hosted Section 5 text, comparing upper and lower statements and witness parameter scopes",
+        "title": "The total bondage number of grid graphs",
+        "trigger": "Exact same graph family and parameter; decisive possible full coverage"
+      },
+      {
+        "assessment": "General bounds; the exact n=5,7,8 four-column grid data is absent from inspected relevant material",
+        "evidence": [
+          "Theorems 1–6 treat planar degree constraints, trees, and multipartite graphs; reference [6] is the older grid paper."
+        ],
+        "identifier_or_url": "arXiv:2401.16615v1; https://arxiv.org/html/2401.16615v1",
+        "material_read": "Abstract, introduction and theorem list, proof sections about trees/planar graphs and general graph types, references",
+        "method": "Read lawful open full-text HTML around all theorem statements and substantive proof sections; checked the citations to the earlier grid paper",
+        "title": "On total bondage number of graphs",
+        "trigger": "Later paper on identical invariant that might dominate older grid bounds"
+      },
+      {
+        "assessment": "Fixes the convention and background complexity, does not state the target exact grid values",
+        "evidence": [
+          "Section 8.1 explicitly requires that G-B contain no isolated vertices."
+        ],
+        "identifier_or_url": "doi:10.1155/2013/595210; https://onlinelibrary.wiley.com/doi/10.1155/2013/595210",
+        "material_read": "Section 8.1 on total bondage and its conventional isolate-free definition",
+        "method": "Read publicly accessible survey HTML of the relevant subsection",
+        "title": "On bondage numbers of graphs: A survey with some comments",
+        "trigger": "Definition ambiguity over edge removals that create isolates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7b3e3c6-98b5-41b3-8d31-b61fdc90a7b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2011 total-bondage study explicitly isolates unresolved four-column residue classes with upper bounds. Lengths 5,7,8 are the first natural test cases of the classes 0,2,3 modulo 5 and fill the three initial exact-value gaps. The length-8 evaluation proves the proposed four-cut robustness bound sharp for the first possible instance, length 7 proves its three-cut bound sharp, and length 5 improves four to three. The counts 40 and 727 quantify how frequently optimum total domination fails under minimal edge losses. This directly answers an existing mathematical vulnerability question, not an arbitrary induced-subgraph selection or a standard known-table recomputation.",
+    "status": "PASS"
+  }
+}
