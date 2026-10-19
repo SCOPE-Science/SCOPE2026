@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact two-sided stationary stochastic convolution and conditional variance PDMP are well-defined; the ordinary-time Poisson age gives U=1-(1-a²U′)B with Beta(alpha,1) B independent of U′. For z<1-a² this gives the exact variance-deficit CDF K z^alpha; the stationary polynomial moment identity derives the computable K. A controlled Gaussian mixture Laplace asymptotic yields the far-tail coefficient; the same change of variables gives the Gamma conditional localization. The original process retains bounded conditional Gaussian variance and all absolute moments. All boundary domains, normalizations and fixed-parameter quantifiers have been checked. Standalone recursion, series and conditional-age quadratures executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Trajanovski et al. 2023 section III studies full resetting to a fixed point.",
+        "A generic endpoint Laplace lemma derives Gamma conditional limits only after the model-specific mixing endpoint law is established.",
+        "Galla 2026 treats weak-reset diffusion approximation, not a uniform extreme-position theorem for its jump original."
+      ],
+      "reasoning": "Full-reset OU is the subcase \\(a=0\\), not the case \\(0<a<1\\) with nontrivial coefficient K. General mixture-tauberian arguments can supply the last Laplace step, but not the exact Poisson-history endpoint mass or K; no inspected broader theorem gave the complete conclusion.",
+      "searches": [
+        "\"partial resetting\" \"Ornstein-Uhlenbeck\" stationary tail Gaussian 2025",
+        "\"partial resetting\" \"harmonic trap\" Gaussian tails stationary 2024",
+        "Poissonian multiplicative resetting Ornstein Uhlenbeck exact stationary distribution tail",
+        "\"Ornstein-Uhlenbeck\" \"partial resetting\" \"Gaussian\" tail",
+        "\"harmonic\" \"proportional resetting\" \"stationary\" tails",
+        "arxiv:2301.12304",
+        "arxiv:2602.21635"
+      ]
+    },
+    "checked_sources": [
+      "Tobias Galla, arXiv:2602.21635v1, model equations (1)–(8), supplemental S1.1 (S5)–(S13), https://arxiv.org/html/2602.21635v1",
+      "Olsen and Gupta, arXiv:2401.11919v2, sections III.3 and IV.2, https://ar5iv.org/html/2401.11919v2",
+      "Pierce, arXiv:2204.07215v1, sections II and III, https://arxiv.org/html/2204.07215v1",
+      "Trajanovski et al., arXiv:2301.12304v1, sections II–III, https://arxiv.org/abs/2301.12304",
+      "Published research index, six claim- and identifier-specific searches, closest IDs included below."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.21635v1 main Eq. (5) / supplement Eq. (S8) is an approximate invariant density with polynomial tails.",
+        "arXiv:2401.11919v2 §III.3 computes a harmonic-potential moment, not a stationary large-deviation normalization.",
+        "arXiv:2204.07215v1 §III gives a transform for constant drift, without the harmonic conditional variance cap."
+      ],
+      "reasoning": "The new theorem is not a corollary of the 2026 approximating density (its far tail differs). Existing free/advection results require different drift and yield different stationary regimes. Exact OU full-reset results cover only a parameter boundary and cannot determine the nontrivial contraction-dependent amplitude K.",
+      "searches": [
+        "arxiv:2602.21635v1",
+        "arxiv:2401.11919v2",
+        "arxiv:2204.07215v1",
+        "arxiv:2301.12304v1",
+        "Ornstein Uhlenbeck harmonic confinement with partial proportional Poisson resetting exact stationary Gaussian far tails polynomial prefactor stationary variance mixing near maximal variance",
+        "failure of weak frequent resetting diffusion approximation in far tails: exact jump process gaussian tails versus power law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Galla 2026 section Linear example and supplement S1.1 gives algebraic density for an SDE approximation.",
+        "Olsen and Gupta 2024 section III.3 gives the second moment under harmonic exploration, not a density far-tail formula.",
+        "Pierce 2022 equations (16)–(20) solve a constant-advection model."
+      ],
+      "reasoning": "Equivalences checked: normalized variance endpoint event, Gaussian-scale mixture, multiplicative Poisson jump OU, proportional resetting in harmonic confinement. Neither the approximating SDE density nor free-diffusion pantograph results are equivalent to an exact finite-reset OU tail asymptotic.",
+      "searches": [
+        "Ornstein Uhlenbeck harmonic confinement with partial proportional Poisson resetting exact stationary Gaussian far tails polynomial prefactor stationary variance mixing near maximal variance",
+        "failure of weak frequent resetting diffusion approximation in far tails: exact jump process gaussian tails versus power law",
+        "Ornstein Uhlenbeck partial resetting stationary scale-mixture variance endpoint exponent r/(2kappa) tail asymptotics",
+        "arxiv:2204.07215v1",
+        "arxiv:2401.11919v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Six actual claim and identifier queries returned related but non-covering indexed results; the nearest Ornstein--Uhlenbeck result concerns random sensors detecting a slow mode, rather than proportional resetting.",
+        "Another related indexed result concerns endpoint anti-concentration laws in different distribution families and does not imply the stated density coefficient."
+      ],
+      "reasoning": "No index hit or exact table for this scalar contraction OU stationary far tail was found. Empty exact coverage from semantic retrieval is evidence of search scope, not a mathematical proof of uniqueness.",
+      "searches": [
+        "arXiv:2602.21635 Tobias Galla frequent weak resetting stationary density tails and Poisson contractions versus diffusion approximation",
+        "arXiv 2401.11919 harmonic exploration potential proportional resetting stationary density endpoint gaussian tails",
+        "partial resetting confined Ornstein Uhlenbeck stationary variance beta endpoint gamma correction",
+        "\"Ornstein-Uhlenbeck\" \"partial reset\" \"tails\""
+      ]
+    },
+    "rationale": "The physical model of Poisson partial resetting, and the frequent-small-reset diffusion approximation, are known. The accepted distinction is the exact stationary conditional-variance endpoint exponent and computable constant, resulting Gaussian far tail and Gamma localization, and their qualitative mismatch with the approximation. Closest primary sources inspected at model/equation level did not imply those facts; general Laplace asymptotics alone do not determine the model-specific constant.",
+    "residual_risks": [
+      "An implicit derivation may be present in broader Gaussian variance-mixture endpoint asymptotic theory; this comparison was based on primary works found rather than a proof of absolute novelty.",
+      "Full generality of existing nonlocal jump-generator/pantograph literature cannot be ruled out by search alone.",
+      "The result does not assert a uniform comparison of the diffusion approximation when contraction strength tends to zero jointly with the spatial observation scale."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and Kramers–Moyal approximating density are explicitly published; no exact finite-contraction tail coefficient or conditional variance endpoint Gamma law was identified in the inspected material.",
+        "evidence": [
+          "Main equations (1)–(5) and supplemental equation (S8) describe the diffusion approximation; S1.1 describes approximation plots, not exact far-jump tail asymptotics."
+        ],
+        "identifier_or_url": "arXiv:2602.21635v1; https://arxiv.org/html/2602.21635v1",
+        "material_read": "Main text model and equations (1)–(8); linear example; supplement S1.1 equations (S1)–(S13), including local approximation and simulated distributions",
+        "method": "Direct inspection of accessible arXiv HTML mathematical text",
+        "title": "A diffusion approximation for systems with frequent weak resetting",
+        "trigger": "Same linear model family and the approximating stationary law whose extreme tails are being compared"
+      },
+      {
+        "assessment": "A scalar stationary second-moment formula and thermodynamic work are covered; the endpoint variance-deficit distribution and exact position-density far-tail constants are not stated in the inspected material.",
+        "evidence": [
+          "Section III.3 discusses variance for harmonic exploration and explicitly notes difficulty obtaining the exact steady-state density."
+        ],
+        "identifier_or_url": "arXiv:2401.11919v2; https://ar5iv.org/html/2401.11919v2",
+        "material_read": "Introduction and model; section III.3 harmonic exploration variance; section IV.2 potential and reset energy; discussion and Appendix A",
+        "method": "Direct inspection of accessible preprint HTML",
+        "title": "Thermodynamic work of partial resetting",
+        "trigger": "Harmonic exploration potential with fractional resetting and exact moment calculations"
+      },
+      {
+        "assessment": "Exact treatment assumes constant advection instead of restoring linear drift; exponential/Gaussian interpolation there does not imply the bounded variance-mixture endpoint coefficient here.",
+        "evidence": [
+          "The model equation is constant drift plus Brownian noise and resets, and its exact Fourier product is specialized to that advection-diffusion process."
+        ],
+        "identifier_or_url": "arXiv:2204.07215v1; https://arxiv.org/html/2204.07215v1",
+        "material_read": "Introduction, section II equations of motion/generator, section III moment and density formulas",
+        "method": "Direct inspection of accessible arXiv HTML",
+        "title": "An advection-diffusion process with proportional resetting",
+        "trigger": "General multiplicative Poisson-jump mechanism with exact stationary transform"
+      },
+      {
+        "assessment": "Resetting is to a fixed initial point, and geometry can involve combs; no proportional-reset contraction parameter or exact endpoint coefficient in the inspected sections.",
+        "evidence": [
+          "Section III specifies resetting to a fixed position, not \\(X\\mapsto aX\\)."
+        ],
+        "identifier_or_url": "arXiv:2301.12304v1; https://arxiv.org/abs/2301.12304",
+        "material_read": "Introduction and sections II–III model descriptions and resetting construction in accessible online full-text rendering",
+        "method": "Direct inspection of accessible textual preprint representation",
+        "title": "Ornstein-Uhlenbeck process and generalizations: particle dynamics under comb constraints and stochastic resetting",
+        "trigger": "A harmonic OU particle with stochastic resets may dominate the claimed model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6dd6004-0288-45ae-821f-76101bff7925",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact far-tail exponent and prefactor are natural rare-particle-displacement observables for partially reset particles in an optical/harmonic trap. Their gamma variance localization exposes the atypically long reset-free histories responsible for extremes. The exact all-moments-finite versus algebraic approximate-tail contrast identifies a physically consequential scale at which a frequently used diffusion approximation cannot extrapolate. This is a model-specific sharp asymptotic, not a routine restatement of a known stationary moment.",
+    "status": "PASS"
+  }
+}
