@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Rate-one edge clocks and Poisson restarts are specified without hidden normalization. Four lumped transient generators exactly match all outgoing target rates. Resolvent formulas and the renewal identity reconstruct all claimed means. Differentiation proves strict signs on the full parameter domain, including r=0 by continuity; all 600 full-state numerical tests and symbolic identities passed. No finite experiment is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1910.13568v2 Eq. (13) gives a generic spectral MFPT for degree-normalized discrete walks and Eq. (14) averages over targets.",
+        "Zelenkovski et al., Entropy 25, 293 (2023) studies numerical/discrete centrality-based global MFPT on a barbell.",
+        "Lin, Julaiti, Zhang, arXiv:1209.6165v1 Section II proves a no-reset global MFPT spectral formula."
+      ],
+      "reasoning": "These broader methods describe related resolvents, but do not by themselves assert the exact sign of the derivative for the independent edge-clock barbell, and the cited applications use different movement rates or aggregate target averages. No stronger statement found implying this classification without the specific elimination and sign computation.",
+      "searches": [
+        "Web: Riascos Boyer Herringer Mateos 2020 Random walks on networks with stochastic resetting arxiv",
+        "Web: random walks centrality based stochastic resetting barbell 2023",
+        "published-finding corpus: general finite graph Laplace hitting time reset optimal search bifurcation cliques"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.6165v1",
+      "arXiv:1910.13568v2",
+      "arXiv:2104.09731v3",
+      "DOI:10.3390/e25020293"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2012 arXiv:1209.6165v1 Sections II-III: no reset and discrete-time global average rather than Poisson-reset target classification.",
+        "2020 arXiv:1910.13568v2 Sections II,V: neighbor-normalized walks and global barbell numerics, not independent unit edge clocks with four all-rate signs.",
+        "2021 arXiv:2104.09731v3 Sections II,VI.3: resets occur when walking into observable nodes and a bridge node is resetting node, not this source/clock model.",
+        "2023 Entropy 25 293 abstract and accessible indexed exposition: discrete-time centrality choice, global mean search statistics; complete paper unavailable during comparison."
+      ],
+      "reasoning": "A corollary in the identical model would be covered regardless of changed wording, but the inspected closest papers either analyze different generators/protocols or present general formulas without the claimed target-class monotonicity and quantitative fractions. Residual risk remains from unseen alternative papers.",
+      "searches": [
+        "Web: 2012 mean first passage time general graph barbell deep trap arxiv:1209.6165",
+        "Web: 2019/2020 random walks networks stochastic resetting arxiv:1910.13568",
+        "Web: 2021 first passage resetting barbell arxiv:2104.09731",
+        "Web: 2023 centrality resetting barbell Entropy 25 293"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Riascos et al., arXiv:1910.13568v2 Sections II, V: spectral first-passage formulas and numerical barbell global times; Appendix VII.2 continuous-time variant is degree-normalized.",
+        "Huang and Chen, arXiv:2104.09731v3 Sections II, VI.3: hitting-triggered reset protocol on a different barbell graph."
+      ],
+      "reasoning": "Search covered equivalent phrases restart, Poisson reset, clique bridge, barbell first passage. The primary sources do not give four explicit all-size strictly signed functions in the rate-one-per-edge walk. Constant per-vertex jumping and hitting-triggered resetting are inequivalent Markov processes.",
+      "searches": [
+        "barbell network continuous-time random walk Poisson stochastic resetting source target same clique opposite clique mean first passage monotonic rate",
+        "clique bridge graph reset always helps within target clique and always hurts across bridge",
+        "general finite graph Laplace hitting time reset optimal search bifurcation cliques",
+        "Web: \"barbell\" \"resetting\" \"monotonic\" \"first passage\" clique",
+        "Web: \"two cliques\" \"resetting rate\" \"hitting time\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed record titled Zero forcing polynomial of bridge barbells is a static zero-forcing enumeration, unrelated to random walks.",
+        "Indexed record titled Exact discounted hitting domination of complete bipartite graphs is a distinct optimization invariant on a biclique, not this process."
+      ],
+      "reasoning": "The actual search results contained no table of four Poisson-reset target means on connected cliques. Absence from search alone is not used as proof of novelty.",
+      "searches": [
+        "published-finding corpus: barbell network continuous-time random walk Poisson stochastic resetting source target same clique opposite clique mean first passage monotonic rate",
+        "published-finding corpus: clique bridge graph reset always helps within target clique and always hurts across bridge",
+        "Web: \"barbell graph\" \"continuous-time\" \"resetting\" \"target\""
+      ]
+    },
+    "rationale": "Relevant primary full HTML and query results distinguish no-reset global trapping, normalized-jump spectral resetting, event-triggered resetting, and centrality-selected discrete-time global resetting from the exact four-class independent edge-clock result. General resolvent formulas are prior and are not claimed as new. Indexed 2023 barbell exposition lacked complete accessible full text; an unknown equivalent specialization remains a bibliographic risk.",
+    "residual_risks": [
+      "2023 Entropy 25:293 publisher/PMC full text inaccessible at check; accessible indexed descriptions support but do not conclusively exclude a hidden exact edge-clock special case.",
+      "An unindexed specialization under clique-bridge, bottleneck search, restart or equivalent notation could predate the current result.",
+      "General spectral/renewal formula covers computation in principle but the claimed target-wise strict all-rate classification was not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: degree-normalized discrete-time no-reset trapping and global averages.",
+        "evidence": [
+          "Section II explicitly defines a discrete-time neighbor-normalized walk; Section II.3 identifies barbell order-three global hitting-time examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.6165v1",
+        "material_read": "Full HTML sections Abstract, Introduction, II (GMFPT, spectral lower/upper bounds), III and the barbell paragraph.",
+        "method": "Read open-access arXiv HTML, inspect the trapping generator and barbell discussion.",
+        "title": "Mean first-passage time for random walks in general graphs with a deep trap",
+        "trigger": "Historical barbell trapping and oldest source date"
+      },
+      {
+        "assessment": "NOT_COVERING specialized theorem: exact general framework, degree-normalized per-vertex walk, numerical global search, no four-case rate-one edge-clock proof.",
+        "evidence": [
+          "Section II equations (1),(13),(14) specify normalized jumps and global averages; Section V describes a different 100-vertex barbell with a ten-vertex path."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.13568v2",
+        "material_read": "Open-access HTML abstract, resetting and first-passage equations, barbell discussion, and continuous-time model description.",
+        "method": "Read open-access arXiv HTML and compare Eq. (13), Eq. (14), and section V.",
+        "title": "Random walks on networks with stochastic resetting",
+        "trigger": "Closest general independent resetting network theory"
+      },
+      {
+        "assessment": "NOT_COVERING: observable-node-triggered resets and discrete-time hops with an intermediate bridge node.",
+        "evidence": [
+          "Section II resets only after visiting observable nodes; Section VI.3 compares simulations for a single 51-node barbell."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.09731v3",
+        "material_read": "Full HTML Sections II-VI including VI.3 Barbell networks, with model and target definitions.",
+        "method": "Read open-access arXiv HTML and directly contrast reset trigger and graph.",
+        "title": "Random walks on complex networks with first-passage resetting",
+        "trigger": "Barbell graph and resetting first-passage overlap"
+      },
+      {
+        "assessment": "Plausible source not fully inspected; indexed material appears to concern centrality-directed discrete-time global MFPT, distinct from the claimed classwise continuous-time edge-clock monotonicity.",
+        "evidence": [
+          "Entropy 25,293 abstract identifies global mean first passage and resetting-site centrality; searchable barbell excerpt examines numerical target candidates."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/e25020293",
+        "material_read": "Search-indexed abstract, introduction, barbell-results excerpts, and metadata. Full publisher and PMC text fetch did not succeed.",
+        "method": "Read retrieved indexed material and attempted publisher/PMC full text, encountered 429 / CAPTCHA.",
+        "title": "Random Walks on Networks with Centrality-Based Stochastic Resetting",
+        "trigger": "Another named barbell with resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e725c631-1d5c-4b5c-ab53-b6f095612cc8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target-location partition is a natural complete classification of a physical two-community search process, not an arbitrary parameter slice. Its strictly signed all-rate effects and exact n/(m+n) maximal benefit quantify a robust bottleneck-search dichotomy that global numerical MFPT does not report. The theorem works for all clique sizes and all reset rates.",
+    "status": "PASS"
+  }
+}
