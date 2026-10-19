@@ -1,0 +1,14 @@
+# Review of Zak near-zero mass and asymmetry transition
+
+## Correctness — PASS
+The geometric-series representation has numerator \(P_x+Q_x e^{2\pi i\omega}\), and strict increase of \(Q_x/P_x\) gives exactly one Zak zero per period. Explicit derivatives at that zero give a real Jacobian \(4\pi ab\beta A^2>0\) for the unit-normalized Zak transform. The inverse-function theorem yields the coefficient \(\pi/J\) for the small-value area, without assuming the zero is holomorphic in both real variables. Direct algebra gives the stated positive hyperbolic closed form.
+
+At fixed total rate, the computed second variation is \(-\mathcal H(s/4)/(4(s/4)^2)\), with \(\mathcal H\) strictly increasing from \(-1\) to infinity, so the local change of type occurs once. The coefficient diverges as either rate approaches zero, guaranteeing global minimizers; above the switch all are asymmetric. Uniform-on-compacts convergence after rescaling, with two explicit coercive bounds, proves the limiting global optimum. The associated scalar minimizing equation has one positive solution. The accompanying executable checker corroborates but does not replace these proofs.
+
+## Originality — PASS, with priority risk
+Kloos–Stöckler (arXiv:1311.7359v1, Section 3) supply the known one-zero Zak structure. Janssen's 2003 article concerns critical-density Zak/Gabor facts for even exponential windows. De Dios Pont et al. (arXiv:2608.04992v1, Sections 2 and 5) provide general qualitative frame-set and shifted-sampling conclusions. The most directly comparable public mathematical result, *Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials*, already displays the same rational Zak symbol and optimizes lower sampling bounds over translated spatial grids. Its full RESULT.md was read: it does not evaluate normalized two-dimensional small-value area or optimize its asymmetry under fixed total decay. Those are distinct parameter/statistic problems. The classical symbol, its one zero, and ordinary local invertibility are not claimed as new. Equivalence in unindexed classical spline/Gabor papers remains a nonzero priority risk; no independent audit was performed.
+
+## Mathematical value — PASS
+The small-Zak-value area is a natural quantitative measure of near-degeneracy of a critical Gabor symbol, rather than the mere existence of an unavoidable zero. The exact coefficient permits nontrivial, scale-controlled window comparison. A unique symmetry-to-asymmetry local transition and a sharp, genuinely global large-rate design law identify meaningful structural behavior not given by the known qualitative Zak-zero theorem or shifted sampling bound formula. It does not claim to solve oversampled frame bound optimization.
+
+Self-review: passed. Independent audit: not yet performed.
