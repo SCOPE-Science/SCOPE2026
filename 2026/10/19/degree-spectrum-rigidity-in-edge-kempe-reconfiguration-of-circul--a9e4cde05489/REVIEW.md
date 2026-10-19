@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The proof classifies every proper three-edge coloring by equality or inequality of the two incoming rim colors and shows the dichotomy persists at each column. The diagonal case is exactly a proper cyclic three-color word; the off-diagonal case exists exactly for even rim length. Counting named colorings, bichromatic cycles, and the three cycles meeting the anchored vertex yields the asserted exact formulas without numerical extrapolation. Independent finite methods directly verify all normalized colorings through order eleven and transfer-word counts through order twelve.
+
+**Originality — PASS, subject to residual priority risk.** Belcastro and Haas (arXiv:1209.1730v1, 2012) establish global Kempe-equivalence properties. Their 2017 article defines the vertex-fixed graph and gives a general degree identity, but its Section 4 explicitly says the full ordinary-prism structure is not proved, in contrast to its crossed-prism classification. The direct proof of the ordinary-prism parity-dependent degree multiset and exact edge count was not found in inspected primary text or targeted mathematical-record searches. This comparison is about implication, not absence of matching keywords: the general degree identity does not supply the three-family enumeration or their bichromatic component counts. Equivalent unpublished, unindexed or unread sources remain possible.
+
+**Value — PASS.** The ordinary prism is named as a structural test case in a directly relevant foundational study. The exact degree spectrum supplies an infinite-family description of the number of legal local Kempe moves from every normalized state, with strict regularity at odd sizes and precisely two geometric exceptional states at even sizes. It is a motivated partial structural resolution, not a claim about complete graph isomorphism or a routine finite lookup.
+
+Self-review: passed. Independent audit: not yet performed.
