@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every assertion is reduced to \(\Delta_iH=2s_i[J(s_{i-1}+s_{i+1})-K(s_{i-2}+s_{i+2})+h]\) with strict positivity at each site. Domain boundaries give all four parameter regimes and prove completeness, including equality thresholds. Marked cyclic dimers give the exact count; Perron–Frobenius gives entropy and a fugacity derivative gives the asymptotic down-spin density. Full-Hamiltonian enumeration independently passes 330 small-ring parameter tests; it is corroboration and not the proof.
+
+**Originality — PASS, within documented literature limits.** Redner–Krapivsky (1998) and Grynberg (2014) establish zero-field competing-interaction dynamics; their domain-wall sector descriptions are not the static positive-field strict-absorption law. Pini–Rettori (2007) investigate a weak oscillatory field in finite-temperature linear response, rather than absorbing states in a static field. De Smedt–Godrèche–Luck (2002) enumerate blocked states in distinct kinetically constrained chains. Targeted published-result searches and inspected full-text sections revealed no direct or stronger formula. The enumeration automaton and general asymptotic methods are preexisting tools; novelty is attributed only to the complete model-specific classification and its field-induced entropy transition. Unindexed earlier field-specific work could overlap, so priority is not independently established.
+
+**Value — PASS.** The theorem characterizes a physically meaningful freezing singularity: strictly neutral flips prevent extensive absorption at zero field, while an arbitrarily weak positive field pins a finite-density family of two-spin domains. It gives exact finite-chain data, coupling-independent plateau entropy throughout an open parameter region, sharp field endpoints and magnetization information relevant to studying metastable kinetic trajectories.
+
+**Limitations.** The result concerns strict absorbing configurations on periodic chains with \(N\ge5\), \(0<K<J/2\), and uniform \(h\ge0\) under zero-temperature flips that allow neutral changes. It does not assert equilibrium thermodynamics, finite-temperature trapping, or probabilities of reaching the counted configurations. Prior literature may contain unindexed equivalent statements.
+
+Self-review: passed. Independent audit: not yet performed.
