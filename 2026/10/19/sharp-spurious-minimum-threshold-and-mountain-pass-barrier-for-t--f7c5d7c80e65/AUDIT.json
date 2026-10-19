@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "On matrix units the operator is diagonal with weights between 1 and kappa; Frobenius best rank-one approximation proves global uniqueness. The exact local rank-one chart yields a 2-by-2 curvature block with eigenvalues kappa ± a/b; the degenerate equality case has negative fourth-order term (1-kappa^2)/(2b^2). Nonzero determinant Lagrange multipliers exhaust the dimension-two critical set. A fixed first diagonal-entry crossing on every rank-one escape path forces offdiagonal energy at least kappa|x*y|, yielding the exact saddle lower bound; an explicit continuous rank-one path realizes it. The embedded SymPy script verifies finite algebraic examples and identities but universal statements follow from these analytical arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bioli–Kressner–Robol (2024) establishes SPD energy and preconditioned algorithms with local convergence results subject to a rank-compatible unrestricted solution; here unrestricted F has rank two and target rank one.",
+        "Zhu–Li–Tang–Wakin, arXiv:1703.01256 / IEEE TIT 2021, general matrix factorization landscape results; only abstract and summary accessible, with assumptions not established for this specific anisotropic weighted rank-one example."
+      ],
+      "reasoning": "An unweighted no-spurious-minimum theorem does not dominate an anisotropically weighted rank-one example; an algorithmic local convergence statement requiring an exact rank-one unrestricted solution does not apply to rank-two forcing. Access to the Zhu et al. full paper remained limited, so a stronger specialized theorem is a residual priority risk rather than claimed ruled out.",
+      "searches": [
+        "published-finding corpus: Rank-one manifold two-term SPD generalized Sylvester weighted diagonal coefficients, singular gap versus operator condition-number threshold for false local minima and mountain pass barriers",
+        "published-finding corpus: Sharp conditioning or critical points of low-rank Riemannian optimization for symmetric positive definite matrix equations, metric preconditioning and rank-one matrix varieties",
+        "Web: rank one weighted low rank approximation spurious local minima near identity weights explicit condition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.16416, accessible full primary PDF and initial date",
+      "Manton–Mahony–Hua (2003), primary weighted-LRA PDF, inspected relevant sections",
+      "arXiv:1703.01256, abstract/summary only",
+      "Actual semantic published-finding corpus searches for rank-one, two-term SPD, landscape, saddle, mountain pass, sharp kappa/a/b formulas",
+      "Own currently accessible ledger with 106 prior finding claims for deduplication",
+      "Web literature searches for weighted rank-one 2x2 critical-point formulas and potential dominating theorems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source arXiv:2408.16416 considers the ambient SPD functional and numerical algorithms but leaves the present rank-deficient forcing relative to target rank outside its rank-compatible convergence premise.",
+        "Manton–Mahony–Hua (2003) documents possible nonglobal weighted-low-rank minima, whereas current claim adds threshold, all two-dimensional critical points and minimax barrier.",
+        "Closest published-record IDs 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 and 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12 concern SPD Richardson steps and steepest descent, not rank-one weighted matrix approximation.",
+        "The 106 available claims in the current ledger include no rank-one generalized-Sylvester landscape bifurcation with this threshold/barrier."
+      ],
+      "reasoning": "General weighted local-minimum existence does not imply the exact sharp criterion or path barrier; SPD ambient conditioning does not imply rank-one landscape geometry; algorithmic convergence statements under rank-compatible data do not apply to F rank two. Lexically nearby database IDs have no implication to the new claim. Duplicates elsewhere cannot be excluded by a partition or by failed searches.",
+      "searches": [
+        "published-finding corpus: Preconditioned Low-Rank Riemannian Optimization for Symmetric Positive Definite Linear Matrix Equations Bioli Kressner Robol stationary geometry 2 by 2",
+        "published-finding corpus: rank-one manifold SPD operator X map to half(D X D inverse plus D inverse X D), false local minima",
+        "Own ledger: 106 accessible claims, keywords rank-one, landscape, low-rank, spurious, mountain-pass, Sylvester, Riemannian, anisotropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manton–Mahony–Hua (IEEE TSP 51, 2003), weighted low-rank formulation and known nonglobal minima; no identical sharp threshold/barrier found in the inspected introductory/framework and example sections.",
+        "Bioli–Kressner–Robol, arXiv:2408.16416, fixed-rank SPD energy; no complete two-by-two stationary list or sharp escape barrier in the inspected formulation and convergence theory."
+      ],
+      "reasoning": "Rewrite the rank-one problem as weighted Frobenius approximation of F, with off-diagonal weight kappa and diagonal weights one. Exact equivalence to weighted low-rank approximation was checked, so the general existence of false minima is prior art. The inspected works do not present or imply the simultaneous inequality kappa>a/b, formulas for both off-axis saddles, and exact all-dimensional mountain-pass value.",
+      "searches": [
+        "published-finding corpus: 2x2 diagonal weighted low-rank approximation two-term symmetric positive definite Sylvester equation rank-one spurious local minima bifurcation saddle points condition number sharp threshold",
+        "published-finding corpus: Weighted rank-one approximation of diagonal two singular values with offdiagonal penalty; two strict local minima and two mountain pass saddles when weight exceeds singular value ratio",
+        "Web: weighted rank one approximation two-by-two diagonal matrix off diagonal weight local minima saddle bifurcation energy barrier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact coefficient is obtained from a rank-one determinant constraint and a universal path-crossing inequality; it is not a numerical tabulation.",
+        "No retrieved mathematical record or checked prior ledger claim had the same explicit polynomial/rational threshold and barrier formulas."
+      ],
+      "reasoning": "Checked exact parameter aliases, weighted low-rank equivalence, and matrix-equation wording. A negative search is not uniqueness proof; the outcome is a best-knowledge comparison, with unindexed specialized formulas a remaining risk.",
+      "searches": [
+        "published-finding corpus: Sharp local minimum threshold kappa > a/b for rank-one weighted low-rank approximation of diag(a,b); two saddle points x=(kappa b-a)/(kappa^2-1), y=(kappa a-b)/(kappa^2-1); mountain-pass energy (kappa b-a)^2/(2(kappa^2-1))",
+        "published-finding corpus: Exact energy barrier for spurious rank-one Riemannian local minima in positive definite linear matrix equations with diagonal forcing and cross-coordinate penalty",
+        "Web: weighted low rank \"two local minima\" \"2x2\" diagonal"
+      ]
+    },
+    "rationale": "The 2024 motivating preconditioned SPD matrix-equation paper defines the ambient fixed-rank problem but does not state the exact rank-one geometry derived here. Earlier weighted-approximation literature already knows that nonglobal minima can exist, so no such general novelty is claimed. The distinct result combines a necessary-and-sufficient condition-number/singular-gap threshold for a two-term SPD operator, complete two-dimensional rank-one stationary-point enumeration, and a dimension-independent exact mountain-pass energy; inspected sources and relevant published-record results did not entail these formulas. The most serious residual risk is an equivalent specialized weighted 2-by-2 derivation in older literature.",
+    "residual_risks": [
+      "An unindexed exact two-by-two weighted rank-one example or older specialized weighted-LRA manuscript may already include the same sharp formulas.",
+      "Full text of Zhu–Li–Tang–Wakin was not successfully retrieved, so its technical assumptions and appendices were not exhaustively compared.",
+      "Scientific originality is assessed from accessible literature and does not constitute independent publication-priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The fixed-rank objective and SPD setting are prior art. Inspected source results do not supply the sharp threshold, two-dimensional critical-point exhaustion, or mountain-pass formula for rank-two forcing.",
+        "evidence": [
+          "arXiv:2408.16416, sections on low-rank Riemannian optimization, objective, and local convergence; initial submission 2024-08-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.16416",
+        "material_read": "Downloaded open-access article, mathematical formulation and SPD objective, preconditioning and theoretical convergence sections, and text search for local-minimum geometry.",
+        "method": "Primary full-text PDF examination and statement-to-statement comparison, including conditions on the rank of exact unrestricted solution.",
+        "title": "Preconditioned Low-Rank Riemannian Optimization for Symmetric Positive Definite Linear Matrix Equations",
+        "trigger": "Motivating 2024 SPD fixed-rank matrix-equation formulation; exact same class of two-term operators"
+      },
+      {
+        "assessment": "Classical weighted-LRA nonconvexity and nonglobal minima are acknowledged as prior art; inspected content did not yield the specific two-term SPD conditioning threshold and all-dimensional exact barrier.",
+        "evidence": [
+          "Manton, Mahony and Hua, IEEE Transactions on Signal Processing 51 (2003), 500–514."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TSP.2002.807002",
+        "material_read": "Open PDF introduction, weighted approximation framework and example/figures on nonglobal critical points.",
+        "method": "Primary-source PDF inspection and comparison of proposed implications.",
+        "title": "The Geometry of Weighted Low-Rank Approximations",
+        "trigger": "Equivalent interpretation as weighted Frobenius rank-one approximation"
+      },
+      {
+        "assessment": "Unweighted/suitably regularized factorization theorems are not a demonstrated implication of this anisotropic fixed-rank setting; remaining full-text uncertainty noted.",
+        "evidence": [
+          "Zhu, Li, Tang and Wakin, arXiv:1703.01256; published IEEE TIT 67 (2021), 1308–1331."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.01256",
+        "material_read": "Accessible abstract and summary only; full open-access PDF retrieval routes failed.",
+        "method": "Abstract-level comparison of its advertised assumptions and scope; no whole-document noncoverage asserted.",
+        "title": "The Global Optimization Geometry of Low-Rank Matrix Optimization",
+        "trigger": "Potential dominating benign-landscape or weighted-factorization theorems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7c5d7c8-0e65-4530-93e9-36acc6d1fc55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The rank-constrained SPD generalized-Sylvester energy is central to computational matrix equations. The result gives a sharp and operational contrast between ambient operator conditioning and forcing spectral separation, including arbitrarily nearly isotropic SPD operators that retain a true nonglobal local minimum. The exact minimax barrier measures the optimization obstruction, and the explicit low-dimensional classification with dimension-independent obstruction provides a reproducible benchmark. This is not a routine weighted-rank-one normal-equations observation, and the theorem does not claim an algorithm-specific failure or a general matrix-equation landscape classification.",
+    "status": "PASS"
+  }
+}
