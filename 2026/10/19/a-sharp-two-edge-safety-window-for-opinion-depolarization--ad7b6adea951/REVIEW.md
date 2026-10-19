@@ -1,0 +1,19 @@
+# Scientific review: a sharp two-edge safety window for opinion depolarization
+
+## Correctness — PASS
+
+The theorem fixes the ordinary symmetric Friedkin–Johnsen equilibrium and the *expressed polarization alone*. The inverse derivative identity is reconstructed directly from the product rule, including the correct order of noncommuting matrix factors. Congruence with the square of the positive-definite equilibrium operator gives a necessary and sufficient semidefiniteness condition, not merely a sufficient bound. On a three-agent path, a zero eigenvector and a positive trace reduce semidefiniteness to the sign of the sum of principal minors, yielding the displayed exact quadratic inequality. Connectedness of the two-edge update proves strict decrease at every positive intervention intensity, including both window endpoints; outside the window the negative quadratic direction constructs a fixed innate opinion profile with a strictly positive initial derivative. Direct exact-rational computations reproduce the specified adverse profiles and sharp coefficient formula. Symbolic computations verify relevant identities; the proof, not finite tests, supplies infinite quantification.
+
+## Originality — PASS, with residual risk
+
+Rácz and Rigobon's 2022 analysis supplies single-edge exact formulas (Lemma 4.3 and Proposition 4.5) and explicitly leaves wider graph perturbations as a question in Section 6. It does not state the simultaneous-update semidefinite criterion, the complete two-edge sharp window, or the jointly-safe/individually-unsafe phenomenon. The 2021 analysis by Bhalla–Lechowicz–Musco distinguishes individual polarization from the sum of polarization and disagreement; its single-edge network results do not directly imply this all-opinion two-edge classification. Zhou–Neumann–Garimella–Gionis (2024) and Zhu–Bao–Zhang (2021) optimize the combined first-inverse-power objective, not this second-inverse-power pointwise question. A worst-case spectral-gap improvement is not equivalent to a reduction for each fixed innate opinion. Targeted searches of indexed mathematical findings and scholarly literature identified no covering result. The algebraic anticommutator identity is elementary once posed; priority for a similar criterion in unindexed matrix analysis or network-design work is not definitively excluded.
+
+## Value — PASS
+
+The primary paper explicitly identifies understanding more substantial graph perturbations as an unresolved direction. A single-edge safety condition cannot be applied independently to deduce that a coordinated batch is safe: on the smallest connected two-edge network each isolated update admits worsening opinions, but suitable simultaneous updates improve *every* nonunanimous opinion profile. The full sharp ratio interval supplies a quantitative robustness criterion and identifies exactly where this intervention-level guarantee fails. The theorem holds at all strengths and for a continuum of parameters; it is not a catalog of arbitrarily selected rational values. The general semidefinite criterion gives a reusable network-level test, while the exact three-agent classification is its motivated, naturally minimal instance.
+
+## Closest literature and limitations
+
+The closest source is Rácz and Rigobon, arXiv:2206.08996 (especially Section 4.2 and its appendix), which treats single-edge perturbations; this difference is substantive rather than terminological. Results about polarization-plus-disagreement, mutable worst-case opinion profiles, or time-evolving topology do not imply monotonicity of individual expressed polarization for every fixed opinion profile. The finding does not address asymmetric directed influence, changing relative intervention ratios, nonlinear interactions, or complete graph-by-graph classification in arbitrary order. Broader specialist overlap and independent verification remain open.
+
+Self-review: passed. Independent audit: not yet performed.
