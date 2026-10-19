@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A general rank-two determinant identity for the inverse trace is derived from the Laplacian resolvent at its simple zero eigenvalue. Substitution of the exact K_{p,q} spectral projectors yields all four placement values; three difference identities are checked by symbolic simplification and independent rational matrix inversion. Positivity of the factored same-part difference and negativity of the reverse mixed orientation reduce optimization to two orbits. The remaining exact quadratic has negative linear and constant terms; the leading coefficient determines existence of the unique positive switching root, and explicit diagonal evaluation proves it exceeds the smaller gain. Integer size inequalities give the exact seven-vertex onset. No finite experiment is used to claim an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1302.0450 Sections II–III: generic optimization formulations, general convex relaxations, and greedy updates.",
+        "arXiv:1208.0946 Sections I–II: link-noise error objective and supermodular algorithms, not finite-pinning isotropic-state-noise biclique phase law."
+      ],
+      "reasoning": "General-purpose exact objective evaluation and relaxations do not contain a theorem choosing between the two specific biclique orbit classes for all gains; likewise the link-noise model has a different variance functional. Neither implies the sign of the explicit quadratic without further graph-specific analysis.",
+      "searches": [
+        "Algorithms for leader selection in stochastically forced consensus networks",
+        "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+        "Two-leader H2 optimal placement bipartite 2014 joint centrality unequal feedback gains, critical size ratio q^2-q>3p^2."
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1208.0946",
+      "arXiv:1302.0450",
+      "arXiv:1407.1569",
+      "Previously established three-leader and four-leader complete-bipartite results (different leader counts)",
+      "Previously established continuous-gain optimization on complete bipartite graphs (different feasible set)",
+      "Exact discounted hitting domination of complete bipartite graphs (different functional)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fitch–Leonard arXiv:1407.1569 p. 4 assumes all leaders apply the same weight; the explicit applications are cycles and paths.",
+        "Lin–Fardad–Jovanović arXiv:1302.0450 defines arbitrary gains in (LS1) but supplies relaxations, rank-one updates and numerical examples, not the closed-form K_{p,q} phase criterion."
+      ],
+      "reasoning": "The known equal-gain case is included as a boundary where both leaders occupy the smaller part, but it neither establishes nor forbids relocation with one gain much larger. Prior solutions at leader counts 3 and 4, and the continuous-gain optimization problem, have different feasible sets, and do not dominate the two-vertex theorem.",
+      "searches": [
+        "Strong feedback leader and weak feedback leader complete bipartite graph trace inverse switching location",
+        "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "Algorithms for leader selection in stochastically forced consensus networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin–Fardad–Jovanović arXiv:1302.0450 models arbitrary prescribed gains and inverse-trace variance, but Sections II-III derive general relaxations and low-rank updates rather than the biclique threshold.",
+        "Fitch–Leonard arXiv:1407.1569 Section II assumes a common gain; Section V specializes path and cycle networks."
+      ],
+      "reasoning": "Alternate names include pinned Laplacian coherence, H2 noise amplification, noisy consensus tracking, and two-sensor optimal placement. Explicit spectral and gain parameter comparison shows the candidate is an exact graph-family optimizer not an immediate restatement of the general objective or a common-gain theorem.",
+      "searches": [
+        "Optimal noisy consensus two leaders on complete bipartite graph K_{p,q} different positive gains, same smaller partition versus split placement, exact quadratic switching threshold.",
+        "\"complete bipartite\" \"leader selection\" \"trace\" Laplacian",
+        "\"complete bipartite\" \"noise-corrupted leaders\" optimal",
+        "arXiv:1302.0450 Sections II-III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record entitled Exact discounted hitting domination of complete bipartite graphs concerns hitting-source thresholds, not inverse-trace pinned-network coherence.",
+        "Existing specialized results for 3 or 4 equal-gain biclique leaders concern different fixed cardinalities and so do not tabulate the two-prescribed-gain optimum."
+      ],
+      "reasoning": "A table for noise-free or equal-gain leader sets, or a result for a different objective, cannot determine the positive gain-relocation boundary in the present family. No covering exact table was identified; absence of a search hit is not a uniqueness proof.",
+      "searches": [
+        "Optimal noisy consensus two leaders on complete bipartite graph K_{p,q} different positive gains, same smaller partition versus split placement, exact quadratic switching threshold.",
+        "Two-leader H2 optimal placement bipartite 2014 joint centrality unequal feedback gains, critical size ratio q^2-q>3p^2.",
+        "\"complete bipartite\" \"leader selection\" \"H2\" trace inverse"
+      ]
+    },
+    "rationale": "The all-size complete bipartite two-leader prescribed-unequal-gain phase classification and exact threshold are not supplied by the closest inspected broad leader-selection papers, which give relaxation methods or equal-gain cycle/path solutions. Prior records for other leader counts, continuous gain allocation, and discounted hitting optimize different problems and do not logically imply this statement. Residual risk of an equivalent specialized derivation remains.",
+    "residual_risks": [
+      "Indexed similarity search is not exhaustive and may miss an equivalent special-case derivation.",
+      "A general earlier framework may implicitly enable the calculation, although none of the inspected statements proves this exact optimizer threshold.",
+      "No independent mathematical or bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Formulation and methods overlap, but no explicit complete-bipartite two-gain phase classification identified",
+        "evidence": [
+          "Section II (LS1) permits heterogeneous positive feedback strengths and uses the covariance inverse-trace criterion.",
+          "Section III develops relaxations and rank-one/swapping evaluations, not the complete graph-family solution."
+        ],
+        "identifier_or_url": "arXiv:1302.0450",
+        "material_read": "Selected full-text passages on pages 1-6 and 9-15: formulation (LS1), algorithmic framework, low-rank update expressions and examples",
+        "method": "Lawful open arXiv PDF text, sections and searched full text",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "Exact same prescribed-gain inverse-trace model, potential dominating general theorem"
+      },
+      {
+        "assessment": "Equal-gain assumption and path/cycle special cases do not cover the unequal-gain complete bipartite classification",
+        "evidence": [
+          "Section II explicitly fixes the same gain for each leader.",
+          "Section V gives explicit path/cycle solutions; no biclique phase statement."
+        ],
+        "identifier_or_url": "arXiv:1407.1569",
+        "material_read": "Selected passages from full text pages 1–5, 13–15 and appendix problem descriptions: model assumptions, contributions, two-leader theory and solved graph classes",
+        "method": "Lawful open arXiv PDF text with visual inspection of model-assumption page",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Two-leader coherence may contain stronger placement result"
+      },
+      {
+        "assessment": "Different link-noise objective and general approximation methods do not dominate the exact node-noise biclique result",
+        "evidence": [
+          "Abstract and Section I specify noisy communication links rather than homogeneous independent node disturbances.",
+          "The main contribution is a general approximation framework."
+        ],
+        "identifier_or_url": "arXiv:1208.0946",
+        "material_read": "Selected passages from full text pages 1–6: introduction, noise model and supermodular objective comparison",
+        "method": "Lawful open arXiv PDF text and contents inspection",
+        "title": "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+        "trigger": "Earlier optimization theory for noisy leader location"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc5b8708-11f7-4654-978d-4a13e28000b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exactly motivated finite-actuator location problem is solved for an infinite graph family. The all-parameter switching rule, strict and exact tie structure, gain-imbalance cutoff, and unique smallest switching graph K_{2,5} provide concrete, reusable design information not furnished by generic optimization algorithms. Equal-gain placements cannot express the discovered relocation; scientific scope remains narrow and explicit.",
+    "status": "PASS"
+  }
+}
