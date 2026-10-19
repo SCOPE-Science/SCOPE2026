@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The map is taken literally on the infinite cylinder with positive kick amplitude. Constant action in each step forces both angular sine terms to zero, leaving precisely the alternating pair of angles zero and one-half. Its angular half-turn demands a half-integer quartic twist value; this proves necessity and sufficiency without assuming anything about nonconstant-action cycles. The quadratic in squared action has one minimum, and strict/open endpoints in the central and outer root census avoid duplicate roots. The exact floor staircase has a bounded discrepancy from its two-term quartic asymptotic. Direct multiplication of both Jacobians gives determinant one and return trace \(2-(2\pi bW'(y))^2\); monotonicity of the outer derivative yields the unique threshold and the \(m^{3/2}\) spectral law. The current standalone checker passed 945 assertions, including exact rational matrix identities and root-count examples. Finite tests supplement, rather than prove, the infinite statements.
+
+## Originality — PASS, with priority risks
+The original model article (Grime et al., arXiv:2209.07408, equations 10–19 and Sections 3–4) treats symmetry axes, main fixed-point resonances and reconnections. The related full preprint (arXiv:2305.17538, particularly Sections 2–4 and the appendix) studies shearless breakup and period-two reconnection numerically and with selected parameter curves. The accessible full-text study (arXiv:2409.00785, Sections II–IV) studies transport barriers rather than global action-preserving period-two root counts. These prior results supply the map and techniques, but the inspected mathematical statements do not imply an all-integer half-turn tower with an action-cutoff exact staircase and complete Floquet transition. Targeted mathematical-record and bibliographic searches returned related periodic-orbit classifications for other maps but no matched or dominating theorem. This is a best-knowledge conclusion, not a guarantee of priority; general reversible-map resonance folklore and unindexed equivalents remain residual risks.
+
+## Mathematical value — PASS
+Zero action transport is the natural exactly identifiable periodic orbit class in the map used for plasma transport and nontwist resonances. The global unbounded-cylinder classification fills a gap between the studied local resonances and the actual all-winding periodic skeleton. The sharp staircase counts exact resonance abundance at each cutoff, and the Floquet calculation proves that every positive perturbation amplitude leaves only finitely many elliptic members but infinitely many increasingly hyperbolic members. The finding is explicitly not extended to higher-period points, nonlinear elliptic stability, or the physical large-action range.
+
+## Limits of review
+The self-review includes checking the analytic proof and replaying the packaged finite verifier. Independent validation or independent mathematical audit has not taken place.
+
+Self-review: passed. Independent audit: not yet performed.
