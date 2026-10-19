@@ -1,0 +1,15 @@
+# Scientific review of the exact runner-up Fourier concentration theorem
+
+## Correctness — PASS
+The statement has exact domain \(N\ge4\), \(2\le k\le N-2\), and ordinary unweighted characters. A noninterval set has at least two connected cycle components. For a fixed projection direction, a component missing all global cosine maximizers has a boundary point with a strictly higher-weight unselected adjacent vertex. Repeated strict improvements reach an interval, and the last noninterval is necessarily a one-gap arc. Orienting the projection by the complex sum proves every other noninterval lies strictly below its one-gap norm. The root-of-unity identity computes this norm exactly; the exceptional vanishing case \((4,2)\) is checked separately. The \(2	imes2\) Gram matrix proves the optimal Fourier concentration and deficit. The standalone verifier enumerated all 522,312 noninterval masks through order 18 and independently reproduced the equality families. Risk: the finite checks are not an infinite-dimensional proof, which is supplied analytically.
+
+## Originality — PASS (best knowledge)
+The closest published two-character harmonic-frame result already gives the unrestricted optimum and intervals as its sole maximizers. Its theorem does not classify the maximizer within the *noninterval* admissible class, calculate the exact strict runner-up gap, or count one-gap equality masks. The Marshall–Waldron harmonic-frame model and Baeza-Guasch concentration rearrangements provide earlier context, not a matching runner-up value. Targeted checks included aliases, projective Fourier compression and erasure spectra, and full examination of the nearest published two-character `RESULT.md`. General coincidence of the polygon maximizer with an interval is prior, not claimed as new. Risk: a folklore or unindexed second-best circle-sum lemma may independently cover the claim.
+
+## Mathematical value — PASS
+This is a complete and sharp second-extremal classification over *every* finite cyclic order and every nontrivial number of retained spatial observations. It furnishes the exact positive spectral separation between optimal and every geometrically noninterval sampling mask, including all equality patterns and their counts. The gap is operationally meaningful as the best-case degradation forced by forbidding contiguous observations. It is not merely a recomputation of the primary optimum: the earlier first-extremal theorem does not determine the new constant or which masks attain it. The result is deliberately restricted to two Fourier frequencies; general multi-frequency perturbations are not asserted.
+
+## Closest literature and limits
+Marshall and Waldron, arXiv:1611.07121v1 (2016); Baeza-Guasch, arXiv:2307.04558v1 (2023); *Exact adversarial-erasure spectra for two-character cyclic harmonic frames* (published 2026, full result inspected). The remaining bibliographic risk concerns an older equivalent formula for the second-largest complex modulus of a subset of regular-polygon vertices.
+
+Self-review: passed. Independent audit: not yet performed.
