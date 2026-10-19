@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The scalar Jury criterion gives the exact common stability domain. Independent Yule-Walker reconstruction gives the closed covariance formula. Strict concavity of the curvature denominator confines the worst variance to the spectral endpoints. Each endpoint as a function of signed momentum decreases then increases, with unique minimum at sqrt(h)-1, and the two endpoint values cross only at (a+b)/2-1, proving the unique median classifier. The low-curvature factor two follows by exact substitution. Reproducible Lyapunov and scalar minimization checks corroborate; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 paper Lemma 4 equalizes endpoint mode noise while varying both stepsize and momentum with prescribed settling time; section V pp. 12-14.",
+        "The 2019 paper considers noise versus spectral distributions and rate; its parameter objective is not this fixed-stepsize modal minimax classification."
+      ],
+      "reasoning": "General stability and variance formulas are stronger as evaluation results, but the papers’ supplied tuning objectives differ. Their equalizing branch matches one of the three fixed-stepsize regimes, which is acknowledged. The low-curvature-endpoint and high-curvature-endpoint optimal branches and the exact median selection for arbitrary fixed stepsize are not implied by their prescribed adjustable-stepsize family alone. Residual risk of an uncatalogued direct specialization remains.",
+      "searches": [
+        "Exact minimax H2 noise amplification tuning momentum for heavy-ball second-order scalar recurrences; robust against uncertain curvature",
+        "Stationary variance of additive-noise stochastic heavy ball momentum on all quadratic Hessian eigenvalues in spectral interval; minimax optimal momentum median of square root curvature and curvature midrange",
+        "arxiv:2209.11920, Lemma 4 and Proposition 2, heavy-ball parameterized family"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.01577",
+      "arxiv:1905.11011",
+      "arxiv:2209.11920",
+      "published-finding corpus 2026/10/4/SCOPE-exact-spectral-stability-budget-and-momentum-cancellation-for-he--d7ec7c84f6a5",
+      "published-finding corpus 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 archival paper treats noisy accelerated-gradient recurrences and a different iteration-dependent stability analysis.",
+        "The 2022 Lemma 4 family uses jointly selected stepsize and momentum and states endpoint equalization but does not formulate the constrained fixed-stepsize minimax problem.",
+        "The present result additionally gives necessary/sufficient piecewise optimum for either endpoint-controlled regime and an asymptotically sharp factor-two loss when momentum is restricted nonnegative."
+      ],
+      "reasoning": "The underlying variance identity and an endpoint-equalizing parameterization are covered prior art. Comparing the precise statements, the median-of-three optimizer and sharp sign-constrained loss are a more specific design solution under a different fixed-step feasible set rather than a restatement of those evaluation formulas. Their possibility as a routine deduction or elsewhere-stated corollary is an explicit scientific originality/value risk.",
+      "searches": [
+        "Exact fixed-stepsize minimax stationary variance for Polyak heavy-ball on a Hessian eigenvalue interval; unique median of sqrt endpoints and midpoint and sharp twofold negative momentum benefit",
+        "Exact minimax H2 noise amplification tuning momentum for heavy-ball second-order scalar recurrences; robust against uncertain curvature",
+        "arxiv:2209.11920 Theorem 5, Lemma 4, Proposition 2",
+        "arxiv:1504.01577 initial noisy-accelerated-gradient source"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mohammadi et al. 2019 derive stationary noise variance mode by mode; arxiv:1905.11011.",
+        "Mohammadi et al. 2022 Theorem 5 supplies a modal variance formula for general two-step methods, arxiv:2209.11920, PDF pp. 11-12."
+      ],
+      "reasoning": "AR(2) stationary covariance, heavy-ball Lyapunov H2 norm, and modal robustness are equivalent views of the underlying variance formula and therefore not claimed novel. Their variance representations do not alone specify the fixed-stepsize globally minimizing signed momentum for every interval. The new claim is restricted to that complete minimax decision and its sign-restriction ratio.",
+      "searches": [
+        "Exact fixed-stepsize minimax stationary variance for Polyak heavy-ball on a Hessian eigenvalue interval; unique median of sqrt endpoints and midpoint and sharp twofold negative momentum benefit",
+        "Optimal negative momentum stationary variance for noisy inertial gradient methods with fixed positive stepsize",
+        "arxiv:1905.11011, modewise stationary variance, heavy-ball momentum",
+        "arxiv:2209.11920, modal noise amplification and negative momentum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/4/SCOPE-exact-spectral-stability-budget-and-momentum-cancellation-for-he--d7ec7c84f6a5 concerns Hessian-corrected heavy-ball stability.",
+        "published-finding corpus hit 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73 concerns STORM noise."
+      ],
+      "reasoning": "The actual semantic findings searches yielded nearby algorithms and variance objectives but not an exact fixed-stepsize three-regime heavy-ball minimax decision. Search absence alone is not proof of novelty.",
+      "searches": [
+        "Exact fixed-stepsize minimax stationary variance for Polyak heavy-ball on a Hessian eigenvalue interval; unique median of sqrt endpoints and midpoint and sharp twofold negative momentum benefit",
+        "Optimal negative momentum stationary variance for noisy inertial gradient methods with fixed positive stepsize",
+        "published-finding corpus published findings, scalar stochastic momentum variance and spectral minimax tuning"
+      ]
+    },
+    "rationale": "Compared fixed-stepsize constrained parameter-optimality, not merely shared heavy-ball variance formulas, to 2015 noise optimization, 2019 exact mode variance, 2022 Theorem 5 and fixed-rate adjustable-step Lemma 4/Proposition 2, plus actual published-finding corpus search. Endpoint equalization and covariance formula are established prior art; the three-regime exact fixed-step minimizer and sharp sign restriction are the narrowly assessed contribution. A differently titled or implicit corollary of broad prior results remains a residual risk.",
+    "residual_risks": [
+      "The scalar minimax envelope might appear in uncatalogued tuning notes as an immediate corollary of a known modal variance formula.",
+      "Strong 2022 general two-step method results already cover exact variance evaluation and equalization along an adjustable-stepsize family.",
+      "Same-model source comparison is not independent peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Archived source studies iteration-dependent second-order stability and convergence, not the present fixed-step stationary modal minimax optimum.",
+        "evidence": [
+          "arxiv:1504.01577, submitted 2015-04-07, abstract and sections on noisy gradients"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1504.01577",
+        "material_read": "full paper overview and noisy-gradient/stability portions of PDF, including introductory statements and selected mathematical pages",
+        "method": "arXiv open-access PDF text and selected page image inspection",
+        "title": "From Averaging to Acceleration, There is Only a Step-size",
+        "trigger": "Verified 2015 archival noisy second-order optimization source"
+      },
+      {
+        "assessment": "Modewise stationary-noise formulas are prior art, not claimed novel; no inspected theorem with this exact fixed-step minimax signed-momentum classifier.",
+        "evidence": [
+          "arxiv:1905.11011, mode-by-mode steady-state error amplification; initial date 2019-05-27"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.11011",
+        "material_read": "Theorem 1 and relevant noise mode/stability comparisons with original paper PDF",
+        "method": "arXiv open-access full-text and selected page inspection",
+        "title": "Robustness of accelerated first-order algorithms for strongly convex optimization problems",
+        "trigger": "Plausible same-object full modal stationary variance theory"
+      },
+      {
+        "assessment": "Includes general modal variance formula and endpoint-equalizing adjustable-step family; high relevance, but the fixed-step three-regime optimizer and sharp factor-two sign restriction were not found in inspected relevant results.",
+        "evidence": [
+          "arxiv:2209.11920, Theorem 5, eq. (32), Lemma 4, Proposition 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.11920",
+        "material_read": "Model and comparison on pp. 2-5; Theorem 5 and modal variance on pp. 11-12; Lemma 4, Proposition 2 and tuning family on pp. 12-14",
+        "method": "arXiv open-access full-text search and original page-image inspection",
+        "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+        "trigger": "Later broad model including signed momentum and maximum modal variance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1778417-e2e2-415a-9fb8-11c3d7d964de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact complete design decision for unknown spectral curvature at fixed stepsize distinguishes the two endpoint-controlled regimes from the equalization regime and selects the unique signed momentum for all admissible parameter pairs; this is a natural robust-control tuning objective, not an arbitrary test instance. The sharp asymptotic factor-two penalty for forbidding negative momentum quantifies a nontrivial algorithm design choice. Novelty/value are restricted to this classification, not basic variance calculations.",
+    "status": "PASS"
+  }
+}
