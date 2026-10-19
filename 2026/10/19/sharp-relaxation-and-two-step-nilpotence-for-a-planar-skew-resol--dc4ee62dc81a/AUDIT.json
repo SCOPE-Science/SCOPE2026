@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Direct 2x2 inversion and characteristic polynomial produce trace t>0, det d>0 and discriminant Δ; positive-real and conjugate cases give necessary and sufficient spectral radius<1. Exact equal-error and convex modulus calculations prove unique fixed-step minimizers. Δ=0 iff unique τ*>0 for q<2c; Cayley--Hamilton proves nonzero square-zero map at unique rho*. Matrix-power necessity excludes all q>=2c. The standalone checker passed 50,139 checks including rational square-zero, without replacing the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 source gives nonexpansive sufficient outer relaxation and Halpern residual bounds; it does not optimize eigenvalues in the present 2x2 map.",
+        "2010 paper treats an explicit-skew forward--backward--forward algorithm."
+      ],
+      "reasoning": "Neither generic nonexpansiveness nor asymptotic rate estimates imply a positive nilpotent step and sharp q/c existence condition. Distinct iteration matrices invalidate automatic specialization.",
+      "searches": [
+        "Halpern accelerated majorized ADMM 2026 metric cocoercivity relaxation 2 beta quadratic saddle finite termination",
+        "primal dual splitting one strongly convex quadratic one bilinear coupling Schur stability eigenvalues optimal relaxation beyond two",
+        "Halpern majorized ADMM 2609.38808 cocoercive relaxation 2 beta forward backward scalar q c skew",
+        "arXiv:2609.38808v1 Props. 3.5, 4.1",
+        "arXiv:1011.5517v1 §§2--3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38808v1, full HTML §§1--6 incl. Eqs. (2.15),(3.16),(4.3)",
+      "arXiv:1011.5517v1, full HTML §§1--3, Eq. (1.8)",
+      "Published record: Published finding, 2026-10-04: Exact fixed-product rate phase diagram for scalar PDHG (synopsis)",
+      "Published record: Published finding, 2026-10-04: Warm-start correction for one-step over-relaxed ADMM (synopsis)",
+      "Published record: Published finding, 2026-09-19: Exact rate-optimal steps for FRB/RFB on the skew-rotation family (synopsis)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating article sufficient bound is rho<=2-beta for nonexpansiveness in its metric, not a necessary bound for this 2D map.",
+        "An exact 2-step tuning with rho=25/7>2 for q=3/2,c=1 is obtained by distinct matrix algebra.",
+        "The PDHG and warm-start ADMM synopses have different update maps."
+      ],
+      "reasoning": "The claimed theorem supplies quantitative phase boundaries, unique spectral-radius optimum and sharp nilpotence q<2c for the explicitly defined K. Neither stated broad general result nor the other algorithm-specific claims logically contains it without additional new derivation.",
+      "searches": [
+        "overrelaxed forward backward splitting linear convex concave quadratic saddle point skew monotone rotation exact spectral stability optimal overrelaxation finite two-step termination",
+        "Halpern accelerated majorized ADMM 2026 metric cocoercivity relaxation 2 beta quadratic saddle finite termination",
+        "primal dual splitting one strongly convex quadratic one bilinear coupling Schur stability eigenvalues optimal relaxation beyond two",
+        "relaxed implicit skew resolvent explicit gradient bilinear saddle two-step nilpotent forward backward splitting exact finite termination",
+        "two by two scalar saddle gradient skew forward backward relaxation repeated eigenvalue zero two step exact",
+        "Halpern majorized ADMM 2609.38808 cocoercive relaxation 2 beta forward backward scalar q c skew",
+        "arXiv:2609.38808v1 Eqs. (2.15),(3.16),(4.3)",
+        "arXiv:1011.5517v1 Eq. (1.8)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The skew-resolvent matrix, fixed positive step and relaxation, and all-start square-zero condition are not asserted in the inspected articles.",
+        "Nearby PDHG, FRB and ADMM result synopses concern different recurrences."
+      ],
+      "reasoning": "The closest standard formulation is relaxed implicit-skew/explicit-smooth forward--backward. Rewriting the problem as a planar KKT inclusion does not transfer rate and nilpotent results for different splitting maps.",
+      "searches": [
+        "overrelaxed forward backward splitting linear convex concave quadratic saddle point skew monotone rotation exact spectral stability optimal overrelaxation finite two-step termination",
+        "relaxed implicit skew resolvent explicit gradient bilinear saddle two-step nilpotent forward backward splitting exact finite termination",
+        "two by two scalar saddle gradient skew forward backward relaxation repeated eigenvalue zero two step exact",
+        "arXiv:2609.38808v1 Eq. (2.15)",
+        "arXiv:1011.5517v1 Eq. (1.8)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual semantic search hit summaries feature PDHG critical damping and ADMM warm starts, not exact table entries for this skew-resolvent."
+      ],
+      "reasoning": "The result is an all-positive parameter theorem, not lookup of a fixed numerical invariant. No checked table or record supplied the derived unique formulas; limited full-text access is disclosed.",
+      "searches": [
+        "relaxed implicit skew resolvent explicit gradient bilinear saddle two-step nilpotent forward backward splitting exact finite termination",
+        "two by two scalar saddle gradient skew forward backward relaxation repeated eigenvalue zero two step exact",
+        "published-finding corpus Published finding, 2026-10-04: Exact fixed-product rate phase diagram for scalar PDHG",
+        "published-finding corpus Published finding, 2026-10-04: Warm-start correction for one-step over-relaxed ADMM"
+      ]
+    },
+    "rationale": "The accessible motivating 2026 primary full text derives the general preconditioned forward--backward operator and a sufficient metric nonexpansiveness regime, not the exact planar skew-resolvent stability/rate/nilpotence theorem. Classic monotone-plus-skew uses forward--backward--forward. Published nearby PDHG, ADMM and FRB claim synopses concern different maps, so none of the checked results entails this precise theorem. Unindexed and inaccessible full-text coverage remain residual risks.",
+    "residual_risks": [
+      "The complete text of several related published PDHG/ADMM records was inaccessible; implication comparisons there use their explicit published claim synopses only.",
+      "Classical or unindexed operator-splitting literature may have equivalent precise two-dimensional spectra or nilpotence tuning not uncovered by bounded search.",
+      "This is a constant Euclidean-metric forward--backward core map, not a theorem about the Halpern/MajADMM scheme in the motivating article."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact two-dimensional skew-resolvent Schur phase diagram or unique nilpotent tuning; source gives broad nonexpansiveness guarantee for the MajADMM mapping and a Halpern variant, not this constant 2D mapping.",
+        "evidence": [
+          "arXiv:2609.38808v1, Eq. (2.15), §§3--4, esp. Eqs. (3.16),(4.3); no nilpotent/finite termination statement in accessible full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.38808",
+        "material_read": "Full open-access 606-line article: Introduction, KKT decomposition Eq. 2.3, fixed-point Eq. 2.15, Propositions 3.5 and 4.1, §4 algorithm, experiments, abstract and conclusions.",
+        "method": "Read open-access full HTML, checked words nilpotent and finite termination and compared map formulas directly.",
+        "title": "Halpern-Accelerated Majorized ADMM with Optimal Non-Ergodic Convergence under Degenerate Preconditioning",
+        "trigger": "Same forward--backward operator decomposition and outer relaxation; recent relevant source with MSC2020 90C25."
+      },
+      {
+        "assessment": "NOT_COVERING this matrix family or its nilpotent tuning; different operator splitting scheme.",
+        "evidence": [
+          "arXiv:1011.5517v1, Introduction Eq. (1.8), §§2--3, forward--backward--forward two explicit skew actions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1011.5517v1",
+        "material_read": "Open-access full HTML, §§1--3, especially Eq. (1.8) and algorithm description.",
+        "method": "Compared actual forward--backward--forward sequence and its explicit skew evaluations to the proposed implicit skew resolvent.",
+        "title": "A Monotone+Skew Splitting Model for Composite Monotone Inclusions in Duality",
+        "trigger": "Classic primary work on saddle KKT monotone plus skew and splitting."
+      },
+      {
+        "assessment": "Different iterative operator and tuning domain; synopsis does not state implicit skew nilpotence. The full body was not read, leaving limited overlap risk.",
+        "evidence": [
+          "Published record Published finding, 2026-10-04: Exact fixed-product rate phase diagram for scalar PDHG: PDHG fixed-product scalar strongly convex-concave saddle, critical damping and balanced ratio."
+        ],
+        "identifier_or_url": "Published published-finding corpus finding, 2026-10-04: Exact fixed-product rate phase diagram for scalar PDHG",
+        "material_read": "Published record title and descriptive claim synopsis only; full repository body was not accessible.",
+        "method": "Compared PDHG eigenparameter structure and fixed-product constraint as stated in record with the displayed skew-resolvent map.",
+        "title": "Exact fixed-product rate phase diagram for scalar PDHG",
+        "trigger": "Similar planar saddle spectrum, optimization of step parameters."
+      },
+      {
+        "assessment": "Different operator, parameter roles and problem structure; not a documented implication. Full details remain a bibliographic risk.",
+        "evidence": [
+          "Published record Published finding, 2026-10-04: Warm-start correction for one-step over-relaxed ADMM: warm start with mu=delta z, second update exact."
+        ],
+        "identifier_or_url": "Published published-finding corpus finding, 2026-10-04: Warm-start correction for one-step over-relaxed ADMM on regularized quadratics",
+        "material_read": "Published record title and short claim synopsis only; full body inaccessible.",
+        "method": "Compared split regularized quadratic ADMM warm-start invariant to constant skew-resolvent all-start square-zero matrix.",
+        "title": "Warm-start correction for one-step over-relaxed ADMM on regularized quadratics",
+        "trigger": "Finite 2-step termination of different quadratic primal-dual splitting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc4ee62d-c81a-4e5d-862d-55c0a2036900",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2D primal--dual KKT model is a motivated minimal test of skew-resolvent splitting. The all-parameter sharp stability/rate classification and exact q<2c cutoff yield a nontrivial design principle for finite universal termination, with a substantial relaxation beyond generic sufficient bounds in an open parameter region. It is more than a single arbitrary special-case computation and is useful as a precisely calibrated numerical benchmark. It does not promise robustness, scaling or Halpern/ADMM performance.",
+    "status": "PASS"
+  }
+}
