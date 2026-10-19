@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each overlap size, independence gives the exact joint probability and marginal products, including same-set mutually exclusive cases. The finite covariance has a positive prefactor times a strictly decreasing F with opposite endpoint signs. Bernoulli inequality bounds root; n=r+1 isolates two overlaps; fixed-r expansion via A3/A2 yields stated n^-1 term. A standalone verifier independently enumerated all edge states for five (n,r) pairs and exact probabilities plus 12,047 finite tests; enumeration is corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1002/rsa.3240010103 (abstract only)",
+        "https://doi.org/10.1089/cmb.2007.0137 (abstract, author slides)",
+        "https://doi.org/10.1103/PhysRevE.85.056119 (abstract)"
+      ],
+      "reasoning": "Generic subgraph-count moment machinery likely implies the elementary finite covariance expansion. None of these accessible portions settles the strict single-crossing theorem for every motif order or its 1/n correction; full general papers unavailable and are recorded as residual risk.",
+      "searches": [
+        "web: Janson 1990 A functional limit theorem for random graphs applications subgraph count statistics",
+        "web: Picard Daudin Assessing exceptionality network motifs variance overlap",
+        "web: Fretter Subgraph fluctuations in random graphs 2012"
+      ]
+    },
+    "checked_sources": [
+      "Picard et al. (2008), doi:10.1089/cmb.2007.0137, abstract and author slides",
+      "Coulson, Gaunt, Reinert (2015), arxiv:1509.07754, primary PDF relevant sections",
+      "Harshaw et al. (2016), arxiv:1602.01130, entire 4-page PDF",
+      "Janson (1990), doi:10.1002/rsa.3240010103, publisher abstract only",
+      "Fretter et al. (2012), doi:10.1103/PhysRevE.85.056119, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/1509.07754 §§1-2 and overlap estimates",
+        "https://arxiv.org/pdf/1602.01130 §§1-3",
+        "https://franckpicard.github.io/assets/pdf/presentations/netmotifs.pdf slides on same-pattern overlap moments"
+      ],
+      "reasoning": "Coulson et al. analyze Poisson approximation for fixed non-induced graph-copy counts, not this exact induced pair; Harshaw et al. use induced graphlet vectors without an all-order covariance phase diagram. The older same-pattern moment framework may imply the overlap identity, but the asserted single zero requires a negative-power monotonicity argument and its asymptotic location requires comparing 2- and 3-vertex overlaps. Whether uninspected broader treatments contain those conclusions remains open.",
+      "searches": [
+        "web: Poisson approximation of subgraph counts stochastic block graphon Coulson 2015",
+        "web: GraphPrints 2016 graphlets",
+        "web: Picard Daudin 2008 analytic motif overlap second moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://franckpicard.github.io/assets/pdf/presentations/netmotifs.pdf pp. 7-11",
+        "https://arxiv.org/pdf/1602.01130 pp. 1-4"
+      ],
+      "reasoning": "The object is a mixed cross-covariance of two mutually exclusive exact induced patterns, not an individual motif variance. The 2008 slides present same-pattern second moments; the graphlet detection article enumerates counts, not density-crossing covariance. Same title/overlap terminology does not settle implication.",
+      "searches": [
+        "Erdos Renyi G(n,p) induced clique versus induced near clique missing one edge covariance unique phase transition",
+        "induced triangle induced wedge count covariance sign reversal 2(n-3)/(3n-8)",
+        "web: induced clique near clique covariance sign switch 2010 2012"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1089/cmb.2007.0137",
+        "https://arxiv.org/abs/1602.01130",
+        "https://doi.org/10.1103/PhysRevE.85.056119"
+      ],
+      "reasoning": "The accessible primary literature and relevant exact graphlet-count discussions do not present a table or theorem providing the all-size unique density threshold. Search non-detection does not establish novelty, and unavailable full primary texts are acknowledged.",
+      "searches": [
+        "Erdos Renyi G(n,p) induced clique versus induced near clique missing one edge covariance unique phase transition",
+        "induced triangle induced wedge count covariance sign reversal",
+        "K_r count and K_r minus edge induced graphlet count covariance density single zero G(n,p)"
+      ]
+    },
+    "rationale": "Primary accessible work explicitly develops motif overlap moments and subgraph-count approximations, but does not present or derive the universal unique sign crossing and sharp finite-size location for the exact pair of induced clique/one-edge-defect clique statistics. Independent novelty assessment is absent; inaccessible plausible coverage is a substantial risk.",
+    "residual_risks": [
+      "A general prior covariance or orthogonal-decomposition theorem could imply this family of formulas and perhaps the sign transition; the Janson 1990 full text was unavailable.",
+      "The full original Picard 2008 paper and Fretter 2012 paper were not obtained; the accessed presentation/abstract cannot justify whole-document noncoverage.",
+      "Literature search is not exhaustive; no independent novelty review was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal variance of one motif, not mixed clique/near-clique density-crossing result",
+        "evidence": "Slides pp.7–10 formulate N(m)^2 and overlap super-motifs; p.10 states ER motif probability.",
+        "identifier_or_url": "https://franckpicard.github.io/assets/pdf/presentations/netmotifs.pdf",
+        "material_read": "23-page presentation, especially pp.4–11 and concluding slides",
+        "method": "Opened full PDF and inspected overlap-sum equations and conclusions",
+        "title": "Assessing the exceptionality of network motifs — author presentation",
+        "trigger": "Close general overlap computation for motif second moments"
+      },
+      {
+        "assessment": "Uses graphlet counts for anomaly detection; no exact ER mixed-covariance density theorem",
+        "evidence": "§2.2 describes induced graphlets; §3 describes experimental detection.",
+        "identifier_or_url": "https://arxiv.org/pdf/1602.01130",
+        "material_read": "4-page PDF, discussion of graphlet vectors and experiments",
+        "method": "Opened and read all sections at paper level",
+        "title": "GraphPrints: Towards a Graph Analytic Method for Network Anomaly Detection",
+        "trigger": "Induced graphlet count vectors are same kind of statistics"
+      },
+      {
+        "assessment": "Counts non-induced fixed graph copies for Poisson approximation; the exact induced cross-covariance threshold is outside analyzed claim",
+        "evidence": "§1 explicitly distinguishes copies from induced copies; §2 bounds overlaps.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.07754",
+        "material_read": "Abstract, §1 and §2 occurrence definitions, overlapping-pair bounds near Eq.2.10",
+        "method": "Full accessible PDF with targeted sections inspected",
+        "title": "Poisson approximation of subgraph counts in stochastic block models and a graphon model",
+        "trigger": "Potentially stronger probability framework for subgraph count dependence"
+      },
+      {
+        "assessment": "Decisive implicit coverage not demonstrable; retained as major unresolved risk",
+        "evidence": "Abstract explicitly says induced subgraph counts and asymptotic distributions.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+        "material_read": "Publisher abstract only; full primary text inaccessible",
+        "method": "Searched arXiv/OA and opened publisher abstract",
+        "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+        "trigger": "Earlier broad induced-motif distribution results may dominate finite covariance"
+      },
+      {
+        "assessment": "An analytic variance formula is established; possible unshown cross-moment implication remains a risk",
+        "evidence": "Publisher abstract says mean/variance under exchangeable random graph models; slides derive same-pattern overlap moments.",
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2007.0137",
+        "material_read": "Publisher abstract and full author presentation; original article full text unavailable",
+        "method": "Searched OA and publisher, read accessible derivative source",
+        "title": "Assessing the Exceptionality of Network Motifs",
+        "trigger": "Same motifs and moment overlap machinery"
+      },
+      {
+        "assessment": "Describes density mismatch-induced fluctuations, not an accessible exact all-r pair covariance theorem",
+        "evidence": "Abstract focuses on graph density perturbation and three-node subgraph over/under representation.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.85.056119",
+        "material_read": "Publisher abstract only; full text unavailable",
+        "method": "Searched open versions and read abstract",
+        "title": "Subgraph fluctuations in random graphs",
+        "trigger": "Three-node subgraph fluctuation framework plausibly includes the r=3 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a2cf4ba-5017-4164-9674-8120ce8012c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The count covariance of dense graphlets in the simplest random-graph null law is a natural mathematical dependence invariant, unlike an arbitrary finite table. A universal sign reversal and sharp location for all motif orders explain when a nearly complete induced subgraph count agrees/disagrees with actual clique abundance; this is relevant to joint motif feature normalization. The contribution is the structural root theorem and asymptotic rather than basic moment enumeration.",
+    "status": "PASS"
+  }
+}
