@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Both source files reconstruct the 40-vertex cubic graph and shortest-path distances independently. One enumerates all 91,390 four-sets and 658,008 five-sets by uniqueness of distance tuples, retaining exactly 41,040 bases; the other uses independently computed 780-pair separation bitmasks to reproduce all counts. All 175 potential single swaps from every basis are checked, producing 670,930 undirected edges with reciprocal adjacency. The natural 40-element dihedral group is proved to preserve G, so eccentricity is constant on each of its 1,032 orbits. Full BFS from every orbit representative visits all 41,040 bases and yields radius 6, diameter 7 and exact eccentricity classes. The second program independently verifies connectivity and explicit witnesses; no unsupported inference from samples is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Imran et al. 2014, Ars Combinatoria 117, publisher abstract and PDF introduction/conclusion: dimension bounds and an open exact-dimension problem, without an exchange-graph classification in the inspected sections.",
+        "Shao et al. 2018, Theorem 8(ii), sets the metric dimension at five but supplies a single resolving quintuple and a lower-bound argument, not a census.",
+        "Gao, Xiao, Zhang 2025 (arXiv:2508.12224), introduction assumes sufficiently large n, for example n>=36, and studies dimension four in large congruence classes."
+      ],
+      "reasoning": "These are the closest same-family results. Neither an upper bound nor the exact dimension five yields counts of optimal sets, a connectedness statement, an exchange radius, or an exchange diameter. The n>=36 theorem explicitly does not address the fixed n=20 graph.",
+      "searches": [
+        "metric dimension generalized Petersen P(n,3) n=2 mod 6 exact 2024 2025",
+        "One vertex swap basis exchange graph for metric bases of generalized Petersen graphs radius diameter",
+        "P(20,3) resolving sets bases 2018 2025 41,040"
+      ]
+    },
+    "checked_sources": [
+      "Imran, Baig, Shafiq and Tomescu 2014; Ars Combinatoria 117, pp. 113-130; publisher abstract and selected PDF pages.",
+      "Shao, Sheikholeslami, Wu and Liu 2018; Discrete Dynamics in Nature and Society, DOI:10.1155/2018/4531958; substantive accessible full text.",
+      "Gao, Xiao and Zhang 2025; arXiv:2508.12224; full arXiv HTML.",
+      "Publicly indexed mathematical-result records on resolving-set and metric-basis exchange in chain, rook, Shrikhande and Tutte–Coxeter graphs; different objects and scopes."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 8(ii) of Shao et al. (2018) proves dim(GP(20,3))=5, a property also checked anew by full four- and five-subset enumeration.",
+        "The 2014 and 2025 sources address size bounds and metric dimension for a family; neither gives a metric-basis exchange graph on GP(20,3).",
+        "The checked published finite cases for Tutte–Coxeter, rook and Shrikhande concern other graph-specific distance matrices and have no general theorem covering this graph."
+      ],
+      "reasoning": "The present assertion strictly concerns how all optimal resolving sets overlap and move, a distinction from minimum cardinality. A theorem about the latter does not imply any edge count or eccentricity distribution. The closest related calculations use other graphs and cannot be substituted through graph isomorphism: GP(20,3) has forty vertices and a different cubic structure.",
+      "searches": [
+        "metric basis reconfiguration Petersen graph",
+        "metric dimension generalized Petersen P(n,3) n=2 mod 6 exact 2024 2025",
+        "Resolving set reconfiguration graphs adjacent metric bases differing in a single vertex connected and diameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For metric bases, one-token-jump or one-landmark-exchange adjacency means two five-sets share exactly four vertices; this is the induced subgraph of the Johnson graph J(40,5).",
+        "Shao et al. 2018 define resolving bases and compute only the minimum cardinality for GP(20,3), Theorem 8(ii).",
+        "Published distinct-graph basis-exchange classifications concern rook/Shrikhande and Tutte–Coxeter graphs, not GP(20,3)."
+      ],
+      "reasoning": "Equivalent language includes metric basis exchange, resolving-set reconfiguration with fixed optimum cardinality, token jumping, and induced-Johnson-graph distance. The existing statements about the scalar dimension of GP(20,3) cannot determine the number of five-sets or their one-token-jump distances; similar graphs do not imply a result for GP(20,3).",
+      "searches": [
+        "metric basis reconfiguration generalized Petersen P(20,3) 40 vertices one vertex swap",
+        "resolving set reconfiguration graphs adjacent metric bases differing in a single vertex connected and diameter",
+        "Resolving set reconfiguration graphs adjacent metric bases differing in a single vertex connected and diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches recovered the published 2018 metric-dimension paper and later dimension/bounds publications, but did not recover a basis-list census or shortest-path table.",
+        "The relevant numeric data were recomputed in the two stand-alone finite programs over all labelled five-sets; no previously tabulated data were used."
+      ],
+      "reasoning": "No exact table was identified. This absence is not proof of novelty; unindexed supplemental or unpublished computation remains possible, and is explicitly listed as residual risk.",
+      "searches": [
+        "P(20,3) 41040 metric dimension bases",
+        "P(20,3) metric bases count 41040 reconfiguration 670930",
+        "Generalized Petersen GP(20,3) exact count of 41040 metric bases resolving quintuple sets token jumping graph diameter seven"
+      ]
+    },
+    "rationale": "The complete finite basis count, adjacency graph, and eccentricities are not implied by the known value of the metric dimension. The closely relevant 2014 and 2018 published treatments of GP(n,3), and a 2025 treatment for sufficiently large n, were inspected in their accessible substantive sections/full HTML; those sources study dimension bounds and exact dimension, not this optimal-state exchange graph. Searches of mathematical record summaries and primary publications found no statement covering all or part of these exact exchange metrics. The possibility of unpublished or unindexed exact counts, and uninspected pages of the 2014 PDF, remains a genuine priority risk, not a reason to claim global uniqueness.",
+    "residual_risks": [
+      "The complete 2014 paper was not readable as indexed plain text; only selected material pages were inspected, leaving a finite possibility of an unobserved relevant table.",
+      "Public bibliographic/search indexing is incomplete; exact enumerations in unpublished material or unindexed supplements could overlap.",
+      "An independent external literature audit and independent verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected material concerns dimension bounds/existence and does not supply a basis-exchange metric. Uninspected portions cannot be certified noncovering.",
+        "evidence": [
+          "2014-10-31 is the publisher-record date.",
+          "Page 115 discusses at most five landmarks when n is 2 mod 6.",
+          "Page 129 poses remaining exact dimension questions, not exchange graphs."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-117-ars-articles/on-metric-dimension-of-generalized-petersen-graphs-pn-3/",
+        "material_read": "Publisher abstract, PDF pages 115 (definitions and bounds), 124 (technical lower-bound theorem), and 129 (concluding remarks/open problem). The whole PDF was not read; this is an explicit limitation.",
+        "method": "Publisher HTML reading and visually inspected PDF page images.",
+        "title": "On Metric Dimension of Generalized Petersen Graphs P(n,3)",
+        "trigger": "Earliest dated primary work on the same family and metric-dimension problem."
+      },
+      {
+        "assessment": "Establishes the scalar metric dimension five for GP(20,3); contains no located census, swap graph, graph diameter, or eccentricity distribution.",
+        "evidence": [
+          "Theorem 8(ii): dim(P(20,3))=5.",
+          "The proof exhibits W={u1,u3,u11,v8,v10} and mentions a lower-bound computer search.",
+          "The full accessible HTML has no occurrence of reconfiguration."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2018/4531958",
+        "material_read": "Accessible full HTML: introduction, Theorem 8(ii) and its proof, Table 5, associated main-results discussion, with full HTML text searched for reconfiguration.",
+        "method": "Full-text HTML inspection and exact-word search, including alternative terminology for resolving bases.",
+        "title": "The Metric Dimension of Some Generalized Petersen Graphs",
+        "trigger": "Precisely the same 40-vertex graph GP(20,3) and primary invariant."
+      },
+      {
+        "assessment": "Studies sufficiently large n, explicitly exemplified by n>=36; no located exchange invariant, and the hypotheses do not cover n=20.",
+        "evidence": [
+          "The introduction states that n is sufficiently large, for example n>=36.",
+          "The abstract studies dim(P(n,3))=4 for certain congruence classes at sufficiently large n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.12224",
+        "material_read": "arXiv HTML introduction, assumptions, principal theorem and conclusion; full HTML searched for n=20 and reconfiguration.",
+        "method": "Open full-text arXiv HTML and inspect hypothesis range and conclusions.",
+        "title": "On the Metric Dimension of Generalized Petersen Graphs P(n,3)",
+        "trigger": "More recent same-family primary research potentially dominating older finite cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb19163f-83a0-43f0-8cd6-b21a1317a6b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed graph GP(20,3) is a naturally exceptional case singled out by the published metric-dimension-five theorem. Exact counts and optimal-state reconfiguration quantify whether minimum five-landmark sensor layouts can be moved through other minimum layouts, the sharp maximum number of one-landmark replacements, and the structure/size of the exceptional peripheral configurations. This is a complete, motivated finite classification not implied by the known dimension or a generic textbook inequality. It makes no unsupported claim about the infinite Petersen family.",
+    "status": "PASS"
+  }
+}
