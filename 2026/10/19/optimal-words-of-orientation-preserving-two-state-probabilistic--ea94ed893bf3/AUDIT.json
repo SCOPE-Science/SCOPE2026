@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Every nonnegative-determinant two-state transition is a nondecreasing affine map of the accepted-state probability. Dynamic programming gives the scalar monotone envelope G and its monotone orbit; uniqueness forces a unique active letter at each step. A signed affine difference cannot alternate positive-negative-positive along monotone points, prohibiting any repeated run. The explicit rational construction uses ordered line crossings, uniform perturbation <2r epsilon, and orbit error <4r epsilon, strictly smaller than the minimum crossing clearance. Thus the prescribed run-distinct word is uniquely optimal. Stochasticity and positive slopes follow from the explicit parameter inequalities. Exact rational checker replayed across 374 witness configurations and additional positive-slope necessity sanity checks. Enumeration follows bijectively from ordered distinct letters and positive compositions. The construction also proves that each rational transition entry has denominator dividing r times 2 to the power 2n+5, giving linear-in-length bit size.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.26275v1, Theorem 1.2, Proposition 4.1, Remark 5.3: universal three-state bound, unrestricted two-state nonbinary characterization not obtained.",
+        "arXiv:2402.13376, Theorem 4.1 and Section 4.4: unrestricted binary classification and alphabet extension for binary words."
+      ],
+      "reasoning": "An upper bound of three states cannot imply a two-state exact if-and-only-if criterion. The unrestricted binary theorem does dominate the q=2 special case, which is explicitly not claimed as a separate novelty; it does not imply necessity or sufficiency for words with at least three distinct letters.",
+      "searches": [
+        "classification two-state probabilistic finite automata arbitrary alphabet automatic complexity 2 ternary strings",
+        "probabilistic automatic complexity ternary alphabets two-state PFA characterization strings unique most likely accepted word",
+        "every string has probabilistic automatic complexity at most three arXiv 2607.26275",
+        "probabilistic automatic complexity of finite strings Gill Theorem 4.1 Corollary 4.18"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.26275v1 (2026-07-28), actual article HTML sections 1-5",
+      "Gill, arXiv:2402.13376, author-hosted primary PDF relevant theorem and Section 4 passages",
+      "Targeted public mathematical-record semantic results about probabilistic automatic complexity, affine monotone maps, stochastic matrices and symbol-run words",
+      "Accessible preceding mathematical claims checked for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill 2024 Theorem 4.1 yields the q=2 specialization, and Corollary 4.18 handles words using only two symbols in larger alphabets.",
+        "Gill 2024 Proposition 4.10 concerns binary input PFAs with infinite sets of unique maxima.",
+        "Kjos-Hanssen 2026 Remark 5.3 identifies missing nonbinary two-state characterization."
+      ],
+      "reasoning": "The new q≥3 statement includes sufficiency for words that use three or more distinct symbols, which cannot be reduced to a binary two-letter witness. It also proves that a monotone two-state witness cannot uniquely favor any word that revisits a letter. These are not implications of the cited binary classification, the binary-witness extension, or the universal three-state construction. The scope is explicitly the determinant-nonnegative subclass; it does not claim the unrestricted problem.",
+      "searches": [
+        "probabilistic automatic complexity ternary alphabets two-state PFA characterization strings unique most likely accepted word",
+        "unique maximum probability word orientation-preserving two-state PFA nonnegative determinant transitions distinct consecutive symbol blocks finite alphabet",
+        "PFA stochastic matrices nonnegative determinant optimal word all letters as contiguous runs",
+        "Gill probabilistic automatic complexity Section 4.4 positive slope arbitrary alphabet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-state row-stochastic maps act on acceptance probability by affine maps whose slopes equal transition determinants.",
+        "Gill 2024 Section 4.4 handles extension of a binary witness, not all alphabets or monotone envelope classification."
+      ],
+      "reasoning": "The equivalent formulation in terms of a nondecreasing affine iterated-function system is handled explicitly by the proof, not assumed novel from search silence. Published binary classification includes a related two-run subcase but does not cover three or more distinct runs.",
+      "searches": [
+        "unique maximum probability word orientation-preserving two-state PFA nonnegative determinant transitions distinct consecutive symbol blocks finite alphabet",
+        "two-state probabilistic finite automata orientation-preserving affine iterated functions envelope language regular",
+        "convex upper envelope affine stochastic maps optimal words monotone symbol run classification PFA",
+        "two-state probabilistic finite automata orientation-preserving affine iterated functions envelope language regular"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The computed finite prefix 2,4,6,8,10 for alphabet size two and 3,9,21,39,63 for alphabet size three is a check of the symbolic all-length formula, not a previously published table.",
+        "The 2026 source explicitly leaves broader nonbinary two-state classification unresolved."
+      ],
+      "reasoning": "No exact indexed sequence or table matching the class and all-length formula was identified. Numerical agreement in small cases is not a novelty argument: the contribution is the constructive all-alphabet characterization and analytic count.",
+      "searches": [
+        "PFA complexity monotone two-state matrices determinant nonnegative all optimal words no repeated letters",
+        "probabilistic automatic complexity arbitrary alphabet words with each symbol in a single contiguous run two-state construction count",
+        "PFA stochastic matrices nonnegative determinant optimal word all letters as contiguous runs",
+        "probabilistic automatic complexity monotone stochastic matrices word count run distinct"
+      ]
+    },
+    "rationale": "Gill (arXiv:2402.13376) classifies unrestricted binary two-state witnesses; its Section 4.4 transfers binary witnesses to larger alphabets but does not classify arbitrary-alphabet positive-determinant witnesses. Kjos-Hanssen (arXiv:2607.26275v1) proves the three-state upper bound and explicitly leaves the general ternary-or-larger two-state classification unresolved (Remark 5.3). The present theorem gives a new if-and-only-if characterization, rational construction, and enumerative formula for the order-preserving subclass on all alphabet sizes; the binary restriction follows from known broader binary work and is not independently claimed new. Several targeted current-literature and semantic-record queries did not reveal equivalent or dominating statements. Priority remains provisional.",
+    "residual_risks": [
+      "An unindexed earlier article on optimizing compositions of affine monotone maps may contain an equivalent multi-letter statement.",
+      "Search-index limits cannot establish historical priority.",
+      "No independent scientific audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING restricted two-state exact classification",
+        "evidence": [
+          "Theorem 1.2 gives an unrestricted three-state upper bound.",
+          "Remark 5.3 says a classification of two-state witnesses for alphabets of size at least three remains to be carried out."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.26275",
+        "material_read": "Complete available article HTML, including Theorem 1.2, Section 4, Remarks 5.3-5.5 and references",
+        "method": "Primary open full text and direct theorem/implication comparison",
+        "title": "Every string has probabilistic automatic complexity at most three",
+        "trigger": "Recent primary source on nonbinary probabilistic automatic complexity and its open two-state subproblem"
+      },
+      {
+        "assessment": "COVERS q=2 restriction and the two-symbol extension, NOT_COVERING the arbitrary-alphabet three-or-more-symbol if-and-only-if theorem",
+        "evidence": [
+          "Theorem 4.1 classifies binary two-state winners.",
+          "Section 4.4 and Corollary 4.18 extend existing binary witnesses to bigger alphabets but do not classify winners using three or more distinct letters."
+        ],
+        "identifier_or_url": "https://nowheredense.github.io/PFAcomplexity.pdf",
+        "material_read": "Abstract and introduction; Theorem 4.1; Proposition 4.10 statement and surrounding proof; Section 4.4 and Corollaries 4.18-4.19, with page image checks",
+        "method": "Author-hosted primary full PDF, inspected relevant passages, including page 42 image",
+        "title": "Probabilistic automatic complexity of finite strings",
+        "trigger": "Foundational binary two-state classification and possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea94ed89-3bf3-47d4-beb4-63e9dcf8cb36",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source explicitly identifies arbitrary-alphabet two-state complexity classification as a remaining gap. The natural order-preserving subclass has a complete if-and-only-if word-language characterization, an explicit rational stochastic witness for any prescribed admissible word, and an exact all-alphabet enumerative formula and generating function. This distinguishes positive-determinant transition dynamics from unrestricted binary alternating phenomena and provides a structural baseline for the open general multi-letter problem; it is not merely a renamed binary case or an unmotivated finite table. Transition probabilities require only O(n+log r) bits per entry, so the classification has an effective, explicit resource bound.",
+    "status": "PASS"
+  }
+}
