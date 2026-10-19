@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The alignment NFA accepts exactly word pairs with a common length-(n−1) subsequence; subset construction gives 27 pair states, triple product 1549 states. Exact matrix iteration verifies 27 and 1549 consecutive zeros of corresponding polynomial-in-M residual sequences. Cayley–Hamilton then forces all later zeros. Closed-form exponential-polynomial candidates satisfy these annihilators and their initial values. Inclusion–exclusion removes repeated vertices and divides by six. Independent direct graph enumeration n=1..4 checks the graph interpretation. The original packaged Python code ran successfully from its actual path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon et al. (arXiv:2209.11882), Section 2 Lemma 7 proves O_{α,k}(α^n n^{3k}(log n)^k) for all alphabet sizes.",
+        "Its multiplicity theorem concerns LCS/SCS of a fixed pair and does not enumerate graph triangles."
+      ],
+      "reasoning": "The bound with q=4,k=1 has an unspecified coefficient and a logarithmic slack; it does not determine the exact all-length triangle count or leading constant. The full text including its appendix was examined to rule out stronger stated enumeration within the paper.",
+      "searches": [
+        "length n q ary deletion graph triangle counts closed form 2022 Alon Bourla 2023",
+        "q ary single deletion graph triangles triangle count q alphabet 2022",
+        "arXiv:2209.11882 Section 2 Lemma 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.11882 (complete accessible 2026-revised HTML)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+      "Published research-record searches: targeted four-letter triangle and q-ary alias searches (four queries)",
+      "Public web query: q-ary deletion graph exact triangles one deletion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim has exact coefficients of 4^n n^3, 4^n n^2, 4^n n, 4^n and polynomial terms for every n≥1.",
+        "Alon et al. provide O_{α,k}(α^n n^{3k}(log n)^k), not an equality.",
+        "The binary exact record establishes an equality only for q=2.",
+        "The nonbinary related record enumerates edges in a two-read graph, not triangles here."
+      ],
+      "reasoning": "An asymptotic upper bound, a binary specialization and a different graph’s edge count do not logically imply an exact q=4 triangle formula. Conversely this new theorem does not reprove general-q bounds or imply the binary formula. A hypothetical stronger all-q exact theorem would subsume the claim, but none was found in the inspected sources.",
+      "searches": [
+        "exact number of triangles in quaternary alphabet four-symbol one-deletion confusability graph, graph of words with common length n−1 subsequence",
+        "single-deletion graph triangles q=4 formula 4^n cubic polynomial (405 n^3 +81 n^2 +482 n -2344) /288",
+        "length n q ary deletion graph triangle counts closed form 2022 Alon Bourla 2023",
+        "arXiv:2209.11882",
+        "2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+        "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alon et al., Section 2, defines Γ_{n,k,α} using common subsequences; at α=4,k=1 this exactly matches the present graph.",
+        "The inspected binary record treats Γ_{n,1,2} only; its result is for alphabet size two."
+      ],
+      "reasoning": "One-deletion confusability is equivalent to pairwise LCS length at least n−1, and also to simultaneous exact-one-deletion output-set intersection. The n≥1 q=4 triangle formula was compared under all these equivalent descriptions. The prior binary statement has the same graph family but not the same q=4 graph or count.",
+      "searches": [
+        "exact number of triangles in quaternary alphabet four-symbol one-deletion confusability graph, graph of words with common length n−1 subsequence",
+        "4-ary deletion graph triangle enumeration all block lengths generalized from binary exact count",
+        "2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A public exact count exists for binary one-deletion graph triangles, but not for four-letter triangles in the examined records.",
+        "The q-ary two-read single-deletion EDGE-count record concerns a different graph invariant and cannot determine its triangle count."
+      ],
+      "reasoning": "Direct formula and parameter queries identified a binary triangle formula and a related nonbinary edge formula; neither provides the present q=4 triangle count or a table implying it.",
+      "searches": [
+        "single-deletion graph triangles q=4 formula 4^n cubic polynomial (405 n^3 +81 n^2 +482 n -2344) /288",
+        "4-ary deletion graph triangle enumeration all block lengths generalized from binary exact count",
+        "2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+        "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+      ]
+    },
+    "rationale": "The inspected Alon et al. general-alphabet deletion-code paper bounds triangle counts without this exact q=4 formula. An inspected exact binary theorem fixes q=2 and its statement does not imply the q=4 coefficients. Targeted record and literature queries found no exact q=4 theorem. Some unindexed or uninspected result could still cover the formula.",
+    "residual_risks": [
+      "Literature and record searches do not exclude an unindexed equivalent q=4 formula or a broader all-q exact theorem.",
+      "The full initial 2022 PDF was not accessible in this run; comparison used the complete accessible 2026 HTML revision and confirmed initial posting date from arXiv history."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact q=4 triangle count: proves a big-O general-alphabet bound and pairwise LCS/SCS multiplicity properties.",
+        "evidence": [
+          "Section 2 Lemma 7 and proof of Theorem 1: O_{α,k}(α^n n^{3k}(log n)^k).",
+          "Appendix addresses extremal LCS multiplicity rather than total triangle enumeration."
+        ],
+        "identifier_or_url": "arXiv:2209.11882; https://arxiv.org/html/2209.11882v3",
+        "material_read": "Full accessible 2026-revised HTML: introduction and Theorem 1, Section 2 through Lemma 7 and triangle proof, Section 3, reference list and appendix; submission history confirms original 2022-09-23 date.",
+        "method": "Read actual full text with attention to exact formulas, 4-letter specialization, and statements of triangle estimates.",
+        "title": "Logarithmically larger deletion codes of all distances",
+        "trigger": "Defines the identical q-ary deletion graph and bounds its triangles for code constructions."
+      },
+      {
+        "assessment": "NOT_COVERING q=4: theorem fixes binary q=2 and explicitly disclaims nonbinary alphabets.",
+        "evidence": [
+          "The binary formula is [2^n(n^3+n^2−6n−28)+16(n²+n+2)]/8.",
+          "Its limitations section makes no nonbinary claim."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908; https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+        "material_read": "Entire public RESULT.md, including its finding, assumptions, finite-state proof, prior relationship and stated limitations.",
+        "method": "Retrieved public file content and compared domain, graph, transfer certificate and coefficients.",
+        "title": "Exact triangle count in the binary single-deletion graph",
+        "trigger": "Most structurally relevant public exact theorem, possibly dominating via alphabet generalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a57ae782-7d67-4813-800a-99d9015312c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The four-symbol alphabet is natural for quaternary sequence coding, including DNA alphabets. The exact all-n triangle count and 45/32 leading coefficient sharpen the previously available O_4(4^n n^3 log n) graph-triangle estimate. The already known binary specialization cannot supply the four-symbol coefficients; a new exact 1549-state recurrence certificate is required. This is a motivated graph invariant used in local-sparsity bounds, though no stronger code-size theorem is claimed.",
+    "status": "PASS"
+  }
+}
