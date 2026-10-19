@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exact rank-one perturbation gives stability margin inverse worst nominal edge resistance. Block-cut locality reduces the graph to independent bridge or triangle edge-terminal electrical circuits. Three closed-form triangle resistances and the arithmetic-geometric-mean inequality strictly force equal priced spokes at any global minimizer. Differentiating the exact two-piece scalar objective produces all three k(t) branches, transition prices 2/5 and 4, and the complete equality set at t=4. Summing required block budgets gives the global lower bound K/B with equality by constructive allocation. A 562-assertion rational verifier including full grounded Laplacian independently checks representative cases; finite checks are not cited as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zelazo–Bürger 2014 Theorem III.4 treats signed cactus Laplacian definiteness but does not prescribe or optimize priced positive weights.",
+        "Suliman–Weinstein 2023 presents a general Lewis-weight characterization of the unpriced max-edge-resistance design; without arbitrary edge-price bounds and explicit graph block formulas, it does not directly state the present price-regime classification.",
+        "The published general max-pair resistance convex optimization of Ghosh–Boyd–Saberi concerns all unordered vertex pairs, not just edge endpoints."
+      ],
+      "reasoning": "A general convex optimization formulation is not treated as novel. Potentially dominating prior results were compared at the level of domain and outcome: one-edge signed definiteness lacks optimal pricing, and unpriced edge effective-resistance design lacks arbitrary t and all-optima formulas. A stronger unknown weighted theorem could still subsume the result, which is the principal remaining originality risk.",
+      "searches": [
+        "published-finding corpus: Exact optimal conductance allocation to minimize maximum effective resistance of graph edges on triangle cactus with unequal linear edge costs, Lewis weights, phase transition at 2/5 and 4.",
+        "published-finding corpus: Single negative-edge consensus stability margin optimized on cactus by budget, thresholds for triangle prices.",
+        "web: cactus graph optimal conductances minimizing maximum edge effective resistance heterogeneous cost Lewis weights"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1408.2187v1",
+      "arxiv:1408.4471v1",
+      "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, 2006 conference and 2008 SIAM Review",
+      "arxiv:2302.05966",
+      "arxiv:2610.03627v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 signed consensus criterion implies only that the robust margin equals inverse worst-edge resistance for any fixed conductances; it does not give optimized weights.",
+        "2006/2008 all-pairs total effective resistance and 2026 mean-pair resistance results optimize an additive over all unordered vertex pairs; their triangle deletion result t=3 is not the current threshold t=4.",
+        "2023 infinite Lewis weights permits interpreting the objective as a known unpriced design criterion, but its inspected statements do not give the arbitrary-price cactus closed forms or price-four nonuniqueness."
+      ],
+      "reasoning": "The final claim has a specific proper refinement over generic objective convexity: cost k(t) has three branches and forces spoke equality, with reinforced backup, nontrivial equal-conductance plateau, optional boundary edge, and deletion. Generic minimax algorithms and rank-one definiteness results do not imply those explicit thresholds without new optimization. Extant total-resistance results optimize a genuinely different scalar and do not subsume this claim.",
+      "searches": [
+        "published-finding corpus: Optimize effective resistance robustness margin against an adversarial negative edge, choosing weighted graph conductances under linear budget, exact ring cycle / spoke network price threshold.",
+        "published-finding corpus: Exact minimax inverse effective resistance between endpoints of potential destabilizing negative edge under cost constraints, signed Laplacian consensus robustness.",
+        "arxiv:1408.2187; arxiv:1408.4471; arxiv:2302.05966; Ghosh–Boyd–Saberi 2006/2008; arxiv:2610.03627"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zelazo–Bürger arxiv:1408.2187v1, Theorem III.3, relates negative-link margin to inverse effective resistance, exactly matching the variable transformed in this result.",
+        "Suliman–Weinstein arxiv:2302.05966v1 establishes the unit-budget worst-edge effective-resistance design as infinite Lewis weights, a general equivalent objective but without this heterogeneous-price triangular-cactus optimizer classification."
+      ],
+      "reasoning": "Single-edge signed-Laplacian robustness and maximum edge-endpoint effective resistance are equivalent via the rank-one update, so a search only for signed stability would miss weighted Lewis design. Both forms were compared. Generic formulation of the convex optimization objective is known; the claimed new theorem consists of its priced cactus optimizer equations, sharp thresholds 2/5 and 4, and all-optima characterization.",
+      "searches": [
+        "published-finding corpus: Optimize effective resistance robustness margin against an adversarial negative edge, choosing weighted graph conductances under linear budget, exact ring cycle / spoke network price threshold.",
+        "published-finding corpus: Exact minimax inverse effective resistance between endpoints of potential destabilizing negative edge under cost constraints, signed Laplacian consensus robustness.",
+        "web: signed Laplacian robust stability optimization triangle antagonistic edge effective resistance pricing 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Five targeted published-finding corpus semantic searches produced no retrieved published finding with the triangle thresholds or an edge-endpoint minimax cost table.",
+        "The closest retrieved published-finding corpus entries address effective-resistance inradius for acyclic flow polytopes (2026/10/11/...--9a80040abd60) and cactus transportation basis constants (2026/10/11/...--b98930fbc1cd), neither specifying any network conductance allocation.",
+        "A separate previously published triangular-bouquet allocation result minimizes all-pairs total resistance and has a different objective and cost-dependent threshold."
+      ],
+      "reasoning": "No directly matching database or table identified. This negative search is weaker than a novelty proof, and explicit all-optimizer formulas were checked against the substantive papers listed below rather than inferred from search failure.",
+      "searches": [
+        "published-finding corpus: Priced triangle electrical network worst-edge resistance minimax: equal conductances for t from 0.4 to 4, expensive third edge deleted, effective resistance, D-optimal experimental design.",
+        "web: weighted edge cost minimizing maximum effective resistance graph triangle optimal allocation pricing consensus 4 2/5",
+        "published-finding corpus: For a weighted triangular cactus graph with two spokes edge prices 1,1 and backup price t, minimize worst-edge effective resistance under a linear conductance budget. Exact optimal cost k(t)=1+sqrt(t(4-t))/2 below 2/5, 2(2+t)/3 until 4, otherwise 4; edge suppression at 4.",
+        "published-finding corpus: Heterogeneous-priced infinite Lewis weights cactus triangle optimum flat equal weights despite unequal cost; rank one antagonistic Laplacian consensus max edge resistance."
+      ]
+    },
+    "rationale": "The robust-single-negative-edge criterion is established in Zelazo–Bürger 2014; the general edge effective-resistance minimax optimization is also related to infinite Lewis weights in Suliman–Weinstein 2023. The asserted novelty is the exact priced triangular-cactus optimizer classification, sharp local k(t), price plateaus, and all-optima theorem. The five targeted published-finding corpus queries, existing own claims, published literature, and full-text comparisons found no dominating equivalent; nonindexed weighted Lewis or optimal-design literature remains an explicit risk.",
+    "residual_risks": [
+      "An uncatalogued weighted Lewis-optimal-design theorem might already classify priced triangle or cactus minimax resistances in equivalent notation.",
+      "Published published-finding corpus semantic search coverage and public-web indexing are not exhaustive.",
+      "No independent validation or external literature certification has taken place."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS fixed-weight inverse effective-resistance criterion but NOT the triangle price optimization or its all-optima classification.",
+        "evidence": [
+          "Theorem III.3 links the single antagonistic edge to effective resistance; Theorem III.4 discusses separated negative-edge cycle/cactus circumstances."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.2187",
+        "material_read": "Full accessible paper including definitions, Theorems III.3–III.4, the cactus discussion, and its applications.",
+        "method": "Read arXiv full-text material, checking proof claims and theorem domain rather than relying on abstract.",
+        "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+        "trigger": "Identical one-edge antagonism stability mechanism and cactus graphs."
+      },
+      {
+        "assessment": "Provides the robustness criterion and bounded uncertainty analysis, but not solved heterogeneous-cost triangle cactus design.",
+        "evidence": [
+          "Exact one-edge small-gain relation appears in uncertainty formulation; no three-regime priced-cactus optimizer classified there."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.4471",
+        "material_read": "Full accessible arXiv paper sections IV–V on uncertain links and robustness.",
+        "method": "Read source text for edge-gain uncertainty thresholds and adjustable conductance pricing.",
+        "title": "On the Robustness of Uncertain Consensus Networks",
+        "trigger": "Could contain a sharper minimax uncertainty robust-consensus design result."
+      },
+      {
+        "assessment": "Focuses primarily on total resistance across all vertex pairs and discusses maximum-pair convex design; neither yields priced maximum of candidate-edge resistances in a cactus.",
+        "evidence": [
+          "Paper objective explicitly sums resistance between every pair, unlike edge-only worst-case objective."
+        ],
+        "identifier_or_url": "https://www.web.stanford.edu/~boyd/papers/eff_res.html",
+        "material_read": "Accessible conference-paper full text and related Stanford description, including objectives and analytic examples.",
+        "method": "Examined optimization objective, graph families, and maximum-pair versus total-pair distinctions.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "General convex optimization over edge conductances, possibly stronger coverage."
+      },
+      {
+        "assessment": "Covers the unpriced general problem formulation but not the priced cactus analytical optimizer classification in this claim.",
+        "evidence": [
+          "The max-edge resistance design is identified with Lewis weights; no explicit heterogeneous triangular-block price thresholds found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.05966",
+        "material_read": "Accessible full-text mathematical sections introducing infinite Lewis weights, worst-edge resistance minimization, and related graph statements.",
+        "method": "Compared objective and weighting/cost assumptions, scanning for cactus and explicit triangle price thresholds.",
+        "title": "Infinite Lewis Weights in Spectral Graph Theory",
+        "trigger": "Potential general characterization of minimax edge effective resistance and graph conductance allocation."
+      },
+      {
+        "assessment": "Mean pairwise resistance uses a different scalar; its t=3 deletion differs from the proven edge-endpoint minimax t=4 and adds no universal cactus all-optima result.",
+        "evidence": [
+          "The paper treats reciprocal of mean resistance and a priced triangle with a t=3 threshold; our objective takes the maximum over three edge endpoint resistances."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+        "material_read": "Full accessible paper, especially priced-triangle example and linear-cost regime.",
+        "method": "Compared local triangle objective functions directly and threshold equations.",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Very relevant priced triangle with reported edge deletion transition; strongest potential overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdd51d29-cb22-442d-8e0b-2a9fac3ee0dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a closed-form budget law and every globally optimal edge conductance for a natural infinite family of fault-tolerant consensus networks, not just one finite graph. The two nontrivial exact thresholds expose a counterintuitive equal-conductance plateau despite unequal edge prices and a sharp backup-edge deletion transition. General cactus assembly composes local k(t) coefficients regardless of block arrangement, and price-four provides an exact continuum of otherwise isolated unique optimizers. The mathematical design target is a legitimate adversarial stability margin; it is not merely a normalization or negative-edge sign check.",
+    "status": "PASS"
+  }
+}
