@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The third-coordinate two-step closure forces opposite y-values, and b>0, k<1 force x0<0<x1. Both first-coordinate updates then give x0=-t and x1=1. The second-coordinate equations reduce every two-cycle to sin z=(b-1)/k and t(1+k sin(z+t))=b. Inside the sine wedge b<=1+k, a global a priori bound t<=b/(1-k) and (1-k)g'(t)>=1-3k>0 show exactly one positive amplitude per phase. The sine equation gives the exhaustive orbit counts modulo 2π and no fixed points exist. At b=1 the exact product of the displayed two Jacobians yields simple roots 1,(1±i√3)/2 at k=0; their first perturbation coefficients give a sink for phase π and repeller for phase 0 when k>0 is small. The standalone finite checker returned 640 consistency checks; infinite claims follow from these algebraic/inequality arguments, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al., Mathematics 10 (2022), 3426, DOI 10.3390/math10193426, equations (4) and (6), sections 2.3–4: the shown parameter scans have couplings around 1.4–1.9 and do not classify every period-two orbit for 0<k<1/3.",
+        "Survey of Recent Applications of the Chaotic Lozi Map, Algorithms 16 (2023), 491, DOI 10.3390/a16100491, equation (19) and associated commentary: reports bisecting and border-collision structures for the classical two-dimensional Lozi family; it does not provide the third-coordinate sine constraint for the memristive model."
+      ],
+      "reasoning": "A general exact all-periodic-point classification for the three-dimensional memristive map would dominate the present theorem, but none was identified in the examined sources. Classical two-dimensional Lozi results do not imply the three-dimensional phase restrictions or return spectrum because the memristive state changes the orbit equations. This leaves residual risk from unindexed broader theorems.",
+      "searches": [
+        "\"memristor-based Lozi map period 2 b=1 2022\"",
+        "\"memristive Lozi map periodic points classification\"",
+        "\"Memristor-Based Lozi Map with Hidden Hyperchaos\" period-two bifurcation",
+        "DOI 10.3390/a16100491, Lozi bisecting bifurcations"
+      ]
+    },
+    "checked_sources": [
+      "Wang et al., Mathematics 10 (2022), 3426, DOI 10.3390/math10193426, equations (4) and (6), sections 2.3–4",
+      "Survey of Recent Applications of the Chaotic Lozi Map, Algorithms 16 (2023), 491, DOI 10.3390/a16100491, equation (19) and associated commentary",
+      "Publicly accessible title and abstract: doi:10.1080/10236198.2022.2144268"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang et al., Mathematics 10 (2022), 3426, DOI 10.3390/math10193426, equations (4) and (6), sections 2.3–4: section 2.3 establishes absence of equilibria, which does not constrain period-two orbit numbers or return eigenvalues. Its numerical period-two regions at larger k do not prove the low-gain census.",
+        "Survey of Recent Applications of the Chaotic Lozi Map, Algorithms 16 (2023), 491, DOI 10.3390/a16100491, equation (19) and associated commentary: reprints the family and lists numerical multistability; neither the exact wedge nor its sink/repeller spectral splitting follows from those quoted statements."
+      ],
+      "reasoning": "The same model is prior work, but the claim consists of a complete period-two classification and a small-k hyperbolicity dichotomy; neither is a logical consequence of a model definition, no-fixed-point proof, or sampled bifurcation plots. The two-dimensional Lozi problem omits the z-recurrence that enforces the sine phase equation.",
+      "searches": [
+        "DOI 10.3390/math10193426 §2.3 and §§3–4",
+        "DOI 10.3390/a16100491 equation (19) and memristor-based Lozi survey",
+        "\"Memristor-Based Lozi Map with Hidden Hyperchaos\" \"period-2\" analytical theorem",
+        "\"Lozi map\" \"memristor\" \"two-cycle\" \"sin\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang et al., Mathematics 10 (2022), 3426, DOI 10.3390/math10193426, equations (4) and (6), sections 2.3–4: the identical nonlinear map is printed, and numerical high-gain bifurcations are shown; no phase/amplitude reduction or low-gain all-orbit census is supplied in those sections.",
+        "Survey of Recent Applications of the Chaotic Lozi Map, Algorithms 16 (2023), 491, DOI 10.3390/a16100491, equation (19) and associated commentary: its restatement of the map and its comparison to planar Lozi dynamics give no equivalent two-cycle wedge theorem."
+      ],
+      "reasoning": "The result can also be expressed as the sine equation sin(z)=(b-1)/k with a unique forced amplitude for each phase, or as an exact phase-root count modulo 2π. This is stronger than demonstrating one period-two trajectory. The original article and surveyed material do not give that root reduction or the complementary sink/repeller pairing. Priority is assessed from the material actually read, not from failed search alone.",
+      "searches": [
+        "\"memristor-based Lozi\" \"period-two\" \"b=1\" \"sin\"",
+        "\"Memristor-Based Lozi Map with Hidden Hyperchaos\" \"period-2\" analytical theorem",
+        "\"Lozi map\" \"memristor\" \"two-cycle\" \"sin\"",
+        "DOI 10.3390/math10193426, equations (4) and (6), and sections 3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The originating article reports numerical bifurcation maps, representative attractor plots and tabulated numerical indicators rather than an exact low-coupling orbit-count table.",
+        "The phase count 0,1,2 follows from the globally unique positive amplitude and two/one/zero solutions of the explicit sine equation, not from a known finite periodic-orbit database."
+      ],
+      "reasoning": "No exact tabulation with b=1±k or an equivalent phase quotient census was identified in the inspected material. A search miss cannot establish mathematical novelty against every database.",
+      "searches": [
+        "\"memristive Lozi map periodic points classification\"",
+        "\"Memristor-Based Lozi Map with Hidden Hyperchaos\" \"period-2\" analytical theorem",
+        "DOI 10.3390/math10193426 Figures 2–6 tables 1–2"
+      ]
+    },
+    "rationale": "The original primary source defines the identical map and numerically explores hidden dynamics but does not derive the complete weak-coupling phase/amplitude classification or opposite hyperbolicity on the central parameter line. The later Lozi survey restates the map without such a result; ordinary two-dimensional Lozi bisecting results omit the memristor phase evolution. Available published-result and claim-level similarity searches found no statement implying this exact theorem. A broad result in unindexed literature might still subsume it; the claimed originality is conditional on the inspected evidence.",
+    "residual_risks": [
+      "Search and source coverage is not exhaustive; an alternative presentation of the same exact orbit census could exist in unindexed literature.",
+      "Only portions of the later Lozi survey pertinent to the model were materially read; not a full-text negative assertion.",
+      "The other related memristive Gauss study was read at the abstract level only; it is about another dynamical map."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces exact model and analyzes fixed-point absence, bifurcation diagrams and multistability numerically; no matching low-coupling all-cycle count or weak-coupling sink/repeller perturbation established in read material.",
+        "evidence": "Equation (4) is exactly the three-coordinate map; section 2.3 addresses equilibria only. Figures 2–6 explore numerical dynamics mostly for k approximately 1.4–1.9, outside 0<k<1/3.",
+        "identifier_or_url": "https://doi.org/10.3390/math10193426",
+        "material_read": "Full open article mathematical text including defining equations (1)–(6), section 2.3 no-fixed-point argument, sections 3–4 and conclusions; inspected primary PDF visual pages 3, 6, 8 for equations and plots.",
+        "method": "Publisher article text, lawful accessible full PDF, and page images; compared equations, parameter ranges, proof goals and plotted orbits.",
+        "title": "Memristor-Based Lozi Map with Hidden Hyperchaos",
+        "trigger": "Identical source map and strongest plausible coverage"
+      },
+      {
+        "assessment": "Restates map and numerical multistability and discusses other Lozi phenomena; no low-gain three-dimensional period-two root count in material inspected.",
+        "evidence": "Equation (19) reproduces the three recurrence equations; neighboring text characterizes hidden multistability qualitatively rather than the sine phase wedge.",
+        "identifier_or_url": "https://doi.org/10.3390/a16100491",
+        "material_read": "Accessible relevant passages on the classical Lozi map and on the memristive extension, including equation (19) and surrounding commentary; not treated as a complete full-paper audit.",
+        "method": "Open publisher article snippets and relevant section text with equation comparison.",
+        "title": "Survey of Recent Applications of the Chaotic Lozi Map",
+        "trigger": "Potential broader Lozi bisecting bifurcation or later restatement of 3D map"
+      },
+      {
+        "assessment": "Describes two-dimensional memristive Gauss maps and a dimension-reduction method, not the same three-dimensional Lozi recurrence; not relied upon for a whole-document absence claim.",
+        "evidence": "Abstract names four two-dimensional Gauss-map variants and hidden period-doubling, but no identical Lozi model.",
+        "identifier_or_url": "https://doi.org/10.1080/10236198.2022.2144268",
+        "material_read": "Available title and abstract only; full text not inspected.",
+        "method": "Public abstract compared at the level of model objects.",
+        "title": "Memristor-based Gauss chaotic maps with hidden/self-excited dynamics",
+        "trigger": "Overlapping discrete-memristor construction and period-doubling terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb398f49-ed35-4fb7-a303-83a14dfa687e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating no-equilibria map was motivated by numerically observed hidden periodic attractors, making exact existence and stability of the simplest nontrivial periods a natural structural question. The theorem gives an exhaustive three-way b–k phase boundary, a unique amplitude for every permitted phase, and an analytically proved sink–repeller coexistence on an open parameter set. These facts cannot be read off numerical bifurcation plots, establish nonlinear-system dynamics in the previously unclassified weak-coupling regime, and distinguish two discrete phase branches by their full three-dimensional return multipliers. The k<1/3 monotonicity domain is openly stated as sufficient rather than falsely sharp.",
+    "status": "PASS"
+  }
+}
