@@ -1,0 +1,15 @@
+# Review of sharp regularity rarity and the Gaussian diagonal-image law
+
+## Correctness — PASS
+The exact count and regularity criterion are independently derived through swap-equivariant maps on ordered pairs. The diagonal-image deficiency reduces regularity to uniform omission among \(n^2\) independent pair values. A uniform logarithmic expansion of \((1-j/n^2)^{n(n-1)/2}\) handles all \(0\le j\le n\), including boundaries. The auxiliary occupancy distribution has mean-one summands with variance \(x>0\), and a two-dimensional aperiodic support. Its conditional central limit theorem yields variance \(\theta(1-\theta)-\theta^2/x>0\). The uniformly bounded correction gives the prefactor; exact enumeration and moment checks independently agree. The proof relies on standard one- and two-dimensional lattice local central limit theorems, not finite enumeration.
+
+## Originality — PASS, subject to literature risk
+The closest primary article (Baiduk–Kozerenko, arXiv:2607.13746v1, Proposition 24 and Theorem 25) explicitly gives the regularity criterion and exact count, so these are not new. Its inspected full HTML contains no asymptotic exponential rate, explicit prefactor, or conditional Gaussian diagonal-image law. López-Permouth's 2026 full open-access paper studies idempotents rather than regular-element asymptotics. The 2022 monoid origin article was accessible only in abstract and metadata; it primarily introduces the monoid. Searches for published claims using the exact asymptotic, Gaussian law, magma-monoid regularity, and equivariant-map aliases returned no covering theorem. Results concerning idempotent conjugacy and centralizers do not imply the conditional Gaussian law. Exact finite counts allow the present theorem in principle but do not themselves state or trivially evaluate the nonconstant saddle point and conditional fluctuation variance. Residual risk: equivalent asymptotics under occupancy or equivariant semigroup terminology may have been published without indexing; full text of the 2022 article was unavailable.
+
+## Mathematical value — PASS
+The pre-existing exact Stirling-number formula does not immediately quantify how rare regular operations are as arity-set size grows. The sharp rate \(\rho\), prefactor \(C\), and nondegenerate Gaussian law reveal a measurable structural selection bias on the image of the diagonal: the regularity-conditioned omission fraction is asymptotically \(0.319984\ldots\), compared with \(e^{-1}\) without conditioning. This is a natural limit invariant of the whole finite magma monoid family and a substantive asymptotic refinement, not a parameter renaming or recomputed small finite table.
+
+## Scope and limits
+The conditional limit concerns the regular elements under uniform labeled sampling. It does not classify isomorphism classes or settle higher-arity analogues. Finite verification is corroborative; external mathematical auditing remains outstanding. The novelty evidence is not proof of uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
