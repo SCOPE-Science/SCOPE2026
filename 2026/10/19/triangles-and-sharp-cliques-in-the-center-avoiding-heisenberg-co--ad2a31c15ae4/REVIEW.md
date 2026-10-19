@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Every center-avoiding Lie subalgebra projects bijectively to an isotropic subspace with a linear-functional lift. Lie bracket closure shows that two such subalgebras generate the entire Heisenberg algebra exactly when their projections are complementary Lagrangians. Standard finite symplectic counts (with derivations given in the proof), symmetric-block recurrence and explicit symplectic spread establish all displayed invariants for every finite field. The companion verifier confirms the numbers for five small cases, with direct Lie-bracket closure comparisons in four cases, but cannot substitute for the general proof.
+
+**Originality — PASS (same-model, with residual risk).** The 2026 articles introducing Lie comaximal graphs and studying triangles restrict their enumerations to smaller Lie algebras; their relevant full-text statements do not cover the present higher-rank induced subgraph. Prior examination of the five-dimensional Heisenberg comaximal graph was explicitly accounted for, not rebranded as novel. Dedicated result-index searches found related Heisenberg subalgebra-commutativity and commuting-conjugacy graphs, which use different adjacency relations. The base polar oppositeness graph and symmetric-matrix counts are classical. The new claim is their precise center-avoiding Lie-comaximal lifting with sharp triangle and clique enumerations for every \(n\ge3\). A different-language existing dual-polar graph enumeration could imply some of the formulas; this remains a concrete risk, not a claim of global uniqueness.
+
+**Value — PASS.** In a line of 2026 papers seeking triangle and structural invariants of Lie comaximal graphs, the result supplies a whole infinite higher-Heisenberg family: exact triangles, vertices, valency, isolates, and a sharp geometrically realized clique number. The distinction between center-avoiding fibers and the full subalgebra graph is essential rather than a relabeling of existing low-dimensional tables.
+
+The result does not classify the full comaximal graph and does not assert novel counting facts about symmetric matrices in isolation. The verification is finite and same-model only; no external certification or independent audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
