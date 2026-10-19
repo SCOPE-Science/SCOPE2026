@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces subsequence membership in q ordered permutation blocks to exactly one plus the number of weak descents; necessity is strict monotonicity within a block and sufficiency is explicit earliest-block embedding. In a palindrome, each mirrored adjacent unequal-letter pair contributes exactly one weak descent, equal-letter pairs contribute two, and an even center contributes one. Hence minimum blocks equal 1+half-length parameter+adjacent equalities; binomially counting halfwords proves each length coefficient and the rational generating function. Longest length and factor contrast follow; the dominant generating-function pole yields the exponential growth. tools/verify.py independently compares complete distinct-subsequence histograms in 21 cases and 150 relabelings, and bounded candidate-wise greedy tests. Finite tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/2108.02729, Theorem 5.4: maximum among all length-n words with q>=n/2 different letters, not a formula for the one family q fixed and k arbitrary.",
+        "https://arxiv.org/pdf/1901.07502, Theorem 13: longest subsequences in circular constructions, with no enumeration of every palindromic scattered subsequence."
+      ],
+      "reasoning": "A global finite-input algorithm for count evaluation does not subsume a uniform symbolic bivariate generating function. The high-alphabet maximum theorem applies only to q>=qk/2, i.e. k<=2, and even there its extremal conclusion does not fix the count for the repeated-permutation word. The longest-length bound does not imply distinct counts for each length.",
+      "searches": [
+        "published-finding corpus: Distinct palindromic scattered subsequences for repeated permutation words (1 2 ... q)^k, number by length, recurrence or generalized Fibonacci, count independent of ordering",
+        "published-finding corpus: Palindromic subsequence complexity periodic alphabet cycles concatenated q-letter permutation, palindromic subsequence spectrum",
+        "Web: \"Counting scattered palindromes in a finite word\" \"permutation\" powers",
+        "Web: \"Palindromic Subsequences in Finite Words\" 2019 pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://www.i2m.univ-amu.fr/wiki/Combinatorics-on-Words-seminar/_media/seminar2021%3A20210621pandoh.pdf",
+      "https://arxiv.org/pdf/2108.02729",
+      "https://arxiv.org/pdf/1901.07502",
+      "published-finding corpus semantic searches for repeated permutation / cyclic alphabet / scattered palindrome / Fibonacci-length spectrum",
+      "Published research record 2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0",
+      "Published research record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "Published research record 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "Published research record 2026/10/4/SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "June 21, 2021 Pandoh seminar slides, especially pages 12-18: high-alphabet maxima and binary alternating rich-word counts; neither implies the q>=3 length-resolved spectrum for arbitrary k.",
+        "https://arxiv.org/pdf/2108.02729, Proposition 4.8 treats distinct length-three palindromes with a repeated two-copy permutation as an extremal example; it does not provide arbitrary lengths, k copies or the rational expression.",
+        "https://arxiv.org/pdf/2108.02729, Theorem 5.4 restricts the maximum problem to high alphabet cardinality relative to host length.",
+        "https://arxiv.org/pdf/1901.07502, Definition 9 and Theorem 13: constant-letter power-block constructions for extremal longest-palindrome length, not a complete count of a repetition of simple permutations.",
+        "Published record 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 is about shortest absent subsequences, so its generalized Fibonacci result cannot imply palindrome-subsequence counts."
+      ],
+      "reasoning": "Published statements supply low-degree or two-copy special cases and general bounds, not a theorem covering every coefficient for q>=3,k>=1. The separately established binary alternating enumerator is a q=2 specialization only and cannot recover the q-dependence of the formula. A bibliographic coincidence outside the indexed sources remains possible.",
+      "searches": [
+        "published-finding corpus: palindrome subsequences of periodic words (a1 a2 ... aq)^k number generalized Fibonacci rational generating function",
+        "published-finding corpus: Distinct palindromic scattered subsequences for repeated permutation words (1 2 ... q)^k, number by length, recurrence or generalized Fibonacci, count independent of ordering",
+        "Web: \"Counting scattered palindromes\" \"periodic\" \"Mahalingam\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "June 21, 2021 Pandoh seminar slide deck: scattered-palindrome extremal counts and Fibonacci bounds, but no repeated permutation-power length spectrum for q>=3.",
+        "Full-text arXiv:2108.02729, Sections 3-5: counts general scattered-palindrome complexity and high-alphabet extremal examples, not a repeated-block spectrum.",
+        "Full-text arXiv:1901.07502, Sections 2-4: concerns longest-palindrome lengths of linear and circular words, not numbers of distinct palindromic subsequence values."
+      ],
+      "reasoning": "The search tested alternative labels scattered palindromic subword, periodic word, cyclic permutation word, and palindromic subsequence. Published results on existence and extremal maximum length do not imply the exact length-refined count. No identical expression or equivalent block-descent characterization was located.",
+      "searches": [
+        "published-finding corpus: palindrome subsequences of periodic words (a1 a2 ... aq)^k number generalized Fibonacci rational generating function",
+        "published-finding corpus: palindromic subsequence counting arbitrary alphabet repeated cyclic permutation complete classification via descents",
+        "Web: \"scattered palindromes\" \"periodic\" \"word\" counting distinct subsequences",
+        "Web: \"palindromic subsequences\" \"periodic words\" rational generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/pdf/2108.02729, Tables 1, 2, and 4 give finite length/alphabet extremal totals, not this parameter-uniform repeated-block enumerator.",
+        "published-finding corpus nearby published record 2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0 concerns factor palindromes in Sturmian lifts, unlike distinct scattered palindromes in finite permutation-power words.",
+        "published-finding corpus nearby published record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 counts binary subsequence universality, not palindrome-subsequence values."
+      ],
+      "reasoning": "Actual returned nearest database records have different objects or outcomes; none tabulates or formulates this entire two-parameter palindrome spectrum. The finite numerical maxima in the 2021 source are not tables of the repeated fixed-permutation family.",
+      "searches": [
+        "published-finding corpus: palindromic scattered subword length enumerator repeated increasing alphabet permutation q blocks",
+        "published-finding corpus: counting scattered palindromes finite words q symbols Mahalingam Pandoh repeated permutations maximal and total count",
+        "Web: \"abcabcabc\" count palindromic subsequences",
+        "Web: \"palindromic subsequence\" \"abcabc\" \"count\""
+      ]
+    },
+    "rationale": "The theorem gives a complete uniform length spectrum for the repeated q-letter permutation, with q>=3 and arbitrary copy count. The closest source (Mahalingam and Pandoh, 2021, Sections 4-5) treats general bounds, an order-two word example for length-three palindromes, and a high-alphabet extremal problem; none entails the full repeated-permutation spectrum. Müllner and Ryzhikov (2019, Sections 2-4) handle lengths of the longest palindromic subsequences and constructions, not exact distinct-subsequence enumerators. Multiple searches of published mathematical records and targeted literature queries returned no same-object formula. Binary alternating length spectra are known separately and are not claimed as new. Residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "Equivalent closed formulas could exist in unindexed, differently titled, or inaccessible combinatorics-on-words literature; a negative search is not a uniqueness proof.",
+      "A general dynamic-programming computation of scattered-palindrome counts exists, but no inspected source derives the uniform symbolic repeated-permutation spectrum.",
+      "The binary alternating case is already covered by a separate specialized result and is excluded from the claimed new scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: discusses global bounds and maxima, finite q-by-n tables, and binary alternating maximum counts; no by-length spectrum of repeated q-letter permutations for q>=3 and arbitrary k.",
+        "evidence": "Slides 11-16 display extremal counts by host length and alphabet size; slide 17 concerns binary rich words; slide 19 names future directions. Neither a general q>=3 fixed-permutation power spectrum nor a bivariate generating function is present.",
+        "identifier_or_url": "https://www.i2m.univ-amu.fr/wiki/Combinatorics-on-Words-seminar/_media/seminar2021%3A20210621pandoh.pdf",
+        "material_read": "Twenty-page seminar slide deck: examined introductory definitions, bounds, q-ary maxima, numerical tables, binary rich words and closing future directions.",
+        "method": "Primary slide PDF with extracted page text and theorem/parameter comparison.",
+        "title": "Counting scattered palindromes in finite words (seminar presentation)",
+        "trigger": "Earliest verified public presentation of the motivating scattered-palindrome counting problem by a primary contributor, dated June 21, 2021."
+      },
+      {
+        "assessment": "NOT_COVERING the general q>=3,k>=1 by-length repeated-permutation theorem.",
+        "evidence": "Proposition 4.8 discusses two-copy word length-three palindromes; Theorem 5.4 and Table 4 address high-alphabet maxima and small finite examples, whereas the new statement is a uniform fixed-permutation power series.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+        "material_read": "Full 19-page open-access PDF accessed; examined abstract, definition and complexity sections, Section 4 length-three example and bounds, Section 5 main theorems and final table, conclusion and references.",
+        "method": "Primary full text, passage and theorem comparison, direct page inspection; compared hypotheses and counted objects rather than titles.",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Directly studies the same statistic of distinct palindromic scattered subsequences, with an example of two alphabet-permutation blocks."
+      },
+      {
+        "assessment": "NOT_COVERING: maximum attainable palindrome length and circular extremal construction rather than distinct-by-length subsequence enumeration for one repeated permutation.",
+        "evidence": "Theorem 13 bounds lengths of palindromic and antipalindromic subsequences of certain circular concatenations; no total-count or length-generating formula is stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+        "material_read": "Full 7-page open-access PDF accessed; inspected introduction, circular-word conjectures, Definition 9 block-word family, Lemma 10 and Theorem 13, Section 4 and conclusions.",
+        "method": "Primary full text, theorem/hypothesis comparison and page inspection.",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Potentially stronger results about palindrome subsequences and repetitive alphabet words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "baabc83a-fb9d-44dd-b995-cffa99515476",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This provides a complete symbolic length spectrum, not a one-off evaluation or algorithmic recount, for the canonical infinite family formed by repeated complete alphabet permutations. It identifies a structural minimum-block invariant, a second-order generalized Fibonacci law and exponential scattered-palindrome growth while contiguous palindrome complexity remains exactly q. This sharp disparity motivates the exact object/invariant; the count does not follow from known global high-alphabet maxima or longest-subsequence results. No optimization over all words or broader application is claimed.",
+    "status": "PASS"
+  }
+}
