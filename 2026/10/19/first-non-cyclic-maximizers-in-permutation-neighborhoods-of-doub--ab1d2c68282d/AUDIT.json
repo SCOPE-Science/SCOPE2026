@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The bijection from canonical twice-occurring words to matchings is exact; admissible splits select one endpoint from every matched pair. Independently, all gamma-splits arise by interleaving two prescribed permutations, with duplicate pairings removed. The scripts exhaust all k! permutations and every pairing (2k-1)!! or each interleaving binomial(2k,k) for k<=6. Both algorithms agree on all 720 size-six degrees, all 120 size-five degrees, the unique maximal permutations and 508/123 cyclic controls. Two packaged full tables are checked. These are complete finite proofs, not samples or infinite extrapolations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.13882 §2.4 Proposition 3 proves only the identity-permutation degree (Catalan number) and §2.4 Proposition 2 gives minimum permutation-cover sizes.",
+        "doi:10.3390/sym15111982 Section 2 studies avoiding general graph-constrained shuffle squares by a degree-growth assumption on the underlying word graph.",
+        "arXiv:2109.12455 introduction and main theorems count aggregate shuffle squares, not canonical words incident to each prescribed permutation."
+      ],
+      "reasoning": "None of these prior statements is a stronger degree-bound or enumerative formula implying all 720 size-six degree entries or the unique 532-degree inverse pair. The assumptions and counted vertices differ in the other papers.",
+      "searches": [
+        "Variations on shuffle squares 2023 Section 2.4 vertex-degree question and Proposition 3",
+        "More Variations on Shuffle Squares abstract-square degree criterion section 2",
+        "Shuffle Squares and Reverse Shuffle Squares 2109.12455 asymptotic counting matching tableaux"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.13882 (initial public version 2023-08-26; inspected 2024 revision text)",
+      "DOI:10.3390/sym15111982 (published 2023-10-26; relevant publisher text excerpts)",
+      "arXiv:2109.12455 (initial public version September 2021)",
+      "Published mathematical research record search using equivalent matching, shuffle-square and permutation-neighborhood terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original source explicitly leaves the maximum-degree question open after establishing identity-permutation Catalan degree.",
+        "At size six that known identity degree is 132 while the new extremal degree is 532, so substituting the classical Catalan count cannot solve the extremum.",
+        "At size five the minimum permutation cover and maximum single-permutation incidence are mathematically different optimization problems."
+      ],
+      "reasoning": "Even with the canonical-word reduction and inverse symmetry in the source, neither the maximum values nor uniqueness follow logically from previous statements. The finite theorem requires exhaustive comparison of every prescribed permutation and every relevant interleaving/matching.",
+      "searches": [
+        "arxiv:2308.13882 maximum vertex degree identity Catalan and Proposition 2",
+        "doi:10.3390/sym15111982 shuffle graph abstract degree versus permutation incidence",
+        "arxiv:2109.12455 Catalan leading term shuffle squares in large alphabets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grytczuk–Pawlik–Pleszczyński arXiv:2308.13882 §2.4 pp. 7–10 introduces canonical double-occurrence words and the permutation graph, then poses maximum vertex degree as a question.",
+        "A canonical word is mathematically a perfect matching on ordered positions. The proposed degrees are the number of pairings admitting a prescribed permutation interleaving; this equivalent formulation was included in the novelty comparison.",
+        "No inspected source gives the maxima 134 and 532 or the exact inverse extremizers."
+      ],
+      "reasoning": "The literal permutation-shuffle incidence and the equivalent matching/interleaving formulation are the same count; both were checked. Matching numerical parameters in unrelated permutation codes and polytopes do not imply this result. Search failure alone is not a proof of novelty.",
+      "searches": [
+        "double-occurrence words interleaving permutations maximal neighborhood size gamma-square graph G_k values 134 532",
+        "canonically labelled pair partitions 10 12 positions gamma shuffle permutation incidence maximum degree",
+        "\"maximum degree\" \"shuffle\" \"canonical words\" \"permutations\" Grytczuk",
+        "arxiv:2308.13882 §2.4 permutation-neighborhood maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2308.13882 Table 3 tabulates permutation neighborhoods only for three-letter canonical words; Table 4 is a minimum covering set at four letters.",
+        "Source Table 5 tabulates binary shuffle-square word counts by symbol multiplicity, which are not permutation-neighborhood degrees.",
+        "Target size-five and size-six full degree maps are supplied with this finding, with exact reproducibility code."
+      ],
+      "reasoning": "The nearest original tables have different domains or invariants. No checked exact published table supplies the two target distributions. Relevant indexed research-record hits concerned other graphs, permutation codes, and restricted word reconstruction.",
+      "searches": [
+        "\"345621\" \"532\" shuffle squares",
+        "\"G′_k\" maximum degree 5 6 canonical words",
+        "arxiv:2308.13882 Table 3 Table 4 degrees covering numbers",
+        "double-occurrence words gamma shuffle squares permutation incidence maximum degree"
+      ]
+    },
+    "rationale": "The exact source defining the permutation-shuffle incidence graph, arXiv:2308.13882 §2.4, asks explicitly for the maximum degree of a permutation vertex. Its known identity degree is Catalan, and its n=3 neighborhoods and n<=4 cover sizes do not supply the k=5,6 maximum counts or the new switch from cyclic to non-cyclic maximizers. The two comparison papers address different quantities (abstract-square avoidability or aggregate shuffle-square counts). Scientific searches found no equivalent five-/six-letter extremal classification; residual risk is stated below.",
+    "residual_risks": [
+      "A later or unindexed publication may have solved these finite maximum-degree cases under equivalent perfect-matching language.",
+      "The related 2023 follow-up was not inspected line by line in full because direct publisher access was rate-limited.",
+      "Finite code correctness remains subject to independent mathematical and software review; no independent certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING target k=5,6 extremal degree; specifically asks the problem, identity degree and different covering numbers are antecedents",
+        "evidence": [
+          "Section 2.4 Proposition 2 gives m_2(2)=2, m_3(3)=5, m_4(4)=14 (cover sizes).",
+          "Section 2.4 Proposition 3 and the ensuing question show that the Catalan identity degree does not settle the maximum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.13882",
+        "material_read": "Full accessible mathematical text in Sections 2.1–2.5, original neighborhood Tables 2–4 and maximum-degree question after Proposition 3, final remarks and appendix; visually inspected key pages",
+        "method": "Read arXiv open full text with page references; visually checked representative PDF pages",
+        "title": "Variations on shuffle squares",
+        "trigger": "Defining paper for the exact canonical-word/permutation incidence graph and its open maximum-degree problem"
+      },
+      {
+        "assessment": "Relevant material studies abstract-shuffle avoidance with exponential word-degree hypotheses, not the target canonical-word permutation-vertex incidence maximum. Residual full-text risk remains.",
+        "evidence": [
+          "Section 2 establishes a sufficient condition for avoiding shuffle G-squares when word vertices have bounded graph degree.",
+          "No target numerical degree count appears in the material inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15111982",
+        "material_read": "Publisher-indexed abstract, introduction, Section 2 definition and theorem, related main-result excerpts; not a line-by-line inspection of all sections",
+        "method": "Accessible publisher-indexed full text excerpts; direct site rate-limited",
+        "title": "More Variations on Shuffle Squares",
+        "trigger": "Same-author follow-up on permutation-induced generalized shuffle squares and graph degrees"
+      },
+      {
+        "assessment": "Counts aggregate square words over an alphabet and asymptotic terms, not each prescribed-permutation neighborhood or their maxima",
+        "evidence": [
+          "Theorems 1.1 and 1.2 provide alphabet-size expansions of total shuffle-square and reverse-shuffle-square word counts.",
+          "No maximization over a fixed permutation vertex of the double-occurrence incidence graph is stated in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.12455",
+        "material_read": "Abstract, introduction, main theorems 1.1–1.4, and the preliminary definitions; not all detailed later proofs",
+        "method": "Accessible arXiv full-text PDF extraction with original theorem statements",
+        "title": "Shuffle Squares and Reverse Shuffle Squares",
+        "trigger": "Related counting and canonical-matching interpretations for shuffle-square words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab1d2c68-282d-4fbc-bb50-f616bc02956d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining 2023 paper explicitly asks for the maximum permutation-vertex degree of this incidence graph. The exact k=5,6 values and unique inverse extremizers are natural initial finite cases of that open structural problem, and k=5 marks the first observed transition from cyclic to non-cyclic maximizers. This is a sharp, mathematically motivated comparison across all canonical double-occurrence words, not an arbitrary unmotivated slice or a known table recomputation.",
+    "status": "PASS"
+  }
+}
