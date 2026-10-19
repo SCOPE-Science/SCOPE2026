@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The known minimum domination 3-set classification is reconstructed with its quantifiers for n>=5; triangle isolation follows from two-edge overlap. Matchings have jump/slide degree 3*(C(n-4,2)-1) and 3*C(n-6,2). One free ground point suffices to insert any fixed target matching edge using one/two jumps, proving jumping connectivity for n>=7. At n=8 a sliding move preserves the eight-point four-pair partition, giving exactly 105 K4; at n>=9 every incident-endpoint jump is simulated by two legal slides using two other free endpoints. Direct full domination brute force through n=10 and independent C++ matching enumeration through n=11 confirm all base and boundary cases. Finite tests are supplemental, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Suzuki, Mouawad and Nishimura, Reconfiguration of Dominating Sets (2014), arxiv:1401.5714.",
+        "Cornet and Torres, k-tuple domination on Kneser graphs (2023/2024), arxiv:2308.15603.",
+        "A published independent-set exchange result addresses independent triples of KG(n,2), not dominating triples."
+      ],
+      "reasoning": "The independently investigated k-set token sliding problem contains different configurations (stars vs matchings), while tuple domination requires multiple coverage. The TAR reconfiguration framework allows temporary changes in size and does not imply exact fixed-size TS/TJ components. No broader result materially read was found to imply this statement.",
+      "searches": [
+        "\"Kneser\" \"matching\" \"token sliding\" \"dominating\"",
+        "token sliding independent k-subsets Kneser graph KG(n,2), triangles stars, connectivity reconfiguration",
+        "\"Kneser graph\" \"triangle\" \"token sliding\" domination"
+      ]
+    },
+    "checked_sources": [
+      "Ivančo and Zelinka, Domination in Kneser graphs (1993), doi:10.21136/MB.1993.126050, Theorem 1, pp.147-148.",
+      "Fricke, Hedetniemi, Hedetniemi and Hutson, γ-Graphs of Graphs (2011), doi:10.7151/dmgt.1562.",
+      "Suzuki, Mouawad and Nishimura, Reconfiguration of Dominating Sets (2014), arxiv:1401.5714.",
+      "Cornet and Torres, k-tuple domination on Kneser graphs (2023/2024), arxiv:2308.15603.",
+      "Östergård, Shao and Xu, Bounds on domination number of Kneser graphs (2015; limited to bibliographic details).",
+      "Published mathematical-claim index: targeted exact minimum-domination and token-exchange queries (no covering implication surfaced)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ivančo and Zelinka, Domination in Kneser graphs (1993), doi:10.21136/MB.1993.126050, Theorem 1, pp.147-148.",
+        "Fricke, Hedetniemi, Hedetniemi and Hutson, γ-Graphs of Graphs (2011), doi:10.7151/dmgt.1562.",
+        "Suzuki, Mouawad and Nishimura, Reconfiguration of Dominating Sets (2014), arxiv:1401.5714.",
+        "Cornet and Torres, k-tuple domination on Kneser graphs (2023/2024), arxiv:2308.15603.",
+        "Public index nearest generic domination results concern complete multipartite graphs, with different adjacency classes; a published KG(n,2) independent-token result concerns independent families."
+      ],
+      "reasoning": "Known 1993 Theorem 1 -> number and vertex family but not which one-for-one changes preserve the family. 2011 γ-graph definition -> graph construction but no classification. 2014 TAR results -> reconfiguration at varying sizes, not fixed cardinality. Here the unmatched-ground-vertex invariant proves the n=8 105K4 barrier, and the two-spare simulation proves connectivity for n>=9. Thus the claimed transition is not a corollary of any inspected result.",
+      "searches": [
+        "domination reconfiguration Kneser graph KG(n,2) minimum dominating sets triangle three disjoint edges token jumping components",
+        "Reconfiguration of minimum dominating three-sets of Kneser graph, triangle isolated, matching component connected n >= 7",
+        "All minimum dominating sets of Kneser graphs KG(n,2) are triangles and three-edge matchings; reconfiguration by token jumping/sliding",
+        "token sliding independent k-subsets Kneser graph KG(n,2), triangles stars, connectivity reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fricke, Hedetniemi, Hedetniemi and Hutson, γ-Graphs of Graphs (2011), doi:10.7151/dmgt.1562.",
+        "Ivančo and Zelinka, Domination in Kneser graphs (1993), doi:10.21136/MB.1993.126050, Theorem 1, pp.147-148.",
+        "The γ-graph definition is token sliding on minimum dominating sets, while the jumping variant also permits nonadjacent exchanges."
+      ],
+      "reasoning": "Checked γ-graph, optimum-domination reconfiguration, token sliding/jumping, pair-Kneser and complementary edge language. The 2011 general definition supplies the model, not the KG(n,2) connected-component theorem; the known 1993 optimum classification supplies the states, not their exchange adjacency.",
+      "searches": [
+        "\"Kneser graph\" \"minimum dominating sets\" \"reconfiguration\" token",
+        "\"gamma graph\" \"Kneser\" \"2\" domination",
+        "\"dominating\" \"K(n,2)\" \"reconfiguration\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ivančo and Zelinka, Domination in Kneser graphs (1993), doi:10.21136/MB.1993.126050, Theorem 1, pp.147-148.",
+        "Östergård, Shao and Xu, Bounds on domination number of Kneser graphs (2015), bibliographic record only.",
+        "A published mathematical-claim index returned no exact table/record for 105K4 and the sharp n=7 versus n=9 mobility thresholds."
+      ],
+      "reasoning": "Existing Kneser domination records emphasize optimum size and family classification; full reconfiguration adjacency/connected components are separate invariants. The 2015 domination bound paper was accessible only through metadata, so its unseen tables are noted as a residual risk rather than declared absent.",
+      "searches": [
+        "\"Kneser graph\" \"minimum dominating sets\" \"reconfiguration\" token",
+        "domination reconfiguration Kneser graph KG(n,2) minimum dominating sets triangle three disjoint edges token jumping components",
+        "Reconfiguration of minimum dominating three-sets of Kneser graph, triangle isolated, matching component connected n >= 7",
+        "All minimum dominating sets of Kneser graphs KG(n,2) are triangles and three-edge matchings; reconfiguration by token jumping/sliding"
+      ]
+    },
+    "rationale": "The retained claim is a complete component/regularity classification for token-jumping and token-sliding reconfiguration of all three-vertex minimum dominating sets in the Kneser pair graphs, with sharp matching-layer mobility thresholds n=7 and n=9 and precisely 105 four-vertex sliding components at n=8. The 1993 domination-number and triangle/matching classification are explicitly credited, not claimed novel; general reconfiguration definitions alone do not yield the decomposition. Direct primary-text comparisons and targeted scientific/index searches found no prior implication covering the result. Abstract-only and unindexed materials remain risks.",
+    "residual_risks": [
+      "Unindexed or alternate-terminology equivalent computations could cover part of the new reconfiguration decomposition.",
+      "2015 Kneser domination-bounds primary text and full Fricke et al. 2011 text were not exhaustively available/inspected; neither is being certified as wholly noncovering.",
+      "Independent publication-priority review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers minimum size and triangle/three-matching classification. Does not cover fixed-size reconfiguration thresholds or 105 K4.",
+        "evidence": [
+          "Ivančo and Zelinka, Domination in Kneser graphs (1993), doi:10.21136/MB.1993.126050, Theorem 1, pp.147-148."
+        ],
+        "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "material_read": "Full six-page primary paper with attention to the complete classification in Theorem 1 and following total/dom atic propositions",
+        "method": "Primary lawful OA full PDF read; mathematical objects, parameter and theorem compared",
+        "title": "Domination in Kneser graphs",
+        "trigger": "Exact underlying graph and minimum dominating set classification"
+      },
+      {
+        "assessment": "Model definitions and general γ-graph framework covered; no same-graph structural classification in material read. Full text not completely cleared.",
+        "evidence": [
+          "Fricke, Hedetniemi, Hedetniemi and Hutson, γ-Graphs of Graphs (2011), doi:10.7151/dmgt.1562."
+        ],
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.1562",
+        "material_read": "Publisher abstract and the full introductory definition; full text was not exhaustively read",
+        "method": "Publisher scientific page and openly available publication metadata",
+        "title": "γ-Graphs of Graphs",
+        "trigger": "Defines minimum domination sliding graph, a plausible equivalent statement"
+      },
+      {
+        "assessment": "Studies token-addition/removal under a size bound; no KG(n,2) fixed-optimum component theorem located.",
+        "evidence": [
+          "Suzuki, Mouawad and Nishimura, Reconfiguration of Dominating Sets (2014), arxiv:1401.5714."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+        "material_read": "Full preprint; introduction, move convention, main results and conclusion inspected specifically",
+        "method": "Lawful arXiv full text",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Strong general reconfiguration result potentially implying connectedness"
+      },
+      {
+        "assessment": "Explicitly credits the 1993 ordinary domination classification; investigates tuple coverage, not the fixed-minimum TS/TJ theorem.",
+        "evidence": [
+          "Cornet and Torres, k-tuple domination on Kneser graphs (2023/2024), arxiv:2308.15603."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+        "material_read": "Open full preprint, relevant definitions, Section 3, Theorem 11 discussion and bibliography",
+        "method": "Lawful arXiv full text",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Same family/parameters and references to the older classification"
+      },
+      {
+        "assessment": "Cannot claim noncoverage of unseen complete paper or supplements; flagged as risk.",
+        "evidence": [
+          "Östergård et al., 2015, bounds on Kneser domination numbers."
+        ],
+        "identifier_or_url": "Bibliographic record only; DOI not independently verified",
+        "material_read": "Bibliographic metadata and available abstract only; no primary full text obtained",
+        "method": "Public bibliographic search and abstract",
+        "title": "Bounds on domination number of Kneser graphs",
+        "trigger": "Same family and possibly tabulated exact values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fecd9288-0496-46c7-a5db-f0702cbe275d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite-parameter family of standard Kneser graphs exhibits a sharp difference between canonical reconfiguration rules: the same optimal matching solutions are frozen at n=7 in sliding despite moving by jumps, split into exactly 105 K4 at n=8, and become globally connected at n=9. The proof isolates a structural conserved perfect matching and supplies constructive simulations; these determine genuine optimal-solution mobility barriers, not numerical table increments or a rephrased minimum-size fact.",
+    "status": "PASS"
+  }
+}
