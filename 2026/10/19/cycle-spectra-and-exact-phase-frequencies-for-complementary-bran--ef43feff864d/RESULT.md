@@ -1,0 +1,43 @@
+# Cycle spectra and exact phase frequencies for complementary-branch shuffled expanding maps
+
+## Finding
+Fix an integer \(N\ge4\), put \(m=N-1\), and let \(T_\sigma=\sigma\circ(x\mapsto mx\bmod1)\) where \(\sigma\) permutes the \(N\) equal half-open intervals of \([0,1)\) by translations. The normalized \(N\)-state Markov matrix has, for every shuffle, exactly one eigenvalue \(1\) and \(N-1\) further eigenvalues \(-\zeta/m\), with multiplicities determined by the cycle lengths of a single permutation \(q\). If \(q\) has cycles of lengths \(\ell_1,\ldots,\ell_k\), then the characteristic polynomial of the *unnormalized* matrix is
+\[
+\frac{t-m}{t+1}\prod_{a=1}^k\bigl(t^{\ell_a}-(-1)^{\ell_a}\bigr).
+\]
+For a fixed primitive root of unity \(\zeta\) of order \(d\), \(2\le d\le N\), exactly
+\[
+N!\left[1-\prod_{j=1}^{\lfloor N/d\rfloor}\left(1-\frac1{dj}\right)\right]
+\]
+shuffles have the eigenvalue \(-\zeta/m\). For \(d=1\), its occurrence count is \(N!-(N-1)!\). Every shuffle mixes at the optimal rate \(1/m\), and all these nontrivial Markov eigenvalues lie on that rate circle. In particular, for every \(N\ge4\) the exact occurrence of primitive \((N-1)\)-st-root phases contradicts the outer-circle and convex-hull claims of Conjecture 2.4.1 in Byott--Holland--Zhang, interpreted with the spectral set explicitly defined there.
+
+## Assumptions and scope
+Let \(I_i=[i/N,(i+1)/N)\), indexed by \(i\in\{0,\ldots,N-1\}\). A shuffle is the map taking \(I_i\) onto \(I_{\sigma(i)}\) by translation, for an arbitrary permutation \(\sigma\). Let \(A_{ij}=1\) precisely when \(j\equiv mi+s\pmod N\) for some \(0\le s<m\), and let \(P_{ij}=1\) precisely when \(j=\sigma(i)\). The matrix \(M=AP\) is the unnormalized Markov transition matrix. Let \(r(i)=N-1-i\) and define \(q(i)=\sigma(r(i))\). Then \(q\) ranges bijectively over all permutations as \(\sigma\) does. The finite Markov spectrum stated here is a spectrum of actual bounded-variation eigenfunctions of the transfer operator; no classification of the remaining essential spectrum on or inside the circle is claimed. The equality \(\tau_\sigma=1/m\) and the Markov reduction are part of the cited theory, not new contributions.
+
+## Proof
+**Complementary-branch reduction.** Since \(m=N-1\equiv-1\pmod N\), row \(i\) of \(A\) includes all columns except \(mi+m\equiv-i-1\pmod N\). Writing \(J\) for the all-ones matrix and \(R\) for the permutation matrix of \(r\), we have \(A=J-R\). Hence \(M=JP-RP=J-Q\), because right multiplication by a permutation matrix fixes \(J\) and \(Q=RP\) is precisely the permutation matrix of \(q=\sigma\circ r\).
+
+**Complete spectrum and multiplicities.** The constant vector is an eigenvector of \(M\) with eigenvalue \(N-1=m\). The invariant zero-sum subspace \(V_0=\{v:\sum_i v_i=0\}\) has codimension one and \(J\) vanishes on it, so \(M|_{V_0}=-Q|_{V_0}\). A permutation cycle of length \(\ell\) contributes each \(\ell\)-th root of unity once to the spectrum of \(Q\). Of its total \(k\) copies of the eigenvalue \(1\), exactly one belongs to the constant direction and \(k-1\) remain on \(V_0\). This proves the displayed characteristic polynomial: \(\det(tI+Q)=\prod_a(t^{\ell_a}-(-1)^{\ell_a})\), and the factor \(t+1\) is removed while \(t-m\) is inserted. In particular, a primitive \(d\)-th root \(\zeta\ne1\) contributes an eigenvalue \(-\zeta/m\) with algebraic multiplicity equal to the number of cycles whose lengths are multiples of \(d\); \(-1/m\) has multiplicity \(k-1\).
+
+**Dynamical realization and rate.** The finite-state transition matrix for the Markov partition gives genuine transfer-operator eigenfunctions that are constant on finitely many partition elements; these functions belong to \(BV\). The Markov spectral reduction of the first reference identifies their nonzero eigenvalues with those of \(M/m\). The cited mixing theorem applies because \(\gcd(N-1,N)=1\), and its sharp upper bound simplifies to \(\sin((N-1)\pi/N)/(m\sin(\pi/N))=1/m\); the essential spectral radius is also \(1/m\). Thus every permutation has mixing rate exactly \(1/m\), and each nontrivial Markov eigenvalue has that modulus.
+
+**Exact phase-incidence enumeration.** For \(d\ge2\), a primitive \(d\)-th-root eigenphase occurs if and only if the permutation \(q\) contains at least one cycle with length divisible by \(d\). The exponential generating function for permutations with no such cycles is
+\[
+\exp\left(\sum_{\substack{j\ge1\\d\nmid j}}\frac{z^j}{j}\right)=\frac{(1-z^d)^{1/d}}{1-z}.
+\]
+The coefficient of \(z^N\) equals \(\sum_{a=0}^{\lfloor N/d\rfloor}(-1)^a\binom{1/d}{a}=\prod_{j=1}^{\lfloor N/d\rfloor}(1-1/(dj))\), by the elementary binomial partial-sum identity. Multiplication by \(N!\) counts permutations *without* the eigenphase, giving the stated complementary count. When \(d=1\), the phase \(-1/m\) survives removal of the constant eigenvector exactly when \(q\) has at least two cycles. There are \((N-1)!\) permutations consisting of one cycle, proving the separate count.
+
+**Explicit obstruction to Conjecture 2.4.1.** Choose \(q\) with one cycle of length \(N-1\) and one fixed point. Its primitive \((N-1)\)-st root \(\zeta=e^{2\pi i/(N-1)}\) yields the Markov eigenvalue \(\lambda=-\zeta/m\). It is a point of the source's set \(\Lambda_\sigma\) because its modulus is the mixing rate. Since the order of \(\zeta\) is \(N-1\), it is not an \(N\)-th root, and for \(N\ge4\) it is neither \(1\) nor \(-1\). The conjecture permits on that circle only \((-1)^{m-1}e^{2\pi ij/N}/m\) and \((-1)^m/m\). Our point is none of these. Any point of modulus \(1/m\) that belongs to the convex hull of points *on* that circle must be one of its extreme vertices, by strict convexity of the Euclidean disk. Thus the same example violates the conjectured convex-hull inclusion. For the first case \(N=4\), take \(\sigma=(3,0,2,1)\) in one-line notation. Then \(q=(1,2,0,3)\), \(\det(tI-M)=(t-3)(t+1)(t^2-t+1)\), and \(\lambda=(1-i\sqrt3)/6\) lies outside the predicted diamond \(|\Re\lambda|+|\Im\lambda|\le1/3\), since \((1+\sqrt3)/6>1/3\).
+
+## Verification
+The self-contained `verify.py` enumerates every permutation for \(N=4,5,6,7\), confirms the integer identity \(AP=J-Q\), computes cycle lengths, and compares every exact phase occurrence count with the product formula using rational arithmetic. It also checks the first witness's exact characteristic polynomial by rational Newton identities. Running `python verify.py` prints `VERIFY_OK`. These finite checks illustrate the proof but are not the reason the formulas hold for all \(N\).
+
+## Relationship to prior work
+Byott, Holland, and Zhang introduced these permutation-composed expanding maps, their finite Markov spectral reduction, mixing-rate bounds and Conjecture 2.4.1. Their Proposition 4.2.4 implies that having only root-of-unity nonleading eigenvalues is equivalent to preserving the baseline mixing rate; the present reduction gives an explicit cycle-spectrum and *complete frequency distribution* at the complementary-branch family, together with a direct failure of the stated conjecture. The 2014 sequel with Lin concerns mixed branch orientations and sharp rate bounds, not this phase census. The earlier doubling-shuffle equality classification addresses \(m=2\) and does not imply the complementary-branch formula for variable \(m=N-1\).
+
+## Limitations
+The contradiction concerns Conjecture 2.4.1 literally as formulated via the source's \(\Lambda_\sigma\), including Markov eigenvalues on the essential spectral-radius circle; such boundary points need not be isolated points of the full \(BV\) spectrum. This does not contradict the source's proven mixing-rate bound or its assertion about genuinely isolated eigenvalues strictly outside the essential disk. No novelty is asserted for the general cycle-index identity by itself, nor for the previously known fact that this family has rate \(1/m\). The result does not classify the full essential operator spectrum or arbitrary slopes \(m\ne N-1\). Historical priority of an equivalent unindexed calculation remains unverified.
+
+## References
+1. N. P. Byott, M. Holland, and Y. Zhang, *On the mixing properties of piecewise expanding maps under composition with permutations*, arXiv:1203.5145, first publicly posted 2012-03-22; especially Theorem 2, Conjecture 2.4.1, Lemma 4.2.1, and Proposition 4.2.4. https://arxiv.org/abs/1203.5145 ; full text https://arxiv.org/html/1203.5145v3 .
+2. N. P. Byott, H. Lin, and Y. Zhang, *On the mixing properties of piecewise expanding maps under composition with permutations, II*, arXiv:1405.0481, first posted 2014-05-02. https://arxiv.org/abs/1405.0481 .
