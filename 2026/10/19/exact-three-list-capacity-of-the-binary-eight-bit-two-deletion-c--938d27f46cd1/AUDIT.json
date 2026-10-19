@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "A 23-word witness has 64 output incidence counts at most three, independently enumerated from all 28 six-position choices. For the upper bound, a nonnegative 64-weight integer dual and two source weights establish 135|C|≤3246. A 48-support rational feasible LP point with denominator 35865 exactly attains the dual value 1082/45, verifying the fractional-integral gap. Exact slack identity at |C|=24 yields defect six, both constants forced, 54 slack-zero candidates and 113 positive-slack subsets. The provided C++17 exact branch verifier exhausts all 113 with 30,578 nodes, testing forced positive-weight output saturation and all 64 caps; it returns no 24-word set. Search cutoff is not hit. Exhaustive finite algorithm, not asymptotic extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiah–Wei–Zeng arXiv:2609.21395 Theorem 23 gives minimum over allowed run cutoffs 106 at the target parameters; its Singleton-type bound gives 192",
+        "Lin arXiv:2609.26650 Theorem 1.1 gives an asymptotic existence lower bound, not a value for n=8"
+      ],
+      "reasoning": "Neither a general asymptotic rate estimate nor a finite upper bound of 106 logically determines a maximum of 23. The integer defect obstruction is not implied by these published bounds.",
+      "searches": [
+        "2026 Kiah Wei Zeng Constant List Insertion Deletion Codes three-list two deletions short n eight",
+        "arXiv:2609.21395 Section 7, Theorem 23 and Corollary 22",
+        "arXiv:2609.26650 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26650, original full-text HTML, Definitions 2.1-2.2 and Theorems 1.1-1.4",
+      "arXiv:2609.21395, original full-text HTML, Introduction and Sections 7.1-7.2",
+      "arXiv:2007.10592, introduction and principal statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin defines the correct list-three model but gives no specific 23-word upper or witness",
+        "Kiah–Wei–Zeng finite estimate evaluates to at least 106, far weaker than the proved maximum 23",
+        "Guruswami–Håstad arXiv:2007.10592 treats two-deletion codes and two-list results in different parameter regimes"
+      ],
+      "reasoning": "None of the examined statements entails both the 23-word construction and exclusion of 24. Two-list bounds at other lengths are not equivalent to list-three exact packing at length eight.",
+      "searches": [
+        "arXiv:2609.26650 Definition 2.1 Theorem 1.1",
+        "arXiv:2609.21395 Theorem 23 q=2 n=8 t=2 L=3",
+        "binary 8-bit words two deletion outputs each length-6 received subsequence covered at most 3 times, maximum 23 words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.26650, Definition 2.1 equates three-list, two-deletion decoding with a maximum three-word incidence per six-bit output; Theorem 1.1 is an asymptotic lower bound",
+        "The exact hypergraph version is independence in the four-uniform (two-deletion, three-list) hypergraph, Definition 2.2 in the same article"
+      ],
+      "reasoning": "The formulations match the underlying finite incidence system, but Lin neither enumerates nor determines its independence number for eight-bit inputs. Separate query wording for deletion shadows, subsequence packing and list-size-three maximum found no stronger exact theorem.",
+      "searches": [
+        "2026 list-decodable deletion codes finite length eight list size three two deletions exact maximum 23",
+        "A binary length-eight three-list decodable two-deletion code has exact maximum size 23 codewords, subword hypergraph 3-packing",
+        "binary 8-bit words two deletion outputs each length-6 received subsequence covered at most 3 times, maximum 23 words",
+        "arXiv:2609.26650 Section 2, Definition 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2026 primary papers do not present an exact (8,2,3) finite table",
+        "A distinct published length-eight binary (2,1)-separating-system result concerns a different forbidden configuration and does not contain the two-deletion incidence condition"
+      ],
+      "reasoning": "No exact-table or equivalent-parameter source found; absence of a search hit cannot establish novelty. An unindexed enumeration remains a genuine risk.",
+      "searches": [
+        "2026 list-decodable deletion codes finite length eight list size three two deletions exact maximum 23",
+        "A_2(8,2,3)=23 exact list decodable deletion code, list size three, length eight",
+        "Exact tables for binary t-list decodable k-deletion codes, list size 3 with two deletions for block length 8"
+      ]
+    },
+    "rationale": "Lin, arXiv:2609.26650, Definitions 2.1-2.2 and Theorems 1.1-1.4, uses the identical three-list deletion model but proves general asymptotic existence and common-subsequence bounds, not this exact finite cardinality. Kiah–Wei–Zeng, arXiv:2609.21395, Section 7.1 Theorem 23 has a finite run-counting converse whose best value at (q,n,t,L)=(2,8,2,3) is 106, not 23. Their other results are principally rate bounds; no domination follows. Equivalence, broader-coverage and exact-table searches did not surface the 23-word result. Risk: prior unindexed finite enumerations.",
+    "residual_risks": [
+      "A prior non-indexed finite list-decoding table may contain this exact parameter or a directly equivalent hypergraph result.",
+      "Only the specified accessible primary passages and search resources were compared; novelty is not proven by failed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME MODEL; NOT COVERING EXACT (8,2,3) VALUE",
+        "evidence": [
+          "Definition 2.1 bounds the number of distinct candidate codewords per received subsequence",
+          "Theorem 1.1 yields an asymptotic lower bound; no exact eight-bit triple-list evaluation appears"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.26650v1",
+        "material_read": "Introduction, Definition 2.1 and hypergraph Definition 2.2, Theorems 1.1-1.4, proof setting and reference claims in the complete arXiv HTML text",
+        "method": "Read original lawful open-access arXiv HTML and compare definitions, quantifiers and stated results",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Exact three-list adversarial two-deletion model, motivating current finite problem"
+      },
+      {
+        "assessment": "RELATED GENERAL UPPER BOUNDS; NOT COVERING 23",
+        "evidence": [
+          "Theorem 23 bound is 106 at best for q=2,n=8,t=2,L=3",
+          "Section 7.2 concerns asymptotic higher-order averaging rather than exact finite packing"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.21395v1",
+        "material_read": "Introduction, constant-list model, Section 7 converse theorems and derivations, especially Corollary 22, Theorem 23 and Section 7.2",
+        "method": "Read original lawful open-access arXiv HTML and evaluate the finite-length formula at target parameters",
+        "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+        "trigger": "Potential general finite-length or sharper constant-list bound"
+      },
+      {
+        "assessment": "CLOSE MODEL BUT TWO-LIST/ASYMPTOTIC; NOT KNOWN TO COVER EXACT TRIPLE-LIST VALUE",
+        "evidence": [
+          "Deals with construction/redundancy for two deletions rather than the exact length-eight three-list maximum"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.10592",
+        "material_read": "Open-access PDF introduction and principal theorem statements, without claiming an appendix-by-appendix audit",
+        "method": "Inspect lawful open-access arXiv paper and compare decoding guarantees",
+        "title": "Explicit Two-Deletion Codes with Redundancy Matching the Existential Bound",
+        "trigger": "Earlier work on two deletions and two-list corrections cited by Lin"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "938d27f4-6cd1-443f-a816-0e540cefb0a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise numerical list-size three is mathematically motivated by current list-deletion work. This exact natural channel parameter exhibits the genuine fractional-to-integral gap between 1082/45 and 23, with an explicit 24-word obstruction beyond simple fractional rounding. The result provides a reusable finite benchmark and transparent proof certificate, without claiming a general theorem, downstream rate gain or independent validation.",
+    "status": "PASS"
+  }
+}
