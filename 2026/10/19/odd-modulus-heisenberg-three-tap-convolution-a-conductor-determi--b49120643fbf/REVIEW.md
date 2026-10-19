@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The proof constructs all irreducible blocks by central-character order, verifies their inequivalence and dimension-square completeness, evaluates the two-permutation determinant, proves every singular nonzero-weight block has nullity one, and completes the third-root divisor sum. The checker independently builds regular convolution matrices and verifies eight exact modular determinants and the four unweighted ranks. The arbitrary-modulus assertion rests on the proof, not on finite checking.
+
+**Originality: PASS, subject to residual published-priority risk.** DeDeo et al. (dated 2002 preprint) already classify prime-power Heisenberg representations and study symmetric four-generator graph spectra. Mossinghoff–Pinner (2021) already treat the prime-modulus group determinant and their Section 3.1 implies the prime case of this specialization. Existing exponent-prime weighted three-tap spectral formulas (including an earlier recorded result) already cover all \(n=p\) specializations, and a published ternary-Heisenberg three-tap result overlaps the smallest case. The present exact weighted conductor product and unweighted composite-odd-modulus nullity law were not established by those checked explicit statements or the searched mathematical-record entries. They are derived here and not presented as independent of the prior representation technology. An older unindexed equivalent formula remains possible.
+
+**Mathematical value: PASS.** The three-site generating convolution operator is canonical for directed Cayley harmonic analysis. Its exact complex-kernel multiplicity, sharp arithmetic invertibility cutoff at divisibility by three, and multiplicative closed formula over all odd composite moduli give a meaningful operator-classification result, not a numerical normalization check. Weighted conductor factors also locate every singular parameter stratum.
+
+**Limitations.** No even-modulus or nongenerating-support assertion; no nonzero-eigenvalue or spectral-conditioning classification. The cited 2002 preprint supplies the irreducible construction in the prime-power case, while the later prime-order determinant identity is acknowledged as covering that subcase.
+
+Self-review: passed. Independent audit: not yet performed.
