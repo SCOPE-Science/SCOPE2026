@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each even L>=4, F=OE is a product of two involutions. F^2 x=x iff OE x=EO x, equivalent at each site to one explicit five-bit commutation predicate. Its exhaustive truth table forbids exactly six words, and the 16-state de Bruijn closed-walk trace enumerates all length-L cyclic strings with no such windows. F-fixed points split into independent cyclic length-L/2 words with no adjacent zeros, giving Lucas-square. Subtraction and division by two give exact prime-two orbits. Exact integer Faddeev–LeVerrier coefficients reproduce the polynomial and the reciprocal cubic proves the unique dominant root. A standalone pure-Python checker independently exhausts all 2^L inputs for even L=4..16.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Macauley, McCammond and Mortveit (2008), Theorem 5.9, subgroup/product decomposition for site-flip dynamics group",
+        "Klobas (2026), finite-bond-dimension influence matrices for local subsystem dynamics",
+        "Yang, Wang and Wang (2026), influence-matrix bootstrap and distinct periodic families"
+      ],
+      "reasoning": "Orbit-group structure is broader in choice of update schedules but weaker for a specific fixed-composition cycle count: it does not provide the ordered composition permutations. Infinite-volume local-correlation formulas do not enumerate periodic bit configurations for finite rings. No stronger same-claim coverage was found in the inspected primary body and appendices.",
+      "searches": [
+        "Rule 201 Floquet PXP cellular automaton on a periodic even ring counts of two-periodic states Floquet cycles local forbidden five-bit patterns trace transfer matrix characteristic x^6-x^5-x^4-x^2-x+1",
+        "RCA201 deterministic PXP reversible cellular automaton second iterate fixed points exact enumeration 13 28 101 321 1024 and Lucas number fixed points",
+        "arXiv:0808.1238v1 Rule 201 Theorem 5.9 Lucas groups Fibonacci groups",
+        "arXiv:2606.27337v2 Sections 3,4, Appendix A",
+        "arXiv:2606.19430v2 sections on classical periodic vacua"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.27337v2",
+      "arXiv:2606.19430v2",
+      "arXiv:2006.06556v1",
+      "arXiv:0808.1238v1",
+      "MSC2020 82C20 classification; mathscinet.ams.org/mathscinet/msc/msc2020.html?s=82C05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5.7 in Macauley et al. counts transpositions of one local gate on a restricted Lucas orbit, not those of the product of all odd/even site gates",
+        "Theorem 5.9 gives a group embedding but not conjugacy classes/order-two cycle counts for the specified staggered Coxeter-like product",
+        "Wilkinson et al. (2020) supplies integrable soliton and constrained-string characterizations, not the six-pattern full-state-space characterization"
+      ],
+      "reasoning": "We checked whether the precise formula could be an immediate corollary of older decomposition or a stronger parameter theorem. A group isomorphism/subdirect-product description does not determine the cycle type of an unspecified word in its generators; the target word must be evaluated. The new gate-commutation language and transfer polynomial are that missing order-specific evaluation. No definite implication was found; obscure unpublished enumeration remains the residual risk.",
+      "searches": [
+        "arXiv:0808.1238v1 Rule 201 Section 5, Theorem 5.9 and Proposition 5.7",
+        "arXiv:2006.06556v1 Rule 201 sector construction",
+        "RCA201 deterministic PXP reversible cellular automaton second iterate fixed points exact enumeration 13 28 101 321 1024 and Lucas number fixed points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wilkinson et al., arXiv:2006.06556v1, classical Rule 201 construction and integrable sectors",
+        "Macauley et al., arXiv:0808.1238v1, Section 5: fixed-order map distinguished from arbitrary sequential generators",
+        "No matched assertion of an exact \\(F^2\\)-fixed-point trace or the six forbidden windows in inspected full papers"
+      ],
+      "reasoning": "We compared second-iterate fixed points, exact two-cycles, staggered Floquet periodic states, and Rule 201 asynchronous sequential dynamics. The 2008 dynamics-group orbits under all allowed updates are not the orbit decomposition of a specified global product. The relevant full primary texts do not state the transfer trace or an equivalent recurrence.",
+      "searches": [
+        "RCA201 deterministic PXP reversible cellular automaton second iterate fixed points exact enumeration 13 28 101 321 1024 and Lucas number fixed points",
+        "commuting alternating updates PXP flip if both neighbors 0 orbit length 2 count transfer matrix de Bruijn 16 states",
+        "\"Floquet PXP\" \"period-2\" \"configurations\" \"transfer\"",
+        "\"Rule 201\" \"two-cycles\" \"sequential\" \"even\" \"odd\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact scientific database hit with the six-word forbidden set, the sextic factor, or a full-ring primitive two-cycle census",
+        "Macauley et al. (2008), Table 4 tabulates orders of local-update dynamics groups, a different invariant"
+      ],
+      "reasoning": "The observed closest results concern distinct cellular automata or different parity rules. The 2008 group-order table does not give the cycle counts of the staggered ordered product. Absence of a search hit is not an exhaustive novelty proof; it is paired with material reading and explicit implications.",
+      "searches": [
+        "Rule 201 Floquet PXP cellular automaton on a periodic even ring counts of two-periodic states Floquet cycles local forbidden five-bit patterns trace transfer matrix characteristic x^6-x^5-x^4-x^2-x+1",
+        "RCA201 deterministic PXP reversible cellular automaton second iterate fixed points exact enumeration 13 28 101 321 1024 and Lucas number fixed points",
+        "commuting alternating updates PXP flip if both neighbors 0 orbit length 2 count transfer matrix de Bruijn 16 states",
+        "\"Floquet PXP\" \"period 2\" \"count\" states"
+      ]
+    },
+    "rationale": "This is an exact full-configuration-space prime-two-cycle census for the fixed staggered Rule 201 Floquet map. Inspected same-rule full primary texts establish integrability and local correlations but do not provide this count. Especially, the 2008 Lucas/Fibonacci *dynamics-group orbit* factorization acts with arbitrary local update words and is not a prime-two-cycle classification for this specific ordered product. Source and alternative-statement searches found no equivalent or stronger formula; listed residual risks bound this best-knowledge judgment.",
+    "residual_risks": [
+      "A different order-specific cycle calculation for Rule 201 might exist in papers not located by semantic and exact web searches.",
+      "The 2008 all-local-update dynamics group permits more elaborate inference if supplemented with new order-specific permutation information, but no implication was found in its stated theorems.",
+      "Finite brute-force data alone does not justify novelty or all-size validity; both require the included proof and source comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the full-space finite-even-ring primitive-two-cycle census; primary focus is local subsystem correlation functions and influence matrices",
+        "evidence": [
+          "Section 2 specifies even/odd layer toggles exactly",
+          "Section 4 studies one-site multi-time local correlations",
+          "Appendix A concerns fixed-point MPS and matrices, not a periodic configuration orbit table"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.27337v2",
+        "material_read": "Complete HTML sections 1-5 and Appendix A, especially Section 2 eqs. (2.1)-(2.6), Sec. 4 and supplementary tensor definitions",
+        "method": "Full-text examination of model definition, influence matrices, local correlation statements, appendix and searches for period-two and cycles",
+        "title": "Exact subsystem dynamics in the deterministic Floquet-PXP model",
+        "trigger": "2026 literature anchor, exact same staggered local rule"
+      },
+      {
+        "assessment": "NOT_COVERING for the specific even-ring primitive period-two all-configurations count",
+        "evidence": [
+          "Describes influence-matrix bootstrap and non-thermal quantum initial-state dependence",
+          "Discusses periodic examples but not the 16-state transfer for the entire classical binary configuration space"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.19430v2",
+        "material_read": "Full HTML introduction, technical sections on influence matrices, periodically oscillating classical vacua and appendices",
+        "method": "Examination of physical setup, known periodic examples, implications and searches for two-cycle and trace formulas",
+        "title": "Solving Nonequilibrium Dynamics via Influence Matrix Bootstrap: Floquet-PXP Model",
+        "trigger": "Same model independently investigated in 2026"
+      },
+      {
+        "assessment": "NOT_COVERING for the new exact two-cycle trace, although foundational same-rule framework",
+        "evidence": [
+          "Rule 201 and alternating parity update specified",
+          "Known constrained-string Lucas counts concern a different no-adjacent-ones sector"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.06556v1",
+        "material_read": "Full HTML physical construction, integrable dynamics and sector enumeration sections",
+        "method": "Compared exact model and soliton sector enumeration to all-string prime-two Floquet orbit claim",
+        "title": "Exact solution of the Floquet-PXP cellular automaton",
+        "trigger": "Original classical Rule 201 Floquet model and strongest longstanding same-object work"
+      },
+      {
+        "assessment": "SAME_LOCAL_RULE_BUT_NOT_COVERING_ORDER_SPECIFIC_COUNT",
+        "evidence": [
+          "Their omega-independent dynamics group is generated by all local flips, not the single full even/odd sweep",
+          "Proposition 5.7 counts two-cycles of individual local involutions",
+          "Theorem 5.9 gives group-factor embeddings; Table 4 only finite small-size group orders"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0808.1238v1",
+        "material_read": "Full 22-page PDF text; specifically pp. 1-5, 12, 17-18 visually inspected for theorem/cycle table",
+        "method": "Compared Definition 1.8, Proposition 5.7, Theorem 5.9 and Table 4; visual inspection of published pages 17 and 18",
+        "title": "Dynamics Groups of Asynchronous Cellular Automata",
+        "trigger": "Potential dominating prior for exact same Wolfram rule 201"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb1f05e9-dabb-443d-85d3-cf572b778dd0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete classification of the smallest nonfixed recurrent components of a standard integrable Floquet lattice automaton, uniformly for every even volume and unrestricted bitstrings, not an arbitrary finite slice. The explicit six-pattern subshift, transfer polynomial and algebraic entropy distinguish prime-two orbit growth from fixed-point Lucas growth. This provides exact two-state Floquet permutation blocks and a reusable combinatorial description of their support, structurally complementing previous influence-matrix and group-orbit research.",
+    "status": "PASS"
+  }
+}
