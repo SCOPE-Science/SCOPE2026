@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact conjugate updates yield uniform fast-branch decrement and slow-branch Taylor bounds. The nonnegative potential occupation estimate controls weighted time near exit; it gives an O_P(log Z) stopping remainder and the slow occupation limit. Bernoulli random-time invariance principle has variance q/alpha and produces three regimes with variance q/(alpha p^2) and critical shift -2q/(alpha p^2). The proof covers every fixed alpha>0, beta>alpha and 0<p<1, with deterministic Z tending to infinity. The finite standalone checker returned VERIFY_OK; asymptotic statements follow from the proof, not simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bahsoun--Bose--Duan 2013, Thm. 2.3 and Prop. 4.1, provide correlation estimates and comparable-order return bounds.",
+        "Nicol--Török--Vaienti 2015/2016, Eq. (1.6), concerns Birkhoff sums; the sampled observable has fixed macroscopic initial distribution, unlike the present deep-excursion hitting clock."
+      ],
+      "reasoning": "These published results cover related global statistical properties, but neither their explicit statements nor the inspected proofs give a distributional law for the stopping time started at a fixed point tending to the neutral endpoint. General martingale CLTs supply only one ingredient; the slow-map occupation drift and sharp 3/2 boundary require additional analysis.",
+      "searches": [
+        "random Pomeau Manneville maps near neutral fixed point return time asymptotic variance negative binomial drift correction",
+        "random intermittent maps sharp first exit time central limit theorem occupation and Bernoulli time change",
+        "arxiv:1305.6588",
+        "arxiv:1510.03214",
+        "Large deviations and central limit theorems for sequential and random systems of intermittent maps"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1305.6588",
+      "arxiv:1503.06157",
+      "arxiv:1706.04158",
+      "arxiv:1510.03214",
+      "Published mathematical-results semantic index: six mathematical query formulations; no exact statement found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 Remark 2.6 cites a technical restriction beta below 3 alpha over 2 for a non-iid smooth driving model and explicitly says this may be a proof artifact.",
+        "The 2015 Theorem 1.1 and 2017 Proposition 5.5 are statements of leading-order limit for inverse return intervals, with no second-order clock distribution."
+      ],
+      "reasoning": "The numerically identical ratio 3/2 in the older technical condition is not coverage: it places an assumption on a correlation-decay proof in another randomization regime. Here 3/2 separates two genuine limiting distributions, with a derived nonzero mean shift at equality. Leading-order inverse-interval asymptotics imply neither that change nor the variance coefficient, and a CLT for Birkhoff sums does not imply it without verifying the moving-start stopping-time hypotheses.",
+      "searches": [
+        "LSV map random Bernoulli slow fast parameter neutral fixed point first-exit time from laminar region centered normal law shifted at beta equals 1.5 alpha",
+        "random composition intermittent map sharp asymptotic quenched return intervals central limit fluctuations hitting time",
+        "arxiv:1305.6588, Remark 2.6",
+        "arxiv:1503.06157, Theorem 1.1",
+        "arxiv:1706.04158, Proposition 5.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bahsoun--Bose 2015 proves first-order almost-sure backward interval asymptotics (Thm. 1.1), not forward-clock fluctuation distributions.",
+        "Bahsoun--Bose--Ruziboev 2017, Prop. 5.5, similarly gives quenched first-order interval location."
+      ],
+      "reasoning": "The backward random boundary and a deterministic forward first-exit clock are linked by monotonicity, but a first-order boundary limit leaves its second-order fluctuations undetermined. No equivalent Gaussian, shifted Gaussian, or power-correction claim was found in those inspected statements.",
+      "searches": [
+        "random intermittent Liverani Saussol Vaienti maps two exponents Bernoulli switching laminar escape time central limit theorem Gaussian fluctuations correction critical ratio three halves",
+        "LSV map random Bernoulli slow fast parameter neutral fixed point first-exit time from laminar region centered normal law shifted at beta equals 1.5 alpha",
+        "arxiv:1503.06157",
+        "arxiv:1706.04158"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest scientific record concerns subprincipal invariant-density asymptotics for the intermittent LSV family; it has no first-exit fluctuation claim.",
+        "A distinct result on Gaussian grid-collapse under expanding circle maps concerns arithmetic grids and provides no common stopping-time theorem.",
+        "A distinct geometric first-exit calculation for an ultradiscrete planar map concerns a different state space and an entirely different escape mechanism."
+      ],
+      "reasoning": "Actual semantic index searches over source, laminar escape, Bernoulli stopping, Gaussian ratio threshold and equivalences did not surface an exact database record or table for the LSV first-exit trichotomy. This negative search is supporting evidence only and is not treated as a proof of uniqueness.",
+      "searches": [
+        "random intermittent Liverani Saussol Vaienti maps two exponents Bernoulli switching laminar escape time central limit theorem Gaussian fluctuations correction critical ratio three halves",
+        "random Pomeau Manneville maps near neutral fixed point return time asymptotic variance negative binomial drift correction",
+        "random intermittent maps sharp first exit time central limit theorem occupation and Bernoulli time change",
+        "LSV map random Bernoulli slow fast parameter neutral fixed point first-exit time from laminar region centered normal law shifted at beta equals 1.5 alpha",
+        "random intermittent maps α β neutral fixed point annealed escape-time drift power z beta alpha crossover Gaussian",
+        "random composition intermittent map sharp asymptotic quenched return intervals central limit fluctuations hitting time"
+      ]
+    },
+    "rationale": "The exact forward first-exit time trichotomy, shifted normal at beta/alpha=3/2 and power correction coefficient are not stated or implied in the inspected same-family papers. First-order return-interval asymptotics and Birkhoff-sum CLTs lack the state-weighted slow-choice correction. Published-paper and research-index searches revealed no equivalent statement; negative searches do not establish priority and independent historical assessment remains necessary.",
+    "residual_risks": [
+      "Unindexed mathematical studies of first-passage times for independent random LSV compositions might contain equivalent second-order results.",
+      "General first-passage results for state-dependent random walks could imply portions of this theorem after nontrivial specialization; no decisive dominating result was identified.",
+      "Absence of a mathematical-index or literature hit cannot establish historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.3 is an annealed correlation bound; Proposition 4.1 gives order-comparable expectations for random backward return intervals. Remark 2.6 reports a technical exponent-ratio restriction in a different skew-product problem, not a distributional first-exit claim.",
+        "evidence": [
+          "arXiv:1305.6588, Sec. 2, Thm. 2.3, Rem. 2.6, Prop. 4.1 and proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1305.6588",
+        "material_read": "Full primary paper searched for all theorem statements, the map setup in Section 2, Proposition 4.1 and its proof in Section 4, and the discussion of the 3/2 ratio in Remark 2.6.",
+        "method": "Opened and inspected author arXiv PDF text and rendered primary pages.",
+        "title": "Decay of correlation for random intermittent maps",
+        "trigger": "Same two-exponent Bernoulli-switch LSV family and neutral branch; possible domination by prior correlation and return-interval theorems."
+      },
+      {
+        "assessment": "Theorem 1.1 gives almost-sure first-order backward-boundary location and Theorem 1.2 gives return-time tail and correlation asymptotics; no square-root clock limit or explicit slow-choice drift. The inverse relation can imply first-order escape scale, but not the claimed fluctuation trichotomy.",
+        "evidence": [
+          "arXiv:1503.06157, Thms. 1.1--1.2, Sec. 2 and Sec. 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.06157",
+        "material_read": "Abstract, Theorems 1.1 and 1.2, Sections 1--2 (including the first-order proof), and stated Birkhoff-sum applications in Section 3.",
+        "method": "Read the complete directly relevant arguments and theorem statements in the arXiv full-text PDF.",
+        "title": "Mixing rates and limit theorems for random intermittent maps",
+        "trigger": "Sharp asymptotic for random LSV return intervals could imply a first-exit result through inverse sequences."
+      },
+      {
+        "assessment": "The discrete-distribution result gives an almost-sure power law for random backward intervals and focuses on quenched mixing. No distributional fluctuations of forward deterministic-start laminar exit, no critical 3/2 crossover.",
+        "evidence": [
+          "arXiv:1706.04158, Sec. 5.1, Prop. 5.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.04158",
+        "material_read": "Abstract and introduction, Section 5.1 and Proposition 5.5 for the discrete parameter law, the setup and technical bounds around equation (5.7).",
+        "method": "Inspected relevant statements and calculations in the author arXiv full-text PDF, including a rendered Section 5 page.",
+        "title": "Quenched decay of correlations for slowly mixing systems",
+        "trigger": "More recent sharp quenched first-order interval asymptotics for discrete random exponent choices."
+      },
+      {
+        "assessment": "The CLTs concern centered Birkhoff sums for orbits and observables under random/sequential compositions. They do not state the varying-deterministic-initial-state first-exit theorem or imply the exact slow-switch drift or ratio threshold.",
+        "evidence": [
+          "arXiv:1510.03214, Sec. 1, Eq. (1.6), Thms. 3.1 and 5.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.03214",
+        "material_read": "Abstract, detailed setup and observable definitions in Section 1, main CLT discussion in Section 3 and randomized-composition result described in Section 5.",
+        "method": "Inspected arXiv primary full text, including equations identifying the Birkhoff-sum random variable.",
+        "title": "Central limit theorems for sequential and random intermittent dynamical systems",
+        "trigger": "Potential general CLT covering the Gaussian component of a randomly switched LSV orbit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f18bad42-9f1c-4cc2-a41f-226cae92bfb0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "First-exit residence time at the neutral fixed point is a canonical intermittency statistic. The exact crossover beta/alpha=3/2 changes the fluctuation law between a deterministic correction, a shifted Gaussian and a centered Gaussian. Both the leading drift coefficient and the Gaussian variance are explicit, refining prior first-order return-interval results rather than rephrasing them. It supplies a natural finite-size observable for random switching of intermittent maps.",
+    "status": "PASS"
+  }
+}
