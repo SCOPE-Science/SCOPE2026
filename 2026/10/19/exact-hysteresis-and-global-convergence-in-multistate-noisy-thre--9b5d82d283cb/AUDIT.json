@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact three-sample plurality enumeration gives F_i=z_i(1+z_i-S); the shared quadratic fixed-point equation forces at most two received-frequency values, parametrized exhaustively by multiplicity and ratio. Symmetric positive definite Jacobian gives exact tangent eigenvalues, and invariant-line cubic settles both nonhyperbolic boundaries. The convex-gradient potential gives L(F(x))-L(x)>=||F(x)-x||^2/2; finitely many fixed points and asymptotic regularity then prove convergence of every orbit. Verified with 24 exact three-message enumerations, 210 rational fixed-point/Jacobian cases, 4 symbolic gradient identities, 40 exact Lyapunov comparisons and the rational 3-state witness. No finite experiment is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nowak, Ston, Sznajd-Weron (2021), Scientific Reports 11:6098, Eq. (7), studies sequential updates that follow unanimously conforming groups or independent agent-level randomization, as opposed to three independently noisy samples followed by plurality.",
+        "The 2021 q-voter work covers two-level stationary patterns and hysteresis qualitatively, so those features alone are not asserted as novel. Its actual stationary rate law and parameter are distinct."
+      ],
+      "reasoning": "General q-voter and multistate majority-vote bifurcation results are stronger in thematic breadth but not in the precise dynamical class: their update mechanisms and mean-field equations differ. They do not imply the exact pair of thresholds for corrupted three-poll plurality or this map-specific convergence proof; no exact source-reduction was found.",
+      "searches": [
+        "Three-message majority, q opinions, local stability of one-dominant branches and discontinuous spinodal",
+        "Nowak Ston Sznajd-Weron multistate noisy q-voter annealed independence hysteresis equilibria",
+        "Web: \"multistate\" \"q-voter\" \"three\" \"hysteresis\" independence critical",
+        "Web: \"multi state\" \"3-majority\" uniform noise 1/(k+1)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2112.03543 (full relevant model/theorems/future-work passages)",
+      "arxiv:1310.2858 (protocol/expectation/convergence passages and whole-page noise search)",
+      "DOI:10.1038/s41598-021-85361-9 (full accessible HTML model, equilibria, discussion)",
+      "arxiv:1507.05796 and 2018 Springer journal contribution summary (abstract/introduction; full arxiv page inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013/2017 3-majority work at arXiv:1310.2858 covers the zero-noise limit and expected one-step color counts, but does not treat the positive-noise map or its stable branch coexistence.",
+        "arXiv:2112.03543 explicitly restricts the proved phase transition to two opinions; it cannot imply a strict k>=3 hysteresis window via unchanged parameters.",
+        "The 2021 multistate q-voter rate equation is an asynchronous agent-level noise model and differs algebraically from F_i=z_i(1+z_i-S(z))."
+      ],
+      "reasoning": "The exact fixed-point equations, all-k noise thresholds, higher-multiplicity stability exclusion, and strict convex-potential convergence inequality require hypotheses absent from the closest sources. Prior qualitative evidence for multistate hysteresis is acknowledged and not repackaged as the sole contribution. No claim is made that a deterministic fixed-point diagram proves finite-population phase-transition probabilities.",
+      "searches": [
+        "Web: \"3-majority\" \"noise\" \"multiple opinions\" \"2017\" threshold",
+        "Web: \"3-majority\" \"Lyapunov\" \"convergence\" uniform noise multistate",
+        "Web: \"three majority\" \"potential function\" \"mean field\" opinion",
+        "Web: \"5k-4\" \"majority\" \"noise\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Becchetti et al., arXiv:1310.2858, Sec. 2, uses the same three-poll plurality mechanism, but its material explicitly has no independent per-message noise.",
+        "d'Amore--Ziccardi, arXiv:2112.03543, Secs. 1--2 and 4, has independent per-message noise but analyzes the binary rule; its Sec. 1.1 poses the many-opinion case as future work."
+      ],
+      "reasoning": "The sample-mean update without noise is indeed equivalent to the classical 3-majority expectation, but no inspected identical noisy multistate map yields the claimed fold/linear-stability thresholds or the global Lyapunov theorem. Equality of a noiseless limiting map is not coverage of a positive-noise bifurcation statement.",
+      "searches": [
+        "multistate three-majority dynamics with uniform noise, k opinions, tie among three distinct sampled opinions broken uniformly; mean-field map, fixed point bistability thresholds 1/(k+1), k/(5k-4)",
+        "Multistate plurality dynamics on a complete graph with independent channel noise, stationary fraction map z_i(1+z_i-sum_j z_j^2) and two-tier equilibria",
+        "Web: \"3-majority\" \"multiple opinions\" \"noise\" mean field phase transition",
+        "Web: \"3 majority\" \"all opinions\" \"uniform communication noise\" stable equilibrium"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic comparison returned a bounded-confidence switching result, which concerns graph-adjacency changes rather than noisy three-message plurality.",
+        "A three-voter tournament-fiber result describes static elections, not repeated stochastic opinion updates.",
+        "No covering exact polynomial-map table was identified in the recorded scientific searches."
+      ],
+      "reasoning": "The compared indexed mathematical statements and full-text scientific sources do not state the deterministic noise-dependent three-message plurality phase diagram. Failure to identify a record is not proof of uniqueness.",
+      "searches": [
+        "d'Amore Ziccardi phase transition 3-majority uniform communication noise many opinions stable mean-field fixed points",
+        "Becchetti Clementi Natale 3 majority plurality consensus exact expected coloring z_i(1+z_i-sum z^2), noise",
+        "Exact mean-field phase diagram of the multi-opinion three-majority rule with noisy communication and uniformly resolved three-way ties. At k>=3 the stable uniform and k ordered states coexist for p between 1/(k+1) and k/(5k-4)."
+      ]
+    },
+    "rationale": "Binary noise results (arxiv:2112.03543), the noise-free multistate 3-majority result (arxiv:1310.2858), and general multistate q-voter hysteresis (Scientific Reports 11:6098) do not supply the present all-k noisy three-poll fixed-point/stability thresholds and strict potential convergence. Similar qualitative multistate first-order transitions are credited rather than claimed new; residual specialist-equivalence risk remains.",
+    "residual_risks": [
+      "Equivalent fixed-point parameterizations in older multistate majority-vote physics literature may have escaped semantic searching.",
+      "ArXiv full body of Fraigniaud--Natale could not be read in this run; available introduction indicates a different protocol, but its details are not comprehensively excluded.",
+      "The novelty conclusion is model-specific and deterministic; qualitative multistate hysteresis is established in prior q-voter studies, and finite-size metastable effects are not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS binary stochastic threshold; DOES NOT ESTABLISH deterministic arbitrary-k stability folds or Lyapunov convergence",
+        "evidence": "Sec. 1.1 expressly asks whether arbitrary opinion number retains p=1/3; the developed bias state is binary.",
+        "identifier_or_url": "arxiv:2112.03543; https://arxiv.org/abs/2112.03543",
+        "material_read": "Open arXiv HTML: introduction and stated theorems, Sec. 2 update/noise definitions, Sec. 4 binary expectation and fixed-point derivation, related-work comparison, and future-direction passage",
+        "method": "Source-page content read and searches for k-opinion extension, fixed-point and noise model",
+        "title": "Phase Transition of the 3-Majority Dynamics with Uniform Communication Noise",
+        "trigger": "Exact same noisy three-sample update in the binary case and explicit many-opinion open question"
+      },
+      {
+        "assessment": "COVERS noiseless exact sample expectation and convergence of random plurality consensus; NOT the strictly positive corrupted-message parameter family",
+        "evidence": "The protocol draws three agents and tie-breaks; no noise parameter appears in its analyzed model.",
+        "identifier_or_url": "arxiv:1310.2858; https://arxiv.org/abs/1310.2858",
+        "material_read": "Open arXiv HTML: protocol definition and expected-color Lemma 2.1, convergence statements, results sections; checked full searchable page for communication-noise analysis",
+        "method": "ArXiv HTML page sections and document-term find",
+        "title": "Simple Dynamics for Plurality Consensus",
+        "trigger": "Same three-poll plurality/tie protocol"
+      },
+      {
+        "assessment": "COVERS qualitative multistate hysteresis for a different sequential unanimity/independence mechanism; NOT_COVERING precise three-message/noise-per-message formula",
+        "evidence": "Eq. (7) is a continuous-time q-voter rate, contrasting with synchronous cubic F_p and independent message corruption.",
+        "identifier_or_url": "DOI:10.1038/s41598-021-85361-9; https://www.nature.com/articles/s41598-021-85361-9",
+        "material_read": "Full accessible journal HTML, model description, Eq. (7) rate law, Eqs. (9)--(16) equilibrium analysis, phase plots, discussion and conclusion",
+        "method": "Read text and directly compared state transition events, rate equation and stationary implications",
+        "title": "Discontinuous phase transitions in the multi-state noisy q-voter model: quenched vs. annealed disorder",
+        "trigger": "Potential dominating general two-level and hysteresis classification for multistate opinions"
+      },
+      {
+        "assessment": "Different noisy rumor/plurality communication protocol; source not exhaustively compared beyond introduction, residual overlap risk acknowledged",
+        "evidence": "Push protocol and noise matrix formulation instead of synchronous noisy three-poll plurality.",
+        "identifier_or_url": "arxiv:1507.05796; https://arxiv.org/abs/1507.05796",
+        "material_read": "Accessible arXiv abstract plus open journal article introduction and stated contribution describing noisy-push and general noise matrix",
+        "method": "Read abstract and journal introduction; arXiv full page inaccessible during inspection",
+        "title": "Noisy Rumor Spreading and Plurality Consensus",
+        "trigger": "Potential stronger theorem for arbitrary many opinions and noisy channels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b5d82d2-83cb-43d8-a2db-3e5cda7cd260",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating binary noisy three-majority paper asks whether 1/3 persists with arbitrary many opinions. The natural full-k answer has two distinct exact thresholds and an open interval with k+1 attracting equilibria, and the theorem proves global convergence for all deterministic population compositions. This is a substantive nonlinear coexistence boundary and complete fixed-point classification, not a small numerical increment or renamed known q-voter result; the explicit rational 3-opinion witness supplies a transparent benchmark.",
+    "status": "PASS"
+  }
+}
