@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Multiplication and inversion in the skew square-zero extension give an explicit affine formula for inner conjugation. Partition into fixed and nonfixed constant coefficients exhausts all elements without double-counting; orbit-stabilizer gives all sizes. The isomorphism argument uses the characteristic Jacobson radical and the commuting finite-field automorphism group, and an explicit anti-isomorphism establishes the inverse-twist condition. The commuting probability follows from a two-variable linear equation. All eight selected small-field configurations were independently checked by direct finite enumeration. The proof covers arbitrary prime powers, including the commutative identity twist.
+
+**Originality — PASS, subject to bibliographic limitations.** The 2026 motivating finite-zero-divisor paper does not establish the unit-conjugacy orbit distribution or distinguish Frobenius twists up to ring anti-isomorphism. The 2017 skew-polynomial paper gives the multiplicative \(\sigma\)-conjugacy subgroup, already credited, but not the full inner action in the finite square-zero quotient. The 2018 commuting-probability paper does not imply the complete unit-conjugacy spectrum. Related finite-field and local-ring results were compared by implication, not only terminology. Unindexed literature about affine orbits of skew extensions remains a risk; no claim of exhaustive world-literature uniqueness is made.
+
+**Value — PASS.** The complete orbit-size classification supplies an exact natural invariant across all finite-field Frobenius twists. The \(\mathbb F_{32}\) pair exhibits concrete non-(anti)isomorphic rings that cannot be distinguished by their unit-conjugacy orbit spectrum, zero-divisor graph, or commuting probability. This distinguishes the resolving power of several standard ring invariants across an infinite natural family; it is not an arbitrary single-ring computation.
+
+**Limitations.** Only the stated square-zero skew extensions are classified. Elementary finite-field conjugacy facts and existing general commuting-probability results are not claimed as new. The finite checker tests examples, while the proof is valid for all allowed parameters. Possible hidden equivalent affine-orbit literature remains unverified.
+
+Self-review: passed. Independent audit: not yet performed.
