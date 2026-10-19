@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Derived exactly from pivot-invariant independent Gaussian polar coordinates. Reinforcing sign probability 1/2, two angular constraints and Rayleigh radius ratio yield the exact 2D probability; differentiate F_c to obtain the 1D quadrature. Uniform endpoint Taylor expansions over a triangular shrinking domain give delta^2/(2*pi^2)+O(delta^3). Independent 1D and 2D quadratures and Monte Carlo were executed from CHECK.py; simulations do not establish the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spielman–Yu (2026), sections 1–5, https://arxiv.org/html/2610.08701v1; Urschel (2026), main probabilistic theorems, https://arxiv.org/abs/2610.06785; Huang–Tikhomirov (2022), https://arxiv.org/abs/2206.01726"
+      ],
+      "reasoning": "General-n probability bounds do not specify the exact n=2 distribution, and large-n asymptotics do not imply the local endpoint rate as r tends to two at fixed n. Their stronger-dimensional-looking scope does not dominate this exact law.",
+      "searches": [
+        "Gaussian elimination 2 by 2 partial pivoting growth probability growth factor distribution tail",
+        "Spielman Yu Large Growth Happens 2x2 Gaussian growth factor endpoint probability"
+      ]
+    },
+    "checked_sources": [
+      "Spielman–Yu, arxiv:2610.08701v1 (2026), main probability theorems",
+      "Urschel, arxiv:2610.06785v1 (2026), major bounds",
+      "Huang–Tikhomirov, arxiv:2206.01726 (2022), introduction and main theorem",
+      "Trefethen–Schreiber, SIAM J. Matrix Anal. Appl. 11 (1990), sections 1 and 6",
+      "Higham–Higham, SIAM J. Matrix Anal. Appl. 10 (1989), abstract and section 2",
+      "Peca-Medlin–Trogdon, arxiv:2203.15921v2 (2023), introduction and Appendix B"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Higham–Higham (1989) classify maximal-growth real matrices, https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P3.pdf; Peca-Medlin–Trogdon (2023) calculate non-Gaussian random butterfly growth factors, https://arxiv.org/abs/2203.15921; Spielman–Yu (2026) lower-bound large-growth probabilities, https://arxiv.org/abs/2610.08701"
+      ],
+      "reasoning": "The deterministic sharp bound rho<=2 contains no Gaussian probabilities. The butterfly distribution does not reduce to iid Ginibre since its two-dimensional law has a different atom structure. General probabilistic bounds permit many distributions and cannot force the exact integral or 1/(2*pi^2) tail constant. Therefore the inspected statements do not imply this final claim.",
+      "searches": [
+        "Spielman Yu Large Growth Happens 2x2 Gaussian growth factor endpoint probability",
+        "Gaussian elimination 2 by 2 partial pivoting growth probability growth factor distribution tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huang–Tikhomirov (2022) https://arxiv.org/abs/2206.01726, introduction and theorems; Trefethen–Schreiber (1990), sections 1 and 6, https://people.maths.ox.ac.uk/trefethen/publication/PDF/1990_44.pdf"
+      ],
+      "reasoning": "The relevant equivalent event is that the final Schur pivot exceeds r times the largest original entry. Published asymptotic bounds and average-case heuristics are neither equivalent to nor stronger than an exact n=2 Gaussian CDF with an atom and endpoint coefficient. No inspected matching statement was found.",
+      "searches": [
+        "Ginibre two by two Gaussian elimination partial pivoting exact growth factor cdf atom at one near two tail quadratic",
+        "LU with partial pivoting 2x2 gaussian matrices element growth factor distribution explicit density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Trefethen–Schreiber (1990), growth-factor numerical plots, section 6, https://people.maths.ox.ac.uk/trefethen/publication/PDF/1990_44.pdf; Higham–Higham (1989), deterministic extremal GEPP examples, https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P3.pdf"
+      ],
+      "reasoning": "The inspected historical tables and plots concern approximate averages and deterministic maximum-size growth, not an exact integral law for iid Gaussian 2x2 GEPP. Searches alone do not exclude unpublished tables; this uncertainty is retained.",
+      "searches": [
+        "exact distribution 2x2 real Gaussian Ginibre GEPP element growth factor tail near maximal 2 with quadratic exponent",
+        "Ginibre two by two Gaussian elimination partial pivoting exact growth factor cdf atom at one near two tail quadratic"
+      ]
+    },
+    "rationale": "Claim-level comparisons with six primary papers distinguish deterministic upper bounds, approximate mean growth, general-n probabilistic bounds, and structured butterfly distributions from the complete iid Gaussian 2x2 survival law and exact endpoint coefficient. Targeted semantic and web searches did not find a covering theorem; a plausible inaccessible older technical report remains a disclosed bibliographic risk. This is a best-knowledge judgment, not proof of uniqueness.",
+    "residual_risks": [
+      "D. Macleod, historical unpublished 1988 technical report on the distribution of GEPP growth could not be obtained; exact two-dimensional calculations in it are unknown.",
+      "Not every appendix and unrelated section of every lengthy source was inspected; equivalent unindexed derivations remain possible.",
+      "Semantic and keyword searches cannot prove mathematical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact two-by-two survival law or quadratic endpoint coefficient in inspected material",
+        "evidence": "Theorems bound probabilities in general dimension and construction events rather than enumerate the complete n=2 distribution.",
+        "identifier_or_url": "https://arxiv.org/html/2610.08701v1",
+        "material_read": "Accessible HTML introduction and Sections 1–5 including principal theorems and construction",
+        "method": "Read the primary full-text HTML and compare its probability statements to the fixed-dimension exact CDF",
+        "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Random Matrices",
+        "trigger": "Same exact Gaussian GEPP model and rare large growth"
+      },
+      {
+        "assessment": "Dimension-dependent and high-dimensional bounds; no n=2 exact law in inspected sections",
+        "evidence": "The main theorem concerns polynomial growth upper bounds, not an exact Gaussian two-by-two survival law.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.06785",
+        "material_read": "Full PDF sections 1, 3–6 and main theorem statements",
+        "method": "Read primary PDF text and relevant pages; compare quantifiers and dimensional limits",
+        "title": "On the Growth Factor of Random Matrices",
+        "trigger": "Gaussian GEPP growth bounds and possible stronger covering theorem"
+      },
+      {
+        "assessment": "The two-by-two illustration is about no-pivoting finite-precision difficulty; the main random-GEPP theorem is asymptotic, not the claimed exact distribution",
+        "evidence": "Theorem A assumes large n; introductory 2-by-2 example concerns no-pivoting computation.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.01726",
+        "material_read": "Full HTML introduction, exact arithmetic growth definition, Theorem A, and the 2-by-2 illustration near the end of the introduction",
+        "method": "Read arXiv HTML and compare event and theorem assumptions",
+        "title": "Average-case analysis of the Gaussian Elimination with Partial Pivoting",
+        "trigger": "Earlier Gaussian GEPP high-probability upper bounds; mentions a 2-by-2 example"
+      },
+      {
+        "assessment": "Approximate models and Monte Carlo growth data, no exact n=2 Gaussian CDF",
+        "evidence": "Abstract explicitly describes approximate element distributions and experimental average growth.",
+        "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/publication/PDF/1990_44.pdf",
+        "material_read": "PDF abstract, introduction, sections on empirical growth and section 6",
+        "method": "Read primary PDF text and visual pages including p. 335 and p. 347",
+        "title": "Average-Case Stability of Gaussian Elimination",
+        "trigger": "Classical mean growth and distribution experiments"
+      },
+      {
+        "assessment": "Classifies deterministic maximizers, not Gaussian survival probabilities",
+        "evidence": "Abstract and section 2 focus on maximizers and large-growth deterministic matrices.",
+        "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P3.pdf",
+        "material_read": "PDF introduction and section 2 on extremal growth families and worst-case structure",
+        "method": "Read primary PDF and the first-page image",
+        "title": "Large Growth Factors in Gaussian Elimination with Pivoting",
+        "trigger": "Sharp worst-case 2-by-2 GEPP bound and extremizers"
+      },
+      {
+        "assessment": "Different structured random butterfly ensemble and different growth distribution",
+        "evidence": "Two-dimensional butterfly growth can be written 1+Y^2 and therefore is atomless at one, unlike the iid Gaussian growth law here.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.15921",
+        "material_read": "Full PDF introduction, Theorem 2.3 and Appendix B including two-dimensional cases",
+        "method": "Read primary paper and inspect relevant PDF pages",
+        "title": "Growth factors of random butterfly matrices and stability of avoiding pivoting",
+        "trigger": "Exact distribution of two-by-two growth for another random-matrix ensemble"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d62c51ae-0ba1-477d-a80c-fb5d20482fd8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete exact law for the smallest nontrivial Gaussian GEPP problem resolves all thresholds including an atypical atom at one and sharp rare-event tail probability near the worst deterministic bound. It is a reproducible analytic base-case benchmark for ongoing random-elimination stability and rare growth studies, not an arbitrary slice or a routine numerical table lookup.",
+    "status": "PASS"
+  }
+}
