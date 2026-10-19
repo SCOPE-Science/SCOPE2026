@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every real t>1, direct PCG line minimization yields the two exact energy errors; rational differentiation yields a sign controlled by q_t(theta), and a perfect-square identity gives the exact global minimum. q_t has discriminant t^2(t-3)(t+1), with its only admissible zero iff t>3; strict sign establishes uniqueness, and the explicit diagonal spectrum establishes the unchanged-or-worse condition number. Four symbolic identities and 16,719 checks from direct independent PCG calculation confirm the critical formulas. The proved scope excludes other workloads, rounding, and later steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fan et al. treat arbitrary matrices for nonsingularity and study Richardson and FGMRES; this does not imply exact one-PCG-step ensemble tuning.",
+        "Diouane et al. permit spectral adjustments beyond the fixed Type-I additive family, and optimize a fixed residual; their broader design framework does not supply a sharp restricted-class balanced ensemble threshold.",
+        "Stathopoulos–Orginos, arXiv:0707.0131, address eigenvalue deflation across multiple right-hand sides, not this prescribed average-risk optimum."
+      ],
+      "reasoning": "Broader preconditioning constructions and multi-query applications do not by themselves imply this nonconvex scalar optimum. The finding is restricted to a natural fixed regularized inverse class and two balanced queries. Existing general upper bounds or unconstrained optimal preconditioners cannot substitute for a necessary-and-sufficient classification within this family.",
+      "searches": [
+        "spectral preconditioner optimal regularization finite budget conjugate gradient ensemble multiple systems versus condition number",
+        "optimal cluster placement one-step conjugate gradient preconditioner fixed budget exact zero mode energy error finite spectrum",
+        "arXiv:2609.11097v1 §§3.1–3.5",
+        "arXiv:2603.28969v1 §§3–4"
+      ]
+    },
+    "checked_sources": [
+      "Fan–Hu–Zhang, arXiv:2609.11097v1, open-access full text",
+      "Diouane–Gürol–Mouhtal–Orban, arXiv:2603.28969v1, open-access full text",
+      "Stathopoulos–Orginos, arXiv:0707.0131, accessible paper text",
+      "Nabben–Vuik (2008), doi:10.1002/nla.571, abstract only",
+      "Gratton–Titley-Peloquin–Toint–Ilunga, doi:10.1137/120889848, abstract-level comparison of differentiating CG"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Fan construction implies the stated inverse-preconditioner formula, and that component is expressly treated as prior work.",
+        "The one-step line-minimizing PCG identity is classical and not claimed as original.",
+        "Diouane et al. §3.1 optimize an error in \\(A\\)-norm for a fixed initial residual with free spectral adjustment, while the present fixed Type-I parameter simultaneously affects the two separate residuals.",
+        "The new exact identities are a balanced-risk rational square, its derivative factorization, the threshold at \\(t=3\\), and the resulting unique finite optimizer above the threshold."
+      ],
+      "reasoning": "General existence of a best spectral cluster for one fixed RHS neither provides nor directly implies the constrained two-query average-risk classification. Conversely, the earlier reduction of spectral conditioning in one-row families concerns a different asymptotic metric. The stated threshold and formulas are not quoted from the prior sources.",
+      "searches": [
+        "Fan Hu Zhang Type I additive reduced basis preconditioner one step PCG multiple right hand sides average energy loss phase transition",
+        "spectral preconditioner optimal regularization finite budget conjugate gradient ensemble multiple systems versus condition number",
+        "arXiv:2609.11097v1 eq. (4), §3.4",
+        "arXiv:2603.28969v1 §3.1 eq. (10), §4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diouane et al., arXiv:2603.28969v1, §3, optimize fixed-right-hand-side finite-budget PCG energy error by selecting a spectral cluster; §4 gives heuristic cluster strategies.",
+        "Fan et al., arXiv:2609.11097v1, §3.1, define the Type-I inverse preconditioner with ridge parameter.",
+        "The present result fixes one Type-I parameter across a balanced pair of distinct right-hand sides and yields the precise threshold \\(t=3\\)."
+      ],
+      "reasoning": "The classical PCG first-step identity, spectral placement, and reduction to eigenvalues are acknowledged. Their equivalent single-RHS formulations do not furnish the minimum of a shared-parameter average of two nonlinear error functions, which is different from optimizing each RHS separately. A generic optimizer model could encode this instance but does not logically state the exact sharp transition or selected scalar.",
+      "searches": [
+        "mean energy norm after one conjugate gradient step two right hand sides regularization scalar diagonal two spectral intervals bifurcation",
+        "preconditioned conjugate gradient average energy error across multiple right hand sides optimal spectral preconditioning parameter",
+        "short horizon conjugate gradient stochastic right hand sides optimal spectral scaling average expected energy loss",
+        "arXiv:2603.28969v1 §3 optimal spectral cluster for fixed residual"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches against published numerical-linear-algebra records returned results about CG positivity, finite-horizon iterative rates, Richardson relaxation and condition-number preconditioning, but no exact balanced two-query \\(t=3\\) Type-I-PCG formula.",
+        "Direct public-literature queries retrieved the Fan and Diouane source papers and general preconditioning references rather than a precomputed table of the stated phase law."
+      ],
+      "reasoning": "No exact tabulation or known closed-form entry with the same four-coordinate matrix, two RHSs, balancing weights, constrained ridge parameter, and finite-budget risk was located. Search absence is not a proof of novelty; the remaining risk is recorded.",
+      "searches": [
+        "Fan Hu Zhang Type I additive reduced basis preconditioner one step PCG multiple right hand sides average energy loss phase transition",
+        "mean energy norm after one conjugate gradient step two right hand sides regularization scalar diagonal two spectral intervals bifurcation",
+        "conjugate gradient expected energy error right hand side distribution preconditioner optimization"
+      ]
+    },
+    "rationale": "The shared Type-I matrix and classical first-step PCG identity are prior mathematics. Comparison of the accessible primary papers and relevant published records finds no stated exact two-RHS balanced workload phase boundary, unique constrained Type-I optimum, and condition-number separation. This is a best-knowledge conclusion with specific older-literature risks, not a search-derived uniqueness claim.",
+    "residual_risks": [
+      "A differently parameterized average-case or stochastic-right-hand-side PCG preconditioner theorem may subsume the four-coordinate specialization.",
+      "Nabben–Vuik (2008) full text was not inspected; an abstract cannot certify noncoverage.",
+      "The sharp result concerns only one finite PCG step and one balanced two-query distribution; extensions to broad problems require independent arguments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the Type-I construction but not the balanced two-RHS first-PCG-step phase diagram.",
+        "evidence": [
+          "Equation (4) gives \\(M_{(1)}=(\\widetilde M+\\alpha I)^{-1}\\); §3.4 treats Richardson; §§3.5 and 5 discuss FGMRES and nonsingularity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.11097v1",
+        "material_read": "Open-access full-text introduction, §3.1 preconditioner definitions, §3.4 Richardson analysis, §3.5 FGMRES construction, conclusion and MSC codes.",
+        "method": "Read the accessible full HTML manuscript and compared its explicit formulas and studied iterative methods to the one-step PCG ensemble criterion.",
+        "title": "Additive Reduced Basis Preconditioners for Large-Scale Parametrized PDEs",
+        "trigger": "Exact Type-I inverse regularization and multi-query PDE context"
+      },
+      {
+        "assessment": "Motivates finite-budget energy-error optimization and may dominate unconstrained design questions, but does not explicitly state this fixed-Type-I balanced two-query threshold.",
+        "evidence": [
+          "§3.1 equation (10) optimizes \\(\\|x^*-\\widehat x_\\ell(F)\\|_A^2\\) for a specified system; the current theorem minimizes a probability-weighted sum across two systems sharing one ridge scalar."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+        "material_read": "Open-access full-text §§2–4 including the fixed-RHS optimization (10), spectral placement strategy, and first-iteration energy-error considerations.",
+        "method": "Read the accessible HTML manuscript and compared initial-residual quantifiers, permitted spectral adjustments and its optimization objective.",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Potential direct coverage of short-horizon optimal spectral placement"
+      },
+      {
+        "assessment": "General multiple-RHS deflation context, not the exact constrained balanced workload scalar optimum.",
+        "evidence": [
+          "Uses eigenvector deflation/recycling over multiple systems rather than the exact Type-I one-step PCG risk for the prescribed four-eigenvalue benchmark."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0707.0131",
+        "material_read": "Accessible public paper text covering the multiple-right-hand-side deflation model and recycling motivation.",
+        "method": "Compared the method and result statements with a scalar ridge regularization optimized for one-step mean squared energy error.",
+        "title": "Computing and Deflating Eigenvalues While Solving Multiple Right Hand Side Linear Systems in Quantum Chromodynamics",
+        "trigger": "Multi-right-hand-side deflation may cover shared preconditioners"
+      },
+      {
+        "assessment": "No decisive same-claim evidence from abstract; possible residual historical equivalence risk.",
+        "evidence": [
+          "Nabben and Vuik compare general deflation and coarse-grid preconditioning; no exposed claim specifying one-step balanced two-query risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.571",
+        "material_read": "Accessible bibliographic metadata and abstract; full article not inspected.",
+        "method": "Compared abstract-level description only, without inferring full-text noncoverage.",
+        "title": "A comparison of abstract versions of deflation, balancing and additive coarse grid correction preconditioners",
+        "trigger": "Historical abstract framework potentially equivalent to the source preconditioner"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b93d0b2c-c50c-411e-9ce4-7f915193c1a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The weights exactly equalize the two input queries’ contributions to initial squared energy error, supplying a principled finite-budget multi-query design rather than arbitrary numbers. A shared scalar ridge parameter has a genuine exact phase boundary t=3, a unique formula for its optimum for t>3, and quantifiable gain even though no parameter can improve spectral condition number. This is a structural warning that a condition-number proxy does not determine single-step workload performance; no general downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
