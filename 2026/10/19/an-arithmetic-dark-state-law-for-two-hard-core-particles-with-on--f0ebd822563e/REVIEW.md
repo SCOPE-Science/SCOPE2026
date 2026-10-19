@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+The no-jump reduction follows from the single Lindblad jump to an absorbing vacuum. The ordered hard-core two-particle Hamiltonian is the exterior square of the path adjacency. One-body sine eigenmodes diagonalize it. For odd prime denominator, the independent cyclotomic cosine basis excludes all degenerate nonzero two-particle energies; every such eigenvector has nonzero amplitude at the first bond. Thus only the zero-energy subspace supports surviving states, and precisely one of its \((p-1)/2\) dimensions couples to the jump. Two finite trigonometric identities yield the exact diagonal entries of the projected surviving space. Dissipativity proves that all complementary eigenmodes decay for every \(\kappa>0\), with no restriction on its size relative to hopping. Every part of the formula has been checked against independently constructed finite adjacency matrices. Potential limitation: the proof does not extend unchanged to composite denominators because further energy degeneracies can occur.
+
+## Originality — PASS, provisional scientific priority
+
+Inspected primary full-text sources include Krovi–Brun (arXiv:quant-ph/0606094), Krapivsky–Luck–Mallick (arXiv:1311.6298), Everest–Hush–Lesanovsky (arXiv:1406.6097), Large–Underwood–Feder (arXiv:1412.1022), and Marché et al. (arXiv:2405.04789). The first two develop spectral trapping for single-particle walks, the third uses distributed nonlocal pair losses, the fourth free hard-core transport without a sink, and the fifth onsite losses for non-hard-core bosons. General dark-projector or free-fermion methods are earlier knowledge, not the asserted novelty. The precise prime-family localized boundary pair-loss survival law and \((p-3)/2\) classification are not directly stated or implied by those inspected treatments without additional spectral and arithmetic analysis. published-finding corpus and published-source searches for close alternative formulations did not identify this exact evaluated law. Residual risk: an unidentified broader spectral or dissipative many-body theorem may subsume the result; searches alone cannot establish publication priority.
+
+## Value — PASS
+
+A unique localized bond-loss channel is a natural two-particle reaction trap, and hard-core nearest-neighbor transport is a canonical solvable lattice. The exact initial-position dependence distinguishes certain unit-probability annihilations from permanently protected pairs, rather than merely counting possible dark eigenvectors. The prime arithmetic restriction is mathematically substantive: it eliminates otherwise possible energy-resonance contributions. The all-size and all-positive-rate law is a reusable reference for localized many-body capture, not a numerical lookup or arbitrary unexplained invariant. The finding does not claim experimental performance, broader rates of convergence, or an extension to composite paths.
+
+Self-review: passed. Independent audit: not yet performed.
