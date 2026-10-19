@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The complete finite successor graph is enumerated with exact integers and deterministically decomposed into all cycles and basins. Both exact finite-state means and the native-rounding Voronoi probabilities are computed by rational sums. The continuum invariant mean uses the classical Parry formula with explicit 120-term, tail-bounded rational enclosure. IEEE nearest-even ties, subnormals, branch behavior and endpoint one are addressed; the all-state checker assertions pass, with a separate independent binary16 transition comparison. This is exhaustive finite computation, not proof about infinite-precision dynamics beyond the cited density formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boghosian et al. 2019 characterize Float32 beta=3/2 behavior, not binary16.",
+        "Klöwer et al. 2022/2023 compare multiple precisions numerically but their inspected analysis has no exhaustive all-state binary16 graph."
+      ],
+      "reasoning": "A prior theorem covering arbitrary IEEE binary16 beta parameters or all finite floating-point formats could dominate this special value, but no such exact classification or table was found in the inspected primary materials. Float32 results cannot be specialized by reducing mantissa width, since the rounded successor changes.",
+      "searches": [
+        "Klöwer Coveney Paxton Palmer low precision periodic orbits finite state attractor enumeration Float16 Monte Carlo",
+        "Boghosian Coveney Wang native half precision floating point generalized Bernoulli beta map cycle 41",
+        "doi:10.1002/adts.201900125",
+        "doi:10.1038/s41598-023-37004-4"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/adts.201900125",
+      "doi:10.21203/rs.3.rs-2223046/v1",
+      "doi:10.1038/s41598-023-37004-4",
+      "https://github.com/milankl/BernoulliMap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General fact of eventual periodicity in any finite deterministic system is known and is not claimed as novel.",
+        "Prior work has the exact invariant density of the real beta map and sampled finite-precision biases, which are used only as supporting literature."
+      ],
+      "reasoning": "Prior general eventual periodicity implies existence of cycles but not their exact five periods, complete native-half state basins, 155-step sharp entry maximum, or rational ensemble mean. Real invariant density yields the continuum comparison but no rounded graph statistics. The new part is the complete particular native binary16 graph and its exact initial-ensemble observable.",
+      "searches": [
+        "Klöwer Coveney Paxton Palmer low precision periodic orbits finite state attractor enumeration Float16 Monte Carlo",
+        "binary16 IEEE 754 half precision beta transformation Renyi beta shift beta 3/2 exact five attractors 15360 states cycle lengths",
+        "doi:10.1002/adts.201900125",
+        "doi:10.21203/rs.3.rs-2223046/v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The author-named beta shift / generalized Bernoulli / Renyi transformation are alternative names for the same real map, but the exact rounded map is a distinct function for each number format.",
+        "All IEEE-754 binary16 encodings below one, not a symbolic real-map periodic-orbit classification, form the problem domain."
+      ],
+      "reasoning": "Reformulating the system as beta-shift or Renyi beta transformation does not produce the binary16 successor table without the specific per-operation rounding semantics; searched semantic aliases and cycle-period signatures.",
+      "searches": [
+        "complete exhaustive IEEE 754 Float16 beta 3/2 generalized Bernoulli map attracting cycles 41 24 4 3 periods basin sizes 15360",
+        "half precision beta transformation beta 1.5 map period 41 24 4 3 cycles basins exact graph",
+        "binary16 IEEE 754 half precision beta transformation Renyi beta shift beta 3/2 exact five attractors 15360 states cycle lengths",
+        "Boghosian Coveney Wang generalized Bernoulli map beta 3/2 finite precision attractor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Float32 table in the 2019 primary paper concerns a different state set and its own cycle count.",
+        "The inspected 2023 study reports sampled histograms and periods rather than a complete IEEE binary16 census at beta=3/2."
+      ],
+      "reasoning": "The exact tuple of five periods, all five basin counts and Lebesgue-Voronoi numerators was searched as an exact-table signature. No matching accessible existing table was identified; supplemental data not fully inspected remains a residual risk.",
+      "searches": [
+        "complete exhaustive IEEE 754 Float16 beta 3/2 generalized Bernoulli map attracting cycles 41 24 4 3 periods basin sizes 15360",
+        "half precision beta transformation beta 1.5 map period 41 24 4 3 cycles basins exact graph",
+        "beta transformation 1.5 binary16 16bit invariant density discrete graph basin measures numerical floating point bias",
+        "\"periods 1 3 4 24 41\" \"Bernoulli\" floating point"
+      ]
+    },
+    "rationale": "The exact native IEEE binary16 graph has a computed total transition function on 15360 vertices, whose indegree-zero peeling reveals precisely five primitive cycles and exact basin sizes, depths and minima; no sample-to-infinity extrapolation is used. The exact integer midpoint algorithm implements IEEE nearest-even multiplication; the subtraction of one is exact for this product range. The transition-table SHA and independent native binary16 comparison confirm operations. Rational Voronoi cells give weighted basin probabilities and finite cycle averages, and the established beta-map Parry/Hofbauer formula with a 120-term rigorous tail enclosure gives the distinct continuum invariant mean. The checker independently reproduces the literal reported integers and rational statistics.",
+    "residual_risks": [
+      "An equivalent complete enumeration could appear in a specialised finite-precision table, an uninspected supplementary notebook, or an otherwise inaccessible earlier source.",
+      "The hardware operation model is explicit and not guaranteed identical to every compiler or accelerated implementation using a fused or extra-precision expression."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The reported complete enumeration uses Float32 and does not imply the binary16 transition graph, five periods, Voronoi basin probabilities or exact mean.",
+        "evidence": [
+          "DOI:10.1002/adts.201900125; first public publication 2019-09-23",
+          "The single-precision beta=3/2 cycles reported include ten distinct periods, unlike binary16 five-cycle census."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/adts.201900125",
+        "material_read": "Open-access complete article via Wiley full-text and UCL description, particularly definition of map, noninteger beta regime, finite-state graph/cycle discussion and Float32 cycle table.",
+        "method": "Full-text HTML examination and direct comparison of hardware format and state graph.",
+        "title": "A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers",
+        "trigger": "Same beta=3/2 map and finite-precision cycle/measure distortion; plausible prior domination."
+      },
+      {
+        "assessment": "Monte Carlo or trajectory-based periodicity and invariant histograms; no exhaustive exact 15360-vertex native-binary16 all-state graph or exact basin-weighted long-time mean identified.",
+        "evidence": [
+          "Preprint DOI:10.21203/rs.3.rs-2223046/v1 (2022-11-08)",
+          "Journal DOI:10.1038/s41598-023-37004-4 (2023-07-14)",
+          "Open implementation description: https://github.com/milankl/BernoulliMap, invariant measures estimated from 1000 initial trajectories, 10000 steps, histogram width 0.025."
+        ],
+        "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-2223046/v1",
+        "material_read": "Open 2022 preprint text and accessible 2023 published article sections on Bernoulli map, numerical precision, figures and finite-precision orbit methods.",
+        "method": "Section-level substantive reading plus comparison with open author repository README summarizing simulation ensembles.",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Half-precision generalised Bernoulli map treated experimentally."
+      },
+      {
+        "assessment": "The accessible README uses sampled trajectories and binned distributions; no complete five-cycle exact graph or basin census reported there.",
+        "evidence": [
+          "README states 1000 trajectories each 10000 steps and beta=3/2 is one example.",
+          "No numerical-period census matching 1,3,4,24,41 is contained in the inspected README."
+        ],
+        "identifier_or_url": "https://github.com/milankl/BernoulliMap",
+        "material_read": "Repository README sections on invariant density, beta=2 collapse, beta=3/2 simulation and beta-dependent attractor spectra.",
+        "method": "Read mathematical exposition and figures descriptions; no assumptions made about uninspected implementation notebooks.",
+        "title": "BernoulliMap: Chaos in one variable",
+        "trigger": "Author implementation and detailed presentation; plausible exact cycle table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2949836-1069-4f39-b2cf-055b038bf041",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exhaustive census answers a precise natural unknown invariant question for the ordinary 16-bit IEEE arithmetic and the canonical exactly representable noninteger beta=3/2. Its five exact attractors and basin probabilities classify every possible stored state and every nearest-rounded real initial ensemble. The >0.103 shift in a basic stationary observable gives a substantial, quantitatively testable benchmark not recoverable from the already published Float32 census or Monte Carlo histograms. It is a fully resolved finite-precision dynamical object, with no asserted general theory for other precisions.",
+    "status": "PASS"
+  }
+}
