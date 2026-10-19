@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes exact supports and Fourier normalization, counts all nine signal-window coefficient products, and proves r_t<=2 from the nontranslate hypothesis. The pair-difference scalar product E equals the number of two-term shifts; each one has at most one Fourier zero because p is prime. Over F2, sign consistency is equivalent to cancelling a full set of double slices at frequency zero. For p>=7 all masks are independent except three-edge nonprogression reflections; in that case multiplying exact complex cancellation equations gives 1=-z^m, impossible for odd p, while two cancellations remain possible. The p=5 exception is handled by a concrete four-zero sign witness and affine transport. The exceptional counts follow from unique progression centers. Exact checker.py exhaustively verifies every unmatched ordered triple pair at p=5,7,11,13; finite enumeration supports but does not prove the infinite result. No unproved auxiliary lemma is needed beyond finite triangle-edge orientation, shown in the proof. A second direct computation in the same standalone checker uses the cyclotomic minimal polynomial to evaluate all 64 sign assignments for each of four representative STFT instances, including a reflected exception, without floating point.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krahmer-Pfander-Rashkov Proposition 4.4 gives at least 5p-4 for three-by-three supports when p≥7; the new unmatched-support bound is 6p-3, plus the complete fixed-pair E/epsilon formula.",
+        "Nicola Theorem 1.2 characterizes equality |supp V_g f|=p, not fine structure at 6p-3.",
+        "The previous two-sparse trichotomy considers four product pairs rather than nine."
+      ],
+      "reasoning": "The published lower bounds apply generally but are strictly weaker and do not imply the sharp unmatched support or its reflected-triangle exception; no stronger covering theorem was identified in the inspected sources.",
+      "searches": [
+        "for non-translate three-point supports in prime cyclic groups short-time Fourier transform has sharp minimum 6p-3",
+        "finite cyclic short time Fourier transform exact support prescribed sparse signal window sets support intersection combinatorial",
+        "arxiv:math/0611493 Proposition 4.4 support size",
+        "arxiv:2204.14176 Theorems 1.1 1.2"
+      ]
+    },
+    "checked_sources": [
+      "F. Nicola, arXiv:2204.14176v1 (2022-04-29), Theorems 1.1-1.2, full PDF relevant pp. 1-4 and 8-9, global STFT equality at support p.",
+      "F. Krahmer, G. E. Pfander, P. Rashkov, arXiv:math/0611493v1 (2006-11-16), PDF pp. 1,14-16, Proposition 4.4 and Table/Figure for Z5, lower bounds using only input support cardinalities.",
+      "Published published-finding corpus record 2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c; full RESULT.md read; two-point input supports and three-valued support trichotomy."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The matched-support case A=B permits threefold time-shift overlaps; the present nontranslation hypothesis prohibits every threefold overlap.",
+        "The two-sparse published trichotomy assumes exactly two nonzero signal and window samples.",
+        "Nicola classification at the global lower bound p is attained in a different support regime; Krahmer-Pfander-Rashkov only impose cardinality lower bounds."
+      ],
+      "reasoning": "Neither a matched-support theorem, a two-sparse theorem, nor a general weaker lower bound implies the support-pair dependent formula or the negative cycle condition. The nontranslated hypothesis and the reflected nonprogression exception are essential, not a renamed special case.",
+      "searches": [
+        "short time Fourier transform three sparse signals with distinct three element supports collision difference graph obstruction",
+        "prime cyclic short time Fourier transform fixed signal window supports three elements",
+        "short time Fourier transform sparse window exact zero patterns support uncertainty finite cyclic groups"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Odd-cycle constraints for reflected nonprogression pairs are multiplicative cross-ratio constraints on three doubly occupied STFT time slices; the natural equivalent language is zero structure of sparse cross-ambiguity functions.",
+        "published-finding corpus search returned the two-sparse trichotomy 2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c and unrelated single-signal Fourier-zero results, rather than a three-by-three reflected triangle classification."
+      ],
+      "reasoning": "The proposed equivalence to sparse radar cross-ambiguity geometry was searched, and the closest recorded formulas concern one or two spatial taps; none yields the exact E-based six-product obstruction or ordered exceptional-pair count. An unindexed synonymous formulation is still possible.",
+      "searches": [
+        "unmatched ternary sparse STFT supports reflected sets triangle parity odd circuit defect 6p-2",
+        "cyclic differences reflected non arithmetic progression triples cross ambiguity odd cycle zero obstruction",
+        "prime cyclic short time Fourier transform fixed signal window supports three elements"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krahmer-Pfander-Rashkov provide general support-bound tables/figures at small orders; they do not enumerate every distinct three-point support pair with E and epsilon or provide the all-prime class count.",
+        "Exact check yields reflected pair counts 98,1210,2704 at p=7,11,13."
+      ],
+      "reasoning": "Finite historical figures cannot dominate an all-prime fixed-support classification unless they embody a general theorem or equivalent table. The full-text sampled figures and propositions provide no such result; prior unindexed computational tables remain possible.",
+      "searches": [
+        "three sparse signals windows distinct support sets STFT exact zeros coincidence multiplicity",
+        "support spectrum STFT Z5 Z7 three sparse pairs",
+        "arxiv:math/0611493 Table 6 Figure 6 for Z5"
+      ]
+    },
+    "rationale": "The exact fixed-support formula combines difference-class multiplicities with a reflected nonprogression odd-cycle obstruction. Krahmer-Pfander-Rashkov provide a coarser cardinality-based lower bound; Nicola identifies only equality at global support p; the publicly inspected two-sparse trichotomy has no three-edge circuit. The matched-support problem lies outside the new inequivalent-support hypotheses. Targeted semantic and alias searches did not find a covering statement. Possible unindexed ambiguity-function equivalence remains a residual bibliographic risk.",
+    "residual_risks": [
+      "An equivalent classification may exist in unindexed or differently titled discrete radar ambiguity, sparse convolution, or combinatorial difference-set literature.",
+      "Finite exact checks cover p=5,7,11,13 only; general validity depends on the explicit proof, not on extrapolation.",
+      "An independent review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: characterizes only the global support p extremal and its coset structure, not fixed unmatched three-tap aperture minima.",
+        "evidence": [
+          "arXiv:2204.14176v1, Theorem 1.2: support exactly p iff a subgroup coset; no E/epsilon three-tap formula.",
+          "arXiv abstract and first page: verified 2022-04-29 and MSC 43A75."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.14176",
+        "material_read": "PDF page 1 full title/abstract and MSC codes; pages 2-4 STFT normalization and Theorems 1.1-1.2; pages 9-10 proof of the universal bound and concluding generalization; reference list consulted.",
+        "method": "Primary arXiv PDF textual inspection plus page image for first-page classification",
+        "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+        "trigger": "Source defining the STFT uncertainty context and eligible historical cohort"
+      },
+      {
+        "assessment": "NOT_COVERING: the sparsity-only bound is weaker for unmatched three-tap supports and does not classify difference collisions or the odd-cycle nonattainment penalty.",
+        "evidence": [
+          "arXiv:math/0611493v1, Proposition 4.4: formula p(p+1)-(p+1-r)(p+1-s) for r+s<=p and another branch if r+s>p.",
+          "For r=s=3 and p>=7 its consequence is 5p-4, not the present 6p-3 fixed-unmatched optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611493",
+        "material_read": "Primary full-PDF text: introduction and notation on pages 1-4, support bound Proposition 4.4 and derivation on page 15, surrounding Figure 6 for Z5 and prime-case Theorem 4.5 on page 16; links to appendix considered.",
+        "method": "Primary arXiv PDF section-level reading with mathematical comparison of hypotheses and bound implications",
+        "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+        "trigger": "Strongest plausibly covering earlier result on sparse prime-cyclic STFT support and finite small-group tables"
+      },
+      {
+        "assessment": "NOT_COVERING: exactly two nonzero coefficients per input; three-by-three unmatched support geometry and triangle obstruction are outside its scope.",
+        "evidence": [
+          "Its classification is 3p-1,3p,4p for two-by-two supports according to aligned differences; no three-edge parity cycle can arise."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c/RESULT.md",
+        "material_read": "Complete RESULT.md, including Finding, Assumptions and scope, Proof, Verification, Relationship to prior work, Limitations and References.",
+        "method": "Read publicly available repository file through authorized read-only GitHub retrieval",
+        "title": "Exact support trichotomy for two-sparse prime cyclic STFTs",
+        "trigger": "Closest publicly indexed related finite STFT support classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db41144c-651f-4984-acf1-efd6bec80dd3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-input-support STFT uncertainty problem is naturally motivated by sparse radar/time-frequency interpolation. The theorem gives the exact natural invariant min |supp V_g f| for every nontranslated three-point pair at all odd primes, not just a global lower bound. It identifies a mathematical obstruction absent from scalar collision counting: a reflected nonprogression triangle forces one lost potential Fourier cancellation. It completely counts the exceptional ordered pairs, produces explicit sign witnesses, and improves the earlier support-cardinality-only lower bound on the unmatched stratum from 5p-4 to 6p-3 for p>=7. The exception and full fixed-pair formula are structural rather than arbitrary small parameter recomputations.",
+    "status": "PASS"
+  }
+}
