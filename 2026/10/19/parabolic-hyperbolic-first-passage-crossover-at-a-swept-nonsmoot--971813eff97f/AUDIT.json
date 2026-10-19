@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The left affine tracking solution satisfies the left recurrence and switches at the exact integer ceiling n0. Iteration of the right branch yields an exact geometric derivative sum, independently checked over rational parameters. For delta/sqrt(epsilon) bounded, uniform compact-time Riemann convergence gives H and a uniquely invertible crossing; exact delta=kappa sqrt(epsilon) yields O(1) discrete iteration error. For delta->0 and delta/sqrt(epsilon)->infinity, bracketing b^n near R=L delta^2/epsilon proves the o(1) log-normalized identity. Tests are finite consistency checks, not proof of the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.04587v2, section 3, Theorem 1: the control parameter is frozen and both I-A factors are invertible; only divergence is asserted.",
+        "arXiv:1907.11601 abstract: general rate-induced tipping for paths of stable fixed points; not a stated threshold asymptotic at a disappearing fold.",
+        "The present δ=0 boundary has a noninvertible right fixed-point equation and lies beyond the nondegenerate hypotheses of Simpson Theorem 1."
+      ],
+      "reasoning": "The frozen-map divergence theorem is neither a swept first-passage theorem nor applicable at the neutral endpoint. Qualitative pullback-attractor results do not specify the exact joint scaling function; the full Kiers paper could not be inspected, so implicit overlap remains possible but was not supported by available evidence.",
+      "searches": [
+        "Nonsmooth folds as tipping points Simpson Theorem 1 frozen map divergence",
+        "Rate-induced Tipping in Discrete-time Dynamical Systems Claire Kiers",
+        "Neutral multiplier codimension-two border-collision bifurcation, ramped control forcing epsilon*n, logarithmic to algebraic sqrt(epsilon) tipping delay, discrete scalar piecewise-linear normal form."
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.04587v2 sections 1,3,8",
+      "arXiv:2305.09902v1 sections 1-2",
+      "arXiv:2311.07242v1 sections 1-3",
+      "arXiv:1907.11601 abstract",
+      "Related indexed results on Darboux-flow escape, Koper folds, and large-hysteresis maps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simpson, arXiv:2406.04587, Theorem 1 and its proof: existence of a monotonic unbounded linear functional after a fixed fold, without an escape-time law.",
+        "Budd and Kuske, arXiv:2305.09902, Lemma A: drift-induced logarithmic delay for the continuous-time |x| model at fixed slopes.",
+        "Chu et al., arXiv:2311.07242, Theorems 1-2: discrete quadratic map with different local scaling."
+      ],
+      "reasoning": "The new result requires simultaneous nonautonomous evolution and δ→0, then proves a crossover δ/√ε=O(1). Neither a frozen divergence statement, a single fixed-slope continuous-time logarithm, nor a quadratic smooth-fold limit supplies that singular joint limit or its O(1) integer iteration accuracy.",
+      "searches": [
+        "\"border collision\" \"slowly varying parameter\" \"delay\" map",
+        "Slow passage through a border collision bifurcation in one-dimensional discrete-time piecewise linear map, exact logarithmic first-passage and square-root delay in the neutral slope limit.",
+        "\"border-collision\" \"parameter drift\" \"delay\" \"map\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.09902v1, sections 1-2: continuous scalar ODE with fixed piecewise slopes, and logarithmic drift law in Lemma A.",
+        "arXiv:2311.07242v1, sections 2-3: smooth quadratic one-step recurrence and a two-thirds-power slow-passage scale.",
+        "No exact matching discrete parabolic-hyperbolic formula among returned semantic records."
+      ],
+      "reasoning": "Time-continuous absolute-value dynamics and discrete smooth quadratic saddle-node dynamics are plausible aliases of dynamic tipping but are not equivalent to the discrete piecewise-affine map with a multiplier approaching one. The new scaling function and precise near-neutral logarithmic normalization do not follow from their printed claims without a separate recurrence analysis.",
+      "searches": [
+        "\"border-collision\" \"slowly varying\" \"map\" tipping",
+        "\"piecewise-linear map\" \"slow passage\" bifurcation",
+        "Slowly ramped nonsmooth fold piecewise affine discrete map with left contraction a<1 and right expansion 1+delta, delta decreasing to zero jointly with parameter sweep epsilon; exact first-passage crossover square-root sweep time and logarithmic escape; function (exp(k t)-1-k t)/k^2."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed related results concern Koper equilibrium folds, large-hysteresis return maps, a Darboux flow, or other mathematical objects; none reports this affine discrete exact first-passage identity or the parabolic-slope limit.",
+        "The target is an asymptotic first-passage theorem, not a finite invariant tabulated in a known combinatorial database."
+      ],
+      "reasoning": "No table/database match was found and a finite look-up would not imply a continuum two-parameter asymptotic theorem. Search absence is not taken as proof of novelty.",
+      "searches": [
+        "Dynamic bifurcation delay one-dimensional piecewise affine normal form, pullback quasistatic orbit, moving border collision, threshold-crossing level L, spectral multiplier approaches 1.",
+        "Discrete-time continuous piecewise linear nonsmooth fold map x_{n+1}=a x_n + epsilon n for negative x, (1+delta)x_n + epsilon n for positive x, with 0<a<1. Slow parameter drift tipping, threshold crossing time and two-parameter crossover delta/sqrt(epsilon), universal profile (exp(kappa t)-1-kappa t)/kappa^2."
+      ]
+    },
+    "rationale": "The exact claim concerns a nonautonomous piecewise-affine discrete fold, the jointly varying post-fold multiplier δ/√ε and the function H at the δ∼√ε boundary, plus an o(1) log-normalized law when δ/√ε→∞. Simpson proves only frozen-parameter divergence; Budd and Kuske treat a continuous-time nonsmooth equation with fixed hyperbolic multiplier; Chu et al. treat a discrete *quadratic smooth* fold. Specific statement and implication comparisons were made, not only title matches. No searched indexed result gave the same discrete two-parameter limit. Residual risk from uninspected alternative formulations persists.",
+    "residual_risks": [
+      "A discrete Euler-sampling reformulation of a continuous swept absolute-value system could produce an equivalent leading crossover after a nontrivial parameter identification, though the cited published statements do not claim it.",
+      "Full text of arXiv:1907.11601 could not be inspected; its qualitative abstract does not resolve the priority comparison.",
+      "An exhaustive search of older dynamical-systems texts, applied models and unpublished manuscripts has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Frozen-parameter global divergence under nonzero determinants; no ramped threshold-crossover statement.",
+        "evidence": [
+          "Theorem 1 requires det(I-A_L) and det(I-A_R) nonzero and concludes divergence; section 3 uses fixed μ.",
+          "Section 8 explicitly treats determinant-zero parameter surfaces as dynamical boundaries."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.04587v2",
+        "material_read": "Abstract, introduction, section 3 Maps, Theorem 1 and proof, and discussion of determinant-zero boundary in section 8.",
+        "method": "Read open full-text HTML equations and mathematical hypotheses; compared to the swept recurrence and neutral right multiplier.",
+        "title": "Nonsmooth folds as tipping points",
+        "trigger": "Direct parent work on continuous piecewise-linear maps at a fold; exact same class before nonautonomous sweep."
+      },
+      {
+        "assessment": "Continuous-time ODE and fixed nonzero slopes establish a known logarithmic law, but not the new discrete joint asymptotic.",
+        "evidence": [
+          "The governing equation is dx/dt = 2|x| - μ(t) + f(t).",
+          "Lemma A reports μ_tip ∼ -ε log(K/ε)/2 for fixed slopes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.09902",
+        "material_read": "Full-text PDF introduction and definition of tipping (sections 1.1-1.4), 1D equation (1.1), Lemma A, and section 2 discussion of slow drift.",
+        "method": "Read the open arXiv full text and inspected the formula page; compared ODE slope and drift hypotheses with the discrete recurrence and neutral-edge scaling.",
+        "title": "Dynamic tipping and cyclic folds, in a one-dimensional non-smooth dynamical system linked to climate models",
+        "trigger": "Closest analogue involving a slowly ramped piecewise-linear fold and logarithmic escape."
+      },
+      {
+        "assessment": "Its quadratic smooth fold and variable mesh dynamics are not the two-branch affine nonsmooth fold or its neutral multiplier crossover.",
+        "evidence": [
+          "Equation (2.3) contains a quadratic state term.",
+          "Theorems 1-2 concern a two-thirds-power scale and early crossing for a smooth saddle-node."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.07242",
+        "material_read": "Pages 1-8: introduction, governing equation (2.3), Theorems 1-2, and comparison lemma; theorem terms and proof setup.",
+        "method": "Read open arXiv PDF including main theorem and its nonlinear quadratic recurrence.",
+        "title": "Slow Passage through a Saddle-Node Bifurcation in Discrete Dynamical Systems",
+        "trigger": "Plausible stronger discrete-time slow-bifurcation result, potentially a dominating normal-form estimate."
+      },
+      {
+        "assessment": "Abstract describes qualitative rate-induced tipping for stable paths and does not state an exact crossing time for a disappearing border equilibrium. Cannot rule out relevant implicit examples.",
+        "evidence": [
+          "Abstract emphasizes qualitative basin-stability criteria and rate limits, not parabolic multiplier-sweep asymptotics.",
+          "Full-text access did not succeed; residual uncertainty is recorded."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.11601",
+        "material_read": "Public abstract and metadata only; full text inaccessible in this run.",
+        "method": "Attempted arXiv PDF, arXiv HTML, lawful alternate text and institutional access; no full text obtained.",
+        "title": "Rate-induced Tipping in Discrete-time Dynamical Systems",
+        "trigger": "General pullback-attractor framework for slowly parameter-shifted maps might have broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "971813ef-f97f-4287-8db9-d22e64423834",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At a nonsmooth fold the frozen right branch loses its isolated fixed point as its slope reaches unity. The joint sweep/multiplier limit is therefore an intrinsic, motivated threshold regime, not an arbitrary parameter slice. The result quantifies the transition from known hyperbolic logarithmic tipping delay to algebraic neutral delay through an explicit monotone crossover function and the stronger logarithmic normalization; this precise fact informs first-passage interpretation near weakly unstable border equilibria, with only an affine-scalar validity claim.",
+    "status": "PASS"
+  }
+}
