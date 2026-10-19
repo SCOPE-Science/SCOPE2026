@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every κ_n, a crossing lands in (0,κ_n) or (-κ_n,0), the next n iterates keep that sign and cover the entire receiving half. Holding and switching-plus-recovery intervals give explicit nonzero-slope onto branches, so necessity and sufficiency hold for all finite words. Renewal recurrence gives entropy root; κ_n∼2^{-n} and root asymptotics yield the Lambert-W law. Standalone verification passed 12,276 finite words (diagnostics only).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horan 2019 §4.6 and thesis Chapter 5 give the complete Markov partition and the dominant full-state transfer spectrum; these are stronger on state dynamics but do not state the entropy of the sign observation.",
+        "González-Tokman and Peters 2024, Section 8, treats random invariant-density and Oseledets limits for the full paired-tent family, without a combinatorial factor classification."
+      ],
+      "reasoning": "The prior full Markov graph in principle permits a many-to-one projection; a full-state spectral radius or mixing rate does not itself give the minimal deterministic switch spacing and the factor Perron root. The entire source of κ_n and the Markov graph is acknowledged, and an equivalent pre-existing projection remains an explicit residual risk.",
+      "searches": [
+        "paired tent maps Horan a=b=1/2 explicit Markov partition invariant density correlation sign observable exact transfer spectrum",
+        "paired tent map sign itinerary switching sequence minimum gap Markov Horan entropy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.12112v1 §4.6",
+      "Joseph Horan 2020 PhD thesis Chapter 5 and switching portions of Chapter 4",
+      "arXiv:2001.06788 abstract/summary",
+      "arXiv:2406.09672 §§8.1–8.3",
+      "Mathematical records matched against the exact sign-switch constraint and entropy root"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horan 2019 §4.6: \\(\\kappa_n[2(1+\\kappa_n)]^n=1\\) and full adjacency matrix \\(A_n\\).",
+        "Horan 2020 §5.1: \\(T^j(\\kappa_n)=1-\\lambda_n^j\\kappa_n\\), and §5.3: quotient map via \\(|x|\\).",
+        "González-Tokman–Peters 2024 §8: invariant densities and Oseledets spaces for random perturbations."
+      ],
+      "reasoning": "The published critical orbit is one necessary ingredient, but it establishes neither exact realization of all switch words nor the independent factor growth polynomial. The new proof constructs two onto return branches, proves sufficiency, and counts finite words. It does not treat the prior full Markov data or the classical gap shift as new; a historical simplification of the full graph is the remaining risk.",
+      "searches": [
+        "exact binary sign-switch subshift for paired tent maps T_kappa with kappa (2+2kappa)^n=1 and minimum n zero gaps",
+        "Markov paired tent maps Horan 2020 forbidden switch itineraries topological entropy Lambert W",
+        "paired tent maps switching itinerary entropy topological symmetric Markov maps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horan 2019, §4.6 constructs the complete Markov graph; Horan 2020, §5.3 constructs an absolute-value quotient, neither gives the sign-switch renewal language.",
+        "Search of nearby mathematical results found finite-gap and dyadic shifts, but not the paired-tent sign observation."
+      ],
+      "reasoning": "The precise comparison is a 2-to-1 sign factor versus the published state-space Markov graph and magnitude quotient. The shift of forbidden adjacent switches is classical and not asserted original; realizing its full language and entropy in this particular map sequence is the distinct claim.",
+      "searches": [
+        "exact binary sign-switch subshift for paired tent maps T_kappa with kappa (2+2kappa)^n=1 and minimum n zero gaps",
+        "Markov paired tent maps Horan 2020 forbidden switch itineraries topological entropy Lambert W",
+        "\"paired tent maps\" \"symbolic dynamics\" \"switch\" parameter kappa"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Horan 2019 Figure 6 gives a matrix of order \\(2n+4\\), but no table of admissible sign words or entropy polynomial.",
+        "Closest mathematical records involve unrelated finite-hole survivor shifts and gap-constrained coded systems, not this sign factor."
+      ],
+      "reasoning": "No known exact sign-language/entropy table was recovered. This is not a uniqueness proof; it records actual records and the mathematical distinctions.",
+      "searches": [
+        "exact binary sign-switch subshift for paired tent maps T_kappa with kappa (2+2kappa)^n=1 and minimum n zero gaps",
+        "paired tent map kappa_n switches refractory n gap sign symbolic factor entropy lambda^(n+1)-lambda^n-1",
+        "paired tent maps deterministic sign itinerary long residence no consecutive switches Markov hole"
+      ]
+    },
+    "rationale": "The 2019 Horan Markov sequence and adjacency matrices, the 2020 full-map spectral results, and the 2024 random-density/Oseledets study are credited as prior work. Their inspected statements do not explicitly establish the complete projected sign-switch language, its positive-measure sufficiency, or the factor-entropy collapse law. The different absolute-value factor does not cover sign switching. A prior equivalent projection is a residual priority risk.",
+    "residual_risks": [
+      "The complete known state Markov adjacency graph might already have been projected and simplified elsewhere to the same sign-grammar entropy.",
+      "Exact sign shift is only the closure of sign-codable orbits; excluded hitting orbits cannot be represented by a binary sign at zero.",
+      "Search retrieval is not exhaustive; absence of a record is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Established parameters and full adjacency matrix are prior. No statement of complete binary sign-switch grammar or factor entropy seen in §4.6.",
+        "evidence": [
+          "§4.6 defines κ_n through (2+2κ)^nκ=1, gives matrix A_n, and concludes Lyapunov spectral asymptotics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.12112",
+        "material_read": "Full accessible paper text, Introduction and §4.6 (Proposition 4.16 and proof outline), plus definitions of the paired-tent family in §4",
+        "method": "Direct inspection and claim-to-theorem comparison",
+        "title": "Asymptotics for the second-largest Lyapunov exponent for some Perron-Frobenius operator cocycles",
+        "trigger": "Earliest verified public source of the exact Markov parameter sequence and full adjacency matrices"
+      },
+      {
+        "assessment": "Critical-orbit identity and full map graph are explicitly prior; the factor studied in §5.3 is magnitude |x|, not binary sign-switch coding.",
+        "evidence": [
+          "§5.1 Lemma/Proposition defining κ_n, orbit of ±κ_n and 2n+4 Markov intervals.",
+          "§5.2 gives spectral polynomial of A_n.",
+          "§5.3 defines π(x)=|x| and spectral properties of that different quotient."
+        ],
+        "identifier_or_url": "https://dspace.library.uvic.ca/bitstreams/8562f6eb-cc75-497a-8f7f-299b114ec884/download",
+        "material_read": "Dissertation Chapter 5 §§5.1–5.3 and earlier switching/covering constructions in Chapter 4",
+        "method": "Read parsed full-page text and inspected page image, comparing Markov partitions, spectral results and quotient",
+        "title": "Spectral gap and asymptotics for a family of cocycles of Perron-Frobenius operators",
+        "trigger": "Most complete primary treatment of the same Markov deterministic maps"
+      },
+      {
+        "assessment": "Related full-state spectral and factor-system results; no verified independent sign-switch entropy result. Material availability limits completeness of the full-text comparison.",
+        "evidence": [
+          "Paper abstract announces mixing rates, density symmetries and related factor spectral properties."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.06788",
+        "material_read": "Abstract and accessible mathematical summary / full source index",
+        "method": "Compared title, abstract, mathematical objects and explicit claimed spectral vs symbolic invariants",
+        "title": "Dynamical spectrum via determinant-free linear algebra",
+        "trigger": "Dedicated earlier work on the Markov adjacency spectrum"
+      },
+      {
+        "assessment": "Defines the same paired tent family, analyzes limiting random invariant densities and Oseledets spaces; does not give the deterministic sign-language factor for κ_n.",
+        "evidence": [
+          "§8.1 Eq. (54) defines T_{a,b}.",
+          "Theorem 8.1 concerns density convergence; Theorem 8.2 concerns second Oseledets space."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.09672v2",
+        "material_read": "Full accessible HTML, especially §§8.1–8.3 and Theorems 8.1–8.2",
+        "method": "Compared exact map definition, studied observables, hypotheses, and stated conclusions",
+        "title": "Averaging for random metastable systems",
+        "trigger": "Recent motivating study of two-half switching in random paired-tent maps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7a191cc-4454-464c-aaaa-3b2def16ce48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Metastable residence signs are a natural measurement of the known two-half system. The theorem gives a complete sharp admissibility classification, not a generic rare-switch heuristic; it quantifies the loss of macroscopic information as leakage vanishes while local expansion remains strong. All n and all sign words are treated, with genuinely nontrivial sufficiency and a sharp entropy scale. The generic constrained-shift recurrence alone is not the claimed advance.",
+    "status": "PASS"
+  }
+}
