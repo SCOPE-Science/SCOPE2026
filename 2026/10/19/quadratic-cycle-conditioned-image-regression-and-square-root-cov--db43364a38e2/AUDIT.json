@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed and checked directed rooted-forest determinant (n-s)I-1a^T; inclusion-exclusion gives conditional occupancy vector and boundary c=n. Exact regression increment c q^{n-c-2}/n is positive. Independent missing-target conditioning gives exact covariance n q^n(mu_n-mu_{n-1}); birthday-product domination proves all needed Rayleigh moments and mixed O(1) regression. Reproducibility checker directly enumerated all 50,068 maps for n=2,...,6 and independently verified finite exact identities through n=70. Tests corroborate analytic proof rather than replacing it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arney–Bender (1982) PDF pp.269–294, especially §2 origin and cyclic variables, §7 forest generating functions, §9 covariance of in-degree counts: https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf.",
+        "Hansen–Jaworski (2010) PDF pp.341–359, Theorem 4/conditional tree-size sections: https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf.",
+        "Flajolet–Odlyzko (1990) §3.1 marginal enumeration: https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf."
+      ],
+      "reasoning": "The 1982 paper is the strongest potential covering source: arbitrary indegree-profile enumeration may lead by nontrivial specialization to joint origin/cycle formulas, so prior implicit coverage remains unresolved at the level of generating-function machinery. Its explicit asymptotic results were inspected and do not state the claimed conditional parabolic finite-scale response or covariance constant. The 2010 paper handles conditioned component sizes, a distinct observable. The 1990 survey provides independent marginal expectations. None of the inspected stated results dominates the exact regression and sharp mixed covariance as a direct corollary.",
+      "searches": [
+        "random mappings with constraints on coalescence and number of origins Arney Bender covariance cyclic vertices",
+        "random mappings with given number cyclical points conditional component forest distribution Hansen Jaworski",
+        "random mapping statistics terminal nodes cyclic points Flajolet Odlyzko joint covariance"
+      ]
+    },
+    "checked_sources": [
+      "https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+      "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+      "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+      "https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf",
+      "Published comparative finding “Equal-share covariance of root degree and leaves in a random recursive tree” (different random tree, not random map)",
+      "Published comparative finding “Exact missing-mass covariance identity and sign reversal for successive species discoveries” (iid occupancy, no cyclic subgraph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hansen–Jaworski (2010) conditional uniform rooted forest and permutation representation is shared, while main conditional variable is component size.",
+        "Arney–Bender (1982) Eq. (9.13) concerns covariance of counts of vertices with given indegree, not covariance of cyclic-vertex count with origins.",
+        "Flajolet–Odlyzko (1990) provides cyclic and terminal means but their product cannot infer the exact joint covariance."
+      ],
+      "reasoning": "The finite conditional origin law can be derived from the classical forest enumeration with an extra forbidden-target determinant; the result does not claim that forest counting is original. Marginal laws do not imply the quadratic regression or square-root mixed coefficient. Conditional component sizes do not imply the detailed origins distribution without additional argument. General indegree-profile generating functions pose an implicit-coverage risk, recorded separately.",
+      "searches": [
+        "Hansen Jaworski random mappings with a given number cyclical points exact conditional trees forest roots",
+        "Arney Bender 1982 origin counting formula number cyclic points joint",
+        "Flajolet Odlyzko random mapping statistics terminal nodes expected cyclic vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cycle count = number of periodic vertices; image size = number of occupied outputs; missing images = origins/indegree-zero vertices. Roots-forest source: Hansen–Jaworski (2010), https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf.",
+        "Arney–Bender (1982), §2 Table II and §§7,9, https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf."
+      ],
+      "reasoning": "The same claim can be formulated as a conditional missing-image/zero-indegree count or a cyclic-points-versus-range-size mixed moment. These rephrasings were compared to classical origins enumeration and conditional forest models. General generating functions for origins are relevant ingredients, but the inspected statements lack the O(1) parabolic regression at c~sqrt(n) and explicit sharp covariance coefficient.",
+      "searches": [
+        "random mapping cyclic vertex count missing indegree vertices covariance asymptotic 1/sqrt n",
+        "number of origins conditioned on number of cyclic points random mapping zero indegree coupon occupancy joint",
+        "functional digraph range size cyclic vertices correlation square root covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Arney–Bender Table II lists marginal means and densities of cyclic elements and indegree count separately; no displayed joint cyclic-versus-origins coefficient (1982, pp.272–273).",
+        "Flajolet–Odlyzko Theorem 2 lists marginal cyclic and terminal node means (1990, pp.337–338)."
+      ],
+      "reasoning": "No searched table or published exact-parameter database was found containing the complete conditional coupon-occupancy law and mixed asymptotic coefficient. Search nondetection by itself does not establish novelty; comparison uses the stated contents of inspected primary tables and the structural distinction between marginal and joint laws.",
+      "searches": [
+        "random mapping periodic vertices origins covariance zero indegree Rayleigh sqrt n coefficient",
+        "random mapping cyclic points range cardinality conditional occupancy full distribution",
+        "random mapping cyclic point count expected range image occupancy conditioned periodic nodes"
+      ]
+    },
+    "rationale": "Targeted statement-level comparison of random-mapping joint image/cyclic statistics, full rooted-forest conditioning and leading mixed-moment terms. Hansen–Jaworski 2010 studies component sizes under cyclical-point conditioning; Arney–Bender 1982 studies indegree constraints and origin/mapping parameters; Flajolet–Odlyzko 1990 gives separate terminal and cyclic statistics. Neither the precise quadratic cycle-conditioned image response nor its sharp covariance coefficient was located in inspected primary sections. Classical implicit coverage is a documented residual risk, not an assertion of uniqueness.",
+    "residual_risks": [
+      "Arney–Bender and older counting frameworks may implicitly generate the conditional origin law; derivability of the exact parabolic regression by a further calculation is possible.",
+      "Kolchin 1986 monograph and Rubin–Sitgreaves 1954 report were not inspected in complete text; concealed equivalent joint-statistic formulas are possible.",
+      "Indexed claim searches were semantic and cannot certify worldwide novelty, and no independent scientific validation was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes cycle-conditioned forest and component-size distributions; no explicit image-size/zero-indegree quadratic regression or stated mixed covariance was found in inspected portions.",
+        "evidence": [
+          "Publisher issue 94 date 2010-01-31: https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+          "PDF Theorem 4 and final applications on conditioned typical component size, https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "material_read": "Accessible 19-page primary PDF, title/abstract, forest counting and conditional structure, Theorem 4 and concluding material, including PDF pages 0–7, 11, 15 and 18.",
+        "method": "Original PDF sections inspected visually; theorem statements and displayed conditional laws compared.",
+        "title": "Random Mappings with a Given Number of Cyclical Points",
+        "trigger": "The seed and nearest paper conditions on the exact number of cyclic vertices."
+      },
+      {
+        "assessment": "Provides origin and cyclic marginals, indegree-profile covariance, generative enumeration. Does not explicitly display the cycle/origin mixed covariance or parabolic conditional image response; implicit specialization remains a material risk.",
+        "evidence": [
+          "Table II PDF p.5 (journal p.273); (9.13) PDF p.24 (journal p.292); introduction PDF p.3; https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf"
+        ],
+        "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+        "material_read": "29-page lawful original PDF: introduction, Table II, sections 5–9 including covariance Eq. (9.13), conclusions pages 22–25; supporting screenshots.",
+        "method": "Full searchable text and representative page images, especially Table II, (9.13), conclusion; implication-level comparison.",
+        "title": "Random mappings with constraints on coalescence and number of origins",
+        "trigger": "Exact same indegree-zero statistic (origins), broader constrained mapping families."
+      },
+      {
+        "assessment": "Separate cyclic vertex and terminal node means; did not locate joint conditional image-size regression or mixed covariance coefficient in checked theorem statements.",
+        "evidence": [
+          "Section 3.1 Theorem 2 and subsection on terminal nodes versus cyclic vertices; https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf"
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf",
+        "material_read": "26-page primary PDF; sections 2, 3.1 and 3.3 and Theorems 2 and 3 plus conclusions; extracted text and page images.",
+        "method": "Original full PDF navigated and theorem statements compared with conditional versus marginal target.",
+        "title": "Random Mapping Statistics",
+        "trigger": "Foundational probability and analytic combinatorics of random maps and terminal vertices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db43364a-38e2-4f25-b8bf-2b8aba9fed69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise joint behavior of basic global (cyclic points) and local (image occupancy) mapping observables is motivated by classical conditional random forest structure. The exact conditional full law is a reusable distributional reduction; the first-order O(sqrt(n)) dependence cancels, leaving a nontrivial parabolic O(1) shift and a positive O(sqrt(n)) mixed covariance with a vanishing O(n^-1/2) correlation. These are exact/sharp, structural relations not supplied by marginal expectation formulas alone.",
+    "status": "PASS"
+  }
+}
