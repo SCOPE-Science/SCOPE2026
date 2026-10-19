@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "Trace-pseudoinverse identity plus orthogonal Gaussian decomposition yields exact normal/chi scale mixture. Angular Beta/log integrals supply explicit constants; total variance yields variance floor. The proof checks quantifiers, nondegenerate eps boundaries and integration; 64 packaged calculations corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2409.06384v1 Theorem 2 provides Frobenius error moment bounds when both right and left sketches are oversampled with p,ell>=4, not the under-sampled one-right-vector regime and exact trace constants."
+      ],
+      "reasoning": "The paper guarantees certain bounded moments in a different, stronger oversampling regime. Its theorem does not imply the sharp s=1,2,3 boundaries nor the limit s→∞ at fixed right sketch.",
+      "searches": [
+        "two sided randomized matrix approximation Gaussian left oversampling heavy tail exact mean covariance oblique projection",
+        "arxiv:2409.06384v1 §2.3 Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2009.11392v1, §2 and PDF pp. 1–4",
+      "arxiv:2409.06384v1, §§1–2.3 and implementation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nakatsukasa (2020) gives GN structure and stabilization, while Lam–Ceruti–Kressner (2024) prove broad oversampled matrix-error moment estimates."
+      ],
+      "reasoning": "Neither cited statement yields exact signed trace tails for fixed one-column right sampling, the variance formula for s>=3, or the logarithmic C1-vs-linear Cs split. Similar inverse-Gaussian poles arise in other sketch algorithms, but they concern different scalar quotients and do not imply these constants.",
+      "searches": [
+        "unoversampled generalized Nystrom Gaussian trace Cauchy infinite expected trace error t distributions extra left sketch rows",
+        "arxiv:2009.11392v1 and arxiv:2409.06384v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The generalized Nyström matrix is an oblique projection; Student ratios are classical but are conditional and do not determine the marginal anisotropic trace constants without further integration."
+      ],
+      "reasoning": "The exact scalar trace reduction is a distributional equivalence to an independent normal divided by a chi norm. This identifies a classical ingredient; no inspected formulation implies the full stated spectral-degeneracy tail constants and finite-left-row variance floor.",
+      "searches": [
+        "generalized Nystrom oblique Gaussian sketch trace Cauchy distribution t distribution trace moments",
+        "arxiv:2009.11392v1 §2 formula (3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant formulas are generalized Nyström algorithms and moment bounds; no exact two-by-two trace table was identified in the inspected sources."
+      ],
+      "reasoning": "The equal signed-tail constants and their epsilon asymptotics are analytic claims requiring conditional Gaussian integration, not entries in the inspected numerical data or a standard matrix approximation error table.",
+      "searches": [
+        "Nyström two sided 2x2 positive definite Gaussian oblique projection trace signed polynomial tails logarithmic epsilon anisotropic coefficient",
+        "arxiv:2009.11392v1 §2"
+      ]
+    },
+    "rationale": "Inspected original generalized Nyström and low-rank Runge–Kutta papers establish the algorithm and large-oversampling moment estimates, not this sharp trace distribution/finite-left-row phase, signed tail coefficients, or irreducible right-sketch variance. Novelty provisional due to possible unlocated equivalent Gaussian ratio literature.",
+    "residual_risks": [
+      "Equivalent results may be expressible in classical regression-ratio, inverse-chi or oblique-projection statistics literature not retrieved.",
+      "Distributional conclusions concern trace only and cannot be transferred to stabilized implementations without a separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the GN formula but does not state the analyzed rank-one Gaussian trace moment-phase and tail constants",
+        "evidence": [
+          "Equation (3): A X (Y^T A X)^dagger Y^T A; §2 discusses oblique projection and separate left oversampling."
+        ],
+        "identifier_or_url": "arxiv:2009.11392v1",
+        "material_read": "Open-access full-text PDF pages 1–4, including formula (3), and surrounding exposition",
+        "method": "Read original algorithm, independent sketch dimensions, pseudoinverse and stabilization discussion",
+        "title": "Fast and stable randomized low-rank matrix approximation",
+        "trigger": "Original generalized Nyström definition and moment theory plausibly cover the claim"
+      },
+      {
+        "assessment": "Theorem 2 assumes right and left oversampling p,ell >=4; it does not provide exact one-right-column signed trace constants",
+        "evidence": [
+          "Equation (8) defines GN, Theorem 2 obtains Frobenius moment control in a different oversampled regime."
+        ],
+        "identifier_or_url": "arxiv:2409.06384v1",
+        "material_read": "Full-text HTML introduction and §§2.2–2.3 including equation (8), Theorem 2 and proof, with sections on numerical implementation",
+        "method": "Read the Gaussian sketch dimensions, error moment assumptions and proof requirements",
+        "title": "Randomized low-rank Runge-Kutta methods",
+        "trigger": "Uses GN as part of its randomized integrators and provides moment bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f25020d6-80e1-482a-a3e9-99a90e939e55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Precisely identifies how many extra left probes are needed for finite trace mean and variance and proves that left-only oversampling cannot remove right-sketch variance. The exact logarithmic critical tail quantifies near-rank-one reliability on a minimal meaningful test problem.",
+    "status": "PASS"
+  }
+}
