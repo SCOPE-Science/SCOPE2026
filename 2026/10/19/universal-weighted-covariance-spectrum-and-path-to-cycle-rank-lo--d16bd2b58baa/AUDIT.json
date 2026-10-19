@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The orthogonal Hoeffding decomposition f=u(a)+u(b)+v(a)-v(b)+h(a,b) with zero weighted row and column means yields the exact open quadratic form 2(2m-1)||u||²+2||v||²+m||h||² and cyclic form 4n||u||²+n||h||². Dimensions add to q², independent full-support p, with m=1 and n>=3 boundaries handled. The 25-case standalone rational enumeration checks all raw covariances, eigenvector equations, trace and constant nullity. An analytic bounded one-dependent vector CLT, not enumeration, proves the Pearson limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Park–Spouge (2004) abstract: DMAP distributions of overlapping words in Markov sequences.",
+        "Percus–Percus (2005) abstract: generating functions of word-set occurrence distributions on periodic Markov rings.",
+        "Bilodeau–Lafaye de Micheaux (2009) author-hosted paper, inspected passages on serial categorical independence and decompositions.",
+        "Even-Zohar–Lakrec–Tessler (2020) defines nonconsecutive subsequence counts on page 2, which grow on a different scale."
+      ],
+      "reasoning": "General generating functions are broader at the distribution level and in principle determine any moments, but the accessible material does not exhibit a universal exact whitening eigenspectrum or sharp path-vs-cycle rank transition. The novelty claim is not that generating functions or asymptotic CLT technology are new. Full text of the two earliest and most plausible broader sources could not be verified, which leaves important risk.",
+      "searches": [
+        "doi:10.1287/ijoc.1040.0095",
+        "doi:10.1002/cpa.20096",
+        "doi:10.1016/j.jspi.2008.11.006",
+        "oenb Working Paper 228 serial correlation contingency tables",
+        "arxiv:2012.00742 spectral analysis word statistics"
+      ]
+    },
+    "checked_sources": [
+      "Park and Spouge (2004), DOI 10.1287/ijoc.1040.0095, publisher abstract",
+      "Percus and Percus (2005), DOI 10.1002/cpa.20096, publisher abstract",
+      "Bilodeau and Lafaye de Micheaux (2009), DOI 10.1016/j.jspi.2008.11.006, author-hosted PDF relevant sections",
+      "Elsinger (2020), OeNB Working Paper 228, accessible PDF relevant sections",
+      "Pritchard and Scott (2004), DOI 10.1239/jap/1082552210, publisher abstract",
+      "Even-Zohar, Lakrec and Tessler (2020/2021), arxiv:2012.00742, extended abstract primary PDF",
+      "Published mathematical findings relevant to categorical runs, bigram count profiles and time series"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A generic exact distribution of word occurrences could imply moments and permit diagonalization, but no supplied accessible statement gives the decomposition or claimed eigenvalue multiplicities.",
+        "Bilodeau and Elsinger address inference for serial categorical arrays; their existing asymptotic tests are excluded from novelty.",
+        "Subsequence statistics of Even-Zohar et al. count nonadjacent positions, and empirical Markov-matrix spectra of Pritchard–Scott are spectra of a different random object."
+      ],
+      "reasoning": "The central all-n exact p-independent spectral decomposition and exact path-to-cycle kernel transition are not direct restatements of the cited visible results. Exact word-count generating functions are plausible logically stronger coverage and unresolved where full text could not be read; this risk is explicitly disclosed, with no false exclusion inferred from abstracts.",
+      "searches": [
+        "doi:10.1287/ijoc.1040.0095",
+        "doi:10.1002/cpa.20096",
+        "doi:10.1016/j.jspi.2008.11.006",
+        "doi:10.1239/jap/1082552210",
+        "arxiv:2012.00742"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Overlapping length-two word counts are exactly directed iid transition-count cells, and whitening is the generalized eigenproblem Σf=λDf.",
+        "Pritchard–Scott (2004) study the empirical Markov transition *matrix* eigenvalues rather than second moments of the vectorized counts.",
+        "Public findings on binary fixed-composition run transitions use a conditional, non-iid null."
+      ],
+      "reasoning": "Compared both covariance-normalized and generalized-eigen formulations, plus transition-table and word-count aliases. Matrix eigenvalues of realized empirical transition probabilities differ from eigenvalues of their covariance. No retrieved precise equivalent all-q finite covariance spectrum.",
+      "searches": [
+        "i.i.d. categorical sequences covariance spectrum directed transition count matrix uniform alphabet exact eigenvalues rank",
+        "overlapping adjacent letter bigram count covariance eigenvalues iid equiprobable categorical serial independence",
+        "Finite-sample universal weighted covariance eigenspectrum of overlapping adjacent categorical bigram counts under iid symbols, Hoeffding row plus column and interaction decomposition, path versus cyclic boundary covariance rank",
+        "Exact generalized eigenvalues for frequency of adjacent length-two word patterns in iid random strings: 0,1, m,2m−1, independent of nonuniform letter probabilities; endpoint telescoping gradient modes",
+        "Under iid categorical time series, Pearson chi-square statistic using known symbol probabilities for overlapping adjacent transition counts has limiting law 2 χ-square (q-1) plus χ-square (q-1)^2",
+        "doi:10.1016/j.jspi.2008.11.006",
+        "doi:10.1239/jap/1082552210"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed binary adjacent-pair multispectrum work counts admissible frequency profiles, not their random covariance eigenvalues.",
+        "Multinomial covariance decompositions concern independent cells rather than overlapping windows.",
+        "Exact eigenvalue formulas in the present statement are symbolic for every q,p,n, not entries copied from a finite table."
+      ],
+      "reasoning": "No directly matching symbolic eigenvalue table was identified in checked sources. Absence of a returned table does not demonstrate historical novelty.",
+      "searches": [
+        "i.i.d. categorical sequences covariance spectrum directed transition count matrix uniform alphabet exact eigenvalues rank",
+        "overlapping adjacent letter bigram count covariance eigenvalues iid equiprobable categorical serial independence",
+        "Exact generalized eigenvalues for frequency of adjacent length-two word patterns in iid random strings: 0,1, m,2m−1, independent of nonuniform letter probabilities; endpoint telescoping gradient modes",
+        "doi:10.1111/j.2517-6161.1996.tb02081.x multinomial covariance spectrum"
+      ]
+    },
+    "rationale": "The assessed novelty is a finite exact p-independent whitening spectrum for all directed bigram indicators, plus the path-cycle nullspace change and variational equality classes. Indexed adjacent-word profile studies concern counting and reconstruction rather than covariances; the inspected serial categorical testing works derive different asymptotic statistics and methods. Older all-word generating functions can implicitly imply moments and leave genuine priority risk, but no inspected statement establishes this spectral factorization. The assessment is not an independent or absolute priority certificate.",
+    "residual_risks": [
+      "Full text of Park–Spouge 2004 and Percus–Percus 2005 could not be read; their broad generating functions may imply or explicitly contain the finite spectral fact.",
+      "Other general Hoeffding-decomposition or serial-dependence literature could contain the same diagonalization in equivalent parameterization.",
+      "All historical priority statements require independent primary-literature verification; database search coverage cannot prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant asymptotic independence and categorical testing prior art; no directly displayed all-finite-size whitened spectrum",
+        "evidence": "Bilodeau and Lafaye de Micheaux (2009), DOI 10.1016/j.jspi.2008.11.006",
+        "identifier_or_url": "https://doi.org/10.1016/j.jspi.2008.11.006",
+        "material_read": "Author-hosted 13-page PDF, abstract and relevant theoretical sections and testing discussion",
+        "method": "Read the accessible author-hosted PDF text and compare the tests, decomposition and statistic type",
+        "title": "A-dependence statistics for mutual and serial independence of categorical variables",
+        "trigger": "Serial categorical contingency and overlapping consecutive observations"
+      },
+      {
+        "assessment": "Related general serial correlation theory; no directly found exact iid bigram covariance eigenspectrum",
+        "evidence": "Elsinger, Working Paper 228 (2020)",
+        "identifier_or_url": "Oesterreichische Nationalbank Working Paper 228 (2020)",
+        "material_read": "Accessible 73-page PDF, initial relevant sections and methods, not asserted completely read",
+        "method": "Inspected working-paper PDF and compared model and statistic",
+        "title": "Serial Correlation in Contingency Tables",
+        "trigger": "General serial contingency tests with dependence and covariance correction"
+      },
+      {
+        "assessment": "Counts not-necessarily-consecutive subsequences, mathematically different scale and observable",
+        "evidence": "Even-Zohar, Lakrec and Tessler, 2020/2021, section 1 page 2",
+        "identifier_or_url": "https://arxiv.org/abs/2012.00742",
+        "material_read": "Accessible FPSAC 2021 extended abstract including page 2 defining the word-count observable",
+        "method": "Read the primary PDF and checked whether occurrences are adjacent",
+        "title": "Spectral Analysis of Word Statistics",
+        "trigger": "Spectral vocabulary and random word counts may imply stronger results"
+      },
+      {
+        "assessment": "Exact DMAP word-count distributions could implicitly cover moments, so priority risk retained; no full-text negative coverage claim",
+        "evidence": "Park and Spouge, online 2004-11-01, abstract",
+        "identifier_or_url": "https://doi.org/10.1287/ijoc.1040.0095",
+        "material_read": "Publisher abstract and bibliographic dates only; full text not accessible",
+        "method": "Read publisher abstract; searched publicly accessible full text and preprints, and tried authorized institutional retrieval without access",
+        "title": "Searching for Multiple Words in a Markov Sequence",
+        "trigger": "Likely most relevant older general overlapping-word distribution results"
+      },
+      {
+        "assessment": "Potential stronger enumeration for cyclic counts; no unjustified exclusion from abstract",
+        "evidence": "Percus and Percus, first online 2005-06-20, abstract",
+        "identifier_or_url": "https://doi.org/10.1002/cpa.20096",
+        "material_read": "Publisher abstract and bibliographic dates only; full text not accessible",
+        "method": "Read Wiley publisher abstract; searched publicly accessible full text and preprints, and attempted authorized institutional retrieval without access",
+        "title": "The statistics of words on rings",
+        "trigger": "Directly relevant circular word counts and possible stronger generating function"
+      },
+      {
+        "assessment": "Empirical transition *matrix* eigenvalues rather than count covariance eigenvalues; possible shared methods but no direct implication",
+        "evidence": "Pritchard and Scott (2004), journal abstract",
+        "identifier_or_url": "https://doi.org/10.1239/jap/1082552210",
+        "material_read": "Cambridge publisher abstract and bibliographic details",
+        "method": "Compared measured object in abstract with covariance of vectorized counts",
+        "title": "The eigenvalues of the empirical transition matrix of a Markov chain",
+        "trigger": "Spectral study involving transition frequencies under independent letters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d16bd2b5-8baa-4f92-af8d-f288e01ce821",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact eigenstructure, sharp equality classes and finite path-cycle nullity transition resolve a natural, model-wide covariance-identifiability problem for overlapping transition frequency tables. Independence of the letter probabilities is a structural feature and the corrected known-p Pearson null illustrates its practical statistical meaning. The result is not a fixed tiny example or a standalone trivial expectation computation.",
+    "status": "PASS"
+  }
+}
