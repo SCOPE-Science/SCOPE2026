@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every 2<=m<=n-1 and 0<alpha<1, the Gaussian pencil almost surely has a one-dimensional kernel representation. Direct coordinate elimination derives all generalized Ritz values and the unique nonpersistent eigenvector. An independent unitary Gaussian rotation yields the normalized complex-Cauchy density and p<2 moment formula, with divergence at p>=2. Independent gamma variables yield a Beta(1,m-1) refined quotient; elementary beta integration and harmonic expansion establish its mean and logarithmic behavior, and Beta-to-exponential convergence plus an exact median prove the iff high-dimensional consistency threshold. All denominators are almost surely nonzero. Direct numerical and integral checkers in VERIFY.py reproduce finite consequences without asserting experimental proof of limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa--Tropp develops sketched Rayleigh--Ritz via oversampled embeddings and general residual/spectral comparisons.",
+        "Shao derives randomized eigenpair error bounds with confidence-dependent constants and numerically reports a sharp Gaussian tail, but does not express the refined output expectation or its high-dimensional consistency criterion."
+      ],
+      "reasoning": "High-probability quadratic error statements with a square-Gaussian inverse tail do not determine an exact bounded refined-output mean or its logarithmic divergence in relative accuracy, nor do generic upper bounds imply the necessary-and-sufficient scaling of trial angle with dimension. The two published algorithms use related projections but distinguish square Petrov--Galerkin sampling from oversampled embeddings.",
+      "searches": [
+        "randomized Rayleigh Ritz Gaussian square pencil rank one projector expected refined eigenvalue equals (m-1) eps^2 log(1/eps) Beta(1,m-1)",
+        "Gaussian random Petrov Galerkin Ritz rank one Hermitian projector critical m sin squared theta convergence",
+        "arxiv:2111.00113v2 Sections 6.3--6.8",
+        "arxiv:2604.01037v3 Section 5.3"
+      ]
+    },
+    "checked_sources": [
+      "N. Shao, arxiv:2604.01037v3, Algorithm 2, Theorems 2--3, Section 5.3, Appendix A",
+      "Y. Nakatsukasa and J. A. Tropp, arxiv:2111.00113v2, Sections 6.3--6.8",
+      "Published mathematical finding records searched for Cauchy ratio, beta-refined Ritz, matrix projector and phase limits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The relevant original 2026 paper proves high-probability refined Ritz convergence and documents a square-Gaussian tail with empirical trials, without the marginal law on this model.",
+        "An oversampled sketch embedding bound in arxiv:2111.00113v2 gives no exact distribution of a square stochastic eigenvalue.",
+        "Published published-finding corpus 2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4 treats unrelated deterministic eigenpair extremality checks."
+      ],
+      "reasoning": "The present proof is not a restatement of the standard Rayleigh--Ritz projected eigenvalue: the deterministic value is alpha while the refined randomized value is beta-transformed and has an expectation asymptotic to k alpha log(1/alpha). Neither inequality-only prior result entails this sharp expectation or the necessary-and-sufficient high-dimensional k alpha criterion.",
+      "searches": [
+        "randomized Rayleigh Ritz square complex Gaussian Petrov Galerkin eigenvalue moments infinite second moment Cauchy ratio tail sharp sharp moment threshold",
+        "randomized Ritz values Cauchy distribution mean square nonconvergence stochastic eigenvalue extraction",
+        "complex Gaussian ratio generalized eigenvalue spurious Ritz heavy tail denominator determinant",
+        "sketched eigenvector nullspace Gaussian complex Student law eigenvalue random Rayleigh quotient expectation m epsilon squared log",
+        "arxiv:2604.01037v3 Theorems 2 and 3, Section 5.3",
+        "arxiv:2111.00113v2 Sections 6.3--6.8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao arXiv:2604.01037v3 treats the same square Gaussian Petrov--Galerkin eigenvalue extraction and Rayleigh quotient refinement; its quantitative results are high-probability bounds rather than explicit marginal laws.",
+        "The standard complex-Gaussian ratio and beta--gamma decomposition are established distributional identities, derived directly in this proof."
+      ],
+      "reasoning": "The random-pencil eigenvalue is an affine complex Gaussian ratio, and its refined Rayleigh quotient is a monotone transform of a beta variable. These formulations were compared rather than treated as unrelated terminology. Neither source specifies their complete joint role on every projector trial space, the refined expectation, or the dimension--angle threshold. Beta and Cauchy distributions by themselves do not imply this algorithmic claim without the exact pencil-to-kernel reduction.",
+      "searches": [
+        "randomized Rayleigh Ritz square complex Gaussian Petrov Galerkin eigenvalue moments infinite second moment Cauchy ratio tail sharp sharp moment threshold",
+        "square Gaussian randomized Rayleigh Ritz Hermitian projector rank-one nullspace beta law refined Ritz Rayleigh quotient expectation logarithmic",
+        "Gaussian oblique Ritz Petrov Galerkin projector exact beta distribution principal angle",
+        "arxiv:2604.01037v3 Algorithm 2, Theorems 2 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published published-finding corpus record 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 concerns deterministic spectral filtering of Rayleigh residuals.",
+        "Record 2026/10/4/SCOPE-one-fixed-projection-rank-identifies-arbitrary-tail-radii-under--d71476ad66fd concerns radial random-matrix projection limits.",
+        "Record 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae uses a beta-law for random ellipsoid sections."
+      ],
+      "reasoning": "None of these records computes the random generalized eigenvalue and refined Rayleigh quotient of the complex square Gaussian Ritz pencil, so their beta/projection language and dimensional parameters do not imply the risk theorem. The exact formulas were queried as well as object names.",
+      "searches": [
+        "square Gaussian randomized Rayleigh Ritz Hermitian projector rank-one nullspace beta law refined Ritz Rayleigh quotient expectation logarithmic",
+        "randomized Rayleigh Ritz Gaussian square pencil rank one projector expected refined eigenvalue equals (m-1) eps^2 log(1/eps) Beta(1,m-1)",
+        "Gaussian random Petrov Galerkin Ritz rank one Hermitian projector critical m sin squared theta convergence",
+        "randomized Ritz extraction sketched spectral projector exact law Hermitian eigenpair Cauchy divergent second moment",
+        "published-finding corpus semantic searches: randomized Ritz projector beta law, Cauchy and asymptotic mean, refined eigenvalue consistency"
+      ]
+    },
+    "rationale": "Primary full method/theorem/appendix sections and related randomized sketched RR literature were compared statement-by-statement. The motivating results bound typical error and square-Gaussian tails, whereas the new claim computes exact marginal distributions of both output eigenvalues and quantifies a log mean penalty and a sharp joint dimension-angle consistency condition on all projector trial spaces. Completed semantic searches for both equivalent distributions and exact parameters did not return a dominating claim; bibliographic incompleteness is recorded.",
+    "residual_risks": [
+      "The general literature on exact distributions of random oblique projectors is extensive; an unindexed formula may be algebraically equivalent to part of the theorem.",
+      "Exact beta and complex ratio identities are standard facts; originality attaches only to the algorithmic identification plus sharp comparative and joint-dimensional consequences.",
+      "A single rank-one-projector family is not a general theorem for arbitrary Hermitian spectra; possible extensions remain unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm is directly motivating; high-probability errors and tail observations do not state or imply the exact Gaussian ratio, refined beta law, logarithmic mean, or joint dimension-angle threshold",
+        "evidence": [
+          "arxiv:2604.01037v3 Algorithm 2",
+          "arxiv:2604.01037v3 Theorems 2--3",
+          "arxiv:2604.01037v3 Section 5.3 and Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.01037v3",
+        "material_read": "Method / Algorithm 2, Theorems 2 and 3 including hypotheses and estimates, Section 5.3 probability and oversampling, Appendix A proof, publication/classification information, conclusions",
+        "method": "Read the available full HTML and compared eigenpair definitions, exact sampling dimensions, outputs, and logical implications of bounds",
+        "title": "Stabilizing the Rayleigh--Ritz procedure by randomization",
+        "trigger": "Same random Gaussian square Petrov--Galerkin eigenvalue algorithm and subsequent refined Rayleigh quotient"
+      },
+      {
+        "assessment": "Related but does not furnish explicit rank-one-projector square Gaussian Ritz or refined-output distributions",
+        "evidence": [
+          "arxiv:2111.00113v2 Sections 6.3--6.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.00113v2",
+        "material_read": "Full HTML Sections 6.3--6.8 on randomized eigenvalue extraction, orthogonal projection, numerical accuracy and Hermitian issues",
+        "method": "Compared oversampled sketch setup, generalized output, residual estimates and Hermitian discussion with the exact one-sketch square pencil",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Earlier randomized/sketched Rayleigh--Ritz method might dominate a specialized randomized eigenvalue calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b419caac-3da2-42ef-b605-50ee7124ffad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating modern square-sketch eigenvalue method has high-probability quadratic refined accuracy but suffers sharp heavy-tail constants. This theorem supplies exact risk calibration: finite but log-inflated mean refined error compared with the deterministic Ritz value, an infinite second moment for the unrefined complex Ritz eigenvalue, and a necessary-and-sufficient combined sketch-size/trial-angle condition for consistent refinement. These are motivated algorithmic stability properties and exact interpretable asymptotics beyond generic distribution substitutions.",
+    "status": "PASS"
+  }
+}
