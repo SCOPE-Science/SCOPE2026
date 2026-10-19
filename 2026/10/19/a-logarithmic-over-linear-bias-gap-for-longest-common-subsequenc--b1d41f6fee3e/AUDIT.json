@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Fekete superadditivity gives γ for each fixed d. Greedy matching of an arbitrary target has an exact independent geometric waiting-time decomposition and Laplace product. A union bound over all q^ℓ targets produces a valid finite-rate bound. At t=(log d)/(dΔ), nonmaximal-letter terms sum to O(1/d), and the geometric Laplace exponent second-order expansion gives the coefficient. The LLN supplies the p1 lower baseline. Every limit and positivity condition is explicit; finite enumeration checks only the finite inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Ren–Wen, arXiv:2504.10425 / doi:10.1017/S000497272610104X, Theorems 1.1–1.2 and Sections 2–4: uniform distributions; binary excess Θ(d^{-1/2}); primary MSC 68R15.",
+        "Nikolić–Kartelj–Đukanović–Grbić–Blum–Raidl, doi:10.3390/math9131515, indexed Sections 1–2 and 6: nonuniform-source search heuristic, finite-instance embedding-probability recurrence, empirical benchmarks; no asymptotic γ_{p,d} statement in material inspected.",
+        "Uniform general-q upper bound in Li–Ren–Wen is 1/q+O(sqrt(log q/d)); the fixed strict-bias case is not a special case since p_i differ."
+      ],
+      "reasoning": "The most plausible stronger result would be a universal all-p upper envelope with a unique-maximum expansion. Uniform-only p bounds and a heuristic solution quality comparison cannot be specialized or reduced to imply it.",
+      "searches": [
+        "published-finding corpus search: Non-uniform random strings longest common subsequence k-ary unequal probabilities many strings phase transition from square-root to logarithmic d rate",
+        "published-finding corpus search: Weighted iid alphabet probabilities many-string longest common subsequence upper bounds log d over d",
+        "Web search: biased random words longest common subsequence several sequences number sequences approaches most common letter speed 1/d"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.10425",
+      "doi:10.1017/S000497272610104X",
+      "doi:10.3390/math9131515 (indexed material; full page rate-limited)",
+      "doi:10.1145/1516512.1516519 (abstract)",
+      "published-finding corpus:2026/9/19/SCOPE-nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4",
+      "published-finding corpus:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Ren–Wen, arXiv:2504.10425 / doi:10.1017/S000497272610104X, Theorems 1.1–1.2 and Sections 2–4: uniform distributions; binary excess Θ(d^{-1/2}); primary MSC 68R15.",
+        "Nikolić–Kartelj–Đukanović–Grbić–Blum–Raidl, doi:10.3390/math9131515, indexed Sections 1–2 and 6: nonuniform-source search heuristic, finite-instance embedding-probability recurrence, empirical benchmarks; no asymptotic γ_{p,d} statement in material inspected.",
+        "2026/9/19/SCOPE-nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4: n log n / H deficit of distinct contiguous substrings, not LCS among d independent words.",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37: enumerates k-universal single binary words, not multiword LCS."
+      ],
+      "reasoning": "The present bound is not a corollary of the uniform binary Θ(d^{-1/2}) theorem: that distribution violates the unique-maximum hypothesis and the earlier theorem contains no control of a fixed p1-p2 gap. Nikolić et al. supplies finite-source embedding probabilities but not the d→∞ upper rate or coefficient; the present geometric generating function and tilted union bound produce the missing implication.",
+      "searches": [
+        "Primary article inspection: arXiv:2504.10425 and published Cambridge full text, Theorem 1.1, Theorem 1.2, Sections 2–4",
+        "Primary article indexed text: doi:10.3390/math9131515, Section 2 Theorem 1 and Section 6",
+        "published-finding corpus search: Biased Bernoulli nonuniform distributions multi-string longest common subsequence d independent strings asymptotic maximum letter frequency convergence rate log(d)/d Chernoff geometric waiting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Ren–Wen, arXiv:2504.10425 / doi:10.1017/S000497272610104X, Theorems 1.1–1.2 and Sections 2–4: uniform distributions; binary excess Θ(d^{-1/2}); primary MSC 68R15.",
+        "Nikolić–Kartelj–Đukanović–Grbić–Blum–Raidl, doi:10.3390/math9131515, indexed Sections 1–2 and 6: nonuniform-source search heuristic, finite-instance embedding-probability recurrence, empirical benchmarks; no asymptotic γ_{p,d} statement in material inspected."
+      ],
+      "reasoning": "An equivalent statement would bound normalized expected LCS of d i.i.d. nonuniform strings with a unique largest mass in a log(d)/d window. The inspected uniform theorem and algorithmic nonuniform text are not that statement.",
+      "searches": [
+        "published-finding corpus search: Biased Bernoulli nonuniform distributions multi-string longest common subsequence d independent strings asymptotic maximum letter frequency convergence rate log(d)/d Chernoff geometric waiting",
+        "published-finding corpus search: Nonuniform Chvatal Sankoff LCS asymptotic d random strings with a unique most likely letter",
+        "Web search: longest common subsequence \"non-uniform\" \"multiple\" random strings distributions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/19/SCOPE-nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4: n log n / H deficit of distinct contiguous substrings, not LCS among d independent words.",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37: enumerates k-universal single binary words, not multiword LCS.",
+        "published-finding corpus search returned nearby entries on substring complexity, k-universal words and code bounds; neither an exact parameter table nor a source-law asymptotic for the present quantity was recovered."
+      ],
+      "reasoning": "The theorem is a continuous-parameter asymptotic and variational inequality; numerical tables of exact finite-word LCS, substring counts or universality do not dominate it. Search nonhits alone are explicitly not treated as a proof of novelty.",
+      "searches": [
+        "published-finding corpus search: Chvatal Sankoff expected longest common subsequence many independent uniformly random words number of sequences d asymptotic 1/2 plus square root d",
+        "published-finding corpus search: geometric waiting time Chernoff large deviation first moment probability common subsequence random independent biased strings nonuniform finite alphabet",
+        "published-finding corpus search: Nonuniform Chvatal Sankoff LCS asymptotic d random strings with a unique most likely letter",
+        "Search in full Li–Ren–Wen article for non-uniform, probability distribution, and its displayed theorems"
+      ]
+    },
+    "rationale": "Li–Ren–Wen establishes the uniform-many-string square-root regime but does not cover strictly biased sources. Nikolić et al. studies nonuniform finite-instance algorithms and embedding probabilities, not the asymptotic many-string upper scale. Existing research-record neighbors have different objects or quantifiers. The strict unique-maximum condition enables a Laplace-gap estimate not implied by uniform-source theorems. Historical priority remains subject to indexed-literature coverage.",
+    "residual_risks": [
+      "Historically equivalent large-d biased multi-LCS results may exist in unindexed work.",
+      "Full text of Nikolić et al. could not be directly opened due to HTTP 429; its indexed excerpts do not settle every possible appendix.",
+      "Search results do not establish exhaustive historical priority; unindexed predecessors remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING strictly biased iid alphabet asymptotic; explicitly uniform inputs and Θ(d^{-1/2}) for binary.",
+        "evidence": [
+          "Li–Ren–Wen, arXiv:2504.10425 / doi:10.1017/S000497272610104X, Theorems 1.1–1.2 and Sections 2–4: uniform distributions; binary excess Θ(d^{-1/2}); primary MSC 68R15.",
+          "First arXiv posting 2025-04-14 UTC; Cambridge primary 68R15."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S000497272610104X ; https://arxiv.org/abs/2504.10425",
+        "material_read": "Full openly accessible Cambridge article sections: abstract, theorem statements, proof overview, main analysis of greedy matching and general-q upper bounds, references and MSC classification.",
+        "method": "Read primary Cambridge HTML article and arXiv first-submission metadata.",
+        "title": "Expected Length of the Longest Common Subsequence of Multiple Strings",
+        "trigger": "Exact same LCS invariant with d independent random words and the nearest uniform many-string asymptotic."
+      },
+      {
+        "assessment": "The examined material concerns finite-instance embedding recurrences and algorithmic comparison, not the d→∞ limit. Possible inaccessible full-text coverage retained as a residual risk.",
+        "evidence": [
+          "Nikolić–Kartelj–Đukanović–Grbić–Blum–Raidl, doi:10.3390/math9131515, indexed Sections 1–2 and 6: nonuniform-source search heuristic, finite-instance embedding-probability recurrence, empirical benchmarks; no asymptotic γ_{p,d} statement in material inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math9131515",
+        "material_read": "Search-indexed text including full abstract, introduction, Section 2 theoretical set-up and Theorem 1, experimental descriptions and conclusions. Direct opening returned HTTP 429, so complete-paper exclusion was not inferred.",
+        "method": "Read web-search extracted primary text; attempted direct page fetch (HTTP 429).",
+        "title": "Solving the Longest Common Subsequence Problem Concerning Non-Uniform Distributions of Letters in Input Strings",
+        "trigger": "Same nonuniform letter-source setting and LCS across multiple strings; possible dominating analysis."
+      },
+      {
+        "assessment": "Abstract discusses two-word uniformly random case and numerical LCS constant bounds, not the present many-word biased gap; insufficient for whole-article NOT_COVERING.",
+        "evidence": [
+          "Lueker (2009), Journal of the ACM 56, article 17, publisher abstract states two random strings and computational bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1516512.1516519",
+        "material_read": "Primary article abstract and bibliographic metadata only, not full text.",
+        "method": "Read publisher abstract.",
+        "title": "Improved bounds on the average length of longest common subsequences",
+        "trigger": "Historical Chvátal–Sankoff constant, potential stronger general theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1d41f6f-ee3e-4859-a69f-f42df16490a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent primary theorem proves a square-root excess for uniform binary multiword LCS; fixed strict bias is an equally natural source regime in LCS and sequence comparison. The new theorem gives an explicit, substantively smaller (log d)/d excess bound for every such law and a finite-parameter variational envelope. It distinguishes a qualitative probabilistic phase, not an arbitrary small case or numerical table; matching lower rate is openly left unproved.",
+    "status": "PASS"
+  }
+}
