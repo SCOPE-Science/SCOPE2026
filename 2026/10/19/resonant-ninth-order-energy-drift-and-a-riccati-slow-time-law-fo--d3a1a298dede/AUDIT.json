@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The exact RK325 normalized stage polynomial follows by direct Cartesian substitution. Exact symbolic coefficients give the only nonstationary cancellation and its nonzero tenth-order coefficient, and the scaled recurrence is an Euler approximation to an explicitly solved Riccati equation with local O(H^10) error. Bounded-interval Gronwall proves O(H^2) global rescaled error for every T<128. The included stand-alone verifier checks symbolic coefficients, the scaled coefficient and twelve independent exact rational Cartesian updates. The finite-time limiting pole is not alleged to be an actual discrete blow-up.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2405.05448v2: nonlinear RK325 construction and fifth-order energy accuracy are prior work, but no higher-order radius-specific long-time profile.",
+        "https://doi.org/10.1137/19M1263662: relaxation adjusts the step through an additional scalar parameter, unlike unaltered fixed-step RK325."
+      ],
+      "reasoning": "General fifth-order local energy consistency is weaker than an exact order-nine amplitude resonance, and a generic local defect estimate does not yield the h^-8-step Riccati profile. Exact preservation by a modified relaxation method does not imply the behavior of the unmodified RK325 method.",
+      "searches": [
+        "explicit Runge Kutta radial nonlinear oscillator amplitude-dependent frequency a+b|u|^2 energy drift resonant cancellation leading h^10, slow-time Riccati blow-up",
+        "Riccati boundary layer metastability near zero of leading energy drift nonlinear Runge Kutta norm preserving oscillator discrete long time",
+        "long time numerical energy drift explicit Runge Kutta amplitude dependent frequency Riccati secular growth resonant",
+        "energy-superconvergent Runge Kutta nonlinear oscillator fifth order 2024 Liu Brio",
+        "Relaxation Runge Kutta Conservation Stability Inner Product Norms Ketcheson"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2405.05448",
+      "https://arxiv.org/html/2405.05448v2",
+      "https://doi.org/10.1137/19M1263662",
+      "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "2026/10/11/SCOPE-exact-flight-time-partition-and-three-escape-scales-in-a-cubic-l--c58cc4799dfa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2405.05448v2, equations (72)--(76) define the tableau and only specify fifth-order generic energy accuracy.",
+        "https://arxiv.org/abs/2405.05448, version history: 2024-05-08 v1, 2026-05-10 v2; original v1 is linear-only.",
+        "https://doi.org/10.1137/19M1263662: modified RK exact norm-conserving framework, not this fixed-tableau asymptotic."
+      ],
+      "reasoning": "A fifth-order statement allows, but does not establish, two further cancellations at one nonstationary amplitude. Even a known local ninth-order defect would not alone imply the precise nontrivial O(h^2) rescaled drift through n~h^-8 with a Riccati denominator. The new conclusions require an exact polynomial computation plus a uniform discrete limit.",
+      "searches": [
+        "nonlinear RK325 Liu Brio Runge Kutta three-stage energy error cancellation at critical amplitude radius r=-a/(2b), tenth power h10 exact radial polynomial and Riccati slow time h^-8",
+        "arXiv 2405.05448 RK325 nonlinear oscillator exact long time squared radius singular perturbation near r=1",
+        "Liu Brio RK325 h6 coefficient amplitude cubic r critical",
+        "Ketcheson relaxation runge kutta nonlinear norm conserved"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2405.05448v2, Section 3.1, equations (57)--(76), contains the nonlinear tableau and fifth-order conditions; no matching resonant radius or Riccati long-time law in the inspected text.",
+        "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce: Fehlberg scalar-linear embedded-estimator resonance, not nonlinear radial RK325.",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56: reflected forward-backward operator splitting on skew rotations, not the same RK tableau."
+      ],
+      "reasoning": "Exact squared-radius recurrence, modified energy drift, B-series cancellation and singularly scaled radius were searched as aliases. Published matches examine distinct numerical maps or generic fifth-order properties; no identified result implies the two-coefficient cancellation and the specific rescaled Riccati law. The absence of matches is not a uniqueness proof.",
+      "searches": [
+        "nonlinear RK325 Liu Brio Runge Kutta three-stage energy error cancellation at critical amplitude radius r=-a/(2b), tenth power h10 exact radial polynomial and Riccati slow time h^-8",
+        "explicit Runge Kutta radial nonlinear oscillator amplitude-dependent frequency a+b|u|^2 energy drift resonant cancellation leading h^10, slow-time Riccati blow-up",
+        "RK325 three-stage nonlinear energy-superconvergent Runge Kutta cubic oscillator frequency a+b radius squared exceptional energy defect order nine resonance",
+        "RK325 cubic oscillator radius critical tenth order energy drift Liu Brio",
+        "nonlinear Runge Kutta rotating polynomial frequency omega radius energy superconvergence special radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2405.05448: the visible Table 1 is the linear stability polynomial RK(3,2,5), not a tabulated nonlinear critical-amplitude law.",
+        "https://arxiv.org/html/2405.05448v2: coefficients and nonlinear example tables do not tabulate the critical radius or scaled Riccati profile."
+      ],
+      "reasoning": "The investigated exact invariant is the radial defect coefficient and its long-time scaling for a specific nonlinear Runge--Kutta recurrence; no pre-existing exact table with this claim was identified in the inspected primary source and public indexed findings.",
+      "searches": [
+        "nonlinear RK325 Liu Brio Runge Kutta three-stage energy error cancellation at critical amplitude radius r=-a/(2b), tenth power h10 exact radial polynomial and Riccati slow time h^-8",
+        "arXiv 2405.05448 RK325 nonlinear oscillator exact long time squared radius singular perturbation near r=1",
+        "RK325 polynomial norm amplification table nonlinear frequency special radius",
+        "RK325 cubic oscillator radius critical tenth order energy drift Liu Brio"
+      ]
+    },
+    "rationale": "The closest primary full text (Liu and Brio revised arXiv 2405.05448) contains the RK325 tableau and generic fifth-order energy result, but not the exceptional ninth-order amplitude or the long-step Riccati law. Searches of equivalent radial-map, B-series, energy and singular-scaling statements, public mathematical finding records and public mathematical literature found no implication covering this joint statement. Non-exhaustive coverage and the late nonlinear revision are explicit residual risks.",
+    "residual_risks": [
+      "Public text and semantic search do not certify absence of equivalent modified-equation, B-series or low-dimensional RK calculations.",
+      "The source paper first appeared 2024, but its specific nonlinear RK325 method was first disclosed in revision v2 dated 2026-05-10. These are not interchangeable dates.",
+      "Ketcheson 2019 inspected at abstract/synopsis level only, though its additional relaxation parameter differentiates the numerical algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines nonlinear RK325 and proves generic energy order five; no inspected theorem or example states the critical h^10 radius or the Riccati n~h^-8 law.",
+        "evidence": "arXiv:2405.05448v2 (2026-05-10), Section 3.1 and conclusion.",
+        "identifier_or_url": "https://arxiv.org/html/2405.05448v2",
+        "material_read": "Introduction; Section 2 tableau and linear energy framework; Section 3.1 full nonlinear method derivation, equations (57)--(76); nonlinear conclusions and discussion.",
+        "method": "Read accessible arXiv HTML full text and compare equations, orders, examples and claimed implications.",
+        "title": "Energy-superconvergent Explicit Runge--Kutta Time Discretizations (revised manuscript)",
+        "trigger": "The exact target RK325 nonlinear tableau and possible covering source theorem."
+      },
+      {
+        "assessment": "First posted 2024-05-08 and analyzed linear skew systems; nonlinear RK325 is from the 2026 revision and must not be backdated as a 2024 method.",
+        "evidence": "arXiv versions v1 posted 2024-05-08, v2 posted 2026-05-10; v1 abstract linear only.",
+        "identifier_or_url": "https://arxiv.org/abs/2405.05448v1",
+        "material_read": "2024 initial linear-only manuscript content and first-version abstract and manuscript version history.",
+        "method": "Compared original version with the current revision and public arXiv submission history.",
+        "title": "Energy-superconvergent Runge-Kutta Time Discretizations (initial preprint)",
+        "trigger": "Verify earliest public record and avoid treating later nonlinear revision as present in 2024."
+      },
+      {
+        "assessment": "Concerns an additional relaxation parameter and generic conservation; does not claim a radius-dependent defect of the unaltered scheme. Material-access limitation remains.",
+        "evidence": "D. I. Ketcheson (2019), DOI 10.1137/19M1263662, published abstract.",
+        "identifier_or_url": "https://doi.org/10.1137/19M1263662",
+        "material_read": "Published abstract and accessible preprint synopsis, not the complete article.",
+        "method": "Compared modification of RK step with fixed unmodified RK325 update.",
+        "title": "Relaxation Runge--Kutta Methods: Conservation and Stability for Inner-Product Norms",
+        "trigger": "Potential general stronger energy-preservation or modified-equation coverage."
+      },
+      {
+        "assessment": "A linear scalar embedded-estimator zero and discrepancy, not the squared-norm growth of RK325 on a nonlinear planar oscillator.",
+        "evidence": "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "material_read": "Published title and full record summary; not a full research manuscript.",
+        "method": "Compared mathematical objects and statements from the indexed record.",
+        "title": "An exact error-estimator resonance in the classical Fehlberg RK4(5) pair",
+        "trigger": "Closest semantic published database resonance hit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3a1a298-dede-4e7f-858c-490577523b09",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The resonant radius is determined uniquely and non-arbitrarily as the positive nonstationary root of the leading energy-error coefficient in the motivated cubic amplitude-frequency family. The fourth-order reduction of the leading defect and nontrivial sharply timed Riccati limit expose how the local accuracy improvement interacts with long-run drift, a distinct and useful stability benchmark. The theorem neither trivializes as a change of notation nor follows from generic fifth-order accuracy.",
+    "status": "PASS"
+  }
+}
