@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The fair two-state generator gives f''+2λf'+v²f=0 and the displayed closed solutions. Combining the unital-qubit Pauli multipliers (e^{-κt}f,e^{-κt}f,e^{-κt}) with Ruskai's criterion gives the exact equivalence |f|>(e^{κt}-1)/2. In every postzero oscillatory lobe log(|f|/h_κ) has strictly negative second derivative because -ω² csc²(ω(t-z_j))+[κ/(2sinh(κt/2))]²<-ω²+1/t²<0. Hence each lobe has one or zero non-entanglement-breaking intervals. The π/ω translation strictly reduces each threshold. Evaluation at the unique amplitude extremum bounds κ_j between log(1+2e^{-λt_j})/t_j and that numerator divided by z_j. These bounds rigorously yield λ>0 Lambert-W counting with O(1) index error and λ=0 inverse-κ counting; λ≥v has a monotone coherence function and only one EB crossing. The standalone matrix-exponential/Choi partial-transpose checks reproduced the exact finite formulas. Finite checks are supportive, not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou, Lang, Joynt (arXiv:0912.3313) explicitly discuss finite revivals when irreversible relaxation is present, so broad finiteness is not new.",
+        "Shrikant, Srikanth, Banerjee (arXiv:1805.11411) construct dephasing/depolarizing non-Markovian channels, discussing divisibility; their dynamics are not the independently composed telegraph-plus-isotropic channel with indexed EB critical rates."
+      ],
+      "reasoning": "General zero crossings of a damped oscillation can imply eventual cessation of revivals, which is covered. They do not imply the exact all-rate hierarchy κ_j, single interval per lobe under EB, or the Lambert-W law with a negative log-log second term without additional optimization and asymptotic control. The prior specific-state relaxation model does not reduce to the chosen unital qubit channel unless its channel and observables are matched, which the inspected text does not establish.",
+      "searches": [
+        "telegraph noise entanglement breaking unital qubit isotropic depolarizing lobe critical rate Lambert W revival count",
+        "random telegraph noise entanglement revival count logarithm loglog weak depolarization",
+        "arXiv:0912.3313 Sections V–VII and analytic conclusions",
+        "arXiv:1805.11411 Sections II and VI"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "COVERS the fundamental EB criterion but does not address time-dependent telegraph channels or revival counts.",
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0302032",
+        "title": "Qubit Entanglement Breaking Channels"
+      },
+      {
+        "comparison": "COVERS qualitative telegraph revivals and finite revivals under relaxation; does not state the independent isotropic-depolarizer per-lobe EB thresholds or exact weak-κ count asymptotics.",
+        "identifier_or_url": "https://arxiv.org/abs/0912.3313",
+        "title": "Disentanglement and decoherence from classical non-Markovian noise: Random telegraph noise"
+      },
+      {
+        "comparison": "COVERS telegraph coherence and revival behavior without the independently depolarized channel-wide lobe hierarchy.",
+        "identifier_or_url": "https://arxiv.org/abs/1210.1122",
+        "title": "Hidden entanglement in the presence of random telegraph dephasing noise"
+      },
+      {
+        "comparison": "Constructs distinct channel families and studies divisibility; no matching threshold sequence or asymptotic revival count was located.",
+        "identifier_or_url": "https://arxiv.org/abs/1805.11411",
+        "title": "Non-Markovian Dephasing and Depolarizing Channels"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhou et al. explicitly report finite entanglement-revival counts under relaxation and telegraph noise: this is a direct qualitative antecedent.",
+        "D'Arrigo et al. derive an oscillatory telegraph coherence function and relate it to recovered entanglement.",
+        "The present channel introduces a separately and explicitly normalized isotropic depolarizer, uses channel EB rather than a selected input-state concurrence, and obtains threshold and quantitative counting statements."
+      ],
+      "reasoning": "The new theorem implies qualitative finiteness for this channel, whereas the cited qualitative finiteness claims do not specify its precise normalized channel family and cannot by themselves entail the ordered exact κ_j or the Lambert/loglog and 1/κ count laws. Previously known coherence and EB formulas together make the result derivable, but not already stated as a corollary without the nontrivial per-lobe analysis. Risk remains that a broader theory explicitly computes these maxima or equivalent singular asymptotics.",
+      "searches": [
+        "random telegraph dephasing entanglement sudden death revivals relaxation number finite monotone interval thresholds",
+        "random telegraph noise entanglement revival count logarithm loglog weak depolarization",
+        "qubit depolarizing dephasing entanglement breaking threshold Ruskai singular values",
+        "arXiv:0912.3313 Eq. (37) and Sections V–VII",
+        "arXiv:1210.1122 Eq. (5) and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ruskai 2003 Thm. 4 states the |λ1|+|λ2|+|λ3|≤1 unital-qubit EB criterion; its use here is acknowledged.",
+        "Zhou–Lang–Joynt 2009 Eq. (37) uses a concurrence criterion for specified two-qubit states with random-telegraph coherence and relaxation, establishing qualitative entanglement death/revival."
+      ],
+      "reasoning": "The Choi-state PPT test and the singular-value-sum test are equivalent for the specified unital qubit channel; their equivalence does not itself create novelty. Comparing resulting statements shows that a channel-wide per-lobe max-over-time depolarization hierarchy and the two-term optimized count law are distinct from prior qualitative revival observations. A theorem covering arbitrary input states with exact indexed critical rates would subsume this work, but no such statement was identified in the primary works inspected.",
+      "searches": [
+        "telegraph noise entanglement breaking unital qubit isotropic depolarizing lobe critical rate Lambert W revival count",
+        "random telegraph dephasing entanglement sudden death revivals relaxation number finite monotone interval thresholds",
+        "arXiv:0912.3313 Secs. V–VII and Eq. (37)",
+        "arXiv:quant-ph/0302032 Theorem 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known octahedral EB region specifies a single-time property of a unital qubit channel, not a table of lobe-by-lobe critical rates.",
+        "D'Arrigo et al. tabulate/plot telegraph-induced coherence and entanglement revivals but do not provide the exact κ_j sequence or N(κ) asymptotic for this independently depolarized channel."
+      ],
+      "reasoning": "The new indexed family is not a lookup of a known spectral/matrix table. The source formula f(t) and the EB octahedron are known inputs; solving their time-dependent intersection, proving the strict ordering, and optimizing/counting all lobes supply the stated claimed gap.",
+      "searches": [
+        "telegraph noise entanglement breaking unital qubit isotropic depolarizing lobe critical rate Lambert W revival count",
+        "random telegraph noise entanglement revival count logarithm loglog weak depolarization",
+        "Ruskai arXiv:quant-ph/0302032 theorem and tetrahedron/octahedron description",
+        "D'Arrigo et al. arXiv:1210.1122 formulas and plots"
+      ]
+    },
+    "rationale": "Existing literature explicitly contains the unital-qubit EB criterion, telegraph-coherence formulas and the qualitative finite revival phenomenon with relaxation. Full-text comparison of the four directly relevant works distinguishes the indexed, strictly decreasing entanglement-breaking-revival thresholds and the precise Lambert-function count (including negative log-log correction) from their statements. Equivalent Choi/singular-value formulations and qualitative finite-revival implications were considered; the nearest old result does not resolve the exact new parameter-dependent maxima. Targeted mathematical-record searches were also conducted without a matching published record, but absence of search results is not a novelty proof. Residual risk: a stronger, unidentified channel-evolution theorem might imply the threshold optimization or quantitative rate law. Independently assessed priority remains unverified.",
+    "residual_risks": [
+      "A stronger published but unidentified theorem might explicitly imply the per-lobe critical-rate sequence or the weak-depolarization counting law.",
+      "The prior 2009 analysis already provides the qualitative finite-revival statement; neither that observation nor the known telegraph coherence function is claimed as new.",
+      "An independent scientific audit and exhaustive priority verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the fundamental EB criterion but does not address time-dependent telegraph channels or revival counts.",
+        "evidence": "Unital qubit EB criterion is the octahedral singular-value inequality |λ1|+|λ2|+|λ3|≤1.",
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0302032",
+        "material_read": "Theorem 4 and the discussion of unital channel criterion in the original full-text PDF",
+        "method": "Open-access arXiv PDF text plus page-image inspection",
+        "title": "Qubit Entanglement Breaking Channels",
+        "trigger": "Exact equivalence between channel entanglement breaking, Choi PPT and Pauli singular-value norms"
+      },
+      {
+        "assessment": "COVERS qualitative telegraph revivals and finite revivals under relaxation; does not state the independent isotropic-depolarizer per-lobe EB thresholds or exact weak-κ count asymptotics.",
+        "evidence": "Explicit concurrence threshold involving telegraph coherence ζ and relaxation ξ, with numerical/analytic death-revival regimes.",
+        "identifier_or_url": "https://arxiv.org/abs/0912.3313",
+        "material_read": "Original full PDF, model and analytic formulas including Eq. (37), and entanglement-revival discussion in Sections V–VII",
+        "method": "Open-access arXiv PDF text plus page-image inspection",
+        "title": "Disentanglement and decoherence from classical non-Markovian noise: Random telegraph noise",
+        "trigger": "Closest plausible antecedent: same telegraph object, finite entanglement death/revival under relaxation"
+      },
+      {
+        "assessment": "COVERS telegraph coherence and revival behavior without the independently depolarized channel-wide lobe hierarchy.",
+        "evidence": "Characteristic function for binary fluctuator is equivalent to exponentially damped sinusoidal coherence under a rate-convention change.",
+        "identifier_or_url": "https://arxiv.org/abs/1210.1122",
+        "material_read": "Original full PDF, especially the telegraph decoherence formula around Eq. (5) and the entanglement-revival application",
+        "method": "Open-access arXiv PDF text plus page-image inspection",
+        "title": "Hidden entanglement in the presence of random telegraph dephasing noise",
+        "trigger": "Same telegraph process and oscillatory characteristic-function formula"
+      },
+      {
+        "assessment": "Constructs distinct channel families and studies divisibility; no matching threshold sequence or asymptotic revival count was located.",
+        "evidence": "Examples of non-Markovian qubit dephasing and depolarizing channels, without the exact independently composed telegraph channel threshold optimization.",
+        "identifier_or_url": "https://arxiv.org/abs/1805.11411",
+        "material_read": "Original full PDF, introductory models and divisibility/channel treatments in Sections II and VI",
+        "method": "Open-access arXiv PDF text plus page-image inspection",
+        "title": "Non-Markovian Dephasing and Depolarizing Channels",
+        "trigger": "Potential stronger result connecting dephasing and depolarization channels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0f5083c-fe04-4687-8821-e0dee1c61cdf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number of entanglement-preserving revivals in a telegraph-noisy qubit with an independent weak Markovian depolarizer is an interpretable operational quantity, not merely a special-function exercise. Strictly ordered lobe thresholds distinguish oscillatory coherence from actual entanglement-transmission capacity, while the negative log-log correction to the positive-switching logarithmic law and the singular inverse-rate law of static noise give sharp, potentially testable design scales. Published work already observes qualitative death/revival and finite return under relaxation; the object of value is the all-lobe classification and sharp number-of-revivals asymptotic, not the known base dynamics. No general hardware efficiency or experimental precision claims are made.",
+    "status": "PASS"
+  }
+}
