@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses guarantee SPD of A, its Schur complement, and the compressed covariance. Exact block inversion shows q-v coupling zero and u-v coupling -c/R; determinant ratio 1+delta, reverse trace 3+2 delta, and the monotone Gaussian KL formulas follow. Rotation parameter p has a single maximizer 1/(kappa^2+1), proving the sharp constants and equality. An extracted executable performed 4,513 checks including symbolic determinant/trace identities; finite checks supplement the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fifen et al. Theorem 13: general isotropic error estimates including per-point KL bounded by a quadratic expression in the complement condition number.",
+        "Zhang et al. accessible abstract: Gaussian KL divergence asymmetry bounds under reverse-KL constraints, not structure-specific Lanczos inverse covariance formulas."
+      ],
+      "reasoning": "A general *upper* bound does not imply the displayed sharp constants, unique optimizing compressed-complement orientation, or exact beta-independence. The known Kantorovich bound helps interpret the optimized result but does not by itself identify the compressed Schur block/coupling cancellation. Full uninspected details remain a risk.",
+      "searches": [
+        "Gaussian KL trace matched isotropic one dimension Lanczos Schur complement exact condition number sharp Kantorovich factor",
+        "trace matched isotropic covariance approximation sharp maximum Kullback Leibler divergence bounded spectral condition number Gaussian",
+        "stochastic Lanczos quadrature computational uncertainty isotropic complement covariance exact KL divergence finite dimension spectral extremizers",
+        "arXiv:2609.10080v1 (Fifen--Karambal--Hennig, 2026-09-09)",
+        "arXiv:2102.05485 (Zhang--Liu--Chen--Wang--Li, 2021)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10080v1 (Fifen--Karambal--Hennig, 2026-09-09)",
+      "arXiv:2102.05485 (Zhang--Liu--Chen--Wang--Li, 2021)",
+      "Golub and Van Loan, Matrix Computations (2013), classical block inversion background",
+      "Published mathematical-record searches: boundary aligned covariance compression; stochastic Lanczos isotropic KL; Schur inverse coupling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper supplies the construction and a loose condition-number envelope; the new result characterizes both *directed* KL losses exactly in a 3x3 family and uses a different, sharper uncorrected-complement condition number.",
+        "The Gaussian KL identity reduces the new assertion to determinant/trace equalities; those equalities and beta cancellation are proved in RESULT.md rather than cited."
+      ],
+      "reasoning": "The new theorem specializes the same numerical motivation but does not claim that the generic Gaussian KL formula or source Schur inverse identities are original. Existing accessible estimates neither state nor logically force the *sharp equality and cancellation* without additional calculation. A completely unknown stronger statement would cover it, so bibliographic residual risk is retained.",
+      "searches": [
+        "arXiv:2609.10080v1 (Fifen--Karambal--Hennig, 2026-09-09)",
+        "arXiv:2102.05485 (Zhang--Liu--Chen--Wang--Li, 2021)",
+        "Stochastic Lanczos Quadrature Fifen Karambal Hennig complement covariance coupling boundary KL exact three by three inverse covariance",
+        "rank one Schur complement inverse coupling covariance block truncation KL invariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claimed invariant can equivalently be written det(C_hat)/det(C)=1+c^2 det(T)/(b^2+c^2)^2 and tr(C^-1 C_hat)=3+2 delta.",
+        "The motivating paper's Theorem 13 bounds general KL error by a condition-number expression but does not supply the exact invariant in inspected text."
+      ],
+      "reasoning": "Compared determinant ratios, directed Gaussian relative entropies, zeroed cross-covariance and boundary-alignment formulations, not merely names. None of the inspected source statements asserts this coupled 3x3 parameter invariance; the standard KL formula alone has no structural coupling cancellation without the new block analysis.",
+      "searches": [
+        "Stochastic Lanczos Quadrature Fifen Karambal Hennig complement covariance coupling boundary KL exact three by three inverse covariance",
+        "rank one Schur complement inverse coupling covariance block truncation KL invariance",
+        "arXiv:2609.10080v1 (Fifen--Karambal--Hennig, 2026-09-09)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results for the mathematical-record queries had unrelated closest records on Gaussian covariance calibration, Lanczos Ritz convexification, and general spectral condition numbers; no record presented a matching three-dimensional coupled Gaussian-KL table.",
+        "Previously recorded mathematical claims on Gaussian sketches and covariance analyses inspected for overlap do not contain this exact coupling-invariant inverse-compression law."
+      ],
+      "reasoning": "This is a continuous all-parameter exact identity rather than a tabulated finite value; no enumerative table can subsume it without a stronger analytic theorem. Search negatives do not prove uniqueness.",
+      "searches": [
+        "Stochastic Lanczos Quadrature Fifen Karambal Hennig complement covariance coupling boundary KL exact three by three inverse covariance",
+        "Gaussian KL trace matched isotropic one dimension Lanczos Schur complement exact condition number sharp Kantorovich factor",
+        "boundary aligned covariance compression Gaussian Kullback Leibler off diagonal removal sharp 3x3 eigencondition",
+        "sharp arithmetic geometric mean ratio matrix spectrum condition number optimizing endpoint multiplicities KL"
+      ]
+    },
+    "rationale": "The inspected primary HTML describes Lanczos-residual-aligned inverse covariance and Theorem 13 gives a coarse condition-number isotropic/KL bound. It does not in inspected portions give the exact directed three-dimensional KL formulas, boundary-coupling invariance, or the sharp uncorrected-complement spectral orientation. The general Gaussian KL identity and Kantorovich-type spectral inequalities are known ingredients, not claimed as discoveries. Published-record searches and comparisons with earlier mathematical claims returned no dominating equivalent statement; incomplete source and indexing remain explicit residual risks.",
+    "residual_risks": [
+      "The source HTML was initially available for key construction, proposition and theorem statements, but subsequent full-text/appendix retrieval failed; the uninspected source could contain a stronger equivalence.",
+      "A plausible older Gaussian-KL paper was available only through its abstract, though its stated focus is different.",
+      "The theorem concerns one precisely defined covariance compression and has not been independently validated.",
+      "Unindexed or unpublished literature may include equivalent formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source provides the algorithmic motivation and looser complement-KL envelope, not the exact coupled 3x3 two-direction law in material inspected.",
+        "evidence": [
+          "arXiv:2609.10080v1 §4.3, Proposition 10, Theorem 13",
+          "arXiv HTML covariance formula in contribution summary"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.10080",
+        "material_read": "HTML abstract, contribution statements, related work, definitions of the complement condition number, Proposition 10 and Theorem 13 statements and surrounding formulas in section 4.3; full appendices were not accessible on subsequent requests.",
+        "method": "Read rendered mathematical HTML with the Schur covariance and Gaussian KL statements; compared parameters and implications.",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Direct source introducing Lanczos residual coupling, boundary direction and isotropic bulk."
+      },
+      {
+        "assessment": "Accessible description gives KL-vs-reverse-KL bounds without the structured Lanczos inverse-compression formula; residual uninspected-text risk remains.",
+        "evidence": [
+          "arXiv:2102.05485 abstract, 2021"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.05485",
+        "material_read": "Full arXiv abstract and bibliographic page; PDF/full text unavailable during this run.",
+        "method": "Compared theorem descriptions in abstract to the specific tridiagonal block-inverse covariance and coupling-invariant identities.",
+        "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+        "trigger": "Potentially broader Gaussian KL theory dominating a particular covariance comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df31094b-86b5-46e6-8701-6f1640bfbdaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives the complete and sharp two-direction Gaussian-KL stability law of an explicit boundary-aligned minimal Lanczos covariance compression, separating the diagnostic uncorrected complement condition number from arbitrarily worse corrected Schur conditioning. The cancellation of boundary coupling, sharp orientation and divergent-Schur fixed-KL example answer a naturally motivated reliability question. Not a mere formal restatement of a general bound or numerical table.",
+    "status": "PASS"
+  }
+}
