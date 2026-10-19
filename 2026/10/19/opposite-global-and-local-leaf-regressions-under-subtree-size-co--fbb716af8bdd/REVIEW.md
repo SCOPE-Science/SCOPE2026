@@ -1,0 +1,15 @@
+# Scientific review: opposite global and local leaf regressions
+
+## Correctness — PASS
+The theorem has exact integer ranges \(n\ge3\), \(2\le k\le n\), and admissible \(s\). Conditioning on the Pólya-marked arrival sequence produces independent uniform recursive trees inside and outside vertex \(k\); the original parent of \(k\) is uniform among the earliest \(k-1\) outside vertices. Counting that edge's deletion of a leaf gives the displayed conditional global formula, with the \(k=2\) singleton-outside boundary isolated explicitly. The global covariance is independently derived by a growth recurrence. The local covariance follows from beta-binomial moments. Exact-rational exhaustive and parameter-grid checks passed. Infinite-dimensional assertions rely on proof, not enumeration.
+
+## Originality — PASS with a stated limitation
+Mahmoud–Smythe (1991) treat *internal* leaves and size of rooted subtrees, so those local moments are prior work. Leckey–Neininger (arXiv:1202.2439, sections 2–3) give the second-vertex decomposition and global leaf marginal law; \(k=2\) can be derived from their decomposition and is included as a boundary, not a separate discovery. The assessed distinct point is the **global** conditional regression for every vertex \(k\ge3\) and universal anti-association with increasing subtree-size scores, contrasted against the local sign. A published result on root degree versus global leaves (a different local observable) does not imply the descendant-subtree regression. Originality searches also tested aliases and equivalences; the complete body of the especially relevant Mahmoud–Smythe 1991 article could not be read because available text extraction returned essentially a cover sheet. It could contain an implicit stronger joint claim; novelty is not independently certified.
+
+## Mathematical value — PASS
+The subtree-size statistic quantifies descendant family size, while global and within-family leaf counts measure distinct branching complexity. Their opposite conditional regression signs have an interpretable structural cause: a marked subtree's connecting edge consumes one potential outside leaf, and outside-tree leaves depend on the available complement. The theorem gives the complete finite-size boundary classification, exact covariance in every dimension, and signs for **all** nonconstant monotone subtree-size scores. This is a natural whole-versus-part dependence question rather than an arbitrary parameter slice or a mere verification of known moments.
+
+## Scope and residual risks
+No full conditional stochastic order is asserted. The decomposition holds only for uniform recursive attachment. The local beta-binomial moments and second-vertex special case have substantial prior coverage. The 1991 predecessor was not fully readable, and additional unindexed multivariate identities may exist; neither absence from an index nor source partition is uniqueness evidence. Same-model correctness and originality review do not substitute for independent checking.
+
+Self-review: passed. Independent audit: not yet performed.
