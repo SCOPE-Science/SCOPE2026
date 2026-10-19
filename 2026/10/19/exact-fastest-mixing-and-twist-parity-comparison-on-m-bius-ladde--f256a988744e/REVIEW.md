@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Cyclic averaging applies to the entire feasible class of symmetric stochastic matrices, not just pre-symmetrized candidates. A Fourier decomposition yields four extremal modes, and a positive three-mode linear combination supplies a sharp lower bound. All omitted spectral constraints and every nonnegativity constraint are proved directly. Equality forces the stated unique rotation-invariant allocation. The prism comparison is re-derived in the proof rather than assumed from a prior claim. The finite program independently checks 20,439 numerical assertions, but no finite test is treated as proof for all graph sizes.
+
+**Originality (PASS with residual risk).** The foundational 2004/2007 fastest-mixing and symmetry papers contain general SDP and averaging principles and different explicit graph families, including cycles and wheels, but not this closed Möbius-ladder formula or its twist-parity comparison in the relevant inspected sections. The 2025 Möbius-ladder Fourier analysis is for Ising-energy optimization, not stochastic SLEM. The earlier exact prism result and a distinct spanning-tree optimum on Möbius ladders are acknowledged. Search coverage included the same graph under its antipodal-cycle and circulant descriptions; related non-mixing records do not imply the theorem. Unindexed equivalent formulations remain a residual risk.
+
+**Value (PASS).** This is a natural infinite-family fastest-mixing problem that distinguishes a twisted ladder from the corresponding Cartesian prism in a mathematically sharp way: exact odd-size equality with a holding/rung swap, strict even-size improvement with a fourth-order coefficient, and fourfold asymptotic spectral-gap gain over the unaugmented cycle even though the optimal rung masses vanish. The positive-mode optimality certificate is small and reproducible. These are meaningful structural statements, not a numerical optimization table or a routine change of labels.
+
+**Limits.** Independent mathematical validation has not occurred. Global uniqueness of all non-invariant optimizers and finite-time total-variation optimality are not claimed. Literature coverage is substantial but not exhaustive.
+
+Self-review: passed. Independent audit: not yet performed.
