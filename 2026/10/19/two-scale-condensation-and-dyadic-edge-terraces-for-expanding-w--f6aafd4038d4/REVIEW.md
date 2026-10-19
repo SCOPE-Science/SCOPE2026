@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The invariant-density series, exact critical orbit and normalization are verified premises from the full primary manuscript [1]. Their signed normalization and the two critical image locations give a globally bounded density after multiplying by the perturbation size. A uniform geometric tail justifies termwise limits; the resulting first-scale top-hat, second-scale left-edge geometric staircase and sharp right edge follow directly. The shrinking-window limit uses local \(L^1\) convergence for finite scale and the established weak-* limit for larger scales. The standalone exact-rational enclosure checker returned `VERIFY_OK`. Its finite instances are verification, not a substitute for the analytical argument.
+
+**Originality — PASS, with residual priority risk.** Full text [1] establishes the W family, invariant-series density and weak-* atomic mass, not a microscopic law. The arXiv sequel [2] treats weak-limit classes, not the infinite dyadic terrace structure at the \(a^2\) left-edge scale. Searches of relevant published results and other research records using aliases such as W-shaped maps, singular ACIMs, critical-point density, rescaled boundary layer and dyadic staircase produced no dominating microscopic theorem. The exact series from [1] could be used to recover the new statements, and unpublished calculations cannot be ruled out; external independent priority review is still outstanding.
+
+**Mathematical value — PASS.** Weak convergence to a Dirac atom does not fix how finite-parameter mass is distributed locally. Here two distinct scales coexist: a uniform core on scale \(a\), then an asymmetric infinite geometric hierarchy of terraces on scale \(a^2\). This exact edge classification, and the complete shrinking-window capture law, make the mechanism behind a known singular ACIM limit quantitatively transparent rather than merely restating weak convergence.
+
+**Closest literature and limits.** The original family and its formulas belong to Li–Góra–Boyarsky–Proppe–Eslami, doi:10.1017/S0143385711000836; a more general qualitative follow-up is Li, arXiv:1109.5199. Only the fixed W family and its asymptotic critical layer are treated; no independence, generalized family, error rate or global \(L^1\) convergence is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
