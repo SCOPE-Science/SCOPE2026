@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Equality of products for two distinct nonzero matrix units forces both products to vanish, giving the exact source–target disjointness criterion. The proof classifies maximal cliques uniquely, enumerates the entire face vector by inclusion–exclusion on bipartite edge covers, and derives the two permutation-character formulas by counting constrained three-colorings on cycles. The Specht multiplicities follow from Schur–Weyl duality. Independent finite enumeration of actual products, maximal cliques, arbitrary cliques and automorphism fixed points confirms all tested cases. No computation is used as an infinite proof.
+
+**Originality — PASS, subject to residual priority uncertainty.** The published Brandt-graph theorem of Kumar–Dalal–Pandey (arXiv:2010.05000, §3–4) includes the graph adjacency, maximum-clique number, and full automorphism group but not the complete maximal-clique enumerator, all-cardinality clique polynomial or permutation character on maximal cliques. Araújo–Bentz–Konieczny (arXiv:1205.1664) concerns the full symmetric inverse semigroup's maximal-size commutative families. A previously established spectral invariant for this exact graph is deliberately outside this claim; spectral or adjacency results are not advanced as original. Semantic searches of published mathematical records did not find the precise equivariant and all-cardinality statement; terminology overlap remains a residual risk, not proof of uniqueness.
+
+**Value — PASS.** Prior maximum-clique bounds omit how many inclusion-maximal families exist below the extremal size. The complete clique polynomial answers the full rank-by-rank incidence question, while the automorphism permutation character resolves fixed maximal families for every conjugacy class of the full automorphism group. It yields a closed rational representation decomposition and a sharp Euler evaluation. These are natural global structural invariants of a standard finite inverse semigroup's commuting graph, not an arbitrary sliced statistic.
+
+**Limits.** The theorem concerns only the aperiodic Brandt semigroup, not arbitrary Rees matrix semigroups. The verifier tests finite orders and independent scientific and priority review remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
