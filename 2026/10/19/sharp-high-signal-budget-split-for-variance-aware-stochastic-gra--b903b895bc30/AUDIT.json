@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed full conditional mean-square optimal step and risk map; exact fractional-map composition, Jensen and strict Gaussian nondegeneracy, high-signal L2 limit, derivative sign via monotone likelihood-ratio tilted gamma measures, dimension convex-order, and scalar erfc root. 704 deterministic checks from embedded verify.py passed. Finite checks do not establish global uniqueness; explicit analytic argument does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower et al. derive generic SGD total oracle-cost upper bounds for constant/schedule step selection, not the statewise mean-square oracle risk identity.",
+        "AdAdaGrad uses adaptive variance norm tests, not the exact statewise oracle and high-signal Gaussian ratio."
+      ],
+      "reasoning": "Neither inspected general approach implies pointwise strict dominance of the same-budget sequential oracle policy or the unique optimal Gaussian two-block high-signal allocation. No stronger covered theorem was found.",
+      "searches": [
+        "sharp high signal Gaussian gradient minibatch split oracle step adaptivity chi-square dimension batch allocation ratio 0.604867",
+        "arXiv:1901.09401 Section 4 minibatch complexity",
+        "arXiv:2402.11215 Section 4 adaptive sampling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.16956 first public 2023-11-28, Eq. (3.2) and Section 3",
+      "arXiv:1901.09401 Sections 1-4",
+      "arXiv:2402.11215 Sections 3-4",
+      "published-finding corpus semantic searches returned in this research; five closest record comparisons documented"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2311.16956 gives the source oracle stepsize, a proper subset of the new claim.",
+        "arXiv:1901.09401 contains generic batch-size complexity inequalities rather than exact risk equality for conditional oracle steps.",
+        "Closest published-finding corpus statements concern other objectives, update rules and distributional regimes."
+      ],
+      "reasoning": "Deriving the new statement requires the nonlinear conditional-risk composition and concavity, followed by a gamma tilted-measure uniqueness argument and leave-one-out convex-order comparison. The inspected prior statements do not assert these conclusions or a stronger implication.",
+      "searches": [
+        "Adaptive Step Sizes for Stochastic Gradient Descent in Hilbert Spaces 2311.16956 oracle step size batch size sequential risk",
+        "oracle variance aware SGD quadratic independent Gaussian noise two sequential minibatches one pooled batch same fixed sample budget exact mean square risk strict Jensen advantage",
+        "published-finding corpus records fd5004e04a73, 31e39c4cd36d, 00bfbf6b7815, e95aca5c91b7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact oracle step corresponds to arXiv:2311.16956 Eq. (3.2).",
+        "No batch-partition mean-square ordering in the inspected source sections; published-finding corpus closest STORM record concerns fixed-template stationary covariance."
+      ],
+      "reasoning": "The original rule is a known ingredient, but the complete independent-block sample-budget comparison and optimized chi-square risk ratio are not equivalent to either the rule itself or a stationary fixed-step variance calculation.",
+      "searches": [
+        "oracle variance aware SGD quadratic independent Gaussian noise two sequential minibatches one pooled batch same fixed sample budget exact mean square risk strict Jensen advantage",
+        "Adaptive Step Sizes for Stochastic Gradient Descent in Hilbert Spaces 2311.16956 oracle step size batch size sequential risk",
+        "published-finding corpus record fd5004e04a73 (STORM)",
+        "arXiv:2311.16956 Eq. (3.2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or named constant 0.680415310037752... in queried search results.",
+        "Results yielding STORM, OHM, OSGM-SGD and Gaussian likelihood-ratio data splitting have distinct estimands and algorithms."
+      ],
+      "reasoning": "The constant is the minimum of an explicitly defined chi-square expectation over the allocation ratio, not a known lookup from the inspected materials. No table uniqueness is claimed.",
+      "searches": [
+        "oracle variance aware SGD quadratic independent Gaussian noise two sequential minibatches one pooled batch same fixed sample budget exact mean square risk strict Jensen advantage",
+        "sharp high signal Gaussian gradient minibatch split oracle step adaptivity chi-square dimension batch allocation ratio 0.604867",
+        "arXiv:2311.16956 source and first-public version"
+      ]
+    },
+    "rationale": "The original mathematical claim is the exact same-budget sequential-risk ordering together with the full high-signal chi-square allocation phase and sharp dimension-one infimum; source Eq. (3.2), standard Jensen, and general batch-size theory are credited as prior ingredients. Three published-finding corpus semantic searches of the source, exact claim and aliases were inspected; the closest records concern different algorithms or Gaussian objectives, without a dominating implication. Relevant primary source sections were materially read. Search absence does not prove publication priority; unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "Specialized exact minibatch-oracle comparisons may appear in unindexed manuscripts or sections not read in full.",
+      "General SGD complexity bounds may have a specialized corollary overlapping parts of this finding even without matching formula; no independence or publication priority is certified.",
+      "The ideal moment oracle is not the implementable estimator of the motivating paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Equation (3.2) supplies the existing moment-based step. The read material establishes convergence and estimation, but no exact comparison of two oracle-optimal minibatch blocks with one pooled block or chi-square optimized allocation. Not a claim about unread portions.",
+        "evidence": [
+          "arXiv:2311.16956, Eq. (3.2), Section 3; https://arxiv.org/html/2311.16956"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.16956",
+        "material_read": "Public preprint HTML: abstract; introduction on noise at optimum; section 3 equations (3.1)-(3.4), Theorem 3.4; section 6.1 experiments.",
+        "method": "Primary arXiv HTML, direct equation/assumption comparison.",
+        "title": "Adaptive Step Sizes for Stochastic Gradient Descent in Hilbert Spaces (original title: Adaptive Step Sizes for Preconditioned Stochastic Gradient Descent)",
+        "trigger": "The oracle step is the source of the present specialized gradient rule."
+      },
+      {
+        "assessment": "The source optimizes bounds for general SGD using sampling-dependent but not state-by-state oracle mean-square minimizing steps. Its Section 4 is about iteration/sample complexity, not the exact finite-budget risk identity or Gaussian high-signal allocation.",
+        "evidence": [
+          "arXiv:1901.09401, Section 4, equations (30)-(42)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.09401",
+        "material_read": "Primary full-text HTML presentation: Sections 1-3 and Section 4, especially equations (30)-(42) for iteration and sample-complexity bounds.",
+        "method": "Direct primary arXiv full-text rendering; compared both sampling model and conclusions.",
+        "title": "SGD: General Analysis and Improved Rates",
+        "trigger": "Closest general theory concerning minibatch sizes and sample budget."
+      },
+      {
+        "assessment": "Changes batch sizes for AdaGrad using estimated gradient variance and convergence guarantees; no exact two-stage oracle risk ratio or dimension-sharp Gaussian allocation in inspected sections.",
+        "evidence": [
+          "arXiv:2402.11215, Sections 3-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.11215",
+        "material_read": "Primary arXiv full-text rendering: abstract, Section 3 and Section 4 norm and inner-product tests.",
+        "method": "Direct primary full-text presentation, equations (1)-(6) compared.",
+        "title": "AdAdaGrad: Adaptive Batch Size Schemes for Adaptive Gradient Methods",
+        "trigger": "Relevant adaptive minibatch theory with norm variance test."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b903b895-bc30-44bf-975c-b52379a0e0b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed individual-gradient budget is a natural optimization invariant. The exact statewise oracle benchmark resolves whether information from the first noisy minibatch should be acted on before spending remaining samples; the strictly positive Jensen dividend is quantified by a sharp two-block high-signal universal limit. Uniqueness of the optimal split and the monotone dimension penalty distinguish this from a generic minibatch rate estimate or an arbitrary parameter slice. It is explicitly an ideal oracle benchmark, not a practical timing claim.",
+    "status": "PASS"
+  }
+}
