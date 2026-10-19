@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim follows from a checked multiplication formula for the two-dimensional stable square, a nonsingular skew-product conjugacy when \(\lambda\ne2\), and a separately derived affine-drift iterate at \(\lambda=2\). Cyclicity of finite-field multiplicative groups gives the exact root counts; the fiber-return argument gives the full periodic locus; Möbius inversion gives exact least-period counts. Original-table enumeration over seven fields, with extension-field arithmetic, confirms 636 fixed-iterate instances and the periodic-locus formula. Finite verification is not treated as the proof.
+
+**Originality — PASS, with historical risk.** Hu and Wen determine idempotents (the first iterate), not the family-wide higher iterate spectra. A published study of automorphisms of the same algebras addresses linear stabilizers, not this nonlinear dynamical invariant; its full proof was checked. A broad evolution-algebra survey uses the linear evolution operator, which is mathematically different from elementwise squaring. Searches under finite-field squaring dynamics, periodic points, skew products, and the displayed family did not identify a statement implying both explicit \(F_m\) formulas. A hidden equivalence in older finite-field skew-product literature remains a possible historical risk; the review does not certify priority independently.
+
+**Mathematical value — PASS.** The idempotent-free but non-solvable exceptional member raises a natural question: does it support other periodic elements under repeated squaring? The theorem gives a complete answer in every odd finite field, with all cycle lengths and multiplicities, and proves a sharp resonance law forcing all nonzero periods to be divisible by \(p\). The formula across all parameters separates additive drift from multiplicative fiber behavior. This is a motivated dynamical invariant, not a simple count of idempotents.
+
+**Scope and limitations.** The result is restricted to the displayed three-dimensional family and odd finite fields. General preperiodic-tree structure and characteristic two are unaddressed. Full-text historical comparisons cannot exclude every alternative formulation.
+
+Self-review: passed. Independent audit: not yet performed.
