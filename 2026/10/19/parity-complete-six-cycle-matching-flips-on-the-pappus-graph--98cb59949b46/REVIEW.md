@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The graph is specified unambiguously by nine triples of a point–line configuration and, separately, by a checked 18-vertex LCF specification. Exhaustive recursion generates every perfect matching by branching on the least unused vertex; independent permutation enumeration checks all incidence-consistent bijections. Independent edge-symmetric-difference and three-position permutation tests recover the same 42-vertex, 72-edge transition graph. Every distance and component structure is checked exactly. Parity preservation has a direct three-cycle argument. The claim is finite; the exhaustive code is not being treated as a proof for an infinite family.
+
+**Originality — PASS with residual risk.** The full text of Abreu–Labbate–Sheehan (arXiv:1002.1891) establishes pseudo-two-factor isomorphism, not this hexagon-only matching-flip classification. Ito et al. (arXiv:1907.01700) permit cycles of arbitrary even length; this yields general reachability but neither the restricted components nor their structure. Bonamy et al. study four-cycle flips, which are unavailable in this girth-six graph. No prior equivalent Pappus-specific restricted reconfiguration classification was identified in targeted literature and mathematical-result searches. An unindexed computational study or appendix could still contain the same finite facts.
+
+**Value — PASS.** This is an exact reachability classification under the shortest possible local matching move in a classical cubic symmetric graph. The nontrivial two-component obstruction is completely explained by permutation sign, while each 21-state component has a concrete hub/hexagon construction and sharp four-flip diameter. This supplies a reproducible comparison point for restricted-cycle reconfiguration and the difference between all-cycle and girth-cycle moves; it is not an arbitrary subset census.
+
+Self-review: passed. Independent audit: not yet performed.

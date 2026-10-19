@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The least-unmatched-vertex recurrence exhausts all LCF perfect matchings; the independent nine-line permutation enumeration is exhaustive; an explicit graph isomorphism shows all 42 full adjacency sets agree. Simple six-cycles exhaustively enumerated and each legal matching flip tested. Component structure checked by degree-six hubs and low-degree induced C6 decomposition. Sign invariance has an analytic 3-cycle proof. Both self-contained verification programs succeeded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito et al., arXiv:1907.01700, prove general reachability under any alternating even cycle, which is strictly a larger move set",
+        "Abreu et al., arXiv:1002.1891, identify Pappus among pseudo-2-factor-isomorphic Levi graphs but do not determine restricted flip connectivity"
+      ],
+      "reasoning": "Unrestricted alternating-cycle reachability neither establishes nor rules out two components when only shortest cycles are permitted; it cannot imply the sharp restricted diameter or canonical 21-state structure. Two-factor parity is not permutation-sign completeness for matchings under local moves.",
+      "searches": [
+        "Pappus graph matching graph toroidal face hexagon cycles",
+        "Pappus graph matching hexagon flip resonance 21",
+        "Levi graph Pappus perfect matching flips 21-state connected components"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1002.1891v1",
+      "arXiv:1907.01700v1",
+      "arXiv:1904.06184",
+      "https://mathworld.wolfram.com/PappusGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abreu et al. 2010 Theorem 3.1: Heawood and Pappus are the only irreducible pseudo-2-factor-isomorphic Levi graphs",
+        "Ito et al. 2019 section 1: all-cycle reachability always yes; this result allows any alternating cycle length",
+        "Independent graph enumeration: six-cycle-only components are two disjoint 21-vertex graphs"
+      ],
+      "reasoning": "The prior all-cycle model is an edge supergraph of the six-cycle-only graph and can be connected even if the subgraph is disconnected; thus the previous connectivity theorem does not dominate this claim. A uniform parity of complementary two-factor cycle counts does not determine which two matchings have a path of six-cycle flips, let alone the exact component graphs.",
+      "searches": [
+        "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles Ito Kakimura Kamiyama Kobayashi Okamoto",
+        "Irreducible pseudo 2-factor isomorphic cubic bipartite graphs Pappus perfect matchings",
+        "Pappus graph perfect matchings six-cycle flips 42 matchings two components 21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1002.1891v1 sections 1-3: two-factor parity, no classified hexagon-flip state graph",
+        "arXiv:1907.01700v1 sections 1-2: alternating cycles of unrestricted length, not only six-cycles"
+      ],
+      "reasoning": "The exact object is the induced flip graph on all Pappus perfect matchings where symmetric differences have exactly six edges. This is not the ordinary matching complex, the complement-two-factor classification, or unrestricted-cycle adjacency. Literature checked states different invariants and move sets.",
+      "searches": [
+        "Pappus configuration incidence graph six-cycle resonance matching reconfiguration parity",
+        "Pappus graph perfect matchings 42 alternating 6-cycle flip graph resonance reconfiguration",
+        "Pappus graph \"perfect matchings\" \"flip\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram MathWorld Pappus Graph page describes 18 vertices, LCF and classical graph invariants, not its matching-flip graph",
+        "Mathematical result searches returned Pappus matching-complex homology records rather than the hexagon-flip classification"
+      ],
+      "reasoning": "No exact table of 42 states, 72 transitions, two 21-components with hub-hexagon structure or four-flip diameter was identified. Search nonreturn is not a proof of priority; residual risk is preserved.",
+      "searches": [
+        "Pappus graph perfect matchings 42 6-cycle flip 21",
+        "Pappus graph 42 perfect matchings 21 6-cycle flip 2024 2025",
+        "Pappus graph number perfect matchings 42 6 cycle flips"
+      ]
+    },
+    "rationale": "Primary 2010 Pappus factor paper and 2019 all-cycle reconfiguration paper have materially different statements; four-cycle PSPACE results cannot imply this girth-six exact classification. No prior exact Pappus hexagon-flip component structure found in result-record or direct literature searches; unindexed data remain possible.",
+    "residual_risks": [
+      "Unindexed enumerations or supplementary datasets might contain the same Pappus-specific finite transition graph.",
+      "A general theorem for restricted cycle flips not identified by the checked literature could imply part of the classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identifies the Pappus graph and its two-factor property, without a six-cycle matching-flip graph classification",
+        "evidence": [
+          "https://arxiv.org/html/1002.1891v1"
+        ],
+        "identifier_or_url": "arXiv:1002.1891v1",
+        "material_read": "Abstract, sections 1-3, including theorems 1.2 and 3.1 and Pappus graph description",
+        "method": "lawful arXiv full-text HTML",
+        "title": "Irreducible pseudo 2-factor isomorphic cubic bipartite graphs",
+        "trigger": "Pappus Levi graph and prior factor structure"
+      },
+      {
+        "assessment": "Unrestricted alternating-cycle moves allow universal reachability and are not six-cycle-only moves",
+        "evidence": [
+          "https://arxiv.org/pdf/1907.01700"
+        ],
+        "identifier_or_url": "arXiv:1907.01700v1",
+        "material_read": "Full primary introduction, model definitions, prior-model comparisons, general reachable-cycle argument, and result statements",
+        "method": "lawful arXiv full-text PDF",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Potential dominating reconfiguration theorem"
+      },
+      {
+        "assessment": "Four-cycle-only flips differ; Pappus has girth six",
+        "evidence": [
+          "https://arxiv.org/abs/1904.06184"
+        ],
+        "identifier_or_url": "arXiv:1904.06184",
+        "material_read": "Primary introduction, four-cycle model and complexity statements",
+        "method": "lawful arXiv full-text HTML",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Potential coverage for fixed-length flip moves"
+      },
+      {
+        "assessment": "Defines graph but does not state restricted perfect-matching flip structure",
+        "evidence": [
+          "https://mathworld.wolfram.com/PappusGraph.html"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+        "material_read": "Graph description including LCF and incidence characterization",
+        "method": "webpage read",
+        "title": "Pappus Graph",
+        "trigger": "Graph LCF definition and possible tabulated invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98cb5994-9b46-4d15-83f1-66606186ed10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural girth-six flip operation on a canonical cubic bipartite Levi graph has a complete reachability classification, sharp diameter, and explicit 21-vertex component isomorphism, distinguishing it from all-cycle connectivity. Not an arbitrary subgraph slice or mere reproduction of a standard graph table.",
+    "status": "PASS"
+  }
+}
