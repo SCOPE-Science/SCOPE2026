@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The side-of-own-index invariant is preserved by every legal adjacent swap. Each of the 2^(n-2) patterns has the displayed valid normal form. Legal bubbling first sorts all left-side values, then all right-side values, proving each fiber connected and giving a uniform diameter bound; adjacent swap blocking conditions force exactly two frozen shifts for n>=3. Independently checked BFS for n<=9 and constructive normal-form path for n<=8; finite BFS establishes the 6-letter 7-vs-5 non-isometry witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mütze survey p. 41 distinguishes derangement Gray codes using one transposition or 3-rotation, and pp. 37-39 discusses adjacent-swap Gray codes for all permutations.",
+        "Baril-Vajnovszki 2004 and Korsh-LaFollette 2004 abstracts allow arbitrary transpositions and 3-rotations."
+      ],
+      "reasoning": "A route using arbitrary transpositions or 3-rotations need not be a route using adjacent swaps that preserve the fixed-point-free constraint at every step. Those Gray-code results are not stronger coverage.",
+      "searches": [
+        "published-finding corpus: Gray code derangements by adjacent transposition only, disconnected components, frozen derangements",
+        "web: Gray Code for Derangements Baril Vajnovszki 2004",
+        "web: Constant time generation of derangements Korsh Lafollette 2004",
+        "Mütze Gray-code survey sections 5.1, 5.3, PDF pages 37 and 41"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1601.04469v1",
+      "https://tmuetze.de/papers/survey.pdf",
+      "https://jl.baril.u-bourgogne.fr/equival.pdf",
+      "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.13007",
+      "doi:10.1016/j.dam.2003.06.002 abstract",
+      "doi:10.1016/j.ipl.2004.02.006 abstract",
+      "doi:10.1006/aama.1999.0671 abstract and author manuscript record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chitturi-Krishnaveni arXiv:1601.04469v1 defines adjacency as consecutive *values* and studies enumeration/sorting block moves, not the induced reconfiguration graph of derangements.",
+        "Bergeron 2024 studies Bruhat-order quotient by weak-excedance positions/values; no adjacent-position-swap path statement appeared.",
+        "The first-found 2013 Eindhoven thesis concerns adjacent interchanges with fixed restrictions of multisets, but only bibliographic metadata could be read."
+      ],
+      "reasoning": "Neither order-theoretic excedance equivalence nor full-permutation adjacency sorting establishes that each fixed inverse-side signature is connected under the prohibition on intermediate fixed points. A thesis with plausible overlapping wording remains a named access risk.",
+      "searches": [
+        "published-finding corpus: Permutations avoiding forbidden fixed positions, connected components of adjacent transposition reconfiguration, no fixed point sign vector",
+        "web: permutation excedance set preserved adjacent transpositions connected induced graph fibers",
+        "Chitturi Krishnaveni 2016 full arxiv HTML",
+        "Bergeron and collaborators 2024 The excedance quotient of Bruhat order full HTML"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus top similarity returned permutation-pattern and inversion census records, not an exact inverse-excedance-signature flip-graph classification.",
+        "Baril Mansour Petrossian 2014 defines sameness of the complete excedance board (both positions and values) and enumerates such classes; it does not introduce legal adjacent-swap paths."
+      ],
+      "reasoning": "Identical sign data for the inverse is coarser than an excedance board. Enumerations of excedance equivalence classes alone do not imply reachability by legal adjacent-position swaps.",
+      "searches": [
+        "published-finding corpus: Derangements with a prescribed inverse excedance set reconfiguration by adjacent swaps and connectedness, half-line restrictions, canonical sorted normal form",
+        "web: permutations same excedance set adjacent transpositions reconfiguration graph",
+        "web: derangements adjacent swaps connected components",
+        "Baril Mansour Petrossian 2014 author PDF pages 1-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A000166 and Ehrenborg Steingrimsson concern counts and excedance classes, not adjacency-restricted components.",
+        "Computed component counts for n=2..9 are 1,2,4,8,16,32,64,128; no published exact graph table was identified."
+      ],
+      "reasoning": "A derangement-count table records total states; it does not determine the partition into reachable states. No exact corresponding component table was found in consulted records.",
+      "searches": [
+        "published-finding corpus: Exactly 2 to the n minus 2 connected components in the adjacent-swap graph on fixed-point-free permutations derangements sign-of-excedance for inverse permutations; two isolated rotations",
+        "web: derangements 2^(n-2) connected components adjacent swaps",
+        "OEIS A000166 derangement counts",
+        "Ehrenborg Steingrimsson 2000 author PDF"
+      ]
+    },
+    "rationale": "The nearest consulted work either uses more permissive transpositions/3-rotations, enumerates excedance boards or statistics, or studies successions rather than the induced derangement adjacent-position-swap graph. No examined work yields the exponentially many connected components, their precise side-signatures, or the frozen-state classification. See explicit residual risks.",
+    "residual_risks": [
+      "2013 Eindhoven thesis on fixed restrictions and adjacent interchanges could not be read beyond bibliographic metadata.",
+      "The original 2004 derangement Gray-code papers were compared via abstracts and full survey discussion, not entire original PDFs.",
+      "Equivalent reconfiguration classifications might exist in unindexed research or under alternate titles; novelty is not globally certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinguishes adjacent-swap generation of all permutations from derangement generation by arbitrary transpositions and 3-rotations; no covering theorem found on reviewed relevant sections",
+        "evidence": [
+          "p. 41: Korsh and LaFollette Gray code for derangements uses transpositions or 3-rotations.",
+          "p. 37: standard permutation Gray codes use adjacent transpositions."
+        ],
+        "identifier_or_url": "https://tmuetze.de/papers/survey.pdf",
+        "material_read": "Sections 5.1 and 5.3 with PDF pages 37 and 41, including visible source-page screenshots and bibliographic references",
+        "method": "Read extracted PDF text and inspected screenshots",
+        "title": "Combinatorial Gray codes—an updated survey",
+        "trigger": "Strongest relevant guide to derangement-specific Gray codes and transposition generators"
+      },
+      {
+        "assessment": "Defines a stricter equality of excedance boards; proves Bell-number enumeration of those classes, not adjacent-swap graph connectivity",
+        "evidence": [
+          "p.1 formal definition requires equality of excedance sets and equality of values at excedance positions.",
+          "p.3 theorem 2.1 counts Bell-number board classes."
+        ],
+        "identifier_or_url": "https://jl.baril.u-bourgogne.fr/equival.pdf",
+        "material_read": "Article introduction and sections 2-4; full text indexed; especially PDF pages 1 and 3 inspected visually",
+        "method": "Read PDF text and screenshots, compared formal equivalence to sign vector",
+        "title": "Equivalence classes of permutations modulo excedances",
+        "trigger": "Potentially exact same inverse-excedance equivalence classes"
+      },
+      {
+        "assessment": "Its notion of adjacency is succession in value, and derangements appear as standard enumerative background, not constrained swap graph vertices",
+        "evidence": [
+          "Section 1 defines adjacency pi(i+1)=pi(i)+1.",
+          "Section 3.2 mentions derangement numbers in enumerations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.04469v1",
+        "material_read": "Abstract, introduction, sections 3-4, references in full accessible HTML",
+        "method": "Full-text keyword and relevant-section inspection",
+        "title": "Adjacencies in Permutations",
+        "trigger": "Only day-verified archive-period source explicitly touching adjacent swaps and derangement counts"
+      },
+      {
+        "assessment": "Concerns Bruhat order and excedance values and positions; does not establish the requisite local adjacent-swap connectivity",
+        "evidence": [
+          "Section 4 equates classes by specified weak excedance positions and values; Proposition 4.10 constructs Bruhat-minimal representatives."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.13007",
+        "material_read": "Accessible HTML section 4 and proposition 4.10; searched for adjacent swaps and connectedness",
+        "method": "Full-text search and theorem comparison",
+        "title": "The excedance quotient of the Bruhat order, quasisymmetric varieties, and Temperley–Lieb algebras",
+        "trigger": "Potentially broader quotient theory governing fixed excedance data"
+      },
+      {
+        "assessment": "Inaccessible plausible comparison; its precise restrictions are not established and no not-covering inference is claimed",
+        "evidence": [
+          "TU/e bibliographic page lists 2013 thesis with downloadable PDF.",
+          "PDF retrieval returned HTTP 403 in browser."
+        ],
+        "identifier_or_url": "https://research.tue.nl/en/studentTheses/generating-all-possible-permutations-with-a-minimal-fixed-restric/",
+        "material_read": "Bibliographic record and description only; linked full PDF returned HTTP 403",
+        "method": "Read indexed metadata, attempted linked source full PDF and stopped after failed access",
+        "title": "Generating all possible permutations with a minimal fixed restriction of any multiset by adjacent interchanges",
+        "trigger": "Title plausibly suggests constrained adjacent-swap generation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2f0a3c5-1686-4ca7-9073-384113045aaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The infinite natural reconfiguration family admits an exact exponential count and a complete path-component invariant. It exhibits reducibility of an otherwise natural adjacent-swap Markov chain, yields a canonical reachability algorithm and exactly identifies all absorbing configurations, and documents nongeodesicity within connected fibers. These are structural facts not implied by the classical subfactorial count or general derangement Gray codes.",
+    "status": "PASS"
+  }
+}
