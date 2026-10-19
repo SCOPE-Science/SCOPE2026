@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For supports A and B of size three on prime Z_p with p>=7, Cauchy-Davenport and Tao prime Fourier uncertainty yield >=|A-B|(p+1)-9>=5p-4; equality forces |A-B|=5. Vosper then enforces common-step length-three progressions, with p>=7 precisely ensuring 5<=p-2. In normalized coordinates, two linear and one quadratic Fourier row provide all possible zeros; equating their distinct p-th roots yields the explicit t/rho/eta/theta formulas, with all denominators nonzero. The converse realizes exactly four zeros, completing the global iff, while injectivity and local constancy of finite root labels establish the component count. Actual standard-library verification independently checks the finite cases but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krahmer–Pfander–Rashkov (2006) Proposition 4.4 proves a general prime-cyclic STFT lower bound; inserting |supp f|=|supp g|=3 gives 5p-4. Its proof uses Fourier uncertainty, intersection counting, and Cauchy–Davenport but states no equality-pair classification.",
+        "Nicola (2022) Theorem 1.2 characterizes equality for the general p-support bound and has f,g of character/subgroup type, not the 5p-4 three-tap extremal level.",
+        "Bartusel (2026) establishes phase-retrieval conditions from STFT uncertainty and ambiguity support, not all equality fibers for three independent taps."
+      ],
+      "reasoning": "The numerical lower bound and elementary row-counting are covered by the 2006 stronger theorem and expressly credited. A theorem of a broad inequality does not automatically give a classification of all sharp pairs; the nontrivial new component is the combined inverse support geometry plus exact phase/root parameterization. No inspected broader theorem supplies the entire latter conclusion.",
+      "searches": [
+        "Minimum support of short-time Fourier transform for exactly three nonzero entries in both signal and window over prime cyclic groups Z_p, sharp (5p-4) and Vosper rigidity",
+        "Classify equality cases of prime-order STFT support inequality for both signal and window exactly three-sparse, all minimizers, supports affine arithmetic progression and roots-of-unity parameter",
+        "arxiv:math/0611493v1, Proposition 4.4 (https://arxiv.org/html/math/0611493v1)",
+        "arxiv:2204.14176v1, Theorem 1.2 (https://arxiv.org/html/2204.14176v1)",
+        "arxiv:2605.31507v1, 2026-05-29 (https://arxiv.org/abs/2605.31507)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0611493v1, Proposition 4.4 (https://arxiv.org/html/math/0611493v1)",
+      "arxiv:2204.14176v1, Theorem 1.2 (https://arxiv.org/html/2204.14176v1)",
+      "arxiv:2605.31507v1, 2026-05-29 (https://arxiv.org/abs/2605.31507)",
+      "2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+      "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+      "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The old lower bound is already known and is not new; equality additionally imposes Vosper five-difference rigidity and saturation of each prime Fourier row inequality.",
+        "Exact root equations force rho*sigma=eta*theta and leave one C-star coefficient parameter, yielding p^2(p-1)/2 disjoint components for normalized supports.",
+        "Nicola’s p-support extremal classification cannot imply classifications at 5p-4 for p>=7; the published f=g self-ambiguity subset cannot cover freely and independently chosen f,g."
+      ],
+      "reasoning": "The new claim is not the bound or a mere restatement. The proof reconstructs the full equality condition omitted by the general inequality, and proves an explicit iff parameterization. Prior papers provide necessary foundations but no inspected conclusion implies the full result as a stated specialized corollary.",
+      "searches": [
+        "Minimum support of short-time Fourier transform for exactly three nonzero entries in both signal and window over prime cyclic groups Z_p, sharp (5p-4) and Vosper rigidity",
+        "Classify equality cases of prime-order STFT support inequality for both signal and window exactly three-sparse, all minimizers, supports affine arithmetic progression and roots-of-unity parameter",
+        "Cross ambiguity transform independent three-tap windows 5p-4 support equality classification",
+        "arxiv:math/0611493v1, Proposition 4.4 (https://arxiv.org/html/math/0611493v1)",
+        "arxiv:2204.14176v1, Theorem 1.2 (https://arxiv.org/html/2204.14176v1)",
+        "2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+        "All equality cases 5p-4 three sparse f,g cross short-time Fourier transform on Z_p, Vosper common arithmetic progression, coefficient parameterization eta theta rho roots and t in C star, p^2(p-1)/2 families"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The five delay rows of cross-STFT are Fourier transforms of overlap products f(y) conjugate(g(y-x)); their support pattern is related to but not determined by the self-ambiguity subclass g=f.",
+        "Published self-ambiguity three-tap theorem fixes identical vectors g=f and derives a constrained zero spectrum; present finding allows independent values and classifies all pairs meeting an older numeric lower bound.",
+        "Published two-tap cross-STFT trichotomy uses support sizes two plus two and its minimum 3p-1, not three plus three with minimum 5p-4."
+      ],
+      "reasoning": "Equivalent formulations were checked through STFT/ambiguity, sparse Fourier zero sets, root-of-unity cancellations, and extremizers of uncertainty principles. Equality classifications of a diagonal subfamily or of smaller support cannot imply the full independent three-tap fiber or its component count.",
+      "searches": [
+        "Minimum support of short-time Fourier transform for exactly three nonzero entries in both signal and window over prime cyclic groups Z_p, sharp (5p-4) and Vosper rigidity",
+        "Finite Gabor transform uncertainty three point windows three point signals sharp lower bound and equality case",
+        "Classify equality cases of prime-order STFT support inequality for both signal and window exactly three-sparse, all minimizers, supports affine arithmetic progression and roots-of-unity parameter",
+        "Cross ambiguity transform independent three-tap windows 5p-4 support equality classification",
+        "2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "All equality cases 5p-4 three sparse f,g cross short-time Fourier transform on Z_p, Vosper common arithmetic progression, coefficient parameterization eta theta rho roots and t in C star, p^2(p-1)/2 families"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krahmer–Pfander–Rashkov Figure 6 and its numerical support-size data concern a small fixed group and do not enumerate coefficient families for all prime orders at least seven.",
+        "Published self-ambiguity three-tap classification tabulates parity spectra with f=g, a strict diagonal subclass.",
+        "The cited published-finding corpus two-sparse cross-STFT theorem, and broad odd-prime support gap p to 2p, do not address three-sparse equality fibers."
+      ],
+      "reasoning": "Searches of exact parameter dimensions, 5p-4, three-sparse cross-STFT, root-of-unity equality, and accessible published specialized tables returned no source with the all-prime independent-pair parameterization. A negative search is not a proof of historical novelty; the unindexed priority risk remains.",
+      "searches": [
+        "Three-sparse STFT support over cyclic prime groups, Cauchy-Davenport sumset and Chebotarev Fourier zeros, exact sharpness",
+        "Krahmer Pfander Rashkov Proposition 4.3 sharpness equality Vosper Chebotarev three by three case",
+        "arxiv:math/0611493v1, Proposition 4.4 (https://arxiv.org/html/math/0611493v1)",
+        "2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+        "All equality cases 5p-4 three sparse f,g cross short-time Fourier transform on Z_p, Vosper common arithmetic progression, coefficient parameterization eta theta rho roots and t in C star, p^2(p-1)/2 families"
+      ]
+    },
+    "rationale": "A substantive mathematical equality-classification claim remains after removing the older sharp 5p-4 inequality. Krahmer–Pfander–Rashkov Proposition 4.4 covers the bound, not the if-and-only-if all-pair support geometry or full complex root-parameter fibers. Nicola covers a different extremal level, a published three-tap result covers only f=g, and the two-tap cross-STFT result has different hypotheses. Detailed statement/implication comparisons found no stronger covering result in inspected sources. Unindexed equivalence and incomplete recent full-text access remain as explicit residual risks, not proofs of novelty.",
+    "residual_risks": [
+      "A specialized older equality-case classification or unindexed thesis could imply the explicit parameterization without using exactly the same title or terminology.",
+      "Not all mathematical details of Bartusel (2026) could be retrieved consistently, although its accessible theorem outline is about a different phase-retrieval question.",
+      "Full historical-priority certification and independent audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS numerical inequality and ingredients; DOES NOT GIVE coefficient or support-geometry equality classification",
+        "evidence": "Proposition 4.4 lower-bound formula p(p+1)-(p+1-|supp f|)(p+1-|supp g|) for total support sizes at most p. Its proof counts |A-B| and uses prime Fourier uncertainty but does not solve equality cases.",
+        "identifier_or_url": "https://arxiv.org/html/math/0611493v1",
+        "material_read": "Section 4.1, particularly Proposition 4.4, proof, Cauchy–Davenport reduction, surrounding exact-support discussion and manuscript context",
+        "method": "Read accessible primary arXiv HTML with theorem/proof comparison",
+        "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+        "trigger": "Direct origin of the sharp numerical 5p-4 lower bound"
+      },
+      {
+        "assessment": "NOT_COVERING: classifies STFT support p, not 5p-4 exact-three-sparse pairs",
+        "evidence": "Theorem 1.2 equates |supp V_gf|=p with the STFT support being a subgroup coset and gives metaplectic/subgroup character forms.",
+        "identifier_or_url": "https://arxiv.org/html/2204.14176v1",
+        "material_read": "Abstract, introduction, Theorem 1.2 and its explicit extremal classification",
+        "method": "Read accessible primary arXiv HTML mathematical statements",
+        "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+        "trigger": "Published full equality-case classification could potentially dominate the finding"
+      },
+      {
+        "assessment": "NO COVERING STATEMENT IN ACCESSIBLE MATERIAL; full-text historical overlap risk remains",
+        "evidence": "The paper studies STFT phase-retrieval sufficient conditions using ambiguity support and a window/Fourier-window approach. Its stated theorems do not characterize equality in 5p-4 sparse cross-STFT uncertainty.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.31507",
+        "material_read": "ArXiv 2026-05-29 timestamp, abstract and introductory descriptions of Sections 2 and 3; further full-text access was intermittently unavailable",
+        "method": "Read available arXiv rendered introduction and theorem outline; repeated retrieval failed",
+        "title": "Uncertainty Principles as a Tool for STFT Phase Retrieval",
+        "trigger": "Recent motivating primary source; source-date and scope verification"
+      },
+      {
+        "assessment": "NOT_COVERING independent f,g; self-ambiguity g=f only",
+        "evidence": "Full theorem assumes V_f f with one vector on primitive three-term progression, and expressly excludes independent signal/window pairs.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+        "material_read": "Entire published RESULT.md including theorem, proof, limitations and references",
+        "method": "GitHub public repository file read",
+        "title": "Parity-rigid ambiguity-support spectra for primitive three-tap cyclic signals",
+        "trigger": "Closest public specialized 3-tap STFT theorem"
+      },
+      {
+        "assessment": "NOT_COVERING three-sparse f,g, since restricted to exactly two nonzero taps in each",
+        "evidence": "It proves only 3p-1, 3p or 4p support for two-tap signal/window pairs.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "material_read": "Entire published RESULT.md including row polynomials, proof, and limitations",
+        "method": "GitHub public repository file read",
+        "title": "Exact support trichotomy for two-sparse prime cyclic STFTs",
+        "trigger": "Nearby prime cyclic STFT equality classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95cfb112-e6ca-4009-b769-3c8d5f233568",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural open equality question for an existing tight STFT uncertainty bound is answered completely in the first nontrivial multi-tap cross-transform setting beyond two taps. The result determines every admissible support and coefficient pair, phase-cancellation structure, and exact normalized equality locus (p^2(p-1)/2 copies of C-star). The numerical lower bound alone, even when sharp, supplies none of these structural classifications; this is not an arbitrary small or merely cosmetic computation.",
+    "status": "PASS"
+  }
+}
