@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Starting from the exact product-spin transition probability and the published Poisson renewal law, a change of variables gives the periodic weighted binomial integral. A Stirling/geometric-tail calculation yields the correct sharp subcritical binomial relative-entropy exponent and N^(-1/2) tail prefactor, while a Gaussian phase saddle supplies another N^(-1/2). At critical a=1/2, local success-probability deficit is quadratic in phase and the binomial CLT threshold is O(N^(-1/2)), forcing an N^(-1/4) phase width; Chernoff bounds ensure integrability and Fubini gives the Gamma coefficient. Above threshold, binomial LLN and bounded convergence yield the exact interval integral. For fixed window coordinate xi, a triangular-array CLT and a uniform quartic tail bound yield F(xi). The original standalone verify.py ran successfully with 23 independent finite-N checks and exact Gamma integral comparison; numerical results do not substitute for the analytical limit proof. Explicit odd N, fixed or scaled parameters, and event-index scope avoid unjustified statements about physical-time Markov kinetics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perfetto et al., arXiv:2106.13761: general conditional resetting and renewal framework; pre-dates focused finite-size analysis.",
+        "Carollo et al., arXiv:2310.06981 abstract: quantum-jump trajectory order statistics under generalized resetting, a different sequence observable.",
+        "Magoni et al., arXiv:2202.12655 contains the strongest direct general finite-ensemble formula; comparison made with S3-S11 and finite-size discussion."
+      ],
+      "reasoning": "General resetting formalism subsumes renewal averaging, not the stated evaluated quartic saddle and Gamma/critical-window constants. The 2023 trajectory-ordering subject is not a theorem about spin-majority label switches; only its abstract was available, so whole-document exclusion is not asserted.",
+      "searches": [
+        "finite-size quantum spin reset majority vote transition rare switching probability critical N quarter scaling 2022 Magoni Perfetto",
+        "quantum transport dephasing finite chains trapping time exact unique optimizer",
+        "Universal and nonuniversal probability laws in Markovian open quantum dynamics subject to generalized reset processes"
+      ]
+    },
+    "checked_sources": [
+      "Magoni et al., arXiv:2202.12655, Protocol II and Supplementary Sections I-II (full pertinent text)",
+      "Perfetto et al., arXiv:2106.13761 (general reset-renewal framework)",
+      "Carollo et al., arXiv:2310.06981 (abstract only)",
+      "Public research-record search results for binomial majority and quartic critical scaling; closest items concern distinct probabilistic objects."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Magoni et al. supplementary (S4) gives the exact finite-N binomial tail; (S3) averages at reset opportunities and (S8) gives flip symmetry.",
+        "Magoni et al. (S10) derives a Gaussian-tail approximation with a quadratic rate in success-probability displacement and discusses exponentially large observation times below threshold; it is not a sharp fixed-subcritical binomial large-deviation formula nor a uniform critical-window asymptotic.",
+        "The present derivation uses the exact Bernoulli entropy, a phase Laplace saddle, a critical quartic phase-width, and triangular-array CLT."
+      ],
+      "reasoning": "Source formulas logically determine Q_N for each finite N, so the bare integral is covered. The evaluated limits, exact coefficients, singularity class and complete window remain nontrivial new implications, not synonyms for the source conclusion. General asymptotic methods can derive them, so priority remains subject to independent search for another such specialization.",
+      "searches": [
+        "Magoni Carollo Perfetto Lesanovsky arxiv 2202.12655 Protocol II odd N Poisson conditional majority reset quartic critical N^-1/4 switch probability",
+        "Rabi spin binomial majority resetting critical Gamma(3/4) subcritical relative entropy finite-size scaling N^-1/4",
+        "renewal spin majority Poisson reset label transfer matrix exact finite size switching time thermodynamic discontinuity",
+        "Magoni et al arxiv 2202.12655 Eq (S4) binomial majority reset Eq (S10) exponential finite-size correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Magoni et al., arXiv:2202.12655 full main text, Protocol II and supplementary I-II: conditional majority resetting, equal reverse transitions, exact binomial sum and Poisson average.",
+        "Its asymptotic discussion states an infinite-N Heaviside step and a qualitative exponentially slow subcritical finite-N effect; it does not evaluate the critical quartic saddle or parameter-window function."
+      ],
+      "reasoning": "Majority vote, two-state reset kernel, integrated binomial tail, and finite-N stationary law are equivalent reformulations already covered by the source, so excluded from originality. The exact sharp limits and quartic window are mathematically stronger evaluated statements not given by those equivalent finite-N definitions alone without singular asymptotic proof.",
+      "searches": [
+        "Magoni Carollo Perfetto Lesanovsky arxiv 2202.12655 Protocol II odd N Poisson conditional majority reset quartic critical N^-1/4 switch probability",
+        "conditional quantum resetting noninteracting spins majority measurement flip probability binomial tails critical quartic saddle N^(-1/4)",
+        "Magoni Carollo Perfetto Lesanovsky, arXiv:2202.12655, Supplemental eqs S3-S11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical research-result searches returned a two-state sliding-count critical N^(-1/4) example, an exact binomial relative-utility threshold, and other quantum reset/dephasing records, but not the same Hamiltonian and switching observable.",
+        "The nearest shared N^(-1/4) rate refers to an unrelated rare-entrance chain, with different probabilistic mechanism and limiting constant."
+      ],
+      "reasoning": "No exact table of the Poisson-averaged quantum-majority flip probability, critical coefficient or universal scaling function was found. Absence from a searched record is not proof of universal novelty; the complete primary source comparison carries the main originality assessment.",
+      "searches": [
+        "Rabi spin binomial majority resetting critical Gamma(3/4) subcritical relative entropy finite-size scaling N^-1/4",
+        "odd N binomial majority tail at periodic Rabi phase crossing threshold exact large deviation -0.5 log(4a(1-a)) prefactor N^-1",
+        "Poissonian conditional reset noninteracting Rabi spins critical finite N majority-flip probability quartic saddle N^-1/4"
+      ]
+    },
+    "rationale": "The precise new claim is the evaluated, all-regime odd-N event-switch asymptotic theorem, including a singular N^(-1/4) critical phase-width, explicit Gamma coefficient, N^(-1/2) parameter window and entropy-correct subcritical prefactor. The motivating 2022 full text and entire relevant supplement already specify the microscopic model, transition location, exact finite-N binomial kernel S4 and renewal averaging S3, and discuss exponential finite-size slowdown; none of those is asserted original. Source S10 employs a fixed-parameter normal approximation that is not uniform at critical tangency and does not yield the sharp entropy rate away from criticality. The new limiting statement requires rigorous binomial large deviations, a non-Gaussian quartic saddle and triangular-array dominated convergence, absent from inspected source. Public mathematical-result semantic searches found only related, nonequivalent claims. A residual independent-publication priority risk remains.",
+    "residual_risks": [
+      "Source S3 and S4 already determine the exact finite-N switching probability; an unlocated published paper could contain the evaluated singular asymptotics as a specialization.",
+      "General binomial saddle asymptotic tools are known; priority is attached only to the explicit physically grounded classification and exact scaling profile, not to generic CLT/Laplace methodology.",
+      "Only the abstract of arXiv:2310.06981 was materially inspected; no claim of whole-document noncoverage is inferred.",
+      "Independent scientific and bibliographic priority auditing has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS original physical model, exact finite-N kernel and thermodynamic threshold; does not state evaluated sharp N^(-1/4) critical switch rate or full critical scaling profile.",
+        "evidence": "First public 2022-02-25; main Protocol II lines on N-to-infinity transition; supplement (S3) renewal integral, (S4) exact binomial sum, (S8) symmetry, (S10) Gaussian finite-size estimate and exponentially long finite-N time discussion.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.12655",
+        "material_read": "Full accessible main text and relevant complete Supplemental Sections I and II, including (S1)-(S11), their explanations, finite-size figure text, and qualitative switching-time discussion.",
+        "method": "Read open-access arXiv rendered article and supplement; reconstructed binomial and waiting-time formulas; compared exact implications and asymptotic regimes.",
+        "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+        "trigger": "Same Hamiltonian, conditional majority reset Protocol II, finite-size fluctuation and transition claims."
+      },
+      {
+        "assessment": "Covers framework and generic renewal interpretation; not evidence that the specific sharp critical-window asymptotic was previously evaluated.",
+        "evidence": "Referenced by Magoni et al. as the antecedent for Protocol II and the stationary reset-renewal construction.",
+        "identifier_or_url": "https://arxiv.org/abs/2106.13761",
+        "material_read": "Accessible original general reset-renewal formulation and study description; not an exhaustive supplementary-material audit.",
+        "method": "Compared the generalized resetting formalism with the specific odd-N majority event-label theorem.",
+        "title": "Designing nonequilibrium states of quantum matter through stochastic resetting",
+        "trigger": "Earlier quantum conditional-reset framework cited by the direct motivating work."
+      },
+      {
+        "assessment": "Abstract focuses on universal ordering probabilities of reset-interval observables, not the assessed spin-majority large-N asymptotic. Whole-text noncoverage is not claimed.",
+        "evidence": "Abstract defines universal and nonuniversal ordering laws for intervals of generalized quantum resetting.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.06981",
+        "material_read": "Title and public abstract only.",
+        "method": "Compared advertised trajectory-ordering observable with event-indexed spin majority flips.",
+        "title": "Universal and nonuniversal probability laws in Markovian open quantum dynamics subject to generalized reset processes",
+        "trigger": "Generalized quantum resetting and trajectory statistics overlap at an abstract level."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dee51108-5d51-4259-af51-08bca4917e0c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The transition identified in the motivating physical work becomes operationally observable only through finite-population reset-label switching. Its previously qualitative exponentially slow finite-size behavior is sharpened to an entropy-correct exponent with a prefactor, while precisely at the physical driving threshold the switching scale changes to a non-Gaussian N^(-1/4) law with an explicit Gamma constant and a full one-parameter crossover. These distinguish exponentially long event-indexed trapping, quartic critical slowing, and positive-rate flipping in the smallest meaningful two-reset-state spin protocol. The exact asymptotic rates/critical-window function are structurally motivated physical quantities and not an arbitrary finite enumeration or a mere normalization check.",
+    "status": "PASS"
+  }
+}
