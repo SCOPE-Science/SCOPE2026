@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact scalar recurrence and integrability; split integral identity leads to log growth L=-exp(-1/xi) Ei(1/xi). Strict Ei monotonicity proves one threshold. SLLN and LIL separate subcritical, critical and supercritical knots. SLLN clock and Borel--Cantelli exponential tail bound prove entire spline physical-time logarithmic limsup; zeros are explicitly accounted for. Strict convexity of cumulant moment function gives all positive p cutoff; first and second moment formulas independently derived. The standalone numerical verification has 39 approximate checks, no infinite-time claims inferred from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1801.01340 relevant full text: random timestep Runge--Kutta methods, deterministic physical-time convergence and geometry; no exponential waiting-clock exact log-product criterion identified.",
+        "Higham--Mao--Yuan DOI:10.1137/060658138 abstract: almost-sure and moment stability of discretized Brownian SDEs; different driving random mechanism."
+      ],
+      "reasoning": "Generic iid-product stability theory implies a sign criterion once the expected logarithm has been computed, but it does not itself specify the Ei root for the exponential-step Euler method nor treat zeros of its continuous spline. Neither the SDE nor the random-step RK statements examined entail the numerical critical value without this calculation.",
+      "searches": [
+        "random timestep Euler log multiplier exponential integral Ei phase transition moment almost sure",
+        "randomized forward Euler exponential step scalar dissipative ODE geometric pathwise convergence",
+        "randomized numerical ODE integrators Runge Kutta variable timestep adaptive stability",
+        "stochastic Euler dynamics positive moments almost sure stability random timestep log multiplier",
+        "arXiv:1801.01340 randomized time step probabilistic methods PDF full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.01409 (original and journal stability sections)",
+      "doi:10.1093/imanum/draf096",
+      "arXiv:1801.01340",
+      "doi:10.1137/060658138 (abstract only)",
+      "Mathematical literature search: related Fehlberg RK4(5), backward Euler and stochastic-control stability results compared for implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Latz, arXiv:2408.01409, source scalar recurrence: signed mean contraction for ah<2, square mean contraction for ah<1.",
+        "Abdulle--Garegnani arXiv:1801.01340: randomized timesteps in finite-time probabilistic integration.",
+        "Published related record: exact positivity horizon of the two-step Lanczos exponential; this concerns a deterministic Krylov exponential approximation, not an iid exponential-timestep Euler multiplier.",
+        "Published related record: random scalar-control fractional moment gap, by separate randomized model-predictive control rule rather than random Euler steps."
+      ],
+      "reasoning": "The primary known first and second moments do not determine the almost-sure Lyapunov exponent or all positive moments; distributions can share two moments and have different logarithmic means. The earlier numerical integrations have different steps or finite-time goals. A separate multiplicative-control model shares a generic random-product phenomenon but does not fix the exponential Euler multiplier law or imply its Ei cutoff.",
+      "searches": [
+        "Latz The random timestep Euler method and its continuous dynamics signed mean squared mean scalar stability",
+        "arXiv:1801.01340 randomized time step probabilistic methods abstract methods stability",
+        "Higham Mao Yuan Almost Sure and Moment Exponential Stability 2007 SDE Euler",
+        "random timestep integration exponential holding time Lyapunov exponent scalar linear decay critical stepsize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2408.01409 Secs. 4.1-4.2 explicitly gives moment stability via E(1-aH) and E(1-aH)^2 rather than E log|1-aH|.",
+        "Journal full text DOI:10.1093/imanum/draf096 searched for almost-sure growth and exponential-integral criteria; the corresponding stated threshold was not found."
+      ],
+      "reasoning": "Rewriting in terms of a logarithmic Lyapunov exponent, the zero of Ei, or random multiplicative products gives mathematically equivalent descriptions. These were searched as well as timestep-Euler wording; the closest primary work controls signed mean, square mean and Foster--Lyapunov functions, not the exact pathwise cutoff.",
+      "searches": [
+        "\"random timestep Euler\" \"almost surely\"",
+        "\"random timestep Euler\" \"almost sure\" \"Lyapunov exponent\"",
+        "\"exponential\" random steps Euler \"Ei\" \"stability\"",
+        "2.684510350820707 Euler random step exponential logarithmic stability",
+        "\"Ei\" \"Euler\" \"random timestep\" stability",
+        "arXiv:2408.01409 full text, Sec. 4.1 and 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched numerical 2.6845103508207 threshold was surfaced by the tested mathematical searches.",
+        "Closest indexed timestep records concern the exact error-estimator resonance in the Fehlberg RK4(5) pair and Richardson extrapolation positivity for backward Euler; their update multipliers are not iid exponential-clock Euler."
+      ],
+      "reasoning": "Numeric matching is not a substitute for claim implication. The checked related records have distinct update maps, so their sharp thresholds cannot be transplanted. A prior unindexed special-function computation remains possible.",
+      "searches": [
+        "\"2.6845103508207\" \"Euler\" stochastic timestep",
+        "random timestep Euler method exponential steps exact almost sure stability threshold exponential integral Ei root",
+        "arXiv:2408.01409 The random timestep Euler method and its continuous dynamics stability Theorem 8"
+      ]
+    },
+    "rationale": "The full text of the primary 2024 exponential-clock stochastic Euler paper establishes the same recurrence and signed-mean/second-moment bounds but does not give the exponential-integral sharp almost-sure boundary, the critical log-fluctuation classification, the continuous spline limsup, and complete p-moment threshold together. Earlier random-timestep integration work addresses finite-time convergence. Targeted alternate-formulation searches and claim-to-result implication comparisons found no covering theorem, subject to acknowledged random-products priority risk.",
+    "residual_risks": [
+      "Exact exponential-integral criterion could occur as an unstated corollary of a stronger classical iid product theorem when specialized; the specialization and numeric root remain mathematically nontrivial to derive.",
+      "The full text of the 2007 stochastic-differential-equation article was not assessed; its abstract describes a different driver and no decisive related coverage.",
+      "No formal global priority census or independent human literature audit; failure of retrieved matches does not establish absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the model, mean and second moment, plus Foster--Lyapunov results, without the combined claimed sharp logarithmic Ei threshold and spline-path boundary.",
+        "evidence": [
+          "Preprint arXiv:2408.01409, v1 submitted 2024-08-02",
+          "DOI:10.1093/imanum/draf096, Secs. 4.1--4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.01409",
+        "material_read": "Full open preprint and published journal presentation, with targeted inspection of scalar linear stability, Sections 4.1--4.2, Theorem 8, Remark 1, surrounding proofs and references.",
+        "method": "Direct open-text inspection and in-document mathematical term searches",
+        "title": "The random timestep Euler method and its continuous dynamics",
+        "trigger": "Original stochastic Euler method with exponential random timesteps and identical scalar recurrence"
+      },
+      {
+        "assessment": "Finite-time random-step integrators and geometric accuracy do not state or imply this specific exponential-clock scalar threshold.",
+        "evidence": [
+          "arXiv:1801.01340, initially published January 2018"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.01340",
+        "material_read": "Open 38-page PDF including abstract, introductory mathematical setup, random-timestep analysis, relevant integrator methodology, sections 6--7 and references.",
+        "method": "Direct full-document navigation and mathematical text searches",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Foundational earlier random-step numerical integration paper"
+      },
+      {
+        "assessment": "Brownian stochastic differential-equation integrators differ from Latz exponential waiting-time ODE integrator; general stability distinction known but this exact parameter limit not supported by inspected material.",
+        "evidence": [
+          "DOI:10.1137/060658138, 2007, abstract-only"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060658138",
+        "material_read": "Abstract and bibliographic context only; full text not confirmed read.",
+        "method": "Accessible public abstract review",
+        "title": "Almost Sure and Moment Exponential Stability in the Numerical Simulation of Stochastic Differential Equations",
+        "trigger": "Similar almost-sure versus moment stability words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7f4a809-0c1f-4b1e-8d78-75577afba3a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Latz's published mean-square sufficient cutoff \\(ah<1\\) does not settle exponential decay of individual sample paths. The exact model-specific Ei threshold \\(ah\\approx2.68451\\) quantitatively shows a broad window with a.s convergence but exploding mean-square, signed mean and, above \\(ah>1/\\log2\\), all positive integer moments. Complete real-order threshold and critical path classification provide a sharp benchmark for random-clock integrator stability beyond straightforward mean-square assertions. The scalar restriction and classical random-product tools are disclosed.",
+    "status": "PASS"
+  }
+}
