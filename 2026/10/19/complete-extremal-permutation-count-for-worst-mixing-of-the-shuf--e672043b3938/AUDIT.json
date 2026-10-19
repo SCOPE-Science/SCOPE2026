@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For odd N>=3, the established transfer-matrix reduction is transformed by an explicit permutation similarity to B P with B the symmetric nearest-h-step circulant divided by two. On mean-zero vectors its maximal singular modulus cos(pi/N) is achieved only by the first real Fourier plane. Equality in the spectral-radius bound requires a permutation eigenvector in that plane. Nonreal eigenvalues force dihedral polygon symmetry; fixed cosine vectors force independent swaps of h reflection pairs; a sign-reversing vector is forced by the exact N-th cosine power sum to a reflection, giving no further permutations. Pair-swap subgroups have identity-only intersections. These implications establish the complete family, count N*2^((N-1)/2), and boundary eigenvalue locations, with N=3 covered separately at the essential spectral-radius threshold. The included standalone checker performs exact integer matrix-similarity checks, complete spectral enumeration for N=3,5,7, and 500 seeded tests at N=9; floating-point eigenvalue checks corroborate but do not substitute for the all-N proof. The only imported mathematical premises are the finite Markov-to-BV spectral correspondence and essential spectral-radius bound from the cited primary paper.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Byott--Lin--Zhang arXiv:1405.0481, the stated sharp mixing bounds and Theorem 4 proof for wider orientation classes; the statements cover rate values and explicit constructions rather than enumeration of all equalizers.",
+        "The cited 2012 paper provides the stronger general-slope maximum-value theorem, but its special case does not specify the equality-set size."
+      ],
+      "reasoning": "General-slope and variable-orientation bounds are broader in parameter space but logically weaker in equality-case structure. They do not dominate the all-odd-N exact number and subgroup classification without additional unproved rigidity steps.",
+      "searches": [
+        "Conjecture 2.4.1 Byott Holland Zhang outer spectrum vertex equality m=2 doubling map dihedral rotations independent pair swaps reflection axes",
+        "arxiv:1405.0481 Theorem 4 equality optimizer classification",
+        "piecewise switching expanding maps stationary measure exact spectrum"
+      ]
+    },
+    "checked_sources": [
+      "N. P. Byott, M. Holland, Y. Zhang, arXiv:1203.5145 (first posted 2012-03-22), DCDS 33 (2013), 3365--3390",
+      "N. P. Byott, C. Lin, Y. Zhang, arXiv:1405.0481 (first posted 2014-05-02)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Byott--Holland--Zhang give the singular-value bound and permutations that attain it; equality for every permutation is not characterized in those statements.",
+        "The present proof requires its own classification of permutation eigenvectors of the first Fourier plane and exact intersections of the reflection-pair swap groups."
+      ],
+      "reasoning": "The implication 'upper bound attained' only supplies existence of at least one extremizer, not a complete count. The equality-case Fourier analysis and the odd N-th cosine power sum supply genuinely additional necessary conditions, so the count is not an immediate corollary of the older maximum-value result. The new m=2 outer-circle location statement is restricted to the existing conjecture's odd-N doubling subcase.",
+      "searches": [
+        "arxiv:1203.5145 spectral radius extremal equality matrix Lemma 4.2.3 Conjecture 2.4.1",
+        "arxiv:1405.0481 permutation mixing Theorem 4 equality cases",
+        "slow mixing of doubling map after permutation of N equal intervals complete classification of worst-case maximizers and exact count N*2^((N-1)/2); Fourier cosine eigenvector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Byott--Holland--Zhang arXiv:1203.5145, Theorems 1--2, Lemmas 4.2.1--4.2.3 and Conjecture 2.4.1: worst mixing RATE and extremal eigenvalue-location conjecture, not an optimizer census.",
+        "The classification by rotations and the union of independent reflection-pair stabilizers accounts for all equality eigenvectors, rather than merely a sufficient construction."
+      ],
+      "reasoning": "Aliases involving transfer spectra, circulant-permutation products, first harmonic Fourier eigenvectors and worst mixing were checked against the source's actual theorem/proof statements. No equivalent necessary-and-sufficient equality classification or cardinality was present in the inspected material.",
+      "searches": [
+        "slow mixing of doubling map after permutation of N equal intervals complete classification of worst-case maximizers and exact count N*2^((N-1)/2); Fourier cosine eigenvector",
+        "finite cyclic shift averaging matrix eigenvalue spectral radius equality permutation eigenvectors first Fourier harmonic dihedral",
+        "arxiv:1203.5145, Section 4 and Conjecture 2.4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused mathematical-result searches for the exact formula, extremizer count and matrix/Fourier variants did not yield a published table giving N*2^((N-1)/2).",
+        "Finite enumerations at N=3,5,7 were performed separately as corroborative checks, not claimed as prior-table exclusion."
+      ],
+      "reasoning": "A general table of eigenvalue bounds or maximum rates does not determine the number of permutations attaining the bound. Indexed search absence is evidence of a limited comparison, not proof that no private or unindexed table exists.",
+      "searches": [
+        "exact number of extremal permutations attaining optimal worst second eigenvalue mixing rate for doubling map composed interval exchanges N odd cos(pi/N) N 2^((N-1)/2)",
+        "Byott Holland Zhang exact trace variance of random permutation transition matrix composed expanding interval map",
+        "two-step return probabilities random permutations stretch fold map eigenvalue power traces expectation variance"
+      ]
+    },
+    "rationale": "The cited first paper proves the sharp maximum spectral mixing modulus and supplies realizing shuffles, while its Conjecture 2.4.1 asks about locations on the outer eigenvalue circle. The cited sequel extends rate bounds and constructions to maps with nonconstant orientation, not a complete count of all equality permutations. A maximum and examples alone do not imply an exhaustive equality-family classification, pair-swap stabilizer structure, or the number N*2^((N-1)/2); the present proof supplies these. Focused searches by exact count, original authors/conjecture, spectral formulations and pair-swap/dihedral aliases recovered no covering statement. Earlier unindexed equality-case enumerations remain a historical-priority risk; this is a self-review, not an independent priority certification.",
+    "residual_risks": [
+      "An unindexed or unpublished derivation might already enumerate the same equality cases.",
+      "The general m>2 part of the older outer-circle conjecture is not addressed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers maximal modulus, essential spectral reduction and attaining constructions. Does not provide all-attainers classification, the N*2^((N-1)/2) count or a proof of the doubling odd-N special conjectured outer-circle restriction.",
+        "evidence": "arXiv:1203.5145, Sections 2 and 4; Theorems 1--2, Conjecture 2.4.1, Lemma 4.2.1 and extremal singular-value derivation",
+        "identifier_or_url": "https://arxiv.org/abs/1203.5145",
+        "material_read": "Relevant full-text Sections 1--2 and 4, including main theorem statements, Conjecture 2.4.1, Lemmas 4.2.1--4.2.3 and the extremal singular-value argument",
+        "method": "Read mathematical statements and corresponding proofs in the accessible complete preprint text and inspected PDF page image",
+        "title": "On the mixing properties of piecewise expanding maps under composition with permutations",
+        "trigger": "Identical expanding map, identical permutation class, and published sharp worst-rate theorem and conjecture"
+      },
+      {
+        "assessment": "Supplies broader mixing-rate results and examples, but no necessary-and-sufficient optimizer family or exact worst-shuffle cardinality for the orientation-preserving doubling case.",
+        "evidence": "arXiv:1405.0481, Theorem 4 and supporting discussion/proof",
+        "identifier_or_url": "https://arxiv.org/abs/1405.0481",
+        "material_read": "Full relevant preprint text including introductory theorem scope, Theorem 4 and its proof, and comparisons to the earlier coprime-slope case",
+        "method": "Read accessible preprint full text and examined PDF page image",
+        "title": "On the mixing properties of piecewise expanding maps under composition with permutations, II: Maps of non-constant orientation",
+        "trigger": "Closely related sequel with potentially dominating generalization of the sharp extremal rate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e672043b-3938-435b-a519-23253939ded4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimizer count answers a natural missing structural question for a published sharp spectral-mixing extremum, over every odd number of shuffled intervals. It classifies ALL worst-mixing protocols, identifies a previously non-obvious independent-pair-swap family in addition to cyclic/dihedral symmetries, and determines the exact probability of worst-case behavior for uniform shuffles. The same rigidity proof settles the doubling odd-N case of the authors' explicit outer-circle eigenvalue conjecture. The count is not a routine renaming or fixed small computation; it is a closed formula from an all-N necessity-and-sufficiency theorem. Limitations: only the doubling orientation-preserving equal-cell family and self-review.",
+    "status": "PASS"
+  }
+}
