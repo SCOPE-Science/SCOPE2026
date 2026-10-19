@@ -1,0 +1,19 @@
+# Mathematical self-review
+
+## Correctness — PASS
+
+The proof reduces each zero-cell condition to the exact row-plus-column inequality \(r_i+c_j\ge2\). The exhaustive dichotomy between an empty column (forcing each row weight at least two) and all columns nonempty (forcing total weight at least the number of columns) supplies the sharp lower bound and, crucially, complete equality cases. On the equality line both families occur, with intersection counted by allocations of two labeled columns to every row. The connectivity proof uses constructive nonempty-fibre recoloring moves for onto maps; a third non-singleton fibre mediates swaps between singleton fibres whenever \(n>m\). The complementary row-weight-two family has a factorwise multiset-transfer structure. The proof explicitly checks that the allowed moves in the strict \(n>2m\) regime cannot change row totals. Product-metric and degree formulas follow from complete local adjacency. Two programs independently corroborate the claims by exhaustive directly checked configurations and by separately constructed rowwise states; see their actual source and output files. Finite checks are supporting evidence, not substitutes for the proof.
+
+## Originality — PASS, with stated residual risks
+
+The foundational 2016 Roman \(\{2\}\)-domination result defines this invariant but inspected public material concerns bounds, complexity and other graph classes. The closest full primary text actually read was Varghese–Lakshmanan's 2023 *Perfect Italian Domination Number of Graphs*, Theorem 2.4, on Cartesian products of complete graphs. Its **perfect** condition imposes equality rather than the present lower bound; the result does not imply the ordinary minimum when \(m<n<2m\), let alone the counts and unit-transfer graph, as witnessed by \(K_3\square K_4\). Davila–Krop's general weak-two Cartesian bounds also do not imply the classification. Nine actual targeted mathematical-record searches compared complete multipartite functions, complete prisms, and rook-graph and line-graph aliases; their closest records are non-covering because complete multipartite is not the Cartesian rook graph, while the complete-prism result concerns Roman \(\{3\}\). Accessible preceding private historical claims were checked solely for deduplication, with no matching statement. Published texts by Chellali et al. and Klostermeyer–MacGillivray could not be wholly inspected, and an unindexed classification is a live risk. These limits do not supply positive coverage or a decisive unresolved implication in the material inspected.
+
+## Value — PASS
+
+A full minimizer phase diagram is a structural refinement of a domination number, with a sharp change at the aspect ratio \(n=2m\). The connectivity obstruction at \(n=m\), transition at \(n>m\), and exact Cartesian-power reconfiguration with all degrees and diameter reveal the geometry of the whole optimal solution space. The conclusions are natural consequences of a well-established graph family and standard domination problem, with the explicitly specified unit-transfer operation, and are not an arbitrary small-case numerical calculation.
+
+## Closest literature and scientific limits
+
+Chellali, Haynes, Hedetniemi and McRae (2016), DOI 10.1016/j.dam.2015.11.013, introduce the variant. Klostermeyer and MacGillivray (2019) compare domination variants (public abstract inspected, not entire article). Varghese and Lakshmanan (2023; preprint 2019) give the perfect Italian result (full primary theorem text read). Davila and Krop (2017) give general Cartesian weak-two lower bounds (open-access article inspected). No unrestricted-edge token-slide or other reconfiguration model is asserted equivalent. Originality has not been independently validated and cannot be established by absence of search hits alone.
+
+Self-review: passed. Independent audit: not yet performed.
