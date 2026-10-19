@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The entire set of 2,048 cycles is obtained from 65,536 possible pairing masks and independently from Eulerian DFS. All coordinate-pair adjacency tests agree with the alternating-conjugate-pair criterion. For each of 368 diametral unordered endpoint pairs, all-source breadth-first shortest-path counts agree exactly with a second seven-stage subset dynamic program. The dataset lists every pair and is replay checked by `verify.py`. The argument is an exhaustive finite proof for order five; it does not prove any statement for every order.
+
+**Originality — PASS against inspected prior material; historical-priority risk remains.** Mykkeltveit–Szmidt prove that the graph is connected; Alhakim already calculates order-five cross-join degree frequencies and investigates Hamiltonian paths. The 2026 Fryers-polynomial tables give one-source endpoint-count profiles; those do not determine multiplicities of shortest paths to individual endpoints. General even-delta-matroid structural results likewise do not contain this exact pairwise spectrum. The fourteen-level geodesic multiplicity table has not been identified in the examined sources. Full 2026 publisher supplements could not all be inspected, and an earlier unindexed computation may exist.
+
+**Mathematical value — PASS.** Shortest cross-join histories quantify the number of minimally costly ways to reconfigure one de Bruijn generator into another. Even for endpoint pairs at a fixed maximum distance, the number of possible optimal histories varies over fourteen distinct values, from about 3.6 to 6.0 million. This exact classification addresses a natural complexity/robustness question about a standard reconfiguration operation and is different from known degree, distance, or endpoint-reachability counts.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every nonsingular order-five feedback table corresponds uniquely to a 16-bit pairing mask. All 65536 masks are tested for a single 32-cycle; independent Eulerian DFS produces identical 2048 masks. For all 120 coordinate-pair changes per valid mask, validity agrees with the alternating conjugate-pair criterion. All-source BFS determines the 368 diametral unordered pairs and exact shortest-path counts. Independently, for each diametral pair, a 7-step 14-coordinate subset DP enumerates precisely the valid disjoint-pair flips and equals its BFS count. The 368-row CSV is replay-checked on actual extracted package files. No reliance on sampling or floating point.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim–Oum 2025, general even delta-matroid basis graphs, https://doi.org/10.1002/jgt.23237 .",
+        "Alhakim 2018 discusses a different prefix distance distinct from cross-join shortest-path distance, https://arxiv.org/pdf/1805.12059 ."
+      ],
+      "reasoning": "General exchange or distance structural results may imply a length-seven geodesic for each opposite feedback table; they do not supply numbers of admissible interleavings of seven operations or the fourteen-level frequency law. The diameter and simple Hamming metric alone are not claimed as original.",
+      "searches": [
+        "Euler tour reconfiguration graph shortest path geodesic multiplicity even delta matroid",
+        "Note on Hamiltonicity of Basis Graphs of Even Delta-Matroids Kim Oum",
+        "cross join de Bruijn Hamilton cycles transition graph induced hypercube local switches Hamming two graph diameter"
+      ]
+    },
+    "checked_sources": [
+      "Mykkeltveit–Szmidt 2013 full public text: https://eprint.iacr.org/2013/760.pdf",
+      "Alhakim arXiv 2018 full author text: https://arxiv.org/pdf/1805.12059",
+      "Dąbrowski–Rachwalik–Szmidt 2026 indexed substantial article portions including section 4.2 and table description: https://doi.org/10.3390/math14091424",
+      "Kim–Oum 2025 accessible journal full text: https://doi.org/10.1002/jgt.23237"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mykkeltveit–Szmidt 2013 Theorem 3.1 proves cross-join connectedness (https://eprint.iacr.org/2013/760).",
+        "Alhakim 2018 Table 1 records 21 distinct degree values for order five (https://arxiv.org/pdf/1805.12059).",
+        "2026 Fryers-polynomial tables record different shell profiles but no comparable geodesic multiplicity table (https://doi.org/10.3390/math14091424)."
+      ],
+      "reasoning": "Existence of a path, degree counts and even complete distance-shell populations do not logically determine, without the graph adjacency and a further computation, the exact numbers of shortest paths between given endpoints. Neither the inspected results nor a stated theorem in them implies the reported 14-value geodesic distribution.",
+      "searches": [
+        "cross-join graph shortest paths number de Bruijn binary order five",
+        "cross join graph order 5 shortest paths Eulerian circuits de Bruijn multiplicity",
+        "order five de Bruijn cross join graph degree spectrum and distance shells"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mykkeltveit–Szmidt 2013, §§2–3: cross-join connection and reachability, not path multiplicities (https://eprint.iacr.org/2013/760).",
+        "Alhakim 2018, §§3–5: Hamiltonicity, degree frequency, separate prefix distance (https://arxiv.org/pdf/1805.12059)."
+      ],
+      "reasoning": "Equivalent descriptions are the number of minimum-length cross-join histories, geodesic multiplicity between complementary feedback tables, and shortest-path count in the cross-join graph. The inspected works define these objects and graph, but do not enumerate geodesic multiplicities for the 368 farthest pairs.",
+      "searches": [
+        "binary de Bruijn order five cross-join geodesic path counts",
+        "cross join de Bruijn order five number of distinct minimal length sequences of crossjoin operations connecting pairs shortest path counts geodesic multiplicity",
+        "de Bruijn sequence cross join shortest path multiplicity graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dąbrowski–Rachwalik–Szmidt 2026 Table 2 lists 60 different order-five profiles of numbers of sequences at given truth-table variation/distance, doi:10.3390/math14091424 .",
+        "This package diametral_pairs.csv records 368 unordered pairs and their individual shortest cross-join geodesic multiplicities, rather than one-vertex reachability counts."
+      ],
+      "reasoning": "The 2026 tables encode counts of reachable distinct endpoints at given transition distance (Fryers polynomials), not the number of distinct shortest paths connecting each fixed diametral pair. The table and objects are different; unavailable detailed supplements remain an explicit priority risk.",
+      "searches": [
+        "cross-join graph order 5 Fryers polynomials Table 2 frequency patterns geodesics",
+        "The Cross-Joint Method and Generation of De Bruijn Sequences Table 2 2026",
+        "14 distinct shortest cross join histories geodesics antipodal 2048 order five de Bruijn",
+        "Fryers polynomial cross join sequence shortest transformation path multiplicity 3617656 5954072"
+      ]
+    },
+    "rationale": "The exact fourteen-valued multiset of geodesic multiplicities for all 368 order-five diametral pairs is not implied by previously inspected connectivity theorems, 2018 degree counts, general exchange/Hamming metrics, or the 2026 order-five Fryers endpoint-shell tables. Searches covered direct names and equivalent shortest-history formulations; residual priority risk persists for inaccessible 2026 supplement or unindexed enumeration.",
+    "residual_risks": [
+      "2026 publisher page and supplementary data could not be inspected in entirety; a hidden path multiplicity enumeration is possible.",
+      "Historical priority remains uncertain for unpublished or unindexed adjacency/path-count enumerations; database searches do not prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers connectivity and structure of legal moves, not counts of shortest routes between fixed endpoints",
+        "evidence": "Theorem 3.1 connectivity and Theorem 2.4 feedback flips; experiments note degree counts for small orders, no shortest-path enumeration.",
+        "identifier_or_url": "https://eprint.iacr.org/2013/760.pdf",
+        "material_read": "Full accessible 11-page extracted text, in particular definitions, Theorems 2.4 and 3.1, proof and subsequent examples",
+        "method": "Read open public eprint PDF text and examined mathematical statements and their proofs",
+        "title": "On cross joining de Bruijn sequences",
+        "trigger": "Foundational cross-join operation and possible prior connectedness/geodesic work"
+      },
+      {
+        "assessment": "Already provides 2048-vertex degree frequencies and Hamiltonian paths; does not provide number of shortest paths between pairs",
+        "evidence": "Table 1 has exact order-five degree distribution; Section 4 differentiates its common-prefix distance from graph shortest paths.",
+        "identifier_or_url": "https://arxiv.org/pdf/1805.12059",
+        "material_read": "Full 17-page extracted text, explicitly inspected Table 1, graph definitions and Sections 4–5",
+        "method": "Read author arXiv PDF and inspected rendered page with full degree table",
+        "title": "Hamiltonicity of the Cross-Join Graph",
+        "trigger": "Exact same graph and order-five computed data"
+      },
+      {
+        "assessment": "Describes endpoint distributions/Fryers polynomials, not individual shortest-path multiplicities; unexamined full table/supplements are residual risk",
+        "evidence": "Section 4.2 describes order-five representative Fryers profiles and numbers of endpoints after changes, explicitly distinct from per-pair shortest path count.",
+        "identifier_or_url": "https://doi.org/10.3390/math14091424",
+        "material_read": "Search-indexed full substantial article section text including abstract, Sections 2–5 and description of Table 2; publisher full-page fetch failed",
+        "method": "Read text-rich indexed article sections and Table 2 description, compared quantities and definitions; did not treat snippets as complete full-text negative coverage",
+        "title": "The Cross-Joint Method and Generation of De Bruijn Sequences",
+        "trigger": "2026 small-order cross-join exact tables might dominate new claim"
+      },
+      {
+        "assessment": "General connectivity/Hamiltonicity and structural background; does not list the specialized fourteen-level geodesic multiplicity distribution",
+        "evidence": "No order-five de Bruijn 368 pair census or number of distinct shortest transformation histories.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.23237",
+        "material_read": "Accessible full article text and theorem statements about general basis graphs",
+        "method": "Compared general basis exchange statements with exact finite path-count object",
+        "title": "Note on Hamiltonicity of Basis Graphs of Even Delta-Matroids",
+        "trigger": "General structural exchange/basis graph theorems might imply shortest metric"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d99e3f11-2285-4738-9b9e-46d5622cfb2e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The existing literature studies cross-join transforms as operations that produce and connect universal sequences, and even tabulates degree/one-source reachability. For maximal-distance endpoint pairs, the number of minimum-length transformation histories measures genuine combinatorial flexibility and redundancy not captured by distance alone. The complete natural extremal-domain classification has fourteen distinct large path counts, sharp attained extrema, and a complete per-pair exact dataset. This is substantive finite graph structure, not a one-off arbitrary subparameter or a known table recomputation.",
+    "status": "PASS"
+  }
+}
