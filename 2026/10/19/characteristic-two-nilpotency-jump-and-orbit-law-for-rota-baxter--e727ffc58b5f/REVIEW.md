@@ -1,0 +1,15 @@
+# Scientific review: Characteristic-two Rota–Baxter nilpotency and orbit law
+
+## Correctness — PASS
+The weight-zero identity on \(K1\oplus V\), \(V^2=0\), forces images into \(V\), and in characteristic two it forces only \(T^2=0\), not \(T(u)=0\). The converse is checked bilinearly and the sharp index-three example is explicit. The automorphism action reduces to a marked square-zero Jordan operator, whose four possible vector positions give the orbit count. The finite-field count follows from image–kernel flags and quotient isomorphisms. The Gaussian-binomial product identity and a summable discrete-Gaussian bound establish the sharp probability equivalent. Direct enumeration, explicit orbit computations, and large-dimension numerical formula checks agree with these statements. The all-dimensional theorem rests on the proof, not finite tests.
+
+## Originality — PASS (same-model)
+Farooq's May 2026 classification treats this exact algebra and weight but requires characteristic zero and concludes all operators square to zero; in characteristic two the key division by two is unavailable. The new classification permits index three and adds the automorphism-orbit census and fixed-field limit law. Gubarev's general unital nilpotency theorem likewise assumes characteristic zero. The quadratic-algebra study of Benito–Gubarev–Pozhidaev explicitly excludes characteristic two. Closest accessible prior records on a small exterior algebra and weight-one operators address different multiplication tables or weights, not this finite-field family. The familiar square-zero Jordan normal form and Gaussian coefficients are prior mathematical tools, not claimed new results. Targeted searches found no stronger covering theorem. Unindexed equivalent literature is an unresolved residual risk, not a proof of uniqueness.
+
+## Value — PASS
+The result identifies a sharp characteristic boundary in the nilpotency index of weight-zero Rota–Baxter operators on the infinitesimal-neighborhood algebra \(K\oplus V\), a standard object in algebraic deformation problems. The exact conjugacy-orbit classification describes the full moduli problem over arbitrary characteristic-two fields, while the exact finite-field enumeration and sharp probability law show that the characteristic-two index-three behavior is asymptotically generic, not exceptional. These are natural structural and counting invariants, not an arbitrary isolated small-field computation.
+
+## Closest work and limitations
+The principal comparison is A. Farooq, arXiv:2605.15670v1 (2026), Theorem 3.4. Additional comparisons are V. Gubarev, arXiv:1805.00723 (2018), and P. Benito, V. Gubarev, A. Pozhidaev, arXiv:1801.07037 (2018). The result is limited to characteristic two and square-zero local algebras; the probability equivalent fixes the finite field while increasing the radical dimension. Independent validation and exhaustive coverage of unindexed literature are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
