@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Exact transition rates lead to an absorbing birth-death chain. Harmonic increments integrate to powers of binomial coefficients; Vandermonde gives a closed hypergeometric denominator. Symmetric unimodal likelihood ratios establish the finite-population strict-majority comparison, and a one-crossing test identifies the exact maximizing count. Stirling's formula, exact variances and tightness yield both central Gaussian limits and the universal maximum-gap constant. The submitted standard-library checker independently verifies 4305 finite statements, without using finite samples to prove the asymptotic theorem.
+
+**Originality: PASS with publication-priority risk.** The primary 2023 nonlinear-voter study contains the model, its finite transition rates and equality of deterministic drift for the two panel sizes. Earlier 2009 work explores voter exit probabilities through diffusion approximation; a 2025 generalized biased-voter paper uses numerical finite-state Markov analysis. None of those relevant inspected arguments states the exact binomial-versus-hypergeometric finite exit comparison plus sharp maximized asymptotic separation. Well-established birth-death formulas, Vandermonde convolution and Gaussian approximation theory supply ingredients, so unlocated broader coverage is a material residual risk and independent priority verification is outstanding.
+
+**Value: PASS.** The object is a natural first-passage observable for two rules explicitly identified as deterministic twins. The finding identifies precisely how stronger unanimity amplifies an existing majority and determines the largest quantitative disagreement obtainable by tuning the initial support. The positive 8.3032-percentage-point limit reveals failure of uniform stochastic equivalence despite equality of the mean-field equations; this is not an arbitrary parameter slice or simply a recalculated example.
+
+Scientific limits: complete graph, two opinions, only panel sizes two and three, independent neighbor sampling with replacement, no noise. No claims are made for larger panel sizes or transient consensus times.
+
+Self-review: passed. Independent audit: not yet performed.

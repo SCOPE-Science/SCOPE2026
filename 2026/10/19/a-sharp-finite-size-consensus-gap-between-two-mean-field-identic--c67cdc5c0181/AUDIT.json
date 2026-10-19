@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The exact (N-k)(k/(N-1))^q and k((N-k)/(N-1))^q rates imply harmonic differences d_j/d_(j-1)=((N-j)/j)^(q-1). This integrates to the claimed binomial and squared-binomial normalized masses, the latter Vandermonde-normalized. The symmetric unimodal likelihood ratio yields the strict-majority sign and the finite argmax threshold. Stirling local approximations with exact variance tail control produce both Gaussian limits, while the unique crossing of the binomial-to-hypergeometric mass ratio fixes the optimal majority scaling and maximal limiting gap. Actual checker verified 4305 finite claims; infinity follows analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2502.10172, section IV.4: finite-state exit probabilities calculated numerically for a generalized biased rule, rather than the same two unforced exact laws and a maximal-gap asymptotic.",
+        "arXiv:1404.7657, section 1: normal approximation to symmetric hypergeometric/binomial laws, supplying standard limit tools but not the voter-model identification or all-population maximum.",
+        "arXiv:2310.20548v1, section III.2: the deterministic equality is established prior art."
+      ],
+      "reasoning": "The 2009 paper has broader q and noise parameters but gives diffusion approximations; the 2025 paper has generalized biased flip rates and a numeric Markov-chain approach. Classical hypergeometric normal theory covers Gaussian ingredients, not the exact finite-state voter equivalence, strict majority sign and optimized voter difference as a combined theorem.",
+      "searches": [
+        "\"q=2\" \"q=3\" \"exit probability\" \"nonlinear voter\" complete",
+        "\"mean field\" \"q=2\" \"q=3\" \"exit probability\" difference",
+        "arxiv:2502.10172",
+        "arxiv:1404.7657"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2310.20548v1",
+      "https://arxiv.org/abs/0907.1775",
+      "https://arxiv.org/abs/2502.10172",
+      "https://arxiv.org/abs/1107.0366",
+      "https://arxiv.org/abs/1404.7657"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ramirez et al. derive the same deterministic drift for q=2 and 3 but do not calculate or compare the exact two finite absorption laws or their optimized Kolmogorov difference.",
+        "Castellano et al. analyze q-voter exit probabilities by a diffusion approximation and include specific noisy q=4 behavior, not the exact discrete-law derivation in this statement.",
+        "Doniec et al. treat asymmetric copying and evaluate higher-q exits through a finite Markov matrix; no exact sharp comparison for this symmetric no-noise pair follows from the reported formulas.",
+        "Przybyła et al. treat spatial one-dimensional ring q-panel updates, not the complete-graph count process."
+      ],
+      "reasoning": "Established mean-field identity cannot determine finite-size first-passage probabilities because the two jump-rate ratios have different exponents. A generic birth–death exit formula and standard Gaussian limits can be used to derive the result, so priority risk remains where an earlier author might have carried out the same implication, but the inspected papers did not formulate its exact monotonicity and optimized limiting value.",
+      "searches": [
+        "arxiv:2310.20548v1",
+        "arxiv:0907.1775",
+        "arxiv:2502.10172",
+        "arxiv:1107.0366",
+        "q voter model complete graph exact exit probability binomial distribution 2 3 power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.20548v1, sections II.5 and III.2: finite transition rates and equality of the two deterministic drift equations; no exact paired exit-distribution formula in the inspected sections.",
+        "arXiv:0907.1775, section III.1: a backward Fokker–Planck approximation for the exit probability, not an exact binomial-versus-hypergeometric finite-N identity."
+      ],
+      "reasoning": "Equivalent objects include a complete-graph unanimous-panel q-voter with q=2 or 3 and the birth–death process obtained from its count. A general harmonic hitting-probability formula is an input, not the claimed sharp two-rule finite and asymptotic comparison. Searches for binomial-square and hypergeometric terminology found no directly covering voter result.",
+      "searches": [
+        "\"nonlinear voter\" \"fixation probability\" \"binomial\" q 2 3",
+        "\"q-voter\" \"binomial coefficients\" \"fixation probability\" squared complete graph",
+        "\"squared binomial\" \"voter\" \"fixation\"",
+        "arxiv:2310.20548v1",
+        "arxiv:0907.1775"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching tabulated exact finite-N panel-size-two-versus-three maximum or 0.08303203749 limiting voter gap appeared in the inspected arXiv primary manuscript and named searches.",
+        "The binomial and hypergeometric distributions themselves, including their normal approximations, are standard mathematical objects."
+      ],
+      "reasoning": "This is not an assertion that no database elsewhere contains the coefficient. The specific voter first-passage statistic was not found in the actual searched results; the standard combinatorial ingredients are acknowledged without treating a negative search as proof of novelty.",
+      "searches": [
+        "finite population probabilistic consensus nonlinear voter critical window sharp maximum binomial hypergeometric",
+        "nonlinear voter model exit probability Gaussian error function q finite N q voter complete graph",
+        "\"hypergeometric\" \"binomial\" \"erf\" maximum difference sample half",
+        "arxiv:2310.20548v1"
+      ]
+    },
+    "rationale": "The specific newly assessed statement combines an exact pair of finite-N absorption distributions, an all-population strict-majority ordering, an exact finite maximizing-count threshold, and a nonzero optimized central-limit gap for two distinct rules with identical mean-field drift. Source models and generic diffusion/Markov analysis are prior art. Inspected relevant primary full-text portions do not state or directly imply these combined conclusions as published results; wider priority uncertainty remains.",
+    "residual_risks": [
+      "A more general exact birth–death hitting-distribution theorem or existing study of the hypergeometric-versus-binomial Kolmogorov gap may already imply the mathematical coefficient as a corollary.",
+      "Some related papers may contain unlocated appendices or alternate consensus terminology; no independent publication-priority assessment was conducted.",
+      "The result does not assert a new Gaussian approximation theorem or novelty of standard binomial identities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_MODEL_AND_DRIFT_NOT_COVERING_EXACT_COMPARISON",
+        "evidence": [
+          "Eq. (9) gives finite-count up/down rates; Eq. (13) notes q=2/q=3 identical limiting drift. No finite paired absorption laws or sharp asymptotic maximum in inspected portions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.20548v1",
+        "material_read": "Full-text HTML sections II.2, II.5, III.1–III.2 with finite rates (7),(9), deterministic equation (10), equal q=2/q=3 equation (13), and targeted searches for exit/fixation/binomial terminology; relevant references and headings reviewed.",
+        "method": "Direct reading of arXiv primary HTML and targeted within-document search.",
+        "title": "Ordering dynamics of nonlinear voter models",
+        "trigger": "Exact published update rate and observation that q=2 and q=3 share deterministic drift."
+      },
+      {
+        "assessment": "APPROXIMATE_EXIT_THEORY_NOT_EXACT_COMBINATORIAL_COMPARISON",
+        "evidence": [
+          "Finite transition probabilities are approximated by a large-N diffusion before exit equation (10); the reported q=4 exit integral is not the exact discrete q=2/q=3 hypergeometric-vs-binomial result."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0907.1775",
+        "material_read": "Primary arXiv full-text sections II, III.1, III.3, IV and conclusions including backward Fokker–Planck equations (7)–(11), q=4 exit expression (28), and q=2/q=3 qualitative classification.",
+        "method": "Direct reading of text-rendered arXiv full manuscript.",
+        "title": "The non-linear q-voter model",
+        "trigger": "Earlier complete-graph q-voter treatment explicitly discussing exit probability and broad parameters."
+      },
+      {
+        "assessment": "DIFFERENT_BIASED_MODEL_AND_NUMERICAL_FINITE_Q3_METHOD",
+        "evidence": [
+          "Section IV.4 describes numerical fundamental-matrix solution for q>=3, and specialized biased q=2 calculation. No voter-rule exact hypergeometric identity or optimized gap."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.10172",
+        "material_read": "Primary full-text introduction, related works, section IV.4 on exit probabilities with equations (23)–(29) and discussion of finite-state numerical Markov method; targeted binomial search.",
+        "method": "Direct reading of arXiv text full manuscript.",
+        "title": "Modeling biases in binary decision-making within the generalized nonlinear q-voter model",
+        "trigger": "Later relevant article states finite-system exit probabilities for q=2 and q=3."
+      },
+      {
+        "assessment": "INAPPLICABLE_SPATIAL_UPDATE_RULE",
+        "evidence": [
+          "The paper uses contiguous one-dimensional q-panels influencing neighboring sites, rather than focal updates with replacement on the complete graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.0366",
+        "material_read": "Primary full-text introduction and section III defining panel updates on a one-dimensional ring and its exit-probability relation.",
+        "method": "Direct reading of arXiv text full manuscript.",
+        "title": "Exit probability in a one-dimensional nonlinear q-voter model",
+        "trigger": "Plausible older title that might cover q-voter exit formulas."
+      },
+      {
+        "assessment": "ESTABLISHES_GENERIC_CLT_TOOLS_NOT_VOTER_FIRST_PASSAGE_COMPARISON",
+        "evidence": [
+          "The paper studies Kolmogorov normal-approximation errors for each distribution, not the binary voter transition-ratio connection or its optimized inter-rule consensus gap."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.7657",
+        "material_read": "Primary full-text sections 1.1–1.2 and main-result context on sharp normal approximations to symmetric hypergeometric/binomial laws.",
+        "method": "Direct reading of arXiv text full manuscript.",
+        "title": "On normal approximations to symmetric hypergeometric laws",
+        "trigger": "A possible general probability result subsuming the Gaussian ingredients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c67cdc5c-0181-4f75-a6fd-5a42c86f76be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ramirez et al. identified two genuinely different nonlinear unanimous-copying rules with identical infinite-population density flow. Their finite-size absorption probabilities are the natural test of whether that deterministic equivalence is reliable for predicting consensus. The exact hypergeometric/binomial connection proves nonuniform convergence and an explicit asymptotic 8.3032-percentage-point sharp separation, locating the most sensitive finite-size initial majority. This is a motivated quantitative first-passage distinction, not merely a renamed distribution or an arbitrary finite tally; it avoids claiming generic probability tools as novel.",
+    "status": "PASS"
+  }
+}
