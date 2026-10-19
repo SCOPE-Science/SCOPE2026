@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The one-step descent identity ω(2−ω)r_i²/2 and the two conditional second-coordinate choices yield the exact expected-gap quadratic in normalized gradients. Its eigenvalues are a±2|c| and the critical minimum eigenvalue factors as (1−|c|)(2−ω(1+|c|)), proving the if-and-only-if frontier and explicit witnesses for all real SPD 2×2 Hessians. An independent exact-rational enumeration verifies 5880 checks, not used in place of the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gürbüzbalaban et al. (2018), abstract and Sections 2–4: random permutations compared with replacement under exact line search; published source has no relaxation-dependent crossover. Sun–Luo–Ye (arxiv:1503.06387) abstract concerns random-permutation rate operators and ADMM rather than overrelaxed iid-versus-shuffled objective gap."
+      ],
+      "reasoning": "The full random-permutation convergence-rate theorems do not imply the overrelaxed two-step sign reversal because their stepsize and comparison metrics differ. A guarantee for individual convergence does not order two stochastic sampling schemes.",
+      "searches": [
+        "relaxed coordinate descent overrelaxation omega random permutation versus independent sampling two coordinate strongly convex quadratic sharp threshold 2/(1+coherence) expected energy",
+        "shuffled successive overrelaxation two coordinates compared with independent with-replacement update expected energy sharp boundary omega 2 over 1 plus correlation",
+        "arxiv:1803.08200",
+        "arxiv:1503.06387"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1803.08200v1",
+      "https://zhou.ac.cn/articles/shuffling.pdf",
+      "https://arxiv.org/abs/1503.06387",
+      "Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering",
+      "Exact delay-distribution law for two-coordinate randomized Gauss–Seidel",
+      "Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz",
+      "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source 2018 paper fixes exact-coordinate minimization ω=1, which lies within the newly classified positive regime. The 2016 theorem bounds each shuffled-SOR contraction, but supplies no iid comparison. Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz concerns reversal of order-dependent least-squares bias under strong underrelaxation; Closed-form optimal coordinate sampling for inverse-positive SPD quadratics concerns optimal iid sampling probabilities."
+      ],
+      "reasoning": "None of these statements implies the signed two-step expected-objective difference or the necessary-and-sufficient threshold. Equivalence to SOR is considered, not relied upon as a claim of novelty.",
+      "searches": [
+        "random permutation SOR overrelaxation worse than independent sampling expected quadratic objective 2 x 2",
+        "arxiv:1803.08200",
+        "doi:10.1007/s00211-016-0829-7",
+        "Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz",
+        "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Overrelaxed coordinate descent on SPD quadratics equals point SOR after a diagonal similarity; this equivalence is explicitly accounted for. Oswald–Zhou Section 3 gives a shuffled-SOR bound for each admissible relaxation but not a necessary-and-sufficient iid comparison."
+      ],
+      "reasoning": "The reduction to normalized SOR was used during comparison; it does not import the exact stochastic gap or show prior coverage.",
+      "searches": [
+        "Gauss Seidel random order over relaxation parameter coherence two step random permutation vs with replacement",
+        "sharp condition 2/(1+abs(c)) random permutation two-coordinate Gauss-Seidel compared with iid after one epoch",
+        "arxiv:1803.08200",
+        "doi:10.1007/s00211-016-0829-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published summary Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering optimizes Euclidean transient amplification over coordinate order for Gauss–Seidel, rather than difference between iid and shuffled expected Hessian energy. Exact delay-distribution law for two-coordinate randomized Gauss–Seidel studies independent delays and an asymptotic recurrence."
+      ],
+      "reasoning": "No located exact table fixes the same Hessian, relaxation, initial gradient and the two probability laws; retrieved index summaries are not treated as full-text exclusions.",
+      "searches": [
+        "random reshuffling worsening compared with replacement overrelaxed Kaczmarz two row finite horizon mean squared error sharp switch",
+        "sharp condition 2/(1+abs(c)) random permutation two-coordinate Gauss-Seidel compared with iid after one epoch",
+        "Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering",
+        "Exact delay-distribution law for two-coordinate randomized Gauss–Seidel"
+      ]
+    },
+    "rationale": "The exact universal comparison and sharp overrelaxed two-coordinate reversal is not implied by the inspected exact-minimization random-permutation comparison (arXiv:1803.08200), the general shuffled-SOR convergence bounds (Oswald–Zhou, DOI:10.1007/s00211-016-0829-7), or the retrieved distinct two-coordinate and stochastic-coordinate results. A specific SOR priority risk remains; no independence or priority certification is claimed.",
+    "residual_risks": [
+      "Classical SOR literature may contain an equivalent two-coordinate rescaled stochastic comparison under different notation.",
+      "ArXiv:1503.06387 was inspected at abstract level only and cannot be excluded as a whole-document source.",
+      "Published index summaries do not establish absence of a full result in their associated documents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exact-line-search random permutation comparisons, does not state overrelaxed sharp two-coordinate frontier",
+        "evidence": "arXiv v1 dated 2018-03-22; abstract explicitly restricts to exact line search; Sections 2.1–2.2 set coordinate update with unit inverse diagonal and rates; Section 4 addresses diagonally dominant Hessians.",
+        "identifier_or_url": "https://arxiv.org/html/1803.08200v1",
+        "material_read": "Abstract, introduction, coordinate update definitions in Section 2, convergence-rate criteria, Sections 3 and 4 relevant results",
+        "method": "Full HTML text consulted and equations (coordinate step and expected objective) compared",
+        "title": "Randomness and Permutations in Coordinate Descent Methods",
+        "trigger": "Same methods, same quadratic objective, direct strongest plausible prior comparison"
+      },
+      {
+        "assessment": "Shuffled SOR convergence bounds compared to cyclic; separate iid estimates quoted but no exact two-coordinate iid-versus-shuffled finite-horizon necessary-and-sufficient comparison. Priority risk remains for other SOR literature.",
+        "evidence": "DOI:10.1007/s00211-016-0829-7; Section 1 calls general finite-horizon sampling-order superiority not yet proved; Theorem 4 is a shuffled bound for 0<ω<2.",
+        "identifier_or_url": "https://zhou.ac.cn/articles/shuffling.pdf",
+        "material_read": "14-page lawful author PDF: abstract, Sections 1 and 3 including Theorem 4, formulas for iid bound (5) and shuffled bound (17), relevant concluding discussion",
+        "method": "Original PDF textual extraction and first-page visual inspection; compared theorem hypotheses and whether both stochastic schemes are directly ordered",
+        "title": "Random reordering in SOR-type methods",
+        "trigger": "Classical overrelaxed algorithm and randomized order, highest-priority SOR equivalence"
+      },
+      {
+        "assessment": "No coverage established from abstract, but not used as conclusive exclusion",
+        "evidence": "Abstract discusses expected-operator spectral rates in RP-BCD and ADMM and compares cyclic rather than the exact overrelaxed same-state iid/shuffle gap.",
+        "identifier_or_url": "https://arxiv.org/abs/1503.06387",
+        "material_read": "Original abstract and paper-access metadata; manuscript full text not inspected",
+        "method": "ArXiv abstract and publication timeline; statement-level comparison only",
+        "title": "On the Efficiency of Random Permutation for ADMM and Coordinate Descent",
+        "trigger": "Foundational random-permutation results possibly stronger than two-coordinate claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bcf26086-9336-4eba-8d66-830aa93d0734",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This completely classifies the smallest nontrivial SPD case of a motivated stochastic-SOR design choice: at fixed two gradient evaluations, shuffling ceases to uniformly dominate iid when overrelaxation exceeds 1+1/κ (normalized condition number), although every step still reduces objective. Both opposite comparisons occur at fixed matrix and parameter; the sharp boundary prevents an unjustified extension of established exact-minimization results.",
+    "status": "PASS"
+  }
+}
