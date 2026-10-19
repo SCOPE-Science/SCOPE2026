@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For any connected allocation, N tr[(L+J)^(-1)-J] is strictly convex in individual edge weights. Graph automorphism averaging is therefore sufficient and the global optimizer unique. Grounded clique inversion and bridge additivity prove \\(K=A/c+C/a+D/(a+mb)\\). Three-term weighted Cauchy-Schwarz proves the inner price branch and equality feasibility \\(t\\le4(m+1)/(2m+1)\\); at higher price the exact boundary optimum has nonnegative KKT slack \\(m(m-1)((2m+1)t-4(m+1))/a^2\\) and strict convexity proves uniqueness. The attached exact SymPy checker passed all 628 assertion groups, including direct Laplacian pseudoinverses \\(2\\le m\\le5\\); finite checks only corroborate the analytical theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "doi:10.1137/050645452",
+        "arxiv:1004.2285",
+        "arxiv:2610.03627"
+      ],
+      "reasoning": "The 2006/2008 primary source establishes convex conductance allocation and the explicit homogeneous-price barbell. The 2010 Johnson-Chertkov network design manuscript contains linear and nonconvex line-cost formulations, but its inspected technical text did not specify this balanced-barbell two-phase threshold. A 2026 cost-convexity manuscript describes general edge support transitions; only its abstract was accessible and a specialized exact barbell case could not be ruled out from it.",
+      "searches": [
+        "conductance optimization two cliques bridge spokes chord prices Kirchhoff index phase diagram",
+        "optimal electrical conductances on barbell graph clique-bridge-clique and edge prices",
+        "\"Ghosh\" \"Boyd\" \"Saberi\" \"edge costs\" barbell",
+        "optimal electrical conductances variable edge cost weight budget total effective resistance network graph"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "doi:10.1137/050645452",
+      "arxiv:1004.2285",
+      "arxiv:2610.03627",
+      "arxiv:2609.29790"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Ghosh–Boyd–Saberi barbell allocation explicitly evaluates only the homogeneous-price case.",
+        "Existing price-dependent complete two-community results permit edges between all cross-community vertex pairs, whereas the current graph has only one bridge.",
+        "An algebraic-connectivity result on a barbell optimizes the smallest nonzero Laplacian eigenvalue rather than its reciprocal spectral sum, so it does not fix the present resistance objective."
+      ],
+      "reasoning": "A general convex optimization formulation contains each priced instance as a solvable problem but does not directly imply the explicit t-dependent support cutoff without the new KKT/equality calculation. The homogeneous t=1 case is expressly excluded from the novelty claim. Results on SLEM, algebraic connectivity and bridgeless graphs neither imply nor dominate this resistance-minimization classification.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "doi:10.1137/050645452",
+        "arxiv:1004.2285",
+        "conductance optimization two cliques bridge spokes chord prices Kirchhoff index phase diagram"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh-Boyd-Saberi 2006, Section V, equation (33): unit-sum unpriced barbell",
+        "Ghosh-Boyd-Saberi 2008, Section 5 equation (39): same barbell with all edge prices one"
+      ],
+      "reasoning": "Aliases searched included electrical conductance sizing, Kirchhoff index, total effective resistance, graph resistance, bridge barbells and expensive nonhub edges. The price t is in the constraint, not a rescaling of the underlying graph while holding other edge prices fixed. Setting t=1 recovers the antecedent; the existence of a general method to solve a convex problem does not itself state the closed-form price threshold.",
+      "searches": [
+        "price-dependent optimal total effective resistance barbell graph two complete cliques joined one bridge internal edge penalty sharp transition deletion of nonhub chords",
+        "weighted barbell graph Kirchhoff index minimization conductance budget exact threshold t=4(m+1)/(2m+1)",
+        "\"barbell\" \"Kirchhoff index\" \"optimal\" \"cost\" \"conductances\"",
+        "\"barbell\" \"effective resistance\" \"edge costs\" conductance optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical results on barbell graphs addressed zero forcing, polytopal geometry, and differing graph-spectral objectives rather than a priced total-resistance optimum.",
+        "Closely related formulas for a priced full two-community clique and for a bridge barbell spectral-gap problem concern different graphs or performance functionals; their theorems do not imply this one."
+      ],
+      "reasoning": "Neither coinciding parameters nor an isolated phrase match was treated as sufficient. A published exact table covering this graph, cost and objective was not found. Database search absence alone does not establish originality.",
+      "searches": [
+        "price-dependent optimal total effective resistance barbell graph two complete cliques joined one bridge internal edge penalty sharp transition deletion of nonhub chords",
+        "weighted barbell graph Kirchhoff index minimization conductance budget exact threshold t=4(m+1)/(2m+1)",
+        "complete graph pairs linked by bridge minimization trace Laplacian pseudoinverse explicit weights",
+        "\"barbell\" \"Kirchhoff index\" \"optimal\" \"cost\" \"conductances\""
+      ]
+    },
+    "rationale": "The original 2006 and 2008 Ghosh-Boyd-Saberi barbell solution uses unit price on every edge, corresponding to the single \\(t=1\\) slice, and derives the general convex reduction. The new claim specifies a nonconstant peripheral link price for all \\(t>0\\), and an exact global support transition \\(t_c(m)=4(m+1)/(2m+1)\\). Earlier inspected work did not state or imply the all-price classification merely by its stated fixed-price optimum. This is an originality assessment under best-known accessible literature, not a uniqueness certification.",
+    "residual_risks": [
+      "The variable-price threshold might occur in specialized literature not reached by sampled search queries or unindexed resources.",
+      "Only the abstract of arXiv:2610.03627 was accessible, so that plausible general cost paper was not verified as non-covering through its full body.",
+      "General programmatic convex minimization can recover values instance by instance; novelty is the explicit all-parameter threshold/optimizer and not existence of a solvable convex program."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same graph; only homogeneous edge price and no variable-price exact phase diagram. Strong partial coverage: t=1 is old.",
+        "evidence": [
+          "Section V equation (33) constrains (n-1)(n-2)a+2(n-1)b+c<=1; all prices one, with a closed-form optimum.",
+          "The paper displays conference-session TuP12.2 during Kyoto 24-28 July 2006."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Abstract, Sections I-II, IV-V, formula (33), Section VII and references, including page 1194 graph spectrum and weights",
+        "method": "Read full public proceedings PDF text and inspected page image around the barbell analysis",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006)",
+        "trigger": "Exact same graph and objective in the original archival proceedings paper"
+      },
+      {
+        "assessment": "The barbell formula remains a uniform budget; no heterogeneous peripheral-edge price support theorem in the inspected relevant material.",
+        "evidence": [
+          "SIAM Review 50(1) (2008), Section 5, equation (39) and graph discussion.",
+          "Journal site publication online 1 February 2008; earlier public conference version identified."
+        ],
+        "identifier_or_url": "doi:10.1137/050645452",
+        "material_read": "Barbell worked example, Section 5 equation (39), optimal-weight display, and extension discussion",
+        "method": "Read author-hosted full text and inspected source page image",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008)",
+        "trigger": "Expanded same-object original with possible hidden extensions or appendices"
+      },
+      {
+        "assessment": "General power-grid price design framework, not the identical closed-form two-clique bridge resistance price result in the inspected material.",
+        "evidence": [
+          "arXiv:1004.2285, introduction and Sections II-III; discusses weighted line costs and sparsity heuristics."
+        ],
+        "identifier_or_url": "arxiv:1004.2285",
+        "material_read": "Full public arXiv HTML technical text, introduction, contribution statements, network model, design criteria, searched barbell/clique terms",
+        "method": "Read public full HTML and searched within all available text for same graph",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "Linear and nonconvex edge deployment prices could dominate an exact price threshold"
+      },
+      {
+        "assessment": "Abstract states qualitative support changes at linear cost but does not state this exact barbell threshold; material gap retained as a concrete residual risk.",
+        "evidence": [
+          "arXiv:2610.03627 abstract dated 2 October 2026: varying resource-price exponent and graph optimization, without the quoted two-clique explicit threshold."
+        ],
+        "identifier_or_url": "arxiv:2610.03627",
+        "material_read": "Abstract only, full text not accessible through attempted primary-source retrieval",
+        "method": "Read dated arXiv abstract; attempted arXiv PDF and HTML (unavailable)",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Very recent manuscript on edge prices and possible support deletion; potentially stronger coverage"
+      },
+      {
+        "assessment": "Mixed discrete cardinality and base-graph augmentation model, not all-conductance two-clique symmetric continuous allocation formula as searched.",
+        "evidence": [
+          "arXiv:2609.29790: mixed-integer augmentation with exact-cardinality, not a full exact priced-barbell theorem."
+        ],
+        "identifier_or_url": "arxiv:2609.29790",
+        "material_read": "Public arXiv abstract and available HTML text searched for barbell",
+        "method": "Read public abstract/HTML and exact in-document term search",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Heterogeneous per-unit deployment cost and Kirchhoff index can imply covering result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd2b44c0-8a0a-45ae-bdfa-7c7e3d140b70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Variable material cost on redundant within-community links is a natural engineering constraint. The theorem identifies exactly when a network of two dense clusters should be optimally implemented as a two-star bridge, computes all actual edge conductances and the full budget-resistance frontier for any clique size, and shows complete insensitivity to any further peripheral price increase. The cutoff varies nontrivially with cluster size and is not inferred from the known single \\(t=1\\) optimum. It is a structural graph-support transition, not a selected narrow arithmetic invariant.",
+    "status": "PASS"
+  }
+}
