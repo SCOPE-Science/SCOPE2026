@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Derive both precise quadrature stencils from the published integrating-factor SSP stages for constant rank-one forcing. Positive weights give universal rank ceilings. The canonical chain gives a nonvanishing Vandermonde minor for every distinct node and a strictly positive continuous Gramian. Exact trapezoidal quadratic and Simpson quartic integration errors establish complete inertia thresholds through 2x2 negative principal determinants. Verified with 289 rational assertions; finite checks do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bertram--Faßbender derives general low-rank Gramian quadrature and Runge-Kutta residual conditions, but the methods are not the IF-SSPRK2/3 of the 2026 paper.",
+        "The 2026 paper proves unconditional semidefinite preservation and a norm-error estimate; neither is a Loewner upper or lower covariance bound."
+      ],
+      "reasoning": "The existing general factorization implies rank at most the number of nonzero quadrature nodes, so that part is pre-existing context, not a claimed new inequality. It does not settle equality at every mesh on controllable chains or the sharp indefinite-error thresholds without the new specialization and moment-minor analysis.",
+      "searches": [
+        "arxiv:1903.05383v1 sections 1 and 3, Runge-Kutta quadrature Gramians",
+        "arxiv:2003.03101v1 section 1.1 weighted Gramian approximation",
+        "arxiv:2606.15703v1 Theorems 3.2 and 3.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15703v1 full public HTML, methods and guarantees",
+      "arxiv:1903.05383v1 available PDF, Gramian quadrature and Runge-Kutta sections",
+      "arxiv:2003.03101v1 available PDF, empirical Gramian discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A positive-semidefinite quadrature sum need not dominate or be dominated by the true Gramian: its signed error has a negative 2x2 principal determinant from the degree-two or degree-four polynomial moment.",
+        "The 2019 framework gives algebraic quadrature factorizations but does not assert either method-specific all-step inertia classification."
+      ],
+      "reasoning": "An upper norm error estimate does not imply its matrix error is Loewner-positive or Loewner-negative. From a general rank ceiling alone one cannot infer exact saturation without distinct sampled exponential columns. The proved claim uses a sharp Vandermonde argument and an explicit nonzero offdiagonal moment error. No located theorem logically covers the full statement.",
+      "searches": [
+        "arxiv:2606.15703v1 equations (3)-(6), Theorems 3.2, 3.4",
+        "arxiv:1903.05383v1 section 3 low-rank Gramian quadrature",
+        "\"Sharp dimension threshold for Loewner order error of composite Simpson and trapezoidal quadrature of controllability Gramian for Jordan chain\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For forcing independent of the covariance, IF-SSPRK2 = composite trapezoidal and IF-SSPRK3 = composite Simpson quadrature, via arxiv:2606.15703v1 eqs (3)-(6).",
+        "Empirical/weighted Gramian quadrature was already known in arxiv:1903.05383v1, pp. 2-3."
+      ],
+      "reasoning": "These are mathematical aliases of the claimed discrete matrices. The formulation is not claimed to invent quadrature; novelty assessment concerns exact rank saturation and signed covariance-error inertia for the specific methods.",
+      "searches": [
+        "\"integrating factor\" \"SSPRK\" \"rank\" \"Gramian\"",
+        "\"trapezoidal\" \"Simpson\" \"finite-time controllability Gramian\" error",
+        "arxiv:2606.15703v1 Sections 2 and 3",
+        "arxiv:1903.05383v1 Section 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected numerical tables of arxiv:2606.15703v1 report convergence rates and examples, not dimension-indexed exact inertia/rank data.",
+        "The inspected arxiv:1903.05383v1 does not present a table of the present full-rank delays and signed Loewner errors."
+      ],
+      "reasoning": "No identical exact matrix table was found in these concrete sources or the recorded searches. This is limited source evidence, not a proof of unique worldwide novelty.",
+      "searches": [
+        "\"Simpson\" \"controllability Gramian\" \"Loewner\" quadrature",
+        "\"Rank delay 2N+1 Simpson grid integrator chain controllability Gramian Runge Kutta positive definiteness\"",
+        "arxiv:2606.15703v1 Section 4 numerical tables"
+      ]
+    },
+    "rationale": "The complete all-step Loewner sign classification and sharp rank attainment on controllable integrator chains are not contained in the inspected primary method paper or relevant full-text quadrature-gramian frameworks. The generic positive-node rank upper bound itself follows from known factorization and is not claimed as standalone novelty. Residual possible earlier specialized work is acknowledged.",
+    "residual_risks": [
+      "Earlier specialized polynomial quadrature on integrator-chain Gramians might already contain all or part of the exact inertia classification.",
+      "Semantic database searches and these source inspections do not establish worldwide uniqueness.",
+      "The general quadrature factorization and numerical rank ceiling are standard and are not separately asserted as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the schemes and guarantees semidefinite preservation; does not state exact Gramian full-rank steps or Loewner-error sign classification.",
+        "evidence": [
+          "arxiv:2606.15703v1 eqs (3)-(6), Theorems 3.2 and 3.4; first public date 2026-06-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+        "material_read": "full available HTML text, including Section 2 stage formulas, Section 3 positivity proof and error bound, and numerical results",
+        "method": "Read and compared defining equations (3)-(6), Theorems 3.2 and 3.4, and Section 4 with the precise new covariance claim",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Defining 2026 source of the two methods"
+      },
+      {
+        "assessment": "General weighted Gramian quadrature and rank ceilings are already standard; no exact IF-SSPRK2/3 Jordan-chain signed-error threshold or rank attainment statement identified.",
+        "evidence": [
+          "arxiv:1903.05383v1 pp. 2-3 and Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1903.05383",
+        "material_read": "31-page accessible PDF; inspected introduction pp. 1-3 and the relevant Section 3 low-rank Gramian quadrature and residual-invariant passages; page 2 visually inspected",
+        "method": "Compared finite time quadrature, low-rank factors, and its stationary algebraic Lyapunov algorithms against the IF-SSPRK2/3 sample-node rank and signed finite-time Loewner error",
+        "title": "Lyapunov and Sylvester equations: A quadrature framework",
+        "trigger": "Highly plausible broader prior framework on Gramian quadrature/Runge-Kutta"
+      },
+      {
+        "assessment": "General Gramian quadrature discussion, not the new explicit schemes or all-step inertia results.",
+        "evidence": [
+          "arxiv:2003.03101v1 Sec. 1.1 equation (6)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.03101",
+        "material_read": "18-page accessible PDF; examined Section 1.1 and the Gramian approximation equation",
+        "method": "Inspected empirical quadrature sum of outer products and the relation to Runge--Kutta and moment matching",
+        "title": "A link between gramian based model order reduction and moment matching",
+        "trigger": "Related prior empirical Gramian and model reduction quadrature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a99e65a2-6f5f-41f3-828e-1b7d5d84c40b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical controllable integrator chain is a motivated model for finite-time reachability and process-noise covariance. Sharp numerical rank delays quantify when positive-semidefinite integrators remain unusable for covariance inversion despite an immediately positive-definite true Gramian. The first dimension in which the error becomes indefinite precisely defeats both conservative upper and lower Loewner covariance interpretations, independently of mesh refinement. This is a structural all-horizon threshold, not an arbitrary computed slice or generic PSD restatement.",
+    "status": "PASS"
+  }
+}
