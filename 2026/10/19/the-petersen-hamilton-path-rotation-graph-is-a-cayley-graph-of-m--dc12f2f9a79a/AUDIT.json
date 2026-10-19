@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The graph is explicitly KG(5,2), with disjointness adjacency. The recurrence F_t(v,B)=sum_{w in N(v)∩B}F_t(w,B\\{w}), base [v=t], counts all Hamiltonian paths by exhaustive first-step decomposition. It gives four paths between any nonadjacent endpoints, zero between adjacent endpoints, hence 120 paths. The natural S5 action has trivial stabilizer of the given base path: an orientation-preserving stabilizer fixes every 2-subset; an orientation-reversing stabilizer would have to fix 0, exchange 1/2 and preserve {3,4}, contradicting the required image of the second path vertex. Four explicit endpoint rotations of this base path give precisely alpha=(1 2 3 4), alpha^-1, beta=(1 4), gamma=(0 1)(3 4). Equivariance proves the Cayley identification. Alpha and beta generate S4 on 1..4; gamma combines with (3 4) to yield (0 1), so connectivity is proved analytically. The 120 complete Cayley distance/neighbor rows give sphere sizes 1,4,11,25,39,29,11 and exact diameter six, checked by the standalone first verifier. A separately written brute-force direct path-permutation enumerator constructs the path rotation graph without the Cayley certificate or generators and checks all 120 starts, 240 edges, and diameter-six profile. No infinite claim or sampling is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazazi 2026 Theorem 1.1: connectivity and O(n²) diameter if G contains a spanning squared Hamilton path; §7 provides disconnected examples.",
+        "Petersen graph has maximum degree three, but an internal vertex of the square of a ten-vertex path has degree four; hence the hypothesis fails.",
+        "Petersen S5 graph automorphisms from Brouwer online graph catalogue do not determine orbit regularity on Hamilton paths or local switch generators."
+      ],
+      "reasoning": "The cited general connectivity criterion is inapplicable to Petersen, much less a source for the exact Cayley structure or graph diameter. A general theorem asserting only connectivity or O(n²) diameter would not imply the specific 120-vertex adjacency and sphere distribution.",
+      "searches": [
+        "Petersen graph Hamilton paths single rotation endpoint reversible transition graph",
+        "arxiv:2610.05068v1",
+        "Petersen graph square Hamiltonian path minimum degree 3 Kazazi"
+      ]
+    },
+    "checked_sources": [
+      "Kazazi, arXiv:2610.05068v1, full arXiv HTML sections 1-2,5,7, references: https://arxiv.org/html/2610.05068v1",
+      "Oberdorf et al., arXiv:cond-mat/0508094v1, and full 2006 journal PDF: https://www.sfu.ca/~eemberly/phys847/papers/PhysRevE.74.051801.pdf",
+      "Frieze–Pittel, arXiv:1107.4944v1, full manuscript: https://www.math.cmu.edu/~af1p/Texfiles/Posa.pdf",
+      "A. E. Brouwer, Petersen graph: https://aeb.win.tue.nl/graphs/Petersen.html",
+      "MathWorld, Pósa Rotation: https://mathworld.wolfram.com/PosaRotation.html",
+      "The Petersen 2-matching complex is a wedge of four 7-spheres",
+      "The Petersen total 3-cut complex is a wedge of nine 4-spheres",
+      "Mod-2 homology of the Petersen graph Morse complex"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pósa rotation lemma controls reachable endpoints of a fixed path in general graphs; it neither identifies all Petersen spanning paths nor their whole transition graph.",
+        "Frieze–Pittel 2011 random-graph Pósa-set arguments do not enumerate Petersen Hamilton paths.",
+        "Kazazi 2026 squared-path theorem cannot apply to cubic Petersen, and states no exact Cayley or diameter profile.",
+        "The published Petersen 2-matching complex theorem discusses homotopy of a different simplicial complex and cannot imply a Hamilton-path rotation Cayley graph."
+      ],
+      "reasoning": "Comparisons are between propositions: the conjunction of 120 simply transitive Hamiltonian paths, exactly four group-labeled local switches, and shortest-path diameter six is strictly stronger and different in kind from the checked endpoint, connectivity, matching-complex, and automorphism results; none entails it by an identified reduction.",
+      "searches": [
+        "Petersen graph Hamiltonian path Posa rotation reconfiguration graph connected Cayley graph symmetric group S5",
+        "120 Hamiltonian paths of Petersen graph four-regular Pósa rotation Cayley S5 generators",
+        "Rotation graph Hamilton paths Petersen Cayley S5 oriented Hamiltonian path graph",
+        "arxiv:2610.05068v1",
+        "arxiv:1107.4944v1",
+        "The Petersen 2-matching complex is a wedge of four 7-spheres"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kazazi 2026 §1 lines 34-46 defines R(G) with undirected paths modulo reversal and endpoint backbites, mathematically identical to both-endpoint Pósa rotations here.",
+        "Oberdorf et al. 2005/2006 §II and figures discuss equivalent backbite moves on lattice Hamiltonian walks; not the Petersen Cayley identification.",
+        "Pósa rotations per 1976 source and MathWorld definition preserve a path vertex set by the same edge replacement."
+      ],
+      "reasoning": "The alias backbite is checked as exactly the same move (including reversal-quotient). The new statement is the exact graph-specific isomorphism and distance, not a redefinition of that move. Neither principal equivalent-formulation source supplies the four Petersen generators or six-diameter conclusion.",
+      "searches": [
+        "Petersen graph Hamilton paths rotations backbite move reconfiguration graph 120",
+        "Petersen graph Hamiltonian path Posa rotation reconfiguration graph connected Cayley graph symmetric group S5",
+        "arxiv:2610.05068v1",
+        "arxiv:cond-mat/0508094v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Petersen matches concern 2-matching complexes, total cut complexes and Morse complexes rather than Hamiltonian path backbite adjacency.",
+        "Brouwer Petersen catalogue reports maximally non-Hamiltonian behavior and group symmetry, but no Pósa reconfiguration/Cayley adjacency table was identified.",
+        "The complete 120-row table accompanying this claim was independently derived by direct enumeration."
+      ],
+      "reasoning": "Neither a known graph table nor the specifically queried 120-path and group generator formulas were found; this is an evidence-limited search statement, not a proof that such tables do not exist. An inaccessible older monograph or unindexed dataset remains a residual risk.",
+      "searches": [
+        "120 Hamiltonian paths of Petersen graph four-regular Pósa rotation Cayley S5 generators",
+        "Rotation graph Hamilton paths Petersen Cayley S5 oriented Hamiltonian path graph",
+        "Petersen graph 120 Hamiltonian paths transformations rotation group Cayley graph diameter",
+        "The Petersen 2-matching complex is a wedge of four 7-spheres",
+        "The Petersen total 3-cut complex is a wedge of nine 4-spheres",
+        "Mod-2 homology of the Petersen graph Morse complex"
+      ]
+    },
+    "rationale": "The classical Pósa rotation is not new. The 2005 Oberdorf et al. preprint defines equivalent backbite moves and illustrates transition graphs of Hamiltonian walks on square grids. The 2026 Kazazi preprint (full text inspected) formalizes exactly the same Hamilton-path backbite reconfiguration graph, proves connectivity when a graph contains a spanning squared path, and constructs counterexamples; it does not discuss Petersen, and the Petersen cubic graph cannot contain the squared 10-vertex path (internal squared-path vertices have degree four). General Petersen automorphism group facts and the known 120 paths do not imply their rotation graph has the computed four right-Cayley generators or diameter six. Searches of published research records, primary texts, and external aliases found no prior Petersen-specific equivalent classification. Genuine priority risk remains for unindexed datasets and the 1993 Petersen monograph not inspected in full.",
+    "residual_risks": [
+      "Holton–Sheehan 1993 Petersen monograph was not inspected in full; it could contain Hamilton-path reconfiguration data.",
+      "Historical or unindexed backbite/rotation transition tables may contain the same Cayley result; negative search is not a novelty proof.",
+      "The finite 120-row distance census is checked by two algorithms but not subject to independent third-party mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly same backbite graph but no Petersen case, no Cayley graph generators or diameter-six metric. Its connectivity theorem requires a squared Hamiltonian path, impossible in cubic Petersen.",
+        "evidence": [
+          "Theorem 1.1 in §1: spanning squared-path hypothesis and O(n²) connectivity",
+          "§2 backbite definition and reversal quotient",
+          "§7 uses different disconnected constructions",
+          "Text searches Petersen and Cayley yielded no matches"
+        ],
+        "identifier_or_url": "arxiv:2610.05068v1; https://arxiv.org/html/2610.05068v1",
+        "material_read": "Full HTML article: abstract, introduction, definitions in §2, the connectivity theorem/proof, disconnected construction §7, references; in-page searches for Petersen, Cayley, 120",
+        "method": "Read primary article HTML and compare hypotheses/conclusions directly",
+        "title": "Connectivity of the reconfiguration graph of Hamiltonian paths",
+        "trigger": "Same reconfiguration graph definition and direct possible novelty overlap"
+      },
+      {
+        "assessment": "Same elementary backbite operation used for grid-lattice Hamiltonian walks; no Petersen-graph group-regular Cayley classification or six-diameter profile in inspected relevant material.",
+        "evidence": [
+          "§II describes backbite moves and the 3-by-3 grid transition graph",
+          "arXiv v1 explicitly dated 2005-08-03"
+        ],
+        "identifier_or_url": "arxiv:cond-mat/0508094v1; doi:10.1103/PhysRevE.74.051801; https://www.sfu.ca/~eemberly/phys847/papers/PhysRevE.74.051801.pdf",
+        "material_read": "Full PDF introduction and §II move description with illustrative small grid transition graph and figure",
+        "method": "Primary article PDF inspected in text and rendered page image",
+        "title": "Secondary Structures in Long Compact Polymers",
+        "trigger": "Earliest exactly dated public source found for Hamilton-walk backbite reconfiguration"
+      },
+      {
+        "assessment": "Studies random-graph long-path reachable endpoints, not full deterministic Petersen Hamilton-path transition graphs.",
+        "evidence": [
+          "Introductory Pósa rotation context and random graph model; no statement of four Cayley generators or exact 120-state graph"
+        ],
+        "identifier_or_url": "arxiv:1107.4944v1; https://www.math.cmu.edu/~af1p/Texfiles/Posa.pdf",
+        "material_read": "Full freely accessible manuscript introductory definition and initial arguments in pages 1–3",
+        "method": "Opened primary preprint PDF and inspected its first rendered page",
+        "title": "On a sparse random graph with minimum degree three: Likely Pósa sets are large",
+        "trigger": "Standard Pósa endpoint-rotation prior work"
+      },
+      {
+        "assessment": "Contains baseline Petersen group S5 and non-Hamiltonian behavior; neither is an exact reconfiguration graph classification.",
+        "evidence": [
+          "Maximally non-Hamiltonian: Hamilton path between every nonadjacent pair",
+          "Standard Petersen group structure"
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/graphs/Petersen.html",
+        "material_read": "Online catalogue graph definition, automorphism and Hamiltonicity entries",
+        "method": "Read source page text and compare described parameters",
+        "title": "Petersen graph",
+        "trigger": "Possible stronger known Petersen endpoint and group results"
+      },
+      {
+        "assessment": "Unresolved historical priority risk; no assertion about absence of a matching result in the book.",
+        "evidence": [
+          "Book title and publication metadata; full-text comparison not made"
+        ],
+        "identifier_or_url": "D. A. Holton and J. Sheehan, Cambridge University Press, 1993",
+        "material_read": "Publisher/catalogue bibliographic and descriptive material only; full monograph not accessible in this search",
+        "method": "Bibliographic search, without pretending to inspect the inaccessible complete book",
+        "title": "The Petersen Graph",
+        "trigger": "Graph-specific historical monograph as plausible priority risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc12f2f9-a79a-434a-90c9-603f69856e2e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact natural state graph of all Hamiltonian paths under a single minimal path move is a motivated combinatorial reconfiguration object, important for reachability and local sampling of spanning paths. Identifying its entire geometry as a simply transitive S5 Cayley graph is a structural classification, not a parameter renaming or routine increment. Exact connectedness, four explicit group generators, and a sharp six-move worst-case distance answer a precise dynamical question for the canonical sparse non-Hamiltonian cubic graph. This yields a transparent low-degree connected example outside the known dense squared-path sufficient hypotheses. Complete certificate makes the exact six bound reusable. No general theorem or priority certification is falsely claimed.",
+    "status": "PASS"
+  }
+}
