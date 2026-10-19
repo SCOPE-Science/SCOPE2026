@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The projective reduction \(w=y/x\) yields the exact scalar equations \(\dot w=(b+c)xw(w-w_*)\) and a conserved algebraic first integral for all positive coefficients with \(b>a\). A genuine change of variables proves the incomplete beta clock and finite-time explosion rather than relying on a finite simulation. The beta-tail expansion proves the stated renormalized finite part. Substitution back into the rate equations verifies the extinction and blow-up asymptotic coefficients; independent finite checks supplement the proof. Excluded parameter boundaries and the distinction between physical and desingularized time are explicit.
+
+**Originality — PASS under inspected evidence, with priority risk.** Yeung–Erban (arXiv:2610.06130v1, §2 Example 2.2) already contains the invariant ray and fixed-rate first integral. It treats the qualitative local sector classification, not the three-rate, exact original-time beta lifetime, freely tunable critical exponent, or renormalized finite part. A more general 2025 blow-up-method article and a 2009 quadratic Lotka–Volterra orbital-linearization article do not directly imply the claimed formula in the specific reaction system. Relevant public mathematical-finding records concern distinct vector fields or different asymptotic observables. Classical homogeneous-system integrability is a material residual priority risk; the search cannot certify global novelty.
+
+**Mathematical value — PASS.** The exact time until population explosion and its critical scaling are natural physical-time observables missing from the existing purely phase-portrait classification of this three-reaction network. Varying rates realizes every positive delay exponent, and the finite correction reproduces the characteristic relaxation time on the invariant threshold, a structural connection not evident from the first integral alone. This is an exact, motivated quantitative boundary law, not an arbitrary parameter slice or numerical improvement.
+
+**Limitations.** The proof covers a deterministic quadratic ODE only, with strictly positive rates and \(b>a\); it says nothing about stochastic finite-particle dynamics, regularized explosion, or other kinetic networks. No independent priority or mathematical validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
