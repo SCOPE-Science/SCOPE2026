@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The overlap reduction is proved both ways for all 32 ten-bit squares, with linear rather than cyclic factors and unrestricted hosts. The exact directed 33-vertex path-to-tour encoding has integer arc costs, 1056 binary variables, 66 degree equations, and 20 explicitly listed valid subtour cuts. The weakened model yields optimal primal and lower dual bound 82 with zero solver gap, the returned integer solution is independently checked to be a Hamiltonian tour of cost 82, and the explicit length-82 host directly contains all 32 squares. Reproducing Python+NumPy+SciPy+HiGHS execution from the supplied certificate yielded VERIFY_OK; short-order separate subset DP confirms 4,12,24,48. Numerical solver correctness is not separately formally certified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Au, full updated manuscript, Proposition 14, Theorem 15 and Corollary 16: 72 lower and 89 upper for binary root length 5",
+        "Tan and Shallit, arXiv:1304.3666 Sections 1, 4: exact-set/maximal-factor witness variants"
+      ],
+      "reasoning": "Au provides broad covering bounds and constructions for powers, but neither of its general inequalities has an equality implication at 82. Tan–Shallit examines different set-realization and extremal witness questions and does not determine the minimum host for this prescribed subset.",
+      "searches": [
+        "\"Generalized de Bruijn words for Primitive words and Powers\" Au Proposition 14 Theorem 15 Corollary 16",
+        "\"Sets Represented as the Length-n Factors of a Word\" shortest witness"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0904.3997",
+      "https://au-gary.github.io/Au15a.pdf",
+      "OEIS:A372435",
+      "arXiv:1304.3666"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Au arXiv:0904.3997 supplies for this exact object 72≤L(5)≤89",
+        "OEIS A372435 confirms L(1..4)=4,12,24,48",
+        "Tan–Shallit arXiv:1304.3666 exact factor-set realization is not subset coverage"
+      ],
+      "reasoning": "Neither the 72–89 bound nor values at n≤4 entails the value n=5. The numerical equality 82 is strictly within the prior published interval and is supported here by an explicit length-82 word plus a fresh finite integer-program lower bound.",
+      "searches": [
+        "\"binary word\" \"square\" \"de Bruijn\" \"shortest\" overlap",
+        "\"shortest word containing all\" \"powers\" 2009",
+        "\"A372435\" exact fifth term"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A372435: shortest binary string containing all blocks xx, enumerates 4,12,24,48 for n=1..4",
+        "Au, arXiv:0904.3997, Section 3: power-covering and overlap-conjugacy formulation"
+      ],
+      "reasoning": "The ordinary linear shortest common superstring of all 32 ten-bit squares is exactly the fifth value of A372435, not merely a similarly titled problem. The same-invariant table has no fifth term. The graph overlap Hamiltonian path is an equivalent optimization formulation of this missing value, not a new definition disguised as novelty.",
+      "searches": [
+        "\"A372435\" \"82\" square binary",
+        "\"all binary squares\" \"shortest common superstring\"",
+        "\"binary squares\" \"five\" \"shortest string\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A372435 (read 2026-10-15 UTC) terms 4,12,24,48 only; next fifth term missing"
+      ],
+      "reasoning": "The exact numerical table covers root sizes 1 through 4, but has no 5-root entry; its stored values do not entail 82 without an additional theorem or calculation.",
+      "searches": [
+        "OEIS A372435 binary tandem squares minimum-length sequence",
+        "OEIS A372435 n=5 square superstring 82"
+      ]
+    },
+    "rationale": "Au arXiv:0904.3997 studies the precise powers-superstring problem but its inspected full text gives only the specialized bounds 72 and 89 for five-bit binary squares, and OEIS A372435 displays only four smaller values 4,12,24,48. The exact fifth optimum 82 is absent from these sources. Tan–Shallit arXiv:1304.3666 studies represented factor sets and other witness objectives. Closely related aliases and parameters were searched in published literature and mathematical records; no dominating proof or exact 82 was found. Undocumented computations and unindexed literature are residual risks.",
+    "residual_risks": [
+      "An unindexed earlier exhaustive superstring computation might already obtain 82 under a different term.",
+      "The integer optimization uses an external finite MIP solver; no independently checked solver proof trace is provided."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest exact-object prior work gives interval 72–89 but not 82",
+        "evidence": [
+          "2009-04-25 first public arXiv submission",
+          "Section 3 general shortest-power-word construction and bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0904.3997",
+        "material_read": "Original accessible arXiv version, Section 3, and updated complete author manuscript https://au-gary.github.io/Au15a.pdf, Proposition 14, Theorem 15, Corollary 16",
+        "method": "Full-text reading of relevant theorem statements, hypotheses, bounds and constructions; specialized to alphabet 2 and root length 5",
+        "title": "Generalized de Bruijn words for Primitive words and Powers",
+        "trigger": "Same prescribed repeated-root factor coverage problem"
+      },
+      {
+        "assessment": "No fifth value supplied; no exact 82 identified",
+        "evidence": [
+          "Table begins 4,12,24,48 for n=1..4; n=5 absent at inspection"
+        ],
+        "identifier_or_url": "https://oeis.org/A372435",
+        "material_read": "Entry definition, exact first four listed terms, comments, cross-references",
+        "method": "Direct examination of live sequence entry",
+        "title": "Length of the shortest binary string that contains all blocks of the form xx",
+        "trigger": "Exact same numerical invariant and known table"
+      },
+      {
+        "assessment": "Does not imply exact minimum for 32 binary squares",
+        "evidence": [
+          "Sets of factors and witness-extremal criteria, not minimal superstring containing all squares"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.3666",
+        "material_read": "Original full arXiv text, introduction and section 4 on shortest witnesses",
+        "method": "Compare exact-set versus compulsory-subset coverage quantifiers",
+        "title": "Sets Represented as the Length-n Factors of a Word",
+        "trigger": "Closest broad factor-set witness and shortest-word coverage terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1ba195d-a6a5-4dcb-9db5-d29ff386a10e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first unlisted fifth term of the established shortest binary-square-superstring sequence is a natural exact finite invariant, not an arbitrary slice. It closes the recorded 72–89 window to the sharp 82, supplies a witness for periodicity-derived tandem-square coverage, and provides a small reproducible 1056-variable finite optimization benchmark. The object is defined before and independently of computation; neither novelty nor mere reproducibility alone is invoked as the reason for value.",
+    "status": "PASS"
+  }
+}
