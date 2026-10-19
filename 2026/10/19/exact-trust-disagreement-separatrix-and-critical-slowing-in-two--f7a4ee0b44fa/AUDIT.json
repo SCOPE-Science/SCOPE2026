@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "With unit self-weights the system reduces exactly to \\(\\dot d=-2w\\phi(d)d/(1+w)\\) and \\(\\dot w=w(1-w)(2\\phi(d)-1)\\). The derivatives of \\(\\operatorname{artanh}(w)\\) and \\(F(d)\\) coincide. The potential has a unique minimum zero at the half-strength crossing and diverges as \\(d\\) tends to zero. The gap decreases and the sign of the tie derivative changes at most once, which yields an exhaustive endpoint partition. At the critical invariant level, \\(F(r+z)=(-\\phi'(r)/r)z^2+O(z^3)\\), hence \\(\\dot z=\\phi'(r)z^2+O(z^3)\\), proving \\(tz\\to1/(-\\phi'(r))\\) and \\(t^2w\\to1/(-r\\phi'(r))\\). Off-critical logarithmic rates follow from the exact ODE. Standard-library verification samples the differential invariant and three trajectories but is not an infinite-time proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nugent et al. 2026 theorem 3.1: with full support, each pair eventually agrees or loses its connecting edge; corollaries identify what weight limits are possible.",
+        "Its section 5 gives short-time weight approximations, not an exact global phase boundary; the statement of theorem 3.1 does not provide threshold for initial data or asymptotic critical power laws.",
+        "Nugent et al. 2024 studies externally controlled tie dynamics f(u,w)=s(u)(ell(u)-w), not autonomous logistic weight feedback."
+      ],
+      "reasoning": "Qualitative clustering is broader in the number of agents but logically weaker with respect to the precise threshold and rates. Neither the 2026 qualitative theorem nor the controlled 2024 system dominates this claim.",
+      "searches": [
+        "social network coevolution continuous time consensus polarization exact basin threshold signed self weight normalized",
+        "adaptive opinion dynamics logistic tie strength differential equation invariant artanh weight integral",
+        "arXiv:2602.03738v1 Theorem 3.1 Corollaries 3.2–3.4",
+        "arXiv:2404.09849v1 section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.09483v1, equations (8),(11),(12), sections 3.2 and 3.4",
+      "arXiv:2602.03738v1, theorem 3.1 and corollaries 3.2–3.4",
+      "arXiv:2404.09849v1, section 2 and remark 2.1",
+      "arXiv:2010.00143, model description and section on tie decay"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2305.09483v1 equation (12), the tie-growth sign is determined by phi(d)-1/2, an instantaneous sign test; the statement does not determine how long a trajectory remains above the half-strength gap.",
+        "In arXiv:2602.03738v1 theorem 3.1, either weight or opinion difference tends to zero for each pair; it does not decide which for a specified initial two-agent state.",
+        "In arXiv:2010.00143, tie weights jump with temporal contacts and decay exogenously, so the opinion-distance logistic invariant is inapplicable."
+      ],
+      "reasoning": "The new theorem sharpens compatible qualitative conclusions in the precise two-agent autonomous logistic special case. A weaker qualitative conclusion, even for arbitrary network size, does not by itself imply the exact sharp separatrix, unique remaining-gap equation, or critical inverse-time and inverse-square coefficients. No inspected stronger statement subsumes these data-specific results.",
+      "searches": [
+        "arXiv:2305.09483v1 section 3.4 logistic weight dynamics",
+        "arXiv:2602.03738v1 section 3.2 and section 5",
+        "arXiv:2404.09849v1 remark 2.1",
+        "arXiv:2010.00143 tie-decay networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact two-dimensional reduction conserves \\(\\operatorname{artanh}(w)-\\int_r^d(1-2\\phi(s))/(2s\\phi(s))\\,ds\\); its zero level is a positive, initial-weight separatrix.",
+        "Nugent et al. 2023 equations (8),(11),(12) define the system but sections 3.2 and 3.4 do not state this invariant or threshold.",
+        "Nugent et al. 2026 section 3.2 establishes eventual clustering and limiting edge alternatives but no initial-trust basin formula."
+      ],
+      "reasoning": "Potential alternative representations include log odds, logistic transforms, singular separatrices, and general planar first integrals. Searches did not identify a result implying the stated global, initial-data classification with nonzero critical gap and inverse-square tie decay. Non-indexed equivalent formulations remain a residual risk.",
+      "searches": [
+        "adaptive opinion dynamics logistic tie strength differential equation invariant artanh weight integral",
+        "consensus polarization nonlinear adaptive networks exponential integral artanh w first integral",
+        "opinions logistic atanh consensus adaptive weights invariant",
+        "arXiv:2305.09483v1",
+        "arXiv:2602.03738v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper contains numerical heatmaps for an exponential interaction kernel and logistic edge dynamics, but no tabulated exact two-agent initial-data separatrix.",
+        "The 2026 follow-up gives qualitative asymptotic classifications rather than an explicit table of the model-specific thresholds."
+      ],
+      "reasoning": "No matching exact threshold value, family of threshold curves, or phase-table formula was identified in the inspected primary sources or targeted searches. Absence of a search hit is not proof of novelty.",
+      "searches": [
+        "two agent Nugent Gomes Wolfram logistic evolving weights exponential interaction function exact consensus polarization threshold separatrix",
+        "Nugent Gomes Wolfram separatrix",
+        "Nugent Gomes Wolfram critical two opinion analytic basin",
+        "Nugent Gomes Wolfram logistic two agents separatrix threshold consensus"
+      ]
+    },
+    "rationale": "Primary full-text comparisons identify the model-specific gap left by Nugent–Gomes–Wolfram (2023): their exponential/logistic simulations lack a sharp initial-trust phase boundary. The follow-up Nugent–Calatayud Fernandez–Gomes (2026) proves only qualitative endpoint alternatives (in the relevant implication comparison), while the control-focused 2024 paper and tie-decay-network literature use different dynamics. Search terms include log-odds first integrals, separatrices, and nontransverse powers. Residual possibility of an unindexed equivalent planar-ODE result is documented; novelty is assessed on the exact combined threshold, phase classification and critical coefficients, not merely on observing polarization.",
+    "residual_risks": [
+      "General separable planar ODE theory could encode an equivalent first integral under a different parametrization without indexed model terminology.",
+      "The source-comparison search is bounded and cannot establish global priority across all textbooks or dissertations.",
+      "The broader-network 2026 theory provides qualitative coverage, so the claimed novelty is strictly the exact two-agent basin and critical rates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model; the reported instantaneous tie-growth sign and simulation-based transition do not establish the invariant-based global threshold and critical algebraic relaxation.",
+        "evidence": [
+          "Equations (8),(11),(12); section 3.4 paragraph on logistic decay for phi<1/2; Figure 4; Proposition 3.4 concerns memory rather than logistic weights."
+        ],
+        "identifier_or_url": "arXiv:2305.09483v1; https://arxiv.org/abs/2305.09483",
+        "material_read": "Full searchable arXiv text, sections 2, 3 (including 3.2 and 3.4), section 4 and appendix examples and discussion.",
+        "method": "Read the explicit model equations, the logistic rule, qualitative case-study analysis and appendices; compared their logical conclusions to the proposed basin theorem.",
+        "title": "On evolving network models and their influence on opinion formation",
+        "trigger": "Defines identical coupled opinion and logistic edge dynamics with exponential full-support kernel."
+      },
+      {
+        "assessment": "Covers qualitative alternative of agreement versus lost ties in arbitrary networks, but not the exact two-agent separatrix or critical asymptotic constants.",
+        "evidence": [
+          "Theorem 3.1; Corollaries 3.2–3.4; Section 5 equation (9) is a short-time approximation, not a global first integral."
+        ],
+        "identifier_or_url": "arXiv:2602.03738v1; https://arxiv.org/abs/2602.03738",
+        "material_read": "Searchable full text: model setup, section 3.2 logistic dynamics, theorem 3.1 and corollaries 3.2–3.4, section 5 early-weight approximation, conclusions and appendix headings.",
+        "method": "Compared theorem hypotheses and actual statements, including clustering dichotomy and logistic edge endpoints, to sharp two-agent initial-trust partition.",
+        "title": "Emergent structures in coupled opinion and network dynamics",
+        "trigger": "Closest later full-support and logistic-edge theoretical follow-up by overlapping authors."
+      },
+      {
+        "assessment": "Controlled weights use f(u,w)=s(u)(ell(u)-w); logistic law is mentioned as alternative, not solved with an initial-data basin formula.",
+        "evidence": [
+          "Model formulation equations (1)–(5); remark 2.1; section 3."
+        ],
+        "identifier_or_url": "arXiv:2404.09849v1; https://arxiv.org/html/2404.09849v1",
+        "material_read": "Full searchable arXiv HTML introduction and model formulation, section 3 structure, remarks concerning alternative logistic weight controls.",
+        "method": "Compared equation (1), control law (4), and Remark 2.1 with the autonomous logistic feedback equation.",
+        "title": "Steering opinion dynamics through control of social networks",
+        "trigger": "Same model family by original authors and possible extension of network-weight results."
+      },
+      {
+        "assessment": "Distinct jump-and-decay contact-driven weights and consensus-speed spectral analysis, not the autonomous opinion-distance logistic feedback.",
+        "evidence": [
+          "Abstract and model descriptions specify tie increases at contacts and exponential decay between contacts."
+        ],
+        "identifier_or_url": "arXiv:2010.00143; doi:10.1103/PhysRevResearch.3.023249",
+        "material_read": "Public abstract, introduction and publicly accessible model description, not exhaustive full text.",
+        "method": "Compared tie update mechanism and spectral-gap outputs to model equations and critical separatrix.",
+        "title": "Opinion dynamics on tie-decay networks",
+        "trigger": "Possible covering theorem for consensus with adaptive edge decay."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7a4ee0b-44fa-4392-ae9a-eb201c9b4098",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the motivating logistic adaptive-network model, the source demonstrates by simulation that positive communication can nevertheless lead to persistent polarization. The new exact threshold, expressed in measurable initial gap and trust, resolves which outcome occurs for all admissible two-agent data and a whole nonlinear-kernel class. On the basin boundary it identifies distinct algebraic inverse-time gap and inverse-square trust laws with exact prefactors; these quantify critical slowdown that simple sign tests and qualitative cluster theorems cannot yield. The two-agent setting is the minimal structural testbed rather than an arbitrary parameter slice, and the finding has a natural explanatory use in calibrating adaptive-network simulations.",
+    "status": "PASS"
+  }
+}
