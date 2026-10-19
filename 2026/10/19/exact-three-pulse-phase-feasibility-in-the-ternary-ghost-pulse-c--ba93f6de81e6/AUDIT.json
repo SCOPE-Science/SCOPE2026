@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For exactly three occupied indices, an admissible sign assignment exists iff a same-sign pair passes two explicit reflection checks. The three pair tests give an exhaustive dichotomy: an outer-pair domain plus two disjoint reflected arithmetic-progression exceptions. Their counts are exact finite arithmetic sums for every \\(n\\ge3\\), not fitted from data. Six algebraic residue evaluations give the leading coefficient \\(11/108\\), and the exceptions are quadratic, hence the ratio \\(11/18\\). The packaged direct signing checker covers every support through \\(n=41\\) and checks the symbolic forms through \\(n=1000\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:cs/0510033 Section III-A Theorem 3 and equation (27) count finite unmodulated BGP supports, not ternary phase-feasible supports.",
+        "arxiv:cs/0510033 Theorem 8 treats a distance-limited TGP(2) condition rather than the unbounded-interaction constraint.",
+        "DOI:10.1137/S089548010444585X Theorems 4.1, 4.3, 4.4 classify periodic and bi-infinite TGP objects, whose extension condition differs from the present finite interval."
+      ],
+      "reasoning": "Neither the binary unmodulated support classification, the distance-limited ternary result, nor the bi-infinite periodic/aperiodic classification supplies this finite, unbounded-interaction layer count. In particular a theorem for sequences indexed over all integers does not automatically enumerate arbitrary finite-support sign assignments with only within-window closure.",
+      "searches": [
+        "ternary ghost pulse constraint finite binary sequences exact support counting after 2006",
+        "Coding for the Optical Channel: the Ghost-Pulse Constraint arxiv cs/0510033 Section IV A",
+        "An Application of Ramsey Theory to Coding for the Optical Channel DOI 10.1137/S089548010444585X Theorem 4.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cs/0510033 (posted 2005-10-14)",
+      "doi:10.1109/TIT.2005.860409",
+      "doi:10.1137/S089548010444585X",
+      "Published mathematical research index queries concerning ghost-pulse phase signings, three-pulse supports, and 11/18",
+      "Exact sequence search for 1,4,10,18,28,44,63,92,120"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Theorem 3: supports of BGP words are interval-truncated arithmetic progressions; this yields only \\(O(n^2)\\) unmodulated weight-three words.",
+        "Original TGP Table II: total finite counts at bounded lengths, no weight decomposition.",
+        "Companion Ramsey paper: bi-infinite support theorems, including an aperiodic classification; not the finite window model."
+      ],
+      "reasoning": "The new claim addresses a first-nontrivial finite phase-colorability layer and counts a positive \\(11/18\\) asymptotic fraction. This is neither a restatement nor a direct corollary of the binary or infinite-source claims; a source total-count table for finitely many lengths does not determine the new layer formula.",
+      "searches": [
+        "arxiv:cs/0510033 Theorem 3 Section III-A Section IV-A Table II",
+        "DOI:10.1137/S089548010444585X finite ternary ghost pulse supports",
+        "11/18 ternary ghost-pulse sparse three pulse supports"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kashyap–Siegel–Vardy finite TGP definition uses support indices and sign coloring; Section IV-A, Table II of arxiv:cs/0510033 gives only totals for \\(n\\le32\\).",
+        "The weight-three criterion here reduces precisely to pair reflections at \\(2u-v\\) and \\(2v-u\\), and yields a closed count for every \\(n\\ge3\\)."
+      ],
+      "reasoning": "Equivalent phrases include phase-assignable supports, finite ternary ghost-pulse realizability, three occupied time-slots, and sparse optical codewords. The original finite support definition is shared, but its total counts do not encode a specific weight layer. No indexed equivalent theorem surfaced.",
+      "searches": [
+        "ternary ghost pulse constraint three nonzero pulses weight 3 exact support count asymptotic",
+        "ghost pulse constrained optical channel ternary sign pulse support enumeration phase labeling",
+        "ternary ghost pulse constraint three ones weight three enumeration number of binary supports ghost-pulse phase modulation",
+        "arxiv:cs/0510033"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kashyap–Siegel–Vardy Table II reports total feasible binary supports for \\(n=1,\\ldots,32\\), e.g. 705 for \\(n=12\\); these totals include all Hamming weights.",
+        "The new layer count at \\(n=12\\) is 158, established by a separate all-length classification.",
+        "Exact sequence searches yielded no identified matching indexed layer table."
+      ],
+      "reasoning": "A table counting all supports is not an exact database of counts in the three-occupied-position layer; even if restricted from an underlying unpublished enumeration, the published entries alone do not imply the restricted values, their classification, or the limiting constant.",
+      "searches": [
+        "site:oeis.org \"18, 28, 44, 63, 92, 120\"",
+        "\"1 4 10 18 28 44 63 92 120\" sequence",
+        "\"TGP\" \"weight-three\" ghost pulse",
+        "arxiv:cs/0510033 Table II"
+      ]
+    },
+    "rationale": "The closest finite TGP source proves an unmodulated arithmetic-progression theorem and tabulates the unrestricted total number of phase-feasible support words through length 32. The finite three-pulse support criterion, two reflected exceptional progression classes, exact all-length layer count, and limiting fraction \\(11/18\\) are not stated or implied by that total table. A separate source treats bi-infinite supports, not finite-boundary feasibility. The index queries returned only other phase and support problems; novelty remains subject to unindexed publication risk.",
+    "residual_risks": [
+      "An earlier or later unindexed derivation of the sparse weight-three layer, possibly as a small case of a general phase-coloring formula, may exist.",
+      "The literature comparison is not an independently performed priority certification.",
+      "A finite sign feasibility theorem should not be interpreted as demonstrating physical optical-channel performance or a positive unrestricted TGP capacity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not present finite three-pulse layer classification or count. Table II is total binary-support enumeration through length 32 and is not a layer-specific table.",
+        "evidence": [
+          "Section IV-A: total \\(|\\mathcal B_3(n)|\\) table through 32, from exhaustive search.",
+          "Section III-A: unmodulated supports are truncated arithmetic progressions."
+        ],
+        "identifier_or_url": "arxiv:cs/0510033; https://ece.iisc.ac.in/~nkashyap/Papers/finite_gp.pdf",
+        "material_read": "The finite definitions on pages 2–4; Theorem 3 and equation (27) in Section III-A on pages 5–6; the original TGP table and accompanying discussion on pages 7–8; the TGP(2) coverage in Section IV-C. Extracted text was searched across the full 13-page PDF for weight-three claims.",
+        "method": "Publisher-author open manuscript, textual mathematical inspection and rendered-paged comparison.",
+        "title": "Coding for the Optical Channel: the Ghost-Pulse Constraint",
+        "trigger": "Direct foundational primary source defining finite unbounded TGP and reporting enumerated feasible supports."
+      },
+      {
+        "assessment": "The central quantification is bi-infinite, with a periodic-versus-aperiodic classification; it does not state the finite weight-three support formula.",
+        "evidence": [
+          "Theorem 4.1 uses a modulo-period two-coloring.",
+          "Theorem 4.4 classifies aperiodic bi-infinite TGP support structure; not finite-only extensions."
+        ],
+        "identifier_or_url": "DOI:10.1137/S089548010444585X; https://cmrr-star.ucsd.edu/static/pubs/ramsey_coding_optical.pdf",
+        "material_read": "Introduction/definitions and Theorems 4.1, 4.3, 4.4 in the full 17-page accessible paper, including stated domains and period/aperiodicity assumptions; whole-text searches for weight-layer terminology.",
+        "method": "Author-hosted primary full text with section and theorem inspection.",
+        "title": "An Application of Ramsey Theory to Coding for the Optical Channel",
+        "trigger": "Original same-authors stronger-looking ternary support characterization, requiring implication comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba93f6de-81e6-427a-bad0-67b2dd47de20",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three nonzero slots are the first phase-assignment layer in which a constraint failure is possible: one or two slots can always be given pairwise different signs. The exact classification and the constant \\(11/18\\) quantify the sparse optical-codeword supply. Without phase choices the same fixed-weight layer has only \\(O(n^2)\\) BGP-admissible supports, versus a positive fraction of \\(\\binom n3\\) under TGP. This isolates a natural first obstruction and determines an otherwise unreported exact first-layer invariant; no claim concerning unrestricted capacity is needed.",
+    "status": "PASS"
+  }
+}
