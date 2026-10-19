@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For T<2 the forcing bound 3 yields a strict contraction-in-radius recurrence. At T=2 the exact bias cancellation in F^2-X, tanh monotonicity, and diagonal dominance show a two-step inward displacement >=53/25 in any coordinate exceeding R=11+atanh(9/10)/alpha; its two-step change never exceeds 54/5, implying an absorbing square. For T>2 the norm lower bound and normalized geometric-series argument prove all stated exact exponential-escape rates. At T=9/4, alpha=1/4, the equilibrium equation is a 27/40 contraction, locating the unique fixed point inside radius 12/13; the Jacobian row-sum bound 469/512 proves an explicitly invariant attraction square. Finite code separately verifies rational constants and numerical consistency. No unproved infinite conclusion depends on sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1007/s11071-023-08897-7",
+        "The standard one-step bound gives coefficient |1-T| and is inconclusive when T=2.",
+        "General results about discretizations and saturating activation were sought, without a covering theorem for this exact marginal and basin property."
+      ],
+      "reasoning": "The bounded-input affine recurrence alone covers T<2 and an open T>2 escape region but cannot imply compact absorption at T=2. The endpoint two-step strict inward drift depends on the original coupling matrix diagonal exceeding its cross coupling and on odd saturation; generic dissipativity discussions found did not establish that hypothesis-and-conclusion combination. A stronger unidentified general result remains a historical risk.",
+      "searches": [
+        "Euler discretization saturating neural network global boundedness critical step two overshoot",
+        "Euler discretization saturating neural network global boundedness critical step two overshoot",
+        "\"Euler\" \"tanh\" \"boundedness\" \"diagonal dominance\" \"neural\" map",
+        "\"globally bounded\" \"discrete-time\" \"tanh\" \"Euler\" neurons"
+      ]
+    },
+    "checked_sources": [
+      "Buscarino, Famoso, Fortuna (2023), DOI 10.1007/s11071-023-08897-7, mathematical sections, conclusions, appendices.",
+      "Global compact recurrence threshold and exact activation budget for the zero-bias Chialvo map (published mathematical finding; a different system).",
+      "Exact prime-two orbit census and coexistence wedge for the rational Rulkov neuron map (published mathematical finding; different rational dynamics).",
+      "Sharp three-visit onset and geometric escape from a repelling quadrant focus (published mathematical finding; piecewise-affine map)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1007/s11071-023-08897-7",
+        "The published zero-bias Chialvo, rational Rulkov, and piecewise-affine repeller findings use different maps and parameters."
+      ],
+      "reasoning": "The origin article supplies the map and local bifurcation phenomena but not an implication giving all-initial boundedness at T=2. The cited other dynamical results concern nonequivalent planar neural or piecewise maps; their exact recurrence or fixed-point claims cannot be substituted into the tanh Euler system. Only the simple off-endpoint estimates follow from generic bounded perturbations; these alone do not subsume the full theorem.",
+      "searches": [
+        "Buscarino Famoso Fortuna two-cell spiking discrete map Euler discretization sharp timestep two global boundedness escape basin coexistence stable fixed point",
+        "Sharp boundedness threshold at Euler step size 2 for two-cell tanh discrete spiking map, marginal endpoint all orbits absorbing, for T>2 exterior escaping while stable sink persists at (T=9/4, alpha=1/4)",
+        "Buscarino Famoso Fortuna 2023 x_{n+1}=(1-T)x+T( [[1.7,-1],[1,1.7]] tanh(alpha x)+(-0.3,0.3)) critical two-step trapping and outer escape basin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1007/s11071-023-08897-7",
+        "https://link.springer.com/article/10.1007/s11071-023-08897-7",
+        "The original map is the Euler recurrence of its equation (4) with tanh activation (5), not a different conjugate system."
+      ],
+      "reasoning": "Compared forms x_next=(1-T)x+T[A tanh(alpha x)+b], two-cell spiking-map recurrence, and critical neutral Euler step. The originating numerical map is the same object, but its local fixed-point stability plots neither prove global absorbing sets nor settle the marginal step; no same-theorem equivalent wording was identified.",
+      "searches": [
+        "Buscarino Famoso Fortuna two-cell spiking discrete map Euler discretization sharp timestep two global boundedness escape basin coexistence stable fixed point",
+        "Sharp boundedness threshold at Euler step size 2 for two-cell tanh discrete spiking map, marginal endpoint all orbits absorbing, for T>2 exterior escaping while stable sink persists at (T=9/4, alpha=1/4)",
+        "Buscarino Famoso Fortuna 2023 x_{n+1}=(1-T)x+T( [[1.7,-1],[1,1.7]] tanh(alpha x)+(-0.3,0.3)) critical two-step trapping and outer escape basin",
+        "\"two-cell spiking map\" \"unbounded\" Euler Buscarino Famoso Fortuna",
+        "\"Bifurcations in a new two-cell spiking map\" \"escape\" \"bounded\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.1007/s11071-023-08897-7",
+        "Original article Figure 6 is a numerically determined count of stable equilibria, not a global all-initial boundedness diagram.",
+        "Original article Figures 7–12 show finite-initial-condition bifurcation/chaos measures."
+      ],
+      "reasoning": "No exact table of the globally absorbing/escaping threshold or critical-step two-step bounds was observed. Local equilibrium-count tables and selected-orbit plots are not interchangeable with a classification of all initial conditions.",
+      "searches": [
+        "Sharp boundedness threshold at Euler step size 2 for two-cell tanh discrete spiking map, marginal endpoint all orbits absorbing, for T>2 exterior escaping while stable sink persists at (T=9/4, alpha=1/4)",
+        "Buscarino Famoso Fortuna 2023 x_{n+1}=(1-T)x+T( [[1.7,-1],[1,1.7]] tanh(alpha x)+(-0.3,0.3)) critical two-step trapping and outer escape basin",
+        "Buscarino Famoso Fortuna two-cell spiking discrete map Euler discretization sharp timestep two global boundedness escape basin coexistence stable fixed point"
+      ]
+    },
+    "rationale": "Original paper [1] specifies the model and derives local stability/numerical bifurcation figures, including step sizes above two, but not a global all-initial dissipativity boundary or a proof at the neutral step. The strict subcritical/exterior estimates are elementary and are not the sole claimed contribution. The critical absorbing proof uses cancellation in the two-step recurrence plus quantitative diagonal dominance. A second certified component establishes a positive-volume attracting basin coexisting with external exponential escape for one exact parameter pair. These specific combined statements were not found in the checked literature/records. Priority remains limited by the possibility of unnamed broader saturated-map theorems.",
+    "residual_risks": [
+      "Historical generalized theorems on diagonally dominant saturated recurrent neural Euler maps may imply the endpoint result under a different vocabulary.",
+      "Literature searches cannot establish exhaustive global priority, despite direct inspection of the originating article."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the map and reports local stability plus numerical/hardware phenomena, but does not contain or imply the endpoint absorbing argument, sharp global threshold, or certified coexistence witness.",
+        "evidence": [
+          "Section 3 equations (4)–(8) defines Euler map and local Jacobian.",
+          "Section 4 discusses T=2.3 finite-orbit bifurcation plots.",
+          "Section 7 and Appendix A/B cover applications and hardware implementation, not a global escaping basin."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11071-023-08897-7",
+        "material_read": "Full available HTML mathematical sections 2–7, including defining equations (4)–(8), stability discussion, bifurcation plots and captions, conclusions, bibliography, and textual appendix A/B descriptions; code images not mathematically required and not inspected.",
+        "method": "Direct full-text article examination and statement/parameter comparison.",
+        "title": "Bifurcations in a new two-cell spiking map: a numerical and experimental study",
+        "trigger": "Exact same analytic map, coupling coefficients, and T-alpha bifurcation parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4c02a51-3ab4-4140-99ae-a4d182d4a6e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source treats the Euler step itself as an essential bifurcation parameter and shows bounded complex trajectories even for T>2, but cannot infer global state bounds from sampled orbits. An exact all-initial boundary at T=2 and its nontrivial neutral endpoint answer a natural question about the model. An attracting equilibrium plus open escape basin at T=9/4 gives a motivated qualitative coexistence not reducible to local fixed-point stability. The explicit outer radius, asymptotic escape direction/rate, and quantitative attracting square are useful invariant-phase-space data for interpreting discrete spiking trajectories; no unproved claims of chaos or full basin partition are made.",
+    "status": "PASS"
+  }
+}
