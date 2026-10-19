@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact periodic symbols reduce the horizon supremum to Q_b(s). The proof rigorously pins the global maximum of F(s)=1/(6a(s))−s^−2 to one root in (5pi/2,3pi), with explicit derivative-sign inequalities, controls all frequency bands including zero/infinity, then proves strict condition-number monotonicity below and above b*. The standard-library checker extracted from the actual embedded artifact validates critical formulas/numeric constants, but the analytic estimates establish the infinite-domain statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.24143 Theorem 2.2 gives finite-element robust upper/lower spectral constants but no optimization over beta.",
+        "published-finding corpus published entries returned for other spectral conditioning problems involve different matrix/operator families and objectives."
+      ],
+      "reasoning": "A general uniform-in-mesh/horizon bound does not imply the exact sharp minimax value; conversely a universal theorem explicitly optimizing arbitrary positive coefficients for all kernels would subsume this specialization, but none appeared in the inspected sources or relevant returned summaries. The possible uninspected wider theorem is recorded as risk.",
+      "searches": [
+        "Sharp condition number bounds for 1D peridynamic box kernel Poisson plus mass spectral preconditioner",
+        "One-dimensional top-hat nonlocal diffusion Fourier multiplier sinc and additive Laplacian mass preconditioner optimum condition number over horizons",
+        "Periodic nonlocal Laplace box kernel horizon robust preconditioner inverse Laplace plus identity sharp spectral equivalence",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "2026/10/11/SCOPE-sharp-scalar-view-conditioning-and-a-smallest-prime-barrier-for--58911b2d31f1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.24143",
+      "https://doi.org/10.1007/s10915-025-03150-2",
+      "https://doi.org/10.4208/eajam.290921.230122",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-scalar-view-conditioning-and-a-smallest-prime-barrier-for--58911b2d31f1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lu et al. equation (2.4) beta=1/(2mu_rho) becomes beta=1/2 when rho=1/2 on [−1,1].",
+        "Lu et al. (2.24) only bounds preconditioned condition numbers uniformly; this theorem determines a different optimal b via a derivative-root equation.",
+        "Related row-coherence and spectral-selection hits do not analyze nonlocal sinc spectral minimax."
+      ],
+      "reasoning": "The old theorem establishes a useful preconditioner and a robust interval, not optimal tuning. Choosing the source beta and applying its bound cannot yield the unique b*; the new minimax comparison requires locating competing low- and oscillatory-frequency bottlenecks and proving strict monotonicity on either side. No inspected stronger source directly implies this.",
+      "searches": [
+        "Exact optimal additive inverse-Poisson plus mass preconditioner parameter for one dimensional nonlocal box kernel Fourier multiplier sinc minimax condition number",
+        "Optimal spectral equivalent preconditioner for nonlocal diffusion 1D constant kernel Fourier symbol 1 - sin(t)/t",
+        "One-dimensional top-hat nonlocal diffusion Fourier multiplier sinc and additive Laplacian mass preconditioner optimum condition number over horizons",
+        "arXiv:2609.24143",
+        "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source Fourier multiplier is 2(1−sin(s)/s) for unit-mass symmetric box kernel and the inverse-Poisson plus mass family has symbol s^−2+b; their product is 2Q_b(s).",
+        "The originating paper defines beta by kernel mass rather than minimizing condition number."
+      ],
+      "reasoning": "Checked reciprocal/operator-inverse, Fourier-multiplier, and spectral-equivalence formulations of the same mathematical objective. Uniform boundedness is weaker than the claim of unique minimax coefficient with an exact best constant. No inspected equivalent formulation fixes b*=0.17477799 or the global derivative-root characterization.",
+      "searches": [
+        "Exact optimal additive inverse-Poisson plus mass preconditioner parameter for one dimensional nonlocal box kernel Fourier multiplier sinc minimax condition number",
+        "Optimal spectral equivalent preconditioner for nonlocal diffusion 1D constant kernel Fourier symbol 1 - sin(t)/t",
+        "Universal minimax tuning positive beta of (1-sin(s)/s)*(beta+1/s^2) spectral ratio Fourier",
+        "arXiv:2609.24143"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published items concern heat-lattice positivity, stagewise Richardson, and MINRES positivity, not a table of optimal sinc-multiplier preconditioner masses.",
+        "The source paper Table 3 compares a fixed mass coefficient against an inverse-Poisson-only preconditioner on a discrete test; it does not tabulate the continuum minimax b and K."
+      ],
+      "reasoning": "Explicit source and formula searches revealed no exact b* or condition number table covering this result. A negative semantic search is not a proof of unique priority; residual indexing gaps are acknowledged.",
+      "searches": [
+        "Exact optimal additive inverse-Poisson plus mass preconditioner parameter for one dimensional nonlocal box kernel Fourier multiplier sinc minimax condition number",
+        "Lu Nie Zhang Zhang 2609.24143 Fourier symbol asymptotically robust preconditioner beta mass tuning",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731"
+      ]
+    },
+    "rationale": "The nonlocal inverse-Poisson-plus-mass idea and uniform Fourier spectral comparison are established in arXiv:2609.24143; the new statement instead determines the unique globally minimax free coefficient and the sharp full-horizon continuum condition number for the box kernel. Full accessible source mathematical statements, relevant preconditioner alternatives, actual indexed searches and accessible previously published mathematical statements were compared by implication; no equivalent result was identified. Search incompleteness and incomplete secondary papers are residual risks, not proof of novelty.",
+    "residual_risks": [
+      "An unindexed or earlier continuum Fourier-filter optimization may already give an equivalent minimax coefficient, despite the targeted query coverage.",
+      "The full text of the τ/Toeplitz and variable-coefficient papers was not inspected; their abstract-level evidence alone cannot support a claim of complete noncoverage.",
+      "Results for the finite-element Dirichlet source setting need not coincide with the present periodic continuum exact constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves uniform spectral equivalence and uses mass-determined beta; does not derive or state the exact universal positive-beta minimizer and sharp periodized box-symbol extrema established here.",
+        "evidence": [
+          "Equation (2.4) beta=1/(2mu_rho); (3.1) Fourier symbol; Theorem 2.2 uniform spectrum bounds; (2.24) condition-number estimate; Table 3 reports specific finite-element comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.24143",
+        "material_read": "Full publicly accessible HTML, including Introduction, §§2.1–2.3, §3 Fourier symbol and inequalities, §5 proof, §6 numerical comparisons, conclusions.",
+        "method": "Compared kernel mass normalization (2.4), symbol (3.1), asymptotic bounds (2.22–2.24), and computational preconditioner (Table 3) against the quantified minimax claim.",
+        "title": "A mesh- and horizon-robust preconditioner for finite element discretizations of volume-constrained nonlocal diffusion problems",
+        "trigger": "Direct originating family: inverse Poisson plus mass; identical continuum Fourier multiplier convention."
+      },
+      {
+        "assessment": "Distinct preconditioner and setting in inspected material; complete original article not inspected, leaving a documented residual overlap risk.",
+        "evidence": [
+          "Bibliographic title, 2026 Journal of Scientific Computing article, discussion in arXiv:2609.24143 §1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-025-03150-2",
+        "material_read": "Abstract and bibliographic description, including the reference and context in the Lu–Nie–Zhang–Zhang introduction.",
+        "method": "Compared matrix class (two-level Toeplitz τ) and objective (uniform spectral estimates) with periodic continuum inverse-Poisson-plus-mass minimax.",
+        "title": "Spectral analysis of τ-preconditioners for two-level Toeplitz systems with applications in nonlocal diffusion models",
+        "trigger": "Recent directly related nonlocal-diffusion preconditioning method."
+      },
+      {
+        "assessment": "No implication of the present formula from material read; inaccessible details remain a bibliographic risk.",
+        "evidence": [
+          "Paper title and abstract scope of numerical preconditioned conjugate gradients in variable-coefficient nonlocal models."
+        ],
+        "identifier_or_url": "https://doi.org/10.4208/eajam.290921.230122",
+        "material_read": "Accessible abstract-level material and search descriptions; full text not relied upon.",
+        "method": "Compared variable-coefficient discrete preconditioning against exact one-dimensional periodic scalar tuning.",
+        "title": "Preconditioned CG methods for a variable-coefficient nonlocal diffusion model",
+        "trigger": "Older preconditioned nonlocal-diffusion system literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8b14a69-2a3d-486b-81c2-b1282f53ba6d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mass coefficient is a practical tuning choice in recently proposed mesh- and horizon-robust nonlocal preconditioners. This exact natural 1D benchmark resolves the entire one-parameter continuum worst-horizon minimax problem, identifies the resonant-frequency bottleneck forcing b*>1/6, and proves a greater-than-2.36 sharp-condition-number improvement over the source mass scaling. The claim is more than an arbitrary numerical coefficient, yet makes no unproved extension to discretized volume constraints.",
+    "status": "PASS"
+  }
+}
