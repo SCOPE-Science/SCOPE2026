@@ -1,0 +1,11 @@
+# Scientific review: double Atkinson inequality-rank reversal
+
+**Correctness — PASS.** For the specified equal-mean positive incomes, the Atkinson comparison is exactly the signed exponential-sum comparison \(F(r)/r\), continuously extended at \(r=0\). The generalized Descartes zero bound, applied to a pair of three-entry multisets with equal totals, prohibits more than one strict crossing. The four-entry example has exactly four coefficient sign changes and four distinct real zeros: two forced and two certified by exact rational signs. The supplied standard-library checker independently verifies the key finite certificates. The analytic theorem, rather than decimal root calculations, proves the universal bound and uniqueness.
+
+**Originality — PASS with residual risk.** Atkinson (1970) supplies the index and already demonstrates sensitivity of rankings to aversion. The Laguerre–Descartes zero theorem is classical; Fejzić–Freiling–Rinne (2009) apply it to balanced data sets. Aaberge (2008) and Chiu (2021) investigate Lorenz crossings and rank-dependent inequality criteria; Chiu's propositions concern linear S-Gini-type indices and do not imply this Atkinson-specific sharp two-reentry threshold. The comparison with accessible primary material did not establish the stated four-household minimum or its exact witness. Creedy (2019, 2023) is particularly pertinent to Atkinson sensitivity; its full text was unavailable and equivalent prior coverage remains a material possibility. Search results do not themselves prove novelty.
+
+**Value — PASS.** Atkinson inequality aversion expresses which income ranges receive greater normative weight. The theorem isolates a natural and sharp population-size boundary for an \(X>Y\), then \(X<Y\), then \(X>Y\) comparison, showing that auditing only low and high aversion can miss a genuinely different middle-aversion ranking. This is an exact structural benchmark for income-inequality sensitivity, not merely an arbitrary numerical profile.
+
+**Limits.** Equal population sizes, means, weights, strictly positive incomes, and positive aversion are essential to the stated result. The example is not a causal policy evaluation. Independent scientific validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
