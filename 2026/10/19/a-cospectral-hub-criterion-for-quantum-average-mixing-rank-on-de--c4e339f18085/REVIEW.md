@@ -1,0 +1,15 @@
+# Scientific review: cospectral hubs and average mixing of detuned double stars
+
+## Correctness — PASS
+For every integer \(p,q\ge2\), positive real \(a,b,w\), and real \(c,d\), the explicit bright Jacobi matrix has simple nonzero spectrum. The dark projector has leaf-contrast eigenvalues exactly \(1-2/s\), while every nonzero spectral Schur square is a squared-entry profile of a rank-one projector. Thus no cross-sector cancellations are possible. Equality of the hub spectral-profile vectors is equivalent to cospectrality and is necessary and sufficient for an additional null direction; the first two spectral moments prove precisely \(c=d\) and \(pa^2=qb^2\), with reflection furnishing sufficiency. The claim includes all asserted boundaries, and independent exact rational and numerical checks reproduce the rank classification. Finite checks are corroborative, not a substitute for proof.
+
+## Originality — PASS, with residual access risk
+The established unweighted double-star rank formula covers only unit hopping with no central onsite energies and is not claimed as new. The new claim classifies the genuinely more general independent hub onsite energies and unequal aggregated hopping strengths, including cospectral-but-asymmetric trees and removal of the null direction by onsite detuning. The general average-mixing and tree papers furnish methods but not the exact present parameter classification. A recent paper on Laplacian quantum-walk trace/laziness for double stars is a potentially relevant source, but only its abstract was accessible. Its full-text coverage cannot be ruled out. Semantic comparisons do not establish independent priority, nor do absence of database hits or matching title words prove novelty.
+
+## Value — PASS
+Exact detection of a one-dimensional mixing kernel in an asymmetric tunable two-hub network is an interpretable spectral transition, not merely a renamed unweighted case. The hub cospectrality criterion yields a coupling-strength-independent boundary, gives an explicit positive-definiteness condition at arbitrary tree size, and shows that independent onsite detuning removes a rank defect even without modifying edges. The precise kernel basis makes the effect reusable in studies of long-time coherent transport.
+
+## Closest literature and limitations
+Coutinho et al., *A New Perspective on the Average Mixing Matrix* (2017/2018), give the universal commutant/projector framework; Godsil–Guo–Sinkovic, *Average mixing matrix of trees* (2017/2018), analyze trees and the simple-spectrum situation; Coutinho et al., *Irrational quantum walks* (2022/2023), provide general average-mixing theory. Mohan et al., *Laziness of Quantum Walks on Graphs* (2026), concern a different Laplacian trace observable according to the accessible abstract; the full paper was not inspected, which remains a material access risk. The result is restricted to uniform hopping within each pendant group, zero pendant onsite energies, and at least two leaves on either side.
+
+Self-review: passed. Independent audit: not yet performed.
