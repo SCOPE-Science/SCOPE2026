@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exactly 2^16 incoming/outgoing bijection assignments exhaust the binary four-vertex-word de Bruijn digraph, and exactly 2048 single cycles remain. Independent edge-by-edge Eulerian DFS gives precisely the same cycle set. For every cycle, each length-1..19 circular factor is tested with both strict least-conjugate and strict least-proper-suffix Lyndon criteria. Both agree and give 2047 distinct signatures through length 18, with one identified doubleton, and 2048 through length 19; all rows are independently regenerated from the final package. The theorem is finite only, so no infinite-family assertion is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saari, arXiv:1207.4233, Theorems 1, 3 and 4: Fibonacci Lyndon lower bounds and recurrent infinite words.",
+        "Goc–Saari–Shallit, arXiv:1207.5124, Theorems 4, 8 and 18: recognizability, automatic factorizations and bounded Lyndon complexity.",
+        "Glen–Simpson–Smyth, arXiv:1701.00928, Theorem 1 and Sections 3–5: unrestricted maxima, expectations and Christoffel examples."
+      ],
+      "reasoning": "General extremal bounds or expected counts cannot imply that a lengthwise counting function uniquely identifies each of 2048 order-five cycles. The cited construction of a particular lexicographically extremal de Bruijn word from Lyndon concatenation does not determine the factor profiles of all de Bruijn cycles. No inspected paper states a dominating injectivity theorem for this restricted family.",
+      "searches": [
+        "Primitive Words and Lyndon Words in Automatic and Linearly Recurrent Sequences arxiv 1207.5124",
+        "Counting Lyndon Factors arxiv 1701.00928",
+        "Lyndon words and Fibonacci numbers arxiv 1207.4233",
+        "de Bruijn sequences Lyndon factor complexity rotation FKM factorization 2014"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1207.4233",
+      "https://arxiv.org/abs/1207.5124",
+      "https://arxiv.org/abs/1701.00928",
+      "https://researchportal.murdoch.edu.au/esploro/outputs/journalArticle/Reconstructing-a-string-from-its-Lyndon/991005544674307891",
+      "https://doi.org/10.1137/15M1043248",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v24i3p28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Every order-five de Bruijn cycle has the same full ordinary factor-complexity vector: two to the factor length up to 5 and 32 at greater lengths.",
+        "The published Lyndon-count sources concern extremal counts, automatic sequences, or word arrays; these do not provide a pairwise-separation criterion for the 2048 cycles.",
+        "The new finite theorem asserts precisely 2047 distinct profiles through 18, one doubleton, and 2048 through 19, as proved by exhaustive two-generator verification."
+      ],
+      "reasoning": "The new theorem concerns injectivity and a sharp minimal length cutoff, neither implied by universality of 5-factors, the Fredricksen–Maiorana Lyndon concatenation, general bounds for Lyndon-factor numbers, nor array-based reconstruction from richer positionwise information. Earlier sources could still contain an unindexed identical computation.",
+      "searches": [
+        "Lyndon factors de Bruijn sequences Fredricksen Maiorana Saari 2012",
+        "Lyndon factor profile injectivity order-five de Bruijn cycles length19",
+        "de Bruijn necklaces covered by length 32 cycle distinct Lyndon factors frequencies",
+        "Lyndon factor reconstruction of a string from its Lyndon arrays"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1207.4233, introduction and Lemma 4: cumulative counts of Lyndon factors and a suffix criterion.",
+        "Daykin et al., Theoretical Computer Science 710 (2018) 44–51, accessible publication abstract: reconstruction from full positionwise Lyndon arrays for multiple alphabet orders."
+      ],
+      "reasoning": "Counting distinct Lyndon factor strings at each length is not the same as the Lyndon array recording each starting position’s maximal Lyndon length. The latter contains location-sensitive data, while the former forgets all positions and all specific factor strings. No reduction or theorem found showing that the array-reconstruction result implies injectivity of these aggregate counts on the stated finite de Bruijn family.",
+      "searches": [
+        "Lyndon complexity profile 19 binary de Bruijn necklace injectivity",
+        "Lyndon factor complexity circular word reconstruction",
+        "Lyndon complexity function characterizes words uniquely sequence factor counts",
+        "Reconstructing a string from its Lyndon arrays 2017 Daykin Franek Holub Islam Smyth pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published numerical tables in Glen–Simpson–Smyth, arXiv:1701.00928, concern unrestricted words of prescribed length and alphabet size.",
+        "Research-record hits for these terms include fixed-content bracelet statistics and automatic-string complexity, without a 2048-row length-19 profile table.",
+        "The complete new table profiles.csv has 2048 rows and is regenerated by verify.py; it is not attributed to any database."
+      ],
+      "reasoning": "No exact order-five circular Lyndon-profile table or equivalent 2048-case reconstruction record was located. Search absence is not a proof of priority; potential independent unpublished computation is retained as a risk.",
+      "searches": [
+        "Lyndon factor complexity de Bruijn sequences 2048 19 reconstruction",
+        "Lyndon factor spectrum de Bruijn sequences primitive necklaces",
+        "number of Lyndon factors in de Bruijn sequences cycles order five",
+        "distinct Lyndon circular factors Lyndon word complexity order five binary de Bruijn cycle complete distribution"
+      ]
+    },
+    "rationale": "Saari (arXiv:1207.4233) analyzes minimal Lyndon-factor counts and recurrence, not an exact de Bruijn reconstruction threshold. Goc–Saari–Shallit (arXiv:1207.5124) studies automatic and linearly recurrent sequences, not injective aggregate factor profiles on order-five de Bruijn cycles. Glen–Simpson–Smyth (arXiv:1701.00928) establishes unrestricted maximum/mean counts; positional-array reconstruction (Daykin et al., 2018) uses substantially richer data. Direct searches of mathematical publications and retrieved research findings gave no equivalent length-19 aggregate-count injectivity statement. Earlier unindexed results remain a genuine priority risk.",
+    "residual_risks": [
+      "Earlier unindexed enumerations or unpublished computational tables for order-five de Bruijn cycles may exist.",
+      "The complete author version of Daykin et al. (2018) could not be downloaded from the accessible university portal; the paper’s abstract states a different reconstruction input.",
+      "Negative database searches cannot logically prove absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No order-five de Bruijn cycle classification or length-19 injectivity statement in inspected material.",
+        "evidence": [
+          "Lemma 4 gives the proper-suffix Lyndon test.",
+          "Theorems 1, 3 and 4 address Fibonacci and recurrent infinite words.",
+          "de Bruijn occurs in introduction as a construction citation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1207.4233",
+        "material_read": "PDF introduction and preliminaries through Lemma 4, theorem statements, relevant recurrence discussion, references; full-text search for de Bruijn.",
+        "method": "Primary freely available arXiv PDF and HTML reading; inspected theorem and citation context.",
+        "title": "Lyndon Words and Fibonacci Numbers",
+        "trigger": "Defines Lyndon-factor counting and directly mentions Lyndon constructions of de Bruijn sequences."
+      },
+      {
+        "assessment": "Establishes automatic/regularity properties and bounds for automatic and linearly recurrent sequences; no de Bruijn reconstruction profile.",
+        "evidence": [
+          "Theorem 4 makes Lyndon-factor recognition expressible.",
+          "Theorem 8 concerns automatic Lyndon factorization.",
+          "No occurrence of de Bruijn in full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1207.5124",
+        "material_read": "PDF abstract, definitions, Theorems 3–4, 8, 18, associated sections and references; full-text search for de Bruijn.",
+        "method": "Freely available arXiv primary PDF, text searches and theorem comparison.",
+        "title": "Primitive Words and Lyndon Words in Automatic and Linearly Recurrent Sequences",
+        "trigger": "Studies exact lengthwise Lyndon factor counts of structured sequences."
+      },
+      {
+        "assessment": "Unrestricted linear-word maxima and expectations, not injectivity of cyclic de Bruijn lengthwise count vectors.",
+        "evidence": [
+          "Table 1 concerns maxima over all unrestricted words of length n.",
+          "Theorem 8 concerns Christoffel Lyndon factors.",
+          "No de Bruijn occurrence in the full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1701.00928",
+        "material_read": "PDF abstract, introduction, Theorem 1, Sections 3 and 5 including Christoffel classifications, and open problems; full-text search for de Bruijn.",
+        "method": "Freely available arXiv primary PDF and theorem/table comparison.",
+        "title": "Counting Lyndon Factors",
+        "trigger": "Most directly relevant published finite-word extremal enumeration of distinct Lyndon factors."
+      },
+      {
+        "assessment": "The described data are positionwise maximal Lyndon lengths for multiple alphabet orders, not distinct Lyndon factor counts aggregated by length. Full-text residual priority risk recorded.",
+        "evidence": [
+          "University abstract defines an array indexed by every position.",
+          "Reported uniqueness uses multiple ordered-alphabet Lyndon arrays."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2017.04.008",
+        "material_read": "Published abstract only; open-access author-version download returned an inaccessible redirect.",
+        "method": "University publication records; attempted author-version download, without claiming to have read its full text.",
+        "title": "Reconstructing a String from Its Lyndon Arrays",
+        "trigger": "Plausible reconstruction theorem from Lyndon data."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0fd8712-e30d-4f5d-a123-9cba7b23b622",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Lyndon factor complexity is a natural invariant whose relationship with universal cycles is established by the classic Lyndon-concatenation construction. Ordinary factor-complexity counts cannot distinguish any order-five de Bruijn cycles, but the 14 aggregated Lyndon factor counts of lengths 6..19 distinguish all 2048. The uniquely colliding pair at length 18 certifies a mathematically sharp reconstruction threshold, a meaningful finite classification rather than a routine one-number enumeration. The exact fact supplies a benchmark for how much Lyndon-based factor information a universal cycle retains; no unproved generalization is claimed.",
+    "status": "PASS"
+  }
+}
