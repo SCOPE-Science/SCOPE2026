@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The source-limited exact W2+KL scalar problem reduces by Cauchy-Schwarz and maximum-entropy inequalities to a strictly convex positive quadratic root. Differentiation gives the exact optimizer derivative, monotonic derivative limit, and hence the optimal Lipschitz factor q<1; the completed closed orthant yields a unique positive fixed point. The envelope Hessian gives the sharp 2(1-q) strong convexity. Uniform contraction in outlier scale gives the finite limit; analytic implicit differentiation at delta=tau/M² yields K/M²+O(M^-4); scalar 1/b asymptotics yield sqrt(1-w)B_w ->sqrt(a²+tau/2). All quantifiers, constant normalizations and boundary/limit order were checked. The independent standard-library checker passed 7366 deterministic assertions after source-file replay; numerical experiments alone prove no global statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen et al., arXiv:2410.08117, Theorem 6 explicitly assumes all iterates in a compact covariance spectral strip; Appendix D.3 supplies a qualitative BCD argument.",
+        "Chewi et al., PMLR 125 (2020), treat ordinary Wasserstein/Bures barycenter gradient descent without one-sided KL marginal relaxation.",
+        "Nguyen et al., PMLR 300 (2026), accessible abstract announces convergence results but no exact commuting global factor or covariance-outlier asymptotics."
+      ],
+      "reasoning": "The more general matrix geometry in the motivating publication does not by itself imply the new stronger sharp *global* quantitative theorem without a compact-spectral assumption. Standard and different regularized Gaussian barycenter convergence analyses optimize distinct objectives and cannot dominate these exact formulas by specialization. The 2026 conference full text remained inaccessible, so the abstract alone is not treated as full negative evidence.",
+      "searches": [
+        "global geometric contraction rate one-dimensional semi-unbalanced Gaussian Bures barycenter alternating minimization sharp Lipschitz constant",
+        "commuting Gaussian covariance matrix KL relaxed Wasserstein barycenter fixed point iteration contractive sharp rate",
+        "On Barycenter Computation Analyzing Semi-Unbalanced Optimal Transport Bures Wasserstein Manifold 2026 Nguyen Le convergence rate commuting diagonal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2410.08117 — full HTML source and appendix",
+      "https://proceedings.mlr.press/v300/nguyen26a.html — bibliographic page and abstract",
+      "https://proceedings.mlr.press/v125/chewi20a.html — abstract",
+      "https://arxiv.org/abs/2106.08502 — title/abstract-level scope",
+      "https://arxiv.org/abs/2006.02572 — title/abstract-level scope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nguyen et al. 2024 Theorem 6: convergence contingent on a compact covariance strip; no uniform q derived from the input standard deviations.",
+        "Nguyen et al. 2024 Appendix D.3: block-coordinate descent qualitative convergence argument.",
+        "Chewi et al. 2020: rates for ordinary barycenter objective.",
+        "PMLR 300 (2026): same-author abstract describes algorithmic convergence but full proof text could not be inspected."
+      ],
+      "reasoning": "The known exact inner optimizer is acknowledged as prior; differentiating its commuting restriction yields the new sharp q but that differentiation and optimization are not explicitly carried out in the inspected primary text. A prior general statement of descent or conditional convergence neither logically implies a dimension-free q on the entire orthant nor dictates bounded response to an outlier covariance, the 1/M² coefficient, or the (1-w)^(-1/2) degeneration.",
+      "searches": [
+        "On Barycenter Computation Semi-Unbalanced Optimal Transport-based Method on Gaussians 2410.08117 scalar hybrid iteration global contraction standard deviations",
+        "global geometric contraction rate one-dimensional semi-unbalanced Gaussian Bures barycenter alternating minimization sharp Lipschitz constant",
+        "commuting Gaussian covariance matrix KL relaxed Wasserstein barycenter fixed point iteration contractive sharp rate",
+        "On Barycenter Computation Analyzing Semi-Unbalanced Optimal Transport Bures Wasserstein Manifold 2026 Nguyen Le convergence rate commuting diagonal",
+        "semi-unbalanced Gaussian barycenter hybrid exact scalar contraction 2/(2+tau/a²) sharp Lipschitz global no compactness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nguyen et al., arXiv:2410.08117, Section 4.3 and Appendix D.3: same semi-unbalanced hybrid iteration and Gaussian relaxation; no displayed scalar global Lipschitz constant or covariance-outlier asymptotic.",
+        "Original full text includes an appendix for the hybrid method and outlier illustrations rather than an exact sharp global rate or contamination-weight exponent."
+      ],
+      "reasoning": "An alternating semi-unbalanced Gaussian update becomes the stated scalar square-root map in jointly commuting standard-deviation coordinates; this is the formulation compared against the original. Its known qualitative monotonicity/compact-convergence statements do not imply a sharp all-initialization constant, a finite outlier ceiling, or either asymptotic coefficient.",
+      "searches": [
+        "On Barycenter Computation Semi-Unbalanced Optimal Transport-based Method on Gaussians 2410.08117 scalar hybrid iteration global contraction standard deviations",
+        "semi unbalanced Gaussian Wasserstein barycenter one dimensional outlier variance saturation robust exact limit hybrid contraction",
+        "commuting Gaussian covariance matrix KL relaxed Wasserstein barycenter fixed point iteration contractive sharp rate",
+        "semi-unbalanced Gaussian barycenter hybrid exact scalar contraction 2/(2+tau/a²) sharp Lipschitz global no compactness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published mathematical records address dimension-free Wasserstein stability of entropic Gaussian coupling plans rather than hybrid one-sided KL-relaxed barycenter convergence.",
+        "Published original paper reports contaminated-data illustrations, not a table of exact inverse-square large-outlier constants or the near-total-contamination exponent."
+      ],
+      "reasoning": "No retrieved tabulation or exact previously published scalar constants covered the same fixed-point map and limiting regime. Negative retrieval alone is not considered proof of priority; explicit claim-to-source comparisons are required and recorded.",
+      "searches": [
+        "On Barycenter Computation Semi-Unbalanced Optimal Transport-based Method on Gaussians 2410.08117 scalar hybrid iteration global contraction standard deviations",
+        "semi unbalanced Gaussian Wasserstein barycenter one dimensional outlier variance saturation robust exact limit hybrid contraction",
+        "global geometric contraction rate one-dimensional semi-unbalanced Gaussian Bures barycenter alternating minimization sharp Lipschitz constant",
+        "scalar Gaussian semi-unbalanced Wasserstein barycenter contamination variance infinity finite breakdown behavior",
+        "240? 2410.08117 semi-unbalanced Gaussian geodesic hybrid method covariance robustness breakdown",
+        "one-sided KL Gaussian barycenter diverging covariance outlier finite standard deviation limit 1/M² and (1-w)^(-1/2)",
+        "Nguyen Le Nguyen Pham Ho Gaussian SUOT hybrid global contraction commuting covariance outlier breakdown"
+      ]
+    },
+    "rationale": "The first-publicly-submitted 2024 primary source proves Gaussian semi-unbalanced reduction and supplies the hybrid optimizer, while its Theorem 6 and Appendix D.3 provide qualitative convergence under an assumed compact spectral strip, not the optimal all-start commuting-submanifold contraction. The current result adds the exact full-domain Lipschitz and strong-convexity moduli, an analytically finite single-covariance-outlier response, an exact inverse-square correction, and a near-total-contamination square-root exponent. Closely relevant 2026 revised and conference sources and established Gaussian barycenter literature were checked to the extent stated; a conference PDF could not be read, leaving a priority risk.",
+    "residual_risks": [
+      "The later 2026 conference version of the same-author paper was not materially read beyond its abstract because the PDF endpoint was inaccessible; the freely accessible updated arXiv full text was inspected, but it need not be identical.",
+      "Unindexed or other specialized one-sided Gaussian KL-barycenter literature may contain equivalent scalar formulas. A negative search is not definitive independent publication-priority certification.",
+      "The commuting restriction is mathematically substantial; results should not be extrapolated to noncommuting covariance matrices or unconstrained non-Gaussian measures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact Gaussian marginal minimization and hybrid algorithm are prior art; the stated sharp all-start commuting contraction and exact outlier laws are not explicitly supplied by the inspected arguments.",
+        "evidence": [
+          "Theorem 6 assumes all iterates in K_[1/rho,rho].",
+          "Appendix D.3 proves qualitative descent and limit stationarity from a compact-iterate argument.",
+          "Section 5 reports illustrative covariance-contamination plots; no exact large-variance limiting coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.08117",
+        "material_read": "Complete accessible HTML paper including definitions, Section 4.1, Sections 4.2-4.3, Theorems 2/5/6, Appendices B, D.1-D.3, and E; HTML text corresponds to its March 2026 revision.",
+        "method": "Primary-paper HTML reading, search for commuting, hybrid, strip assumptions and outlier results, direct statement/implication comparison",
+        "title": "On Barycenter Computation: Semi-Unbalanced Optimal Transport-based Method on Gaussians",
+        "trigger": "Same objective, same hybrid update, precise priority comparison"
+      },
+      {
+        "assessment": "Abstract describes same optimization and convergence at general level; inaccessible conference full text is a residual priority risk, not whole-document negative evidence.",
+        "evidence": [
+          "PMLR 300:1171-1179, 2026; abstract names Hybrid Gradient Descent and general convergence guarantees, with no numerical scalar constant or exact contamination law."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v300/nguyen26a.html",
+        "material_read": "Full PMLR bibliographic landing page and abstract only. The linked 2026 conference PDF could not be opened; arXiv updated text of the related source was separately read in full.",
+        "method": "Read bibliographic abstract, compare named algorithm and stated theorem scope; attempt publisher-provided PDF access",
+        "title": "On Barycenter Computation: Analyzing Semi-Unbalanced Optimal Transport-based Method on Bures-Wasserstein Manifold",
+        "trigger": "Same-author later 2026 publication potentially superseding the arXiv text"
+      },
+      {
+        "assessment": "Ordinary Bures barycenter, distinct from one-sided KL semi-unbalanced objective; relevant background, not dominating the new claim.",
+        "evidence": [
+          "PMLR 125 (2020) abstract treats barycenters and gradient descent in ordinary Wasserstein geometry, not the one-sided KL-relaxed scalar map."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v125/chewi20a.html",
+        "material_read": "PMLR author/title/abstract and scope, not the full PDF",
+        "method": "Compare the published objective and theorem domain from abstract and original source citations",
+        "title": "Gradient descent algorithms for Bures-Wasserstein barycenters",
+        "trigger": "Foundational barycenter gradient descent and potential stronger rate"
+      },
+      {
+        "assessment": "Classical barycenter algorithm without the particular one-sided KL relaxation; no known implication for the explicit hybrid-outlier theorem.",
+        "evidence": [
+          "Title and motivating paper citation identify dimension-free descent for Bures barycenters."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.08502",
+        "material_read": "Title, abstract-level scientific description and source attribution; full text not read",
+        "method": "Objective/scope comparison",
+        "title": "Averaging on the Bures-Wasserstein manifold: dimension-free convergence of gradient descent",
+        "trigger": "Motivating source attributes dimension-free Gaussian barycenter convergence"
+      },
+      {
+        "assessment": "Different Gaussian optimization, hence not an immediate covering theorem.",
+        "evidence": [
+          "The compared approach includes coupling entropy and can relax two marginals; the asserted map uses only KL on its source marginal."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.02572",
+        "material_read": "Bibliographic and title/abstract-level description, full text not read",
+        "method": "Contrast entropically regularized coupling versus no coupling-entropy one-sided KL penalty",
+        "title": "Entropic Optimal Transport between Unbalanced Gaussian Measures has a Closed Form",
+        "trigger": "Potential stronger Gaussian unbalanced transport exact formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ccb8611e-d96b-4fd4-9178-27197c90f55a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise input-dependent optimal q and global start-free convergence removes the restrictive compact-iterate condition from a motivated exact Gaussian semi-unbalanced hybrid algorithm in the commuting case, providing a usable stopping/rate benchmark. The finite covariance-outlier ceiling, sharp inverse-square approach and degeneration as clean weight vanishes quantify the model’s numerical/statistical robustness boundary and contrast with ordinary Wasserstein barycenters. These are structurally motivated and not arbitrary finite slices; no noncommuting algorithm guarantee or non-Gaussian contamination claim is made.",
+    "status": "PASS"
+  }
+}
