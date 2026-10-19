@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Derivation explicitly reconstructs the theta resolvent update, nonnegative inverse, strict spectral monotonicity, matrix Loewner comparison, complete-graph closed diagonal, and if-and-only-if equality via edge-slack quadratic energy. Theta zero handled separately; exact supplementary graph computations check specified finite boundaries without extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schatz–Thomée–Wahlbin Theorem 6.6 supplies sufficient local timestep positivity conditions for parabolic discretizations.",
+        "The published Crank–Nicolson result covers arbitrary fixed reversible generators, but not the extremizing conductance-capped graph-family optimization."
+      ],
+      "reasoning": "Theorem 6.6 has broad analytic conditions but is sufficient, not the sharp if-and-only-if all-topology equality classification. The fixed-generator threshold can be applied to each graph only after computing its resolvent; it does not imply equality iff a fully saturated universal vertex without the new comparison/equality argument.",
+      "searches": [
+        "published-finding corpus semantic query: Sharp positivity threshold universal n vertex weighted graph complete graph saturated apex graph cone eigenvalue",
+        "web: positivity theta time stepping maximum norm contractivity graph discrete parabolic equations",
+        "doi:10.2478/cmam-2010-0025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1511.07823",
+      "doi:10.2478/cmam-2010-0025",
+      "doi:10.1016/S0168-9274(98)00050-6",
+      "published published-finding corpus 2026/10/4 fixed-generator Crank–Nicolson positivity record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published 2026 record derives diagonal inverse return criterion and the complete-graph threshold h=2/[c(n-2)] for theta=1/2.",
+        "Kovács et al. address maximal parabolic regularity of A-stable methods, not coordinatewise positivity.",
+        "Schatz et al. discuss positivity for parabolic schemes and sufficient local conditions; do not supply the if-and-only-if saturated-vertex characterization."
+      ],
+      "reasoning": "The new result subsumes the known complete-graph theta=1/2 value, which is expressly excluded from the novelty claim. Uniformity over all n-vertex conductance-capped graphs, the full equality case encompassing noncomplete saturated stars, and the exact order-dependent unconditional region are the substantive additional assertion. Their proof requires a matrix-order comparison and a nonstandard equality characterization; neither appears in the inspected closely related full texts.",
+      "searches": [
+        "arXiv:1511.07823 (Kovács–Li–Lubich, full-text maximal regularity)",
+        "doi:10.2478/cmam-2010-0025 (Schatz–Thomée–Wahlbin, sections including Theorem 6.6)",
+        "published published-finding corpus fixed-generator positivity RESULT.md (full text checked)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published 2026 fixed-generator result gives the precise Crank–Nicolson return-diagonal test and full spectral single-graph threshold; its RESULT.md was inspected.",
+        "Horváth (1998) concerns general Runge–Kutta positivity radii."
+      ],
+      "reasoning": "The standard Cayley/resolvent identity and the complete graph Crank–Nicolson threshold are prior art, not claimed. The fixed-generator criterion is distinct from a sharp universal n-vertex edge-conductance-cap bound with a classification of all extremizing weighted graphs. General theta is covered here, not only Crank–Nicolson.",
+      "searches": [
+        "published-finding corpus semantic query: Exact entrywise nonnegativity time-step radius theta scheme Crank-Nicolson (I+theta h L)^{-1}(I-(1-theta)h L) weighted Laplacian",
+        "web: theta method discrete maximum principle graph Laplacian positivity resolvent diagonal",
+        "doi:10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus entry 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a records the complete graph equality value, not the full equality class.",
+        "No matching table of sharp thresholds for all weighted n-vertex graphs was identified in completed searches."
+      ],
+      "reasoning": "A complete-graph threshold entry cannot itself certify whether other graph topologies attain it. The theorem identifies precisely those other equality graphs by saturated-hub edge weights.",
+      "searches": [
+        "published-finding corpus semantic query: Discrete maximum principle implicit theta method semidiscrete diffusion on complete graphs and star graphs",
+        "published-finding corpus semantic query: worst case positivity timestep theta method all connected weighted graphs upper bounded conductance exact minimizers universal vertex saturated edge weight",
+        "web: star complete graph sharp Crank Nicolson positivity threshold weighted edge cap"
+      ]
+    },
+    "rationale": "Complete full-text comparison of the closely related published fixed-generator Crank–Nicolson resolvent threshold, the classical theta-method parabolic positivity theorem and A-stable maximal-regularity paper: fixed-graph test and complete-graph theta=1/2 result are prior and explicitly excluded, while sharp universal conductance-cap extremizer characterization, strict nonextremal gaps and order-dependent theta cutoff have no covering statement in inspected sources.",
+    "residual_risks": [
+      "Unindexed or differently parameterized discrete maximum principle literature may contain the same all-topology extremizer classification.",
+      "The Loewner bound uses standard techniques, so equivalent results may be present as an unstated corollary of stronger matrix-function comparison theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers fixed-chain diagonal criterion, unique threshold and complete-graph scalar threshold; does not state conductance-capped all-graph worst-case characterization or general theta classifications",
+        "evidence": [
+          "C_h=2R_s-I and C_h>=0 iff diagonal R_s>=1/2; example complete graph h*=2/[c(n-2)]."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Entire RESULT.md sections Finding, Scope, Proof, Verification, Prior work, Limitations, References",
+        "method": "Full primary repository text read; theorem statements and implication comparisons",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Directly identical update algebra and complete-graph case"
+      },
+      {
+        "assessment": "Sufficient local conditions, not sharp full weighted graph extremizer classification",
+        "evidence": [
+          "Local CFL-style condition (1-theta)h d_i<=1; not necessary for theta>0."
+        ],
+        "identifier_or_url": "doi:10.2478/cmam-2010-0025",
+        "material_read": "Available full-text sections containing Theorem 6.6 and theta-method positive-step conditions",
+        "method": "Primary published full-text HTML, theorem comparison",
+        "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+        "trigger": "Classical positivity and theta scheme under parabolic discretization"
+      },
+      {
+        "assessment": "Maximal parabolic regularity neither equivalent to nor stronger than entrywise positivity under conductance cap",
+        "evidence": [
+          "A-stable maximal regularity theorem, not a coordinatewise update positivity characterization."
+        ],
+        "identifier_or_url": "arXiv:1511.07823",
+        "material_read": "Arxiv full HTML including treatment of Crank–Nicolson and A-stable time stepping",
+        "method": "Primary open-access full-text mathematical statements",
+        "title": "A-stable time discretizations preserve maximal parabolic regularity",
+        "trigger": "Archive-era seed for theta-scheme stability versus positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8009c8a-46fe-4c97-9ca6-9221213d67bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A-stable schemes may violate discrete positivity. The theorem gives a robust exact timestep bound and identifies all worst-case weighted network topologies, including star families that cannot be inferred merely from a complete-graph calculation; the unconditional order-dependent theta frontier is an actionable scheme-choice distinction.",
+    "status": "PASS"
+  }
+}
