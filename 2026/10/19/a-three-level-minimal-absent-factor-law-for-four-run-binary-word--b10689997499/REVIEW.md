@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The longest-factors prefix/suffix criterion reduces every minimal absent factor to the two shorter occurring factors. Exhausting orientations with one, two, three, four, and at least five runs proves exactly ten disjoint families; the four parameter-comparison regimes yield the cardinality \(b+c+2^{\mathbf{1}_{a>c}+\mathbf{1}_{d>b}}\). A standard-library checker independently compared complete sets for 2,401 parameter quadruples, directly scanned candidate strings in 310 smaller cases, and checked 200 additional reproducible cases. Computation does not substitute for proof.
+
+**Originality — PASS, with residual risk.** The closest source is Akagi et al., *Minimal Absent Words on Run-Length Encoded Strings*, arXiv:2202.13591 (2022), especially the five types and general enumeration theorem. That work supplies machinery for arbitrary RLE strings, but the inspected text does not state this exact four-run list or missing-excess-three phase diagram. Fici et al., arXiv:1707.04450, study circular periodic factor languages and thus do not dominate the finite linear assertion. Inenaga et al., arXiv:2402.18090, describe a general algorithm; its full text was not inspected. No equivalence was located, but an unindexed specialization or theorem remains possible.
+
+**Mathematical value — PASS.** A natural complete binary four-run classification in the setting of compressed minimal-absent-word computation exhibits a qualitative gap and yields an exact count from two comparisons, with no numerical cutoff and with full witnesses. Generic enumerators solve each instance but do not explicitly expose the symbolic 1/2/4 phenomenon. This claim does not address larger run counts, circular factors or scattered subsequences.
+
+Self-review: passed. Independent audit: not yet performed.
