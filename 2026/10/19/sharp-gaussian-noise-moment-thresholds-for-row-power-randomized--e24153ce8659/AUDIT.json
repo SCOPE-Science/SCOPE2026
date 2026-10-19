@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The conditional row-selection identity is exact; polar coordinates separate the simultaneous-zero radial threshold q<md from the single-zero-row angular threshold q<d+2s. Positive Gaussian density at zero provides matching divergence witnesses. Noncentral chi-square Poisson mixing gives the exact second moment; independent gamma-beta factorization gives central all-q moments. The accompanying reproduction program was executed against numerical quadrature and sampled updates. No empirical result replaces the infinite-moment proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergou et al., arXiv:2308.16904 / SIAM J. Matrix Anal. Appl. 2024: general fixed-observed-matrix doubly noisy convergence bounds (bibliographic abstract; full text not read).",
+        "Gan-Wu 2026 and Zhang-Zeng-Zhang 2026: convergence-neighborhood and signal-averaging guarantees, respectively, under specific conditioning/error assumptions."
+      ],
+      "reasoning": "These wider classes of stochastic linear solvers do not provide a proved all-q moment criterion after averaging over a Gaussian coefficient law for arbitrary positive row-power sampling. Their conditional bounds can imply component identities when coupled with independent Gaussian facts, but do not dominate the parameter-uniform phase diagram.",
+      "searches": [
+        "power weighted row norm Kaczmarz p_i proportional row norm exponent gamma Gaussian random coefficient error integrability",
+        "doubly noisy randomized Kaczmarz Gaussian noise moment bounds",
+        "Kaczmarz Gaussian heavy-tailed row norms sampling"
+      ]
+    },
+    "checked_sources": [
+      "Gan and Wu 2026 arxiv:2608.22259 mathematical HTML (relevant parts inspected)",
+      "Zhang, Zeng and Zhang 2026 arxiv:2603.29372 mathematical HTML (relevant parts inspected)",
+      "Bergou et al. 2024 DOI 10.1137/23M155712X abstract, not full text",
+      "Randomized Kaczmarz algorithm and classical row-norm sampling documented by Strohmer and Vershynin 2009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang et al. Eq. (1.4) establishes p_i ∝ ||a_i||², and Eq. (1.5) exhibits a fixed-matrix denominator involving ||A||_F².",
+        "Gan-Wu Eq. (10) gives the per-row projection and its fixed-data noise injection term; neither treats random-matrix averaging under a continuum of row-power exponents."
+      ],
+      "reasoning": "The q=2,s=1 conditional identity alone is not new, and its noncentral Gaussian expectation follows known chi-square mixtures. The combined stronger claim classifies q-moment finiteness for every q>0 and every s≥0, including two distinct singular geometries (one vanishing row versus all vanishing rows); the existing conditional laws do not state or logically supply this classification without a further substantive integration argument.",
+      "searches": [
+        "noncentral chi square inverse Frobenius norm noisy RK update variance finiteness dimension number of equations sample averaging",
+        "A Note on the Randomized Kaczmarz Algorithm for Solving Doubly Noisy Linear Systems",
+        "Relaxed Greedy Randomized Kaczmarz Signal Averaging 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gan-Wu, arXiv:2608.22259, §3 Theorem 3.1 and §5: conditional error statements for a fixed observed matrix.",
+        "Zhang-Zeng-Zhang, arXiv:2603.29372, equations (1.3)–(1.5): squared-row-norm selection and a conditional Frobenius-normalized bound."
+      ],
+      "reasoning": "Different formulations of the proposed theorem are the angular small-ball integrability of a Gaussian row-power ratio, and the inverse-noncentral-chi-square exact q=2 law. These do not appear as statements in the inspected primary material. The known deterministic conditional identity for s=1,q=2 is acknowledged as prior structure; the claimed main result is the unconditional all-q/all-s threshold.",
+      "searches": [
+        "Gaussian coefficient perturbations randomized Kaczmarz row norm proportional selection inverse row norm moment threshold power sampling singularities",
+        "Gaussian noisy Kaczmarz importance sampling bias tail critical exponent d+2s or md phase transition",
+        "randomized Kaczmarz inverse norm finite moments random rows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact moment table matching the Gaussian-noise, arbitrary row-power and all-q conditions was identified among the returned records or inspected primary results."
+      ],
+      "reasoning": "The closed gamma formula for the central sample-size/dimension benchmark and the finite/infinite threshold across all s and q were checked against the specific nearby published source formulas rather than against title similarity; no existing table provides the asserted result. Absence from searched records is not a proof of uniqueness.",
+      "searches": [
+        "Exact one-step q-th moment E norm x1^q of randomized Kaczmarz on independent Gaussian-noisy coefficient rows with row sampling probability proportional to row norm powers",
+        "randomized Kaczmarz Gaussian moment distribution",
+        "Kaczmarz power sampling row norm gamma"
+      ]
+    },
+    "rationale": "The closest primary works analyze doubly noisy Kaczmarz conditional on the observed matrix and signal-averaged variants. The standard squared-row-norm sampling and conditional s=1,q=2 identity are expressly treated as known. The complete arbitrary-q/arbitrary-s unconditional Gaussian moment frontier and its two distinct singular geometries were not implied by the inspected primary statements or found in the actual targeted record searches; bibliographic residual risks remain.",
+    "residual_risks": [
+      "Full text of Bergou et al. 2024 was not read; abstract-only comparison limits exclusion of unexpected higher-moment results.",
+      "Some older analyses of importance sampling or inverse-gamma moment singularities may yield the same general criterion under a different terminology.",
+      "No independent literature audit or exhaustive bibliography search has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-observed-system convergence estimates; no joint over-matrix all-q row-power moment spectrum found in inspected material",
+        "evidence": [
+          "Theorem 3.1 analyzes error after row selection on a given noisy system; Equation (10) contains a per-row inverse norm.",
+          "Source metadata reports MSC 65F15/65F10 and first public posting 2026-08-23."
+        ],
+        "identifier_or_url": "arxiv:2608.22259 / https://arxiv.org/abs/2608.22259",
+        "material_read": "Accessible full-text HTML, introduction, mathematical error identities around Theorem 3.1 and Equation (10), statements and method scope of Sections 4–5, and numerical noise-generation Section 6",
+        "method": "Read mathematical HTML and compared random objects, conditioning and expectations",
+        "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+        "trigger": "Direct match in Gaussian-perturbed Kaczmarz and standard row choice"
+      },
+      {
+        "assessment": "Presents conditional convergence horizons and repeated-measurement error suppression; does not provide the stated sharp arbitrary-q integrability phase diagram",
+        "evidence": [
+          "Equation (1.4) is squared-observed-row-norm sampling.",
+          "Equation (1.5) contains the known conditional noise term divided by observed squared Frobenius norm."
+        ],
+        "identifier_or_url": "arxiv:2603.29372 / https://arxiv.org/abs/2603.29372",
+        "material_read": "Accessible full-text HTML, Introduction through Section 3, especially Equations (1.3)–(1.8), survey of sampling schemes and description of finite repeated-measurement averaging",
+        "method": "Read source HTML and compared exact conditioning, random matrix law and claimed output moments",
+        "title": "Relaxed Greedy Randomized Kaczmarz with Signal Averaging for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Potential broader averaging method and identical basic row-update denominator"
+      },
+      {
+        "assessment": "Known conditional convergence bounds using the observed matrix condition number; no unconditional Gaussian moment spectrum established by material actually read",
+        "evidence": [
+          "SIAM Journal on Matrix Analysis and Applications 45 (2024), pages 992–1006; preprint arXiv:2308.16904."
+        ],
+        "identifier_or_url": "arxiv:2308.16904 / doi:10.1137/23M155712X",
+        "material_read": "SIAM online abstract and publication metadata plus arXiv abstract; complete article not obtained/read",
+        "method": "Examined accessible primary abstract; treated uninspected full source as an access-related residual risk",
+        "title": "A Note on the Randomized Kaczmarz Algorithm for Solving Doubly Noisy Linear Systems",
+        "trigger": "Foundational fixed-matrix doubly noisy RK bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e24153ce-8659-425c-95d4-6f2e19fb0e24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp and complete moment-existence phase diagram identifies when observed row-norm weighting regularizes the inverse row-length singularity, yet exposes a competing simultaneous-zero-matrix singularity. It rigorously distinguishes uniform from classical norm-weighted row choices in dimensions one and two, supplies an exact noncentral mean-square formula for arbitrary true designs, and proves finite Gaussian observation averaging cannot cure a divergent moment. These are material robustness boundaries for low-dimensional doubly noisy row-action solvers, not merely a recalculation of a fixed-matrix contraction bound.",
+    "status": "PASS"
+  }
+}

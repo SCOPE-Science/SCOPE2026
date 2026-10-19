@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Conditional row-selection averaging gives Equation (1) in `RESULT.md`. Polar small-ball integration proves the two necessary and sufficient integrability conditions; positive Gaussian density at all relevant singular strata proves failure at equality. A Poisson mixture of noncentral chi-square laws verifies the exact second-moment formula. A beta/gamma factorization verifies the central arbitrary-order moment formula. Reproduction code corroborated a dimension grid and independent numerical experiments; divergent moments were established analytically, not by simulation.
+
+**Originality — PASS, subject to residual bibliographic uncertainty.** Gan and Wu (2026), Zhang, Zeng and Zhang (2026) and Bergou et al. (2024) establish conditional noisy-Kaczmarz convergence/error relations and signal-averaging guarantees. The familiar squared-row-norm choice and its conditional squared-error cancellation are not claimed as new. Their inspected statements do not entail the full Gaussian-averaged all-moment spectrum for every row-power exponent. Targeted mathematical-record searches found no equivalent phase criterion. Bergou et al. were available in abstract only; older unindexed work could overlap.
+
+**Value — PASS.** Two competing singular mechanisms yield the exact sharp critical moment order: one nearly vanishing row and all rows nearly vanishing simultaneously. In low dimensions, choosing rows by observed squared length can restore finite one-step variance when uniform selection cannot. Finite Gaussian measurement averaging improves typical scale but cannot change whether the variance exists; this is a nontrivial limit on finite-sample robustness claims.
+
+**Closest literature and limitations.** Gan and Wu, arXiv:2608.22259 (2026-08-23), and Zhang, Zeng and Zhang, arXiv:2603.29372 (2026-03-31), develop differently conditioned convergence statements. Bergou et al., arXiv:2308.16904 (2023-08-31), is a predecessor. The present theorem is a one-step distribution statement, not a long-run mean-square convergence result; independence and nondegenerate Gaussian noise are essential to the stated uniform formula.
+
+Self-review: passed. Independent audit: not yet performed.
