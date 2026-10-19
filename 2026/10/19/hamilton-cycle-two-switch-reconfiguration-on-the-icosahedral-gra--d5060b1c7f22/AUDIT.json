@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The graph and exact switch rule are explicit. Exhaustive anchored DFS visits each of the 1280 undirected Hamiltonian tours exactly once. Any legal two-edge switch is exactly the four-edge symmetric difference with a host-graph 4-cycle; checking membership in the enumerated tours excludes disconnected 2-factors. All 30 four-cycles and 1800 switches are exhaustively tested. A second implementation constructs the 20 graph faces and actual vertex-order two-opt reversals, independently reproducing every state and transition. Explicit BFS gives 30 components of size 36, 60 of size 2, 80 isolates; all large components have 58 edges and diameter 8. A separate backtracking enumeration of all 120 graph automorphisms proves the component-orbit classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hopkins (2004), Sections 1-2, shows inequivalent Platonic Hamiltonian cycles using face labels, without adjacent-cycle switch enumeration.",
+        "Takaoka (2018), Theorems 1-3 and 6/9, concerns hardness classes and unit interval/bipartite permutation connectivity; the icosahedral graph does not belong to these positive graph classes."
+      ],
+      "reasoning": "The general move complexity and non-covering graph-class theorems imply neither the exact number of icosahedral switch components nor their sizes, symmetry or diameters. A topological Hamiltonian cycle orbit does not determine a two-switch orbit.",
+      "searches": [
+        "Platonic icosahedron local Hamiltonian cycle exchange 2-opt two-edge move Hamilton tours",
+        "Hamiltonian cycles icosahedron symmetric difference four edges squares 2 exchange icosahedral",
+        "doi:10.1155/S0161171204307118",
+        "doi:10.3390/a11090140"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/S0161171204307118",
+      "doi:10.3390/a11090140",
+      "mathoverflow:37788",
+      "https://mathworld.wolfram.com/IcosahedralGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hopkins (2004) Figure 2.5 distinguishes topological Hamiltonian types but does not construct the single-switch graph.",
+        "Takaoka (2018) defines and studies the move but does not present a special-case icosahedral classification.",
+        "The finite certificate lists each Hamiltonian tour mask and every switch edge, enabling a direct exact check."
+      ],
+      "reasoning": "A lower-level count of Hamiltonian cycles or automorphism orbits cannot imply connected-component sizes without all transition adjacencies. The published general complexity theorem gives no such finite implication.",
+      "searches": [
+        "icosahedron Hamiltonian cycle 2-opt reconfiguration 30 36 80 60 switch graph",
+        "Hamiltonian cycle switch graph icosahedral 140 components",
+        "Hamiltonian cycles icosahedron 2-opt moves Hamilton tour flip graph",
+        "doi:10.3390/a11090140"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Takaoka (2018), Section 1, defines precisely a two-edge replacement between Hamiltonian cycles; DOI 10.3390/a11090140.",
+        "A two-edge replacement has an alternating four-cycle as its symmetric difference; the finite verifier requires the resulting tour to remain Hamiltonian."
+      ],
+      "reasoning": "Two-opt segment reversal, two-edge switch, and a four-cycle edge symmetric difference restricted to Hamiltonian outputs are equivalent here; the published general definition contains no specific icosahedron component enumeration.",
+      "searches": [
+        "icosahedron Hamilton cycle flip graph square-exchange reconfiguration 4-edge symmetric difference",
+        "Hamiltonian cycle reconfiguration switch icosahedron 2018 Takaoka",
+        "doi:10.3390/a11090140"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "O’Rourke and Wynn (MathOverflow 37788, 2010-2011) enumerate fixed-edge Hamiltonian cycles and 17 symmetry types but not switches or component adjacency.",
+        "Relevant record searches returned icosahedral neighborhood-complex and other graph-invariant results, not an exact two-switch table."
+      ],
+      "reasoning": "The published 512 fixed-edge undirected tours and 17 cycle-symmetry types determine only underlying tour counts; they neither identify 1800 switch pairs nor imply 30H36+60K2+80K1. No exact component table was located.",
+      "searches": [
+        "Icoshedral graph Hamiltonian cycles 2-opt 4-cycle switches 140 connected components 30 components of size 36 60 pairs 80 isolates",
+        "icosahedron Hamilton cycle flip graph square-exchange reconfiguration 4-edge symmetric difference",
+        "icosahedron graph Hamiltonian cycles number up to symmetry Hamilton paths cycles",
+        "mathoverflow:37788"
+      ]
+    },
+    "rationale": "The exact two-edge Hamiltonian-switch definition matches Takaoka (2018), but that paper proves general hardness and connectivity only for specified graph classes, not the complete icosahedral transition graph. Hopkins (2004) classifies Platonic Hamiltonian cycles by topological symmetry rather than single-switch connectivity. The MathOverflow (2010-2011) count of 512 undirected cycles through a fixed edge implies the known global count 1280, which is not claimed novel; it does not determine the new 170-component decomposition or the four component symmetry orbits. Targeted literature and mathematical-record comparisons found no covering theorem or table. Priority risk from unindexed work remains.",
+    "residual_risks": [
+      "An earlier unpublished, unindexed, or differently named exact two-opt adjacency enumeration of the icosahedron could predate this calculation.",
+      "No independent mathematical literature audit or external validation has been performed.",
+      "Graph-specific numerical enumerations provide no automatic theorem about other polyhedral graphs or alternative switch rules."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this exact switch-graph classification; establishes nonunique topological types but not legal two-edge switches",
+        "evidence": "Section 2, especially around Figure 2.5, treats icosahedral face incidences.",
+        "identifier_or_url": "doi:10.1155/S0161171204307118",
+        "material_read": "Complete four-page public full text, with Sections 1-3, figures and references",
+        "method": "Lawful publicly available full-text HTML rendering of article",
+        "title": "Hamiltonian Paths on Platonic Graphs",
+        "trigger": "Same icosahedron object and Hamiltonian-cycle topology"
+      },
+      {
+        "assessment": "NOT_COVERING: general hardness/selected positive families, no icosahedron-specific adjacency/count or component structure",
+        "evidence": "Introduction defines switch; Theorems 1-3 concern hardness; Theorems 6/9 characterize transformations in unit interval and bipartite permutation graphs.",
+        "identifier_or_url": "doi:10.3390/a11090140",
+        "material_read": "Open-access 15-page PDF: abstract, definitions, theorems, hardness families and positive graph-class sections; full-PDF search for icosahedral and Platonic instances",
+        "method": "Lawful open-access primary PDF text with rendered first page and section-level reading",
+        "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+        "trigger": "Exact same two-edge switch rule and potentially dominating reconfiguration results"
+      },
+      {
+        "assessment": "COVERS underlying 1280-tour count only; NOT_COVERING the transition graph and component orbit classification",
+        "evidence": "The amended question reports 512 undirected Hamiltonian cycles through a fixed edge; the answer gives 17 rooted cycle-symmetry classes, not edges between distinct cycles.",
+        "identifier_or_url": "mathoverflow:37788",
+        "material_read": "Complete question and substantive answer, including revised directed/undirected counts and list of symmetry classes",
+        "method": "Public web text of 2010 question and 2011 answer",
+        "title": "Why are there 1024 Hamiltonian cycles on an icosahedron?",
+        "trigger": "A highly relevant graph-specific prior enumeration and symmetry classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5060b1c-7f22-4220-8252-d4e8a9e29971",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural switch graph for Hamiltonian tours is a classical combinatorial reconfiguration object. On the maximally symmetric icosahedron, 170 disconnected components, 80 immovable cycles, and 60 isolated pairs exhibit a substantive obstruction to standard two-opt reachability. The 30 isomorphic 36-state components and complete component-orbit classification explain accessibility rather than merely providing another known tour count; the full certificate is reusable for comparisons in Hamiltonian reconfiguration theory.",
+    "status": "PASS"
+  }
+}
