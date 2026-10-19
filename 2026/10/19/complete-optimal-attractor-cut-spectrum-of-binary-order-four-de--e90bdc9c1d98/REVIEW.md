@@ -1,0 +1,15 @@
+# Review of the binary order-four de Bruijn cut spectrum
+
+## Correctness — PASS
+The statement concerns precisely 16 binary order-four cycles modulo rotation and 16 cuts of each, for 256 linear words of length 19. Each unfolded word has 16 unique four-gram occurrences; since one mark meets at most four, any four-mark attractor is rigidly forced to occupy positions \(\{4,8,12,16\}\). The exhaustive and independently generated 16-cycle lists coincide. All 256 complete factor-coverage bit masks are reproduced from scratch by the standalone checker, and all 64 cuts at which the rigid four-mark set fails have explicit verified five-mark attractors in `CUT_CERTIFICATE.tsv`. This proves the exact 4/5 spectrum without treating a sample as exhaustive. Residual correctness risk is ordinary implementation error in the finite verifier, mitigated by two distinct universe enumerators and direct all-factor validation.
+
+## Originality — PASS, with residual risk
+The 2021 *A combinatorial view on string attractors* analyzes de Bruijn bounds and gives **one** binary order-four example with four marks (Proposition 41 and surrounding discussion), not the whole 16-class/256-cut optimum profile. The 2024 *Online String Attractors* analyzes prime-order Lyndon examples and asks how arbitrary de Bruijn cycles and their cuts affect the optimum; its argument establishes neither the exhaustive composite-order-four classification nor the 8/12/16 cut histogram. Relevant exact-phrase, synonymous cut-robustness and database/table searches identified no equivalent published classification. The negative all-cuts example over a ternary alphabet at order three does not entail this binary order-four positive and mixed-cut census. Absence from the searched literature is not proof of novelty; a separate unindexed table remains possible.
+
+## Mathematical value — PASS
+The motivating question from the literature is whether a de Bruijn cycle has a cut meeting the sharp length-four factor-packing bound for a full string attractor, and how the answer depends on the cut. This is the first nonprime binary de Bruijn order. A complete classification of *every* cycle and cut shows simultaneous universal existence (at least eight good cuts per cycle) and exact cut sensitivity (one quarter of cuts require an extra mark). The result identifies a natural finite parameter boundary, not a hand-picked word, and separates full-attractor optimality from the automatically satisfied four-gram requirement. It makes no claim for larger orders or alphabets.
+
+## Closest literature and limitations
+P. Whittington, *Online String Attractors*, arXiv:2407.15599, Section on de Bruijn sequences, https://arxiv.org/abs/2407.15599. S. Mantaci et al., *A combinatorial view on string attractors*, Theoretical Computer Science 850 (2021), Proposition 41, https://doi.org/10.1016/j.tcs.2020.11.006. Novelty remains subject to a separate external literature review. No independent audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.

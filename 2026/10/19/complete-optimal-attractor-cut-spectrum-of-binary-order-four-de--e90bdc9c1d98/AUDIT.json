@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Every unfolding has 16 unique length-four factors; any four marks are forced to 4,8,12,16 by disjoint coverage of four start positions per mark. The 16 binary de Bruijn cycles are exhaustively produced by two independent methods, all 256 cuts are directly checked against all distinct factors, and each non-four case has a verified five-position certificate. The finite proof does not infer an infinite theorem from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arpi.unipi.it/bitstream/11568/1062328/1/MRRRS_TCS2021.pdf",
+        "https://arxiv.org/abs/2407.15599",
+        "The 2021 Proposition 41 supplies general de Bruijn attractor bounds and one binary order-four example; the 2024 Theorem 29 treats a prime-order Lyndon construction."
+      ],
+      "reasoning": "Neither an asymptotic bound nor an existence result for prime orders subsumes the all-cycle and all-cut optimum classification at the composite order four.",
+      "searches": [
+        "de Bruijn attractor cyclic cuts smallest composite order",
+        "\"A combinatorial view on string attractors\" de Bruijn full paper theorem",
+        "\"Online String Attractors\" \"de Bruijn\" 2024 examples optimal rotation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2407.15599",
+      "https://arpi.unipi.it/bitstream/11568/1062328/1/MRRRS_TCS2021.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arpi.unipi.it/bitstream/11568/1062328/1/MRRRS_TCS2021.pdf",
+        "https://arxiv.org/abs/2407.15599",
+        "Mantaci et al. present one order-four four-attractor at positions 4,8,12,16. Whittington compares sharp attractors with full attractors and asks about arbitrary cycles/cuts."
+      ],
+      "reasoning": "The new theorem requires the 4/8/4 cyclic-class robustness profile and the 192/64 cut optimum spectrum. Those facts are not formal corollaries of either a witness for one cycle or a theorem guaranteeing one Lyndon example at prime order. The previously known distinction between sharp and full attractors motivates, but does not prove, these exact counts.",
+      "searches": [
+        "\"A combinatorial view on string attractors\" de Bruijn full paper theorem",
+        "\"Online String Attractors\" \"de Bruijn\" 2024 examples optimal rotation",
+        "de Bruijn attractor cyclic cuts smallest composite order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2407.15599",
+        "The 2024 de Bruijn section poses cut-variation as a question, rather than providing a 16-cycle cut histogram."
+      ],
+      "reasoning": "The theorem is invariant under cyclic re-anchoring only after retaining all 16 cuts and their minimum full linear-attractor sizes. A single example or existence of one good cut does not imply the full 256-entry classification. No matching statement was identified by these searches.",
+      "searches": [
+        "binary de Bruijn order four all 16 necklaces 8 12 16 optimal rotation string attractor cut histogram",
+        "binary de Bruijn order 4 every cyclic unfolding four-position string attractor",
+        "binary order four de bruijn sequences all rotations four string attractor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paper-specific searches returned the two foundational attractor sources, not the 16-cycle cut-by-cut table.",
+        "The present CUT_CERTIFICATE.tsv explicitly supplies 256 exact cases with crossing-position witnesses."
+      ],
+      "reasoning": "A general de Bruijn enumeration (16 cyclic classes) does not imply which of the 16 cuts of each cycle have attractor size four; the latter is a distinct full-factor coverage question. Search omissions cannot establish uniqueness of this table.",
+      "searches": [
+        "binary de Bruijn order four all 16 necklaces 8 12 16 optimal rotation string attractor cut histogram",
+        "binary de Bruijn order 4 every cyclic unfolding four-position string attractor",
+        "\"de Bruijn\" \"order 4\" \"attractor\" cut optimal"
+      ]
+    },
+    "rationale": "The 2021 source supplies only general bounds plus one order-four example; the 2024 source explicitly asks about the influence of cycle choice and unfolding and gives a prime-order existence theorem. Searches of equivalent and dominating statements and available exact results found no full composite order-four 16-class cut spectrum. Residual risk: equivalent unindexed or unpublished tabulation.",
+    "residual_risks": [
+      "An unindexed prior enumeration could independently contain the 16-by-16 table or stronger rotation results.",
+      "The literature search cannot prove uniqueness of the result; independent bibliographic verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The prime-order Lyndon existence result and general question do not cover the all-cycles binary order-four optimum histogram",
+        "evidence": "The prime-order existence theorem is followed by an explanation that its proof does not directly extend to composite orders; the section explicitly asks how general cycles/cuts behave.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.15599",
+        "material_read": "Full-text section Optimal String Attractors for de Bruijn Sequences, including Definitions 25–26, Lemmas 27–28, Theorem 29, and surrounding discussion",
+        "method": "Read available full-text HTML rendering, compared theorem quantifiers and scope with the proposed finite cut census",
+        "title": "Online String Attractors",
+        "trigger": "Explicit question on de Bruijn cycle unfolding and full versus sharp attractor optimality"
+      },
+      {
+        "assessment": "Contains a four-mark witness for one order-four binary unfolding; not an enumeration of all cycles and cuts",
+        "evidence": "The order-four example has four marked positions 4,8,12,16. Proposition 41 is a general asymptotic upper/lower-bound statement.",
+        "identifier_or_url": "https://arpi.unipi.it/bitstream/11568/1062328/1/MRRRS_TCS2021.pdf",
+        "material_read": "Relevant full-text preliminaries, de Bruijn discussion on pp. 24–25, Proposition 41 and the explicit binary order-four example",
+        "method": "Read lawful open-access postprint and inspected relevant proof/statement pages",
+        "title": "A combinatorial view on string attractors",
+        "trigger": "Earlier binary order-four example and general de Bruijn lower and upper bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e90bdc9c-1d98-4ee0-818a-20b305d4fc16",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 literature explicitly asks whether suitable optimal cuts exist across de Bruijn cycles and how optimal sizes vary. At the first nonprime order for a binary alphabet, a complete natural 16-class census establishes optimal four-mark cut counts 8,12,16, proves every class has a good cut, and precisely characterizes the 64 exceptional cuts requiring five marks. This is a motivated finite complete classification, not a chosen-word anecdote or routine arithmetic substitution.",
+    "status": "PASS"
+  }
+}
