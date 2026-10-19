@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** A degree-weighted martingale on the final graph reduces fixation to three expected early opinions. The exact path update matrix has eigenvalues \(1,2/3,1/3\), producing the full closed formula and an exact increment sign. The four-vertex classification is analytical, with exhaustive binary attachment cases. The five-vertex example and unbounded tree optimizers follow from strict integer sign inequalities. A fully independent absorbing-state calculation and 1,416 exact-rational verification assertions substantiate the small example; finite checks are not presented as an infinite proof.
+
+**Originality — PASS, subject to a publication-priority risk.** The motivating 2021/2023 paper introduces finite-stage sequential population growth and reports increasing fixation with duration for selected network families. It states a regular-network sufficient monotonicity condition rather than the sharp minimal nonmonotone witness or the infinite tree family with exact optimizer. An inspected 2023 switching-network analysis concerns a fixed-size birth–death process. Indexed-record searches reveal no covering statement. The detailed original supplementary technical text was not fully accessible; stronger unseen general results could subsume the statement. The classical voter martingale and spectral propagation are credited to existing methods, not treated as independent novelty.
+
+**Value — PASS.** The result resolves a motivated structural question raised by observed duration-monotonicity and discussions of optimizing growth times: even *without* charging any delay cost, the fixation objective can have a strict interior maximizer. Minimality at five vertices and an unbounded exact optimal-duration family supply interpretable boundaries with a clear mechanism from asymmetric reproductive values, rather than an isolated numerical curiosity.
+
+**Limitations.** The process is neutral and unweighted; stage durations are equal; initial cooperator is chosen uniformly; newcomers are defectors; graphs are connected nested induced subgraphs. Only fixation probabilities, not conditional absorption-time costs or positive-selection effects, are covered. Supplementary priority and independent verification remain open.
+
+Self-review: passed. Independent audit: not yet performed.
