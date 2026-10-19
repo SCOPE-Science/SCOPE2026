@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The RK stage chain telescopes to the exact Taylor polynomial on the planar oscillator; stage derivatives span the plane. The predictor never vanishes for degrees one through five. A verified polynomial identity yields the phase-speed numerator for each m. Degrees one through four have positive phase speed and total finite angle variation less than \\(2\\pi\\). For degree five, the quartic \\(F(x)=x^4-16x^3+2880\\) has exactly two positive roots by derivative signs and exact brackets \\((6,7)\\) and \\((15,16)\\); the corresponding phase extrema lie on opposing sides of \\(\\pi/2\\). This proves the exact three-preimage window. Standalone 754-check algebraic/rational/numerical tests verified ancillary computation and stage implementation but are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Najafian and Vermeire, arXiv:2409.18328v1, develop the general invariant-preserving quasi-orthogonal RK projection method; the source was examined in full, including projection definitions, theorems, and oscillator numerical examples.",
+        "Calvo, Laburta, Montijano and Rández (2015), DOI 10.1007/s10444-014-9355-2, study low dispersion and dissipation in projected RK methods, but accessible material was abstract only."
+      ],
+      "reasoning": "The earlier general projection framework covers the construction, not necessarily this exact special-case global phase aliasing. The source fully examined does not state the degree-five minimality or three-preimage window. The 2015 dispersion paper remains a plausible unresolved broader-coverage risk: its abstract alone cannot exclude a stronger result in its full text.",
+      "searches": [
+        "Quasi-Orthogonal Runge-Kutta Projection Methods stage derivative span invariant obstruction harmonic oscillator energy projection",
+        "quasi-orthogonal projection RK harmonic oscillator phase frequency monotonicity threshold order five",
+        "65L05 oscillatory Runge Kutta Taylor polynomial degree five phase lag phase reversal orthogonal energy projection",
+        "Runge Kutta exact energy projection two dimensional linear harmonic oscillator rotation angle step size",
+        "\"Runge Kutta projection methods with low dispersion and dissipation errors\" Calvo Laburta Montijano Rández PDF"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.18328v1",
+      "doi:10.1155/2012/236281",
+      "doi:10.1137/0724041",
+      "doi:10.1007/s10444-014-9355-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Najafian and Vermeire provide the quasi-orthogonal projection framework, which implies the radial correction once the stage span is the entire oscillator plane, but their inspected results do not imply the precise fifth-degree global angle multiplicity.",
+        "The earlier explicit-midpoint anisotropic-energy solvability analysis concerns existence of a real projection, and the two-frequency classical RK4 example concerns modal energy selection; neither has fifth-degree Taylor rotation-phase aliasing.",
+        "Chen (2012) discusses dispersion/amplification and fitted RK families; it does not state the three-preimage window for the stage-chain polynomial in the inspected portions."
+      ],
+      "reasoning": "Energy preservation alone only constrains the modulus of the one-step multiplier, while the claimed phase multiplicity depends on the sign changes of the derivative of its argument. Known construction and local phase-lag statements do not logically force this exact polynomial threshold. Abstract-only potentially stronger coverage in the 2015 work is not dismissed.",
+      "searches": [
+        "Quasi-Orthogonal Runge-Kutta Projection Methods stage derivative span invariant obstruction harmonic oscillator energy projection",
+        "quasi-orthogonal projection RK harmonic oscillator phase frequency monotonicity threshold order five",
+        "65L05 oscillatory Runge Kutta Taylor polynomial degree five phase lag phase reversal orthogonal energy projection",
+        "Runge Kutta exact energy projection two dimensional linear harmonic oscillator rotation angle step size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The five exact phase numerators were derived directly; the fifth is \\((z^8-16z^6+2880)/2880\\). Relevant published mathematical-record searches returned no statement about this fifth-degree global phase map. Chen (2012), DOI 10.1155/2012/236281, analyzes phase fitting and amplification fitting as a different task."
+      ],
+      "reasoning": "The theorem is equivalently a global noninjectivity classification of the normalized stability function \\(z\\mapsto P_5(iz)/|P_5(iz)|\\), including the three-preimage interval. Phase-lag analysis of a method at small \\(z\\) or designed phase-fitting constraints does not by itself imply this global inverse-image count. Search results do not prove uniqueness; the accessible primary comparison found no such classification.",
+      "searches": [
+        "fifth order Taylor exponential polynomial harmonic oscillator energy normalization exact phase angle backtracking derivative z^8-16z^6+2880",
+        "fifth degree normalized Taylor oscillator phase speed negative interval 2.605131 3.895640 energy preserving integrator",
+        "energy-normalized exponential Taylor polynomial first nonmonotone frequency response three step sizes same projected rotation",
+        "\"truncated exponential\" \"argument\" monotonicity imaginary axis Taylor 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant searches for the polynomial \\(F(x)=x^4-16x^3+2880\\) and its angular turning thresholds did not return an exact table or recorded classification. The numerical roots in the theorem are derived from an exact quartic and not inferred from a database."
+      ],
+      "reasoning": "The novelty being assessed is the rigorous global multiplicity and minimal-degree phenomenon, not the numerical approximation of algebraic roots; exact numerical tables or an implication from a stronger phase-classification theorem would cover it if discovered. No such table or stronger statement was identified in accessible records.",
+      "searches": [
+        "fifth order Taylor exponential polynomial harmonic oscillator energy normalization exact phase angle backtracking derivative z^8-16z^6+2880",
+        "fifth degree normalized Taylor oscillator phase speed negative interval 2.605131 3.895640 energy preserving integrator",
+        "energy-normalized exponential Taylor polynomial first nonmonotone frequency response three step sizes same projected rotation",
+        "\"degree five\" \"phase\" \"energy projection\" Runge Kutta oscillator"
+      ]
+    },
+    "rationale": "The complete global inverse-multiplicity law for normalized degree-five Taylor stability propagation, with degree-five minimality among degrees up to five and exact algebraic turning points, was not found in the accessible full papers, bibliographic comparisons or domain-record queries. Source papers establish invariant projection and local dispersion techniques, not the assessed complete phase aliasing statement. Relevant 2015 projected-RK dispersion full text was inaccessible and remains a material risk; negative searches are not novelty proofs.",
+    "residual_risks": [
+      "A closely relevant 2015 projected-RK dispersion paper could be inspected only at the abstract level; exact global phase aliasing may be discussed within its inaccessible full text.",
+      "A stronger general theorem about normalized truncated-exponential phase maps might imply this fifth-degree instance without matching keywords.",
+      "Only a self-review has been completed; independent literature-priority audit remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the projection framework, not the specific global normalized-Taylor fifth-degree step-size inverse-multiplicity law in inspected text",
+        "evidence": [
+          "arXiv:2409.18328v1, Sections 1–4, September 26, 2024; projection search direction is the invariant gradient projected into the span of RK stage derivatives."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.18328",
+        "material_read": "Full public arXiv paper including introductory definitions, construction and projection proofs, examples, oscillator discussion, and references",
+        "method": "Read public preprint text and inspected the relevant displayed formulas, theorems and figures",
+        "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+        "trigger": "Same stage-span invariant-preserving projection framework and oscillator applications"
+      },
+      {
+        "assessment": "Establishes prior phase/amplification framework but does not state the particular global three-preimage law in material read",
+        "evidence": [
+          "Chen, Mathematical Problems in Engineering (2012), article 236281, Sections 3–5."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2012/236281",
+        "material_read": "Accessible full article text; inspected definitions of phase fitting and its oscillator examples in Sections 3–5",
+        "method": "Read public article HTML and compared the analyzed scheme, objectives and statements",
+        "title": "A New Family of Phase-Fitted and Amplification-Fitted Runge-Kutta Type Methods for Oscillators",
+        "trigger": "General phase-lag and amplification analysis for oscillatory RK methods"
+      },
+      {
+        "assessment": "Unresolved plausible partial or complete coverage. An abstract does not warrant NOT_COVERING.",
+        "evidence": [
+          "Calvo–Laburta–Montijano–Rández, Advances in Computational Mathematics 41 (2015), 231–251; abstract describes projection with embedded directions and harmonic oscillator accuracy improvement."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10444-014-9355-2",
+        "material_read": "Only accessible publisher and bibliographic abstract; no primary full text was obtained",
+        "method": "Compared available public abstract and bibliographic metadata; full text remained unavailable",
+        "title": "Runge-Kutta projection methods with low dispersion and dissipation errors",
+        "trigger": "Precisely combines projected RK methods with oscillator dispersion analysis"
+      },
+      {
+        "assessment": "Provides phase-lag priority context; no conclusive full-text exclusion of every equivalence",
+        "evidence": [
+          "van der Houwen and Sommeijer, SIAM Journal on Numerical Analysis (1987), DOI 10.1137/0724041."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0724041",
+        "material_read": "Bibliographic abstract and accessible search metadata; primary full text not available",
+        "method": "Inspected abstract and identified scope as designing schemes with reduced phase errors",
+        "title": "Explicit Runge–Kutta (–Nyström) Methods with Reduced Phase Errors for Computing Oscillating Solutions",
+        "trigger": "Classical RK oscillator phase-analysis literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4673fae-cece-4e76-8585-65fd1dc96c70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a sharp structural boundary for energy-preserving numerical time integration: an exactly norm-preserving projected RK step has three distinct positive time steps corresponding to one identical numerical rotation, while all smaller Taylor degrees lack this effect. The full inverse-image classification quantifies phase nonidentifiability, a material failure mode for phase-based step adaptation and oscillator timing even where invariant drift is exactly zero.",
+    "status": "PASS"
+  }
+}
