@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For n=1..10, the included exhaustive C++ algorithm loops over every 2n-bit word index induced by every size-n position mask and every n-bit root, marks a bit iff the output is the shuffle of that root and its reverse, and takes exact popcounts/maxima. The proof shows the loops cover both directions of the root definition, so the maximum is exact on the finite domain. Recompiled actual program produced M=1,2,3,5,9,16,29,52,94,170 and optimizer counts 2,4,8,...,8. n=10 covered exactly 184756 masks and 189190144 root-mask pairs. Independent Python direct-word/partition enumeration agreed for n<=6, 170 explicit supports were checked, and the global count of nonempty-root words independently matched binom(2n,n) for every n<=10. No infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Datko--Pawlik 2025 Table 6 gives maximum ordinary binary shuffle-root counts through n=12; its n=10 value is 19, while the present reverse-shuffle maximum is 170.",
+        "Grytczuk--Pawlik--Pleszczyński 2023 asks about cutting distances and generalized shuffle-square constraints, not reverse-root maxima."
+      ],
+      "reasoning": "The ordinary root condition requires r,r; here it requires r,reverse(r), and they give distinct root sets (e.g. 0110). Root-maximality for ordinary squares cannot supply the reverse-root profile. The more general shuffle variants concern which strings split under transformations, not counts of distinct inverse roots.",
+      "searches": [
+        "\"Roots of Binary Shuffle Squares\" \"Table 6\" maximum distinct roots (web search)",
+        "doi:10.3390/sym17020305 Section 3 Table 6",
+        "arXiv:2308.13882 reverse shuffle generalizations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.12455, preliminary complete SURIM manuscript Section 6",
+      "doi:10.3390/sym15111982 publisher HTML",
+      "doi:10.3390/sym17020305 publisher HTML Sections 2-3 and Table 6",
+      "Published mathematical records compared using the four named checks",
+      "Accessible prior mathematical claims reviewed only to exclude overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published characterization: reverse shuffle squares iff some 123-avoiding matching of equal-length halves; it does not evaluate distinct roots.",
+        "2025 ordinary-table value 19 at n=10 and its definition is two identical subsequences, not reversed ones.",
+        "Root-enumeration exhaustor and 170 distinct explicit witnesses independently determine the present sharp finite value."
+      ],
+      "reasoning": "A 123-avoiding half-matching is a membership characterization, not a root-multiplicity formula: different matchings can share a root, and one word can have many distinct roots. There is no direct implication from published cardinality of admissible words or ordinary-shuffle root maxima to this exact inverse statistic.",
+      "searches": [
+        "arXiv:2109.12455 Lemma 6.2, Section 6",
+        "doi:10.3390/sym15111982 Sections 1-4",
+        "doi:10.3390/sym17020305 Section 3",
+        "Maximum number of distinct roots r for binary word w such that w is a shuffle of r and reverse(r); extremal sequence 1 2 3 5 9 16 29 52 94 170"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "He et al., arXiv:2109.12455: reverse-shuffle squares are characterized by a 123-avoiding permutation between word halves, while its Theorem 2.5 counts outputs asymptotically at large alphabet size.",
+        "Semantic literature-record searches returned no direct reverse-root extremal profile; closest categories were palindrome duplication, string attractors and ordinary word reconstruction."
+      ],
+      "reasoning": "Inverse-root multiplicity asks, for a fixed w, how many distinct r admit some partition with w an interleaving of r and r^R; the published reverse-shuffle membership test and number of output words do not determine this maximum. Even though all binary abelian squares are reverse-shuffle squares, the number of roots varies sharply and requires separate enumeration.",
+      "searches": [
+        "reverse shuffle squares binary exact enumeration two subsequences one reverse of other",
+        "Maximum number of distinct roots r for binary word w such that w is a shuffle of r and reverse(r); extremal sequence 1 2 3 5 9 16 29 52 94 170",
+        "\"reverse shuffle squares\" \"number of roots\" (web search)",
+        "arXiv:2109.12455 Lemma 6.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published quantitative table (Datko--Pawlik 2025 Table 6) has 1,1,1,1,2,3,4,6,9,13,19 for n=0..10: ordinary roots, not this reverse-root sequence 1,2,3,5,9,16,29,52,94,170 for n=1..10.",
+        "The 2021 reverse-shuffle paper supplies asymptotic numbers of reverse-shuffle words as alphabet size tends to infinity at fixed n, not a finite table of inverse-root maxima."
+      ],
+      "reasoning": "No inspected source or returned database item contains the exact eight 20-bit maximizers or 170 reverse roots of such a word. Existing tables have a different channel and do not subsume the count.",
+      "searches": [
+        "For binary words length 20, maximal 170 distinct reverse-shuffle roots among eight maximizing words; maximum reverse interleaving x and reversal x",
+        "Reverse shuffle square root multiplicity maximum length 2n enumeration 170 n=10, contrasting ordinary shuffle squares",
+        "doi:10.3390/sym17020305 Table 6",
+        "arXiv:2109.12455 Theorem 2.5"
+      ]
+    },
+    "rationale": "Comparison by statement and implication found the exact finite reverse-shuffle-root multiplicity profile n<=10 absent from the inspected 2021 reverse-shuffle characterization and 2023 generalized-shuffle work. The closest 2025 root-maxima table concerns ordinary self-shuffling r with r and reports 19 rather than 170 at n=10, so it neither states nor implies this separate reverse-root extremum. Multiple actual semantic database searches identified no matching claim; missing an indexed hit is not a proof of novelty. Residual risk of prior unindexed counting remains.",
+    "residual_risks": [
+      "An equivalent reverse-root finite extremal table might occur in unindexed or uninspected articles or supplementary data.",
+      "The 2025 ordinary-root paper is direct comparison but does not rule out a separate prior reverse-root calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and characterizes reverse-shuffle membership, counts number of words in a large-alphabet expansion; does not establish the binary inverse-root maximum or its optimizer set",
+        "evidence": [
+          "Section 6, Lemma 6.2: existence of 123-avoiding permutation between two equal halves.",
+          "Section 6 formula uses inclusion-exclusion across matchings to count reverse-shuffle words, rather than distinct generating roots of each word."
+        ],
+        "identifier_or_url": "arXiv:2109.12455; https://surim.stanford.edu/sites/g/files/sbiybj26191/files/media/file/twins_in_words_and_shuffle_squares.pdf",
+        "material_read": "Abstract and definitions, Section 2 theorem statements, pages 20-21 Section 6 including Lemma 6.2 and Theorem 2.5 proof",
+        "method": "Full open preprint, parsed text and visual pages of relevant Section 6",
+        "title": "Twins in Words and Shuffle Squares / Shuffle Squares and Reverse Shuffle Squares",
+        "trigger": "Directly defines the same reverse-shuffle relation and might already determine root counts"
+      },
+      {
+        "assessment": "Studies generalized square constraints and cutting distances, but not the extremal number of distinct roots of reverse-shuffle squares.",
+        "evidence": [
+          "Theorems include cutting distance to abelian-square word families and discussions of reverse shuffle squares, not n=10 reverse-root maximizers."
+        ],
+        "identifier_or_url": "doi:10.3390/sym15111982; arXiv:2308.13882",
+        "material_read": "Open access HTML abstract, introduction and relevant sections on cutting distance and concluding conjectures",
+        "method": "Publisher full-text HTML reading",
+        "title": "More Variations on Shuffle Squares",
+        "trigger": "Generalizes shuffle-square definitions and might include the exact reverse-root statistic"
+      },
+      {
+        "assessment": "Exact finite inverse-root counts are for ordinary two-identical-subsequence shuffle squares; its n=10 maximum is 19 rather than this reverse-root maximum 170. No stronger covering reverse-root result observed.",
+        "evidence": [
+          "Definition of root is r shuffled with r; Table 6 maximum n=10 = 19.",
+          "Ordinary-shuffle roots are not reverse-shuffle roots; explicit binary separation w=0110."
+        ],
+        "identifier_or_url": "doi:10.3390/sym17020305",
+        "material_read": "Open access HTML abstract, definitions, Sections 2 and 3, and complete finite extremal tables 5-7",
+        "method": "Publisher full-text HTML reading, including Table 6",
+        "title": "Roots of Binary Shuffle Squares",
+        "trigger": "Direct title/subject overlap: extremal number of distinct roots of binary shuffle squares"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eae5a075-df79-4a99-879d-4518d99ffa57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the complete sharp inverse ambiguity invariant for reverse shuffle-square generation on the first ten binary root lengths, culminating in the full 1,048,576-source-word universe at length 20. It gives both the previously unstated maximum (170) and all eight optimizers, not just one witness or code correctness. The inverse-root multiplicity problem is directly motivated by current research on shuffle-square root counts; the 2025 ordinary root maximum is only 19 at the same length, demonstrating a mathematically substantial distinction between two natural generating relations. The exact optimizer census and witness data give substantive boundary information for future structural work rather than an arbitrary small sample.",
+    "status": "PASS"
+  }
+}
