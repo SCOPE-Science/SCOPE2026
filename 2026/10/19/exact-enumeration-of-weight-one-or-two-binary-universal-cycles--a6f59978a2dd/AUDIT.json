@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The overlap graph has exactly one root edge, forced outgoing edges for weight-two vertices and two at each weight-one vertex. Contracted selector transitions are proved and all choices with a high-index exceptional edge create a cycle, while low-index choices are all acyclic, giving exactly 2^floor((k-1)/2) in-arborescences. BEST factorial factor equals one. Rotational classes are fixed uniquely by the root edge. Exact integer matrix tree, pointer count and local Euler traversal independent checks matched for k=3..10 (last type through 8).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruskey–Sawada–Williams (2012), DOI 10.1137/100808782, https://www.researchgate.net/publication/265351686_De_Bruijn_Sequences_for_Fixed-Weight_Binary_Strings",
+        "Sawada–Williams–Wong (2013), DOI 10.1007/978-3-642-45278-9_33, https://www.researchgate.net/publication/267465630_Universal_Cycles_for_Weight-Range_Binary_Strings",
+        "Directed BEST theorem gives t_root times factorial degree product, requiring separate graph-specific t_root evaluation."
+      ],
+      "reasoning": "General weight-range universal-cycle construction includes the object but only constructs cycles, so does not dominate the claimed exact count. Classical unrestricted de Bruijn counts apply to complete binary window languages, not restricted weights. General BEST theorem is used rather than claimed new. The all-order arborescence classification is needed.",
+      "searches": [
+        "fixed-density de Bruijn sequences number of cycles weights 1 2 BEST theorem",
+        "\"fixed-weight de Bruijn\" \"number of\" \"sequences\" enumeration",
+        "https://www.researchgate.net/publication/267465630_Universal_Cycles_for_Weight-Range_Binary_Strings"
+      ]
+    },
+    "checked_sources": [
+      "Ruskey–Sawada–Williams (2012), DOI 10.1137/100808782, https://www.researchgate.net/publication/265351686_De_Bruijn_Sequences_for_Fixed-Weight_Binary_Strings",
+      "Sawada–Williams–Wong (2013), DOI 10.1007/978-3-642-45278-9_33, https://www.researchgate.net/publication/267465630_Universal_Cycles_for_Weight-Range_Binary_Strings",
+      "Sawada and Williams online fixed-weight universal-cycle reference: https://debruijnsequence.org/db/subset",
+      "Sawada–Gabrić (2025), DOI 10.1051/ita/2025019, full author-uploaded text https://www.researchgate.net/publication/398321616_Las_Vegas_algorithms_to_generate_universal_cycles_and_de_Bruijn_sequences_uniformly_at_random",
+      "Chen–Sima–Milenkovic, Generalized Orthogonal de Bruijn and Kautz Sequences (2025), DOI 10.3390/e27040366 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2012 primary full text sections 1,2,6,7: fixed-weight shorthand equality, Eulerian existence, necklace construction and open questions.",
+        "2013 primary full text sections 1,3,4,5: dual-weight universal-cycle constructions and gluing.",
+        "2025 Sawada–Gabrić full primary text example 2 gives exactly two cycles at k=3; sections 2 and 4.4 give random generators for all weight-range cycles, not an arbitrary-order total count.",
+        "2025 orthogonal-de-Bruijn abstract treats maximal pairwise-compatible families, a different invariant."
+      ],
+      "reasoning": "Although the same graph is known and BEST could in principle enumerate Euler tours, the papers do not determine its in-arborescence count, and their existence/constructive implications are strictly weaker than an exact multiplicity formula. Counting orthogonal *sets* of cycles neither directly counts all cycles nor establishes the claimed power-of-two distribution.",
+      "searches": [
+        "doi:10.1137/100808782",
+        "doi:10.1007/978-3-642-45278-9_33",
+        "number of binary fixed-density de Bruijn universal cycles exactly length n windows Hamming weights one or two 2 floor((n-1)/2) enumeration",
+        "binary cyclic universal cycles weight one and two EXACT number Euler tours arborescences",
+        "fixed-density de Bruijn sequences number of cycles weights 1 2 BEST theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ruskey–Sawada–Williams (2012), DOI 10.1137/100808782, https://www.researchgate.net/publication/265351686_De_Bruijn_Sequences_for_Fixed-Weight_Binary_Strings",
+        "Sawada–Williams–Wong (2013), DOI 10.1007/978-3-642-45278-9_33, https://www.researchgate.net/publication/267465630_Universal_Cycles_for_Weight-Range_Binary_Strings"
+      ],
+      "reasoning": "The 2012 shorthand fixed-weight-two language is exactly the set of length-k binary words of weights one or two, so the overlap is at object level, not merely title level. The inspected papers establish an Euler tour and specific constructions; they do not compute the number of distinct tours/cyclic words. The asserted enumeration is not a corollary of existence alone.",
+      "searches": [
+        "number of binary fixed-density de Bruijn universal cycles exactly length n windows Hamming weights one or two 2 floor((n-1)/2) enumeration",
+        "binary cyclic universal cycles weight one and two EXACT number Euler tours arborescences",
+        "\"dual-weight\" \"number of\" \"universal cycles\"",
+        "doi:10.1137/100808782"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sawada and Williams online fixed-weight universal-cycle reference: https://debruijnsequence.org/db/subset",
+        "Actual three mathematical research records returned hits included cycles of unrelated objects and fixed-content encodings; no matching count or equivalent closed formula. Own accessible p0001_g000029 and p0002_g000054 claims screened for aliases."
+      ],
+      "reasoning": "The accessible online universal-cycle generator presents constructions, not a table of the number of all rotational classes. Searches of the available scientific records and own claim text found no equivalent claim; non-discovery cannot prove global novelty.",
+      "searches": [
+        "number of binary fixed-density de Bruijn universal cycles exactly length n windows Hamming weights one or two 2 floor((n-1)/2) enumeration",
+        "binary cyclic universal cycles weight one and two EXACT number Euler tours arborescences",
+        "fixed-density de Bruijn sequences number of cycles weights 1 2 BEST theorem",
+        "https://debruijnsequence.org/db/subset",
+        "\"weight 1 or 2\" \"universal cycles\" \"how many\""
+      ]
+    },
+    "rationale": "The closest 2012 full primary text describes the exact shorthand dual-weight graph, verifies existence and constructs particular Euler circuits but does not state an all-order count; the 2013 full primary text constructs general weight-range universal cycles, with no count. Sawada–Gabrić (2025) computes the already-known k=3 base case and introduces generic random arborescence generation without the arbitrary-order count. Neither result determines the precise family-specific number 2^floor((k-1)/2). General BEST supplies a formula in terms of arborescences; the new nontrivial in-arborescence classification computes it. Three actual mathematical research records searches and targeted web term/equivalence searches identified no claim with a covering implication. Literature indexing risk remains.",
+    "residual_risks": [
+      "An equivalent formula under a different graph-counting alias could be unindexed or in a source not discovered by searches.",
+      "Only the abstract rather than continuous full text was accessible for the 2025 paper on orthogonal fixed-weight de Bruijn sequences. Its principal invariant is different, but that access limit remains.",
+      "The k=3 instance was already explicitly enumerated in Sawada–Gabrić (2025); novelty is only the all-k formula and binary-choice classification.",
+      "No independent scientific review of this new theorem has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONFIRMS_IDENTICAL_OBJECT_BUT_NOT_COUNT",
+        "evidence": "https://www.researchgate.net/publication/265351686_De_Bruijn_Sequences_for_Fixed-Weight_Binary_Strings; publisher https://epubs.siam.org/doi/10.1137/100808782",
+        "identifier_or_url": "doi:10.1137/100808782",
+        "material_read": "Full text, introduction, de Bruijn graph degree/connectivity section 2, construction sections 5-6 and summary/open problems section 7",
+        "method": "Readable author-uploaded full-text HTML from ResearchGate, compared definitions and theorem conclusions",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Identical binary dual-weight shorthand language"
+      },
+      {
+        "assessment": "CONSTRUCTS_CYCLES_NOT_ENUMERATES_ALL",
+        "evidence": "https://www.researchgate.net/publication/267465630_Universal_Cycles_for_Weight-Range_Binary_Strings",
+        "identifier_or_url": "doi:10.1007/978-3-642-45278-9_33",
+        "material_read": "Author-uploaded full text introduction, gluing lemma, universal-cycle construction theorem, algorithm and applications",
+        "method": "Readable full-text HTML on ResearchGate",
+        "title": "Universal Cycles for Weight-Range Binary Strings",
+        "trigger": "Exactly same c=1,d=2 binary universal-cycle setting"
+      },
+      {
+        "assessment": "CONSTRUCTION_REFERENCE_NOT_MULTIPLICITY_TABLE",
+        "evidence": "https://debruijnsequence.org/db/subset",
+        "identifier_or_url": "https://debruijnsequence.org/db/subset",
+        "material_read": "Shorthand binary encoding paragraph and constructions/citations",
+        "method": "Public html page read",
+        "title": "De Bruijn Sequences and Universal Cycles — Subsets",
+        "trigger": "Public database of fixed-weight shorthand cycle constructions"
+      },
+      {
+        "assessment": "K3_BASE_CASE_PREVIOUSLY_KNOWN_AND_GENERAL_GENERATION_NOT_ALL_ORDER_COUNT",
+        "evidence": "https://www.researchgate.net/publication/398321616_Las_Vegas_algorithms_to_generate_universal_cycles_and_de_Bruijn_sequences_uniformly_at_random",
+        "identifier_or_url": "doi:10.1051/ita/2025019",
+        "material_read": "Full text introduction, generic Euler-tour/arborescence generation and example 2, section 4.4 on weight-range de Bruijn languages",
+        "method": "Readable author-uploaded full-text HTML",
+        "title": "Las Vegas Algorithms to Generate Universal Cycles and de Bruijn Sequences Uniformly at Random",
+        "trigger": "Exact same weight-range language and spanning in-arborescence framework"
+      },
+      {
+        "assessment": "DIFFERENT_ORTHOGONALITY_INVARIANT; FULL-TEXT_RISK",
+        "evidence": "https://experts.illinois.edu/en/publications/generalized-orthogonal-de-bruijn-and-kautz-sequences/",
+        "identifier_or_url": "doi:10.3390/e27040366",
+        "material_read": "Abstract and research output description only; full-text retrieval obstructed by rate-limit/browser check",
+        "method": "Research institution abstract and search indexed relevant section, no invented full-text inspection",
+        "title": "Generalized Orthogonal de Bruijn and Kautz Sequences",
+        "trigger": "2025 paper whose abstract claims bounds on numbers of orthogonal constrained cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6f59978-a2dd-4025-9f7f-d4c3c7a47a69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact multiplicity and independent-choice parameterization of all universal cycles for the first nontrivial consecutive fixed-weight binary language answers a motivated enumeration question beyond previously established existence/construction. It is a nontrivial all-order structural count, not a routine restatement of BEST, an arbitrary slice, or a finite numerical extension.",
+    "status": "PASS"
+  }
+}
