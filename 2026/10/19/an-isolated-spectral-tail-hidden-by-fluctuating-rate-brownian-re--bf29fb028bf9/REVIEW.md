@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The renewal equation is obtained by conditioning on the first independent Poisson rate refresh. The resulting Stieltjes transform has a unique positive-axis root that produces the isolated pole; its upper-cut discontinuity is positive and integrates with the pole residue to unit mass. Positive heat-kernel mixing gives the claimed density, the support gap proves sharp tail asymptotics, and elementary exponential-integral estimates yield the singular weak-refresh limit. The separate executable checker passed 53 spectral, mass, transform, moment, asymptotic and eigenvalue assertions. The numerical checks support, rather than replace, the analytic argument. The fixed-parameter result has no hidden finite-distance qualification.
+
+## Originality — PASS (with specified residual risk)
+Arutkin and Reuveni (2025) already derived the exact Fourier transform of this refreshed-rate reset model and asserted a far-field exponential regime; those are not claimed. Their sections 3--4 report an effective rate from a low-wave-number estimate rather than a pole/branch-cut inversion, and do not display the isolated pole residue, positive continuous spectral density, or the exponentially small slow-mode weight. Full principal text was examined. Evans and Majumdar (2014) and Rose et al. (2018) supply fixed-rate reset benchmarks, not the exponential-intensity Poisson-refresh decomposition. Scientific indexing and targeted literature searches found no equivalent published result among inspected records. Residual risk: general Stieltjes/rank-one perturbation theory could yield this decomposition once the source Fourier formula is supplied; a previously overlooked specialization could cover it implicitly. No exhaustive novelty proof is asserted.
+
+## Value — PASS
+The exact ultimate decay exponent matters for understanding localization in a fluctuating environment, while the original observable's second moment does not determine it. The result exhibits two parametrically different rates in a single physically motivated stochastic reset model. The exponentially small mode weight explains why simulations and low-frequency approximations can miss the true asymptotic tail; the all-parameter positive spectral mixture also gives a reproducible spatial-density representation. The contribution is not the routine substitution of a random rate into a constant-rate formula: the positive residue and branch-cut structure require a nontrivial inversion and a singular weak-refresh analysis.
+
+## Closest literature and risks
+Arutkin and Reuveni, arXiv:2509.25365v1, equations (23)--(24) and sections 3--4: exact transform and heuristic tail discussion. Evans and Majumdar, arXiv:1404.4574, section 2: constant-rate stationary Brownian reset. Rose et al., arXiv:1806.01298, sections II--IV: fixed-rate resetting spectral theory. Source model assumptions are essential; time-correlation structure, draw law and stationary preparation may not be changed without a new proof.
+
+Self-review: passed. Independent audit: not yet performed.
