@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Backward Poisson renewal gives a stationary Beta(1,alpha) GEM expansion with unit-sphere vectors. Conditional pair inner products are centered, pairwise uncorrelated and have variance exactly 1/d. Explicit beta stick recursions give E H, E H^2 and E K, hence the exact finite-d L2 and variance formulae. A common normalized Gaussian-coordinate coupling proves almost-sure convergence. For each finite set of pairs a multivariate Gaussian-array CLT gives independent standard normal inner-product limits, while the omitted infinite pairs have conditional fluctuation variance bounded by four times H times the squared-weight tail, which tends to zero. Conditional characteristic functions and the delta method then prove both limiting distributions. Actual package code checks finite rational identities and finite Monte Carlo comparisons; none substitutes for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stam (1982) states general Gaussian limits for finite collections of high-dimensional spherical coordinate functions and inner products.",
+        "Sethuraman (1994) establishes beta stick-breaking for random discrete measures.",
+        "The present proof extends a finite-pair spherical inner-product CLT to infinitely many renewal weights using an exact conditional tail-variance bound."
+      ],
+      "reasoning": "Known building blocks do imply the finite-pair Gaussian limit, and the Dirichlet stick law is classical. The physical renewal-weighted infinite random barycenter limit requires coupling those ingredients and preserving the random conditional variance. An uninspected broader theorem may supply this extension; it is a residual, not concealed, implication risk.",
+      "searches": [
+        "high dimensional random vectors weighted sums uniform directions on sphere random weights conditional central limit norm Dirichlet process",
+        "uniform sphere Dirichlet mean squared norm stable conditional central limit theorem weights Poisson Dirichlet",
+        "Limit theorems for uniform distributions on spheres in high-dimensional Euclidean spaces A J Stam 1982",
+        "Sethuraman 1994 Constructive Definition of Dirichlet Priors"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.08436v1 (author-posted full preprint)",
+      "doi:10.1103/mlkm-vgbd (published same paper)",
+      "Sethuraman (1994) abstract/bibliographic record",
+      "doi:10.1214/aos/1176347509 (abstract/bibliographic record)",
+      "Stam (1982) Journal of Applied Probability abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source establishes the stochastic convolution/Dirichlet representation and exact radial moments, so it strongly covers all purely finite-moment corollaries.",
+        "The inspected full text does not assert conditional convergence of the residual high-dimensional angular fluctuations to a normal law with the history-dependent variance, nor its non-Gaussian mixture form.",
+        "The proof separately derives the dimension-uniform conditional L2 tail estimate required to pass from finitely to infinitely many renewal intervals."
+      ],
+      "reasoning": "The new central conditional CLT is not the source stationary-law theorem, not its small-d density results, and not its exact moment identity alone. It is a further consequence established by an infinite weighted spherical-product CLT and quantifies fluctuations conditional on histories. Still, a general random-weighted-vector limit theorem could logically subsume the statement even without this model name; independent expert assessment remains needed.",
+      "searches": [
+        "arxiv:2602.08436v1 Kesten Dirichlet run-and-tumble harmonic stationary representation Gaussian fluctuations dimensions",
+        "high-dimensional isotropic run and tumble particle harmonic trap stationary radial squared norm GEM Poisson Dirichlet Simpson diversity concentration fluctuations central limit",
+        "mixed Gaussian fluctuations of high-dimensional trapped run-and-tumble radius stick-breaking Poisson Dirichlet",
+        "Dirichlet process stick breaking square weight sum Gaussian central limit high dimensional random directions sphere"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guéneau–Majumdar–Schehr Eq. (43) establishes the renewal stick representation and Eq. (A22) gives finite-dimensional radial moment relations. The source analyzes explicit radial densities primarily in dimensions one through three.",
+        "The Simpson concentration index is a known Dirichlet-mass statistic; the new assessed object is the physical squared radius around that random center with a dimension-scaled conditional Gaussian fluctuation."
+      ],
+      "reasoning": "The limiting index H and exact low-order moments follow from the already known representation and are not separately novel. A statement equivalent to the conditional limit would give, for almost every stick sequence, a normal law with variance twice the sum of distinct squared-stick products. The inspected source does not state that conditional random-variance central limit; no corresponding equivalent claim appeared in searched accessible records.",
+      "searches": [
+        "high dimensional isotropic run and tumble particle harmonic trap stationary radial squared norm GEM Poisson Dirichlet Simpson diversity concentration fluctuations central limit",
+        "Poisson Dirichlet Simpson index limit of radial distribution d to infinity stationary run-and-tumble harmonic confined active particles",
+        "mixed Gaussian fluctuations of high-dimensional trapped run-and-tumble radius stick-breaking Poisson Dirichlet",
+        "arxiv:2602.08436v1 Eq. (43) and Appendix A radial moment formulas"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source has all-dimensional stationary moments and explicit small-dimensional density formulae; it does not display a table of dimension-scaled conditional fluctuation laws.",
+        "The finite-d variance and the two-dimensional beta-law check in the current result are special cases of already available source formulas and are not presented as new."
+      ],
+      "reasoning": "The assessed conditional law is a limiting probability-kernel statement depending on the full renewal history, not a tabulated density, isolated computed moment, or a new label for an already enumerated finite-d quantity.",
+      "searches": [
+        "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential Gueneau Majumdar Schehr 2602.08436 high-dimensional squared radius Simpson",
+        "stationary high-dimensional harmonic confined active particle radial nonconcentration inverse participation ratio Poisson-Dirichlet weight",
+        "arxiv:2602.08436v1 exact radial moments Appendix A22"
+      ]
+    },
+    "rationale": "Claim narrowed to the physically specific almost-sure high-d renewal-history limit and the conditional Gaussian-mixture fluctuation theorem. Fixed-d stationary formula, beta stick-breaking, all-dimensional moments, and generic finite-inner-product Gaussian limits are credited as prior. Literature and searchable record comparisons found no statement of the full history-conditional high-dimensional limit; general random-barycenter theory remains a disclosed risk.",
+    "residual_risks": [
+      "Uninspected general random-barycenter triangular-array CLTs may imply the history-conditional Gaussian variance mixture.",
+      "Prior finite-dimensional radial moments strongly constrain and imply the stated first two moments; these are supporting checks, not originality anchors.",
+      "Only the primary source has been inspected at full-text level; classical background full texts have not been compared line by line."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves stationary distribution and finite-dimensional moment relations, not the identified conditional high-dimensional Gaussian scale-mixture statement in inspected material.",
+        "evidence": [
+          "The source says explicit radial laws for d=1,2,3 and establishes a Dirichlet process representation for stationary positions; Eq. (43) is the underlying renewal recursion.",
+          "arXiv v1 posting date 2026-02-09."
+        ],
+        "identifier_or_url": "arxiv:2602.08436v1; https://www.researchgate.net/publication/400603858_Exact_Stationary_State_of_a_d-dimensional_Run-and-Tumble_Particle_in_a_Harmonic_Potential",
+        "material_read": "Full available author-uploaded preprint text including the model, Kesten/Dirichlet representation and equations (2)–(5), (19), (43), (A20)–(A22); inspected stated main results and appendices for the target high-dimensional fluctuation statement.",
+        "method": "Read available preprint full text and compare equations and limiting quantifiers against the asserted conditional CLT.",
+        "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+        "trigger": "identical physical process and the underlying stationary stick representation"
+      },
+      {
+        "assessment": "Owns the beta stick-breaking probability representation; no inspected evidence of the physical conditional high-dimensional radial CLT.",
+        "evidence": [
+          "The classical work introduces constructive Dirichlet-process stick-breaking."
+        ],
+        "identifier_or_url": "Sethuraman, Statistica Sinica 4 (1994), 639–650",
+        "material_read": "Bibliographic record and abstract-level description, not full published article.",
+        "method": "Bibliographic and topical comparison.",
+        "title": "A Constructive Definition of Dirichlet Priors",
+        "trigger": "prior ownership of independent beta stick-breaking weights"
+      },
+      {
+        "assessment": "Dirichlet random means are relevant background but are not direct coverage evidence for the spherical-vector conditional CLT.",
+        "evidence": [
+          "Cifarelli and Regazzini (1990), Annals of Statistics 18, 429–442."
+        ],
+        "identifier_or_url": "doi:10.1214/aos/1176347509",
+        "material_read": "Bibliographic record and abstract-level description, not a full-text inspection.",
+        "method": "Object and statement comparison.",
+        "title": "Distribution Functions of Means of a Dirichlet Process",
+        "trigger": "general random Dirichlet means might imply a stronger result"
+      },
+      {
+        "assessment": "Covers high-dimensional sphere and inner-product limit themes; the abstract alone does not resolve infinite random-weighted mixed-limit coverage, which is a residual risk.",
+        "evidence": [
+          "The abstract describes normal and total-variation limits for fixed finite coordinates and inner products of independent spherical vectors."
+        ],
+        "identifier_or_url": "Stam, Journal of Applied Probability 19 (1982), 221–228",
+        "material_read": "Journal abstract and bibliographic metadata; full article not inspected.",
+        "method": "Compare abstract to finite-pair CLT and infinite weighted-history extension.",
+        "title": "Limit theorems for uniform distributions on spheres in high-dimensional euclidean spaces",
+        "trigger": "possible broader coverage of spherical inner-product Gaussian limits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9fe7581-d304-446b-b3ee-29c0c0f29e87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The high-dimensional radial behavior is a motivated unaddressed regime of a fully specified active-particle stationary law. It exhibits persistent sample-to-sample renewal-history uncertainty despite angular isotropization, and the first correction is a history-dependent Gaussian mixture rather than a single Gaussian. The exact finite-d coupling error makes the limiting law quantitatively testable, while the conditional fluctuation theorem provides a new benchmark beyond tabulated moments and low-dimensional densities.",
+    "status": "PASS"
+  }
+}
