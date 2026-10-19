@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For diagonal matrices the pivot update zeros precisely the sampled weight; exponential clocks reproduce the sequential probabilities. Conditional on the last high clock the count is binomial, yielding the finite PGF/PMF by its Laplace transform. With a=lambda*n, fixed-r conditional Poisson mixing factors into independent geometric PGFs. For r->infinity and r=o(n), the high maximum has mean H_r and bounded variance, and conditional binomial fluctuations give the exact Gaussian window; the conditional mean differs from mu_n by only O_p(1). The trace-error event is exactly full high-coordinate capture because a-1>epsilon(n-r)+s in the stated regime. The standalone rational checker compared an independent Markov recursion and the closed forms in 1383 checks. Finitary experiments are only checks, not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Epperly 2026 Theorem 1.2 bounds failure probability universally by factorial/geometric quantities rather than an exact law for the two-plateau family.",
+        "Divan and Gilles 2026 provide expected residual bounds based on elementary symmetric polynomials and spectral decay; no two-plateau capture-count CLT appears in inspected sections.",
+        "Chen et al. 2024v6 Appendix C.4 analyzes the same two-plateau eigenvalue motif for k-DPP selection, not sequential RPCholesky."
+      ],
+      "reasoning": "Universal upper bounds on trace errors cannot determine the exact capture-count distribution or its sharp central-limit success probability. A DPP subset law is not the sequential residual-weighted pivot law. These prior results do not imply the numerical sharpness profile merely by substituting parameters.",
+      "searches": [
+        "Primary literature: full primary: arXiv:2608.20633v1 Theorem 1.2 and Corollary 1.3 general trace-error guarantees",
+        "Primary literature: full primary: arXiv:2609.06287v1 Theorem 3.1, Corollary 3.3 and RPCholesky analysis",
+        "Primary literature: PDF: arXiv:2207.06503v6 sections 2.3,5 and Appendix C.4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.20633v1; https://arxiv.org/html/2608.20633",
+      "arXiv:2609.06287v1; https://arxiv.org/abs/2609.06287",
+      "arXiv:2207.06503v6; https://arxiv.org/pdf/2207.06503",
+      "arXiv:2606.01821; https://arxiv.org/abs/2606.01821"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known sequential RPCholesky pivot rule + exponential-race embedding proves the newly stated distribution; these are acknowledged ingredients.",
+        "The 2024 appendix controls distinct k-DPP selection; the resulting implications about DPP do not determine the RPCholesky inclusion stopping time.",
+        "The 2026 bound sources give inequalities, not an exact growing-rank Gaussian critical window.",
+        "An earlier two-by-two-block RPCholesky exponential-race stopping result has fixed-background Gumbel behavior; this does not imply the present diagonal-model Gaussian trace-error event or exact full-capture count.",
+        "An earlier two-by-two-block RPCholesky exponential-race stopping result has fixed-background Gumbel behavior; this does not imply the present diagonal-model Gaussian trace-error event or exact full-capture count."
+      ],
+      "reasoning": "The proposed claim is the *joint* finite sequential-capture law, growing-rank Gaussian count limit, and sharp relative-trace success probability. Generic exponential races and the older two-by-two-block operator-norm/Gumbel calculation are related tools and contrasts, but their established statements do not entail this new scaling and trace event. Equivalent results elsewhere remain a bibliographic risk.",
+      "searches": [
+        "Research-index query: successive probability proportional to size sampling all marked items before number unmarked sampled exact beta gamma Poisson limit",
+        "Web primary: arXiv:2207.06503v6 Appendix C.4 two-plateau DPP benchmark",
+        "Web primary: arXiv:2609.06287v1 Theorem 3.1 and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General exponential-clock representation of sequential probability-proportional-to-size sampling is classical; the finite model is an exponential-race count.",
+        "Chen et al., arXiv:2207.06503v6, Algorithm 1, specifies the sequential residual-diagonal law."
+      ],
+      "reasoning": "Any equivalent size-biased-order statement with the same two-group scaling and growing-rank Gaussian threshold would cover the claim. No such statement was found in the inspected sources. A generic exponential race alone supplies a proof tool but does not state the derived high-probability RPCholesky trace window; equivalent probabilistic work remains a risk.",
+      "searches": [
+        "Research-index query: size-biased without replacement two populations high weight proportional to N count low items before last high item asymptotic Gaussian log r",
+        "Literature query: \"size-biased permutation\" \"exponential\" \"Poisson\" \"Gumbel\" heavy light",
+        "Literature query: \"Wallenius\" \"high weight\" \"logarithmic\" selection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked mathematical-research searches did not identify the exact two-level diagonal RPCholesky full-capture law.",
+        "An earlier related two-by-two-block RPCholesky model has exponential-clock operator-norm stopping times and a fixed-background Gumbel limit; it does not state the diagonal two-plateau count distribution or the Gaussian logarithmic trace-success window."
+      ],
+      "reasoning": "The earlier block-diagonal result uses correlated two-coordinate blocks and a fixed background-to-block mass parameter, with operator-norm stopping and Gumbel fluctuations. Here independent diagonal large entries scale proportionally to the entire dimension, leaving an order-one aggregate background/higher-rate ratio; the count of low pivots yields Gaussian sqrt(log r) fluctuations and a trace-success threshold. Neither model is a parameter substitution into the other stated theorem. No exhaustive uniqueness assertion is made.",
+      "searches": [
+        "Research-index query: RPCholesky diagonal two spectral levels spike logarithmic oversampling normal critical window hitting time trace optimal rank",
+        "Research-index query: randomly pivoted Cholesky exact residual trace equicorrelation compound symmetry kernel matrix all pivots 2026",
+        "Literature query: \"randomly pivoted Cholesky\" \"two-level\" \"diagonal\""
+      ]
+    },
+    "rationale": "The inspected RPCholesky literature proves general approximation and concentration bounds, and the 2024 foundational appendix studies the same two-level matrix for DPP, which is a different selection law. The exact sequential capture-count PGF and a growing-rank Gaussian near-optimal trace-success threshold are not given or obtained directly by parameter substitution in the inspected results. Generic exponential-race sampling facts are prior tools and acknowledged. Full novelty remains contingent on unindexed equivalent size-biased-permutation asymptotics and inaccessible sections of the 2026 motivating source.",
+    "residual_risks": [
+      "The arXiv 2608.20633v1 source was incompletely readable past the accessible HTML introduction; unseen appendix comparisons might overlap.",
+      "Classical size-biased sampling/Wallenius urn asymptotic literature may contain an equivalent Gaussian full-capture limit under different notation.",
+      "published-finding corpus and web searches are not exhaustive; no independent assessment was performed.",
+      "A related earlier two-by-two-block RPCholesky stopping-time result demonstrates Gumbel behavior for a distinct fixed-background matrix regime; undiscovered more general exponential-race theorems could subsume the present Gaussian case.",
+      "A related earlier two-by-two-block RPCholesky stopping-time result demonstrates Gumbel behavior for a distinct fixed-background matrix regime; undiscovered more general exponential-race theorems could subsume the present Gaussian case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General trace and spectral bounds were exposed, but no same two-plateau finite law or growing-rank Gaussian window found in material read; incomplete access leaves overlap risk.",
+        "evidence": [
+          "Theorem 1.2 and Corollary 1.3 in arXiv:2608.20633v1; HTML Introduction 1.2-1.4."
+        ],
+        "identifier_or_url": "arXiv:2608.20633v1; https://arxiv.org/html/2608.20633",
+        "material_read": "Accessible HTML Introduction including algorithm definition, Theorem 1.2 and Corollary 1.3, spectral-error statements and text search for diagonal/two-level/exponential; later page sections became inaccessible on further retrieval.",
+        "method": "Primary arXiv HTML read; follow-up full-text fetch unsuccessful.",
+        "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+        "trigger": "Motivating 2026 paper: general error probability for exact RPCholesky."
+      },
+      {
+        "assessment": "Expected-error and spectral-decay inequalities neither state nor determine this exact inclusion-count distribution and critical success law.",
+        "evidence": [
+          "Section 2.2 Eq. 2.2, Section 3 Theorem 3.1 and Corollary 3.3, arXiv:2609.06287v1."
+        ],
+        "identifier_or_url": "arXiv:2609.06287v1; https://arxiv.org/abs/2609.06287",
+        "material_read": "Accessible complete text listing including algorithm, Theorem 3.1, Corollaries 3.3-3.4, remainder and bibliography; focused comparison of RPCholesky bounds to new capture law.",
+        "method": "Primary full-text arXiv rendering, searched for diagonal/two-level/spike and inspected relevant sections.",
+        "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+        "trigger": "Concurrent stronger/general RPCholesky error guarantees."
+      },
+      {
+        "assessment": "Source contains exact RPCholesky rule and two-level diagonal comparison for DPP; this known matrix class is acknowledged, but the exact RPCholesky capture-count and Gaussian stopping law are not established there.",
+        "evidence": [
+          "Algorithm 1 on PDF page 2, Appendix C.4 on PDF pages 31-32, arXiv:2207.06503v6."
+        ],
+        "identifier_or_url": "arXiv:2207.06503v6; https://arxiv.org/pdf/2207.06503",
+        "material_read": "Full 40-page PDF parsed; algorithm page visual inspection; Sections 2 and 5, Appendix C.1-C.4 and relevant matches reviewed.",
+        "method": "Primary arXiv PDF text and page screenshot.",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Foundational primary RPCholesky algorithm and same two-plateau diagonal spectra used in comparison with DPP."
+      },
+      {
+        "assessment": "Different objective-aware selection; it restates base RPCholesky but does not derive the two-plateau probability law.",
+        "evidence": [
+          "Section 3 Randomized Variant and Algorithm 1, arXiv:2606.01821."
+        ],
+        "identifier_or_url": "arXiv:2606.01821; https://arxiv.org/abs/2606.01821",
+        "material_read": "Full arXiv rendered text, focused on Section 3 pivot rule and Section 4 modified objective.",
+        "method": "Primary preprint searchable full text.",
+        "title": "Variational Free Energy Pivot Selection for Pivoted Cholesky",
+        "trigger": "Recent modification of Cholesky residual sampling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d40bb66b-365e-42f6-b822-e94a523c769c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a natural accuracy-budget question for residual-weighted pivoted Cholesky that universal expected trace bounds do not quantify sharply: how many extra columns make all dominant spectral coordinates appear with high probability? The exact finite stopping distribution and Gaussian transition quantify that cost on the benchmark two-plateau family, distinguish O(log r) oversampling from the worst-case O(r/epsilon) scale, and identify that binomial fluctuations dominate the Gumbel maximum-clock randomness. It is a deliberately bounded structured benchmark, not a universal kernel theorem.",
+    "status": "PASS"
+  }
+}
