@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "An explicit missing-colour lemma proves an iff criterion for legal single-edge recolourings and describes frozen states. Two independently programmed complete enumerations use GP(5,2) edges and KG(5,2) disjointness edges, respectively. Both exhaust exactly 49,920 proper four-edge-colourings and 109,440 transitions, giving component sizes 1 (multiplicity 960) and 24,480 (multiplicity 2). The independent Kneser script checks the frozen 960-state orbit and the full action of 120 symbol and 24 colour permutations. All programs passed replay against the actual included scripts. Finite exhaustive enumeration applies only to this exactly specified graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Osawa–Suzuki–Ito–Zhou 2016, abstract and section 3: PSPACE-completeness for list variant k>=4 in planar subcubic inputs, non-list variant k>=5 on planar graphs of maximum degree k.",
+        "The Petersen graph is nonplanar, cubic, and the target palette has four colors."
+      ],
+      "reasoning": "Hardness theorems on classes of inputs do not determine the exact connectivity partition of this individual optimal four-colouring state graph; the stated graph-degree/palette hypotheses are different.",
+      "searches": [
+        "Petersen graph optimal proper edge coloring single edge recoloring graph connected components isolated configurations",
+        "https://arxiv.org/abs/1609.00109, sections 1 and 3",
+        "web: edge colorings reconfiguration single edge recoloring graph k edge 2016"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1609.00109v1, same move definition and complexity theorems",
+      "OEIS:A159233, exact previously known count",
+      "OEIS:A270842, nonproper edge labelings",
+      "Bousquet graph recolouring habilitation, Chapter 3 pages 55-56",
+      "Ito–Kawamura–Zhou 2012 tree article abstract and metadata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bousquet habilitation, chapter 3, Figure 3.11 explicitly presents a five-colour frozen Petersen edge-colouring, not a four-colour classification.",
+        "The inspected 2016 arXiv text contains no occurrence of Petersen and supplies reconfiguration complexity context rather than the claimed finite census."
+      ],
+      "reasoning": "A 5-colour isolated example does not imply the number or structure of 4-colour isolated configurations, much less the size and symmetry action of two giant 4-colour components. Existing global hardness and raw colour counts do not dominate the exact claim.",
+      "searches": [
+        "web: \"Petersen\" \"960\" \"frozen\" coloring",
+        "web: \"Petersen\" \"24480\" \"recoloring\"",
+        "https://perso.liris.cnrs.fr/nbousquet/Habilitation_defense.pdf, Chapter 3 p.55-56",
+        "Petersen graph 4-edge colorings count 49920 960 frozen two connected classes parity automorphism"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Proper four-edge-colourings of P are exactly proper vertex four-colourings of L(P); OEIS A159233 states this equivalence and counts 49,920.",
+        "The 2016 reconfiguration paper explicitly describes the line-graph translation in its section 1.2."
+      ],
+      "reasoning": "The invariant is a graph of colorings and one-coordinate moves, not the chromatic polynomial or ordinary vertex colorings of P. The known equivalent formulation does not imply component sizes or frozen-orbit classification.",
+      "searches": [
+        "line graph of Petersen graph 4-colouring recolouring components",
+        "web: \"Petersen graph\" \"line graph\" \"frozen\" \"4-coloring\"",
+        "OEIS A159233 https://oeis.org/A159233"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A159233 records 49,920 for four colors and is attributed to Alois P. Heinz, 2009-04-06.",
+        "OEIS A270842 counts arbitrary edge-labelings modulo graph automorphisms and explicitly states that properness is not required."
+      ],
+      "reasoning": "The 49,920 proper-colouring total is covered and not claimed new. Neither table specifies adjacency by a legal one-edge recolour, the 960 frozen solutions, or the two giant components.",
+      "searches": [
+        "OEIS A159233 edge colorings Petersen graph 49920",
+        "web: \"Petersen\" \"49920\" \"edge colorings\"",
+        "OEIS A270842 https://oeis.org/A270842"
+      ]
+    },
+    "rationale": "OEIS A159233 already tabulates 49,920 proper four-edge-colourings and that count is explicitly excluded from the novelty claim. Inspected edge-colouring reconfiguration literature treats general hardness or trees, without proving the exact Petersen four-colour state-component distribution. A later inspected manuscript has a frozen five-colour Petersen colouring, not the claimed four-colour component classification. Mathematical-record and targeted literature queries had no covering result, but this is not a universal priority guarantee.",
+    "residual_risks": [
+      "Potential prior exact reconfiguration census in unindexed independent computation or supplementary table.",
+      "The 2012 tree article was assessed from its explicit abstract and scope rather than full text; its stated tree restriction makes direct coverage implausible.",
+      "Not all conceivable literature databases, theses or unpublished data sets are exhaustively searchable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same basic model, but the paper gives complexity results, not the Petersen component classification",
+        "evidence": [
+          "arxiv:1609.00109v1, submitted 2016-09-01",
+          "Sections 1.1-1.3, theorem 3.1 and non-list statement; web find for Petersen yielded no match"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.00109",
+        "material_read": "HTML full-text excerpts covering abstract, definitions, known results, sections 1-3, plus whole-text find for Petersen and frozen",
+        "method": "Read detailed primary HTML and theorem hypotheses; compared exact update rule and covered graph classes",
+        "title": "The Complexity of (List) Edge-Coloring Reconfiguration Problem",
+        "trigger": "Same one-edge reconfiguration model and closest pre-2016 general theorem"
+      },
+      {
+        "assessment": "Covers only raw number of proper colorings (49,920), not state-graph connectivity; raw count excluded",
+        "evidence": [
+          "A159233 a(4)=49920",
+          "Author entry Alois P. Heinz, Apr 06 2009"
+        ],
+        "identifier_or_url": "https://oeis.org/A159233",
+        "material_read": "Entire displayed sequence entry including terms, comments, author/date, related entries",
+        "method": "Compared n=4 term and scope of associated sequence",
+        "title": "Number of edge colorings of the Petersen graph (A159233)",
+        "trigger": "Possible exact database coverage of the 49,920 count"
+      },
+      {
+        "assessment": "Example uses five edge colours, not the four-colour full classification",
+        "evidence": [
+          "Chapter 3 printed p.55 line graph passage: five-colour frozen Petersen edge-colouring",
+          "Figure 3.11 printed p.56"
+        ],
+        "identifier_or_url": "https://perso.liris.cnrs.fr/nbousquet/Habilitation_defense.pdf",
+        "material_read": "Pages marked 55-56 including line-graph discussion and Figure 3.11, inspected via text and page images",
+        "method": "Compared palette size and frozen definition",
+        "title": "Graph recolouring, habilitation manuscript, Chapter 3",
+        "trigger": "Plausible frozen Petersen edge-coloring statement"
+      },
+      {
+        "assessment": "Connectivity sufficient condition for trees does not settle Petersen graph",
+        "evidence": [
+          "2012-03-01 first publicly visible journal issue date",
+          "Title and abstract explicitly restrict input to trees"
+        ],
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/transinf/E95.D/3/E95.D_3_737/_article",
+        "material_read": "Author journal abstract and scope statement, not full paper",
+        "method": "Checked graph-family assumptions explicitly limited to trees",
+        "title": "An Improved Sufficient Condition for Reconfiguration of List Edge-Colorings in a Tree",
+        "trigger": "Earlier same-model list recolouring source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc3c71d1-e106-4892-8721-52a98749075f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Petersen graph is the canonical smallest snark and four colors its minimum edge-colouring palette. The state graph has 960 trapped optimal solutions plus two distinct connected classes each containing 24,480 solutions: dropping isolated states alone does not restore reachability or a single irreducible Glauber class. The missing-colour lemma gives a structural criterion for local moves, while the alternating action of S5 and the trivial action of colour renamings on giant components display meaningful symmetry. This is a complete natural optimal-configuration classification, not a mere extension of the already known chromatic-polynomial value.",
+    "status": "PASS"
+  }
+}
