@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The first Euclidean PLSS step is derived from equation (1.8) of arXiv:2207.07615 and gives r1=r0-(||r0||^2/(r0^T A^2r0)) A^2 r0. Orthogonal diagonalization proves the angle ratio exactly, angular log integral differentiated once in each squared singular value proves the isotropic mean square, and a discriminant plus half-Cauchy angular parametrization yields the probability and two sharp thresholds. The second sketch spans R^2 unless already terminated. Verified standalone code contains 6948 exact-rational checks and nonproof numerical integration comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical Kantorovich/Rayleigh estimates supply worst-case bounds for fixed singular values.",
+        "The GMRES(1) result concerns minimal-residual updates and solution error; weighted Jacobi and steepest-descent results involve different iterations, metrics or deterministic data."
+      ],
+      "reasoning": "The deterministic supremum is recognized as classically accessible, and novelty is not assigned to that component. Broader algorithmic bounds reviewed do not fix the angular probability law or its mean-square threshold on the chosen residual-history PLSS specialization.",
+      "searches": [
+        "randomized projected linear solver first two residuals orthogonal initial residual uniform sphere two by two squared norm condition threshold",
+        "\"isotropic\" \"steepest descent\" \"expected\" \"residual\" squared condition number",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.07615 (full original paper, algorithm and finite termination sections)",
+      "arxiv:2407.00746v1 (full original paper, algorithm and method sections)",
+      "published-finding corpus semantic searches Q1-Q5 recorded with closest IDs",
+      "Published related published-finding corpus records 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc; 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f; 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12; 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "Accessible preceding planar algorithm claims in own 94-item ledger, including rank-one Newton sketches and energy-norm projection variants, compared for implication",
+      "Targeted web searches for isotropic PLSS and condition-number thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source arXiv:2207.07615 Eq. (1.8) gives the update and states finite termination; the new proof supplies the angular averaging and sharp threshold.",
+        "Source arXiv:2407.00746v1 Section 2 gives the more general sketch-and-project framework and finite termination, but its generic statements do not specify the isotropic first-step law.",
+        "Closest published record claims involve different algorithms or norms."
+      ],
+      "reasoning": "The original update formula logically implies the proposed first-step law after a nontrivial angular integral; therefore the derived law is a new explicit structural calculation, not a new general algorithmic guarantee. Finite termination is known and not claimed as new. No inspected source already states a stronger theorem that directly covers the exact angular classification.",
+      "searches": [
+        "arxiv:2207.07615 (finite termination and update formula)",
+        "arxiv:2407.00746v1 (structured sketch update and finite termination)",
+        "Projected Linear Systems Solver residual sketches pathwise growth probability arctangent sharp 1+sqrt2 phase transition",
+        "PLSS projected linear systems solver B=I residual sketch first-step isotropic random residual expected squared residual amplification (kappa-1)^2/(2kappa) mean-square threshold 2+sqrt3",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-step PLSS residual is a Rayleigh-scaled step for A^2, so a matching claim may use minimal-correction, steepest-residual, or positive-definite normal-equation terminology.",
+        "The original primary papers supply the update and finite-termination statement but no isotropic directional mean square or exact growth-event measure found in inspected material."
+      ],
+      "reasoning": "Equivalence of residual-history PLSS with the stated Rayleigh step is explicitly used in the proof; general Rayleigh step bounds do not, without an angular average, imply the claimed exact mean-square threshold or probability. No matching equivalent statement was located in the named checks.",
+      "searches": [
+        "Brust Saunders PLSS residual sketch S1 r0 B identity Euclidean residual squared one-step expectation isotropic angle condition number 2+sqrt3 finite termination",
+        "PLSS projected linear systems solver B=I residual sketch first-step isotropic random residual expected squared residual amplification (kappa-1)^2/(2kappa) mean-square threshold 2+sqrt3",
+        "first iteration residual sketch isotropic mean square contraction critical condition number 2+sqrt3 symmetric two dimensional linear solver orthogonal residual exact two step",
+        "\"projected linear systems solver\" \"expected\" \"residual\" \"random\" \"first\"",
+        "arxiv:2207.07615 (Eq. 1.8 and Sections 2,4)",
+        "arxiv:2407.00746v1 (Section 2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned mathematical-record entries included symmetric GMRES(1), Richardson, Jacobi and random Kaczmarz results with no stated PLSS isotropic moment table.",
+        "No database/table listing the two planar PLSS frontiers or the growth probability was located."
+      ],
+      "reasoning": "No relevant tabulated exact PLSS first-step isotropic distribution or threshold was found in the searched scientific records; this is a scope-limited negative check, not a proof that no table exists.",
+      "searches": [
+        "Brust Saunders PLSS residual sketch S1 r0 B identity Euclidean residual squared one-step expectation isotropic angle condition number 2+sqrt3 finite termination",
+        "Projected Linear Systems Solver residual sketches pathwise growth probability arctangent sharp 1+sqrt2 phase transition",
+        "randomized projected linear solver first two residuals orthogonal initial residual uniform sphere two by two squared norm condition threshold",
+        "\"2 + sqrt(3)\" \"residual\" \"linear solver\"",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12"
+      ]
+    },
+    "rationale": "The inspected PLSS source defines the update and establishes at-most-two-step termination, so those parts and classical deterministic Rayleigh/Kantorovich extremal bounds are not claimed as new. The new statement is the full isotropic mean-square threshold and growing-first-step frequency for this specific original algorithm, separating the deterministic threshold from typical finite-step behavior. Source, mathematical-record, aliases and historical-claim comparisons found no coverage; possible equivalent angular moments in unrelated literature remain a disclosed risk.",
+    "residual_risks": [
+      "A generic mean-square theorem for an equivalent Rayleigh-scaled step may already imply the explicit integral without naming PLSS.",
+      "A classical or pre-2022 result could list the same angular average; searched material is not exhaustive.",
+      "The deterministic worst-case threshold follows established extremal inequalities and is not itself claimed original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "METHOD_AND_FINITE_TERMINATION_KNOWN; statistical angular threshold and growth probability not found in material read",
+        "evidence": [
+          "arXiv:2207.07615 pp. 1-4, Eq. (1.8); Section 4; arXiv version v1 first submitted 2022-07-15"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.07615",
+        "material_read": "Full abstract/introduction, equation (1.8), Section 2 sketch rank conditions and residual orthogonality, relevant residual recursion/finite termination in Section 4, and source metadata",
+        "method": "Opened arXiv full PDF, read extracted mathematical equations and rendered page containing Eq. (1.8)",
+        "title": "PLSS: A Projected Linear Systems Solver",
+        "trigger": "Original first residual-history sketch and exact two-step solver"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_AND_TERMINATION_KNOWN; did not identify exact planar isotropic first-step squared moment or growth probability",
+        "evidence": [
+          "arXiv:2407.00746v1 pp. 2-4, Eqs. (2.1)-(2.4); first submitted 2024-06-30"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.00746",
+        "material_read": "Full-text method sections, algorithms including Section 2 Eqs. (2.1)-(2.4), finite termination discussion, examples and conclusions",
+        "method": "Opened original arXiv v1 full PDF, read extracted formulae and rendered page 3, inspected related sections",
+        "title": "Structured Sketching for Linear Systems",
+        "trigger": "Possible broader B-weighted sketch-and-project iteration, possible covering stability claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e40d074f-6c79-4fc8-88e3-f4a761fd2a2a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural finite-termination promise motivates checking whether inexpensive early PLSS residuals actually improve. The exact worst-case and isotropic second-moment thresholds differ, creating a concrete nontrivial condition-number regime with positive probability of transient growth but average contraction, followed by average expansion despite guaranteed next-step termination. The closed growth probability supplies additional frequency information and has a sharp high-condition limit. This is a complete motivated planar classification rather than arbitrary sampling or a mere correctness check.",
+    "status": "PASS"
+  }
+}
