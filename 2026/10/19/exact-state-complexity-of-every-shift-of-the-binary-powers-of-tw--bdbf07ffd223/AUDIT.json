@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "An exact accepted-language identity for both power and nonpower shifts is followed by a complete reachable Myhill-Nerode residual classification. Nonpower quotients comprise root, dead, r+1 distinct infinite residuals, h distinct two-element residuals, s distinct singleton suffixes. Power shifts have root, dead, one infinite and s-1 singleton residuals. All classes are distinguished by infinite/finite cardinality, distinct length or exceptional suffix, proving exact bounds. Sharp dyadic extremizers follow analytically. Separately constructed NFAs determinized and minimized agree for shifts 1..4095; arithmetic output checks pass for 100 shifts times 180 indices with padding. Computation is corroboration, not infinity proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.10017 Theorem 21 supplies qualitative O(log c) for this exact family, not exact minimality.",
+        "arXiv:2603.18858 studies the Fibonacci word and references shifted powers of two only as a logarithmic example.",
+        "Zantema-Bosma 2022 establishes general transformed/tail state bounds, which do not imply the exact formula."
+      ],
+      "reasoning": "Compared whether a broader theorem, construction, automata quotient theorem, or transformed-automatic-sequence bound already forces this numerical equality. General regular-language minimization is a tool, not a parameter-specific exact count. None of the inspected broader statements delivers the sharp dyadic envelope or the bitwise quotient classification.",
+      "searches": [
+        "Moradi Rampersad Shallit shifts powers of two automata exact state count O(log c)",
+        "Moradi Rampersad Shallit 2512.10017 Theorem 21 improvement exact number states",
+        "exact minimal automaton for sequences that mark powers of two after an additive shift",
+        "arXiv:2603.18858",
+        "Zantema and Bosma 2022 complexity of automatic sequences tails"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.10017v5 Section 4.3",
+      "arXiv:2603.18858v1 sections on shifts",
+      "Zantema and Bosma (2022) PDF sections on tails",
+      "published-finding corpus targeted semantic results: 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba; 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f; 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Theorem 21: minimal size is O(log c), with a construction, not equality.",
+        "published-finding corpus 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f treats odd parts of powers of the Thue-Morse sequence, not regular-language right quotients."
+      ],
+      "reasoning": "O(log c) is compatible with many different exact functions and does not imply N(c)=s+r+h+3. Related Thue-Morse state-count results concern a different underlying automatic word and do not provide a reduction to this powers-of-two indicator. The new quotient analysis is needed to prove exact minimum and equality cases.",
+      "searches": [
+        "exact minimal DFAO state complexity binary shifts of powers of two characteristic sequence P2(i+c), distinguishing c binary pattern and trailing digits",
+        "state complexity of shifted power of two indicator P_2(i+c) exact formula for all c, runs of ones and common prefix with 0-padding",
+        "state complexity dyadic shifts sparse automatic sequences prefix-suffix overlap equality cases",
+        "arXiv:2512.10017 Theorem 21 proof and automaton construction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text arXiv:2512.10017 Theorem 21 explicitly treats P_2(i+c) and claims only O(log c).",
+        "Binary language 0*(alpha union 1+beta) and complete right-quotient minimization are equivalent to the claimed shifted-indicator state count.",
+        "published-finding corpus search hits included 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba, which concerns synchronizing ranks instead."
+      ],
+      "reasoning": "Searched both characteristic-sequence and regular-language/translated-powers formulations. The primary same-object construction supplies an upper bound but not exact equivalence-class counts; no retrieved result states or entails the complete bit-overlap formula without additional proof.",
+      "searches": [
+        "exact minimal DFAO state complexity binary shifts of powers of two characteristic sequence P2(i+c), distinguishing c binary pattern and trailing digits",
+        "shifted characteristic powers of two regular language 2^k-c minimal deterministic automaton state complexity",
+        "minimal DFA for {2^k-c : k>=0} natural numbers base 2 including all leading zeros",
+        "published-finding corpus semantic search; arXiv:2512.10017 Section 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant arXiv:2512.10017 text mentions OEIS A382296 for shifted Thue-Morse, which is a different sequence.",
+        "Searches returned generic counts of finite binary automata and unrelated automatic-word records, not a table of this shift statistic.",
+        "Exact state counts c=1..4095 were computed anew by an executable finite automaton minimizer, not copied from a database."
+      ],
+      "reasoning": "A prior complete table or listed exact formula for N(c) would cover this result. No directly matching table was identified in the databases and results examined, but absence of a hit is not a proof that no such table exists.",
+      "searches": [
+        "OEIS minimal automaton states powers of two shifted sequence c",
+        "OEIS state complexity shifted characteristic sequence powers of two 2^k-c",
+        "formula state complexity of shifts of the powers-of-two characteristic automatic word, msd-first binary and leading zeros"
+      ]
+    },
+    "rationale": "The same-object theorem (Moradi, Rampersad, Shallit 2025, Theorem 21) proves only O(log c); this finding derives every exact minimum including complete sink, explicit bit-dependent variation and sharp dyadic bounds. Independent literature, record and own-claim comparisons found no directly covering implication. Residual unindexed-prior and automaton-convention risks explicitly remain.",
+    "residual_risks": [
+      "A differently worded or unindexed exact state-count theorem may have escaped searching.",
+      "An exact formula might be derivable from an older constructive automaton after further unrecorded minimization; a bound or construction alone is not exact prior coverage.",
+      "Comparisons depend on precisely requiring complete DFAOs, correct output on all leading-zero encodings, and counting the rejecting sink.",
+      "A semantic search and inspected sources cannot prove global literature uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest directly matching prior result: O(log c), not a minimal exact formula. Convention in source sometimes omits dead state, while this theorem explicitly counts complete states.",
+        "evidence": [
+          "arXiv:2512.10017v5, lines 519-556, theorem 21; originally submitted 2025-12-10",
+          "The theorem states O(log c) without an exact bitwise value."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "Full introduction/definitions and complete Section 4.3, Theorem 21 with proof including the two-case automaton construction and power-of-two exception; arXiv submission history.",
+        "method": "Lawful arXiv full HTML; inspected substantive theorem and construction text.",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Exactly the same shifted powers-of-two indicator, Theorem 21"
+      },
+      {
+        "assessment": "Different source sequence; does not imply this power-of-two exact formula.",
+        "evidence": [
+          "arXiv:2603.18858, initially submitted 2026-03-19, introduction and discussion of logarithmic powers-of-two example."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Abstract, introduction, section describing shifted Fibonacci states and its references to shifted powers of two.",
+        "method": "Lawful arXiv HTML full sections.",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Contemporary exact and asymptotic state-complexity comparisons for shifted automatic sequences"
+      },
+      {
+        "assessment": "General estimates rather than the specific minimum-state quotient count; no covering exact formula found in examined sections.",
+        "evidence": [
+          "Tail-bound theorem and transformed-automatic-sequence discussion; broad inequality does not establish exact minimal binary state count."
+        ],
+        "identifier_or_url": "Zantema and Bosma (2022), lawful open-access PDF",
+        "material_read": "Initial formal definitions and sections presenting the tail upper bound and concluding transformed-sequence considerations.",
+        "method": "Open-access PDF text plus rendered first-page inspection.",
+        "title": "Complexity of Automatic Sequences",
+        "trigger": "General tail and shifted-automatic-sequence theorems might dominate a special-case result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdbf07ff-d223-415b-a71a-895f2b74298f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent primary theorem focuses on the same natural sparse automatic sequence but proves only logarithmic complexity; determining the precise minimum is a mathematically motivated unresolved refinement. The new formula reveals an exact bit-pattern/right-quotient mechanism and sharp dyadic envelopes attained by explicit shifts, replacing a qualitative logarithmic claim with a uniform exact classification rather than an arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
