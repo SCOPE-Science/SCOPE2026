@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact half-Cauchy coordinate is obtained by an explicit Jacobian, while circle Poisson moments give an independent proof of invariance for every fixed integer degree. The leading parameter constant follows from a finite binomial identity. All three moment regimes follow by dominated convergence or a controlled logarithmic split; a uniform error estimate, not just a pointwise limit, proves the critical crossover. The checker independently confirmed symbolic coefficients and selected integrals; its finite tests are not infinite proofs.
+
+**Originality — PASS (subject to historical priority risk).** The original 2000 paper already contains the stationary density and parameter relation; the 2002 composition paper concerns other parameter families and entropy. Neither inspected primary text presents the complete stationary-moment classification, the degree-dependent parameter calibration, or the locally uniform logarithmic crossover. General half-Cauchy and beta-prime formulas can imply distribution-level pieces, so the contribution is the coupled dynamical critical-response theorem, not a new distribution. Targeted mathematical-finding and literature comparisons did not identify an equivalent or strictly stronger theorem. Further historical priority checking remains desirable.
+
+**Value — PASS.** The endpoint loss of an absolutely continuous stationary state is an intrinsic bifurcation of this hierarchy. The exponent \(q=1/2\) separates observables governed by the shrinking boundary core from observables controlled by rare macroscopic excursions. The exact crossover and coefficients provide reproducible, degree-calibrated predictions for stationary statistics near the neutral endpoint and demonstrate a quantitative failure of differentiable mean response. This is a complete natural moment-response classification, rather than a selected arbitrary value of one integral.
+
+**Limitations and risks.** Source [1] owns the density and entropy; the asymptotic law is restricted to fixed degree and one parameter boundary. Related general probability facts might have been implicitly recognized elsewhere. This is not a statement about mixing rates or universal behavior of all intermittent maps.
+
+Self-review: passed. Independent audit: not yet performed.
