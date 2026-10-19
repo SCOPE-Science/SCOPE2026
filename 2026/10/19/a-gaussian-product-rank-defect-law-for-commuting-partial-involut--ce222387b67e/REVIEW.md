@@ -1,0 +1,11 @@
+# Review of the Gaussian product-rank defect law
+
+**Correctness (C): PASS.** Every commuting pair separates into invariant common-domain and exclusive-domain pieces. The elementary abelian two-group orbit inventory yields the exact bivariate formula; the group-centralizer argument counts fibers of a prescribed product. A Cauchy saddle estimate has a unique dominant positive saddle because the lower-degree positive terms suppress the other three quartic saddle directions. The marked moment-generating function converges to a standard normal. The package's independently programmed enumeration reproduces all small examples and every individual product fiber through six points.
+
+**Originality (O): PASS, with residual risk.** The inspected 2009 involution-composition paper treats unconstrained total involutions; the 2012 symmetric-inverse-semigroup paper studies commutation and commuting graphs, supplying established antecedents rather than a product-rank central limit theorem; the 2013 symmetric-group paper treats commuting total involutions up to conjugacy. Their statements do not imply the exact partial-product fiber formula or the conditional random partial-involution Gaussian rank-defect law without the new specialization, enumeration and asymptotic analysis. General finite combinatorial exponential formulas and saddle asymptotics are standard methods, not claimed as new. An unlocated semigroup enumeration or explicit equivalent limit theorem is a residual risk.
+
+**Value (V): PASS.** A natural product statistic in a classical transformation inverse monoid has a nontrivial, exact Gaussian fluctuation scale: typical partial-product rank is close to full, with deficiency of order \(\sqrt n\) and fluctuations of order \(n^{1/4}\). The complete prescribed-product fiber counts distinguish cycle structures, supporting finer probabilistic or algebraic investigations beyond a single total count.
+
+**Limits.** Only ordered commuting self-inverse partial bijections are included; unrestricted partial bijections and independently chosen factors have different models. Numerical replay covers sizes zero through six, while the analytic proof covers every size asymptotically. No local limit/rate or independent assessment is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
