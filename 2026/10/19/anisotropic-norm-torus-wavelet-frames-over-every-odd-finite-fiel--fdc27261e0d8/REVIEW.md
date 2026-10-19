@@ -1,0 +1,15 @@
+# Review of anisotropic norm-torus wavelet frames
+
+## Correctness — PASS
+For each odd prime power \(q\), a nonsquare \(\delta\) makes \(x^2-\delta y^2\) an anisotropic field norm. The quadratic-character identity counts exactly \((q-\chi(-1))/2\) nonzero slopes \(c\) for which \(1-\delta c^2\) is nonsquare. With opposite-sign pair representatives, the two graph branches enumerate every nonzero norm once. The order-\(q+1\) cyclic kernel of the extension-field norm acts freely and transitively on each norm level, giving an exact punctured-plane tiling. A horizontal character basis restricted from the graph is a Parseval frame on every deleted-origin block; disjoint dilation supports give global Parseval tightness. Fourier inner products prove the exact regular-simplex Gram blocks. These steps establish the theorem for all odd prime powers, independently of the finite checker.
+
+## Originality — PASS (best knowledge)
+Iosevich–Lai–Mayeli, *Tight Wavelet Frame Sets in Finite Vector Spaces* (arXiv:1703.06842, 2017), establishes the spectral tiling criterion and a graph construction for prime \(q\equiv3\pmod4\); Proposition 4.6 excludes **Euclidean** rotations for \(q\equiv1\pmod4\), while Section 5 asks whether wavelet frame sets nevertheless exist and about extension to prime powers. Their proof therefore does not entail this anisotropic norm-torus construction for every odd prime power. Rahimi–Seddighi (arXiv:1705.11127) concerns one-dimensional prime-field wavelet frames, and Mayeli (arXiv:1703.06771) discusses locally compact abelian group spectral criteria. The present explicit two-slope anisotropic transversal, all-odd-prime-power existence statement, and Gram-block classification were not identified in the available published comparisons. This is a best-knowledge conclusion, **not a uniqueness or exhaustive-priority certificate**. An analogous construction using an equivalent quadratic form might appear elsewhere; Sinha–Sahoo (DOI:10.5666/KMJ.2021.61.2.371) was inspectable only at abstract level.
+
+## Mathematical value — PASS
+The natural gap was existence of finite two-dimensional tight wavelet frame sets for primes \(q\equiv1\pmod4\), where the earlier Euclidean rotational method fails, as well as arbitrary odd prime powers. The anisotropic form removes the isotropic-zero-radius obstruction and yields actual constructions, not merely a restated abstract existence criterion. Exact redundancy, Gram eigenvalues, and a flexible family of explicit graph transversals make the result applicable to finite Fourier/wavelet frame design.
+
+## Verification and limitations
+The analytical proof does not require numerical calculations. The standalone pure-Python checker verifies eight selected fields \(q\in\{3,5,7,9,11,13,25,27\}\), including extensions; it tests norm values, dilation partition, and block Fourier inner products. Those cases cannot independently establish the all-field claim. No claims are made for characteristic two, higher dimensions, or a basis of the full function space. The complete text of Sinha–Sahoo (2021) remains an originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
