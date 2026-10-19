@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact first-stage equations from source Algorithm 4 imply the limit u/(1+mu²||u||_infty²/||Au||_infty²). Nonzero range-orthogonal perturbations guarantee the first subdiagonal pivot; norm bounds and explicit isometries attain both endpoints; scalar equioscillation proves unique minimax. The included exact verifier reconstructs both stages and symbolic examples. Infinite statements follow from the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2409.05239 Theorem 3.1 is a residual-norm comparison involving the condition number of a block basis, not an exact one-stage Tikhonov filter or minimax bound.",
+        "arxiv:2502.02721 Section 3.3 introduces sketched fidelity and penalty objectives, which are distinct algorithms and do not supply the projected coefficient filter of unskeched LSLU.",
+        "published-finding corpus 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af describes basis-metric distortion for weak Gauss-Newton, a different algorithm and norm."
+      ],
+      "reasoning": "Broad stability and conditioning results do not imply either extremal filter for isometric input, let alone a calibration minimax formula. The closest semantically retrieved norm-distortion result concerns weak test-frame geometry rather than pivoted Hybrid LSLU.",
+      "searches": [
+        "published-finding corpus: Hybrid LSLU 2024 least squares LU Hessenberg inverse problems",
+        "published-finding corpus: nonorthogonal basis projected Tikhonov variable regularization distorted parameter",
+        "Web: \"H-CMRH\" \"Tikhonov\" \"orthonormal\" \"basis\"",
+        "arxiv:2409.05239 Theorem 3.1",
+        "arxiv:2502.02721 Sections 3.1-3.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.05239 (original, 2024-09-08)",
+      "arxiv:2401.06918 (related prior)",
+      "arxiv:2502.02721 (later related)",
+      "published-finding corpus 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "published-finding corpus 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a",
+      "published-finding corpus 2026/9/20/SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1 (nonmatching)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Eq. (28) defines the reduced ridge objective; reconstruction of its pivots on exact isometries is a new calculation, not a quoted source result.",
+        "Theorem 3.1 bounds hybrid residual norms in terms of a block condition number; it does not determine the coordinate filter or the best fixed lambda across all orientations.",
+        "The 2025 sketched formulation preserves Euclidean fidelity/penalty approximately and is not the unsketched coefficient-norm program."
+      ],
+      "reasoning": "The prior method definition permits deriving this specialized theorem, but a method definition does not by itself explicitly prove the exact sharp orientation interval, endpoint realizations under nonzero noise, or optimal orientation-blind scalar calibration. The result is neither a direct restatement nor a numerical table lookup.",
+      "searches": [
+        "arxiv:2409.05239 Algorithm 4, Eq. (28), Theorem 3.1",
+        "arxiv:2401.06918 Section 4, Theorem 4.1",
+        "arxiv:2502.02721 Section 3.3",
+        "published-finding corpus: coordinate basis scaling in hybrid LSLU or H-CMRH least squares LU ridge regularization norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2401.06918 Section 4, Eqs. (23)-(25), uses a nonorthogonal Hessenberg basis and coefficient ridge penalty for square H-CMRH, without the rectangular isometric sharp range.",
+        "arxiv:2409.05239 Algorithm 4, Algorithm 5, Eq. (28) define the formulation here; no numerical orientation classification is provided in Sections 2.2-4."
+      ],
+      "reasoning": "A change of coordinates can change a ridge penalty, a known general fact. The new statement is specifically the limit of the rectangular LSLU first stage with full pivot selection, with exact l-infinity orientation factor, sharp dimension endpoints and an optimal universal-calibration obstruction. The square H-CMRH formulation is not an implication of these constants or endpoint realizations.",
+      "searches": [
+        "published-finding corpus: Hybrid LSLU 2024 Brown Chung Nagy Sabate Landman ridge parameter scaled by infinity norms of right-hand side and signal",
+        "published-finding corpus: orthonormal columns one Krylov iteration nonorthogonal Hessenberg projected Tikhonov effective lambda max entry ratio dimension-dependent",
+        "Web: \"LSLU\" \"Tikhonov\" \"basis\" scaling \"regularization\"",
+        "arxiv:2401.06918 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2409.05239 Table 1 presents numerical tomography reconstruction errors and regularization values, not exact extremal norms for isometries.",
+        "published-finding corpus query LSLU returned semantically broad, nonmatching records including 2026/9/20/SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1."
+      ],
+      "reasoning": "No matching exact minimax table or complete isometric parameter interval was identified in the actually searched sources. Absence from search results alone is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: LSLU",
+        "published-finding corpus: sharp m and n factor for one-step regularization on isometric rectangular matrices",
+        "Web: \"Hybrid LSLU\" \"scaling\" \"regularization\" \"orthonormal\"",
+        "arxiv:2409.05239 Section 4, Table 1"
+      ]
+    },
+    "rationale": "Compared the exact isometric zero-noise first-stage filter and sharp scalar-calibration theorem against the full relevant primary manuscript sections, related H-CMRH regularization, sketched successor and targeted published-finding corpus queries. The source has general conditioning-dependent residual bounds but not the exact orientation or minimax implication. Residual priority uncertainty remains.",
+    "residual_risks": [
+      "Earlier non-indexed LU/CMRH analyses could contain an equivalent one-stage normalization identity or sharp minmax observation.",
+      "Generic nonorthogonal-basis ridge bias is already known; originality is limited to this exact algorithm, sharp interval, nonbreakdown limiting construction and optimal calibration formula.",
+      "Unidentified pre-arXiv conference dissemination may antedate the chosen first verified public arXiv date.",
+      "The self-review does not establish independent publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and generic residual comparisons known; exact filter and minimax obstruction not stated in inspected text.",
+        "evidence": [
+          "Algorithm 4, Algorithm 5, Eqs. (12)-(15), (27)-(28), Theorem 3.1, Section 4 Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.05239",
+        "material_read": "Full accessible arXiv HTML, especially Section 2.2 including Algorithm 4 and its Hessenberg relations; Section 3 including Eq. (27), Eq. (28), Algorithm 5 and Theorem 3.1; Sections 3.2, 4 and 5 for application and claims.",
+        "method": "Read displayed equations and algorithm cases; compare whether they imply the isometric orientation interval and the fixed-parameter minimax theorem.",
+        "title": "Inner Product Free Krylov Methods for Large-Scale Inverse Problems",
+        "trigger": "Exact same numerical method, pivot equations and first-stage projected Tikhonov objective"
+      },
+      {
+        "assessment": "Shared general rationale for coordinate ridge projection but no matching rectangular sharp orientation/minimax statement identified.",
+        "evidence": [
+          "Section 4 Eqs. (23)-(25), Algorithm 3, Theorem 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.06918",
+        "material_read": "Accessible arXiv HTML Sections 2, 4, and 5, including Eqs. (23)-(25), Algorithm 3 and Theorem 4.1.",
+        "method": "Compare square-system nonorthogonal coordinate regularization and bounds with rectangular isometric LSLU filter.",
+        "title": "H-CMRH: a novel inner product free hybrid Krylov method for large-scale inverse problems",
+        "trigger": "Earlier closely related Hessenberg coefficient ridge objective"
+      },
+      {
+        "assessment": "Uses sketched fidelity and regularization objectives and repeats generic basis conditioning comparisons; does not provide the sharp unskeched isometry law.",
+        "evidence": [
+          "Sections 3.1-3.3, Eqs. (15)-(17), Algorithm 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.02721",
+        "material_read": "Accessible arXiv HTML Sections 3.1-3.3, including the sLSLU algorithm and Eqs. (15)-(17).",
+        "method": "Compare full projected program and parameter calibration to unskeched LSLU.",
+        "title": "Randomized and Inner-product Free Krylov Methods for Large-scale Inverse Problems",
+        "trigger": "Successor work explicitly revisits LSLU and parameter regularization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dfca7f46-a8b2-448a-8046-6b62dad6b566",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed projected ridge parameter may be amplified by sqrt(m) or attenuated by sqrt(n) although all singular values of A equal one. More significantly, the exact nonzero minimax gap proves no universal orientation-blind scalar calibration reproduces Euclidean Tikhonov even asymptotically at the first stage; this motivates parameter interpretability and benchmarking, rather than an arbitrary slice or mere computational replication.",
+    "status": "PASS"
+  }
+}
