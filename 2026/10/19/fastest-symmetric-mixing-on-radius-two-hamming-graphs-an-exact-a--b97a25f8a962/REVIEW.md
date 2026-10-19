@@ -1,0 +1,15 @@
+# Scientific review: radius-two Hamming fastest mixing
+
+## Correctness — PASS
+
+The global minimax statement follows by averaging arbitrary feasible symmetric stochastic kernels over alphabet and coordinate permutations, which does not increase the centered spectral norm. The exact spectrum on the reduced two-orbit family follows from character sums on a cyclic alphabet: the nontrivial degree-\(k\) modes have two explicitly computed Krawtchouk coefficients. For three coordinates, quadratic interpolation supplies a universal \(1/7\) lower certificate, and nonnegative equality allocations exist exactly at alphabet sizes two through four; an independent first-mode bound settles larger alphabets. For higher dimensions, a first-mode certificate is attained by one- or two-orbit formulas after checking every remaining mode. The binary and nonbinary cases require different minimax signs, and the proof verifies them separately. The formulas are algebraically valid at each transition and at the smallest dimensions. A standalone exact-rational checker and independent linear programs passed 5,172 assertions. Generality rests on the analytic argument, not extrapolation.
+
+## Originality — PASS, with residual risk
+
+The closest full-text work is Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955, whose Sections 2–3 establish global symmetry averaging and the fastest-mixing solutions for *distance-one* Hamming graphs. Their general convex formulation gives a way to **compute** a solution to the enlarged two-orbit problem, but not the explicit two-orbit phase diagram, adjacent three-coordinate alphabet thresholds, or global factor-two spectral-gap law. Earlier Boyd–Diaconis–Xiao provides the unrestricted spectral-norm optimization framework, not these formulas. Karlin–Lindqvist–Yao (1993) directly treats Hamming-cutoff hypercube walks and hence is an important possible equivalent source. Its accessible abstract describes fixed-walk spectra and majorization; the full paper was unavailable and an unindexed exact optimization cannot be excluded. Search absence is not treated as proof of originality; the novelty assessment is a statement-and-implication comparison at best-known accessible coverage.
+
+## Value — PASS
+
+Selecting between one-coordinate changes, two-coordinate changes, and waiting is a natural mixing-design problem on a ubiquitous family of product-state networks. The result completely classifies an infinite two-parameter family under unrestricted edge assignment rather than selecting a numerical instance. The smallest nonsaturated dimensions have two adjacent genuine allocation transitions, and beyond them the global optimizer is strikingly simple: uniform distance-one-plus-two edges for binary alphabets, only distance-two edges for nonbinary alphabets. The exact spectral-gap doubling for every large enough dimension is a substantial quantitative gain that is not obtained merely by restating the general convex formulation. Computational costs per move and finite-time total-variation objectives are outside scope.
+
+Self-review: passed. Independent audit: not yet performed.

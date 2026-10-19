@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all integers q,d>=2, graph automorphism averaging preserves feasibility and does not increase centered spectral norm. Fourier diagonalization explicitly yields every eigenvalue for the invariant two-orbit kernels. d=2 is complete; d=3 has the sharp three-contact interpolation bound 1/7 and the first-character alternative for q>=5; d>=4,q=2 follows from degree-one and parity contacts; d>=4,q>=3 uses a degree-one lower bound, convex-quadratic endpoint checks, a general lower estimate for d>=5, and explicit four-mode comparison at d=4. Every mass is nonnegative and normalized, every spectral mode bounded. Nearest-neighbor comparison is proved independently by linear Fourier endpoints. Standalone exact-rational, independent LP, and full-matrix tests passed 5,172 assertions; infinite cases are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955, theorem 2.1 and §3.3.3, directly inspectable full text.",
+        "Boyd–Diaconis–Xiao, SIAM Review 46 (2004), DOI 10.1137/S0036144503423264, unrestricted FMMC as a convex spectral-norm problem."
+      ],
+      "reasoning": "A general convex program technically contains this graph as an instance and supplies computational access, but its statements do not imply the particular closed-form parameter thresholds without solving a new quadratic spectral minimax. The published nearest-neighbor Hamming formula is not stronger coverage because it forbids every distance-two edge. No checked result provides a more general explicit distance-orbit optimizer that specializes to the asserted five regimes.",
+      "searches": [
+        "web: \"Fastest Mixing Markov Chain on Graphs with Symmetries\" arxiv 0709.0955",
+        "web: optimal fastest mixing Markov chain on Hamming graphs hypercube powers two-bit flips",
+        "published-record semantic: SLEM minimize weighted sum distance-one distance-two adjacency matrix Hamming association scheme exact formula twofold gap"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955 §§2–3 (primary full text, nearest-neighbor Hamming graph and symmetry)",
+      "doi:10.1137/S0036144503423264 (primary accessible PDF, general spectral-norm formulation)",
+      "doi:10.1002/rsa.3240040102 (publisher abstract/bibliography only, full text inaccessible)",
+      "Published research result 2026/10/11/SCOPE-sharp-positive-definite-mass-of-q-ary-hamming-two-balls--443142350f41 (title/summary comparison)",
+      "Published research result 2026/10/11/SCOPE-sharp-tur-n-mass-and-the-nonradial-resonance-of-nonbinary-hammin--cfc4755f75f0 (title/summary comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0709.0955 §§2–3 proves there is a symmetric optimizer but supplies only the radius-one Hamming edge probability.",
+        "Karlin–Lindqvist–Yao (1993) abstract says spectra and majorization of random walks on Hamming-cutoff graphs; no optimization over a free distance-one/distance-two weight pair is stated in the accessible abstract.",
+        "The new proof requires simultaneously a q-ary quadratic Fourier spectrum, three-mode interpolation at d=3, and modewise nonnegativity at d>=4."
+      ],
+      "reasoning": "The prior spectral decomposition and symmetry reduction are used as acknowledged inputs, not claimed anew. They do not by themselves entail that q>=3,d>=4 has b=1, that q=2,d>=4 has uniform radius-two adjacency weights, or that both double the optimal radius-one spectral gap. The unresolved historical full-text comparison is disclosed rather than asserting absence.",
+      "searches": [
+        "web: \"Markov chains on hypercubes: Spectral representations and several majorization relations\" Karlin Lindqvist Yao pdf",
+        "web: fastest mixing Markov chain on Hamming graphs hypercube powers two-bit flips",
+        "published-record semantic: optimal fastest mixing Markov chain on Hamming square H(d,q)^2, distance at most two, q alphabet and d coordinates, Krawtchouk quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0709.0955, §§2–3: formulas for graph automorphism averaging and distance-one Hamming graph; not the squared support.",
+        "Published-record 2026/10/11/SCOPE-sharp-positive-definite-mass-of-q-ary-hamming-two-balls--443142350f41: related Hamming-ball Fourier positivity, a different objective.",
+        "Karlin–Lindqvist–Yao, DOI 10.1002/rsa.3240040102, accessible abstract: Hamming-cutoff random-walk spectra and majorization, no explicit mixing-weight optimization in accessible description."
+      ],
+      "reasoning": "Equivalent aliases include Hamming graph square, radius-two Hamming ball walk, two-coordinate-update walk, distance-one/distance-two association-scheme mixture, and quadratic Krawtchouk minimax. The nearest substantial accessible sources give spectral representations or a general SDP rather than the explicit all-alphabet optimum. The 1993 source remains partly unresolved, so no definitive absence is claimed.",
+      "searches": [
+        "published-record semantic: optimal fastest mixing Markov chain on Hamming square H(d,q)^2, distance at most two, q alphabet and d coordinates, Krawtchouk quadratic",
+        "published-record semantic: nearest and two-symbol updates on Hamming product random walk exact optimal no-holding edge allocation dimension three",
+        "web: \"Hamming graphs\" \"distance two\" \"fastest mixing\"",
+        "web: random walk hypercube flipping one or two bits optimal mixing spectral gap transition probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research records returned several Hamming Fourier projection/Turán titles and other symmetric graph optimization findings, but not a matching exact FMMC table or statement.",
+        "arXiv:0709.0955 §3.3.3 explicitly tabulates the radius-one Hamming optimum.",
+        "Final exact-formula search returned nearest record 2026/10/11/SCOPE-sharp-positive-definite-mass-of-q-ary-hamming-two-balls--443142350f41, a different Turán positive-definiteness mass objective, and no exact matching FMMC finding among returned entries."
+      ],
+      "reasoning": "No exact database or table match appeared for the q-ary two-orbit five-regime quantities. This absence does not establish global novelty. The radius-one formula is a distinct entry and does not give the radius-two eigenvalue-balancing transition.",
+      "searches": [
+        "published-record semantic: fastest mixing chain on squared hypercube Q_n^2 with single and double bit flips, optimal weights 2/(n+1), (n-1)/(n+1), SLEM (n-3)/(n+1)",
+        "web: \"square of the hypercube\" \"fastest mixing\"",
+        "web: \"Hamming graph\" \"square\" \"fastest mixing\"",
+        "published-record semantic: For radius-two q-ary Hamming graphs H(d,q)^2, globally fastest symmetric Markov chains have five regimes: d=3 q<=4 SLEM=1/7, q>=5 distance-two-only, d>=4 q=2 uniform distance<=2 and q>=3 distance-two-only, spectral gap exactly twice nearest-neighbor optimum"
+      ]
+    },
+    "rationale": "A complete two-orbit constrained SLEM classification on the radius-two q-ary Hamming graph was not found in the checked primary texts or published record comparisons. Boyd–Diaconis–Parrilo–Xiao solve nearest-neighbor Hamming walks and give the general symmetry-reduced SDP, but do not state the two-coordinate allocation, d=3 alphabet changes, or the gap-doubling theorem. Full Karlin–Lindqvist–Yao (1993) remains an explicitly identified originality risk.",
+    "residual_risks": [
+      "Karlin–Lindqvist–Yao (1993) studies the same radius-cutoff hypercube graph class; its inaccessible full text may contain an unstated-in-abstract equivalent weight-minimization solution.",
+      "An unindexed exact specialization of broader Hamming association-scheme or fastest-mixing work could already imply the formulas.",
+      "Only orbit-invariant optimizer uniqueness is proved; unrestricted nonuniqueness has not been resolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the explicit radius-two claim: orbit averaging and distance-one Hamming formulas are treated; radius-two two-orbit minimax is not stated.",
+        "evidence": [
+          "§2, Theorem 2.1, guarantees an invariant optimizer by averaging.",
+          "§3.3.3, formula for H(d,n) permits only one-coordinate moves."
+        ],
+        "identifier_or_url": "arxiv:0709.0955; https://arxiv.org/pdf/0709.0955",
+        "material_read": "Full-text sections 2 and 3, including theorem 2.1, the Cartesian-product/hypercube analysis, and §3.3.3 Hamming graphs; whole document checked for square/Krawtchouk/two-coordinate terminology",
+        "method": "Accessible arXiv text and PDF page inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Directly relevant unrestricted symmetric fastest-mixing and Hamming graph precedent"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_ONLY: contains the program, not the five-regime exact solution.",
+        "evidence": [
+          "SIAM Review 46 (2004), introduction and problem (3), symmetric stochastic SLEM minimization; MSC 90C22."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full introductory formulation and SDP, mathematical definitions and publication record; no relevant distance-two Hamming specialization identified",
+        "method": "Open-access primary PDF and metadata inspected",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "General FMMC optimizer formulation and its MSC classification"
+      },
+      {
+        "assessment": "UNRESOLVED_FULLTEXT: accessible abstract discusses fixed Hamming-cutoff random walks, spectral majorization and mean times, but the full article might contain an optimization theorem.",
+        "evidence": [
+          "Random Structures & Algorithms 4 (1993), 1–36, publisher abstract explicitly mentions graphs whose edges have Hamming distance at most a cutoff."
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.3240040102",
+        "material_read": "Publisher bibliographic record and abstract only; full article not obtained",
+        "method": "Original publisher abstract and independent bibliographic records; full-text access unavailable",
+        "title": "Markov chains on hypercubes: Spectral representations and several majorization relations",
+        "trigger": "Same Hamming-cutoff graph object, including possible radius-two walks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b97a25f8-a962-4101-b32b-6751e86b30cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural unrestricted symmetric design problem for the radius-two Hamming graph gains a complete two-parameter exact classification with adjacent q=4 and q=5 transitions at d=3, an exact holding and orbit-usage phase structure, and a sharp factor-two improvement over the optimal nearest-neighbor spectral gap for every alphabet and every dimension >=4. These facts guide concrete randomized updates in product-state networks and are not a routine one-parameter reformulation of the nearest-neighbor formula. No equal computational-cost or finite-time total-variation gain is claimed.",
+    "status": "PASS"
+  }
+}
