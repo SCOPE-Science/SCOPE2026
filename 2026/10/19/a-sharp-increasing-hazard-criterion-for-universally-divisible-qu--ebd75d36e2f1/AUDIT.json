@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each finite t, conditioning on the last renewal proves Phi_t(X)=S_t E^t(X)+Tr(X)B_t with positive B_t of trace 1-S_t. Direct subtraction gives Y_t=nu_(t+1) sigma + sum_(s=1)^t nu_s S_(t-s)(h_(t+1)-h_(t+1-s)) E^(t+1-s)(sigma), with trace h_(t+1). Increasing h makes Lambda_t(X)=(1-h_(t+1))E(X)+Tr(X)Y_t CPTP and the composition exact. For a drop at index m+1, cyclic shift dimension m+2 isolates the negative site-m coefficient h_1 S_(m-1)(h_(m+1)-h_m); invertibility of Phi_m makes this unique intermediate and rules out even P-divisibility. Exact Fraction example yields -2/25 and checker passes 60 finite-step groups plus 15 exact negative witnesses. No simulation substitutes for the analytical all-time proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Megier, Smirne, Vacchini, Evolution equations for quantum semi-Markov dynamics, arXiv:2007.11276v1, §§III–V and equations (44)-(47), https://arxiv.org/pdf/2007.11276",
+        "Wald, Yao, Platini, Hooley, Carollo, Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems, arXiv:2410.11497v1, https://arxiv.org/pdf/2410.11497"
+      ],
+      "reasoning": "The semi-Markov source has CP-divisible special diagonal jump processes regardless of particular hazards and a universal CP-divisible coarse-grained approximation. Neither is an exact all-CPTP fixed-reset theorem; such special cases cannot imply the sharp universal converse. Steady-state and random-history resetting results concern different observables or mechanisms.",
+      "searches": [
+        "\"quantum semi-Markov\" \"increasing failure rate\" CP divisible",
+        "\"quantum semi Markov\" \"monotone\" \"hazard\" CP divisibility",
+        "Quantum semi-Markov renewal processes monotone discrete-time hazard sufficient necessary universal CP divisibility with reset to fixed state",
+        "arXiv:2007.11276v1 §IV examples and §V Redfield approximation",
+        "arXiv:2410.11497v1 stochastic resetting steady states correlations"
+      ]
+    },
+    "checked_sources": [
+      "Carollo and Wald, Stochastic resetting induces quantum non-Markovianity, arXiv:2601.13367v1, main equations (2)-(7), section on intertwining maps, and supplemental sections I-V, https://arxiv.org/html/2601.13367v1",
+      "Megier, Smirne, Vacchini, Evolution equations for quantum semi-Markov dynamics, arXiv:2007.11276v1, §§III–V and equations (44)-(47), https://arxiv.org/pdf/2007.11276",
+      "Wald, Yao, Platini, Hooley, Carollo, Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems, arXiv:2410.11497v1, https://arxiv.org/pdf/2410.11497"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carollo and Wald, Stochastic resetting induces quantum non-Markovianity, arXiv:2601.13367v1, main equations (2)-(7), section on intertwining maps, and supplemental sections I-V, https://arxiv.org/html/2601.13367v1",
+        "Megier, Smirne, Vacchini, Evolution equations for quantum semi-Markov dynamics, arXiv:2007.11276v1, §§III–V and equations (44)-(47), https://arxiv.org/pdf/2007.11276",
+        "Own prior item fb2bb81b-b32b-4d2b-9157-fbecdbd4dbb3: historical power-biased reset channel, not age-hazard renewal.",
+        "Own prior item 11c1091c-f14b-4087-8e76-2a23bbd1d4d1: uniform-history retrieval, not fixed-state reset renewal."
+      ],
+      "reasoning": "The renewal map and constant-hazard CPTP semigroup alone do not imply positive divisibility under every nonconstant increasing hazard, nor necessity under all channels. A source-specific alternating non-monotone reset sequence can be divisible for its particular unitary; this does not contradict the new universal converse. The current sharp witness uses dimension m+2 to isolate the first strictly decreasing hazard step. The quantum semi-Markov Redfield theorem is an approximated evolution, not exact implication.",
+      "searches": [
+        "Carollo Wald Stochastic resetting induces quantum non-Markovianity arXiv:2601.13367 monotone age hazard nondecreasing CP-divisible all CPTP channels universal sharp threshold cyclic witness",
+        "quantum renewal resetting to fixed state nondecreasing failure rate necessary sufficient universal CP divisibility Schrödinger map",
+        "Discrete-time quantum stochastic resetting renewal waiting-time dependent hazard qubit unitary channel CP-divisibility exact necessary and sufficient geometric Lipschitz condition survival probability",
+        "arXiv:2601.13367v1 Eq. (3), Eq. (7) and paragraph following Eq. (8)",
+        "arXiv:2007.11276v1 Eqs. (44)-(47)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carollo and Wald, Stochastic resetting induces quantum non-Markovianity, arXiv:2601.13367v1, main equations (2)-(7), section on intertwining maps, and supplemental sections I-V, https://arxiv.org/html/2601.13367v1",
+        "Megier, Smirne, Vacchini, Evolution equations for quantum semi-Markov dynamics, arXiv:2007.11276v1, §§III–V and equations (44)-(47), https://arxiv.org/pdf/2007.11276"
+      ],
+      "reasoning": "Aliases considered include discrete increasing-failure-rate (IFR) renewal laws, age-dependent hazard ordering, memory-kernel stochastic resetting, P/CP-divisible reduced maps, and quantum semi-Markov intermediate CPTP channels. Main source proves CP-divisibility for a constant hazard and exhibits examples of nondivisibility, not an iff statement uniform over every channel and dimension. Continuous-time semi-Markov source treats particular generators and approximations, not the discrete fixed-reset universal boundary.",
+      "searches": [
+        "Carollo Wald Stochastic resetting induces quantum non-Markovianity arXiv:2601.13367 monotone age hazard nondecreasing CP-divisible all CPTP channels universal sharp threshold cyclic witness",
+        "quantum renewal resetting to fixed state nondecreasing failure rate necessary sufficient universal CP divisibility Schrödinger map",
+        "\"renewal resetting\" \"CP-divisible\" monotone hazard",
+        "Discrete-time quantum stochastic resetting renewal waiting-time dependent hazard qubit unitary channel CP-divisibility exact necessary and sufficient geometric Lipschitz condition survival probability",
+        "arXiv:2601.13367v1 main eqs (2),(3),(7) and supplementary sections I-V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed record 2026/10/4/SCOPE-exact-renewal-protocol-optimum-for-first-detection-on-the-fully--1683e0413749: a renewal-protocol first-detection optimum, not a dynamical-map theorem.",
+        "Indexed record 2026/10/4/SCOPE-sharp-unequal-power-correlation-range-for-stationary-renewal-age--ef4feb831e3e: renewal age/residual-life covariance bounds, not a quantum channel theorem.",
+        "Own previous finding fb2bb81b-b32b-4d2b-9157-fbecdbd4dbb3: power-biased historical quantum resetting with asymptotic diamond-norm semigroup.",
+        "Own previous finding 11c1091c-f14b-4087-8e76-2a23bbd1d4d1: uniform-history resetting with a finite-time trace-distance revival witness."
+      ],
+      "reasoning": "Nearby published indexed entries and recoverable prior claims have different stochastic mechanisms or measured invariants; none states the current uniform iff criterion or contains a stronger theorem covering it. An index partition or an unsuccessful query is not taken to certify global uniqueness.",
+      "searches": [
+        "quantum renewal resetting to fixed state nondecreasing failure rate necessary sufficient universal CP divisibility Schrödinger map",
+        "renewal reset dynamics exact step map B_{t+1} - survival ratio E B_t positivity nonmonotone hazard cyclic unitary",
+        "Reset-to-fixed-state quantum channels Choi positivity of renewal-rate effective resets age-dependent non-Markovian witnesses",
+        "published-finding-index aliases: quantum age-dependent resetting CP-divisibility, cyclic unitary hazard drop; source arXiv:2601.13367v1"
+      ]
+    },
+    "rationale": "The first-public 2026 quantum resetting article gives the last-reset formula and constant-hazard divisibility, as well as certain nondivisible examples, but not the universal nondecreasing-hazard iff theorem. The exact identity for the replacement matrix and the dimension-controlled cyclic unitary converse are non-entailed by the stated prior theorems. Quantum semi-Markov exact/approximate generators and earlier history-selection resetting are distinguished at the statement level. Search absence alone is not used as proof of novelty; remaining implicit-coverage risk is explicitly retained.",
+    "residual_risks": [
+      "A broader and currently unidentified positive-kernel, renewal-order, or CP-divisibility theorem might implicitly entail the sufficiency direction.",
+      "Indexing and primary-source coverage are incomplete; novelty is a provisional self-review, not independent verification.",
+      "The theorem is universal across all base channels; a fixed-channel decreasing hazard can remain CP-divisible, so no channel-specific necessity is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides foundational renewal formula and constant-hazard case; no universal monotone-age-hazard iff or cyclic dimension-controlled necessary witness found.",
+        "evidence": "Main Eqs. (2),(3),(7),(8), text on random r(s) and supplement sections I, III, IV, V.",
+        "identifier_or_url": "arXiv:2601.13367v1 | https://arxiv.org/html/2601.13367v1",
+        "material_read": "Complete main-text dynamical maps and divisibility discussion, equations (1)-(10), and supplementary sections I-V including renewal positivity and time-local-clock variant.",
+        "method": "Accessible full-text HTML, sectionwise comparison of definitions, hypotheses and implications.",
+        "title": "Stochastic resetting induces quantum non-Markovianity",
+        "trigger": "Same age-renewal resetting object and published divisibility framework."
+      },
+      {
+        "assessment": "Broad framework and approximation results, but no exact discrete resetting-to-fixed-state universal IFR characterization.",
+        "evidence": "PDF pp. 1, 6-11; Eq. (44) special generator vs. (45) dephasing and coarse-grained Eq. (46).",
+        "identifier_or_url": "arXiv:2007.11276v1 | https://arxiv.org/pdf/2007.11276",
+        "material_read": "Abstract and §§III-V including local-vs-memory-kernel discussion, specific exact-generator cases, and CP-divisible coarse-grained approximation around Eqs. (44)-(47).",
+        "method": "Full primary PDF, extracted text and inspected page figures/equations.",
+        "title": "Evolution equations for quantum semi-Markov dynamics",
+        "trigger": "Broad quantum renewal/semi-Markov theorem potentially dominating divisibility claims."
+      },
+      {
+        "assessment": "Different focus and claim; not an all-channel divisibility criterion.",
+        "evidence": "PDF abstract and model/results sections on stationary states and correlations.",
+        "identifier_or_url": "arXiv:2410.11497v1 | https://arxiv.org/pdf/2410.11497",
+        "material_read": "Main model and results on steady states and few-qubit correlations, inspected the accessible original PDF.",
+        "method": "Primary PDF study and implication comparison.",
+        "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+        "trigger": "Primary earlier discrete-time fixed-state resetting paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebd75d36-e2f1-4d7f-b348-138df379aaa6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parent work presents non-divisibility under age-dependent resets without a protocol-wide boundary. The theorem identifies the exact classical hazard-order condition that guarantees completely positive intermediate channels for every possible underlying quantum CPTP map, constructs their physical replacement components, and shows sharpness by a finite witness at any age of rate decline. This separates reduced CP-divisibility from microscopic renewal memory and has relevance for designing age-dependent, nonexponential quantum reset protocols.",
+    "status": "PASS"
+  }
+}
