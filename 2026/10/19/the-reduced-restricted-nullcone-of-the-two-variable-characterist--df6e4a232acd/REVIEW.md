@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Derivation images of both generators uniquely describe the eight-dimensional Lie algebra. The identity for the square of a derivation in characteristic two gives exact coordinate equations. For nonzero constant vector the solution space is explicitly parametrized and the inverse is regular locally. For zero constant vector, all possible nilpotent two-by-two matrices and compatible vectors are counted. Polynomial degenerations of both boundary cases prove geometric irreducibility of the reduced locus. The rank stratification is checked from the actual images in the algebra. The standalone exhaustive tests over binary and quartic fields agree with the formulas, but are not substituted for proof.
+
+**Originality — PASS with residual risk.** The inspected 1992 and 2014 Premet papers concern full nilpotent cones and regular invariant-theoretic fibers under the explicit hypothesis of characteristic greater than two; neither contains a characteristic-two restricted-square-zero census. Search comparisons with published mathematical records, and historical claims on other square-zero derivation families or Poisson brackets, produced no implication of this theorem. The negative search is not a uniqueness certificate; an unlocated specialized treatment of height-one derivation varieties is still possible.
+
+**Value — PASS.** The restricted square-zero locus is a canonical height-one nilpotence invariant of the first genuinely multivariate modular Witt derivation algebra. Its complete rational-point count, all linear rank strata, and irreducibility across an exceptional characteristic give a coherent natural classification that cannot be inferred from the odd-characteristic full-nilpotent-cone results. The result concerns one small but structurally distinguished derivation algebra, without claiming a broad classification.
+
+Self-review: passed. Independent audit: not yet performed.
