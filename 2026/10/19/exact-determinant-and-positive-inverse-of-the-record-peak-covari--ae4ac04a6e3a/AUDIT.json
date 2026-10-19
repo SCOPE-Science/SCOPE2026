@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact five-case conditional calculation gives all matrix entries. For each n≥3 direct multiplication of explicit lower and upper bidiagonal factors gives M; their diagonal product gives det 1/[3^{n−2}(n−1)!]; triangular inverse formula gives each inverse entry as a positive finite sum, including the n=3 boundary. Checker performs 1,167 exact rational assertions, exhaustive permutations n=3..8, LU n=3..34, inverse n=3..13. Finite assertions are not treated as the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji, arXiv:2310.01053, Theorem 1.4: generating function for peak, valley, right double descent, left double ascent and total left/right maxima counts.",
+        "Incidence precision law for all inversion indicators of a random permutation, published finding 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805: entire pairwise-comparison covariance and precision."
+      ],
+      "reasoning": "The aggregate enumerator is broader in number of scalar statistics but loses position indices; a total count generating function is not a dominating position-specific result. The inversion-indicator precision theorem concerns pairwise comparisons, while a peak indicator is a nonlinear conjunction of adjacent comparisons and a record depends on a whole prefix; their mixed covariance is not obtained by a linear projection of that theorem.",
+      "searches": [
+        "random permutations peak count and upper record count covariance exact formula",
+        "covariance permutation records and descent patterns peaks valleys",
+        "arxiv:2310.01053, Theorem 1.4",
+        "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+      ]
+    },
+    "checked_sources": [
+      "Gnedin arXiv:math/0611538 (primary PDF, sections read)",
+      "Diaconis–Fulman–Holmes arXiv:1107.2961 (primary PDF, Section 3 read)",
+      "Kasraoui arXiv:1210.5869 (primary PDF, theorem/proof sections read)",
+      "Ji arXiv:2310.01053 (primary PDF, joint polynomial and Theorems 1.4, 3.1 read)",
+      "Published inversion-indicator incidence precision theorem 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+      "Published fixed-point/descent covariance theorem 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boundary localization of fixed-point–descent dependence: only fixed-point vs single descent indicators, not record vs peak.",
+        "Incidence precision law for all inversion indicators: pairwise comparison indices rather than upper record/local peak indices.",
+        "Ji Theorems 1.4 and 3.1: polynomial in aggregate statistics, not a position-marked identity; its mixed derivative provides sums over all positional pairs."
+      ],
+      "reasoning": "The marginal fixed point/descent and inversion comparison matrix statements do not imply the claimed record–peak matrix. The joint count polynomial of Ji yields at most a scalar aggregate mixed moment, which cannot determine the full tridiagonal matrix (nor inverse positivity) without a separate positional theorem. A stronger uninspected source could imply this claim; this is retained as risk.",
+      "searches": [
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+        "arxiv:math/0611538",
+        "arxiv:2310.01053, Theorems 1.4 and 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.01053 equations (1.17) and (1.18) weight total exterior peaks and total left-to-right maxima; no position-labeled record–peak cross-covariance is an explicit parameter.",
+        "arXiv:1107.2961 Sections 2–3 uses peak sets and shuffle statistics; arXiv:math/0611538 treats record statistics without local peak variables."
+      ],
+      "reasoning": "Complement/reversal convert upper/lower records or peaks/valleys, but no inspected statement under these aliases fixes the tridiagonal position-indexed kernel or its inverse. Ji records joint *counts* rather than a multivariate set of positional weights, so it can determine only summed mixed covariance, not each matrix entry.",
+      "searches": [
+        "joint distribution record indicators and peak indicators in uniform random permutations: covariance matrix of position-specific records with local peaks, tridiagonal rank and determinant",
+        "Exact determinant of cross-covariance matrix between permutation left-to-right upper-record indicators R_i and local peak indicators P_j equals 1/(3^{n-2}(n-1)!)",
+        "Position-indexed peak and record permutation statistics full rank linear covariance",
+        "arxiv:2310.01053, Theorems 1.4, 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kasraoui, arXiv:1210.5869: enumeration and maximal probabilities of specified permutation peak sets.",
+        "No directly matching record-by-peak covariance table or inverse matrix was returned among the queried published research records."
+      ],
+      "reasoning": "A database or peak-set count indexed only by the set of peaks does not condition on a designated earlier record unless it additionally tracks that record position. No inspected exact table with both position labels matches the formula; absence of a search match is not proof that none exists.",
+      "searches": [
+        "Exact determinant of cross-covariance matrix between permutation left-to-right upper-record indicators R_i and local peak indicators P_j equals 1/(3^{n-2}(n-1)!)",
+        "Peak record incidence kernel tridiagonal covariance in random permutations with strictly positive inverse Stieltjes matrix",
+        "arxiv:1210.5869, peak-set enumeration"
+      ]
+    },
+    "rationale": "A position-indexed record–peak cross-covariance law, bidiagonal factorization, determinant, and strict inverse positivity were not stated by the materially inspected primary record and peak papers or closest published findings. Ji (arXiv:2310.01053, Theorems 1.4 and 3.1) treats joint *aggregate* record and peak statistics and is the strongest relevant comparison, but does not mark individual record and peak positions; aggregate enumeration cannot recover an arbitrary full position-indexed covariance matrix without additional information. Finite explicit calculations support but do not certify originality. An implicit earlier derivation in a more general position-marked model remains possible.",
+    "residual_risks": [
+      "A more general, uninspected position-marked joint record–peak enumeration could imply all formulas; priority not independently certified.",
+      "Later joint total-count results cover related aggregates; equivalence would require an as-yet-unidentified position-resolving reduction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Records studied; no located position-indexed covariance with local peaks",
+        "evidence": [
+          "arXiv:math/0611538, first version 2006-11-17; theorem discussion of record statistics"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611538",
+        "material_read": "Title/abstract and sections on coherent records and related statistics",
+        "method": "Primary open full-text PDF, inspected definitions and record-related theorems",
+        "title": "Coherent random permutations with record statistics",
+        "trigger": "Direct source for upper-record probabilities, archive date"
+      },
+      {
+        "assessment": "Peak statistics under shuffles but no paired upper-record indexed covariance or LU/inverse",
+        "evidence": [
+          "arXiv:1107.2961, first version 2011-07-14, primary MSC 60C05 in the article"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1107.2961",
+        "material_read": "Abstract, peak-statistic definitions and Section 3, PDF pages 8–11",
+        "method": "Primary open full-text PDF with peak formulas",
+        "title": "Analysis of casino shelf shuffling machines",
+        "trigger": "Classical probability treatment of peak sets and their relevance"
+      },
+      {
+        "assessment": "Peak-set enumeration, no record coordinate parameter",
+        "evidence": [
+          "arXiv:1210.5869, first version 2012-10-22; peak set extremal enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1210.5869",
+        "material_read": "Main peak-set statements and proof sections, selected PDF pages",
+        "method": "Primary open full-text PDF, theorem and proof comparison",
+        "title": "The most frequent peak set of a random permutation",
+        "trigger": "Could contain peak-set joint formulas dominating the proposed kernel"
+      },
+      {
+        "assessment": "Joint total-count enumerator; no separate position variables. Does not imply each position-by-position mixed covariance as written. Residual possibility that a stronger positional specialization exists elsewhere.",
+        "evidence": [
+          "arXiv:2310.01053, equations (1.17), (1.18), Theorem 3.1 and Section 3.1; first public 2023-10-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.01053",
+        "material_read": "Abstract, introduction, displayed joint polynomial (1.17), Theorems 1.4 and 3.1, definition and grammatical proof context",
+        "method": "Primary open full-text PDF and page images, theorem-equivalence comparison",
+        "title": "The (α, β)-Eulerian Polynomials and Descent-Stirling Statistics on Permutations",
+        "trigger": "Strong direct joint enumerator involving peaks and left-to-right maxima"
+      },
+      {
+        "assessment": "Different indicators; nonlinear record-peak kernel not a restriction or linear corollary",
+        "evidence": [
+          "Exact comparison matrix C=(I+B^TB)/12 for pairwise inversion indicators and its precision"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805/RESULT.md",
+        "material_read": "RESULT.md main claim and proof through the graph incidence inverse",
+        "method": "Inspected published result manuscript (opening theorem and algebraic derivation)",
+        "title": "Incidence precision law for all inversion indicators of a random permutation",
+        "trigger": "Structural all-size covariance/inverse factorization in permutation comparisons"
+      },
+      {
+        "assessment": "Fixed point versus descent, not prefix records versus local peaks",
+        "evidence": [
+          "Local bidiagonal covariance for fixed-point and descent indicators; different nonlinear event"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495/RESULT.md",
+        "material_read": "RESULT.md main claim and direct conditioning derivation",
+        "method": "Inspected published result manuscript",
+        "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+        "trigger": "Localized cross-covariance pattern for permutation indicators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae4ac04a-6e3a-43b1-ab85-4934be802521",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Upper-record (prefix-global) and local-peak (three-point) indicators are basic order statistics; their entire cross-covariance matrix governs linear detectability of one family through the other. Full rank for all sizes and a strictly positive inverse are nontrivial joint structure not recoverable from their separate marginal probabilities or scalar count covariances. The result provides an exact, natural all-size classification and constructive nondegeneracy, not an arbitrary finite table.",
+    "status": "PASS"
+  }
+}
