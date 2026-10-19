@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Under full column rank, generic nonzero initial error coordinates and sampled gradient coordinates, independent two-label sketches, exact line searches, and the paper's zero-over-zero convention, single-coordinate minimization and \(H\)-conjugacy rigorously induce the four-state active/inactive absorption chain. The rational generating functions follow from two pairs of first-step equations. Their derivatives give the means and the exact two-update coupling jump. Exhaustive short-path rational tests and symbolic function identities passed; they are corroboration rather than a substitute for the proof.
+
+**Originality — PASS (best-known scope).** Primary full-text inspection of the 2026 RCGLS source found expected linear convergence and the algorithm but no exact absorption law. A closely related 2023/2024 stochastic-CG construction explicitly resamples zero gradients and concerns a different stochastic update; its full text does not imply the iid RCGLS law. Relevant randomized coordinate-descent and prior numerical results concern expected contraction or other methods, not this exact stopping distribution. Targeted scholarly and mathematical-record searches did not reveal an equivalent or dominating result, but unindexed older analyses are a residual risk; absence of a search hit is not a novelty proof.
+
+**Value — PASS.** The exact all-horizon absorption law, sampling optimum, sharp two-update jump at arbitrarily weak coupling, and categorical contrast with ordinary coordinate descent settle a natural finite-termination diagnostic for a recently introduced numerical method. This is not a routine restatement of expected contraction; conjugacy resets create distinct waiting-time states. The result is deliberately exact-arithmetic and dimension two, and finite-tolerance behavior is not claimed.
+
+**Closest literature and limitations.** Zeng et al., arXiv:2605.25034v1, provide Algorithm 1 and conditional mean-square rate bounds; Zeng et al., arXiv:2305.05482v3, treat a related resampling stochastic CG. The two-variable/no-tolerance setting, generic start, and no-sketch-rejection conventions are essential. Literature overlap uncertainty remains; no external independent review was performed.
+
+Self-review: passed. Independent audit: not yet performed.

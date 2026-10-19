@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For SPD 2x2 H and nondegenerate start, coordinate line-search maps (u,v) to (-cv/a,v) or (u,-cu/b), proving persistence when c != 0. Source RCGLS H-conjugacy makes the first switch from an active label a terminal spanning pair, while a duplicate label annihilates direction and a later switch restarts it. Four exact Markov transitions yield the displayed rational PGF. Algebraic differentiation gives means; symbolic and exhaustive Fraction checks confirm boundary cases. Coupon-collector diagonal law and nontermination of RCD are proved analytically. Limitations: exact arithmetic, generic start, iid positive probabilities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 RCGLS expected linear convergence (Theorem 2.4) is an upper error bound and does not give finite absorption laws.",
+        "2023/2024 SCG uses a different resampling-until-nonzero rule and consistent systems; finite convergence of its deterministic special case does not dominate iid RCGLS law.",
+        "The CG Haar source studies finite-tolerance Gaussian fluctuations of standard CG, not RCGLS exact absorption."
+      ],
+      "reasoning": "General convergence and deterministic finite-termination theories neither imply nor subsume this specific rational absorption law or its discontinuity.",
+      "searches": [
+        "Randomized conjugate gradient least squares RCGLS two dimensional coordinate sketches exact finite termination waiting time distribution, Bernoulli coordinate sampling run patterns",
+        "Zeng Cai Han Xie 2605.25034 randomized CGLS stochastic finite time convergence coordinate sketches",
+        "Zeng Cai Han Xie randomized CGLS exact expected hitting time 1 + 1/(p(1-p)) versus diagonal",
+        "arXiv:2305.05482v3 Secs. 4-6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.25034v1 complete HTML (2026-05-24)",
+      "arXiv:2305.05482v3 complete HTML (original 2023-05-09)",
+      "Published mathematical records 9ae0040f2dac and 82c9d23eb995 (summary/claim material; not characterized as full-text)",
+      "Targeted web publication searches for RCGLS two-coordinate exact stopping and coupled PGF"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full source gives RCGLS direction and expected energy rate but not finite hitting laws.",
+        "Older SCG resamples nonzero projected residual; the law here explicitly counts zero-gradient iid draws.",
+        "Published two-coordinate delayed RGS optimizes a different method and asymptotic quantity."
+      ],
+      "reasoning": "In contrast to existing one-step rate bounds and algorithm definitions, deriving the stochastic absorption PGF needs distinguishing active and inactive directions and integrating the resulting chain. The coupled and diagonal laws, jump and RCD contrast are not corollaries of the compared statements.",
+      "searches": [
+        "Randomized conjugate gradient least squares RCGLS two dimensional coordinate sketches exact finite termination waiting time distribution, Bernoulli coordinate sampling run patterns",
+        "randomized sketch conjugate directions two-dimensional quadratic coordinate descent probability of finite termination, waiting time pgf",
+        "stochastic conjugate gradient coordinate sampling consecutive alternating switches two-state automaton zero direction",
+        "arXiv:2605.25034v1 Algorithm 1/Theorem 2.4",
+        "arXiv:2305.05482v3 Algorithm 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithm 1 defines iid-sketch conjugate direction with zero-denominator convention; Theorem 2.4 bounds expected H-energy, not P(T=t).",
+        "Earlier stochastic CG Algorithm 4 rejects zero-gradient draws, changing the stochastic process."
+      ],
+      "reasoning": "No exact stopping PGF, Markov-chain version, coupon-collector/nonzero coupling equivalence or two-update mean jump appears in inspected primary full text or targeted records. Similar titles/algorithm families do not imply equivalent stochastic laws.",
+      "searches": [
+        "Randomized conjugate gradient least squares RCGLS two dimensional coordinate sketches exact finite termination waiting time distribution, Bernoulli coordinate sampling run patterns",
+        "randomized sketch conjugate directions two-dimensional quadratic coordinate descent probability of finite termination, waiting time pgf",
+        "arXiv 2605.25034 RCGLS two-variable exact stopping-time probability law, coupling off diagonal discontinuity, finite termination vs RCD",
+        "stochastic conjugate gradient coordinate sampling consecutive alternating switches two-state automaton zero direction",
+        "arXiv:2605.25034v1 Secs 2-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The delayed two-coordinate Gauss-Seidel record gives expected square-error recurrence, not an RCGLS first-hitting distribution.",
+        "The inverse-positive coordinate sampling record optimizes expected one-step energy contraction for RCD, not exact RCGLS absorption."
+      ],
+      "reasoning": "The distribution is derived from a new four-state chain with a variable number of idle updates; no exact database or table value found covering that chain. Nonappearance alone is not a novelty certificate.",
+      "searches": [
+        "randomized sketch conjugate directions two-dimensional quadratic coordinate descent probability of finite termination, waiting time pgf",
+        "arXiv 2605.25034 RCGLS two-variable exact stopping-time probability law, coupling off diagonal discontinuity, finite termination vs RCD",
+        "Zeng Cai Han Xie randomized CGLS exact expected hitting time 1 + 1/(p(1-p)) versus diagonal"
+      ]
+    },
+    "rationale": "Direct statement-implication comparison with complete 2026 RCGLS Algorithm 1, Theorem 2.4 and Secs. 2–6, with older related stochastic-CG paper full text, plus targeted scholarly and mathematical-record searches, did not identify the claimed exact two-coordinate finite stopping distribution, mean jump, or optimal sampling conclusion. The general expected contraction theorem does not mathematically determine absorption probabilities. Residual unindexed-literature risk is documented rather than equated with novelty proof.",
+    "residual_risks": [
+      "Equivalent derivations may exist in unindexed randomized Krylov/stochastic-CG literature.",
+      "Mathematical-record summaries other than the two inspected primary manuscripts are not whole-paper noncoverage evidence.",
+      "Exact termination and the coupling discontinuity are exact arithmetic phenomena; numerical stopping at tolerance can behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives underlying RCGLS recursion and expected linear convergence bound but no exact two-coordinate absorption distribution, coupling discontinuity or optimal finite-stopping sampling law",
+        "evidence": [
+          "arXiv:2605.25034v1, Algorithm 1 steps 1–7, Remark 2.1, Theorem 2.4, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.25034v1",
+        "material_read": "full HTML: introduction, Algorithm 1, Remarks 2.1–2.6, Section 2.3/Theorem 2.4, efficient variant, ridge extensions, experiments, conclusion and references",
+        "method": "Direct HTML mathematical statement and algorithm inspection, comparison by implication",
+        "title": "Randomized conjugate gradient least squares",
+        "trigger": "Same algorithm, identical normalized coordinate sketches and critical zero-denominator convention"
+      },
+      {
+        "assessment": "Algorithm 4 rejects zero-gradient draws and acts on a different stochastic formulation for consistent systems; deterministic CG finite termination does not supply the iid RCGLS first-hitting law",
+        "evidence": [
+          "arXiv:2305.05482v3, Algorithm 4 lines 609–639, Theorem 5.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.05482v3",
+        "material_read": "full HTML Secs 1–7, Algorithm 3, Theorem 5.1, Algorithm 4 and conclusion",
+        "method": "Direct HTML proof/algorithm comparison; inspect whether idle draws are resampled",
+        "title": "On adaptive stochastic heavy ball momentum for solving linear systems",
+        "trigger": "Closest same-author historical stochastic conjugate-gradient machinery"
+      },
+      {
+        "assessment": "A mean-square recurrence under stale reads for Gauss-Seidel, not CG-conjugate exact absorption",
+        "evidence": [
+          "published result id 9ae0040f2dac, mathematical summary"
+        ],
+        "identifier_or_url": "published-mathematical-record:9ae0040f2dac",
+        "material_read": "published mathematical-result summary and claim as returned by semantic search",
+        "method": "Compare method, random process, and output variable by mathematical implication",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Two-coordinate stochastic iterative method with exact law"
+      },
+      {
+        "assessment": "Optimizes one-step mean-square energy contraction for coordinate descent, not exact RCGLS absorption time",
+        "evidence": [
+          "published result id 82c9d23eb995, mathematical summary"
+        ],
+        "identifier_or_url": "published-mathematical-record:82c9d23eb995",
+        "material_read": "published mathematical-result summary and claim as returned by semantic search",
+        "method": "Check optimized functional and algorithm correspondence",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Optimized iid coordinate probabilities on SPD quadratics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdfe00de-f62e-4199-b160-ba0e746af1b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact hitting-time classification for a new randomized least-squares solver resolves naturally motivated finite-termination and sampling-efficiency questions not determined by expected contraction. Its nontrivial active/inactive conjugacy mechanism yields an unexpectedly universal two-update jump for arbitrarily small nonzero coupling and a sharp divergence from ordinary randomized coordinate descent; the uniform optimum challenges norm-weighted sampling when exact solve count is the cost metric. It is a small but complete natural classification, not an arbitrary invariant or table recomputation.",
+    "status": "PASS"
+  }
+}
