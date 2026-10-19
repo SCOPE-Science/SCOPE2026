@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Section 3.5 of arXiv:2311.14206 defines the sketched harmonic quotient. Orthogonally decomposing v against Av reduces its reciprocal exactly to a shifted Student t variable with s degrees of freedom. Its continuous positive density at zero proves both signed 1/t tails, divergent positive and negative first moments, and the exact p<1 threshold. Conditional on every nonzero compact interval of sketch norms, the reciprocal retains a positive normal density at zero. The exceptional eigenvector case is deterministic. The actual packaged verify.py replays pathwise Gaussian identities, density, sign and tail tests; simulation is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2311.14206 gives the generalized eigenproblem and SVD of SAV but not its Gaussian tail law",
+        "arXiv:2208.11447 derives sketched FOM errors for shifted linear systems with a distinct Galerkin projection",
+        "arXiv:2306.06481 Proposition 6.1 describes outlying sketched Ritz values but not harmonic Ritz distribution"
+      ],
+      "reasoning": "The broad literature supports analogous poles and sketched projection notation; an infinite-error-moment theorem for Galerkin corrections is not itself a theorem about a harmonic spectral estimate with the exact Student reciprocal and conditioning-on-norm result. No stronger primary statement implying the full claim was identified.",
+      "searches": [
+        "arxiv:2311.14206 Sections 3.5, 4, 5 and algorithm",
+        "arxiv:2208.11447 Section 2",
+        "arxiv:2306.06481 Sections 1 and 6",
+        "unsafeguarded Gaussian sketched Galerkin Krylov inverse rank one pole 1/T infinite moment harmonic Ritz projected eigenvalue",
+        "randomized sketch harmonic Ritz values heavy tails infinite expectation Gaussian sketch numerical linear algebra"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.14206 (Section 3.5 and surrounding method)",
+      "arXiv:2208.11447 (Section 2)",
+      "arXiv:2306.06481 (Section 6)",
+      "arXiv:2607.10354 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper supplies the defining generalized quotient, not a distribution theorem.",
+        "Existing sketched Galerkin methods share inverse poles but concern solution-error variables.",
+        "The outlying ordinary sketched Ritz-value analysis is not a distributional bound for harmonic values."
+      ],
+      "reasoning": "The new result requires identifying the reciprocal harmonic generalized eigenvalue as a Gaussian regression coefficient and then proving two-sided spectral tail constants and persistence under sketch-norm screening. It is not a restatement of a particular previously identified numerical-method bound. Its probability reduction is simple and its novelty risk is expressly retained.",
+      "searches": [
+        "arxiv:2311.14206 sketched harmonic Ritz equations (Section 3.5)",
+        "arxiv:2208.11447 sketched FOM 2.3",
+        "arxiv:2306.06481 Proposition 6.1",
+        "harmonic Rayleigh Ritz sketched Galerkin eigenvalues Gaussian infinite moments generalized eigenvalue denominator zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.14206 Section 3.5 writes the inverse harmonic eigenvalue as (SAv)^dagger Sv",
+        "The exact scalar law is an affine Student t for the reciprocal, not the harmonic Ritz value itself",
+        "arXiv:2306.06481 Section 6 treats sketched Ritz and modified Hessenberg spectra, not this Gaussian harmonic quotient"
+      ],
+      "reasoning": "A general result about the shifted ratio of an independent Gaussian inner product and Gaussian norm would reproduce the probability calculation; that elementary probability identity is credited as known. Searches did not identify the entire method-specific signed pole and norm-screening claim as a theorem.",
+      "searches": [
+        "sketched harmonic Ritz value Gaussian sketch reciprocal Student t distribution undefined mean infinite heavy tail even SPD",
+        "harmonic Rayleigh Ritz sketched Galerkin eigenvalues Gaussian infinite moments generalized eigenvalue denominator zero",
+        "Gaussian sketched generalized Rayleigh quotient distribution ratio normal Student eigenvalue",
+        "\"harmonic Ritz\" \"Student\" distribution Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical near-matches concerned Student distribution extremal probabilities, classical numerical residual stability, or other sketch-based algorithms; no titled harmonic-Ritz reciprocal density table was recovered.",
+        "Source article arXiv:2311.14206 gives experimental performance tables, not an exact Gaussian harmonic Ritz law."
+      ],
+      "reasoning": "No exact database or published table was identified for this specific distribution. Failed lookup is not a novelty certificate.",
+      "searches": [
+        "Gaussian sketched harmonic Ritz reciprocal Student t sketch norm truncation moment threshold finite every sketch size",
+        "GMRES-SDR sketched harmonic Ritz negative spurious eigenvalues spectral concentration norm stability",
+        "\"sketched harmonic Ritz\" \"infinite\" expectation"
+      ]
+    },
+    "rationale": "Original sketched harmonic Ritz definition, scalar equation and SVD stabilization are in Burke–Güttel–Soodhalter, arXiv:2311.14206, Section 3.5. The source provides no probabilistic classification of the scalar harmonic value. The Gaussian-sketched FOM analysis of Güttel–Schweitzer, arXiv:2208.11447, Section 2, yields related but different Galerkin correction ratios; the Palitta–Schweitzer–Simoncini sketched Ritz analysis, arXiv:2306.06481, Section 6, treats outlying Ritz values and matrix-function errors. Familiar reciprocal Student and Galerkin-pole reasoning informs the proof but does not explicitly state this harmonic extraction law, its two sign-tail constants and norm-screening persistence. Equivalence with an unknown Gaussian generalized quotient theorem is a residual risk.",
+    "residual_risks": [
+      "A generalized Gaussian Rayleigh-quotient distribution could imply the scalar Student reduction in equivalent notation.",
+      "An analogous Gaussian-sketched Galerkin pole mechanism is known; the method-specific harmonic eigenvalue implication requires differentiation and has not been externally validated.",
+      "The plausible 2026 sketched harmonic Arnoldi paper (arXiv:2607.10354) could not be inspected in full; available abstract suggests different convergence questions, but overlap is not definitively excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines scalar generalized harmonic quotient and one-column truncated SVD but no Gaussian reciprocal Student moment classification",
+        "evidence": [
+          "Eq. for sketched harmonic Ritz S(Az-theta z) orthogonal to SAV",
+          "Section 3.5 computes Mhat=(SAV)^dagger SV and selects harmonic eigenvalues"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.14206",
+        "material_read": "Abstract, Section 3.5 (pp. 7–9), related algorithm and spectral extraction formulas, sections on sketched GMRES and experiments",
+        "method": "Read searchable arXiv PDF text and page images 1, 8, 9",
+        "title": "GMRES with Randomized Sketching and Deflated Restarting",
+        "trigger": "Exact source of sketched harmonic extraction and norm stabilization"
+      },
+      {
+        "assessment": "Gives sketched FOM approximation and deterministic bounds; not a scalar sketched harmonic eigenvalue probability law",
+        "evidence": [
+          "Sketched FOM equation (2.3) involves (SV)^T(tSV+SAV) inverse"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.11447",
+        "material_read": "Abstract, introduction and sketched FOM equations in Section 2 pp. 1–4",
+        "method": "Read arXiv PDF text and page image of p. 3",
+        "title": "Randomized Sketching for Krylov Approximations of Large-Scale Matrix Functions",
+        "trigger": "Potential broader sketched Galerkin coverage"
+      },
+      {
+        "assessment": "Explains irrelevant spurious Ritz values through eigenvector components; does not analyze randomized harmonic Ritz moments",
+        "evidence": [
+          "Section 6 Proposition 6.1 controls eigenvector components for rank-one modified Hessenberg matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.06481",
+        "material_read": "Abstract, introduction, Section 6 and Proposition 6.1 on pp. 12–13",
+        "method": "Read arXiv PDF searchable text and page images 1, 12, 13",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "Spurious sketched Ritz values outside true spectral region"
+      },
+      {
+        "assessment": "Exact methods and convergence on Stieltjes functions appear related; full-document implication comparison unresolved, retained as residual risk",
+        "evidence": [
+          "Available abstract describes a sketched harmonic Arnoldi method and convergence for positive-real matrices, not a distribution law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+        "material_read": "Abstract only; attempted arXiv PDF and arXiv abstract access; full text unavailable",
+        "method": "Search-index abstract; full-text retrieval attempted",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Related 2026 sketched harmonic Arnoldi work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abb9953e-eb24-4c46-9e8b-e7cdc36acf07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Harmonic Ritz spectral values are used to choose recycling/deflation directions. The result is an exact reliability limit not captured by mere subspace-vector singular values: for every finite sketch size, even after conditioning on arbitrarily tight positive norm bounds, a one-vector harmonic Ritz estimate has both sign errors and infinite positive/negative first moments. It gives exact sharp tail constants and a complete p-moment classification, identifying the need for a cross-angle safeguard rather than norm-only SVD screening. No solver divergence claim is made.",
+    "status": "PASS"
+  }
+}
