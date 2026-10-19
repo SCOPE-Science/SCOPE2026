@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Every k>=1 follows from greedy-arch necessity/sufficiency and exhaustive partition by first two Lyndon letters. Length 2k+1 start 01 implies no 00, exactly k zeros and one doubled 1-run, which must be the final run by rotation comparison. Start 00 forces 001 plus k-1 length-two arches; any 10 arch yields an explicitly lexicographically smaller rotation from the final 10-to-01 boundary. Each surviving witness has k arches and is lex minimal under rotations. Length-2k k>=2 Lyndon impossibility and k=1 exception are covered. The unrestricted count is unique-arch arithmetic. Direct pattern membership and greedy-arch implementations agree exhaustively through k=6; full word enumeration checks the theorem through k=9; larger witnesses are checked through k=200. Finite tests do not prove infinity; the written combinatorial proof does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2304.04583v1 gives O(nk sigma) unrestricted enumeration/ranking algorithms.",
+        "doi:10.4230/LIPIcs.ISAAC.2023.4 gives algorithms for k-universal words accepted by finite automata, i.e. regular constraints.",
+        "A previous public circular-universality theorem counts odd-length primitive necklace classes, not the Lyndon representatives that themselves remain linearly k-universal."
+      ],
+      "reasoning": "General counting algorithms or circular primitive-orbit enumeration are not a uniform closed classification of linearly k-universal Lyndon representatives. The set of all Lyndon words over an ordered binary alphabet is not a regular language, so the regular-language theorem does not directly specialize to this exact intersection. Prior circular results allow some rotation to be universal and cannot by themselves infer linear universality of the lexicographic representative.",
+      "searches": [
+        "near-minimal binary subsequence-universal words and Lyndon representatives, rotation minima, primitive necklaces and universal arch decompositions",
+        "near-minimum length binary universal subsequence Lyndon words (001(01)^{k-1}) ( (01)^k1), necklaces lexicographically least rotation",
+        "arxiv:2304.04583v1 Sections 3-5",
+        "doi:10.4230/LIPIcs.ISAAC.2023.4 complete PDF terms Lyndon"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629v1",
+      "arxiv:2201.06773v1",
+      "arxiv:2304.04583v1",
+      "doi:10.4230/LIPIcs.ISAAC.2023.4",
+      "public record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "previous circular theorem 608d5e6a-ed90-41aa-a212-38acd217672d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barker et al. prove the length-2k arch-block characterization, which is used as a premise here but does not specify length-(2k+1) Lyndon words.",
+        "Adamson provides unrestricted counts and ranking but not the Lyndon intersection.",
+        "Bannai et al. maximize the length of a Lyndon subsequence, a different direction of quantifiers.",
+        "Earlier circular odd-length classification concerns existential universality over rotations and orbit counts 2^k; the present claim concerns the unique lexicographic orbit representative satisfying linear universality."
+      ],
+      "reasoning": "Even if every first-slack universal host is circularly k-universal, an orbit may have a universal rotation while its Lyndon representative is not universal (e.g. 00011 has rotation 00110, which is 2-universal, but 00011 itself is not). Hence the earlier circular theorem does not imply the claimed two-witness Lyndon intersection. Explicit rotation comparisons, not mere parameter matching, prove the new classification. The unrestricted (k+2)2^k enumeration is not claimed as independently new.",
+      "searches": [
+        "Exactly two binary Lyndon words of length 2k+1 are k-universal as scattered subsequences: 001(01)^(k-1) and (01)^k1; shortest Lyndon subsequence universal words",
+        "near-minimal binary subsequence-universal words and Lyndon representatives, rotation minima, primitive necklaces and universal arch decompositions",
+        "arxiv:2003.04629v1 Section 4",
+        "arxiv:2201.06773v1 Sections 2-5",
+        "same-topic earlier claim id 608d5e6a-ed90-41aa-a212-38acd217672d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2003.04629v1 Section 4 treats full subsequence spectra and circular universality, and contains no Lyndon classification.",
+        "arxiv:2304.04583v1 Sections 2-3 classify/count unrestricted k-universal words but do not constrain the host to be Lyndon.",
+        "arxiv:2201.06773v1 Sections 3-5 optimize Lyndon subsequences found *inside* a given host rather than classify universal Lyndon hosts."
+      ],
+      "reasoning": "Equivalent names k-rich/scattered-factor-universal and canonical lexicographically least primitive rotation were compared. Neither a simultaneous Lyndon-and-universal first-slack classification nor a two-witness formula was located in the inspected primary texts. The Lyndon constraint changes the object, so unrestricted counts alone do not imply it.",
+      "searches": [
+        "Exactly two binary Lyndon words of length 2k+1 are k-universal as scattered subsequences: 001(01)^(k-1) and (01)^k1; shortest Lyndon subsequence universal words",
+        "Lyndon words with maximal subsequence universality and minimal length; binary Lyndon universal subsequences first slack n=2k+1 enumeration unique",
+        "Lyndon k-rich words binary maximum universality index at length n; exactly two Lyndon words of length 2k+1 with full binary k-deck support",
+        "\"Lyndon\" \"universal\" \"subsequence\" shortest words binary",
+        "arxiv:2304.04583v1 (Lyndon search in HTML)",
+        "arxiv:2003.04629v1 (Lyndon and 2k+1 searches in HTML)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 states a bivariate distribution for unrestricted binary subsequence universality; it does not state a Lyndon refinement in the available summary.",
+        "Primary unrestricted counting from arxiv:2304.04583v1 subsumes the comparison number (k+2)2^k, which is explicitly treated as prior background."
+      ],
+      "reasoning": "No directly matching exact sequence/table for the intersection of Lyndon status and first-slack full binary spectrum was found. A constant-two output sequence, by itself, cannot establish originality. Public record full text could not be fetched; no whole-document noncoverage claim is inferred from its summary.",
+      "searches": [
+        "Lyndon k-rich words binary maximum universality index at length n; exactly two Lyndon words of length 2k+1 with full binary k-deck support",
+        "\"binary Lyndon\" \"subsequence universal\" count",
+        "OEIS \"Lyndon\" \"k-universal\" \"subsequence\"",
+        "published research record title: Closed-form law for binary subsequence universality, id 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "rationale": "The inspected full primary texts establish the separate theories of full subsequence spectra, universal-word counting, and Lyndon subsequences but not the simultaneous length-2k+1 Lyndon-full-spectrum classification. A prior circular odd-length necklace theorem counts orbits but does not determine linear universality of the Lyndon representative. The unrestricted count and length-2k arch form are acknowledged as known. Database searches have residual risks due to unindexed older results and an inaccessible public-record full text.",
+    "residual_risks": [
+      "An equivalent Lyndon-first-slack enumeration may occur in unindexed combinatorics-on-words literature.",
+      "The public complete record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 could not be fetched; only its indexed summary was compared.",
+      "General near-minimum universal-word enumeration may have an unpublished or differently titled Lyndon refinement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "establishes universality and length-2k binary arch baseline, not the joint Lyndon first-slack classification",
+        "evidence": [
+          "arxiv:2003.04629v1, Sections 2 and 4, Definition 3 and binary minimal-length observation; no matching Lyndon theorem located"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "abstract, introduction, preliminaries and Section 4 passages about arch factorization and circular universality; HTML term checks for Lyndon",
+        "method": "direct section reading and theorem/term comparison",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "same binary k-universal words, exact shortest forms, circular universality"
+      },
+      {
+        "assessment": "counts all universal words and ranks/unranks them; no specialized first-slack Lyndon classification found",
+        "evidence": [
+          "arxiv:2304.04583v1, Theorem 2.4 and Section 3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+        "material_read": "full introduction, preliminary definition of arches, Section 3 counting construction, relevant results/conclusion; HTML search for Lyndon",
+        "method": "direct HTML theorem/method inspection and notation/implication comparison",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "complete unrestricted enumeration might imply a stronger exact count"
+      },
+      {
+        "assessment": "asks for Lyndon subsequence contained in one or two arbitrary hosts; reverses the quantifier in the present universality problem",
+        "evidence": [
+          "arxiv:2201.06773v1, Definition of Lyndon in preliminaries and longest-subsequence algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.06773v1",
+        "material_read": "abstract, Sections 1-3, section outlines for algorithmic Sections 4-5, and full-text term checks for universality",
+        "method": "direct HTML reading with full-text exact term searches",
+        "title": "Computing Longest (Common) Lyndon Subsequences",
+        "trigger": "same Lyndon object combined with subsequences"
+      },
+      {
+        "assessment": "finite-automaton regular-language constraint, not the nonregular language of all Lyndon words; no matching explicit formula detected",
+        "evidence": [
+          "doi:10.4230/LIPIcs.ISAAC.2023.4, Introduction and statement of algorithms"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ISAAC.2023.4",
+        "material_read": "published abstract, introduction and contributions in publicly accessible PDF, 21-page PDF term search for Lyndon",
+        "method": "PDF text/theorem search and visual inspection of page 3",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "general constrained-language counting could dominate an intersection theorem"
+      },
+      {
+        "assessment": "available summary concerns unrestricted complete distribution, not Lyndon refinement; not treated as definitive full-paper noncoverage",
+        "evidence": [
+          "public record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 abstract describes (1+z)/(1-z-2uz^2) unrestricted generating function"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "published indexed title and summary only; full repository document was not accessible",
+        "method": "semantic indexed-result comparison, with the full-text access limitation retained",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "published general generating function for the exact binary universality index"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac89dbed-1246-4cf5-8715-ae54360524b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first-slack intersection is an all-order structural classification, not a single finite enumeration: among (k+2)2^k almost-shortest binary k-universal words precisely two are primitive lex-minimal representatives of their own rotations. The one-symbol necessity for Lyndon k-universal hosts at k>=2 and the explicit two-word rigidity resolve a natural near-optimal constrained supersequence question. The proof exhibits a nontrivial interaction between greedy arch locations and cyclic lex order, not a mere relabeling or specialization of a previously counted table.",
+    "status": "PASS"
+  }
+}
