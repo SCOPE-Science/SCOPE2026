@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Every position in a minimal output belongs to either chosen embedding, giving multiplicity at most two. A unique zero forces C0C. With two zeros, any uniquely occurring nonzero symbol j forces the left factor to be 0,1,...,j-1 and the right factor to be j+1,...,n-1,0, hence 0C0. All other cases have two copies of each symbol and length 2n. The explicit paired word (1,0)(2,1)...(n-1,n-2)(0,n-1) has unique disjoint input embeddings for all n>=3. Finite alignment enumeration checks n=2..8; direct Cartesian enumeration independently checks n=2..4. Neither finite check substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fraser, Irving, Middendorf, Information and Computation 124 (1996), doi:10.1006/inco.1996.0011 describes dynamic programming algorithms for longest minimal outputs (abstract examined).",
+        "Sopp, Liyanage, Gong, Zhu, arXiv:2603.22591v1 (2026-03-23), sections 2–7, https://arxiv.org/html/2603.22591v1 gives an O(n) finder and enumeration with O(n) delay, and essential-position Lemma 3.1."
+      ],
+      "reasoning": "A general algorithm that could compute each finite instance is broader procedurally but does not assert a uniform all-n symbolic formula, the forbidden interval, or rigidity of underfull outputs. The accessible primary material does not contain a stronger classification of this family. Full 1996 text could not be checked, so possible implicit coverage there remains a risk.",
+      "searches": [
+        "\"Maximal Common Subsequences and Minimal Common Supersequences\" 1996 full pdf Fraser Irving Middendorf",
+        "\"minimal common supersequences\" two permutations distinct symbols maximum length",
+        "\"minimal common supersequence\" \"permutations\" \"cyclic shift\" \"length\""
+      ]
+    },
+    "checked_sources": [
+      "Sopp, Liyanage, Gong, Zhu, arXiv:2603.22591v1 (2026-03-23), sections 2–7, https://arxiv.org/html/2603.22591v1",
+      "Fraser, Irving, Middendorf, Information and Computation 124 (1996), doi:10.1006/inco.1996.0011",
+      "Existing accessible mathematical records about binary opposite-block minimal supersequences and forbidden-pattern supersequence amalgamation (scope and implication compared from recoverable claims)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sopp, Liyanage, Gong, Zhu, arXiv:2603.22591v1 (2026-03-23), sections 2–7, https://arxiv.org/html/2603.22591v1 essential-index criterion and general enumeration method were read and used for comparison.",
+        "Earlier calculations on opposite binary blocks concern strings with repeated letters, not the cyclic permutations of n distinct symbols.",
+        "The 1996 article abstract says longest minimal common supersequences can be computed by dynamic programming, not that their spectrum has this formula."
+      ],
+      "reasoning": "The new result entails exactly two submaximal outputs and all other minimal outputs at absolute upper length 2n. Neither the generic deletion-essential criterion nor a finite-instance enumerator alone logically states that structural trichotomy. Older opposite-block results are inapplicable because their alphabet has only two letters repeated many times. The unexamined 1996 body is explicitly retained as a residual risk.",
+      "searches": [
+        "\"minimal common supersequence\" \"length spectrum\" \"cyclic rotation\"",
+        "\"minimal common supersequences\" \"permutations\" cyclic shift length spectrum",
+        "\"Maximal Common Subsequences and Minimal Common Supersequences\" 1996 full pdf Fraser Irving Middendorf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sopp, Liyanage, Gong, Zhu, arXiv:2603.22591v1 (2026-03-23), sections 2–7, https://arxiv.org/html/2603.22591v1 defines minimality under the subsequence partial order; no permutation/rotation special-case wording was present in full HTML section text.",
+        "Searches for cyclically shifted permutation MCS spectra did not return an equivalent theorem."
+      ],
+      "reasoning": "The relevant aliases are subsequence-minimal common supersequence, inclusion-minimal merge, and supersequence of two one-step rotated permutations. The claim is not about shortest common supersequences (only minimum length) or cyclic factors. No checked source supplied the three-length classification or uniqueness of the two underfull words.",
+      "searches": [
+        "\"minimal common supersequence\" \"permutations\" \"cyclic shift\" \"length\"",
+        "\"minimal common supersequences\" \"rotation\" \"permutation\" 2026",
+        "\"minimal common supersequence\" \"length spectrum\" \"cyclic rotation\"",
+        "minimal common supersequences of 0 1 ... n-1 and 1 2 ... n-1 0, precisely 0 C 0 and C 0 C below length 2n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sopp, Liyanage, Gong, Zhu, arXiv:2603.22591v1 (2026-03-23), sections 2–7, https://arxiv.org/html/2603.22591v1 contains algorithmic theorems and examples, not a table of spectra for the two rotated permutations.",
+        "Finite test counts through n=8 are newly generated, not copied from a published table."
+      ],
+      "reasoning": "No exact database entry or table giving the values for all n was found. Absence from a search engine is not a uniqueness proof; the evidence is the direct inspection of the most relevant accessible full text plus query results.",
+      "searches": [
+        "minimal common supersequence length spectrum forbidden interval n+2 to 2n-2 for cyclic shift permutations",
+        "cyclic rotation permutation minimal supersequence shortest longest classification 2n 2n-1",
+        "\"minimal common supersequences\" \"rotation\" \"permutation\" 2026"
+      ]
+    },
+    "rationale": "General algorithms and essential-position criteria are already known and acknowledged. The examined full 2026 paper gives no symbolic statement about a permutation and its one-step rotation. The new exact spectrum {n+1,2n-1,2n}, uniqueness of both below-maximal outputs, and growing forbidden interval are not implied as mathematical formulas by the algorithmic results inspected. Exact and semantic searches yielded no equivalent theorem; an inaccessible 1996 primary text and unindexed results remain risks.",
+    "residual_risks": [
+      "The complete 1996 foundational article was not accessible for full-text inspection; an unpublished example or theorem could imply the exact special case.",
+      "Different terminology, unindexed sources, or later related work may already contain the family-specific classification.",
+      "Algorithmic coverage can compute finite spectra but was not treated as equivalent to a proved all-parameter closed form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHODS_NOT_COVERING_SYMBOLIC_SPECTRUM",
+        "evidence": [
+          "Lemma 3.1 gives essential positions, which the proof acknowledges.",
+          "Theorem 5.3 gives an all-input enumeration graph; no cyclic-permutation family statement or formula was present."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+        "material_read": "Full HTML sections 2 through 7, including Definitions 2.1–2.3, Lemmas 3.1–3.2, Theorems 5.1–5.3, enumeration graph, conclusions and references.",
+        "method": "Direct public HTML reading and exact-term searches for permutation, rotation, spectrum, and cyclic.",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Current accessible 2026 paper in the exact minimal-common-supersequence problem."
+      },
+      {
+        "assessment": "PLAUSIBLE_BACKGROUND_UNRESOLVED_FULL_TEXT",
+        "evidence": [
+          "Abstract states dynamic programming for longest minimal common supersequences of fixed numbers of strings.",
+          "No exact cyclic-permutation length spectrum is stated in inspected material; body not read."
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/inco.1996.0011",
+        "material_read": "Public abstract and bibliographic description only; direct publisher link returned forbidden, accessible repository PDF timed out, and authorized institutional retrieval reported access disconnected.",
+        "method": "Public metadata and abstract inspected; attempted public full text and authorized institutional access with no full text delivered.",
+        "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+        "trigger": "Foundational general algorithmic result for the longest minimal common supersequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ccf532df-a955-4653-8674-618bb7251994",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-step rotation of a permutation is a canonical test of minimal versus shortest merging. A minimal output can be almost twice as long as the shortest one, but its length cannot take n-3 consecutive intermediate values. More strongly, every below-maximum minimal output is one of two explicit rigid words. This is a complete infinite structural classification, not a routine small numeric increment or checker-only assertion; it exposes a sharp forbidden-length phenomenon relevant to minimal-supersequence enumeration and output-length variation.",
+    "status": "PASS"
+  }
+}
