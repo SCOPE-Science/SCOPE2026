@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every integer m≥2, the decoder has exactly 2^m proper-prefix states. The word (0 1^m)^(m-1)0 sends all states to the root. For a hypothetical shorter reset word, parsing from root and from 0^h for every h=1,...,m-1 gives L+h=mK_h+E_h+f, and one E_h≥m-1. When h>0, the initial forced normal codeword forces L≥m². When h=0, only L=m²-1 with all m-1 long codewords and final root remains. Starting that word from state 0 forces every exceptional last bit to be 0; the resulting word (1^m0)^(m-1) fails to synchronize states root and 1. The argument includes m=2. Exhaustive subset BFS for 2≤m≤9 corroborates the theorem; it is not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berlinkov, Ferens, Ryzhikov and Szykuła, arXiv:2101.05057, Section 3.8: general asymptotic upper bounds of order n log^3 n for n-state literal code automata, without exact reset thresholds for this one-leaf family.",
+        "Ryzhikov and Szykuła 2018, Sections 1,7: general algorithms and distinct subtree-refinement example.",
+        "Biskup and Plandowski 2009 abstract: two families with long shortest synchronizing strings, but no exact constructions available for comparison."
+      ],
+      "reasoning": "An arbitrary-case upper bound or approximation algorithm does not imply the equality rt(A_m)=m^2. The 2009 work plausibly overlaps in topic; absent full details leave a material priority risk, but the accessible abstract does not establish dominating coverage or a decisive equivalent formula.",
+      "searches": [
+        "\"Synchronization of strongly connected partial DFAs and prefix codes\" literal automaton theorem 3.19",
+        "arXiv:2101.05057 Sections 1.4 and 3.8, full text",
+        "\"Finding Short Synchronizing Words for Prefix Codes\" Section 7",
+        "\"Shortest synchronizing strings for Huffman codes\" Biskup Plandowski 2009"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.06299; Sections 1 and 7, 14-page primary full text",
+      "arXiv:2101.05057; Sections 1.4 and 3.8, 23-page primary relevant full text",
+      "arXiv:2608.24245; verified 2026-08-25 abstract and proceedings metadata only",
+      "doi:10.1016/j.tcs.2009.06.005; bibliographic abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Our claim is exact, applies to all m≥2, and quantifies the common image of all 2^m literal decoder states, including a lower proof that excludes all shorter words regardless of final state.",
+        "The 2018 algorithms and 2021/2026 asymptotic bounds do not specialize to an equality for this tree without additional analysis. The 2026 survey contextualizes reset thresholds but accessible excerpts do not contain the present parameter family."
+      ],
+      "reasoning": "Statement-level implication was checked: algorithmic solvability and asymptotic upper bounds do not entail this exact family profile. The nearest earlier displayed code refines a different set of leaves. The 2009 abstract cannot rule in or out an equivalent hidden construction, hence residual risk remains and no independence claim is made.",
+      "searches": [
+        "arXiv:1806.06299 Theorem 14 Theorem 15 literal decoder",
+        "arXiv:2101.05057 Theorem 3.18 Theorem 3.19",
+        "arXiv:2608.24245 \"Synchronizing Automata: Open Problems\" 2026",
+        "\"Shortest synchronizing strings for Huffman codes\" 2009 two classes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ryzhikov and Szykuła (2018), Section 1, define the literal decoder; their displayed code 0Sigma^(m-1) union 1Sigma^m has an entire subtree of deeper leaves, not the single leaf 1^m of this theorem.",
+        "Ryzhikov and Szykuła (2018), Section 7, gives approximation algorithms and exact-search proposals, not the exact m-squared formula."
+      ],
+      "reasoning": "Equivalent decoder-state formulations and alternative terms (complete/maximal prefix code, literal Huffman decoder, single exceptional leaf, one extra depth) were checked. The nearest explicitly constructed family expands a whole half-tree and is not an isomorphic parameter substitution of the present family. No inspected source claims this exact statement.",
+      "searches": [
+        "\"one leaf\" \"prefix code\" \"synchronizing\"",
+        "\"almost balanced\" \"Huffman\" \"synchronizing\"",
+        "single exceptional long codeword all binary length m except one replaced by two children shortest reset word",
+        "prefix decoding tree single exceptional deep leaf shortest reset word quadratic maximal code",
+        "arXiv:1806.06299 Sections 1 and 7 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible published records concern exact profiles of unrelated synchronization automata, prefix-free graph complexity, and fixed-length coding bounds; no indexed exact table for this complete one-leaf prefix code appeared.",
+        "No static database of all parameter values would by itself imply the infinite family; the proof covers every integer m≥2."
+      ],
+      "reasoning": "The target is an infinite-parameter exact reset theorem, not an entry in a finite optimum table. Parameter aliases, short-value sequences 4,9,16,25,36, and the binary tree description were compared; no exact pre-existing tabulation with a dominating proof was identified.",
+      "searches": [
+        "literal Huffman decoder length m or m+1 with only two longest words m squared",
+        "exact reset threshold shortest synchronizing word complete binary prefix code almost uniform one leaf expanded depth m m squared",
+        "\"uniform length\" \"one\" \"synchronizing\" \"Huffman\""
+      ]
+    },
+    "rationale": "The exact single-leaf-refined binary literal decoder formula is not implied by the 2018 explicit all-subtree-refined example or algorithms, nor by the 2021/2026 general asymptotic bounds. Actual searches for exact tree/length aliases and related records found no matching statement. The 2009 Biskup-Plandowski constructions could not be inspected in full, leaving disclosed priority risk. No independence or comprehensive novelty certification is asserted.",
+    "residual_risks": [
+      "Unexamined full text of the 2009 Biskup–Plandowski Huffman-code constructions may hide equivalent coverage.",
+      "The 2026 survey full PDF was not accessible for full-document comparison; it is used for contextual motivation, not a noncoverage certificate.",
+      "Earlier unindexed or differently described single-leaf decoder results may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the one-leaf exact threshold; distinct subtree-refined example, algorithmic results.",
+        "evidence": [
+          "Section 1 example 0 Sigma^(m-1) union 1 Sigma^m; Section 7 Theorems 14-15 and Conjecture 16."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.06299",
+        "material_read": "Full 14-page primary PDF, including Sections 1, 7 and references, and page-two rendered figure.",
+        "method": "Inspected extracted PDF full text, page figure, relevant definitions and theorems.",
+        "title": "Finding Short Synchronizing Words for Prefix Codes",
+        "trigger": "Same model: literal decoders; nearest displayed complete code construction."
+      },
+      {
+        "assessment": "Defines exactly the same model and proves broad upper bounds; contains no exact single-refined-leaf statement in the examined material.",
+        "evidence": [
+          "Section 1.4 defines proper-prefix literal decoder; Section 3.8 studies general rank and bound, O(n log^3 n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2101.05057",
+        "material_read": "Relevant sections of 23-page primary PDF: abstract, Sections 1.1–1.4, Section 3.8, Theorems 3.18–3.19.",
+        "method": "Read arXiv-version PDF text with section-specific inspection.",
+        "title": "Synchronization of strongly connected partial DFAs and prefix codes",
+        "trigger": "Highly relevant literal automaton definitions and strongest general bounds."
+      },
+      {
+        "assessment": "Topical contextual source, not counted as full-document noncoverage.",
+        "evidence": [
+          "ArXiv first public UTC date 2026-08-25; concerns reset thresholds and synchronization problems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Verified dated public abstract and bibliographic text; full PDF unavailable in this execution.",
+        "method": "Read public arXiv abstract and secondary proceedings bibliographic summaries; full text was not available.",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "2026 recent-source anchor and current motivation for reset-threshold questions."
+      },
+      {
+        "assessment": "Could potentially contain equivalent constructions; not treated as noncovering. Material unresolved historical-priority risk.",
+        "evidence": [
+          "Abstract reports an upper bound and two classes of long-delay codes, without specifying the code trees or exact thresholds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2009.06.005",
+        "material_read": "Bibliography and abstract only; 2009 full text was not accessible.",
+        "method": "Searched arXiv and lawful publicly accessible article/PDF sources; inspected journal bibliographic and abstract records. An institutional text acquisition request was unavailable.",
+        "title": "Shortest synchronizing strings for Huffman codes",
+        "trigger": "Earlier highly plausible constructions of prefix codes with long synchronizing strings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7e2bb66-1f3a-4a43-aa6f-03f6286b5447",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A uniform binary length-m prefix code has no decoder reset. Refining exactly one leaf is the smallest structural change that breaks the uniform-length phase obstruction. The exact all-depth recovery cost m² (for 2^m literal states), a constructive reset word, and the modular lower-bound obstruction quantify this natural symmetry-breaking phenomenon. This is a motivated complete classification of a canonical parameter family, not an arbitrary finite example, and makes no unsupported general bound claim.",
+    "status": "PASS"
+  }
+}
