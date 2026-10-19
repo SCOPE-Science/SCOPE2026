@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A cactus edge has precisely one alternative path; all other blocks join it at cut vertices and pass no current. Thus the outage resistance equals a sum of reciprocal conductances on the surviving cycle edges. The one-cycle cost in reciprocal conductances is strictly convex with affine detour inequalities and Slater feasibility. The unique threshold, explicit feasible resistances and multipliers satisfy all KKT conditions; cost is H²/d. Cycle expenditure bounds yield the sharp global S/B optimum, and equality forces unique per-cycle allocations. The sharp one-price threshold follows by solving the active-set equality. The included finite reproduction program passed 945 assertions, but is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson–Chertkov (arXiv:1004.2285), inspected Sections III and V, study convex design for worst single-line-failure power-flow dissipation with conductance costs; a general optimization context overlaps the problem motivation.",
+        "Their inspected objective is stated for network power-flow demands, not universal post-deletion effective resistance between each individually failed edge’s endpoints, and no arbitrary-priced cactus closed form is given there."
+      ],
+      "reasoning": "A general convex-programming framework does not itself imply a solved optimization classification. The claim here includes exact KKT multipliers, sorted-price thresholds, unique unrestricted global optimizer, and the sharp equal-conductance interval. No stronger theorem covering these consequences was identified in the inspected primary material. Residual risk remains for uninspected or unindexed specializations.",
+      "searches": [
+        "optimal resistive detour path after edge removal series parallel circuit cactus graph cost allocation",
+        "resistance network allocation minimax replacement path under single link outage weighted cactus exact threshold",
+        "Johnson Chertkov arxiv 1004.2285 network design line outage Section III V"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh–Boyd–Saberi, SIAM Review 50 (2008), doi:10.1137/050645452",
+      "Johnson–Chertkov, arxiv:1004.2285 (2010)",
+      "Suliman–Weinstein, arxiv:2302.05966 (2023)",
+      "Semantic-search records: 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+      "Semantic-search records: 2026/10/11/SCOPE-euclidean-inradius-of-acyclic-flow-polytopes-as-an-effective-res--9a80040abd60"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proposed result optimizes max_e R_{u_ev_e}(G-e) and yields w_e proportional to 1/sqrt(max(c_e,T_C)) within each cycle.",
+        "Ghosh–Boyd–Saberi optimize intact-network effective resistance, Johnson–Chertkov optimize power-flow outage effects, and Suliman–Weinstein optimize intact-edge effective resistance.",
+        "The nearest indexed records on cacti concern transportation-space projection norms and flow-polytope inradii, not edge conductance budget allocation."
+      ],
+      "reasoning": "The objects and quantifiers are different: arbitrary independently priced cactus conductances, all single-edge deletion endpoints, exact unrestricted minimax and uniqueness. Known general effective-resistance identities are used as background but do not directly assert the complete threshold and budget theorem. This is a limited best-knowledge originality judgment, not a claim of exhaustive global coverage.",
+      "searches": [
+        "minimax effective resistance between endpoints of deleted edge single edge failure cactus cycles conductance budget arbitrary edge prices exact water filling",
+        "optimal resistive detour path after edge removal series parallel circuit cactus graph cost allocation",
+        "cycle graph cost optimal maximum sum of reciprocal conductances excluding one edge minmax detour resistance capped square root water filling",
+        "resistance network allocation minimax replacement path under single link outage weighted cactus exact threshold",
+        "doi:10.1137/050645452",
+        "arxiv:1004.2285",
+        "arxiv:2302.05966"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deleting an edge in a cactus leaves its other cycle edges in series, giving a replacement-path reciprocal-conductance sum; this differs from the intact-edge resistance governed by parallel conductance.",
+        "Ghosh–Boyd–Saberi (2008), Section 8, considers maximal effective resistance of intact-network vertex pairs.",
+        "Suliman–Weinstein (arXiv:2302.05966), relevant maximum-edge-resistance sections, uses intact-network edge resistances, not resistances measured after edge deletion."
+      ],
+      "reasoning": "Alternative terms include replacement-path electrical resistance, backup resistance, post-failure endpoint resistance and minimax inverse-conductance design. The analyzed nominal and intact-edge criteria cannot be converted into the stated failure objective by name substitution: on a simple cycle the intact resistance is r_e(S-r_e)/S, while the failed-edge detour is S-r_e. Neither supplies the asserted price cap or cycle budget formula.",
+      "searches": [
+        "minimax effective resistance between endpoints of deleted edge single edge failure cactus cycles conductance budget arbitrary edge prices exact water filling",
+        "cycle graph cost optimal maximum sum of reciprocal conductances excluding one edge minmax detour resistance capped square root water filling",
+        "Ghosh Boyd Saberi 2008 maximum effective resistance Section 8",
+        "Suliman Weinstein 2023 minimax effective resistance edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available semantic-result lists returned papers on cactus flow-polytope norms and root-polytope invariants, not a table of priced edge-deletion electrical detours or their optima.",
+        "The theorem covers arbitrary real positive edge prices, all cactus cycle lengths and any cactus block-tree arrangement, not a finite graph table."
+      ],
+      "reasoning": "No identified published table provides the arbitrary-parameter design or supports interpolation to it; lack of indexed results alone is not positive proof of novelty.",
+      "searches": [
+        "minimum maximum replacement path electrical resistance network after a failed edge with per-edge conductance cost",
+        "minimax path reliability cost optimal conductance after any one edge deletion alternative electrical route edge endpoints"
+      ]
+    },
+    "rationale": "Compared mathematical objectives and implication directions with accessible primary texts and semantic-result records: closest works treat intact effective resistance or general power-line-failure dissipation, whereas this result gives an explicit all-heterogeneous-price, post-deletion endpoint-resistance cactus allocation and sharp cost threshold. No directly covering statement found, with unindexed equivalent specialization retained as a residual risk.",
+    "residual_risks": [
+      "A stronger specialized theorem under replacement path, bypass resistance, or robust electrical network terminology might be absent from inspected indexes.",
+      "Only selected relevant portions of accessible full texts were inspected; this is not a page-by-page examination of every historical monograph or thesis.",
+      "The general convex KKT method is classical; novelty claimed concerns its exact capped-price classification on arbitrary-priced bridgeless cacti, not the method itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the post-edge-deletion endpoints optimization or arbitrary-priced cactus allocation",
+        "evidence": "Section 8 discusses maximum effective resistance on intact graph node pairs; its optimization objective does not remove each measured edge.",
+        "identifier_or_url": "doi:10.1137/050645452; https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Accessible full manuscript, introduction, optimization Sections 4–5 and maximum-effective-resistance Section 8",
+        "method": "Compared the precise objective, whether edges fail, budget model and stated results",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Closest foundational nominal min/max resistance optimization"
+      },
+      {
+        "assessment": "General overlapping optimization setting; no inspected exact heterogeneously priced cactus replacement-resistance theorem",
+        "evidence": "The studied loss function is post-failure power-flow dissipation; it does not state minimax failed-edge endpoint resistance or closed-form water-filling for cactus blocks.",
+        "identifier_or_url": "arxiv:1004.2285; https://arxiv.org/abs/1004.2285",
+        "material_read": "Accessible full preprint via HTML; introduction and Sections III and V concerning costs and line failures",
+        "method": "Compared outage model, objective load assumptions, KKT construction and graph families",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "Highly relevant robust single-line-failure network optimization"
+      },
+      {
+        "assessment": "Different objective, with no stated removal-specific cactus formula",
+        "evidence": "Their maximized edge leverage uses the intact network, while this theorem requires deleting the measured edge first.",
+        "identifier_or_url": "arxiv:2302.05966; https://arxiv.org/abs/2302.05966",
+        "material_read": "Accessible full preprint, introduction and relevant minimax edge effective-resistance sections",
+        "method": "Compared intact-graph edge resistance and single-failure replacement-path resistance",
+        "title": "Infinite Lewis Weights in Spectral Graph Theory",
+        "trigger": "Possible stronger maximum edge-resistance allocation result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc121f4d-f731-4f25-8976-1d89e9e84fff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Post-failure electrical resistance between the failed connection endpoints directly measures alternate-path quality in robust resistor or consensus-network planning. An exact optimizer across arbitrary real-valued edge prices on all bridgeless cacti determines every conductance, one sharp scalar price threshold per cycle, a global cycle budget division, uniqueness and a nontrivial equal-conductance price plateau. It is a natural complete structural result, not a recomputed table or an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
