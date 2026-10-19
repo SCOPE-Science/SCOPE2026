@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Exact signed-incidence reduction L=BMB^T is valid for all 0<a<=1, with rank-three retained columns. The pseudoinverse congruence gives the exact 3x3 SPD preconditioned matrix. Inherited weights give a rank-one update with exact eigenvalues; additive weights yield a cubic whose three simple positive roots converge at O(a); interlacing plus the sharp 2x2 correlation lower bound holds for all positive diagonal weights. The matching upper and lower bounds establish the limiting infimum and sharp gap. A standalone Python standard-library checker passes 74 rational and numerical checks; these are not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Savostianov et al., arXiv:2401.15492v1, Section 6.1 and Theorem 18: fixed face subsampling, original-weight spectral representation, and an operator-norm difference objective for weight choices.",
+        "Qu et al., arXiv:2209.00809v2, Sections 2.1 and 3: general quasiconvex/SDP diagonal scaling framework."
+      ],
+      "reasoning": "The first source covers the preconditioning framework and inherited-weight setup, not the new sharp condition-number optimization under reweighting. The second source covers the broad computational optimization class but supplies no special-case exact asymptotic value or matching constructive rule in the inspected material. Both receive full credit for generality.",
+      "searches": [
+        "Savostianov Tudisco Guglielmi Cholesky-like preconditioner optimal weight redistribution condition number original weights",
+        "diagonal scaling rank one update matrix diagonal plus ones optimal preconditioner tetrahedron simplicial complex",
+        "Cholesky-like preconditioner Hodge Laplacians triangle reweighting condition number numerical example fixed subcomplex"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.15492v1 (public full HTML sections cited)",
+      "arxiv:2209.00809v2 (public full HTML sections cited)",
+      "Public search results for tetrahedral weighted Hodge subcomplex conditioning and rank-one diagonal scaling",
+      "Published mathematical record returned: Sharp Euclidean damping frontier for weighted Jacobi on 2x2 SPD systems (different one-step Euclidean-safety criterion; same numerical constant can arise but no Hodge implication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inherited-weight conditioning is an instance of the source 2024 fixed-subcomplex formula and is treated as context, not as the novel theorem.",
+        "General diagonal optimization from arXiv:2209.00809v2 permits algorithmic solution, but its proved algorithmic guarantees do not imply the exact 3+2sqrt(2) constant without the new family-specific reduction and lower bound."
+      ],
+      "reasoning": "The assessed conjunction is fixed-subcomplex additive reweighting, asymptotic global optimality for every positive diagonal choice, and an unbounded sharp inherited-weight gap. Neither inspected prior theorem states this conjunction or a stronger explicit theorem of which it follows immediately.",
+      "searches": [
+        "Savostianov Tudisco Guglielmi Cholesky-like preconditioner optimal weight redistribution condition number original weights",
+        "tetrahedral complex preconditioning discarded face reciprocal weights diagonal plus rank-one one inverse weight O(1) conditional scaling",
+        "tetrahedral Hodge Laplacian diagonal scaling preconditioner"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The tetrahedral four-column incidence relation reduces the problem to diagonal scaling of diag(a,1,a^-1)+11^T; no matching tetrahedron or rank-one update theorem was found in inspected papers.",
+        "The general diagonal-scaling SDP source addresses arbitrary matrices, but does not state the explicit asymptotic constant or this fixed omitted-face construction."
+      ],
+      "reasoning": "A generic optimal-scaling algorithm can be applied numerically to the 3x3 family but does not itself establish the explicit 3+2sqrt(2) limit, the elementary additive construction and the matching intrinsic obstruction. Classical 2x2 correlation bounds cover a proof ingredient rather than the combined Hodge result.",
+      "searches": [
+        "weighted tetrahedron Hodge up-Laplacian fixed three-face collapsible preconditioner condition number reweighting spectral limit 3+2sqrt(2)",
+        "tetrahedral complex preconditioning discarded face reciprocal weights diagonal plus rank-one one inverse weight O(1) conditional scaling",
+        "tetrahedron Hodge Laplacian triangle face deletion diagonal reweighting optimal condition number diagonal scaling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2024 Hodge article reports computational conditioning experiments for simplicial complexes but no exact tetrahedral grading table corresponding to this limit.",
+        "No matching numerical or symbolic tetrahedral face-weight record occurred among the relevant returned mathematical research records."
+      ],
+      "reasoning": "The result is not a recomputation of a known finite table; it establishes a continuous asymptotic optimality statement for all positive reweightings. Search absence is not itself proof of priority.",
+      "searches": [
+        "weighted tetrahedron Hodge up-Laplacian fixed three-face collapsible preconditioner condition number reweighting spectral limit 3+2sqrt(2)",
+        "collapsible subcomplex reweight condition number tetrahedron",
+        "tetrahedron up-Laplacian preconditioner weights"
+      ]
+    },
+    "rationale": "An exact comparison of mathematical implications, not merely titles, separates this fixed-face optimal-conditioning limit from the source’s operator-norm fixed-subcomplex weight problem and from the general SDP formulation of diagonal preconditioning. No inspected material identified the explicit sharp tetrahedral family result. The inherited-weight formula and standard 2x2 scaling lemma are acknowledged, not claimed individually as priority results. Remaining published or uncatalogued special-case overlap risk is recorded.",
+    "residual_risks": [
+      "A prior specialist might have computed equivalent diagonal-scaling asymptotics for this 3x3 rank-one-update family without mentioning tetrahedra.",
+      "The general optimal-diagonal-scaling literature can numerically recover the finite-parameter optimum and is materially broader in algorithmic scope.",
+      "This fixed omitted face is not necessarily selected by a heavy-subcomplex algorithm; no general-complex performance claim follows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and original-weight analysis are prior art. The explicit sharp diagonal reweighting limit for the stated tetrahedron is not in the inspected statements.",
+        "evidence": [
+          "Section 6.1 optimizes the operator-norm difference when varying retained weights.",
+          "Theorem 18 analyzes the spectral condition for the paper’s selected original retained weights.",
+          "Section 6.2 separately chooses a heavy subcomplex, outside this claim."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.15492v1",
+        "material_read": "Full HTML sections 1-3, relevant incidence and Cholesky construction, Section 6.1 Lemma 16 and Theorem 18, and Section 6.2 face-selection algorithm.",
+        "method": "Read public arXiv HTML equations and compare fixed sampling, objective functions and spectral conclusions.",
+        "title": "Cholesky-like Preconditioner for Hodge Laplacians via Heavy Collapsible Subcomplex",
+        "trigger": "Same weighted simplicial up-Laplacian and weakly collapsible subcomplex preconditioning framework."
+      },
+      {
+        "assessment": "A general optimizer and SDP characterization are provided, but no explicit exact tetrahedral value or asymptotically optimal additive rule was located.",
+        "evidence": [
+          "Section 2 gives matrix-inequality feasibility formulation.",
+          "Section 4 compares heuristic diagonal scaling and optimal SDP solutions on other test matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.00809v2",
+        "material_read": "Full HTML introduction, Section 2.1 formulation, Section 2.2 bisection, Section 3 method overview and Section 4 numerical-experiment metrics.",
+        "method": "Compare abstract/general optimization formulations and stated precise theorems with this family-specific analytic limit.",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Potential broader theorem covering arbitrary diagonal scaling and dominating the proposed asymptotic infimum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a51cf7d9-47f7-43b9-ac3b-3d5b6948a9d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The literature’s fixed-subcomplex weighting problem has a distinct spectral-conditioning objective with practical relevance when face subsampling is prescribed. On the natural reciprocally graded tetrahedral face weights, inherited face weights cause condition O(1/a) but a local additive rule obtains O(1), provably asymptotically optimal among all admissible positive face reweightings. The constant is an exact structural obstruction from invariant two-face correlation, a benchmark for reweighting fixed subcomplexes. The result neither repeats generic diagonal-scaling existence nor claims general or chosen-face performance.",
+    "status": "PASS"
+  }
+}
