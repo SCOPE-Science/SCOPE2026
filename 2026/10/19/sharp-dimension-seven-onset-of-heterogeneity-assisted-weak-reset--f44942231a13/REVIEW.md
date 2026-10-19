@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The radial first and second exit-time moments solve the Dirichlet Poisson equations directly. The independent-cycle renewal formula produces the exact right derivative. The sharp threshold follows from the pointwise quadratic bound on radial deficits and equality for a two-point law. A separate numerical implementation compares the formula with the Bessel exit transform; 387 checks passed. The proof covers every integer dimension at least two, not just the checked samples.
+
+**Originality — PASS (same-model, qualified).** The coefficient-of-variation restart criterion, spherical fixed-radius moments, and random-position renewal framework are explicitly credited to earlier work. In the directly inspected Chen–Huang paper the reset location is fixed, while the Evans–Majumdar and Toledo-Marin–Boyer random-reset derivations are for one-dimensional targets. The all-law dimension-seven geometric threshold and counterexample are not stated in the inspected primary text and were not returned by targeted scientific-literature or published-result searches. An equivalent bound implicit in a broader multidimensional renewal treatment remains the main priority risk; independent assessment is outstanding.
+
+**Scientific value — PASS.** This is an exact structural threshold for randomized transport control, not a selected numerical example: for dimensions two through six no mixture of first-order-unfavorable radial placements can reverse the sign, whereas in every dimension at least seven a two-radius mixture does. It resolves an unanticipated mixture effect in a natural model and identifies the precise dimensional boundary. Global optimization and intermediate-rate effects are outside the result.
+
+**Closest literature and limitations.** Chen–Huang (2021/2022) supplies the deterministic absorbing-ball threshold; Evans–Majumdar (2011) and Toledo-Marin–Boyer (2022) give reset-distribution frameworks. The result assembles these foundations with a new extremal inequality, and that close deductive relation is an originality risk. The conclusion is confined to the sign of the derivative at zero reset rate. No independent literature-priority decision has been made.
+
+Self-review: passed. Independent audit: not yet performed.
