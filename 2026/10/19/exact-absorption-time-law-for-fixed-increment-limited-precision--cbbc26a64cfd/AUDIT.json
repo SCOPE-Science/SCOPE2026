@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every admissible state in binade k, \\(a<u_E\\le u_k\\) prevents intermediate binade crossing and exact \\(p+r\\) truncation yields \\(s+v_k\\lfloor a/v_k\\rfloor\\). Thus the increment probability \\(q_k\\) is independent of the state within k, positive for \\(k<L\\), and exactly zero at terminal \\(s=2^L\\). There are precisely \\(2^{p-1}\\) increments per binade. Independence of fresh Bernoulli trials yields independent geometric waiting times and the NB convolution; moments and generating functions follow. Ideal SR always has \\(a/u_k>0\\), and countably many almost-sure successes imply unbounded growth. Exact-rational standalone verifier passed 62,496 states but cannot prove the infinite-time claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2408.03069 Lemma/Sections 3-4 derive local bias and finite-n summation error bounds.",
+        "arxiv:2603.24161 Theorems 3.1 and 4.1 treat Horner/pairwise finite-n high-probability error bounds.",
+        "arxiv:2504.20634 investigates distinct few-bit implementations and correction schemes."
+      ],
+      "reasoning": "Finite-n deviation estimates are not the exact long-time absorption kernel or distribution; locally vanishing probability implies an absorbing update, but the papers did not establish the count of traversed binades or complete hitting-time law. The claimed novelty excludes the general truncation mechanism itself.",
+      "searches": [
+        "arxiv:2603.24161 stochastic rounding limited precision truncation repeated constant-addend summation absorbing barrier geometric negative binomial hitting time",
+        "arxiv:2408.03069 limited-precision stochastic rounding SR_p,r power of two deterministic saturation Markov chain exact absorption time",
+        "\"El Arar\" \"Probabilistic error analysis of limited precision stochastic rounding\" \"stagnation\" absorption",
+        "stochastic rounding \"eventually\" \"saturates\" repeated summation limited precision"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.24161v1 (complete HTML, including definitions/theorems)",
+      "arxiv:2408.03069v3 (complete HTML, Sections 2-6)",
+      "arxiv:2504.20634v1 (HTML text, Section III/IV)",
+      "doi:10.1088/2634-4386/ae01d2 (open article full text)",
+      "Published mathematics database search using seven actual scientific statements and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2408.03069 Definition 4 defines SR_{p,r} and local expectation, which are explicitly treated as prior.",
+        "arxiv:2603.24161 Definition 2 reuses that operator, with Horner and pairwise error analyses.",
+        "doi:10.1088/2634-4386/ae01d2 observes outright loss of a small addend when guard bits are shifted out, and proposes stochastic sticky bits; it does not calculate the full fixed-addend hitting-time law."
+      ],
+      "reasoning": "The arithmetic rule plus elementary geometric-waiting facts allow a derivation but the central quantified multi-binade convolution, bound \\(L-E\\le r\\), and explicit comparison to exact ideal stochastic rounding were not statements of the inspected literature. A decisive alternative publication would overturn originality; no absolute uniqueness is asserted.",
+      "searches": [
+        "arxiv:2603.24161 stochastic rounding limited precision truncation repeated constant-addend summation absorbing barrier geometric negative binomial hitting time",
+        "arxiv:2408.03069 limited-precision stochastic rounding SR_p,r power of two deterministic saturation Markov chain exact absorption time",
+        "fixed-increment limited precision stochastic rounding 2^(p+r) guard bits probability of eventually frozen accumulator distribution",
+        "\"Stochastic rounding for memory-efficient digital simulation of synaptic plasticity using 8-bit floating-point\" loss guard bit sticky"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact transition kernel is upward/hold with q_k=2^{-r} floor(a/v_k); the resulting passage law is NB(N,q_k).",
+        "The full original model definition (arxiv:2408.03069, Secs. 2.3 and 3) describes the operator and local bias, not a fixed-addend absorption-time distribution.",
+        "The closest related indexed quantized-map result analyzes deterministic negative-slope maps; its finite-state trapping does not imply the stochastic absorption law here."
+      ],
+      "reasoning": "Searched aliases including random walk, stagnation, absorbing power of two, hitting time, negative binomial, quantized recursion and truncated stochastic rounding. Same object and explicit distribution were not located; a general absorbing Markov chain recipe does not alone supply the quantified arithmetic barrier and exact stage parameters.",
+      "searches": [
+        "limited precision stochastic rounding fixed positive repeated addition eventually saturates almost surely at deterministic power of two, exact expected hitting time, absorbing binade",
+        "guard bits stochastic rounding truncation finite random bits exact stagnation power-of-two threshold",
+        "long-time Markov chain limited precision stochastic rounding summation fixed increment hitting time geometric",
+        "\"stochastic rounding\" \"stagnation\" \"absorbing\" repeated addition fixed increment guard bits",
+        "\"limited precision stochastic rounding\" \"stagnation\" sum constant steps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried published-mathematics database results did not present a table of the first power-of-two barrier or its exact distribution for this rounding operator.",
+        "arxiv:2408.03069 Sections 6.1 numerical experiments use randomly selected varying addends and finite-length averaging; they are not exact constant-addend stopping-time tables."
+      ],
+      "reasoning": "The result is a full parametric distribution, not a recalculation of an established finite table. No exact tabulation or equivalent recurrence was identified; index incompleteness remains a risk.",
+      "searches": [
+        "fixed-increment limited precision stochastic rounding 2^(p+r) guard bits probability of eventually frozen accumulator distribution",
+        "stochastic rounding repeated summation fixed positive increment negative binomial guard bits long time exact PGF threshold",
+        "guard bits stochastic rounding truncation finite random bits exact stagnation power-of-two threshold"
+      ]
+    },
+    "rationale": "The 2024 and 2026 primary full texts establish the truncation-based SR model and finite-\\(n\\) perturbation analysis, and the 2025 hardware study explicitly shows guard-bit absorption. All of these premises and the bare possibility of lost updates are excluded from the claimed novelty. The new exact parametric absorption-time PGF, moment classification, bounded binade count, and ideal-versus-limited almost-sure contrast were not found in the directly inspected source texts, the cited nearby prior work, targeted web searches or published-finding corpus. This is a bounded best-knowledge judgment, not proof of unique discovery.",
+    "residual_risks": [
+      "An indexed or unindexed prior work might already compute this specialized Markov law under a different name.",
+      "Absorption for addends lost below the guard-grid is a known qualitative phenomenon; originality attaches only to the full explicit barrier/time distribution.",
+      "Other few-bit stochastic rounders have different behavior and may eliminate this mechanism; the theorem is intentionally operator-specific."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers local rounding bias and finite-length error bounds, but not the exact constant-addend absorption time, barrier, or complete law. Source correctly owns rounding definition.",
+        "evidence": [
+          "Definition 4 Eq. (6); Sections 3 and 4.1; Section 6.1; first arXiv submission 2024-08-06."
+        ],
+        "identifier_or_url": "arxiv:2408.03069v3 | https://arxiv.org/html/2408.03069v3",
+        "material_read": "Full HTML main text: Sections 2.3, 3, 4.1, 5, 6.1, and conclusions; scanned text for absorption/negative-binomial keywords.",
+        "method": "Direct full-text inspection of definitions, theorem statements, proofs, and summation experiments",
+        "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+        "trigger": "Original paper defining the exact rounding operator and recursive-summation analysis"
+      },
+      {
+        "assessment": "Sets exact truncation rule, proves finite-depth Horner and pairwise error bounds; does not supply infinite-time constant-increment absorption law.",
+        "evidence": [
+          "Definition 2 and surrounding remarks; Theorem 3.1 and Theorem 4.1; arXiv v1 2026-03-25."
+        ],
+        "identifier_or_url": "arxiv:2603.24161v1 | https://arxiv.org/html/2603.24161v1",
+        "material_read": "Full HTML text including Section 2 Definition 2, Theorems 3.1 and 4.1, experiments and conclusions.",
+        "method": "Direct paper HTML text reading; comparison of hypotheses/claims to exact distribution",
+        "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding: Horner’s Algorithm and Pairwise Summation",
+        "trigger": "Recent 2026 numerical-analysis continuation motivating question"
+      },
+      {
+        "assessment": "Some variants have correction mechanisms; does not contain stated negative-binomial constant-increment absorption law for the specific truncation-based operator.",
+        "evidence": [
+          "Few-bit implementation definitions and bias-corrected rounders, arXiv 2025-04-29."
+        ],
+        "identifier_or_url": "arxiv:2504.20634v1 | https://arxiv.org/html/2504.20634v1",
+        "material_read": "HTML treatment of few-bit variants, corrections, and empirical consequences, including Section III and Section IV.",
+        "method": "Direct full-text reading and form-of-rounding comparison",
+        "title": "On Stochastic Rounding with Few Random Bits",
+        "trigger": "Potential broader few-bit stochastic-rounding bias result"
+      },
+      {
+        "assessment": "Explicitly observes complete loss of tiny addends without a sticky bit; the qualitative loss is not new. It provides no closed-form barrier or first-passage distribution across binades.",
+        "evidence": [
+          "Guard-bit shift-out passage; stochastic sticky-bit remedy; 2025 publication."
+        ],
+        "identifier_or_url": "doi:10.1088/2634-4386/ae01d2 | https://doi.org/10.1088/2634-4386/ae01d2",
+        "material_read": "Open-access full article text, particularly Methods rounding implementation, guard-bit shift-out example, stochastic sticky-bit fix and discussion.",
+        "method": "Direct full-text article reading",
+        "title": "Stochastic rounding for memory-efficient digital simulation of synaptic plasticity using 8-bit floating-point",
+        "trigger": "Possible prior observation of full guard-bit elimination and stochastic-stagnation cure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cbbc26a6-4cfd-49f3-90b0-29263f5ca880",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is directly motivated by the limited-guard-bit resource/accuracy tradeoff in current numerical arithmetic. Quantifying the exact stopping-time distribution, moments and the at-most-\\(r\\)-binade saturation barrier gives a reproducible long-horizon reliability benchmark where finite-\\(n\\) error analyses are inadequate; the complete operator-conditional classification is mathematically more informative than a trivial one-step truncation observation. Its narrow scope is natural (constant increments are the cleanest persistent update test) and identifies a relevant failure mode that sticky-bit hardware mitigations specifically target.",
+    "status": "PASS"
+  }
+}
