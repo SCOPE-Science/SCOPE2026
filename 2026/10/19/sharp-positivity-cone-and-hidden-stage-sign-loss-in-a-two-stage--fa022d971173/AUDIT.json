@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact order constraints force the nondegenerate unshifted s=2 parameters (alpha,r,beta)=(3/5,1/5,2). The implemented stages give the recurrence with t=1-2z+z^2/2. Strict Schur tests hold for 0<z<4; the sign of t yields an inductive positive cone or two distinct positive roots. The root decomposition proves the iff starting-ratio inequality. Monotonicity gives a unique crossing with exp(-z) and a logarithmic first-negative index. Exact-rational replay and high-precision finite checks verify the identities without replacing analytic proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ketcheson–Gottlieb–Macdonald Theorem 2 requires nonnegative SSP coefficients; the present internal stage has coefficient -1/2 on the previous iterate.",
+        "The SSP necessity theorem does not supply the sharp fixed scalar positivity range for a method outside that class."
+      ],
+      "reasoning": "Broader SSP classification establishes failure of a universal monotonicity guarantee, not failure for this fixed scalar equation at a particular step. It neither contains nor forces the complete exact-starter threshold by itself.",
+      "searches": [
+        "arxiv:1106.3626 Sections 1-3, especially Theorem 2",
+        "SSP TSRK versus Chebyshev stabilized two-step stability interval and positivity region, earliest negative stage",
+        "two-step stabilized Runge Kutta methods damped Chebyshev Moisa Faleichik 2023 2024 positivity cone"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2303.16267v1 (full accessible text)",
+      "https://arxiv.org/pdf/1106.3626 (primary text, Sections 1–3)",
+      "Targeted published-record searches for Chebyshev two-step coefficients, positivity, exact starters, and eigenvector-cone equivalences",
+      "Related indexed claims for positivity of BDF2 and separate Runge–Kutta and Padé methods; statements compared but not treated as proofs about this method"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moisa–Faleichik provide formulae for two-step stability polynomials and numerical approximations of stability intervals, not positivity for arbitrary positive starts.",
+        "Classical SSP theory tests a universal monotonicity guarantee.",
+        "A related indexed BDF2 positivity result has different algorithm, different starting scheme, and a square-root rather than logarithmic delay; it does not imply this numerical cutoff."
+      ],
+      "reasoning": "The new theorem concerns the exact starting-ratio cone and finite-stage sign of a specific two-stage second-order Chebyshev method. Generic recurrence tools make the proof possible, but none of the inspected primary results state a stronger family theorem whose simple special case already determines this transcendental cutoff, logarithmic delay, and internal-stage separation.",
+      "searches": [
+        "arxiv:2303.16267 complete text Sections 2-7",
+        "arxiv:1106.3626 Theorem 2",
+        "Moisa Faleichik 2023 stabilized two-step Runge Kutta internal stability positivity startup extrapolation large parasitic root",
+        "exact delayed sign loss beyond BDF2 positivity boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact second-order recurrence formula is classical, but its substitution into the source-defined method requires deriving alpha=3/5, eta^2=1/5, beta=2 and analyzing exp(-z) as a varying starter.",
+        "The 2023 primary source focuses on absolute stability and stage recurrences; neither positivity threshold nor starting cone was identified in the inspected complete text."
+      ],
+      "reasoning": "Equivalent eigenvector-cone formulations were examined. A general roots formula provides a technique, not a tabulated value or statement about this method. No matching method-specific crossing or stage sign law was located.",
+      "searches": [
+        "Two-stage unshifted Chebyshev stabilized two-step Runge Kutta positive scalar exact-start region and logarithmic delayed negativity 3.480888",
+        "two-step scalar recurrence positivity all iterations positive initial pair sharp cone roots lambda minus, delayed sign-loss logarithmic approaching positive eigenvector boundary",
+        "arxiv:2303.16267 Eq. (9), (10), (21), (24)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper reports a differently damped s=2 example and numerical stability intervals; it does not tabulate this exact unshifted positive-solution cutoff.",
+        "Exact source coefficients here are recovered from the printed polynomial ansatz rather than copied from a data table."
+      ],
+      "reasoning": "No available numerical-method parameter table or published dataset was identified as containing the exact all-iterate cutoff or starter cone.",
+      "searches": [
+        "Moisa Faleichik exact rational Chebyshev TSRK coefficients alpha=3/5 eta squared=1/5 beta=2 omega=1, positivity threshold 3.480888475",
+        "stability polynomial T_2(1+mu/2) two-step Chebyshev RK order 2 R1=(3/5)(1+T2) R0=-(1/5)T2",
+        "Second order stabilized two-step Runge-Kutta Methods positivity table"
+      ]
+    },
+    "rationale": "The originating Chebyshev two-step article develops order conditions, stage coefficients and absolute-stability intervals but its full accessible text does not classify positivity of the derived unshifted branch. A primary SSP theory article concerns sufficient/nonnegative-coefficient constraints, not the exact positive-start set of this non-SSP method. Closest indexed numerical-positive-step results study different recurrences (e.g. BDF2, Padé), with no implication of this particular transcendental boundary or stage/output separation. Classical two-root recurrence analysis is acknowledged; equivalent unindexed method-specific treatments remain possible.",
+    "residual_risks": [
+      "An older or otherwise undiscovered work may have explicitly analyzed this exact unshifted Chebyshev two-stage branch.",
+      "General second-order recurrences are classical; some exact method-specific claims may be presented under another equivalent parameterization.",
+      "The separately published journal version of the 2023 preprint was not independently inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the scheme family and stability problem; does not contain the method-specific positivity cone, exact exponential-starter threshold or logarithmic first-negative law.",
+        "evidence": [
+          "Eq. (9): Chebyshev polynomial pair; Eq. (10): second-order conditions",
+          "Eq. (21)/(24): executable stage recurrence",
+          "Sections 4–7: stability intervals, implementations and experiments rather than sign invariance"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.16267v1",
+        "material_read": "Full available HTML Sections 1–7, especially polynomial conditions in Section 2, damping in Section 3, stage recurrence in Section 5, example coefficients and tests in Section 6.",
+        "method": "Read mathematical formulae (7), (9), (10), (21), (24) and surrounding derivations, checked claimed stability goals and result sections.",
+        "title": "Second order stabilized two-step Runge–Kutta methods",
+        "trigger": "Direct motivating polynomial ansatz and stage realization"
+      },
+      {
+        "assessment": "A theoretical SSP characterization, not an exact positive-start cone or pointwise scalar decay threshold for this non-SSP Chebyshev branch.",
+        "evidence": [
+          "Section 1: convex-combination/SSP motivation",
+          "Theorem 2: nonnegative coefficients required for positive SSP coefficient",
+          "Section 3: general order-condition scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1106.3626",
+        "material_read": "Primary PDF Sections 1–3 including introductory SSP property, Type I/II forms, Theorem 2 nonnegative coefficient requirement, and order conditions.",
+        "method": "Read PDF textual sections and inspected page renderings of introductory and method sections.",
+        "title": "Strong stability preserving two-step Runge–Kutta methods",
+        "trigger": "Potential stronger monotonicity theorem for two-step RK schemes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa022d97-1173-4c20-bb6b-d3ee532b39b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity is intrinsic to diffusion, populations, and positivity-domain nonlinear evaluation. The source offers an enlarged scalar absolute-stability interval, but that metric does not answer sign safety. The result gives a complete all-positive-start cone rather than a single negative example, pinpoints the unique exact-starter cutoff within a stable interval, quantifies the logarithmically delayed first failure, and identifies an earlier negative internal stage despite perpetually positive endpoint outputs. These exact sharp boundaries address a natural numerical method property; no higher-dimensional or nonlinear extension is claimed.",
+    "status": "PASS"
+  }
+}
