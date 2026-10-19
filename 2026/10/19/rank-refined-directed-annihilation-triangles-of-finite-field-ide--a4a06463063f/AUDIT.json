@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "PASS: For fixed rank-r projection P, the block form of Q with PQ=0 is Q=[[0,0],[C,D]], D^2=D and DC=C. Fixing rank D=s and rank C=u gives the Gaussian factor times the exact rank-u rectangular matrix count. For R, images W lie in ker Q and avoid im P, giving [n-r-s+u choose t]_q q^{t(r-u)} images and q^{t(n-r-t)} projections per image. Their product is the stated formula. The nonempty-u criterion is equivalent to all three pairwise rank sums at most n; this proves extremal bounds and the closed even-dimensional count. Actual independent matrix enumerations for n<=4 (q=2), n<=3 (q=3), and q=4 n=2, plus extra formula checks, match every coefficient. Finite checks corroborate but do not establish the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Đurić–Jevđenić–Stopar (arXiv:1810.02776), Section 3, states the subspace-pair model and degree/Hamiltonian results for a compressed directed graph of all matrices, not a rank-refined census of idempotent-induced directed triangles.",
+        "Huang (arXiv:2110.15566), Theorem 1.2 and Section 3.1 count arbitrary pairs with AB=BA=0, not cyclic one-sided triples of projections.",
+        "Ferraz–Polcino Milies–Taufer (arXiv:1711.09289), Theorems 2.5–2.6 and Section 3 concern idempotent generators of single left ideals."
+      ],
+      "reasoning": "The graph subspace model is a meaningful broader structural precursor; it can in principle be combined with incidence counting, but the inspected results do not give this exact triple-rank enumeration, its pairwise-sum support, or extremal multiplicities. One-sided cyclic constraints differ from mutual annihilation and independent pair counts.",
+      "searches": [
+        "compressed zero-divisor graphs of matrix rings finite fields Duric Jevdenic Stopar 2019 pdf arxiv",
+        "arxiv:1810.02776v1 Sections 2–3",
+        "arxiv:2110.15566v3 Section 3",
+        "arxiv:1711.09289v1 Sections 2–3",
+        "Finite field bilinear form rank distribution for products of orthogonal projections"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1810.02776v1 (full author-uploaded manuscript: introduction and Section 3)",
+      "arxiv:1711.09289v1 (full PDF Sections 2–3)",
+      "arxiv:2110.15566v3 (full PDF Sections 1 and 3.1)",
+      "MSC2020 official 16U40: Idempotent elements (associative rings and algebras)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The compressed graph has vertices corresponding to pairs of subspaces representing matrices and records zero products; it does not provide the requested idempotent rank-triple counts.",
+        "Huang treats two mutually annihilating arbitrary matrices; the present constraints are PQ=QR=RP=0 on three idempotents, with generally nonzero reverse products.",
+        "Counting idempotent matrices by rank or counting two-factor product ranks supplies marginals, not the three-edge correlation embodied in T_{n,q}(r,s,t)."
+      ],
+      "reasoning": "The strongest earlier structural input gives an adjacency relation rather than an evaluated three-cycle enumerator. No inspected theorem states a stronger count specializing immediately to the boxed formula without additional incidence geometry. The rank-support threshold and extremal reverse-product property likewise are not present in the inspected sources.",
+      "searches": [
+        "Finite matrix rings annihilating idempotents orientation reversing PQ=0 rank QP directed triangle Gaussian binomial enumeration",
+        "arxiv:1810.02776v1 Proposition 3.1 and Theorem 3.5",
+        "arxiv:2110.15566v3 Theorem 1.2",
+        "arxiv:1711.09289v1 Theorems 2.5 and 2.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matrix zero-divisor graph literature formalizes arrows AB=0 but does not give the rank-triple polynomial for idempotent three-cycles in the inspected results.",
+        "No statement counting cyclic annihilation of three idempotents was located in the inspected primary works or semantic findings."
+      ],
+      "reasoning": "A full equivalence would count ordered idempotent triples for every (n,q,r,s,t), rather than just unweighted vertices, pair edges, or mutual two-factor annihilation. No equivalent was found in the material inspected; search absence is not a uniqueness certificate.",
+      "searches": [
+        "Directed three-cycles in the one-sided zero-product relation on finite-field idempotent matrices P,Q,R with PQ=QR=RP=0 rank triple counts",
+        "Finite matrix rings annihilating idempotents orientation reversing PQ=0 rank QP directed triangle Gaussian binomial enumeration",
+        "idempotent zero product directed 3-cycles matrix finite field rank 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified database or exact table contained the rank-refined triangle polynomial or the sample (n,q)=(4,2) counts.",
+        "Available formulae for rank-refined products of two idempotents do not simultaneously enforce all three cyclic product-zero conditions."
+      ],
+      "reasoning": "Finite verification tables are new computations for this question; comparison with standard idempotent counts and two-factor Gaussian formulae was made at the level of which constraints each counts. Absence from a database is not novelty proof.",
+      "searches": [
+        "\"752640\" \"idempotents\" triangle matrix",
+        "\"3360\" \"idempotent\" \"triangle\" F2 rank",
+        "idempotent matrices oriented annihilation triangle Gaussian rank enumerator finite field",
+        "2026 published mathematical semantic findings search: Ordered idempotent triples of matrices satisfying PQ=QR=RP=0 maximum sum of ranks floor(3n/2)"
+      ]
+    },
+    "rationale": "PASS within inspected literature: A full-text finite-field matrix zero-divisor graph paper counts vertex degrees/Hamiltonian cycles but not idempotent-induced rank-resolved 3-cycles; a full-text matrix-annihilation paper counts symmetric two-factor AB=BA=0 relations; a full-text idempotent-generator paper counts individual ideals. All are scientifically related, and earlier pair product-rank counts supply edge marginals but do not yield cyclic three-edge correlations without further incidence enumeration. No equivalent multivariate triangle formula was located by the recorded searches. Risk: an older unindexed subspace-incidence enumeration could imply the result.",
+    "residual_risks": [
+      "The earlier complete subspace model of the compressed matrix zero-divisor graph may permit a different derivation of this count, although the exact rank-triple expression was not stated in the inspected material.",
+      "Unindexed graph-theory or finite-semigroup enumeration may contain an equivalent triangle census; searches cannot prove unique novelty.",
+      "A preceding-week historical ledger was available; the earliest-week original was not located during bounded search, so historical checking is best-knowledge rather than exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_IDENTICAL",
+        "evidence": "Computes degrees and Hamiltonian cycles of the compressed graph, using pairs of subspaces; no enumerated directed idempotent triangle counts by all three ranks were identified.",
+        "identifier_or_url": "arxiv:1810.02776v1; https://www.researchgate.net/publication/335246811_Compressed_zero-divisor_graphs_of_matrix_rings_over_finite_fields",
+        "material_read": "Public full-text manuscript, introduction and Section 3 (including Proposition 3.1, Lemmas 3.3–3.4 and Theorem 3.5); searched for idempotents, triangles and other directed cycle statements.",
+        "method": "Inspected author-uploaded full manuscript text and mathematical statements rather than its abstract alone.",
+        "title": "Compressed zero-divisor graphs of matrix rings over finite fields",
+        "trigger": "Same ring M_n(F_q) and same directed relation AB=0; plausible full-coverage source."
+      },
+      {
+        "assessment": "STANDARD_INGREDIENT_NOT_COVERING",
+        "evidence": "Provides ideal-generator incidence and rank-one generator counts, but no three-idempotent cyclic product-zero condition.",
+        "identifier_or_url": "arxiv:1711.09289v1; https://arxiv.org/pdf/1711.09289",
+        "material_read": "Full preprint PDF, abstract and Sections 2–3 including Theorems 2.5–2.6 and idempotent generator counts.",
+        "method": "Read PDF text and relevant rendered pages, inspecting hypotheses and counted objects.",
+        "title": "Left ideals in matrix rings over finite fields",
+        "trigger": "Explicit counting of idempotent matrices and their subspace geometry."
+      },
+      {
+        "assessment": "DIFFERENT_CONSTRAINT",
+        "evidence": "Theorem 1.2 is a generating function for mutually annihilating pairs of arbitrary matrices; it does not count triples of idempotents satisfying PQ=QR=RP=0.",
+        "identifier_or_url": "arxiv:2110.15566v3; https://arxiv.org/pdf/2110.15566",
+        "material_read": "Full PDF Sections 1.2–1.3 and 3.1, especially Theorem 1.2 and the counting proof on PDF page 8.",
+        "method": "Read PDF text and rendered pages; compared equations AB=BA=0 against three ordered one-sided products.",
+        "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+        "trigger": "A stronger-looking all-matrix annihilator enumeration that could dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4a06463-063f-4f1d-93b4-785148413beb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The rank-refined directed three-cycle count is a natural invariant of noncommutative zero-product adjacency among matrix idempotents. It identifies the complete parameter support, a sharp total-rank amplification floor(3n/2) above the n budget for mutually annihilating idempotents, and exact extremal multiplicities with full-rank reversed products. This captures orientation-specific interactions invisible in pair counts and provides an exact finite-field formula rather than an arbitrary small computation.",
+    "status": "PASS"
+  }
+}
