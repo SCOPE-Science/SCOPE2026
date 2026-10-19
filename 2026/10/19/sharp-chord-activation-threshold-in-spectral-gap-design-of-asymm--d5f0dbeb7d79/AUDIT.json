@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "A centered four-level vector is an exact eigenvector at the sparse candidate. Grounded-star Perron eigenvalue plus Cauchy interlacing establishes its global Laplacian gap. The explicitly constructed PSD dual Z=ff^T+nu P has exact edge derivatives and trace D, proving unrestricted upper bound when the critical inequality holds. Equality of the Rayleigh bound forces each spoke and bridge rate; full budget eliminates all chords, including at equality. Outside the inequality, a real k in the precisely derived open interval gives budget-neutral perturbations with strictly positive directional derivatives of both active eigenvalue branches, and the restricted-zero-chord dual excludes all optimizers without a larger-side chord. Full general proof is in RESULT.md; 699 exact checks corroborate finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006) full author PDF, sections on SDP and examples, gives general formulation and duality, not this sharp imbalanced-barbell transition.",
+        "Balan et al., arXiv:1609.02233, example 2 and example 4, discuss condition number and spectral spread on weighted barbell graphs, not maximum lambda_2 with fixed edge budget.",
+        "Jafarizadeh and Jamalipour, arXiv:1004.5094, section V-C, derives discrete-time consensus SLEM weights for an extended barbell, a different optimization objective."
+      ],
+      "reasoning": "The considered stronger-looking general SDP formulations do not explicitly fix the active set for all imbalanced clique sizes. The source problems with condition-number, spectral-spread and discrete-time SLEM objectives do not dominate the proposed lambda_2 result. No comprehensive uniqueness guarantee from bibliographic search alone.",
+      "searches": [
+        "Web: barbell graph fastest mixing Markov process optimal edge weights spectral gap continuous time budget",
+        "Web: \"barbell\" \"maximizing\" \"second smallest eigenvalue\" \"conductance\"",
+        "published-finding corpus: absolute algebraic connectivity imbalanced barbell two joined cliques allocate edges between nonhub vertices optimal"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. (2006) DOI 10.1137/S0036144504443821",
+      "Ghosh–Boyd–Saberi (2006) author PDF",
+      "Fiedler (1990) DOI 10.1080/03081089008817967 (abstract only)",
+      "Jafarizadeh–Jamalipour arXiv:1004.5094",
+      "Balan et al. arXiv:1609.02233",
+      "Song et al. (2024) DOI 10.1016/j.disc.2024.114027 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously established balanced/near-balanced bridge-and-spoke formula applies when p<=2q and does not contain the strictly imbalanced domain p>2q treated here.",
+        "The proposed first branch lies strictly at p>2q; the new chord-activation inequality is not contained in the earlier range.",
+        "Fiedler (1990) covers trees, whereas strict gain from intra-clique chords is a phenomenon of graphs with cycles."
+      ],
+      "reasoning": "Comparison by mathematical implication: the older scope does not entail either the exact p>2q value interval or the strict necessity of nonhub clique chords beyond it. Generic SDP duality supplies the method, but the explicit projector witness, degeneracy and strict perturbation are additional assertions. The potential that an uninspected specialized primary paper implicitly deduces the same statement is an acknowledged residual risk.",
+      "searches": [
+        "Published/general comparisons: Sun et al. 2006 λ2-edge-budget SDP; Fiedler 1990 absolute algebraic connectivity of trees; Jafarizadeh 2010 extended-barbell SLEM",
+        "Web: \"Absolute algebraic connectivity of trees\" Fiedler PDF 1990",
+        "Web: \"Optimal Weights of Certain Branches\" Jafarizadeh arxiv pdf 2009"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., SIAM Review 48 (2006), DOI 10.1137/S0036144504443821, formulates the edge-budget Laplacian spectral-gap SDP.",
+        "Fiedler, Linear and Multilinear Algebra 26 (1990), DOI 10.1080/03081089008817967, abstract describes absolute algebraic connectivity of trees."
+      ],
+      "reasoning": "Continuous-time gap optimization is equivalent to absolute algebraic connectivity, not to discrete-time fastest-consensus SLEM or resistance minimization. Fiedler provides a general tree formulation but does not directly settle activation of nonhub clique edges in the full barbell. The new threshold is p(p-1) vs 2(2q-1)^2, strictly beyond p=2q.",
+      "searches": [
+        "published-finding corpus: weighted barbell graph algebraic connectivity optimal conductances unbalanced two cliques p greater than twice q threshold leaf clique chords p(p-1) 2(2q-1)^2",
+        "Web: \"barbell graph\" \"maximum algebraic connectivity\" edge weights optimal",
+        "Web: \"absolute algebraic connectivity\" \"double star\" Fiedler normalized budget exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available results concern zero forcing of bridge barbells and unrelated geometric and spectral invariants; no exact table of the stated 2q<p threshold was identified.",
+        "The archived source Fiedler (1990) describes a tree invariant, not a listed complete imbalanced-barbell active-set table."
+      ],
+      "reasoning": "The claim is a quantified sharp transition for all q>=2, p>2q, not a database lookup or a finite enumeration. A failed search is not proof of uniqueness, so residual bibliographic risk is recorded.",
+      "searches": [
+        "published-finding corpus: bridge barbell weighted Laplacian second eigenvalue p 4q minus 4 spectral gap budget",
+        "Web: \"barbell\" \"optimal\" \"spectral gap\" edge weights",
+        "published-finding corpus: weighted barbell graph algebraic connectivity optimal conductances unbalanced two cliques p greater than twice q threshold leaf clique chords p(p-1) 2(2q-1)^2"
+      ]
+    },
+    "rationale": "Direct published primary full-text comparisons distinguish general Laplacian spectral-gap SDP, effective resistance, graph conditioning and discrete-time fastest-consensus problems. The present phase claim lies strictly outside the formerly studied p<=2q sparse regime and proves both an exact new imbalanced interval and a sharp mandatory chord threshold. Full-text access is incomplete for some potentially related graph spectral literature.",
+    "residual_risks": [
+      "The full text of Fiedler (1990) was unavailable for closer comparison with possible implicit weighted-tree consequences.",
+      "The full text of Song et al. (2024) on barbell algebraic connectivity was unavailable and may contain related specialized results.",
+      "Research records and general searches cannot exclude all equivalent or stronger literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets general optimization framework, does not state the imbalanced-barbell active-set threshold",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821; example networks and general SDP constraints inspected."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full PDF abstract, problem statement, semidefinite dual formulation, and examples in pages 1–2, 6–10 and 14–16",
+        "method": "Primary author PDF text extraction and section comparison",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact same edge-budget maximization of weighted Laplacian algebraic connectivity"
+      },
+      {
+        "assessment": "Optimizes a sum of inverse Laplacian eigenvalues, not the smallest positive eigenvalue",
+        "evidence": [
+          "Effective-resistance objective and optimal barbell rate structure differ from a minimum-spectral-gap constraint."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Introduction/objective and barbell optimization example in the author PDF",
+        "method": "Primary author PDF text and section comparison",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "The same barbell graph under an edge-conductance budget"
+      },
+      {
+        "assessment": "Discrete-time stochastic/SLEM design, not continuous-time λ2 under a sum-conductance budget",
+        "evidence": [
+          "arXiv:1004.5094, PDF section V-C, explicit weighted extended barbell figure and SLEM objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1004.5094",
+        "material_read": "Abstract, preliminaries defining discrete-time second-largest-eigenvalue-modulus objective, and section V-C on the extended barbell (PDF pp. 1–5)",
+        "method": "Primary arXiv PDF text inspection",
+        "title": "Fastest Distributed Consensus Problem on Branches of an Arbitrary Connected Sensor Network",
+        "trigger": "Same extended barbell graph and weighted convergence optimization"
+      },
+      {
+        "assessment": "Condition number and spectral spread minimize objectives distinct from maximizing λ2 under fixed linear cost",
+        "evidence": [
+          "arXiv:1609.02233, graph conditioning and barbell examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.02233",
+        "material_read": "Full example 2 and example 4, PDF pages 13–15, related Laplacian conditioning sections",
+        "method": "Primary arXiv PDF text inspection",
+        "title": "Optimization Methods for Frame Conditioning and Application to Graph Laplacian Scaling",
+        "trigger": "Barbell edge-weight tuning and Laplacian eigenvalues"
+      },
+      {
+        "assessment": "Generic optimal-weighted-tree theorem could imply parts of the tree-supported branch but cannot by itself settle full-clique chord activation; residual risk",
+        "evidence": [
+          "Fiedler 1990 abstract gives maximum algebraic connectivity for weighted trees using minimum metric variance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Journal abstract only; complete 1990 article not available in checked open sources",
+        "method": "Abstract and bibliographic inspection; full text not claimed",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Potential stronger tree version of weighted-Laplacian spectral-gap problem"
+      },
+      {
+        "assessment": "Appears to analyze unweighted barbell connectivity; precise full-text coverage remains unverified",
+        "evidence": [
+          "DOI and abstract metadata only; absence of paper-specific formula cannot be established."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114027",
+        "material_read": "Abstract/index description only; complete paper not obtained",
+        "method": "Open-access and preprint search; no complete accessible text",
+        "title": "The algebraic connectivity of barbell graphs",
+        "trigger": "Plausible barbell-specific study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5f0dbeb-7d79-452d-bead-48e9a46896dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact edge-support transition is physically motivated by coupling-budget allocation across uneven communities: previously redundant internal clique edges become indispensably active at a precisely identified imbalance threshold. The theorem supplies an all-parameter unique optimizer in a nonempty strict-imbalance range and an exact structural necessity beyond that range, rather than a routine finite instance or a small numerical improvement. No unproved exterior optimal value is asserted.",
+    "status": "PASS"
+  }
+}
