@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every word has a unique first/last-a gap decomposition. Pattern a b^r a exists iff the total internal-b count k is at least r; scattered ab count is A times trailing-b plus the index-weighted internal gaps. Summing weak compositions of k yields z^k Gaussian(A+k-2,k) and summing all trailing counts yields the displayed exact finite polynomial. Reversal complements ab counts to AB-C. At A=2, eliminating the trailing count gives an exact parity cutoff; comparing three consecutive coefficients proves strict valleys for all odd r>=3 and nondecreasing-to-midpoint counts for even r. A separately staged executable check directly enumerated 264 parameter cases/104105 word examinations and confirms the algebraic formula; the proof, not finite data, handles infinitely many parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fazekas--Huang--Mercas arxiv:2610.06717 guarantees approximate probability for any pattern but does not imply an exact symbolic numerator or unimodality",
+        "Richomme arxiv:2510.07159 covers unconditioned class sizes, not restricted probabilities",
+        "Atanasiu 2007 covers equivalence and the known r=2 boundary"
+      ],
+      "reasoning": "An algorithm approximating a number cannot logically supply exact coefficients, and a Gaussian count for all words cannot imply their restricted subcount. The general methods could be used to derive the result with additional analysis, but the particular theorem was not found there.",
+      "searches": [
+        "\"Subsequence Analysis Problems for Binary Parikh Matrices\" section 5 exact probability",
+        "\"Binary Amiable Words\" equivalence classes canonical representatives",
+        "\"On some 2-binomial coefficients of binary words\" partition representations",
+        "2025 2026 binary Parikh matrix arbitrary fixed pattern exact probability counting"
+      ]
+    },
+    "checked_sources": [
+      "Fazekas--Huang--Mercas, arxiv:2610.06717, first posted 2026-10-05, full HTML",
+      "Richomme, arxiv:2510.07159, first posted 2025-10-08, full HTML",
+      "Atanasiu 2007, Binary Amiable Words, accessible hosted text",
+      "Known length-four abba-avoidance boundary and binary amiability rewriting statements",
+      "Classical partition-rectangle and binary subsequence-universality literature (statement comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published October-2026 source proves universality conditions and additive approximations for arbitrary fixed patterns",
+        "2025 rectangle-partition representation supplies the unrestricted Gaussian denominator",
+        "Known length-four avoidance singleton at r=2 is a genuine earlier special case, not a new claimed discovery"
+      ],
+      "reasoning": "Earlier six length-four pattern formulas include abba (r=2) and do not imply the r>=3 count; existence of one abba-free word per class is compatible with many extra abbba-free words. The exact r>=3 formula and the nonunimodality theorem are not logical corollaries of the stronger-looking generic approximation statement without a new closed-form calculation.",
+      "searches": [
+        "Fazekas Huang Mercas 2026 fixed word subsequence probability Parikh matrices",
+        "Richomme 2025 2-binomial coefficients binary words partitions",
+        "Atanasiu 2007 binary amiable words",
+        "six length-four scattered-pattern avoidance within binary Parikh matrix classes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Same classes admit partitions inside an A-by-B rectangle, and a b^r a avoidance is precisely at most r-1 b-letters between first and last a; the proposed polynomial is a bounded-interior partition refinement",
+        "Richomme arxiv:2510.07159 Section 4 provides ambient rectangle model; arxiv:2610.06717 Section 5 provides generic additive approximation rather than exact polynomial"
+      ],
+      "reasoning": "Checked pattern reversal, bounded first-to-last spread and partition/refinement reinterpretations; these are equivalent formulations of our own statement, not independent prior proofs. No inspected source states the refinement or the odd/even unimodality law.",
+      "searches": [
+        "\"Parikh matrix\" \"abbba\" \"subsequence\" probability avoidance exact formula",
+        "\"subsequence\" \"abbbba\" \"Parikh\" binary words counting",
+        "exact number of binary Parikh matrix representatives avoiding a b^r a as scattered subsequence",
+        "Richomme arxiv:2510.07159 partitions 2-binomial geometric interpretations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching coefficient table in inspected papers or public search results; direct independent enumeration confirms the new polynomial, but finite tests are not a novelty claim",
+        "Previously known binary abba-avoidance gives one representative per class; explicitly counted as overlap"
+      ],
+      "reasoning": "The statement has infinitely many independently varying A,B,r,C and a structural all-odd-r non-unimodality classification, not merely a newly computed finite table. Exact enumeration checks validate small instances without establishing that no historical table exists.",
+      "searches": [
+        "\"Parikh matrix\" \"abbba\" \"subsequence\" probability avoidance exact formula",
+        "\"Parikh matrix\" \"aba\" pattern scattered counting generating polynomial",
+        "bounded internal b gaps Parikh matrix Gaussian polynomials unimodality"
+      ]
+    },
+    "rationale": "The exact coefficient formula for avoiding all scattered a b^r a (r>=3) inside each fixed Parikh (A,B,C) class, and the sharp all-B parity classification of its coefficient unimodality at A=2, are not implied by the inspected recent approximation/universality results or by the classical unconditioned Gaussian enumeration. The r=2 singleton case, Gaussian denominator, and ambient partition bijection are explicitly acknowledged as known. This originality conclusion is evidence-limited: an uninspected historical article or independently formulated bounded-spread partitions might overlap.",
+    "residual_risks": [
+      "A historically formulated bounded-gap or bounded-spread partition polynomial may be equivalent although not indexed under scattered-pattern terminology.",
+      "An earlier binary Parikh matrix article from 2004 was available only at abstract level; full-text noncoverage was not asserted.",
+      "Generic recurrence machinery may simplify the exact formula; novelty is claimed only for the explicit specialized all-parameter coefficient identity and coefficient-shape classification, not Gaussian polynomials or r=2 singleton uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated probability contribution is an additive approximation scheme for arbitrary patterns, rather than a closed exact numerator for a parameterized palindrome ab^r a, or its A=2 coefficient-shape phase transition",
+        "evidence": "Fazekas--Huang--Mercas (2026), abstract and Sections 4--5, Theorem on additive pattern probability approximation",
+        "identifier_or_url": "arxiv:2610.06717; https://arxiv.org/html/2610.06717",
+        "material_read": "Full HTML introduction, Section 2 class representation, Section 4 universality, Section 5 fixed-pattern probability and approximation theorem; checked conclusions and references",
+        "method": "Read public open-access full HTML and compared definitions, theorem implications and proof scope",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Directly studies fixed (A,B,C) binary Parikh classes and fixed scattered patterns, including their probabilities"
+      },
+      {
+        "assessment": "Provides full-class Gaussian partition representation and canonical endpoints, not the stated cutoff in internal b's, its coefficient convolution, or the sharp odd/even r coefficient-shape theorem",
+        "evidence": "Richomme (2025), Section 4 and introductory description of the 2-binomial/rectangle encoding",
+        "identifier_or_url": "arxiv:2510.07159; https://arxiv.org/html/2510.07159",
+        "material_read": "Full HTML background and Section 4 geometric/partition representation and extremal representatives; text searched for bounded spread, palindrome run patterns, Gaussian and unimodality",
+        "method": "Read public full-text HTML and traced implication from known partition bijection to proposed bounded-interior restriction",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "Same Parikh-equivalence classes represented as rectangle partitions; possible dominating enumeration"
+      },
+      {
+        "assessment": "Explains the previously known one-per-class abba boundary, which is explicitly excluded from the claimed novelty; did not find the r>=3 coefficient polynomial",
+        "evidence": "Atanasiu (2007), binary-amiability treatment and standard adjacent-swap transformations",
+        "identifier_or_url": "Atanasiu (2007); https://paperzz.com/doc/8039966/january-26--2007-8-31-wspc-instruction-file-amiabile",
+        "material_read": "Accessible hosted article text including Section 2 on binary amiable words and Parikh equivalence",
+        "method": "Compared classical rewriting-equivalence interpretation and canonical r=2 case",
+        "title": "Binary Amiable Words",
+        "trigger": "Older binary Parikh-matrix classes and uniqueness of canonical abba/baab avoidance representative"
+      },
+      {
+        "assessment": "Inadequate for whole-paper not-covered conclusion; recorded as residual originality risk rather than cleared",
+        "evidence": "Public bibliographic abstract identifies the same equivalence setting but does not settle the bounded-run formula",
+        "identifier_or_url": "Fosse--Richomme (2004), binary Parikh matrix literature (public abstract)",
+        "material_read": "Only bibliographic information and available abstract; no full article",
+        "method": "Limited abstract comparison",
+        "title": "Earlier binary Parikh matrix equivalence literature",
+        "trigger": "Possible ancestral combinatorial counting statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac2d02f9-03bc-4a14-8d88-1e1bd961af2c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The newly studied 2026 question seeks probabilities of a scattered pattern in languages specified only by Parikh entries. This theorem converts those unknown conditional probabilities for the infinite, naturally symmetric family ab^r a into explicit all-parameter coefficient extraction; the sharp two-a parity switch shows that imposing longer scattered avoidance breaks the Gaussian/known-r=2 unimodality even though positivity and reciprocity survive. It is a structural rather than merely numerical finite observation and isolates a natural shape boundary. The classical r=2 case is not promoted as a discovery.",
+    "status": "PASS"
+  }
+}
