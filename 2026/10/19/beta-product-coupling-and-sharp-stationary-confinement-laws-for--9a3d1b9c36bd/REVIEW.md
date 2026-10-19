@@ -1,0 +1,17 @@
+# Scientific review: beta-product coupling and sharp confinement laws
+
+## Correctness — PASS
+The independent state-generator calculation gives the stationary even-moment ratio
+\[\frac{m_{2k}}{m_{2k-2}}=\frac{(2k-1)(2k-2+T)}{(2k-1+R)(2k-2+R+T)}.\]
+This matches exactly the moments of two independent beta variables with parameters \((1/2,R/2)\) and \((T/2,R/2)\). Compact support makes equality of moments sufficient for equality of stationary laws. Gamma-increment couplings establish strict stochastic order at every interior cutoff, while Mellin convolution and beta-integral endpoint analysis establish the three central regimes and turning-boundary exponents with their positive coefficients. The independent rational-arithmetic checker passed 37,096 assertions. The checker tests finitely many parameters and does not replace the general proof.
+
+## Originality — PASS with explicit inheritance from previous laws
+Sun–Ye–Podgornik (arXiv:2409.00578, Sections II–V) already obtain all fixed-parameter one-time moments and a hypergeometric stationary density for this very model, and also discuss the central/edge singularities. Basu et al. (arXiv:1910.10083, Sections 1–3.2) analyze the equal-rate subfamily and explicitly give the central logarithmic critical case. Neither the earlier one-time density nor its qualitative phase transitions are presented as new. The new assessed statement is a **positive two-beta factorization permitting simultaneous strict stochastic coupling over all positive rate pairs**, with the consequent full-tail/quantile ordering and general-rate positive localization amplitudes. The accessible full texts inspected did not locate those structural conclusions. The 2026 Guéneau–Majumdar–Schehr work has a related stick-breaking construction for instantaneous run redirection, not the unequal-rate, separate exponential resting state; only its abstract was inspected. General comparison or beta-factorization literature could implicitly subsume the result, and the marginal formula in Sun–Ye–Podgornik does mathematically determine the distribution. These are material residual originality risks, not claims of certified novelty.
+
+## Value — PASS
+A strict stochastic ordering of the *entire* steady-state confinement law lets every stationary tail probability, absolute-position quantile and increasing confinement penalty be compared without choosing a special moment or numerically integrating a hypergeometric density. It answers a natural control question for run/rest kinetics, including allocation under a fixed total transition-rate budget. The representation also gives an exact sampler and explicit all-rate critical localization amplitudes. The finding is structurally more than a single elementary value or a few new coefficients, though it does not claim a new model or the first computation of the marginal distribution.
+
+## Closest literature and limitations
+The same-model full-text reference is Sun, Ye and Podgornik, first public arXiv posting 1 September 2024, https://arxiv.org/html/2409.00578v2. The equal-rate precursor is Basu et al., public 22 October 2019, https://arxiv.org/abs/1910.10083. The model is one-dimensional and has exponential run/rest clocks, fair reorientation, harmonic confinement, and no translational Brownian noise. No monotonic order of coupled physical *paths* is asserted. Independent originality and correctness validation remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
