@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Equations (1)--(2) are exact Gaussian conditional variance and common-invariant-subspace identities. The variational residual formula with c=U^+a eliminates all high-contrast energy on H and bounds the remaining eigenvalues by 2+||VU^+||^2 independent of contrast. The square Gaussian submatrix inverse has finite half-moment by QR chi factors/Hölder, hence its logarithmic square has finite expectation. Numerically independently checked 1008 cases with packaged verifier; the infinity statement relies on this analytic proof, not finite experiments. Explicit constraints: r,s>=1, 1<=ell<r+s, t>=1, independent Gaussian w, exact matrix logarithm.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cortinovis--Toni Theorem 3.2 explicitly assumes oversampling p>=2 and sketch ell>=4; this theorem includes ell=r with p=0 relative to spike rank.",
+        "Frangella--Tropp--Udell treat PCG Nyström condition numbers/effective dimension, a distinct preconditioner/performance quantity."
+      ],
+      "reasoning": "The generic variance bound is not directly applicable at zero oversampling for target rank r. The PCG results neither state nor logically give the sharp additive log-squared error decomposition for an independently probed matrix logarithm.",
+      "searches": [
+        "sharp Gaussian Nyström sketch dimension rank of large eigenvalues one probe preconditioned log determinant variance fixed flat spectral tail spike eigenvalue infinity zero oversampling",
+        "Gaussian sketch Nyström approximation flat spiked covariance logdet estimator mean squared error no oversampling exact threshold",
+        "arxiv:2601.05778v1 Theorem 3.2",
+        "doi:10.1137/21M1466244 full-text abstract and preconditioning theorems"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05778v1",
+      "doi:10.1002/nla.70106 full OA HTML",
+      "doi:10.1137/21M1466244 author full-text PDF",
+      "Published scientific finding index searches for Nyström logdet spike threshold / aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cortinovis--Toni Eq. (11) establishes an ideal deterministic spectral projection, and Eq. (20) the general randomized Nyström variance representation; the transition for a Gaussian sketch requires a new bound on the missed-spike orthogonal complement.",
+        "The primary paper presents general bounds with oversampling p>=2 and experiments, neither of which entails the iff statement at ell=r.",
+        "Standard inverse-Wishart moments may diverge with no oversampling, but the weaker logarithmic moment used here is finite."
+      ],
+      "reasoning": "The claim follows by exact decomposition of invariant missed-spike subspace and logarithmic moment integrability; these steps are not supplied by the compared published theorems. Its sharp divergence for ell<r is not a special case of the deterministic best-rank mean-square formula because the Gaussian Nyström sketch is not the best-rank projector.",
+      "searches": [
+        "doi:10.1002/nla.70106 Sections 2, 3.1, 5",
+        "doi:10.1137/21M1466244 author full-text",
+        "Nyström Gaussian preconditioned log determinant one Gaussian probe sharp spike multiplicity threshold sketch dimension equals spike rank bounded mean squared variance as eigenvalue diverges log squared coefficient",
+        "Cortinovis Toni 2601.05778 one-sample stochastic Lanczos log-det exact Gaussian variance Nyström spike rank undersampling oversampling zero probability Wishart inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cortinovis--Toni (2026), Eq. (5), Eq. (20), and Theorem 3.2 use this Nyström/probe estimator but do not state a two-level spike-rank iff classification.",
+        "The Gaussian quadratic-form identity reduces this claim to a random matrix-logarithm Frobenius second moment. The exact invariant missed-spike eigenspace and logarithmic inverse-moment upper bound are additional statements."
+      ],
+      "reasoning": "Searched one-sample logdet variance, Nyström spike rank, zero-oversampling aliases and inspected the closest primary full text. The ideal spectral-rank formula in Section 2 is not the random sketch formula, and generic Section 3.1 bounds require positive oversampling; no inspected equivalent theorem was found. This does not prove uniqueness.",
+      "searches": [
+        "Nyström Gaussian preconditioned log determinant one Gaussian probe sharp spike multiplicity threshold sketch dimension equals spike rank bounded mean squared variance as eigenvalue diverges log squared coefficient",
+        "Cortinovis Toni 2601.05778 one-sample stochastic Lanczos log-det exact Gaussian variance Nyström spike rank undersampling oversampling zero probability Wishart inverse",
+        "rank deficient Gaussian Nyström sketch spiked covariance residual log determinant variance one probe exact asymptotic stable rank threshold",
+        "\"Nyström preconditioner\" \"spike\" \"log determinant\" variance Gaussian",
+        "arxiv:2601.05778v1, Sections 1.1, 2, 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The one-probe estimator is analytical; the result is a for-all fixed-dimensional-family variance identity and not a finite enumerated object, benchmark lookup, or standard eigenvalue table.",
+        "Publicly indexed mathematical findings on spectral filtering and Gaussian fluctuations concern different observables and operators."
+      ],
+      "reasoning": "There is no relevant known exact database or table whose entries enumerate this continuum of contrast values and sketch dimensions. The special value ell=r is not obtained from merely looking up rank in a static table.",
+      "searches": [
+        "\"Nyström\" \"logdet\" \"spiked\" \"Gaussian\" \"variance\" sketch",
+        "Gaussian sketch Nyström approximations spike asymptotic Schatten log moment inverse Wishart",
+        "one sample stochastic trace log determinant Nyström two level spectrum Gaussian oversampling 0 inverse Wishart log moments",
+        "Gaussian sketch Nyström approximation flat spiked covariance logdet estimator mean squared error no oversampling exact threshold"
+      ]
+    },
+    "rationale": "Full-text comparison with the precise 2026 one-probe Nyström estimator (its Section 2 ideal, and Theorem 3.2 with p>=2), plus the main Nyström PCG paper and published semantic searches, did not identify a theorem implying the sharp Gaussian-spike rank iff threshold or additive divergence coefficient. Identifies source constructions as prior art and credits standard QR/variance lemmas. Novelty remains subject to independent literature review; failure of search is not a proof of priority.",
+    "residual_risks": [
+      "An equivalent specialized result may be implicit in earlier random sketching or matrix-logarithm literature; no independent priority certification.",
+      "The proof treats exactly two flat levels; non-flat spectra may need a separate argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest paper defines the estimator and variance reduction. Section 2 has best-rank rather than random Nyström model; Theorem 3.2 assumes p>=2 and does not cover the sharp zero-oversampling threshold for two-level spikes.",
+        "evidence": [
+          "Eq. (5) Gaussian Nyström approximation; Eq. (20) conditional Gaussian variance; Theorem 3.2 p>=2 and ell>=4; Section 5 plots generic spectral decays and practical sketch budgets."
+        ],
+        "identifier_or_url": "arxiv:2601.05778v1; https://onlinelibrary.wiley.com/doi/full/10.1002/nla.70106",
+        "material_read": "Accessible article full HTML, introduction, Section 2 ideal estimator, Section 3 Nyström construction and Theorem 3.2 with proof, Section 4 adaptive estimator, Section 5 experimental setup and bounds.",
+        "method": "Read publisher OA article full HTML; cross-checked arXiv submission-history original public date.",
+        "title": "Detecting When One Probe Vector Is Enough for Preconditioned Log-Determinant Approximation",
+        "trigger": "Exact same estimator, Nyström random preconditioner, one Gaussian trace probe, generic error bounds."
+      },
+      {
+        "assessment": "Focuses on solving positive-definite linear systems using Nyström PCG and condition-number bounds. Does not establish independent-probe logdet Gaussian second moments or the additive logarithmic divergence coefficient.",
+        "evidence": [
+          "The preconditioned linear-system spectral and conditioning metric is different from logdet one-probe trace variance."
+        ],
+        "identifier_or_url": "doi:10.1137/21M1466244; https://tropp.caltech.edu/papers/FTU23-Randomized-Nystrom-SIMAX.pdf",
+        "material_read": "Author full-text PDF, preconditioner definition and main results/discussion on effective dimension and PCG; total 35 pages.",
+        "method": "Read lawful author-manuscript PDF including theorem statements and preconditioner construction; inspected PDF page rendering.",
+        "title": "Randomized Nyström Preconditioning",
+        "trigger": "Original Gaussian Nyström projector/preconditioner, possible stronger rank/effective dimension statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fc42e9f-1209-48f7-89ef-2e936458a315",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper directly targets Nyström plus one Gaussian trace probe but its published generic guarantee requires positive oversampling, whereas the new sharp contrast-uniform error threshold shows zero oversampling ell=r suffices in the natural two-level spike model. The structural decomposition isolates missed spikes and the distinction between divergent ordinary inverse moments and finite logarithmic moments explains the precise threshold. It provides a mathematically justified sketch-budget phase boundary rather than a reparameterization or a finite experiment. No general-spectrum, finite-precision, or Lanczos truncation benefit is claimed.",
+    "status": "PASS"
+  }
+}
