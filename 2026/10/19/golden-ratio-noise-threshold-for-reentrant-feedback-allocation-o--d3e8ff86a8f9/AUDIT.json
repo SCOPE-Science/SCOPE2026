@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every \\(m\\ge2\\), \\(\\rho>0\\), and \\(B>0\\), a connected-graph energy argument proves positive definiteness on the entire gain simplex. The second directional derivative of \\(\\operatorname{tr}(QA^{-1})\\) is strictly positive in every nonzero diagonal direction because \\(Q\\) is positive definite. The unique optimizer is therefore leaf-symmetric without an a priori symmetry assumption. Schur inversion gives the reduced cost exactly, and both endpoint derivative identities were independently symbolically checked. Strict convexity converts the sign at the zero-hub boundary into a necessary and sufficient condition, while \\(F'(B)=(B+2)/B>0\\) prevents zero leaf gains. The support envelope is unimodal with its unique critical root \\(z=(\\sqrt5-1)/2\\) and value \\((5\\sqrt5-11)/2\\). Endpoint expansions prove the two asymptotic laws. The submitted verification program ran 3,371 finite exact and numerical assertions; those do not replace the universal analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin–Fardad–Jovanović (2013) solve and relax fixed-count noisy-leader selection, not a continuously divisible variable-gain budget weighted by a nonidentity noise covariance.",
+        "Patterson–Bamieh (2010) consider noise-free leader placement under a combinatorial choice rather than a nonnegative-gain simplex (abstract-level inspection only)."
+      ],
+      "reasoning": "Existing framework theorems prove convexity, existence and KKT conditions on broad matrices. Without a verified structural specialization solving the weighted star with variable Q, these general statements do not state or logically determine the exact golden-ratio cusp and the unique two-switch support diagram. A more comprehensive weighted-design exact theorem remains a residual risk.",
+      "searches": [
+        "\"heterogeneous noise\" \"leader selection\" \"pinning\" control trace inverse",
+        "\"optimal pinning gains\" \"budget\" \"stochastic\" consensus",
+        "arxiv:1302.0450",
+        "doi:10.1109/CDC.2010.5718151"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.0450 (original preprint 2013-02-03)",
+      "arXiv:1407.1569 (original preprint 2014-07-07)",
+      "DOI:10.1109/CDC.2010.5718151 (abstract-level inspection)",
+      "Previously recorded uniform-noise complete-bipartite and tripartite allocation claims (statement-only deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior uniform-noise complete-bipartite statement assumes homogeneous covariance and does not permit varying the hub-to-leaf noise variance; at most it suggests the \\(\\rho=1\\) slice.",
+        "The new theorem classifies all \\(\\rho>0\\) and every positive budget, including \\(\\rho=(5\\sqrt5-11)m(m-1)/2\\), a singleton zero-gain tangency, and \\(\\rho\\)-dependent asymptotic switching scales."
+      ],
+      "reasoning": "Neither the prior homogeneous-noise graph family nor a fixed-size/fixed-gain leader-set solution implies the varying-covariance star envelope by specializing its stated parameters. Conversely, the new result does not claim the uniform-noise star phase alone as novel. It gives a strict new dimension of a naturally defined optimization question. General A-optimal design theorems may subsume it indirectly and are named as risk.",
+      "searches": [
+        "noise-corrupted consensus optimal continuous gain allocation on star K_1,m global center gain threshold",
+        "\"heterogeneous noise\" \"leader selection\" \"pinning\" control trace inverse",
+        "arxiv:1302.0450",
+        "arxiv:1407.1569"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For symmetric drift \\(A\\) and noise covariance \\(Q\\), the stationary trace equals \\(\\operatorname{tr}(QA^{-1})/2\\), even for noncommuting matrices; this is a weighted inverse-trace (weighted A-optimality) formulation.",
+        "arXiv:1302.0450, Sections II–III, instead fixes disturbance covariance \\(I\\) and optimizes Boolean leader inclusion, using convex hull relaxation.",
+        "arXiv:1407.1569, Sections II and V, fixes equal gains at a prescribed leader set and uses independent homogeneous disturbances."
+      ],
+      "reasoning": "The covariance-weighted objective is equivalent to a weighted A-optimal inverse-trace problem, but no verified exact solution of its star subfamily with free hub noise ratio and a single gain budget was identified. Similarity of convex formulations is not itself an implication of the golden-ratio phase boundary; the uniform-noise subcase is not claimed as original.",
+      "searches": [
+        "star graph node control gain budget inverse Laplacian trace optimization reentrant hub feedback",
+        "noise-corrupted consensus optimal continuous gain allocation on star K_1,m global center gain threshold",
+        "arxiv:1302.0450",
+        "arxiv:1407.1569"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned topical research entries addressed sign-aware gradient tracking on a fixed graph and optimal exponential-memory gains; neither optimizes a diagonal gain budget on a heteroskedastic star.",
+        "Two related previously recorded noisy-network cases concern uniform disturbances on complete bipartite and tripartite graphs; their output does not contain the hub-noise ratio variable or the golden-ratio cusp."
+      ],
+      "reasoning": "Actual semantic and text searches were compared by decision variables, disturbance model, parameter domain and logical implication; no exact two-parameter star table or dominating claim was identified. Absence of a hit alone is not treated as novelty proof.",
+      "searches": [
+        "star graph node control gain budget inverse Laplacian trace optimization reentrant hub feedback",
+        "star graph H2-optimal distributed pinning gain center disappears reappears",
+        "minimize trace inverse Laplacian diagonal gains star graph with sum budget full optimal classification",
+        "\"star graph\" \"trace\" \"Laplacian\" \"diagonal\" \"budget\" control",
+        "2012 2013 optimal sparse feedback gains consensus network trace inverse Laplacian leader selection linear quadratic pinning paper arxiv"
+      ]
+    },
+    "rationale": "The primary papers inspected establish the inverse-trace objective and fixed-gain/Boolean leader-set frameworks but not the all-budget weighted-noise star classification. The known uniform-noise complete-bipartite result is not counted as new here: the new mathematical content is the variable noise-intensity threshold envelope, its unique golden-ratio cusp and switching-scale separation. Actual published-record searches did not reveal domination. Residual risk remains from general weighted A-optimal design literature and incompletely accessible published text.",
+    "residual_risks": [
+      "A highly general weighted A-optimal-design result or an unindexed star-specific analysis may already imply the same threshold after nontrivial reduction.",
+      "Only abstract-level text was accessible for the 2010 historical coherence paper; no whole-paper noncoverage claim is made for it.",
+      "Public-record semantic retrieval is incomplete; lack of a matching title or snippet is not an originality certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unit white-noise covariance and Boolean leader-selection constraints; does not state the exact nonidentity-Q star gain-budget phase diagram in material read.",
+        "evidence": "arXiv:1302.0450 Sections II–III, unit disturbance equation and constraints LS1/CR1.",
+        "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+        "material_read": "Original open manuscript title, abstract, Introduction, Section II model and objective, Section III convex relaxation and illustrative results; relevant passages of the full 32-page PDF and original source text.",
+        "method": "Original arXiv full-text and PDF inspection, including equations (1)–(2) and convex relaxation CR1; searched relevant terminology.",
+        "title": "Algorithms for leader selection in stochastically forced consensus networks",
+        "trigger": "Foundational same inverse-trace objective and convex relaxation of leader decisions."
+      },
+      {
+        "assessment": "Optimizes designated leader sets with equal fixed gains; does not imply variable diagonal gain expenditure at heterogeneous noise ratios from read material.",
+        "evidence": "arXiv:1407.1569 Section II identical finite leader weights and Sections I/V fixed leader-count results.",
+        "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+        "material_read": "Abstract, Introduction, Section II model and input assumptions, leading statement of results, and passages on fixed one/two-leader selection in the original 21-page PDF.",
+        "method": "Original arXiv full PDF/text inspection, including leader-weight assumption and stated class of optimal leader selection.",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Same noisy-consensus performance goal and finite-gain leaders."
+      },
+      {
+        "assessment": "Noise-free designated leader placement is a different decision class, but incomplete text leaves risk of overlooked nearby statements.",
+        "evidence": "2010 CDC abstract describes discrete choice of disturbance-immune leaders and graph-coherence objective.",
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2010.5718151",
+        "material_read": "Abstract and bibliographic record; complete primary text not verified.",
+        "method": "University-hosted publication record and bibliographic abstract search.",
+        "title": "Leader Selection for Optimal Network Coherence",
+        "trigger": "Historical coherence-optimal placement work on noisy networks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3e8ff86-a8f9-41d8-a059-b45f1d59b992",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The freely allocated noise-suppression problem on a star exposes a nontrivial noise-strength/budget bifurcation: despite maximal degree, the hub is exactly unpinned on an interval that re-closes to one point at a universal golden-ratio cusp. The full two-parameter theorem determines every allocation, includes a path on three vertices exhibiting the effect, and shows distinct \\(O(m^{-1})\\) versus \\(O(m^2)\\) switching-budget scales. The motivating question is how unequal disturbance power should alter optimal network feedback, not an arbitrary numerical slice. Its weighted-noise structural phase diagram is not merely the already known homogeneous-noise subcase.",
+    "status": "PASS"
+  }
+}
