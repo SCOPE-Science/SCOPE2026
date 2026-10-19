@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+For the rank-one orthogonal projector \(P=I-uu^{\mathsf T}\), the coefficient \(M=P\circ P\) is a Gram matrix and has \(\det M=2u_1^2u_2^2u_3^2\). Its second and largest eigenvalues stay uniformly positive on the sphere, and all its eigenvalues are at most one. Off the six coordinate-axis points, a smallest-eigenvalue event at level \(t\) has probability \(O_\rho(\sqrt t)\); near an axis, local coordinates reduce it, with controlled relative error, to the planar product event \(\lvert xy\rvert<\sqrt{t/2}\). Each axis supplies \(1/(2\pi\sqrt2)\) of the \(\sqrt t\log(1/t)\) coefficient. The largest eigenvalue converges to one at the axes, so the same coefficient holds for the condition-number tail. Layer-cake integration gives the exact moment cutoff; the independent Dirichlet determinant integral checks the normalization. Reconstructed and reviewed the quantifiers, the six-axis multiplicity, the two limiting operations, and the distinction between finite numerical checks and infinite-law proof.
+
+## Originality — PASS (best-knowledge assessment)
+Bonnabel–Lambert–Bach (arXiv:2407.03373v1), Proposition 3, already supplies the underlying \(M=P\circ P\) diagonal coefficient matrix and pseudoinverse; neither is new. Its inspected results concern tangent projection and numerical integration, not a Haar-smallest-eigenvalue probability law or the sharp log-enhanced coefficient. Borsdorf–Higham–Raydan (2010), Theorem 3.6, proves a three-active-coordinate condition for a distinct factor-analysis Hessian; this does not imply a random-tail law for this Hadamard-square Gram matrix. Searches of the indexed mathematical findings, aliases and candidate product-singularity reductions found no dominating statement. The residual possibility of an equivalent historical random-Gram calculation is recorded, and failed searches are not offered as a proof of novelty.
+
+## Value — PASS
+The matrix \(M\) is a definite intermediate linear system required by an identified low-rank-plus-diagonal tangent projection. Its exactly quantified \(\sqrt{t}\log(1/t)\) near-singularity probability shows that a generic nonsingular random direction need not have finite expected solve amplification. The logarithmic coefficient and sharp \(1/2\) negative-moment threshold are useful, falsifiable quantitative descriptors for randomized numerical analysis rather than an arbitrary entrywise statistic. We do not infer that the overall tangent projection, covariance approximation or an actual Riccati integrator is unstable.
+
+## Sources, comparisons and risks
+1. S. Bonnabel, M. Lambert, F. Bach, *Low-rank plus diagonal approximations for Riccati-like matrix differential equations*, arXiv:2407.03373v1 (first public date 2024-07-01), particularly section 3.3 and Proposition 3, equation (26); inspected open full text. https://arxiv.org/html/2407.03373v1
+2. R. Borsdorf, N. J. Higham, M. Raydan, *Computing a Nearest Correlation Matrix with Factor Structure*, SIAM J. Matrix Anal. Appl. 31 (2010), Theorem 3.6 and pp. 7–10; inspected lawful open full text. https://eprints.maths.manchester.ac.uk/1523/1/SML002603.pdf
+3. Search comparisons with published indexed records included the logarithmic product-kernel endpoint result `2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c` and rank-related numerical results; neither has the same probability space, matrix, eigenvalue functional or implication.
+
+Residual risks: equivalent older results under factor-analysis Jacobian, random Gram conditioning or Gaussian-product terminology may exist; the use of Haar rather than a realistic application distribution limits numerical generality. This is a same-model literature and proof assessment, not an external originality certificate.
+
+Self-review: passed. Independent audit: not yet performed.
