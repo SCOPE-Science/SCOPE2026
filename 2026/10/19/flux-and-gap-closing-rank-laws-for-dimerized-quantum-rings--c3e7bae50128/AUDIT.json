@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every m>=2 and positive a,b, the cell Bloch Hamiltonian has energies ±|a+b exp(iθ_j)|. Collisions occur only at flux 0 or π. The nonzero-frequency Schur-square correction is PSD with rank one per odd-m Fourier mode or rank two per allowed even-m mode, with linear independence from Im((a+be^{iθ})(a−be^{-iθ}))=2ab sin θ. Exactly one zero-energy boundary gives an additional staggered mode of eigenvalue 1/m. The proof handles all fixed points and all critical boundaries. Independently formed spectral projectors and Bloch projectors matched to 7.772e−16 in 250 profiles / 50,500 entries; experiments are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A general algorithm to calculate average-mixing entries for integral Hamiltonians (Coutinho et al., 2022) does not present the closed-form parameter-dependent rank for this complex weighted family.",
+        "Theorem 5 of Levine et al. (2026) addresses one-site circulants with simple spectrum; the present two-orbit Hamiltonian is not generally circulant and most claimed ranks occur at degenerate spectra.",
+        "Roy et al. (2023) include flux and dimerization but vary additional site potentials and compute energy spectrum/current/localization, not infinite-time projector-intensity rank."
+      ],
+      "reasoning": "General spectral identities permit computing a matrix but do not state the parameter partition or prove positivity of each nonzero cell-frequency Fourier block; the proof establishes those additional implications. An unlocated general Bloch-degeneracy theorem could still imply the result, acknowledged as risk.",
+      "searches": [
+        "continuous time quantum walk SSH model long time average transition probability dimerized ring flux",
+        "Su Schrieffer Heeger dimerized ring twisted flux continuous time quantum walk Cesaro average mixing matrix rank parity coupling ratio",
+        "arxiv.org/html/2208.08971v1 Sections 2,4,5",
+        "doi:10.1038/s41598-023-31354-9 sections Hamiltonian, results, closing remarks"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2208.08971v1 (full-text sections 1, 2, 4, 5)",
+      "doi:10.1038/s41598-023-31354-9 (HTML model/results)",
+      "arxiv:2605.04414v2 (Section 5)",
+      "arxiv:0708.2096 (abstract only)",
+      "doi:10.1103/PhysRevE.77.061127 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of Levine et al. proves uniform mixing for simple-spectrum one-site circulants; it cannot imply the rank of SSH exceptional flux sectors, which have degenerate spectra.",
+        "Coutinho et al. prove spectral-projector formulas but not the parity arithmetic and zero-energy rank addition.",
+        "Roy–Ganguly–Maiti study the identical physical hopping geometry with optional additional potentials; the publication analyzes currents and localization rather than the Cesàro rank."
+      ],
+      "reasoning": "The nonresonant rank-one branch follows directly once spectral simplicity is proved; it is not presented as an isolated novelty. The stronger result is the full, all-parameter sharp five-case classification and its nontrivial rank-two collision-block proof. No inspected published statement has this implication, but stronger unlocated results remain a residual risk.",
+      "searches": [
+        "\"SSH ring\" \"flux\" \"time-averaged probability\" quantum walk",
+        "\"dimerized cycle\" \"average mixing\" quantum walk",
+        "\"Su Schrieffer Heeger\" \"average mixing matrix\" quantum walks",
+        "arxiv:2605.04414v2 Theorem 5 circulants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coutinho et al. (2022), Sections 1–2: the spectral projector formula is the general reduction but contains no dimerized-ring rank classification.",
+        "Levine et al. (2026), Section 5, Theorem 5: a simple-spectrum ordinary cyclic circulant has uniform average mixing, subsuming that special flat-spectrum mechanism but not paired Bloch bands at degenerate flux.",
+        "S. Roy et al. (2023), Eq. (1): flux-threaded SSH ring with hopping dimerization and on-site modulation, but the observable is persistent current/IPR."
+      ],
+      "reasoning": "Changing gauge or shifting Bloch labels changes no average-mixing entries; the theorem specifies gauge-invariant flux modulo 2π. The known flat-projector criterion explains rank one at generic flux, but does not yield ranks m−1,m,m+1 or the gap-closing exception for the two-site unit cell.",
+      "searches": [
+        "\"SSH\" \"time averaged mixing\" quantum walk ring flux",
+        "\"Su Schrieffer Heeger\" \"average mixing matrix\" quantum walks",
+        "flux threaded Su Schrieffer Heeger ring time-averaged quantum mixing rank complete spectral classification parity zero pi flux",
+        "arxiv:2605.04414v2 Section 5: cyclic simple spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published research summaries identified ordinary cycle magnetic-flux mixing, spectral graph problems and nearest-neighbor cyclic Fourier data, but no matching tabulation for SSH two-band dimerization.",
+        "Previously published cycle results in Adamczak et al. (2007) concern unweighted graph cycles and are restricted to the equal-hopping case here."
+      ],
+      "reasoning": "The all-size continuum of two positive hopping parameters and flux is not a finite database lookup, and no matching exact parameter table was located. Search absence by itself does not prove originality.",
+      "searches": [
+        "dimerized ring Peierls phase zero pi flux average mixing matrix eigenvalue collision zero mode",
+        "alternating weighted even cycle quantum average mixing spectrum rank dimerized SSH ring",
+        "quantum average mixing matrix magnetic cycles rank odd even magnetic flux"
+      ]
+    },
+    "rationale": "The qualifying 2022 average-mixing paper supplies the projector method but not a dimerized magnetic rank classification. A 2023 paper studies the same physical SSH ring but current/IPR, and a 2026 paper proves uniform mixing for simple-spectrum cyclic circulants, covering only a mechanism behind one branch. Material full-text comparison supports the new nonzero collision-frequency rank count and sharp gap-closing exception, with residual risk of broader unlocated Bloch-weighted results.",
+    "residual_risks": [
+      "A stronger unlocated result on finite SSH quantum-walk dephasing or two-band block-circulant quantum mixing might imply this theorem.",
+      "The old undimerized-cycle paper was reviewed at abstract level only; equal-hopping boundary is not claimed novel in isolation.",
+      "A semantic search of published mathematical summaries is incomplete and cannot establish independent priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers spectral calculation for integral unweighted graph Hamiltonians; does not state complex SSH Bloch rank classification",
+        "evidence": "Eq. average mixing under section 2; introduction integral Hamiltonians; Section 4 cycles; Section 5 even moments.",
+        "identifier_or_url": "arxiv:2208.08971v1; https://arxiv.org/html/2208.08971v1",
+        "material_read": "Abstract, Introduction, Section 2 average mixing (Theorem 3), Section 4 geometrical discussion, Section 5 moment formulation",
+        "method": "Read searchable openly available HTML full text at arxiv.org; considered the statements of its principal quantum-walk results",
+        "title": "Irrational quantum walks",
+        "trigger": "Qualifying 2022 mathematical-physics source and average-mixing projector methodology"
+      },
+      {
+        "assessment": "Uses the same two-hopping geometry but studies persistent current, quasiperiodic localization and IPR; does not state a Cesàro quantum average-mixing matrix or rank law",
+        "evidence": "Article sections Quantum ring/TB Hamiltonian, Numerical results/discussion and Closing remarks; Eq. (1) vs current and IPR.",
+        "identifier_or_url": "doi:10.1038/s41598-023-31354-9; https://www.nature.com/articles/s41598-023-31354-9",
+        "material_read": "Introduction, tight-binding Hamiltonian Eq. (1), energy-current derivation Eqs. (2)–(3), result discussions, closing remarks",
+        "method": "Read openly available article HTML including physical model and stated results",
+        "title": "Interplay between hopping dimerization and quasi-periodicity on flux-driven circular current in an incommensurate Su–Schrieffer–Heeger ring",
+        "trigger": "Direct physical model overlap: dimerized flux-threaded SSH ring"
+      },
+      {
+        "assessment": "Theorem 5 gives the flat-eigenbasis simple-spectrum circulant mechanism but not two-orbit SSH exceptional-flux rank and zero-mode classification; the generic branch alone is not claimed new",
+        "evidence": "Section 5, Theorem 5, proof and oriented circulant corollaries.",
+        "identifier_or_url": "arxiv:2605.04414v2; https://arxiv.org/html/2605.04414v2",
+        "material_read": "Abstract, Sections 1–2 and entire Section 5 average mixing including Theorem 5 and corollaries",
+        "method": "Read openly available HTML primary full text at arxiv.org",
+        "title": "Uniform Mixing in Chiral Quantum Walks",
+        "trigger": "Plausible broad dominance of generic-flux uniform-average-mixing branch"
+      },
+      {
+        "assessment": "Unweighted cycle work plausibly covers a=b at zero flux but not weighted two-sublattice flux rank law; full-text comparison is a residual limitation",
+        "evidence": "Abstract states Abelian circulant nonuniform average distribution.",
+        "identifier_or_url": "arxiv:0708.2096; https://arxiv.org/abs/0708.2096",
+        "material_read": "Title and abstract (not full text)",
+        "method": "Read public abstract and compared its stated unweighted cycle average-mixing results",
+        "title": "Non-uniform mixing of quantum walk on cycles",
+        "trigger": "Unweighted cycle is the equal-hopping boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3e7bae5-0128-4067-8529-eb6fa40761c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact flux-driven rank transitions in a clean SSH ring are natural transport diagnostics: the matrix drops to uniform rank one away from time-reversal flux, but its protected resonances have ranks m−1,m,m+1. The parity/gap-closing rank additions are sharp, stable in positive hopping magnitudes away from a=b, and driven by explicitly resolved collision sectors. This is a complete, nontrivial all-size classification of a physically motivated invariant, not a parameter renaming or a small finite census.",
+    "status": "PASS"
+  }
+}
