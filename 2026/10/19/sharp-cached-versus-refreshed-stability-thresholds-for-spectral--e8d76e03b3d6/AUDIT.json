@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The rank-one Gaussian Nyström calculation reconstructs H_S exactly almost surely; the spectral quotient equals 1/P_TT; four (S,T) choices give alpha,alpha t,alpha,alpha/t gains. Independent gradient minibatches give exact one-step factor Q(g), yielding the cached mixture of powers and refreshed power of mixture for every integer k>=0 and any deterministic start. Sharp inequalities use Q(g)<1 iff 0<g<2, and the default refreshed polynomial in s=t+1/t has unique admissible root. The rational witness and 1575 direct exact-arithmetic comparisons agree. Zero starts are explicitly excepted from divergence. No finite experiment is substituted for the algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meng et al.’s Theorem 1 proves R-SSN convergence for a different, bound-controlled adaptive step.",
+        "Lacotte–Pilanci Theorem 4.1 proves an exact refreshed-IHS expected-error law with full gradients and step coefficients independent of the random embedding.",
+        "Frangella et al. Section 4 treats fixed eta and stage averages rather than the independently learned eta in its practical Algorithm 1."
+      ],
+      "reasoning": "The strongest exact fixed-versus-fresh primary theorem inspected assumes full gradients and exogenous step sizes and hence cannot be specialized by parameter substitution to independently sampled stochastic-gradient and spectral-estimator indices. Generic sufficient convergence theorems likewise do not supply divergence or sharp reverse thresholds in this regime. No stronger directly dominating coverage found.",
+      "searches": [
+        "stochastic preconditioned gradient descent independent Hessian probe preconditioner sample singular diagonal quadratics mean square divergence despite full Hessian condition number one",
+        "randomized Nyström preconditioner fixed reuse vs fresh every step isotropic convex quadratic exact mean square threshold regularization",
+        "cached stochastic curvature preconditioner with independently sampled spectral learning rate Jensen mixture error moment",
+        "Faster Least Squares Optimization Lacotte Pilanci 2019 fixed sketch and refresh exact error IHS inverse moments SketchySGD stochastic gradients",
+        "arXiv:1910.04920 Theorem 1",
+        "arXiv:1911.02675 Theorem 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.08597v5 (full accessible HTML)",
+      "arXiv:1910.04920v2 (full accessible HTML)",
+      "arXiv:1911.02675v3 (primary PDF, method, theory and Theorem 4.1)",
+      "published-finding corpus published-finding semantic index with targeted equations, aliases, phase thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2211.08597 defines the analyzed spectral rate but its own convergence theorem is for a different algorithm.",
+        "arXiv:1910.04920 Theorem 1 uses a conservative adaptive rule, not the source’s independently sampled eigenvalue estimate.",
+        "arXiv:1911.02675 Theorem 4.1 has full-gradient/exogenous-stepsize hypotheses, inconsistent with the proposed update.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c concerns stale eigenbases in SOAP rather than spectral sample-dependent steps.",
+        "published-finding corpus 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834 concerns Loopless SVRG refresh, not Nyström and spectral rate.",
+        "Related published findings on stochastic curvature control and sketched optimization use distinct update rules without the indicated three independent sampling indices."
+      ],
+      "reasoning": "Compared hypotheses and conclusions, rather than matched titles. The pre-existing fixed-versus-fresh analyses cannot be substituted to imply the exact four gains because they use other objectives/oracles or step rules. The direct source specifies the method but does not prove its sharp cached versus refreshed second-moment phase diagram.",
+      "searches": [
+        "Frangella Rathore Zhao Udell SketchySGD eq (3) spectral learning rate rank one Hessian sampled orthogonal diagonal two component exact mean square divergence refresh reuse",
+        "cached stochastic curvature preconditioner with independently sampled spectral learning rate Jensen mixture error moment",
+        "Faster Least Squares Optimization Lacotte Pilanci 2019 fixed sketch and refresh exact error IHS inverse moments SketchySGD stochastic gradients",
+        "two example orthogonal coordinate least squares preconditioned SGD independent spectral curvature minibatch sharp cached 1/3 fresh 0.2339449",
+        "Frangella SketchySGD 2022 Equation 3 regularization rho spectral learning rate exact counterexample cached fresh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source’s actual S/S-prime rule is an eigenvalue of a preconditioned minibatch Hessian and not a full-Hessian smoothness estimate.",
+        "The four conditional coordinate gains are alpha, alpha t, alpha, alpha/t; an exact cached mixture of k-th powers differs from a refreshed k-th power of the mixture.",
+        "published-finding corpus returned related adaptive optimization titles but no same-coordinate-curvature spectral-learning-rate statement."
+      ],
+      "reasoning": "Searched alias descriptions including cached/quenched versus fresh/annealed preconditioners, subsampled Newton with spectral steps, and the literal numeric cutoffs. A general scalar random-rate recursion can re-express this calculation, but the published candidate instances use different endogenous rates and do not deliver the source-specific Hessian sampling law and both phase frontiers.",
+      "searches": [
+        "SketchySGD Frangella Rathore Zhao Udell 2022 automatic spectral step size fresh minibatch curvature divergence exact rank-one two-coordinate quadratic",
+        "Frangella Rathore Zhao Udell SketchySGD eq (3) spectral learning rate rank one Hessian sampled orthogonal diagonal two component exact mean square divergence refresh reuse",
+        "SketchySGD Frangella Rathore Zhao Udell independent minibatch spectral learning rate rank one two dimensional cached Nyström convergence divergence",
+        "two example orthogonal coordinate least squares preconditioned SGD independent spectral curvature minibatch sharp cached 1/3 fresh 0.2339449",
+        "arXiv:2211.08597 Eq. (3); arXiv:1911.02675 Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus targeted 1/3 and 0.233944912506935 with SketchySGD, frozen/fresh, spectral Hessian, and orthogonal least squares; returned known optimization stability results for different algorithms.",
+        "Primary sources do not tabulate this pair of regularization cutoffs or the rational 13/8-versus-189/200 witness."
+      ],
+      "reasoning": "This is not a catalogued numeric experiment; exact rational and algebraic thresholds are inferred from all four sampled environments and infinite-horizon moment identities. Actual targeted searches did not identify an exact matching table or calculation, subject to incomplete indexing.",
+      "searches": [
+        "SketchySGD default alpha half learning rate two mutually orthogonal Hessian minibatches one ρ instability 1/3",
+        "SketchySGD regularization rho 1/3 0.233944912506935 frozen preconditioner versus fresh mean square stability",
+        "two example orthogonal coordinate least squares preconditioned SGD independent spectral curvature minibatch sharp cached 1/3 fresh 0.2339449",
+        "spectral Hessian preconditioner frozen versus resampled stability mean-square formula q alpha t 1/t",
+        "Frangella SketchySGD 2022 Equation 3 regularization rho spectral learning rate exact counterexample cached fresh",
+        "published-finding corpus semantic index, exact numerical thresholds"
+      ]
+    },
+    "rationale": "Actual searchable-result comparisons and direct inspection of three relevant primary manuscripts found no theorem whose hypotheses and conclusion imply the ideal spectral-step SketchySGD four-sample moment law, distinct cached and fresh sharp thresholds, and rational stability-reversal witness. The original method paper defines the rule and advises fixed preconditioners for constant Hessians but proves convergence only for a different fixed-step staged algorithm; the strongest full-gradient fixed-versus-refreshed IHS theorem assumes sketch-independent step sizes. Residual indexing risk is acknowledged.",
+    "residual_risks": [
+      "Not all mathematical papers or external tables are indexed, and a differently named equivalent finite-sample derivation may exist.",
+      "The ideal exact spectral-estimation scheme differs from finite-iteration power methods and finite-precision Nyström; no scientific claim about that concrete implementation is made.",
+      "Other stochastic-gradient algorithms with sample-dependent steps may share the generic Jensen mechanism without covering these source-specific thresholds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: introduces formula and practical scheme, but the analyzed convergence theorem uses a fixed step and stage averaging, not exact one-example spectral-step cached-versus-refreshed moments; the small-batch sharp thresholds are absent.",
+        "evidence": [
+          "Equation (3) specifies an independently resampled minibatch spectral quotient and alpha default 1/2.",
+          "Algorithm 1 varies u; the default recommendation for constant Hessian is u=infinity.",
+          "Section 4 states its theoretical Algorithm 3 instead uses fixed eta and periodic averaging; Appendix A specifies the stabilizing numerical shift omitted by the ideal exact-arithmetic claim."
+        ],
+        "identifier_or_url": "arXiv:2211.08597; https://arxiv.org/html/2211.08597v5",
+        "material_read": "Algorithm 1 equations (1)–(2), Section 2 equation (3) and independent S-prime sample, Algorithm 2, default-parameter discussion, Section 4 Algorithm 3 and theorems, Appendix A randomized Nyström, and abstract/date history.",
+        "method": "Accessible complete-paper HTML, located and examined actual mathematical formulae, algorithm pseudocode, claims, and appendix; compared assumptions and conclusion.",
+        "title": "SketchySGD: Reliable Stochastic Optimization via Randomized Curvature Estimates",
+        "trigger": "Direct source of the independent-batch spectral learning-rate rule and curvature-reuse recommendation."
+      },
+      {
+        "assessment": "NOT_COVERING: its adaptive R-SSN stepsize is based on bounded curvature and strong-growth constants, not the independently sampled spectral Rayleigh learning-rate rule. Its convergence guarantee therefore does not imply this particular scheme’s sharp failure or success boundary.",
+        "evidence": [
+          "Theorem 1 uses a deterministic function of curvature bounds and sampled Hessian to guarantee descent.",
+          "It does not specify an independent third curvature minibatch T for spectral rate selection or compare retaining a single such rate with refreshing it."
+        ],
+        "identifier_or_url": "arXiv:1910.04920; https://arxiv.org/html/1910.04920v2",
+        "material_read": "Sections 1–3 including the R-SSN update, independent sampled Hessian/gradient minibatches, regularization, and Theorem 1 explicit stepsize; inspected proof relationship and stated assumptions.",
+        "method": "Accessible complete-paper HTML targeted at the original method and strongest relevant global result.",
+        "title": "Fast and Furious Convergence: Stochastic Second Order Methods under Interpolation",
+        "trigger": "Plausible stronger convergence coverage for random subsampled Hessians and gradients under interpolation."
+      },
+      {
+        "assessment": "NOT_COVERING: their IHS uses full gradients and data-oblivious sketch matrices, with prescribed step sizes independent of their sketches. The present theorem instead uses a stochastic gradient index B and step alpha/lambda estimated from independently sampled Hessian T, coupled to preconditioner S. Their exact formula does not establish the four-environment law or comparison between these two sampling regimes.",
+        "evidence": [
+          "Theorem 4.1 explicitly requires step-size sequence independent of the embedding sequence.",
+          "Equations (1.3)–(1.5) use A-transpose S-transpose S A with full objective gradient, not three independently sampled data indices."
+        ],
+        "identifier_or_url": "arXiv:1911.02675; https://arxiv.org/pdf/1911.02675",
+        "material_read": "Pages 1–3 original IHS / Polyak-IHS updates and sketch model, Section 3 fixed embeddings, Section 4 Theorem 4.1 and its inverse-moment proof (pages 11–13), and the stated independent-stepsize hypothesis.",
+        "method": "Full primary PDF available; examined original formulae, hypotheses, proof steps, and stated expected-error result.",
+        "title": "Faster Least Squares Optimization",
+        "trigger": "Plausible exact broader theory of fixed-versus-refreshed random preconditioners."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8d76e03-b3d6-4215-be55-faf53a875b40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source specifically suggests curvature-preconditioner reuse for constant-Hessian objectives. The complete sharp instability interval for an interpolating quadratic with condition-one full Hessian isolates a source-relevant design tradeoff: retaining a randomly learned step produces an unstable environment mixture even where independently refreshed curvature gives geometric mean-square contraction. The two schemes share identical one-step second moments, but differ at every later nontrivial horizon. The cutoff and rational witness are exact, mathematically motivated, and potentially informative for update-frequency selection, without claiming broader implementation failure.",
+    "status": "PASS"
+  }
+}
