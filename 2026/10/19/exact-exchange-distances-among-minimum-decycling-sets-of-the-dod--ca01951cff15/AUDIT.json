@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For GP(10,2), a cubic edge-count inequality excludes k<6. All 38,760 six-subsets were independently forest-tested by DSU and DFS, yielding 2,520 minima (660 independent and 1,860 with one edge); all one-swap edges were enumerated and reciprocal adjacency tested (23,940 edges). Exhaustive BFS from each of 2,520 states yields eccentricity six throughout and the stated all-pairs distance and detour histograms, each summing to 3,173,940. The exact packaged Python standard-library checker and its output were rerun. Limits: the result is a finite computer-assisted exhaustive proof only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet et al., DOI 10.1016/j.tcs.2023.114188, Theorem 2 (available indexed theorem text): planar subcubic same-size FVS exchange graph is connected, with transformation length at most 7k; at k=6 this is only a bound of 42.",
+        "Nedela et al., arXiv:2309.11606v1, pp. 1-4, give the general cubic decycling lower bound and independent/near-independent structural types."
+      ],
+      "reasoning": "Connectivity and the cubic lower bound are established prior results and explicitly excluded from novelty; neither a generic upper bound of 42 nor existence/structural types determines diameter 6, all eccentricities, exact counts, or pairwise detour multiplicities.",
+      "searches": [
+        "minimum decycling sets in cubic planar graphs reconfiguration dodecahedral graph",
+        "exchange graph of minimum feedback vertex sets dodecahedral graph diameter six",
+        "Feedback vertex set reconfiguration in planar graphs Bousquet Hommelsheim shortest transformation length"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1308.2409v2",
+      "https://arxiv.org/pdf/1509.02683",
+      "https://doi.org/10.1016/j.tcs.2023.114188",
+      "https://arxiv.org/pdf/2309.11606",
+      "Published dodecahedral independence-complex record (different invariant)",
+      "Published dodecahedral matching-complex record (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claim requires every minimum solution of one specified twenty-vertex graph and every shortest exchange path; the 2013 kernel theorem concerns feasibility/parameterized complexity.",
+        "The 2015 PSPACE result concerns arbitrary planar bounded-bandwidth families and different maximum-degree regimes.",
+        "The 2023 planar-subcubic connectivity theorem implies connectedness, so that portion is not claimed as new; the authors provide only a general 7k length guarantee in the indexed theorem statement.",
+        "The 2023 cubic structural work, recalling Payan-Sakarovitch, establishes a dichotomy in set structure, not the enumeration or exchange metric."
+      ],
+      "reasoning": "No stronger compared theorem gives the exact diameter of this specific reconfiguration graph, nor the 3,173,940 unordered pair-distance census; numerical assertions survive after removing the already-known consequences.",
+      "searches": [
+        "dodecahedral graph feedback vertex set exchange graph minimum enumeration symmetry",
+        "minimum cycle transversals of Generalized Petersen graph GP(10,2) exact enumeration",
+        "On the Parameterized Complexity of Reconfiguration Problems section undirected feedback vertex set 2013",
+        "Decycling cubic graphs Payan Sakarovitch 1975 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complementary formulation: each six-vertex feedback set corresponds to a fourteen-vertex maximum induced forest in GP(10,2).",
+        "Mouawad et al., arXiv:1308.2409v2, Section 3.2, treat general FVS-reconfiguration kernels; no dodecahedral pair-distance profile.",
+        "van der Zanden, arXiv:1509.02683v1, Theorem 17, gives generic planar bounded-bandwidth hardness, not exact distances."
+      ],
+      "reasoning": "Checked decycling/feedback-set, maximum induced forest, cycle transversal, and minimum-set exchange formulations. General problem equivalences do not imply the 2520-state and 3,173,940-pair enumerations.",
+      "searches": [
+        "dodecahedral graph minimum feedback vertex set 2520 reconfiguration 23940 diameter 6 25 orbits",
+        "dodecahedron decycling sets reconfiguration minimum feedback vertex sets exact diameter",
+        "dodecahedral graph feedback vertex set reconfiguration exact distance histogram",
+        "dodecahedral graph induced forests minimum 2520"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed dodecahedral research summaries concern independence complexes, matching complexes, and graph-metric complexes, not minimum FVS exchange distances.",
+        "Keyword/table searches for the exact combination of 2520 minimum sets, 23940 swaps, and diameter six did not surface a matching table."
+      ],
+      "reasoning": "Absence of a table hit is not proof of originality; the positive source comparisons show the inspected closest records describe different invariants and cannot imply the exact FVS exchange census.",
+      "searches": [
+        "dodecahedral graph minimum feedback vertex set 2520 reconfiguration 23940 diameter 6 25 orbits",
+        "maximum induced forests of the dodecahedral graph order 14 2520 six vertex decycling sets",
+        "edge counts minimum feedback vertex set reconfiguration dodecahedron all pair distances",
+        "site:oeis.org dodecahedral graph decycling number exact count",
+        "site:oeis.org dodecahedral graph feedback vertex set"
+      ]
+    },
+    "rationale": "Specific quantitative exchange geometry is not implied by the closest inspected general FVS-reconfiguration complexity/connectivity theorems or by the general cubic decycling structure theorem. The 2023 connectivity theorem covers connectivity itself (excluded from the novelty claim) and yields only a 7k path-length bound, not the exact six-step diameter or pair metric. An inaccessible relevant full text and unindexed computations remain residual risk; no search failure is used as a uniqueness proof.",
+    "residual_risks": [
+      "Complete journal PDF for the 2023 planar-subcubic reconfiguration paper not obtained; its examples/appendices were not excluded by full-text reading.",
+      "Unindexed previous enumeration of dodecahedral minimum feedback sets or their exchange distances may exist.",
+      "General graph-family theorems may conceivably imply the exact numbers via an unrecognized specialization; compared published theorems did not."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General FVS kernel and complexity; no calculation of shortest exchange distances on GP(10,2).",
+        "evidence": "Section 3.2 and Theorem 3.3; no dodecahedron occurrence in text.",
+        "identifier_or_url": "https://arxiv.org/html/1308.2409v2",
+        "material_read": "Full HTML introduction and Section 3.2, including the FVS-reconfiguration kernel theorem and definitions.",
+        "method": "Accessible author preprint in HTML; read the related sections and searched for dodecahedral references.",
+        "title": "On the Parameterized Complexity of Reconfiguration Problems",
+        "trigger": "Foundational FVS reconfiguration framework and closest possible generic quantifier."
+      },
+      {
+        "assessment": "Complexity result on planar bounded-bandwidth families; no dodecahedral minimum-state enumerations.",
+        "evidence": "Theorem 17 and its reduction from vertex cover; exact graph GP(10,2) not mentioned.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.02683",
+        "material_read": "PDF title/abstract and pages 15-16, especially Theorem 17 and construction of FVS-R hardness; text and page image examined.",
+        "method": "Full-text open preprint and page-specific inspection.",
+        "title": "Parameterized Complexity of Graph Constraint Logic",
+        "trigger": "Relevant early FVS-reconfiguration hardness source."
+      },
+      {
+        "assessment": "General same-size FVS connectivity is covered; exact 2520 configurations, 23940 exchanges, eccentricity six and detour histogram are not established by the inspected statements.",
+        "evidence": "Theorem 2 and its stated 7k length guarantee; the identified paper is not treated as fully excluded because appendices were inaccessible.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+        "material_read": "Indexed article abstract, introduction, Theorems 1-5, general 7k length bound and section synopses; not the full journal PDF.",
+        "method": "Publisher-indexed scientific text and targeted OA access attempts; complete PDF not obtained.",
+        "title": "Feedback vertex set reconfiguration in planar graphs",
+        "trigger": "Potential dominating theorem for planar cubic graph reconfiguration."
+      },
+      {
+        "assessment": "Structural lower bound and two types for minimum sets are known; exact dodecahedral FVS count and reconfiguration distances not provided there.",
+        "evidence": "pp. 1-4 contain bound ceil((n+2)/4) and independent/near-independent dichotomy; no dodecahedral discussion found.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.11606",
+        "material_read": "Full-text PDF initial four pages, Theorems 1.1-1.4 and prior Payan-Sakarovitch structural theorem; page image inspected.",
+        "method": "Accessible preprint with theorem-level comparison to the claim.",
+        "title": "Decycling cubic graphs",
+        "trigger": "Potential general cubic FVS minimum-size and structure dominance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ca01951c-ff15-4078-97e2-2fddc9c5c1be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dodecahedron is a natural Platonic cubic graph; exact minimum-cycle-transversal reconfiguration is a mathematically motivated solution-space question. The claimed six-step sharp diameter, entire 3,173,940-pair metric census and exactly 48,980 non-Johnson-geodesic pairs quantify shortest transformations beyond established connectivity and structural bounds, giving a meaningful exact finite benchmark rather than a routine static invariant.",
+    "status": "PASS"
+  }
+}
