@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The claim is restricted to the explicit \(q+1\) quadratic finite-field MUBs and ordered triples of vectors from distinct bases. Quadratic finite-field Gauss sums give formulas (4)–(5); the linear parameters have exactly \(q^2\) preimages. Nonsquare rescaling of slopes pairs the two quadratic classes over the entire ordered basis index set. Character orthogonality gives the sign- and trace-resolved counts and checks the total \(B_qq^3\). The Gram determinant is exact; \(q=3\) and the positive Gershgorin range \(q\ge5\) are treated separately. Independent finite-field implementations exhaustively checked \(648+15{,}000+115{,}248\) ordered triples for prime fields and \(524{,}880\) for \(\mathbb F_9\), including all phase counts, but finite checks are not substituted for the proof.
+
+## Originality — PASS, with residual priority risk
+The earliest accessible literature anchor [1] explicitly gives the quadratic MUB construction, but its projective \(2\)-design statements do not determine the phase-sensitive third-order histogram. The more recent full open-access [3] explicitly defines these triple-product arrays as Hadamard cubes; its general axioms and dimension-six classification do not assert the odd-prime-power trace-sign multiplicities or the prime-field-to-extension-field support transition. An existing result on fourth-overlap energy for unions of quadratic-chirp bases controls phase-free pair magnitudes; it cannot imply the full Bargmann phases. The original Wootters–Fields article [2] and possibly other older finite geometric-phase literature may contain equivalent reductions. Its metadata and abstract were checked, but full text was unavailable; this is a real residual priority risk, not a claim of certified uniqueness.
+
+## Mathematical value — PASS
+A Bargmann phase is a scalar- and basis-vector-phase invariant of three rays; unlike unbiased pair magnitudes it resolves their joint relative geometry. The uniform formula provides the full phase histogram for an infinite canonical family, detects a strict prime-versus-proper-extension transition, and exactly determines every three-column Gram characteristic polynomial and the exceptional dependence census in dimension three. This is a natural complete classification of a third-order invariant, not an arbitrary isolated numerical slice. No claim is made concerning different inequivalent maximal MUB families or characteristic two.
+
+Self-review: passed. Independent audit: not yet performed.
