@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The three-node polynomial identity and its converse are proved by exact factorization. The two-step Ritz nodes arise from the exact first four moments, with monotonic sign crossing at the one positive algebraic root. An eigenvector compression proves exact one-step sign error, and differentiated eigenvalues prove the near-isometry coefficient. The embedded symbolic/numerical replay completed 169 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.06684v1 §§3.1, 3.2, 5.2 and 6.1–6.3, materially inspected: positivity warning, sufficient relative approximation conditions, Ritz-node interpolation, large-scale examples",
+        "Higham, Functions of Matrices, SIAM 2008, publisher chapter overview and excerpts: general matrix square roots"
+      ],
+      "reasoning": "The source gives sufficient approximation bounds and warns against negative q on unobserved eigenvalues. Its full text does not state the exactly identity-preconditioned three-mode construction, rigidity at condition four, or the transition for g_t; the theorem deliberately excludes positive-uniform-approximation regimes already safeguarded by prior work.",
+      "searches": [
+        "Frommer Ramirez-Hidalgo Schweitzer Tsolakis 2024 polynomial preconditioning square root perfect condition number nonprincipal branch example",
+        "polynomial preconditioning inverse square root non-principal perfect",
+        "square root Ritz branch preconditioned condition number example"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.06684v1",
+      "Higham 2008 DOI:10.1137/1.9780898717778",
+      "separate Jordan-block affine inverse-root record: 5d92fe3a-0e2f-4801-9d6c-c8917b6a1e45"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Frommer et al., arXiv:2401.06684v1 §5: general nonprincipal branch warning and interpolatory polynomial method",
+        "A separate three-dimensional Jordan-block affine-preconditioning study (opaque record ID 5d92fe3a-0e2f-4801-9d6c-c8917b6a1e45) concerns nonsymmetric compressed-field-of-values failure, not SPD sign aliasing"
+      ],
+      "reasoning": "The warning implies sign failure when q already has a wrong sign; it does not classify when perfect clustering can coexist with that sign or how a full-support two-step Ritz pilot crosses the branch. The Jordan record concerns a nonnormal matrix with spectrum {1} and zero projected scalar; it neither specializes to nor dominates the SPD diagonal identity with zero residual and wrong principal action.",
+      "searches": [
+        "polynomial preconditioning inverse square root q(A)^2 A identity with nonprincipal branch sign flip exact 3x3 SPD eigenvalues 1 4 9 Ritz interpolation",
+        "matrix function preconditioning one step Arnoldi q(A) sign eigenvalue Ritz values linear preconditioner full-support pilot threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.06684v1, §§3.1, 5.2: exact polynomially preconditioned Arnoldi and the sign condition; N. J. Higham (2008), Chs. 1 and 6: principal-root distinctions"
+      ],
+      "reasoning": "Equivalently the claim concerns real spectral sign aliases in the polynomial equation z q(z)^2=1 with q interpolatory at two positive nodes. Existing branch theory predicts how a negative q value affects a root, but does not alone give the unique allowed third spectral node or the sharp Ritz-pilot threshold.",
+      "searches": [
+        "polynomial preconditioning inverse square root q(A)^2 A identity with nonprincipal branch sign flip exact 3x3 SPD eigenvalues 1 4 9 Ritz interpolation",
+        "SPD diagonal matrix 1 4 9 polynomial q(z)=(7-z)/6 makes A q(A)^2=I but q(A) inverse square root has wrong sign on largest eigenvalue, polynomial preconditioned Arnoldi",
+        "matrix inverse square root linear interpolation third point positive negative 1 4 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2401.06684v1 §6: tested three-dimensional discrete Laplacian, overlap operator, directed graph Laplacian, not the three-point exact alias",
+        "Search results provided no matching formula or precomputed table; this negative evidence is limited and does not certify novelty"
+      ],
+      "reasoning": "The result is an all-parameter algebraic classification, not a finite tabulation. A database search did not identify an existing table of the three-root relation or full-support pilot threshold; the absence is weak negative evidence, weighed together with the direct full-text comparison.",
+      "searches": [
+        "\"1,4,9\" \"(7-z)/6\" matrix function inverse square root",
+        "exact polynomial interpolation inverse square root square root spectral branch aliasing condition number four third eigenvalue squared sum",
+        "linear polynomial interpolant inverse square root at two spectral points third eigenvalue square of sum square roots perfect spectral conditioning wrong branch"
+      ]
+    },
+    "rationale": "Frommer et al. already prove the algorithmic identity and warn that incorrect polynomial signs can select a nonprincipal root; those facts are not claimed as new. The additional exact three-node identity, its sharp condition-four classification, and the explicit full-support Lanczos visibility transition were not found as consequences or stated claims in inspected primary text or targeted mathematical records.",
+    "residual_risks": [
+      "General branch warnings in prior work partially motivate and predict the qualitative failure; the specific exact algebraic identity and threshold may have appeared in other specialized numerical-matrix-function literature.",
+      "The complete Higham monograph and every potentially related nonindexed publication were not inspected; publication priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the algorithm, generic sign-branch risk, sufficient positivity criteria, and Ritz interpolation. Does not explicitly supply the combined sharp spectral alias and pilot threshold. This is a specialization of a known risk, not a wholly unrelated phenomenon.",
+        "evidence": [
+          "arXiv:2401.06684v1 §§3.1–3.2 and §5.2; §6 examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.06684v1",
+        "material_read": "HTML Sections 2, 3 (including Algorithms 1–2 and Proposition 3.1), 5 (including branch warning and Ritz interpolation), and 6 (examples and comparisons)",
+        "method": "Read the actual open full HTML sections; compare hypotheses and stated claims with three-point identity, rigidity, and full-support pilot threshold",
+        "title": "Polynomial Preconditioning for the Action of the Matrix Square Root and Inverse Square Root",
+        "trigger": "Matching inverse-square-root polynomially preconditioned Arnoldi and two-Ritz-node polynomial mechanism"
+      },
+      {
+        "assessment": "Provides broad conceptual sign-branch coverage, but the inspected excerpts do not establish the specific affine three-root identity or explicit Lanczos visibility threshold. Full-book coverage remains a residual risk.",
+        "evidence": [
+          "Higham (2008), Chs. 1, 5, 6, available excerpts; SIAM publisher book description"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1.9780898717778",
+        "material_read": "Publisher chapter overview and publicly retrievable excerpts; complete book not inspected",
+        "method": "Compare available matrix-function branch definitions and general sign facts; do not infer noncoverage from limited excerpts",
+        "title": "Functions of Matrices: Theory and Computation",
+        "trigger": "Broader theory of principal and nonprincipal matrix roots and matrix signs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eae15b9e-5d60-4a6d-8310-48aa70e0a369",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a natural, exact benchmark for the distinction between preconditioned spectral clustering and correctness of the principal matrix-function action: identity-preconditioned operator, zero projected residual, maximum possible relative branch error, and a necessary-and-sufficient spectral alias. The sharp full-support Lanczos pilot threshold makes the risk quantifiable rather than anecdotal.",
+    "status": "PASS"
+  }
+}
