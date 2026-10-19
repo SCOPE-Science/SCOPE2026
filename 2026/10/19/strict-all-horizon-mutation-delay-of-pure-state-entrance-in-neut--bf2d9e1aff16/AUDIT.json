@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For any finite population at least three and either endpoint mutation parameter, the full Moran transition probabilities and the even/odd reflected minority boundary rows were reconstructed. For fixed mutation the skip-free strong Markov property makes each survival function nondecreasing in minority state. The entrywise nonnegative product rule for \\(\\partial_\\mu Q^t\\) acting on these increasing functions, and a strictly positive path from every initial minority level to the leakage state at the earliest possible horizon, prove all finite-horizon inequalities. Primitive Perron theory then yields strictly positive \\(\\lambda\\prime(\\mu)\\) from the monotone right eigenvector; no numerical finite-set inference is used for the universal quantifiers. The two-individual exception and three-individual closed form are exact. An independent exact-fraction program checks over five thousand finite survival comparisons, over six thousand derivative comparisons, and boundary formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thierry E. Huillet (2013), doi:10.1155/2013/939308, Sections 2–5: stochastic monotonicity refers to starting-state/Siegmund-duality order; ergodic full-chain spectral and one-endpoint hitting analyses do not establish the stated mutation-parameter two-boundary stopping-time order.",
+        "Díaz, Goldberg, Richerby, Serna (2013), arXiv:1311.7631, Sections 1 and 3–4: stochastic domination for graph Moran absorption under fitness/graph changes, without ongoing mutation; no comparison of the same symmetric-mutating kernel across mutation rates.",
+        "DeVille and Galiardi (2015), arXiv:1512.06886, Sections 2 and 4: a Moran evolutionary game with frequency-dependent fitness; diffusion and WKB mean metastable switching times between evolutionary equilibria, not neutral finite-horizon first entrance into either pure population.",
+        "A general finite birth–death stochastic comparison theorem could potentially cover this as an instance, but would require parameterwise comparison of the reflected killed kernels plus strict reachability, which is not supplied by the inspected theorems."
+      ],
+      "reasoning": "The strongest apparent dominating literature studies broad Markov stochastic order and Moran-graph absorption. Its assumptions compare initial states, selection strengths, or graph classes; they do not assert the needed all-horizon mutation-parameter order of a first hit to either of two pure boundaries. No implication was established from those published statements to the full claim. Such a generic comparison theorem remains a residual originality risk.",
+      "searches": [
+        "Strict stochastic dominance by mutation rate for every finite-time survival probability before first pure state in symmetric two-allele neutral Moran process; Perron eigenvalue of killed minority count matrix strictly increasing mutation probability",
+        "Moran model symmetric mutation strong stochastic comparison distribution of hitting times monotonicity",
+        "\"Moran\" \"mutation\" \"first passage\" \"monotone\" distribution",
+        "arXiv:1311.7631 Sections 1, 3–4",
+        "doi:10.1155/2013/939308 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2402.12943",
+      "https://arxiv.org/html/2402.12943v1",
+      "https://doi.org/10.1155/2013/939308",
+      "https://arxiv.org/abs/1311.7631",
+      "https://arxiv.org/abs/1512.06886"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Giuseppe Gaeta (2024), arXiv:2402.12943, Sections 3 and 7.2–8: exact transition probabilities and the observation that mean first-purity time grows with mutation; not an all-horizon survival comparison or killed-Perron derivative.",
+        "Thierry E. Huillet (2013), doi:10.1155/2013/939308, Sections 2–5: stochastic monotonicity refers to starting-state/Siegmund-duality order; ergodic full-chain spectral and one-endpoint hitting analyses do not establish the stated mutation-parameter two-boundary stopping-time order.",
+        "Díaz, Goldberg, Richerby, Serna (2013), arXiv:1311.7631, Sections 1 and 3–4: stochastic domination for graph Moran absorption under fitness/graph changes, without ongoing mutation; no comparison of the same symmetric-mutating kernel across mutation rates.",
+        "DeVille and Galiardi (2015), arXiv:1512.06886, Sections 2 and 4: a Moran evolutionary game with frequency-dependent fitness; diffusion and WKB mean metastable switching times between evolutionary equilibria, not neutral finite-horizon first entrance into either pure population."
+      ],
+      "reasoning": "Gaeta provides the same transition probabilities and first-entrance object, but the conclusion on increasing mean time is implied by (and weaker than) the present survival-order theorem; an increasing expectation never implies pointwise stochastic order in general. Huillet may give monotonicity in r for a fixed matrix but not differentiation of Q with respect to symmetric mutation across the first-purity event. Díaz works in fitness/graph comparisons with no further mutations after a parent copy; it does not imply parameter strictness here. Current work proves strictness via the positive derivative of boundary leakage propagated through all finite horizons and separately for the killed Perron rate.",
+      "searches": [
+        "arXiv:2402.12943 eqs. (5)–(6), §7.2 and §8",
+        "doi:10.1155/2013/939308 §2 stochastic monotonicity, §4 Siegmund duality, §5 hitting times",
+        "arXiv:1311.7631 §1 Theorems 1–3, §3–4 coupling",
+        "Strict stochastic dominance by mutation rate for every finite-time survival probability before first pure state in symmetric two-allele neutral Moran process; Perron eigenvalue of killed minority count matrix strictly increasing mutation probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Giuseppe Gaeta (2024), arXiv:2402.12943, Sections 3 and 7.2–8: exact transition probabilities and the observation that mean first-purity time grows with mutation; not an all-horizon survival comparison or killed-Perron derivative.",
+        "Thierry E. Huillet (2013), doi:10.1155/2013/939308, Sections 2–5: stochastic monotonicity refers to starting-state/Siegmund-duality order; ergodic full-chain spectral and one-endpoint hitting analyses do not establish the stated mutation-parameter two-boundary stopping-time order.",
+        "Equivalent probabilistic formulations tested: usual stochastic order of the stopping time, increase of every finite-horizon killed-chain survival probability, a pathwise comparison of reflected minority distance, and a Perron-survival-tail comparison."
+      ],
+      "reasoning": "A monotone mean is strictly weaker than a pointwise stochastic order; the exact recursive mean calculation does not imply every finite-horizon inequality. Stochastic monotonicity in the starting state is not stochastic monotonicity in mutation rate. The original paper does not give the reflected minority derivative argument, the sharp first possible strict horizon, or a monotone killed-chain spectral radius. No equivalent statement was identified in the inspected sections.",
+      "searches": [
+        "\"Moran\" \"mutation\" \"first passage\" \"monotone\" distribution",
+        "\"Moran\" \"mutation\" \"stochastically\" \"hitting time\" pure",
+        "Huillet 2013 Siegmund dual mutation Moran first hitting boundary all time stochastic dominance mutation parameter",
+        "arXiv:2402.12943 sections 7.2–8",
+        "doi:10.1155/2013/939308 sections 2–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Giuseppe Gaeta (2024), arXiv:2402.12943, Sections 3 and 7.2–8: exact transition probabilities and the observation that mean first-purity time grows with mutation; not an all-horizon survival comparison or killed-Perron derivative.",
+        "Thierry E. Huillet (2013), doi:10.1155/2013/939308, Sections 2–5: stochastic monotonicity refers to starting-state/Siegmund-duality order; ergodic full-chain spectral and one-endpoint hitting analyses do not establish the stated mutation-parameter two-boundary stopping-time order.",
+        "Published finding entitled “All-rate threshold theorem for growth-weighted reversible mutation in a chemostat”: Perron growth under reversible mutation in a chemostat, rather than pure-state hitting in Moran dynamics.",
+        "Published finding entitled “A missing entry amplitude factor in Wolbachia QSD convergence times”: quasi-stationary class separation in an infection chain, not mutation-order of Moran first-purity survival.",
+        "Published finding entitled “Two-stage reproductive kernels force complete threshold convergence”: deterministic age-structured population thresholds, not a finite Moran hitting-time law.",
+        "The inspected published findings in mathematical biology concern epidemics, population maps and game dynamics; none is a Moran pure-state mutation-order theorem."
+      ],
+      "reasoning": "The motivating source Fig. 8 charts MEANS for selected mutation values, whereas Table 1 concerns reversal-time scales; neither tabulates or proves finite-horizon survival at every parameter, nor killed Perron roots. The indexed results nearest to the search queries involve different state spaces, transitions and Perron quantities, and do not imply the claim. Absence from these searches is supporting screening, not a global nonexistence proof.",
+      "searches": [
+        "Moran neutral mutation exact first hitting time stationary distribution two alleles 2024",
+        "Strict stochastic dominance by mutation rate for every finite-time survival probability before first pure state in symmetric two-allele neutral Moran process; Perron eigenvalue of killed minority count matrix strictly increasing mutation probability",
+        "Gaeta 2024 complete Moran model symmetric mutation hitting times all horizons spectral rate pure state",
+        "Huillet 2013 Siegmund dual mutation Moran first hitting boundary all time stochastic dominance mutation parameter",
+        "\"Moran\" \"mutation rate\" \"spectral radius\" first hitting",
+        "arXiv:2402.12943 Figure 8 and Table 1",
+        "doi:10.1155/2013/939308 Sections 3 and 5"
+      ]
+    },
+    "rationale": "The 2024 same-model preprint proves or numerically explores first-purity hitting probability and its MEAN with symmetric mutations. The present quantified result concerns strict survival-function inequalities simultaneously for every integer horizon at which purity is attainable, all initial mixtures and all real mutation parameters in the full allowable interval, and strict derivative positivity of a different object: the Perron root of the killed first-entrance kernel. Huillet gives stochastic monotonicity in the state index and full-chain spectral analyses, not this parameter comparison; Díaz et al. prove non-mutating graph-Moran domination. The conclusion is literature-relative, not a uniqueness certificate.",
+    "residual_risks": [
+      "General comparison principles for monotone birth–death kernels may have an unindexed formulation whose corollary implies this claim without matching Moran-specific keywords.",
+      "Further specialist first-passage or neutral population-genetics literature may contain all-horizon or Perron-order statements not indexed in the searched sources.",
+      "No independent literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports growing mean entrance time with mutation, but not strict first-entrance survival order for every horizon or strict killed Perron-root monotonicity.",
+        "evidence": [
+          "Giuseppe Gaeta (2024), arXiv:2402.12943, Sections 3 and 7.2–8: exact transition probabilities and the observation that mean first-purity time grows with mutation; not an all-horizon survival comparison or killed-Perron derivative.",
+          "Earliest public preprint posting 2024-02-20."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.12943",
+        "material_read": "Complete open HTML manuscript, especially model equations (5)–(6), Sections 3, 5, 7.1–7.3, 8, and appendix; PDF representation also inspected.",
+        "method": "Primary full-text statement and equation comparison, not a search-result snippet.",
+        "title": "On some dynamical features of the complete Moran model for neutral evolution in the presence of mutations",
+        "trigger": "Exactly the same chain, mutation mechanism, and first entrance into pure states; closest possible prior coverage."
+      },
+      {
+        "assessment": "Its stochastic-monotonicity notion is in state ordering and spectral results concern the original or dual chains, not strict all-horizon comparison of first-purity hitting times across equal two-way mutation rate.",
+        "evidence": [
+          "Thierry E. Huillet (2013), doi:10.1155/2013/939308, Sections 2–5: stochastic monotonicity refers to starting-state/Siegmund-duality order; ergodic full-chain spectral and one-endpoint hitting analyses do not establish the stated mutation-parameter two-boundary stopping-time order."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/939308",
+        "material_read": "Full accessible scholarly HTML text, including birth–death theory, Moran model, Siegmund duality and related hitting-time sections 2–5.",
+        "method": "Read the mathematical objectives and results on monotonicity, eigenvalues and first passages; compare objects and varying parameters.",
+        "title": "Fluctuations Analysis of Finite Discrete Birth and Death Chains with Emphasis on Moran Models with Mutations",
+        "trigger": "The broadest inspected exact mutation-Moran birth–death/spectral/stochastic-order analysis."
+      },
+      {
+        "assessment": "Fitness depends on Prisoner’s Dilemma payoffs and the passage event is between metastable evolutionarily stable strategy regions; the findings concern large-population approximate means, not exact neutral first-purity all-horizon order.",
+        "evidence": [
+          "DeVille and Galiardi (2015), arXiv:1512.06886, Sections 2 and 4: a Moran evolutionary game with frequency-dependent fitness; diffusion and WKB mean metastable switching times between evolutionary equilibria, not neutral finite-horizon first entrance into either pure population."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.06886",
+        "material_read": "Full accessible original HTML manuscript, especially Section 2 update equations, Section 4 first-passage estimates and WKB analysis, and conclusions.",
+        "method": "Read source transition rates and target first-passage event and compare quantifiers and perturbation parameters.",
+        "title": "Finite-size effects and switching times for Moran dynamics with mutation",
+        "trigger": "Closely named mutant Moran first-passage and metastability analysis, a plausible broader coverage source."
+      },
+      {
+        "assessment": "Selectively reproducing, mutation-free Moran graph process; the provided stochastic dominations do not compare two positive symmetric offspring mutation rates.",
+        "evidence": [
+          "Díaz, Goldberg, Richerby, Serna (2013), arXiv:1311.7631, Sections 1 and 3–4: stochastic domination for graph Moran absorption under fitness/graph changes, without ongoing mutation; no comparison of the same symmetric-mutating kernel across mutation rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.7631",
+        "material_read": "Accessible original paper full text and PDF, especially introduction and the graph absorption/coupling proof sections.",
+        "method": "Compare update mechanisms and stochastic-order conclusions to the two-boundary first-purity problem with ongoing mutation.",
+        "title": "Absorption Time of the Moran Process",
+        "trigger": "Published stochastic domination/coupling work on Moran hitting and absorption times, potential stronger implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf2d9e1a-ff16-4e9f-a8d1-dad9b86bd431",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating biological dynamics question asks how ongoing neutral mutation changes the time to temporary pure populations. Prior plots/recurrences of expected times do not answer the operational question of the chance of having reached purity by a given finite horizon. The new exact structural theorem resolves that natural whole-law question uniformly in population size, starting configuration, and mutation probability, and proves the separate asymptotic spectral-tail effect and a sharp population-size obstruction. Its strict distributional claim is not merely a renaming of an expectation formula or an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
