@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness
+PASS. Direct substitution of all four action profiles into the exact resource-level reward/time definition yields the table in `RESULT.md`. Four pairwise strict preference inequalities exhaust the pure equilibria and prove that the nonexistence interval is exactly \(5/4<\eta<2\). Indifference equations yield a unique completely mixed equilibrium within the interval. Strict improvement margins and denominator positivity give the open-parameter robustness claim. The complete exact-rational program `verify.py` was run successfully, including 400 strictly congestion-monotone nearby cases. Those finite checks supplement rather than replace the analytic proof.
+
+## Originality
+PASS within inspected literature, with residual uncertainty. Abdelraouf–Srivastava–Gupta (2026), Section II, identifies non-potential direct reward rates and an exact potential for the *fixed-parameter transformed* games, but its inspected examples and theorems do not establish a direct-game pure-equilibrium exclusion interval, strict four-cycle, or exact mixed equilibrium. Voice–Polukarov–Byde–Jennings (2009), Sections 2–4, treats broad congestion-averse utilities and shows existence can fail outside its structural conditions, but its general existence boundary is not this specific monotone, positive reward/time quotient representation with the complete parameter law. Feldotto–Leder–Skopalik (2017) addresses \(L_p\)-cost aggregation and different payoff primitives. Published mathematical research records inspected did not reveal an equivalent specific result. Generic nonexistence for nonlinear games and 2-by-2 best-reply algebra are not claimed original. One cannot exclude an earlier equivalent construction in less accessible game theory literature.
+
+## Mathematical value
+PASS. It resolves a concrete modeling limitation: the common transformed Rosenthal potential does **not** imply even one pure equilibrium in the original physical reward-rate game, and this failure persists under strict monotone physical congestion response. The sharp rate-dependent transition, unique exact mixed behavior, and perturbation persistence together identify a substantive boundary of pure-strategy decentralized allocation; they are not just a restatement that rational payoffs fail the exact-potential identity. The model is a small asymmetric designed example, not a universal impossibility or minimal-size classification.
+
+## Sources and limitations
+References and verification conditions are given in `RESULT.md`. The 2026 arXiv article and the two earlier broad congestion papers were examined at the levels stated in `AUDIT.json`. Most important residual priority risk: general congestion-averse or mixed-objective congestion results could contain a different explicit payoff representation that translates exactly to this construction; no independent literature audit was performed. The proof does not cover other feasible bundle systems.
+
+Self-review: passed. Independent audit: not yet performed.
