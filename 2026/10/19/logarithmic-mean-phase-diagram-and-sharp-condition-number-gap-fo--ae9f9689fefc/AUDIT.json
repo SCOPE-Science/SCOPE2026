@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, K>1 and 1<t<K, Sherman–Morrison and scalar Rayleigh extrema prove the two unique non-tie divergence minima over all signed symmetric rank-one updates. Rank-one Weyl interlacing and Loewner order prove the universal spectral condition-number lower bound and explicit candidates attain it. The logarithmic-mean ordering and strictly monotone mismatched ratios give exact supremal factors. Seeded numerical verifier passed 9,093 checks; finite checks support but do not establish the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bock and Andersen, arXiv:2304.12162v7, Section 3 Theorem 2: positive-semidefinite G and rank G < n.",
+        "Bock and Andersen, arXiv:2312.06417v3, Sections 1–3 and 6–7: generalized indefinite error and experimentally compared spectral condition numbers.",
+        "arXiv:2503.22286 abstract: a different Kaporin condition measure."
+      ],
+      "reasoning": "The earlier positive-semidefinite theorem has no negative relative eigenvalue and restricts to nonnegative rank corrections. The new mixed-sign family requires both signs. The Kaporin metric is not the extreme generalized eigenvalue ratio. A still-unlocated general spectral theorem could subsume the result, which is noted as risk.",
+      "searches": [
+        "Bock Andersen 2023 Bregman logdet divergence low rank preconditioner condition number counterexample spectral truncation unbounded gap",
+        "arXiv:2304.12162 Theorem 2 condition-number optimality",
+        "arXiv:2503.22286 Kaporin condition number Bregman log determinant divergence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2312.06417v3",
+      "https://doi.org/10.1002/nla.70012",
+      "https://arxiv.org/html/2304.12162v7",
+      "https://arxiv.org/abs/2503.22286"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bock and Andersen 2025 source computes Bregman optima and reports empirical condition numbers, and its outlook calls for additional theoretical analysis relating divergence to iterative solver performance.",
+        "The 2023 paper only proves spectral optimality for semidefinite relative errors with a nontrivial kernel; the present relative error has eigenvalues of both signs."
+      ],
+      "reasoning": "A source theorem proving global divergence minimizers does not by itself claim they achieve any spectral condition-number approximation factor; the sharp ratio requires an independently established optimum over arbitrary signed rank-one corrections. The same scalar-score expressions are prior-covered and explicitly credited.",
+      "searches": [
+        "arXiv:2312.06417v3 sections 2,3,6,7",
+        "arXiv:2304.12162v7 sections 2,3,4",
+        "low-rank Bregman preconditioner spectral condition number approximation ratio K/(log K)^2 orientation forward reverse divergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bock and Andersen, arXiv:2312.06417v3, Section 2: positive/negative spectral-mode ranking from two divergence scores.",
+        "The new theorem compares those choices to the all-rank-one spectral optimum and identifies two unequal decision thresholds."
+      ],
+      "reasoning": "Equivalent parametrizations may use relative eigenvalues and logarithmic means rather than the preconditioner notation. The source score formulas alone imply which eigenmode the divergences select, but do not provide the interlacing-based global spectral condition number comparator and sharp fixed-K ratio.",
+      "searches": [
+        "forward reverse Bregman logdet rank-one preconditioners sharp spectral condition number logarithmic mean crossover condition number",
+        "rank-one diagonal preconditioning two opposite eigenvalue errors logarithmic mean Bregman threshold K log K/(K-1) (K-1)/log K",
+        "arXiv:2312.06417 Section 2 (forward/reverse scalar scores)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The matrix-truncation article Section 6 Table 2 compares measured PCG steps, condition numbers and Bregman values for finite matrices.",
+        "The new expression is exact for all K>1 and n>=3, and has an explicit sharp supremum approaching tie surfaces."
+      ],
+      "reasoning": "No inspected table determines the three threshold functions and the sharp global rank-one benchmark. Numerical comparisons are not an exact universal formula, and there is no finite indexed table known to imply all K.",
+      "searches": [
+        "Bregman log determinant divergence minimization poor spectral condition number unbounded discrepancy preconditioners",
+        "rank-one spectral truncation log-det Bregman optimum versus optimal condition number indefinite eigenvalue relative error exponential separation",
+        "arXiv:2312.06417 Section 6 Table 2 PCG condition number"
+      ]
+    },
+    "rationale": "Comparison of exact mathematical implications shows the published forward/reverse BLD scalar scores were already known, and the earlier PSD rank-constrained condition-number theorem does not cover an indefinite relative error. Neither inspected source establishes the two sharp logarithmic-mean selection thresholds together with the global all-rank-one spectral condition-number optimum and unbounded fixed-K competitive ratios. Search results were additionally screened for aliases and stronger related bounds; residual uncertainty remains.",
+    "residual_risks": [
+      "An equivalent logarithmic-mean spectral selection theorem could appear in earlier matrix-nearness or preconditioning literature under different terminology.",
+      "The later Kaporin/Bregman paper was accessible by abstract only, not inspected as full text; it discusses a different nominal condition-number metric.",
+      "A similarity search and focused literature inspection do not establish exhaustive absence of equivalent prior theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers underlying divergence scores and their optimality; does not establish the new sharp global rank-one spectral competitive ratios and threshold phase diagram.",
+        "evidence": [
+          "Sections 2 and 3 characterize forward/reverse mode choices; Section 6 compares finite experiments; Section 7 notes needed theory."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.06417v3",
+        "material_read": "Full open-access HTML, with Sections 1, 2, 3, 6, 7 and comparison tables/claims materially inspected",
+        "method": "Read source definitions, truncation theorems, section on preconditioning and experimental spectral condition-number discussion",
+        "title": "A New Matrix Truncation Method for Improving Approximate Factorisation Preconditioners",
+        "trigger": "Original Bregman truncation and mixed-sign approximate-factorization setting"
+      },
+      {
+        "assessment": "Theorem 2 assumes G is positive semidefinite with nontrivial kernel; the new relative error is indefinite, so this is not a covering theorem.",
+        "evidence": [
+          "Introduction specifies S=A+B with B positive semidefinite; Section 3 Theorem 2 restricts X to positive semidefinite and rank G<n."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.12162v7",
+        "material_read": "Full open-access HTML: introduction, Section 2, Section 3 with Theorem 2 and its hypotheses, and Section 4",
+        "method": "Compared quantifiers, admissible correction signs, and spectral condition-number objective",
+        "title": "Preconditioner Design via the Bregman Divergence",
+        "trigger": "Plausible stronger prior condition-number optimality theorem"
+      },
+      {
+        "assessment": "Kaporin conditioning appears distinct from extremal spectral conditioning. Equivalence or hidden special-case implications cannot be fully excluded from abstract alone.",
+        "evidence": [
+          "arXiv abstract describes Kaporin-condition-number/Bregman connection."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.22286",
+        "material_read": "Abstract and bibliographic record only; full paper not materially inspected",
+        "method": "Compared named condition metric and stated scope from accessible abstract",
+        "title": "Connecting Kaporin's condition number and the Bregman log determinant divergence",
+        "trigger": "Later work combining Bregman divergence and a differently named condition number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae9f9689-fefc-4fcc-8c61-9308ce499b4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The indefinite relative error naturally arises with approximate factorization preconditioners, and comparison of an optimization surrogate to the best condition number under the same rank budget is directly motivated by the source literature. The exact four-region logarithmic-mean phase diagram and sharp unbounded loss quantify a genuine structural boundary, over the full noncommuting rank-one correction class. This is not merely a scalar mode-score restatement, and it does not infer Krylov runtime from conditioning.",
+    "status": "PASS"
+  }
+}
