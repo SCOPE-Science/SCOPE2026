@@ -1,0 +1,11 @@
+# Scientific review: centralizer spectra of cubic substitution endomorphisms
+
+**Correctness — PASS.** Each field-linear unital endomorphism has a unique cubic jet. The defining commutation equations produce a six-stratum odd-characteristic and three-stratum even-characteristic count. All polynomial root counts and characteristic-dependent factors are proved in the result; exhaustive independent composition verifies every field element and every possible pair for \(q=2,3,4,5,7\), including one extension field. Finite checks support but do not replace the proof.
+
+**Originality — PASS within checked sources.** Enochs--Jenda--Ozbek classify which *support sets* of series form composition monoids; Tarizadeh gives general formal-power-series universal properties; Cohen gives the classical cubic composition coefficients but studies characteristic-zero invertible finite-order series; Byszewski--Cornelissen--Tijsma study invertible Nottingham torsion. Those full or substantially inspected primary sources do not provide the present all-endomorphism centralizer histogram. Nearby mathematical-record claims treat different structures and products. Residual risk: an equivalent computation may be hidden in unindexed low-degree jet semigroup literature; a database search cannot establish uniqueness.
+
+**Value — PASS.** The result determines a complete natural semigroup invariant for all prime powers, including noninvertible endomorphisms, and distinguishes the exceptional centers at field orders two and three. The sharply commutative length-four example over the binary field fails at length five. The proof and field-dependent formulas give a reusable low-length benchmark for formal substitution monoids; no higher-length generalization is claimed.
+
+**Closest literature:** Enochs--Jenda--Ozbek (2015), arXiv:1510.05984; Tarizadeh (2017), arXiv:1709.01426; Cohen (2018), arXiv:1804.00059; Byszewski--Cornelissen--Tijsma (2020), arXiv:2008.04971. The first classifies support sets, the second provides formal-series foundations, Cohen supplies the established cubic composition law, and the fourth addresses an invertible torsion subgroup. They do not directly establish the stated finite commutant multiplicities.
+
+Self-review: passed. Independent audit: not yet performed.
