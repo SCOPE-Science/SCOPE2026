@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Conjugation averaging uses the full price-preserving graph automorphism group; SLEM is a convex spectral norm and edge cost is invariant and linear. Four exact invariant eigenvalues yield the linear-program constraints \\(a\\ge r/n\\), \\(b\\ge[r-(n-2)a]/2\\) and \\(a\\le2\\theta/n\\). The lower envelope has one kink and two slopes, separated by the explicit critical price. All three branches and the critical-price optimizer segment satisfy every remaining eigenvalue bound, stochastic diagonal and boundary for all \\(n\\ge3\\) and \\(\\theta\\in[1/3,1)\\). Averaging any non-invariant competitor has equal cost and no worse SLEM. The budget formula follows by inverting the branch costs. The exact rational checker completed 12,885 finite assertions; these do not prove the infinite-family claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao (2004), SIAM Review 46:667–689, DOI:10.1137/S0036144503423264",
+        "arxiv:0709.0955v1, Sections 1.1, 3.1.2 and 5.3.1, https://arxiv.org/abs/0709.0955",
+        "Gnecco–Morisi–Bemporad (2015), Sections 2–6, DOI:10.1109/TNSE.2015.2479086",
+        "Jafarizadeh (2025), arXiv:2501.02117 abstract, friendship-graph Pareto tradeoff (different topology and fixed edge parameters)"
+      ],
+      "reasoning": "General convex SDP, symmetry reduction and sparse regularization cover the FORMULATION and can solve an instance numerically, but the inspected analytical results do not give the two-price balanced-biclique closed form, exact corner values or equality faces. The 2025 friendship-graph Pareto law concerns a distinct topology and control variable.",
+      "searches": [
+        "priced matching complete bipartite symmetric fastest mixing threshold 2(n-1)/(n-2) cost Pareto spectrum",
+        "Boyd Diaconis Parrilo Xiao symmetries complete bipartite matched edge two orbits mixing performance budget",
+        "cost constrained fastest mixing Markov chain semidefinite Pareto frontier edge costs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1, Sections 1.1, 3.1.2 and 5.3.1, https://arxiv.org/abs/0709.0955",
+      "Gnecco–Morisi–Bemporad (2015), Sections 2–6, DOI:10.1109/TNSE.2015.2479086",
+      "Boyd–Diaconis–Xiao (2004), SIAM Review 46:667–689, DOI:10.1137/S0036144503423264",
+      "Jafarizadeh (2025), arXiv:2501.02117 abstract, friendship-graph Pareto tradeoff (different topology and fixed edge parameters)",
+      "Public mathematical finding summaries and bibliographic searches, compared by objects and mathematical implications; actual search terms recorded in the four named comparison checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0709.0955v1, Sections 1.1, 3.1.2 and 5.3.1, https://arxiv.org/abs/0709.0955",
+        "Gnecco–Morisi–Bemporad (2015), Sections 2–6, DOI:10.1109/TNSE.2015.2479086",
+        "Boyd–Diaconis–Xiao (2004), SIAM Review 46:667–689, DOI:10.1137/S0036144503423264"
+      ],
+      "reasoning": "The historical formula yields the special case \\(t=1\\) and the endpoint when all matching weights vanish (the crown graph). This does not imply that for \\(t>2(n-1)/(n-2)\\) matching edges vanish exactly at \\(\\theta\\ge n/(3n-4)\\), nor the exact resource frontier or the critical-price equality segment. Those conclusions require solving the distinct two-price linear program. Sparse regularization theory supplies qualitative tradeoffs but not the stated explicit thresholds.",
+      "searches": [
+        "cost-constrained symmetric fastest mixing complete bipartite graph matching edges different prices sharp price threshold matching omission spectral rate",
+        "Fastest mixing complete bipartite with matching price threshold eigenvalue modulus minimize transition cost",
+        "fastest mixing Markov chain complete bipartite perfect matching price critical threshold mixing budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0709.0955v1, Sections 1.1, 3.1.2 and 5.3.1, https://arxiv.org/abs/0709.0955",
+        "Gnecco–Morisi–Bemporad (2015), Sections 2–6, DOI:10.1109/TNSE.2015.2479086",
+        "Closest topical public mathematical result: “Exact discounted hitting domination of complete bipartite graphs” (different discounted-domination objective)."
+      ],
+      "reasoning": "Reviewed exact synonyms: rate-cost frontier, spectral-radius tradeoff, Markov chain fastest mixing with priced matchings, and weighted l1 regularization. The uniform-cost case of the new result is already in the 2007 paper; no matched-versus-unmatched priced exact counterpart was identified. General optimization formulations alone do not supply its explicit phase conditions.",
+      "searches": [
+        "cost-constrained symmetric fastest mixing complete bipartite graph matching edges different prices sharp price threshold matching omission spectral rate",
+        "Pareto frontier fastest mixing Markov chain K n n perfect matching expensive transitions spectral cost budget optimality",
+        "Fastest mixing complete bipartite with matching price threshold eigenvalue modulus minimize transition cost",
+        "fastest mixing Markov chain graph heterogeneous edge costs weighted 1 norm budget exact solutions symmetric priced edges matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:0709.0955v1, Sections 1.1, 3.1.2 and 5.3.1, https://arxiv.org/abs/0709.0955",
+        "2007 source, §3.1.2 and §5.3.1, explicit unpriced complete bipartite SLEM only.",
+        "Public mathematical search closest: “Spectral John ellipsoids of vertex-and-edge-transitive fractional matching polytopes,” a polytope-ellipsoid invariant rather than a mixing cost table."
+      ],
+      "reasoning": "The crown-graph SLEM threshold and unpriced baseline follow from known edge-transitive computations, but a complete table or parameterized result for the matching-priced curve was not found in the searched records or inspected sources.",
+      "searches": [
+        "Pareto frontier fastest mixing Markov chain K n n perfect matching expensive transitions spectral cost budget optimality",
+        "complete bipartite graph matching premium target second-largest eigenvalue modulus stationary uniform cost boundary",
+        "complete bipartite fastest mixing Markov chain with two edge orbits matching priced"
+      ]
+    },
+    "rationale": "The assessed contribution is the complete closed-form heterogeneously priced matching-versus-nonmatching rate-cost frontier on the balanced biclique, including both phase thresholds and the full invariant optimizer segment at the critical price. The 2007 primary source supplies general symmetry reduction and the pre-existing uniform-biclique and crown endpoints; the 2015 primary source supplies generic sparsification/regularization, not these formulas. Searches and scope comparisons did not identify an equivalent theorem, but coverage outside indexed or inspected literature remains possible.",
+    "residual_risks": [
+      "Unindexed or inaccessible specialist research on two-price complete-bipartite mixing could prove an equivalent formula.",
+      "The 2004 foundational article was checked through its official abstract and selected material rather than a complete inspection; it remains a general framework source.",
+      "General SDP/sparsity theory may allow alternative derivations; the new assertion is the exact specialized evaluation and structural optimizer classification, not the generic technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general symmetry averaging and uniform K_{m,n} rates; includes no matching-priced full Pareto frontier. It subsumes the uniform price endpoint and a crown-graph benchmark through its edge-transitive theorem.",
+        "evidence": [
+          "arxiv:0709.0955v1, Sections 1.1, 3.1.2 and 5.3.1, https://arxiv.org/abs/0709.0955",
+          "§3.1.2 equations (10)–(11): edge-transitive K_{m,n} optimal uniform edge probabilities and SLEM; §5.3.1 uniform edge assignment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Accessible HTML of introductory SDP and detailed Sections 3.1.2, 4.3.1 and 5.3.1 plus search within full web-rendered text for cost, price and matching",
+        "method": "Section-by-section full-text comparison of graph, edge orbits, objective, optimized parameters and implications",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Same optimization objective, symmetric chains, complete bipartite family and analytical symmetry reduction"
+      },
+      {
+        "assessment": "Analyzes uniform regularized FMMC and generic sparse networks. Does not provide a two-price matching-vs-other-edge closed form, parameterized thresholds, or critical optimal face.",
+        "evidence": [
+          "Gnecco–Morisi–Bemporad (2015), Sections 2–6, DOI:10.1109/TNSE.2015.2479086",
+          "§3.1 uniform l1 penalty, equations (15)–(17); §4 generic tradeoff propositions; §6 eight-vertex numerical toy and wireless-sensor example."
+        ],
+        "identifier_or_url": "https://cse.lab.imtlucca.it/~bemporad/publications/papers/ieeetnse-consensus.pdf",
+        "material_read": "Lawfully accessible fifteen-page PDF: abstract and Introduction, §2 FMMC, §§3–4 regularized/fixed-weight problems and propositions, §§5–6 extension and numerical example including page 10 figure and text",
+        "method": "Compared exact support families, cost coefficient patterns, optimization goals, theorems and numerical examples; checked full PDF text for bipartite and matching terms",
+        "title": "Sparse Solutions to the Average Consensus Problem via Various Regularizations of the Fastest Mixing Markov-Chain Problem",
+        "trigger": "Highly relevant cost-versus-mixing and edge sparsification formulation"
+      },
+      {
+        "assessment": "Provides the general convex SDP/dual machinery, not the displayed per-matching-cost formulas. Residual full-text limitation acknowledged.",
+        "evidence": [
+          "Boyd–Diaconis–Xiao (2004), SIAM Review 46:667–689, DOI:10.1137/S0036144503423264",
+          "Official Stanford abstract and publication page."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Official abstract plus bibliographic description and selected available PDF material; not claimed as a complete reading of all article pages",
+        "method": "Compared SDP formulation and optimization domain with proposed explicit priced network",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational general FMMC semidefinite optimization result"
+      },
+      {
+        "assessment": "Friendship graph differs from balanced biclique with a priced perfect matching; not taken as a whole-document noncoverage certification.",
+        "evidence": [
+          "Jafarizadeh (2025), arXiv:2501.02117 abstract, friendship-graph Pareto tradeoff (different topology and fixed edge parameters)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.02117",
+        "material_read": "Public abstract and publication metadata, not full paper",
+        "method": "Compared exact graph family and fixed-edge tradeoff objective from abstract",
+        "title": "Fastest mixing reversible Markov chain on friendship graph: Trade-off between transition probabilities among friends and convergence rate",
+        "trigger": "Plausible alternate cost-versus-mixing Pareto law on a symmetric graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b700d67-e0ae-49cf-afdc-16cd39413530",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The edge-price distinction is a natural network design problem: \\(n\\) matched links compete economically with \\(n(n-1)\\) alternatives under a bound on contraction. The theorem gives a complete nontrivial two-phase resource Pareto law, a price boundary independent of contraction tolerance, a constraint threshold at which matching links are forced/discarded, and all symmetric optimizers at equality. Unlike solving one arbitrary SDP instance, the infinite family is classified with structural, exact engineering implications.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Averaging by the full price-preserving symmetry group proves the reduction without restricting the optimization domain. A four-eigenspace calculation gives exact spectral inequalities, and a one-dimensional piecewise-affine lower envelope proves global cost optimality and all invariant equality cases. Positive diagonal and all spectral bounds are verified branch by branch. An independent exact-rational verifier checks 12,885 assertions on finite test instances. It is corroborative rather than a replacement for the parameter-uniform proof.
+
+**Originality — PASS (subject to the literature risk below).** Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955v1) explicitly solve the unpriced complete bipartite mixing problem and give the general symmetry-reduction framework. Their edge-transitive theorem also supplies the pre-existing crown-graph endpoint. Gnecco–Morisi–Bemporad (DOI:10.1109/TNSE.2015.2479086), inspected in its accessible full text, analyzes generic sparse regularization and a numerical example without giving the present matching-priced exact Pareto laws or optimizer-face classification. The new point is the solved heterogeneous-cost family, not convexity or unpriced fastest mixing.
+
+**Value — PASS.** Selectively expensive physical links create a natural resource-allocation question. The theorem identifies when *every* matched edge can be discarded, when matching edges remain mathematically unavoidable regardless of price, and a sharp price where multiple optimal allocation schemes coexist. It produces a closed-form budget-versus-convergence law and a critical-face classification for every network size, which is stronger and more useful than a routine single-instance SDP evaluation.
+
+**Closest prior literature and residual risk.** The 2007 paper's general edge-transitive formula already determines the crown-graph fastest rate, and its complete bipartite formula yields the uniform-cost optimum. General sparse FMMC work could support an alternative derivation. An undiscovered equivalent two-price Pareto result remains possible; absence from the compared sources does not prove universal novelty. The theorem does not classify unrestricted minimizers, only the complete invariant optimizer face.
+
+Self-review: passed. Independent audit: not yet performed.
