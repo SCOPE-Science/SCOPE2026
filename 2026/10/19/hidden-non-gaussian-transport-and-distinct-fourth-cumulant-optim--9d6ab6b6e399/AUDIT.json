@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For every gamma,r,sigma²>0, conditioning on independent Poisson refresh epochs makes X_t a centered Gaussian variance mixture; strict superadditivity of the positive OU integrated-variance function across a cut forces Var(Q_t)>0 for all t>0. Closed polynomial-generator moment ODEs give the exact limiting fourth-cumulant rate, and renewal-cycle Gaussian integrals independently match it. The exact velocity and squared-velocity covariance exponents identify gamma and r. Two explicit derivative-sign polynomials, each with a single positive zero, certify the separate unique global maximizing rates. The executable checker passed 64 ordinary assertions; finite tests corroborate, not replace, all-parameter proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Olsen–Löwen 2024 paper explicitly claims an all-moments recursion and effective diffusivity for velocity-reset transport.",
+        "Franke–Sokolov Phys. Rev. E 113 064125 (2026) applies full resetting of position AND velocity, producing stationary displacement densities.",
+        "GROMACS 2024.1 describes the known protocol, not a fourth-cumulant transport classification."
+      ],
+      "reasoning": "General partial-reset moment machinery is acknowledged as prior and likely calculates specializations of individual moments. Full position resetting alters the integrated observable fundamentally and does not imply the growth-rate optimization in unreset accumulated position. General identities do not, merely by existence, resolve the two claimed explicit optimization and inverse-lag classifications; nonetheless 2024 full-text coverage remains potentially decisive.",
+      "searches": [
+        "\"Dynamics of inertial particles under velocity resetting\" Olsen Lowen 2024 general moment recurrence",
+        "\"Resetting of underdamped Brownian motion\" Franke Sokolov 2026 full position velocity reset",
+        "\"Andersen thermostat\" GROMACS 2024.1 Maxwell Boltzmann velocity reselection"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.12685 metadata and abstract, 2024-01-23",
+      "doi:10.1103/qyl8-6q9h selected full-text article material and primary PDF pages",
+      "GROMACS 2024.1 Andersen thermostat HTML subsection",
+      "targeted public full-text/literal formula searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2401.12685 abstract: partial velocity resetting, all-moment recursion, effective drift and diffusion.",
+        "doi:10.1103/qyl8-6q9h text: velocity and position reset simultaneously; stationary displacement.",
+        "Our mathematical proof: two-time velocity covariance alone equals an OU with damping gamma+r, but velocity-energy covariance decays at 2gamma+r, and asymptotic displacement fourth cumulant has a two-optimum rational classification."
+      ],
+      "reasoning": "The model is already within a broad resetting framework, so the mechanism and moment recursion are not novel. The stated composite fourth-order phenomenology and exact pair of optimizers are mathematical evaluations beyond the specific previously inspected published statements; however unavailable full text prevents a definitive nonimplication assertion. The assessment is best-knowledge with a named material originality risk.",
+      "searches": [
+        "arxiv:2401.12685 2024 full Fourier Laplace and all moment recursion",
+        "doi:10.1103/qyl8-6q9h 2026 position and velocity jointly resetting",
+        "GROMACS 2024.1 Andersen thermostat specification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Olsen–Löwen arxiv:2401.12685 abstract announces a Fourier–Laplace propagator and recursion for all moments of velocity-reset inertial transport.",
+        "GROMACS 2024.1 states Maxwell–Boltzmann velocity reselection at Andersen collisions."
+      ],
+      "reasoning": "Equilibrium Maxwellian velocity-only refresh is a special case of partial-velocity resetting, but the candidate asserts a further fourth-cumulant lag identifiability result, strictly positive finite-time integrated-position fourth cumulant, an evaluated long-time coefficient and two distinct exact optimizing refresh rates. These were not found as stated in accessible sources. Because the full prior 2024 article could not be read, an implicit equivalence remains a residual risk rather than being ruled out.",
+      "searches": [
+        "\"Maxwellian velocity refresh Andersen thermostat integrated OU displacement fourth cumulant\"",
+        "\"Gaussian velocity marginal covariance matched non Gaussian integrated displacement partial resetting\"",
+        "arxiv:2401.12685 / Olsen Löwen 2024 (partial velocity reset all-moments framework)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literal and synonym literature searches did not return a published table containing the evaluated coefficient or the paired unique optimizer rates.",
+        "The accessible 2026 full-reset analysis concerns stationary reset-position cumulants rather than the unbounded integrated velocity position."
+      ],
+      "reasoning": "No exact matching coefficient and paired-optimizer classification was found in searchable public material. This absence cannot prove priority, and the 2024 general moment recursion is a live concern.",
+      "searches": [
+        "\"24 sigma4 r\" \"gamma+r\" \"2gamma+r\" fourth cumulant",
+        "\"sqrt(10)-2\" Maxwellian velocity resetting kurtosis optimum",
+        "\"sqrt2 gamma\" Andersen thermostat standardized excess kurtosis"
+      ]
+    },
+    "rationale": "Prior theory establishes velocity-only resets and general moment recursions (Olsen–Löwen 2024) and physical Maxwellian refresh (Andersen thermostat); neither is claimed as new. The compared literature inspected does not explicitly state the full composite exact fourth-cumulant/identification/two-optima classification for unreset integrated displacement. The 2024 full text could not be obtained, creating a genuine priority risk expressly preserved, rather than a proof of literature noncoverage.",
+    "residual_risks": [
+      "The full 2024 Olsen–Löwen partial velocity-reset theory, including appendices or recursions, could implicitly or explicitly specialize to the exact reported quantities and change originality assessment. Full text unavailable from arXiv/open sources and authorized institutional connection unavailable.",
+      "Classical kinetic theory may contain an equivalent Gaussian-refreshed OU integrated-displacement cumulant and optimization under other names; negative string searches do not establish novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest and potentially covering general theory. Does not explicitly state the compared fourth-cumulant optimizer classification in material read, but full-text uncertainty is decisive residual risk if a stronger result is present.",
+        "evidence": "First public posting 2024-01-23; abstract promises Fourier–Laplace propagator and recursive all moments; velocity resetting modifies long-time diffusion.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+        "material_read": "ArXiv metadata and abstract, including scope, moment recursion and examples; full text was not obtained.",
+        "method": "Primary arXiv abstract accessed; preprint/full OA retrieval attempted unsuccessfully, and authorized institutional access was not available.",
+        "title": "Dynamics of inertial particles under velocity resetting",
+        "trigger": "Directly related partial-reset inertial displacement theory, all-moment recursion"
+      },
+      {
+        "assessment": "Both examined protocols reset position. The stationary displacement kurtosis there does not cover the unbounded non-reset X fourth-cumulant growth law here.",
+        "evidence": "Physical Review E 113 064125 (2026) abstract specifies position AND velocity are fully reset, including Maxwellian velocity case.",
+        "identifier_or_url": "https://doi.org/10.1103/qyl8-6q9h",
+        "material_read": "Accessible article introduction, model/prescription paragraphs, results descriptions and conclusion, along with selected PDF pages; not every derivation.",
+        "method": "Publisher open text and primary PDF excerpts read and contrasted at stochastic reset rule and observable level.",
+        "title": "Resetting of underdamped Brownian motion",
+        "trigger": "Same Maxwellian velocity refresh but with reset position"
+      },
+      {
+        "assessment": "Establishes Maxwell–Boltzmann re-sampling and warns of changed dynamic properties; no exact cumulative fourth-order objective theorem.",
+        "evidence": "Official MD algorithm reference specifies new Maxwell–Boltzmann velocities after Andersen collisions.",
+        "identifier_or_url": "https://gromacs-manual.biophysics.kth.se/2024.1/reference-manual/algorithms/molecular-dynamics.html",
+        "material_read": "Andersen thermostat reference subsection and velocity re-selection discussion.",
+        "method": "Official manual HTML subsection read.",
+        "title": "GROMACS 2024.1: Molecular Dynamics, Andersen thermostat",
+        "trigger": "Establish protocol is physically natural, not invented as novel thermostat"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d6ab6b6-e399-4881-b660-01d852ac148a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural Andersen-type velocity refresh preserves equilibrium Gaussian velocity snapshots and matches all velocity second-order statistics to a Gaussian OU but leaves fourth-order transport non-Gaussianity detectable at every positive time. Distinct explicitly calculated refresh optima for an absolute fourth-cumulant rate and its standardized coefficient demonstrate scientifically meaningful competing design/interpretation criteria. The squared-velocity lag supplies an exact hidden refresh-rate identification when only the first two cumulant levels are otherwise indistinguishable. This is a structured kinetic transport result, not an unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
