@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For rate-\\(r\\) full resets \\((X,F)\\mapsto(0,0)\\), the stationary age is \\(\\operatorname{Exp}(r)\\). Solving the OU stochastic convolution from zero yields conditional variance \\(C[hU+g(U)]\\) with \\(g(u)=2u-3+4e^{-u}-e^{-2u}\\). Gaussian fourth-moment conditioning, explicit Laplace integrals of \\(g\\), \\(Ug\\) and \\(g^2\\), and symbolic simplification give the quoted rational \\(K\\). Its derivative is \\(-24P\\) divided by a strictly positive denominator, with P degree seven; for h>0 its descending coefficients have one sign change and opposite endpoint signs, so Descartes gives a unique positive root and global maximum. For \\(h=0\\) the derivative is strictly positive and K increases toward \\(57\\). Explicit thermal derivative is negative. Python reproduces symbolic identities, 20 numerical integrals, six optimizer cases and three seeded simulations. No finite sample is treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shankari-Sahoo full PDF arXiv:2509.18515v1 covers the exact reset protocol and renewal dynamics.",
+        "Patel-Shee full arXiv HTML arXiv:2602.21134v1 covers fourth moments under complete resetting but different 2D inertial active Brownian force.",
+        "Resetting in a viscoelastic bath: the bath remembers, arXiv:2603.17027, concerns a probe reset while its coupled bath retains memory, not a zero-restarted OU active force."
+      ],
+      "reasoning": "General Poisson-reset renewal and Gaussian scale-mixture moment formulas imply an algorithm to compute the present fourth moment but do not by themselves furnish the displayed rational factorization and unique-all-h sign theorem; literature with a more general explicit theorem remains a residual risk. A parameter-reduction from 2D fixed-speed orientation noise to 1D Gaussian OU force does not preserve higher-order force moments or dynamics.",
+      "searches": [
+        "site:arxiv.org Ornstein Uhlenbeck active particle stochastic resetting stationary kurtosis thermal noise Gaussian active force",
+        "Poisson resetting active Ornstein Uhlenbeck particle position self propulsion resetting stationary kurtosis exact non Gaussian parameter",
+        "Full state Poisson resetting of one-dimensional overdamped active Ornstein-Uhlenbeck particle (X,F) to zero: exact stationary position excess kurtosis and unique optimum for every thermal-noise strength"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.18515v1 (full PDF, model, renewal, MSD, text terms)",
+      "arXiv:2602.21134v1 (full accessible arXiv HTML and fourth-moment sections)",
+      "arXiv:2603.17027 (lawful publisher HTML, bath-retained resetting mechanism)",
+      "arXiv:2609.21124 (abstract only; full-text not excluded)",
+      "Published research-record summaries of OU random-sensor extreme events, van der Pol fourth-moment stationarity and other Gaussian renewal claims (different objects)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shankari-Sahoo Eq. (13) yields no-reset Gaussian positional variance g(u), while Eq. (8) mixes ages; deriving E[g²] and critical derivative P_h requires further explicit work.",
+        "Patel-Shee §IV uses 2D fixed-speed rotating orientation, whose fourth-order force statistics differ from Gaussian OU; reported re-entrance in inertia/reset-rate does not imply one unique optimum for all positive h or 57 zero-noise saturation.",
+        "Georgiou et al. arXiv:2609.21124 abstract concerns confined AOUP first-passage and beneficial resetting; full text was not available for a complete implication comparison."
+      ],
+      "reasoning": "The general renewal representation and linear Gaussian stochastic calculus make the exact formula accessible, but preceding papers identified here do not state a claim whose hypotheses cover this reset-force model and whose conclusion already forces the full polynomial sign classification. The pointwise thermal derivative and zero-noise 57 bound are specific to the calculated Gaussian-active variance profile.",
+      "searches": [
+        "arxiv 2509.18515 active Ornstein Uhlenbeck particle under stochastic resetting first September 2025 Shankari Sahoo fourth moment kurtosis",
+        "Controlling inertial active Brownian motion via stochastic resetting fourth moments overdamped and reset-rate phase diagrams",
+        "Complete-reset active Ornstein-Uhlenbeck propulsion force, 1D position quartic cumulant, stationary non Gaussian kurtosis versus reset intensity, Descartes-rule unique peak and thermal-noise boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shankari and Sahoo, arXiv:2509.18515v1, Eq. (8) renewal propagator, Eq. (13) unreset MSD; searched full text for kurtosis/fourth with no direct theorem stated.",
+        "Patel and Shee, arXiv:2602.21134v1, §IV and Appendix D, characterize kurtosis under 2D inertial fixed-speed orientation dynamics."
+      ],
+      "reasoning": "Equivalent names include non-Gaussian parameter, normalized fourth cumulant, excess kurtosis, and Gaussian scale-mixture variance ratio. The same object requires both Gaussian OU force and both position and force reset to zero. Shankari-Sahoo supplies second moments and propagator but not the optimizing fourth-moment classification; Patel-Shee uses rotational unit-vector forcing instead of an OU Gaussian force, so no parameter relabeling identifies the two laws.",
+      "searches": [
+        "\"kurtosis\" \"active Ornstein-Uhlenbeck\" \"reset\" optimum",
+        "\"non-Gaussian\" \"active Ornstein-Uhlenbeck\" \"resetting\" kurtosis",
+        "Shankari Sahoo 2025 arXiv:2509.18515 fourth-order moment non-Gaussian parameter optimum reset rate thermal noise active OU particle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary Shankari-Sahoo source states MSD and position probability distributions, no quartic-reset-rate table or global optimizer.",
+        "Available research records for Ornstein–Uhlenbeck random-sensor covariance and for stationary van der Pol fourth moments concern different objects; their claims and hypotheses do not imply the present law."
+      ],
+      "reasoning": "Neither the searched primary text nor available relevant public research records exposed a tabulated exact K_h(k) or h>0 uniqueness. An unsuccessful search does not establish exhaustive uniqueness; general formulas remain possible.",
+      "searches": [
+        "Active Ornstein Uhlenbeck particle with Poisson resetting of both position and active force to zero; exact stationary fourth moment kurtosis versus resetting rate; optimal non-Gaussianity with Brownian thermal noise",
+        "Exact stationary kurtosis 3 to 57 of integrated Ornstein Uhlenbeck reset to zero, Descartes polynomial derivative uniqueness",
+        "site:arxiv.org \"non-Gaussian\" \"active Ornstein-Uhlenbeck\" \"resetting\" kurtosis"
+      ]
+    },
+    "rationale": "The particular all-parameter rational fourth standardized moment and theorem that any thermal noise yields a unique finite reset-rate maximizer, whereas zero noise yields monotone saturation to \\(57\\), are not stated by the inspected 2025 full-reset active-OU MSD/propagator paper or by the inspected 2026 inertial 2D active Brownian fourth-moment study. Same observable in a different stochastic force/reset mechanism is not equivalent. The elementary Gaussian-mixture and Poisson-renewal methods are acknowledged as prior work. This judgment is subject to implicit derivability by a broader as-yet-unlocated renewal-moment theorem.",
+    "residual_risks": [
+      "A more general unpublished or unlocated formula for fourth cumulants of completely reset Gaussian linear diffusions might algebraically imply this exact specialization.",
+      "The Georgiou–Bressloff–Bertrand 2026 first-passage manuscript could not be inspected in full and was not used as a basis for a not-covered conclusion.",
+      "The viscoelastic-bath article PDF was inaccessible, although its full HTML model/protocol material was accessible.",
+      "Search and records comparisons do not constitute an exhaustive proof of priority or an independent mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and unreset variance/renewal framework already known, but the claimed stationary fourth standardized moment and global unique peak theorem not stated in inspected materials.",
+        "evidence": [
+          "arXiv:2509.18515v1, pp. 2–5, 11–12, Eqs. (5), (6), (8), (10)–(13).",
+          "arXiv version metadata first published 23 September 2025."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.18515",
+        "material_read": "15-page arXiv v1 primary PDF, model and reset Eq. (5)–(6), full renewal Eq. (8), overdamped propagator and variance Eq. (10)–(13), results/figures and conclusion; text searched for fourth and kurtosis.",
+        "method": "Direct primary PDF text and page inspection, targeted whole-PDF keyword checks.",
+        "title": "Active Ornstein-Uhlenbeck particle under stochastic resetting",
+        "trigger": "Exact motivating model with position and active force reset; possibility of existing moment formulas."
+      },
+      {
+        "assessment": "Similar observable, but 2D inertial ABP with rotating unit-vector force, not 1D Gaussian OU force; no implication of the stated unique h>0 optimizer.",
+        "evidence": [
+          "arXiv:2602.21134v1, §§II–IV and Appendix D; dtheta=sqrt(2 D_r) dB, force v0(cos theta,sin theta)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.21134",
+        "material_read": "Full arXiv HTML sections Model, Second order moments, Phase diagrams, conclusions and relevant fourth-order appendix links; force and reset SDEs compared.",
+        "method": "Primary source full HTML text, exact model equations and kurtosis definitions/comparison.",
+        "title": "Controlling inertial active Brownian motion via stochastic resetting",
+        "trigger": "Explicit fourth-moment excess-kurtosis and nonmonotonic resetting plots, plausible stronger coverage."
+      },
+      {
+        "assessment": "Bath memory persists under probe resetting, whereas the claimed process restarts the active force; no direct equivalence. Inaccessibility of its PDF limits finer comparison.",
+        "evidence": [
+          "arXiv:2603.17027, resetting protocol and environment-memory mechanism."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.17027",
+        "material_read": "Publisher open HTML presentation and mathematical model discussions; publisher full PDF unavailable.",
+        "method": "Lawfully accessible full article HTML, searched and compared resetting protocol and bath memory.",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Related resetting-induced non-Gaussianity and excess kurtosis with stochastic environmental memory."
+      },
+      {
+        "assessment": "Primary stated objective is confined first-passage under velocity resetting variants, not free stationary positional excess kurtosis. Absence of full-text inspection leaves a limited residual comparison risk.",
+        "evidence": [
+          "arXiv:2609.21124 abstract (17 September 2026)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.21124",
+        "material_read": "Author-provided arXiv abstract only; full PDF attempt returned an internal retrieval error.",
+        "method": "Abstract-level topical screening only, not whole-document exclusion.",
+        "title": "Persistence, resetting, and first-passage times of an active Ornstein--Uhlenbeck particle",
+        "trigger": "AOUP plus resetting, potentially related."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bbad1c5e-9daa-4b70-97f4-ab4fda7935ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Standardized stationary fourth moments are motivated by the exact reset-controlled positional propagator and MSD of the primary 2025 active-OU study. They measure relative rare-excursion weight independent of the shrinking MSD, which cannot be inferred from second moments. The exact classification of all \\(h>0\\) as having one finite maximizing reset rate versus the \\(h=0\\) strictly increasing-to-\\(57\\) boundary is a natural parameter-level phase distinction, and proof requires the nontrivial seven-degree coefficient-sign theorem; it is neither a textbook substitution nor an unmotivated finite-number computation. The claim does not conflate kurtosis optimization with search-time optimization.",
+    "status": "PASS"
+  }
+}
