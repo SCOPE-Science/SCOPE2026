@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every m>=2, valuation parity gives exactly two cyclic block families; the periodic family has n/2 distinct rotations and distinct profiles, and the primitive family has n. Explicit formulas reduce all one-gap counts to (k,T+F,F+L). A rotation-shift Diophantine identity forces collision displacement +/-3; parity excludes even m, while odd m collisions correspond bijectively to cyclic 10101 patterns. The latter are counted exactly by odd valuations >=3, yielding (n+4)/12 nonoverlapping doubletons. The m=2 edge case is covered. Independent enumeration matches m=2..9; the infinite proof does not rest on testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland 2022, arXiv:2201.04603, discusses ordinary length-two binomial complexity at dyadic period-doubling lengths.",
+        "Rigo–Stipulanti–Whiteland 2023 introduces gapped counts and studies other sequences."
+      ],
+      "reasoning": "Ordinary (nongapped) length-two binomial equivalence is finer than one-gap length-two equivalence. Its count at a dyadic length does not bound the number of new gapped collisions from below, and a proof of ordinary injectivity does not imply gapped injectivity. Two-abelian equivalence uses a different adjacent-frequency observable, so its complexity theorem does not determine this count.",
+      "searches": [
+        "On the binomial complexity of infinite words period doubling 2^m",
+        "period doubling two abelian complexity powers of two",
+        "gapped binomial complexity infinite sequences period doubling"
+      ]
+    },
+    "checked_sources": [
+      "Rigo, Stipulanti, Whiteland 2023: Gapped Binomial Complexities in Sequences",
+      "Rigo, Stipulanti, Whiteland 2022: On the binomial complexity of infinite words",
+      "Parreau, Rigo, Rowland, Vandomme: A new approach to the 2-abelian complexity of 2-automatic sequences",
+      "Scientific search comparisons of period-doubling attractor, automatic subshift and gapped-deck results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 nongapped complexity theorem concerns all pairs of positions; the 2023 gapped paper changes the observable by deleting adjacency counts.",
+        "A concrete distinction occurs at length 8: twelve distinct period-doubling factors yield only eleven one-gap profiles, so ordinary dyadic injectivity is insufficient."
+      ],
+      "reasoning": "The accepted claim strictly determines the gapped statistic, including exactly which primitive-orbit rotations collide, while the prior nongapped and two-abelian theorems do not. Same subject word and same power-of-two parameter are not equivalent observation models. Residual risk: a later overlooked gapped article could establish this special case.",
+      "searches": [
+        "gapped binomial period-doubling cyclic 10101 factor collision",
+        "ordinary 2-binomial complexity period-doubling dyadic theorem",
+        "2-abelian complexity period doubling dyadic formulas"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland 2023, pp. 1–5: definitions and studied sequence classes; no dyadic period-doubling class count in inspected results.",
+        "Parreau–Rigo–Rowland–Vandomme, arXiv:1404.3961: two-abelian statistic counts adjacent blocks rather than nonadjacent subsequences."
+      ],
+      "reasoning": "Comparison also considered the equivalent formulation by all gapped pair counts, by the triple (number of ones, ordinary 01 subsequence count plus first bit, first plus last bits), and by collapse of cyclic rotation classes. No inspected source states or implies the two-case dyadic count or the complete doubleton structure.",
+      "searches": [
+        "period doubling one-gap two-binomial complexity dyadic length powers of two",
+        "period-doubling gapped binomial complexity two-letter nonadjacent subsequence factors",
+        "period-doubling dyadic two-binomial versus two-abelian complexity",
+        "Rigo Stipulanti Whiteland Gapped Binomial Complexities in Sequences 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit direct counts for n=4,8,16,32,64,128,256,512: 6,11,24,45,96,181,384,725, verified by supplied reproducibility program.",
+        "No identical exact dyadic table was identified in the accessible inspected references."
+      ],
+      "reasoning": "The finite table is supporting evidence, not an originality assertion by itself. The accepted object is a complete infinite theorem and classification of its ambiguity classes. A match to any finite table would not imply the theorem without a general proof; no stronger exact table or theorem was found in inspected sources.",
+      "searches": [
+        "period doubling one-gap gapped 2-binomial dyadic number 11 45 181",
+        "period doubling one-gap binomial complexity sequence 6 11 24 45 96"
+      ]
+    },
+    "rationale": "A literature-led comparison of the 2023 original gapped invariant, 2022 dyadic ordinary binomial complexity and prior 2-abelian results found different observables and no implied gapped dyadic formula. Equivalent cyclic-rotation and subsequence formulations, table coverage, and statement-versus-implication were compared explicitly. Semantic database searches returned related automatic-word studies but no identical claim. The risk of an overlooked equivalent publication remains.",
+    "residual_risks": [
+      "An unindexed paper or later article may give the same formula under a different name for the subsequence observable.",
+      "The inspected secondary record rankings are not a proof of novelty; independent literature review remains desirable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and discusses other sequences; inspected theorem statements do not enumerate dyadic period-doubling factors.",
+        "evidence": "Section I–II definitions and later sequence-specific theorems; public record first available 2023-05-11.",
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+        "material_read": "Full five-page preprint: definition of gapped subwords, central equivalences, special-sequence sections and conclusion.",
+        "method": "Open-access original PDF, page-by-page text and section inspection.",
+        "title": "Gapped Binomial Complexities in Sequences",
+        "trigger": "Introduces the exact one-gap observable being enumerated."
+      },
+      {
+        "assessment": "Counts a finer, nongapped subsequence observation and cannot imply the new gapped collision classification.",
+        "evidence": "Ordinary length-two binomial counts retain adjacent subsequences; the new profile subtracts adjacent counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.04603",
+        "material_read": "Accessible complete manuscript's dyadic period-doubling result, observation definition and comparison sections.",
+        "method": "Open preprint text and targeted theorem/definition comparison.",
+        "title": "On the binomial complexity of infinite words",
+        "trigger": "Same period-doubling word and same dyadic lengths under ordinary binomial counts."
+      },
+      {
+        "assessment": "Two-abelian adjacency statistics are distinct from the nonadjacent ordered-pair deck; this reference does not determine the claimed counts.",
+        "evidence": "Two-abelian observations use counts of consecutive length-two factors.",
+        "identifier_or_url": "https://arxiv.org/abs/1404.3961",
+        "material_read": "Open-access manuscript's definitions, 2-abelian results and period-doubling discussions.",
+        "method": "Original PDF and targeted sections.",
+        "title": "A new approach to the 2-abelian complexity of 2-automatic sequences",
+        "trigger": "Automatic word, dyadic lengths and order-two local observation literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bbe0615f-068a-4cc3-9816-d32c01b670e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 gapped-binomial model poses natural exact reconstruction questions for classical automatic infinite words. At the canonical dyadic lengths, the result fully determines whether the observation distinguishes factors and exactly counts every ambiguity class; the odd-even alternation and explicit 10101 obstruction are structural, not a mere finite enumeration. It sharpens the loss from a finer known observable to the natural gapped one without claiming a broader conjecture.",
+    "status": "PASS"
+  }
+}
