@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Every deletion step from P^m toward P^k requires the number retained so far to be divisible by q. This forces q-letter retained blocks to be cyclic rotations. Deletions between retained blocks realize their offsets exactly when the minimal sum of modular phase increments q*d does not exceed qk. The minimum is exactly q times the terminally augmented descent count by telescoping. The q-by-q transition matrix captures all rotation sequences; elementary row subtraction computes its characteristic determinant and a cofactor, giving the rational generating function and exact binomial coefficient extraction. Empty complement and zero deletions are included. A separate dynamic oracle matched every predicted complement set on 117 parameter cases, with 4480 independent transfer-count comparisons; finite checks corroborate the general proof rather than prove it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson–Fleischmann–Huch, arXiv:2603.20790v1, Section 3: generic output-set computation via dynamic programming; Section 4: selected structural/singleton criteria.",
+        "Liang–Sagan–Zhuang, DOI:10.1007/s00026-023-00669-9, abstract and Section 1.1: shuffle statistics for disjoint permutations."
+      ],
+      "reasoning": "A generic algorithm returning C(w,u) from any instance logically computes a particular finite set but does not explicitly establish a closed all-parameter classification or formula. No inspected broader theorem stated the bounded terminal descent criterion or the counted image of this parametric family. Disjoint-permutation shuffle distributions do not control repeated letters in P^m.",
+      "searches": [
+        "2026 complement scattered factors set general enumeration shuffled periodic words",
+        "\"shuffle\" \"periodic words\" \"Eulerian\"",
+        "\"powers of permutations\" \"shuffle\" cyclic shift descents words",
+        "Adamson Fleischmann Huch 2026 complement scattered factors C(w,u) exact cardinality for periodic words"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.20790v1 (full HTML sections 2–4)",
+      "DOI:10.1007/s00026-023-00669-9 (open-access publisher full text intro/definitions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 primary paper gives a definition and algorithms but no direct theorem implying the uniform equivalence C(P^m,P^k)={rotation-block words of terminal descent <=k}.",
+        "The 2023 cyclic shuffle-compatibility results require two disjoint permutations; P^m and P^k repeat the same symbols and fix the shuffled superword, so their object and hypotheses differ."
+      ],
+      "reasoning": "The image classification is stronger than a computational procedure and independent of the classical formal-power-series identity. Special cases q=2,k=m or k=0 are subsumed in the stated one theorem; no special-case originality is claimed apart from this uniform connection.",
+      "searches": [
+        "\"complement scattered factors\" \"cyclic rotations\"",
+        "\"shuffle\" \"powers\" \"permutation\" \"subsequence\" \"descents\"",
+        "\"Eulerian\" \"shuffle\" \"cyclic rotations\" strings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.20790v1 Sections 2–4 define C(w,u) and prove general algorithms and singleton/shuffle statements; no matching rotation-block/descent result appears in inspected full text.",
+        "The combinatorial identities for word descents can be standard even when a new representation theorem uses them."
+      ],
+      "reasoning": "Any equivalent statement would need to characterize all possible complementary retained words for P^m after deleting P^k, or count the same output set. The searches and inspected paper do not yield such coverage; the Eulerian coefficient identity alone does not imply the string-output equivalence.",
+      "searches": [
+        "\"complement scattered factors\" \"cyclic rotations\"",
+        "\"complement scattered factors\" \"descents\"",
+        "\"complement scattered factors\" \"alternating\" binary counts",
+        "cyclic descent enumerator for complement subsequences of periodic permutations",
+        "\"shuffle\" \"powers\" \"permutation\" \"subsequence\" \"descents\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact tabulated complement sets or database formula was identified by the actual queries.",
+        "The new theorem covers all q >= 2, m >= 1, 0 <= k <= m; numerical outputs are used as checks only."
+      ],
+      "reasoning": "A table of a few outputs, if it existed, would not imply the full structure; any known generalized-Eulerian polynomial matching the coefficient sequence would cover the coefficients but not necessarily the word-complement realization. No exact original object/table match was found.",
+      "searches": [
+        "\"complement scattered factors\" \"cyclic\" permutation powers",
+        "\"complement scattered factors\" \"descents\"",
+        "\"cyclic shifts\" \"complement\" \"subsequence\" permutation powers"
+      ]
+    },
+    "rationale": "The foundational March 21, 2026 primary paper defines complement scattered factors and supplies generic dynamic programming and singleton-complement/shuffle theorems, but its inspected Sections 2–4 do not characterize the complements of nested powers of a fixed distinct-letter permutation. The present result identifies every output by its cyclic rotation indices, proves an exact descent cutoff, and derives a closed uniform enumeration. This is not implied by general enumeration complexity. A 2023 open-access cyclic shuffle-algebra paper studies distributions on shuffles of distinct-letter permutations, not deletion complements of repeated words. Similarity and published-record searches for periodized complements, aliases, and descent formulations found no directly dominating claim; failure to find a result does not establish absolute priority. Abstract Eulerian counting identities are recognized as non-novel without the string interpretation.",
+    "residual_risks": [
+      "An unindexed result on shuffles of periodic identical-letter words could express an equivalent terminal-descent classification under different terminology.",
+      "The generalized Eulerian coefficient identity may be independently recorded; uniqueness is claimed only for the exact complement-image interpretation on the evidence reviewed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: generic algorithms and varied structural lemmas do not explicitly derive the repeated-permutation rotation-block output classification or exact descent formula.",
+        "evidence": "arXiv:2603.20790v1, Definition 6; Section 3 Algorithm 1 and Theorems 3.1–3.3; Section 4 Theorems 4.3 and 4.5 and associated observations.",
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Full HTML paper, definitions in Section 2, Section 3 dynamic programming/inverse problems, Section 4 statements and proofs on complements, singleton sets, square-free words, and shuffle.",
+        "method": "Read the accessible arXiv full-text HTML, including the definition and relevant theorems, and searched within for periodic, alternating, and cyclic rotation terminology.",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Introduces exactly the observable C(w,u) in the theorem and might dominate the claim."
+      },
+      {
+        "assessment": "NOT_COVERING: distribution of cyclic permutation statistics under disjoint shuffles is different from the distinct complement-set realization question.",
+        "evidence": "Liang–Sagan–Zhuang, abstract and Section 1.1, 2023 first publication, DOI:10.1007/s00026-023-00669-9.",
+        "identifier_or_url": "https://doi.org/10.1007/s00026-023-00669-9",
+        "material_read": "Full open-access HTML article, abstract and Introduction including Sections 1 and 1.1 and the objects on which shuffle statistics are defined.",
+        "method": "Opened publisher open-access full text and compared definitions of disjoint permutation shuffles with complementary subsequence deletions in fixed repeated words.",
+        "title": "Cyclic Shuffle-Compatibility Via Cyclic Shuffle Algebras",
+        "trigger": "Cyclic descents and shuffles of permutations could entail a stronger enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d74dd0c9-37db-4546-84c5-56e70d08cd01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complement scattered factors are a newly studied string observable with potentially many embeddings and exponential output enumeration. This complete infinite parametric family provides a non-obvious exact structural membership criterion and a closed output-cardinality formula for all alphabet sizes and nested whole powers; it resolves a natural test family beyond generic algorithms, and reveals sharp dependence on a cyclic descent budget. It does not merely recompute a known table or assert an unmotivated small finite invariant. Limits to whole-power deletions and absence of embedding multiplicities are explicit.",
+    "status": "PASS"
+  }
+}
