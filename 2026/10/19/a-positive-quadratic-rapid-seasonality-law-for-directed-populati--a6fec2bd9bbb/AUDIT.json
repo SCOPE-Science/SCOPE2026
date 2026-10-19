@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The normalized Floquet profile is analytic at short periods because its averaged Perron eigenvalue is simple; coefficient matching forces the entire linear term to zero. Periodic integration by parts and the two Perron-weighted zero-sum identities give exactly the claimed nonnegative directed-edge quadratic energy; graph irreducibility and the common-scalar forcing factorization prove the strict and equality cases. A separate executable passes 36 exact/symbolic/numerical checks, including the exact three-season coefficient 1/18 and a four-season directed model; numerical evidence is not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Lou–Song, SIAM J. Appl. Math. (2022), model introduction: symmetric cooperative migration Laplacian",
+        "Katriel, arXiv:2104.01589: periodic migration-growth model with symmetric dispersal",
+        "Feng–Li–Ruan–Xin, SIAM J. Math. Anal. (2024): abstract-level time-periodic nonlocal dispersal frequency monotonicity, exact discretization hypotheses unverified"
+      ],
+      "reasoning": "Known symmetric-migration monotonicity can imply positivity in its reversible subclass but cannot, by its stated symmetry hypotheses, imply the general directed result. The 2024 broader nonlocal paper is material as a possible source of an abstract theorem; its available summary does not establish the present exact leading coefficient for directed finite matrices. Publication priority is explicitly limited by incomplete access there.",
+      "searches": [
+        "\"A New Monotonicity for Principal Eigenvalues with Applications to Time-Periodic Patch Models\" theorem",
+        "\"Principal Spectral Theory of Time-Periodic Nonlocal Dispersal Cooperative Systems\" frequency monotonicity",
+        "arxiv:2104.01589 symmetric migration growth monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.04706v2, full HTML, §3 and Appendix S1/S2",
+      "arxiv:2408.11179, full arXiv text, §3.2 and §4.2",
+      "arxiv:2104.01589, source abstract/scope",
+      "doi:10.1137/20M1320973, abstract and symmetry-defining introduction",
+      "doi:10.1137/22M1543902, abstract and introduction only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benaïm et al. establish growth comparisons and propose global monotonicity for constant migration, but no explicit universal order-two edge-response",
+        "Monmarché et al. disprove global nonreversible monotonicity with counterexamples while proving general vanishing of the linear fast-period term",
+        "Liu–Lou–Song/ Katriel known monotonicity assumes symmetric migration"
+      ],
+      "reasoning": "The source comparison \\(\\Lambda(T)>\\lambda_0\\) for fixed migration does not force local monotonicity of \\(T\\mapsto\\Lambda(T)\\), and neither does a vanishing first-order Taylor coefficient. The multi-phase exact positive quadratic form supplies the missing signed local derivative. Directed global nonmonotonicity from the 2024 literature does not contradict local positivity. The full-text N=2 theorem covers only a subclass and is acknowledged as such.",
+      "searches": [
+        "arxiv:2311.04706 Conjecture 1 Proposition 5 §3.7",
+        "arxiv:2408.11179 Proposition 1 Proposition 3 Proposition 6 §4.2",
+        "\"Dispersal-induced growth in a time-periodic environment\" Katriel 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Monmarché–Schreiber–Strickler (arXiv:2408.11179), §3.2, Proposition 1: second-order Floquet coefficient for N=2 switching matrices",
+        "Same source §4.2, Proposition 6: general metapopulation first-order fast periodic coefficient equals zero",
+        "Exact current coefficient equals an oriented-edge Dirichlet form even for profiles with more than two seasons"
+      ],
+      "reasoning": "The N=2 BCH expansion is a genuine covered special regime. A general zero first-order correction does not imply a nonzero signed second-order derivative, nor an arbitrary-profile edge formula. Matching terminology (Floquet/Perron) is not by itself a new result; the nonredundant assertion is the universal order-two sign and its equality criterion for arbitrary multi-season directed dispersal.",
+      "searches": [
+        "\"fast periodic\" \"second order\" \"dispersal\" \"growth\" cooperative matrices",
+        "rapid seasonal switching directed migration Metzler Perron growth quadratic spectral correction",
+        "arxiv:2408.11179 Proposition 1 and Proposition 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Benaïm–Lobry–Sari–Strickler (arXiv:2311.04706), Appendix S1 gives specific 3-patch numerical plots, not the claimed universal coefficient",
+        "Current exact directed three-season coefficient \\(1/18\\) is verified from explicit rational integrated primitives"
+      ],
+      "reasoning": "The statement is a universal asymptotic identity, not a finite census or a table lookup; numerical examples or tabulated Floquet curves do not imply the all-network coefficient formula. The exact three-patch instance alone is illustrative and not the scientific claim.",
+      "searches": [
+        "\"high frequency\" \"second order\" \"metapopulation\" \"directed\" Lyapunov",
+        "arxiv:2311.04706 Appendix S1 period growth plots",
+        "time varying population dispersal stochastic switching exact persistence extinction metapopulation models"
+      ]
+    },
+    "rationale": "Full primary-text comparison with the 2023 dispersal paper and the 2024 fast-switching work separates the new arbitrary-season directed positive second-order formula from the former paper’s averaged limit/inequality and the latter’s already-known N=2 second-order expansion and general first-order cancellation. The accessible monotonicity papers have symmetric migration hypotheses. Relevant publisher-abstract-only nonlocal spectral results leave a documented residual implication/priority risk, not an invented uniqueness certificate.",
+    "residual_risks": [
+      "An equivalent general periodic-cooperative-operator spectral theorem might imply the edge quadratic identity.",
+      "The full text of Feng et al. (2024) was not accessible for a decisive every-theorem comparison; its nonlocal operator/frequency abstract was reviewed but not treated as evidence of noncoverage.",
+      "Symmetric and N=2 special cases are already covered at different strength by prior published theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes averaged limit and global comparison; local universal positive second-order edge expansion is not present in inspected material.",
+        "evidence": [
+          "Section 3.7 Conjecture 1",
+          "Appendix S1 directed cycle simulation",
+          "Section 5.1 analytic monodromy argument"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.04706v2",
+        "material_read": "Main theorem, Sections 3.2–3.7, Conjecture 1, appendices S1–S2 and proof of small-period averaging",
+        "method": "Accessible full-text HTML scientific statement and hypothesis comparison",
+        "title": "When can a population spreading across sink habitats persist?",
+        "trigger": "Same fixed directed migration and environmental-period response"
+      },
+      {
+        "assessment": "Two-season second order is prior art; arbitrary-season first order cancels; inspected text does not supply arbitrary-season directed signed quadratic edge formula.",
+        "evidence": [
+          "Proposition 1: N=2 second order",
+          "Proposition 6: zero first order for general fixed migration",
+          "Proposition 3: directed nonmonotone global examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.11179",
+        "material_read": "Full-text §3.1 and §3.2 (Proposition 1), §4.2 (Propositions 3, 6, 7) and relevant proof passages",
+        "method": "Accessible arXiv full-text equation, conclusion and implication comparison",
+        "title": "Impacts of Tempo and Mode of Environmental Fluctuations on Population Growth",
+        "trigger": "Closest general second-order high-frequency Floquet expansions"
+      },
+      {
+        "assessment": "Reversible two-habitat/symmetric scope does not cover arbitrary irreducible directed migration.",
+        "evidence": [
+          "arXiv abstract",
+          "Monmarché et al. §5.2 reference to Katriel symmetric result"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.01589",
+        "material_read": "Original abstract and scope, with comparisons cited in later full-text sources",
+        "method": "ArXiv record and later-paper account; not a claim of complete proof inspection",
+        "title": "Dispersal-induced growth in a time-periodic environment",
+        "trigger": "Symmetric diffusion global frequency monotonicity"
+      },
+      {
+        "assessment": "Symmetric-migration hypothesis differs materially from arbitrary directed generators.",
+        "evidence": [
+          "Available model introduction calls the migration Laplacian symmetric",
+          "2022 article abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/20M1320973",
+        "material_read": "Abstract and available original introduction/model defining a symmetric cooperative Laplacian",
+        "method": "Publisher and freely accessible original-paper preview",
+        "title": "A New Monotonicity for Principal Eigenvalues with Applications to Time-Periodic Patch Models",
+        "trigger": "Potential stronger time-periodic principal-eigenvalue monotonicity"
+      },
+      {
+        "assessment": "Plausible neighboring theorem remains an explicit priority risk; cannot assert its precise hypotheses or whole-document noncoverage.",
+        "evidence": [
+          "2024 SIAM abstract frequency monotonicity",
+          "Operator is spatial nonlocal with Neumann conditions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1543902",
+        "material_read": "Publisher abstract and available introductory extract only",
+        "method": "Publisher abstract/introduction, not full theorem inspection",
+        "title": "Principal Spectral Theory of Time-Periodic Nonlocal Dispersal Cooperative Systems and Applications",
+        "trigger": "Potential broader time-frequency monotonicity for cooperative dispersal operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6fec2bd-9bbb-4a1d-8dff-c1bc023989f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides the first nonzero quantitative response coefficient for rapid seasonal ecology when first-order corrections are rigorously known to vanish, valid for arbitrary number of seasons and strongly connected directed migration. The positive edge-disagreement structure and exact zero-effect classification explain how patchwise temporal mismatch changes population growth, and establish local short-period monotonicity even though prior directed examples defeat global monotonicity. The natural invariant is the local Floquet sensitivity, not an arbitrary finite or parametrically tuned numerical instance.",
+    "status": "PASS"
+  }
+}
