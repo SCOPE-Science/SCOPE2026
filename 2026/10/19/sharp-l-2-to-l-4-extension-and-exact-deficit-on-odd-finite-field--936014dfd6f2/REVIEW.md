@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The sum-fiber classification is reconstructed by the roots of \(Z^2-xZ+x/y\); the exceptional zero fiber is exactly the antipodal pairing in odd characteristic. Fourier orthogonality gives the normalization \(q^2/(q-1)^4\). Expanding diagonal, generic, and exceptional pair fibers gives the fourth-moment identity, and completing the two squares proves the nonnegative deficit with its full equality conditions. The actual checker `verify_hyperbola.py` executed on five fields, including \(\mathbb F_9\), and separately reconstructed 12,825 direct Fourier character sums; the unrestricted conclusion rests on the field-independent proof.
+
+**Originality — PASS, with residual historical risk.** Iosevich–Koh (arXiv:0804.4505v1, Theorem 2, Section 4) gives unspecified-constant extension bounds, not this sharp constant or equality/deficit classification. González-Riquelme–Oliveira e Silva (arXiv:2405.16647v2, Theorems 1.1 and 1.4) treats the planar parabola and three-dimensional hyperbolic paraboloid, neither of which is the split level-one hyperbola. González-Riquelme–Ismoilov (arXiv:2509.05600v2, Theorems 1–2) treats four-dimensional cones. A published small-field anisotropic-sphere equality census has an antipodal phase phenomenon, but it is for anisotropic quadratic curves and only \(q=3,5\), so it does not imply a field-uniform split-hyperbola theorem. The extant published-result search did not reveal an identical theorem; an unlocated older general additive-combinatorial statement remains possible.
+
+**Mathematical value — PASS.** The level-one split conic is a canonical finite-field restriction surface, and the sharp \(L^2\to L^4\) constant fills a quantitative gap left by the classical boundedness theorem. Its nontrivial antipodal phase family contrasts with rigidity on other surfaces. The *identity* rather than only the inequality provides explicit stability quantities for near-extremizing data at all odd prime powers, and exact equality cases for the canonical split hyperbola at every odd prime power.
+
+**Limitations.** No claim is made about anisotropic curves, characteristic two, other exponents, or independent historical-priority certification. The finite checker does not establish the infinite family by itself.
+
+Self-review: passed. Independent audit: not yet performed.
