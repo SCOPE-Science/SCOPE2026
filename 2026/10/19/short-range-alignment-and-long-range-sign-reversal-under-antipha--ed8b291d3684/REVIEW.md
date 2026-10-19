@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The stationary mixed first and second moments satisfy unique finite Dirichlet problems. The slow-switching correlation is fixed by the classical single-wall profile; the fast-switching correlation equals a strictly positive coalescence-before-absorption probability. The first-arrow argument proves positivity at adjacent sites at every rate, and explicit four-site elimination proves the unique endpoint crossing. Independent complete-state Markov computations agree in 175 pair comparisons, although the finite tests do not prove the all-size assertions.
+
+**Originality — PASS, with uncertainty.** Mobilia and collaborators describe competing fixed zealots and the one-wall equilibrium, while Caligiuri and Galla consider stochastic influencer environments in well-mixed populations. Their inspected statements do not imply finite-interval, antiphasic-boundary correlation signs or the four-site rational threshold. Searches for telegraph boundaries, correlated switching zealots, and the pair-sign equivalence did not reveal a dominating result. The complete 2004 fixed-zealot source was not accessible here; a specialized equivalent formulation remains possible. The earlier fixed-wall limit and general voter duality are credited as prior work, not new discoveries.
+
+**Value — PASS.** This natural driven interacting-spin system combines a common antagonistic environmental variable with local coalescing genealogy. The theorem rigorously separates persistent short-range alignment from rate-induced reversal at long distances for all chain lengths; the exact four-site rate benchmarks the crossover without asserting a non-existent general uniqueness theorem. The result is a structural sign law, not a numerical or arbitrary small-system enumeration.
+
+Self-review: passed. Independent audit: not yet performed.
