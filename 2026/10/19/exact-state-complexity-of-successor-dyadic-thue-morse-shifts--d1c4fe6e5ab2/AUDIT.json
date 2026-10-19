@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact residual-function equivalence from all suffix lengths and the finite carry-offset set, counts dyadic fingerprints via isolated run-parity bits with a free global Thue–Morse parity, derives exact floor/ceiling maps for the successor offsets, and proves the even/odd fingerprint images disjoint by forbidding constant triples. It solves the recurrence for every integer \\(k\\ge1\\). The standalone checker verifies exhaustive possible fingerprints for \\(1\\le k\\le8\\), all parity partitions, and sampled residual equivalence for c=1..40; finite evidence does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 19 in arXiv:2512.10017v5 provides an upper bound and Theorem 20 a lower bound, not exact all-shift counts.",
+        "Biswas full Typst text proves exact states for shifts \\(c=2^r\\), without successor-dyadic shifts."
+      ],
+      "reasoning": "A general exact formula for arbitrary c would dominate the present statement, but the inspected primary general paper explicitly leaves the exact problem open. The power-of-two result does not subsume \\(c=2^k+1\\), and the proof supplies the extra statement needed to transfer between them.",
+      "searches": [
+        "A382296 shifts 2^k+1 minimal DFAO state count exact formula powers of two plus one",
+        "arXiv:2512.10017v5",
+        "Biswas:State-Complexity-of-Thue-Morse-Shifts-by-Powers-of-Two:2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2512.10017",
+      "https://arxiv.org/html/2512.10017v5",
+      "https://raw.githubusercontent.com/rnbguy/proofs/main/A382296/A382296.typ",
+      "https://oeis.org/A382296/internal"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original article states an exact-count open problem in Section 4.2.",
+        "The pure-dyadic formula does not give successor-dyadic counts without an additional theorem.",
+        "The new recurrence partitions fingerprints into exact even/odd families and proves no overlap using the absence of constant Thue–Morse triples."
+      ],
+      "reasoning": "The closest known result yields \\(N(2^r)\\), but no observed published implication turns it into \\(N(2^r+1)\\). The derived identity \\(N(2^k+1)=N(2^{k-1})+N(2^{k-1}+1)\\) closes the gap. Indexed search absence alone was not treated as novelty proof.",
+      "searches": [
+        "binary MSD-first DFAO Thue Morse sequence translated by shift 2^r+1 number of states 2 F_{r+4} exact successor dyadic shifts",
+        "exact state complexity Thue Morse shifted by two to the k plus one t(n+2^k+1) 2 Fibonacci F(k+4) automaton msd first",
+        "A382296 shifts 2^k+1 minimal DFAO state count exact formula powers of two plus one",
+        "arXiv:2512.10017v5",
+        "OEIS:A382296"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A382296 contains entries for individual c=3,5,9,17,33 but only annotates the pure-dyadic Fibonacci formula.",
+        "Moradi–Rampersad–Shallit, arXiv:2512.10017v5, Section 4.2, Open Problem 2, asks for general exact state counts."
+      ],
+      "reasoning": "The equivalence of successor shift state counts with the next dyadic shift is not a mere name change: equality of counts for one infinite family does not follow from knowing the dyadic counts unless the new parity-disjoint decomposition is established. Exhaustive numerical tables supply finite instances but not the all-parameter theorem.",
+      "searches": [
+        "binary MSD-first DFAO Thue Morse sequence translated by shift 2^r+1 number of states 2 F_{r+4} exact successor dyadic shifts",
+        "exact state complexity Thue Morse shifted by two to the k plus one t(n+2^k+1) 2 Fibonacci F(k+4) automaton msd first",
+        "Thue Morse shift 2^k+1 DFAO state complexity Fibonacci exact",
+        "OEIS:A382296"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A382296 lists 10 at c=3, 16 at c=5, 26 at c=9, 42 at c=17, and 68 at c=33.",
+        "OEIS comment/formula credits the proved identity \\(a(2^r)=2F_{r+3}\\), without listing the proposed successor-dyadic identity."
+      ],
+      "reasoning": "Known finite state-count entries are explicitly disclaimed as a new contribution. The novelty claimed is the general quantified formula and disjoint-class proof, not extracting an integer from an existing table.",
+      "searches": [
+        "OEIS:A382296",
+        "OEIS A382296 formula Fibonacci for n=3 5 9 17 33 65 Thue Morse minimal automata successor powers two"
+      ]
+    },
+    "rationale": "Inspected the primary full-text Section 4.2 and general exact-formula open problem in arXiv:2512.10017v5; inspected the full mathematical Typst source of Biswas 2026 and OEIS A382296. The main result is an infinite exact successor-dyadic state count and a new disjoint parity-residual recurrence, neither implied solely by the examined dyadic formula or tabulated finite values. Public record searches and indexed semantic searches using exact shifts, aliases and Fibonacci parameters found no covering claim. An unindexed equivalent result remains a risk.",
+    "residual_risks": [
+      "Semantic and public searches may miss an unindexed or differently worded all-shift formula, including in a thesis not inspected in full.",
+      "OEIS already contains numeric successor-dyadic instances; only the quantified infinite identity and its structural proof are new within examined evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General state complexity bounds and explicit open exact-count question. Does not prove the successor-dyadic identity.",
+        "evidence": [
+          "Section 4.2 Theorem 19 upper bound, Theorem 20 lower bound, Open Problem 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "Full HTML available; read introduction, MSD-first definition, Section 4.2 Theorems 19 and 20 with proofs, and Open Problem 2. Confirmed v1 public on 2025-12-10 from arXiv submission history.",
+        "method": "Primary lawful open full text in HTML",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Original shift-state problem with exact formula open question"
+      },
+      {
+        "assessment": "Gives exactly \\(N(2^r)=2F_{r+3}\\), \\(r\\ge0\\), not \\(N(2^r+1)\\). The present result credits this benchmark and adds a different infinite-family law.",
+        "evidence": [
+          "Main Theorem and State-Count Lemma of the source manuscript."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/rnbguy/proofs/main/A382296/A382296.typ",
+        "material_read": "Entire 15,562-byte textual primary manuscript, including explicit automaton, reachability, distinguishability, state counting and main theorem.",
+        "method": "Public open textual source of scholarly manuscript",
+        "title": "State Complexity of Thue-Morse Shifts by Powers of Two",
+        "trigger": "Exactly matching sequence family for pure dyadic shifts and dominating comparison risk"
+      },
+      {
+        "assessment": "Tables many individual values and cites proved pure-dyadic formula; no inspected successor-dyadic all-parameter law.",
+        "evidence": [
+          "A382296 entries and formula comments, updated August 2026."
+        ],
+        "identifier_or_url": "https://oeis.org/A382296/internal",
+        "material_read": "Whole displayed OEIS entry, including sequence values, formula, reference links and comments.",
+        "method": "Public sequence-database entry",
+        "title": "OEIS A382296: state complexity for translated Thue–Morse sequences",
+        "trigger": "Exact database values could already subsume narrow numerical claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1c4fe6e-5ab2-4b8b-b10c-89d1ccb30dbd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact infinite-family solution to a published shift-state-complexity open problem extends the known power-of-two formula to successors, identifies an unexpected equality with the next dyadic shift, and provides an explanatory parity-residual recurrence. The theorem is not a numerical table lookup or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
