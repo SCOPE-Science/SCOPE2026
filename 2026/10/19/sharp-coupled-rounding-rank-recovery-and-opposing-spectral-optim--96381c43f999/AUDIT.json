@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Inclusion-exclusion over at most one nonzero row type gives exact rank probability. The q-derivative has fixed sign and endpoint failure branches have strict signs with unique common optimum at p=2/3. The strong law gives a 2x2 Gram matrix with eigenvalues p±q; its sharp E-optimal coefficient is attained only p=1/2,q=0. Exact-rational multinomial enumeration verifies 210 finite cases and benchmarks; infinite statements are analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dexter et al. prove general high-probability spectral lower bounds assuming independent entrywise rounding; dependence within rows is outside the theorem hypotheses.",
+        "Coja-Oghlan et al. study prescribed degrees in sparse random matrices, while present row support is iid and Bernoulli-marginal constrained."
+      ],
+      "reasoning": "Broader dimension in the primary paper does not imply stronger coverage when its independence assumption excludes the optimized coupling. The sparse-matrix paper might conceal a specialization but its accessible abstract is not decisive; risk remains.",
+      "searches": [
+        "arxiv:2403.12278v3 Sections 2.2, 4.1, 4.2, 4.4",
+        "doi:10.1137/1.9781611975994.35",
+        "Finite n probability full rank for iid two-column zero one random matrices optimized over within-row dependence among Bernoulli margins, uniform three nonzero patterns"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.12278v1 and open-access arxiv:2403.12278v3",
+      "published-finding corpus:2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9",
+      "doi:10.1137/1.9781611975994.35"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior independently rounded n×2 all-1/2 example fixes p and q=p² rather than allowing q down to the Fréchet endpoint.",
+        "D/E design theory relates to the limiting Gram objectives but does not by itself establish the strict finite-n rank-failure optimum or the independent-versus-coupled exponential ratio.",
+        "The DNA coverage-depth result optimizes repeated sampling from fixed finite-field generator columns, not iid rows of a matrix produced by stochastic rounding."
+      ],
+      "reasoning": "Finite full-rank probability is not a corollary of a general spectral lower bound, fixed-column coupon waiting time, or a limiting Gram determinant criterion. The known principles are acknowledged as antecedents for proof components, rather than presented as novel.",
+      "searches": [
+        "D-optimal versus E-optimal spectrum for stochastic rounding rank deficient duplicate columns iid pairwise coupled Bernoulli samples",
+        "arxiv:2403.12278v3 Section 4.1",
+        "Published published-finding corpus rank-two DNA coverage depth record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Within-row bivariate Bernoulli marginals are parameterized by a Fréchet endpoint q; rank two means at least two nonzero projective row types appear.",
+        "The source explicitly assumes independently rounded individual matrix entries."
+      ],
+      "reasoning": "Compared covariance/Fréchet coupling aliases, anticorrelated binary rounding, and projective support occupancy. Neither the motivating publication nor the found records state the sharp finite-n optimization across both mean and within-row dependence.",
+      "searches": [
+        "Two identical columns Bernoulli stochastic rounding paired antithetic coupling exact probability full column rank n rows and optimal correlation Frechet extremal",
+        "Rank recovery of 2-column binary matrix independent rows with correlated Bernoulli columns, optimal three nonzero patterns with p=2/3 and probability 1-3^(1-n)",
+        "Stochastic rounding identical duplicated matrix columns correlated random bits rank deficient full rank exact optimized coupling and singular values",
+        "Source arxiv:2403.12278v3 §2.2, §4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned projective-code coverage depth and unrelated binary-rank censuses, not this constrained iid-row parameterized exact probability table.",
+        "Complete rank-two coverage-depth RESULT.md optimizes 1+sum(m_i/(n-m_i)), a different quantity."
+      ],
+      "reasoning": "No exact probability table or parameterized optimization was found. The lack of a matching database entry is evidence of search coverage, not proof of novelty.",
+      "searches": [
+        "Finite n probability full rank for iid two-column zero one random matrices optimized over within-row dependence among Bernoulli margins, uniform three nonzero patterns",
+        "Exact probability rank deficient independent Bernoulli two-column matrix p=q=1/2 plus zero columns",
+        "Published published-finding corpus id 2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9"
+      ]
+    },
+    "rationale": "Direct inspection of the motivating open-access full text finds independent-entry rounding assumptions and no optimization over within-row correlations. A published rank-two projective-sampling optimum has an inequivalent sampling objective; mathematical-record searches return no stronger implication. A residual old occupancy/design equivalence risk is stated and no absolute uniqueness is claimed.",
+    "residual_risks": [
+      "Equivalent three-direction occupancy optimization or D/E criterion may already have appeared in older design-theoretic literature without wording about stochastic rounding.",
+      "The complete full text of Coja-Oghlan et al. was not materially examined: the published abstract alone cannot exclude a special case.",
+      "Published-record semantic searches are not exhaustive novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: assumes independent rounding errors across individual entries and treats p=1/2 without within-row coupling optimization; no sharp finite-n coupling optimum or competing spectral optimum.",
+        "evidence": "Section 2.2 states entries of rounding-error matrix independent; Section 4.1 uses identical 1/2 entries, independent Bernoulli rounding, and an asymptotic smallest-singular-value bound.",
+        "identifier_or_url": "https://arxiv.org/html/2403.12278v3",
+        "material_read": "Open-access full-text sections 1, 2.2, 3, 4.1, 4.2–4.4, Appendix A descriptions and main results.",
+        "method": "Read source definitions and theorem assumptions and compare objects, randomness constraints, finite-rank and spectral claims.",
+        "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+        "trigger": "Exact rank-one two-column matrix appears in its motivating Section 4.1."
+      },
+      {
+        "assessment": "NOT_COVERING: balances fixed code-column multiplicities to minimize time until span under repeated uniform sampling, not iid Bernoulli-margin rounding with a fixed number of rows and asymptotic singular values.",
+        "evidence": "Its theorem minimizes a geometric waiting-time expectation 1+sum(m_i/(n-m_i)); our finite event probability arises from random row-type support with coupled coordinate marginals.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9",
+        "material_read": "Complete RESULT.md for published mathematical finding, including proof and references.",
+        "method": "Compared optimization variables, probability space, objective and real vs finite-field rank.",
+        "title": "Exact rank-two optimum for DNA coverage depth",
+        "trigger": "Published rank-two optimal distribution across projective directions could imply rank-recovery design."
+      },
+      {
+        "assessment": "No covering theorem established from accessible abstract; broad prescribed-degree rank theory could include related specialization in full text.",
+        "evidence": "Abstract concerns a random matrix with prescribed numbers of nonzero entries in each row and column, with applications to LDPC-code rate.",
+        "identifier_or_url": "https://doi.org/10.1137/1.9781611975994.35",
+        "material_read": "Published abstract and bibliographic record.",
+        "method": "Compared dimension and degree sequence model to this fixed two-column row-iid constrained law.",
+        "title": "The Rank of Sparse Random Matrices",
+        "trigger": "Potentially stronger theory for probability of binary matrix full rank."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96381c43-f999-469e-9706-650e07cda092",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite-n design picks uniform distribution on three nonzero directions with exponentially smaller rank-deficiency chance than independent rounding at the same entry mean, while the sharp asymptotic smallest-singular-value design instead uses two orthogonal directions. These are distinct natural numerical-regularization objectives for a rank-deficient input directly motivated by a published stochastic-rounding study. Neither finite exact optimization nor conflicting numerical-conditioning optimum follows just from correctness or reproducibility. The conflicting global optima vary the input fractional level p; for each fixed input p both criteria select the same maximal anticorrelation, a scope restriction stated in the result.",
+    "status": "PASS"
+  }
+}

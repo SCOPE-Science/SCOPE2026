@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The allowed within-row joint distributions reduce exactly to one Fréchet parameter \(q\). Inclusion-exclusion over three single-direction support events proves the full-rank probability without approximations. The derivative in \(q\), its two endpoint branches in \(p\), and their strict signs give the unique finite-sample optimizer for every integer \(n\ge2\). The iid-row strong law and the two eigenvalues of the limiting Gram matrix establish the distinct sharp spectral optimizer. The independent-entry comparison is exact and its exponential limit follows from dominant terms. A standalone exact-rational enumerator independently verifies 210 cases for seven rational means and dimensions \(2\) through \(8\); the analytic claims do not rely on numerical extrapolation.
+
+## Originality — PASS, qualified
+The closest motivating work, Dexter et al., arXiv:2403.12278, explicitly assumes independent entry errors and gives an independent-rounding rank-one two-column example, not an optimization over within-row couplings, exact finite-sample success probability, or a spectral objective comparison. The published rank-two DNA coverage-depth optimization concerns repeated sampling of fixed finite-field code columns, not this rounding model. Targeted published-record and literature searches did not identify a covering theorem under duality, equivalent Bernoulli-margin parameterization, or D/E-design formulations. The elementary occupancy identity and classical design criteria are not independently asserted to be new. Residual uncertainty: an equivalent special-case three-type occupancy optimization might appear in historical experimental-design or rounding literature not indexed in the searches.
+
+## Value — PASS
+A specific rank-deficient matrix family from existing numerical-rounding research admits two incompatible global optima across the input fractional level and within-row randomness. At a fixed input level, both criteria prefer maximal anticorrelation; the conflict is an input-phase phenomenon. For any finite \(n\), the best exact rank-recovery scheme has failure \(3^{1-n}\), exponentially smaller than the independent-entry scheme at the same mean, whereas optimizing worst-direction numerical conditioning selects a different design with failure \(2^{1-n}\). The observation distinguishes two natural regularization objectives and supplies an exact design rule and boundary under a precisely stated independent-row restriction; it is not a mere restatement of the first and second moments of stochastic rounding.
+
+## Limits and closest literature
+Only independent, identically distributed rows, equal entry means, binary rounding, and two real columns are studied. No fixed-precision hardware or higher-rank guarantee is inferred. Primary source: arXiv:2403.12278 (sections 2.2, 4.1, main theorem); comparison record: *Exact rank-two optimum for DNA coverage depth*; broad sparse-matrix rank theory: Coja-Oghlan et al., SODA 2020. Independent audit has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
