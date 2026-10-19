@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Full ordered-block classification yields at most one fully deleted pair and exactly j=k or k-1 partially deleted pairs per type. Converse constructions preserve the deleted order. The maximum of prefix b-minus-a excess is exactly j; deterministic forward/backward parsing gives unique tuple. Stars-and-bars counts disjoint normal-form strata, including m=2k-1. Independent brute-force comparison of 36 pairs m<=11 checks all formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson–Fleischmann–Huch, arXiv:2603.20790, sections 1, 3, 4 and conclusion (full HTML read); sections 3–4 give general algorithms and separate special observations, and Section 5 explicitly requests exact formulas in special cases.",
+        "An established deletion-complement theorem for permutation powers evaluates deletion of (ab)^k from (ab)^m, not a^k b^k; even the two deletion words have different ordered factor profiles for k>=2, so no direct implication."
+      ],
+      "reasoning": "The general algorithm for any input is not a closed-form classification or implication of a binomial count without the new proof. The earlier explicit enumeration for deleting repeated permutation words does not contain the monotone deletion pattern here for k>=2.",
+      "searches": [
+        "arxiv:2603.20790",
+        "Shuffle equation (ab)^m in (a^k b^k) shuffle v, unique factorization alternating blocks and binomial count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.20790 (complete HTML, including relevant proof and conclusion)",
+      "Published semantic search: exact complement scattered factors of alternating words and monotone deletions",
+      "Published semantic search: shuffle equation residual forms",
+      "Earlier repeated-permutation deletion classification, statement only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.20790, full text Section 5: special-case exact formulas remain an open direction.",
+        "An established deletion-complement theorem for permutation powers evaluates deletion of (ab)^k from (ab)^m, not a^k b^k; even the two deletion words have different ordered factor profiles for k>=2, so no direct implication."
+      ],
+      "reasoning": "A general finite algorithm for enumeration computes particular inputs but does not imply a closed formula as a prior mathematical theorem. The earlier repeated-permutation theorem fails the deletion-pattern hypothesis when k>=2 and its conclusions cannot be substituted to derive this result.",
+      "searches": [
+        "Complement scattered factors of (ab)^m after deleting a^k b^k: exact binomial enumeration C(m-1,2k-2)+C(m,2k) and unique decomposition into (ab)^* b^j a^j",
+        "Adamson Fleischmann Huch 2026 complement scattered factors alternating word a^k b^k formula balanced ordered doubles peak excess",
+        "Shuffle equation (ab)^m in (a^k b^k) shuffle v, unique factorization alternating blocks and binomial count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamson–Fleischmann–Huch, arXiv:2603.20790, sections 1, 3, 4 and conclusion (full HTML read); sections 3–4 give general algorithms and separate special observations, and Section 5 explicitly requests exact formulas in special cases.",
+        "The previously known repeated permutation word formula treats a different deleted word, a^k b^k versus (ab)^k."
+      ],
+      "reasoning": "A shuffle residual set is equivalent to the set of all v for which (ab)^m lies in (a^k b^k) shuffle v. Searches under the shuffle formulation and alternating binary deletion formulation did not yield the two-binomial exact count; the primary paper defines the same object but not the claimed special-case formula.",
+      "searches": [
+        "Complement scattered factors of (ab)^m after deleting a^k b^k: exact binomial enumeration C(m-1,2k-2)+C(m,2k) and unique decomposition into (ab)^* b^j a^j",
+        "Adamson Fleischmann Huch 2026 complement scattered factors alternating word a^k b^k formula balanced ordered doubles peak excess",
+        "Distinct residual words in (01)^m after removing subsequence 0^k1^k, monotone subsequence alternating supersequence, valley path normalization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest relevant indexed results concern two-read multispectra, subsequence universality, and distinct-subsequence absence, none giving this complement-set count.",
+        "A direct finite checker tests, rather than imports, the small exact values."
+      ],
+      "reasoning": "A database table of other deletion and subsequence invariants does not imply this all-parameter binomial formula; no exact matching public lookup was encountered.",
+      "searches": [
+        "Complement scattered factors of (ab)^m after deleting a^k b^k: exact binomial enumeration C(m-1,2k-2)+C(m,2k) and unique decomposition into (ab)^* b^j a^j",
+        "Distinct residual words in (01)^m after removing subsequence 0^k1^k, monotone subsequence alternating supersequence, valley path normalization"
+      ]
+    },
+    "rationale": "The first 2026 primary treatment defines the complement-set invariant, supplies general algorithms and explicitly leaves closed formulas in special families open. The new theorem classifies a two-parameter monotone deletion pattern distinct from the previously solved repeated-permutation pattern, and provides a closed formula not found in the examined full primary text or targeted searches. Unindexed or disguised prior formulations remain a documented risk.",
+    "residual_risks": [
+      "An unindexed older shuffle-word enumeration may encode the same binomial law in different terminology.",
+      "General complement-set algorithms can computationally reproduce individual parameter values, though no examined prior theorem states the resulting closed form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_CLAIM",
+        "evidence": [
+          "Definitions, Section 2; general algorithms, Section 3; special structures, Section 4; conclusion Section 5 specifically asks for closed formulas in selected cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Full HTML article through abstract, definitions, three algorithms, Section 4 structural observations, perfect-shuffle theorem 4.5, conclusion Section 5 and references; especially lines 26–56, 428–659.",
+        "method": "Primary author-provided open-access HTML, inspected theorem statements and scope as well as concluding gaps.",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Exact same complement-set object and an explicit open question about closed formulas"
+      },
+      {
+        "assessment": "DOES_NOT_COVER_FOR_k_GE_2",
+        "evidence": [
+          "Repeated-permutation hypothesis deleted word P^k; here deleted word a^k b^k."
+        ],
+        "identifier_or_url": "d74dd0c9-37db-4546-84c5-56e70d08cd01",
+        "material_read": "Recoverable precise theorem claim and hypotheses comparing deletion of (ab)^k with a^k b^k, not older audit or implementation.",
+        "method": "Statement implication comparison",
+        "title": "Exact complement classification for deleted repeated permutation words",
+        "trigger": "Same alternating parent and a related but different periodic deleted subsequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e71746ec-ce3c-4be4-8284-ee94ade9dd0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source introducing the complement-scattered-factor model explicitly seeks closed special-case counts. This result resolves an infinite two-parameter, conceptually natural monotone-versus-alternating family with exact attainable-language normal form and a two-branch binomial identity; it provides a reusable theoretical benchmark for output-sensitive complement-set algorithms rather than a routine isolated numeric instance.",
+    "status": "PASS"
+  }
+}
