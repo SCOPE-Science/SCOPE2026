@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "PASS: The upper bound follows from distinct weight-one descendant labels t+2e≤m plus the disallowed consecutive loop labels t≤ceil(m/2). The explicit odd-loop/even-edge construction has exactly ceil(m/2)+floor(m/4)=floor((3n-2)/4) elements and pairwise disjoint weight-one and weight-two descendants by explicit coordinate classification including endpoint omissions. Standard-library checker reconstructs deletion balls for n=2..80 and exhaustively optimizes the complete compatibility graph for n=2..9. The infinite assertion uses the proof, not the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash, arXiv:1211.3128v1, Section V, formulates constrained-source code size as a hypergraph matching or integer program and obtains bounds for run-length-limited sources",
+        "Chee–Ge–Ling, DOI:10.1137/090751311, studies spectra of perfect deletion-correcting codes in short block lengths"
+      ],
+      "reasoning": "A general optimization formulation applies to the weight-two source by substitution, but does not evaluate the optimum for all n. General unrestricted code bounds and perfect-code spectra do not impose the required exact sparse-weight value, and none of the inspected papers states the sharp construction.",
+      "searches": [
+        "Constant-weight deletion-correcting codes weight 2 combinatorial packing exact cardinality Varshamov Tenengolts Levenshtein",
+        "Non-asymptotic Upper Bounds for Deletion Correcting Codes 1211.3128 constrained sources weight two",
+        "arxiv:1211.3128v1, Section V"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/090751311",
+      "arxiv:1008.1343v1",
+      "arxiv:1211.4056v1",
+      "arxiv:1211.3128v1",
+      "2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c",
+      "2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-code-size--831d8cb03d53",
+      "2026/10/4/SCOPE-exact-initial-profile-for-binary-one-0-deletion-or-adjacent-tran--da86d12c66bc",
+      "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arXiv:1211.4056v1 asserts chi(L_{1,n,k})=max(k,n-k)+1, a statement about the number of colors, not the maximum size of a single color class",
+        "Section V of arXiv:1211.3128v1 gives general LP/ILP descriptions for constrained sources and worked run-length examples without the exact weight-two formula",
+        "Chee–Ge–Ling 2010 establishes specific short-length perfect-code spectra rather than all-length constant-weight-two bounds"
+      ],
+      "reasoning": "None of the inspected conclusions implies alpha(L_{1,n,2})=floor((3n-2)/4). In particular, the chromatic bound yields a lower bound of roughly n/2 on alpha but not a 3n/4 upper bound or matching construction, while the generic integer-program characterization requires additional analysis precisely supplied by the proof.",
+      "searches": [
+        "arxiv:1211.4056v1, Theorem 5, optimal colorings constant Hamming weight",
+        "arxiv:1211.3128v1, Definition V.1 and constrained source hypergraph formulation",
+        "doi:10.1137/090751311, abstract and Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cullina–Kulkarni–Kiyavash, arXiv:1211.4056v1, Definition of the constant-weight induced deletion graph L_{1,n,2}, and Theorem 5 on its chromatic number",
+        "No matching exact alpha result among the closest indexed claims returned for the equivalent graph-independent-set query"
+      ],
+      "reasoning": "The present parameter is exactly the independence number of the weight-two induced one-deletion confusability graph. The cited paper solves the coloring/chromatic-number problem for that graph, not alpha; there is no implication from chi alone to the exact maximum independent-set size.",
+      "searches": [
+        "alpha(L_{1,n,2}) independence number constant Hamming weight two single deletion correcting graph exact formula floor(3n-2 over 4)",
+        "binary 1 deletion correcting codes supported on all weight-2 strings maximum n mod 4 periodic formula",
+        "arxiv:1211.4056v1, Sections II-IV and Theorem 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed length-six record classifies maximum unrestricted binary single-deletion codes of one length, with nine maxima of size ten; the present weight-two length-six optimum is four and the theorem treats every length",
+        "Other close indexed entries concern ternary length-five unrestricted deletion codes, one-zero-deletion-or-adjacent-transposition channels, and multiple-read reconstruction graphs, not this exact capacity"
+      ],
+      "reasoning": "Searches for the exact formula, aliases and constrained-weight parameter found related tables on different domains or channels. Even the exact length-six unrestricted maximum does not evaluate the induced weight-two independence number for all n. Unsuccessful search is only evidence of no located duplication, not proof of uniqueness.",
+      "searches": [
+        "Exact optimal cardinality of length n weight-two binary single-deletion-correcting codes; maximum floor((3n-2)/4) with adjacent ones and spaced pair construction",
+        "Maximum size of binary length n single-deletion-correcting code restricted to words of Hamming weight exactly two, equal to floor((3n-2)/4), zero-one pair positions and deletion descendant packing",
+        "published indexed record 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+      ]
+    },
+    "rationale": "PASS against inspected relevant primary literature and indexed claim search: Cullina et al (arxiv:1211.4056v1) determine optimal coloring, not exact independence number; Kulkarni–Kiyavash (arxiv:1211.3128v1) give a general constrained-source matching program but no evaluation of this source; Chee et al (doi:10.1137/090751311) give short-block perfect-code spectra. Closest indexed deletion-code records have different exact objects or parameters. An obscure prior exact formula remains a stated risk.",
+    "residual_risks": [
+      "An earlier unindexed or differently phrased derivation of the exact weight-two capacity may remain undiscovered; searchable literature cannot certify worldwide uniqueness.",
+      "The result is restricted to one deletion and exactly two ones, and the package does not claim a general constant-weight theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimal colorings, not the all-length exact maximum weight-two independent-set size",
+        "evidence": [
+          "Definition of L_{s,n,k}, Section II/III",
+          "Theorem 5: chi(L_{1,n,k})=max(k,n-k)+1",
+          "Section II-C explicitly distinguishes optimal colorings from maximum independent sets"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1211.4056",
+        "material_read": "Original full-text HTML: abstract, definitions, Sections III and IV, Theorem 5, independent-set/coloring comparison in Section II, and relevant appendix headings",
+        "method": "Read original full-text HTML at relevant definitions, bounds, and theorem statements; navigated sections and appendix to compare the parameters",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Direct match of the weight-restricted one-deletion confusability graph; plausible stronger coverage"
+      },
+      {
+        "assessment": "Gives a general hypergraph optimization identity and nonasymptotic bounds, without evaluating the weight-two exact maximum or giving its optimal construction",
+        "evidence": [
+          "Section V Definition V.1 and matching/integer-program equations",
+          "Run-length-limited examples, not constant-weight-two exact formula"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1211.3128",
+        "material_read": "Original full-text HTML: abstract, introduction, constrained-source Section V definitions and matching equations, and conclusion",
+        "method": "Read original HTML at Section V and related framework, compared formulations and worked constrained-source discussion",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General exact maximum matching/ILP framework for constrained deletion sources could dominate a fixed-weight special case"
+      },
+      {
+        "assessment": "Only perfect-code size spectra at n=3 (single deletion) and n=4 (two deletions), no all-length weight-two maximum",
+        "evidence": [
+          "Abstract and Section 2 main contributions",
+          "First page: published electronically February 5, 2010",
+          "Theorem/parameter definitions distinguish perfect-code spectra from sparse-layer max"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.1343",
+        "material_read": "Original complete 23-page open-access PDF accessed; examined title, abstract, introductory definitions, Section 2 main contributions, and title-page publication date",
+        "method": "Read accessible open-access PDF text and inspected the first two page images",
+        "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+        "trigger": "Earlier fundamental primary literature about extremal deletion code size"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93da6653-7131-4a40-908a-e4fdbdb90909",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: Exact sparse constant-weight deletion capacity is a natural information-theoretic optimization, not an arbitrary enumeration. Weight one has capacity one, whereas weight two is the first layer with growing capacity; this solves every blocklength with sharp 3/4 linear leading coefficient and periodic endpoints, plus an elementary extremal construction. The proof identifies why two mechanisms—packing singleton-output positions and forbidding adjacent loop positions—control the optimum.",
+    "status": "PASS"
+  }
+}
