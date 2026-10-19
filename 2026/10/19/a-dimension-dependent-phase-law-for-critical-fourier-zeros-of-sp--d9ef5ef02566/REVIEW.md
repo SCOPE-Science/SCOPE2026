@@ -1,0 +1,11 @@
+# Scientific review: spherical-shell Fourier critical-phase law
+
+**Correctness — PASS.** For every fixed integer \(d\ge2\), the exact Fourier formula reduces to the difference \(f_\nu(x)-f_\nu(qx)\). The identity \(E'(x)=2(d-1)f_\nu'(x)^2/x\) is positive in the integral sense and establishes simplicity, one zero per critical gap, strict monotonicity of the scaled zero, and the exact critical-point census. Standard fixed-order Bessel asymptotics establish the parity-resolved critical-gap phases; their pushforward of an asymptotically uniform index distribution gives the normalized density and central-window law. Three executable checkers were rerun from the packaged paths, including direct integration of the three-dimensional Fourier transform. Finite computations are corroboration, not proof of the limit.
+
+**Originality — PASS, with qualification.** The closest available analytic references are Pálmai–Apagyi's fixed-order zero interlacings, Grafakos–Teschl's radial-transform identity, Adkins's spherical-Bessel Fourier integrals, and Ziener and coauthors' Bessel cross-product treatment of shell boundary spectra. Their inspected results do not give the spherical-shell critical-gap phase distribution or its dimension-four cusp. The previously established planar \(n-1\) stationary-point count is explicitly **not** presented as new. A fully equivalent old result remains possible, especially in early optical diffraction literature; the relevant 1974 paper could be checked only at abstract level.
+
+**Mathematical value — PASS.** The high-order distribution of stationary Fourier-zero positions is a natural invariant of the shell diffraction pattern. The exact density, its qualitative change between ambient dimensions three and four, the uniform distribution of critical shell ratios, and the arithmetic two-parity correction are a coherent structural classification, not an arbitrary finite numerical slice.
+
+**Scope and limits.** The theorem is for concentric spherical-shell indicators, fixed integer dimension and asymptotically high zero index. Earlier planar stationary-point results, independent publication priority, and uniform-in-dimension estimates are excluded from the new contribution.
+
+Self-review: passed. Independent audit: not yet performed.
