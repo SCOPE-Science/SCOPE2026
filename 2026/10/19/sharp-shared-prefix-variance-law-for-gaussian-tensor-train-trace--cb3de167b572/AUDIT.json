@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The exact joint protocol is normalized and isotropic. For a fixed unit u the conditional second moment after k cores equals S_k, with \\(\\mathbb E S_k=1\\) and \\(\\mathbb E S_k^2\\le(1+2/r)^k\\), equality for separable u. The last Gaussian core gives \\(\\mathbb E Z^4\\le3(1+2/r)^{d-1}\\). Conditional suffix independence, PSD spectral decomposition and centered L2 triangle inequalities provide the universal two-term variance upper bound, saturated simultaneously by separable rank-one PSD targets. Conditional strong LLN proves the random product-chi-square limit. A gamma-ratio mgf computation proves the lognormal proportional limit. Included code passes 11,529 finite tests; those computations support but do not replace infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.15679, Theorem 7 requires independent TT vectors, so it does not extend to fully correlated shared prefixes without a new hypothesis.",
+        "arxiv:2603.11009v3, §§3–5, proves embedding and rounding results for independent stacked blocks and does not establish repeated-trace core-reuse risk.",
+        "arxiv:2004.06433 studies independent rank-one tensor-product probes, which are a narrower marginal class and a different joint sampling scheme."
+      ],
+      "reasoning": "Independently sampled TT vectors are the \\(k=0\\) special case; the source concentration inequalities cannot imply the \\(k>0\\) variance floor because they depend on cross-probe independence. General TTStack OSE/OSI guarantees have different objects and are not a dominating universal PSD trace-variance theorem. Rank-one Kronecker formulas concern marginal variance, not shared-prefix pairs.",
+      "searches": [
+        "Gaussian tensor train stochastic trace estimator correlated probes reuse shared Gaussian cores variance exact floor conditional expectation",
+        "reuse Gaussian tensor train random sketches common random numbers worst-case trace variance rank order",
+        "Gaussian tensor train correlated rows common core samples chi-square product asymptotic lognormal",
+        "arXiv 2606.15679 stochastic trace estimation tensor train random vectors",
+        "\"linear-scaling tensor train sketching\" shared prefix random cores arxiv 2603.11009",
+        "\"tensor train\" \"reuse\" cores Hutchinson probes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15679v1, Definition 1 / Lemma 4 / Theorems 5,7",
+      "arxiv:2603.11009v3, Sections 3–5",
+      "arxiv:2309.04952, Sections 1–3",
+      "arxiv:2004.06433v2, Sections 1–3",
+      "Published mathematical-result records, searched for source, aliases, joint dependence and parameter variants",
+      "Numerical trace-estimation literature compared by actual mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2606.15679, Definition 1, Lemma 4, Theorem 5: one-vector fourth moment is \\(3(1+2/r)^{d-1}\\), sharp on separable targets.",
+        "arxiv:2606.15679, Theorem 7: estimator variance/concentration from iid full TT samples.",
+        "arxiv:2309.04952, §3 and arxiv:2004.06433, rank-one product variants assume independently sampled probe vectors."
+      ],
+      "reasoning": "The first term of the new formula reduces to the existing independent TT bound at \\(k=0\\); that term is credited. The new dependence term is \\((L-1)(v_k-1)/L\\) and requires a different joint distribution, conditional-prefix second moments and correlated-sample covariance. The exact rank-one witness, nondegenerate strong-law limit and proportional k/r lognormal limit follow only after specifying that joint sampling law; no inspected stronger result covers those hypotheses.",
+      "searches": [
+        "Gaussian tensor train stochastic trace estimator correlated probes reuse shared Gaussian cores variance exact floor conditional expectation",
+        "Kronecker structured Hutchinson trace estimator shared random factors across samples inconsistent correlation variance",
+        "shared-prefix Gaussian TT trace estimator exact sharp worst case variance",
+        "\"tensor train\" \"reuse\" cores Hutchinson probes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2606.15679, Lemma 4 and Theorem 5: fourth moments of one TT vector, not joint sharing covariance.",
+        "arxiv:2603.11009v3, §5.2 and display of vertically stacked independent TTStack realizations; different dependence across partial mode sketches.",
+        "arxiv:2309.04952, §3: exact single-sample Kronecker-probe variance, with independently sampled probes."
+      ],
+      "reasoning": "Checked aliases shared prefix, common cores, correlated TT probes, reused factors, Kronecker probe covariance, residual conditional randomness and exact shared-core floor. Same marginal law and even the same fourth moment do not determine covariance of probe squares. No inspected source gives this joint law or a mathematical implication dominating it.",
+      "searches": [
+        "shared tensor train cores prefix reuse correlated Hutchinson trace probes covariance fourth moment rank one sample variance",
+        "Gaussian tensor train probes shared prefix cores exact covariance conditional variance nonvanishing trace estimator sample size",
+        "shared-prefix Gaussian TT trace estimator exact sharp worst case variance",
+        "\"tensor train\" \"shared cores\" \"trace\" \"variance\" Gaussian random vectors",
+        "\"tensor train\" \"shared\" \"random\" \"cores\" \"trace estimator\"",
+        "\"tensor train\" \"shared-prefix\" \"trace\" Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-result similarity searches yielded no tensor-train trace-probe shared-core theorem among their directly returned records.",
+        "arxiv:2606.15679 and arxiv:2603.11009 disclose related independent-probe bounds but no tabulated cross-probe core-sharing variance formula."
+      ],
+      "reasoning": "The coefficient is a theorem about a dependent sampling law, not a known finite table or previously stored numerical value. Search/index incompleteness is recorded as a risk; absence of a database hit alone does not justify PASS.",
+      "searches": [
+        "arXiv 2606.15679 stochastic trace estimation tensor train random vectors",
+        "Stochastic trace estimation with tensor train random vectors Bujanovic Kressner Olic fourth moment",
+        "shared-prefix Gaussian TT trace estimator exact sharp worst case variance",
+        "shared tensor train cores prefix reuse correlated Hutchinson trace probes covariance fourth moment rank one sample variance"
+      ]
+    },
+    "rationale": "The joint core-sharing model, exact supremal variance for every PSD target, conditional strong-law floor and proportional-order lognormal phase are not contained in the inspected independent-vector TT trace theorem, independently stacked TTStack theorem, or independently sampled rank-one Kronecker variance theorem. The prior marginal Gaussian TT moment inequality is explicitly acknowledged. Multiple independent literature/index searches and accessible preceding claim comparisons found no equivalent statement; unindexed shared-core trace-estimation literature is a real residual risk, not a claimed proof of absolute uniqueness.",
+    "residual_risks": [
+      "Unindexed or differently named published analyses of common-factor or shared-prefix Gaussian tensor-network probes could overlap the precise joint-variance claim.",
+      "Prior work on shared random tensor contractions may contain a conditional covariance theorem not found in inspected sections.",
+      "No independent human or external originality audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_SINGLE_PROBE_NOT_COVERING_DEPENDENT_JOINT_MODEL",
+        "evidence": [
+          "Definition 1 normalized cores; Lemma 4 contraction moment; Theorem 5 fourth moment sharpness; Theorem 7 explicitly uses independent TT vectors."
+        ],
+        "identifier_or_url": "arxiv:2606.15679v1; https://www.researchgate.net/publication/407116242_Stochastic_trace_estimation_with_tensor_train_random_vectors",
+        "material_read": "Author-uploaded accessible full text: Definition 1 in §2, Gaussian covariance statements, Lemmas 3–4 with proof, Theorems 5 and 7 with proof, discussion of independent probes and TTStack connections in §§3–4.",
+        "method": "Read full-text sections and checked occurrences of independent/core dependence; compare precise hypotheses and variance implications.",
+        "title": "Stochastic trace estimation with tensor train random vectors",
+        "trigger": "Same Gaussian TT normalization, trace object, and sharp fourth moments"
+      },
+      {
+        "assessment": "RELATED_SKETCHING_NOT_COVERING_SHARED_PREFIX_TRACE_PROBES",
+        "evidence": [
+          "§5.2 stacks independent realizations; §4.3 studies Gaussian TT embedding; intermediate partial sketches depend across tensor cuts but are not repeated trace probes."
+        ],
+        "identifier_or_url": "arxiv:2603.11009v3; https://arxiv.org/pdf/2603.11009",
+        "material_read": "Full PDF extracted; inspected §§2–5, definition of TTStack, Gaussian TT subsection, independent stacked partial sketch construction and applications, and full-text keyword searches for shared, trace estimator and independence.",
+        "method": "Read theorem statements/definitions and §5.2 partial-sketch construction, contrasted covariance objects.",
+        "title": "Linear-scaling Tensor Train Sketching",
+        "trigger": "Related Gaussian TT sketching with stacked blocks and dependent partial contractions"
+      },
+      {
+        "assessment": "INDEPENDENT_KRONECKER_FACTORS_DO_NOT_DOMINATE_GENERAL_BOND_TT_COUPLING",
+        "evidence": [
+          "§1.2 and §3 analyze iid Kronecker factors and exact single-probe trace variance; no shared-core repeated-probe covariance found."
+        ],
+        "identifier_or_url": "arxiv:2309.04952; https://arxiv.org/pdf/2309.04952",
+        "material_read": "Full PDF extracted; inspected introduction and contributions, §3 exact Kronecker-Hutchinson variance, rank-one extremal discussion, and searches for shared or dependent probes.",
+        "method": "Compared single-vector Kronecker factor sampling, variance expression and the target class with the core-sharing joint TT protocol.",
+        "title": "Hutchinson's Estimator is Bad at Kronecker-Trace-Estimation",
+        "trigger": "Exact variance of structured Gaussian tensor-product trace probes"
+      },
+      {
+        "assessment": "RANK_ONE_MARGINAL_PRECEDENT_NOT_COVERING_CORE_REUSE",
+        "evidence": [
+          "§1–3 treat tensor-product Gaussian or Rademacher probes with independent samples."
+        ],
+        "identifier_or_url": "arxiv:2004.06433v2; https://arxiv.org/pdf/2004.06433",
+        "material_read": "Full PDF extracted; inspected introduction, §2 random rank-one vector model and trace-estimation definitions, §3 sampling results.",
+        "method": "Checked Kronecker product distribution and stated sampling assumptions.",
+        "title": "Norm and Trace Estimation with Random Rank-one Vectors",
+        "trigger": "Historical rank-one tensor trace sampling, including multi-sample use"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb3de167-b572-4aa2-986d-37a96041cace",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Correlated core reuse is a natural but previously unquantified design decision for efficient tensor-structured stochastic trace probes. The exact optimal PSD variance envelope identifies both the noise decaying with independent suffix samples and the irreducible random-prefix floor, with a sharp separable witness in every finite dimension. The proportional-rank/core lognormal phase supplies a structural tuning criterion: scaling bond rank linearly with tensor order does not offset a positive shared fraction. This is a motivated stability classification, not an arbitrary small numerical gain.",
+    "status": "PASS"
+  }
+}
