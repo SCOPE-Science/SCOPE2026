@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The probability-Haar Peter–Weyl kernel restricts to \\(C^{(2)}_{2L-2}(u\\cdot v)\\), as follows from the SO(3) character formula and Chebyshev derivative. Probability-normalized Funk–Hecke gives all even harmonic eigenvalues and their multiplicities, with zero elsewhere. A positive Fourier cosine expansion of P_{2j+1} establishes strict adjacent eigenvalue gaps. Orthogonal top-degree coefficient gives positive minimal eigenvalue and sharp κ. Rank and nullity are polynomial sums. checker.py independently performs rational polynomial identity/integration/trace checks for \\(1\\le L\\le12\\); all-L correctness comes from the provided algebraic proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2005.11451 presents restriction-type Lp estimates on compact Lie groups.",
+        "arXiv:1508.03101 provides whole-group finite-grid sampling and full Wigner recovery."
+      ],
+      "reasoning": "General Fourier inequalities do not yield the exact joint spectrum of this trace operator. Full three-parameter Wigner grid sampling does not imply an ordered singular spectrum when measurements are limited to half-turn rotations.",
+      "searches": [
+        "conjugacy class restriction of bandlimited compact group Fourier functions eigenvalues singular spectrum SO3",
+        "Wigner sampling theorem SO(3) equiangular rotation group bandlimited exact singular spectrum parity aliasing",
+        "SU(2) character restriction single conjugacy class bandlimited exact concentration optimal spectrum",
+        "arXiv:2005.11451"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1210.2652 Sections 2–3,5,8",
+      "arXiv:1508.03101 Sections II–VII",
+      "arXiv:2005.11451 main setup/results",
+      "Published compact-group/conjugacy-class searchable claim descriptions, including finite-group counterparts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bernstein–Pesenson Section 8 reconstructs from values of Rf(x,y) over \\(S^2\\times S^2\\), not values of f(H_u) over RP².",
+        "McEwen et al. Section III computes Fourier coefficients from samples at α,β,γ grids."
+      ],
+      "reasoning": "Neither theorem implies the rank \\(2L^2-L\\) and ambiguity of the singular restriction to half-turns, much less a strict eigenvalue order and explicit smallest level. Standard Peter–Weyl/Funk–Hecke provide a method, not the final derived spectrum. Finite S_n conjugacy sampling is on different groups and cannot cover SO(3) by special case.",
+      "searches": [
+        "rotation group SO(3) class trace Fourier transform spherical harmonics restriction 180 degree angle exact inversion kernel",
+        "conjugacy class restriction of bandlimited compact group Fourier functions eigenvalues singular spectrum SO3",
+        "arXiv:1210.2652 Theorem 8.1",
+        "arXiv:1508.03101 Section III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1210.2652 uses rotational Radon averages, not point sampling.",
+        "arXiv:1508.03101 uses a three-parameter Euler grid, not a fixed-angle conjugacy class."
+      ],
+      "reasoning": "Searched both half-turn-class point evaluations and even-axis spherical harmonic trace formulations. A rank theorem for RP² sampling is not equivalent to reconstruction from an SO(2)-averaged Radon transform; no retrieved source states the same singular spectrum.",
+      "searches": [
+        "SO(3) half-turn conjugacy class restriction Peter Weyl Wigner matrix coefficient singular values Legendre Gegenbauer rank 2L squared L conditioning",
+        "finite bandlimited SO(3) functions restriction to pi rotations RP2 positive singular values monotone Gegenbauer C(2)",
+        "rotation group SO(3) class trace Fourier transform spherical harmonics restriction 180 degree angle exact inversion kernel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved rotation-group entries concerned the SU(2) low-pass endpoint kernel and finite permutation-group conjugacy sampling; none reported the SO(3) half-turn singular levels."
+      ],
+      "reasoning": "No located table or named claim matches the Gegenbauer–Legendre eigenvalues including their monotone ordering and bottom eigenvalue. Absence of a match is not proof of global novelty.",
+      "searches": [
+        "SO(3) half-turn conjugacy class restriction Peter Weyl Wigner matrix coefficient singular values Legendre Gegenbauer rank 2L squared L conditioning",
+        "finite bandlimited SO(3) functions restriction to pi rotations RP2 positive singular values monotone Gegenbauer C(2)",
+        "rotation group SO(3) class trace Fourier transform spherical harmonics restriction 180 degree angle exact inversion kernel",
+        "conjugacy class restriction of bandlimited compact group Fourier functions eigenvalues singular spectrum SO3",
+        "arXiv:1210.2652",
+        "arXiv:1508.03101"
+      ]
+    },
+    "rationale": "The examined primary full text on rotational Radon inversion averages rotations over SO(2) fibers; the strongest close full SO(3) sampling theorem uses a three-parameter Euler grid. Neither determines the operator restriction to the half-turn conjugacy class, its exact visible quotient, strict ordered eigenvalue law or sharp condition number. A separate compact-Lie-group Fourier restriction paper concerns Lp estimates. Semantic database searches with direct half-turn, alias and equivalence descriptions returned no identified matching or subsuming claim. Broad general trace results could remain unlocated, so this judgment is same-model, not independent certification.",
+    "residual_risks": [
+      "General compact-symmetric-space trace/RKHS literature may contain mathematically equivalent Gegenbauer–Legendre diagonalizations not indexed under half-turn sampling.",
+      "The inspected three primary references are not an exhaustive historical bibliography; originality has no independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Theorem 8.1 reconstructs from sampled Radon averages Rf(x,y), not evaluations f(H_u) on the half-turn class.",
+        "evidence": "Section 2 defines Rf(x,y) as an SO(2)-fiber average; Section 8 (Theorem 8.1) uses samples of Rf on \\(S^2\\times S^2\\). The domain, observable, and rank differ.",
+        "identifier_or_url": "arXiv:1210.2652; https://arxiv.org/pdf/1210.2652",
+        "material_read": "Title, abstract, Sections 2, 3 and 5, and Section 8 reconstruction theorem, including the precise sampled quantities.",
+        "method": "Inspected open-access full-text PDF, with page-level reading of operator definitions, Theorems 5.3 and 8.1.",
+        "title": "The Radon transform on SO(3): motivations, generalizations, discretization",
+        "trigger": "Historical source for bandlimited rotation-group integral geometry and reconstruction."
+      },
+      {
+        "assessment": "NOT_COVERING: full SO(3) sampling from about \\(4L^3\\) points does not calculate the rank or singular values for a 2-dimensional half-turn trace.",
+        "evidence": "Section III Eqs. (6)–(8) sample three Euler angles; Conclusion gives \\(4L^3\\) complete-signal samples.",
+        "identifier_or_url": "arXiv:1508.03101; https://arxiv.org/html/1508.03101v2",
+        "material_read": "Open-access article Sections II–VII, including full sampling grid and number of samples.",
+        "method": "Read HTML full article including formulae for Wigner orthogonality and three Euler-angle sampling grid.",
+        "title": "A novel sampling theorem on the rotation group",
+        "trigger": "Exact rotation-group sampling on Wigner bands with a potentially stronger conclusion."
+      },
+      {
+        "assessment": "NOT_COVERING: focuses on Fourier or spectral Lp bounds, not exact point-trace singular values on the half-turn surface.",
+        "evidence": "Its objects are compact-Lie-group restriction/Strichartz estimates; it does not furnish the half-turn zonal kernel or ordered finite singular spectrum.",
+        "identifier_or_url": "arXiv:2005.11451; https://arxiv.org/html/2005.11451v5",
+        "material_read": "Title, abstract, introductory setup and statements of main estimates.",
+        "method": "Read publicly accessible HTML main definitions and theorem statements.",
+        "title": "On Fourier restriction type problems on compact Lie groups",
+        "trigger": "Potentially broader compact Lie-group Fourier restriction theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4ef45d6-28e0-4cce-b64d-95cebd7d22a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half-turn rotations are a canonical RP² conjugacy class. The output determines exact observable rank and nullity from a cubic-dimensional Wigner band, solves minimum-norm inversion, computes every sharp sensitivity level, and proves nontrivial strictly ordered eigenvalues and \\(\\kappa_L\\sim (2L/\\pi)^{1/4}\\). These are natural and consequential structural harmonic sampling facts, not routine recomputation of a known numerical table.",
+    "status": "PASS"
+  }
+}
