@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The centered finite-variance two-flip skeleton is spatially oscillatory, ensuring all levels are hit. The bounded two-state backward hitting ODE has unique bounded solution with exponential root sqrt(v^2+2Df)/D. Strong Markov at successive level hits yields a spatial chain with rates a_D=(sqrt(v^2+2Df)-v)/(2D), b_D=(sqrt(v^2+2Df)+v)/(2D). Coupling independent exponential run lengths with fixed unit exponentials gives a_D->f/(2v), (v/D)/b_D->1, local tightness and the marked Poisson limit; finite-grid hitting computation errors <1e-5.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahn and Meini (2020) describes general first-passage matrix equations for Markov-modulated Brownian motion",
+        "Ahn and Ramaswami (2017) develops first-passage matrix transforms for Markov-modulated Brownian motion",
+        "Latouche, First Passage Across a Level (2026), abstract explicitly says phase ladder processes are Markovian"
+      ],
+      "reasoning": "General ladder-process theorems subsume the spatial Markov nature and in principle determine its generator. They do not explicitly report the current model’s singular rare-island spatial marked Poisson limit. The finding does not claim Markovianity is a general novelty. The 2026 book chapter was abstract-inspected, not fully read; implicit coverage remains a risk.",
+      "searches": [
+        "\"Markov modulated Brownian motion\" \"first passage\" phase generator ascending",
+        "\"First Passage Across a Level\" Markov-Modulated Brownian Motion ladder phases 2026",
+        "Ahn Meini matrix equations Markov modulated Brownian motion 2020"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.24277v1",
+      "https://arxiv.org/html/2508.07386v1",
+      "https://arpi.unipi.it/handle/11568/1019582",
+      "https://doi.org/10.1080/15326349.2016.1211018",
+      "https://www.researchgate.net/publication/404213439_First_Passage_Across_a_Level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating source gives the asymptotic fractions of positive- and negative-painted half-line lengths; they match p_D and 1-p_D",
+        "Prior ladder theory gives matrix first-passage generators but not explicit mark-normalized small-D Poisson asymptotics in these materials"
+      ],
+      "reasoning": "One-point coverage does not determine count and size fluctuations without joint information. Combining general spatial ladder theory with explicit coefficients and a separate singular coupling does imply the marked limit, so originality resides in the quantitative physical-model specialization and its asymptotic theorem; nontrivial implicit coverage cannot be excluded.",
+      "searches": [
+        "arXiv:2603.24277v1 Eqs (34) (35) Appendix B.4",
+        "arXiv:2508.07386v1 Section 4.1",
+        "\"matrix equations in Markov modulated Brownian motion\" first passage",
+        "\"run tumble\" orientation first hitting maximum spatial Markov exponential intervals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.24277v1 Sections II and IV, Eq. (35): one-point first-visit polarity ratio; no multi-interval distribution",
+        "arXiv:2508.07386v1 Section 4.1: conditional splitting probabilities on bounded intervals"
+      ],
+      "reasoning": "Paint-island starts are upward ladder phase transitions; the full interval length law is a two-state ladder-chain sojourn law. The prior one-point paint probabilities agree with the invariant minus fraction but do not themselves state the marked spatial Poisson law.",
+      "searches": [
+        "\"run and tumble paint\" color interval exponential distribution",
+        "\"run tumble\" first passage orientation painted island Poisson",
+        "arXiv:2603.24277v1 sections II IV V and appendices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches found no exact published numerical table or identical explicit formula for colored island counts and rescaled widths",
+        "arXiv:2603.24277v1 Eq. (35) is a scalar coverage ratio, not a tabulation of island-process laws"
+      ],
+      "reasoning": "No claim-specific exact database or table containing the point-process limit was located. Failure to find one is not proof of novelty.",
+      "searches": [
+        "\"Run Tumble and Paint Sezik Britton Touma Pruessner 2603.24277 wrong orientation color island width marked Poisson limit\"",
+        "\"Markov-modulated Brownian ascending ladder phase small diffusivity exponential color blocks rare islands\"",
+        "\"polar deposition active run tumble particle correlated tracer colors paint islands exponential length distribution\""
+      ]
+    },
+    "rationale": "The assessed claim is the explicit small-D marked Poisson law of wrong-polarity first-visit paint islands, not the previously known Markov-modulated Brownian ladder property. Full source text of arXiv:2603.24277v1 reports one-point paint probabilities and integrated coverage, only qualitative island sizes. The main strong-cover risk is that general first-passage matrix equations plus standard rare-state renewal point-process theory imply the result, though no directly stated equivalent theorem was identified.",
+    "residual_risks": [
+      "A general Markov-modulated Brownian ladder-phase theorem already implies spatial Markovianity; that is treated as prior, not as new.",
+      "The explicit marked-Poisson limit might be recoverable as a corollary of a general rare-fast-state theorem not identified in the literature search.",
+      "The complete text of the 2026 first-passage book chapter and the 2017 journal article was not inspected; their abstracts establish generic covering structures but not the exact painted-island limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains one-point orientation-resolved visit probabilities and integrated coverage but no marked island point-process limit or exact island length law",
+        "evidence": [
+          "Section II explicitly describes island width scale D_x/nu_0 and pond scale nu_0/alpha qualitatively",
+          "Section IV Eq. (35) determines the paint fraction ratio",
+          "Appendix B.4 takes zero translational diffusion in time-dependent covered-volume statistics"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.24277v1",
+        "material_read": "Full HTML Sections I, II, IV, V and Appendices A and B, including equations (1), (34), (35) and B.4",
+        "method": "Read arXiv open-access primary full text in HTML",
+        "title": "Run, Tumble and Paint",
+        "trigger": "Exact motivating stochastic process and qualitative wrong-color islands"
+      },
+      {
+        "assessment": "Provides bounded-interval joint splitting events and hidden-state inference, not completed paint color interval statistics",
+        "evidence": [
+          "Section 2 defines orientation at exit of a spatial interval",
+          "Section 4.1 treats run-and-tumble splitting probabilities"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.07386v1",
+        "material_read": "HTML abstract, sections 2 and 4.1 and conclusion",
+        "method": "Read open-access arXiv full HTML",
+        "title": "Conditional splitting probabilities for hidden-state inference in drift-diffusive processes",
+        "trigger": "Same motion with orientation-resolved boundary hitting probabilities"
+      },
+      {
+        "assessment": "Known theory determines first passage phase matrices; whether it explicitly specializes to these paint islands is unverified",
+        "evidence": [
+          "Abstract attributes the general quadratic matrix equation to Asmussen (1995) and Riccati approach to Ahn and Ramaswami (2017)"
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/handle/11568/1019582",
+        "material_read": "Open-access repository abstract and bibliographic description; full proof not inspected",
+        "method": "Repository source and abstract read",
+        "title": "Matrix equations in Markov modulated Brownian motion: theoretical properties and numerical solution",
+        "trigger": "General ladder-phase matrix theory could cover the Markov part"
+      },
+      {
+        "assessment": "A strong general methodological precursor; no explicit colored spatial Poisson asymptotic established from accessible material",
+        "evidence": [
+          "Abstract states Riccati solution determines MMBM first passage transform matrices"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/15326349.2016.1211018",
+        "material_read": "Published abstract and description; full publisher text not accessible in this inspection",
+        "method": "Publisher abstract",
+        "title": "A quadratically convergent algorithm for first passage time distributions in the Markov-modulated Brownian motion",
+        "trigger": "General first-passage phase transforms and rates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5374ed4-0ffb-47a8-b91f-cfd03153fff9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating source explicitly identifies rare opposite-polarity paint islands as an essential physical microstructure but supplies only their qualitative scale. Exact Poisson island counts and independent scaled exponential widths describe a natural directly interpretable spatial observable even though the total minority fraction vanishes; they are not mere reparameterizations of the known one-point fractions.",
+    "status": "PASS"
+  }
+}
