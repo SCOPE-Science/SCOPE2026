@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The finite premise was recomputed from all 8192 binary words of length 13, all binary shorter lengths 3-12, and all 1594323 ternary words of length 13 using exact multiplicity-array equality; the 12 ternary collisions were checked against the full explicit list of binary-pair relabelings. Independent direct-index enumeration and dynamic programming agreed in 516 further cases. Alphabet merging preserves deck equality by partitioning admissible position tuples according to original patterns. Given any q-ary collision using three jointly occurring symbols, map two differing symbols and a third symbol to three distinct ternary labels: a distinct ternary collision with three jointly present letters would contradict the exact finite lemma. All q-ary collisions therefore use precisely two letters, giving four disjoint edges per unordered pair and no larger classes. Counting maximum independent sets in this matching establishes both exact formulas. The same letter-projection argument rules out q-ary collisions for lengths 3-12. Machine counters are exact 16-bit integers with maximal count 165.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golm et al. introduce gapped decks and report the binary initial G_2(3)=13; this establishes binary existence/threshold but not the absence of three-letter collisions at n=13.",
+        "The author-uploaded 2023 paper supplies the general-alphabet definition and various structural equivalences without a complete q-ary length-thirteen profile."
+      ],
+      "reasoning": "No inspected broader theorem jointly bounds q-ary class sizes by two and restricts all collision supports to two letters. The binary result alone does not imply this restriction without the exact ternary lemma.",
+      "searches": [
+        "q-ary gapped 3-deck at length thirteen all confusable pairs use only two symbols alphabet rigidity maximum reconstruction code size q^13 minus four choose(q,2)",
+        "nonadjacent index subsequence length at most three q-ary word reconstruction full confusion graph length 13",
+        "q-ary gapped k-deck alphabet size ternary sequence reconstruction 3 deck 13",
+        "gapped k-deck general alphabet"
+      ]
+    },
+    "checked_sources": [
+      "R. Golm, M. Nahvi, R. Gabrys, O. Milenkovic, The Gapped k-Deck Problem, arXiv:2201.12671 (2022), https://arxiv.org/abs/2201.12671",
+      "M. Rigo, M. Stipulanti, M. A. Whiteland, Gapped Binomial Complexities in Sequences (ISIT 2023), https://orbi.uliege.be/handle/2268/302524",
+      "doi:10.1109/ISIT50566.2022.9834537 (published conference account of Golm et al.)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known binary four doubletons are explicitly reused; they establish only q=2.",
+        "Rigo et al. define the same observation but study restricted factors of infinite words and lower gap order; the primary paper does not provide this class partition.",
+        "Alternate source-reconstruction studies report results for contiguous factor multispectra and single-deletion confusability; these observations are not identical to length-at-most-three gapped subsequence multiplicities."
+      ],
+      "reasoning": "If every ternary collision could involve three symbols, alphabet relabeling of the four binary classes would miss them. Complete ternary exhaustion rules this out; the alphabet-aggregation theorem then proves the all-q graph and exact codebook statistics. The new conclusion is not the already known binary collision threshold or a mere substitution.",
+      "searches": [
+        "gap-constrained subsequence deck reconstruction graph 13 three-symbol counterexample",
+        "G_2(3) gapped three deck length thirteen pair 2-gapped all subsequences length at most three",
+        "binary one-gap three-deck 13 four doubleton collision classes",
+        "finite alphabet two read single deletion confusability graph",
+        "exact binary two-multispectrum code size singleton classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rigo et al. define (g,k)-binomial equivalence by the counts of all length-at-most-k subsequences with index separation >g; choosing g=1,k=3 is exactly this observation (ResearchGate author-uploaded full text, Introduction, first four pages).",
+        "The 2023 work treats complexity functions of infinite Thue-Morse, Sturmian, and related words, not the all-q length-thirteen equivalence-class census."
+      ],
+      "reasoning": "Equivalent terminology has been identified and incorporated; the inspected central equivalence definitions and main sequence-results do not establish the precise arbitrary-alphabet length-thirteen graph classification. An unseen related theorem remains possible.",
+      "searches": [
+        "1-gap 3-binomial equivalence length thirteen ternary twelve collision pairs q-ary alphabet rigidity",
+        "q-ary length 13 one-gap three-binomial equivalence classes size 2 4 binomial q 2",
+        "Gapped Binomial Complexities in Sequences 1-gap 3-binomial equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Golm et al. numerical table gives the binary G_2(3) threshold 13, already known.",
+        "The present executable explicitly checks all 1,594,323 ternary length-thirteen words and the precise twelve doubletons, providing the needed new table."
+      ],
+      "reasoning": "The published binary shortest-collision table and related individual lower-dimensional parameters do not count 1,594,311 ternary equivalence classes or q-ary maximum codebooks. No exact existing table for this new invariant was located in the inspected comparisons.",
+      "searches": [
+        "1-gap 3-binomial equivalence length thirteen ternary twelve collision pairs q-ary alphabet rigidity",
+        "q-ary length 13 one-gap three-binomial equivalence classes size 2 4 binomial q 2",
+        "ternary gap-two three-deck length thirteen 12 ambiguous pairs doubleton collision alphabet reduction",
+        "exact value G(3)=13 shortest binary 2-gapped 3-deck nonunique reconstruction thirteen"
+      ]
+    },
+    "rationale": "The binary length-13 threshold and four binary doubletons are acknowledged as prior evidence, not novelty. The genuinely additional finite ternary rigidity and the resulting arbitrary-alphabet edge-classification and exact q-ary optimum are not implied by the previously known binary list without excluding three-symbol collisions. Primary 2022 gapped-deck and 2023 (g,k)-binomial complexity texts and indexed related work were compared at the level of observation map, source class, length and implication. An unindexed equivalent finite-alphabet census remains a stated residual risk.",
+    "residual_risks": [
+      "Unindexed or incompletely accessible literature could contain an equivalent full ternary n=13 census or a general rigidity theorem.",
+      "Some adjacent-channel research-index results were inspected only as abstracts/summaries, not complete source texts; they are treated as inapplicable based on demonstrably different observation definitions, not as blanket novelty clearance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary collision threshold is prior art. No inspected statement of ternary collision-class rigidity or arbitrary-q exact codebook count.",
+        "evidence": [
+          "arXiv:2201.12671, original submitted 2022-01-29; ISIT 2022 49-54, DOI 10.1109/ISIT50566.2022.9834537"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.12671",
+        "material_read": "Abstract, definition of gapped deck, construction descriptions and published numerical initial-length table (G_2(3)=13); accessible source text and arXiv bibliographic record.",
+        "method": "Read accessible primary source material and cross-referenced original arXiv version with institutional publication record.",
+        "title": "The Gapped k-Deck Problem",
+        "trigger": "Direct predecessor introducing the same gap-constrained deck and first binary k=3 collision."
+      },
+      {
+        "assessment": "Definitions match but inspected results address complexity of factors of selected infinite sequences, not all words of length thirteen over every finite alphabet.",
+        "evidence": [
+          "ISIT 2023, pp.1294-1299, DOI 10.1109/ISIT54713.2023.10206676; introductory (g,k)-equivalence definition."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/handle/2268/302524",
+        "material_read": "Author-uploaded full-text HTML extraction, introduction/definitions and sections on Thue-Morse, Sturmian and other infinite-word complexity; the (g,k)-equivalence definition is in the introductory discussion.",
+        "method": "Read author-provided accessible textual reproduction at https://www.researchgate.net/publication/373308095_Gapped_Binomial_Complexities_in_Sequences and crosschecked university repository bibliographic record.",
+        "title": "Gapped Binomial Complexities in Sequences",
+        "trigger": "Uses precisely the equivalent (1,3)-binomial subsequence equivalence on general finite alphabets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4b60982-9212-4e1a-bc47-ff80fbc39a13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the complete first-collision equivalence-class partition, zero-error code-size optimum, and optimizer count for every finite alphabet q. It resolves whether additional source symbols create new ambiguities—a nontrivial issue not answered by binary collision classifications. The ternary finite cutoff is decisive for all q by an exact alphabet-aggregation reduction, giving directly usable q-ary reconstruction bounds for natural multi-symbol sequence channels; the statement is not an arbitrary narrow slice, mere relabeling, or unmotivated isolated table entry.",
+    "status": "PASS"
+  }
+}
