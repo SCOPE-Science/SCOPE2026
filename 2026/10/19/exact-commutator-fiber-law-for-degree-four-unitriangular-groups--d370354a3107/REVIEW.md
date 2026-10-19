@@ -1,0 +1,19 @@
+# Scientific assessment: prescribed commutator fibers in degree-four unitriangular groups
+
+## Correctness — PASS
+
+The target set is explicitly the three-dimensional derived subgroup; the two maps are the group word \(U^{-1}V^{-1}UV\) and the additive matrix commutator \(XY-YX\). Direct multiplication yields two consecutive minor constraints and one linear top-right constraint. Conditioning on the middle superdiagonal pair gives \(q^2(q^2-1)\) base six-variable solutions per target \((u,v)\), with a further \(q^4\) precisely at \((0,0)\). The top-right constraint has rank one except on the \(q^2\) six-tuples with \(a=A=c=C=0\), where it is identically zero. This proves the exact three-branch counts with no characteristic assumption. The group commutator changes the top-right target by the explicit shift \(-(a+A)v\), which does not change its fiber sizes. The resulting counts sum to \(q^{12}\) and are positive. Independent full enumeration over \(\mathbf F_2\) and \(\mathbf F_3\), with explicit group matrix inversion checks and \(\mathbf F_4\) first-layer checks, agrees with the theorem. The proof, not finite sampling, establishes the universal claim.
+
+## Originality — PASS (bibliographic uncertainty remains)
+
+Naik's 2018 paper focuses on fiber uniformity for nilpotency-class-three groups with exactly two conjugacy-class sizes and constructions of class-two groups with different numbers of fiber sizes. The present degree-four unitriangular groups have more conjugacy-class sizes and exhibit two distinct nonidentity commutator-fiber sizes; no equivalence follows from the quoted theorem. Kaur–Sharma–Singh (arXiv:2006.01493v1, Sections 6, 8 and Appendix B) enumerates centralizers, branching rules, and commuting-tuple probabilities for odd field sizes. Its zero-commutator count is not a new component here; the full prescribed **nonidentity** commutator distribution and the even-characteristic assertion are not supplied by those results. Published published-finding corpus Kronecker-path-algebra commutator fibers concern a square-zero radical rather than upper-triangular nilpotency class three. The separate 2015 Nath–Yadav study was accessible only through abstracts and might contain a more general unstated principle; this is retained as an explicit residual risk. No absolute novelty or independent review is claimed.
+
+## Value — PASS
+
+The number and sizes of nonidentity fibers of the commutator word form a motivated invariant in probabilistic finite-group theory. The theorem computes all those fibers, not merely their average or the commuting probability, and identifies a characteristic-independent two-stratum law: central nonidentity commutators occur with double the representation multiplicity of noncentral ones. It also identifies the exact common law for the group and its strictly triangular Lie algebra. The result answers a natural distributional question on a canonical infinite field family and is not based on arbitrary sample parameters.
+
+## Scientific limits and relationship to sources
+
+The formula covers the degree-four group for every prime power and the analogous six-dimensional nilpotent associative/Lie algebra. It does not classify arbitrary unitriangular degrees, all class-three groups, or other words. The source comparison is against Naik (2018, arXiv:1805.00091v2, especially Theorem 1.4), Kaur–Sharma–Singh (2020, arXiv:2006.01493v1, Sections 6 and 8 and Appendix B), the abstract of Nath–Yadav (2015, DOI 10.1142/S0218196715500320), and the distinct published Kronecker-algebra fiber theorem. The zero-commutator specialization can already be recovered from the first column of Kaur–Sharma–Singh's branching matrix, whereas the new nonidentity count requires the affine-fiber argument in the proof. Full-text inaccessibility for Nath–Yadav and any undiscovered broader word-map identity are remaining originality risks.
+
+Self-review: passed. Independent audit: not yet performed.

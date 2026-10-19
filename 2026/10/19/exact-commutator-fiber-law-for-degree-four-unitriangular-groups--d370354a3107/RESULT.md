@@ -1,0 +1,104 @@
+# Exact commutator-fiber law for degree-four unitriangular groups
+
+## Finding
+
+Let \(q\) be any prime power, let \(G=\operatorname{UT}_4(\mathbf F_q)\), and let \(\mathfrak n\) be the associative algebra of strictly upper triangular \(4\times4\) matrices over \(\mathbf F_q\), considered also as a Lie algebra with bracket \([X,Y]=XY-YX\). Write the derived subgroup of \(G\) as
+\[
+G'=\{I+uE_{13}+vE_{24}+wE_{14}:u,v,w\in\mathbf F_q\}.
+\]
+For \(z=I+uE_{13}+vE_{24}+wE_{14}\), let \(N_G(z)\) count ordered pairs \((U,V)\in G^2\) with the group commutator \(U^{-1}V^{-1}UV=z\). For \(Z=uE_{13}+vE_{24}+wE_{14}\), let \(N_{\mathfrak n}(Z)\) count ordered pairs \((X,Y)\in\mathfrak n^2\) with \(XY-YX=Z\). Then, **for every target**, the two fiber sizes are equal:
+\[
+\boxed{N_G(z)=N_{\mathfrak n}(Z)=
+\begin{cases}
+2q^7(q^2-1)+q^8,&u=v=w=0,\\
+2q^7(q^2-1),&u=v=0,\quad w\ne0,\\
+q^7(q^2-1),&(u,v)\ne(0,0).
+\end{cases}}
+\]
+Both commutator maps are surjective onto the displayed derived three-space. Thus, writing \(P(G)\) for the set of sizes of fibers over nonidentity commutators, one has \(|P(G)|=2\) for every finite field. The larger nonidentity fiber belongs exactly to the \(q-1\) nonidentity central elements of \(G'\); the smaller one belongs to the remaining \(q^3-q\) elements. In particular, the complete distribution is uniform on each of these two geometrically defined strata, including in characteristic two.
+
+The group commuting probability, the identity-fiber count divided by \(|G|^2=q^{12}\), is
+\[
+\operatorname{Pr}(G)=\frac{2q^3+q^2-2q}{q^6}.
+\]
+This zero-target specialization is not the asserted new component: the contribution is the **full nonidentity commutator-fiber law**, simultaneously for group and Lie commutators.
+
+## Assumptions and scope
+
+All matrices have entries in an arbitrary finite field \(\mathbf F_q\), without any restriction on its characteristic. The elementary matrix \(E_{ij}\) has its sole nonzero entry at row \(i\), column \(j\). The group \(G\) consists of \(I+X\) with \(X\in\mathfrak n\), and has \(q^6\) elements. Its derived subgroup has order \(q^3\); its center is \(\{I+wE_{14}\}\). A nonidentity commutator means a target other than \(I\). No claim is made about larger unitriangular groups, other group words, or arbitrary class-three groups.
+
+## Proof
+
+Parametrize two strictly upper triangular matrices as
+\[
+X=aE_{12}+bE_{23}+cE_{34}+dE_{13}+eE_{24}+fE_{14},
+\quad
+Y=AE_{12}+BE_{23}+CE_{34}+DE_{13}+EE_{24}+FE_{14}.
+\]
+Here the twelve lowercase/uppercase scalar coefficients are independently arbitrary in \(\mathbf F_q\). Matrix multiplication gives
+\[
+XY-YX=uE_{13}+vE_{24}+wE_{14},
+\]
+where
+\[
+u=aB-Ab,\qquad v=bC-Bc,\qquad
+w=aE-Ae+dC-Dc.
+\]
+First count choices of the six entries \((a,b,c,A,B,C)\) for fixed \((u,v)\). Set \(s=(b,B)\). When \(s\ne(0,0)\), each of \((a,A)\mapsto aB-Ab\) and \((c,C)\mapsto bC-Bc\) is a nonzero linear functional of two variables and hence has exactly \(q\) preimages of each target. There are \(q^2-1\) choices of \(s\), yielding \(q^2(q^2-1)\) choices for every \((u,v)\). When \(s=(0,0)\), both targets vanish and the other four entries are free. Therefore
+\[
+M(u,v)=q^2(q^2-1)+q^4\mathbf1_{\{u=v=0\}}.
+\]
+
+For a fixed six-tuple, the equation for \(w\) is linear in \((d,e,D,E)\), with coefficient vector \((C,-A,-c,a)\). Unless \(a=A=c=C=0\), this is a surjective linear functional, and each \(w\) has \(q^3\) preimages. The exceptional condition \(a=A=c=C=0\) forces \(u=v=0\); it occurs for precisely \(q^2\) six-tuples because \(b,B\) remain free. In each exceptional six-tuple the commutator's last coordinate is identically zero, so there are \(q^4\) preimages at \(w=0\) and none otherwise. The central coordinates \(f,F\) are independently free and contribute a factor \(q^2\). Consequently
+\[
+\begin{aligned}
+N_{\mathfrak n}(Z)
+&=q^2\bigl(q^3(M(u,v)-q^2\mathbf1_{\{u=v=0\}})
++q^6\mathbf1_{\{u=v=w=0\}}\bigr)\\
+&=q^7(q^2-1)+(q^9-q^7)\mathbf1_{\{u=v=0\}}
++q^8\mathbf1_{\{u=v=w=0\}}.
+\end{aligned}
+\]
+Collecting the cases gives the displayed three fiber sizes.
+
+For the group assertion, put \(U=I+X\), \(V=I+Y\), and \(C_0=XY-YX\). The exact matrix identity
+\[
+U^{-1}V^{-1}UV=I+U^{-1}V^{-1}C_0
+\]
+shows that the group commutator's \((1,3)\)- and \((2,4)\)-coordinates are again \(u,v\), while its \((1,4)\)-coordinate is
+\[
+w_{\mathrm{grp}}=w-(a+A)v.
+\]
+Indeed, \((U^{-1}V^{-1})_{12}=-(a+A)\), and all other possible extra products with the degree-two matrix \(C_0\) vanish. For fixed \((a,b,c,A,B,C)\), the group target condition is therefore the same affine surjective equation in \((d,e,D,E)\) as before, merely translated by a constant. Exceptional tuples have \(u=v=w=0\), so the translation is zero and their contributions are identical as well. Thus every group commutator fiber has the same count as its additive Lie counterpart. All counts are strictly positive for \(q\ge2\), proving surjectivity. The indicated subgroup is generated by the commutators of elementary unipotents along consecutive steps, so it equals \(G'\). Its center intersects it in the stated one-dimensional subgroup.
+
+Finally, the total mass check is exact:
+\[
+(q^3-q)q^7(q^2-1)+(q-1)2q^7(q^2-1)
++2q^7(q^2-1)+q^8=q^{12}.
+\]
+Division of the zero-target count by \(q^{12}\) gives the stated commuting probability. Every argument uses only field-linear algebra and upper-triangular multiplication; in particular there is no hypothesis excluding characteristic two.
+
+## Verification
+
+The accompanying standalone `checker.py` exhaustively enumerates both commutator maps over \(\mathbf F_2\) and \(\mathbf F_3\). It calculates the additive bracket from scalar multiplication rules and the group commutator via the asserted coordinate transformation; it also independently multiplies and inverts explicit \(4\times4\) group matrices for every binary pair and a systematic subset of ternary pairs. It verifies all target fibers, the total mass, and the displayed identities. Over \(\mathbf F_4\), independently implemented field multiplication checks every six-variable first-layer fiber and every exceptional-tuple count, which are the two critical general-field enumeration lemmas. The replay returns `VERIFY_OK`.
+
+For \(q=2\), the counts per target are respectively \(1024\) at the identity, \(768\) at the one nonidentity central commutator, and \(384\) at each of six noncentral commutators. For \(q=3\), the corresponding counts are \(41553\), \(34992\) at each of two central nonidentity targets, and \(17496\) at each of 24 noncentral targets. The exact proof, not these finite checks, establishes the formulas for every prime power.
+
+## Relationship to prior work
+
+Naik's study of commutator-word fiber distributions proves uniformity of nonidentity fibers for class-three groups with **exactly two** conjugacy class sizes and studies how many distinct fiber sizes can occur for certain class-two groups. The degree-four unitriangular group has several distinct noncentral conjugacy class sizes; its two nonidentity fiber levels do not follow from that theorem. The complete formulas above answer the same natural fiber-distribution question in a different, explicit class-three family.
+
+Kaur, Sharma and Singh compute branching rules and probabilities of *commuting tuples* in unitriangular groups of degrees three, four and five, under the assumption that \(q\) is odd. Their Section 6 and Appendix B describe centralizers and conjugacy classes; their Section 8 gives the zero-commutator probability but no sizes of fibers over prescribed nonidentity commutators. The first column of their Theorem 6.1 sums to \(2q^3+q^2-2q\), consistent with the zero fiber above. Their arXiv version 1, Section 8, displays \((2q^3-1)/q^6\) for that probability, which differs from both this first-column sum and direct counting. This comparison concerns the stated numerical identity only; the present result does not claim to establish any wider flaw. The new content is the uniform two-level **nonzero** law over every finite field.
+
+A separately published exact commutator-fiber computation for generalized Kronecker path algebras concerns a different associative algebra whose radical has square zero, while the present strictly triangular algebra has nonzero products of length three. That result does not imply these group or Lie commutator fibers. The same applies to published adjoint-rank spectra of certain maximal-class filiform Lie algebras: those spectra count ranks of linear adjoints, not prescribed commutator values in this class-three matrix algebra.
+
+## Limitations
+
+This is a complete distribution for degree-four unitriangular groups, not a classification for arbitrary degree or arbitrary nilpotency-class-three groups. Conjugacy classes and other word maps are not enumerated. A broader existing theorem under different terminology might imply the nonzero-fiber formulas; the cited searches and full-text comparisons cannot rule out every such possibility. The 2015 Nath--Yadav article on general commutator-word distributions was not accessible in complete form; its abstract emphasizes groups with two conjugacy class sizes, which do not include these unitriangular groups, but that access limitation remains a bibliographic risk.
+
+## References
+
+1. T. K. Naik, *On the probability distribution associated to commutator word map in finite groups II*, arXiv:1805.00091v1, first public version 30 April 2018, subsequent version 24 September 2018; *Communications in Algebra* 47 (2019), 3808–3817. Primary MSC 20D60.
+2. D. Kaur, U. B. Sharma and A. Singh, *Branching rules and commuting probabilities for Triangular and Unitriangular matrices*, arXiv:2006.01493v1, first public version 2 June 2020; *Journal of Algebra and Its Applications* 21 (2022), no. 11, 2250231.
+3. R. K. Nath and M. K. Yadav, *On the probability distribution associated to commutator word map in finite groups*, *International Journal of Algebra and Computation* 25 (2015), 1107–1124, DOI 10.1142/S0218196715500320.
+4. Published work *Commutator fibers and commuting probabilities of finite Kronecker path algebras* (2026), publicly accessible in the published-finding corpus repository, `2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d/RESULT.md`.
