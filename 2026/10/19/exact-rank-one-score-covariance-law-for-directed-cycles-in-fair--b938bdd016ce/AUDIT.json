@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each vertex v, conditioning on D_v=d leaves all nonincident orientations independent fair, so every directed ell-cycle through v has d(m-d)(m-2)_{ell-3} candidate internal orders with probability 2^{-(ell-2)}. Linearity and binomial identities establish all exact covariance formulas. The rank is one because all rows are positive multiples of ell=3 and a nonzero entry exists. Positive prefactors, centered-binomial algebra and unimodality establish the exact bin and threshold signs. Exact exhaustive exact enumeration through six vertices validates 90 covariance entries; 89,996 further finite sign checks support but are not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Linial and Morgenstern, arXiv:1405.1576, examine extremal 4-cycle versus 3-cycle densities in deterministic tournaments.",
+        "Butts 2006 summary concerns cycle-count statistics in exponential random directed-graph models, but the complete text was inaccessible; its full generality cannot be resolved.",
+        "The relevant conditioned vertex has binomial outdegree and other edges remain independent only in the fair tournament model.",
+        "Kuo et al. (2019), Theorem 1.4, establishes shifted-sieve bounds for tournaments with given cycle count, but does not condition on vertex outdegree."
+      ],
+      "reasoning": "General extremal cycle counts are not probabilistic covariances. Directed graph Bernoulli edge models with independently present ordered arcs are not automatically random tournaments with exactly one orientation per undirected edge. A sufficiently general graph-motif projection theorem might nonetheless imply the rank-one covariance after specialization; this is an explicit residual risk.",
+      "searches": [
+        "\"conditional expected number of directed Hamilton cycles given one vertex outdegree random tournament\"",
+        "\"random tournament\" \"number of cycles\" \"score\" expectation",
+        "\"covariance directed cycle census score histogram uniform random tournament rank one orthogonal projection\"",
+        "Butts (2006) Cycle Census Statistics for Exponential Random Graph Models",
+        "Kuo et al. 2019 The Shifted Turán Sieve Method on Tournaments Theorem 1.4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.1576 (full open paper, selected primary sections)",
+      "arXiv:1410.6828 (full open paper, selected theorems/appendix)",
+      "Butts 2006 (public summary/abstract only; full source inaccessible)",
+      "Kuo et al. 2019, Theorem 1.4 (open primary PDF)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Linial–Morgenstern: asymptotic four-cycle extremal bounds given cyclic-triple density.",
+        "Komarov–Mackey Theorem 2.1: a deterministic edge-score identity for five-cycles; their Appendix supplies motif-incidence calculations.",
+        "The new theorem relies on exact conditional orientation independence and proves an all-length equality of covariances with arbitrary degree-class functions, as well as threshold signs."
+      ],
+      "reasoning": "Neither inspected theorem as stated implies the all-length conditional expectation: extremal bounds do not identify random conditional moments, and an edge-score identity for ell=5 is not a formula for ell=3..n. The classical degree-determined triangle identity alone does not imply Cov(C_ell,H_f) is proportional for ell>3. A general unpublished/older theorem could still subsume the claim.",
+      "searches": [
+        "arXiv:1405.1576v1 On the number of 4-cycles in a tournament",
+        "arXiv:1410.6828v3 On the number of 5-cycles in a tournament",
+        "\"random tournament\" \"score sequence\" \"cycle\" variance",
+        "\"random tournament directed 4-cycles number determined by score sequence\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Komarov and Mackey, arXiv:1410.6828, Theorem 2.1: deterministic 5-cycle count in edge scores A,B,C,D, rather than score-bin random covariances.",
+        "Their Section 3 explicitly discusses how the edge-score formula does not extend naively to 6-cycles.",
+        "The exact 3-cycle count is classically determined by vertex outdegrees; this does not state proportionality for longer cycles."
+      ],
+      "reasoning": "The 5-cycle edge-score formula encodes finer local orientation counts than the degree histogram and is a genuinely close precursor. The proposed theorem applies conditional-degree enumeration uniformly at every directed-cycle length and yields signed bin/threshold covariances and exact rank-one cross covariance, none stated by the inspected theorem. A nontrivial implicit derivation from the edge-score formula cannot be ruled out.",
+      "searches": [
+        "\"random tournament\" \"score\" \"covariance\" \"cycle\"",
+        "\"random tournament\" \"covariance\" \"cycles\" \"degrees\"",
+        "\"tournament\" \"Hoeffding decomposition\" cycles degree",
+        "arXiv:1410.6828v3 Section 2.1 Theorem 2.1 and Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Komarov–Mackey derive fixed-length 5-cycle counts by edge-score polynomial and a 12-class 5-vertex tournament table, not a table of random score covariances.",
+        "The 3-vertex cycle count is score-determined, but a class count of labeled tournaments through a finite order would not prove the infinite covariance identity."
+      ],
+      "reasoning": "No exact score-histogram-by-cycle-length covariance table or binomial threshold law was identified among inspected data. The theorem is valid uniformly in n and ell and is not a recomputation of a finite motif-census table. Noncoverage is a best-knowledge conclusion, not uniqueness certification.",
+      "searches": [
+        "\"tournament 3-cycles 4-cycles degree sequence universal proportional covariance\"",
+        "\"tournament\" \"score sequence\" \"covariance\" \"directed cycles\"",
+        "\"score sequence directed cycles all lengths zero covariance binomial outdegree threshold\"",
+        "arXiv:1410.6828 Theorem 2.1"
+      ]
+    },
+    "rationale": "Compared directly to 2014 Linial–Morgenstern extremal 4-cycle analysis and the 2014 Komarov–Mackey deterministic 5-cycle edge-score identity, the all-length rank-one covariance with arbitrary vertex-degree statistics and complete score-sign phase laws were not stated or deduced directly. Kuo et al. (2019) derive cycle-count multiplicity bounds rather than joint-score identities. Relevant general cycle-census methods remain a documented implicit-coverage risk. The originality judgment is evidence-limited and not independently certified.",
+    "residual_risks": [
+      "Implicit special-case derivation from Komarov–Mackey edge-score polynomial or an earlier general motif-projection identity.",
+      "Full text of C. T. Butts (2006) could not be inspected, so exact implications remain unresolved.",
+      "Comparison is scientific best knowledge, not human priority or publication certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Extremal bound at prescribed 3-cycle count; not finite joint covariances between random cycle counts and score histogram.",
+        "evidence": "N. Linial and A. Morgenstern, arXiv:1405.1576v1 (2014-05-07), primary introduction/theorems.",
+        "identifier_or_url": "https://arxiv.org/abs/1405.1576",
+        "material_read": "Public arXiv paper: abstract, introduction, extremal 4-cycle inequalities and proof context; publication chronology verified against arXiv v1.",
+        "method": "Direct reading of arXiv open full text, comparison of statements and parameter scope.",
+        "title": "On the number of 4-cycles in a tournament",
+        "trigger": "Same motif family: directed 3- and 4-cycles, potential stronger deterministically conditioned results."
+      },
+      {
+        "assessment": "Deterministic 5-cycle count in edge scores, not equal to degree bins; does not state a rank-one random-tournament covariance across all lengths. Potential implicit special-case derivation remains possible.",
+        "evidence": "N. Komarov and J. Mackey, arXiv:1410.6828, Theorem 2.1 and Section 3; original public preprint 2014-10-24.",
+        "identifier_or_url": "https://arxiv.org/pdf/1410.6828",
+        "material_read": "Full open PDF opened; inspected introduction, Theorem 2.1 and definition of edge scores, derivation and table through Section 2, Section 3 limitations and Appendix start.",
+        "method": "Read mathematical PDF text and viewed page images for Theorem 2.1 and its factorization.",
+        "title": "On the number of 5-cycles in a tournament",
+        "trigger": "Exact cycle formula in edge scores could potentially dominate fixed-length covariance calculations."
+      },
+      {
+        "assessment": "Unresolved source-level comparison; Bernoulli directed graph settings are not clearly interchangeable with constrained tournament arcs. Priority risk retained.",
+        "evidence": "C. T. Butts (2006), item title and public repository metadata; no claim of whole-text coverage.",
+        "identifier_or_url": "https://escholarship.org/uc/item/4719h8d2",
+        "material_read": "Only bibliographic public summary/abstract-level material; repository full text unavailable.",
+        "method": "Repository and alternate open-access discovery; full material could not be accessed.",
+        "title": "Cycle Census Statistics for Exponential Random Graph Models",
+        "trigger": "Potential general second-order cycle-count moment theorem under a random digraph law."
+      },
+      {
+        "assessment": "Upper bounds for the number of tournaments having exactly k restricted r-cycles, not covariance with outdegree histogram or conditional degree results.",
+        "evidence": "Kuo, Liu, Ribas, and Zhou (2019), Canadian Mathematical Bulletin 62, Theorem 1.4.",
+        "identifier_or_url": "https://doi.org/10.4153/S000843951900016X",
+        "material_read": "Open full-paper PDF introduction, the shifted sieve setup, theorem 1.4 and its specified random-tournament counting quantities were read.",
+        "method": "Open-access publisher PDF text and visual inspection of Theorem 1.4.",
+        "title": "The Shifted Turán Sieve Method on Tournaments",
+        "trigger": "General cycle-count distribution bounds over all tournament orientations might dominate a finite covariance claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b938bdd0-16ce-4e03-89df-9c091a1a7d9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full directed-cycle count vector and the vertex outdegree histogram are central diagnostics of random tournament orientation. Their exact cross-covariance matrix has rank one, uniformly for all lengths and sizes: a structural dimension collapse, not routine marginal enumeration. Every additive score-statistic adjustment reduces to triangles, while exact score-class and cumulative-threshold signs (including square-order zeros) give naturally complete dependence classifications. The result explicitly avoids stronger stochastic-independence claims.",
+    "status": "PASS"
+  }
+}
