@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each ordered word of r independent binary row indices, composing exact complex reflections yields the alternating-sign exponent S and its full binomial law. Even r: the half-average is multiplication by e^{iSθ}cos(Sθ), so zero occurs exactly at an integer-angle resonance and first hit is geometric. Odd r: the half-average is P onto the virtual line L_{Sθ}; after the first surviving step, zero occurs iff consecutive axes are perpendicular. Positive support on each integer in an interval of width r gives a necessary-and-sufficient resonance condition and almost-sure stopping by independent disjoint pair trials. Reduced-denominator arithmetic gives the sharp r cutoffs. The killed substochastic matrix yields the generic initial survival distribution and finite expected hitting time; explicit rational inversions give 61/9 and 36. Standalone exact symbolic matrix checker verifies 508 full reflection-word identities at two benchmark angles and the rational Markov computations. General statements are proved analytically, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2207.04291v4, Theorems 3.1, 3.5: global mean-square and mean-iterate convergence estimates; these do not imply zero error at any finite iterate",
+        "arXiv:1604.04657: sufficient finite-convergence results for fixed two-set Douglas–Rachford under geometric conditions; stochastic r-fold reflection bundles differ",
+        "arXiv:2310.17077, Theorem 2.2 and two-line discussion: deterministic planar two-cone finite convergence, not random fresh virtual axes"
+      ],
+      "reasoning": "The primary source covers the randomized algorithm broadly but its decay inequality cannot imply an almost-sure stopping law or characterize the parity-sensitive arithmetical exceptional angles. Fixed-operator finite convergence theorems address other operator products and assumptions; neither implies the binomial support conditions or first-passage formula.",
+      "searches": [
+        "Randomized Douglas Rachford methods for linear systems Han Su Xie 2022 exact stability cycles random reflections angle probability",
+        "RrDR Han Su Xie 2207.04291 finite-step exact termination with positive probability geometric hitting time two hyperplanes",
+        "Douglas Rachford finite convergence two lines cones random reflections"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2207.04291",
+      "https://arxiv.org/pdf/2207.04291",
+      "https://arxiv.org/pdf/1309.4709",
+      "https://arxiv.org/pdf/1604.04657",
+      "https://arxiv.org/pdf/2310.17077"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2207.04291, Section 3, concludes linear convergence in expectation under full rank; at nonresonant angles the theorem here simultaneously has infinite first-solution time almost surely, so convergence does not settle exact stopping",
+        "arXiv:1309.4709, Section 5, fixed deterministic DR for two lines exhibits no finite termination for acute angles; at angle π/4 the randomized three-reflection bundle here stops almost surely with exact mean 61/9",
+        "arXiv:2310.17077, Theorem 2.2, deterministic two-cone operator has fundamentally different fixed-set hypotheses"
+      ],
+      "reasoning": "The implication test is substantive: asymptotic upper bounds do not imply an atom at the zero map; fixed standard Douglas–Rachford uses a repeated identical two-reflection word and cannot realize random odd-length projection axes. For example, at π/4 fixed two-line DR is nonzero at every finite time while the r=3 random bundle hits zero almost surely. Thus no examined prior statement subsumes the parity criterion or killed-chain exact time distribution.",
+      "searches": [
+        "randomized Douglas Rachford two lines random reflection mean-square exact contraction eigenvalues and optimal relaxation",
+        "Han Su Xie randomized r-sets Douglas Rachford finite termination arithmetic angle dichotomy",
+        "fixed Douglas Rachford two subspaces convergence cosine Friedrichs angle finite termination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2207.04291v4, Algorithm 1, Section 3, and Appendix: independently sampled reflected row actions and expectation bounds; no finite stopping classification in inspected text",
+        "arXiv:1309.4709, Section 5: deterministic two-line Douglas–Rachford acts as a nonzero cosine-angle rotation, not a random product of virtual-line projections"
+      ],
+      "reasoning": "For an odd-length reflection word, its half-average becomes an orthogonal projection onto a line indexed by an alternating binomial word sum; exact absorption then depends on perpendicular consecutive virtual lines. Even-length bundles are complex scalar contractions that become zero only at an integer resonance. These separate mechanisms and their binomial supports are not given by a standard fixed-two-line iteration formula.",
+      "searches": [
+        "randomized r-sets Douglas Rachford finite stopping geometric distribution 2 hyperplanes",
+        "two-row randomized RrDR reflection bundle parity exact finite termination resonance theta rational planar angle hitting time",
+        "orthogonal consecutive random line projections finite termination rational angle reflection bundles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full text of arXiv:2207.04291 contains Algorithm 1 and convergence experiments, not a tabulation of integer support resonances or the rational waiting-time values 61/9 and 36",
+        "The inspected deterministic two-line references arXiv:1309.4709 and arXiv:2310.17077 do not tabulate random-bundle first-passage times"
+      ],
+      "reasoning": "The exact sample support law and stopping-time values follow from a newly specified finite-state killed chain; the inspected literature did not contain the same table or a more general table from which it follows. Search incompleteness is explicitly retained as a residual risk.",
+      "searches": [
+        "randomized r-sets Douglas Rachford reflection bundle exact expectation hitting time pi/4 pi/6",
+        "random products of reflections alternating projection two lines binomial support finite termination perpendicular sampled lines",
+        "finite termination randomized r-sets Douglas Rachford planar lines reflected projectors odd r resonance angle rational 90 degrees"
+      ]
+    },
+    "rationale": "The claim concerns almost-sure exact finite hitting times of fresh uniformly sampled reflection bundles on two planar equations, with sharp parity and rational-angle denominator thresholds and an explicit killed-transition Markov law. The source develops the same randomized operator but provides expectation/mean-iterate convergence bounds rather than finite-step hitting classification. Material inspection of the cited fixed two-set Douglas–Rachford finite convergence and two-line rate papers found distinct dynamics. Record searches for aliases, orthogonal virtual projections, integer angle resonances, random reflection words and hitting times did not locate a stronger implication. Residual risk of unindexed equivalent formulations remains.",
+    "residual_risks": [
+      "Semantic searches and inspected texts cannot prove absolute bibliographic uniqueness; a specialized unindexed random alternating-projection formulation may exist.",
+      "Bibliographic comparison is not an independent audit; no empirical floating-point stopping claim is intended."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm exactly matches sampled reflection bundles at half relaxation; its stated theorems give expected-error and mean-iterate rates, not an exact almost-sure finite stopping classification",
+        "evidence": [
+          "Algorithm 1, page 8; Theorem 3.1, pages 8–9; Theorem 3.5, page 10; arXiv first public submission 2022-07-09"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.04291",
+        "material_read": "Article setup, Algorithm 1 page 8, Theorems 3.1 and 3.5, discussion of stochastic extragradient and reported convergence results",
+        "method": "Read source full text with targeted theorem and algorithm passage inspection and page image of Algorithm 1",
+        "title": "Randomized Douglas–Rachford Methods for Linear Systems: Improved Accuracy and Efficiency",
+        "trigger": "Same algorithm, same uniform two-row sampling special case; most likely source of covering statement"
+      },
+      {
+        "assessment": "Fixed two-line DR has a rotation-contraction rate and no nontrivial finite hit at acute nonperpendicular angles; cannot imply randomly sampled odd-r virtual-axis absorption",
+        "evidence": [
+          "arXiv:1309.4709, Section 5, two-line formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1309.4709",
+        "material_read": "Sections on subspace convergence operators and Section 5 two lines in the Euclidean plane",
+        "method": "Full-text theorem/section inspection and page-image examination",
+        "title": "The rate of linear convergence of the Douglas–Rachford algorithm for subspaces is the cosine of the Friedrichs angle",
+        "trigger": "Deterministic two-line DR could seem to dominate a planar reflection statement"
+      },
+      {
+        "assessment": "The finite convergence statements concern deterministic two-set iterations and special geometric hypotheses, not independent r-row reflection words",
+        "evidence": [
+          "arXiv:1604.04657, deterministic fixed-operator formulation and finite-convergence theorem assumptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.04657",
+        "material_read": "Introduction, fixed two-set operator and finite-convergence assumptions/results",
+        "method": "Open-access full-text inspection of main theorem scope and hypotheses",
+        "title": "On the finite convergence of the Douglas–Rachford algorithm for solving (not necessarily convex) feasibility problems in Euclidean spaces",
+        "trigger": "Finite convergence is explicit in title and may contain covering geometric conditions"
+      },
+      {
+        "assessment": "Deterministic two-cone DR finite-convergence criterion does not include independent random reflection bundles or a killed Markov chain; it explicitly distinguishes the nonfinite intersecting-line case",
+        "evidence": [
+          "arXiv:2310.17077, Theorem 2.2 and discussion of two nonperpendicular lines"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.17077",
+        "material_read": "Planar results including Theorem 2.2 and text distinguishing deterministic intersecting lines",
+        "method": "Read open-access PDF theorem and geometric case passages",
+        "title": "Douglas–Rachford is the best projection method",
+        "trigger": "Paper contains explicit finite-convergence statements for planar cones including lines"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a9c4b2fa-7a56-4235-a44b-c0d757f72f0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An expectation-convergent randomized feasibility algorithm can have either zero probability of exact finite success or probability one, according to a dense arithmetic condition on the planar row angle. The theorem specifies the sharp parity-sensitive minimum reflection budget, resolves exact finite hitting for all block lengths and angles in its domain, and determines a nontrivial first-passage distribution and resource-cost comparison (61/3 versus 32 row reflections at π/4). Exact stopping and robustness boundaries matter for whether finite arithmetic termination is possible in this projection method, beyond textbook contraction estimates; the explicit nonrobustness to angle perturbation is disclosed.",
+    "status": "PASS"
+  }
+}

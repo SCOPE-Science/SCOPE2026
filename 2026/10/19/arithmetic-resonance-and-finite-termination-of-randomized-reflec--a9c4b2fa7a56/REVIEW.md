@@ -1,0 +1,11 @@
+# Scientific review: Arithmetic resonance and finite termination of randomized reflection bundles
+
+**Correctness — PASS.** The source algorithm, exact matrix form, and quantifiers were reconstructed. Complex reflection composition gives an alternating binomial exponent; even reflection bundles average to a scalar rotation-contraction, while odd ones average to random rank-one projections. An integer cosine zero yields the complete stopping criterion and a positive-probability disjoint-pair argument establishes almost-sure finite hitting in the odd case. Exact finite-state killed-chain algebra gives the full generic-start survival law, including rational expectations \(61/9\) and \(36\). The standalone symbolic checker verifies 508 word identities for seven lengths and two exact angles. The infinite/all-angle claims are supplied by proof, not by enumeration.
+
+**Originality — PASS.** The closest algorithmic primary source is Han–Su–Xie, arXiv:2207.04291, Algorithm 1 and Section 3. Its expectation and mean-iterate rates do not determine finite hitting, much less the angle-denominator parity cutoffs or the exact killed-chain law. Bauschke et al., arXiv:1309.4709, treat the fixed two-line operator; Bauschke–Dao, arXiv:1604.04657, and Dao et al., arXiv:2310.17077, address fixed two-set geometric finite convergence rather than independent random reflection bundles. Searches for aliases, angle resonances, virtual axes, finite stopping, and exact first-passage laws found no covering statement; unindexed equivalent results remain a bibliographic risk.
+
+**Value — PASS.** This gives a complete natural classification of exact finite solution attainment for a published, expectation-convergent randomized solver in its two-row model. The odd-versus-even budget thresholds and the expected cost comparison at angle \(\pi/4\) show a meaningful algorithmic structure not conveyed by norm convergence rates. The exact-precision, two-dimensional and angle-perturbation limitations are explicit.
+
+**Limits.** Two consistent planar equations, normalized rows, independent replacement sampling, half relaxation, exact arithmetic, no momentum; neither general higher-dimensional behavior nor numerical tolerance performance is proved. Independent external validation is absent.
+
+Self-review: passed. Independent audit: not yet performed.
