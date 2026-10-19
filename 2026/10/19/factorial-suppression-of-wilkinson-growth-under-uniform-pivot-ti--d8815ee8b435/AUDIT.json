@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The selected lower-row minor invariant, determinant 2^(k-1), prospective pivot comparison 2 versus 2^(1-k), and explicit final-column residual prove that the first non-natural pivot fixes G at 2^j for every possible future tie history. Probability products then yield the complete law and mean. Exact rational exhaustive state enumeration (orders 2–9; 576 transitions) independently matches all atoms/tails; the proof, not enumeration, justifies all dimensions. n=2 and the final two-row exception are handled explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shah and Urschel, arXiv:2608.19189, Theorems 1.1–1.5: sparse extremal growth, low-growth permutations, and a different weighted randomized-pivot example.",
+        "Higham and Higham, 1989, Theorem 2.2: classification only for growth exactly equal to the exponential upper bound.",
+        "Spielman and Yu, arXiv:2610.08701: random Gaussian input matrices, not uniform ties of a fixed discrete matrix."
+      ],
+      "reasoning": "Neither an existence theorem for low-growth row orders nor a worst-case theorem under weighted pivots determines the law of uniform tied pivots. The known maximal-growth characterization can support one endpoint event, but does not determine all intermediate masses, the mean, or the post-first-deviation structural invariant.",
+      "searches": [
+        "published-finding corpus: Random row permutation of Wilkinson matrix growth factor Gaussian elimination pivoting average case",
+        "Web: partial pivoting randomized ties geometric exact distribution Wilkinson",
+        "Web: Wilkinson matrix tie breaking growth factorial probability partial pivoting"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.19189v1, Shah–Urschel, full relevant sections",
+      "Higham–Higham 1989, Theorem 2.2 open-access PDF",
+      "Numerical Linear Algebra essay on competing Wilkinson tie rules",
+      "Numerical Linear Algebra essay on Gaussian perturbations",
+      "arXiv:2610.08701v1 abstract only",
+      "Public published-finding corpus semantic searches on random ties, growth probabilities, Wilkinson, and row permutations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shah–Urschel explicitly describe the conventional \\(2^{n-1}\\) example, but their randomized partial pivoting is magnitude-power-weighted on other matrices and yields a worst-case lower bound, not this full law.",
+        "Higham–Higham prove exact-maximal-growth classification; a path-length distribution for the specific uniform-tie policy requires proving every first non-natural pivot terminates the doubling cascade.",
+        "“The order the greedy rule cannot choose” demonstrates opposing deterministic tie choices and cyclic row order; it does not imply the factorially weighted law without enumerating all conditional pivot ties."
+      ],
+      "reasoning": "The result is not a corollary merely by substituting parameter values in an existing random-matrix law: the measure is on decisions, conditional on changing exact ties. The key new implication is that any first non-natural pivot fixes subsequent growth at precisely twice the current last-column size; this supplies every survival probability and mean.",
+      "searches": [
+        "published-finding corpus: Entry growth in Gaussian elimination Shah Urschel 2026 tie-breaking Wilkinson matrix sparse pivot random",
+        "Web: Higham Higham 1989 matrices with largest growth factor partial pivoting pdf",
+        "Web: random tie breaking partial pivoting Wilkinson matrix expected growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Higham and Higham, 1989, Theorem 2.2 describes full worst-case growth matrices, not the probability law of tied pivot choices.",
+        "The numerical exposition “A worst case is as fragile as its margin” studies Gaussian entry perturbations with median growth 2, not conditional uniform exact-tie decisions.",
+        "No matching exact-distribution statement was located in the returned research records or targeted literature."
+      ],
+      "reasoning": "Equivalent names searched include random tie resolution, random pivot ties, and Wilkinson growth. The actual sample space is the set of legal maximum-absolute pivots at each step, not random rows chosen without the partial-pivot constraint. The first-natural-pivot survival law and the minor classification give content beyond qualitative fragility.",
+      "searches": [
+        "published-finding corpus: Wilkinson matrix uniformly tie-broken partial pivoting exact growth distribution P(G=2^k)=(n-k)/(n)_k and probability 2/n! maximal exponential growth; mean tends to 2",
+        "Web: \"Wilkinson matrix\" \"random tie-breaking\" growth factor",
+        "Web: \"Wilkinson\" \"random tie-breaking\" \"partial pivoting\" distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public records concerned multistage adaptive randomized pivoting error products and one-step complete-pivot ACA growth, which are different objects.",
+        "The accessible numerical exposition enumerates deterministic row orders at small dimensions but contains no tabulation of the precise conditional uniformly tie-broken growth law."
+      ],
+      "reasoning": "The claimed table is symbolic for every integer dimension, not a numerical lookup. No exact database row or stronger tabulated result was located; this absence alone is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Exact finite n distribution geometric doubling depth and factorial tail Wilkinson growth under uniform tie pivots",
+        "published-finding corpus: Sharp expected growth random pivot ties in Wilkinson matrix under partial pivoting",
+        "Web: \"Wilkinson matrix\" \"factorial\" pivoting probability",
+        "Web: site:github.com/published-finding corpus/2026 \"Gaussian elimination\" \"growth factor\" \"random tie\""
+      ]
+    },
+    "rationale": "The new claim is the complete finite-n probability law, survival function, exact expectation and factorial catastrophic tail of uniform maximum-magnitude tie breaking on the classical Wilkinson matrix. Higham–Higham (1989) classify full worst-case attainment, Shah–Urschel (2026) establish sparse and alternative randomized partial-pivot worst-case phenomena, and accessible numerical expositions compare deterministic tie policies and perturbed data. These prior claims do not directly state or logically imply the full uniform-tie law without the new post-deviation Schur/minor classification. Searches of mathematical records and public literature did not reveal an exact equivalent. Residual risk: classic textbook or unindexed equivalent may exist.",
+    "residual_risks": [
+      "The research literature may contain unindexed formulations of the same finite Wilkinson tie law or an implicit equivalent in a general permutation enumeration.",
+      "The recent Gaussian-input growth paper was inspected only at abstract level; although its model is distinct, a related example in its full text is not excluded.",
+      "The precise exact-arithmetic uniform-tie policy differs from practical hardware default ties and infinitesimal additive noise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Wilkinson deterministic growth, sparse worst-case, and weighted randomized partial pivoting are treated; no exact uniform-tie distribution appears in inspected relevant sections. Uninspected portions are not represented as fully ruled out.",
+        "evidence": [
+          "Theorems 1.1 and 1.5, Sections 2 and 5; arXiv:2608.19189v1, first public 2026-08-19."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.19189",
+        "material_read": "Abstract, Introduction, Theorems 1.1–1.5, Section 2 including Wilkinson example and sparse construction, and Section 5 including weighted randomized-pivot Markov chain",
+        "method": "read arXiv HTML theorem statements, definitions, relevant proof portions and equations",
+        "title": "Entry growth in Gaussian elimination",
+        "trigger": "2026 motivating primary numerical-analysis paper and closest modern worst-case random-pivot study"
+      },
+      {
+        "assessment": "Theorem 2.2 characterizes attaining maximal growth and not a distribution for uniformly tie-selected legal row pivots. Its extremal condition is acknowledged as prior.",
+        "evidence": [
+          "Theorem 2.2; SIAM J. Matrix Anal. Appl. 10 (1989), pp.155–164."
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/356/1/0610012.pdf",
+        "material_read": "Abstract, introductory growth-factor examples (PDF pages 2–3) and full Theorem 2.2 plus its proof (PDF page 7, journal page 160)",
+        "method": "open-access PDF parsed-text review and visual page inspection",
+        "title": "Large Growth Factors in Gaussian Elimination with Pivoting",
+        "trigger": "Classical characterization potentially covering the exponential endpoint"
+      },
+      {
+        "assessment": "Numerically and qualitatively establishes an important dichotomy of deterministic pivot orders, but does not derive conditional uniform pivot probabilities for each exponent.",
+        "evidence": [
+          "“The tie that looks like the mechanism”, “The matrix built to defeat it”, “What the last column is doing”."
+        ],
+        "identifier_or_url": "https://www.numerical-linear-algebra.com/essays/the-order-the-greedy-rule-cannot-choose/",
+        "material_read": "Sections on Wilkinson matrix, first-versus-last deterministic tie selection, exhaustive row-order tests and limitations",
+        "method": "read publicly accessible HTML essay",
+        "title": "The order the greedy rule cannot choose",
+        "trigger": "Explicit discussion of Wilkinson matrix tie-breaking and row-order optimization"
+      },
+      {
+        "assessment": "Measured Gaussian perturbation behavior; cannot be equated with exact discrete random tie-breaking, and contains no corresponding finite-n distribution.",
+        "evidence": [
+          "“Wilkinson’s growth does not survive the last digit” and “What was not measured”."
+        ],
+        "identifier_or_url": "https://www.numerical-linear-algebra.com/essays/a-worst-case-is-as-fragile-as-its-margin/",
+        "material_read": "Full discussion of Wilkinson finite-precision perturbation experiments and relevant limitations",
+        "method": "read publicly accessible HTML essay",
+        "title": "A worst case is as fragile as its margin",
+        "trigger": "Potential probabilistic counterpart to random tie resolution"
+      },
+      {
+        "assessment": "Random Gaussian inputs are a different probability space from exact Wilkinson matrix with uniform tie pivots; the paper has not been cleared at full-text level.",
+        "evidence": [
+          "Abstract dated 2026-10-06 states inverse quasi-polynomial lower bounds for Gaussian random matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08701",
+        "material_read": "Abstract and public source description only; full HTML unavailable in this session",
+        "method": "arXiv record and abstract, no full-document coverage determination",
+        "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Random Matrices",
+        "trigger": "2026 random growth tail bound potentially dominating a specific law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8815ee8-b435-4bba-8d3d-4f46bef5b4e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A central example in numerical linear algebra changes from deterministic exponential growth to an exact distribution with factorial worst-case probability and mean tending to two under a natural unbiased tie-resolution rule. The result identifies the full risk profile, not merely one favorable row ordering or a known fact of generic smoothed stability; the role of conditional ties is mathematically and algorithmically motivated.",
+    "status": "PASS"
+  }
+}
