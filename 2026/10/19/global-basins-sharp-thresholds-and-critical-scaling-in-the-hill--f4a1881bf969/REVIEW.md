@@ -1,0 +1,11 @@
+# Review of the Hill-feedback phase portrait
+
+**Correctness — PASS.** The result is a theorem for the exact positive rational map. The proof first reduces fourth iterates to two copies of an increasing scalar map. A strictly negative Schwarzian shows that the latter has at most three fixed points; fixed-point slopes identify precisely the parameter transition. Monotonicity establishes every basin. The sinh identity establishes hyperbolicity, the cubic critical jet proves the universal inverse-square relaxation, and a uniform local expansion proves the supercritical square-root coefficient. The attached standard-library checker passed 208 finite diagnostics, which are not substituted for proof of infinite statements.
+
+**Originality — PASS, with remaining priority risk.** Ohmori–Yamazaki (arXiv:2305.05908) introduced the exact map and classified cycles for its distinct max-plus limit. Yamazaki–Ohmori (arXiv:2306.00733) previously displayed eight fourth-iterate points for selected rational-model parameters and numerically tracked their stability; these observations are acknowledged, not claimed as fresh. The exact full positive-plane basins and stable separator for all real \(m>1\), exact critical \(n^{-1/2}\) coefficient, and parameter amplitude were not found in the inspected full texts or actual mathematical-results searches. Full access to the related Gibo–Ito 2015 paper was unavailable, so equivalent earlier coverage is an unresolved literature risk, not a claim of proved priority.
+
+**Mathematical value — PASS.** A complete basin classification, a sharp critical relaxation law and precise cycle splitting are structurally informative for the canonical saturating-feedback limit studied in the 2023 literature. They distinguish local periodic-orbit detection from global dynamics and provide quantitative benchmarks for critical numerical regimes.
+
+**Limits.** The theorem concerns the strictly positive, exact infinite-time-step rational map, not finite-step tropical or max-plus perturbations. The critical and bifurcation coefficients are pointwise asymptotics. Independent priority and scientific validation are unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
