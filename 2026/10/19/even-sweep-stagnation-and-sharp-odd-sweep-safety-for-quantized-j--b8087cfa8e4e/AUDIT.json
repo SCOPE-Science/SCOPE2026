@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "From the zero-start inner recurrence the outer error operator is I-C_k(I+rP). Symmetry gives exact scalar modes. The two case inequalities, including the convex chord estimate for t^j, prove the sharp contraction plateau; endpoint eigenvectors prove stagnation and the necessary bipartite threshold. Binary midpoint and graph eigenstructure are exact. A standalone rational verifier passed 29,781 supporting checks; finite testing does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.06414 proves normwise perturbation bounds for stationary iteration and unperturbed exact-arithmetic restart equivalence, but it does not classify fixed-length quantized Jacobi correctors.",
+        "arXiv:2007.06628 observes that a low-precision SPD matrix can lose definiteness, while analyzing multigrid V-cycles rather than the Jacobi polynomial studied here.",
+        "arXiv:2505.20719 uses nested FGMRES/Richardson and recommends short low-precision inner runs, without an exact stochastic-graph parity phase diagram."
+      ],
+      "reasoning": "General mixed-precision iterative-refinement and multigrid frameworks cover qualitative conditioning risk and algorithms but do not imply the exact sharp all-dimension odd/even operator-norm and convergence thresholds without a new spectral-polynomial argument. The broad known phenomenon is excluded from the novelty claim.",
+      "searches": [
+        "low precision off diagonal Jacobi iterative refinement rounded coupling to one singular preconditioner even inner sweeps parity stagnation",
+        "restarted stationary mixed precision Jacobi inner iteration parity even odd eigenvalue minus one quantized singular operator",
+        "mixed precision restarted stationary iterative refinement off diagonal rounding parity inner iterations Jacobi stagnation 2026 2025",
+        "arXiv:2610.06414 Sections 2 and 2.1",
+        "arXiv:2007.06628 Sections 1, 3, and 4",
+        "arXiv:2505.20719 Sections 3 and 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.06414 v1 Sections 1–3 and Algorithm 2.1",
+      "arXiv:2007.06628 Sections 1–4",
+      "arXiv:2505.20719 Sections 3–4 and 6",
+      "arXiv:1909.07506 Sections 1–3",
+      "published-finding corpus result 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "published-finding corpus result 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source restart-equivalence proof substitutes the same matrix splitting into the residual and inner iteration. Here the residual uses I+rP while the stored inner splitting uses I+P, so its substitution identity does not apply.",
+        "The earlier probabilistic Neumann-series paper assumes strict spectral contraction and studies asymptotic halting bounds, not a +1 endpoint with a distinct positive-definite target matrix.",
+        "The 2020 multigrid source provides sufficient conditions for a V-cycle with quantized hierarchies, not this necessary and sufficient Jacobi sweep count."
+      ],
+      "reasoning": "The new theorem is a quantitative extension, not a restatement of the prior exact-precision equivalence; the mismatch between residual and inner operators creates the Perron-mode zero of the polynomial. Generic results about rounding-induced singularity or Neumann summation do not themselves state the global odd-sweep inequality or binary graph realization. An unindexed older polynomial-specialization calculation remains possible.",
+      "searches": [
+        "arXiv:2610.06414 Algorithm 2.1 and exact-precision restart discussion",
+        "arXiv:2007.06628 introduction and Sections 3–4",
+        "arXiv:1909.07506 Theorem 2.1",
+        "multi-step iterative refinement with approximate stationary operator singular eigenvalue minus one nullspace parity failure",
+        "mixed precision restarted stationary iterative refinement off diagonal rounding parity inner iterations Jacobi stagnation 2026 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1909.07506 treats standard infinite Neumann sums for strict spectral contraction, not high-accuracy residuals combined with boundary-rounded inner splittings.",
+        "published-finding corpus nearest entries on weighted Jacobi damping and two-step Richardson have different objectives and operators."
+      ],
+      "reasoning": "The same mathematics can be expressed as a truncated Neumann polynomial or a restarted Richardson preconditioner. The exact spectral norm plateau under all odd safe counts, even-count annihilation, binary rounding graph realization and the -1 boundary are jointly required; the inspected candidate equivalents do not state these linked claims.",
+      "searches": [
+        "restarted stationary mixed precision Jacobi inner iteration parity even odd eigenvalue minus one quantized singular operator",
+        "multi-step iterative refinement with approximate stationary operator singular eigenvalue minus one nullspace parity failure",
+        "Neumann polynomial preconditioner iteration count parity eigenvalue minus one Richardson exact zero even odd",
+        "arXiv:1909.07506 Sections 1–3",
+        "published-finding corpus query: Neumann polynomial preconditioner odd number of sweeps sharp spectral factor stochastic graph complete bipartite quantized"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus weighted-Jacobi work gives a different Euclidean damping threshold for true SPD systems.",
+        "published-finding corpus stagewise Richardson work bounds individually safe step factors; it does not involve a quantized singular inner operator or parity annihilation.",
+        "No matching lookup table of round-to-nearest graph coefficients and sweep parity was identified in the searched primary sources."
+      ],
+      "reasoning": "The object is a structured family of finite matrices, not an enumerated external sequence or lookup-table invariant. The closest retrieved exact threshold records have distinct operators and conditions, and neither their statements nor their implications provide the claimed classification.",
+      "searches": [
+        "Power of two regular graph symmetric Jacobi mixed precision rounding coefficient to singular row stochastic matrix parity even inner sweeps",
+        "Neumann polynomial preconditioner odd number of sweeps sharp spectral factor stochastic graph complete bipartite quantized",
+        "High precision residual with rounded offdiagonal Jacobi two-step cancellation Perron eigenvector spectral convergence",
+        "Neumann polynomial preconditioner iteration count parity eigenvalue minus one Richardson exact zero even odd",
+        "\"Jacobi\" \"inner\" \"parity\" \"iterative refinement\"",
+        "published-finding corpus nearest ID 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "published-finding corpus nearest ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "rationale": "No covering statement was found after inspecting the motivating 2026 primary paper, the quantized multigrid source, prior nested half-precision methods and the Neumann literature and querying the research-record index for aliases, full implications and graph quantization. Classical ingredients are explicitly excluded; novelty concerns the sharp combined operator-norm plateau, even-step stagnation, bipartite threshold and exact binary rounding realization. Residual risk from unindexed polynomial preconditioner specializations remains.",
+    "residual_risks": [
+      "No search can rule out an unindexed exact special-case calculation of the same polynomial preconditioner.",
+      "Floating-point operations after storage are not modeled; the result is not a wall-clock performance theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines closely related algorithm and unperturbed equivalence but does not state sharp quantized graph parity thresholds.",
+        "evidence": [
+          "arXiv:2610.06414, Algorithm 2.1/HTML Algorithm 1 and Section 2.1, original operator appears in both residual and inner step in exact equivalence.",
+          "arXiv:2610.06414, Theorem 2.1 analyzes normwise error under coefficient perturbations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.06414v1",
+        "material_read": "Abstract, Section 1, Section 2 perturbation theorem, Section 2.1 Algorithm 1/2.1 and exact-precision restart equivalence, numerical setup/conclusions, references.",
+        "method": "Primary full-text HTML and PDF reading, including inner recurrence and hypotheses.",
+        "title": "A Mixed-Precision Model for Matrix-Splitting Methods",
+        "trigger": "The motivating newly released matrix-splitting and restart scheme, directly matching the proposed fixed-length inner-Jacobi operator."
+      },
+      {
+        "assessment": "Qualitative quantization-induced matrix indefiniteness and robustness of multigrid V-cycles are prior art; no finite Jacobi sweep parity classification identified.",
+        "evidence": [
+          "arXiv:2007.06628 pp. 1–3 and Section 4; notes loss of definiteness and continued success of sufficiently effective V-cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.06628",
+        "material_read": "Abstract; Sections 1–3, relevant rounding and SPD discussion in Section 4; algorithmic context and stated conclusions.",
+        "method": "Primary arXiv PDF text inspection.",
+        "title": "Discretization-Error-Accurate Mixed-Precision Multigrid Solvers",
+        "trigger": "Potential stronger prior coverage of quantization-induced indefiniteness and whether residual-based refinement survives."
+      },
+      {
+        "assessment": "Uses different Krylov nesting; discussions motivate short inner loops but do not provide this exact pure restarted-Jacobi graph spectrum.",
+        "evidence": [
+          "arXiv:2505.20719 Section 4.2 uses a two-step innermost Richardson solver nested inside flexible GMRES."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.20719",
+        "material_read": "Sections 3 and 4 including F3R nested inner Richardson formulation and its rationale; Section 6 summaries.",
+        "method": "Primary arXiv PDF text inspection.",
+        "title": "A Nested Krylov Method Using Half-Precision Arithmetic",
+        "trigger": "Previous short low-precision nested iterations, potentially covering oversolving problems."
+      },
+      {
+        "assessment": "Classical Neumann sum is acknowledged; strict-contraction asymptotic setting does not include a distinct positive-definite target and rounded endpoint-coupling restart.",
+        "evidence": [
+          "arXiv:1909.07506 Theorem 2.1 and Section 3 analyze strict contraction and random-matrix iteration-count scaling."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.07506",
+        "material_read": "Sections 1–3 including the Neumann iteration definition, convergence theorem and random spectral halting theorem statement.",
+        "method": "Primary arXiv PDF text inspection.",
+        "title": "A Probabilistic Analysis of the Neumann Series Iteration",
+        "trigger": "Possible general Neumann-polynomial theorem subsuming the odd/even boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8087cfa-8e4e-4a3e-9855-22988166822e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a concrete inner-sweep allocation question in quantized stationary iterative refinement. It shows that extra work can freeze correction entirely for even sweep counts despite exact residual refreshing, proves no faster worst-case outer-cycle convergence for all odd counts up to a sharp threshold, and gives a rigorous instability frontier on natural SPD graph families. The obstruction is an operator-level graph spectral phenomenon, not merely a relabeled arithmetic identity.",
+    "status": "PASS"
+  }
+}
