@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "From the literal 2024 matrix update, the normalization to a convex combination of the identity-setting Schur complement is exact. Equation (4) gives a nonnegative Stein divergence drop whose equality set is MV=V; compact SPD sublevels and finite-window spanning force the full matrix to the isotropic fixed point. The exact two-direction Jacobian characteristic polynomial has eigenvalues lambda squared and r±; its dominant eigenvalue is achieved by nearby nonlinear trajectories and has the verified quadratic angular asymptotic. Ordinary exponentially forgotten Gram eigenvalues give the stated condition-number asymptotic. The reproducible numerical verifier passed 2565 checks, including direct matrix replay and finite differences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lai-Bernstein 2024 Theorem 3: uniform upper and lower information bounds under broad conditions, weaker in limiting identification.",
+        "Bittanti, Bolzern, Campi, Automatica 26 (1990), 929–932: convergence for an earlier directional-forgetting identification algorithm.",
+        "The published result “Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation” concerns cyclic Kaczmarz norm amplification, a different map and metric."
+      ],
+      "reasoning": "The source broad stability and bounds apply to more general excitations but do not imply the stronger *equal-strength limit*, nor can a cyclic Kaczmarz contraction imply the derivative of the SIFt information map. The presence of a uniform frame bound is used in the new proof with vanishing Stein residuals, not simply as a citation to a generic identification theorem.",
+      "searches": [
+        "directional forgetting RLS alternating scalar regressors information matrix covariance isotropic equilibrium local convergence rate",
+        "global convergence of subspace directional forgetting information matrix to scalar identity under periodic unit norm persistently exciting regressors Lyapunov log determinant",
+        "sharp local convergence rate information matrix directional recursive least squares alternating two nonorthogonal regressors cos4 theta quadratic angular slowdown",
+        "web: \"information matrix\" \"periodic\" \"directional forgetting\" eigenvalues limit",
+        "web: \"directional forgetting\" \"log det\" projection convergence"
+      ]
+    },
+    "checked_sources": [
+      "Lai–Bernstein, arXiv:2404.10844v1, full HTML Sections 3–5 and relevant appendices, first public April 16 2024.",
+      "Cao–Schwartz, A Directional Forgetting Algorithm Based on the Decomposition of the Information Matrix, 1999 proceedings PDF and Automatica 2000 bibliographic record.",
+      "Bittanti–Bolzern–Campi, Convergence and exponential convergence of identification algorithms with directional forgetting factor, Automatica 26 (1990), 929–932; available bibliographic description rather than full-text exclusion.",
+      "Searches of mathematical publication records concerning statement, aliases, angle formula, normalized Stein loss, and comparator projection algorithms."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper equations (27) and (29) coincide with the recursion in the present theorem under equal singular values; Sections 5 and appendices give bounds and error stability without this matrix limit.",
+        "Cao-Schwartz (2000) establishes the scalar recursion and information bounds, not the windowed rank-varying batch claim.",
+        "The published result “Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz” analyzes a different projection algorithm."
+      ],
+      "reasoning": "Algorithm identity, boundedness and vector parameter-stability of prior works are strictly weaker than convergence of every SPD information initialization to a unique isotropic matrix with a sharp two-direction local rate. The calculation is a new special-case analysis of the known update, not a claim to have invented directional forgetting.",
+      "searches": [
+        "directional forgetting RLS alternating scalar regressors information matrix covariance isotropic equilibrium local convergence rate",
+        "SIFt-RLS periodic excitation exact convergence information matrix constant norm optimal conditioning",
+        "SIFt RLS Lai Bernstein Cao Schwartz periodic alternating normalized regressors information matrix",
+        "web: \"directional forgetting\" \"log det\" projection convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lai-Bernstein arXiv:2404.10844v1 Secs 3–5: subspace decomposition, covariance bounds, estimation-error stability.",
+        "Cao-Schwartz 2000 Automatica 36:1725–1731: scalar information decomposition and directional forgetting.",
+        "The published result “Matrix-valued adaptive moments preserve Stiefel equivariance” concerns Stiefel equivariance, not information-map convergence."
+      ],
+      "reasoning": "Rewriting the result as convergence of a Stein-divergence descent map or as product of two nonlinear normalized Schur-complement updates does not make it a consequence of the stated source bounds. A bounded SPD matrix sequence need not converge to a scalar identity; parameter-error exponential stability does not identify its information-matrix limit. The exact angular exponent likewise does not follow from those bounds.",
+      "searches": [
+        "SIFt-RLS subspace information forgetting isotropic fixed point constant norm regressors period two linearized contraction angle cos fourth power",
+        "SIFt-RLS periodic excitation exact convergence information matrix constant norm optimal conditioning",
+        "global convergence of subspace directional forgetting information matrix to scalar identity under periodic unit norm persistently exciting regressors Lyapunov log determinant",
+        "Stein loss log determinant Bregman projection recursive least squares directional forgetting unit vector covariance isotropization",
+        "web: \"directional forgetting\" \"isotropic\" \"limit\" \"recursive least squares\"",
+        "web: \"SIFt-RLS\" \"identity\" \"convergence\" information matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results for directional-forgetting, exact two-angle recursion, and normalized-information fixed point did not produce a table or database recording the claimed functions.",
+        "The published result “Sharp energy-norm stability for two-periodic recurrences” analyzes a different two-periodic linear recurrence."
+      ],
+      "reasoning": "The formula for the nonlinear information-map two-step Jacobian and the global isotropic limit are derived from its block operator rather than looked up in any located database. Negative search evidence is not proof of novelty.",
+      "searches": [
+        "SIFt-RLS subspace information forgetting isotropic fixed point constant norm regressors period two linearized contraction angle cos fourth power",
+        "sharp local convergence rate information matrix directional recursive least squares alternating two nonorthogonal regressors cos4 theta quadratic angular slowdown",
+        "web: \"SIFt-RLS\" \"identity\" \"convergence\" information matrix"
+      ]
+    },
+    "rationale": "The 2024 vector-output source develops the recursion and establishes global covariance bounds but not the equal-strength universal isotropic information limit or the exact nonlinear two-direction angular equilibration rate. The 1999/2000 rank-one precursor predates the batch algorithm and is credited; its theory does not provide these claims. Dedicated mathematical literature and primary-source searches found no identified stronger or equivalent result. This is a qualified literature-based assessment with residual priority uncertainty.",
+    "residual_risks": [
+      "Older information-geometric/Bregman projection and adaptive-filtering literature may encode the same global isotropic attraction without SIFt terminology.",
+      "The exact local angular factor may have been calculated for an equivalent rank-one directional-forgetting map under another parametrization; the 1999/2000 scalar precursor is especially relevant.",
+      "The 1990 directional-forgetting convergence note was checked bibliographically, not excluded by a full-text noncoverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the update and the general information/covariance boundedness, NOT the stated equal-strength global isotropic limit or exact two-direction local rate.",
+        "evidence": [
+          "arXiv:2404.10844v1, introduction paragraphs comparing older scalar method; equations (27), (29); Section 5 Theorem 3 and Theorem 4; Appendix C."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.10844v1",
+        "material_read": "Full primary HTML sections 3 (subspace decomposition), 4 (equations 27, 29 and algorithm), 5 (covariance bounds and stability), appendices relevant to the decomposition and information bounds; references and introductory prior-art discussion.",
+        "method": "Read full-text HTML and inspect exact equations, theorem hypotheses, proof conclusions and related-result citations.",
+        "title": "SIFt-RLS: Subspace of Information Forgetting Recursive Least Squares",
+        "trigger": "Motivating 2024 vector-output filtered information recursion; possible coverage of information convergence and local rates."
+      },
+      {
+        "assessment": "COVERS scalar directional-forgetting update and SPD boundedness, but does not state a windowed rank-varying batch isotropic limit, exact Stein potential, or sharp angular rate.",
+        "evidence": [
+          "Cao–Schwartz, Mediterranean Control Conference 1999; Automatica 36 (2000), 1725–1731, DOI:10.1016/S0005-1098(00)00093-5."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0005-1098(00)00093-5",
+        "material_read": "Lawfully accessible 1999 proceedings full PDF: algorithmic decomposition and update, analytical properties and concluding numerical examples; pages and mathematical statements inspected.",
+        "method": "Read accessible PDF text, inspected page images and compared its formula and qualitative bounds with the present claim.",
+        "title": "A Directional Forgetting Algorithm Based on the Decomposition of the Information Matrix",
+        "trigger": "Original scalar-regressor precursor, possible stronger matrix-convergence theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93a4bc79-5fc5-4e77-9346-b05f3d74b032",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem identifies the complete limiting covariance for nonperiodic uniformly spanning equal-strength vector batches, more informative than existing universal SPD bounds. It shows a sharp inverse-square angular mixing-time penalty even when SIFt eliminates the inverse-square information condition-number blow-up suffered by ordinary forgetting. This is a motivated distinction between limiting conditioning and adaptation speed, with exact source algorithm and clear scope.",
+    "status": "PASS"
+  }
+}
