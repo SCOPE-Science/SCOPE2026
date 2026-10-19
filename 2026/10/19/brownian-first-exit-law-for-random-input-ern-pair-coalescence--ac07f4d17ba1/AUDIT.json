@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For each complete phase cycle, the clockwise gap moves d→d+U→d+U−V with fresh independent Bernoulli(q) indicators. Exact direct transitions verify both boundary absorb rules; the full-lazy-walk coupling differs by at most O(n) expected macrosteps, and its centered increments have variance 2pq. Donsker first-exit convergence plus a maximal-inequality clock law with mean n/p+O(1) yields generator p²q∂xx and the cubic scaling. Solving the boundary ODE gives the claimed complete Laplace transform. The optimal p and moments follow by differentiation/time scaling. An independent full pair-state discounted calculation for n≤80 numerically corroborates the proposed constant but is not used for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev 1404.6731, Section 3, explicitly treats independent biased Bernoulli input and gives formulas (19) and Theorem 4 for maximum expected pair merging time.",
+        "Gonze--Jungers 1410.4034, opening and Section 2, define a two-player optimal guessing/synchronizing game and triple rendezvous time."
+      ],
+      "reasoning": "Gusev has the same automaton and stochastic inputs but a weaker type of conclusion (mean), and Gonze--Jungers has a different stochastic object and objective. Neither provides distributional convergence with an identified diffusion coefficient.",
+      "searches": [
+        "Vladimir Gusev Synchronizing automata with random inputs arxiv 1404.6731 Cerny pair",
+        "On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata",
+        "On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.6731 (full Section 3 read)",
+      "arXiv:1410.4034 (intro/definition read)",
+      "Accessible related finite-pair variance record (deduplication by recoverable claim)",
+      "Semantic mathematical-record searches for Brownian Cerny first-exit law and pair synchronization distributions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gusev 1404.6731 Section 3 equations (14)-(20) solve expected hitting times; those equations do not compute the distributional Laplace transform.",
+        "A previously accessible finite-pair variance calculation yields the fair-input first two moments, consistent with the proposed Brownian result but insufficient to infer it.",
+        "Gonze--Jungers 1410.4034 Section 2 optimizes finite-word success under adversarial state distributions rather than treating i.i.d. random input trajectories."
+      ],
+      "reasoning": "The new theorem is neither a special case of a distribution theorem in these inspected sources nor a logical consequence of their numerical first/second moments. Standard invariance principles require a nontrivial exact pair-cycle representation and a stochastic clock estimate to transfer to the automaton.",
+      "searches": [
+        "Exact variance profile of random-input pair synchronization in Černý automata",
+        "Vladimir Gusev Synchronizing automata with random inputs arxiv 1404.6731 Cerny pair",
+        "stochastic synchronization of Cerny automata Brownian limit hitting time distribution biased input"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev 1404.6731 Section 3 pp. 5-10 gives expected lengths, not a Brownian first-exit limit or Laplace transform.",
+        "Direct mathematical-record searches for Brownian/Cerny/random-input pair first passage returned no matching full limit-law item."
+      ],
+      "reasoning": "The claimed Laplace transform for every s and interior x is an entire weak limit, whereas a first-moment formula or a variance asymptotic does not determine a probability distribution. Search absence alone is not treated as novelty proof.",
+      "searches": [
+        "Černý automaton random input synchronization pair coalescence time scaled n cubed Brownian exit time limiting distribution Laplace transform cosh",
+        "random-input Cerny automata limiting law merge pair Brownian gambler ruin",
+        "Brownian exit law of random-input Černý pair coalescence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible related earlier mathematical record: exact finite-n fair-input pair variance, item ef896327 (distinct from an entire limit law).",
+        "An indexed result on k-avoiding thresholds of Černý automata concerns deterministic word-length parameters, not random-input hitting-time distributions."
+      ],
+      "reasoning": "No searched exact database item or tabulation supplies the function s↦lim E exp(-sT/n^3); the accessible variance and deterministic avoidance records do not contain it. This is not an exhaustive index.",
+      "searches": [
+        "Exact variance profile of random-input pair synchronization in Černý automata",
+        "Brownian exit law of random-input Černý pair coalescence",
+        "Cerny random input pair synchronization variance profile"
+      ]
+    },
+    "rationale": "The closest primary result, Gusev (arXiv:1404.6731, Section 3), solves first-moment recurrences for Bernoulli random inputs to Černý pair automata, but does not state or establish convergence of the whole rescaled hitting-time distribution, the Brownian Laplace law across all interior starting gaps, or limiting quantile-optimal bias. A separate same-object variance calculation determines only two moments at the fair bias; it does not imply the Laplace transform or weak limit. Gonze--Jungers (arXiv:1410.4034) treats a game-theoretic synchronizing-probability function and deterministic triple rendezvous, not random-word pair coalescence. Exact cycle reduction plus uniform clock control are needed. Full earlier coverage cannot be ruled out.",
+    "residual_risks": [
+      "An unindexed paper or alternate process-limit formulation could already imply the result.",
+      "Gusev gives an explicit pair automaton, making the diffusion result a possible derivation from known transition structure; a prior unpublished limit could exist.",
+      "Direct finite-n numerical convergence is indicative, not proof or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING full distributional limit; covers expectations and pair-state transition structure, so it is the most relevant precursor.",
+        "evidence": [
+          "Section 3 sets out pair automaton and expected synchronization duration; equation (19) and Theorem 4 are explicit expectations.",
+          "Conclusion summarizes exponential versus cubic mean lengths without Brownian hitting-time convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+        "material_read": "Full open preprint with focused reading of Section 3, pages 5-10 (pair automaton, recurrences, both parities, and conclusion), plus setup pages 1-2.",
+        "method": "Read text and page images of the freely accessible arXiv PDF; compared random variable, hypotheses, statements, and formulas.",
+        "title": "Synchronizing automata with random inputs",
+        "trigger": "Exact same automaton and biased independent inputs; strongest direct overlap candidate."
+      },
+      {
+        "assessment": "NOT_COVERING the specified independent-letter pair hitting-time limit; its probability is a game-theoretic optimization over inputs and initial states.",
+        "evidence": [
+          "Abstract names triple rendezvous time and a linear-programming/game-theoretic synchronizing probability function.",
+          "Section 2 defines the function by optimizing a finite-length word and state distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1410.4034",
+        "material_read": "Preprint abstract and introductory/definition sections, pages 1-3, including the explicit definition of the probability function and scope of results.",
+        "method": "Read freely available arXiv PDF text and page images; compared underlying random variable and optimization model.",
+        "title": "On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata",
+        "trigger": "Same classical automaton and related probabilistic synchronization terminology, so the stochastic objective must be distinguished."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac07f4d1-7ba1-4910-9785-8fe45883f87a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a distribution-level classification of synchronization noise for the canonical slow synchronizer over all fixed biased input laws and all macroscopic starting gaps. It quantifies tail/quantile behavior beyond the known mean and fair-input second-moment profiles, identifies an explicit first-exit universality class, and shows that the same nontrivial letter bias optimizes the entire limiting latency distribution, not merely the expectation. The result requires a two-boundary cycle decomposition and stochastic time change; it is not a direct substitution into a textbook single-chain formula.",
+    "status": "PASS"
+  }
+}
