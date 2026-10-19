@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "A crown perfect matching equals a derangement; the exact four-cycle move is a legal arbitrary-position transposition. Common relabelling acts by conjugation, so BFS from every integer-partition cycle-type representative gives all graph eccentricities. Two separately implemented exhaustive enumerators verify every matching and every BFS distance histogram for n=4 through 9, including n=9 with 133496 states, 1835568 edges, and all 8 cycle types. Exactly one class, (3,3,3), has eccentricity 10; its sole farthest vertex is the inverse. This gives 2240/2=1120 unordered antipodal pairs. Finite scope is explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Jerrum–Müller, arXiv:1501.07725, Lemma 2: the diameter is at most n *within chordal bipartite graphs*.",
+        "A crown graph on n≥3 contains an induced chordless C6 on any three corresponding left–right index pairs.",
+        "Bonamy et al., arXiv:1904.06184, opening and results on reachability/complexity on selected graph classes."
+      ],
+      "reasoning": "No inspected universal upper bound dominates the proposed crown-specific finite diameter calculation. The chordal-bipartite upper bound cannot be specialized to crowns, and general reachability or complexity results do not determine exact n=9 pair distances.",
+      "searches": [
+        "\"switch Markov chain\" \"diameter\" \"chordal bipartite\"",
+        "\"The Perfect Matching Reconfiguration Problem\" \"flip\" diameter"
+      ]
+    },
+    "checked_sources": [
+      "M. Dyer, M. Jerrum, H. Müller, arXiv:1501.07725 (2015; relevant full-text sections).",
+      "M. Bonamy et al., arXiv:1904.06184 (2019; relevant full-text sections).",
+      "Direct search for the derangement transposition metric, crown switches, class eccentricities, inverse exceptional pairs, and numerical table equivalents."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier n-diameter theorem assumes chordal bipartiteness, contradicted here by an induced six-cycle.",
+        "Generic graph-class reconfiguration algorithms supply neither all-pairs shortest paths nor uniqueness of the inverse antipode at n=9.",
+        "An adjacent-only transposition rule is a strict subgraph of the crown switching graph: swaps at separated rows are allowed in the latter."
+      ],
+      "reasoning": "The new result is not a corollary of the published graph-class theorem, the general algorithmic complexity facts, or enumerating derangements: every candidate implication lacks an applicable hypothesis or any sharp quantitative distance statement.",
+      "searches": [
+        "arXiv:1501.07725, Lemma 2 and surrounding proof",
+        "arXiv:1904.06184, §§1.1–1.2 and results overview"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A matching of the crown graph is exactly a fixed-point-free permutation; a square switch is any transposition of input positions preserving that property.",
+        "Bonamy et al., arXiv:1904.06184, introduction §§1.1–1.2, defines the same flip on matchings but has no displayed crown-specific distance data."
+      ],
+      "reasoning": "The formulation as reconfiguration of perfect matchings in K_{n,n} minus a diagonal is identical to arbitrary-position transposition on derangements, but not to adjacent-position transposition. Relevant full-text sections and alternative-query searches did not yield an equivalent distance-ten antipode theorem.",
+      "searches": [
+        "\"derangements swap entries preserving fixed-point-free\"",
+        "\"derangement transposition graph diameter\"",
+        "\"crown graph perfect matching switch diameter\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical derangement count \\(133,496\\) enumerates vertices, not flip distances.",
+        "No examined numerical source displayed the complete n=9 cycle-type eccentricity spectrum or inverse antipode pairs."
+      ],
+      "reasoning": "The exact 8-type eccentricity table and 1,120 inverse antipode count were compared against directly discoverable matching and derangement records; no identical published table was found, though unindexed computational data remain a genuine residual risk.",
+      "searches": [
+        "\"crown graph\" \"switch chain\" \"diameter\" perfect matchings",
+        "\"derangement transposition graph diameter\"",
+        "\"Derangements of 9, swap two entries preserving fixed-point-free, graph diameter ten, unique inverse three-cycles\""
+      ]
+    },
+    "rationale": "The exact nine-pair graph distance, first exceeding the part size, and its complete inverse-antipode classification are not stated or implied by the two primary reconfiguration sources inspected. The established diameter bound of Dyer–Jerrum–Müller is restricted to chordal bipartite graphs and cannot be applied to crowns (which contain induced six-cycles). Bonamy et al. address reconfiguration reachability and complexity, not these exact metric data. Known adjacent-position derangement swaps use a strictly smaller legal-move set. Searches did not reveal a covering theorem or table, subject to the specified unindexed-data risk.",
+    "residual_risks": [
+      "A prior equivalent finite enumeration may be buried in unindexed graph-switching computations or supplementary datasets.",
+      "The 2019 manuscript was assessed through its directly relevant sections and targeted searches, not line-by-line rederived throughout its remaining text.",
+      "Scientific correctness is exhaustively checked within the specified finite domain, but has no independent external audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related, not covering. The <=n result is conditional on chordal bipartiteness and thus excludes the crown family.",
+        "evidence": [
+          "Lemma 2 explicitly assumes the chordal bipartite graph class.",
+          "Neither crown nor derangement occurs in the searchable manuscript text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.07725",
+        "material_read": "Introduction, switch model, chordal-bipartite characterization, Lemma 2 and its proof at pp. 4–5, together with manuscript-wide text matches for crown and derangement.",
+        "method": "Lawful arXiv PDF text inspection, page image check, and searches within parsed full manuscript.",
+        "title": "On the switch Markov chain for perfect matchings",
+        "trigger": "Directly relevant primary theorem on switch-chain ergodicity and linear diameter."
+      },
+      {
+        "assessment": "Related, not covering in inspected material. No exact crown-graph diameter or inverse-antipode statement identified.",
+        "evidence": [
+          "§1.1 defines a four-cycle swap; §1.2 discusses matching switch diameters in broader contexts.",
+          "The listed graph-class results concern reachability/complexity rather than the eight crown-derangement cycle-type profiles."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+        "material_read": "Opening four pages: flip definition, related literature on diameter, complexity claims, and graph-class overview.",
+        "method": "Lawful full-text arXiv PDF parsed-text examination of the closely relevant sections.",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Direct primary literature on exact four-cycle perfect-matching moves and reconfiguration decision problems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5fc2c9e-e501-49ea-ad9a-b985821e1586",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A crown is the simplest dense bipartite family obtained by forbidding a perfect matching. The exact first switch-diameter excess over part size supplies a meaningful sharp boundary for transferring the n-step diameter principle established for chordal bipartite graphs, while the complete inverse-antipode classification identifies an intrinsic extremal mechanism rather than merely reporting one eccentricity or a vertex count. The precise facts are natural for sampling-chain path lengths and perfect-matching reconfiguration benchmarking, without asserting any new mixing-time theorem.",
+    "status": "PASS"
+  }
+}
