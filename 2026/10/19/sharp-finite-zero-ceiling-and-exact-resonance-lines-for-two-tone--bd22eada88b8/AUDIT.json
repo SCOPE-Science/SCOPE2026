@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The defining STFT reduces exactly to two real shifted Hermite Gaussians. Nonshared coefficient zeros restrict frequency solutions to two time slices; shared Hermite roots give exactly the full horizontal-in-time lines. An explicit repeated-Rolle argument bounds each degree-n Gaussian-exponential branch by 2n+1 scalar multiplicities, and parity improves the sum to 4n+1. Uniform asymptotic root separation and the implicit function theorem construct 4n+1 distinct nondegenerate zeros for sufficiently large separation. The 95 reported numerical checks supplement the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bellourak et al., arXiv:2610.13531v1, Section 4: the random Hermite spectrogram zeros are almost surely isolated; the statement is probabilistic rather than a deterministic uniform bound.",
+        "Alaifari–Yang, arXiv:2410.05486, treats zeros of Hermite ambiguity functions in multiwindow phase retrieval."
+      ],
+      "reasoning": "Almost-sure isolation of white-noise zeros is not an all-deterministic-signal result and cannot exclude specifically tuned continuum resonances. Multiwindow ambiguity zeros concern a different bilinear function. A standard Chebyshev zero-bound lemma supplies one ingredient but alone neither gives the sharp two-slice joint bound nor establishes all resonance lines and their occurrence.",
+      "searches": [
+        "two pure tones n-th Hermite window STFT maximum number of zeros per fundamental time period 4n+1 exponential polynomials resonance root differences",
+        "short time Fourier transform Hermite polynomial two sinusoids nodal zeros frequency window general order"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13531v1 — relevant full text inspected in part (Sections 2, 4 and 5).",
+      "arXiv:2601.10910 — abstract and journal preview.",
+      "arXiv:2410.05486 — abstract and journal summary.",
+      "Published mathematical research results on cyclic STFT support and Hermite half-line spectral gaps — comparison by implication.",
+      "Recoverable earlier Gaussian-window and first-Hermite two-tone claims — comparison by implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At Hermite order one, a prior claim gives a sharp transition from three to five isolated zeros but has only one Hermite root and cannot imply higher-order resonances.",
+        "The Gaussian-window case is order zero and has no root-gap resonance.",
+        "The new proof establishes exact resonance lines for order two and order three, which are absent from both special cases."
+      ],
+      "reasoning": "The prior order-zero and order-one results are restrictions and do not dominate the quantified claim for all n≥2. The theorem does not claim newness for either Gaussian diagonalization or Rolle zero counting individually; its claimed new combination is sharp uniform count plus complete singular-separation classification.",
+      "searches": [
+        "Sharp spectral zeros for first-Hermite STFT of two equal tones three to five zeros delta sqrt(2/pi)",
+        "Hermite Gaussian polynomial exponential sums Chebyshev bound real zeros two shifts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bellourak et al., arXiv:2610.13531v1, Sections 2-5, treat zeros as a stationary random point process; their equation (8) defines Hermite windows.",
+        "Chand et al., arXiv:2601.10910, address Gaussian-window two-component interference."
+      ],
+      "reasoning": "The target statement is equivalent to a joint sharp real-zero bound on shifted Gaussian Hermite polynomial sums and a shared-root difference classification. Neither inspected primary statement determines the nonisolated root-gap spectrum at all Hermite orders.",
+      "searches": [
+        "All Hermite orders polynomial Gaussian two-tone STFT zero count and resonance continuum",
+        "Hermite windows two tone spectral zeros number zeros STFT upper bound Gaussian derivatives"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried published mathematical records included Hermite half-line spectral-gap products and discrete cyclic Gabor zero patterns, neither of which is a table of deterministic continuous two-tone Hermite STFT zeros.",
+        "Earlier specific first-Hermite two-tone classification concerns order one, where the resonance set is empty."
+      ],
+      "reasoning": "No queried exact table or database supplies the all-order sharp ceiling or root-difference line-resonance classification. Nonmatches are not treated as proof of historical uniqueness.",
+      "searches": [
+        "two-tone Hermite window spectrogram vertical zero lines at Hermite polynomial root difference separations",
+        "Hermite spectrogram two tones zero count 4n+1"
+      ]
+    },
+    "rationale": "The primary 2026 Hermite-window article treats random-field zero statistics; the 2026 two-tone interference article uses a Gaussian window; the multiwindow Hermite article studies ambiguity-function zeros. The available published results and recoverable prior claims do not imply the all-order sharp deterministic ceiling together with the exact exceptional root-gap spectrum and full zero lines. Standard Gaussian Fourier and Chebyshev techniques are explicitly treated as prior tools, not newly discovered. Historical-priority risk remains for unindexed literature.",
+    "residual_risks": [
+      "Exact priority may be covered in unindexed classical Gaussian-Hermite interference work.",
+      "Two plausible adjacent arXiv sources could not be inspected in full text, though their accessible scopes differ clearly from the all-order resonance classification.",
+      "Similarity search is not a uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new deterministic claim: its principal zero-count assertions concern white Gaussian noise almost surely, not a two-tone periodic input or its exceptional full-zero lines.",
+        "evidence": [
+          "Equation (8) defines Hermite windows; Section 4.1 derives almost-sure isolated, simple zeros by a Bulinskaya argument; Section 5 studies stochastic pair correlations."
+        ],
+        "identifier_or_url": "arXiv:2610.13531v1; https://arxiv.org/pdf/2610.13531",
+        "material_read": "Primary full-text PDF, introduction, Section 2 Hermite definitions, Section 4 zero/charge results, Section 5 pair-correlation statement; original version dated October 9, 2026.",
+        "method": "Read PDF text and selected rendered mathematics including Hermite normalization, zero isolation and point-process assumptions.",
+        "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+        "trigger": "Same all-order Hermite-window spectrogram-zero object, including degeneracy and local Jacobian questions."
+      },
+      {
+        "assessment": "GAUSSIAN_ONLY as far as inspected material supports. The entire higher-order Hermite bound and resonance-line implications are not evidenced; unread full text is a remaining priority risk.",
+        "evidence": [
+          "The abstract explicitly specifies a Gaussian-window two-component harmonic model, Gabor interference and reassignment."
+        ],
+        "identifier_or_url": "arXiv:2601.10910; https://arxiv.org/abs/2601.10910",
+        "material_read": "ArXiv abstract and accessible journal preview; full PDF retrieval was unsuccessful.",
+        "method": "Compared signal, Gaussian window, and claimed frequency-gap transition in the source abstract.",
+        "title": "On spectral interference of the short-time Fourier transform and its nonlinear variations",
+        "trigger": "Closest two-tone STFT phase/interference model."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT in accessible statements: multiwindow ambiguity zeros and phase-retrieval coverage, not a sharp zero count for two pure tones. Unread full text remains a modest priority risk.",
+        "evidence": [
+          "The abstract describes ambiguity-function zeros on circles and compensating Hermite windows."
+        ],
+        "identifier_or_url": "arXiv:2410.05486; https://arxiv.org/abs/2410.05486",
+        "material_read": "Public arXiv abstract and journal abstract; full PDF was not accessible.",
+        "method": "Checked whether its zero statements concern deterministic two-tone STFTs or Hermite-window ambiguity functions.",
+        "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+        "trigger": "Hermite functions of arbitrary degree with time-frequency zeros."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd22eada-88b8-4d39-94ac-1dc56418c9fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a uniform sharp, attained complexity ceiling across all Hermite orders for a natural two-frequency calibration signal, together with the exact finite list of exceptional gaps and entire line frequencies where the zero geometry ceases to be discrete. The higher-order full-line resonance mechanism is absent from Gaussian and first-Hermite cases, and informs how zeros of deterministic signals differ from almost-sure white-noise zeros. It is a motivated infinite-family structural classification, not a single arbitrary count.",
+    "status": "PASS"
+  }
+}
