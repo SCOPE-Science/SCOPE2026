@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every finite nonempty simple G with chi=omega=k, a k-clique gives L(T_k) as a lower bound for every orientation: its tournament is transitive or has a directed cycle. A k-coloring induces an orientation homomorphism into T_k and the reverse inclusion. T_k accepts exactly signs without k equal consecutive letters by a constructive alternating-run walk. A reachable and Myhill–Nerode-distinguishable complete 2k-state run DFA proves minimality; run-length compositions give the generating function. The k=1 case and C5 boundary are explicit. The standalone enumerator and orientation checker replay all their finite claims; none substitutes for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 36 of arXiv:2609.08843v1 only characterizes bipartiteness by the special language L(oriented K2).",
+        "Corollary 34 detects chi(G) by directed monotone paths and is not a statement about acceptance of arbitrary mixed-sign words."
+      ],
+      "reasoning": "A stronger existing theorem for all graphs would subsume the claim, but the directly relevant paper supplies only chromatic monotone tests and bipartite structure. The statement intentionally restricts to chi=omega; it neither contradicts nor claims to characterize the irregular chi>omega case.",
+      "searches": [
+        "\"graph-based automata\" \"perfect graphs\" \"language\"",
+        "\"intersection of languages of all orientations\" perfect graph",
+        "published-finding corpus: Full language characterisation of remanent language of chordal graphs perfect graphs and minimal deterministic automata for transitive tournaments"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08843v1 primary full paper (relevant sections and figures inspected)",
+      "https://arxiv.symmetricfunctions.com/category/cs.FL (submission date and nearby papers)",
+      "Published published-finding corpus semantic search results for remanent language, graph-based automata, perfect graphs and transitive tournaments",
+      "Accessible owned JSONL prior claims: 2026-09_week4 g000058, 2026-10_week1 g000147, 2026-10_week2 g000084"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pujol Definition 32: Rem(G)=intersection of all orientation languages.",
+        "Pujol Proposition 4: directed cycle makes signed language universal.",
+        "Pujol Corollary 34: monotone oriented-path inclusion iff chromatic threshold.",
+        "Pujol Theorem 36: remanent language equals an oriented edge language iff G bipartite."
+      ],
+      "reasoning": "The k=2 case is explicitly prior. For k>=3 the clique supplies a lower language L(T_k) in every orientation, and a k-coloring supplies an orientation mapping into T_k; their equality implies arbitrary mixed-sign words and is not stated by the monotone-only criterion. The run-counter DFA bound and enumeration add exact new invariants, although their standalone automata facts are elementary.",
+      "searches": [
+        "arXiv:2609.08843v1 Definition 32 Proposition 4 Corollary 34 Theorem 36",
+        "published-finding corpus: Remanent language of graph intersection over all orientations perfect graphs clique number equals chromatic number equals language of transitive tournament T_k; exact 2k state minimal complete DFA"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pujol Definition 32 identifies remanent language as intersection over all oriented signed-walk languages (arXiv:2609.08843v1, p. 23).",
+        "Pujol Section 5.2 and Theorem 36 explicitly describe the bipartite case, while Figure 11 discusses C5, not the chi=omega full-language classification."
+      ],
+      "reasoning": "Equivalent formulations include the signed-walk language of the transitive k-tournament, avoidance of k equal adjacent signs, and universal orientation-intersection acceptance. We compared these implications, not merely titles. The k=2 special case is already covered; k>=3 and full deterministic complexity are not identified in the examined primary source or records.",
+      "searches": [
+        "\"remanent\" \"perfect graphs\" automata",
+        "\"Pujol\" \"remanent language\" \"clique\"",
+        "\"graph-based automata\" \"forbidden runs\" orientation",
+        "published-finding corpus: remanent",
+        "published-finding corpus: Rem(G) graph all orientations automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches did not return any record stating an orientation-intersection language equals k-run avoidance with exact 2k states.",
+        "No state-complexity table for the remanent language of chi=omega graphs was located in Pujol Section 5.2."
+      ],
+      "reasoning": "The exact-state part is derived by explicit complete run-length DFA and Myhill–Nerode distinguishability, not by importing a matching table; absence of a match is limited search evidence, not proof of universal novelty.",
+      "searches": [
+        "published-finding corpus: Graph-based automata Cyril Pujol 2026 remanent language perfect graphs clique chromatic equality 2chi",
+        "published-finding corpus: minimal DFA states language of walks in transitive tournament with alphabet forward backward, 2n states",
+        "\"transitive tournament\" \"language\" \"minimal DFA\" forward backward"
+      ]
+    },
+    "rationale": "Pujol, arXiv:2609.08843v1, introduces the remanent language, proves the directed-cycle lemma and the bipartite special case, and connects monotone membership with chromatic number. The complete all-sign language of every graph with chi=omega, its exact 2k minimal DFA, and its full enumerator are not stated in the relevant inspected material. The present general k>=3 assertion does not follow from monotone-only membership without additional clique/color reasoning. Targeted publication and research-record searches and 288 owned preceding claims found no covering result; implicit earlier graph-homomorphism variants remain a genuine priority risk.",
+    "residual_risks": [
+      "The clique-coloring sandwich may have appeared implicitly under graph-homomorphism language inclusion terminology before the 2026 originating source.",
+      "Semantic search and current accessible ledgers cannot establish global priority; independent literature audit is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exactly the invariant and k=2 coverage, but the chi=omega all-sign theorem and exact 2k DFA are not stated in inspected relevant sections",
+        "evidence": [
+          "arXiv:2609.08843v1 pp. 4-6, 23-25: definitions, orientation-cycle result, chromatic threshold, bipartite theorem",
+          "Graph clique/perfect only in introduction as motivation, not a specialization theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.08843v1",
+        "material_read": "Abstract; Section 2.1-2.2 definitions and Proposition 2/4; Section 5.1 characterization context; entire Section 5.2 including Definition 32, Figure 11, Proposition 33, Corollary 34, Proposition 35, Theorem 36, and proof",
+        "method": "Parsed full-text reading of relevant sections and direct visual review of pages 1, 23, 24, 25; targeted searches for perfect/clique/complete",
+        "title": "Graph-based automata",
+        "trigger": "Same invariant, graph model, and chromatic-language theorem"
+      },
+      {
+        "assessment": "Lists the paper at first public date 2026-09-08; does not itself constitute independent novelty certification",
+        "evidence": [
+          "2026-09-08 entry for Cyril Pujol, Graph-based automata"
+        ],
+        "identifier_or_url": "https://arxiv.symmetricfunctions.com/category/cs.FL",
+        "material_read": "Listing entry for Graph-based automata and nearby formal-language entries (September 2026)",
+        "method": "Read chronological listing and compare source topic/title",
+        "title": "Formal Languages papers listing (September 2026)",
+        "trigger": "Verify initial public appearance of originating source and nearby contemporary field work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3eee924-7cfb-4e6d-a927-63711cc1c899",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem classifies the entire orientation-intersection language for all graphs with chi=omega, including perfect graphs, showing its surprising collapse to one run-avoidance language for fixed chromatic number. It answers a structural question about the new invariant, computes exact deterministic state complexity and all word counts, and provides a boundary counterexample for unequal invariants. This is a natural infinite-class classification, not a routine table or an arbitrary narrow parameter computation; prior k=2 is explicitly separated.",
+    "status": "PASS"
+  }
+}
