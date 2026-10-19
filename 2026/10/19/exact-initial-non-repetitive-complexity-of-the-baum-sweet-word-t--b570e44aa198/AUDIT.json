@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "PASS: A direct finite endpoint computation establishes the first repetition and unique earlier matching position at both ends of each of 25 intervals covering all integer n from 1 to 8192. Monotonicity of collision position and existence of the same collision at the larger endpoint prove every interior value. The word is generated independently by a four-state uniform substitution and by base-2 zero-run arithmetic; the 50 direct endpoint decisions use all-candidates hash bucketing followed by exact memcmp. Observed endpoint run: VERIFY_OK M=8192 intervals=25 boundary_cases=50. Scope is finite; no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Medková–Pelantová–Vandomme, arXiv:2002.12593, Introduction and Theorems 13,21: Arnoux–Rauzy and d-bonacci formulas.",
+        "The Baum–Sweet word has arbitrarily long zero-runs and occurrences of ones, so it is not uniformly recurrent and cannot satisfy the Arnoux–Rauzy hypotheses."
+      ],
+      "reasoning": "The known broader general results do not imply the 25 concrete Baum–Sweet interval values. Ordinary factor complexity, palindromic complexity, return-gap statistics and attractor spectra concern different implications and do not specify collision ordering of length-n factors.",
+      "searches": [
+        "Baum Sweet word maximal previously unseen substring length factors first occurrence prefix",
+        "arXiv:2002.12593 Theorems 13 and 21",
+        "\"Baum-Sweet\" \"non-repetitive complexity\" \"8192\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1507.08206",
+      "https://arxiv.org/pdf/2002.12593",
+      "https://annals.math.princeton.edu/1976/103-3/p12 (publication metadata only)",
+      "https://oeis.org/A037011",
+      "https://mathworld.wolfram.com/Baum-SweetSequence.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 of Nicholson–Rampersad gives the dyadic first-repetition function for Thue–Morse, a different fixed point; it does not include Baum–Sweet.",
+        "Theorem 21 of the Arnoux–Rauzy paper gives d-bonacci initial non-repetitive complexity and requires its specific directive structure."
+      ],
+      "reasoning": "The finite exact Baum–Sweet collision spectrum and earlier-position function cannot be obtained by specializing those theorems because the sequence hypotheses differ. The claim is not an implication of the accessible prior claims on Baum–Sweet palindrome, Abelian, attractor or return gaps.",
+      "searches": [
+        "Baum-Sweet sequence initial non-repetitive complexity length n first repeated contiguous factor binary cutoffs 8192 plateau 3 times power two",
+        "Baum-Sweet word first repetition position consecutive distinct factors at dyadic lengths n=2^k",
+        "Baum Sweet initial distinct factor blocks recurrence nonrepetitive complexity",
+        "arXiv:1507.08206 Theorem 6",
+        "arXiv:2002.12593 Theorem 21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicholson–Rampersad, arXiv:1507.08206, pp. 1–2 definition: initial length-n distinct-prefix counts; §4 Thue–Morse, later Fibonacci and Tribonacci. No Baum–Sweet occurrence in searched full text.",
+        "The new table also records the *first collision index* and unique earlier match, not just general factor-counting information."
+      ],
+      "reasoning": "The invariant is exactly the known initial non-repetitive complexity, not a renamed new invariant. The new claim specializes it to the Baum–Sweet word and provides a complete bounded interval-and-predecessor profile not present in the inspected invariant paper.",
+      "searches": [
+        "Baum-Sweet sequence initial non-repetitive complexity length n first repeated contiguous factor binary cutoffs 8192 plateau 3 times power two",
+        "Baum-Sweet word first repetition position consecutive distinct factors at dyadic lengths n=2^k",
+        "\"Baum Sweet\" \"inrc\" factors",
+        "arXiv:1507.08206 definition and §4-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A086747 records the underlying binary word, and A037011 a related Baum–Sweet cubic sequence rather than the new first-repetition plateau table.",
+        "The targeted exact formula and consecutive-term searches did not surface a matching sequence table."
+      ],
+      "reasoning": "A table of the input word alone is not a table of its initial non-repetitive complexity. Nonhits do not establish exhaustive database absence, so no uniqueness assertion is made.",
+      "searches": [
+        "\"Baum-Sweet\" \"non-repetitive complexity\" \"8192\"",
+        "\"Baum Sweet\" \"inrc\" factors",
+        "\"1, 3, 9, 14, 24, 28, 48\" sequence",
+        "OEIS Baum Sweet initial non-repetitive complexity 1 3 3 9 9 14",
+        "OEIS A086747 Baum-Sweet original word",
+        "OEIS A037011 Baum-Sweet cubic sequence"
+      ]
+    },
+    "rationale": "PASS against inspected sources and exact near-neighbor claims: arXiv:1507.08206 gives first-repetition complexity for Thue–Morse, Fibonacci and Tribonacci (not Baum–Sweet); arXiv:2002.12593 treats Arnoux–Rauzy systems (the non-uniformly recurrent Baum–Sweet word is not in that family); classical sources define Baum–Sweet but do not give its first-collision spectrum. Targeted searches found no numerical interval table or dominating formula, and accessible previous claims concern different invariants or words. Non-indexed equivalent work remains a risk; search nonhits alone are not novelty proof.",
+    "residual_risks": [
+      "An equivalent spectrum may appear in unindexed, inaccessible or obscure sources; database searches cannot prove publication novelty.",
+      "This is a finite certificate for n≤8192, not proof of inferred all-scale regularity; independent audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not present Baum–Sweet collision spectrum; studies three other words.",
+        "evidence": [
+          "Introduction names Thue–Morse, Fibonacci, Tribonacci; PDF lines 5–11 and 57–60.",
+          "Definition in lines 28–33; Thue–Morse Theorem 6 at PDF lines 386–425.",
+          "Full-text exact search for Baum had no matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1507.08206",
+        "material_read": "Introduction and definition (pp.1–2); structural theorem and Thue–Morse section, Fibonacci and Tribonacci section headings and theorem statements; references; searched full parsed text for Baum.",
+        "method": "Read primary arXiv PDF text and page images, find-in-full-text checks.",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Foundational definition and closest prior explicit automatic-word formulas"
+      },
+      {
+        "assessment": "Different family; hypotheses exclude the non-uniformly recurrent Baum–Sweet sequence.",
+        "evidence": [
+          "Abstract and introduction lines 5–13 and 38–56; family definition lines 109–126.",
+          "Theorem 21 and its d-bonacci specialization lines 783–821.",
+          "Full-text Baum search had no matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2002.12593",
+        "material_read": "Abstract, Introduction and definition, Arnoux–Rauzy hypotheses, Theorems 13 and 21 with d-bonacci specialization, references.",
+        "method": "Read arXiv primary PDF extracted sections and inspected page images.",
+        "title": "On non-repetitive complexity of Arnoux–Rauzy words",
+        "trigger": "Possible stronger all-length coverage by general return-word machinery"
+      },
+      {
+        "assessment": "Background definition only; not evidence of novelty or covering finite complexity formula.",
+        "evidence": [
+          "Sequence begins 1101100101001001; morphism A→AB, B→CB, C→BD, D→DD with A,B mapped to 1."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Baum%E2%80%93Sweet_sequence",
+        "material_read": "Definition, beginning of sequence, recurrence and morphism descriptions.",
+        "method": "Inspected accessible reference page text.",
+        "title": "Baum–Sweet sequence",
+        "trigger": "Confirm conventional zero-run indexing and four-state morphism used in the certificate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b570e44a-a198-4662-8d6a-e148f5c82f0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: This is a complete exact classification of a canonical prefix-sensitive complexity invariant over 8192 consecutive factor lengths through a natural 2-power cutoff. The 25 maximal plateaux include every sharp transition and its unique matching earlier position, distinguishing two dyadically scaled collision regimes. It is more informative than mere prefix generation or ordinary factor counts and supplies a reproducible stringent finite test bed for any future infinite-state or regularity theorem. The specific cutoff is explicit and no global theorem is claimed.",
+    "status": "PASS"
+  }
+}
