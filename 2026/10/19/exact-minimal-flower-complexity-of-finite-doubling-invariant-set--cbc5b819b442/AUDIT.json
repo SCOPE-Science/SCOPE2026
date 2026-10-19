@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every finite invariant support, the doubling restriction permutes its points. Each prescribed predecessor forces an inverse-branch bit. Disjoint complementary gaps force the corresponding switches; the seam has opposite monodromy so it costs one jump precisely for equal end bits. Moving jumps away from supports, and putting single jumps only in the forced gaps, constructs a matching selector. Modular arithmetic gives the all-fixed-points parity pattern and the exact count \\(2^n-1\\). Sorted cyclic rotations identify the branch word with the BWT last column. Direct replay of verify.py produced 1,197 exact rational assertions over 315 finite families, including independent local side-label minimization for small instances; tests are not a proof of the general theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown Theorem 2.7 gives \\(C(n)\\le pn+k\\) for subsystems of any p-flower.",
+        "Harriss--Jenkinson treats arbitrary circle expanding maps and Lipschitz flattening of functions."
+      ],
+      "reasoning": "General structural theorems admit the setting, but neither cited implication yields this exact minimum or the specific \\(2^n-1\\) all-fixed-point lower bound. The present claim deliberately restricts to finite fully invariant supports, and does not present previously proved general flower facts as new.",
+      "searches": [
+        "binary BWT runs primitive periodic orbit flower support minimum petals",
+        "doubling circle preimage selector prescribed orbit minimal jump discontinuities cyclic branch bits BWT",
+        "full fixed-point set of n-th doubling iterate requires 2^n minus 1 flower petals minimum discontinuity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0711.0802",
+      "https://arxiv.org/html/2605.06962v1",
+      "https://arxiv.org/html/2606.01267v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown, Theorem 1.1/2.7: linear complexity bound for subsystems contained in p-flower.",
+        "Harriss--Jenkinson, Definition 2.2: p equals number of jump discontinuities.",
+        "Kumallagov, Sections 2 and 8--9: binary BWT and known primitive-root condition for alternating images."
+      ],
+      "reasoning": "The complexity upper bound does not determine the minimal flower p for any given finite support. The BWT result determines runs of particular words but does not identify the least number of geometric flower components of the doubling dynamics. Together with the explicit new bridge, prior BWT combinatorics gives additional corollaries, which are attributed as prior word theory. A separate earlier specialized reflected-mechanical-orbit result asserts \\(p=5\\) only for that restricted family, not for all finite invariant sets.",
+      "searches": [
+        "minimum petals containing arbitrary union of periodic orbits doubling circle map binary Burrows Wheeler predecessor ordered word",
+        "primitive binary necklace periodic doubling orbit flower petal minimum number of BWT runs minus one",
+        "binary BWT runs primitive periodic orbit flower support minimum petals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harriss--Jenkinson Section 2 (flower as finite-jump inverse selector).",
+        "Brown Sections 2.1--2.3 (flower-support conditions and complexity)."
+      ],
+      "reasoning": "Equivalent geometric formulations include the minimum number of inverse-selector jumps and minimum components of a covering flower; the primary source definitions identify these numbers, but do not optimize them for arbitrary prescribed finite invariant sets.",
+      "searches": [
+        "minimum petals flower doubling map containing finite periodic invariant set exact inverse branch switch formula",
+        "doubling circle preimage selector prescribed orbit minimal jump discontinuities cyclic branch bits BWT",
+        "flower covering number for finite doubling-invariant periodic sets equals switch number of predecessor inverse branches plus wrap seam Burrows Wheeler run count",
+        "minimum petals containing arbitrary union of periodic orbits doubling circle map binary Burrows Wheeler predecessor ordered word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hits on “petals” concerned knot-petal diagrams rather than doubling-map inverse selectors.",
+        "Full text of the three inspected primary sources contains definitions and related combinatorial classifications, rather than a table of all finite support minima."
+      ],
+      "reasoning": "Search results did not identify an exact database/table of the new invariant. This is limited negative search evidence, not proof of novelty; the statement comparison to the inspected texts is the basis of the decision.",
+      "searches": [
+        "flower covering number for finite doubling-invariant periodic sets equals switch number of predecessor inverse branches plus wrap seam Burrows Wheeler run count",
+        "minimum petals containing arbitrary union of periodic orbits doubling circle map binary Burrows Wheeler predecessor ordered word",
+        "full fixed-point set of n-th doubling iterate requires 2^n minus 1 flower petals minimum discontinuity",
+        "primitive binary necklace periodic doubling orbit flower petal minimum number of BWT runs minus one"
+      ]
+    },
+    "rationale": "Inspected full-text material presents the flower definition, complexity and IET correspondence, and the independent BWT run results, but not the optimized minimum count for every finite invariant union or the sharp exponential obstruction for \\(\\operatorname{Fix}(E^n)\\). The prior specialized five-petal reflected mechanical-orbit case is acknowledged as covered; a general theorem is not logically implied by that special family. Residual priority uncertainty persists as an earlier unpublished or differently named selector-cover formula might exist.",
+    "residual_risks": [
+      "Historical equivalent in unindexed flower/ergodic-optimization literature may exist.",
+      "The connection is elementary once the new optimization is known; novelty here is assessed as the complete global finite-support statement and sharp family, not primitive-root combinatorics.",
+      "No independent bibliographic or proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the requisite general flower setting and bounds; inspected material does not state finite-support minimum-petal optimization",
+        "evidence": [
+          "Definition 2.1--2.2 identifies jump counts with petal counts.",
+          "Theorem 2.7 proves linear symbolic complexity for p-flower subsystems.",
+          "Sections 2.3 and 4 discuss flower-supported invariant sets and deck-shuffler coding."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.06962v1",
+        "material_read": "Abstract, Introduction, Sections 2.1--2.3, Theorem 1.2 and relevant interval-exchange discussion of Section 4",
+        "method": "Read accessible full-text arXiv HTML, inspecting the definitions, theorem statements and their scope",
+        "title": "Expanding Maps on Flowers, Interval Exchange Transformations, and Ergodic Optimization",
+        "trigger": "First public emerging dynamical-systems source defining the target flower objects and bounds"
+      },
+      {
+        "assessment": "Defines flowers for general expanding circle maps and studies flattening; not an exact optimal-cover formula for arbitrary finite supports in inspected sections",
+        "evidence": [
+          "Definition 2.2 defines p-flower via p selector jumps.",
+          "Remark 2.3 describes flower preimages; Theorem 3.6 addresses flattening rather than covering minimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0711.0802",
+        "material_read": "Abstract, Introduction, Section 2 including Definitions 2.2, Remark 2.3, Lemma 2.8 and selected later theorem statements",
+        "method": "Read arXiv full-text rendering and checked defining details and consequences",
+        "title": "Flattening Functions on Flowers",
+        "trigger": "Foundational primary source for preimage selectors and flower definition"
+      },
+      {
+        "assessment": "The arithmetic criterion and word run structure are prior work; no geometric doubling-flower minimum theorem in the inspected material",
+        "evidence": [
+          "Section 2 defines runs and primitive-necklace BWT.",
+          "Section 8 and Remark 9.3 discuss binary alternating images and known primitive-root restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.01267v1",
+        "material_read": "Abstract, Sections 2, 8--9 including Proposition 8.1 and Remark 9.3, references to existing binary BWT classification",
+        "method": "Read accessible arXiv full-text HTML for the relevant statements and comparisons",
+        "title": "An extremal problem for completely unclustered Burrows--Wheeler images",
+        "trigger": "A near-equivalent combinatorial language for ordered predecessors of cyclic binary words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cbc5b819-b442-4d53-a6b8-8f37cfdef1a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For any prescribed finite invariant union, the exact minimum number of petals is a natural dynamical covering invariant. The theorem is a uniform, constructive full classification rather than a parameter-selected example; the complete fixed point set of the n-th iterate forces exactly \\(2^n-1\\) petals. The BWT identity provides a geometric interpretation of a computable primitive-necklace invariant and makes sharp algebraic-combinatorial constraints available for flower coverings. Its scope is finite and no broader dynamical entropy claim is made.",
+    "status": "PASS"
+  }
+}
