@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The theorem follows from the exact universal implication rho<=9/4 => determinant magnitude 48. Gram trace 25, Taylor-log bound with variance inequality and condition ratio r give detGram >=3125 exp[-5(r-1)^2/8] > 3125/3>1024 at r<=9/4; binary sign determinant is divisible by 16 and bounded by 48. Dependent rows live in an affine three-space and inherit order-eight five-minor bound 32 via Jacobi complementary minors. Independent rows normalize to a four-by-four 0/1 determinant: exhaustive complete 1820-case dual-algorithm integer certificate isolates exactly five maximal rooted four-column sets, the translates of the dual simplex. Every maximal Gram has eigenvalues 9,4,4,4,4. Quotient lifts give exactly 16*2^(5(d-4)) partners per support. The standalone checker was run from the packaged source path and returned CHECK_PASS.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brent-Osborn (2013), arxiv:1208.3819, §4 and appendix, classifies absolute determinant values for fixed Hadamard orders, including the full order-16 aggregate; it does not state optimal Riesz spectral conditioning for all d.",
+        "Seberry-Mitrouli (2010) proves the D-optimal sign 5x5 matrix does not embed in order-eight Hadamard matrices, but not the ratio or all optimal binary frequency partners.",
+        "Huckle-Kravvaritis (2016 online) abstract says principal-submatrix eigenvalue spectra; full paper not accessible."
+      ],
+      "reasoning": "Known maximal-determinant bounds are used, not claimed; determinant optimality is not generally equivalent to minimum spectral condition ratio. The new variance-to-determinant theorem proves that equivalence in this five-point setting, and the quotient classification applies across all dimensions.",
+      "searches": [
+        "\"On minors of maximal determinant matrices\" order 16 5 43008",
+        "\"Some remarks on Hadamard matrices\" order five order eight embedding",
+        "\"Properties of submatrices of Sylvester Hadamard matrices\" leading principal spectrum",
+        "https://arxiv.org/html/1208.3819v3",
+        "https://www.researchgate.net/publication/225202983_Some_remarks_on_Hadamard_matrices"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.04487",
+      "arxiv:1208.3819",
+      "doi:10.1007/s12095-010-0036-9",
+      "doi:10.1080/03081087.2016.1250863",
+      "https://maths-people.anu.edu.au/~brent/maxdet/minors/0_mod_4.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finite abelian Riesz framework gives existence and generic bounds but not exact five-point binary ratio.",
+        "Published determinant-48 classification and embedding impossibility establish necessary determinant context but do not demonstrate the spectral implication r<=9/4 => |det|=48 or characterize arbitrary-dimensional kernel lifts.",
+        "The computed special case matches the published order-16 determinant total, so that numerical consequence is treated as prior."
+      ],
+      "reasoning": "Prior aggregate determinants plus generic spectral inequalities do not immediately imply the sharp eigenvalue ratio. The new log-variance proof uses discrete determinant quantization to force D-optimality; the equality classification then requires a fully enumerated rooted binary minor lemma and quotient-lift argument. This distinguishes a known determinant corollary from the asserted spectral theorem.",
+      "searches": [
+        "arxiv:1904.04487 normalized Riesz ratio and Hadamard inequality",
+        "arxiv:1208.3819 maximal minors results order 16",
+        "doi:10.1007/s12095-010-0036-9",
+        "doi:10.1080/03081087.2016.1250863"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferguson-Mayeli-Sothanaphan define rho(E) as optimal Gram eigenvalue ratio and discuss general finite abelian sets, arxiv:1904.04487 §§1,3–5.",
+        "Web searches for affine five-point binary Riesz equality identified no matching primary statement."
+      ],
+      "reasoning": "The candidate is equivalent to an exact 5-by-5 Walsh Gram-eigenvalue ratio and to its prescribed frequency equality locus. Generic Riesz-ratio definitions and general existence do not imply the value 9/4 or the dual simplex classification.",
+      "searches": [
+        "\"five point\" Walsh \"Riesz ratio\" affine simplex",
+        "\"Walsh\" \"5x5\" \"condition number\" 9/4",
+        "\"D-optimal\" \"five\" \"Sylvester\" \"Riesz\"",
+        "arxiv:1904.04487 sections 1, 3, 4, 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brent-Osborn order 16(a) table states 43008 magnitude-48 five-minors (normalization 16 * 3). The current d=4 corollary reproduces exactly 43008.",
+        "The public table also lists counts 9273600, 7182336, and 2580480 for the other determinant magnitudes. These counts are explicitly prior, not the novelty claim."
+      ],
+      "reasoning": "The aggregate count alone does not state the sharp Riesz ratio 9/4 or its equality set in affine-dual frequency coordinates. The numerical count is acknowledged as covered; novelty rests on the spectral optimum and all-dimensional equality description.",
+      "searches": [
+        "Richard Brent minor tables order 16(a) 5 43008",
+        "https://maths-people.anu.edu.au/~brent/maxdet/minors/0_mod_4.pdf",
+        "arxiv:1208.3819 appendix order 16 minors"
+      ]
+    },
+    "rationale": "The primary Riesz-ratio study arXiv:1904.04487 sets the invariant and provides general bounds but does not solve the binary affine five-point optimizer problem. Seberry-Mitrouli provides the order-five maximal determinant, and Brent-Osborn already provides the aggregate 43008 order-sixteen maximal five-minor count: neither yields the complete all-dimensional Riesz-ratio theorem or its equality geometry. The new analytic conditioning barrier plus exact quotient-rooted classification establishes a distinct spectral statement. Residual risk from specialized historical D-optimal-embedding literature and the inaccessible full Huckle-Kravvaritis article is acknowledged.",
+    "residual_risks": [
+      "Complete text of Huckle-Kravvaritis (2016) was inaccessible; an equivalent specialization could occur there even though its abstract emphasizes leading principal minors.",
+      "An unindexed older D-optimal matrix-design or Walsh-embedding treatment may contain the same sharp ratio or dual-simplex equality classification.",
+      "The known order-sixteen maximal determinant multiplicity is not independently novel and is not the basis of the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: general finite-group basis and tightness framework, not the precise binary five-point spectral optimum",
+        "evidence": [
+          "arxiv:1904.04487 main introduction §1, quantitative spectrality and rho; definition cond squared in §3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.04487v6",
+        "material_read": "Definitions of rho in introduction and section 3, main findings and relevant quantitative bounds in sections 4–5; title/section searches for binary five-point and Hadamard",
+        "method": "Accessible complete arXiv HTML, inspected relevant sections and in-document term searches",
+        "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+        "trigger": "Exact Riesz ratio and quantitative Fourier basis motivation"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: known overall 43008 det-48 count is explicitly pre-existing; no Riesz-ratio minimax or geometric equality classification in all binary dimensions",
+        "evidence": [
+          "arxiv:1208.3819 sections 3–5 and Appendix Tables 23–26.",
+          "https://maths-people.anu.edu.au/~brent/maxdet/minors/0_mod_4.pdf page 2, order 16(a), minor size 5: 3^43008 in normalized determinant units."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1208.3819v3",
+        "material_read": "Introduction, sections 3–5, order-sixteen appendix and supplementary public determinant multiplicity table",
+        "method": "Complete lawful open-access arXiv HTML and author-hosted supplementary PDF with visible tables",
+        "title": "On minors of maximal determinant matrices",
+        "trigger": "Potentially dominating table of all five-minors of the Sylvester order-sixteen matrix"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: supplies known determinant 48 and failure in order-eight; does not state optimum Gram Riesz ratio or dual-simplex partners for arbitrary d",
+        "evidence": [
+          "Seberry-Mitrouli, Cryptography and Communications 2 (2010), §§2–3, DOI 10.1007/s12095-010-0036-9."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/225202983_Some_remarks_on_Hadamard_matrices",
+        "material_read": "Author-posted entire article text, especially abstract, §2 maximal 5x5 determinant and order-eight nonembedding, §3 Sylvester and pivot restrictions",
+        "method": "Author-posted accessible full-text HTML transcription",
+        "title": "Some remarks on Hadamard matrices",
+        "trigger": "Order-five D-optimal embedding obstruction and uniqueness might subsume maximizer classification"
+      },
+      {
+        "assessment": "INCOMPLETE_ACCESS: abstract emphasizes leading principal submatrices and spectra, not arbitrary five-row/five-column conditioning, but full-text comparison remains a risk",
+        "evidence": [
+          "Published online 26 October 2016; abstract focuses on leading principal submatrices and eigenvalues."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+        "material_read": "Publisher abstract, original publication date, scope and subject classification; complete article unavailable",
+        "method": "Publisher abstract and institutional bibliographic page; lawful open versions searched, institutional download not available",
+        "title": "Properties of submatrices of Sylvester Hadamard matrices",
+        "trigger": "Plausible eigenvalue characterization of Sylvester submatrices could cover the Riesz optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d27896e9-3f5d-4049-bc27-dbad4983b381",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite-group Riesz ratio is a motivated spectral stability invariant rather than a determinant statistic. The result sharply determines it for every affinely independent five-point binary Fourier support in all dimensions at least four, proves that affinely dependent supports cannot attain it, and constructs/counts all maximally conditioned frequency choices in natural quotient geometry. The equivalence between determinant maximization and optimal conditioning requires a nontrivial analytic barrier and is not supplied by the old determinant table. This complete natural equality classification can inform deterministic Fourier sampling design.",
+    "status": "PASS"
+  }
+}
