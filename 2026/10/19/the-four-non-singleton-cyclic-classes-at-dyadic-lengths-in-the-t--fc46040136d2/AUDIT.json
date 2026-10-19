@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The claim specifies factors as distinct occurring words, not rotations with multiplicities. The parity splitting is exhaustive at length \\(2m\\): even windows are images of length-m factors; odd windows come from length-(m+1) underlying factors. Exclusion of length-three constant blocks makes the starts disjoint for \\(m\\ge2\\). Circular equality-pair invariants distinguish even and boundary-defective odd classes and force singleton status of each new differing-endpoint odd window. The complete one-step extension recurrence \\(E(2m)=\\mu(E(m))\\cup\\operatorname{rot}_1(\\mu(E(m)))\\) and primitive-block lemma identify exactly the full T_k rotation orbit. The opposite-ended count \\(D(2m+1)=2D(m+1)\\) supplies exactly \\(2m\\) new singleton classes at dyadic doubling. Base length four is exhaustively enumerated, so induction proves precisely one size-N class, three size-2 classes, and \\(2N-8\\) singleton classes for \\(k\\ge2\\). An independently scripted exhaustive factor-cover computation checked k=2..9 (N<=512), separately against a long direct prefix through N<=128; computations do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cassaigne et al., Cyclic Complexity of Words, arxiv:1402.5843, Section 5.3, https://arxiv.org/abs/1402.5843",
+        "Krawchuk–Rampersad (2018), Proposition 1, https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "Shallit (2023), https://math.colgate.edu/~integers/x44/x44.pdf"
+      ],
+      "reasoning": "The general cyclic-complexity framework and the exact aggregate dyadic value are broader in the input lengths or context, but not stronger for individual equivalence-class cardinalities. Their implications do not determine whether the class-size excess is concentrated into the four explicit classes.",
+      "searches": [
+        "\"cyclic complexity\" \"Thue-Morse\" Krawchuk Rampersad orbit size distribution",
+        "Cassaigne Fici Sciortino Zamboni cyclic complexity Thue Morse dyadic powers of two explicit formula",
+        "cyclic complexity of Thue-Morse word length n factors modulo cyclic rotation, conjugacy classes"
+      ]
+    },
+    "checked_sources": [
+      "Cassaigne–Fici–Sciortino–Zamboni, arxiv:1402.5843, Sections on cyclic complexity and Thue–Morse",
+      "Krawchuk–Rampersad, Integers 18A (2018) A12, Proposition 1",
+      "Shallit, Integers 23 (2023) A44, Proposition 1 and main results",
+      "OEIS A360104 on aggregate cyclic complexity",
+      "Semantic research-record searches for orbit size histogram, conjugacy factors, circular extensions, and explicit dyadic exceptional classes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At dyadic \\(N\\ge4\\) the classical Thue–Morse factor count is \\(3N-2\\); the new histogram gives \\( (2N-8)+6+N=3N-2 \\), while its class count is \\((2N-8)+3+1=2N-4\\).",
+        "Krawchuk–Rampersad (2018), Proposition 1, gives \\(c_t(N)=2N-4\\) and Shallit (2023), Proposition 1, reproduces this aggregate result."
+      ],
+      "reasoning": "At powers of two the previously known totals constrain only weighted sums, not the distribution. Our parity-defect invariant and E(n) recurrence establish which orbit sizes occur and identify the specific classes; therefore the prior total formula neither states nor directly implies the claimed refined structure. The arithmetic consistency with known factor complexity is part of the proof check, not novelty evidence.",
+      "searches": [
+        "Thue Morse word rotation factor classes at dyadic lengths, conjugate orbit profile",
+        "Thue Morse morphism 0->01 1->10 cyclically extendible factors w with w first letter appended occur, length powers two",
+        "\"Krawchuk\" \"Rampersad\" \"Proposition 1\" \"2^k\" cyclic complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krawchuk–Rampersad (2018), Proposition 1, https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "Shallit (2023), Proposition 1, https://math.colgate.edu/~integers/x44/x44.pdf"
+      ],
+      "reasoning": "Conjugate factor classes, rotation orbits of occurring factors, and cyclic-complexity classes are equivalent objects. The two identified propositions state only the total number of classes, not the histogram of number of occurring rotations, so no equivalent theorem was found in their pertinent full texts.",
+      "searches": [
+        "\"Thue Morse\" \"cyclic class\" \"number of factors\" rotation",
+        "Thue-Morse factors conjugacy orbit size spectrum length 2^k exactly one full rotation orbit, three two-factor orbits, 2^(k+1)-8 singleton conjugacy classes",
+        "Thue Morse word number of cyclic conjugacy classes of length 2^k containing more than one distinct factor, size distribution, four exceptional classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A360104 is the ordinary cyclic-complexity sequence, https://oeis.org/A360104",
+        "Krawchuk–Rampersad (2018) total complexity formula, https://math.colgate.edu/~integers/sjs12/sjs12.pdf"
+      ],
+      "reasoning": "The OEIS entry and primary aggregate tables supply only the total number of cyclic classes, not the counts of singleton, doubleton and full-length classes or the three exceptional representatives. Computations of the present spectrum have been checked only as verification, not assumed novel from missing table entries.",
+      "searches": [
+        "OEIS A360104 Thue Morse cyclic complexity 2 powers class size histogram",
+        "Thue-Morse dyadic factors all rotations occur only Thue-Morse block; conjugate factors at powers of two nontrivial orbit classification"
+      ]
+    },
+    "rationale": "The known dyadic cyclic-complexity total \\(2N-4\\) is explicitly credited to Krawchuk–Rampersad Proposition 1 (2018), also stated by Shallit (2023), not claimed as new. Our theorem additionally identifies every occupied rotation class size, proves there are exactly four non-singleton classes, and specifies representatives of all exceptional classes. That information does not follow just from known aggregate cyclic complexity \\(2N-4\\) and ordinary factor complexity \\(3N+6\\): these yield only the number of classes and summed size excess, allowing multiple different distributions. The inspected primary papers discuss aggregate cyclic complexity, not this orbit-occupancy spectrum. The first 2014 paper also gives cyclic-language structural arguments, but the pertinent section does not state this dyadic distribution. Neutral semantic searches across published research records and literal/alias searches in literature did not reveal a matching theorem. This is best-knowledge originality, not a proof of absence.",
+    "residual_risks": [
+      "An unindexed equivalent orbit-occupancy result or an implicit consequence of a not-inspected classification theorem may exist.",
+      "Classification applies only to dyadic lengths k>=2; no nondyadic or occurrence-multiplicity theorem is claimed.",
+      "No independent mathematical audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides background and recognizable cyclic-factor language but does not state the dyadic size distribution of nonempty conjugacy classes.",
+        "evidence": [
+          "https://arxiv.org/abs/1402.5843",
+          "https://arxiv.org/pdf/1402.5843"
+        ],
+        "identifier_or_url": "arxiv:1402.5843",
+        "material_read": "Full public preprint, with special attention to Section 5.3 on Thue–Morse and related proofs",
+        "method": "Read the relevant full-text statements, definitions and proof discussion, not merely snippets",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Defines cyclic complexity and studies Thue–Morse cyclic factors"
+      },
+      {
+        "assessment": "Proposition 1 proves the aggregate dyadic class count; it does not classify class occupancies, singleton counts or exceptional representatives.",
+        "evidence": [
+          "Integers 18A (2018), #A12, Proposition 1"
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "material_read": "Full open PDF; closely read the Thue–Morse subsection, Proposition 1, and nearby computation discussion",
+        "method": "Direct PDF reading of proof and statement",
+        "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+        "trigger": "Closest exact dyadic cyclic-complexity theorem for the same word"
+      },
+      {
+        "assessment": "Gives total cyclic-complexity bounds and cites/recalls the exact dyadic total; the individual dyadic class occupancy spectrum is not its asserted result.",
+        "evidence": [
+          "Integers 23 (2023), #A44"
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/x44/x44.pdf",
+        "material_read": "Full publicly accessible paper, especially Proposition 1 and the principal theorem",
+        "method": "Direct PDF reading and comparison of mathematical implications",
+        "title": "Proof of a Conjecture of Krawchuk and Rampersad on the Cyclic Complexity of the Thue–Morse Sequence",
+        "trigger": "Potential later stronger cyclic complexity result for exactly this automatic word"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc460401-36d2-404a-8a89-69a1026a8a63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Factor conjugacy is an established natural refinement of factor complexity, and its dyadic Thue–Morse aggregate count was already the object of a precise earlier theorem. The complete orbit-occupancy profile answers the stronger structural question of how this count is attained: precisely four classes contain any nontrivial conjugate pair, and one exceptional class contains all rotations of a complete morphism block. The explicit representatives reveal the exceptional configurations; the circular equal-pair invariant and extendibility recurrence explain the mechanism, not merely a numerical table. The fact is uniform at infinitely many lengths, exact, and not a relabeling of the known sum formula.",
+    "status": "PASS"
+  }
+}
