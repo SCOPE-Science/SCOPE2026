@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The exact domain has 10 reverse-complement orbits and 1023 nonempty subsets. Each optimal superstring is represented by an ordering and orientation of the length-two reads, because all selected orbits are distinct and same-length occurrences have distinct starts. Held–Karp recurrence computes the minimum. The greedy state recurrence lists every unordered component pair, orientations, ordering and globally maximum proper overlap; its max recursion counts every adversarial tie and strictly reduces the component count. The actual standalone verify.py completed all 1023 inputs and 638579 canonical memo states with integer comparisons. It cross-checked all n<=4 optima by explicit permutation enumeration and all n<=3 greedy maxima by an independent uncached recursion. The certified table has 282 cases with difference exactly one, all others zero, and global ratio 5/4. The explicit AA/AC/CA witness proves sharpness. No infinite-family extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.15814, Theorems 1.2–1.3 give ratios 3.75 and 2.875 for MGREEDY-RC and TGREEDY-RC, not the direct rule",
+        "arxiv:2603.26176, Theorem 1.1 gives a general 8/3-approximation algorithm but not the all-ties direct greedy guarantee",
+        "arxiv:1511.08431, Section 3 gives 1/2 compression for GREEDY-R in a different involution; this bound does not imply additive one"
+      ],
+      "reasoning": "The published bounds are for other algorithms or yield weaker bounds after specialization. For ten dimers, a 1/2 compression guarantee permits a substantially larger possible length than OPT+1; the present exact combinatorial classification is not a corollary.",
+      "searches": [
+        "All reverse complementary length two reads four symbol alphabet greedy assembly maximum-overlap approximation gap worst-case exact",
+        "Yamano Shibuya 2026 GREEDY-RC maximum overlap DNA dinucleotide full exact additive gap one",
+        "\"greedy\" \"reverse complements\" \"length two\" DNA superstring",
+        "\"reverse complement\" \"2-SSP\" \"greedy\" worst case"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.15814",
+      "https://arxiv.org/abs/2603.26176",
+      "https://arxiv.org/abs/1511.08431",
+      "https://doi.org/10.1093/bioinformatics/btt230",
+      "https://arxiv.org/abs/2608.20018",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1511.08431, Lemma 1 explains factor-free invariant under the greedy rule; it supports validity of the rule, but supplies no fixed DNA dimer exact profile",
+        "arxiv:2601.15814, Algorithm 2 presents direct GREEDY-RC, and Theorems 1.2–1.3 address different MGREEDY/TGREEDY algorithms",
+        "Orenstein–Shamir (2013) constructs optimal full k-mer RC covering strings; it does not quantify adversarial greedy merge outcomes over arbitrary subsets"
+      ],
+      "reasoning": "The only common mathematical object is strand-aware overlap and reverse complements. General approximation/cycle-cover/full-coverage statements do not determine the exact worst direct-greedy loss for each of the 1023 finite subsets, nor the count 282. The ordinary binary 4-mer greedy result also lacks reverse-complement equivalence and uses a different input universe.",
+      "searches": [
+        "Fici Kociumaka Radoszewski greedy shortest common superstring with reversals exact approximation for two letter DNA words reverse complement",
+        "Yamano Shibuya 2026 GREEDY-RC maximum overlap DNA dinucleotide full exact additive gap one",
+        "\"greedy shortest superstring with flipping\" two mers length 2 ratio exact",
+        "\"shortest superstring\" \"reverse complement\" \"additive\" approximation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2601.15814, Section 2.1: direct GREEDY-RC is defined; exact dimer enumeration not stated",
+        "arxiv:1511.08431, Section 3: reversal GREEDY-R has a general compression-ratio result, not an all-subsets exact reverse-complement dimer ratio"
+      ],
+      "reasoning": "Aliases searched included SCS-RC, SCS with flipping/reversals, GREEDY-R, GREEDY-RC, k=2/2-mer/dinucleotide, and all-tie approximation. The fixed all-subsets DNA 2-mer greedy gap is not formulated or implied in the inspected material.",
+      "searches": [
+        "Exact additive-one approximation guarantee of maximum-overlap greedy shortest common superstring with reverse complements on all subsets of DNA dinucleotides, 10 reverse complement classes, 1023 instances, worst ratio 5/4, 282 non-optimal instances",
+        "Greedy shortest common superstring reverse complements all DNA two-mers 4-letter alphabet k=2 exact performance 5/4 additive one",
+        "Fici Kociumaka Radoszewski greedy shortest common superstring with reversals exact approximation for two letter DNA words reverse complement",
+        "\"dinucleotide\" \"greedy\" \"reverse complement\" \"superstring\" approximation",
+        "\"2-mers\" \"reverse complement\" \"greedy\" superstring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record 2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23 concerns inverse DNA profile rankings, not superstrings",
+        "Published mathematical record 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 concerns adjacent-pair multispectra, not greedy superstring ratios",
+        "Accessible earlier finite greedy superstring claims have ordinary binary inputs of length three or four, not RC DNA dimers"
+      ],
+      "reasoning": "The full exact table of 1023 DNA reverse-complement class subsets, with 282 nonoptimal outcomes and their cardinality breakdown, is not given by the closest returned database entries or identified literature tables. No conclusion is drawn about unindexed tables.",
+      "searches": [
+        "Exact additive-one approximation guarantee of maximum-overlap greedy shortest common superstring with reverse complements on all subsets of DNA dinucleotides, 10 reverse complement classes, 1023 instances, worst ratio 5/4, 282 non-optimal instances",
+        "Greedy shortest common superstring reverse complements all DNA two-mers 4-letter alphabet k=2 exact performance 5/4 additive one",
+        "greedy shortest superstring with flipping 2-grams 10 reverse complement classes 282 bad cases",
+        "\"shortest superstring\" \"reverse complement\" \"2-mers\" \"greedy\""
+      ]
+    },
+    "rationale": "The 2026 Yamano–Shibuya works analyze general approximation and cycle-cover methods, and the earlier Fici et al. work proves a general compression guarantee for a reversal-based direct greedy rule. No inspected result implies the 1023-case exact all-ties profile or additive-one gap for DNA dimers. Orenstein–Shamir addresses optimum coverage of all k-mer reverse-complement classes, not greedy behavior for arbitrary subsets. Published research-record searches produced no covering result; absence from an index is not treated as proof of uniqueness. The nearest accessible historical fixed-length greedy calculations involve ordinary binary length-three/four inputs without Watson–Crick reversal, which are neither equivalent nor stronger.",
+    "residual_risks": [
+      "An equivalent fixed-input classification might exist in uncatalogued mathematical literature, software, teaching material, or supplementary tables.",
+      "Only the abstract and numerical table of Orenstein–Shamir (2013), rather than its entire article, were examined. This is a residual comparison limitation.",
+      "Literature searches and examined public mathematical records do not establish absolute publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related, not covering: ratio bounds apply to MGREEDY-RC/TGREEDY-RC, with the direct GREEDY-RC only defined and cited; no exact all-subsets dimer table",
+        "evidence": [
+          "arxiv:2601.15814, 2026-01-22, Sections 1–2.1 and Theorems 1.2–1.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.15814",
+        "material_read": "Complete accessible HTML text, especially introduction, preliminaries and Section 2.1 algorithms and bounds",
+        "method": "Directly inspected arXiv accessible text including proof framework and algorithm definitions",
+        "title": "Improved Approximation Ratios for the Shortest Common Superstring Problem with Reverse Complements",
+        "trigger": "Motivating recent primary source and definition of direct GREEDY-RC"
+      },
+      {
+        "assessment": "Related, not covering: 8/3 upper bound via a different algorithm, no statement of exact two-letter direct greedy behavior",
+        "evidence": [
+          "arxiv:2603.26176, 2026-03-27, Theorems 1.1–1.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.26176",
+        "material_read": "Accessible complete arXiv rendered text, especially Sections 1–2 with construction and reduction framework",
+        "method": "Directly inspected rendered article body",
+        "title": "Improved Approximation Algorithms and Hardness Results for Shortest Common Superstring with Reverse Complements",
+        "trigger": "Stronger 2026 general approximation or possible dominance"
+      },
+      {
+        "assessment": "Close predecessor but not covering: ordinary reversal rather than Watson–Crick reverse complementation, and broad compression statement rather than fixed exact all-tie DNA classification",
+        "evidence": [
+          "arxiv:1511.08431, 2015-11-26, Sections 2–3 and Lemma 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+        "material_read": "Accessible complete arXiv rendered text, especially Sections 1–3, Definition of greedy, and factor-free invariant",
+        "method": "Direct full-text inspection",
+        "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+        "trigger": "Most plausible earlier direct greedy theorem and coverage risk"
+      },
+      {
+        "assessment": "Different task (optimum full-coverage construction), no identified adversarial greedy all-subsets ratio; unresolved full-text priority risk recorded",
+        "evidence": [
+          "DOI:10.1093/bioinformatics/btt230, 2013; numerical table for even k"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt230",
+        "material_read": "Abstract and publicly indexed numerical table; complete article not inspected.",
+        "method": "Abstract and indexed table comparison, not a whole-document reading.",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Possible coverage by exact optimal reverse-complement k-mer tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "daec94dd-7473-44b8-9a3d-8a6fd4da406f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Strand-aware two-letter DNA reads are the smallest four-letter alphabet setting with 10 nontrivial reverse-complement classes, a motivated exact baseline for overlap assembly. The statement completely classifies the direct greedy algorithm on every admissible input (1023), provides an exact additive-one guarantee, a sharp global 5/4 length ratio, worst-case ratios at every possible input size, and the complete 282-instance nonoptimal distribution. This is a natural complete finite-domain algorithmic classification rather than a selected parameter slice without motivation. No relevance to longer reads or cycle-cover variants is asserted.",
+    "status": "PASS"
+  }
+}
