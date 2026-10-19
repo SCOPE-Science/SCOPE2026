@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For all m>=2, K_m counts ones by the exact substitution recurrence K_{m+1}=2^m-K_m. The disjoint image-01 blocks embed (01)^K and guarantee all binary length-K subsequences. Every binary length-(K+1) word with factor 01 embeds by one shared block. Remaining candidates are 1^r0^(K+1-r); the earliest-r-ones criterion and exact terminal 00 versus 1000101 prove the 1/3 dichotomy. Zero count covers r=0. Independent next-position automaton counting for m=2..13 and direct exhaustive enumeration through m=5 replay from verify.py: VERIFY_OK. Finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. full text: Theorem 2 and Sections 3-4 characterize and algorithmically enumerate SAS for arbitrary words.",
+        "Published result: Fibonacci extremals for shortest absent subsequences of binary words, a global extremal count over unrestricted words."
+      ],
+      "reasoning": "Generic SAS characterizations are algorithmic templates rather than explicit evaluation of the classic morphic family; a maximum over all binary words cannot imply the exact 1/3 parity-split count or missing strings in this restricted family.",
+      "searches": [
+        "shortest absent subsequences Thue Morse dyadic prefixes exact number universality index powers of two",
+        "period doubling word subsequence universality index maximal binary subsequences",
+        "Absent Subsequences in Words Theorem 2 2021"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1051/ita:2006041",
+      "arxiv:1301.4972",
+      "arxiv:2108.13968",
+      "Published result: Fibonacci extremals for shortest absent subsequences of binary words",
+      "Published result: Closed-form law for binary subsequence universality",
+      "Published result: Exact greedy string attractor of the period-doubling word"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kosche et al. Theorem 2 computes SAS via a word-specific arch representation; specializes in principle but does not imply the *numerical evaluated* family result without substantive additional structural analysis.",
+        "Currie et al. arxiv:1301.4972 abstract treats lexicographically extremal infinite words of the period-doubling morphic shift.",
+        "Avgustinovich–Cassaigne–Frid 2006 abstract treats arithmetical progression factor complexity."
+      ],
+      "reasoning": "A general computability result is not the exact formula for this named sequence; the direct proof uses global one counts, induced (01)^K subsequence, and parity-specific terminal zero-gap geometry, not supplied by the cited prior claims. The pre-2021 period-doubling sources address distinct invariants.",
+      "searches": [
+        "period doubling word subsequence universality index maximal binary subsequences",
+        "period doubling word 2012 arxiv combinatorics on words morphism 0 01 1 00"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche et al., arxiv:2108.13968, full text: Theorem 2 characterizes SAS from arch factorization of arbitrary input words, without evaluating the 0->01,1->00 iterates.",
+        "Published comparison: Exact greedy string attractor of the period-doubling word, which concerns contiguous-factor hitting sets."
+      ],
+      "reasoning": "Aliases SAS, missing scattered factors, absent subwords, and Simon-subsequence universality were checked. General algorithms/characterizations could compute the finite cases, but they contain no presented formula or classification for the full family. Greedy attractors concern contiguous factors, not scattered deletions.",
+      "searches": [
+        "period doubling word shortest absent scattered subsequences universality sequence 01 00",
+        "period doubling word subsequence absent binary minimal length period-doubling",
+        "period doubling automatic sequence absent scattered subwords binomial subsequences 1^k0 1^k00"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The surveyed published results on period-doubling greedy attractor and on generic SAS bounds showed no equal finite table.",
+        "Direct checks for m=2..13 are original finite verification, not evidence of literature novelty."
+      ],
+      "reasoning": "No exact public SAS table for these prefixes was identified in searches; this is limited negative-search evidence, not a uniqueness proof.",
+      "searches": [
+        "period doubling word shortest absent scattered subsequences universality sequence 01 00",
+        "period doubling word subsequence absent binary minimal length period-doubling",
+        "period doubling word shortest absent subsequences exact count 1 3 prefix 2^m"
+      ]
+    },
+    "rationale": "The inspected full accessible text of Kosche et al., 2021, treats generic SAS characterization and enumeration but has no explicit period-doubling prefix theorem; predecessor period-doubling work addresses factors, progression complexity and morphic subshifts. Published mathematical comparisons treat generic SAS maxima and distinct contiguous factor invariants. Neither a listed claim nor an implication supplies the exact three-word odd/even singleton classification. Residual possibility of unindexed earlier specialization acknowledged; no absolute novelty is claimed.",
+    "residual_risks": [
+      "Previously unindexed or terminology-shifted exact SAS classification of these period-doubling iterates may exist.",
+      "Full text of the 2006 period-doubling work and 2013 morphic-subshift preprint was not obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General arbitrary-word SAS characterization and algorithms; no period-doubling-family evaluated parity theorem found.",
+        "evidence": [
+          "Full text Theorem 2 at ~lines 537-563 links SAS to arch factorization; ~lines 223-265 enumerate scope; no text occurrence of period-doubling."
+        ],
+        "identifier_or_url": "arxiv:2108.13968; https://www.researchgate.net/publication/354268796_Absent_Subsequences_in_Words",
+        "material_read": "Accessible full-text rendering: introduction and Sections 2–4, including Theorems 2 and 3, algorithm scope and references; searched for period-doubling and morphic family names.",
+        "method": "Material textual inspection of hosted complete manuscript, not abstract alone.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Most relevant primary work explicitly defining and classifying shortest absent subsequences"
+      },
+      {
+        "assessment": "Studies arithmetic-progression factor complexity; inaccessible full text leaves residual coverage risk.",
+        "evidence": [
+          "Cambridge Core dated 2006-11-08, abstract explicitly describes arithmetic-progression extraction."
+        ],
+        "identifier_or_url": "doi:10.1051/ita:2006041",
+        "material_read": "Journal landing-page bibliographic metadata, abstract, keywords and bibliography only; full text not accessible.",
+        "method": "Abstract-level scope comparison, not whole-document exclusion.",
+        "title": "Sequences of low arithmetical complexity",
+        "trigger": "Pre-2016 work naming period-doubling words"
+      },
+      {
+        "assessment": "Lexicographic extremal infinite shift words, not shortest absent subsequences of finite substitution iterates as presented in abstract.",
+        "evidence": [
+          "Preprint first public dated 2013-01-21, abstract identifies extremal words of period-doubling shift."
+        ],
+        "identifier_or_url": "arxiv:1301.4972",
+        "material_read": "Public preprint metadata and abstract; full text not retrieved.",
+        "method": "Scope comparison restricted to abstract, not declared full-text NOT_COVERING.",
+        "title": "Extremal words in morphic subshifts",
+        "trigger": "Period-doubling classical morphic-word reference"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da3e0edc-d944-45d7-abf4-bb1d3787cc39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact natural infinite-family classification, not an arbitrary finite sample: every shortest missing scattered word of each dyadic period-doubling prefix is specified, lengths grow exponentially yet class cardinality alternates 1 and 3. This separates the small structured morphic family from the large general SAS possibilities and identifies a sharp terminal-gap mechanism, relevant to sparse sequence universality/reconstruction benchmarks. No downstream theorem or larger contribution is asserted.",
+    "status": "PASS"
+  }
+}
