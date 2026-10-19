@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact two-count Markov transition law follows by enumerating all V-trimer paths. The gamma-ratio integrates the conditional drift exactly; its increments have bounded predictable quadratic variation of order \\(N^{1/3}\\). For nonzero relative imbalance, the martingale has deterministic leading order \\(N^{2/3}\\) and terminal boundary inversion gives the \\(\\lvert\\delta\\rvert^{3/2}\\) law. For square-root imbalance, a stopped martingale CLT above \\(N^{1/2}\\) plus negligible lower-stage variation yields a unit-variance shifted normal; the barrier gives the \\(N^{1/4}\\) Gaussian-power limit. Independently enumerated physical terminal distributions agree with exact rational recursions on nine graphs, conditional moments and the gamma identity are checked, and seeded simulations corroborate but are not used as an infinite proof. A cutoff at three free vertices is accounted for by the continuous Gaussian no-atom property.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bennett–Bohman, arXiv:1210.3581: theorem for regular hypergraphs with suitably small pair codegree bounds the unmatched fraction but does not give an exact terminal law.",
+        "Glock et al., arXiv:2205.05564: regularity/codegree/conflict conditions yield near-perfect matchings; no terminal distribution of a specific unequal-density bipartite V-trimer process.",
+        "Pippenger 1989, DOI 10.1137/0402034: available abstract concerns monomer and dimer adsorption on regular sparse/locally treelike graphs."
+      ],
+      "reasoning": "General methods may bound the number of uncovered vertices for near-regular hypergraphs, but such bounds neither cover the imbalanced dense two-class substrate at equal rates nor yield an \\(N^{1/4}\\) limiting distribution. The present proof does not claim a new general hypergraph method.",
+      "searches": [
+        "random greedy 3-uniform hypergraph bipartite 2+1 hyperedge jamming power law",
+        "A natural barrier in random greedy hypergraph matching arxiv 1210.3581",
+        "Conflict-free hypergraph matchings arxiv 2205.05564",
+        "random sequential adsorption on graphs Pippenger 1989"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.1007/s00894-013-2031-5 (2013, full publisher HTML)",
+      "DOI 10.1103/PhysRevE.50.4523 (1994, abstract; institutional access unavailable)",
+      "DOI 10.1137/0402034 (1989, abstract only)",
+      "arXiv:1210.3581 (2012, theorem abstract)",
+      "arXiv:2205.05564 (2022, abstract and publisher-section excerpts)",
+      "Prior scientific claim IDs a5924f18-5421-4e70-8eaa-b4eaf219c325 and b6a742e0-891a-4f5e-a4a3-72892f1621b5 (dimer systems; comparisons by statement)",
+      "published-finding corpus 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f (unrelated random greedy maximal independent set)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior scientific claim with identifier a5924f18-5421-4e70-8eaa-b4eaf219c325 treats random DIMERS on complete multipartite graphs and obtains a deterministic product jamming law.",
+        "Prior scientific claim with identifier b6a742e0-891a-4f5e-a4a3-72892f1621b5 treats random DIMERS on a three-class split graph and obtains a folded-Gaussian \\(\\sqrt N\\) limit.",
+        "Published Bennett–Bohman arXiv:1210.3581 covers a regular-hypergraph upper bound on unmatched proportion, not an exact non-Gaussian terminal distribution.",
+        "Cieśla–Barbasz 2013 studied planar geometric trimers, not a mean-field bipartite path hypergraph."
+      ],
+      "reasoning": "Changing the adsorbate from an edge to a three-vertex path changes the Markov increments from two-site to three-site and introduces two competing removal orientations. None of the examined dimer statements implies the gamma-ratio martingale or the quarter-root law. General upper bounds do not determine the exact coefficient or law.",
+      "searches": [
+        "random sequential adsorption trimers length-two paths complete bipartite graph independent sets remaining number jamming",
+        "random greedy 3-uniform hypergraph bipartite 2+1 hyperedge jamming power law",
+        "random sequential adsorption V-shaped trimers complete bipartite graph jamming limit",
+        "random greedy 3-uniform hypergraph bipartite 2+1 hyperedge jamming power law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cieśla–Barbasz, DOI 10.1007/s00894-013-2031-5: trimer RSA on a planar homogeneous continuum collector; full paper model and results read.",
+        "De Oliveira–Tomé, DOI 10.1103/PhysRevE.50.4523: abstract specifies inhomogeneous RSA of particles on a chain and a square bipartite lattice, not length-two paths in a complete graph.",
+        "The 3-uniform hypergraph of allowed V-trimers has edges of types (2,1) and (1,2); this can equivalently be called random greedy matching in the complete bipartite path hypergraph."
+      ],
+      "reasoning": "The equivalence to random greedy matching in a 3-uniform path hypergraph was explicitly searched. Prior accessible papers on trimers and bipartite adsorption employ physically different substrates and do not state either the \\(\\lvert\\delta\\rvert^{3/2}\\) law or \\(N^{1/4}\\) Gaussian-power law. These searches do not establish global novelty.",
+      "searches": [
+        "random sequential adsorption trimers length-two paths complete bipartite graph independent sets remaining number jamming",
+        "V trimer random greedy matching hyperedges with (2,1) and (1,2) patterns phase transition n one fourth critical scaling",
+        "random sequential adsorption of V shaped trimers complete bipartite graph mean field",
+        "deletion urn asymmetric triples complete bipartite length 2 path terminal imbalance power 3/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent exact rational recursion gives \\(\\mathbb P(U=0)=3/4\\), \\(\\mathbb P(U=3)=1/4\\) on \\(K_{4,2}\\) and \\(25/28,3/28\\) on \\(K_{5,4}\\).",
+        "The published-finding corpus result 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f gives a size-biased maximal-independent-set law, not a trimer RSA table.",
+        "The small integer/rational values were sought together with the graph, adsorbate and process; no matching published table was identified."
+      ],
+      "reasoning": "The finite enumerations are used to test the new chain, not claimed as independently novel table entries. Search non-detection does not prove that no table exists.",
+      "searches": [
+        "random sequential adsorption trimers length-two paths complete bipartite graph independent sets remaining number jamming",
+        "random sequential adsorption path trimers terminal distribution 4 2 5 4",
+        "quartic root random sequential trimer",
+        "V-shaped trimer complete bipartite jamming"
+      ]
+    },
+    "rationale": "Available references, five semantic research-record queries, targeted primary-literature searches, and the accessible claim history were compared by statement and implication. The only fully read close trimer primary article covers planar continuum adsorption and does not determine the terminal chain on complete bipartite graphs. Abstracts and full-text extracts on lattice RSA, random greedy sparse graph adsorption, and general hypergraph matching do not supply the explicit critical exponent or terminal distribution. Missing full text remains a stated risk, not a false claim of exhaustive novelty.",
+    "residual_risks": [
+      "An equivalent deletion-urn process could have been solved under different terminology; broad searches do not eliminate this possibility.",
+      "Full text of de Oliveira–Tomé (1994) and Pippenger (1989) was unavailable; the disclosed assessment does not assert full-text NOT_COVERING.",
+      "Complete arXiv manuscripts for the two general hypergraph-matching papers were not read; the stated theorem hypotheses and conclusions were compared from accessible material.",
+      "Unindexed reports and tables may contain a special case despite negative search results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the specified complete-bipartite random-greedy V-trimer theorem.",
+        "evidence": "The authors simulate three-sphere trimers on a two-dimensional continuous square collector, report coverage 0.5234 and available-surface numerical fits; no dense bipartite path hypergraph or martingale terminal law is studied.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00894-013-2031-5",
+        "material_read": "Complete open-access publisher HTML: introduction, model, kinetics, density fluctuations, summary and references.",
+        "method": "Open-access full-text inspection, including specific adsorbate geometry, substrate and reported coverage.",
+        "title": "Random sequential adsorption of trimers and hexamers",
+        "trigger": "Trimer shape and jamming are central to the proposed finding."
+      },
+      {
+        "assessment": "The abstract identifies linear-chain and square-lattice systems, not the present complete bipartite path-adsorption model; full-text noncoverage is not certified.",
+        "evidence": "The published abstract describes asymmetric adsorption probabilities for particles on chains and squares, with exact 1D and simulated 2D coverages. Full text could not be obtained during this round.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.4523",
+        "material_read": "Publisher abstract, model/location details and bibliographic metadata only; full article requires authorization.",
+        "method": "Publisher page and open-access/preprint search; authorized institutional retrieval attempt was unavailable.",
+        "title": "Inhomogeneous random sequential adsorption on bipartite lattices",
+        "trigger": "Uses bipartite geometry and irreversible adsorption."
+      },
+      {
+        "assessment": "No implication to the exact terminal jamming law identified; regularity assumptions and target are different.",
+        "evidence": "The paper obtains almost-perfect conflict-free matchings under approximate regularity and small codegrees, without the present imbalanced complete bipartite substrate and explicit quartic-root terminal law.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.05564",
+        "material_read": "Abstract and substantial accessible publisher-section excerpts on hypotheses, random greedy algorithm and main theorem, not a complete uninterrupted manuscript inspection.",
+        "method": "Open-access preprint abstract, publisher indexed full-text excerpts, theorem/section comparison.",
+        "title": "Conflict-free hypergraph matchings",
+        "trigger": "The V-trimer process is a random greedy 3-uniform hypergraph matching."
+      },
+      {
+        "assessment": "The stated general coverage bound does not imply an exact \\(N^{1/4}\\) terminal law.",
+        "evidence": "The abstract assumes \\(D\\)-regular uniform hypergraphs with small pair codegrees and bounds the unmatched fraction by a power of the codegree-to-degree ratio.",
+        "identifier_or_url": "https://arxiv.org/abs/1210.3581",
+        "material_read": "Original arXiv abstract and quantitative theorem assumptions; the complete PDF was not separately inspected.",
+        "method": "ArXiv abstract with mathematical hypothesis and conclusion comparison.",
+        "title": "A natural barrier in random greedy hypergraph matching",
+        "trigger": "Potential stronger general asymptotic hypergraph greedy-matching result."
+      },
+      {
+        "assessment": "Abstract covers monomer/dimer regular sparse graph RSA, not the present trimer process; full-text status remains limited.",
+        "evidence": "The article treats vertex and edge adsorption on graphs of high girth or with few triangles, not a V-trimer mean-field complete bipartite model.",
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Publisher abstract, explicit model description, references and metadata; complete paper inaccessible.",
+        "method": "Publisher bibliographic page, scholarly record and full-text search.",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Classical graph RSA and random greedy matching background."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc17ed2f-f819-49a2-8439-8ab5520df008",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random greedy packing of the natural bent three-site adsorbate on complete bipartite substrates reveals a sharp fluctuation transition: a fixed class imbalance leaves a strictly positive kinetic vacancy fraction even where perfect packings exist, while balance produces a non-Gaussian quarter-root-scale residual. The closed exponent and distribution provide quantitative kinetic benchmarks not implied by generic hypergraph near-perfect matching existence statements.",
+    "status": "PASS"
+  }
+}
