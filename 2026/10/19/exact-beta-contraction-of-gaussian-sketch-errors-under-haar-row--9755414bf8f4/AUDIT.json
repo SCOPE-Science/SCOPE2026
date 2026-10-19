@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal residual decomposition, exact complementary Gaussian-plane minimization, independent polar Beta and inverse Wishart chi-square factors, Gaussian regression Student density, and Gamma/Beta tail calculations supply a complete proof for every allowed integer dimension and boundary. The reproducibility script passed 34,813 finite numerical assertions on its actual package path; these are diagnostics and not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Epperly–Webber gives sharp mean errors and sketch minimax optimality, using inverse Wishart and Beta-matrix expectations.",
+        "Dobriban–Liu gives asymptotic sketching efficiency formulas."
+      ],
+      "reasoning": "The mean is a corollary of the proposed law; the converse does not follow. These published formulations lack the law of an entire coefficient error vector and sharp finite-sample upper-tail coefficients. Asymptotic efficiency does not determine exact finite-n distribution.",
+      "searches": [
+        "Epperly–Webber 2026, Theorem 2.1 and §§5.1–5.4, arxiv:2605.19096v1",
+        "Dobriban–Liu, Asymptotics for Sketching in Least Squares Regression, arxiv:1810.06089v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.19096v1, relevant full source and proofs",
+      "arxiv:1810.06089v2, full-text relevant asymptotic results",
+      "Ahfock–Astle–Richardson, Statistical properties of sketching algorithms, open-access relevant sections",
+      "Published record d9ecf263b248, semantic summary only",
+      "Published record e99f37d3b7ae, semantic summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 states E[T_H] and E[T_G], reproduced at q=1, but does not state the claimed Beta coupling.",
+        "The older exact Gaussian multivariate Student law is one component only.",
+        "The closest published Haar results concern separate objects and do not imply the least-squares vector coupling."
+      ],
+      "reasoning": "Mean equality, Gaussian Student law, and Haar beta-matrix inverse expectation separately do not force the independent scalar Beta factorization. The new proof identifies that factor using the complement Wishart/Schur structure and obtains implications for all moments and tails.",
+      "searches": [
+        "Epperly–Webber arxiv:2605.19096v1 Theorem 2.1, Proposition 5.4, Proposition 5.7",
+        "Ahfock–Astle–Richardson, Statistical properties of sketching algorithms, Gaussian complete sketch",
+        "published-finding corpus: Exact finite sample stochastic domination of Haar orthonormal sketch-and-solve over Gaussian sketches via independent Beta scaling of multivariate Student t regression error; full coefficient vector law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published-finding corpus Haar-moment finding d9ecf263b248 concerns subspace descent; one-spike Haar radius finding e99f37d3b7ae concerns random ellipsoid sections, not regression.",
+        "Classical Gaussian Student errors occur in Ahfock–Astle–Richardson, but the independent Haar Beta factor was not present in material inspected."
+      ],
+      "reasoning": "Compared a vector distributional identity, not only terms such as Haar, Gaussian or Student. Similar random-matrix factors for different objectives do not imply this exact regression law.",
+      "searches": [
+        "published-finding corpus: Haar orthogonal least squares sketch coefficient vector is independent beta contraction of Gaussian t error, finite sample exact distribution and strict stochastic ordering",
+        "web: exact distribution Haar orthonormal sketch least squares coefficient error beta gaussian ratio Student t",
+        "web: Haar random projection least squares error exact distribution beta F student inverse wishart"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published-record matches concerning general Beta and F tails do not contain a row-subspace-sketch-and-solve exact distribution table.",
+        "The directly matching 2026 article tabulates expected residuals, not the complete Beta-scaled F law."
+      ],
+      "reasoning": "The lookup covered the exact factorization and equivalent Beta-prime/F vocabulary. No exact table was found among the results and inspected primary material; failed search is not a universal novelty proof.",
+      "searches": [
+        "published-finding corpus: random projection sketch least squares beta times F distribution full risk tails moment existence",
+        "published-finding corpus: complete sketching orthogonal Gaussian comparison exact stochastic dominance via Beta chi square ratio",
+        "web: distribution of ordinary least squares estimator random Haar orthogonal subspace sketch Student t Beta mixture"
+      ]
+    },
+    "rationale": "Literature-led recent source states only first expected sketch residual. Full accessible main proof, classical asymptotic regression analysis and exact Gaussian sketch statistics were compared against the complete independent Haar Beta contraction and high-tail implications; the identified results do not entail that finite-sample vector law without additional nontrivial complementary-plane and Wishart arguments. Semantic published-record searches did not identify equivalent claims, with acknowledged incomplete indexing risk.",
+    "residual_risks": [
+      "An equivalent independent Beta/Wishart factorization may exist in older matrix-Jacobi, canonical correlation, or regression-in-random-subspaces literature under different terminology.",
+      "Bibliographic checks cannot prove global uniqueness; published-finding corpus and other search indexes may omit matching documents.",
+      "The 2024 work Inference in Randomized Least Squares and PCA via Normality of Quadratic Forms was available as an abstract but its full text was not inspected; any possible overlap there remains unexcluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers mean error and its spectral minimax interpretation, not the asserted independent scalar Beta coupling of the full coefficient-error law, strict all-threshold stochastic domination, or exact high-order tail constants.",
+        "evidence": "Theorem 2.1 gives only E||b-A xhat||² and expected estimator; §§5.2–5.4 use inverse-Wishart expectation and matrix-Beta expectation, not full coefficient-error distribution.",
+        "identifier_or_url": "https://arxiv.org/html/2605.19096v1",
+        "material_read": "Theorem 2.1, §§2.1–2.3, §§5.1–5.4, particularly inverse Wishart and matrix-Beta propositions and exact error decomposition.",
+        "method": "Full accessible arXiv HTML searched and relevant proof paragraphs compared by mathematical implication.",
+        "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+        "trigger": "Direct same-object paper and primary recent source, with apparently stronger mean-error coverage."
+      },
+      {
+        "assessment": "Asymptotic random-design or noise-based efficiency comparisons do not establish the fixed deterministic-instance finite-sample independent Beta law.",
+        "evidence": "Statements concern large-dimensional variance efficiency and asymptotic sketching accuracy rather than exact finite-sample vector distribution.",
+        "identifier_or_url": "https://arxiv.org/html/1810.06089v2",
+        "material_read": "Sections 2.1 and 2.3 and the relevant Appendix A.2 asymptotic efficiency derivations.",
+        "method": "Accessible arXiv full-text HTML, compared formula assumptions and asymptotic parameters.",
+        "title": "Asymptotics for Sketching in Least Squares Regression",
+        "trigger": "Classical strong comparison of Gaussian and Haar sketch regression performance."
+      },
+      {
+        "assessment": "Supplies a Gaussian multivariate Student coefficient law; does not show the extra independent Haar Beta contraction across the exact finite-dimensional benchmark.",
+        "evidence": "Gaussian sketched-design and response distributions are developed for Gaussian, Hadamard and Clarkson–Woodruff sketches; the exact Haar/Gaussian multiplicative stochastic ordering is not stated.",
+        "identifier_or_url": "https://api.repository.cam.ac.uk/server/api/core/bitstreams/4c9976e5-dc31-430b-98a7-cb7002705ee4/content",
+        "material_read": "Open repository paper introduction and exact Gaussian complete-sketch distribution derivation, relevant early pages.",
+        "method": "Authorized open-access full PDF relevant pages visually and textually inspected.",
+        "title": "Statistical properties of sketching algorithms",
+        "trigger": "Closest older statistical results on exact complete-sketch estimator distributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9755414b-f8f4-4edd-ad48-7bf169dca8ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Extends the exact-mean analysis of a current randomized numerical linear-algebra benchmark to a full fixed-instance coefficient distribution, strict every-threshold reliability order, sharp higher moments and tail constants. It quantifies what expected-error-only analysis cannot and remains informative at dimensions where the mean or higher moments diverge; not an arbitrary slice or mere notation change.",
+    "status": "PASS"
+  }
+}
