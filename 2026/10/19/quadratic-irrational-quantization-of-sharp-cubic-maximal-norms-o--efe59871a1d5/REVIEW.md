@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact two-branch polynomial slack certificate proves the cubic inequality globally, including the complete equality set. The finite-graph two-value reduction is justified by strict convexity and a direct quotient comparison; the scalar optimizer is unique. The mass-fraction Hessian is positive on the constrained tangent line, with exact coefficient \(1-\sqrt7/14\). Uniform Taylor control and irrational rotations establish the lattice law and its two subsequence rates. An actual checker independently reproduces the key symbolic equalities and tests finite instances. Numerical experiments are not used to extrapolate an infinite claim.
+
+**Originality — PASS, qualified.** The October 2026 preprint on maximal semigroups uses nonatomic local compactness to obtain a different sharp constant; the complete-graph semigroup lies outside that hypothesis. The 2020 complete-graph studies supply the cubic problem's prior two-level structural lemma and exact Hilbert-exponent results, not the irrational cubic continuous optimum, exact arithmetic curvature, or two-rate finite-size convergence. The March 2026 complete-graph manuscript concerns variation seminorms, a different quantity. Literature searches and published-result comparisons for the exact radical parameters, equivalent expectation maxima and stronger formulas revealed no covering theorem. Historical unindexed Bellman-function formulations remain possible.
+
+**Value — PASS.** The work supplies a sharp cubic benchmark for a canonical finite Markov semigroup and identifies a genuinely arithmetic boundary between finite atomic and nonatomic extremizers. The quadratic irrational optimizer forces nonattainment for *every* graph size, while Diophantine approximation produces two rigorously distinct convergence rates for the exact operator norms. This goes beyond an isolated constant calculation or a known two-value extremizer lemma.
+
+**Limits.** Not a theorem about general graphs, arbitrary exponents, or full semigroup classes; no exhaustive historical-priority claim is made. The checker validates algebraic identities but cannot replace the global compactness and number-theoretic arguments.
+
+Self-review: passed. Independent audit: not yet performed.
