@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For any real eigenvalue with z nonzero in ker(Cbar), the first and third normalized block equations give x* Atilde x=lambda(||x||^2+||z||^2); x is nonzero since Bbar has full row rank, so 0<lambda<b. Only if lambda<a is Atilde-lambda I SPD and its inverse >= (b-lambda)^{-1} I; this yields lambda(b-lambda)>=beta. The quadratic-root case split proves the clipped floor without assuming invertibility of Etilde-lambda I. For every t>=1 the constructed blocks are SPD/full rank, yield an exact eigenpair lambda=1, z in ker(C), with beta/b=(3+7t^2)/7 unbounded; an exact low-coupling equality instance is supplied. Packaged Python Fraction verifier checks two rational points t=1,11 and the sharp instance; the continuum and universal theorem rest on algebra, not finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "F. Balani Bakrani et al. (2024), Numerical Linear Algebra with Applications 31:e2551, Sections 2 and 4.1: a different three-block saddle matrix and triangular Schur complement",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.2551",
+        "L. Bergamaschi and M. Bergamaschi (2026), DOI:10.3390/a19050359, abstract: symmetric SPD preconditioners, rather than the present upper-triangular nonsymmetric pencil",
+        "https://www.preprints.org/manuscript/202602.0162"
+      ],
+      "reasoning": "The 2024 full-text theorem bounds an inequivalent preconditioned pencil; its block ordering, Schur construction and normalization cannot be substituted for Liang-Huang assumptions to imply the disputed inequality or the clipped replacement. The 2026 related symmetric-SPD article was abstract-inspected only; it is a residual comparison risk but provides no demonstrated covering implication.",
+      "searches": [
+        "double saddle point preconditioner real eigenvalue lower bound B B transpose divided maximal eigenvalue A fails unbounded",
+        "Schur complement nonnormal block triangular preconditioner spectral enclosure positive real eigenvalue small despite large coupling",
+        "\"double saddle-point\" preconditioner \"gamma_min\" \"gamma_max\" spectral real eigenvalues",
+        "\"saddle-point\" \"minimum\" \"maximum\" \"real eigenvalues\" block triangular preconditioner",
+        "published-finding corpus: double saddle point preconditioner real eigenvalue lower bound B B transpose divided maximal eigenvalue A fails unbounded"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.01031v1 / https://arxiv.org/html/2609.01031v1",
+      "Balani Bakrani et al. (2024), https://onlinelibrary.wiley.com/doi/full/10.1002/nla.2551",
+      "Bergamaschi and Bergamaschi (2026), DOI 10.3390/a19050359 (abstract only)",
+      "published-finding corpus closest IDs 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba, 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a, 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+      "Own current/prior available ledgers, ID/claim overlap screening only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.01031v1 Lemma 2.2 asserts beta/b<=lambda for real nullspace eigenpairs; the explicit admissible family gives lambda=1 and beta/b=(3+7t^2)/7>1, which diverges",
+        "arxiv:2609.01031v1, equations (2.2)-(2.4) imply the energy identity and hence the corrected floor after a restricted positive-definite resolvent argument",
+        "https://arxiv.org/html/2609.01031v1"
+      ],
+      "reasoning": "The motivating published statement and the present unbounded counterexample have contradictory implications for the exact same generalized eigenproblem; the counterexample cannot be subsumed by a proof of that statement. The corrected clipped result extends beyond showing contradiction and furnishes a valid conditional enclosure, including an equality example. The source later real-eigenvalue results are not declared false merely because this intermediate statement fails.",
+      "searches": [
+        "Liang Huang 2026 randomized inexact block triangular double saddle point Lemma 2.2 gamma_min^B gamma_max^A real eigenvalue lower bound counterexample null(C)",
+        "\"randomized inexact block triangular preconditioners\" \"lemma 2.2\" counterexample",
+        "\"double saddle-point\" preconditioner \"gamma_min\" \"gamma_max\" spectral real eigenvalues",
+        "\"Liang\" \"Huang\" \"2026\" \"Lemma 2.2\" \"saddle\" preconditioner",
+        "\"Randomized inexact block triangular preconditioners\" erratum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.01031v1, equations (2.2)–(2.9), particularly Lemma 2.2 and its attempted scalar-quadratic reduction",
+        "Exact family (5) in RESULT.md: for every t>=1, lambda=1 while beta/b=(3+7t^2)/7",
+        "https://arxiv.org/html/2609.01031v1"
+      ],
+      "reasoning": "The purported equivalence between the Rayleigh quotient of a resolvent and the reciprocal of a shifted Rayleigh quotient fails when the vector spans multiple distinct A-eigenspaces. The exact nullspace eigenpairs disprove the source unconditional floor. The clipped statement only uses the resolvent where Atilde-lambda I is SPD. No inspected equivalent formulation supplies this exact nullspace result.",
+      "searches": [
+        "Liang Huang 2026 randomized inexact block triangular double saddle point Lemma 2.2 gamma_min^B gamma_max^A real eigenvalue lower bound counterexample null(C)",
+        "Rayleigh quotient resolvent eigenvalue reciprocal Rayleigh quotient invalid saddle point eigenvalue localization",
+        "\"randomized inexact block triangular preconditioners\" \"lemma 2.2\" counterexample",
+        "\"resolvent Rayleigh quotient\" preconditioned saddle point eigenvalue bound",
+        "published-finding corpus published entries search on nullspace branch and resolvent Rayleigh-quotient equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest published IDs: 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba; 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a; 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+        "Own available current-week and prior-week ledger claim/identifier deduplication: no recoverable matching nullspace branch claim"
+      ],
+      "reasoning": "The identified published-finding corpus records concern additive Gauss-Seidel inverses, row-coherence initialization or Lanczos regularization, not the same exact generalized eigenpair or its matrix-pencil implication. A deterministic spectral counterexample and theorem are not a lookup from a published numerical table; negative searches are limited evidence and not novelty proof.",
+      "searches": [
+        "Liang Huang 2026 randomized inexact block triangular double saddle point Lemma 2.2 gamma_min^B gamma_max^A real eigenvalue lower bound counterexample null(C)",
+        "double saddle point preconditioner real eigenvalue lower bound B B transpose divided maximal eigenvalue A fails unbounded",
+        "site:github.com/published-finding corpus/2026 \"double saddle-point\" \"inexact block triangular\"",
+        "published-finding corpus semantic search: Schur complement nonnormal block triangular preconditioner spectral enclosure positive real eigenvalue small despite large coupling"
+      ]
+    },
+    "rationale": "The first-public 2026 source states the incompatible unconditional beta/b floor for the identical nullspace eigenbranch, not this explicit counterexample or safe clipped replacement. Its scalar-quadratic transition incorrectly equates a resolvent Rayleigh quotient with a shifted ordinary quotient. Comparison of the full 2024 double saddle-point preconditioning paper shows a different matrix/preconditioner, and the 2026 symmetric-SPD article abstract does not provide a demonstrated implication. Targeted published-finding corpus searches and available own-ledger dedup found no matching claim, but such absence is not itself proof of global novelty. The explicit new contradiction and repair survive direct scientific implication comparison.",
+    "residual_risks": [
+      "An older general matrix-pencil result could imply the clipped inequality or provide an equivalent counterexample; published-finding corpus absence is not proof of uniqueness.",
+      "Bergamaschi and Bergamaschi (2026) was not fully inspected, only its abstract; it treats a different type of preconditioner.",
+      "The exact source randomized approximation construction is not tested, only structural SPD hypotheses of its lemma. Independent audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY CONTRADICTED: lemma states an unconditional positive lower bound that the admissible family violates. The proof scalarization is not valid in general; no assertion about other source theorems is made.",
+        "evidence": [
+          "Lemma 2.2, equations (2.8)-(2.9), and exact generalized matrix-eigenpair in RESULT.md."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.01031v1",
+        "material_read": "Full available HTML, including Introduction, normalization equations (2.1)-(2.4), Lemma 2.2 and proof (2.8)-(2.9), Theorem 2.1 context, and subsequent spectral discussion in Section 2.",
+        "method": "Primary open-access arXiv HTML text and statement-by-statement algebraic reconstruction.",
+        "title": "Randomized inexact block triangular preconditioners for double saddle-point systems in PDE-constrained optimization",
+        "trigger": "Motivating first-public 2026 numerical-linear-algebra source; exact identical matrix pencil and potentially dominating claim."
+      },
+      {
+        "assessment": "NOT COVERING: related but inequivalent saddle point pencil and preconditioner; no implication to exact Liang-Huang null-C real-eigenvalue branch.",
+        "evidence": [
+          "Distinct three-block matrix structure and Schur normalizations in the 2024 Sections 2 and 4.1."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.2551",
+        "material_read": "Open-access full text mathematical setup in Sections 1-2 and spectral-analysis argument and Theorem 8 in Section 4.1.",
+        "method": "Primary full-text HTML comparison of matrix dimensions, placement of zero block, Schur preconditioner, and assumptions.",
+        "title": "Some preconditioning techniques for a class of double saddle point problems",
+        "trigger": "Prior 2024 double saddle-point eigenvalue enclosures might imply the new corrected claim."
+      },
+      {
+        "assessment": "MATERIAL ACCESS LIMITATION: its symmetric SPD preconditioner differs from the present nonsymmetric triangular generalized eigenproblem, but undiscovered special-case implications are possible.",
+        "evidence": [
+          "DOI:10.3390/a19050359; public abstract describes symmetric SPD-preconditioned problems."
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202602.0162",
+        "material_read": "Abstract and bibliographic descriptions only; full text not verified as read.",
+        "method": "Published abstract and open-preprint metadata comparison.",
+        "title": "Eigenvalue Bounds for Symmetric, Multiple Saddle-Point Matrices with SPD Preconditioners",
+        "trigger": "Potentially broad prior spectral enclosures for multiple saddle-point systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a867078d-f08c-40ac-87cd-513230c16e83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating PDE-constrained numerical-linear-algebra spectral lemma supplies an allegedly uniform positive eigenvalue enclosure. Keeping A and E spectra and their condition numbers fixed while the asserted floor diverges exposes a meaningful structural failure not explained by singular diagonal blocks or a limit on their conditioning. The corrected conditional resolvent enclosure is a usable mathematical repair, with exact root equality on a natural branch. This is relevant to reliability of preconditioner spectral predictions, not a fabricated application claim. The proof avoids alleging invalidity of unrelated main theorems or numerical experiments.",
+    "status": "PASS"
+  }
+}
