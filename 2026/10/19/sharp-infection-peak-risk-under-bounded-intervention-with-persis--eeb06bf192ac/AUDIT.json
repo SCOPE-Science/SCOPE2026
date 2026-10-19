@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The positive global solution and the pathwise identity \\(\\log(I/Z)=\\int[(1-\\alpha)\\beta S+H-\\eta]\\,dt\\) are derived under bounded adapted controls. Full suppression \\(\\alpha=1,\\ \\eta=H\\) attains equality as entire processes, forcing simultaneous sharp stochastic ordering for terminal and supremum events. Gaussian evaluation, the verified drifted-Brownian first-passage density, its antiderivative and infinite-horizon limit give the exact probabilities. Total-variation discrepancy is proved by the measurable complement of bounded support. Four independent numerical density integrations check the finite-time formula; they are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Parkinson–Roy 2026 full article, Sections 2, 3, 5, 6: PDE-constrained optimal control and hospital-capacity costs, not a sharp first-passage envelope.",
+        "Gray–Greenhalgh–Hu–Mao–Pan 2011 author manuscript, introduction and Section 2: stochastic SIS with shared transmission perturbation and a fixed total.",
+        "Chen–Jin–Liu–Jia 2026, accessible journal abstract and early preprint excerpts: a finite-population Markov jump SIS model with an exact first-passage distribution."
+      ],
+      "reasoning": "A general Brownian first-passage formula mathematically covers the envelope process Z, but not, without the present pathwise order proof, the optimization over feedback interventions in the coupled epidemic system. The cited epidemic papers have different model classes, noise structures, or objectives, and no inspected theorem implies the combined claim. A sufficiently broad theorem in unindexed controlled-diffusion literature remains a risk.",
+      "searches": [
+        "\"Sharp optimal finite-time exceedance probability geometric Brownian infected compartment under maximal treatment and full transmission suppression\"",
+        "\"Exact irreducible epidemic peak risk under bounded treatment and Brownian environment infection noise maximal intervention\"",
+        "\"stochastic epidemic multiplicative noise optimal probability of exceeding hospitalization capacity Brownian lower bound\""
+      ]
+    },
+    "checked_sources": [
+      "Parkinson and Roy, arXiv:2601.20181 / J Math Biol 93 (2026) 47",
+      "Gray et al., SIAM J Appl Math 71 (2011), 876-902",
+      "Chen et al., SIAM Journal on Life Sciences, DOI:10.1137/25M1805321 (abstract/excerpts; not full text)",
+      "Previously published public finding 41bbc0978013 (full RESULT.md)",
+      "Public literature searches for stochastic SIR first passage, intervention-uniform Gaussian tails and bounded Fokker-Planck support discrepancies"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating article, Section 2: numerical stochastic model allows broad noise classes but imposes a bounded invariant domain; Section 5: concrete simulation uses noise proportional to (1-alpha) S I and alpha_max=0.85.",
+        "Previously published mathematical note: Independent transmission noises are not transmission-rate noise: its statement compares covariance matrices for independent versus common transmission drivers; it neither assumes sigma_I=sigma I nor calculates any peak-risk law.",
+        "Gray et al. 2011 Section 2 equation (2.4): an SIS transmission diffusion sigma (N-I)I, whose state interval is bounded by N.",
+        "Chen et al. 2026 journal abstract: finite-state generator/master-equation and first-passage formula; not a Brownian multiplicative infected compartment under bounded controls."
+      ],
+      "reasoning": "The 2026 source permits but does not analyze the persistent infected-only noise specialization; a method for optimizing an unrelated bounded-domain PDE does not imply exact all-policy risk. The covariance note addresses the source numerical model and is logically orthogonal. The conserved-population SIS and the finite-state jump SIS models are not superclasses of the present uncontrolled-growth-noise diffusion. Standard reflection formulas alone do not establish the control-uniform comparison. No inspected statement subsumes the new theorem.",
+      "searches": [
+        "\"Parkinson Roy epidemic Fokker Planck irreducible exceedance peak hospital capacity sup process independent infected noise\"",
+        "\"stochastic SIR first passage hitting probability geometric Brownian rigorous treatment control hazard\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parkinson–Roy, arXiv:2601.20181, equations (2),(6), Section 5: bounded controlled density formulation and a different numerical noise coefficient.",
+        "Previously published mathematical note: Independent transmission noises are not transmission-rate noise: full published RESULT.md describes covariance and mixed diffusion terms, not first-passage probability."
+      ],
+      "reasoning": "Alternatives considered were Gaussian terminal exceedance, first passage of a drifted Brownian motion, stochastic domination by geometric Brownian motion, the inverse-Gaussian first-passage density, and bounded-support total-variation separation. The Brownian ingredients are classical, but the precise controlled epidemic claim includes a simultaneous attainable infimum across all adapted interventions and a support-error consequence, which the inspected primary sources do not state.",
+      "searches": [
+        "\"Fokker Planck bounded-domain zero-flux distribution total variation lower bound from stochastic SIR positive unbounded support\"",
+        "\"Controlled stochastic SIR sharp first passage maximum infected threshold geometric Brownian multiplicative noise full suppression exact hitting probability\"",
+        "\"geometric Brownian stochastic epidemic probability infected beyond population size bounded support control\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim concerns a continuum of real rate parameters and horizons, and includes an exact process order for all bounded measurable interventions; it is not an integer database entry or an enumerated finite table.",
+        "The checked 2026 finite-state SIS first-passage paper computes finite-state distributions, not this continuum diffusion envelope."
+      ],
+      "reasoning": "Exact database or tabular coverage is inapplicable to an all-real-parameter control/pathwise-stochastic statement; a published symbolic formula or a stronger theorem would count as covering even without tabular matching. No such coverage was found among the located primary sources.",
+      "searches": [
+        "\"Logarithmic infected stochastic epidemic power law maximum supremum first passage probability for multiplicative recovery perturbations\"",
+        "\"Parkinson Roy Fokker Planck positive invariant bounded domain multiplicative compartment-specific noise contradicted by geometric Brownian support\""
+      ]
+    },
+    "rationale": "The precise joint claim—the attainable all-policy stochastic lower envelope, first-passage peak law, and finite-domain total-variation floor for persistent infected-only noise—is not contained in the motivating full-text Fokker-Planck study, which optimizes a different finite-domain PDE and uses transmission-proportional numerical noise. The earlier stochastic SIS transmission-noise model has a conserved total and a different diffusion. A 2026 exact first-passage SIS paper concerns a finite-state jump chain. A previously published same-source covariance note addresses driver correlation, not peak risk. Ordinary Brownian first-passage theory supplies a standard proof tool, not the applied all-control result. These comparisons are best-knowledge claims with specified residual access risks.",
+    "residual_risks": [
+      "A broadly formulated stochastic control comparison or barrier theorem outside indexed searches could subsume the application even without epidemic-specific terminology.",
+      "Chen et al. 2026 full text could not be inspected; the accessible model description is finite-state Markov jump rather than the present diffusion.",
+      "The persistent exogenous infected-noise subclass differs from the motivating article’s numerical transmission-proportional noise; the new theorem cannot be interpreted as a defect or simulation claim for those reported parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the sharp persistent infected-only pathwise peak/terminal control envelope or the total-variation support bound; its numerical choice is expressly outside the claimed noise subclass",
+        "evidence": [
+          "Section 2 equations (2),(6), bounded domain discussion; Section 5 shows \\((1-\\alpha)SI\\) noise, control ceiling 0.85, hospital capacity threshold 0.15; Section 6 summary."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-026-02462-7",
+        "material_read": "Full accessible online article, especially Sections 2, 3, 5 and 6 (model, noise, domain assumption, hospital-capacity costs, numerical controls and limitations)",
+        "method": "Read and compared original displayed stochastic equations, admissible controls, domain claims, numerical noise formula and results",
+        "title": "A Fokker-Planck framework for control of epidemics",
+        "trigger": "Primary motivating paper, same epidemic drift and constrained control class"
+      },
+      {
+        "assessment": "Different SIS system with one shared transmission-rate noise and conserved total population, not a controlled persistent infected-only diffusion",
+        "evidence": [
+          "Pages 3–5, equations (1.4), (2.3), (2.4), show common noise and reduction to infection \\(I\\in[0,N]\\)."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/29592/1/SDE_SIS_SIAP_Revision.pdf",
+        "material_read": "Author manuscript introduction and Section 2, including the displayed equations of the SIS noise",
+        "method": "Read accessible author manuscript PDF text and visually checked its title/early epidemic SDE derivation",
+        "title": "A stochastic differential equation SIS epidemic model",
+        "trigger": "Classical stochastic epidemic comparison and cited positive boundedness theory"
+      },
+      {
+        "assessment": "Its explicitly finite-state Markov jump generator/master equation is not the persistent-noise diffusion and has no stated all-policy sharp control envelope; full-text risk remains",
+        "evidence": [
+          "SIAM Journal on Life Sciences abstract: exact first-passage distributions for finite-state SIS; available preprint excerpts discuss hospital beds and fixed model rates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/25M1805321",
+        "material_read": "Journal abstract and accessible detailed public preprint search excerpts only; full preprint and published text unavailable",
+        "method": "Compared journal abstract and available indexed detailed excerpts; attempted open-access paper access",
+        "title": "Exact Results for the Stochastic SIS Epidemic Model in Densely Populated Environments",
+        "trigger": "Closest 2026 title explicitly computing an epidemic first-passage distribution"
+      },
+      {
+        "assessment": "Nonoverlap: that note distinguishes covariance structures of common versus independent drivers; this theorem studies infected-only noise and exact all-control peak-risk and support measures",
+        "evidence": [
+          "The note computes rank-one versus diagonal covariance and total-population quadratic variation, without epidemic hitting-time laws."
+        ],
+        "identifier_or_url": "published research record 41bbc0978013",
+        "material_read": "Complete public RESULT.md, including statement, proof, verification, relationship and limits",
+        "method": "Read published result text and compared mathematical objects and implied consequences",
+        "title": "Independent transmission noises are not transmission-rate noise",
+        "trigger": "Closest published note motivated by the same 2026 source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eeb06bf1-92ac-4eea-9300-25d281d45674",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hospital-capacity exceedance is an explicit mathematical goal of the motivating work. The claim supplies simultaneous optimal finite-time crossing probabilities and a nonzero power-law eventual-peak risk for every finite removal capacity, uniformly over all bounded adapted controls. A numerical example shows peak overflow probability 0.189799 versus only 0.040654 terminal exceedance. The same sharp Gaussian terminal bound yields a provable positive total-variation discrepancy for any bounded-support law approximating this diffusion. Unlike a basic positivity check, these are exact natural risk quantities with implications for stochastic control objectives and bounded-domain modeling; they are conditional on the specified persistent noise and make no empirical prediction.",
+    "status": "PASS"
+  }
+}
