@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every invariant compact-fiber law with Lebesgue base marginal, derive the exact conditional moment recurrences from equal dyadic inverse-branch weights. Unique bounded solutions follow from |alpha|<1. The first two moments give alpha² Pm₂=v. The cubic recurrence then has g₀=g₂=3alpha²/4, Pg=g₀+g₂ cos(2pi x), P²g=g₀, yielding the third centered moment by the convergent resolvent. Positivity thresholds follow from elementary cosine inequalities and arc length. Global third moment and injectivity follow by integration and comparing ±|alpha|. Exact Fourier consistency checks included in verify.py; no finite sample is relied upon for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liang arXiv:1503.08389v1, section III.3, is a map/transfer-operator and information-flow treatment, without higher conditional moments",
+        "Full prior RESULT.md in published-finding corpus/2026 explicitly states its first-two-moment limitation"
+      ],
+      "reasoning": "General Frobenius–Perron identities supply a method to derive further moments but do not state the closed third-moment/signed-skewness law. Earlier first and second conditional moment formulas have no unique third moment for arbitrary distributions and therefore do not cover the novel cubic conclusion by implication.",
+      "searches": [
+        "Kaplan-Yorke map invariant measure exact odd moments cos 4π x skewness 3α²/(4(1-α³))",
+        "Kaplan-Yorke chaotic attractor invariant measure marginal y moments autocorrelation variance distribution",
+        "exact conditional cubic moment stationary skew-product doubling map third moment fiberwise sign change",
+        "2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.08389v1 (X. San Liang, 2015): HTML full text, III.3 and text-wide keyword search",
+      "DOI:10.1007/BFb0064319 (Kaplan and Yorke, 1979): chapter opening pp. 204–205 only; remainder inaccessible",
+      "published-finding corpus/2026: 2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056 (complete RESULT.md)",
+      "https://mathworld.wolfram.com/Kaplan-YorkeMap.html (map equation and bibliography)",
+      "https://en.wikipedia.org/wiki/Kaplan%E2%80%93Yorke_map (map equation and bibliography)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complete published-finding corpus/2026 RESULT.md for the first-two-moment theorem: m1=cos(2pi x), v=alpha²/2[1/(1-alpha²)+cos(2pi x)] and higher cumulants expressly outside its claim",
+        "The present proof uses an additional third-moment transfer equation and shows sign differences under alpha↦−alpha"
+      ],
+      "reasoning": "The prior statement fixes the mean and variance but is invariant under parameter sign. The new cubic conditional law is sign-sensitive, yields a nonzero positive-fiber proportion only for negative alpha, and gives a signed identification theorem. It is therefore not a corollary of the prior displayed first-two-moment identities alone.",
+      "searches": [
+        "2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056",
+        "Kaplan Yorke map invariant measure exact odd moments cos 4π x skewness 3α²/(4(1-α³))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056",
+        "Liang arXiv:1503.08389v1, section III.3; searches for variance/skewness/moment in full HTML returned no matches"
+      ],
+      "reasoning": "Checked alternate terms conditional third central moment, fiber skewness, skew-product invariant distribution, signed contraction, odd moments and cumulants. None of the actually retrieved results gives the cubic formula. The closest conditional variance law is sign-even and does not logically fix the third moment.",
+      "searches": [
+        "Kaplan Yorke skew product stationary fiber conditional third central moment conditional skewness sign alpha fifth power 3 alpha^5/(4(1-alpha^3)) cosine 2 pi x",
+        "Kaplan Yorke expanding doubling cosine skew product third conditional cumulant sign change negative contraction parameter",
+        "Kaplan Yorke map 2x mod1 alpha y plus cos(4 pi x) skewness third vertical moment sign of alpha invariant measure conditional negative positive",
+        "Kaplan Yorke cosine skew product symmetry alpha positive negative same vertical variance different skewness third cumulant",
+        "Kaplan Yorke map invariant graph Bernoulli convolution conditional third order profile sign inversion",
+        "third conditional moment expanding maps lacunary forcing invariant measure cosine 4 pi x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned 2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056 as nearest same-object entry; no exact third-moment table or coefficient returned",
+        "Direct exact rational Fourier verification in verify.py"
+      ],
+      "reasoning": "The claim is a parametric formula and phase partition, not a tabulated isolated constant; no checked source contained its coefficient profile or sign partition.",
+      "searches": [
+        "conditional odd moments Kaplan-Yorke map y^3 given x",
+        "Kaplan Yorke cosine skew product symmetry alpha positive negative same vertical variance different skewness third cumulant"
+      ]
+    },
+    "rationale": "The nearest same-object published statement gives only conditional first and second moments (and explicitly excludes higher moments), and those are even in the signed parameter. The new claim determines a third centered conditional moment, a strict sign phase portrait for negative contraction, and signed identification from global moments. The inspected 2015 primary study treats information flow rather than cubic moments. Full-text access to the original 1979 chapter was partial; this is an explicitly recorded residual risk, not falsely classified as examined.",
+    "residual_risks": [
+      "Original Kaplan–Yorke 1979 chapter was accessible only on pages 204–205; later pages were not read and could contain an equivalent identity.",
+      "Targeted published-finding corpus and open literature searches cannot rule out unindexed earlier third-moment calculations.",
+      "No independent mathematical review has occurred; checks are internal and finite symbolic regressions are not proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the first two conditional moments only; explicitly says no higher conditional cumulants. Does not cover the third moment/sign phase or identifiability.",
+        "evidence": "RESULT.md: Finding / Proof / Limitations sections and full URL",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056",
+        "material_read": "Complete RESULT.md including proof, comparison, limitations and references",
+        "method": "Read the published full RESULT.md source text",
+        "title": "Exact conditional variance profile of the Kaplan–Yorke stationary measure",
+        "trigger": "Identical Kaplan–Yorke invariant-state object; strongest direct coverage risk"
+      },
+      {
+        "assessment": "Establishes map and information-flow calculations but no displayed third central-moment or sign partition.",
+        "evidence": "arXiv:1503.08389v1, III.3, pp. around eqs. 17–26",
+        "identifier_or_url": "https://arxiv.org/html/1503.08389v1",
+        "material_read": "Complete map-specific section III.3 examined, with title and abstract; entire HTML searched for moment, variance and skewness (other sections not read line by line)",
+        "method": "Read section III.3 equations (17)–(26), map definition, inverse branches, information flow; whole-text keyword searches",
+        "title": "Information flow and causality as rigorous notions ab initio",
+        "trigger": "Original 2015 mathematical article with exact Kaplan–Yorke transfer-operator normalization"
+      },
+      {
+        "assessment": "Opening frames chaos, maps and dimensions; remainder not inspected. No negative coverage conclusion inferred for unread pages.",
+        "evidence": "Kaplan and Yorke (1979), DOI 10.1007/BFb0064319, pages 204–205 only",
+        "identifier_or_url": "https://doi.org/10.1007/BFb0064319",
+        "material_read": "Only pages 204–205 (two returned accessible pages) of the 204–227 chapter",
+        "method": "Authorized institutional-access PDF text retrieval returned only the opening two pages",
+        "title": "Chaotic behavior of multidimensional difference equations",
+        "trigger": "Original Kaplan–Yorke 1979 chapter; earliest lineage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fbe6353-309c-41fd-bce0-f959d7ab39c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The third conditional moment is the first statistic that resolves an exact signed-parameter degeneracy of the entire first-two-moment profile. It exposes a sharp parameter-dependent sign reversal for negative fiber contraction, including an exact proportion of fibers with positive skewness that rises from zero to one-third, despite always-positive global third moment. The pair of global variance and cubic moment recovers the signed contraction. These are natural dynamical inference and fiber-statistics questions rather than isolated computational constants; the phenomenon is not inferable from the previous mean/variance values alone.",
+    "status": "PASS"
+  }
+}
