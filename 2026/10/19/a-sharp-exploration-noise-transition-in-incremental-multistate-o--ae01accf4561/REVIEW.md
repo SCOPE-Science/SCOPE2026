@@ -1,0 +1,15 @@
+# Scientific assessment: exploration-noise transition in incremental opinions
+
+## Correctness — PASS
+The scope is precisely the \(2k+1\)-state reflecting mean-field birth–death equation with positive adjacent spontaneous noise. Direct differentiation of the finite partition function gives the exact moment identity; strict monotone likelihood ratio for absolute opinion gives uniqueness of the nonzero branches. Positive rates rule out boundary equilibria, and the explicitly dissipative entropy potential forces every trajectory to converge to one of the finitely many equilibria. The constrained Hessian and strictly positive edge mobilities supply the stability assertions. The fourth moment of the uniform opinion law gives the sharp square-root onset. The accompanying code passed 444 finite consistency checks but is not used as an infinite proof.
+
+## Originality — PASS, with risk
+The closest source, Cao–Gong (arXiv:2605.28984v1), derives the original unregularized incremental persuasion equation, not the new independent symmetric exploration generator, and does not establish the precise \(\varepsilon_c(k)=(2k-1)/3\) all-width transition, exact polarized moment identity, or global Lyapunov classification with noise. The multistate noisy-voter theory of Khalil–Galla uses copying/imitative updates among categories rather than opinion-magnitude-dependent **incremental** one-step persuasion. Doniec–Lipiecki–Sznajd-Weron's q-voter dynamics require a unanimous influence panel and use a distinct independence rule, and its q=1 regime is explicitly different. Targeted related-statement/index searches did not reveal equivalent or stronger coverage. The 2021 Khalil–Galla full text was not accessible for a complete comparison, and unindexed equivalences remain a genuine risk. No novelty conclusion rests solely on search silence.
+
+## Value — PASS
+The model adds the simplest symmetric adjacent-step exploration mechanism to a recently introduced ordered opinion process. The exact, opinion-resolution-dependent noise threshold sharply separates global diversity from bistable polarized equilibria. The identity \(\mathbb E[J^2]=k(k-\varepsilon)\) gives a parameter-free-in-tilt observable diagnostic for a polarized equilibrium; the \(1/2\) critical exponent and global convergence theorem make the result a structural phase classification rather than a tiny parameter calculation. It does not claim empirical social prediction or finite-population switching times.
+
+## Limits and closest literature
+The result concerns deterministic mean-field trajectories, with \(\varepsilon>0\), an ordered opinion ladder, symmetric exploration, and full mixing. The generic basin exception is described only up to the uniform saddle's measure-zero stable set. Full-text access to one older imitation-based noisy-voter paper was restricted; the different microscopic generator is clear from its available model description, but an unindexed stronger generalization cannot be ruled out.
+
+Self-review: passed. Independent audit: not yet performed.
