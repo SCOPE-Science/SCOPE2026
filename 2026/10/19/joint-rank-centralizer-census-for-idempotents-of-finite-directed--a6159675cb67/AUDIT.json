@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "For every n, all clamps are exactly the idempotents: a monotone step-0-or-1 idempotent fixes its full image interval, hence clamps outside. Commutation equivalently forces p=g(a),q=g(b) into the interval and makes non-boundary tails constant; free boundary tails contribute (1+z)^l,(1+z)^r, while binomial interior step counts control image rank. The sufficiency is checked on all three regions, including h=1. Generating function follows by explicit finite sums and formal geometric-series identities. Standalone check.py enumerates actual maps/compositions for n<=9 and matches every coefficient and four weighted generating series specializations. Infinite result comes from the proof, not from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araújo--Konieczny provides a general structural characterization of centralizers in T(X), no explicit 1-Lipschitz path constraint/rank enumeration.",
+        "Mir--Alali uses restricted-range semigroups, not interval-image weak path endomorphisms."
+      ],
+      "reasoning": "General T(X) centralizers have broader ambient transformations but do not imply the enumeration of maps simultaneously satisfying local increment restrictions and the indicated two ranks. No displayed formula in inspected works subsumes the result.",
+      "searches": [
+        "\"weak endomorphism\" \"idempotents\" \"centralizers\" \"directed path\"",
+        "\"order-preserving full contractions\" \"commuting\" \"idempotent\" centralizer",
+        "https://repositorioaberto.uab.pt/server/api/core/bitstreams/e1505ef6-df71-4791-a964-cd83058b4fc9/content",
+        "https://pdfs.semanticscholar.org/418d/e51232cbe6581a876fbcde974ed6e6a8dd67.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2112.13427",
+      "https://arxiv.org/html/2205.00438v1",
+      "https://arxiv.org/html/2407.05084v1",
+      "https://repositorioaberto.uab.pt/server/api/core/bitstreams/e1505ef6-df71-4791-a964-cd83058b4fc9/content",
+      "https://pdfs.semanticscholar.org/418d/e51232cbe6581a876fbcde974ed6e6a8dd67.pdf",
+      "https://oeis.org/A045889",
+      "2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06",
+      "2026/9/18/SCOPE-weak-order-interval-endomorphism-dimensions--7fe56a124cd9",
+      "2026/9/18/SCOPE-unit-orbits-control-wreath-product-relative-rank--1d4bcdcec1ba",
+      "2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fernandes--Paulista computes |M_n| and |E_n|; product of these totals counts all pairs, not commuting ones.",
+        "OEIS gives H_n(1,1) as numbers but no rank variables or per-clamp counts.",
+        "General centralizer characterization is a criterion not an explicit rank-weighted count.",
+        "Own-ledger claim b31680ec... addresses undirected cycles and claim 96a883f0... unrestricted pairs of idempotents."
+      ],
+      "reasoning": "Neither monoid cardinalities nor the scalar sequence determines distribution indexed by e-image rank, g-image rank and clamp placement; the full bivariate polynomial cannot be inferred uniquely from those data. Earlier full-transformation commuting-idempotent counts concern distinct ambient monoids; no stronger prior direct implication identified.",
+      "searches": [
+        "Commutation of idempotent retractions onto intervals with order preserving 1-Lipschitz maps on a finite chain, centralizer sizes.",
+        "Rank generating function for centralizers of interval-retraction idempotents among monotone contractions on finite chains (OCT_n); weak endomorphisms directed paths",
+        "Counting ordered commuting pairs (e,g) where e idempotent and g weak endomorphism of a finite directed path; centralizer enumeration",
+        "arXiv:2112.13427",
+        "arXiv:2407.05084",
+        "oeis:A045889"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2112.13427 defines same monoid as weak path endomorphisms; arXiv:2205.00438 treats order-preserving full contractions; arXiv:2407.05084 uses order-preserving interval-image transformations; verified all refer to maps with increments in {0,1}.",
+        "published-finding corpus closest weak-order mapping-space result 2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06 concerns different poset maps."
+      ],
+      "reasoning": "Searched natural aliases OCT_n, interval-range monoid, monotone contractions, weak directed-path endomorphisms, rank-enumerated idempotent centralizers. Their published element/idempotent counts do not determine commuting pairs or partner-rank weights.",
+      "searches": [
+        "Commuting idempotents and rank profiles in Catalan monoids of order preserving order decreasing transformations of finite chains; full enumerator.",
+        "Partial order preserving transformation monoids on finite directed paths and idempotent centralizers.",
+        "Exact rank-enumerator of the centralizer of an interval clamping idempotent in weak endomorphism monoid of directed path with order preserving nonexpansive transformations, rational trivariate generating function",
+        "Commuting pairs in finite weak directed path endomorphism monoids, where first map idempotent; bivariate rank polynomial and rational ordinary generating function",
+        "Commutation of idempotent retractions onto intervals with order preserving 1-Lipschitz maps on a finite chain, centralizer sizes.",
+        "arXiv:2205.00438",
+        "arXiv:2407.05084"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A045889 has scalar coefficients 1,7,30,102,303,825,... and generating function 1/((1-2*x)^2*(1-x)^3), explicitly equal to the unweighted totals after shifting index by 1.",
+        "The OEIS name is Partial sums of A045618, not a combinatorial centralizer rank table."
+      ],
+      "reasoning": "A genuine exact known scalar sequence is acknowledged and excluded from novelty. One specialization H_n(1,1) cannot determine H_n(u,z), and the fixed-clamp polynomials P_{l,h,r}(z) are still more refined; no matching database rank table found.",
+      "searches": [
+        "OEIS A045889 sequence 1 7 30 102 303 825 meaning",
+        "https://oeis.org/A045889",
+        "Commuting pairs in finite weak directed path endomorphism monoids, where first map idempotent; bivariate rank polynomial and rational ordinary generating function"
+      ]
+    },
+    "rationale": "The inspected path monoid/contraction papers identify idempotents, monoid sizes, regularity and generators, not idempotent-centralizer rank distributions. General unrestricted transformation centralizer criteria do not give the restriction or joint ranks. OEIS A045889 already has exactly the unweighted scalar total generating function (index shifted); its numerical formula is explicitly NOT claimed as novel. Originality is restricted to the per-clamp centralizer-rank polynomials, bivariate rank generating function and combinatorial identification. Accessible own-ledger claims and published-finding corpus searches using exact object aliases found no equivalent statement; residual unindexed literature risk remains.",
+    "residual_risks": [
+      "An earlier result under a less obvious name in contraction/semigroup or species literature may yield an equivalent two-rank formula; searches do not establish universal novelty.",
+      "The unweighted scalar counting sequence is known in OEIS A045889 and is not claimed as novel.",
+      "The statement is restricted to weak directed-path maps and one idempotent factor; the general commuting-pair polynomial is not addressed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes monoid, cardinalities, idempotents and generators; no weighted centralizer enumeration.",
+        "evidence": [
+          "arXiv:2112.13427 abstract dated 2021-12-26, Proposition 1.5 and Theorem 1.6."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.13427",
+        "material_read": "Accessible full arXiv HTML, introduction and both principal sections, including Proposition 1.5, Theorem 1.6, idempotent description and rank/generation results.",
+        "method": "Inspect complete arXiv HTML and targeted searches for centraliz and commut.",
+        "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+        "trigger": "Same underlying monoid and interval-clamp idempotents, first public 2021-12-26"
+      },
+      {
+        "assessment": "Treats presentations, generators and identities; no commuting-idempotent rank enumerator.",
+        "evidence": [
+          "arXiv:2407.05084v1, abstract and main theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.05084v1",
+        "material_read": "ArXiv full HTML, abstract, definitions, main presentation results and references.",
+        "method": "Read accessible full HTML and search centraliz/commut.",
+        "title": "On the monoid of order-preserving transformations of a finite chain whose ranges are intervals",
+        "trigger": "Same monoid under interval-range/order-preserving alias"
+      },
+      {
+        "assessment": "Studies sizes, ranks and idempotents in related contraction monoids; does not state centralizer rank polynomials.",
+        "evidence": [
+          "arXiv:2205.00438v1, definitions and stated enumerative results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.00438v1",
+        "material_read": "Accessible arXiv full HTML, definitions, theorems and computation of cardinality/idempotents.",
+        "method": "Read arXiv HTML with targeted text searches.",
+        "title": "On the combinatorial and rank properties of certain subsemigroups of full contractions of a finite chain",
+        "trigger": "The order-preserving contraction formulation is equivalent to the 0-or-1 increment maps"
+      },
+      {
+        "assessment": "General characterization of unrestricted transformation centralizers may recover elementwise commutation, but no counts restricted to directed-path weak maps or joint-rank generating function.",
+        "evidence": [
+          "Institutional PDF introduction pp. 1-2; research directions pp. 27-29; general centralizer characterization."
+        ],
+        "identifier_or_url": "https://repositorioaberto.uab.pt/server/api/core/bitstreams/e1505ef6-df71-4791-a964-cd83058b4fc9/content",
+        "material_read": "PDF abstract, introduction, centralizer characterization sections, and section on research problems, including discussion of idempotent centralizers.",
+        "method": "PDF text and page screenshots (cover and closing section).",
+        "title": "Centralizers in the Full Transformation Semigroup",
+        "trigger": "General theory potentially stronger than the special commuting criterion"
+      },
+      {
+        "assessment": "Studies restricted-range transformations and associated automorphism groups, not the adjacent-step 1-Lipschitz monoid or two-rank census.",
+        "evidence": [
+          "Symmetry 2024 article, abstract and definitions; different transformation conditions."
+        ],
+        "identifier_or_url": "https://pdfs.semanticscholar.org/418d/e51232cbe6581a876fbcde974ed6e6a8dd67.pdf",
+        "material_read": "PDF abstract, introduction, restricted-range monoid definitions and main statement, including page 2.",
+        "method": "PDF text and screenshots of pages 1 and 3.",
+        "title": "On Centralizers of Idempotents with Restricted Range",
+        "trigger": "Plausible title explicitly mentions idempotent centralizers"
+      },
+      {
+        "assessment": "Identical *unweighted* scalar sequence and its rational generating function already known abstractly. Entry does not supply the centralizer combinatorial interpretation or bivariate rank refinement.",
+        "evidence": [
+          "OEIS A045889 offset 0, terms and generating function 1/((1-2*x)^2*(1-x)^3); 2017 comments."
+        ],
+        "identifier_or_url": "https://oeis.org/A045889",
+        "material_read": "Entire OEIS record: name, terms, offset, closed formula, generating function and comments.",
+        "method": "Open official OEIS entry and compare the coefficient formula after index shift.",
+        "title": "OEIS A045889: Partial sums of A045618",
+        "trigger": "Exact integer sequence 1,7,30,102,303,825,2116,... matches the unweighted totals with shifted index"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6159675-cb67-4c94-9fd3-41a16a89f9c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full natural parameterized centralizer-rank census for a studied sequence of nontrivial finite monoids; computes exact number of commuting partners at every rank for EACH individual clamp, and complete two-rank bivariate series over every n. This is a more informative invariant than the pre-existing |M_n|, |E_n| or OEIS unweighted totals. It also yields the sharp asymptotic 32/n^2 commuting probability and separates edge vs interior clamp effects. Not merely a finite exercise or substitution; the result solves a complete enumeration problem uniformly.",
+    "status": "PASS"
+  }
+}
