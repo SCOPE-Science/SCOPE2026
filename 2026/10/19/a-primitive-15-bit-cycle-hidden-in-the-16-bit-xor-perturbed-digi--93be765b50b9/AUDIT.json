@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Gate-level schematic agrees with coordinate recurrence for all sixteen positions. Rank-nullity and parity prove im(T)=H and T|H invertible for all k>=3. Explicit characteristic-polynomial elimination gives tQ. At k=16 Rabin gcds 1,1, Frobenius residue 0x2, and primitive-order residues 0x021F,0x5193,0x355C prove Q primitive. Included standalone verifier independently evaluates 65536 words and entire 32767-cycle.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Smart, Cryptography: An Introduction, general primitive-LFSR theory",
+        "Chang et al., arXiv:1612.07928, general cycle structure of LFSRs",
+        "Originating author thesis 2024, Chapter 5 excerpt repeats hardware circuit but full chapter was not obtained"
+      ],
+      "reasoning": "General LFSR theorems imply the period once irreducible/primitivity of the specific circuit polynomial is established. They do not by themselves identify the gate map, its forbidden-output parity, or the particular primitive polynomial, so they do not subsume the full circuit-specific characterization. Thesis may add an antecedent and remains a stated priority risk.",
+      "searches": [
+        "LFSR primitive characteristic polynomial 2^m - 1 cycle all nonzero states textbook finite field",
+        "\"Nardo\" \"tent map\" \"LFSR\" thesis 2024",
+        "\"A Hardware-Efficient Perturbation Method to the Digital Tent Map\" \"period\" \"linear feedback\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/electronics12081953; complete 2023 public PDF, especially Section 2 and Figure 2",
+      "https://nigelsmart.github.io/Crypto_Book/book.pdf; standard LFSR theory",
+      "https://arxiv.org/abs/1612.07928; published general LFSR cycle-classification abstract",
+      "https://repositorio.ufmg.br/handle/1843/75848; institutional abstract and indexed thesis chapter excerpts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original equations specify Boolean gates and simulated chaotic diagnostics, without deriving \\(\\chi(t)=tQ(t)\\)",
+        "General cycle theory needs the actual derived gate-matrix characteristic polynomial and primitivity check"
+      ],
+      "reasoning": "The claimed statement is not a restatement of reported sampled tests. Its novel component is the implication from the original published circuit to a specific primitive rank-15 linear action and the exact output parity/basin structure. An equivalent 2024 thesis derivation remains possible but is not established by the materially available chapter excerpts.",
+      "searches": [
+        "\"A Hardware-Efficient Perturbation Method to the Digital Tent Map\" \"two least significant\" \"XOR\"",
+        "\"Exploiting the chaotic dynamics\" \"32767\" Nardo",
+        "The Cycle Structure of LFSR with Arbitrary Characteristic Polynomial over Finite Fields"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Originating Figure 2 has outputs b1 XOR b2,...,b1 XOR b16 and final (b1 XOR b15) XOR (b1 XOR b16)",
+        "Original paper contrasts the circuit with standard LFSR in Section 3.2; no explicit linear conjugacy or period census in inspected manuscript"
+      ],
+      "reasoning": "The figure becomes linear precisely because the conditional ones-complement is XOR with the controlling first bit. Algebraic derivation identifies the characteristic polynomial, the rank-one kernel and codimension-one image; those are not established by merely naming the circuit a tent map. A differently named LFSR representation was searched, with no identified covering manuscript.",
+      "searches": [
+        "\"A Hardware-Efficient Perturbation Method to the Digital Tent Map\" \"linear feedback\" \"primitive\"",
+        "\"Nardo\" \"Digital Tent Map\" \"LFSR\" \"linear\"",
+        "Nardo Nepomuceno FPGA digital tent map binary XOR linear LFSR primitive polynomial maximal period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 4 and Table 5 of Nardo et al. report sampling tests, not exhaustive cycle counts",
+        "Originating Figure 2 supplies an exact transition suitable for independently reproducible enumeration"
+      ],
+      "reasoning": "No relevant published table of the full 65,536-state transition graph was identified. This is not an assertion of global absence; the included exact verifier and proof establish the state census independently.",
+      "searches": [
+        "digital tent map 16 bit XOR PRNG exact period 32767",
+        "\"Nardo\" \"Nepomuceno\" \"Arias-Garcia\" \"period\" \"perturbation\" tent map",
+        "\"digital tent map\" \"LFSR\" \"linear transformation\""
+      ]
+    },
+    "rationale": "Focused full-text comparison with the 2023 originating paper, published general primitive-LFSR theory, and accessible 2024 thesis excerpts finds no established circuit-specific identification of the invariant parity hyperplane, primitive degree-15 polynomial and whole orbit census. General LFSR cycle theory is acknowledged and used rather than claimed as new; the incomplete thesis chapter is a residual priority risk.",
+    "residual_risks": [
+      "The complete circuit-related 2024 thesis chapter was not independently obtained; its indexed excerpts do not settle noncoverage.",
+      "Equivalent presentations under LFSR tap conventions or in unindexed digital-chaos circuit engineering literature may predate this exact calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original supplies identical update, sampled randomness and hardware comparisons; no identified exact characteristic polynomial, image parity hyperplane, or complete period census",
+        "evidence": [
+          "https://mural.maynoothuniversity.ie/id/eprint/18534/1/electronics-12-01953.pdf",
+          "Section 2.2 Equations (6)–(8); Figure 2; Section 3.1 Tables 4–5; Section 3.2 LFSR contrast"
+        ],
+        "identifier_or_url": "doi:10.3390/electronics12081953",
+        "material_read": "Full open PDF, Sections 2.2, 3.1, relevant 3.2, and conclusions; Figures 1 and 2 including circuit XOR wiring and caption; search of complete 16-page PDF for period, polynomial, feedback",
+        "method": "Text reading and visual inspection of the actual Figure 2 gate diagram",
+        "title": "A Hardware-Efficient Perturbation Method to the Digital Tent Map",
+        "trigger": "Exactly the bitwise recurrence and experimental conclusions at issue"
+      },
+      {
+        "assessment": "Available passages reproduce original gate design and statistical tests, not an identified exact cycle census; full-chapter noncoverage cannot be certified",
+        "evidence": [
+          "2024 thesis repository record",
+          "Indexed excerpts of Chapter 5 and conclusion mention tests and empirical circuit results but no exact cycle formula"
+        ],
+        "identifier_or_url": "https://repositorio.ufmg.br/handle/1843/75848",
+        "material_read": "Repository abstract and indexed excerpts of Chapter 5, conclusion and results; not complete chapter",
+        "method": "Institutional metadata and indexed scholarly full-text excerpts; complete institutional PDF returned access error",
+        "title": "Exploiting the Chaotic Dynamics: Novel Approaches for Cryptosystems, Digital Systems, and Lyapunov Exponent Estimation",
+        "trigger": "Later thesis by the circuit author plausibly developing the same implementation"
+      },
+      {
+        "assessment": "Proves standard primitive-LFSR implication but does not analyze the named XOR-perturbed digital tent circuit or derive its effective polynomial",
+        "evidence": [
+          "Statement: every nonzero state of a primitive degree-d LFSR has period 2^d−1"
+        ],
+        "identifier_or_url": "https://nigelsmart.github.io/Crypto_Book/book.pdf",
+        "material_read": "Accessible text discussing LFSR connection polynomials, primitive polynomials, eventual/pure periodicity and examples",
+        "method": "Focused textbook excerpt, used solely for established general theory",
+        "title": "Cryptography: An Introduction",
+        "trigger": "General linear-feedback-register theorem that could dominate a primitive-cycle claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93be765b-50b9-4e21-b892-b734a4276e5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A specific published PRNG circuit is exactly classified, not a random short numerical slice: the rank defect forbids half its full-resolution output alphabet, and a primitive characteristic polynomial gives the exact basin and period structure. This informs interpretation of the original sample-based randomness experiments and their comparison against LFSRs, while carefully avoiding unsupported statements about cryptographic compromise or statistical test failure.",
+    "status": "PASS"
+  }
+}
