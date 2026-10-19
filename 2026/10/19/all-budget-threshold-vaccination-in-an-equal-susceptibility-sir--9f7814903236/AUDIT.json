@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The full continuum derivation integrates the SIR equations to \\(H=B+T(1-e^{-H})\\) with \\(B>0\\). The unique positive root satisfies \\(Te^{-H}=(H-B)/(e^H-1)<1\\), even at/below \\(T=1\\), so H is strictly increasing in T. The fixed-budget optimum is exactly the weighted threshold exchange for maximizing integral r v, and a separate strictly improving allocation proves budget saturation at all \\(K\\). Rearrangement gives the exact continuum frontier and positive derivative at quantile continuity points. Endpoints \\(K=0\\) and \\(K=S\\), cut-off ties and arbitrary positive initial seeds are included. The standalone checker verifies 125 rational-grid cases and two direct ODE integrations but is not used as an infinite proof. Scientific limitations: identical susceptibility and perfect instantaneous vaccine; dynamic supremum consequence depends on pre-existing source Theorem 3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Duijzer–van Jaarsveld–Wallinga–Dekker (2016), Section 5.1: greedy critical-coverage reduction.",
+        "Penn–Donnelly (2023), Introduction and Section 3.2: small-supply asymptotics.",
+        "Gavish–Katriel (2022), model and discussion: imperfect leaky vaccine and susceptibility-dependent reversal."
+      ],
+      "reasoning": "Rank-one contact matrices are contained in the general separable-mixing framework, but conclusions must be compared: Duijzer solves minimum doses for reproduction threshold one, not the optimum for arbitrary fixed doses under positive seeding; Penn treats small supply in a different compartment model; Gavish–Katriel assumes imperfect vaccination. Thus their displayed conclusions do not logically imply the present all-supply exact survivor curve. The possibility of an undiscovered stronger theorem remains a risk.",
+      "searches": [
+        "Duijzer 2016 vaccination critical fraction separable mixing optimize allocation SIR infectiousness priorities",
+        "vaccine allocation homogeneous susceptibility differential infectivity optimal final epidemic size perfect vaccine all doses rank",
+        "optimal vaccination rank beta mu homogeneous susceptibility all supply sizes epidemic final size"
+      ]
+    },
+    "checked_sources": [
+      "Almeida–Ducasse–Paparelli (2026) arXiv:2605.18256v1, full primary PDF.",
+      "Duijzer–van Jaarsveld–Wallinga–Dekker (2016), institutional full PDF.",
+      "Penn–Donnelly (2023), lawful publisher open-access full HTML.",
+      "Gavish–Katriel (2022), arXiv:2202.03909v1 full PDF.",
+      "Keeling–Shattock (2012), abstract and paper scope only; no whole-document negative claim."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Almeida–Ducasse–Paparelli v1, Theorem 4 concludes only for restricted K and Remark 1.4 suggests removing it.",
+        "Duijzer 2016, Theorem 9 compares the unconstrained herd effect with the cheapest critical vaccination coverage.",
+        "Gavish–Katriel 2022, discussion of the perfect-vaccine limit."
+      ],
+      "reasoning": "The new theorem strictly contains the 2026 source Theorem 4 as a special range of the same mathematical IVP, with an analytic survivor frontier for the whole interval and the critical crossing. The converse implication from original restricted theorem to new theorem fails as an asserted result because the original proof relies on the restriction. The Duijzer R=1 greedy allocation may coincide at one particular dose level, but does not give the objective values or optimality at every other dose. The Gavish leaky model cannot be reduced to the perfect-vaccine model while retaining the counterintuitive policy, as the paper itself notes.",
+      "searches": [
+        "2022 Optimal vaccination at high reproductive numbers sharp transitions counterintuitive allocations",
+        "Penn Donnelly Asymptotic Analysis of Optimal Vaccination Policies 2023",
+        "Duijzer 2016 vaccination critical fraction separable mixing optimize allocation SIR infectiousness priorities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Almeida–Ducasse–Paparelli arXiv:2605.18256v1, Theorems 3–4 and Remark 1.4.",
+        "Duijzer et al. 2016 PDF, objectives (7)–(11), Theorem 9 and Section 5.1."
+      ],
+      "reasoning": "The source priority criterion and a critical-coverage greedy order are equivalent to portions of the new claim, and are not presented as novel. But neither provides an all-budget exact optimum of vaccinated plus never-infected mass with a positive finite initial infective seed. A finite-seed scalar root with positive derivative even at residual exposure one supplies the missing implication.",
+      "searches": [
+        "Almeida Ducasse Paparelli 2605.18256 large vaccine budget remove K restriction optimal allocation beta mu all initial supplies final size SIR",
+        "SIR optimal vaccination \"rank-one\" infection \"all\" vaccine budgets",
+        "final size rank one age structured SIR perfect vaccine optimal allocation for all vaccine budgets cumulative force H = B+T(1-exp(-H))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article arXiv:2605.18256v1 explicitly leaves the high-budget case unresolved in its printed Remark 1.4.",
+        "Searched published mathematical findings do not supply a matching all-budget fixed-seed optimization claim; semantically nearby epidemiological examples concern SEIR spectral bracketing and dengue switching."
+      ],
+      "reasoning": "There is no numerical database lookup defining this continuous functional optimum; the source result is a theorem rather than a finite table. Absence of a matching search hit is weak supporting evidence only, not a demonstration of novelty. The positive novelty evidence is the explicit restriction in the fully inspected primary theorem.",
+      "searches": [
+        "2026 Almeida Ducasse Paparelli vaccine allocation large K exact optimal",
+        "2026 mathematical epidemiology vaccination heterogeneous SIR contact networks sharp epidemic thresholds novel results",
+        "bathtub prioritization infectiousness divided recovery optimal vaccination arbitrary coverage identical susceptibility death rate SIR"
+      ]
+    },
+    "rationale": "A recent primary source (arXiv:2605.18256v1, Theorem 4) establishes the threshold allocation only under its displayed small-budget bound and expressly conjectures that this bound can be removed (Remark 1.4). The present theorem does so for every admissible budget and derives the exact full survivor frontier including the subcritical range. Source Theorem 3 all-time supremum equivalence, the priority order itself, and tied-level-set allowance are acknowledged prior, not claimed new. Highly relevant older 2016 separable-mixing literature optimizes minimum critical supply, not the full fixed-budget positive-seed epidemic size. Residual risk: an unindexed stronger special-case theorem might imply this result.",
+    "residual_risks": [
+      "An older general vaccine-allocation theorem specialized to a rank-one common-hazard kernel may already imply fixed-budget all-range optimality; none found in the searches and inspected highly relevant full texts.",
+      "The absence of a semantic database match does not establish independent novelty.",
+      "Earlier critical-reproduction-number knapsack optimizers share the priority ordering, so only the unrestricted-budget survivor optimality and full frontier are asserted as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4 explicitly assumes small budget; Remark 1.4 proposes its removal. Its proof invokes the residual-exposure monotonicity in that regime. Theorem 3 already covers time/static supremum equality and is credited, not claimed new.",
+        "evidence": [
+          "Theorem 4, displayed budget bound on printed p. 9.",
+          "Remark 1.4, printed p. 9, budget-removal suggestion.",
+          "Theorem 3, printed p. 7, suprema equality.",
+          "Section 2.5, Lemma 8 and Proposition 2.6, printed pp. 22–23."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.18256v1",
+        "material_read": "Complete available arXiv v1 PDF with close examination of model and assumptions (pp. 1–6), Theorems 3–4 and Remark 1.4 (pp. 7–9), and fixed-budget proof in Section 2.5 (pp. 21–23).",
+        "method": "Primary arXiv full-text reading with visual confirmation of the theorem and budget restriction.",
+        "title": "Optimizing vaccine allocation in an age-structured SIR model",
+        "trigger": "Identical model, same optimal vaccine priority criterion; potentially dominating source theorem."
+      },
+      {
+        "assessment": "Optimizes herd effect without a fixed supply, equivalently minimum critical coverage at reproduction number one. It does not imply the entire fixed-budget positive-seed final-survivor curve for budgets on both sides of criticality; its prioritization technique is duly acknowledged.",
+        "evidence": [
+          "Equations (7)–(11), printed pp. 7–8, give unbudgeted herd-effect and critical-coverage objectives.",
+          "Theorem 9 and Section 5.1, printed pp. 13–15, show critical-threshold equivalence and greedy ordering."
+        ],
+        "identifier_or_url": "https://repub.eur.nl/pub/79912/EI2016-06.pdf",
+        "material_read": "Full lawful open preprint checked at abstract, model/objective (pp. 1–8), Theorem 9 (printed p. 13), separable-mixing optimization and Algorithm 1 (printed pp. 14–15).",
+        "method": "Institutional repository full PDF, including the objective constraints and proof-relevant algorithm.",
+        "title": "The most efficient critical vaccination coverage and its equivalence with maximizing the herd effect",
+        "trigger": "Earlier separable-mixing vaccine allocation theorem with the same greedy ranking, a plausible strong subsumer."
+      },
+      {
+        "assessment": "Derives small-supply leading-order knapsack policies in a richer leaky-vaccine and contact-matrix model; it does not state the exact all-budget equal-susceptibility survivor frontier.",
+        "evidence": [
+          "Introduction states Section 3.2 is a small total-supply asymptotic regime.",
+          "Section 2 includes vaccinated infectious compartments and general contact matrices."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-022-01114-3",
+        "material_read": "Open-access article, model/objective Section 2 and scope of Section 3.2 small total vaccination supply and introduction.",
+        "method": "Lawful publisher full HTML.",
+        "title": "Asymptotic Analysis of Optimal Vaccination Policies",
+        "trigger": "Alternative prior theorem with exact optimization in group-structured SIR models."
+      },
+      {
+        "assessment": "Requires a vaccine with residual susceptibility (leaky); its high-transmissibility reversal has a different feasible model. The discussion states the transition moves away in the perfect-protection limit, so it does not dominate the perfect-vaccine threshold rule.",
+        "evidence": [
+          "Abstract and model state imperfect leaky vaccine.",
+          "Discussion explicitly contrasts perfect vaccination with the leaky policy reversal."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.03909v1",
+        "material_read": "Primary arXiv full PDF, abstract and model (pp. 1–4), optimization theorem (pp. 4–6), discussion including perfect-vaccine distinction (p. 7).",
+        "method": "Primary arXiv full-text PDF and first-page visual confirmation.",
+        "title": "Optimal vaccination at high reproductive numbers: sharp transitions and counter-intuitive allocations",
+        "trigger": "Full vaccine-budget study that can reverse intuitive high-infectivity prioritization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f781490-3236-45b1-a733-b41e5fb3de6d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper identifies removal of the small-supply hypothesis as a meaningful open calculation (Remark 1.4). The present exact all-K optimization resolves the entire missing parameter range, not a cosmetic bound, and gives a constructive all-supply policy and quantitative dose-response curve. Its proof handles the threshold crossing that invalidated the previous monotonicity shortcut and treats all end budgets and tied priority classes; a high-budget two-class example \\(K=1.5\\) exceeds the published \\(K<1.25\\) condition. General clinical relevance is not asserted beyond a stylized common-susceptibility SIR model.",
+    "status": "PASS"
+  }
+}
