@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact source ODE factors into P(x)[a-A_delta(x)] and (1+u)Q(a)(h-x). S_N strictly decreases, so A_delta strictly increases and all four phase thresholds strictly order. The displayed integral V is nonnegative, continuous on only the selected endpoint faces, and proper relative to every other boundary. The derivative identity splits into three nonpositive terms on every phase, including equalities; the largest invariant zero-derivative set is the selected equilibrium. LaSalle proves the common global limit for all epsilon>0 and interior data. Standard-library checker tests algebraic identity and parameter sweeps, but the proof—not the numerical check—establishes infinite-time and arbitrary-parameter statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gong et al. (2022), environmental feedback replicator, analyze limit cycles under distinct payoff functions.",
+        "Liu, Chen and Szolnoki (2023) use a collective-risk payoff with nonmonotone binomial dependence, including oscillatory outcomes.",
+        "Hua et al. (2024) study a collective-risk dilemma-strength variable; the extra binomial payoff and the feedback sign differ from the 2023 institutional-reward equation."
+      ],
+      "reasoning": "Neither cycle/multistability classification directly covers this monotone reward-isocline model. A general planar Lyapunov principle may exist, but the exact integral and all sharp policy thresholds are not established in these inspected sources.",
+      "searches": [
+        "global Lyapunov convergence phase portrait no periodic oscillations public goods adaptive rewards institutional reward",
+        "public goods game institutional reward strength coevolution speed epsilon Lyapunov complete phase diagram five regimes",
+        "arxiv:2205.10734v1",
+        "arxiv:2305.00253v1",
+        "doi:10.1103/PhysRevResearch.6.023313"
+      ]
+    },
+    "checked_sources": [
+      "Hua and Liu, arxiv:2308.09530v1 (Sections 3-5 and Appendix)",
+      "Gong et al., arxiv:2205.10734v1 (model and limit-cycle analysis)",
+      "Liu, Chen and Szolnoki, arxiv:2305.00253v1 (Sections 2-4)",
+      "Hua et al., Phys. Rev. Research 6, 023313 (2024), DOI 10.1103/PhysRevResearch.6.023313 (Section III and Appendix B)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hua and Liu (2023), Appendix equations (7)-(15) compute local eigenvalues at corners, boundaries and interior.",
+        "Local eigenvalue signs plus plotted interior trajectories do not exclude distant invariant cycles nor prove a common limit for every positive epsilon and all critical equality parameters.",
+        "The new derivative identity is strict off the selected invariant singleton and provides precisely the missing global implication."
+      ],
+      "reasoning": "The model and possible local equilibrium branches are not new. The new statement is the global selection theorem for every strictly interior trajectory, certified by a constructive function, and the continuous all-parameter four-cutoff organization including equality cases; those are not logical consequences of the published local linearization alone.",
+      "searches": [
+        "Two dimensional adaptive institutional rewards public goods game explicit Lyapunov function global asymptotic stability all interior initial conditions",
+        "Exact global convergence two-variable evolutionary game xdot=x(1-x)(a S(x)-k), adot=(a-alpha)(beta-a)(u-(u+1)x)",
+        "Hua Liu Section 4 Appendix 2023 global trajectories"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hua and Liu (2023), equations (3)-(6), reduce the payoff difference to a strictly decreasing finite geometric sum.",
+        "Its Section 4 and Appendix list local equilibrium stability and representative trajectories rather than an explicit Lyapunov potential or a uniform global theorem."
+      ],
+      "reasoning": "The odds/replicator form and the reward nullcline A_delta(x)=k/[delta S_N(x)] are equivalent to the original published ODE, not an altered model. The new assertion is a global strict Lyapunov implication with all threshold equalities, not a rephrased Jacobian condition.",
+      "searches": [
+        "Coevolutionary dynamics of population and institutional rewards in public goods games Hua Liu 2023 arxiv 2308.09530 global convergence Dulac Lyapunov no limit cycles arbitrary epsilon",
+        "Two dimensional adaptive institutional rewards public goods game explicit Lyapunov function global asymptotic stability all interior initial conditions",
+        "arxiv:2308.09530v1 equation (6)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published equilibrium list has up to seven stationary points, but no exhaustive global phase table sorted by four distinct delta thresholds that includes equality.",
+        "Relevant scientific-result searches produced related evolutionary or dynamical models, not the five-regime same-model convergence theorem."
+      ],
+      "reasoning": "This is a continuous dynamical theorem, not an exact finite table or benchmark recomputation. Search comparisons were made by implication and equation structure, not merely by title overlap.",
+      "searches": [
+        "Shijia Hua Linjie Liu Coevolutionary dynamics of population and institutional rewards in public goods games 2023 121579",
+        "Exact global convergence two-variable evolutionary game xdot=x(1-x)(a S(x)-k), adot=(a-alpha)(beta-a)(u-(u+1)x)",
+        "negative feedback planar evolutionary public goods game strictly decreasing marginal incentive S(x) unique global equilibrium"
+      ]
+    },
+    "rationale": "Direct comparison of the source paper’s full main sections and Appendix reveals local Jacobian classifications and representative plots, without a uniform global Lyapunov proof, rigorous equality-case coverage or complete sharp ordered incentive thresholds. Structurally related 2022, 2023 and 2024 game models have different payoffs and feedback signs, sometimes admit limit cycles or bistability, and do not imply the same-model theorem. Accessible literature and mathematical-result searches did not disclose a stronger same-model result; absolute novelty cannot be certified by a finite search.",
+    "residual_risks": [
+      "A general dynamical-systems theorem or unindexed treatment may imply some abstract convergence properties, although the four explicit model-dependent thresholds are not present in the inspected sources.",
+      "The study does not compare all later publications or privately unavailable manuscripts; the novelty assessment is evidence-bounded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The full paper establishes the payoff, lists local equilibria, and illustrates five sample regimes; no displayed general Lyapunov function or proof of global convergence for all positive epsilon including all four equalities.",
+        "evidence": [
+          "Model equation (6) gives eps*x_dot=x(1-x)(-k+a*delta*S_N(x)), a_dot=(a-alpha)(beta-a)[u(1-x)-x].",
+          "Appendix provides Jacobian signs at equilibria; Results describe five representative scenarios and their plots."
+        ],
+        "identifier_or_url": "arxiv:2308.09530v1 | https://arxiv.org/html/2308.09530v1",
+        "material_read": "Complete accessible article text, in particular Sections 3.1-3.3, 4, 5 and Appendix equations (7)-(15)",
+        "method": "Direct examination of author preprint HTML, including model equations and local stability derivations",
+        "title": "Coevolutionary dynamics of population and institutional rewards in public goods games",
+        "trigger": "Exact originating equation (6) and strongest plausible direct coverage"
+      },
+      {
+        "assessment": "Different replicator/environment model with possible oscillatory dynamics; does not establish a global Lyapunov selection law for Hua–Liu reward feedback.",
+        "evidence": [
+          "Environmental-feedback payoff and flow differ from strict monotone reward sum; existence/nonexistence of cycles depends on different coefficient conditions."
+        ],
+        "identifier_or_url": "arxiv:2205.10734v1 | https://arxiv.org/html/2205.10734v1",
+        "material_read": "Primary full-text accessible abstract, model section and limit-cycle analysis in Sections 2-3",
+        "method": "Direct examination of preprint HTML",
+        "title": "Limit Cycles Analysis and Control of Evolutionary Game Dynamics with Environmental Feedback",
+        "trigger": "Plausible wider dynamic-game convergence and cycle theorems"
+      },
+      {
+        "assessment": "Nonmonotone collective-risk threshold benefit, not the strictly decreasing per-cooperator geometric reward isocline; does not imply the claimed monostable phase law.",
+        "evidence": [
+          "Risk-return term proportional to a binomial monomial in cooperation density, capable of an interior extremum."
+        ],
+        "identifier_or_url": "arxiv:2305.00253v1 | https://arxiv.org/html/2305.00253v1",
+        "material_read": "Full primary HTML Sections 2-4, especially binomial payoff and long-time cases",
+        "method": "Direct examination of preprint HTML",
+        "title": "Coevolutionary dynamics via adaptive feedback in collective-risk social dilemma game",
+        "trigger": "Nearby collective-risk payoff with adaptive feedback and possible cycles"
+      },
+      {
+        "assessment": "Adds binomial collective-risk term and evolves dilemma strength, not the reward intensity of the 2023 equation. Its bistability shows its result is not stronger coverage of a strictly monotone two-equation reward response.",
+        "evidence": [
+          "Appendix B coupled system II contains a binomial term plus geometric reward benefit and a negative coefficient for the evolving dilemma strength.",
+          "Stable multiple equilibria in the 2024 model do not dominate the current sign-definite Lyapunov law."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevResearch.6.023313 | https://www.researchgate.net/publication/381686856_Coevolutionary_dynamics_of_collective_cooperation_and_dilemma_strength_in_a_collective-risk_game",
+        "material_read": "Accessible full-text transcription, Section III and Appendix B equations for coupled systems I and II, stability and multiple equilibria",
+        "method": "Read full original article transcription in accessible HTML; compared payoff derivative and feedback signs",
+        "title": "Coevolutionary dynamics of collective cooperation and dilemma strength in a collective-risk game",
+        "trigger": "Same research group, 2024 reward-augmented evolutionary feedback model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f66f912b-76c0-4965-9871-6ffcb3517023",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete global convergence result is mathematically material: local equilibrium stability and five numerical phase portraits do not exclude other attractors. The integral strict Lyapunov certificate covers all positive timescale ratios, gives a sharp five-regime classification with nonhyperbolic equalities, precludes interior cycles and static hysteresis, and identifies strict monotonicity of the institutional marginal incentive as the exact structural mechanism. This is meaningful for predicting long-run cooperation and avoiding invalid inferences from local stability.",
+    "status": "PASS"
+  }
+}
