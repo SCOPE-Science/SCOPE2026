@@ -1,0 +1,11 @@
+# Scientific review: directional fourth-cumulant sectors
+
+**Correctness — PASS.** The exact tilted characteristic polynomial follows from the four-state generator. Its isolated simple eigenvalue determines stationary-start cumulant growth, and coefficient extraction gives the displayed second/fourth rates. The identity \(N_{\rm diag}>0\) and the factored \(N_{\rm ax}\) prove the classification at every admissible parameter, including equality boundaries. A standalone checker reproduces the symbolic formulas and separately integrates the fourth-order moment hierarchy for 24 parameter/direction cases.
+
+**Originality — PASS with material priority risk.** Mallikarjun and Pal, arXiv:2209.05912, already published this exact three-rate model, its general Fourier–Laplace matrix and leading fourth moment; these are explicitly not new. Their Appendix A matrix inherently contains enough information to derive any cumulant, so the implicit-overlap risk is substantial. The claimed new object is instead the full *connected* fourth-cumulant angular-sector classification and the closed two-mechanism threshold, which are not stated in their inspected full text. Loewe and Shendruk, arXiv:2305.03663v1, derive equal-turn-rate fourth-order anisotropy without the three-rate threshold. Larralde's 1997 discrete chiral walk was accessible only at the abstract level; no whole-document negative coverage assertion is made. Independent priority assessment is needed.
+
+**Scientific value — PASS.** Isotropic diffusion disguises a fourth-order directional-sign split, and two physically different turning mechanisms cross the same sharp boundary. The exact angular sectors and their equality transitions constitute a motivated structural classification, not an arbitrary numerical slice.
+
+**Limits and risks.** This is a single finite-state free walker, not interacting or confined active matter. The theorem concerns coefficients of linear cumulant growth, not all finite-time signs, and assumes constant speed and exponential transitions. The result is algebraically accessible from a published general transform, which remains a particularly significant priority risk. Independent audit and independent validation have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
