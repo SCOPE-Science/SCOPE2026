@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The RKHS residual equals the origin-to-convex-hull distance. Uniform cyclic spacings are Dirichlet; one gap exceeds half a circle at most, giving exact conditional beta survival. Central symmetry and strict convexity provide a supporting missing-gap chord; uniform small-gap projection to that chord and a Taylor determinant expansion give the conditional exponential mixture. A feasible midpoint uniformly bounds E_N by a Lipschitz constant times gap deficit, proving uniform integrability of scaled squared errors. The ellipse integral gives J(g)=ab. The finite verification program (standard library) passed 5746 checks; the proof, not these checks, justifies all N and the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Hüsler (1982), Random coverage of the circle and asymptotic distributions: largest gaps and coverage, not anisotropic Euclidean distance of an origin to an inscribed hull.",
+        "Hayakawa (2026) Theorem 4 and kernel-quadrature consequences are probabilistic bounds for general kernel means, not sharp laws for this model.",
+        "Related published work on random polygon Hausdorff error addresses a different typical support approximation event, not the rare failure to enclose the center."
+      ],
+      "reasoning": "Neither a general distance upper bound nor typical Hausdorff approximation gives the claimed exact sharp mean-square asymptotic coefficient. Those stronger-looking geometric settings were compared on event and observable; no implication was identified.",
+      "searches": [
+        "random polygon inscribed ellipse separation origin conditional exponential largest gap chord",
+        "random convex hull of iid uniform angles ellipse distance from origin sharp asymptotic conditional exponential deficit",
+        "random ellipse origin expected squared distance convex hull conditional rare event"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.05705",
+      "doi:10.1007/s00440-022-01186-1",
+      "Wendel (1962) inclusion theorem (verified through 2023 full text)",
+      "doi:10.2307/3213515 (abstract)",
+      "Indexed published work on random ellipse polygon area/perimeter and positive angular Cauchy quadrature, compared by their described observables"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wendel inclusion law implies \\(\\Pr(E_N>0)=N/2^{N-1}\\), and the uniform Dirichlet gaps imply the conditional law of the gap deficit; both are known components.",
+        "The geometric chord expansion for centrally symmetric noncircular feature curves gives E_N/delta -> det(g,gprime)/(2norm(g)) uniformly in the gap orientation; this is the additional mathematical comparison step.",
+        "The conditional second-moment limit \\(\\pi^2J(g)/2\\) and the unconditional prefactor \\(\\pi^2J(g)\\) are not conclusions of the cited inclusion results alone."
+      ],
+      "reasoning": "Claim is restricted to the conditional weak law and exact asymptotic constant, with classical upstream components disclosed. Material comparison was against theorem statements, their geometric observables and actual implications, not just names or numerical coincidences.",
+      "searches": [
+        "Estimating the probability that a given vector is in the convex hull of a random sample Hayakawa Lyons Oberhauser 2023",
+        "Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature 2026 first harmonic random circle",
+        "Random coverage of the circle and asymptotic distributions largest gaps Hüsler 1982"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.05705: fixed-pool positive KQ objective is distance from the target to a feature hull, but the work states broad upper bounds rather than exact rare positive-error sizes.",
+        "doi:10.1007/s00440-022-01186-1: inclusion and depth estimates, including Wendel, not the shape-dependent conditional squared-distance constant.",
+        "Uniform circular spacing gives a classical conditional beta law; the circular exact tail is explicitly identified as an implication rather than independently novel."
+      ],
+      "reasoning": "Equivalent objects are random symmetric planar feature hulls and the optimal RKHS mean residual. An exact origin-inclusion probability does not determine the conditional distance law; source formulae do not provide the asymptotic shape functional. The source-independent circular tail alone is not treated as the originality-bearing part.",
+      "searches": [
+        "rank two positive kernel quadrature random ellipse first trigonometric feature exact error probability gap semicircle sharp expected squared error",
+        "\"distance from origin\" \"convex hull\" random points ellipse expected asymptotic probability",
+        "positive-weight circle quadrature Fourier kernel sharp finite N distribution optimal simplex RKHS error Wendel largest circular spacing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected KQ tabulation lists J(g) or the ab prefactor.",
+        "The indexed research comparisons returned closest records on positive angular Cauchy quadrature, random polygon area/perimeter and rare convex-hull coverage, not conditional center-distance risk.",
+        "The exact circle event probability is a known geometric count, as admitted."
+      ],
+      "reasoning": "A missing exact table is not by itself evidence of uniqueness. Exact known origin-inclusion and circle gap computations are credited; the new claim requires the shape-dependent conditional Euclidean distance, its second-moment convergence and integration over orientation.",
+      "searches": [
+        "arxiv 2605.05705 Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature exact first harmonic random Fourier feature ellipse error",
+        "\"kernel quadrature\" \"random\" \"circle\" \"exact\" \"positive weights\" probability",
+        "random convex hull ellipse origin expected Euclidean squared distance rare asymptotics"
+      ]
+    },
+    "rationale": "The classical exact non-inclusion probability and isotropic spacing tail are attributed to prior results, not counted as novel. The assessed claim is the conditional error-size distribution for a general smooth centrally symmetric feature curve, its uniformly justified transfer to the mean-square limit, and the sharp shape integral J(g), equal to ab for anisotropic first-harmonic kernels. Relevant source mathematics is compared by implication, not title; none of the material inspected supplies that conditional geometric coefficient. Residual unindexed random-polytope literature is acknowledged.",
+    "residual_risks": [
+      "Conditional rare center-distance limits may exist under alternate names in the extensive geometric probability and random-polytope literature; not all works were accessible in full text.",
+      "The isotropic circle tail and exact zero-error probability follow from classical circular spacings and Wendel, so they are explicitly excluded from the originality-bearing part.",
+      "An unstated stronger theorem in a relevant unindexed original might subsume the smooth-curve shape law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes convex-hull reduction and broad high-probability estimates; no exact anisotropic origin-deficit conditional law or J(g) seen",
+        "evidence": [
+          "arxiv:2605.05705, Sections 3–5, Theorem 4 and the discussion of fixed-pool CQP"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.05705",
+        "material_read": "Accessible arXiv full HTML: introduction, related work, setup, the random convex-hull theorem, Section 5 fixed-pool algorithm and guarantees, and relevant appendix normalization remarks.",
+        "method": "Full available HTML searched for rank-two exact finite laws, circular gap, conditional squared error and sharp coefficients",
+        "title": "Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature",
+        "trigger": "Direct motivating recent paper with fixed-pool simplex kernel quadrature and random convex-hull guarantees"
+      },
+      {
+        "assessment": "Contains known exact inclusion law and general bounds; no matched shape-dependent rare conditional error prefactor identified",
+        "evidence": [
+          "DOI:10.1007/s00440-022-01186-1, Introduction (Wendel formula), distance/depth proof"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00440-022-01186-1",
+        "material_read": "Accessible full-text HTML: introduction, Wendel law, key origin-inclusion and distance-to-convex-hull proof passages, and related geometric references; nonrelevant sections were not exhaustively inspected.",
+        "method": "Compared origin membership and relaxed-distance statements to the conditional center-distance distribution here",
+        "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+        "trigger": "Most directly relevant published random-convex-hull source cited by motivating paper"
+      },
+      {
+        "assessment": "Supports prior status of circle coverage and spacing methods; not used to claim an exhaustive full-text negative comparison",
+        "evidence": [
+          "Journal of Applied Probability 19 (1982), 578–587, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3213515",
+        "material_read": "Publisher bibliographic description and abstract; not the entire paper",
+        "method": "Compared stated coverage and maximum-gap observables to conditional Euclidean distance",
+        "title": "Random coverage of the circle and asymptotic distributions",
+        "trigger": "Closest classical circular-spacing context for a gap longer than a semicircle"
+      },
+      {
+        "assessment": "Covers the zero-error probability but not by itself the nonzero error magnitude",
+        "evidence": [
+          "Wendel formula quoted and sourced in the 2023 full text"
+        ],
+        "identifier_or_url": "Math. Scand. 11 (1962), 109–111",
+        "material_read": "Precise theorem statement as reproduced in the complete accessible Hayakawa–Lyons–Oberhauser 2023 article; original full text not inspected",
+        "method": "Applied the exact d=2 Wendel probability and marked it prior art",
+        "title": "A Problem in Geometric Probability",
+        "trigger": "Classical exact formula for origin inclusion under centrally symmetric sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8510983-e6f5-4272-b9d7-30e4d45bf17b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact natural risk invariant for a recently studied fixed-pool positive-weight KQ setting, not an arbitrary parameter slice: it quantifies both the probability and severity of unavoidable positive-weight error and gives a sharp anisotropic constant ab instead of loose semiaxis bounds. The conditional exponential-mixture law explains the difference between rare failure and its magnitude, and the circle tail supplies an exactly checkable benchmark. Relevance is confined to finite-rank angular kernels; no generic improvement over established infinite-rank bounds is claimed.",
+    "status": "PASS"
+  }
+}
