@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian posterior variational infimum formula proves Loewner monotonicity even for singular spectrally truncated priors. The global error is PSD and bounded above by P, giving an operator-norm ratio at most lambda_1/lambda_(r+1). A scalar noisy observation with retained/omitted coefficients t/t^2 attains this bound as a supremum. Block-diagonal information gives no amplification. An algebraic rank-one difference yields the exact 2D threshold and a rational counterexample. The actual bundled verification program ran successfully with 385 deterministic symbolic and numerical assertions; all-dimensional universality is proved analytically, not inferred from testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1407.3463 includes posterior optimality for information-aware low-rank negative updates to an unchanged full prior, not low-rank spectral replacement of the prior.",
+        "doi:10.1093/imaiai/iaad043 supplies ensemble sampling perturbation bounds, not the claimed deterministic equality."
+      ],
+      "reasoning": "Checked stronger-looking Bayesian posterior optimal approximation bounds and perturbation theorems by logical implication and approximation class, rather than matching titles. Their full-prior negative-update and empirical-ensemble conditions cannot by themselves imply this sharp spectral truncation error amplification with scalar sensor attainment. Generic monotonicity does give the order bound; the exact minimax constant is additional.",
+      "searches": [
+        "reduced-rank Kalman filter low rank prior posterior covariance not Lipschitz condition number observation coupling",
+        "prior covariance rank-r eigenvalue truncation followed by Bayesian conditioning can amplify spectral error by condition number"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.07774",
+      "arxiv:1407.3463",
+      "doi:10.1093/imaiai/iaad043",
+      "arxiv:2503.24020 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schmidt et al. 2023 full text explains no additional approximation in computing a chosen reduced prior correction, which is weaker than comparison with full-prior posterior.",
+        "Spantini et al. 2014 full text establishes information-aware low-rank update methods and notes discarded prior eigendirections may carry posterior information.",
+        "Al Ghattas and Sanz-Alonso 2024 analyze ensemble perturbations in different probabilistic models."
+      ],
+      "reasoning": "The new statement quantitatively resolves a separate worst-case perturbation: exact sharp λ_max/λ_discarded, a commutation-defined regime with factor at most one, and a nontrivial two-eigenvalue threshold. Neither qualitative cautions nor a bound for an unrelated update error distribution logically imply this precise collection. The matching exact statement could remain in unindexed literature.",
+      "searches": [
+        "information misalignment low-rank prior Kalman update noncommuting truncation worst case over sensors",
+        "prior covariance rank-r eigenvalue truncation followed by Bayesian conditioning can amplify spectral error by condition number",
+        "Kalman posterior covariance error rank truncation sensor ratio spectral noncommutativity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2306.07774 addresses a reduced-model correction, not posterior error norm;",
+        "arXiv:1407.3463 discusses prior-versus-posterior dimension reduction, not this sharp error ratio."
+      ],
+      "reasoning": "Equivalent statements would concern the operator norm of the difference of two Gaussian posterior covariance matrices from nested spectral priors, its singular-prior Schur-complement representation, or the worst observation design. The primary works checked do not establish the explicit sharp ratio or its aligned-data exception. The present Loewner-order proof does not itself establish priority.",
+      "searches": [
+        "Kalman covariance posterior spectral truncation observation assimilation covariance error amplification sharp ratio prior eigenvalues",
+        "information misalignment low-rank prior Kalman update noncommuting truncation worst case over sensors",
+        "sharp supremum Kalman gain spectral covariance truncation error lambda max divided by lambda discarded scalar measurement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching closed-form constant or indexed case was identified in the actually retrieved mathematical-record results."
+      ],
+      "reasoning": "The claim is a continuous-parameter matrix inequality and worst-sensor supremum, not a finite database invariant. Searched precise ratio, scalar formula and equivalence terms; no applicable published table/exact indexed formula was observed. Search absence is not a uniqueness theorem.",
+      "searches": [
+        "Kalman covariance posterior spectral truncation observation assimilation covariance error amplification sharp ratio prior eigenvalues",
+        "Kalman posterior covariance error rank truncation sensor ratio spectral noncommutativity"
+      ]
+    },
+    "rationale": "The motivating source implements a reduced covariance update exactly but does not bound reduced-versus-full posterior error. Information-aware low-rank Bayesian approximation was already developed by Spantini et al., including the qualitative objection to likelihood-blind spectral prior truncation; the novelty assessed is the exact sharp operator-norm minimax ratio, alignment dichotomy and scalar strength threshold, not the qualitative objection. Related ensemble error theory uses a different random sampling perturbation. No implication-covering statement was found in actual primary-text and mathematical-record comparisons; remaining full-text and indexing limitations are stated.",
+    "residual_risks": [
+      "The full text of arXiv:2503.24020 was not inspected; publication-priority comparison to specialized 2025 covariance work is incomplete.",
+      "An equivalent sharp bound in nonindexed matrix perturbation or filtering literature cannot be excluded.",
+      "The sharp supremum allows large observation coefficients and does not represent a typical sensor ensemble."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reduced-model Kalman update can be evaluated exactly; the source does not give the sharp full-minus-truncated-posterior covariance operator-norm design supremum.",
+        "evidence": [
+          "arXiv:2306.07774, sections describing rank-reduced forecast and exact correction on its reduced prior."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07774",
+        "material_read": "Accessible arXiv full-text HTML sections on prediction, update, and implementation of correction.",
+        "method": "Compared the model of conditional covariance update, nature of approximation, hypotheses and output metric.",
+        "title": "The Rank-Reduced Kalman Filter: Approximate Dynamical-Low-Rank Filtering In High Dimensions",
+        "trigger": "Identical Kalman conditioning operation on a reduced covariance."
+      },
+      {
+        "assessment": "Explicitly anticipates qualitative shortcomings of prior truncation but does not imply exact ratio, aligned-information bound or scalar observation threshold.",
+        "evidence": [
+          "arXiv:1407.3463, introduction and low-rank posterior approximation theorems using information-aware updates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.3463",
+        "material_read": "Accessible arXiv full-text HTML, including motivation discussing likelihood-blind truncation, approximation class, metric and main optimality theorems.",
+        "method": "Contrasted low-rank negative correction to full prior with spectral truncation of prior before applying likelihood; checked whether prior bounds imply proposed ratio.",
+        "title": "Optimal Low-rank Approximations of Bayesian Linear Inverse Problems",
+        "trigger": "Prior-spectrum truncation versus posterior-optimal low-rank update."
+      },
+      {
+        "assessment": "Does not settle the deterministic spectral truncation minimax ratio or the information-alignment dichotomy.",
+        "evidence": [
+          "Information and Inference 13 (2024), iaad043, perturbations of ensemble Kalman updates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imaiai/iaad043",
+        "material_read": "Accessible primary full-text discussion of main ensemble update bounds and technical appendix, including noise-dependence.",
+        "method": "Compared random sample covariance estimator perturbation setting with deterministic spectral rank truncation and worst-case sensor operator-norm equality.",
+        "title": "Non-asymptotic Analysis of Ensemble Kalman Updates: Effective Dimension and Localization",
+        "trigger": "Related Kalman covariance perturbation and robustness estimates."
+      },
+      {
+        "assessment": "No implication is established from the abstract. Full-text priority comparison remains a residual risk.",
+        "evidence": [
+          "arXiv:2503.24020 abstract/metadata only."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.24020",
+        "material_read": "Accessible abstract/summary only; full primary text not obtained.",
+        "method": "Compared described approximation target, operator setting and metric at abstract level without treating this as a whole-document exclusion.",
+        "title": "Optimal low-rank approximations for linear Gaussian inverse problems on Hilbert spaces, Part I",
+        "trigger": "Plausible closely related recent low-rank posterior approximation theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b883e9ed-90b7-4240-9f33-4794df759c5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Low-rank covariance reduction is algorithmically motivated by large-scale filtering. The theorem identifies a sharp, potentially condition-number-sized gap between small spectral prior error and full posterior covariance error under one observation, while giving exact safe information alignment and a two-mode sensor-strength frontier. The exact universal constant and sharpness construction provide a useful benchmark beyond a routine isolated negative instance; the setting is explicitly first-update, finite-dimensional, and covariance-only.",
+    "status": "PASS"
+  }
+}
