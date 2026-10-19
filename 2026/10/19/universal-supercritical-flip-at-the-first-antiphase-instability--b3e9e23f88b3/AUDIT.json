@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The weighted tree bipartite orientation makes K nonnegative irreducible. The dominant eigenvalue is simple, with a positive mode, and all other eigenmodes lie strictly inside the unit circle at the flip. The odd analytic Lyapunov--Schmidt equation has cubic coefficient kappa=(sum a_e v_e^4)/3>0, so exactly one nearby antipodal attracting two-cycle branches for positive detuning. The critical multiplier -1+2delta+O(delta^2) and spectral gap prove contraction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer--McCalla, arXiv:1908.01753, addresses avoiding saddles up to step 2/L, not attracting period-two orbits beyond it.",
+        "Buescu et al. arXiv:2610.10993v1 Theorem 3.7 and Corollary 5.3 cover precritical convergence and postcritical sink instability only."
+      ],
+      "reasoning": "Known general descent/saddle theorems end at the nonexpansive threshold; their implications cannot yield a stable flip beyond the threshold. The generic flip theorem requires checking the coefficient, proved positive here for all trees.",
+      "searches": [
+        "antiphase tree network flip 2 cycle Buescu D Aniello Oliveira",
+        "Buescu D'Aniello Oliveira weighted tree Huygens networks extension almost sure convergence large timestep 2/Lambda",
+        "gradient descent analytic Morse potential strict saddle avoidance step sizes up to 2/L noninvertible critical points measure zero"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10993v1 full HTML Sections 2,3,5 and conclusions",
+      "Scholarpedia generic period-doubling entry",
+      "arXiv:1908.01753 accessible abstract",
+      "Semantic mathematical-record searches for tree flips, eigenvector cubic sign, repulsive networks and generic flip aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Corollary 5.3 proves phase opposition is not a sink for h>2/Lambda; does not assert existence or stability of a period-two successor.",
+        "Classical flip theorem allows both supercritical and subcritical cases."
+      ],
+      "reasoning": "Loss of hyperbolic sink when a multiplier crosses -1 is compatible with a subcritical bifurcation, so earlier claims do not imply universal positive coefficient or the explicit Perron-weighted asymptotic. The new assertion is strictly stronger on its postcritical domain.",
+      "searches": [
+        "full text arxiv:2610.10993v1 Section 3 Section 5 Corollary 5.3 and period-doubling query",
+        "period doubling phase opposition tree gradient step at h=2/Lambda cubic coefficient supercritical"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.10993v1 Eq. (40) and Corollary 5.3: fixed-point stability criterion, not attracting two-cycle formula.",
+        "Scholarpedia Period doubling describes generic super/subcritical flip and cubic sign."
+      ],
+      "reasoning": "Generic flip normal forms do not fix a sign for the weighted sine network. No matching exact Perron cubic and all-tree postcritical branch was found in the tested equivalence searches.",
+      "searches": [
+        "discrete Huygens sinusoidal tree flip bifurcation largest Laplacian eigenvalue supercritical attracting two-cycle spectral Perron mode",
+        "repulsive sine coupled discrete networks step h exceeds 2 largest eigenvalue emerging stable period two cycle eigenvector fourth moment",
+        "period doubling phase opposition tree gradient step at h=2/Lambda cubic coefficient supercritical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant ranked mathematical records concerned a cubic planar two-cycle and an unrelated discrete repulsive all-to-all oscillator network; neither treats weighted-tree postcritical flips."
+      ],
+      "reasoning": "No previously indexed exact coefficient, threshold successor or numerical table covering the same theorem was returned; absence from search is not uniqueness proof.",
+      "searches": [
+        "discrete Huygens sinusoidal tree flip bifurcation largest Laplacian eigenvalue supercritical attracting two-cycle spectral Perron mode",
+        "repulsive sine coupled discrete networks step h exceeds 2 largest eigenvalue emerging stable period two cycle eigenvector fourth moment",
+        "antiphase tree network flip 2 cycle Buescu D Aniello Oliveira"
+      ]
+    },
+    "rationale": "The full motivating primary text gives sharp fixed-point instability but not the type, amplitude or stability of an emergent two-cycle. Classical period-doubling theory does not determine its cubic sign. The exact Perron formula and positive sign uniformly for positive weighted trees were not covered in checked source comparisons; possible unindexed equivalence remains.",
+    "residual_risks": [
+      "An earlier specialized tree-network bifurcation analysis not returned in semantic searches may state an equivalent all-tree supercritical flip result.",
+      "No independent priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes sharp loss of sink but not supercritical attracting two-cycle or cubic Perron coefficient",
+        "evidence": "Corollary 5.3 (first eigenvalue crosses -1); its proof ends with loss of strict descent, no attracting cycle claim.",
+        "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+        "material_read": "Full arXiv HTML: model Sections 2 and 3, key Theorem 3.7, Section 5.1 Corollaries 5.2 and 5.3, Section 5.4 and conclusions, with search for period-doubling and two-cycle",
+        "method": "Read mathematical statements, proof of critical step boundary, and comparison by logical implication",
+        "title": "Morse--Smale dynamics in discrete Huygens networks",
+        "trigger": "Same discrete sine map on arbitrary positive-weight trees, and exact source step-size threshold"
+      },
+      {
+        "assessment": "Generic theorem supports local bifurcation argument but does not imply sign or graph-dependent amplitude",
+        "evidence": "The two choices of cubic sign generate different criticalities.",
+        "identifier_or_url": "https://www.scholarpedia.org/article/Period_doubling",
+        "material_read": "Generic scalar flip normal form and stability sign discussion",
+        "method": "Compared generic coefficient-sign alternatives to explicitly computed cubic sign for weighted tree",
+        "title": "Period doubling",
+        "trigger": "Need exact general supercritical versus subcritical normal-form criterion"
+      },
+      {
+        "assessment": "Does not cover postcritical flip by its stated domain; full text not inspected",
+        "evidence": "Abstract proves saddle avoidance for steps up to 2/L and says nothing about stable two-cycles beyond threshold.",
+        "identifier_or_url": "https://arxiv.org/abs/1908.01753",
+        "material_read": "Accessible public abstract, not complete paper",
+        "method": "Compared abstract domain step sizes and saddle avoidance with claimed postcritical period-two attraction",
+        "title": "Extending the Step-Size Restriction for Gradient Descent to Avoid Strict Saddle Points",
+        "trigger": "Broader gradient-descent convergence literature with steps up to 2/L"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3e9e23f-88b3-482e-b43e-93962d0e10de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source establishes where global antiphase descent ceases but not the dynamical successor. A universal supercritical attracting period-two branch with exact graph-dependent amplitude and multiplier replaces mere instability with a meaningful next-phase classification for every positive weighted tree, including high-degree stars.",
+    "status": "PASS"
+  }
+}
