@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The published one-step multiplier yields the exact rational complementary-pair identity. The denominator has no left-half-plane zero and the difference of its squared moduli is exactly -4 Re(z)(1+c|z|²), strictly positive for Re(z)<0 and c=U(1-U)>=0. Uniform logarithmic expansions show the paired random term first at order h³ and the iid term at order h². E[C]=1/6, Var(C)=1/180, Var(U)=1/12; bounded iid CLT and exponentiation give the exact reported Gaussian limits. The actual standalone check.py passed 441 Fraction equalities, 288 complex-grid inequalities and three-grid moment calculations for each method; finite checks are auxiliary and not substituted for the proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bochacik–Przybyłowicz (2024) Section 3.2 characterizes the unpaired mean-square stability region as bounded; it cannot imply the paired scheme is mean-square A-stable without changing the randomized coupling.",
+        "Eisenmann–Jans–Kruse–Podhaisky arXiv:2607.18928 (2026) abstract describes a distinct algebraically stable randomized SDIRK scheme."
+      ],
+      "reasoning": "Neither the unpaired RK2 stability theorem nor a distinct 2026 SDIRK construction dominates the pair-specific A-stability proof and fluctuation CLT. Standard adjoint composition might dominate the deterministic amplification algebra but not the stated stochastic asymptotics.",
+      "searches": [
+        "implicit randomized Runge Kutta antithetic pairing complementary parameter mean square A stability",
+        "complementary theta symmetrization randomized Runge Kutta A stable antithetic pair variance order h five halves",
+        "Gaussian limit centered randomized implicit Runge Kutta antithetic beta complementary stages uniform",
+        "web: randomized implicit Runge Kutta antithetic complementary random variables stability",
+        "web: randomized singly diagonally implicit Runge Kutta each realization algebraically stable 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.19059v3 relevant primary sections full text",
+      "https://doi.org/10.1007/978-3-662-05018-7 publisher overview",
+      "doi:10.1137/S003614299834736X abstract",
+      "Algorithms 2022 15(12)463 metadata / attempted full text",
+      "arxiv:2607.18928 abstract",
+      "published-finding corpus nearest IDs 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce; 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285; 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2404.19059v3 (full text), equation (11): R(z,u)=(1+z(1-u))/(1-zu); equation (16): unpaired mean-square criterion; Fact 4: finite negative-real stability interval.",
+        "Generic composition literature establishes existence of adjoint/symmetric methods, but available abstract/overview text does not furnish the paired Gaussian limit or exact variance coefficient."
+      ],
+      "reasoning": "The published iid one-step multiplier lacks the anticorrelation U_(2j)=1-U_(2j-1); the resulting pair multiplier changes both mean-square stability and cancellation of the random order h^2 term. The centered Gaussian orders h^(3/2) and h^(5/2) follow from a direct limiting calculation not contained in the original stability theorem.",
+      "searches": [
+        "implicit randomized Runge Kutta antithetic pairing complementary parameter mean square A stability",
+        "complementary theta symmetrization randomized Runge Kutta A stable antithetic pair variance order h five halves",
+        "Bochacik Przybylowicz implicit RK2 randomly chosen tau stability rescue coupling",
+        "web: arxiv 2404.19059 stability randomized implicit scheme",
+        "web: Hairer Lubich Wanner adjoint composition symmetric integrators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bochacik–Przybyłowicz arXiv:2404.19059v3 Sections 1.2 and 3: scalar amplification R and iid instability are stated.",
+        "Hairer–Lubich–Wanner Geometric Numerical Integration Springer overview describes symmetric composition; uninspected detailed textbook chapters are a specific residual risk."
+      ],
+      "reasoning": "A complementary pair is an adjoint-type symmetric composition, so deterministic order-two consistency and time symmetry alone are treated as preexisting. The audited claim additionally proves stochastic mean-square A-stability for an independently randomized pair and identifies two distinct Gaussian fluctuation exponents and coefficients; no retrieved equivalent statement establishes those.",
+      "searches": [
+        "implicit randomized Runge Kutta antithetic pairing complementary parameter mean square A stability",
+        "symmetrized theta method stochastic numerical integration paired 1 minus tau",
+        "complementary theta symmetrization randomized Runge Kutta A stable antithetic pair variance order h five halves",
+        "web: composition theta 1-theta method A stability",
+        "web: adjoint theta method composition order two symmetric 1 minus theta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus nearest hits concern deterministic Fehlberg RK4(5) resonance, low-cost Langevin-splitting covariance, and FRB/RFB rate tuning; objects and stochastic noise mechanisms are different.",
+        "No relevant exact statistical table found in checked published records or web searches."
+      ],
+      "reasoning": "The claim concerns continuous iid uniform random variables, an exact pair transfer rational function, and an infinite-step CLT; no identified table of method amplification factors or finite numerical sample implies it.",
+      "searches": [
+        "randomized theta method antithetic pairing fluctuation central limit",
+        "symmetrized theta method stochastic numerical integration paired 1 minus tau",
+        "Gaussian limit centered randomized implicit Runge Kutta antithetic beta complementary stages uniform",
+        "published-finding corpus published records: 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "published-finding corpus published records: 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+      ]
+    },
+    "rationale": "The April 2024 source explicitly establishes lack of mean-square A-stability for independently sampled uniform RK2 parameters; it does not study complementary adjacent-stage coupling, strict pairwise A-stability, or the centered Gaussian variance reduction from order h^3 to h^5. Established deterministic adjoint compositions explain some second-order symmetric algebra but do not by themselves supply the stochastic CLT or exact variance coefficients. Targeted mathematical-record searches and available full-text literature comparisons located no covering implication, subject to the declared residual source-access and indexing risks.",
+    "residual_risks": [
+      "Uninspected detailed general-adjoint composition book chapters could cover more than their public overview shows.",
+      "Adjoint multistep article full text blocked by HTTP 429; its potential implication for deterministic composition cannot be excluded, and the stochastic CLT was not checked from its full text.",
+      "Recent randomized SDIRK full text was not inspected; comparisons rest on its abstract.",
+      "Unindexed mathematical literature might already derive the exact iid antithetic centered central-limit law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines independently uniform randomized parameter and demonstrates non-A-stability in mean square; no paired complementary correction in read sections.",
+        "evidence": [
+          "Sections 1.2 and 3.1–3.2; R expression and bounded MS region; https://arxiv.org/html/2404.19059v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.19059v3",
+        "material_read": "Full relevant sections 1.2 and 3.1–3.2, equations (11), (16), Facts 1–6; abstract and introduction; reviewed paper HTML, not just abstract.",
+        "method": "Accessible arXiv lawful open HTML full text",
+        "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+        "trigger": "Exact named randomized implicit RK2 being modified"
+      },
+      {
+        "assessment": "Generic deterministic symmetric compositions known; cannot claim that all book theorems have been excluded.",
+        "evidence": [
+          "Publisher overview describing symmetric methods, compositions and reversibility"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-662-05018-7",
+        "material_read": "Publisher description/overview only; detailed book text unavailable in this check",
+        "method": "Public publisher overview",
+        "title": "Geometric Numerical Integration",
+        "trigger": "Potential standard dominating adjoint composition theory"
+      },
+      {
+        "assessment": "Could overlap deterministic adjoint-composition component; exact stochastic variance comparison unresolved there.",
+        "evidence": [
+          "2022 Algorithms 15(12), 463 metadata; publisher request HTTP 429"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/15/12/463",
+        "material_read": "Search-visible article metadata and summary; full HTML returned HTTP 429, so no negative whole-document assessment",
+        "method": "Publisher metadata, full-text access attempted",
+        "title": "Numerical Integration Schemes Based on Composition of Adjoint Multistep Methods",
+        "trigger": "Plausible coverage of complemented theta composition"
+      },
+      {
+        "assessment": "Stochastic test equation with multiplicative Brownian dynamics, not randomized parameter for deterministic Dahlquist test equation; detailed text not inspected.",
+        "evidence": [
+          "SIAM abstract identifying a linear SDE with multiplicative noise"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S003614299834736X",
+        "material_read": "Publisher abstract only",
+        "method": "Public abstract/metadata",
+        "title": "Mean-Square and Asymptotic Stability of the Stochastic Theta Method",
+        "trigger": "Terminology and possible stochastic theta stability coverage"
+      },
+      {
+        "assessment": "Different randomized SDIRK coefficient construction; inaccessible full text is disclosed as risk rather than asserted not covering.",
+        "evidence": [
+          "arXiv:2607.18928 dated 2026-07-21; abstract says each realization algebraically stable"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+        "material_read": "ArXiv abstract only",
+        "method": "Abstract and metadata search result",
+        "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge-Kutta Method",
+        "trigger": "Recent family of pathwise stable randomized implicit methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e67b94c0-55a7-47bb-9f4a-c07f81e3fbbe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The base randomized implicit RK2 method explicitly fails mean-square A-stability, a consequential stiff-integration limitation. Antithetic coupling is a natural method modification at identical evaluation cost that restores pathwise pairwise A-stability and provably suppresses finite-horizon stochastic variance by two powers of h, with exact nonzero limiting constants. This is a structural stability and random-error separation, not a cosmetic parameter substitution or arbitrary finite computation. It does not eliminate deterministic discretization bias.",
+    "status": "PASS"
+  }
+}
