@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact reducing-subspace diagonalization yields all preconditioned eigenvalues; positive α=s^-1 converts Type I to a ratio of extreme affine spectral bands. A full two-case monotonicity argument establishes the infima, all optimizing intervals, and strict improvement criterion; Type II is solved by placing unit between two scalar spectral extremes. Explicit 2×2 family attains arbitrary separation. The packaged standalone verification program passed 153030 finite numerical comparisons, which are not a substitute for the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pasetto et al. sections 4–5 analyze their own ROM/SROM preconditioner and empirical condition-number profiles.",
+        "González (2006) accessible abstract characterizes Frobenius optimal inverse projections rather than exact optimization of these two α-families."
+      ],
+      "reasoning": "General block and spectral preconditioning work supplies the diagonalization idea but no located statement explicitly covers the entire scalar-regularization classification. Older inaccessible full formulations remain a nonzero overlap risk.",
+      "searches": [
+        "additive reduced basis preconditioner Type I shifted reduced inverse exact condition number optimal alpha invariant spectral subspace compared projected Type II",
+        "optimal regularization positive scalar for projected low rank inverse SPD operator condition number spectral inverse preconditioner",
+        "doi:10.1002/nme.5320",
+        "doi:10.1137/S0036144504431905"
+      ]
+    },
+    "checked_sources": [
+      "2026/10/11/SCOPE-adjustable-preconditioning-collapses-approximate-controlled-g-du--68be9d88ad8a",
+      "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "04f1b10d-3f28-416f-92a0-3353c42bdadf",
+      "arxiv:2609.11097v1",
+      "doi:10.1002/nme.5320",
+      "doi:10.1137/S0036144504431905"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source preconditioners and nonsingularity are prior, rather than novel.",
+        "Own principal-angle result assumes a two-level SPD operator and a different inverse-projector boost Wγ; it does not provide the effect of an additive identity ridge on selected eigenvalues 1+αλ.",
+        "The full text of Fan–Hu–Zhang Section 3 does not display spectral scalar minimizers."
+      ],
+      "reasoning": "The new contribution is an exact all-rank invariant-space α minimax, strict-improvement iff criterion, and sharp comparison of actual Type-I/II families, not the mere existence of the preconditioners or standard diagonalization.",
+      "searches": [
+        "additive reduced basis preconditioner Type I shifted reduced inverse exact condition number optimal alpha invariant spectral subspace compared projected Type II",
+        "positive definite reduced subspace inverse plus alpha identity spectral condition number strict improvement if omitted minimum eigenvalue exceeds captured minimum eigenvalue",
+        "\"reduced basis\" \"shifted\" \"identity\" \"condition number\" inverse preconditioner",
+        "arxiv:2609.11097v1",
+        "04f1b10d-3f28-416f-92a0-3353c42bdadf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fan–Hu–Zhang Eq.(4) uses S+αI and Eq.(7) uses S+α(I−PP^T); the exact invariant-subspace spectrum follows by simultaneous reduction.",
+        "Related published finding 04f1b10d-3f28-416f-92a0-3353c42bdadf concerns principal-angle inverse boosts with a two-level spectrum."
+      ],
+      "reasoning": "The exact formula κ_I=max(b+s,d)/min(a+s,c), the improvement iff c>a, and the complete optimizing intervals are not stated by the source in inspected sections; the principal-angle boost statement does not imply the Type-I global-ridge all-four-endpoint formula.",
+      "searches": [
+        "additive reduced basis preconditioner Type I shifted reduced inverse exact condition number optimal alpha invariant spectral subspace compared projected Type II",
+        "positive definite reduced subspace inverse plus alpha identity spectral condition number strict improvement if omitted minimum eigenvalue exceeds captured minimum eigenvalue",
+        "optimal regularization positive scalar for projected low rank inverse SPD operator condition number spectral inverse preconditioner",
+        "arxiv:2609.11097v1 §3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The comparison of previously available claims found one nearby principal-angle spectral boost result, identifier 04f1b10d-3f28-416f-92a0-3353c42bdadf, whose hypotheses and conclusion were compared.",
+        "Related published search results include 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba, on a different additive inverse formula."
+      ],
+      "reasoning": "No matched exact four-endpoint ridge/complement condition-number table or accepted source result was identified; database partition/search is not a uniqueness proof.",
+      "searches": [
+        "additive reduced basis preconditioner Type I shifted reduced inverse exact condition number optimal alpha invariant spectral subspace compared projected Type II",
+        "positive definite reduced subspace inverse plus alpha identity spectral condition number strict improvement if omitted minimum eigenvalue exceeds captured minimum eigenvalue",
+        "optimal regularization positive scalar for projected low rank inverse SPD operator condition number spectral inverse preconditioner"
+      ]
+    },
+    "rationale": "Closest direct source defines the two additive preconditioners and establishes nonsingularity/iteration estimates, but does not supply the complete invariant-SPD condition-number minimax or sharp if-and-only-if boundary. Related published finding 04f1... has a different principal-angle projector boost. Older SROM analysis concerns other operators. Exact equivalences in older spectral preconditioning remain a documented bibliographic risk.",
+    "residual_risks": [
+      "The algebra of invariant subspaces is classical and a prior exact equivalent ridge-parameter classification in older deflation/approximate-inverse literature cannot be excluded.",
+      "González (2006) full text was inaccessible: the accessible abstract alone does not establish absence of coverage.",
+      "The result is only for invariant SPD spaces and does not prescribe a practical FGMRES tuning algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines preconditioner and nonsingularity; does not state claimed spectral minima or improvement iff boundary in inspected text",
+        "evidence": [
+          "Equation (4): (S+αI)^−1; Eq (7): (S+α(I−PP^T))^−1; Theorem 3.6: nonsingularity; Propositions 3.9/3.11: error bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.11097",
+        "material_read": "Full accessible HTML, especially Sections 1, 3.1, 3.2, 3.4, equations (4),(7),(9)-(11)",
+        "method": "Read source definitions and statements; compared exact implied eigenvalue conditions, regularization and scalar tuning",
+        "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+        "trigger": "Identical Type-I and Type-II operator definitions and baseline Richardson bounds"
+      },
+      {
+        "assessment": "Different ROM/SROM preconditioners and numerical spectral behavior; no same scalar ridge/complement classification identified",
+        "evidence": [
+          "Section 4 defines ROM/SROM procedures; Section 5.2 discusses condition numbers numerically."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nme.5320",
+        "material_read": "HTML Sections 3–5 including mathematical description of ROM and SROM and spectral numerical comparisons",
+        "method": "Compared preconditioner construction and claims at level of matrix operations and conclusions",
+        "title": "A reduced order model-based preconditioner for the efficient solution of transient diffusion equations",
+        "trigger": "Older reduced basis SPD preconditioner and condition numbers"
+      },
+      {
+        "assessment": "Potential conceptual overlap; no decisive coverage shown from accessible material",
+        "evidence": [
+          "Abstract: Frobenius-optimal approximate inverse over arbitrary matrix subspaces and singular-value criterion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036144504431905",
+        "material_read": "Abstract and bibliographic description only; full article not inspected",
+        "method": "Compared precise abstract claims, without inferring whole-article noncoverage",
+        "title": "Orthogonal Projections of the Identity: Spectral Analysis and Applications to Approximate Inverse Preconditioning",
+        "trigger": "Plausible general approximate-inverse spectral theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fb27d3f-1b15-43fb-a8db-bff9e19e46fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two concrete regularizations were recently proposed to make a singular RB inverse usable; it is a motivated tuning question whether they actually improve conditioning. The theorem gives complete sharp scalar choices and a striking strict-improvement phase boundary for Type I, plus a realizable unbounded gap to the projected-complement version. This is a natural invariant-subspace benchmark, not merely a numerical recomputation or arbitrary small instance.",
+    "status": "PASS"
+  }
+}
