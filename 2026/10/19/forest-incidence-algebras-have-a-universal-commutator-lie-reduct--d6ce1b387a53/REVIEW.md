@@ -1,0 +1,11 @@
+# Review
+
+**Correctness (PASS).** The root-and-edge-difference coordinate map is an isomorphism on each forest component because every path is unique. The incidence-algebra multiplication gives independent affine two-dimensional Lie brackets on the edges and a central summand for each component. Rank counting reduces to the exact counts of \(s\)-by-\(2\) matrices of ranks zero, one and two. An independent direct-basis exhaustive program checks both Lie coordinates and joint-centralizer spectra, including characteristic two. All quantifiers and the dimension of the joint centralizer are explicit.
+
+**Originality (PASS, residual risk).** Earlier general derivation-rank formulas already give the one-element forest distribution, and earlier radical-square-zero quiver formulas already yield the two-element commuting probability. Those covered boundaries are acknowledged. Full-text primary papers on Lie automorphisms of incidence algebras concern automorphisms of a fixed algebra and do not state the cross-poset affine-Lie direct-sum classification or the all-arity common-centralizer rank polynomial. The latter includes all tuple lengths and distinguishes the present result from the known boundaries. A stronger unlocated treatment remains possible; published literature search and primary full-text comparison do not prove global uniqueness.
+
+**Value (PASS).** The theorem gives an explicit infinite family of associative incidence algebras that are not even related by opposition yet have isomorphic full commutator Lie algebras. Consequently every Lie invariant, including all common-centralizer size distributions and higher commuting-tuple probabilities, loses the entire forest shape; this is a structural non-rigidity phenomenon, not merely a small numerical increment.
+
+**Closest sources and limitations.** Joseph (2002) constructs incidence algebras from directed graphs. Fornaroli–Khrypchenko–Santulo (arXiv:2012.06661, arXiv:2108.03765) describe Lie automorphisms and their cycle constraints, not these enumerators. The statement is restricted to height-one forests. An unlocated explicit cross-poset decomposition remains a residual risk; independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
