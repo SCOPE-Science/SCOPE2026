@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The defining half-plane condition is exactly parametrized by a Carathéodory function. Direct coefficient expansion yields the stated quartic functional, and the three-variable Schur parametrization is exhaustive. Maximizing the last Schur parameter and the boundary phase reduces the moment problem to three explicitly checked cosine regimes; monotonicity and a positive Bernstein polynomial certify the sharp moment maximum \(33/16\). The explicit degree-two Blaschke example attains that maximum. The remaining \(\tau\)-terms admit the claimed uniform coefficient error. Rational-arithmetic checks reproduced the delicate identities.
+
+**Originality — PASS, with source-access risk.** The fully inspected 2026 originating manuscript gives the nonsharp general-angle bound and states the exact problem as unresolved; its grazing-angle leading bound is \(17/144\), not the newly proved sharp \(11/96\). Searches for direct equivalent three-moment, rotated-half-plane, asymptotic and Hankel formulations found no dominating result. The 2024 Ali–Nurezzaman spirallike-Hankel paper and the 2015 Krishna–Reddy predecessor could not be compared through their full texts; their titles/abstracts and the source's own 2026 citation/open question were assessed instead. Equivalent earlier work cannot be excluded categorically.
+
+**Value — PASS.** The exact boundary asymptotic resolves the natural large-angle regime of an explicitly open determinant problem. It sharpens an existing leading constant and describes the asymptotically extremizing Herglotz geometry with a completely quantified error, rather than merely reparametrizing a textbook coefficient estimate. The one-dimensional setting and lack of a fixed-angle exact extremum are explicit limitations.
+
+Self-review: passed. Independent audit: not yet performed.
