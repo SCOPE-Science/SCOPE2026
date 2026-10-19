@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Proof of exact state-graph/root bijection, BFS shortest-distance and shortest-path count invariant; full integer source enumerations through k=8. Rooted counts 1,2,2,8,40,6272,768; independent Held-Karp compulsory-palindrome overlap DP reproduces optimum length and matching tour counts and tests constructive witnesses. Computations performed from the actual source files, not logs alone. No unbounded extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A330022 tabulates shortest *linear* lengths 4,8,12,22,32,60,74 at k=2..8. We claim no novelty for these numbers.",
+        "OEIS A390882 gives shortest *linear* superstring multiplicities 960 and 176 at k=7 and k=8, in contrast to cyclic rooted 6272 and 768."
+      ],
+      "reasoning": "Knowing a minimum linear length and counts of the linear strings does not determine how many cyclic covering strings have a marked all-zero window: additional wraparound-only covered strings may occur. The cyclic rooted multiplicities are not corollaries of those databases. The infinite all-palindromes generation results in 2010 do not subsume finite optimal-cycle counts.",
+      "searches": [
+        "Web: site:oeis.org \"4, 8, 12, 22, 32, 60, 74\" palindromes",
+        "OEIS:A330022",
+        "OEIS:A390882",
+        "Web: \"all palindromes\" \"minimum length\" cyclic binary word"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1002.2723v1",
+      "OEIS:A330022",
+      "OEIS:A390882",
+      "DOI:10.1007/978-0-387-09680-3_7",
+      "Bioinformatics 29 (2013) i71-i79"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blondin Massé et al. (2008), Further Work, require that a given set P be *exactly* the entire palindrome set; their problem is not a fixed-length cyclic cover with extra factors permitted.",
+        "Orenstein et al. (2013), Results, require one k-mer from every reverse-complement pair in a DNA alphabet. Ordinary reversal-palindrome mandatory edges are a different pattern set.",
+        "Anisiu et al. (2010), §2–4, give structural and enumeration claims for palindrome factors, not the cyclic optimal-count table."
+      ],
+      "reasoning": "None of the inspected primary statements implies the exact counts of length-minimum cyclic binary coverings rooted at 0^k. The mismatch of constraint sets prevents direct reduction from the DNA and palindromic-length-profile claims; the 2010 paper only provides motivation and a noncompactness result.",
+      "searches": [
+        "Web: \"Reconstructing words from a fixed palindromic length sequence\" shortest full word",
+        "DOI:10.1007/978-0-387-09680-3_7",
+        "Web: Design of shortest double-stranded DNA sequences covering all k-mers",
+        "arXiv:1002.2723v1 Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1002.2723v1, §2, studies generating all palindromes and non-existence of consecutive full-palindrome windows, not minimum-cycle rooted counts",
+        "published-finding corpus hits on palindromic duplication codes and other word invariants had nonidentical objects and no assertion of 768 or 6272"
+      ],
+      "reasoning": "The same cyclic problem can be described as shortest closed de Bruijn walks covering palindrome edges, or a directed rural postman instance. These are definitions/reductions, not located published values. Neither the accessible graph terminology nor the indexed claims gives the rooted optimum-count spectrum.",
+      "searches": [
+        "published-finding corpus: Number of shortest cyclic binary sequences containing all palindromes of length 8: 768 rooted at 00000000, and of length 7: 6272",
+        "Web: \"palindromes\" \"universal cycle\" \"binary\" substrings",
+        "Web: \"shortest cyclic\" \"palindromes\" \"length\" \"binary\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A330022: 0,2,4,8,12,22,32,60,74,... (linear length).",
+        "OEIS A390882: 1,2,2,2,2,2,16,960,176 (linear number) with author/date 2025-11-22.",
+        "No examined exact database entry is a table of **rooted shortest cyclic palindrome-complete coverings**."
+      ],
+      "reasoning": "The exact minimum lengths coincide with known linear minima and are background only. The new numerical object is the number of rooted cyclic coverings: 1,2,2,8,40,6272,768, with explicit circular-root convention. For orders 7 and 8 these differ from all tabulated shortest linear multiplicities.",
+      "searches": [
+        "OEIS:A330022 length shortest binary palindrome superstring",
+        "OEIS:A390882 number shortest binary palindrome superstrings",
+        "Web: \"palindrome\" \"cycle\" \"768\" \"length 8\"",
+        "Web: \"palindromes\" \"60\" \"74\" \"cyclic\" 2025"
+      ]
+    },
+    "rationale": "Exact linear length and multiplicity databases were found and explicitly excluded from novelty. The statement concerns distinct rooted shortest cyclic word counts; OEIS A390882 gives linear counts 960 and 176 at orders 7,8 versus rooted cyclic 6272 and 768. Full-text primary sources cover different objects or weaker existence/noncompactness results. Residual unindexed cyclic count literature risk remains.",
+    "residual_risks": [
+      "Search and available primary sources cannot prove universal novelty; an unindexed exhaustive count of rooted cyclic optimal palindrome covers could coincide.",
+      "The shortest lengths are already tabulated for linear superstrings and are not claimed original.",
+      "The main theorem is finite up to order 8, not a claimed asymptotic or infinite classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_ROOTED_CYCLIC_COUNTS",
+        "evidence": "Section 2 rules out edge-by-edge packing of all palindromes and describes generation from de Bruijn words; it does not optimize or count cyclic superstrings.",
+        "identifier_or_url": "arXiv:1002.2723v1",
+        "material_read": "Complete online paper text, particularly Section 2, Proposition 1–3 and sections 3–4; PDF page 2 visually inspected",
+        "method": "arXiv full HTML and PDF visual review",
+        "title": "Properties of palindromes in finite words",
+        "trigger": "Directly studies all palindromes at a given length and de Bruijn representations"
+      },
+      {
+        "assessment": "COVERS_LENGTH_VALUES_ONLY",
+        "evidence": "4,8,12,22,32,60,74 for linear length n=2..8; distinguished from rooted cyclic multiplicity.",
+        "identifier_or_url": "https://oeis.org/A330022",
+        "material_read": "Full OEIS entry with sequence, comments, 2025 additions, witnesses and cross-references",
+        "method": "read public database entry",
+        "title": "OEIS A330022: Length of shortest binary string containing all palindromes of length n",
+        "trigger": "Exact match on length sequence, therefore strongest prior coverage risk"
+      },
+      {
+        "assessment": "NON_EQUIVALENT_LINEAR_COUNTS",
+        "evidence": "Linear number at n=7 is 960; at n=8 is 176; rooted cyclic numbers differ, 6272 and 768.",
+        "identifier_or_url": "https://oeis.org/A390882",
+        "material_read": "Full OEIS entry, definition, numbers, comments and source dates",
+        "method": "read public database entry",
+        "title": "OEIS A390882: Number of shortest strings containing all binary palindromes of length n",
+        "trigger": "Could dominate a count of shortest palindrome-complete words"
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_LANGUAGE_CONSTRAINT",
+        "evidence": "Further Work asks for shortest full words whose complete set of palindromic factors is exactly a specified set; no cyclic rooted count.",
+        "identifier_or_url": "DOI:10.1007/978-0-387-09680-3_7",
+        "material_read": "Accessible author manuscript text including Abstract, Sections 2–5, especially Further Work and constrained reconstruction",
+        "method": "read accessible full-text HTML rendering",
+        "title": "Reconstructing words from a fixed palindromic length sequence",
+        "trigger": "Mentions shortest word containing all palindromes from fixed set"
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_REVERSE_COMPLEMENT_OBJECT",
+        "evidence": "RC-complete sequences require at least one from each reverse-complement pair; not all ordinary binary palindromes.",
+        "identifier_or_url": "https://academic.oup.com/bioinformatics/article/29/13/i71/195654",
+        "material_read": "Accessible article abstract, setup and Section 3 results",
+        "method": "read OA HTML text",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers",
+        "trigger": "Adjacent graph-optimization model for palindrome-like fixed points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab35e3ef-712a-49b4-b9d9-9a8a296d1736",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The multiplicity of minimum-length periodic libraries covering all fixed-length binary palindromes is a natural design-enumeration invariant, not inferred from minimum linear lengths or their counts. The drop 6272 to 768 with sixteen mandatory patterns at both orders is a meaningful sharp finite structural contrast; orders 2–8 form the first complete regime with <=16 mandatory patterns; n=9 jumps to 32.",
+    "status": "PASS"
+  }
+}
