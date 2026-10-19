@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness
+PASS. The six spatial intervals are derived by comparing the three successive doubling-map observations. Their images are unions of complete cells, which makes the symbolic process exactly stationary first-order Markov (not merely approximated by a transition network). The conditional current coordinate is uniform even after a specified entrance. The first-entrance path decomposition yields the five-state resolvent formula, and matrix elimination yields the three stated rational probability-generating functions. Differentiation at one gives precisely the stated means and variances. Independent exact-rational coordinate-interval enumeration checks all six laws for entrance delays through ten iterations; this finite confirmation is not treated as an infinite proof.
+
+## Originality
+PASS, subject to a genuine historical priority risk. Shahriari, Algar, Walker and Small (2023), arXiv:2303.00383, introduce ordinal Poincaré sections and entrance-based entropy comparisons but focus their first-return reconstructions on continuous-time physical series; the inspected available full-text transcription does not supply exact six-state doubling-map entrance distributions. Sakellariou, Stemler and Small (2021), DOI:10.1103/PhysRevE.103.022214, analyze entropy via ordinal partition networks; the accessible abstract does not state these laws, but full text was unavailable. Bandt and Shiha (2007), DOI:10.1111/j.1467-9892.2007.00528.x, address order-pattern probabilities rather than entrance-time laws. General finite-state Markov renewal theory implies rationality but does not alone provide these map-specific three rational functions, their complete six-cell classification, or the overdispersion distinction. Equivalent return-word or Markov-hole computations may predate this analysis; no exhaustive claim of priority is made.
+
+## Mathematical value
+PASS. The smallest ordinal window with six distinct symbols is a natural canonical benchmark for ordinal event sections. The theorem determines *every* successive-entrance interval probability, not merely one low-order moment, and proves the qualitative splitting into rare overdispersed versus common underdispersed symbolic events. The complete exact finite-state law supplies a reproducible calibration case for entry-based Poincaré-section reconstruction and ordinal-network statistics. The proof does not claim that these numerical values transfer to noisy observations, other maps, or longer ordinal windows.
+
+## Evidence and limitations
+The primary 2023 paper's public full-text transcription was inspected for the ordinal convention, entrance events, examples, and appendices. The 2021 and 2007 comparisons are limited to accessible bibliographic abstracts. The general renewal formula is classical; novelty is restricted to the complete map-specific distribution and dispersion trichotomy. The standalone checker is a finite independent arithmetic consistency check, not a substitute for the infinite-time proof. No independent audit has been completed.
+
+Self-review: passed. Independent audit: not yet performed.
