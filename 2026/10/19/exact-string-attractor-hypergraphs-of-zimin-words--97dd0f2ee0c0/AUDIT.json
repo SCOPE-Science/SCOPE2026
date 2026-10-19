@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Ruler-word identity verified by induction. For each factor with maximal symbol k, modulo-2^k blocks of Z_n are identical copies of Z_k and the factor lies in one of them and crosses its unique k. All k positions are therefore in its coverage; singleton k realizes that coverage. The all-attractor equivalence, product polynomial, minimum solution count, and span formula follow. Independent exhaustive factor and optimum-set checks for n=1..6 corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.10950v1 Theorem 6.7 is specific to finite Thue--Morse words and yields 8n-22 critical coverages; arXiv:2602.16152v2 covers Fibonacci, period-doubling, Thue--Morse only; arXiv:2509.08503v2 develops a general checker, not the Zimin closed classification."
+      ],
+      "reasoning": "General algorithms apply to any word but do not themselves output the exact Zimin factor-coverage antichain and polynomial. The word-specific theorems use different alphabets and morphisms, so their conclusions cannot imply this classification without new object-specific work.",
+      "searches": [
+        "arXiv:2610.10950v1 Sections 3,6,9.3",
+        "arXiv:2602.16152v2 Sections 1,3-6",
+        "arXiv:2509.08503v2 Sections 3-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10950v1, Thue--Morse minimal coverages and all-size attractors",
+      "arXiv:2602.16152v2, minimum attractors of Fibonacci/period-doubling/Thue--Morse words",
+      "arXiv:2509.08503v2, generic suffix-automaton attractor checker",
+      "arXiv:1611.01061v1, Zimin occurrence distribution",
+      "Published result 2026/9/8/SCOPE079, Rudin--Shapiro and paperfolding prefix attractors",
+      "Published result 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c, pseudostandard words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general canonical-irredundancy lemma in arXiv:2610.10950v1 applies once the minimal coverages are known but cannot identify their Zimin structure. The period-doubling/Thue--Morse results concern their own morphic words. The general attractor algorithm detects hits but does not force factor coverage to contain a full letter class."
+      ],
+      "reasoning": "The new implication is the ruler-word block-transport lemma for the max letter of each factor. The previously examined general tools alone do not entail it, while their object-specific theorems concern different words.",
+      "searches": [
+        "arXiv:2610.10950v1 Theorem 6.7, Lemma 6.9",
+        "arXiv:2602.16152v2 Sections 5-6",
+        "arXiv:2509.08503v2 Lemma 1 and Proposition 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zimin word factors are contiguous pieces of the ruler sequence (arXiv:1611.01061v1 supplies the recursion). No retrieved work equated the Zimin attractor hypergraph with the transversals of its letter-position partition."
+      ],
+      "reasoning": "Equivalence requires an exact assertion that hitting each symbol class is sufficient for every factor, or that every factor coverage dominates a one-letter coverage. General attractor definitions and checking algorithms do not establish that property.",
+      "searches": [
+        "\"Zimin words\" \"attractors\" string compressive",
+        "\"Zimin\" \"string attractor\" \"minimal\"",
+        "minimal factor coverage antichain Zimin word recursive palindrome one occurrence of every letter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An accessible published-record search for Zimin minimal coverages returned 2026/9/8/SCOPE079 (Rudin--Shapiro/paperfolding finite prefixes) and 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c (binary pseudostandard families); neither is a table for Zimin words."
+      ],
+      "reasoning": "The numeric sequence of optimal attractor counts 1,2,8,64,1024,... could be an ordinary sequence of powers; numerical agreement alone would not cover the classification. No examined source tabulated these values *as Zimin attractors* or described arbitrary-cardinality Zimin coverages.",
+      "searches": [
+        "\"Zimin words\" \"smallest string attractors\"",
+        "\"Zimin\" \"string attractor\" \"minimal\"",
+        "Zimin words string attractors minimum attractor positions exact number"
+      ]
+    },
+    "rationale": "Full-text comparison against the Thue--Morse and Fibonacci/period-doubling attractor classifications, the general suffix-automaton attractor checker, and the Zimin-pattern literature found no theorem for the Zimin occurrence-class transversal hypergraph or its all-size polynomial. Semantic published-record queries returned other word families, not a dominating theorem. Residual search gaps are documented.",
+    "residual_risks": [
+      "Semantic published-record search had intermittent internal service failures; one Zimin-oriented query returned nearby records on different word families, but unavailable refinements limit search coverage.",
+      "Unindexed papers or an equivalent claim embedded under another name (ruler words, recursively palindromic patterns, partition-transversal hypergraphs) may exist.",
+      "A general attractor theorem could implicitly subsume this classification without mentioning Zimin words; no such dominating premises were identified in inspected relevant full texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Thue--Morse exact canonical certificates, no Zimin classification or direct general theorem implying the ruler-word transport",
+        "evidence": [
+          "Sections 6.7-6.8 give 8n-22 Thue--Morse critical coverages and a general irredundancy lemma."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.10950",
+        "material_read": "Full HTML sections covering the introduction, related work, factor coverages, Sections 5-6 including Theorem 6.7 and Lemma 6.9, and closing scope discussion.",
+        "method": "Accessible article HTML, direct sections and text search",
+        "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue--Morse Words",
+        "trigger": "Recent full classification of inclusion-minimal factor coverages and attractors of arbitrary size"
+      },
+      {
+        "assessment": "No Zimin result and no characterization for arbitrary-cardinality Zimin attractors",
+        "evidence": [
+          "The introduction enumerates Fibonacci, period-doubling and Thue--Morse target words; discussion gives their further problems."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.16152v2",
+        "material_read": "Abstract, introduction and related work, Sections 4-5, Section 6 discussion and bibliography.",
+        "method": "Accessible article HTML with direct section inspection",
+        "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue--Morse Words",
+        "trigger": "Full optimal attractor results for three canonical recursive word families"
+      },
+      {
+        "assessment": "General decision and heuristic generation, with experiments on different word families; does not state an exact Zimin factor-coverage classification",
+        "evidence": [
+          "Sections 3-5 supply general checking and examples, not a Zimin all-size enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.08503v2",
+        "material_read": "Introduction, definitions, checker correctness lemma and proposition, greedy construction, experiments and conclusion.",
+        "method": "Accessible article HTML",
+        "title": "Checking and producing word attractors",
+        "trigger": "Potentially stronger general algorithms for all word attractors"
+      },
+      {
+        "assessment": "Focuses on occurrence of Zimin pattern instances in lexicographic word tables, not attractors",
+        "evidence": [
+          "Definition 1.1 gives the recursive word; Theorem 3.9 concerns binary incidence tables of Zimin instances."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1611.01061v1",
+        "material_read": "Definitions, examples, main theorem and conclusions of the accessible article.",
+        "method": "Accessible article HTML",
+        "title": "A Self-Referential Property of Zimin Words",
+        "trigger": "Primary material confirming standard recursive Zimin definition and possible earlier strong statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97dd0f2e-e0c0-4e15-875f-c6c3d9e3d244",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim classifies every cardinality of attractors and the exact canonical minimal coverage hypergraph of the natural infinite Zimin family, reducing global factor coverage to n irredundant letter constraints. The full rank polynomial and sharp minimum-span census quantify compressed representation choices, while comparison with recent Thue--Morse certificates shows a structurally different regime. The result is not a selected finite parameter or a bare textbook restatement.",
+    "status": "PASS"
+  }
+}
