@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact orthogonal two-row Hadamard coupling takes all signed one-hot states bijectively to independent dense sign pairs. Independent hashes/signs across blocks and columns give the full dense-entry law. Conversely rank collapse of two unit columns requires every block to collide and share sign, probability 2^(1-s)/product b_j, versus 2^(1-m) for dense signs, with equality iff b_j<=2 because b_j<=2^(b_j-1). This proves necessity, sufficiency and sharp sparsity bound s>=ceil(m/2) for all m,n>=2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.02978v1 proves OSE moment bounds for fully independent equal-width SparseStack.",
+        "arXiv:2508.21189v1 develops general subspace-injection and structured sketch bounds."
+      ],
+      "reasoning": "The OSE and injection statements bound random Gram defects; they neither force equality of all Gram distributions with independent dense signs nor classify exactly which block widths have it. Conversely, the present exact identity applies only to row-block width at most two, so it is not a replacement for their general-width bounds.",
+      "searches": [
+        "arxiv:2606.20195v1",
+        "arxiv:2609.02978v1",
+        "arxiv:2609.02978v1",
+        "arxiv:2508.21189v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.20195v1",
+      "arxiv:2609.02978v1",
+      "arxiv:2508.21189v1",
+      "published-finding corpus semantic hits on Haar sparse subspace descent, sparse matrix pivoting and block-product scale"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.20195v1 focuses on finite-precision GPU rounding experiments.",
+        "arXiv:2609.02978v1 proves high-probability subspace embedding with explicit constants, a weaker statement than equality of full Gram laws.",
+        "arXiv:2508.21189v1 derives structured-sketch algorithmic guarantees from subspace-injection assumptions."
+      ],
+      "reasoning": "A general tail bound does not specify the complete Gram law. A two-bucket Gram-law identity would imply equal accuracy distributions at arbitrary data, and the necessity direction sharply separates larger blocks; these are not consequences of the stated results without the new orthogonal coupling and pair-rank obstruction.",
+      "searches": [
+        "arxiv:2606.20195v1",
+        "arxiv:2609.02978v1",
+        "Block-signed one-hot sketch exact Gram distribution iid Rademacher if and only if all blocks width at most two rank-loss obstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.02978v1 §1.1 and analysis (stacked signed one-hot construction and concentration inequalities); arXiv:2508.21189v1 §3 and Appendix B (sparse sketches with injection bounds)."
+      ],
+      "reasoning": "The orthogonally rotated dense-entry distribution would imply every Gram-derived embedding guarantee, but neither source inspection exhibited the stronger exact identity. Targeted aliases using Walsh/Hadamard, dense signs, and two-bucket signed hashes did not return a covering statement. This absence is not proof of priority.",
+      "searches": [
+        "CountSketch two buckets per block is orthogonally equivalent to iid Rademacher dense sign sketch via a two-by-two Hadamard transform exact equality in Gram law all subspaces",
+        "SparseStack with two output rows per CountSketch block equal law as random sign matrix half nonzeros, 2-row orthogonal transform",
+        "\"CountSketch\" \"Hadamard\" \"2\" \"Rademacher\" \"equivalent\"",
+        "\"two-row\" \"CountSketch\" \"Hadamard\" dense Rademacher"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus record on exact Haar moments for sparse stochastic subspace descent (published record title “Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent”), method concerns Haar projectors, not hashed one-hot row blocks.",
+        "Published published-finding corpus record on multistage randomized pivoting (published record title “Worst-case sharpness of multistage adaptive randomized pivoting”), a different randomized matrix law."
+      ],
+      "reasoning": "No observed database entry tabulates or implies the joint Gram law and exact block-width rank-collapse comparison. published-finding corpus search is approximate semantic retrieval and does not establish uniqueness.",
+      "searches": [
+        "Exact probability rank deficient two coordinate columns of SparseStack stacked CountSketch with independent row hashes and random signs; optimal sketch row block size one or two",
+        "Fully independent SparseStack CountSketch two coordinate subspace exact rank loss probability zero singular value equal bucket hashes signed relative signs; optimize block sizes variance distortion fixed sketch dimension",
+        "arxiv:2508.21189v1"
+      ]
+    },
+    "rationale": "Compared complete claim and consequences, rather than names, to the sketch constructions, stochastic-embedding moment bounds and structured-injection results in primary full texts and to semantically relevant indexed research findings. Neither complete exact Gram law nor its necessary-and-sufficient block-width obstruction was found. Bibliographic risk of an earlier isolated identity is explicit.",
+    "residual_risks": [
+      "A short Hadamard coupling for two signed one-hot bins might appear as an observation in older JL/OSNAP or random sign matrix literature without searchable SparseStack terminology.",
+      "Public and indexed research coverage is not exhaustive; no claim of mathematical priority independent of this literature comparison.",
+      "Gram law is conditional on full independence and exact arithmetic; applying it to hashed implementations with reused randomness or FP16 arithmetic requires separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected article: numerical FP16 accuracy comparisons rather than the row-block size one/two exact dense-Gram law.",
+        "evidence": "arXiv:2606.20195v1, 2026-06-18, sketch definitions and experiments.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.20195",
+        "material_read": "Accessible full-text article including sketch definition, reported experiments and conclusions, with emphasis on §2.2, §4.1, §5, §6.",
+        "method": "Compared the exact source sketch distribution and studied output quantities, not merely the title.",
+        "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+        "trigger": "Motivates sparse hashing, SparseStack, and performance/rounding distinction."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected theorem and proof: OSE concentration with equal-width stack; no claimed Hadamard two-bucket Gram equivalence or if-and-only-if block-size classification.",
+        "evidence": "arXiv:2609.02978v1, 2026-09-02.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.02978",
+        "material_read": "Full available article, construction at §1.1, main theorem, moment estimates, and proof/limitations sections.",
+        "method": "Compared exact hashed-block law and scope of theorem/moment bounds against distributional equality and necessity.",
+        "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+        "trigger": "Theoretical work most directly about fully independent SparseStack distribution."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material: controls injection and approximation, but does not imply exact dense-sign Gram distribution or the necessity threshold.",
+        "evidence": "arXiv:2508.21189v1, 2025-08-28.",
+        "identifier_or_url": "https://arxiv.org/html/2508.21189v1",
+        "material_read": "Available primary HTML full text, notably §§1.5.1, 3.1–3.3, Appendix B.",
+        "method": "Inspected sparse-sketch model and algorithmic injection propositions for an implication to Gram-law identity.",
+        "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+        "trigger": "Earlier structured-sketch and sparse-stack general theory in numerical linear algebra."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a76bd01e-d23a-4316-b41e-a908a4899e3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full equality of every fixed-input Gram-derived statistic is a useful sharp structural property of sparse sketches, beyond a concentration estimate. The iff block-width classification and attained minimum nonzero count identify precisely how far sparsity can be reduced while retaining the entire dense-sign Gram law. No speedup or floating-point performance is inferred.",
+    "status": "PASS"
+  }
+}
