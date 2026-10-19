@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The connected graph inverse-trace functional is strictly convex in all independent simple-edge conductances, since its Hessian has the positive trace form and edge weights inject into Laplacian off-diagonals. Feasible minimizers exist and must spend the budget. Dihedral symmetry of the prices and graph forces the unique global minimizer into two conductance classes. Fourier eigenvalues reduce the objective to a strictly convex one-variable rational trigonometric sum. At zero shortcut weight the derivative changes sign at 4(n-2)/(n+1); at zero backbone weight for odd orders, an independently derived exact secant-power identity puts the sign change at 16/(n^2+7). The even-order zero-backbone endpoint is disconnected. This proves all equality and open regimes analytically. The standalone checker independently passes 68 direct rational matrix and Fourier tests; finite tests are corroboration, not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh, Boyd, Saberi (2006) formulates and proves convexity of effective-resistance conductance allocation in arbitrary graphs, which covers generic existence and optimality conditions.",
+        "Bhoite et al. (arXiv:2609.29790) treat heterogeneous-cost augmentation with a fixed base network and a discrete-cardinality requirement; their stated results supply numerical relaxations and heuristic designs rather than closed price thresholds for an unconstrained ring allocation."
+      ],
+      "reasoning": "A general convex program formally contains every special case but does not state or logically imply the claimed explicit solution without solving its KKT conditions. The augmentation formulation has extra fixed-base and cardinality structure; no inspected argument classifies all prices for this ring family.",
+      "searches": [
+        "effective resistance minimization on cycle plus second-neighbor shortcuts budget price threshold 4(n-2)/(n+1) 16/(n^2+7)",
+        "C_n(1,2) conductance optimization Kirchhoff index",
+        "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization arXiv 2609.29790"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://arxiv.org/pdf/1401.5628",
+      "https://doi.org/10.1002/qua.21068",
+      "https://arxiv.org/abs/2609.29790"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh et al. (2006): generic convex network allocation and barbell example.",
+        "Chair (2014), §§2,4: unit-conductance square-of-cycle formulas and parity of the all-second-neighbor subgraph.",
+        "Zhang and Yang (2006): abstract and catalog of unweighted circulant resistance expressions."
+      ],
+      "reasoning": "The only exact common statements are the spectral diagonalization, sum-of-inverses objective, general strict convexity, and connectivity of the second-hop cycle. The final theorem additionally quantifies all t>0, B>0, and all independent edge weights, gives unique global optimal supports, and proves exact price thresholds with distinct n-dependence. None of the inspected statements directly implies those optimization conclusions without the new sum identities and KKT endpoint analysis.",
+      "searches": [
+        "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://arxiv.org/pdf/1401.5628",
+        "https://doi.org/10.1002/qua.21068",
+        "network coherence optimization circulant ring with costlier distance two edges odd even parity optimal edge removal",
+        "sharp edge-cost phase transitions effective resistance minimization ring cycle with nearest and next nearest neighbor weighted conductances Kirchhoff index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same graph is also called the four-nearest-neighbor cycle or C_n(1,2), and the objective is the Kirchhoff index / total effective resistance / inverse-Laplacian trace. Chair (2014), §§2 and 4 computes fixed-conductance resistance, not optimal allocation."
+      ],
+      "reasoning": "Tested the aliases and exactly matching base graph, and compared minimization under independent weights versus evaluation of a fixed graph. The previously derived spectral formula alone does not fix the price-dependent minimizer; the two threshold inequalities require new endpoint derivative comparisons.",
+      "searches": [
+        "weighted square of a cycle C_n^2 nearest-neighbor and second-neighbor edge prices optimal Kirchhoff index trace of Laplacian pseudoinverse parity phase transitions edge sparsification",
+        "network coherence optimization circulant ring with costlier distance two edges odd even parity optimal edge removal",
+        "sharp edge-cost phase transitions effective resistance minimization ring cycle with nearest and next nearest neighbor weighted conductances Kirchhoff index",
+        "https://arxiv.org/pdf/1401.5628"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed records retrieved around this graph concerned unweighted circulant Kirchhoff indices and other cycle invariants; Zhang and Yang (2006) catalog fixed-graph resistance formulas, not priced minimizers."
+      ],
+      "reasoning": "The exact numerical and symbolic parameter pair was queried alongside graph aliases. No retrieved record or table supplies these two price thresholds. Retrieval failure by itself is not a novelty proof, and non-indexed tables remain a residual risk.",
+      "searches": [
+        "weighted square of a cycle C_n^2 nearest-neighbor and second-neighbor edge prices optimal Kirchhoff index trace of Laplacian pseudoinverse parity phase transitions edge sparsification",
+        "effective resistance minimization on cycle plus second-neighbor shortcuts budget price threshold 4(n-2)/(n+1) 16/(n^2+7)",
+        "cycle nearest next-nearest effective resistance minimization conductances cost",
+        "https://doi.org/10.1002/qua.21068"
+      ]
+    },
+    "rationale": "The closest same-objective source formulates the general inverse-Laplacian convex program and solves other graph families, but does not identify the priced two-hop ring phase diagram. The closest same-graph source computes fixed-unit edge resistances and recognizes parity of the deletion graph, but never optimizes independent weights under two class prices. Other searched circulant studies give fixed-graph spectral invariants. No inspected primary source or retrieved mathematical index hit supplies the two exact endpoint price thresholds as a global optimization classification. Residual risk of equivalent unindexed work and inaccessible publisher full text remains acknowledged.",
+    "residual_risks": [
+      "The complete publisher-hosted text of the 2006 Zhang–Yang circulant paper was not available for full-document noncoverage assessment; its abstract was inspected and no optimization theorem is described there.",
+      "Unindexed or unpublished work on priced ring design might already contain equivalent thresholds; a negative index search cannot rule this out.",
+      "Generic total-effective-resistance optimization, fixed-graph circulant Fourier formulas and odd/even connectivity are established prior art and are not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the generic strictly convex inverse-Laplacian allocation problem and graph-specific barbell example. Its optimization statements are broad enough to imply existence/uniqueness but not explicit cost thresholds or optimal supports for the two-hop-cycle family. These general methods are attributed to it.",
+        "evidence": [
+          "Proceedings dated Kyoto July 24–28, 2006, p. 1185; introduction (1)–(3) and overview of Section V: barbell, general convexity and optimality conditions."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Twelve-page conference PDF: abstract, introduction and optimization setup (pp. 1185–1186), convexity/derivative and optimality discussion, and the graph-specific barbell example described in the introduction and paper sections.",
+        "method": "Read the primary proceedings PDF and inspected its dated first page, problem formulation, theorem statements and declared scope.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "The original general optimization of edge conductance to minimize total pairwise effective resistance under a budget, including uniqueness and convex optimization conditions."
+      },
+      {
+        "assessment": "Gives effective resistances of fixed unit-weight two-hop cycles and their edge-deleted variant. Its first-neighbor removal parity observation is prior art; no optimization over individual edge conductances, heterogeneous per-unit budget, KKT cost comparison, or exact two-threshold phase law appears in the inspected derivation.",
+        "evidence": [
+          "arXiv:1401.5628v1 (22 Jan 2014), §§1–2, equations (2)–(4), §4 equations (32)–(37), §5 conclusions; §4 explicitly observes the even-order disconnection on first-neighbor deletion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.5628",
+        "material_read": "Full original 15-page arXiv PDF, including abstract; §1 model; §2 Laplacian and Fourier eigenvalues; §3 hitting-time formulas; §4 removal of first-neighbor edges and odd/even connectivity; §5 discussion.",
+        "method": "Read indexed primary full text, including displayed formulas and the section on edge removal; compared mathematical quantifiers, variable weights and cost parameters.",
+        "title": "The effective resistance of the N-cycle graph with four nearest neighbors",
+        "trigger": "Exactly the same underlying unweighted graph family and its first-neighbor-deleted subgraph; thus potential direct coverage."
+      },
+      {
+        "assessment": "Spectral resistance and Kirchhoff-index formulas for fixed unweighted circulants are broader in graph family but not shown to solve the proposed priced conductance optimization. Full-text noncoverage is not certified; this is recorded as an access risk.",
+        "evidence": [
+          "Zhang and Yang, International Journal of Quantum Chemistry 107 (2007), 330–339, DOI 10.1002/qua.21068; first published 5 Sep 2006; abstract identifies fixed-network invariants and four special classes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/qua.21068",
+        "material_read": "Publisher bibliographic page, abstract, and listed special graph classes; full publisher article not available for continuous inspection.",
+        "method": "Inspected published DOI description and abstract; compared fixed-graph spectral invariants versus optimization under two price classes.",
+        "title": "Resistance distance and Kirchhoff index in circulant graphs",
+        "trigger": "General circulant resistance and Kirchhoff-index formulas may subsume the fixed-spectrum subcalculations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3a8917e-d27f-4239-825c-aa47feb92369",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Network planners naturally decide whether to finance redundant second-neighbor links, and cost per unit weight can differ between near and longer links. The theorem determines all global optimum support classes under a fixed budget, not a mere plug-in Kirchhoff index value, and exhibits an order-parity difference in whether the original cycle backbone can vanish. Exact thresholds scale as \\(16/n^2\\) versus a limit of 4, giving a concrete and nontrivial dimension-dependent design boundary. The mixed optimum is uniquely and reproducibly characterized for all finite budgets, rather than offering a one-off numerical table.",
+    "status": "PASS"
+  }
+}
