@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=2, each t_i>0 and B>0, articulation-point resistance additivity yields the exact independent-petal objective before any symmetrization. Trace-inverse strict convexity of the connected Laplacian, coupled with injective edge coordinates, proves global uniqueness. Within each triangle the two spoke prices coincide, so its leaf-swap automorphism forces equality of their optimal weights. Explicit differentiation of F_t(r) gives a strictly increasing derivative numerator and exactly one local optimum, even at the price boundary; the interior radical and boundary formula agree. Cauchy-Schwarz distributes the remaining budgets with a unique equality case. The actual standalone program reproduced 549 exact symbolic, exact rational and numerical checks, including full weighted Laplacian calculations and asymmetrical competitors. The analytic proof, not finite trials, verifies the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi, SIAM Review 50 (2008), full text pp. 37–66, especially Sec. 5, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "Bhoite et al., arXiv:2609.29790, sections I–II and comparison Table I, https://arxiv.org/pdf/2609.29790"
+      ],
+      "reasoning": "General SDP/strict-convexity optimality principles apply and are not new. The worked source families are trees, wheels, and a barbell; no heterogeneous triangle-bouquet exact mixed-phase solution is reported there. The later augmentation framework optimizes selection of edges of a fixed base graph with an exact-cardinality restriction, unlike free conductance sizing across all bouquet edges. General optimality conditions alone do not explicitly imply the radical closed form without solving the blockwise KKT conditions.",
+      "searches": [
+        "\"cactus\" \"Kirchhoff index\" \"optimal\" edge weights",
+        "windmill flower graph total effective resistance optimization budget unequal edge costs",
+        "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi 2006 full text sections 4,5,8",
+        "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization arxiv 2609.29790"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh, Boyd, Saberi, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf (relevant full-text sections inspected)",
+      "Sardar, Xu, https://pubmed.ncbi.nlm.nih.gov/39962956/ (publisher/bibliographic abstract; full text unavailable)",
+      "Bhoite et al., https://arxiv.org/pdf/2609.29790 (relevant full-text sections and Table I inspected)",
+      "Yang et al., DOI:10.1109/TASE.2024.3391763 (abstract/metadata only)",
+      "Wolfram MathWorld, https://mathworld.wolfram.com/DutchWindmillGraph.html (topology equivalence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A general first-order optimality test for optional chords of a tree applies to the star on 2m leaves with sibling-edge optional chords and yields the zero-chord boundary t>=2+1/m; it does not specify optimal allocations in the mixed-chord region.",
+        "Ghosh–Boyd–Saberi Sec. 5 establishes special tree, wheel and barbell optimizers and the general strict-convexity principle, but does not give the many-petal heterogeneous radicals.",
+        "The new theorem gives c_i>0 when t_i<T_m together with exact a_i, c_i, z_i, and Kmin even if other petals have arbitrary distinct active/inactive prices."
+      ],
+      "reasoning": "The deletion threshold and uniqueness in the pure-star regime are already consequences of more general optimality conditions; they are excluded as standalone novelty. The complete mixed-regime weights, independent activation and globally coupled budget shares are neither a restatement of the threshold nor a special case of a stated stronger closed-form result in the inspected sources.",
+      "searches": [
+        "effective resistance total resistance flower cactus petal heterogeneous price square-root optimal expenditure",
+        "Ghosh Boyd Saberi unique optimal conductance trees wheels barbell Section 5",
+        "tree backbone optional chord optimality resistance price threshold star pair sibling leaves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Friendship graph equals triangular windmill or bouquet of triangles, a one-vertex coalescence of m copies of K3; source: https://mathworld.wolfram.com/DutchWindmillGraph.html",
+        "Sardar–Xu explicitly compute effective resistance and Kirchhoff index for unit-resistor windmills: DOI:10.2174/0115701794299562240606054510"
+      ],
+      "reasoning": "Equivalent names were searched. Explicit objective equivalence is the sum of unordered-pair effective resistances, or N times the trace of the Laplacian pseudoinverse. Closest same-topology result identified in the accessible material computes the invariant on a fixed unit-weight graph rather than selecting all edge weights under a heterogeneous cost constraint.",
+      "searches": [
+        "\"friendship graph\" \"Kirchhoff index\" edge weights optimization",
+        "\"windmill\" \"effective resistance\" optimal conductance allocation",
+        "heterogeneous windmill friendship graph complete optimum Kirchhoff index allocation different triangle edge prices",
+        "priced triangular bouquet resistance optimum pair edge deletion cost threshold 2+1/m rooted petals budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The MathWorld Dutch-windmill entry fixes the graph synonym and does not optimize conductances: https://mathworld.wolfram.com/DutchWindmillGraph.html",
+        "Closest index hits for friendship graphs involve unrelated fractional edge-resolving numbers rather than the weighted Kirchhoff-index allocation; there was no exact price-dependent optimizer table returned.",
+        "Sardar–Xu DOI:10.2174/0115701794299562240606054510 evaluates fixed unit-resistance models."
+      ],
+      "reasoning": "No exact database table or separately indexed result matching all independently priced petals, the complete optimal allocation and the closed minimum was located. Lack of a search result does not prove mathematical novelty; scope and access limitations remain.",
+      "searches": [
+        "\"friendship graphs\" \"weighted\" \"Kirchhoff index\"",
+        "\"windmill\" \"effective resistance\" optimal conductance allocation",
+        "Optimization of Kirchhoff index weighted cactus graph windmill friendship graph conductance weights",
+        "Kirchhoff index minimization block graph coalescence triangles price dependent conductance support optimal"
+      ]
+    },
+    "rationale": "The claimed contribution is the complete mixed-price design law for arbitrarily many independently priced triangular petals: unique conductance weights, closed radical objective, budget shares and independent activation patterns. General convex/KKT theory and a tree-plus-optional-chord deletion criterion cover the abstract optimization framework and the zero-chord threshold, respectively; neither produces the mixed-regime conductance formula and all-petal budget allocation as a stated result. The relevant Ghosh-Boyd-Saberi full text, current broad augmentation paper, and closest same-topology bibliography were compared. Full access to the Sardar-Xu same-topology article was unavailable; its accessible abstract specifies unit resistors. Residual risks are recorded.",
+    "residual_risks": [
+      "Sardar and Xu full text could not be inspected; assessment of its absence of priced optimization relies on the explicit unit-weight abstract, not invented whole-document coverage.",
+      "The general tree-with-chords deletion criterion already implies the high-price threshold; that boundary is not itself an originality claim.",
+      "No search of indexed literature proves absence of an unindexed specialized closed-form conductance allocation theorem.",
+      "General first-order semidefinite programs subsume the objective numerically, although they do not state or supply the closed optimizer classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General mathematical framework is prior work; the explicit triangular-bouquet heterogeneous-price theorem is not stated among the worked graph families.",
+        "evidence": [
+          "DOI:10.1137/050645452",
+          "Section 5.2 explains symmetry from global uniqueness; Section 5 contains trees, wheels, barbells."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "30-page accessible PDF: abstract and introduction pp.37–40, strict-convexity and duality discussion, Sec. 5 analytical results pp.57–61 on trees, wheels and barbells, Secs. 7–8 pp.63–65.",
+        "method": "Opened parsed PDF and inspected original-result passages and page images.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational closest objective and weighted-graph conductance optimization; possible dominating theorem or example."
+      },
+      {
+        "assessment": "Abstract concerns evaluation of unweighted windmill resistance rather than variable-conductance resource optimization; cannot certify noncoverage of uninspected full text.",
+        "evidence": [
+          "DOI:10.2174/0115701794299562240606054510",
+          "Publisher abstract states each graph edge is replaced by a one-ohm resistor."
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/39962956/",
+        "material_read": "Publisher and bibliographic abstracts, including the explicit one-ohm-on-every-edge assumption; full paper not retrieved.",
+        "method": "Searched arXiv and lawful OA routes; publisher page displayed paywall; institutional attempt did not yield article contents.",
+        "title": "Resistance Distance and Kirchhoff Index in Windmill Graphs",
+        "trigger": "Closest named topology and objective; potential stronger coverage."
+      },
+      {
+        "assessment": "Fixed-base, exact-cardinality augmentation with numerical SDP relaxations; no closed-form unrestricted triangular-bouquet conductance law.",
+        "evidence": [
+          "arXiv:2609.29790",
+          "Table I distinguishes fixed-base augmentation from from-scratch conductance allocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.29790",
+        "material_read": "Full PDF obtained; abstract, introduction, Table I, problem formulation, appendix references and relevant bibliographic comparison inspected.",
+        "method": "Parsed full arXiv PDF and visually inspected opening pages and comparison table.",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Heterogeneous cost and resistance minimization as possible broader optimization coverage."
+      },
+      {
+        "assessment": "Numerical convex relaxations for network-route design rather than a proven explicit optimizer for all independently priced triangular petals; not conclusively excluded by abstract alone.",
+        "evidence": [
+          "DOI:10.1109/TASE.2024.3391763",
+          "Available abstract describes computational approximations for real air networks."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TASE.2024.3391763",
+        "material_read": "Abstract, basic bibliographic metadata and summary of the constraints; complete article not obtained.",
+        "method": "Search and bibliographic/abstract inspection.",
+        "title": "Robustness Optimization of Air Transportation Network With Total Route Cost Constraint",
+        "trigger": "Referenced as broader route-cost network resistance optimization in the augmentation literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f760e265-faef-4d5a-a849-9c2b7c2e5e0d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete, explicitly priced optimization is a naturally motivated infinite family: m independently priced local cycles meet at one cut vertex and compete for the same conductance budget. Unlike an isolated triangle or a trivial reparametrization of a known deletion test, the result settles every mixed support pattern and computes exact unique weights and objective for all independent price vectors. Its provable square-root budget coupling and compensatory ordering are concrete design consequences that are neither furnished by generic convexity nor a previously determined high-price cutoff. The result deliberately claims a complete natural classification, not arbitrary general cactus networks or a general optimization framework.",
+    "status": "PASS"
+  }
+}
