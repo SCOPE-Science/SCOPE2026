@@ -1,0 +1,15 @@
+# Scientific review: balanced-bond Ising susceptibility
+
+## Correctness — PASS
+The zero-field spin expansion selects only the empty and full cycle edge subsets, giving the exact partition function and two-point correlation. Summing correlations yields the cyclic-arc formula for susceptibility. For every arc length, strict convexity of the exponential makes counts as equal as integers allow the unique minimizing count multiset; the mechanical word attains those bounds for all lengths. An elementary discrepancy argument classifies all circularly balanced minimizers as rotations of one mechanical word. Uniform geometric domination justifies the infinite-volume alternating and two-block formulas; direct subtraction yields their positive gap. The result applies to every integer \(n\ge3\), \(1\le m<n\), and positive distinct ferromagnetic coupling pair at all positive temperatures. Exact-fraction verification of 8,164 layouts, 238 direct spin-ensemble comparisons and 65 composition minima supports but does not replace this proof.
+
+## Originality — PASS, subject to documented historical risk
+The 2003 periodic/quasiperiodic Ising transfer-matrix study supplies prior analytic machinery but does not state a fixed-composition all-temperature susceptibility minimization. Balanced mechanical/Christoffel words are known combinatorial objects; Fici (2013) establishes their structure independently of the Ising observable. Van Enter, Koivusalo and Miękisz (2019) prove Sturmian ground states for different long-range lattice-gas interactions, not a uniform-field positive-temperature susceptibility optimum on a nearest-neighbor Ising ring. Targeted research-record searches for finite cyclic inhomogeneous Ising susceptibility and balanced bond permutations did not identify an implication covering the theorem. A historically known convex cyclic-window rearrangement result could imply part of it, so originality is not externally certified.
+
+## Mathematical value — PASS
+A fixed bond inventory has an order-independent zero-field partition function but an order-sensitive uniform magnetic susceptibility. The theorem determines the global optimal bond placement for every finite composition and every positive temperature, including a sharp equality classification rather than selected numerical instances. The explicit positive infinite-volume susceptibility penalty for macroscopic segregation shows the effect persists at thermodynamic scale. It is a natural finite-chain design invariant and a nontrivial structural optimization over all bond assignments.
+
+## Closest literature and limitations
+Bhattacharya and Paul (arXiv:cond-mat/0306600), Fici (arXiv:1311.4904), and van Enter–Koivusalo–Miękisz (arXiv:1906.12103) were inspected in relevant sections. The full prior-literature landscape and other formulations of cyclic rearrangement are not exhausted. Coupling strengths are strictly ferromagnetic and unequal; vanishing strengths, infinite-temperature degeneracy and nonzero fields are excluded. The two-block layout is not proven to maximize susceptibility.
+
+Self-review: passed. Independent audit: not yet performed.
