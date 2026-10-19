@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The fine graph and reduced Markov matrix have equal peripheral data by arxiv:1405.0481 §2. Explicit two-successor calculation produces W=(I+H)P_U/2, where H has k swapped pairs and one fixed point. Closed states are exactly subsets invariant under U and H. If an irreducible W had period d>1, equal-sized cyclic classes each invariant under H would have conflicting parity (one class odd, others even). Thus topological mixing equals transitivity of <U,H>. Classifying permutations by the unique orbit containing the reflection fixed point yields the disjoint integer recurrence. The mirrored coefficients a_{k,j} have an exact ratio (2j+3)/(2k-2j-1), furnishing the uniform middle-tail bounds and verified coefficients 2,3,22. A separately constructed full 2N-state Markov graph agrees for every permutation at N=3,5,7 (5166 exhaustively checked); proof does not rely on finite exhaustion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1203.5145 Theorem 1 states for m=2, N odd, every stretch-and-fold shuffle is mixing.",
+        "arxiv:1405.0481 Theorem 5 concerns a worst-rate bound among mixing tent shuffles and eigenvalue regions."
+      ],
+      "reasoning": "The precursor covers a different interval map and cannot dominate the tent nonmixing count. The motivating paper addresses existence and spectral bounds, not the proportion. General subgroup generation theorems are a residual possibility.",
+      "searches": [
+        "fixed involution one fixed point random permutation generate transitive subgroup connected graphs counting recurrence",
+        "arxiv:1203.5145",
+        "arxiv:1405.0481"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.0481 (27-page available revised full text, relevant statements and proofs inspected)",
+      "arxiv:1203.5145 (accessible HTML text, §§2–3 and §5 inspected)",
+      "doi:10.3934/dcds.2013.33.3365 (published primary 37A25 metadata and abstract)",
+      "Permutations contained in transitive subgroups (2016, abstract/summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arxiv:1405.0481: existence of nonmixing permutations and bound on worst spectral rate among mixing ones; not quantitative count.",
+        "arxiv:1203.5145 counts mixing permutations of x -> m x mod 1; its odd-N doubling case is uniformly mixing.",
+        "The new classification is tied to a reflection involution with one fixed point, yielding a different nonzero nonmixing probability."
+      ],
+      "reasoning": "None of the inspected assertions implies the whole odd-grid tent enumeration plus three asymptotic coefficients. In contrast, the new theorem strengthens the known existence statement by evaluating how rare nonmixing shuffles are. The Markov reduction and basic Perron theory are credited.",
+      "searches": [
+        "arxiv:1405.0481",
+        "arxiv:1203.5145",
+        "tent map composed with permutation of N equal intervals, odd N, exact count topologically mixing permutations, asymptotic 2/N nonmixing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct equivalence: tent shuffles mix iff <U,H> transitive; for N odd H has one fixed point.",
+        "arxiv:1405.0481, reduced Markov matrices, §2."
+      ],
+      "reasoning": "Comparison used the more general involution-permutation formulation, not only titles. No identified equivalent published calculation of the all-N count or its sharp three-term asymptotic. A general group enumeration could still give an equivalent formulation.",
+      "searches": [
+        "fixed mirror involution H with one fixed point and uniform random permutation U, primitive stochastic matrix (I+H)U/2 and transitive subgroup enumeration",
+        "connected permutations fixed-point involution one singleton transitive subgroup exact recurrence count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The independently derived first values are T(1)=4, T(2)=80, T(3)=3552, T(4)=271104.",
+        "Relevant published articles do not give a matching all-N tent-map table in inspected sections."
+      ],
+      "reasoning": "Searching aliases and initial counts located no covering tabulation. This is not a proof of absence of an unindexed integer sequence or unpublished table.",
+      "searches": [
+        "tent map composed with permutation of N equal intervals, odd N, exact count topologically mixing permutations, asymptotic 2/N nonmixing",
+        "tent map random permutation mixing topologically enumeration",
+        "fixed involution one fixed point random permutation generate transitive subgroup connected graphs counting recurrence"
+      ]
+    },
+    "rationale": "Material comparison of arxiv:1405.0481 and arxiv:1203.5145 distinguishes (a) existence/worst spectral mixing in the actual tent family from (b) counts for the different stretch-and-fold family. A previous doubling-map result counts extremal slow mixers, not all topologically mixing tent shuffles. Targeted research-record and primary-literature searches yielded no equal-or-stronger claim. Generic permutation-pair enumerations are an explicit historical-priority risk, not asserted absent.",
+    "residual_risks": [
+      "General enumeration of transitive pairs with one generator an involution may have a known equivalent formula, not ruled out by targeted searches.",
+      "A related group-theoretic 2016 article was only inspected by abstract/summary; no whole-document novelty assertion is based on it.",
+      "No independent external historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general family, reduced Markov matrix relation, existence of nonmixing shuffles at each odd grid, and spectral bounds for the mixing subset. No exact odd-grid count or three-term nonmixing probability is stated in these sections.",
+        "evidence": [
+          "arxiv:1405.0481, Theorem 1 and Theorem 5; §2 Lemma 2.4 and Eq. (11); §§3–4."
+        ],
+        "identifier_or_url": "arxiv:1405.0481",
+        "material_read": "Public first-version date, full available 27-page revised manuscript: Abstract, introduction, Theorems 1 and 5, §2 reduced matrix, §3 and §4 theorem statements/proofs, appendix block-reduction proof.",
+        "method": "Full-text PDF extraction and targeted page inspection of statement, reductions, and the tent-specific theorem.",
+        "title": "On the mixing properties of piecewise expanding maps under composition with permutations, II: Maps of non-constant orientation",
+        "trigger": "Exact same tent map under arbitrary equal-cell output permutations; proof must be checked for stronger statement."
+      },
+      {
+        "assessment": "Computes mixing proportions for stretch-and-fold x -> m x mod 1, with odd N all shuffles mixing for m=2, unlike the folded tent problem. Its formulas do not imply the claimed tent-map recurrence or asymptotic.",
+        "evidence": [
+          "arxiv:1203.5145, Theorem 1 and §§3.2–3.3; 2013 DCDS publisher abstract and primary MSC 37A25."
+        ],
+        "identifier_or_url": "arxiv:1203.5145; doi:10.3934/dcds.2013.33.3365",
+        "material_read": "Accessible article HTML: abstract, §§1–2, §§3.1–3.3 including enumeration examples, and §5 of other families.",
+        "method": "Article full-text section reading and mathematical comparison of the map and permitted grid sizes.",
+        "title": "On the mixing properties of piecewise expanding maps under composition with permutations",
+        "trigger": "Precursor gives group-theoretic counting and proportions for shuffled expanding maps, a plausible implication source."
+      },
+      {
+        "assessment": "Studies a permutation lying in some transitive subgroup, rather than transitivity of the specific generated pair U and fixed reflection H; no direct implication is supported by the accessible material. Cannot certify full-document noncoverage.",
+        "evidence": [
+          "S. Eberhard, 2016, journal article summary."
+        ],
+        "identifier_or_url": "https://discreteanalysisjournal.com/article/849-permutations-contained-in-transitive-subgroups",
+        "material_read": "Accessible journal article summary/abstract, not complete article.",
+        "method": "Targeted bibliographic/abstract comparison, retaining full-text access limitation.",
+        "title": "Permutations contained in transitive subgroups",
+        "trigger": "Potential stronger generic permutation-group coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9374255-9c96-4436-97b5-f4ccd7addf16",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The proportion of shuffles preserving topological mixing is a canonical question for precisely the family whose worst mixing and existence of nonmixing are investigated in the motivating literature. The exact all-grid recurrence and sharp three-term rarity law reveal that the nonmixing exceptions occupy 2/N+3/N²+22/N³+O(N^-4) rather than having a positive limiting fraction; this quantitatively resolves a natural gap. The argument isolates a non-obvious automatic-aperiodicity effect of a unique reflection fixed point. This is not a mere change of terminology or special-case restatement of the stretch-and-fold result.",
+    "status": "PASS"
+  }
+}
