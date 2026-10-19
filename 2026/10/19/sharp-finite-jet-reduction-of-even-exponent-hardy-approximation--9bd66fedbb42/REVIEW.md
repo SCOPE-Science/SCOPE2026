@@ -1,0 +1,15 @@
+# Scientific review: finite-jet inner Hardy approximation
+
+## Correctness — PASS
+The boundary unimodularity identity \(\overline f=f^{-1}\) turns the binomial expansion of \(\lvert 1-qf\rvert^{2m}\) into exact pairings of analytic Fourier coefficients. The second polynomial in every cross inner product has degree at most \((m-1)n\), proving the claimed jet cutoff with no hidden assumption about finite Blaschke degree or boundary smoothness. Strict convexity and isometric inner multiplication justify uniqueness. The classical Schur recursion with terminal unimodular iterate gives an inner rational replacement of degree at most \((m-1)n+1\); each inverse step matches one additional Taylor coefficient. The exact monomial comparison produces the \(-4m\) objective difference, and vanishing multiplicity certifies optimality of the Blaschke degree bound. The packaged verifier replays the symbolic finite-sum formula against independent circle quadrature and checks those sharpness witnesses. Numerical experiments do not establish the general proof.
+
+## Originality — PASS (best knowledge)
+Relevant records and primary papers were compared by mathematical implication, not title alone. Classical Schur interpolation already yields finite Blaschke interpolation (Bolotnikov, 2009), and the \(H^2\) inner-function optimizer is known to be constant (Bénéteau et al., 2017). Earlier degree-one \(H^4\) first-jet information is a special instance, not the all-even-exponent/all-degree complete-objective theorem with a sharp finite-Blaschke model. Centner (2021), Centner–Cheng–Felder (2023), and Cheng–Felder (2023) address existence, localization, and nonlinear approximation properties but do not state the general jet identity or the two sharp cutoffs. Closest indexed results concern either weighted multivariable Hilbert approximation or Schur interpolation alone. Residual risk: an equivalent lemma may occur in older unindexed Hardy-space or moment-algebra literature.
+
+## Mathematical value — PASS
+Non-Hilbert Hardy approximation is genuinely nonlinear, and the minimizer is not generally constant even for inner functions. This theorem converts every finite-degree even-exponent optimization over arbitrary inner functions, including singular infinite inner factors, to a finite polynomial problem with a **sharp** number of generator coefficients and a **sharp** bounded-degree inner representative. The exact sharp cutoff and replacement degree are natural model-complexity invariants, not arbitrary finite test parameters. The result does not solve the residual nonlinear coefficient optimization or extend to non-even exponents.
+
+## Scientific limitations
+The sharpness of the jet cutoff applies to the full objective, not to the minimal information needed for the optimizer alone. Classical Schur interpolation is credited rather than treated as new; originality remains a best-knowledge judgment, not proof of historical uniqueness. The analytic theorem is independent of the finite numerical checks.
+
+Self-review: passed. Independent audit: not yet performed.
