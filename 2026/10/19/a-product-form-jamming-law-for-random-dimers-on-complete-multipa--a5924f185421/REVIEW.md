@@ -1,0 +1,19 @@
+# Mathematical assessment
+
+## Correctness — PASS
+
+For independent continuous edge priorities, equal-rate exponential clocks generate the identical accepted-edge order. Because unoccupied endpoints have never incidentally lost an earlier accepted edge, the accepted-pair transition rates are exactly the products of the two current class sizes divided by total size; no mean-field independence approximation is assumed. The coordinate martingales have finite-time variance at most \(T/N\), and a Lipschitz/Gronwall estimate rigorously gives the finite-time fluid limit. Direct differentiation verifies the product parametrization. Its scalar clock approaches the reciprocal largest initial class mass, yielding the explicit terminal state. After any fixed time, every later accepted edge consumes at least one vertex outside a chosen largest class. This deterministic counting inequality connects the finite-time fluid result with the terminal random matching, including ties. The proof also establishes convergence in expectation by boundedness. The standalone program gives 37 independent finite exact checks and a finite-size diagnostic, not an infinite proof.
+
+## Originality — PASS, with bibliographic limits
+
+Deloubrière–Hilhorst–Täuber (arXiv:cond-mat/0209471, 2002) analyze spatial multi-species annihilation with emphasis on equal initial densities and segregation. Their species kinetics are relevant, and an earlier treatment of unequal densities could contain an algebraically equivalent limiting formula, but the inspected paper does not formulate the exact uniformly prioritized matching on dense multipartite graphs or its rigorous terminal stochastic limit. Gamarnik–Goldberg (arXiv:0807.1277, 2008) prove greedy-matching estimates on bounded-degree regular and large-girth graphs; these assumptions exclude complete multipartite graph sequences of linearly growing degrees. Aronson–Dyer–Frieze–Suen (1995), whose abstract was accessible, use a different vertex-first greedy policy. Mathematical-index and public-literature searches targeting graph families, random sequential adsorption, and multi-species annihilation did not yield a directly dominating theorem. Negative search results are not proof of uniqueness; inaccessible or unindexed older work and implicit product solutions remain documented risks.
+
+## Mathematical value — PASS
+
+The natural dense-substrate dimer model has an unusual, quantitatively measurable feature: a perfectly matchable substrate can be left with an extensive unmatched fraction by random sequential deposition. A complete classification of the macroscopic terminal law by the initial class vector distinguishes unique-largest and tied-largest regimes. The exact positive number \(3/160\) for the perfectly matchable \(K_{8m,7m,5m}\) family and the general product expression are physical kinetic information not implied by optimal matching feasibility or a merely qualitative statement of jammed states. The derivation also supplies a reproducible tool to test additional class proportions. No fluctuation result or original microscopic spatial universality is claimed.
+
+## Sources and residual uncertainty
+
+Principal accessible research manuscripts: O. Deloubrière, H. Hilhorst, U. C. Täuber, *Multi-Species Pair Annihilation Reactions*, arXiv:cond-mat/0209471 (19 September 2002); D. Gamarnik and D. A. Goldberg, *Randomized greedy algorithms for independent sets and matchings in regular graphs*, arXiv:0807.1277 (8 July 2008), author PDF, introduction and matching theorems read. J. Aronson, M. Dyer, A. Frieze, and S. Suen, *Randomized greedy matching. II* (1995), abstract only. A full systematic review of all older stochastic mean-field adsorption sources has not been performed. The exact stochastic law is presented with these limits rather than an unsupported universal priority assertion.
+
+Self-review: passed. Independent audit: not yet performed.

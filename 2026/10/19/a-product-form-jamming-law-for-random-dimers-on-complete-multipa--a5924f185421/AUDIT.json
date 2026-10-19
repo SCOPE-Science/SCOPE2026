@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exponential-clock representation induces exactly the random-priority matching. Conditional unoccupied-pair reaction rates are X_i X_j/N; martingale quadratic variations are bounded by T/N and Gronwall proves a uniform fixed-time fluid limit. Differentiating the explicit product parametrization verifies the ODE. The scalar clock increases to the reciprocal maximal fraction and identifies the product terminal state, including tied maxima. Every post-T edge consumes an outside-largest-class vertex, bounding the total late depletion by twice its remaining population, whose limiting density tends to zero. This bridges finite T to actual absorption and proves the entire theorem; boundedness yields expectation convergence. The standalone program verifies 37 exact small-instance identities and finite-size diagnostics, with no claim of exhaustive infinite verification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gamarnik–Goldberg, arXiv:0807.1277, author-manuscript abstract, introduction and matching results: regular fixed-degree/girth or uniformly bounded degree.",
+        "A fixed number of complete multipartite classes of positive mass gives vertex degrees proportional to the total vertex count, with unequal degrees unless class sizes agree."
+      ],
+      "reasoning": "The bounded-degree and large-girth hypotheses of those results do not cover complete multipartite sequences; their matching-size estimates do not imply an explicit macroscopic leftover-product law. Optimal matching existence does not imply the behavior of randomly prioritized maximal matchings.",
+      "searches": [
+        "\"random greedy matching\" \"complete multipartite\" asymptotic unmatched vertices",
+        "\"random maximal matching\" \"complete multipartite\" probability density",
+        "arXiv:0807.1277"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0209471 (full accessible paper)",
+      "arXiv:0807.1277 (author full manuscript)",
+      "DOI:10.1002/rsa.3240060107 (abstract and bibliographic metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:cond-mat/0209471 concerns spatial unequal/equal-species mutual annihilation and density decay, not proved random-priority multipartite matching absorption.",
+        "arXiv:0807.1277 establishes greedy matching results with fundamentally different graph degree and girth hypotheses.",
+        "Aronson–Dyer–Frieze–Suen (1995), accessible abstract, describes a different vertex-first random greedy rule."
+      ],
+      "reasoning": "Neither primary theorem directly implies the exact terminal fraction in a perfectly matchable dense tripartite graph. A more general hydrodynamic density-dependent Markov-chain theorem by itself would establish convergence given an ODE but not independently identify the explicit product-form terminal state or justify passage to complete jamming; the latter are proved here.",
+      "searches": [
+        "\"multi-species\" \"annihilation\" \"unequal densities\" mean field",
+        "\"random greedy matching\" \"complete multipartite\" asymptotic unmatched vertices",
+        "\"random sequential adsorption\" \"complete multipartite\" dimers jamming"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deloubrière–Hilhorst–Täuber, arXiv:cond-mat/0209471, full research manuscript: spatial diffusion-limited mutual annihilation, equal-density emphasis and asymptotic segregation.",
+        "Original model is exactly a random-priority maximal matching on dense complete multipartite graphs, and its fluid ODE is a finite well-mixed mutual-annihilation equation."
+      ],
+      "reasoning": "Mass-action annihilation is an equivalent deterministic representation of the fluid equations but is not itself the finite-graph random-priority terminal law. The old paper’s discussion of symmetric density decay and spatial effects does not formulate/prove the full arbitrary-unequal-density product endpoint or its stochastic terminal approximation. An unindexed solution to the same mean-field ODE remains possible.",
+      "searches": [
+        "\"random sequential adsorption\" \"complete multipartite\" dimers jamming",
+        "\"random greedy matching\" \"complete tripartite\" unmatched density",
+        "arXiv:cond-mat/0209471"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted scholarly queries for exact random sequential adsorption counts and complete-tripartite random greedy matching yielded no directly equivalent formula in the accessible results.",
+        "Exact expected terminal laws for finitely many small graph sizes produced by verify.py are explicitly distinguished from a published table or an infinite proof."
+      ],
+      "reasoning": "No inspected table covered the fixed-fraction arbitrary-q limit. Database nonappearance is not evidence of mathematical independence, and any unavailable table cannot be certified absent.",
+      "searches": [
+        "\"complete tripartite\" \"random sequential adsorption\" dimers",
+        "\"multi species annihilation\" \"product\" \"initial densities\" asymptotic"
+      ]
+    },
+    "rationale": "The claim is not a matching-number formula, a bounded-degree greedy matching estimate, or the spatial diffusion-limited annihilation exponent. Its exact product terminal density for random-priority dense multipartite dimer deposition and rigorous uniform-in-terminal-time stochastic limit were not implied by the primary results inspected. Closest algebraic overlap lies in the mean-field reaction ODE and is disclosed as a residual risk; no assertion of global bibliographic uniqueness is made.",
+    "residual_risks": [
+      "Mean-field unequal-density multi-species annihilation may have been explicitly solved in earlier specialized literature, with the same product limit.",
+      "An earlier generic theorem on dense random greedy matchings might subsume this class despite no direct match in searched literature.",
+      "The 1995 older greedy-matching paper was not available for full-text inspection, so the abstract alone cannot certify a nonoverlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related reaction rule and mean-field kinetic motif; physical emphasis is diffusion-limited space-dependent decay and equal initial densities, not the graph-priority finite-time-to-terminal law.",
+        "evidence": [
+          "First arXiv public submission dated 19 September 2002.",
+          "Original paper gives q-species pair annihilation and q-dependent power laws for spatial diffusion, with equal-rate equal-density asymptotic discussion."
+        ],
+        "identifier_or_url": "arXiv:cond-mat/0209471; https://vtechworks.lib.vt.edu/server/api/core/bitstreams/53dd4530-ff65-4875-adb3-e1e2f0486000/content",
+        "material_read": "Accessible author full text, abstract and all main prose/pages including the discussion of mean-field rates and initial densities.",
+        "method": "Author manuscript and arXiv submission/date confirmation.",
+        "title": "Multi-Species Pair Annihilation Reactions",
+        "trigger": "Nearest physical reaction network: each unlike-species pair disappears irreversibly."
+      },
+      {
+        "assessment": "The analyzed graphs have bounded degree, are regular with girth hypotheses, or have limits controlled by those hypotheses; no positive-class-fraction complete multipartite law.",
+        "evidence": [
+          "arXiv first submitted 8 July 2008.",
+          "Abstract and paper introduction state fixed-regular-degree large-girth and arbitrary bounded-degree results."
+        ],
+        "identifier_or_url": "arXiv:0807.1277; https://people.orie.cornell.edu/dag369/ftp/Goldberg_Gamarnik_CPC2009.pdf",
+        "material_read": "Author 24-page manuscript, abstract, introduction, statement and context of matching theorems.",
+        "method": "Text extraction of author PDF and page inspection with arXiv history check.",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Same edge-choice greedy matching protocol on a graph."
+      },
+      {
+        "assessment": "Reported vertex-first random greedy algorithm differs from uniform edge-priority ordering. Full text not read; residual risk explicitly retained.",
+        "evidence": [
+          "J. Aronson, M. Dyer, A. Frieze and S. Suen, Random Structures & Algorithms 6 (1995), 55–73."
+        ],
+        "identifier_or_url": "DOI:10.1002/rsa.3240060107",
+        "material_read": "Abstract and bibliographic metadata only; complete research paper unavailable in this inspection.",
+        "method": "Accessible abstract and bibliographic listing.",
+        "title": "Randomized greedy matching. II",
+        "trigger": "Earlier work about greedy maximal matching that could potentially dominate a special graph family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5924f18-5421-4e70-8eaa-b4eaf219c325",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For random dimer deposition a positive macroscopic jammed vacancy density can coexist with a perfect matching, as K_{8m,7m,5m} shows: its exact irreversible vacancy density tends to 3/160 despite an explicit perfect matching. The general q-class product expression and sharp disappearance when the largest fractions tie classify a natural physical kinetic observable, and are not just a change of variables or an optimal-graph matching count. No assertion of a fluctuation theorem or a spatially universal exponent is needed for its value.",
+    "status": "PASS"
+  }
+}
