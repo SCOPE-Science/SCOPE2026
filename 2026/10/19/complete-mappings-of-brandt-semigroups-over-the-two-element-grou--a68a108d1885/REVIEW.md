@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The definition uses the zero-adjoined Rees matrix multiplication with identity sandwich, and the proof treats zero, every finite index size, both parities, and all bijections. Nonzero products force the block-permutation normal form; three parity sums prohibit odd index. For even indices the displayed map has explicitly reconstructed inverses in every block. At index two, a necessary distinct-right-index condition yields 16 first blocks; output complements force exactly two followers apiece. Independent full eight-factorial enumeration finds 32. The general construction is proved, not inferred from finite tests.
+
+**Originality — PASS, with residual risk.** The most directly relevant source, Araújo et al., arXiv:2608.25092v1, proves the even-index *existence* classification already in Theorem 10.1 and Corollary 7.6; this is explicitly excluded as a novelty assertion. Its Proposition 6.5 counts the trivial-group combinatorial Brandt semigroups by Latin squares, not the nine-element example with maximal subgroup \(C_2\). The exact count of 32 and the simple all-even coordinate formula were not located in the inspected relevant primary sections, the 2025 presentation, targeted publication searches, or completed searches of indexed mathematical findings. There remains a genuine risk of prior equivalents in unindexed semigroup-transversal work and of a construction implicit in broader methods.
+
+**Value — PASS.** \(B_2(C_2)\) is the smallest Brandt semigroup whose maximal subgroup lacks a complete mapping, although the full semigroup admits one. The exact number of transversal permutations for its nine-element multiplication table is a natural first group-bearing counting invariant, not an arbitrary slice. The parameter-uniform map supplies an explicit witness and a transparent parity explanation throughout the even-index family. The distinction between five-element trivial-group count 2 and nine-element group-bearing count 32 makes the enumeration useful for testing extensions of classical Latin-square enumeration to Rees semigroups.
+
+**Limits.** No total count for general even indices or classification up to automorphisms is established. Independent external mathematical checking has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
