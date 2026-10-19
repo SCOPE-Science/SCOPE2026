@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\ge3\\), group averaging cannot increase the convex objective \\(\\lVert P-J\\rVert_2\\) and reduces globally to \\(p,q\\) with \\(p+2q\\le1\\). Every mode has exact \\(2\\times2\\) Fourier eigenvalues; the positive first-harmonic mode forces the strictly convex lower envelope at \\(q=(1-p)/2\\). Its derivative vanishes exactly at the displayed \\(p_*\\). At those weights \\(\\lambda^+(t)\\) decreases in \\(t\\), and \\(\\lambda^-(t)\\) is bounded below by \\(-\\sqrt{p_*^2+(1-p_*)^2}\\). The exact positive certificate is \\(\\mu_*^2-[p_*^2+(1-p_*)^2]=x(x+2)(2-x^2)/d^2>0\\) because \\(x^2\\le3/2\\); the zero-frequency nontrivial mode also lies below \\(\\mu_*\\). This is a proof for every permitted order and every feasible chain, not extrapolation from 233 computed spectra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao (2004), DOI:10.1137/S0036144503423264, pp. 667-679: general FMMC SDP and optimality conditions, examples of unrelated topologies.",
+        "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955v1, cycle and wheel worked sections contain explicit coefficients but no sunlet.",
+        "Olesker-Taylor–Zanetti (2021), arXiv:2111.05816, full text has vertex conductance and asymptotic mixing bounds, no sunlet coefficient classification."
+      ],
+      "reasoning": "General SDP feasibility and automorphism reduction apply to this graph, but do not themselves give closed-form minimizers and spectral gap for every n. The geometric bound concerns order of mixing rather than exact eigenvalue modulus and transition weights. The source wheel is not a sunlet specialization or converse.",
+      "searches": [
+        "Boyd Diaconis Parrilo Xiao fastest mixing Markov chains with symmetries wheel cycle",
+        "\"fastest mixing\" \"cycle\" \"leaves\" \"fastest mixing Markov chain\" formula",
+        "Geometric bounds on the fastest mixing Markov chain sunlet spectral gap",
+        "Boyd Diaconis Xiao fastest mixing Markov chain 2004 full-text SDP examples"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0709.0955v1; https://arxiv.org/pdf/0709.0955",
+      "DOI:10.1137/070689413; https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "DOI:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "arXiv:2111.05816; https://link.springer.com/article/10.1007/s00440-023-01257-x",
+      "https://mathworld.wolfram.com/SunletGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0709.0955v1 §5.3.3: wheel hub is adjacent to all n rim vertices, yielding a central global Fourier block and n-1 scalar blocks.",
+        "The proved sunlet has n separate degree-one vertices and n distinct 2x2 Fourier blocks, with a different first-harmonic lower bound and negative-mode inequality.",
+        "arXiv:0709.0955v1 §3: optimal bare-cycle weights and asymptotics, but not the effect of hanging n leaves."
+      ],
+      "reasoning": "The sunlet theorem is not a corollary by graph isomorphism, edge deletion preserving the same SLEM problem, substitution of numerical parameters, or restriction of the published wheel solution. The generic group-averaging method is shared; the completed all-size minimization and matching negative spectral certificate are additional steps. The asymptotic factor of one half compares two independently optimized graph families.",
+      "searches": [
+        "arXiv:0709.0955v1 section 5.3.3 wheel graph p star q star mixing",
+        "arXiv:0709.0955v1 section 3 cycle graph 2pi squared asymptotic",
+        "SIAM Rev. 46 (2004) 667-689 FMMC semidefinite convex formulation",
+        "Olesker-Taylor Zanetti arXiv:2111.05816 geometric bounds fastest mixing vertex conductance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0709.0955v1 pp. 1, 27-29: the complete cycle and wheel worked examples have no pendant attached to each cycle vertex; full parsed text has no \"sunlet\", \"corona\" or \"pendant\" object.",
+        "MathWorld \"Sunlet Graph\" identifies the same graph as the corona product of a cycle and one isolated vertex.",
+        "Targeted public-index searches did not find an exact SLEM/minimax edge-probability formula for either name."
+      ],
+      "reasoning": "The candidate statement is the global minimization of the second-largest eigenvalue modulus of a uniform-stationary reversible chain on the cycle corona with one leaf per rim vertex. Search aliases included sunlet, corona, circular comb and pendant cycle. Retrieved FMMC results concern distinct graph topologies. Absence of results is not a proof of priority.",
+      "searches": [
+        "\"fastest mixing\" \"sunlet\" Markov",
+        "\"cycle corona\" \"fastest mixing\" eigenvalue",
+        "sunlet graph fastest mixing Markov chain spectral gap leaf rim weights eigenvalues",
+        "\"fastest mixing\" \"circular comb\" Markov chain",
+        "arXiv:0709.0955 find sunlet / pendant / corona"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Sunlet Graph defines the graph family but provides no FMMC probabilities or SLEM.",
+        "Accessible published exact graph examples in arXiv:0709.0955v1 include cycles, wheels and other classes, not the cycle-with-one-leaf-per-site series.",
+        "Indexed related results encountered in mathematical research search include \"Sharp quadratic spectral stability for tetrahedral orbit polytopes\" (2026/10/11) and \"Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders\" (2026/9/7), involving different graphs/objectives."
+      ],
+      "reasoning": "The result is an all-n parameter law, not a lookup of individual finite graph eigenvalues. No inspected exact SLEM table or database entry covers the same family and objective; finite numerical SDP possibility does not imply the algebraic formula without carrying out the optimization.",
+      "searches": [
+        "\"sunlet\" \"fastest mixing Markov chain\" optimum",
+        "\"sunlet\" \"second largest eigenvalue modulus\" Markov",
+        "\"sunlet\" \"optimal transition probability\" Markov",
+        "cycle each vertex one pendant leaf optimal reversible chain second largest eigenvalue",
+        "MathWorld Sunlet Graph definition"
+      ]
+    },
+    "rationale": "After comparing the mathematical claim with 2004 general FMMC SDP, the 2007/2009 full-text wheel/cycle symmetry paper, and the 2021 geometric FMMC bounds, no source inspected states or logically implies the all-n optimum on the sunlet graph. The wheel source differs structurally (one universal hub versus n separate leaves). Both generic algorithmic solvability and the published cycle asymptotics fall short of this parameter law. Targeted alias and indexed searches gave no exact matching theorem, with residual unindexed risk recorded.",
+    "residual_risks": [
+      "Unindexed or inaccessible conference notes might already provide exactly the same sunlet FMMC coefficients or a stronger formula that implies them.",
+      "First public time of the May 2007 technical-report version is not day-resolved in available metadata; the chosen 2007-09-06 is the first verified exact-day preprint timestamp.",
+      "Generic SDP software can optimize each finite order numerically, but such per-instance solvability is not itself coverage of the all-order exact expression."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_ESTABLISH exact sunlet optimum",
+        "evidence": "The wheel has 1 hub and n peripheral states, not 2n states and n distinct leaves; its blocks are one 2x2 and n-1 scalar blocks, rather than n 2x2 blocks.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "arXiv v1 39-page full-text searchable PDF; inspected formulation and symmetry reduction in introductory sections, cycle example in §3, wheel example §5.3.3 around pp. 27-29; searched full PDF for sunlet/pendant/corona.",
+        "method": "Read mathematical statements and Fourier-block formulas and compared their graph assumptions and resulting spectra.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries (initial preprint)",
+        "trigger": "Same optimization criterion with solved wheel and cycle examples, therefore plausible exact coverage"
+      },
+      {
+        "assessment": "DOES_NOT_ESTABLISH exact sunlet optimum",
+        "evidence": "The explicit 5.4.3 result optimizes wheel hub and rim transition weights, which cannot be mapped to the pendant/rim orbit variables.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Parsed 28-page accessible paper; inspected the same objective and §§3.1.1, 5.4.2–5.4.4 with page images of 813–814; searched all text for sunlet, pendant and corona.",
+        "method": "Direct full-text mathematical comparison with source wheel closed form and graph definition.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries (journal full text)",
+        "trigger": "Check whether later reviewed version added relevant worked graph or appendix"
+      },
+      {
+        "assessment": "GENERAL_METHOD_ONLY",
+        "evidence": "Gives method for any graph and dual optimality tests, not the explicit coefficients for the sunlet sequence.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Read full-text available PDF for the global SDP framework and worked examples, including pp. 667 and 676–679; searched the parsed text for pendant, leaf and wheel.",
+        "method": "Examined optimization scope and explicit examples/duality, compared the possibility of an already stated all-parameter sunlet solution.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational general SDP could dominate claimed optimality"
+      },
+      {
+        "assessment": "DOES_NOT_ESTABLISH exact sunlet optimum",
+        "evidence": "Results concern mixing order and geometric barriers; no exact sunlet transition-weight or finite-n SLEM classification.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00440-023-01257-x",
+        "material_read": "Accessible full article HTML inspected, including Introduction, §§1.1–1.2, main vertex-conductance and near-uniform principles; searched full text for sunlet, corona, wheel and pendant.",
+        "method": "Compared quantified relaxation-time bounds to exact family-specific reversible SLEM optimum and weights.",
+        "title": "Geometric bounds on the fastest mixing Markov chain",
+        "trigger": "Recent broad geometric FMMC coverage might imply a sharp all-graph bound"
+      },
+      {
+        "assessment": "DEFINITION_ONLY",
+        "evidence": "Defines a sunlet on 2n vertices with n leaves, no FMMC claims.",
+        "identifier_or_url": "https://mathworld.wolfram.com/SunletGraph.html",
+        "material_read": "Object definition as corona product of cycle and one pendant site each.",
+        "method": "Read definition and alias, checked correspondence with claimed graph.",
+        "title": "Sunlet Graph",
+        "trigger": "Verify graph-name alias and naturality of family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4cd5588-d7db-409f-af96-d0333832423e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cycle corona with one leaf per rim site is a standard natural graph family for local reversible transport. The theorem solves the full SLEM optimization for every graph order with explicit edge laws, proves rim holding probability saturates zero, pendant exchange scales as \\(n^{-1}\\), and determines the exact asymptotic gap \\(\\pi^2/n^2\\), half the bare-cycle asymptotic. The new optimizing law and sharp factor-two penalty answer a meaningful network-design question, rather than arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
