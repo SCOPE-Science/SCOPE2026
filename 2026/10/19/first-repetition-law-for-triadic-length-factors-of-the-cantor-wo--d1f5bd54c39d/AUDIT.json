@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "At level k the finite substitution prefix is U 0^n U with U=B0^mB, n=3m and B beginning and ending in one. All windows before j=5m are classified as padded suffixes and padded prefixes. The suffix family has distinct rightmost-one offsets, and the prefix family has distinct leftmost-one offsets. Cross-family repetitions before j are excluded by counts when i<m and by disjoint rightmost-one ranges when i>=m; the explicit F_m=F_{5m} proves sharpness. Standalone finite checks k=1..8 agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicholson and Rampersad, arXiv:1507.08206 (2015): accessible abstract announces three other named words.",
+        "Chen, Lü, Wu, DOI:10.1016/j.tcs.2015.12.022 (2016): Section 3 states p_C(n)=2n-1, section 4 treats permutation complexity."
+      ],
+      "reasoning": "The known ordinary factor count provides only a global cardinality, not when one first collides. A shift of the same Cantor word changes the initial complexity at length 3 (for shift zero it is 5, for shift one 4) despite the same factor language. The 2015 general work introduces the invariant but no accessible specific theorem implying this Cantor evaluation; its full-text gap is explicitly retained.",
+      "searches": [
+        "\"Nicholson\" \"Rampersad\" \"Cantor\" \"first repetition\"",
+        "\"Initial non-repetitive complexity of infinite words\" Cantor",
+        "\"Cantor sequence\" \"recurrence function\" factors repetition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1507.08206 (2015 public abstract; full text not accessible)",
+      "DOI:10.1016/j.tcs.2015.12.022 (substantive indexed article sections)",
+      "DOI:10.1016/j.dam.2020.06.016 (abstract)",
+      "arXiv:2002.12593 (abstract)",
+      "Existing accessible Cantor cyclic- and 2-binomial-complexity claims: mathematically distinct invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Lü–Wu factor complexity p_C(n)=2n-1 for n>=2.",
+        "Known initial non-repetitive complexity theory in arXiv:1507.08206 does not announce a Cantor formula in its abstract.",
+        "The present proof singles out matching starting positions m and 5m and excludes every intermediate pair."
+      ],
+      "reasoning": "A global count p_C(n)=2n-1 cannot imply an exact first-repetition index, since the same shift-invariant factor language can have different initial profiles. General decidability/regularity results for automatic words similarly do not imply this explicit first-collision law without a specialization.",
+      "searches": [
+        "\"Cantor sequence\" \"factor complexity\" \"2n\"",
+        "\"Cantor\" \"first\" \"repeated\" \"length\" \"factor\" \"3^\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicholson–Rampersad arXiv:1507.08206 defines initial non-repetitive complexity as the number of different initial windows before first repetition.",
+        "Equivalent form is the least repeated starting index j for length 3^k, with collision j=5*3^(k-1) and i=3^(k-1)."
+      ],
+      "reasoning": "First repeated starting position and initial non-repetitive complexity are equivalent conventions here. Searches under both formulations found no directly matching Cantor claim. The index distinction prevents confusing total factor complexity with the first repeat.",
+      "searches": [
+        "\"Cantor word\" \"initial non-repetitive complexity\" factor first repetition",
+        "\"Cantor\" \"3^k\" \"non-repetitive complexity\"",
+        "\"Cantor sequence\" \"first repetition\" factor length",
+        "\"Cantor word\" \"inrC\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS-focused web searches with Cantor and first repetition produced no identifiable table for this specific invariant.",
+        "The numbers 5,15,45,... by themselves are simple geometric values and would not establish originality."
+      ],
+      "reasoning": "The proposed novelty is the combinatorial interpretation and first-collision theorem, not the bare numerical sequence. No claim is made that every numerical appearance of 5*3^(k-1) is new.",
+      "searches": [
+        "site:oeis.org \"initial nonrepetitive complexity\" \"Cantor\"",
+        "site:oeis.org \"Cantor word\" \"first repetition\""
+      ]
+    },
+    "rationale": "Targeted searches found no prior evaluation of the Cantor word's first repeated length-3^k window. The 2015 invariant paper explicitly describes Thue–Morse, Fibonacci and Tribonacci in its accessible abstract; its inaccessible full text remains a risk. The Cantor-like paper gives factor/permutation complexity but not initial prefix collisions; ordinary factor counts do not imply the initial invariant. The new formula follows from a self-contained cross-boundary factor comparison.",
+    "residual_risks": [
+      "The direct 2015 source could not be inspected in full; it might contain an unadvertised Cantor specialization.",
+      "An unindexed or differently phrased theorem on first repeated Cantor factors might exist.",
+      "Searches cannot establish global uniqueness of a theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No Cantor evaluation in accessible abstract; full-text theorem comparison unresolved rather than falsely asserted negative",
+        "evidence": [
+          "Original arXiv public listing dated 2015-07-29 names Thue–Morse, Fibonacci and Tribonacci evaluations."
+        ],
+        "identifier_or_url": "arXiv:1507.08206; DOI:10.1016/j.dam.2016.03.010",
+        "material_read": "arXiv record, abstract, bibliographic version and the named three examples; full text unavailable",
+        "method": "Accessible scholarly metadata/abstract; full-text access attempts did not succeed",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Defining paper and strongest directly related earlier title"
+      },
+      {
+        "assessment": "Studies p_C(n)=2n-1 and permutation complexity, not the first repeated factor position; factor count alone insufficient",
+        "evidence": [
+          "Section 3 Remark 5 states p_C(1)=2 and p_C(n)=2n-1 for n>=2.",
+          "Introduction names the specific substitution 1->101 and 0->000."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.tcs.2015.12.022",
+        "material_read": "Indexed primary text including Introduction, Section 3.1, Remark 5 and stated Section 4 contributions; publisher full PDF not examined",
+        "method": "Substantive indexed primary article text",
+        "title": "On the permutation complexity of the Cantor-like sequences",
+        "trigger": "Same Cantor fixed point, exact classical factor complexity"
+      },
+      {
+        "assessment": "Evaluates Arnoux–Rauzy and standard Arnoux–Rauzy words, not the non-uniformly recurrent Cantor fixed point",
+        "evidence": [
+          "Abstract specifies Arnoux–Rauzy and d-bonacci families."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.dam.2020.06.016; arXiv:2002.12593",
+        "material_read": "Author/article abstract and mathematical class specified; full text not examined",
+        "method": "Open bibliographic abstract",
+        "title": "On non-repetitive complexity of Arnoux–Rauzy words",
+        "trigger": "Potential stronger subsequent treatment of non-repetitive and initial non-repetitive invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1f5bd54-c39d-4270-9dc6-aae0274db2ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fully explicit first-repeat threshold at every triadic substitution scale measures a mathematically motivated prefix-sensitive invariant introduced in the 2015 literature, for a natural non-uniformly recurrent automatic word. It provides a sharp collision witness and a 5/6 limiting ratio against the known total factor count, which itself does not determine first recurrence.",
+    "status": "PASS"
+  }
+}
