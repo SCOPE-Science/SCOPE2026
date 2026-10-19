@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "A direct arithmetic identity reduces the connection denominator to a gcd of integers. Every order-five binary de Bruijn cycle corresponds to a 32-edge Eulerian circuit in the 16-vertex graph; all 65536 local bijections exhaust this domain, and a separate Eulerian DFS returns the identical set of exactly 2048 cycles. Both gcd implementations agree on all cycles/reversals, and the 10-value gcd and 16-value reversal-pair distributions each sum to 2048. A second pair of binary linear-complexity algorithms confirms the comparison. All complete data and executable checker are in the package. No statement beyond order five is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhao et al. abstract reports lower bounds on generic p-power-period sequence counts, without de Bruijn conditioning.",
+        "Etzion–Lempel study binary-field LFSR linear complexity and its distributions."
+      ],
+      "reasoning": "A broad period-32 enumeration could imply the claim only with exact cross-classification by the de Bruijn factor-cover property; no such stronger statement was identified in accessible materials. The inaccessible full text remains a risk and was not asserted to lack one.",
+      "searches": [
+        "joint linear and 2-adic complexity of binary de Bruijn cycles finite enumeration",
+        "https://doi.org/10.1587/transfun.E95.A.367",
+        "https://etzion.net.technion.ac.il/files/2016/02/P3.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Klapper–Goresky FCSR original author PDF, inspected relevant full-text mathematical statements.",
+      "Etzion–Lempel 1984 original four-page PDF, inspected full text.",
+      "Etzion 1999 original article, inspected relevant mathematical sections.",
+      "Zhao–Wen–Zhang–Jin 2012 publisher abstract and metadata, full text not accessible.",
+      "Ren–Winterhof arXiv:2603.23166, full-text PDF inspected."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ren–Winterhof exhibit reversal-sensitive two-adic complexity for other periodic sequences but do not count de Bruijn cycles.",
+        "Klapper–Goresky give an arithmetic framework and nearly de Bruijn FCSR sequences, with a different length/coverage condition."
+      ],
+      "reasoning": "Known reversal sensitivity shows the phenomenon can occur; it does not imply 632/2048, the sharp ratio 1285, or all 16 arithmetic pairs in this tightly constrained population. The classical gcd formula is explicitly not claimed as independently new.",
+      "searches": [
+        "periodic sequence reversal changes 2-adic FCSR complexity unlike linear complexity de Bruijn",
+        "https://arxiv.org/pdf/2603.23166",
+        "https://www.cs.uky.edu/~klapper/pdf/fcsr.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arithmetic equality for a period-32 binary sequence is a reduced denominator of -S/(2^32-1); reversing the word means the reciprocal-position binary polynomial, not a cyclic shift.",
+        "The FCSR source supplies these definitions but not an order-five distribution."
+      ],
+      "reasoning": "Tested the equivalent integer-gcd, reduced-connection-denominator, two-adic span, and reversal-polynomial formulations. The proposed finding concerns the exact support/frequencies conditional on de Bruijn completeness, rather than merely the general denominator identity.",
+      "searches": [
+        "de Bruijn sequences 2-adic complexity gcd of binary generating polynomial evaluated at 2 and 2^32-1",
+        "\"de Bruijn sequences\" \"2-adic complexity\" exact spectrum FCSR gcd",
+        "https://www.cs.uky.edu/~klapper/pdf/fcsr.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published 2048-cycle 2-adic FCSR histogram or 16-cell reversal joint table was encountered in actual query results.",
+        "Direct full-text sources provided formulae, generic examples and linear-complexity results rather than such a frequency table."
+      ],
+      "reasoning": "Searched exact domain, gcd/FCSR aliases, period and reversal to detect stored tables; database nonmatches are not treated as proof of uniqueness, and unindexed numerical work remains possible.",
+      "searches": [
+        "\"de Bruijn\" \"2-adic complexity\" distribution binary sequences period 32",
+        "\"de Bruijn\" \"FCSR\" \"2-adic complexity\" 32",
+        "\"de Bruijn\" \"2-adic complexity\" distribution binary sequences period 32",
+        "https://arxiv.org/pdf/2603.23166"
+      ]
+    },
+    "rationale": "Compared the exact conditional 2048-cycle FCSR gcd histogram and its 16 reversal-pair cells, not only topic, parameter or title. Read the key primary work on FCSR denominators, direct linear-complexity population counts, and modern reversal sensitivity. Their results do not imply this specific joint census. An inaccessible relevant 2012 prime-power-period paper poses historical priority risk and has not been declared not covering based on its abstract alone.",
+    "residual_risks": [
+      "The full five-page 2012 article on general prime-power-period 2-adic complexity was not available through lawful accessible sources. Its abstract alone cannot rule out a more specific conditional theorem or appendix; inspected abstract describes lower bounds, not an exact de Bruijn cycle census.",
+      "There may be older unindexed, unpublished, or supplementary order-five exact arithmetic tables not captured by semantic/bibliographic search. Results are self-reviewed, not independently audited.",
+      "Higher-order distributions and asymptotic value remain unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and general FCSR construction, but its almost-de Bruijn property has a different quantifier and period than the exact order-five cycles; no conditional 2048-element histogram or reversal-pair count appears in inspected relevant sections.",
+        "evidence": [
+          "Original text: periodic sequences correspond to rational 2-adic expansions and FCSR connection denominators; pp. 3–5.",
+          "Original text: Section 13 discusses generalized nearly de Bruijn properties for maximal FCSR sequences, not a classification of all exact de Bruijn cycles."
+        ],
+        "identifier_or_url": "https://www.cs.uky.edu/~klapper/pdf/fcsr.pdf",
+        "material_read": "Full-text PDF, 42 pages available; read abstract and foundational definitions on pp. 1–5, generalized de Bruijn section around p. 32, and 2-adic complexity definition on p. 36.",
+        "method": "Inspected author-accessible original PDF at mathematical statement level, including FCSR denominator representation and the special generalized almost-de Bruijn property.",
+        "title": "Feedback Shift Registers, 2-Adic Span, and Combiners With Memory",
+        "trigger": "Most direct foundational full-text source for the exact reduced FCSR denominator and generalized de Bruijn discussion."
+      },
+      {
+        "assessment": "Its results are for ordinary LFSR linear complexity, not the FCSR reduced-denominator gcd; no implication of the ten arithmetic gcd frequencies or sixteen reversal-pair frequencies.",
+        "evidence": [
+          "Defines complexity by minimal recurrence polynomial over the binary field, not an integer connection denominator.",
+          "Theorem and subgroup arguments constrain counts of ordinary linear complexity; FCSR reversal invariance is false."
+        ],
+        "identifier_or_url": "https://etzion.net.technion.ac.il/files/2016/02/P3.pdf",
+        "material_read": "Original full four-page PDF, including introduction, definition of linear complexity, reversal/complement arguments, and subsequent distributional theorems.",
+        "method": "Read original paper and compared its characteristic-two linear recurrence complexity to denominator of reduced rational 2-adic generating series.",
+        "title": "On the Distribution of de Bruijn Sequences of Given Complexity",
+        "trigger": "Same order-five de Bruijn objects and known population-wide complexity distribution; an exact or dominating result would subsume the claim."
+      },
+      {
+        "assessment": "Concerns ordinary binary linear complexity rather than FCSR denominators; provides context, no matching conditional arithmetic census.",
+        "evidence": [
+          "Statements use binary recurrence degrees and GF(2) factorization, not divisibility by odd factors of 2 raised to the period minus one."
+        ],
+        "identifier_or_url": "https://etzion.net.technion.ac.il/files/2016/02/P51.pdf",
+        "material_read": "Accessible author PDF, abstract, introductory theorem statements, distribution sections and cited previous work.",
+        "method": "Compared the exact type of complexity and implications of its general bounds to the proposed FCSR distribution.",
+        "title": "Linear Complexity of de Bruijn Sequences—Old and New Results",
+        "trigger": "Review of dominating established complexity constraints for de Bruijn cycles."
+      },
+      {
+        "assessment": "Abstract gives a lower bound on the count of all prime-power-period binary sequences of a fixed 2-adic complexity, not an exact enumeration under the stringent de Bruijn universal-five-factor property. Because complete text is inaccessible, possible stronger conditional treatment remains unresolved.",
+        "evidence": [
+          "Publisher abstract: generic periodic-binary Fourier coefficients and lower bounds on the number of period p-power sequences with given 2-adic complexity.",
+          "Publisher explicitly marks journal restricted access; public availability dated January 1, 2012."
+        ],
+        "identifier_or_url": "https://doi.org/10.1587/transfun.E95.A.367",
+        "material_read": "Publisher bibliographic record and complete accessible abstract; complete article restricted and not accessed.",
+        "method": "Inspected publisher abstract and metadata, then searched for a lawful open-access full text before requesting authorized institutional access; complete full text remained inaccessible.",
+        "title": "On the 2-Adic Complexity of Periodic Binary Sequences",
+        "trigger": "Highly relevant 2-adic complexity counting work for prime-power periods, including the period 32."
+      },
+      {
+        "assessment": "Establishes that reversal can change FCSR complexity in general, but does not enumerate all de Bruijn order-five cycles, obtain their marginal gcd count, or quantify their paired reversal values.",
+        "evidence": [
+          "General reversal-asymmetry examples are built from arithmetic constructions, without imposing the order-five complete-factor constraint.",
+          "The ordinary linear complexity reversal invariant is confirmed as already known."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.23166",
+        "material_read": "Complete 20-page arXiv PDF available; read the introduction, periodic complexity definitions, central reversal results, and example construction sections.",
+        "method": "Compared symmetry, formula and example hypotheses to the exact order-five de Bruijn population and its reversal joint distribution.",
+        "title": "Symmetric measures of pseudorandomness for binary sequences",
+        "trigger": "Direct literature on reversal of binary 2-adic complexity and the contrasting invariance of ordinary linear complexity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1502416-48a5-438e-a531-4983d3d7b4d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "FCSR connection-denominator complexity is an established, motivated arithmetic predictability invariant; de Bruijn cycles are the canonical universal-factor family. A complete ten-level census, sharp denominator extremes, and the sixteen-class reversal joint spectrum with a maximum ratio of 1285 are naturally meaningful exact benchmarks, quantitatively distinguishing FCSR and LFSR symmetry. This is neither a mere standard gcd deduction nor an arbitrary unmotivated sample: the new content is exhaustive conditional class frequencies and their reversal behavior, certified by complete finite enumeration. No downstream cryptographic guarantee or infinite generalization is claimed.",
+    "status": "PASS"
+  }
+}
