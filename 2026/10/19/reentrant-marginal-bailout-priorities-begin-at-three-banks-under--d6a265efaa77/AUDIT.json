@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Unique clearing follows from the contraction modulus max row sum 9/10 in the witness and from each row sum <1 in the general model. Default sets decrease as proportional external assets increase. For one and two banks, a unique top marginal recipient cannot leave the argmax and later reenter, because the index vector is constant in the all-default phase and a solvent recipient has derivative zero. The three-bank witness has rational exact clearing branches with boundaries 42/95, 126/61, 6; fixed-set gradients (416/105,374/105,114/35), (55/48,35/24,0), (1,0,0), yielding strict sequence 1,2,1. Exact rational checker recomputes clearing through all 8 hypothesized default sets and tests injections independently. Threshold tie behavior is not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li et al. formulate a general linear-programming optimizer for injections with fixed asset data; an ability to optimize arbitrary instances does not directly imply that reentrant maxima need n>=3 or exhibit exact parameter thresholds.",
+        "Demange proves concavity and gives a four-or-more-bank non-monotone finite-injection policy under changes in the injection budget."
+      ],
+      "reasoning": "General optimization and piecewise affine clearing results encompass the computation method, but the identified passages do not explicitly assert or logically settle the sharp minimal dimension and precise strict three-phase reentry for proportional baseline recovery.",
+      "searches": [
+        "Web: Optimal Monitoring and Mitigation of Systemic Risk in Financial Networks Li Lin Peleato Pollak 2014",
+        "arxiv:1410.2570 pp.5–8",
+        "Demange CESifo 5307 Sections 3.2.1 and 3.2.4"
+      ]
+    },
+    "checked_sources": [
+      "CEPR Discussion Paper DP8793 (2012), https://cepr.org/publications/dp8793",
+      "CESifo working paper 5307, Demange (2015), https://www.ifo.de/DocDL/cesifo1_wp5307.pdf",
+      "arxiv:1410.2570, Li–Lin–Peleato-Inarrea–Pollak (2014)",
+      "doi:10.1287/mnsc.47.2.236.9835, Eisenberg–Noe (2001)",
+      "Published published-finding corpus search results for targeted clearing/threat-index/reentry phrases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published threat-index expression implies the marginal-gain formula for each known default set, but does not impose a fixed ordering of indices across different default sets.",
+        "Demange shows a non-monotone optimal policy with finite m but does not state a no-reentry theorem for n<=2 or a strict first–second–first sequence for n=3 along ta.",
+        "The exact 3-bank matrix satisfies positivity and is verified separately from the published examples."
+      ],
+      "reasoning": "The universal two-bank nesting argument and three-bank rational witness are additional statements not directly obtained without a new construction and comparison. Scientific value depends on the sharp dimension-and-reentry formulation, not the well-known threat-index method.",
+      "searches": [
+        "Demange CESifo 5307 Proposition 1, Proposition 2, Section 3.2.4 and appendix",
+        "Li et al. arxiv:1410.2570 description of linear-programming bailout allocation",
+        "published-finding corpus: Demange threat index targeted intervention optimal order marginal cash payment 2015 bank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Demange Proposition 1 gives the same local gradient as the threat index, μ_D=(I-T_DD)^(-1)1; Proposition 2 selects its maximizers.",
+        "Demange pp.20–21 varies total injection m against fixed pre-injection resources, not proportional scaling t of baseline assets."
+      ],
+      "reasoning": "The derivative formula is equivalent to a published special-purpose threat-index expression and is explicitly prior work. The investigated question differs by quantifiers: varying the baseline economic-strength parameter while optimizing an infinitesimal single-bank intervention, and obtaining strict 1–2–1 reentry with smallest n.",
+      "searches": [
+        "published-finding corpus: Eisenberg Noe financial networks bank bailout cash injection priority reversals threat index default set thresholds",
+        "Web: \"threat index\" \"non-monotony\" \"optimal policy\" Demange financial networks",
+        "Demange CESifo 5307 pp.10,13–14,20–21"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus queries returned unrelated ranked records, including 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a and 2026/9/8/SCOPE056, not a financial-network three-bank switch table.",
+        "The inspected Demange and Li articles contained numerical financial-network examples but no table specifying the presented rational network and two proportional-recovery thresholds."
+      ],
+      "reasoning": "No exact public table or database entry was identified for the complete stated witness; negative retrieval alone is not treated as a proof of novelty.",
+      "searches": [
+        "published-finding corpus: Three node clearing network changing cash endowments alternating optimal marginal bailout recipient",
+        "published-finding corpus: Three bank minimal network endogenous default set reentrant optimal marginal capital injection across common external asset scaling Eisenberg-Noe systemic bailout, threat index",
+        "Web: financial network bank bailout priority change external assets default regimes three banks reentrant optimal intervention"
+      ]
+    },
+    "rationale": "The new narrowly framed assertion is the minimal three-bank dimension for reentry of the unique marginal-cash-injection maximizer as all exogenous assets scale upward; explicit exact connected witness. Demange (2015) proves the fixed-default-set sensitivity and presents non-monotone targeting for changing total bailout size (a different intervention parameter), and Li et al. (2014) provide general fixed-baseline finite-allocation optimization. These foundational formulas are not claimed as new; no searched primary text or indexed record states the sharp three-bank threshold, subject to residual coverage risk.",
+    "residual_risks": [
+      "The CEPR 2012 first-public manuscript was not accessible in full at the available lawful sources, though its 2015 full revised paper was read; the early text may contain an additional example.",
+      "An uninspected specialized paper or appendix might contain the equivalent three-bank witness or sharp lower bound despite not using the word reentry.",
+      "The novel statement relies on previously published threat-index and clearing formulas and may be regarded as a close explicit consequence; publication priority is not established by negative searches.",
+      "The evaluated gain objective counts transfers among banks and might not match welfare-oriented financial intervention objectives."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PUBLIC EARLY VERSION confirmed; its full text not inspected, so possible differences or extra material not excluded. Later 2015 primary version inspected materially.",
+        "evidence": "CEPR DP8793 dated Published: 1 Feb 2012, Revised: 8 May 2019; SSRN 2012 version Posted: 1 Mar 2012.",
+        "identifier_or_url": "https://cepr.org/publications/dp8793",
+        "material_read": "CEPR indexed abstract and publication metadata, not full 2012 paper text",
+        "method": "Read CEPR public original-paper record, verified original publication date 2012-02-01; attempted SSRN PDF of 2012 version, but access returned 403",
+        "title": "Contagion in Financial Networks: A Threat Index (earliest traced public version)",
+        "trigger": "Earliest confirmed public source version of the relevant threat-index result"
+      },
+      {
+        "assessment": "COVERS fixed-default-set marginal gain and finite-budget non-monotone policy; does not state the specific sharp n=3 proportional-baseline strict-reentry claim",
+        "evidence": "Propositions 1–2, pp.10 and 14; non-monotony example and commentary, pp.20–21; author dateline 8 April 2015.",
+        "identifier_or_url": "https://www.ifo.de/DocDL/cesifo1_wp5307.pdf",
+        "material_read": "Complete source accessible; particularly pp.2–6,10–15,17–21, plus sections and proof cross-references pp.31–34",
+        "method": "Read full-text primary PDF passages and inspected PDF page images at pp.14 and 19",
+        "title": "Contagion in Financial Networks: A Threat Index",
+        "trigger": "Most directly overlapping derivative and bailout-priority theory"
+      },
+      {
+        "assessment": "COVERS broader optimization methodology but not an explicit sharp three-bank reentry criterion for the proportional recovery trajectory",
+        "evidence": "Sections 2–3, LP formulation and network intervention discussion; public arXiv timestamp 2014-10-09.",
+        "identifier_or_url": "https://arxiv.org/pdf/1410.2570",
+        "material_read": "Primary paper description, setup, and sections on mathematical programming and bailout allocations, including pp.5–8",
+        "method": "Inspected lawful arXiv PDF full-text passages, including a rendered PDF page",
+        "title": "Optimal Monitoring and Mitigation of Systemic Risk in Financial Networks",
+        "trigger": "Potentially dominating optimal intervention theorem"
+      },
+      {
+        "assessment": "COVERS general limited-liability network clearing, not an explicit marginal optimal intervention reentry threshold",
+        "evidence": "Eisenberg and Noe (2001), Management Science 47, 236–249, fixed point clearing.",
+        "identifier_or_url": "doi:10.1287/mnsc.47.2.236.9835",
+        "material_read": "Original source public record and substantial accessible original text for mathematical setup and clearing construction",
+        "method": "Consulted publisher metadata and available full original article text",
+        "title": "Systemic Risk in Financial Systems",
+        "trigger": "Original clearing model that potentially subsumes the fixed-point mechanism"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6a265ef-aa77-4957-a07f-97705cad8b6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A smallest-network criterion for policy target reentry is a structurally motivated boundary for the value of interventions as financial conditions recover: a two-bank rescue target cannot regain strict priority once overtaken, but a fully interlinked three-bank system can. The explicit rational thresholds and exact witness are interpretable benchmark data. It is distinct from merely evaluating published threat indices at a fixed default set and does not claim downstream regulatory prediction.",
+    "status": "PASS"
+  }
+}
