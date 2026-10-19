@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The first-step projected equations give y_G=1/(2a), y_MR=a/(2a²+b²), y_PMR=a/[2(a²+b²)]. Direct residual expansion shows squared norm (1−2ay)²+2b²y² and strict residual order for b>0. The exact positive Gramian has vᵀXv=∫(vᵀe^(−Ht)v)²dt>1/(2a) by strict spectral Jensen when b>0; the quadratic Frobenius error then decreases throughout the interval containing y_PMR<y_MR<y_G. Exact rational 2×2 matrices give squared Galerkin error asymptotic 3/(4K²), PMR error tending to 1/16, and residual PMR/G ratio tending to sqrt(3)/2. Equality b=0 is proved. Embedded standard-library verifier replay passed 3695 deterministic exact-rational assertions; no finite tests substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Palitta–Simoncini Proposition 2.2 optimizes a Lyapunov-operator energy norm, not the unweighted solution Frobenius norm.",
+        "Lin–Simoncini 2013 treats MR residual minimization, but minimizing residual is not minimizing unweighted solution error."
+      ],
+      "reasoning": "The possible dominating general energy-error and minimal-residual statements were checked by their actual norms and quantifiers. Their conclusions are compatible with the new opposite Frobenius ordering and do not establish the claimed all-first-step comparison or divergent ratio.",
+      "searches": [
+        "First Krylov step one-dimensional Lyapunov Galerkin solution error optimal lower bound compared pseudo-minimal residual",
+        "Lyapunov algebraic equation rank-one forcing single-step PMR Galerkin minimal residual reversal Frobenius error unbounded as eigenvalue condition grows",
+        "arxiv:1908.06016",
+        "arxiv:2312.00463"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2312.00463",
+      "Y. Lin and V. Simoncini, Applied Numerical Mathematics 72 (2013), 52–71",
+      "arxiv:1908.06016",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+      "117 accessible preceding mathematical claim records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original PMR source implies the harmonic first-step coefficient and positivity; neither fact alone yields the opposite Frobenius error ordering.",
+        "The 2019 Galerkin theorem gives energy-norm optimality but not the claimed unweighted Frobenius MR/PMR comparison.",
+        "Closest own Lyapunov claim d5ae2d0d-380c-4333-a365-a15b95c32f75 analyzes differential Lyapunov time-integration and covariance positivity, not algebraic first-step Krylov projection."
+      ],
+      "reasoning": "The claim is an exact triple-method ordering plus a spectral family with PMR/G solution-error ratio tending to infinity. Each plausible source was tested for logical implication, including stronger norm results and the earlier differential-Lyapunov claim; none of the inspected statements covers both components.",
+      "searches": [
+        "Low-rank-modified Galerkin Lyapunov equation pseudo-minimal residual PMR improves residual but worsens Frobenius solution approximation at first Krylov iteration",
+        "Lyapunov algebraic equation rank-one forcing single-step PMR Galerkin minimal residual reversal Frobenius error unbounded as eigenvalue condition grows",
+        "arxiv:2312.00463",
+        "arxiv:1908.06016",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "accessible own-ledger claims:117"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published harmonic PMR formula from arxiv:2312.00463 reconstructs y_PMR=a/(2(a²+b²)), but does not give the full Frobenius solution-error ordering in the inspected material.",
+        "The exact source Gramian and a strict spectral Jensen inequality establish the new norm-sensitive comparison; energy-norm Galerkin optimality is not equivalent to it."
+      ],
+      "reasoning": "Equivalent descriptions as first-step Petrov–Galerkin/harmonic extraction or a scalar Lyapunov normal equation were compared at the level of coefficient and error inequalities, not titles. No inspected proposition implies the double strict inequality, and no known corollary provides the unbounded ratio.",
+      "searches": [
+        "Low-rank-modified Galerkin Lyapunov equation pseudo-minimal residual PMR improves residual but worsens Frobenius solution approximation at first Krylov iteration",
+        "PMR versus Galerkin error residual Jensen symmetric negative definite Lyapunov",
+        "arxiv:2312.00463",
+        "arxiv:1908.06016"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publicly indexed symmetric GMRES(1) result concerns Euclidean error for vector linear solves and gives a bounded first-step factor on a different method/operator.",
+        "Publicly indexed complete-pivot ACA result concerns entry-pivot low-rank matrix approximation, not rank-one-forcing Lyapunov PMR."
+      ],
+      "reasoning": "The asserted theorem ranges over arbitrary SPD spectra and all Krylov starting vectors, not a finite tabulated invariant. Exact databases and published analogous bounds searched did not contain the same Lyapunov PMR/MR/Galerkin claim; absence of a search hit cannot certify novelty.",
+      "searches": [
+        "low rank modified Galerkin PMR Lyapunov error amplification self adjoint one-step Arnoldi",
+        "exact first-step minimal residual Lyapunov solution error Frobenius divergence despite smaller residual",
+        "2x2 Lyapunov modified Galerkin Krylov error Jensen convexity",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659"
+      ]
+    },
+    "rationale": "The extracted PMR, MR and Galerkin methods are established. Primary source inspections, targeted mathematical-record queries, and 117 accessible preceding claims do not furnish the combined all-dimensional strict reversal of full Frobenius residual and solution errors, or its unbounded spectral-outlier PMR/Galerkin error-ratio family. This is a best-knowledge self-review, not a uniqueness or publication-priority certificate.",
+    "residual_risks": [
+      "A specialized unindexed or differently named Lyapunov first-step error inequality could be equivalent; keyword or embedding search failure alone does not prove novelty.",
+      "The 2013 MR article and some later related literature were not exhaustively inspected in every version; an unsuspected prior consequence remains possible.",
+      "Independent publication-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PMR definition, harmonic correction and residual motivation are prior art. The inspected statements give no unweighted Frobenius solution-error ordering G versus MR versus PMR, nor the growing-ratio two-eigenvalue family.",
+        "evidence": [
+          "arxiv:2312.00463, Sections 2–3 (harmonic correction M=H_m^{-*}E_m H_{m+1,m}^*H_{m+1,m})",
+          "arxiv:2312.00463, Sections 5–6 (numerical residual studies)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.00463",
+        "material_read": "Preprint text: introduction, projected Lyapunov equation, Section 3 harmonic correction including modification Eq. (11), and relevant residual/stability analyses and numerical discussion.",
+        "method": "Read arXiv HTML full-text sections and compare their formulas and implications to the first-step Frobenius error ordering and unbounded witness.",
+        "title": "Low-rank-modified Galerkin methods for the Lyapunov equation",
+        "trigger": "Same PMR extraction and first-Arnoldi operator; strongest directly plausible covering source."
+      },
+      {
+        "assessment": "Provides MR formulation, not the simultaneous PMR/Galerkin first-step Frobenius error reversal or the unbounded witness in inspected material.",
+        "evidence": [
+          "Y. Lin and V. Simoncini, Applied Numerical Mathematics 72 (2013), 52–71, method setup"
+        ],
+        "identifier_or_url": "https://www.dm.unibo.it/~simoncin/MRlyap1.pdf",
+        "material_read": "Downloaded scholarly PDF, introductory theory, initial method definition and relevant minimal-residual setup; later text not exhaustively inspected.",
+        "method": "Compared matrix Frobenius residual minimization to solution-error claims in the proposed theorem.",
+        "title": "Minimal residual methods for large scale Lyapunov equations",
+        "trigger": "Exact MR extractor is one member of the proposed three-way comparison."
+      },
+      {
+        "assessment": "The proven Galerkin optimality is in a Lyapunov-operator energy norm; it does not imply a universal unweighted Frobenius PMR-versus-Galerkin ordering or an unbounded PMR/G error ratio without additional arguments.",
+        "evidence": [
+          "arxiv:1908.06016, Proposition 2.2 and Sections 3–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.06016",
+        "material_read": "Open-access primary PDF: Proposition 2.2 and its norm definition, discussion of Frobenius bounds, projected matrix-equation examples and minimal-residual comparison.",
+        "method": "Read theorem hypotheses and identify norm and relative solution-error implications.",
+        "title": "Optimality properties of Galerkin and Petrov-Galerkin methods for linear matrix equations",
+        "trigger": "Potentially stronger Galerkin error theorem that could dominate the new Frobenius assertion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8e3a54a-f991-4c2d-b61f-f93a74f5646d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural stopping/selection question for low-rank Lyapunov solvers is whether smaller computable Frobenius residual means smaller true matrix-solution error. The theorem answers this negatively for *every* non-eigenvector first-step symmetric rank-one case and quantifies a diverging PMR/Galerkin error ratio despite constant-factor residual improvement. This is a structurally motivated benchmark for residual-vs-error reliability, not arbitrary parameter slicing or a mere routine normalization check; it makes no claim about multi-step superiority.",
+    "status": "PASS"
+  }
+}
