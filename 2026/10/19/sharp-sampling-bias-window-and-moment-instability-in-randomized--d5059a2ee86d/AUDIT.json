@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Exact row-update identity; independent sign reset; one-dependent strong law gives Lyapunov exponent; iid geometric return-cycle random walk proves oscillation at equality; exact positive 2x2 moment transfer proves all moment and fair-martingale formulas. Verifier reproduces 1,371 deterministic checks; finite checking is not relied upon for infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Qi–Han 2024 arXiv:2405.04091 Theorem 4.1 establishes general sufficient convergence under spectral/stepsize criteria; the present biased-sampling transition is an exact family classification including divergence and critical oscillation.",
+        "published-finding corpus KGSM result concerns a linear randomized Kaczmarz with momentum and mean square spectrum, not nonlinear absolute-value sign resets."
+      ],
+      "reasoning": "General sufficient convergence bounds do not imply the exact condition in both directions, the nonzero critical fluctuation, or the moment spectrum. Older Kaczmarz linear results assume B=0 and do not subsume the specified nonzero-B absolute-value system.",
+      "searches": [
+        "generalized absolute value equations randomized iterative methods error bounds sufficient convergence theorem sampling distribution Xie Qi Han",
+        "randomized Kaczmarz nonlinear absolute-value equations moment instability user-specified sampling",
+        "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.04091: full HTML Sections 1, 3.3, 4, 4.1 and 5.3, theorem material",
+      "arXiv:1506.03296: abstract and contextual prior art only",
+      "published-finding corpus 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+      "published-finding corpus 2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+      "published-finding corpus 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xie–Qi–Han Eq. (2), Section 4 and Section 5.3 establish the iteration and sufficient convergence, without a necessary-and-sufficient sampling-probability window.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1 studies a stochastic gradient-estimator floor, not GAVE row-sampling pathwise growth."
+      ],
+      "reasoning": "Neither the motivating theorem nor the nearest stochastic method comparisons yield the explicit square-root bias tolerance, critical unbounded oscillations or moment threshold. All conclusions are verified directly for the source iteration, not obtained as corollaries of those specific results.",
+      "searches": [
+        "\"Ax-B|x|\" two-row random nonlinear Kaczmarz fair row sampling Lyapunov exponent",
+        "GAVE Kaczmarz almost sure convergence but divergent expected absolute error zero solution",
+        "randomized iterative methods generalized absolute value equations convergence Theorem 4.1 Xie Qi Han"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie–Qi–Han arXiv:2405.04091 Sections 4 and 5.3 give the nonsquare GAVE update and row-randomized specialization, with sufficient convergence estimates.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e studies deterministic constant-step scalar signum, not iid sign-reset GAVE row sampling."
+      ],
+      "reasoning": "The GAVE row index exactly sets the next iterate sign; path amplitudes depend on whether consecutive indices agree. The cited source does not calculate this iid two-state log-product law, the biased-sampling endpoints or its moment eigenvalues. Similar signum dynamics are deterministic, with distinct recurrence and limits. Random-product theory supplies general methods but not this method-specific phase classification.",
+      "searches": [
+        "generalized absolute value equation randomized Kaczmarz scalar sign switching moment stability exact phase diagram",
+        "randomized iteration piecewise linear absolute value equation two rows overrelaxation Lyapunov exponent Markov switching",
+        "randomized absolute value equation stochastic sign process sharp stepsize convergence",
+        "randomized Kaczmarz absolute value equation almost sure stability Markov additive moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper introduces a generic method and convergence bounds, rather than a table of two-row exact Lyapunov rates.",
+        "published-finding corpus semantic searches gave near matches in distinct randomized solvers, with no recorded exact two-row GAVE table."
+      ],
+      "reasoning": "A complete two-parameter phase boundary and moment Perron root were not found in the accessed primary full text, result index, or literature queries. Search failure is not a uniqueness certificate; an equivalent tabulation elsewhere remains possible.",
+      "searches": [
+        "\"2405.04091\" \"GAVE\" random row selection critical sampling moment",
+        "generalized absolute value equation randomized Kaczmarz scalar sign switching moment stability exact phase diagram",
+        "GAVE randomized Kaczmarz moment stability probability threshold roots"
+      ]
+    },
+    "rationale": "The motivating 2024 GAVE paper gives a general algorithm and sufficient rate conditions. Read relevant primary sections and searched aliases, quantitative parameters and published mathematical records without finding a theorem implying the exact necessary-and-sufficient biased-sampling window, critical oscillation and complete moment spectrum. Classical random-product methods are prior, and potential unlocated equivalences remain a residual risk.",
+    "residual_risks": [
+      "An equivalent two-state Markov-additive special case could exist under random switching, iterated random functions, or absolute-value-equation terminology without matching index language.",
+      "The related linear-system full text was not examined; its linear B=0 scope makes covering nonlinear sign-reset dynamics unlikely."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies algorithm and general sufficient bounds; no identified exact two-row bias frontier, critical oscillation or full moment spectrum.",
+        "evidence": [
+          "Paper 2024 first posted May 7 (arXiv abstract), Section 1 Eq. (2), Section 4 algorithm/theorem and Section 5.3 row-selection specialization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.04091v3",
+        "material_read": "Introduction Eq. (2), Sections 3.3, 4 and 4.1, Section 5.3, conclusions and relevant appendix theorem statements.",
+        "method": "Read full lawful arXiv HTML text with section-based comparison of algorithm, hypotheses, claimed convergence and scope.",
+        "title": "Randomized iterative methods for generalized absolute value equations: Solvability and error bounds",
+        "trigger": "Exact source method and closest theorem"
+      },
+      {
+        "assessment": "Linear-system B=0 case, cannot directly cover nonlinear sign resetting; residual full-text risk is acknowledged.",
+        "evidence": [
+          "Linear randomized iterative methods address Ax=b, whereas present B is nonzero."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+        "material_read": "Abstract and contextual comparison as cited by GAVE source; full text not inspected.",
+        "method": "Bibliographic and abstract check only.",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Classical randomized Kaczmarz framework and possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5059a2e-e86d-4750-b4b8-9c3465ec6299",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact sharp sampling-probability stability boundary and square-root small-step tolerance for a concrete established nonlinear randomized solver, plus a critical oscillation theorem and complete mismatch between pathwise and moment convergence. These distinguish numerical sampling robustness and risk in a nontrivial yet analytically tractable source method; not an arbitrary invariant or routine one-step calculation.",
+    "status": "PASS"
+  }
+}
