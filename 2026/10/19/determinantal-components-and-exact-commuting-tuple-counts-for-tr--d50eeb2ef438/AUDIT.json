@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For char 0 or p>n+1, each derivation of k[t]/t^(n+1) has unique basis e_i=t^(i+1)d/dt and [e_i,e_j]=(j-i)e_(i+j) for i+j<n. For nonzero leading e_i coefficient with i<ceil(n/2), ad_f has rank n-i-1: non-i lower columns have distinct nonzero leading pivots, the omitted i column is dependent via [f,f]=0, and all degree>=n-i columns vanish. Hence C(f)=kf+F_(n-i), forcing rank-one quotient condition for all commuting tuples. Conversely every such quotient rank-one tuple commutes since F_(n-i) is abelian and centralizes F_i. Irreducible affine determinantal factors are proved geometrically integral and pairwise noncontained; a disjoint leading-degree enumeration yields the finite-field count. Python finite tests n=2,3 q=5 and adjoint rank distributions independently passed, and these do not replace infinite proof. Original bracket scheme reducedness explicitly left unproved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yao--Chang 2013 primary arxiv:1301.5667, full inspection of Borel nilpotent subalgebra section 4 and leading-degree centralizers.",
+        "Yao 2015 publicly available abstract says nilpotent commuting tuples for full Witt and certain subalgebras; complete text not accessed.",
+        "Yao--Chang 2018 doi:10.1007/s11464-018-0725-9 abstract describes commuting-pair variety in full Witt.",
+        "Yao--Zhang 2021 abstract identifies full p-dimensional Witt algebra; its (p-1)/2 components differ from the present ceiling(n/2) family."
+      ],
+      "reasoning": "The full-Witt results are not logically universal statements about all shorter quotients of its Borel derivation algebra. Quotient commutation can hold even if lifts do not commute, so no immediate implication via projection. The 2015 phrase \"certain subalgebras\" presents nontrivial residual risk; only abstract-level coverage has been established, not full document NOT_COVERING. No located claim clearly subsumes all-arity reduced-variety classification for p>n+1.",
+      "searches": [
+        "\"On nilpotent commuting varieties of r-tuples in the Witt algebra\" \"pdf\" -researchgate",
+        "\"Commuting variety of r-tuples over the Witt algebra\" fulltext 2021",
+        "10.1016/j.jpaa.2015.02.005 pdf",
+        "finite field commuting pair counts of nilpotent positive part of Witt algebra"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.5667v1 full primary PDF",
+      "doi:10.1016/j.jpaa.2015.02.005 abstract only",
+      "doi:10.1007/s11464-018-0725-9 abstract only",
+      "doi:10.3969/j.issn.1000-5641.2021.03.001 full abstract, reference list"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 source arxiv:1301.5667 has prior triangular centralizer arguments, explicitly acknowledged and reproved in this domain.",
+        "2015 and 2021 papers concern nilpotent or full characteristic-length Witt commuting varieties.",
+        "Characteristic-length modular Witt nilpotent-tuple statements have a different object and hypotheses than the present shorter full derivation Lie algebras."
+      ],
+      "reasoning": "The nearest earlier general centralizer technique does not by itself state or entail the claimed component isomorphisms and point-count generating formula without new quotient/bracket and filtration analysis. Nilpotent-only claims exclude e_0 with nonzero leading coefficient. The older characteristic-length result cannot be substituted for n<p-1 and char 0. These comparisons show meaningful additional assertions, not a proof of globally unreported novelty.",
+      "searches": [
+        "truncated Witt Lie algebra ad rank valuation commuting variety centralizer dimensions",
+        "positive Borel Witt algebra truncation rank-one determinantal commuting tuple varieties all arities",
+        "\"truncated Witt algebra\" \"commuting variety\" derivations",
+        "\"commuting variety\" \"truncated polynomial\" \"derivation algebra\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yao--Chang, arXiv:1301.5667v1, Lemma 2.3 and Theorems 3.6/4.3; 10-page primary preprint read in full.",
+        "Yao 2015, doi:10.1016/j.jpaa.2015.02.005, publicly available abstract: nilpotent tuple varieties of the full characteristic-length modular Witt algebra and certain subalgebras.",
+        "Yao--Zhang 2021, doi:10.3969/j.issn.1000-5641.2021.03.001, abstract: full Witt Lie algebra of dimension p; arity r>=2."
+      ],
+      "reasoning": "The candidate is not just nilpotent tuples or the modular Witt Lie algebra: it treats the full derivation Lie algebra Der(k[t]/t^(n+1)) for ALL n with p>n+1 or characteristic 0, including e_0 parts, and specifies Z_i as rank-one determinantal affine products for all arities. The objects in inspected antecedents are characteristic-length full Witt or their nilpotent cones. This is a substantive domain mismatch, but the inaccessible 2015 full text remains a possible stronger implication risk.",
+      "searches": [
+        "\"truncated Witt algebra\" \"commuting variety\" derivations",
+        "\"positive Witt algebra\" commuting r tuples irreducible components",
+        "\"truncated polynomial\" derivations \"commuting variety\" Lie algebra",
+        "truncated Witt Lie algebra ad rank valuation commuting variety centralizer dimensions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published adjoint-rank-spectrum result treats two unrelated maximal-class filiform Lie algebra families, not a derivation commuting variety.",
+        "A published commutator-fiber result treats Kronecker path algebras, not truncated Witt algebras.",
+        "Previously described nilpotent tuple computations for full characteristic-length modular Witt algebras concern a different domain.",
+        "The computed finite cases n=2,3 were derived and tested directly, not taken from an existing table."
+      ],
+      "reasoning": "The actual queried record collections surfaced neighboring Lie and associative invariants but no exact table for the complete characteristic-zero/large-characteristic family. This is a bounded search result and cannot establish uniqueness; an unindexed table or source may exist.",
+      "searches": [
+        "commuting pairs centralizers derivation Lie algebra truncated polynomial k[t]/(t^N) positive Witt Lie algebra finite field polynomial count",
+        "Witt algebra nilpotent commuting m-tuples finite field p, centralizer filtration",
+        "finite truncated Witt Lie algebra commuting tuple counting polynomial components",
+        "\"On nilpotent commuting varieties of r-tuples in the Witt algebra\" \"borel\" components"
+      ]
+    },
+    "rationale": "Published work covers centralizers of modular Witt and commuting nilpotent tuples in full characteristic-length Witt, and full Witt commuting tuples, but the inspected full 2013 source and accessible later abstracts do not imply the explicit complete reduced all-arity determinantal component classification of shorter full derivation Lie algebras for n+1<p nor its characteristic-zero and finite-field formula. Four named prior comparisons and the high-relevance inaccessible 2015/2018/2021 full texts are documented as residual risks, rather than claimed NOT_COVERING.",
+    "residual_risks": [
+      "The highly pertinent 2015 Witt nilpotent r-tuple paper was not available in full; its \"certain subalgebras\" treatment could have a stronger implication.",
+      "The 2018 and 2021 complete primary texts were not read; statements beyond the public abstracts could alter novelty assessment.",
+      "Nonindexed source results, identities via less obvious quotients or incidence restrictions, and equivalent earlier tables remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes predecessor centralizer and nilpotent-pair geometry of modular Witt and nilpotent Borel cone. Does not state all-arity full derivation commuting decomposition for n<p-1 and large characteristic.",
+        "evidence": [
+          "arxiv:1301.5667v1, 2013-01-23, introduction, Lemma 2.3, Theorems 3.6, 4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.5667",
+        "material_read": "Entire 10-page primary preprint, including Lemma 2.3 and Sections 3 and 4.",
+        "method": "Opened full arXiv PDF and examined all ten pages, plus page screenshots to check mathematical displays.",
+        "title": "Nilpotent commuting varieties of the Witt algebra",
+        "trigger": "Explicit positive Witt grading and commuting nilpotent pairs; closest source for filtration centralizer methods."
+      },
+      {
+        "assessment": "Strong neighboring publication; its abstract studies nilpotent full modular Witt and certain subalgebras. Unknown if the full paper contains an implication subsuming our shorter-truncation result.",
+        "evidence": [
+          "DOI 10.1016/j.jpaa.2015.02.005, Journal of Pure and Applied Algebra 219 (2015) 4042-4054; source abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2015.02.005",
+        "material_read": "Bibliographic record and abstract only; full text unavailable.",
+        "method": "Searched for arXiv/preprint and open-access full versions and read the public article abstract; complete text was not obtained.",
+        "title": "On nilpotent commuting varieties of r-tuples in the Witt algebra",
+        "trigger": "Highly relevant all-arity nilpotent Witt and certain subalgebra variants."
+      },
+      {
+        "assessment": "Concerns p-dimensional full Witt and s=2, whereas claim concerns all shorter truncations and all s. Some stronger coverage cannot be excluded.",
+        "evidence": [
+          "DOI 10.1007/s11464-018-0725-9, Frontiers of Mathematics in China 13 (2018) 1179-1187"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11464-018-0725-9",
+        "material_read": "Abstract and publication metadata only.",
+        "method": "Primary publisher bibliographic abstract read; full article not inspected.",
+        "title": "Commuting variety of Witt algebra",
+        "trigger": "Full nonnilpotent commuting pairs of the Witt algebra."
+      },
+      {
+        "assessment": "Abstract states the (p-1)/2 components for full p-dimensional Witt Lie algebra. Does not establish shorter full derivation quotient variety formula in inspected abstract, with residual full-paper implication risk.",
+        "evidence": [
+          "DOI 10.3969/j.issn.1000-5641.2021.03.001, author abstract"
+        ],
+        "identifier_or_url": "https://xblk.ecnu.edu.cn/EN/10.3969/j.issn.1000-5641.2021.03.001",
+        "material_read": "Full public abstract and citation list; not the body of its seven-page paper.",
+        "method": "Primary university journal HTML page accessed; linked full text inaccessible.",
+        "title": "Commuting variety of r-tuples over the Witt algebra",
+        "trigger": "Full Witt algebra all-arity commuting varieties; closest in arity and nonnilpotent scope."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d50eeb2e-f438-457d-b9e6-0b7ec3255dae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Derivations of truncated one-variable local rings form a classical family of filtered Lie algebras. Classifying every irreducible component of the reduced ordered commuting s-tuple variety for all s simultaneously gives a complete moduli-level and finite-field arithmetic description, with a genuine arity-induced transition to nonequidimensionality. The affine rank-one determinantal factors and exact point count are natural geometric and arithmetic invariants not just numerical special cases.",
+    "status": "PASS"
+  }
+}
