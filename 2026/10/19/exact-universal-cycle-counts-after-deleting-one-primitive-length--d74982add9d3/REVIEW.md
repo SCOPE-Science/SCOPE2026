@@ -1,0 +1,15 @@
+# Scientific review: one primitive length-three necklace removed
+
+## Correctness — PASS
+The precise count is for labeled alphabets of size \(q\ge3\), with only positional rotations factored out. The deleted primitive orbit is a directed three-cycle; the reduced order-two graph is balanced with three vertices of degree \(q-1\). The identity \(A^2=J\) gives the exact inverse on the zero-sum space. A rank-three determinant computes the two root-tree ratios, and positive tree counts supply connectivity before BEST gives exact cyclic Euler tour counts. These implications establish the formulas for every integer \(q\ge3\). The exact independent reconstruction in `verify.py` checks determinants through \(q=6\) and exhaustively counts all ternary tours. Boundary \(q=2\) is checked separately. Risks: only an error in the stated algebraic equalities or a misapplication of standard theorems would affect the infinite proof; finite verification is not substituted for either.
+
+## Originality — PASS with residual risk
+The examined full-text work of Au concerns universal cycles consisting of **all** primitive words. The 2014 Kociumaka–Radoszewski–Rytter conference paper (compared via its inspected expanded full-text version) concerns ranking Lyndon words and decoding the **full** minimal de Bruijn cycle. Sawada–Williams–Wong prove existence/construction in dictionary classes, including avoiding a **periodic** necklace; they do not enumerate all cycles of a complement of exactly one primitive necklace. Chen–Kitaev–Sun address existence probabilities for up to two forbidden words in arbitrary alphabets and a few binary cases, not this all-alphabet count with three forbidden words. Multiple statement-level searches for one-necklace deletion, determinant formulas, and the exact ternary count identified no covering indexed result. Generic matrix-tree and BEST machinery is an enabling principle, not an earlier evaluation of the two closed forms. Residual risk: the 2014 proceedings version was not directly read, and an unindexed enumeration or unpublished earlier result may exist; no absolute priority or independent assessment is claimed.
+
+## Value — PASS
+Deleting all rotations of one primitive length-three word is the smallest genuinely nontrivial balanced forbidden-orbit perturbation of the full order-three de Bruijn dictionary. An evaluated formula across every alphabet size, including the complete two-type classification, equality at \(q=3\), and a strict type bias for larger alphabets, answers a naturally motivated enumeration problem that neither mere existence nor construction settles. The result is not an arbitrary finite table or a substitution of a known specialized formula.
+
+## Limits and closest literature
+The claim neither handles multiple orbits nor general lengths, and different cyclic equivalence conventions change the answer. Sources are Au (arXiv:0904.3997), Kociumaka–Radoszewski–Rytter (CPM 2014; arXiv:1510.02637), Sawada–Williams–Wong (doi:10.37236/5517), and Chen–Kitaev–Sun (arXiv:1908.01116). No independent priority or proof certification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact domain, derives A²=J, identifies a balanced three-edge perturbation, explicitly computes both 3x3 determinant ratios, establishes strong connectivity using positive tree cofactors and balance, and applies BEST with correct cyclic-edge quotienting. All q≥3 and q=2 boundary are covered. Standard-library replay recomputes exact Laplacian cofactors through q=6 and fully enumerates ternary Euler circuits; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Au proves existence for the entire primitive dictionary, not a count for the complement of one primitive orbit.",
+        "Sawada–Williams–Wong give a construction class for periodic-necklace avoidance and numerous other dictionaries, not counting one primitive deletion.",
+        "The universal general matrix-tree/BEST method takes a cofactor as input, but does not imply the two evaluated expressions without a new calculation."
+      ],
+      "reasoning": "A general determinant counting framework is algorithmically applicable, but the literature inspected does not contain the claimed closed-form classification. Higher generality in existence statements does not dominate an exact enumeration.",
+      "searches": [
+        "de Bruijn necklace deletion counting Eulerian circuits missing one primitive orbit length three",
+        "number of universal cycles for all length three words except the three cyclic rotations of a primitive word over q letters exact formula",
+        "de Bruijn sequences with exactly one necklace omitted spanning trees determinant"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0904.3997v1 (2009 initial source; later full-text revision inspected)",
+      "doi:10.1007/978-3-319-07566-2_21 (2014 proceedings record); arXiv:1510.02637 (expanded full text)",
+      "doi:10.37236/5517 (2016 full text)",
+      "arXiv:1908.01116v1 (2019 full text)",
+      "standard BEST and directed matrix-tree formula for Euler circuits",
+      "search queries and output comparisons documented above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "All-primitive construction is logically independent of enumeration of the full dictionary minus one primitive necklace.",
+        "One minimum lexicographic de Bruijn cycle is not a count of all cycles of a restricted dictionary.",
+        "Existence probability under at most two deleted words does not yield three-deletion tour counts.",
+        "The matrix-tree/BEST framework entails a cofactor expression, but the evaluated cofactor after rank-three deletion and the difference of orbit types are additional claims."
+      ],
+      "reasoning": "The proposed theorem is not just a corollary of the particular prior numerical statements. It leverages standard counting theorems together with a new exact low-rank Laplacian evaluation for two graph orbits.",
+      "searches": [
+        "de Bruijn universal cycle all length 3 words except a necklace enumerating one omission",
+        "de Bruijn necklace deletion counting Eulerian circuits missing one primitive orbit length three",
+        "number of universal cycles for all length three words except the three cyclic rotations of a primitive word over q letters exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dictionary complement of a primitive rotation class equals deletion of a directed three-cycle in the order-two de Bruijn graph.",
+        "The searchable closest records concern general Euler tours, all primitive words or Lyndon ranking rather than the exact one-cycle deletion."
+      ],
+      "reasoning": "We compared both the forbidden-factor description and its equivalent arborescence/eulerian graph formulation; none of the inspected specialized statements evaluates these two determinants for all alphabet sizes.",
+      "searches": [
+        "de Bruijn universal cycle all length 3 words except a necklace enumerating one omission",
+        "de Bruijn sequences primitive three-words necklace omitted q-ary closed form enumeration",
+        "spanning arborescences of de Bruijn graph after deleting directed 3-cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Complete independent ternary enumeration gives 12096 for both classes; no matching published exact table or polynomial expression surfaced in the targeted searches.",
+        "Chen–Kitaev–Sun tables concern proportions of dictionaries admitting a cycle, not counts of cycles per specified dictionary."
+      ],
+      "reasoning": "Compared both initial exact finite counts and the rational determinant factors with searchable count/table records. Absence of hits cannot prove priority; no covering table was inspected.",
+      "searches": [
+        "\"12096\" \"universal cycle\" triple",
+        "\"q^4-3q^3+3q^2-3q+3\" \"de Bruijn\"",
+        "\"de Bruijn\" \"arborescence\" \"delete\" \"cycle\" necklace"
+      ]
+    },
+    "rationale": "Primary full-text statement comparisons show no known theorem counting all cyclic Euler tours after one primitive length-three necklace deletion for every labeled alphabet size; directly related sources prove different existence, construction, ranking or two-deletion results. The two-class exact closed forms and strict bias are not implied as numerical statements by any inspected specific theorem, although the generic BEST/matrix-tree procedure permits computation. Searches are non-exhaustive and earlier implicit enumeration remains possible.",
+    "residual_risks": [
+      "The 2014 proceedings paper itself could not be inspected in full; its expanded published version was examined.",
+      "An unindexed earlier exact computation or general theorem with an immediate overlooked specialization could cover the claim.",
+      "Search results alone do not certify novelty and no independent publication-priority assessment was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Constructs one universal cycle for the dictionary of all primitive words, not all cycles after deleting a single primitive three-letter necklace.",
+        "evidence": [
+          "Section 2 states existence/construction for all primitive length-n words; its graph–Euler correspondence is general."
+        ],
+        "identifier_or_url": "arXiv:0904.3997; https://arxiv.org/pdf/0904.3997",
+        "material_read": "Abstract, introduction, Sections 1 and 2 including graph characterization and constructive results; relevant original statements and examples.",
+        "method": "Inspected the full-text PDF and checked theorems against this exact deleted-orbit count.",
+        "title": "Generalized de Bruijn words for Primitive words and Powers",
+        "trigger": "Closest full-primitive dictionary and Euler-tour correspondence."
+      },
+      {
+        "assessment": "Computes Lyndon ranks and positions in one canonical full-dictionary cycle; does not count Euler tours in the deleted-orbit graph.",
+        "evidence": [
+          "Expanded arXiv paper abstract and main results describe ranking and decoding the full lexicographically minimal de Bruijn sequence; 2014 paper identified as precursor."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-319-07566-2_21; arXiv:1510.02637v1; https://arxiv.org/pdf/1510.02637",
+        "material_read": "Expanded full-text introduction and core sections on Lyndon ranking and decoding; proceedings metadata and detailed 2014 abstract (original conference PDF inaccessible).",
+        "method": "Read the lawful expanded arXiv paper; compared output objects and hypotheses to the present deleted-dictionary count.",
+        "title": "Computing k-th Lyndon Word and Decoding Lexicographically Minimal de Bruijn Sequence; expanded version Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence",
+        "trigger": "Same combinatorics of necklaces and de Bruijn sequences, including a 2014 primary MSC 68R15 source."
+      },
+      {
+        "assessment": "Constructs lexicographically minimal universal cycles and avoids periodic necklaces; does not state evaluated counts for a single missing primitive length-three necklace.",
+        "evidence": [
+          "Abstract specifies greedy/necklace constructions; periodic-necklace avoidance appears in the enumerated examples."
+        ],
+        "identifier_or_url": "doi:10.37236/5517; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p24/pdf/",
+        "material_read": "Full-text introduction, main construction theorem and the subsection/example on avoiding rotations of periodic necklaces.",
+        "method": "Read official open-access 20-page PDF, including the relevant restrictions on necklace classes.",
+        "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+        "trigger": "Rotation-closed dictionary constructions and explicit necklace avoidance."
+      },
+      {
+        "assessment": "Exact probabilities for at most two deletions in general, plus small binary instances; no all-q count of tours after three rotations of one primitive factor.",
+        "evidence": [
+          "Abstract and Introduction explicitly delimit the general exact results at up to two missing words."
+        ],
+        "identifier_or_url": "arXiv:1908.01116v1; https://arxiv.org/pdf/1908.01116",
+        "material_read": "Full-text abstract, introduction, case tables and statement of exact-regime results (Sections 1–2).",
+        "method": "Read full-text PDF, compared removal count three and general alphabet to published scope.",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Closest arbitrary-dictionary missing-word/existence study."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d74982ad-d9d3-487f-ad75-6c4efb03bc1f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deleting a single primitive rotation orbit is the first natural balanced nontrivial forbidden-dictionary perturbation at word length three. The finding provides new explicit closed counts across every alphabet size, all orbit types, and the exact transition from equality at q=3 to strict ordering at q≥4; a generic algorithm or one constructed cycle would not supply these structural enumeration laws.",
+    "status": "PASS"
+  }
+}
