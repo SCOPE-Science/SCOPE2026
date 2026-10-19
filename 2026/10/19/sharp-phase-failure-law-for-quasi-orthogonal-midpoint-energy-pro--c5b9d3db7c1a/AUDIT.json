@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The conserved quadratic energy and full stage span are proved by direct linear-algebra identities. The prescribed correction is a convex scalar quadratic; its completed square gives an if-and-only-if real-root criterion. Maximization on the whole phase interval and invertibility of the midpoint map prove the sharp all-phase step threshold. A scaled-rotation conjugacy transports uniform energy angle to uniform predictor angle, and exact integration of the arcsine density gives the closed form and the two asymptotics. The rational counterexample and 6,563 tests in verify.py corroborate critical computations. Finite checks are not relied on as infinite or exhaustive proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Najafian--Vermeire (2024) arXiv:2409.18328v1, Theorem 3: solvability/order for sufficiently small steps and strictly convex invariant; Remark 4: full-stage-space reduction to ordinary orthogonal projection.",
+        "Calvo et al. (2006), DOI 10.1137/04061979X, journal abstract: earlier invariant-preserving explicit RK projection with a chosen directional construction."
+      ],
+      "reasoning": "The 2024 local implicit-function theorem does not imply finite-step solvability beyond its small-step range. The Calvo method is a different correction-direction construction, and an abstract is not adequate to certify absence of related results in its full text. No inspected source supplies the full phase-distribution statement or its endpoint laws. Other RK methods and arbitrary embedded directions are not being claimed as covered by this result.",
+      "searches": [
+        "quasi-orthogonal Runge Kutta projection failure large timestep energy projection anisotropic oscillator",
+        "quasi orthogonal Runge Kutta projection solvability nonexistence for large time step convex quadratic invariant",
+        "Runge Kutta projection method fails solvability large stepsize positive definite quadratic invariant gradient projection line no root"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.18328v1, inspected HTML equations (2.5), Theorem 3, Remark 4",
+      "doi:10.1137/04061979X (journal abstract and MSC)",
+      "doi:10.1007/s11590-016-1087-4 (journal abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical sharp two-eigenvalue contraction bound implies the worst-phase factor used in this proof; no independent novelty is attributed to that factor.",
+        "The explicit midpoint map has a constant invariant-energy amplification factor on the selected oscillator; combining these two facts yields the universal all-phase threshold.",
+        "The new claim adds exact arcsine probabilities for the specified RK feasibility event, including the local square-root onset and the large-step inverse-square survival coefficient."
+      ],
+      "reasoning": "Worst-case Kantorovich coverage subsumes the maximization lemma, and that lemma combined with midpoint amplification subsumes the universal threshold. These are disclosed rather than passed off as novel. The complete distributional claim requires a separate phase map, discriminant-root interval, exact measure, and asymptotic analysis, none of which is given by the inspected stronger worst-case statements. Whether another source has made that additional step remains unresolved.",
+      "searches": [
+        "On the Preservation of Invariants by Explicit Runge--Kutta Methods Calvo Hernandez-Abreu Montijano Randez",
+        "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions de Klerk Glineur Taylor",
+        "energy projection Runge Kutta orthogonal gradient quadratic invariant Kantorovich steepest descent sharp no-real-root threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "de Klerk, Glineur and Taylor (2017), DOI 10.1007/s11590-016-1087-4: sharp worst-case exact-line-search contraction on strongly convex quadratics (journal abstract).",
+        "arXiv:2409.18328v1 §2 equations (2.5a,b), Theorem 3 and Remark 4 identify the prescribed line and local solvability."
+      ],
+      "reasoning": "The minimization factor is classically equivalent to two-eigenvalue exact-line-search contraction and is acknowledged as pre-existing. The claim additionally determines the probability under uniform conserved-energy phase that the designated RK correction line misses the target ellipse, with explicit critical and large-step asymptotics. Those distributional statements are not a mere restatement of a worst-case bound, though their derivation uses elementary two-mode algebra. Equivalent treatments in older line-search distribution studies remain a priority risk.",
+      "searches": [
+        "steepest descent exact line search distribution convergence factor random direction two dimensional arcsine law probability",
+        "Runge Kutta projected gradient energy correction quadratic invariant no real roots large step size",
+        "quadratic steepest descent exact line search probability contraction threshold random initial vector two eigenvalues distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary arXiv:2409.18328v1 text provides the correction equation and a small-step theorem but no exact phase-distribution table in the inspected statements.",
+        "The SIAM Journal on Scientific Computing (2006) and Optimization Letters (2017) abstracts identify invariant-projection and sharp worst-case exact-line-search results, respectively, without an indexed phase-failure distribution."
+      ],
+      "reasoning": "The object is an analytically defined projection equation rather than a finite classification table. No earlier exact formula or numerical table covering the complete phase distribution was located in the accessible scientific sources. This is not an exhaustive database-uniqueness claim; differently indexed prior formulas remain possible.",
+      "searches": [
+        "quasi orthogonal Runge Kutta projection solvability nonexistence for large time step convex quadratic invariant",
+        "steepest descent exact line search distribution convergence factor random direction two dimensional arcsine law probability",
+        "energy conservation orthogonal projection Runge Kutta global solvability failure ellipse normal projection"
+      ]
+    },
+    "rationale": "The assessed object is the complete uniform-phase infeasibility probability law for a specified 2024 quasi-orthogonal RK energy projection, including sharp onset and large-step survival. The motivating method paper provides local small-step solvability but does not cover global large-step probabilities in the inspected sections. The universal worst-angle/Kantorovich factor is classical and expressly not independently claimed. The inspected primary literature does not state the distribution theorem, subject to documented uninspected-full-text and older steepest-descent priority risks.",
+    "residual_risks": [
+      "The later numerical-example sections of the 2024 arXiv HTML and its subsequent journal expansion were not completely retrieved; a related statement could appear there.",
+      "The 2006 projection-method paper and the 2017 line-search paper were inspected only to abstract depth; a stronger probability statement under different coordinates remains possible.",
+      "The worst-phase threshold is directly related to a classical Kantorovich inequality; any novelty claim is limited to the exact method-specific phase failure distribution and asymptotic constants.",
+      "Semantic and web searches do not certify mathematical novelty across the full historical literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3 is explicitly small-step. The inspected statements do not settle sharp global all-phase feasibility or phase probability; not a whole-document exclusion for uninspected sections.",
+        "evidence": [
+          "arXiv:2409.18328v1, equations (2.5a,b), Theorem 3 and Remark 4; initial public submission 2024-09-26."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.18328",
+        "material_read": "arXiv v1 HTML §§1--2.2, especially equations (1.7), (2.2)--(2.5), Theorem 3, Remarks 3--4, and context for multiple invariants; table of contents for later numerical sections.",
+        "method": "Inspected accessible primary HTML equations, theorem statements and proof paragraphs; subsequent HTML viewport retrieval attempts failed.",
+        "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+        "trigger": "Defines the identical prescribed stage-projected-gradient correction."
+      },
+      {
+        "assessment": "Earlier projection strategy with a different direction. No decisive whole-text novelty exclusion is claimed from the abstract.",
+        "evidence": [
+          "SIAM Journal on Scientific Computing 28 (2006), 868--885; journal MSC 65L05, 65L06."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/04061979X",
+        "material_read": "SIAM journal abstract and primary MSC metadata; directional-method description in Najafian--Vermeire introduction.",
+        "method": "Public journal abstract and accessible primary method comparison; full article not materially read.",
+        "title": "On the Preservation of Invariants by Explicit Runge--Kutta Methods",
+        "trigger": "Earlier explicit RK method conserving nonlinear first integrals."
+      },
+      {
+        "assessment": "Classical worst-case factor treated as covered. Abstract does not resolve the full probability of RK projection failure; full-text priority remains a risk.",
+        "evidence": [
+          "Optimization Letters 11 (2017), 1185--1199; DOI 10.1007/s11590-016-1087-4."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11590-016-1087-4",
+        "material_read": "Journal abstract identifying the exact worst-case quadratic line-search rate.",
+        "method": "Primary journal metadata and abstract; full article not read.",
+        "title": "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions",
+        "trigger": "Sharp stronger two-eigenvalue exact-line-search bound potentially subsumes the worst-phase calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5b9d3db-7c1a-4a2d-b5fc-87a5b2fb9b14",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem exactly determines whether a convex-invariant numerical correction equation is solvable for all initial phases and gives the prevalence of failed root solves when it is not. Its critical square-root law and inverse-square rare-success tail measure practical breakdown and the effect of anisotropy (uniform threshold decays as kappa^{-3/2}). Unlike arbitrary toy data, this is the canonical anisotropic quadratic oscillator for invariant-preserving RK projection. No unproved extension to other methods or multiple time steps is claimed.",
+    "status": "PASS"
+  }
+}
