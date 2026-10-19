@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For all probability laws and zero-sum unit initial vectors the exact two-step expectation is x^T M2 x, with M2=Σ_ij p_i p_j P_i P_j P_i. Direct computation yields the reflection-even scalar and the reflection-odd two-by-two block. Averaging an arbitrary law with its reflection adds d²(P1−P3)², nonnegative and strictly positive in the unique top eigendirection at the interior symmetric law. Both boundary faces have loss one, above an interior candidate. Thus every minimizer is symmetric. The scalar f has f″≥3/2 using r=||(1−3a/2−a², a(10a+1)/4)||; endpoint derivative signs make its stationary point unique, and f′(3/10)<0 proves it differs from the global one-step optimum. The P3 characteristic polynomial strictly decreases in t=p(1−p), proving the minimal P4 boundary. verify.py reproduces rational matrix identities and the explicit rational root bracket; numerical checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content section 3 equation (20): min_p λmax(R_A(p)) for asymptotic annealed decay",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf section IV: min_p λ2(Σ p_e P_e)",
+        "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf convergence theorem bounds by a one-step parameter"
+      ],
+      "reasoning": "The general Agaskar–Wang–Lu lifted finite-N formula covers computing MSE given a law but its optimized objective in section 3 is the asymptotic lifted spectral radius, which does not determine the separate exact N=2 minimax optimizer. Boyd’s one-step spectral-gap minimizer gives p=(.3,.4,.3) here, demonstrably strictly suboptimal at step two. General sketch-and-project convergence inequalities do not force the unique strict two-step optimizer and are not considered novel.",
+      "searches": [
+        "optimal randomized Kaczmarz edge sampling path incidence equations maximize spectral gap",
+        "agaskar wang lu 2014 exact MSE sampling probabilities horizon dependent minimum error randomized Kaczmarz",
+        "randomized gossip finite-time fastest convergence optimize edge probabilities beyond one-step spectral gap",
+        "Agaskar Wang Lu two step optimum edge probabilities minimax P4"
+      ]
+    },
+    "checked_sources": [
+      "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+      "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+      "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+      "https://arxiv.org/abs/math/0702226",
+      "published record 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "published record 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "published record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content section 2.2 proposition 1: exact MSE for any N; section 3: annealed exponent objective",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf section IV eqs 14–15: optimize second eigenvalue",
+        "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf Table 1: generic one-step expected-error rates",
+        "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 is a fixed iid coordinate A-energy contraction result; 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 is a deterministic two-row algorithm"
+      ],
+      "reasoning": "Agaskar’s general tensor identity permits expression of the present moment matrix, but deriving the unique global P4 optimizer requires the nontrivial strict reflection symmetrization and convexity calculation furnished here. It is not a direct corollary of Agaskar’s asymptotic optimizer. The Boyd spectral-gap optimum is *different* after two steps by the negative derivative f′(3/10). Related two-row and delayed-coordinate papers cannot imply the claimed three-edge iid P4 optimization or its smallest-path classification. Residual risk is unseen stronger finite-horizon specialization.",
+      "searches": [
+        "exact optimal probabilities finite horizon two step independent edge selection stochastic pairwise averaging P4 path minimax expected squared norm",
+        "first iteration vs second iteration minimax sampling distribution randomized Kaczmarz projection graph P4 0.3 0.4 0.3",
+        "smallest path where optimal one-step and two-step random Kaczmarz sampling differs",
+        "Source 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "Source 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "Source 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content sections 2.2 and 3",
+        "Boyd 2004 https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf section IV",
+        "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 states one-step SPD-coordinate contraction",
+        "published-finding corpus 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 treats deterministic cyclic two-row overrelaxation"
+      ],
+      "reasoning": "The P4 graph-incidence Kaczmarz representation is exactly the gossip model, with objective the top eigenvalue of Σ_{ij}p_i p_j P_i P_j P_i on the zero-sum subspace. The closest exact MSE formula gives that objective but does not solve its finite-two-step probability minimization. A coordinate one-step contraction theorem and a deterministic two-row cyclic finite-sweep comparison are not equivalent: their update law or optimization variable differs. No search result with the same two-step optimizer or first-size transition was identified.",
+      "searches": [
+        "exact optimal probabilities finite horizon two step independent edge selection stochastic pairwise averaging P4 path minimax expected squared norm",
+        "first iteration vs second iteration minimax sampling distribution randomized Kaczmarz projection graph P4 0.3 0.4 0.3",
+        "finite horizon exact worst case MSE iid pairwise average optimization p on 3-edge path reflection symmetric",
+        "four vertex path P4 pairwise averaging randomized gossip two-step worst initial mean square finite horizon optimal edge probabilities unique 0.302839",
+        "Source IDs: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995; 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-result search returned no P4 two-step minimax table or theorem; nearest records 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995, 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "Primary comparison: Agaskar–Wang–Lu has generic formulas and numerical large-matrix examples, not a P4 optimizer table."
+      ],
+      "reasoning": "No tabulation of the unique finite-horizon P4 law or its P3 boundary was returned. This is an absence of identified coverage, not proof that no unpublished or unindexed table exists.",
+      "searches": [
+        "exact optimal probabilities finite horizon two step independent edge selection stochastic pairwise averaging P4 path minimax expected squared norm",
+        "smallest path where optimal one-step and two-step random Kaczmarz sampling differs",
+        "four vertex path P4 pairwise averaging randomized gossip two-step worst initial mean square finite horizon optimal edge probabilities unique 0.302839",
+        "four-node path graph randomized gossip two updates exact minimax sampling probability distribution"
+      ]
+    },
+    "rationale": "The closed radical and unique global minimizer for exact two-draw worst-initial-vector MSE on P4, its strict displacement from the uniquely optimal one-draw law, and the minimality statement for P2/P3 do not follow as stated from the closest inspected primary works. The 2014 exact-MSE tensor formula is general input to the problem, but the optimization there is the asymptotic annealed exponent; the 2004 gossip design solves the one-draw eigenvalue objective. Published nearby coordinate and two-row results concern different criteria. Several mathematical-formulation searches were actually completed; unknown unindexed small cases remain a disclosed risk.",
+    "residual_risks": [
+      "A specialized unpublished, uncatalogued, or unindexed finite-two-step gossip probability design could reproduce the same P4 radical or optimizer.",
+      "Two thematically related published record pages could not be read beyond their publicly searchable scientific summaries; comparisons are limited to the accessible statements, not assertions about all content.",
+      "A generic exact finite-iteration MSE expression is old; originality is solely claimed for the closed-form optimized P4 law and first-size separation, not for calculating MSE given a distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains an exact finite-N MSE formula and asymptotic annealed-rate optimization, not the P4 globally optimal law for exactly two draws or the smallest path with horizon-dependent design.",
+        "evidence": [
+          "Page 2 exact MSE proposition 1, equations (5)–(6)",
+          "Page 4 section 3 optimizes λmax(R_A(p)) for annealed exponent, rather than a finite-N initial-vector worst case"
+        ],
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Full accessible six-page PDF including proposition 1, exact MSE equations (5)–(12), and section 3 / equation (20) on optimization; scanned figure/caption and conclusions.",
+        "method": "Primary full-text PDF, text and page-image inspection",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Same algorithm and closest exact finite-iteration MSE plus optimal sampling title"
+      },
+      {
+        "assessment": "Establishes mean/mean-square rate bounds and the one-step spectral-gap design; these do not supply the different exact two-step worst-initial-vector optimizer.",
+        "evidence": [
+          "Section III eqs (12)–(13): average update and mean-square rate context",
+          "Section IV eqs (14)–(15): convex spectral-gap optimization"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+        "material_read": "Full accessible conference paper, notably section III first/second-moment convergence and section IV optimizing the second eigenvalue of the average gossip matrix.",
+        "method": "Primary full-text PDF, mathematical text and page-image inspection",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Same iid edge averaging and optimized selection probabilities"
+      },
+      {
+        "assessment": "Bounds expected squared norm via per-step rate and gives exact expected-iterate evolution, not P4 finite-two-step minimax sampling or smallest-size transition.",
+        "evidence": [
+          "Section 1.1/Table 1 records the one-step-rate type bound",
+          "DOI 10.1137/15M1025487 classification includes 65F10"
+        ],
+        "identifier_or_url": "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+        "material_read": "Full accessible manuscript searched for convergence rate and sampling design, with detailed inspection of introduction, contributions and expected-error theorem summary.",
+        "method": "Primary full-text PDF including page-image verification",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Unified randomized sketch-and-project framework that could dominate graph-incidence Kaczmarz"
+      },
+      {
+        "assessment": "States exponential expected convergence bound for randomized Kaczmarz, without asserting the specific finite-two-step path optimum.",
+        "evidence": [
+          "arXiv math/0702226 v1 submitted 2007-02-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+        "material_read": "Author-supplied arXiv abstract and v1 date; no assertion of full-text inspection.",
+        "method": "Original arXiv abstract and version metadata",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Foundational archive-dated iid row projection source"
+      },
+      {
+        "assessment": "Available statement optimizes one-step A-energy contraction of SPD-coordinate quadratics, not the exact two-step iid graph-incidence gossip objective. Whole-document absence of overlap is NOT asserted.",
+        "evidence": [
+          "Result identifier 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 summarizes one-step optimal sampling and a parabolic profile"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Published result search summary only; attempted full page access did not succeed.",
+        "method": "Scientific abstract-level statement and objective comparison",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Potentially stronger exact one-step probability design"
+      },
+      {
+        "assessment": "Accessible statement concerns two fixed rows and deterministic cyclic overrelaxation, rather than optimizing iid probabilities over three edges. Whole-document negative assertion is not made.",
+        "evidence": [
+          "Result identifier 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 states deterministic cyclic two-row relaxation"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "material_read": "Published result search summary only; attempted full page access did not succeed.",
+        "method": "Scientific abstract-level comparison of algorithm and quantifiers",
+        "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+        "trigger": "Similar horizon-dependent optimizer in projection algorithms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0a58f0c-f889-4ba3-8b6c-4369cc2820d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Probability design in iid randomized projection/gossip algorithms is naturally motivated by both one-step guarantees and actual finite-horizon performance. The exact P4 minimax classification pinpoints the smallest connected path where those criteria choose different unique probability laws, converting a qualitative bound-versus-exact-error distinction into a theorem with explicit optimum, universal reduction over the full probability simplex and sharp transition. This structural boundary and reproducible formulas matter independently of the modest numerical gap. No claim of general horizon improvement or broader graph theorem is made.",
+    "status": "PASS"
+  }
+}
