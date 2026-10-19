@@ -1,0 +1,11 @@
+# Review of modular idempotents in dihedral quandle algebras
+
+**Correctness — PASS.** The transported product in the ordinary cyclic group ring is verified on basis elements. The augmentation ideal is \(p\)-nilpotent, excluding all nonzero augmentation-zero idempotents; truncated exponential and logarithm linearize the augmentation-one equation. On each coset of \(\langle-1,2\rangle\), the characteristic-\(p\) regular representation splits and contains exactly one simultaneous character satisfying the kernel equation. Its explicit eigenvector has eigenvalues \(-1\) and \(2\). Therefore the idempotent set, subquandle structure and count follow over every field of characteristic \(p\). The independent finite checks and the generalized proof have distinct roles.
+
+**Originality — PASS under identified sources, with residual bibliographic risk.** Zhang's algebra transport and Elhamdadi–Ta–Virgin's integral rigidity are acknowledged, not claimed as new. Sangare–Ta discuss different characteristic and quandle cases. The previously published \(p=3\) modular idempotent line is a genuine special case of this formula and is explicitly excluded from novelty claims. A prior modular exact count for all odd \(p\) was not found in the inspected primary sections or targeted bibliographic searches. The separately published nonmodular idempotent classifications assume the coefficient characteristic does not divide the quandle order and cannot imply this result by substitution.
+
+**Value — PASS.** The theorem replaces an isolated small-characteristic example with a uniform exact classification and a new intrinsic quandle isomorphism, plus a concrete arithmetic rank jump and infinitely many nonbasis prime-field examples. The modular coefficient regime is natural because it is precisely where Fourier character decomposition over the coefficient field collapses. It provides complete information across an infinite family rather than an arbitrary finite slice.
+
+**Limitations and risks.** Composite-order quandle rings and nonmodular coefficients lie outside the theorem. A recent related preprint was only accessible at abstract level, so equivalent work in its uninspected calculations or other unindexed work remains a bibliographic risk. The numerical tests do not substitute for the proof.
+
+Self-review: passed. Independent audit: not yet performed.
