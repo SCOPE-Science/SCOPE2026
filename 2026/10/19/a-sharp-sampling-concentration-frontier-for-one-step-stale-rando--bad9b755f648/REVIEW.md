@@ -1,0 +1,15 @@
+# Scientific assessment: one-step stale randomized Gauss–Seidel
+
+## Correctness — PASS
+The theorem is a complete mean-square classification for positive diagonal matrices and fixed i.i.d. coordinate probabilities. Each selected diagonal update reduces exactly to the Bernoulli delayed scalar recursion. The displayed positive-definite matrix \(Q\) has determinant \(c-h^2>0\), and direct conditional expansion gives the exact drift coefficient \(\eta=\beta p(\beta(1+\beta p)-2)/[2(1+\beta p)]\). Its sign proves exponential decay, conservation, or exponential growth using uniform bounds between a positive quadratic form and squared Euclidean norm. A coordinate supported at the largest probability proves global necessity. The implementation performs 1,366 finite exact-rational checks. Computational checks are corroboration, not universal proof.
+
+## Originality — PASS, with limitations
+Carson–Ma (arXiv:2609.15605v1, 2026) gives general sufficient delay-dependent bounds, not a necessary-and-sufficient diagonal frontier. Its shared-memory unit-diagonal sufficient threshold at one lag is \(2/[1+2(n^{-1/2}+n^{-1})]\); the theorem establishes the exact, larger frontier \(4/[1+\sqrt{1+8/n}]\). Avron–Druinsky–Gupta (arXiv:1304.6475) study asynchronous randomized Gauss–Seidel and underrelaxation bounds; their inconsistent-read theorem does not establish this criterion. A published two-coordinate delay-distribution result treats delayed cross-coordinate coupling instead of a stale self-coordinate correction. The relevant mathematical research index and accessible prior claim ledger were searched for the recurrence, quadratic frontier, sampling concentrations, and equivalent formulations. Bibliographic equivalence in unindexed stochastic recurrence literature or the inaccessible full version of that related record remains possible; these are genuine residual risks, not disproof of originality.
+
+## Value — PASS
+The sharp stability ceiling depends only on the **largest coordinate sampling probability**, not on the diagonal condition number. This identifies a concrete cost of uneven sampling in asynchronous numerical solvers and quantifies the gap between sufficient general theory and the exact benign-system behavior. The result includes both directions and an explicit positive Lyapunov certificate, rather than only a numerical stability experiment or a parameter substitution. It does not assert speedups on coupled systems or implementations that always read their own coordinate freshly.
+
+## Closest literature and limitations
+Primary sources: Carson and Ma, *Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis*, arXiv:2609.15605v1 (2026-09-14); Avron, Druinsky, and Gupta, *Revisiting Asynchronous Linear Solvers: Provable Convergence Rate Through Randomization*, arXiv:1304.6475 (2013). The scope is exact arithmetic, fixed sampling, positive diagonal matrices, and a one-global-step coherent stale read. Independent checking of broader equivalences remains desirable.
+
+Self-review: passed. Independent audit: not yet performed.

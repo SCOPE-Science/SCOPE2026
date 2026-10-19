@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Conditional expectation of the quadratic Q_i with h_i=beta*p_i/(1+beta*p_i) and c_i=(beta^2*p_i+2*h_i)/2 cancels the cross term and yields drift eta_i=beta*p_i*(beta*(1+beta*p_i)-2)/(2*(1+beta*p_i)). Since Q_i is positive definite for all beta,p_i>0, norm equivalence gives geometric mean-square decay, conservation, or growth according to eta_i. Taking the worst coordinate yields the exact p_max condition. Direct rational replay checked 1,366 configurations, including nonuniform probabilities and exact finite paths; these checks are auxiliary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carson–Ma Theorem 1 sufficient condition 2-beta-2beta*(sqrt(rho*tau)+rho*tau)>0; its shared-memory diagonal specialization has rho=1/n,tau=1. Avron et al. Theorem 4 treats the inconsistent-read method with beta<1."
+      ],
+      "reasoning": "The 2026 general sufficient condition reduces to beta<2/(1+2/sqrt(n)+2/n), which is strictly more restrictive on tested n than the exact uniform threshold 4/(1+sqrt(1+8/n)). Avron et al. does not classify overrelaxation above 1. Theorem claims no results outside diagonal A and fixed one-step stale schedules.",
+      "searches": [
+        "nonuniform asynchronous coordinate sampling stale diagonal Jacobi optimal stability governed by maximum sampling probability mean square",
+        "delayed randomized Gauss Seidel one lag nonuniform pmax sharp beta critical quadratic uniform dimension",
+        "published-finding corpus: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "arxiv:2609.15605v1",
+        "arxiv:1304.6475"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.15605v1 (relevant full HTML passages)",
+      "arxiv:1304.6475 (relevant full HTML passages)",
+      "published-finding corpus 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac (title and mathematical summary)",
+      "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (title and summary for synchronous probability comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 Theorem 1 supplies a sufficient general stability region; the 2013/2015 Section 7 gives an underrelaxed sufficient theorem; the 2026/9/20 record gives off-coordinate delay-rate recursion."
+      ],
+      "reasoning": "Sufficiency on general A does not imply a sharp necessity classification on diagonal A. The claimed positive-drift growth for beta>beta_crit and the full nonuniform p_max criterion are not corollaries of the cited upper bounds. The off-coordinate r^2 recurrence is not algebraically equal to y_next=y-beta*indicator*y_previous, even on diagonal systems where r=0.",
+      "searches": [
+        "nonuniform asynchronous coordinate sampling stale diagonal Jacobi optimal stability governed by maximum sampling probability mean square",
+        "asynchronous Jacobi RGS stale self read overrelaxation sharp stability 2-4/n identity matrix",
+        "arxiv:2609.15605v1",
+        "arxiv:1304.6475",
+        "published-finding corpus: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carson–Ma arXiv:2609.15605v1, eqs. (5)–(6) and Theorem 1; Avron et al. arXiv:1304.6475, sections 4,6,7; published-finding corpus record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac (summary)"
+      ],
+      "reasoning": "The equivalent scalar form is y_next=y-beta*Bernoulli(p)*y_previous, and the exact quadratic condition is beta+beta^2*p<2. The closest indexed delay law evolves squared error by S_next=(S_current+r^2 E S_delayed)/2 for delayed off-coordinate coupling with r, without this Bernoulli self-update or varying relaxation. The inspected full primary equations give only sufficient bounds, not the necessary condition.",
+      "searches": [
+        "asynchronous Jacobi RGS stale self read overrelaxation sharp stability 2-4/n identity matrix",
+        "randomized coordinate descent identity diagonal positive definite exact independent Bernoulli delayed-gradient mean square scalar recurrence x(t+1)=x(t)-beta I(t)x(t-1) threshold 4/(1+sqrt(1+8/n))",
+        "moment cubic  z^3+(beta/n-1)z^2+beta(1-beta)/n z - beta^3/n^2 random delayed coordinate",
+        "published-finding corpus: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac presents a different scalar delayed coupling law; no table of this p_max, beta frontier appeared in returned published-finding corpus records or the inspected original papers."
+      ],
+      "reasoning": "The parameter p_max continuously varies with a probability vector, and the theorem is not a lookup from an enumerated table. Lack of a hit is not taken as proof of novelty; the comparison is by recursion and hypotheses.",
+      "searches": [
+        "independent selection stale coordinate diagonal SPD exact positive quadratic Lyapunov certificate for mean square convergence",
+        "moment cubic  z^3+(beta/n-1)z^2+beta(1-beta)/n z - beta^3/n^2 random delayed coordinate",
+        "published-finding corpus semantic search: exact delay-distribution law two-coordinate randomized Gauss-Seidel"
+      ]
+    },
+    "rationale": "Inspected Carson–Ma 2026 and Avron–Druinsky–Gupta 2013/2015 supply asynchronous models and sufficient convergence bounds but not this complete necessary-and-sufficient diagonal classification with positive Lyapunov identity and p_max sampling frontier. Published related two-coordinate delay analysis concerns delayed cross-coordinate information, not stale self-coordinate residuals. No equivalent implication was found in actual targeted published-finding corpus and primary-literature comparisons. Unindexed classical stochastic delay theory and inaccessible full related record remain live risks.",
+    "residual_risks": [
+      "The full referenced published-finding corpus delay record was not available for complete inspection; only its specific mathematical summary was compared.",
+      "An equivalent sharp mean-square criterion may appear in classical Markov-jump/delayed-recursion literature under different terminology.",
+      "The theorem does not address any general nondiagonal asynchronous algorithm or adaptive scheduler."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The specific full-state one-step stale shared-memory specialization is admissible, but the text supplies sufficient general bounds rather than the exact diagonal classification.",
+        "evidence": [
+          "Equations (5)–(6), model at sections 3.1–3.2, equations (11)–(15) and Theorem 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.15605",
+        "material_read": "HTML full-text passages in sections 2–4, including algorithms, unified model, Assumptions 1–2, Theorem 1 and its discussion",
+        "method": "Read source HTML with equation-level comparison of sampled directions, stale-read set, delay and beta dependence",
+        "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis",
+        "trigger": "Primary 2026 source defining the asynchronous model and sufficient stability criterion"
+      },
+      {
+        "assessment": "Develops bounded-delay general convergence guarantees and recommends underrelaxation; no exact p_max mean-square phase frontier is stated in inspected relevant passages.",
+        "evidence": [
+          "Section 6 on step-size control; Section 7, Theorem 4, restricted to 0<=beta<1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.6475",
+        "material_read": "HTML full-text passages in introduction, methods, sections 4, 6, 7, including Theorem 4 and its beta<1 hypothesis",
+        "method": "Read source HTML and compared stepsize domain, stale-read assumption, and mathematical implication",
+        "title": "Revisiting Asynchronous Linear Solvers: Provable Convergence Rate Through Randomization",
+        "trigger": "Foundational randomized asynchronous RGS and possible dominating historical theorem"
+      },
+      {
+        "assessment": "Summary states the recurrence S_next=S/2+r^2 E[S_delayed]/2; applies to off-coordinate coupling rather than the current Bernoulli self-coordinate recurrence. Full-record comparison residual risk remains.",
+        "evidence": [
+          "published-finding corpus record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac, summary of exact delay-law formula."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "material_read": "Record title and full returned mathematical summary only; direct full-file page retrieval unavailable",
+        "method": "published-finding corpus semantic searches on delays, diagonal spectra, self-coordinate staleness, and relaxation; attempted direct record open",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Closest semantic mathematical research match on RGS delays"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bad9b755-f648-44e2-bf87-4729eaaa5a8d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest coordinate sampling probability is a natural, actionable stability invariant for independent asynchronous updates. The complete boundary demonstrates that oversampling a coordinate can destabilize a one-step-stale solver even on diagonal SPD systems, while uniform high-dimensional sampling approaches the synchronous relaxation ceiling. The explicit Lyapunov drift and exact growth/conservation/decay alternatives give a motivated finite-dimensional classification and diagnose conservatism in existing general sufficient conditions.",
+    "status": "PASS"
+  }
+}
