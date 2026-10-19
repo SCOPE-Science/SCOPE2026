@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For any source word, the distinct complementary outcomes are in bijection with vectors recording how many occurrences of the designated symbol were deleted from each maximal same-symbol run. Consequently their exact enumerator is a product of finite geometric polynomials. Every one of the r runs needs r minus one separators, and expanding positive runs to total length n minus r plus one cannot decrease any coefficient. The proof supplies an exact coefficientwise balancing identity, so replacing unequal run lengths by neighboring integers gives the attained all-parameter maximum. A separate explicit count of the three removal patterns, followed by a complete case split, proves the three-deletion formula. Two separate standalone verifiers checked all binary words of length at most twelve, all ternary words of length at most eight, all positive compositions of total length at most eighteen, and the triple formula through length 250. These finite tests support but do not substitute for the general written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Torres-Jimenez et al. 2017 article, DOI:10.1142/S1793830917500422, counts occurrence multiplicities of arbitrary subsequences of each length, not the number of distinct complements to a prescribed deleted subsequence.",
+        "arxiv:2608.22147 abstract describes log-concavity of total distinct-subsequence numbers, rather than restricted complementary spectra.",
+        "arxiv:2603.20790v1 §5 explicitly lists a cardinality bound or special-case closed formula as remaining open."
+      ],
+      "reasoning": "Unrestricted length-k subsequence counts and embedding-multiplicity algorithms do not imply exact maxima for complements after a fixed a-repeated-letter deletion. The classical balancing identity used in our proof is elementary and is not claimed as a stand-alone new polynomial theorem; the claimed contribution is its exact extremal consequence for the recently defined C(w,u).",
+      "searches": [
+        "subsequence complements same symbol runs exact polynomial coefficient maximum binary strings",
+        "\"Chase\" \"distinct subsequences\" repeated permutation maximum 1976",
+        "Log-concavity of subsequence counts of words Vincent Vatter arxiv:2608.22147",
+        "DOI:10.1142/S1793830917500422"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.20790v1, full relevant HTML Sections 1–5",
+      "Torres-Jimenez et al., DOI:10.1142/S1793830917500422, official abstract and public summary only",
+      "arxiv:2608.22147, abstract only",
+      "Indexed published mathematical research search: aliases repeated-symbol complements / deletion-output spectra, with no exact matching result in the inspected hits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2603.20790v1 Observation 4.1: distinct deletion embeddings can collapse to one complement; Sections 4.2–4.5 address singleton/embedding relationships and perfect shuffles.",
+        "arxiv:2603.20790v1 §5: an upper bound for |C(w,u)| or a special-case closed formula remains an open problem.",
+        "Torres-Jimenez et al. algorithm returns how often subsequences occur; it does not deduplicate by the complement of a fixed deleted pattern."
+      ],
+      "reasoning": "Source definitions alone recover Step 1 after specializing to constant deleted letters, but none of the inspected original results optimizes across all source words, proves coefficientwise balancing, or establishes the full triple-deletion profile. This is a strictly restricted advance rather than a full solution of the paper’s unrestricted problem.",
+      "searches": [
+        "arxiv:2603.20790v1 Section 4 Complement Scattered Factors",
+        "arxiv:2603.20790v1 Section 5 Conclusion",
+        "A Near Optimal Algorithm to Count Occurrences of Subsequences of a Given Length DOI:10.1142/S1793830917500422"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2603.20790v1 Def. 6 identifies C(w,u) with fixed deleted-subsequence complementary words.",
+        "The constant-letter specialization counts distinct retained strings, not deletion-position embeddings; arxiv:2603.20790v1 §4 differentiates these quantities."
+      ],
+      "reasoning": "Aliases checked: fixed-pattern deletion descendants, repeated-letter subsequence complement, fixed-symbol deletion-output spectrum, and bounded run-composition coefficients. None of the inspected statements supplies a coefficientwise balanced optimizer or the displayed all-(n,k) maximum. Searches alone do not establish novelty.",
+      "searches": [
+        "\"complement scattered factors\" \"run\" maximum constant letters",
+        "\"deleting identical\" \"distinct\" \"subsequences\" run lengths",
+        "\"a^k\" \"deletion\" \"runs\" \"distinct\" sequence",
+        "arxiv:2603.20790v1 Sections 2–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2026 arXiv paper includes examples and singleton criteria, not a table or formula of M(n,k).",
+        "No exact triple-deletion piecewise profile, including the n=7 exceptional value, was identified in the examined scholarly results."
+      ],
+      "reasoning": "Actual searches covered general cardinality tables and run-based deletion spectra. No exact database or table subsuming the new formula was found; absence from search results is not proof that none exists.",
+      "searches": [
+        "\"Complement scattered factors\" \"upper bound\" C(w,u) 2026",
+        "\"complement scattered factors\" \"balanced\" repeated letter",
+        "distinct strings after deleting k occurrences of designated symbol maximize balanced runs binomial coefficient",
+        "\"deleting identical\" \"distinct\" \"subsequences\" run lengths"
+      ]
+    },
+    "rationale": "The closest primary source arXiv:2603.20790v1 defines the same complement-set object, proves algorithms and singleton criteria, and explicitly leaves upper bounds or special-case closed forms open in Section 5. The new statement gives a sharp extremal formula for every n,k for constant-letter deletion patterns, with coefficientwise balanced optimizers and the sharp three-deletion profile. Indexed search and prior-work comparisons found no equivalent theorem. Potential earlier unindexed research is an acknowledged residual originality risk.",
+    "residual_risks": [
+      "An older or unindexed exact constant-pattern complement-spectrum theorem or finite table may exist; indexed search is not proof of novelty.",
+      "The 2017 algorithm and August 2026 log-concavity paper were compared on abstracts/scope rather than their full proofs; neither is a plausible exact same-object extremal result on the inspected descriptions.",
+      "The new result is restricted to constant-letter deleted subsequences and does not settle the general upper-bound question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the present constant-pattern extremal formula; explicitly asks for bounds and special formulas. Definitions and singleton criteria are credited.",
+        "evidence": [
+          "Definitions 2 and 6 distinguish embeddings from C sets.",
+          "Observation 4.1 and Section 4 emphasize equal complements from multiple embeddings.",
+          "Section 5, concluding open question on upper bound or special closed formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Full relevant mathematical development: Introduction, Definitions 1–6, Section 3 algorithms, Section 4 Observations and Theorems, Section 5 conclusion, reference list",
+        "method": "arXiv version-1 HTML full-text inspection",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Same complement-set definition and explicit unsolved upper-bound question"
+      },
+      {
+        "assessment": "Abstract describes multiplicity of subsequence embeddings rather than fixed-pattern complementary sets; not a dominating claim on the material read. The complete text was not inspected.",
+        "evidence": [
+          "DOI:10.1142/S1793830917500422: algorithm counts how many times each length-fixed string occurs as a subsequence."
+        ],
+        "identifier_or_url": "https://www.nist.gov/publications/near-optimal-algorithm-count-occurrences-subsequences-given-length",
+        "material_read": "NIST official bibliographic abstract and public abstract/scope summary",
+        "method": "official institutional abstract inspection; underlying PDF not read",
+        "title": "A Near Optimal Algorithm to Count Occurrences of Subsequences of a Given Length",
+        "trigger": "Possible implication from older full subsequence-count algorithms"
+      },
+      {
+        "assessment": "Abstract addresses log-concavity of unrestricted distinct-subsequence count by length, not the exact fixed deleted-pattern complement extremum.",
+        "evidence": [
+          "arxiv:2608.22147 abstract: number of distinct subsequences of each length and its log-concavity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22147",
+        "material_read": "Original paper abstract and metadata",
+        "method": "arXiv abstract inspection; underlying full text not read",
+        "title": "Log-concavity of subsequence counts of words",
+        "trigger": "Recent potentially broader theorem about all distinct subsequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b975a5a5-9441-4617-948f-d0d9619ef7a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 originating paper explicitly identifies cardinality bounds and special closed forms for complement scattered factors as open. The theorem solves the repeated-symbol pattern at every length and deletion order with a sharp, constructive answer and coefficientwise optimal run structures; it reduces a search over exponentially many words to at most floor((n+1)/2) explicit coefficients, and exposes a genuine exceptional n=7 behavior in triple deletions. The result is an exact natural invariant tied to the motivating question, not an arbitrary parameter slice or merely a software enumeration.",
+    "status": "PASS"
+  }
+}
