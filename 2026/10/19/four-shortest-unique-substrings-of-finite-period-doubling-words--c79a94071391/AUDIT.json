@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "A full proof derives parity recognition for all factors of length >=3, then proves the suffix of length a quarter of the word occurs exactly three times using repeated aligned desubstitution to D_1 in D_3. Factor-type bijections for even/odd starts preserve multiplicities except omission of the terminal suffix occurrence. The threefold suffix protects all shorter factors from becoming unique. At odd length 2K+1 the four unique factors of preceding length K+1 lift bijectively to four at positions 2p+1. Base n=3 checked directly. Exhaustive independent factor-frequency computations for n=3..13 corroborate both main and suffix claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banbara et al. Theorem 30: exactly two minimum size-two attractors of complete period-doubling words; Corollary 32: all occurrences of each factor of length at least three have fixed parity.",
+        "Charalampopoulos et al. Theorem 1.1: a general sublinear-time packed-string SUS algorithm."
+      ],
+      "reasoning": "A formula for optimum attractor sets does not determine occurrence multiplicities of individual factors; a generic algorithm for finding one SUS does not provide a closed form on a named family. Parity is a shared lemma and independently re-proved, not novelty claimed. The new exact three-copy suffix lemma and occurrence-preserving factor correspondence give the claimed count and starts.",
+      "searches": [
+        "Full text: Banbara et al., arxiv:2602.16152, Section 4, Corollary 32 and Theorem 30",
+        "Full text: Charalampopoulos et al., arxiv:2605.04826, Introduction, Theorems 1.1 and 1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.16152 / CPM 2026 open HTML Section 4 and discussion",
+      "arXiv:2605.04826v1 open HTML introduction and full-document term search",
+      "OEIS A367184 page on a different uniqueness-window problem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known fixed-parity factor occurrence property does not determine multiplicities or suffix frequencies.",
+        "The new proof establishes a threefold suffix recurrence and maps length-(2k+1) singleton factors to length-(k+1) singleton factors of the preceding generation."
+      ],
+      "reasoning": "The exact shortest-unique-factor lengths and start positions neither restate the two known optimum-attractor pairs nor follow from the generic packed-SUS complexity theorem. Possible implicit derivations from unexamined older suffix-graph results are a residual risk.",
+      "searches": [
+        "Full text: Banbara et al., CPM 2026, Theorem 30, Corollary 32, Lemma 35",
+        "Full text: Charalampopoulos et al., arXiv HTML v1, Sections 1, 2 and overview of 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact/alias web searches led to the 2026 attractor manuscript rather than a four-SUS classification."
+      ],
+      "reasoning": "Unique substring, singleton factor, minimal unique substring and shortest unique factor refer to potentially overlapping notions. The claim concerns only global minimum-length unique factors; none of the located records supplies the exact length and all four starts. The 2026 attractor paper treats a different invariant. Search coverage is limited; absence of matches is not affirmative uniqueness evidence.",
+      "searches": [
+        "Web: period doubling word finite prefixes shortest unique substrings 2^n + 1 unique factors",
+        "Web: period doubling word \"minimal unique substrings\" four",
+        "Web: period-doubling word \"shortest unique\" substrings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A367184 describes a different problem: earliest location of an interval of the infinite period-doubling word whose length-n factors are all distinct, rather than singletons in complete dyadic prefixes."
+      ],
+      "reasoning": "No located exact factor-frequency table supplies the stated four unique windows at every dyadic length. Finite sampling is not being used to claim novelty.",
+      "searches": [
+        "Web: period doubling word shortest unique factors prefixes unique substring powers of two",
+        "Web: period doubling word minimal unique factors smallest attractors unique substrings"
+      ]
+    },
+    "rationale": "The specific factor-frequency theorem for the finite period-doubling word has not been located in exact-statement/alias searches. Banbara et al. (arXiv:2602.16152, Section 4) prove two optimal string attractor pairs and a parity lemma, but do not state the shortest-unique length, number and locations; those are not logical corollaries of the attractor-pair result. Charalampopoulos et al. (arXiv:2605.04826, Introduction and Theorems 1.1-1.2) provide general packed-string algorithms rather than a period-doubling formula. Residual risk: unindexed frequency-structure literature.",
+    "residual_risks": [
+      "Older suffix-automaton or occurrence-spectrum literature might encode the exact family implicitly even without naming shortest unique substrings.",
+      "Independent expert or formal mathematical review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same word and parity lemma; focuses on size-two attractor pair classification, no asserted equality with four globally shortest unique substrings.",
+        "evidence": "Theorem 30 identifies two attractor pairs; Corollary 32 supplies fixed parity; discussion lists attractor and macro-scheme problems, not shortest-unique spectra.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.33/LIPIcs.CPM.2026.33.html",
+        "material_read": "Full accessible HTML Section 4, definitions, Theorem 30, Corollary 32, Observations 33, Lemmas 34-35, and discussion; search of entire HTML for shortest unique.",
+        "method": "Primary HTML page inspection and exact-text search.",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Directly studies exactly the same period-doubling iterates and related unique-factor constraints."
+      },
+      {
+        "assessment": "Provides generic sublinear packed-string SUS computation, not a period-doubling family identity.",
+        "evidence": "Theorem 1.1 gives algorithmic O(n log sigma/sqrt(log n)); no occurrence of period-doubling found in HTML.",
+        "identifier_or_url": "https://arxiv.org/html/2605.04826v1",
+        "material_read": "Full accessible HTML abstract and Introduction through related-work discussion; section headings and exact term-search across the entire HTML for period-doubling.",
+        "method": "Primary arXiv HTML inspection, targeted full-text searches.",
+        "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+        "trigger": "Recent algorithmic source that motivates exact SUS test families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c79a9407-1391-4e3c-9ea8-d132618e5784",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an established and algorithmically important morphic text family, the proof classifies every globally shortest unique substring across infinitely many text lengths, with exact length, count and positions. The sharp quarter-length-plus-one threshold and four-witness phenomenon provide explicit structural benchmarks for global SUS algorithms. This is a complete natural invariant, not a one-off small-instance check. No downstream implication beyond the stated classification is asserted.",
+    "status": "PASS"
+  }
+}
