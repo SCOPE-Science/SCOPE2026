@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A complete gap-order proof shows the rotation separator condition guarantees exactly 2k output runs. For fixed k>=4, violating the condition imposes a zero coordinate or one of finitely many pairwise gap-difference constraints, giving O_k(n^(k-2)) marked compositions and O_k(n^(k-1)) indexed words. Two equally largest gaps chosen in a positive-volume parameter family force consecutive BWT ones, yielding Omega_k(n^(k-1)) failures. Endpoint and multiplicity factors are proved and direct full-rotation independent code verifies 190890 finite words. No finite experiment is used to infer the asymptotic result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1016/j.tcs.2017.07.015 Theorem 3.3: output runs <=2 times input runs, Sections 3-5 special extremizers and de Bruijn words.",
+        "DOI:10.3233/FI-2017-1566 publicly accessible abstract: entire-string BWT fixed points, examples with up to four rare letters."
+      ],
+      "reasoning": "The 2017 general bound has input-run count as a different independent parameter and only an upper inequality; it does not imply almost-sure maximal output run counts, their exceptional scale, or a uniform all-fixed-k statement. Full fixed-point text was inaccessible; the declared thesis is different, but incompleteness is recorded as risk.",
+      "searches": [
+        "Mantaci Restivo Rosone Sciortino Burrows Wheeler transform number of runs clustering 2017 pdf",
+        "On Fixed Points of the Burrows-Wheeler Transform pdf Mantaci 2017",
+        "Burrows Wheeler transform sparse binary words number of runs ones fixed weight"
+      ]
+    },
+    "checked_sources": [
+      "SRC-RR-124 (May 10, 1994), primary PDF, Sections 1-3",
+      "DOI:10.1016/j.tcs.2017.07.015, author OA postprint, Sections 1-5 and references",
+      "DOI:10.3233/FI-2017-1566, public abstract and repository description (full text unavailable)",
+      "Scientific semantic searches for sparse/fixed-weight BWT runs under multiple aliases",
+      "General web searches for fixed Hamming weight, run histograms, sparse BWT and clustering ratio"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burrows-Wheeler (1994) defines rotation sorting and coding, without an exceptional-count theorem.",
+        "Mantaci et al. (2017), Theorem 3.3 bounds the ratio relative to input runs and Theorem 3.11 constructs infinite extremal families; Sections 4-5 address completely unclustered images and de Bruijn words.",
+        "The fixed-point article abstracts the equality BWT(w)=w, which does not imply the event runs(BWT(w))<2k."
+      ],
+      "reasoning": "A general upper bound on output run counts does not imply typical attainment of a fixed-symbol-count maximum; existence of extremizing words does not give the Theta(n^(k-1)) enumeration, and classifying fixed points is not classifying run-count-deficient outputs. Single-weight analyses do not imply the new all-k>=4 assertion. Thus the precise new implication is not present in the inspected statements.",
+      "searches": [
+        "SRC-RR-124-1994-05-10",
+        "DOI:10.1016/j.tcs.2017.07.015",
+        "DOI:10.3233/FI-2017-1566",
+        "For each fixed weight k, almost all binary length n words have exactly 2k Burrows Wheeler transform runs, with probability 1-O(1/n)."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SRC-RR-124 pp. 2-5 defines cyclic BWT, not fixed-weight run probability.",
+        "The 2017 run-ratio paper considers extremal clustering, not a uniform random length-n fixed-weight ensemble."
+      ],
+      "reasoning": "Aliases searched included sparse binary BWT, fixed Hamming weight, cyclic-zero-gap separation, run spectrum and maximal fragmentation. None of the materially read statements is equivalent to a sharp count of nonmaximal outputs for every fixed k>=4. Lex-order gap separation is used to establish both rarity and its sharpness.",
+      "searches": [
+        "Burrows Wheeler transform binary strings fixed number of ones maximum number of runs asymptotically distinct gaps",
+        "BWT sparse binary words Hamming weight k runs generic maximum 2k",
+        "Burrows Wheeler run counts binary fixed weight 3 or arbitrary weight",
+        "\"Burrows-Wheeler\" \"fixed Hamming weight\" runs",
+        "\"BWT\" \"sparse binary words\" runs zeros gaps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical-record hits concerned random distinct-substring deficits or fixed-weight cyclic codes rather than BWT output runs.",
+        "A fixed-weight numerical table could constrain only the specified weight, not the all-fixed-k asymptotic assertion."
+      ],
+      "reasoning": "An exact table for a bounded parameter or a single fixed weight could not by itself establish an asymptotically sharp count simultaneously for all fixed k>=4. No covering indexed formula or database was found; missing records are not proof of global absence.",
+      "searches": [
+        "Burrows Wheeler run counts binary fixed weight 3 or arbitrary weight",
+        "Hamming weight fixed low density Burrows Wheeler output run distribution cyclic gap compositions",
+        "BWT sparse binary words Hamming weight k runs generic maximum 2k"
+      ]
+    },
+    "rationale": "The 1994 source defines the transformation; the materially read 2017 clustering-ratio study bounds output runs by twice input runs and constructs special extremizers, but does not give a fixed-Hamming-weight ensemble theorem or sharp Theta(n^(k-1)) exceptional counts. The related fixed-point paper concerns an equality of entire strings and could not be fully inspected; that access risk is acknowledged. Semantic scientific-record searches and primary-literature comparisons returned no dominating all-weight statement. The new theorem addresses k >= 4 and is not an exact finite classification for a single lower weight. Novelty is a provisional self-review, not independently certified.",
+    "residual_risks": [
+      "A previously unindexed equivalent all-fixed-weight theorem could exist; semantic search cannot prove absence.",
+      "The full fixed-point article was not accessible for whole-document comparison; abstract indicates a different problem but leaves residual risk.",
+      "The proof is self-contained and finite tests corroborate it, but no independent mathematical or priority review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines BWT and its clustering motivation; no sparse fixed-weight run-count distribution.",
+        "evidence": [
+          "SRC Research Report 124 dated May 10, 1994; Section 2 Algorithms C and D."
+        ],
+        "identifier_or_url": "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+        "material_read": "Title and dated report; abstract; full construction/rotation-sort algorithm and coding explanation in Sections 1-3, pp. 1-6 (report pagination).",
+        "method": "Opened and read lawfully accessible primary PDF text.",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Foundational definition and earliest dated public source"
+      },
+      {
+        "assessment": "Shows global input-run ratio bounds and constructions, not the claimed sharp weight-conditional exceptional count.",
+        "evidence": [
+          "DOI:10.1016/j.tcs.2017.07.015, Section 3, Theorems 3.3, 3.11; Sections 4-5."
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf",
+        "material_read": "Complete indexed full text, Sections 1-5 including Theorems 3.3 and 3.11, Propositions 3.9, 4.3, 4.5, 4.8 and 5.1; original and subsequent examples, references.",
+        "method": "Read open author postprint PDF in page/line views, including page-image inspection of the key theorem and following problems.",
+        "title": "Measuring the clustering effect of BWT via RLE",
+        "trigger": "Closest theory of maximal BWT fragmentation"
+      },
+      {
+        "assessment": "Advertised classification concerns BWT fixed points, not typical fixed-weight run counts; full-document noncoverage cannot be asserted.",
+        "evidence": [
+          "DOI:10.3233/FI-2017-1566, abstract and repository record."
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FI-2017-1566",
+        "material_read": "Abstract and publicly searchable beginning only; full OA postprint inaccessible.",
+        "method": "Searched for lawful open preprints and read the publicly available repository description; the full text remained inaccessible.",
+        "title": "On Fixed Points of the Burrows-Wheeler Transform",
+        "trigger": "Same binary BWT, specifically sparse inputs with up to four occurrences of a letter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0a4c796-4ce6-4f32-9839-a3e23b757123",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed rare-symbol density is a natural regime for BWT run-length behavior. The theorem identifies a deterministic cyclic-gap condition for maximal output fragmentation and proves that all but a sharp Theta_k(n^(k-1)) exceptional set are maximally fragmented, for every fixed k>=4. The matching lower bound distinguishes genuine exceptional behavior from a loose union bound; the conclusion is not a routine next-parameter table, and quantifies the negative BWT clustering phenomenon in the run statistic. No bit-compression or growing-weight claims are made.",
+    "status": "PASS"
+  }
+}
