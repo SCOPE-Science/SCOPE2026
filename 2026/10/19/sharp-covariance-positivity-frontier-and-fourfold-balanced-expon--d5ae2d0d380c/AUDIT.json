@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Eigenbasis derivation yields q_ij<=sqrt(d_i d_j)<= (d_i+d_j)/2, with strictness exactly at unequal drift rates. Common homogeneous propagation proves all-step Frobenius dominance, Taylor coefficients 1/24 vs 1/6 prove the fourfold global asymptotic, PSD follows from congruence, and a 2x2 determinant plus strict derivative proves every threshold case. Independent deterministic verifier: 18692 checks; its finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1903.05383v1 explicitly represents positive-semidefinite Lyapunov Gramians as integrals of matrix-factor products, and discusses Runge-Kutta/ADI quadrature.",
+        "arxiv:1811.08327 derives general Sylvester operator spectral solution formulas."
+      ],
+      "reasoning": "Prior Gramian quadrature already solves PSD preservation broadly; accordingly general positive integration is not claimed. The comparatively narrower result asks whether the concrete METD1 symmetrization is PSD and exactly how its all-step error compares with the specific square-root-balanced forcing. Generic PSD Gramian quadrature existence does not imply the strict quantitative domination or threshold without further calculations.",
+      "searches": [
+        "\"differential Lyapunov\" \"positive semidefinite\" exponential integrator 2020",
+        "\"structure preserving\" \"Lyapunov equation\" low rank exponential quadrature",
+        "arxiv:1903.05383v1 sections 1 and 3",
+        "arxiv:1811.08327 sections 1–3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2406.13761v2 https://arxiv.org/html/2406.13761v2",
+      "arxiv:1903.05383v1 https://arxiv.org/html/1903.05383v1",
+      "arxiv:1811.08327 https://arxiv.org/abs/1811.08327"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shkeir–Grafke supply METD1 but do not report the two-mode PSD threshold or the geometric-mean correction comparison.",
+        "Bertram–Faßbender supply PSD-preserving Gramian integral/algorithmic framework but compare other methods and residual invariants.",
+        "Behr–Benner–Heiland supply the exact solution without an explicit sharp phase comparison to symmetrized METD1."
+      ],
+      "reasoning": "Existing full exact solution trivially permits independent derivation of a new special-case error bound, but does not explicitly subsume it as a published theorem. The new content is the fully quantified method comparison and sharp positivity phase diagram; the underlying exact integral, matrix exponential and Cauchy–Schwarz facts are credited as existing.",
+      "searches": [
+        "arxiv:2406.13761v2 equation (7) and 6.1",
+        "arxiv:1903.05383v1 Gramian quadrature framework",
+        "arxiv:1811.08327 solution formulas",
+        "\"matrix exponential time differencing\" \"positive semidefinite\" Shkeir Grafke",
+        "\"preserving positivity\" \"differential Lyapunov\" \"exponential\" integration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The noncommuting source METD1 forcing is D_h Sigma, so its symmetric part is an arithmetic mean of damping integrals; balanced is their geometric mean.",
+        "The 2018 differential-Lyapunov operator formula yields the exact q_ab coefficients but does not state comparison among D Sigma, symmetrized METD1, and D^(1/2) Sigma D^(1/2)."
+      ],
+      "reasoning": "The related exact integration formulas and Hadamard products give ingredients, but their stated results are not logically the full normalized two-mode positivity threshold plus strict finite-step error dominance and fourfold coefficient. This is a comparison of consequences, not a novelty claim based on wording.",
+      "searches": [
+        "\"METD1\" symmetry positive semidefinite covariance Lyapunov failure",
+        "\"geometric mean\" \"Lyapunov\" \"exponential\" \"integrator\" covariance",
+        "\"Lyapunov\" \"geometric mean\" \"exponential integrator\" covariance",
+        "arxiv:2406.13761v2, Sec. 2.2 and Sec. 6.1",
+        "arxiv:1811.08327, spectral formulas"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary paper includes a low-dimensional Lyapunov experiment, but no tabulation of the critical correlation r(h) and no matrix forcing balance error ratio.",
+        "The retrieved mathematical-record summaries on eigenvalue/PSD themes concern different algorithms and inputs."
+      ],
+      "reasoning": "No exact table or record matching the whole specialized theorem was identified. This observation is limited to actual searches and inspected text, not an assertion that no equivalent result can exist.",
+      "searches": [
+        "2406.13761 Shkeir Grafke exponential time differencing Sylvester Lyapunov",
+        "matrix-valued METD1 differential Lyapunov two eigenmodes correlation noise positivity threshold rho 2sqrt(kappa)/(1+kappa)",
+        "\"matrix exponential time differencing\" \"positivity\" \"Lyapunov\" commutator"
+      ]
+    },
+    "rationale": "Inspected primary METD1 and exact/Gramian Lyapunov literature. The input METD1 scheme, exact covariance integral and general PSD Gramian quadrature are known and expressly excluded as novelty. No inspected published result or mathematical-record statement was found to imply the combined sharp two-mode symmetrization positivity frontier and all-step Frobenius/4x balanced error comparison; risks of equivalent unpublished or less-indexed specialized deductions remain.",
+    "residual_risks": [
+      "An equivalent arithmetic/geometric correction inequality might exist in specialized Lyapunov covariance numerical integration literature not indexed in the inspected records.",
+      "The original 2024 submission date is confirmed, but the complete METD1 text inspected was the 2026 arXiv revision; no assertion about unchanged 2024 wording is made.",
+      "Classical Lyapunov Gramian quadratures provide broader PSD-preserving methods; the claim is expressly a sharp comparison for one specified scheme, not uniqueness or computational superiority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_FRAMEWORK_NOT_FULL_COVERAGE",
+        "evidence": [
+          "Eq. (7) explicitly places h phi_1(h(L+R)) to the left of the forcing; it is generally nonsymmetric for R=L and PSD noncommuting forcing.",
+          "The later version gives general higher-order commutator formulas, not the square-root-balanced rank-preserving correction or exact correlation threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.13761v2",
+        "material_read": "Full open HTML Sections 1, 2.1–2.4 including METD1 equation (7), Section 6.1 differential Lyapunov numerical test, and appendix derivations and references.",
+        "method": "Section-by-section HTML reading and searching for covariance/symmetry/positivity and forcing factorization.",
+        "title": "Exponential time differencing for matrix-valued dynamical systems",
+        "trigger": "Same matrix-valued scheme, differential Lyapunov test, and commutator structure"
+      },
+      {
+        "assessment": "GENERAL_PSD_GRAMIAN_PRIOR_NOT_IDENTICAL_METHOD_COMPARISON",
+        "evidence": [
+          "The Gramian is expressed as integral e^{At}BB^T e^{A^Tt}; algorithms preserve low-rank residual structure.",
+          "No stated METD1 arithmetic-vs-geometric forcing error ratio or sharp two-mode PSD threshold was found in these materials."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1903.05383v1",
+        "material_read": "Introduction, exact Gramian integral and factorized quadrature discussion, Section 3 Runge-Kutta construction and Section 4 Sylvester framework.",
+        "method": "Full-text HTML sections and comparison of formulas and addressed numerical objective.",
+        "title": "Lyapunov and Sylvester equations: A quadrature framework",
+        "trigger": "Prior positive-semidefinite Gramian-factor integrators might dominate the claim"
+      },
+      {
+        "assessment": "EXACT_SOLUTION_KNOWN_NOT_SAME_DISCRETE_SCHEME_COMPARISON",
+        "evidence": [
+          "Spectral theorem gives exact solution for the matrix ODE.",
+          "No exact symmetrized METD1 failure frontier or balanced correction dominance identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.08327",
+        "material_read": "Accessible text of Introduction and spectral solution/operator-formula sections, including exact differential Lyapunov integral/approximations.",
+        "method": "Full open mathematical-text review of spectral representation and numerical approximation sections.",
+        "title": "Solution Formulas for Differential Sylvester and Lyapunov Equations",
+        "trigger": "Exact spectral Sylvester/Lyapunov solution might subsume error formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5ae2d0d-380c-4333-a365-a15b95c32f75",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves a natural covariance-integrator structure question: a nominally small-step-accurate METD1 symmetrization may create negative variances for rank-one correlated forcing, and it supplies the exact dimensionless phase frontier together with a rank-preserving all-step PSD correction. The correction has provably smaller Frobenius error at every positive step and universal exactly fourfold second-order error-constant improvement. This is a motivated matrix-ODE diagnostic and constructive solver benchmark, not merely a textbook determinant calculation.",
+    "status": "PASS"
+  }
+}
