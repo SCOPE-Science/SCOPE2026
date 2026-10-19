@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "All source-theorem hypotheses hold: \\(s=\\beta r\\), \\(\\alpha s=\\alpha\\beta r<r\\), and \\(0<r,s<2\\). The exact transformed recurrence has stable multiplier \\(1-r\\) and a positive neutral variable. Stable contraction gives \\(q=-\\alpha\\gamma y^2/r+O(y^3)\\). The expansion \\(y_{n+1}=y_n-\\gamma y_n^2+(\\gamma^2/2+\\alpha\\beta\\gamma/r)y_n^3+O(y_n^4)\\) implies \\(w_{n+1}-w_n=\\gamma+(\\gamma^2/2-\\alpha\\beta\\gamma/r)/w_n+O(w_n^{-2})\\). After subtracting the linear term and prescribed logarithmic term, increments are summable \\(O(\\log n/n^2)\\). Four rational-coefficient and independent trajectory checks passed; the proof, not finite tests, establishes the unbounded-time claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baigent et al. 2023 full open-access PDF, sections 1–3 and appendix: Theorem 3.4 establishes global fixed-point convergence; Theorem 3.6 R3 identifies the boundary limit, but neither gives convergence rates or a corrected constant.",
+        "Luís et al. 2011 abstract: center manifolds and bifurcations treated; full manuscript unavailable for a definitive coefficient comparison.",
+        "Kulakov et al. 2022, doi:10.3390/math10071076, sections 3–4: numerical mode diagrams and phase multistability, not an analytic critical reciprocal rate."
+      ],
+      "reasoning": "Published global attraction controls the limit but not how the inverse invading population diverges; an eigenvalue-one Jacobian or generic transcritical normal form gives a qualitative slow direction but not this signed coefficient and global finite-offset statement without a specific third-order computation and summability argument. No inspected theorem has stronger hypotheses and a conclusion subsuming the exact claim.",
+      "searches": [
+        "\"Stability of a Ricker-type competition model and the competitive exclusion principle\" center manifold",
+        "doi:10.1080/10236198.2023.2222855",
+        "planar discrete competitive population map sharp extinction rate asymptotics n log n on nonhyperbolic boundary",
+        "discrete center manifold transcritical Ricker map first-order log asymptotics at neutral multiplier one"
+      ]
+    },
+    "checked_sources": [
+      "Baigent et al. 2023, doi:10.1080/10236198.2023.2222855, full open-access PDF relevant portions including theorem and appendix",
+      "Luís, Elaydi and Oliveira 2011, doi:10.1080/17513758.2011.581764, indexed abstract and substantial available article content; full PDF unavailable",
+      "Kulakov, Neverova and Frisman 2022, doi:10.3390/math10071076, indexed sections 3–4",
+      "Published mathematical-result searches covering Ricker, center manifolds, logarithmic drift, equivalent forms and parameter cancellation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 exact monotonicity identity \\(z_{n+1}/z_n=e^{-\\gamma y_n}\\), where \\(z_n=y_n/x_n^\\beta\\), implies the monotone ratio and the boundary limit but not the coefficient of \\(\\log n\\) or existence of a corrected finite limit.",
+        "2011 work establishes local stability and a transcritical bifurcation for the same physical map; available snippets do not demonstrate the third-order scalar expansion needed for this law.",
+        "The previous periodic Lotka-Volterra claim has a continuous, periodically forced cooperative system and gives only O(log t/t^2) correction, not this discrete-map log coefficient or cancellation."
+      ],
+      "reasoning": "The new conclusion refines the same-object 2023 convergence theorem and is not a direct corollary of its statement. The transformed stable coordinate \\(q=x-r+\\alpha y\\) and exact cubic coefficient yield the reciprocal logarithmic drift; summability yields the finite constant. Potential coverage from the inaccessible 2011 center-manifold paper is retained as a risk rather than asserted impossible.",
+      "searches": [
+        "doi:10.1080/10236198.2023.2222855",
+        "doi:10.1080/17513758.2011.581764",
+        "doi:10.3390/math10071076",
+        "04eddb3a-1618-448e-82f0-e620551891e5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baigent et al. 2023, doi:10.1080/10236198.2023.2222855, Theorem 3.6 R3: convergence at s=beta*r, without sharp reciprocal asymptotics.",
+        "Luís et al. 2011, doi:10.1080/17513758.2011.581764, publicly accessible abstract/introduction and transcritical discussion: local center-manifold and stability, no verified displayed reciprocal logarithmic expansion in accessible material.",
+        "Public result record 2026/10/11/SCOPE-sharp-logarithmic-critical-relaxation-at-the-bullying-index-thre--becd784ce552: logarithmic extinction in a different continuous bullying-index system, not the planar Ricker recurrence."
+      ],
+      "reasoning": "Aliases checked include neutral invasion multiplier, transcritical exclusion, reciprocal-population drift, and parabolic center iteration. The closest continuous-flow law has a different vector field and coefficient and cannot entail this discrete-map result. Older same-map center-manifold work remains a plausible implicit antecedent; its full text was not obtained, so there is residual priority risk rather than a false full-document exclusion.",
+      "searches": [
+        "planar Ricker two-species competitive map transcritical boundary s=beta r global critical extinction 1/y_n=(1-alpha beta)n+( (1-alpha beta)/2-alpha beta/r)log n+C",
+        "Ricker exponential competition map extinction parabolic center manifold x=r-alpha y-alpha(1-alpha beta)y^2/r, asymptotic n^-1 rate",
+        "\"Ricker competition\" \"logarithmic correction\" \"transcritical\"",
+        "\"planar Ricker map\" \"log n\" extinction rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kulakov et al. 2022 Table/figure discussion lists bifurcation and mode regions but does not supply an explicit table for the reciprocal extinction coefficient in the material consulted.",
+        "Published semantic search returned 2026/10/11/SCOPE-a-finite-timescale-logarithmic-cancellation-surface-at-koper-equ--ae186e893712 for a different continuous Koper flow; no exact tabulated Ricker coefficient surfaced."
+      ],
+      "reasoning": "The matched published results concern different models or qualitative Ricker bifurcation boundaries rather than a table of the explicit coefficient \\((1-\\alpha\\beta)/2-\\alpha\\beta/r\\). No-matching-hit evidence is not used as a uniqueness proof.",
+      "searches": [
+        "critical Ricker competition map logarithmic cancellation alpha beta parameter surface and reciprocal population convergence",
+        "two species planar Ricker competitive map critical coexistence exclusion boundary s=beta r, parabolic center manifold asymptotic y_n ~ 1/((1-alpha beta)n) with logarithmic correction",
+        "\"Ricker\" \"critical\" \"1/n\" convergence transcritical",
+        "Ricker 2022 dynamic modes phase multistability transcritical zero Lyapunov exponent nonlinear critical"
+      ]
+    },
+    "rationale": "The exact global two-species Ricker transcritical logarithmic reciprocal coefficient and its finite-offset cancellation surface are not stated in the inspected 2023 primary theorem or the inspected 2022 mode-analysis sections, and searched published-result records returned only different-model analogues. This is a best-knowledge novelty judgment, not a uniqueness proof; the inaccessible 2011 same-map center-manifold text leaves a real priority risk.",
+    "residual_risks": [
+      "A plausible 2011 same-map paper explicitly derives center manifolds, but its primary PDF remained inaccessible; it could encode an equivalent cubic center law or support an immediate calculation.",
+      "Older normal-form and competitive-map literature may contain an equivalent critical-rate asymptotic under transformed parameter conventions.",
+      "Search results and article excerpts cannot establish exhaustive global novelty; independent literature audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.6 R3 proves attraction of all positive states to \\((r,0)\\); inspected full mathematical text contains no claimed universal reciprocal logarithmic profile or cancellation locus.",
+        "evidence": [
+          "Theorem 3.6 R3 and proof on PDF pages 9–10",
+          "Equation (1), Theorem 3.4 and appendix",
+          "Published online 26 June 2023"
+        ],
+        "identifier_or_url": "https://repository.londonmet.ac.uk/8616/1/A%20global%20picture%20for%20the%20planar%20Ricker%20map%20convergence%20to%20fixed%20points%20and%20identification%20of%20the%20stable%20unstable%20manifolds.pdf",
+        "material_read": "18-page PDF: sections 1–3 including Theorems 3.4 and 3.6 and their proofs; references and appendix concerning stable/unstable manifolds; page 9 inspected visually.",
+        "method": "Read open-access full-text PDF text and relevant page image.",
+        "title": "A global picture for the planar Ricker map: convergence to fixed points and identification of the stable/unstable manifolds",
+        "trigger": "Same exact Ricker map, neutral invasion threshold and global attractor."
+      },
+      {
+        "assessment": "Relevant direct priority risk: exact same two-species model and center manifolds. Accessible sections discuss bifurcation and local stability, but cannot establish a whole-document absence of the claimed coefficient.",
+        "evidence": [
+          "2011 Journal of Biological Dynamics 5, 636–660",
+          "Abstract explicitly says center manifolds determined",
+          "Accessible text describes transcritical line L=bK"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17513758.2011.581764",
+        "material_read": "Publisher-indexed abstract, introduction, transcritical bifurcation portion and center-manifold context. Full primary PDF could not be obtained.",
+        "method": "Article search-indexed textual portions and abstract; open-access PDF routes unsuccessful.",
+        "title": "Stability of a Ricker-type competition model and the competitive exclusion principle",
+        "trigger": "Earlier same map; potential center-manifold equivalent or dominating calculation."
+      },
+      {
+        "assessment": "The same two-species competition family is analyzed using phase diagrams and bifurcating cycles, not the exact nonhyperbolic global critical-rate coefficient in the passages consulted.",
+        "evidence": [
+          "Mathematics 10 (2022), article 1076",
+          "Section 3 discusses transcritical bifurcation lines and numerical phase maps"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10071076",
+        "material_read": "Accessible indexed sections 3 and 4 on dynamic mode maps, transcritical boundary, period-doubling and multistability; full PDF was not required for a decisive parameter-specific comparison.",
+        "method": "Read substantial public HTML search-indexed full-article passages.",
+        "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+        "trigger": "Related two-species Ricker competition dynamics and transcritical boundary."
+      },
+      {
+        "assessment": "Different continuous dynamical system; record alone does not imply this particular discrete competitive-map law. No whole-document absence inference is made.",
+        "evidence": [
+          "Public summary gives t*y(t) limit and a logarithmic inverse-population correction for a bullying-index ODE"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-critical-relaxation-at-the-bullying-index-thre--becd784ce552",
+        "material_read": "Public title and research-record summary only, not the full paper.",
+        "method": "Read short published result description.",
+        "title": "Sharp logarithmic critical relaxation at the bullying-index threshold",
+        "trigger": "Closest log-reciprocal profile in published mathematical-result search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f39409cb-e354-40d9-ba78-cdb1f9a8de59",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the critical invasion boundary, extinction speed is a natural observable. The exact logarithmic coefficient, its parameter-dependent sign, and its zero locus distinguish distinct asymptotic relaxation regimes that global attraction and linear stability cannot differentiate. The result is global over all strictly positive initial conditions in a nontrivial parameter range, and the reciprocal trajectory has a finite corrected constant even on the cancellation locus.",
+    "status": "PASS"
+  }
+}
