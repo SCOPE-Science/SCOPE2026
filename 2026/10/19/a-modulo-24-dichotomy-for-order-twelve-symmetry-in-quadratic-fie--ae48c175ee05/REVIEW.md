@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** The nonvanishing-minors criterion and the explicit two-by-two matrix are reconstructed from Garcia–Karaali–Katz, Theorem 6.7. For the four exceptional prime residue classes, Stickelberger's valuations give divisibility by \(p\) of every conjugate of the order-24 Jacobi sum. Integrality, the equal complex absolute values of all conjugates, Kronecker's theorem, and the automorphism \(\zeta_{24}\mapsto\zeta_{24}^{11}\) force the Jacobi sum to be \(\pm p\). For the other four residue classes unequal Gauss valuations exclude equality. The actual packaged exact cyclotomic checker passes for 20 primes and all primitive exponents. Its finite results do not substitute for the uniform proof.
+
+**Originality — PASS, with explicit residual risk.** The closest primary source (Garcia–Karaali–Katz, Section 6.3) gives the equivalence with Gauss-sum equality but does not classify order-twelve characters as the characteristic varies. Díaz Padilla–Ochoa Arango handles a different index-three subgroup. The closest published quadratic-field monomial result assumes index at least four and a character trivial on the base-field units; the new classes \(17,19\) satisfy neither hypothesis. A stronger classical classification phrased in terms of *pure Jacobi sums* could imply the arithmetic assertion, and comprehensive coverage of that specialized literature remains an unresolved bibliographic risk.
+
+**Value — PASS.** The classification determines, for every prime in eight arithmetic progressions and every character in a complete natural order class, whether a two-orbit compressed Fourier transform has the strongest possible zero pattern or has no zero entries. It identifies two genuinely different cancellation mechanisms beyond obvious Frobenius symmetry and base-subfield triviality, so the result supplies a nontrivial explicit quantitative slice of the symmetry-uncertainty problem rather than an isolated computation.
+
+**Boundaries.** No classification for other character orders; no independently established novelty certification; no determination of Fourier phases. The proof relies on standard, explicitly named arithmetic theorems and is not an elementary calculation alone.
+
+Self-review: passed. Independent audit: not yet performed.
