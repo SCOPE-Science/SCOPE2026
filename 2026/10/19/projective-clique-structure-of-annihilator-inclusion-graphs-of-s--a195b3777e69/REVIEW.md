@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The pairing induced by radical multiplication is well-defined over the residue field even without a coefficient field, as the cube-zero hypothesis kills ambiguity in lifts. Its radical is exactly the socle modulo the square. A non-socle annihilator is the inverse image of a codimension-one kernel. Distinct projective directions modulo the pairing radical yield incomparable hyperplanes, so the clique-join decomposition and multiplicities follow without an omitted case. The graph's universal vertices then give the reconstruction, automorphism, clique and chromatic conclusions. Both nonisomorphic test rings share rank but differ by nonsocle square-zero elements. Eleven exact finite ring configurations were checked independently of the symbolic count; their finite scope is acknowledged.
+
+**Originality: PASS, subject to stated residual risk.** The primary 2026 inclusion-graph paper proves general connectivity, diameter, girth and completeness properties and suggests studying clique/chromatic numbers; its inspected theorem statements and closing section do not state the projective-clique classification or its reconstruction boundary. The closest published comparisons on annihilator-compressed graphs use different vertex and edge definitions, while work on short local algebra multiplication tensors concerns monomializability rather than the element-level inclusion graph. Targeted mathematical database and literature searches located no theorem whose statement implies this classification. Unknown or unindexed equivalent results remain a risk; absence from search is not a proof of novelty.
+
+**Value: PASS.** This is a complete classification for an infinite, algebraically natural class with both Frobenius and non-Frobenius members and mixed-characteristic examples. It answers the originating paper's suggested clique/chromatic direction on this family, reconstructs residue-field and pairing-rank data from the graph in the noncomplete case, and exhibits a sharp limitation of recovering rings from that graph.
+
+**Limits.** The radical-square dimension must be one. The complete case cannot recover all parameters; ring isomorphism is never asserted from graph isomorphism. Literature comparisons do not amount to independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
