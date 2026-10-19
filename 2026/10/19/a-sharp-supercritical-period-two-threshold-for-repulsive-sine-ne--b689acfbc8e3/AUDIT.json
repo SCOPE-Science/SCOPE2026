@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For any connected positively weighted bipartite graph, the conjugate signless Laplacian is irreducible and nonnegative. Perron–Frobenius makes \\(\\lambda\\) simple, while connectedness gives \\(Q>0\\). The exact Hessian integral is strictly below the spectral upper bound at \\(h=2/\\lambda\\) along every moving step, excluding all nontrivial periodic orbits through the endpoint; compactness forces omega-limit points to equilibria. Oddness and analytic implicit-function reduction at antiphase yield \\(x_\\mu=\\sqrt{3\\lambda\\mu/Q}\\,v+O(\\mu^{3/2})\\), with an invertible transverse linearization because the remaining Laplacian eigenvalues lie in \\((0,\\lambda)\\). The Jacobians at the two points coincide. Their critical multiplier is \\(-1+2\\mu+O(\\mu^2)\\), while all other quotient multipliers are strictly inside the unit circle. The embedded `verify.py` was replayed on seven bipartite graphs with 3,689 numerical checks; numerical evidence does not prove an all-graph assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Litman gives a general fourth-order local potential expansion and one-mode bifurcation criterion for arbitrary losses, which directly covers part of the graph case once the quartic sign is supplied.",
+        "Buescu–D'Aniello–Oliveira gives the weighted graph Laplacian upper bound, but its exclusion ends strictly below \\(h=2/\\lambda\\)."
+      ],
+      "reasoning": "The stronger generic local theory was material-read and factored out of the originality claim. It does not prove a graph-independent guarantee of attraction or a global no-cycle endpoint. Combining it with graph-specific calculations can reproduce the existence component, so this is a meaningful residual priority dependency rather than an alleged independent new bifurcation principle.",
+      "searches": [
+        "Universal supercritical flip bifurcation of discrete Huygens sine oscillator network at potential descent spectral threshold; transverse stable 2 cycle",
+        "Cosine potential weighted bipartite graph square-root period doubling largest Laplacian eigenvector Perron-Frobenius normal form",
+        "arxiv:2604.20446v1 Theorem 2.3, Corollary 2.5; arxiv:2610.10993v1 Theorem 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.10993v1; full HTML material as stated",
+      "arxiv:2604.20446v1; full relevant HTML material as stated",
+      "arxiv:2607.04993v1; abstract only",
+      "Published mathematical research search: three final semantic queries recorded in checks; closest results compared on scientific implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.10993v1 Corollary 5.3: for trees, phase opposition ceases to be a sink when \\(h>2/\\lambda\\). Instability alone does not entail an attracting periodic orbit.",
+        "arxiv:2604.20446v1 Corollary 2.5: a generic local period-two branch exists under a nonzero quartic condition; local attraction and endpoint global no-periodicity are not its conclusions."
+      ],
+      "reasoning": "The present claim is strictly stronger than the motivating noninvertibility/instability statements: it constructs and proves attraction of an orbit over all weighted bipartite graphs and excludes any nontrivial periodic orbit at equality. Generic local branching supplies part of the proof background, but does not dominate the complete result.",
+      "searches": [
+        "Discrete repulsive Kuramoto star graph uniform edge phase differences first stable period-two orbit after h=2/(m+1), critical h=pi/(m+1), synchronized antipodal leaf oscillation",
+        "For every connected weighted bipartite graph, discrete repulsive Kuramoto gradient map exhibits attracting stable antiphase-centered period-2 orbit immediately above h=2/lambda_max weighted Laplacian, square-root amplitude 3lambda mu / quartic eigenvector sum",
+        "repulsive discrete time kuramoto graph flip bifurcation bipartite periodic orbit",
+        "arxiv:2610.10993v1 Corollary 5.3; arxiv:2604.20446v1 Corollary 2.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.10993v1 Proposition 3.4: all periodic orbits are equilibria for strict h<2/lambda, not including \\(h=2/\\lambda\\).",
+        "arxiv:2604.20446v1 Corollary 2.5: generic gradient-descent two-cycle branching and leading amplitude are already covered in abstract form."
+      ],
+      "reasoning": "The local square-root mechanism is equivalent to a specialization of Litman and not claimed as novel. The full statement additionally fixes the universal weighted-bipartite graph conditions, transverse attraction, explicit critical Floquet coefficient and sharp global endpoint; those stronger assertions were not found to be equivalent to a named inspected theorem.",
+      "searches": [
+        "For every connected weighted bipartite graph, discrete repulsive Kuramoto gradient map exhibits attracting stable antiphase-centered period-2 orbit immediately above h=2/lambda_max weighted Laplacian, square-root amplitude 3lambda mu / quartic eigenvector sum",
+        "Universal supercritical flip bifurcation of discrete Huygens sine oscillator network at potential descent spectral threshold; transverse stable 2 cycle",
+        "\"discrete Huygens\" \"star\" \"period two\" \"phase\"",
+        "arxiv:2610.10993v1 §§3, 5; arxiv:2604.20446v1 §2 and Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The weighted graph family contains arbitrary positive real weights; the result is a parameter-uniform analytic theorem rather than a finite-period table.",
+        "No indexed numerical orbit table matching this full continuous-weight and variable-topology statement was located."
+      ],
+      "reasoning": "A finite graph/database census cannot imply an all-weight all-connected-bipartite assertion. This check does not establish originality by negative search; the analytic implication comparisons above are decisive.",
+      "searches": [
+        "For every connected weighted bipartite graph, discrete repulsive Kuramoto gradient map exhibits attracting stable antiphase-centered period-2 orbit immediately above h=2/lambda_max weighted Laplacian, square-root amplitude 3lambda mu / quartic eigenvector sum",
+        "Cosine potential weighted bipartite graph square-root period doubling largest Laplacian eigenvector Perron-Frobenius normal form",
+        "\"discrete Huygens\" \"period doubling\" \"bipartite\" network"
+      ]
+    },
+    "rationale": "The motivating source proves potential decrease only for \\(0<h<2/\\lambda\\) and Corollary 5.3 establishes loss of antiphase stability for \\(h>2/\\lambda\\) on trees, without constructing an attracting replacement. Litman's general gradient-descent theory already establishes abstract local square-root period-two branching, so that mechanism alone is covered prior work. The reviewed full claim additionally verifies critical simplicity and the quartic sign across all connected positive-weight bipartite topologies, establishes transverse attraction with a leading Floquet coefficient, and includes strict global no-periodicity at \\(h=2/\\lambda\\). Comparison of the actual primary statements does not show the complete stronger result to be implied; potential unindexed equivalences remain a residual risk.",
+    "residual_risks": [
+      "A prior specialized sine-network proof, unindexed or unpublished, could already contain the same sharp threshold and attracting cycle.",
+      "The generic local square-root bifurcation component follows Litman 2026 and should not be represented as independently novel.",
+      "The full text of Hofmann 2026 was not materially inspected; its abstract does not indicate identical network objects but priority comparison cannot be definitive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_COMPLETE_CLAIM: excludes cycles only strictly below threshold and proves above-threshold loss of sink stability on trees, not the universal stable postcritical orbit and endpoint.",
+        "evidence": [
+          "Original Eq. (3), Eq. (36), Theorem 3.2, Proposition 3.4, Corollary 5.3, Section 5.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+        "material_read": "Sections 2 and 3 including Theorem 3.2 and Proposition 3.4; Section 5 especially Corollary 5.3 and cycle constraints; conclusions and bibliography.",
+        "method": "Read lawfully public original HTML full text and compared its equations, hypotheses and implications.",
+        "title": "Morse–Smale dynamics in discrete Huygens networks",
+        "trigger": "Same exact weighted-graph map and sharp spectral descent threshold."
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: already proves abstract local amplitude branching, but does not assert graph-wide positivity, attraction and universal sharp no-periods endpoint.",
+        "evidence": [
+          "Theorem 2.3, Proposition 2.4, Corollary 2.5 and Appendix A, Eq. (74)–(78)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.20446v1",
+        "material_read": "Sections 1–3, Theorem 2.3, Proposition 2.4, Corollary 2.5, and their Appendix A proofs; assessed distinction between local branching and attracting graph network result.",
+        "method": "Read lawfully public original HTML, including quartic expansion, branch sign and amplitude proof.",
+        "title": "The Origin of Edge of Stability",
+        "trigger": "Plausible stronger generic gradient-descent period-two branching theorem."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_RELEVANCE: abstract describes scalar quartic and factored machine-learning losses, not arbitrary sinusoidal weighted phase graphs.",
+        "evidence": [
+          "arXiv:2607.04993 abstract: scalar quartic/cubic gradient maps and deep linear chain examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.04993",
+        "material_read": "Abstract and available public subject summary only; complete original text not accessible in this investigation.",
+        "method": "Reviewed indexed public abstract and subject description; did not label unread full text non-covering.",
+        "title": "The Map Behind the Flow: Finite-Step Gradient Descent as a Dynamical System",
+        "trigger": "Another possible general gradient-descent period-doubling comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b689acfb-c8e3-4cd8-9b33-cd804a38c1b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating network paper identifies the sharp descent bound \\(h_c=2/\\lambda\\) and loss of the antiphase sink above it, without identifying the subsequent attractor. The present theorem proves a topology- and weight-uniform sharp transition: no nonfixed periodic orbit occurs through the critical endpoint, while an attracting primitive period-two orbit is born for every connected positively weighted bipartite network immediately above it. The graph quartic gives a quantitative square-root amplitude and the two-step critical Floquet multiplier \\(1-4\\mu+O(\\mu^2)\\). This links a global Lyapunov barrier to a nontrivial recurrent birth, beyond a fixed-point multiplier or arbitrary finite example; distant postcritical dynamics and Morse–Smale transversality remain open.",
+    "status": "PASS"
+  }
+}
