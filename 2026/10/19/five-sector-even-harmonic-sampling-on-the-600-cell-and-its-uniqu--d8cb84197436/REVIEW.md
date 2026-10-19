@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The normalized \(S^3\) kernel is derived from the matrix-coefficient orthogonality of \(\mathrm{SU}(2)\) and checked at coincident points against the \((\ell+1)^2\)-dimensional source. The correct antipodal quotient and unweighted \(\mathbb C^{60}\) inner product are fixed. Schur orthogonality supplies the complete eigenvalues and multiplicities, while an exact finite residue table together with the algebraic identity \(m_\rho(\ell+60)=m_\rho(\ell)+d_\rho\) proves all infinite-degree claims. The uniqueness of tight rank-59 sampling is independently derived from equality of all four nontrivial character-class values. The package's executable checker verifies quaternion group closure and all finite residue and direct Gram spectrum cases. The infinite statement does not depend on numerical extrapolation.
+
+## Originality — PASS, subject to disclosed priority risk
+The closest prior direct 600-cell theorem is Hirao–Nozaki–Tasaka (2025), Theorem 1.2(iii): it gives the **trivial** character-sector vanishings \(T(2I)\), including the already known degree-58 mean constraint. It does not provide every nontrivial evaluation sector, all individual-degree singular values, the full image projector, or the unique tight rank-59 property in the inspected work. The existing cumulative-band 600-cell result uses a different sampling space and does not imply the degreewise statements. Koca–Al-Ajmi–Koca (2009) provides the geometric group identification but not the sampling analysis. Backhouse–Gard (1974) gives relevant representation restriction theory; full-text access remained unavailable and an implicit prior spectral formulation cannot be ruled out. The finding explicitly excludes novelty claims for the group, its character table, and previously known harmonic-strength zeros.
+
+## Mathematical value — PASS
+The individual-degree evaluation problem is natural in spherical interpolation and is not answered by knowing an 11-design or the cumulative-band cutoff. The calculation identifies the first singly surjective degree \(20\), multiple subsequent losses, a last defective degree \(58\), and unconditional restoration from \(60\) onward. It supplies exact condition numbers and minimum-norm interpolation in every degree, and a unique rank-59 tight design with an explicit closed projector. These are structural consequences relevant to actual recovery of prescribed sample values, not arbitrary finite table entries.
+
+## Closest literature, limits and risk
+The 2025 harmonic-strength theorem covers the mean-zero obstruction and is expressly credited. The 1974 representation article, available only in abstract through the sources consulted, could contain decompositions from which more of the statement follows. A standard SU(2) coefficient theorem is a proof ingredient rather than novelty. No result for odd degrees, perturbed nodes or weighted sampling is claimed. No independent audit is implied.
+
+Self-review: passed. Independent audit: not yet performed.
