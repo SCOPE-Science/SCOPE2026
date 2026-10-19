@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The operator is normalized by the explicit seven real moment conditions. Chebotarev's nonvanishing minors give the uniform lower cardinality seven for prime cycles; six-dimensional Carathéodory gives the matching upper bound. Lagrange coefficient extraction solves the seven-node moment system uniquely and implies reality by conjugation invariance. At prime eleven, the twenty-orbit count is also verified independently by Burnside's lemma. The executable certificate implements entirely outward-rounded rational intervals: a Machin enclosure for \(\pi\), rational Taylor bounds for all angular matrix entries, and interval Gaussian elimination for each orbit representative. It proves a positive margin \(w_j>1/25\) for all 21 weights of the three positive orbit representatives and a negative margin below \(-1/25\) on one weight of each remaining representative. The complete orbit action then yields 33, not a sampled or heuristic number. No numerical experiment is used to infer the all-prime claim.
+
+## Originality — PASS, with residual risk
+Bownik–Yu (arXiv:2603.10423v1) address nearly tight continuum-frame discretization, not exact finite positive-weight minimizers. The directly comparable published three-site Fourier-sampling result (published-finding corpus:2026/10/11/SCOPE-sharp-positive-fourier-sampling-on-three-consecutive-cyclic-site--29fa16b8c55a) proves cardinalities for three sites and explicitly excludes longer progressions. Dutkay–Ranasinghe construct weighted Fourier frames for self-affine measures; Frederick–Mayeli study finite frame spectral pairs without the present orbit enumeration. Chebotarev plus Carathéodory does already yield the **seven-frequency minimum alone** and is fully credited. The substantive unreported comparison target is the exact prime-eleven count of 33 supports and its three positive orbits. Targeted mathematical-record, primary-source, and published-record searches found no implication of that count. Inaccessible or unindexed quadrature classifications remain a genuine possibility.
+
+## Value — PASS
+Exact positive-weight Fourier sampling is a natural harmonic-frame design problem: positivity makes the measurement system physical and the minimum cardinality measures measurement redundancy. Prime eleven is the first case after the tautological seven-point prime, so the 33-of-330 figure and all three symmetry classes constitute a natural complete optimizer classification, not an arbitrary parameter slice. The explicit unique-weight test and strict rational certificates distinguish useful designs from unsupported subsets. The census is informative even though the general infinite-prime lower/upper bound follows quickly from classical tools.
+
+## Scope and residual limitations
+The finite optimizer classification is not generalized to all primes or composite moduli. Chebotarev is an established external theorem. The orbit census is same-model reproduced from the attached standalone program and has not received independent scientific audit or historical priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
