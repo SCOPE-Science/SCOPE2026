@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "PBH for real symmetric Laplacians reduces rank loss to eigenvectors with zero controlled coordinate. The two-arc sine recurrence proves all non-0,non-4 dark eigenvectors must be the cycle sine modes satisfying n|2kd, counted exactly as floor((gcd(n,2d)-1)/2); its q≠0 branch is contradicted by the boundary identities for every w>0. The λ=4 linear-limit recurrence forces both even arc lengths and precisely w=1/d+1/(n-d), and constructs a one-dimensional extra eigenspace. Connectedness eliminates λ=0. A standalone standard-library checker reproduced 2645 finite-field lower-bound Krylov ranks (n=4..48) and exact rational λ=4 eigenvectors. Experiments do not replace the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1109/TAC.2014.2381435; broad Laplacian graph controllability classes, available abstract and indexed claims",
+        "doi:10.1002/rnc.3870; abstract names further graphs derived from path and cycle, full theorem set inaccessible",
+        "arxiv:1109.3556v1, §IV-B and Appendix B; one or more inputs on an unchanged cycle"
+      ],
+      "reasoning": "PBH applies broadly, but by itself is not a closed-form gcd-and-resonance rank classification; the proof must solve two coupled arc boundary equations and the exceptional λ=4 case. The 2017 article potentially treats cycle-derived graphs, but the accessible abstract lacks precise weighted-chord statements. This limits assurance and is recorded as a residual source-access risk, rather than asserted noncoverage of an unread full text.",
+      "searches": [
+        "single input controllability for cyclic graphs with added chords eigenvalue degeneracy gcd",
+        "rank deficiency of Kalman controllability matrix of chorded cycle graph from chord endpoint, conductance dependent resonance at Laplacian eigenvalue 4",
+        "doi:10.1109/TAC.2014.2381435",
+        "doi:10.1002/rnc.3870"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1109.3556v1, §IV-B and Appendix B; one or more inputs on an unchanged cycle",
+      "arxiv:1407.5255v2, §§1-3; theta-graph Laplacian spectral identification, not a control-input rank",
+      "doi:10.1109/TAC.2014.2381435; broad Laplacian graph controllability classes, available abstract and indexed claims",
+      "doi:10.1002/rnc.3870; abstract names further graphs derived from path and cycle, full theorem set inaccessible",
+      "Primary result-index semantic queries on chorded cycles, theta graphs, rank deficiency, and conductance resonance",
+      "Relevant previously accessible mathematical claims on path/cycle controllability, graph weights, and leader placement, compared by exact statement and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1109.3556v1, §IV-B and Appendix B; one or more inputs on an unchanged cycle",
+        "arxiv:1407.5255v2, §§1-3; theta-graph Laplacian spectral identification, not a control-input rank",
+        "doi:10.1109/TAC.2014.2381435; broad Laplacian graph controllability classes, available abstract and indexed claims",
+        "doi:10.1002/rnc.3870; abstract names further graphs derived from path and cycle, full theorem set inaccessible"
+      ],
+      "reasoning": "The old path/cycle theory identifies eigenmodes for different unmodified state matrices, and theta-graph spectral determinants do not fix eigenvector coordinates at the single leader. The new conductance-resonance indicator is not a special case of the stated results without new analysis. Coverage by the inaccessible 2017 article cannot be definitively excluded.",
+      "searches": [
+        "chorded cycle single leader reachability eigenvectors control Laplacian add edge at actuated vertex equivalent two leaders",
+        "exact one-leader Laplacian controllability rank on a cycle with one weighted chord incident to leader, gcd(n,2d) and special resonance weight n/(d(n-d))",
+        "rank deficiency of Kalman controllability matrix of chorded cycle graph from chord endpoint, conductance dependent resonance at Laplacian eigenvalue 4",
+        "arxiv:1109.3556v1 Theorem IV.10",
+        "arxiv:1407.5255v2 Proposition 2.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1109.3556v1, §IV-B and Appendix B; one or more inputs on an unchanged cycle",
+        "arxiv:1407.5255v2, §§1-3; theta-graph Laplacian spectral identification, not a control-input rank",
+        "Sine-mode and arc-boundary formulation compared explicitly with the cycle two-input and theta spectral formulations."
+      ],
+      "reasoning": "A chorded cycle is a theta graph with one direct weighted path. A control input at one chord endpoint is not the same operator as two node inputs on an unchanged cycle. The stated rank defect additionally detects an exceptional λ=4 eigenvector at one positive conductance; neither inspected paper states or algebraically eliminates that parameter. The theta paper determines spectra, not single-input eigenvector vanishing.",
+      "searches": [
+        "cycle graph with a chord connecting driver node to second node Laplacian controllability gcd n d exactly rank deficiency",
+        "chorded cycle single leader reachability eigenvectors control Laplacian add edge at actuated vertex equivalent two leaders",
+        "weighted theta graph with direct shortcut edge and two equal endpoint paths, PBH uncontrollable eigenvalues sine eigenvectors at chord endpoints",
+        "arxiv:1109.3556v1 §IV-B",
+        "arxiv:1407.5255v2 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed theta-graph title concerns algebraic gnarledness, not control rank; the signless-Laplacian result concerns quantum graphs, not consensus controllability.",
+        "The earlier accessible statements concerned two-input cycles, path observability, conductance budgets, and leader placement; none provides the present weighted-chord single-input rank formula."
+      ],
+      "reasoning": "Queries combined graph alias, input location, gcd parameter, Kalman rank and resonance. No matching exact-value table was returned or found in accessible prior claims. This is bounded search evidence, not a claim of universal database coverage.",
+      "searches": [
+        "cycle graph with a chord connecting driver node to second node Laplacian controllability gcd n d exactly rank deficiency",
+        "exact one-leader Laplacian controllability rank on a cycle with one weighted chord incident to leader, gcd(n,2d) and special resonance weight n/(d(n-d))",
+        "weighted theta graph with direct shortcut edge and two equal endpoint paths, PBH uncontrollable eigenvalues sine eigenvectors at chord endpoints",
+        "rank deficiency of Kalman controllability matrix of chorded cycle graph from chord endpoint, conductance dependent resonance at Laplacian eigenvalue 4"
+      ]
+    },
+    "rationale": "The proved theorem supplies a full parameter-dependent rank and explicit conductance resonance for a one-input weighted chorded cycle. Direct full-text study of the 2011 cycle controllability paper and the 2014 theta spectral paper found neither this rank law nor its exceptional positive-weight mode. Relevant semantic queries and own prior claims yielded no equivalent or stronger statement. General PBH criteria do not supply the closed form without the nontrivial two-arc elimination. A 2017/2018 closely related article was accessible only as abstract; this and unindexed work remain explicit novelty risks.",
+    "residual_risks": [
+      "The Liu–Ji 2017/2018 full text was inaccessible; its unspecified cycle-derived graph results could overlap a portion of this theorem.",
+      "The Aguilar–Gharesifard 2015 full text was not retrieved; broad criteria may include related examples.",
+      "Unindexed equivalent parameterizations or later variants cannot be excluded by semantic searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different unmodified-cycle operator and one/multiple control inputs; no weighted chord or conductance resonance located in inspected sections",
+        "evidence": "§II-D PBH; Proposition IV.8; Lemma IV.9; Theorem IV.10",
+        "identifier_or_url": "https://arxiv.org/html/1109.3556v1",
+        "material_read": "Primary arXiv full-text HTML: Sections II-D and IV-B, the path/cycle spectral preliminaries, and the introduction; not a snippet-only comparison",
+        "method": "Read primary arXiv HTML and compare graphs, input vectors and formulas",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Foundational pre-2016 number-theoretic controllability theory with the same cycle object"
+      },
+      {
+        "assessment": "Classifies graphs by Laplacian spectra; does not give input-location PBH rank or conductance threshold in material inspected",
+        "evidence": "Theorem 1.2 and Proposition 2.6 are Laplacian spectral identification and polynomial identities",
+        "identifier_or_url": "https://arxiv.org/html/1407.5255v2",
+        "material_read": "Full-text HTML abstract, introduction, Theorem 1.2, spectral preliminary formulas and Proposition 2.6",
+        "method": "Read relevant primary arXiv HTML statements and proofs around the spectral polynomials",
+        "title": "Laplacian spectral characterization of dumbbell graphs and theta graphs",
+        "trigger": "Chorded cycles form a theta family with a single direct chord"
+      },
+      {
+        "assessment": "General graph controllability classes and examples, with no explicit parameterized weighted-chord rank in the accessible material; full-text coverage not certified",
+        "evidence": "2015 paper abstract and bibliographic information",
+        "identifier_or_url": "https://doi.org/10.1109/TAC.2014.2381435",
+        "material_read": "Published abstract and indexed exposition only; full PDF not successfully retrieved",
+        "method": "Compared publicly accessible abstract-level statements and subject classification",
+        "title": "Graph Controllability Classes for the Laplacian Leader-Follower Dynamics",
+        "trigger": "Potential broad control-theoretic coverage"
+      },
+      {
+        "assessment": "Abstract discusses additional cycle-derived graphs, so equivalent full-text coverage is unresolved; not treated as NOT_COVERING",
+        "evidence": "Abstract published 2017-06-30, 2018 issue, explicit mention of graph types generated from paths and cycles",
+        "identifier_or_url": "https://doi.org/10.1002/rnc.3870",
+        "material_read": "Published article abstract and references only; no full-text access",
+        "method": "Checked OA/arXiv search and publisher page; authorized full-text request did not complete",
+        "title": "Controllability of multiagent systems based on path and cycle graphs",
+        "trigger": "Plausible later work on path/cycle-derived topologies"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2493af8-39b5-4f47-8bf0-441cbd08f994",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact rank of a physically natural single-driver consensus network is determined for every cycle size, chord position and positive weight. It reveals an arithmetical family of persistently unreachable harmonics and an isolated positive conductance where controllability decreases by one, despite a fixed graph topology. This gives a complete natural classification rather than a small numerical example, and identifies a resonance relevant to topology/weight design. The critical weight is precisely the reciprocal of the original-cycle effective resistance between chord endpoints, giving the resonance a natural electrical interpretation.",
+    "status": "PASS"
+  }
+}
