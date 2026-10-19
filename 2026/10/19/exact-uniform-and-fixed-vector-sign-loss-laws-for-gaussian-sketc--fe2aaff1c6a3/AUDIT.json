@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "A direct 2x2 SPD determinant equivalence, exact Gaussian sample-correlation beta law, independent fixed-pair Student-tail law, attainable two-eigenvalue Kantorovich extremum, and chi-square/normal scaling prove all advertised formulas with the stated quantifiers, including k=2 and both asymptotic endpoints. Reproducible numerical checks confirm finite cases without being used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel–Schweitzer 2023 studies embedding-dependent convergence of sketched GMRES for positive-real matrices, without an exact unconditional 2x2 Gaussian all-direction beta risk.",
+        "Palitta–Schweitzer–Simoncini 2025 analyzes sketched Ritz outliers and Krylov error, rather than uniform positivity of the 2x2 Wishart-Jordan form.",
+        "The standard Gaussian projection lemma in Kabán–Durrant 2020 quantifies a fixed pair, not arbitrary adaptive v."
+      ],
+      "reasoning": "Embedding guarantees could yield sufficient probability bounds, but no inspected theorem supplies equality or implies the sharp uniform and precommitted beta risks, their one-row identity, and if-and-only-if k/kappa scaling. The 2026 motivating manuscript remained inaccessible beyond public summaries, hence residual appendix risk.",
+      "searches": [
+        "Gaussian random sketch pair inner products uniform SPD two dimension correlation Beta Wishart sharp sampling threshold",
+        "Gaussian Wishart Jordan product accretivity failure 2x2 beta sample correlation threshold 4 kappa/(kappa+1)^2",
+        "Güttel and Schweitzer (2023), §3.1",
+        "Palitta–Schweitzer–Simoncini (2025), §§3,6"
+      ]
+    },
+    "checked_sources": [
+      "Güttel and Schweitzer 2023 (full manuscript, §3.1 and Theorem 3.3)",
+      "Palitta, Schweitzer, and Simoncini 2025 (full OA article, §3/§6)",
+      "Kabán and Durrant 2020 (full author manuscript, Lemma 2.2 and appendix)",
+      "Güttel, Liu, Nyman 2026 (arXiv metadata/abstract and public secondary summary only)",
+      "Published mathematical research records from completed semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed pair part is explicitly covered by the 2020 lemma and is credited, not treated as new.",
+        "The eigenvalue-outlier analysis of Palitta et al. is about small projected matrices; a full invariant two-dimensional Ritz projection need not have negative eigenvalues when the bilinear numerical range loses positivity.",
+        "The 2023 convergence guarantee assumes a subspace embedding, rather than giving the exact unconditional sign-loss probability."
+      ],
+      "reasoning": "Neither pointwise Gaussian sign loss nor embedding-based Krylov convergence logically determines the all-v existential event without a simultaneous event analysis. The new result deduces that event using a 2x2 Jordan determinant; one-row shift and sharp joint k/kappa scaling then follow. Claims are explicitly restricted to numerical-range and scalar one-dimensional projection positivity so they are not overstated as eigenvalue or convergence results.",
+      "searches": [
+        "Kantorovich inequality randomized embedding bilinear sign reversal adaptive vector beta Wishart one-row identity",
+        "sketched harmonic Arnoldi Gaussian sign change rank two right half plane stability condition number",
+        "Kabán and Durrant (2020), Lemma 2.2",
+        "Güttel–Schweitzer (2023), Theorem 3.3 and §3.1",
+        "Palitta–Schweitzer–Simoncini (2025), spectral outlier discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kabán–Durrant 2020, Lemma 2.2, supplies a closed-form sign-flip probability only for preselected vector pairs.",
+        "For the new event, the violating direction can be chosen after observing the sketch and is characterized by negative eigenvalues of (S^T S A+A S^T S)/2.",
+        "Its exact probability has a beta parameter (k−1)/2, not the fixed-pair k/2."
+      ],
+      "reasoning": "A fixed-pair sign flip does not imply a formula for the union over the continuum of sketch-dependent directions. The Wishart–Jordan-product determinant gives the simultaneous event, and the exact one-row shift relates but does not equate the quantifier structures. Standard sample-correlation beta distributions are acknowledged as known ingredients.",
+      "searches": [
+        "sketched positive realness Gaussian Wishart SPD all starting vectors adaptive numerical range condition number incomplete beta law",
+        "sketched harmonic Arnoldi Gaussian sign change rank two right half plane stability condition number",
+        "Kabán and Durrant (2020), Lemma 2.2, Gaussian random projection sign-flip probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned mathematical records involve equicorrelation sign covariance, a Gauss-Seidel SPD threshold, row coherence, and OLS mirror signs; none states the same sketched bilinear object or distribution.",
+        "Classical tables provide beta distributions for Gaussian sample angles, which are acknowledged rather than presented as a new special-function evaluation."
+      ],
+      "reasoning": "No equivalent result was identified in the actual searched published-record set; this is a bounded negative search, not a uniqueness proof. The object is a matrix-numerical-range stability event and not a known exact enumeration table in the inspected sources.",
+      "searches": [
+        "sketched positive realness Gaussian Wishart SPD all starting vectors adaptive numerical range condition number incomplete beta law",
+        "Gaussian random sketch pair inner products uniform SPD two dimension correlation Beta Wishart sharp sampling threshold",
+        "Kantorovich inequality randomized embedding bilinear sign reversal adaptive vector beta Wishart one-row identity",
+        "Exact probability Gaussian sketched Rayleigh quotient is negative on some vector in SPD two-dimensional subspace regularized beta condition number"
+      ]
+    },
+    "rationale": "The known fixed-pair Gaussian flip probability and standard beta law are acknowledged and explicitly not claimed new. The assessed simultaneous adaptive all-vector Wishart-Jordan probability and its one-row bridge/condition-number scaling are not implied by the inspected primary Krylov articles or published search results; named uninspected motivating-2026-source appendix remains a residual risk.",
+    "residual_risks": [
+      "The original 2026 motivating arXiv manuscript was not accessible in full, so an appendix covering an equivalent Wishart-Jordan positivity calculation cannot be ruled out.",
+      "Related results in unindexed random matrix/accretivity literature may exist under different terms; searched negative results are not proof of uniqueness.",
+      "Fixed-pair Gaussian sign-flip laws and beta distributions are previously known mathematical ingredients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides motivating problem and positive-realness assumptions; no complete-source comparison possible",
+        "evidence": [
+          "Initial submission listed 2026-07-11; abstract describes positive-real matrix Stieltjes convergence for sketched harmonic Arnoldi.",
+          "Original full text and appendices could not be inspected, explicitly leaving overlap risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+        "material_read": "Initial arXiv abstract, public extended exposition of the paper method, and accessible short descriptive preview; original full text unavailable",
+        "method": "Read publicly available abstract and methods summary; sought full arXiv and lawful open version; no full-paper claims of absence",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "2026 source of new sketched harmonic Arnoldi positive-realness and numerical stability motivation"
+      },
+      {
+        "assessment": "Embedding-based convergence bound, not exact Gaussian 2x2 all-vector numerical-range sign-loss distribution",
+        "evidence": [
+          "§3.1 defines positive-real A and embedding condition (1.1).",
+          "Theorem 3.3 bounds sketched GMRES error for Stieltjes functions given a subspace embedding."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/372635405_Randomized_Sketching_for_Krylov_Approximations_of_Large-Scale_Matrix_Functions",
+        "material_read": "Author-uploaded full article text, including §3.1, Theorem 3.3, assumptions and discussions",
+        "method": "Read full accessible HTML manuscript sections and theorem, comparing exact objects/quantifiers",
+        "title": "Randomized Sketching for Krylov Approximations of Large-Scale Matrix Functions",
+        "trigger": "Broad predecessor convergence theory for positive-real operators and sketching"
+      },
+      {
+        "assessment": "Does not state exact unconditional Gaussian 2x2 adaptive all-v sign-loss law or beta threshold",
+        "evidence": [
+          "Abstract and §3 analyze sketched Arnoldi and field-of-values outliers.",
+          "§6 discusses eigenvalue outliers outside spectral regions."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+        "material_read": "Full open-access article HTML, including theoretical development and §6 Ritz outliers",
+        "method": "Read available full primary manuscript and its claims concerning outlier Ritz values",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "Plausible stronger treatment of sketched Ritz value instability and numerical range"
+      },
+      {
+        "assessment": "Covers fixed-vector sign loss, explicitly credited; does not establish the adaptive all-v Wishart-Jordan formula or exact dimension shift",
+        "evidence": [
+          "Lemma 2.2(a), equation (8), gives exact Gaussian projected fixed-pair sign-flip probability.",
+          "Lemma 2.2 distinguishes pointwise flip probabilities from broader uniform learning bounds."
+        ],
+        "identifier_or_url": "https://pure-oai.bham.ac.uk/ws/files/105807329/Structure_from_Randomness.pdf",
+        "material_read": "Full primary PDF, specifically Lemma 2.2 on page 7 and proof Appendix A, plus related uniform learning bounds",
+        "method": "Read page image of Lemma 2.2 and primary PDF text; compare per-fixed-pair versus existential all-v quantifiers",
+        "title": "Structure from Randomness in Halfspace Learning with the Zero-One Loss",
+        "trigger": "Strong prior covering identical Gaussian fixed-vector inner-product sign flips"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe2aaff1-c6a3-46f5-9dbe-dc02fee4abae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform positive realness of a Gaussian-sketched SPD form is a natural sufficient stability property for signs of one-dimensional sketched Galerkin/harmonic projected scalars. The exact beta formula gives a sharp risk at every sketch size and spectral contrast; the k/kappa criterion is the exact oversampling scale needed to secure all adaptive directions. Contrasting the fixed and sketch-selected quantifiers prevents misuse of pointwise sign-preservation probability in adaptive Krylov numerical computations, without claiming an algorithm-wide convergence theorem.",
+    "status": "PASS"
+  }
+}
