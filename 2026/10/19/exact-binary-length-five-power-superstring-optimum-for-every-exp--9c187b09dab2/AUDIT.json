@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Every candidate host induces an ordered Hamiltonian path through the 32 equal-length mandatory powers, and maximal overlap is never longer than a given occurrence gap. If two roots are conjugate, their transition cost is the least positive shift and independent of exponent. Otherwise it is at least 5p-4, with exponent slope five. Any order with at least eight cross-class transitions therefore costs at least 45p-9 > 40p+2 for p>=3. The sole remaining block-class case is exhaustively minimized at p=3 by local permutations (up to 5! each) and all 4096 subset/end states, giving exactly 122 and an explicit checked host. Its cost increases by exactly 40 per exponent increment; an order with more transitions remains strictly too long. The included verifier reconstructs all data and the local/global DP directly, checks the witness, and compares smaller orders with an independently written unrestricted recurrence. No finite sample is substituted for the all-exponent argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Au Proposition 14 proves |w| >= k^n+(p-1)n C(n,k), which specializes to 40p-8; this remains ten symbols below the new 40p+2 theorem.",
+        "Au Theorem 15 makes a host of length k^n+(p-1)n C(n,k)+|s| from a conjugate cover s. A ten-symbol cover gives the matching upper bound but does not establish a matching lower bound or forced necklace-block order.",
+        "The inspected complete Section 3 leaves precise shortest p-power superstrings generally open beyond the displayed estimates."
+      ],
+      "reasoning": "An upper construction alone does not imply optimality. The new class-switch obstruction and finite lower-bound DP fill the ten-symbol lower gap and prove that every optimal order is class-blocked. A general-source result with narrower accuracy is not stronger coverage.",
+      "searches": [
+        "For binary length-five base words, shortest linear superstring containing all p-th powers for p>=3 has length 40p+2, via grouping all eight rotation classes and exhaustive dynamic programming",
+        "Yu Hin Au generalized de Bruijn powers shortest p-power all 32 binary length-five roots general exponent superstring necklace cover",
+        "\"p-power\" \"shortest word\" \"length\" 5 binary exact Au",
+        "arxiv:0904.3997v5 Section 3, Proposition 14 and Theorem 15"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0904.3997v5, complete relevant Section 3",
+      "arxiv:0904.3997v1, first public submission date 2009-04-25 (submission history)",
+      "https://oeis.org/A372435, inspected full entry",
+      "Mathematical-record semantic searches for p-power superstrings and five-bit cube covering, closest retrieved IDs compared by claim",
+      "Related exponent-two square-superstring results, checked only for mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior general lower bound 40p-8 and an attainable upper bound 40p+2 give only a length interval of eleven integer candidates; neither establishes equality.",
+        "A related exponent-two, root-length-five minimum of 82 is mathematically compatible with but does not imply the exponent-three minimum 122 or the all-exponent affine stabilization.",
+        "No identified mathematical-record hit supplies the necklace-contiguity theorem or the 4096-state finite minimum."
+      ],
+      "reasoning": "The main novelty is the strict exclusion of all interleaved rotation-class Hamiltonian orders and the sharp length-122 clustered optimum, which together imply exact stabilization for every integer exponent at least three. In particular, the sharp lower bound is not a corollary of Au’s construction or the earlier squares-only value.",
+      "searches": [
+        "arxiv:0904.3997v5 Section 3, bounds and Algorithm D",
+        "OEIS A372435",
+        "exact shortest superstrings powers repeated blocks binary exponent three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact claim concerns the shortest linear common superstring of {u^p: u in {0,1}^5} for every integer p>=3; an equivalent formulation is a minimum Hamiltonian path on 32 distinct p-power words with maximal suffix-prefix overlap costs.",
+        "Au, arXiv:0904.3997v5, Section 3, explicitly formulates the shortest superstring of p-powers, but gives general bounds instead of the fixed length-five exact value.",
+        "Targeted mathematical-record semantic searches returned no equivalent claim; some hits on cubes concerned maximum closed-rich word repetition rather than simultaneous covering of every cube."
+      ],
+      "reasoning": "Literature and database searches used both the power-superstring language and the Hamiltonian-overlap equivalent. The full primary section treats the same objects but does not state or imply sharpness at fifth-root length. Failed semantic searches are not a proof of novelty.",
+      "searches": [
+        "shortest binary common superstring containing all length-15 cubes of words of length five exact length optimum",
+        "smallest superstring containing all cubes of binary length-five blocks has length 122",
+        "\"powers\" \"shortest common superstring\" exact binary all fifth degree three repetitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A372435 explicitly concerns repeated blocks xx (squares, p=2), listing root lengths n=1,2,3,4, and does not provide a length-five exponent-three value or an all-exponent formula.",
+        "The value 122 for 32 fifteen-symbol binary cubes and its extension 40p+2 were not found in the accessible relevant sequence entry."
+      ],
+      "reasoning": "The nearby exact table records a different exponent and earlier base lengths. Although a database may have alternate encodings, the inspected sequence does not subsume the present fixed-base-length, all-exponent theorem.",
+      "searches": [
+        "site:oeis.org shortest word all p-powers binary n=5 exponent p",
+        "site:oeis.org \"32\" \"cubes\" \"shortest\" string",
+        "OEIS A372435 shortest binary string that contains all blocks of the form xx"
+      ]
+    },
+    "rationale": "The 2009/2015 primary source gives a general ten-symbol-wide fifth-root interval 40p-8 <= L <= 40p+2, not the sharp fifth-root lower bound or forced necklace-block theorem. The inspected OEIS table is for exponent two only. Nearby square-only results and semantic mathematical-record searches did not yield an implication covering the all-exponent assertion; residual indexing risk is reported.",
+    "residual_risks": [
+      "A prior exact computation of binary length-five cubes may exist under terminology not indexed by the searched services.",
+      "An inaccessible or unindexed specialization of a more general superstring theorem might prove the same sharp lower bound; the inspected primary bounds do not."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general framework and bounds, but does not imply the exact fifth-root minimum or all-optimum block rigidity.",
+        "evidence": [
+          "Proposition 14 gives 40p-8 for the binary root-length-five case.",
+          "Theorem 15 gives an s-dependent upper bound, not a sharp lower bound; Section 3 ends by motivating better estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0904.3997v5",
+        "material_read": "Entire Section 3, lines 343-476 of the accessible full HTML text, with special attention to Proposition 14, Algorithm D, Theorem 15 and discussion; arXiv submission history confirmed 2009-04-25 earliest public date.",
+        "method": "Direct inspection of primary lawful open full text, including mathematical statements, assumptions, estimates and construction.",
+        "title": "Generalized de Bruijn words for Primitive words and Powers",
+        "trigger": "The same shortest-superstring question for all p-powers and binary words, including overlap, conjugacy classes and upper/lower bounds."
+      },
+      {
+        "assessment": "Only binary squares and the first four base lengths; no all-cube or p>=3 fifth-root claim.",
+        "evidence": [
+          "The definition requires blocks xx with two repetitions.",
+          "The published list covers base lengths 1-4 only."
+        ],
+        "identifier_or_url": "https://oeis.org/A372435",
+        "material_read": "The full accessible OEIS entry including definition, terms 4,12,24,48, examples, references and cross-references.",
+        "method": "Direct inspection of database entry and mathematical definition.",
+        "title": "OEIS A372435: Length of the shortest binary string that contains all blocks of the form xx",
+        "trigger": "Most directly related numerical database of power superstrings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c187b09-dab2-4053-b0d2-862f5bbe4ca1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This closes a natural, literature-motivated exact shortest-power-superstring gap for infinitely many integer powers at a fixed nontrivial root length, yields a reproducible sharp cubic base 122, and proves a structural rigidity principle for every optimum. The exact length and structure are not automatic consequences of the known upper construction, and the problem is a standard full-family extremal covering invariant rather than an arbitrarily selected computation.",
+    "status": "PASS"
+  }
+}
