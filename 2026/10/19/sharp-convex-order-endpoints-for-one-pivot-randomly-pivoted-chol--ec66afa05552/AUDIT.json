@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For a sampled index i, trace gain is (A²)ii/Aii. Size-biasing eigenvalue index J with law λj/tr(A), and then sampling coordinate i with |Uij|², gives the exact pivot marginal and conditional identity G=E[λJ|I]. Two applications of Jensen yield the sharp bounds for every finite convex function. The eigenbasis realizes the upper law. The real/complex trace-zero-diagonal induction applied to B=A²-[tr(A²)/tr(A)]A constructs the deterministic lower law. Taking φ(x)=x² establishes the exact extrema; continuity on the connected spectral orbit gives every intermediate variance, with zero diagonal events controlled by (A²)ii≤λmax Aii. Exact n=2 rational example and 1680 numerical groups support independent checks; no infinite statement rests on finite tests. Remaining risks concern finite precision and practical basis construction, not logical gaps under stated hypotheses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The upper extremizer is an eigenbasis and the lower extremizer follows by hollowizing A^2-qA; neither is determined by an expectation bound.",
+        "The closest general guarantees bound expected trace after multiple pivots but do not order every convex penalty at a fixed spectrum."
+      ],
+      "reasoning": "An algorithmic theorem controlling all convex penalties or preserving a stronger stochastic martingale order could dominate this one, even without matching wording. The inspected RPCholesky full-text sections and acceleration results have no such implication; the mean identity alone does not determine variance or distribution.",
+      "searches": [
+        "random pivoted Cholesky trace error mean spectrum invariant variance Fourier unitary orbit",
+        "single step randomly pivoted Cholesky conditional variance trace error eigenbasis Fourier constant diagonal basis sharp bounds",
+        "arXiv:2207.06503 Eq. (5.3) and expected-trace convergence theorem",
+        "arXiv:2410.03969 accelerated pivot simulation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.06503 (first public 2022-07-13), Algorithm 1, Eq. (5.3), theory section",
+      "arXiv:2404.11487 (first public 2024-04-17), §§1–2",
+      "arXiv:2410.03969 (first public 2024-10-04), §§1.1–1.3 and keyword inspection",
+      "Public literature searches for spectral conditional-expectation and pivot gain convex order",
+      "Targeted published mathematical-result searches for alias claims and stronger coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al. establish E G = tr(A^2)/tr(A); the current theorem fixes this mean and solves the missing sharp convex-risk endpoints.",
+        "Steinerberger analyzes expected Frobenius decrease under a different sampling exponent, not the entire distribution of G.",
+        "An earlier exact one-pivot comparison of power-weighted Cholesky concerns ratios of expectations only; it does not imply sharp dispersion or deterministic balancing.",
+        "Steinerberger’s Section 2 diagonal Cauchy–Schwarz inequality implies the upper second-moment/variance bound as an immediate summed application; this subclaim is prior-covered. Its argument does not give the entire all-convex endpoint classification nor the variance-zero basis."
+      ],
+      "reasoning": "The claim is not a special case of an existing expectation or convergence guarantee because those statements allow many distributions with the same mean. The coupling, attained deterministic real basis, and sharp all-convex upper endpoint are logically stronger distributional statements. The overlap comparison examines implications rather than source-title resemblance. The standalone upper variance inequality is already implied by Steinerberger’s pointwise Cauchy–Schwarz inequality, so novelty rests on the simultaneous full convex-order law, sharp lower real basis, and all intermediate variances rather than on that upper bound alone.",
+      "searches": [
+        "Sharp convex-order interval for one-pivot trace decrease in randomized residual-diagonal-proportional Cholesky on an orthogonal orbit: constant versus size-biased eigenvalue, via hollowized A squared minus q A",
+        "arXiv:2207.06503 Algorithm 1 / Eq. (5.3)",
+        "arXiv:2404.11487 §1.2–2.2",
+        "arXiv:2410.03969 §1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The gain is a conditional expectation of a size-biased spectral eigenvalue, which yields the convex-order inequality by Jensen.",
+        "arXiv:2207.06503 Eq. (5.3) specifies only the first moment; arXiv:2404.11487 §1.2 repeats this expectation.",
+        "A known diagonal Cauchy–Schwarz bound already proves one moment inequality; a moment inequality does not yield the asserted full convex order."
+      ],
+      "reasoning": "Equivalent formulations include a martingale/mean-preserving contraction, Rao–Blackwellization of the size-biased eigenvalue, or inequalities for convex functions of a pivot trace gain. The source papers establish the mean, not the coupling and attained two-sided all-convex envelope; generic conditional-Jensen principles are credited and are not presented as novel.",
+      "searches": [
+        "randomly pivoted Cholesky spectral size biased eigenvalue conditional expectation convex order majorization pivot gain",
+        "one-step randomized Cholesky trace reduction convex stochastic order eigenbasis orthogonal similarity",
+        "arXiv:2207.06503 Section 5; arXiv:2404.11487 Sections 1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An exact 2-by-2 instance with spectrum (1,4) has residual-trace distributions {4 with probability 1/5, 1 with probability 4/5} versus the constant 8/5 under a 45-degree rotation.",
+        "The full spectrum-only variance bound follows from the conditional spectral coupling rather than numeric enumeration."
+      ],
+      "reasoning": "No exact lookup table or claimed finite census underlies the result. Eigenbasis and balanced-basis laws are computed analytically for arbitrary spectra. Searches did not expose a database tabulating or implying the all-dimensional risk envelope; this negative search is not proof of uniqueness.",
+      "searches": [
+        "randomly pivoted Cholesky spectral size biased eigenvalue conditional expectation convex order majorization pivot gain",
+        "random pivoted Cholesky trace error mean spectrum invariant variance Fourier unitary orbit",
+        "randomly pivoted Cholesky trace decrement deterministic coordinate basis balanced leverage ratio all gains equal"
+      ]
+    },
+    "rationale": "Direct comparisons with original RPCholesky Algorithm 1 and Eq. (5.3), Steinerberger’s alternative pivot rule, and the accelerated sampling paper found no covering convex-order classification. The familiar spectral mean, conditional Jensen, and trace-zero diagonalization tools are credited; the new claim is their sharp, simultaneous stochastic-risk consequence for the specific algorithm. Steinerberger’s diagonal Cauchy–Schwarz estimate implies the isolated upper variance bound, which is not treated as original; the simultaneous two-sided all-convex extremal result and real zero-gain-variance construction remain unaccounted for in inspected sources. Targeted semantic searches and comparison with related earlier one-pivot expectation findings revealed no mathematical implication covering the endpoints. Residual uncertainty concerns undiscovered equivalent stochastic-order/majorization formulations and incompletely read appendices.",
+    "residual_risks": [
+      "Classical martingale convex-order or Schur–Horn literature might contain an equivalent specialized pivot-gain statement not found under the searched terminology.",
+      "The accelerated RPCholesky paper’s appendices were not exhaustively reviewed; the analyzed main results do not imply the claimed envelope.",
+      "Some newer pivot-convergence papers could discuss concentration, although the accessible abstracts do not state an all-convex one-pivot spectral-orbit theorem.",
+      "The isolated upper variance bound follows from Steinerberger’s published pointwise Cauchy–Schwarz estimate; attribution must distinguish it from the new joint sharp envelope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It explicitly establishes the spectral mean identity, but the inspected material contains no claim implying a complete convex-order upper and lower envelope, no construction of a constant-gain basis, and no sharp spectral variance maximum.",
+        "evidence": [
+          "Algorithm 1 uses diagonal-proportional pivots; Eq. (5.3) gives E residual = A - A^2/tr A.",
+          "Section 5 treats expected residual maps and multi-step mean contraction, not all convex penalties of one-pivot trace gain."
+        ],
+        "identifier_or_url": "arXiv:2207.06503; https://arxiv.org/abs/2207.06503",
+        "material_read": "Algorithm 1 and the pivot selection rule (PDF p. 2); Nyström and Cholesky residual definitions (pp. 3–5); primary theoretical discussion and one-step map Eq. (5.3), Lemmas 5.3–5.5 (pp. 19–20); searchable PDF examined for second-moment and variance claims.",
+        "method": "Public arXiv complete PDF text and rendered primary pages, plus the arXiv submission-history record.",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Defines the exact one-pivot sampling law and expected trace decrease used as a starting point."
+      },
+      {
+        "assessment": "Derives expected trace and Frobenius progress, and uses the pointwise Cauchy–Schwarz inequality (A²)ii² <= Aii (A³)ii, which already implies the standalone upper variance bound for diagonal-proportional sampling after summation. It does not assert or imply both simultaneously sharp convex-order endpoints or a deterministic-gain real basis.",
+        "evidence": [
+          "Section 1.2 derives E tr(B)=tr(A)-tr(A^2)/tr(A).",
+          "Section 2 changes the sampling law to diagonal squared and studies E||B||_F^2.",
+          "Section 2 pointwise Cauchy–Schwarz inequality (A²)ii² <= Aii (A³)ii: upon dividing by Aii and summing, it proves E G² <= tr(A³)/tr(A) for the original diagonal-proportional rule; this part is therefore not independent novelty."
+        ],
+        "identifier_or_url": "arXiv:2404.11487; https://arxiv.org/abs/2404.11487",
+        "material_read": "Public 10-page PDF: introduction and sampling definitions, §1.2 expectation identity, §2.1 Frobenius result, §2.2 greedy pivot analysis; queried complete PDF text for convex ordering.",
+        "method": "Public arXiv full-text PDF retrieval and relevant-page visual inspection.",
+        "title": "Randomly Pivoted Partial Cholesky: Random How?",
+        "trigger": "Potentially stronger one-step pivot analysis for an alternative diagonal-power sampling rule."
+      },
+      {
+        "assessment": "The inspected results concern computational acceleration and distribution-preserving pivot simulation, not a fixed-spectrum convex-order extremum. Unread appendix details remain a modest risk.",
+        "evidence": [
+          "Section 1.3.1 recapitulates the same proportional-to-residual-diagonal pivot rule.",
+          "The described accelerated method simulates RPCholesky using rejection sampling."
+        ],
+        "identifier_or_url": "arXiv:2410.03969; https://arxiv.org/abs/2410.03969",
+        "material_read": "Public 32-page arXiv PDF: abstract, algorithm definition and sections 1.1–1.3 (pp. 1–4); full PDF text searched for variance, convexity, and concentration, and algorithm/rejection results were reviewed at a high level.",
+        "method": "Public arXiv text/PDF retrieval and whole-document keyword searches; no claim of an exhaustive appendix review.",
+        "title": "Embrace rejection: Kernel matrix approximation by accelerated randomly pivoted Cholesky",
+        "trigger": "Accelerated simulator of the same pivot law could state stronger distributional guarantees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec66afa0-5552-47b2-bebe-d54fbe153ef5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural algorithmic reliability question remains after the known spectral expectation: how variable can the trace improvement be if the spectrum is fixed? The theorem classifies not merely variance but all convex penalties, proves simultaneously sharp real and complex extremizers in arbitrary finite dimension, and shows a concrete 2-by-2 exact gap between zero and nonzero variance at identical spectra and mean. This is a structural endpoint theorem for randomized low-rank pivoting, not an arbitrary numerical slice, a rephrased expected-trace identity, or a promise of a free computational preprocessing algorithm. Its immediate use is to delimit what eigenvalue-only expectation guarantees do and do not say about stochastic risk.",
+    "status": "PASS"
+  }
+}
