@@ -1,0 +1,11 @@
+# Scientific review: binary order-three nonnegative matrix atoms
+
+**Correctness — PASS.** The proof isolates the only potentially unbounded step: a nonsingular binary target cannot factor through an entry greater than one, so arbitrary nonnegative integer factors reduce to finite binary factors. A support inequality rules out nonunit factorizations of the two atom orbits. Singular targets admit explicit zero-/duplicate-row or column products. The standalone finite certificate runs exact integer arithmetic over all 512 targets and 506-by-506 nonunit binary factor pairs, independently enumerates the eight nonsingular row/column orbits and confirms the complete count. An unlimited-dimensional statement is neither used nor claimed.
+
+**Originality — PASS with limitations.** Bell, Foster, Reidenbach and Semukhin (2026) work on the same kind of nonnegative-integer prime matrices but their explicit algorithm is dimension two. Baeth et al. (2021/2022) identify general properties and elementary unit-shear examples without the complete three-by-three binary census. Chen (2015) restricts to upper-triangular matrices. The 36 standard shear associates are credited; the claim is the *complete* 42-element classification including six determinant-two complementary permutations and exhaustive composite witnesses. Targeted semantic and bibliographic searches did not identify a theorem implying this classification. A lost or unindexed earlier finite-table computation is the main bibliographic risk; search failure is not a proof of novelty.
+
+**Value — PASS.** This is the first full binary order-three boundary of a natural matrix factorization problem, with a second irreducible shape outside the classical elementary-shear family and an exact complete classification rather than another special example. It supplies an independently executable small-case obstruction library for studying weighted incidence-matrix factorizability.
+
+**Scope.** No general three-dimensional atom classification for arbitrary entry sizes, no higher-dimensional theorem, and no independent expert validation are asserted. The transparent finite certificate is accompanied by the algebraic reduction justifying quantification over arbitrary nonnegative-integer factors.
+
+Self-review: passed. Independent audit: not yet performed.
