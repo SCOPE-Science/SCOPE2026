@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Balanced strongly connected q-ary edge graph; rooted BEST normalizes cyclic rotations. Contracting only forced weight-two arcs preserves rooted arborescences. Its reduced Laplacian splits into q-2 independent color-difference blocks each triangular with q diagonal and a uniform index block. Weighted Matrix-Tree and a complete trapping-interval analysis give determinant q^floor((n-1)/2). The product yields the stated formula for every q>=3,n>=2. Full-graph exact Bareiss determinants and independent exhaustive local-Euler-order checks corroborate parameter cases (see embedded verify.py and verification_output.txt); finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruskey–Sawada–Williams, SIAM J Discrete Math 26 (2012), Section 6: binary construction for adjacent-weight layers.",
+        "Li–Jiang–Lin, Designs Codes Cryptography 91 (2023), published online 2022-09-06, abstract: binary low-weight cycles and pure circulating-register joins.",
+        "Mitchell–Wild, arXiv:2607.22350, Section 3: arbitrary-alphabet existence theorem.",
+        "Chee et al., arXiv:2005.03102, Definition 2, counts locally window-nonrepeating codes rather than exact prescribed weight-shell universal cycles."
+      ],
+      "reasoning": "Existence in an arbitrary alphabet does not determine how many distinct Euler tours exist. Binary enumeration and binary low-weight-register characterizations do not imply the full q-dependent tree factor and degree-factorial product without the added color decomposition. No inspected stronger theorem yields the exact nonbinary formula.",
+      "searches": [
+        "q-ary weight constrained de Bruijn cycles count BEST arborescence number Euler tours 1 2",
+        "extension binary weight<=2 de Bruijn sequence count arbitrary q alphabets",
+        "Properties of the cycles that contain all vectors of weight <= k Li Jiang Lin 2022 Hamming weight 2 number"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.22350",
+      "https://doi.org/10.1137/100808782",
+      "https://dblp.org/rec/journals/tit/Fredricksen93",
+      "https://doi.org/10.1007/s10623-022-01100-9",
+      "https://arxiv.org/abs/2005.03102"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv:2607.22350 explicitly cites binary existence and proves nonbinary existence; no count is stated.",
+        "Fredricksen 1993 is the complete known q=2 special case.",
+        "Li–Jiang–Lin 2022/2023 abstract: binary scope."
+      ],
+      "reasoning": "The new claim implies a nonbinary exact count; existence does not imply that count. Prior binary count is a specialization, not a dominating statement covering q>=3. No directly covering implication was found after examining closest actual claims and potential alias formulations.",
+      "searches": [
+        "exact number q-ary Hamming weight one two cut-down de Bruijn sequences Euler circuits q^((n-1)(q-2)+floor((n-1)/2)) factorial",
+        "extension binary weight<=2 de Bruijn sequence count arbitrary q alphabets",
+        "Weight-constrained cut-down de Bruijn sequences q-ary Hamming 1 2 existence count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mitchell–Wild 2026, arXiv:2607.22350, introduction, Definitions 1.1–1.2 and Hamming-weight Section 3: Eulerian existence, not Euler-circuit count.",
+        "Fredricksen 1993, IEEE TIT 39(6), Section II: exact count for binary weights <=2, equivalent to binary weights one/two by the single all-zero loop."
+      ],
+      "reasoning": "Checked cycle counts modulo rotation versus Euler-circuit counts, and weight <=2 versus exact weights 1/2 (the unique zero loop can be inserted/deleted). These are equivalent on the same alphabet. Accordingly q=2 is already covered and excluded from novelty, but Fredricksen has no nonzero-color multiplicity parameter q>=3.",
+      "searches": [
+        "exact number q-ary Hamming weight one two cut-down de Bruijn sequences Euler circuits q^((n-1)(q-2)+floor((n-1)/2)) factorial",
+        "q-ary weight constrained de Bruijn cycles count BEST arborescence number Euler tours 1 2",
+        "ternary quaternary fixed-weight universal cycles count every word exactly one or two nonzero symbols"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fredricksen (1993) gives an explicit binary t=2 formula; this is not claimed as new.",
+        "Li–Jiang–Lin 2022/2023 abstract mentions finite tables/experiments for some small n,k, explicitly for binary words.",
+        "Exact full-edge determinant tests in verify.py cover q=3,4,5 examples; the theorem determines infinitely many q>=3 cases."
+      ],
+      "reasoning": "Prior binary tables and finite computational data are restricted in alphabet and parameters. No located nonbinary enumeration table or formula covers the asserted all-q all-n result.",
+      "searches": [
+        "exact number q-ary Hamming weight one two cut-down de Bruijn sequences Euler circuits q^((n-1)(q-2)+floor((n-1)/2)) factorial",
+        "ternary quaternary fixed-weight universal cycles count every word exactly one or two nonzero symbols",
+        "The number of nonlinear shift registers that produce all vectors of weight <= t Fredricksen 1993 t=2 formula"
+      ]
+    },
+    "rationale": "The nonbinary exact enumeration, unlike the known binary weight-at-most-two formula, is not contained in the inspected primary statements. The 2026 nonbinary paper establishes existence only; the 2012 source concerns binary existence; the full 1993 Fredricksen article explicitly counts the binary t=2 case, so the claim excludes q=2. The 2022/2023 source restricts its investigated sequences to binary alphabets and reports some small experiments. Searched published mathematical records showed no exact q>=3 count. A plausible publisher main text was not accessible, so originality is conditional on the inspected evidence and unresolved indexing risk, rather than asserted independently certified.",
+    "residual_risks": [
+      "A differently indexed prior paper might contain a q-ary exact Euler-tour count in alternative shift-register terminology.",
+      "The subscription-protected main body of Li–Jiang–Lin (2022/2023) was not available; its visible statements and abstract are specifically binary, but no claim is made of full-text noncoverage.",
+      "No independent literature or scientific audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact edge graph and proves Eulerian existence. No all-parameter enumeration of its Euler circuits stated.",
+        "evidence": "arXiv:2607.22350, version 1 of 2026-07-24, Sections 1 and 3.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.22350",
+        "material_read": "Full web-rendered preprint, including introduction, Hamming weight definitions, Lemma 3.1, main Hamming existence theorem and references.",
+        "method": "Read source text and searched enumeration/count terminology and Hamming claims.",
+        "title": "Weight-constrained cut-down de Bruijn sequences",
+        "trigger": "Closest new generalization from binary to arbitrary alphabets"
+      },
+      {
+        "assessment": "Establishes binary existence but not the claimed nonbinary count.",
+        "evidence": "SIAM J Discrete Math 26 (2012), 605–617, Section 6.",
+        "identifier_or_url": "https://doi.org/10.1137/100808782",
+        "material_read": "Web-rendered accessible article including construction/existence section and references.",
+        "method": "Read relevant definitions, proof statements and concluding discussion.",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Original binary adjacent-weight universal-cycle existence theorem"
+      },
+      {
+        "assessment": "Explicit binary t=2 formula covers the q=2 specialization. New theorem therefore claims only q>=3.",
+        "evidence": "IEEE Transactions on Information Theory 39(6) (1993), 1989–1990, Section II, special case t=2.",
+        "identifier_or_url": "https://dblp.org/rec/journals/tit/Fredricksen93",
+        "material_read": "Accessible reproduced 1993 original paper text: abstract, introduction, Section II and its t=2 formula, concluding discussion.",
+        "method": "Inspected substantive full scanned text with its distinction between minimum-density joins and other cycles.",
+        "title": "The Number of Nonlinear Shift Registers That Produce All Vectors of Weight <= t",
+        "trigger": "Highly plausible earlier exact enumeration of weight <=2 cycles"
+      },
+      {
+        "assessment": "Abstract states binary-window domain and experimental values for small n,k; does not establish q>=3 formula. The inaccessible main body is a stated residual risk.",
+        "evidence": "Designs Codes Cryptogr 91 (2023), 221–239; first publisher online 2022-09-06.",
+        "identifier_or_url": "https://doi.org/10.1007/s10623-022-01100-9",
+        "material_read": "Publisher abstract and accessible appendix (general bounds); subscription main text not accessible.",
+        "method": "Read abstract and appendix and examined scope and cited studies.",
+        "title": "Properties of the cycles that contain all vectors of weight <= k",
+        "trigger": "Closest possible equivalent weight<=2 enumeration under binary zero-loop insertion"
+      },
+      {
+        "assessment": "Counts a different constrained-code language with parameters (b,k). Its results do not determine the count of Euler circuits traversing the fixed weight-layer edge set.",
+        "evidence": "arXiv:2005.03102, Definition 2 and Section IV Enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/2005.03102",
+        "material_read": "Full web-rendered paper, particularly Sections II-A, III-A and IV-C–D setting out definitions and counting parameters.",
+        "method": "Compared exact counted objects: local nonrepetition of windows within a position-distance bound versus precisely prescribed Hamming-weight 1/2 window set.",
+        "title": "Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications",
+        "trigger": "Broad-sounding prior enumeration of nonbinary constrained de Bruijn sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e5cb5b45-9df9-4f77-a76f-07c96a01068e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact infinite-family count of nonbinary weight-constrained universal cycles is a natural next invariant after recent nonbinary existence theorems. It distinguishes labelled alphabets and rotation normalization, and produces a nontrivial multiplicative closed form depending on both span and alphabet size. Color-decomposed arborescence analysis supplies an independent structural insight; the result is not an arbitrary tiny numerical gain or a binary restatement.",
+    "status": "PASS"
+  }
+}
