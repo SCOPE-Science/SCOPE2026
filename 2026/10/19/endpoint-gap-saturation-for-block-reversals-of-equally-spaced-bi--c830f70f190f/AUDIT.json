@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Every block-reversal output has at most m initial/final zeros because the last/first blocks are suffix/prefix and the source maximum zero-run length is m. For arbitrary admissible p,q,r,s the explicit five-piece decomposition with i=max(0,q-(m-p)) and j=m-p+i-q is well-defined and reverses to the output. Stars-and-bars with disjoint violations gives C(2m+3,3)-2*C(m+2,3)=(m+1)^3 for all m>=0. Independent enumeration checks exact output sets for m=0..7; not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam–Maity–Pandoh 2023, full arXiv paper, Sections 2–5, especially Theorem 4.21 and conclusion.",
+        "Mahalingam–Maity–Pandoh–Raghavan 2021, public abstract: min/max image sizes and same-image-set characterization."
+      ],
+      "reasoning": "The 2023 full text classifies richness of output words, not which of the length-(2m+3) three-one words occur or their exact image counts. The 2021 abstract concerns extremal cardinality over general words and equivalences of images, so no specific logical implication of the asserted periodic-family image equality is documented; unread full text is a residual risk.",
+      "searches": [
+        "Mahalingam Pandoh Maity block reversal finite words rank size and maximum number of distinct images for binary words with weight two",
+        "Rich Words in the Block Reversal of a Word arXiv 2302.02109"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2302.02109",
+      "https://doi.org/10.1016/j.tcs.2021.06.046 (abstract only)",
+      "https://www.ijamjournal.org/ijam/contents/2023-36-5/4/index.html (abstract)",
+      "https://oeis.org/A000578 (numerical sequence only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2302.02109v1 Thm. 4.21 classifies palindromically rich outputs by input run structure, logically distinct from image-set equality.",
+        "2021 DOI 10.1016/j.tcs.2021.06.046 abstract only, compared at its stated scope."
+      ],
+      "reasoning": "An all-rich criterion does not count distinct reversal outputs; a global maximum/minimum bound does not determine the exact count of an interior parameterized family. An unpublished or uninspected stronger 2021 result could nevertheless imply the theorem, and that possibility is reported rather than dismissed.",
+      "searches": [
+        "block reversal three ones equal gaps maximal image size cubes n length 2m+3",
+        "rich words block reversal exact cardinality all binary 2-weight words reachable block reversal unique extremal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.02109v1 Definition 2.1 defines all-partition block reversal.",
+        "Mahalingam et al. (2021), DOI 10.1016/j.tcs.2021.06.046, abstract reports the operation and global extremal work."
+      ],
+      "reasoning": "The asserted image-language equality is the precise equivalent of reachability for a periodic word; the cube identity follows only after proving this equality. Searches with the block-inversion synonym did not produce equivalent coverage. The 2021 full text remains an explicit access risk.",
+      "searches": [
+        "block reversal equal zero gaps word 10^m10^m1 distinct output count (m+1)^3 cubic",
+        "block inversion words length 2m+3 triple ones image set cubic cardinality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000578 lists ordinary cubes 1, 8, 27, 64, ..., without a block-reversal interpretation.",
+        "ArXiv 2302.02109 conclusion proposes further study of block-reversal image sizes."
+      ],
+      "reasoning": "The integer sequence happens to coincide with classical cubes. This numerical table neither records the mapped object nor implies the converse endpoint-gap reachability theorem. No exact block-reversal table with these source parameters was identified.",
+      "searches": [
+        "OEIS cubes 1 8 27 64 125",
+        "enumeration number binary words all block reversals palindromically rich n^2+3n+4 primitive count"
+      ]
+    },
+    "rationale": "A complete 2023 primary paper on the same block-reversal operation was examined at definition, core results, and conclusion; it studies rich-word structure and does not assert this image characterization. A 2021 founding paper was compared by abstract only and remains an explicit subsumption risk. Targeted research-record searches for cubic image counts, equispaced three-marker words, aliases and reductions yielded no matching statements; this negative search is not a uniqueness proof.",
+    "residual_risks": [
+      "Complete 2021 founding article could contain an unindexed specific count or a stronger implication; only its public abstract was available.",
+      "A semantically equivalent image theorem may appear under block inversion or partition-order-reversal terminology not captured by the inspected sources.",
+      "The absence of indexed matching search hits cannot establish priority or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this exact claim: characterizes palindromic richness of reversal outputs, not exact reachable language or cardinality for equally spaced three markers.",
+        "evidence": "arXiv:2302.02109v1, pp. 1–3 (definition), 15–17 (Theorem 4.21 and further image-size questions).",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.02109",
+        "material_read": "The full 19-page arXiv text was retrieved; definitions, main binary classification and final discussion read and rendered page 16 checked.",
+        "method": "Open-access primary full-text inspection, including Definition 2.1, Theorem 4.21 and conclusion",
+        "title": "Rich Words in the Block Reversal of a Word",
+        "trigger": "Same operation, binary word structure, possible stronger block-reversal characterization"
+      },
+      {
+        "assessment": "UNRESOLVED_SOURCE_RISK: published abstract emphasizes global maximum/minimum and equivalence of image sets, but full-text implication comparison could not be completed.",
+        "evidence": "Theoretical Computer Science 894 (2021), 135–151; publisher DOI and published abstract.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2021.06.046",
+        "material_read": "Bibliographic metadata and public abstract; complete article unavailable for material reading.",
+        "method": "Public DOI and bibliographic abstract inspection",
+        "title": "Block reversal on finite words",
+        "trigger": "Original foundational paper directly studies the same operation and extremal image cardinalities"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: partial words with wildcard positions and number of partial-word outputs, rather than exact ordinary binary marker-word image language.",
+        "evidence": "International Journal of Applied Mathematics 36(5) (2023), DOI 10.12732/ijam.v36i5.4, abstract.",
+        "identifier_or_url": "https://www.ijamjournal.org/ijam/contents/2023-36-5/4/index.html",
+        "material_read": "Full publicly displayed article abstract and reference list.",
+        "method": "Primary journal webpage abstract inspection",
+        "title": "Block inversion on partial words with zero palindromic defect",
+        "trigger": "Block inversion alias; possible finite-word counting result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c830f70f-190f-4fc9-a0bd-e5555d116bcd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact set equality is a natural complete reachability classification for a periodic sparse binary family in an established multi-block rearrangement model. Its nonobvious sufficiency shows that two endpoint zero-run bounds encode all possible outputs, giving the infinite cube law and a limiting attainable density of 3/4. This supplies a structural explanation, not an arbitrary small census or generic stars-and-bars fact.",
+    "status": "PASS"
+  }
+}
