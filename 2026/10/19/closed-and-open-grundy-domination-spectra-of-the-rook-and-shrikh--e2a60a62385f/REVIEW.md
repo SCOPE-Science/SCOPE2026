@@ -1,0 +1,12 @@
+# Scientific review: comparative Grundy sequence spectra
+
+## Correctness — PASS
+The claim specifies both graphs, both neighborhood conventions, full completion, and ordered legal vertex sequences. The recurrence \(P_A(z)=z\sum_{B_v\not\subseteq A}P_{A\cup B_v}(z)\) with \(P_V(z)=1\) is bijective, exhaustive and acyclic. All reachable masks and recurrence values were checked from the complete embedded certificate, including exact integer coefficients and minimum/maximum supported degrees. An independent selected-vertex-state dynamic program agrees on every coefficient. Direct graph checks establish the graph parameters and their nonisomorphism using four-clique counts. Limits: no extrapolation beyond the stated two graphs; no external independent audit.
+
+## Originality — PASS under examined literature, with residual risk
+The 2016 *Total Dominating Sequences in Graphs* full text develops the open-neighborhood invariant and general regular-graph bounds, but not the paired sixteen-vertex complete polynomials. The 2016 *Dominating sequences in grid-like and toroidal graphs* full text supplies a six-vertex-length rook construction via Cartesian products, but not the exhaustive rook polynomial, Shrikhande polynomial or open-spectrum equality. Lin's *Zero forcing number, Grundy domination number, and their variants* distinguishes different zero-forcing dualities; ordinary zero forcing counts cannot be substituted for closed Grundy domination sequence counts. Targeted semantic mathematical-record and published-literature searches did not identify exact coverage. The result can still have an unindexed or supplementary-data precursor, so originality is assessed rather than certified.
+
+## Value — PASS
+The rook and Shrikhande graphs are the unique nonisomorphic examples sharing strongly regular parameters \((16,6,2,2)\). Comparing two standard greedy domination processes on them is natural. The **entire** open-neighborhood enumerator is equal, although the closed-neighborhood enumerators have differing degree supports, longest lengths, and coefficients. This gives a concrete boundary on what graph structural similarity forces for sequential domination, not merely an arbitrary numeric slice or a new label for an old invariant. Exact coefficients help subsequent comparison and algorithms. No wider theorem is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
