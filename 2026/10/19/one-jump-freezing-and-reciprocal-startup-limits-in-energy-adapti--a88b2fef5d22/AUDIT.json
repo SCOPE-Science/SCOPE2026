@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The step-length identity follows exactly from the auxiliary-energy recursion and provides a telescoping length bound on regions with nonvanishing preconditioned gradients. Continuity yields a trapping ball for all sufficiently large base steps, proves full-horizon convergence, and geometric energy extinction. The first two updates plus an O(eta^-2) total tail produce the stated coefficient. Scalar x_star=-2c/x0 and the explicit eta>=16 trap follow algebraically. The standalone 2372 checks support, but are not substituted for, these arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu et al., arXiv:2310.06733, Theorem 2.5 assumes the base step is bounded by positive thresholds; Appendix A.1 uses a positive lower energy bound.",
+        "Liu and Tian, arXiv:2010.05109, rate theorem requires effective stepsize controls, and Remark 2 explicitly disclaims full primal convergence from energy stability."
+      ],
+      "reasoning": "The original universal statement is about stability of an auxiliary quantity, not stationarity at arbitrarily large steps. The sufficient convergent small-step regime is disjoint from the asymptotically large-base-step regime; neither theorem dominates the claimed expansion.",
+      "searches": [
+        "AEPG convergence Theorem 2.5 Appendix A large base step",
+        "AEGD unconditionally energy stable convergence theorem 2020",
+        "energy adaptive gradient large stepsize nonconvergence stationary point counterexample quadratic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.06733 (first public 2023-10-10; primary MSC 65K10 / 90C26)",
+      "https://arxiv.org/abs/2010.05109 (first public 2020-10-10; original AEGD method)",
+      "https://www.researchgate.net/publication/344622078_AEGD_Adaptive_Gradient_Decent_with_Energy (full-text rendition of original AEGD)",
+      "Published mathematical examples of scalar NIPG curvature resets, B-adaPG boundary-step dynamics and MADGRAD startup stability were examined as potential stronger statements; these methods have different recurrences and do not imply the proposed energy-adaptive infinite-iteration limit."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary paper arXiv:2310.06733 notes that the energy variable may become small; it does not show a large-step regime in which every later iterate remains nonstationary.",
+        "Original AEGD arXiv:2010.05109 gives the energy difference identity, a shared preliminary lemma but not an all-iteration trapping and first-order limit."
+      ],
+      "reasoning": "Source identities are credited as known. The extra local nonvanishing condition permits an infinite path-length bound and yields nonstationary convergence for all sufficiently large base steps. Strong convexity of the concrete scalar example does not remove that failure. Existing small-step results cannot rule it out.",
+      "searches": [
+        "arxiv:2310.06733 equation 1.6 theorem 2.1 theorem 2.5 appendix A",
+        "arxiv:2010.05109 remark 2 energy convergence and step bounds",
+        "energy adaptive preconditioned gradient AEPG singular large base stepsize limit one jump theta0 minus r0 v0 divided norm squared"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2010.05109, Theorem 1/Remark 2: the primal iterates need not be shown convergent from energy stability; no reciprocal-startup formula appears in the inspected substantive sections.",
+        "arXiv:2310.06733, Eqs. (1.6), (2.4), Theorem 2.5 and Appendix A.1: source recurrence and conditional convergence, not the claimed large-step asymptotic."
+      ],
+      "reasoning": "The proposed equivalent form would be all-time single-jump freezing and a nonstationary first-order limit under a nonzero post-jump direction. A general energy decay equality or a small-step convergence theorem cannot imply this opposite-regime conclusion; the directional lower bound and infinite-tail estimate are extra.",
+      "searches": [
+        "adaptive energy gradient descent scalar strongly convex quadratic large learning rate convergence to nonoptimal point r tends zero numerical stagnation",
+        "AEGD scalar quadratic c positive limit inverse initial coordinate negative 2c over x0 large eta",
+        "energy-stable gradient iteration vanishing auxiliary energy nonstationary limit first step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The earlier AEGD numerical quadratic examples discuss a largest suitable stepsize but do not give an exact nonstationary limiting map or an all-time interval certificate.",
+        "Closest mathematical-record entries identified by direct semantic search concerned NIPG, B-adaPG, MADGRAD, and CG_AOS; their algorithmic recurrences are not AEPG."
+      ],
+      "reasoning": "The exact identity and large-step asymptotics are mathematical statements, not a recomputed tabular value. Examined numerical tables/figures report algorithm behavior but do not imply the universal theorem or its first correction.",
+      "searches": [
+        "\"AEPG\" \"energy\" scalar quadratic non-convergence large stepsize",
+        "\"adaptive energy gradient descent\" energy collapse large step nonoptimal fixed point",
+        "2020 AEGD quadratic numerical step sizes limit inverse initialization"
+      ]
+    },
+    "rationale": "The compared mathematical implications are different: primary AEPG/AEGD sources establish monotone auxiliary-energy decay and conditional small-step convergence, not large-step convergence to a nonstationary point with a universal landing map and full infinite-tail expansion. Searches of semantic mathematical findings and original algorithm literature did not identify such a theorem; distinct stability-frontier claims concern different recurrence laws. Novelty is assessed to the extent of inspected evidence, with residual alternative-terminology risk.",
+    "residual_risks": [
+      "An unpublished or older equivalent treatment of singular large-step limits under invariant-energy-quadratization terminology could exist; search noncoverage is not uniqueness proof.",
+      "An inaccessible institutional version of the early AEGD manuscript was not separately reexamined; an accessible public full-text rendition was available and inspected.",
+      "The first-order correction requires autonomous locally Lipschitz direction; history-dependent matrices may invalidate it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: small-step stationarity plus unconditional energy decrease do not provide a large-step nonstationary endpoint expansion.",
+        "evidence": [
+          "Sections 1,2 and Appendix A: base-step upper bound in Lemma 2.2/Theorem 2.5; proof uses positive energy lower bound.",
+          "Unconditional auxiliary-energy identity Eq. (2.4) is separately acknowledged as prior art."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.06733",
+        "material_read": "Public HTML full-text source, introduction update equations (1.5)–(1.6), section 2 including Lemma 2.2 and Theorem 2.5, discussion, and Appendix A.1–A.3 proof passages.",
+        "method": "Read the primary full text and compared premises, quantifiers and asymptotic regimes.",
+        "title": "Adaptive Preconditioned Gradient Descent with Energy",
+        "trigger": "The source defining AEPG and its exact autonomous update."
+      },
+      {
+        "assessment": "Not covering the proposed all-time large-base-step trapping law or the reciprocal-startup limit. Explicit caution about energy versus stationarity is credited.",
+        "evidence": [
+          "The original Remark 2 says auxiliary-energy stability alone cannot establish convergence of primal iterates.",
+          "The convergence-rate statements impose conditions on effective stepsizes; their assumptions do not entail the claimed large-step regime."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.05109",
+        "material_read": "Publicly accessible full-text rendition of the primary paper: algorithm recurrence, energy stability theorem, Remark 2, convergence-rate theorem, and numerical quadratic discussion.",
+        "method": "Inspected original mathematical statements and numeric-example context, not merely the abstract.",
+        "title": "AEGD: Adaptive Gradient Descent with Energy",
+        "trigger": "Predecessor with identical update when the preconditioner is identity; potential stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a88b2fef-5d22-4c7c-a8e4-1b7b65c6a65e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonstationary one-jump limit addresses a real algorithm-design distinction left open by unconditional auxiliary-energy stability. It gives a general, all-time structural obstruction, a first-order quantitative correction, and a strongly convex explicit nonstationary interval with a reciprocal-startup law. This is more consequential than a one-step overshoot or simple sign check: no number of subsequent iterations repairs the error for these parameters. Scope and novelty risks are explicitly limited.",
+    "status": "PASS"
+  }
+}
