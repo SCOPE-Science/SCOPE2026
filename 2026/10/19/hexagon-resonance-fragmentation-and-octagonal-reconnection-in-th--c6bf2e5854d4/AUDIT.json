@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact finite graph is given by 24 vertices and 36 specified edges. Each matching is generated exactly once by the least-unmatched-vertex recursion. The symmetric difference of any two distinct perfect matchings is a union of even cycles; a single six- or eight-cycle is characterized by the connected degree-two symmetric difference. The GP-based verifier exhaustively enumerates 120 matchings, twelve six-cycles, fifty-four eight-cycles, tests all 7140 matching pairs, and computes exact 192 and 414 flip-edge sets with BFS component and eccentricity certificates; the separate S4 star-generator Cayley verifier independently enumerates the graph and pairs, reproducing every stated numeric statistic. Both were actually executed successfully. The generated complete certificate and raw outputs are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liang–Zhang 2026 Theorem 2.18 and Theorem 5.3 describe equivalence under only hexagonal face flips, with flux/ladder conditions: https://arxiv.org/abs/2609.19766",
+        "Ito et al. 2019, introduction, prove reachability under unrestricted single alternating-cycle flips and focus on shortest paths: https://arxiv.org/abs/1907.01700"
+      ],
+      "reasoning": "A general theorem for unrestricted alternating cycles gives no length-eight cutoff and no six-move diameter; the toroidal-polyhex theorem covers six-cycle face-flip components but excludes octagonal moves. The prior criteria could recover some six-flip sector facts after specialization, so those general assertions are not claimed independently new.",
+      "searches": [
+        "toroidal hexagonal lattice 12 hexagons resonance graph perfect matchings components",
+        "perfect matching flip graph toroidal hexagonal tiling homology sectors 12 hexagons",
+        "Toroidal hexagonal face resonance graph of GP(12,5), smallest added alternating cycle length 8 restores connectivity, 606 edges diameter six",
+        "https://arxiv.org/pdf/1907.01700"
+      ]
+    },
+    "checked_sources": [
+      "https://11011110.github.io/blog/2007/12/12/many-faces-of.html",
+      "https://arxiv.org/abs/1904.06184",
+      "https://arxiv.org/abs/1907.01700",
+      "https://arxiv.org/abs/2609.19766"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eppstein 2007 full article: https://11011110.github.io/blog/2007/12/12/many-faces-of.html",
+        "Bonamy et al. 2019 arXiv:1904.06184 (four-cycle operation): https://arxiv.org/abs/1904.06184",
+        "Ito et al. 2019 arXiv:1907.01700 (unrestricted single alternating cycles): https://arxiv.org/abs/1907.01700",
+        "Liang–Zhang 2026 arXiv:2609.19766 (hexagonal flux and ladders): https://arxiv.org/abs/2609.19766"
+      ],
+      "reasoning": "The Nauru isomorphism and torus embedding give no matching census. Four-cycle reconfiguration does not address this girth-six graph. The unconstrained single-cycle adjacency criterion proves generic reachability but does not imply a bound of eight or the exact 606-edge, radius-four, diameter-six restricted adjacency graph. Hexagon-only flux/ladder results may imply sector membership but cannot by themselves assert that octagonal switches connect all sectors; a new complete finite check is needed.",
+      "searches": [
+        "\"Nauru graph\" \"hexagon\" \"matching\" flipping",
+        "Nauru graph GP(12,5) toroidal polyhex resonance graph 13 components sizes 57 18 18 18 9 isolated perfect matchings",
+        "Toroidal hexagonal face resonance graph of GP(12,5), smallest added alternating cycle length 8 restores connectivity, 606 edges diameter six",
+        "https://arxiv.org/abs/1904.06184"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eppstein 2007 GP(12,5) graph and toroidal hexagon embedding: https://11011110.github.io/blog/2007/12/12/many-faces-of.html",
+        "Liang and Zhang 2026 Definition 2.1 calls face flips the resonance graph: https://arxiv.org/abs/2609.19766"
+      ],
+      "reasoning": "An equivalent statement is a length-bounded single-cycle reconfiguration of 1-factors or an augmented toroidal dimer resonance graph; exact-match searches in these phrasings found no 13-sector-to-connected eight-cycle threshold for the Nauru graph. The existing general hexagonal resonance formalism does not state the enlarged octagon-flip graph.",
+      "searches": [
+        "\"Nauru graph\" \"resonance\" \"matching\"",
+        "\"GP(12,5)\" \"perfect matchings\" \"switch\"",
+        "Nauru graph GP(12,5) toroidal polyhex resonance graph 13 components sizes 57 18 18 18 9 isolated perfect matchings",
+        "https://arxiv.org/abs/2609.19766"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 toroidal-polyhex manuscript has a general formula for trivial perfect matchings (Remark 5.4), not the 120-state Nauru extended flip adjacency list: https://arxiv.org/abs/2609.19766",
+        "The complete new finite certificate has all 120 matching masks, 192 six-cycle pairs and 414 eight-cycle pairs in nauru_certificate.json."
+      ],
+      "reasoning": "Searches including exact graph name, 120 matchings, 57+18+18+18+9 partition, 606 edges and octagonal flips did not surface a matching database/table. The later general trivial-matching formula may cover the nine six-flip isolates; novelty does not rest on their number alone. Unindexed tables remain a residual risk.",
+      "searches": [
+        "\"Nauru graph\" \"perfect matchings\" \"flip\"",
+        "\"GP(12,5)\" \"perfect matchings\" \"switch\"",
+        "Nauru graph GP(12,5) toroidal polyhex resonance graph 13 components sizes 57 18 18 18 9 isolated perfect matchings",
+        "https://arxiv.org/abs/2609.19766"
+      ]
+    },
+    "rationale": "The retained theorem establishes a sharp eight-edge alternating-cycle cutoff and the exact connected reconfiguration graph (606 edges, radius four, diameter six) for GP(12,5), with explicit hexagon fragmentation. Eppstein describes the graph and its hexagon faces but not matching flips; Bonamy et al. analyze four-cycle flips; Ito et al. unrestricted alternating-cycle flips. The highly relevant Liang–Zhang 2026 theorem characterizes toroidal hexagon-resonance components by flux and ladders and supplies a trivial-matching formula, but provides no Nauru-specific octagonal reconnection, bounded-eight reachability, or radius/diameter census. No source inspected implies the central eight-cycle theorem; the general 2026 results are credited rather than appropriated.",
+    "residual_risks": [
+      "Liang–Zhang 2026 general flux/ladder characterization may subsume some six-flip component membership statements after calculation; the retained eight-flip connectivity and its distances are not stated.",
+      "Possible prior exact Nauru resonance graph or octagonal-flip table in unindexed computational repositories or theses.",
+      "No independent priority audit, and not every potentially relevant publication was accessible or examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes graph, isomorphism, and torus tiling; does not classify matching flip distances.",
+        "evidence": "The GP construction in the opening section, Cayley generators in the Cayley section, and six-hexagons-per-vertex phrase in Torus Drawing.",
+        "identifier_or_url": "https://11011110.github.io/blog/2007/12/12/many-faces-of.html",
+        "material_read": "Entire accessible illustrated article text, sections on GP(12,5), Cayley S4 and torus faces",
+        "method": "Read full webpage body and graph descriptions",
+        "title": "The many faces of the Nauru graph",
+        "trigger": "Exact graph and toroidal hexagon face embedding; first public date 2007-12-12"
+      },
+      {
+        "assessment": "Its flips exchange the edges of an alternating 4-cycle; cannot give hexagon or octagon data for a girth-six graph.",
+        "evidence": "Abstract and definition of flip as length four, arXiv:1904.06184.",
+        "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+        "material_read": "ArXiv PDF abstract, definitions and introduction; searched document for Nauru",
+        "method": "Full-text PDF search and inspection of relevant introductory material",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Closest explicit cycle-flip reconfiguration model"
+      },
+      {
+        "assessment": "All even alternating cycles allowed, hence generic connectivity, but its theorem does not bound moves to cycles of length at most eight nor count Nauru-specific distances.",
+        "evidence": "Introduction §§1–1.2, statements that all perfect matchings are connected with no length bound.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+        "material_read": "ArXiv PDF abstract and full introduction (pages 1–4), model definitions and contribution; document-wide Nauru/Petersen searches",
+        "method": "PDF text reading, rendered-page inspection and exact term search",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Broader reconfiguration move set may subsume connectedness"
+      },
+      {
+        "assessment": "Its flow/ladders theorem governs connectivity for hexagonal resonance, and trivial-matching count is relevant prior coverage. It does not study octagon flips or the exact Nauru radius, diameter and 606 adjacencies.",
+        "evidence": "Definition 2.1; Theorem 2.18; Theorem 5.3; Remark 5.4, arXiv:2609.19766.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.19766",
+        "material_read": "Accessible full HTML primary manuscript: Introduction; §§2.1–2.3 including Theorem 2.18; §5 including Theorem 5.3 and Remark 5.4; full text searched for Nauru and count 120",
+        "method": "Read original arXiv-accessible HTML mathematical statements and definitions, search all text for named Nauru case",
+        "title": "The resonance graphs of nanotubes and toroidal polyhexes",
+        "trigger": "Potentially dominating general theory for the exact hexagon face-flip graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6bf2e58-54d4-4bb3-b592-8852bcce2c80",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 12-hexagon toroidal embedding of a canonical cubic symmetric graph makes face-flip resonance a natural mathematical object. The first alternating-cycle length which reconnects all its perfect matchings is an intrinsically motivated exact invariant: length six gives thirteen sectors, while length eight produces a connected graph with precisely computed radius and diameter. These results inform bounded local moves in dimer reconfiguration and go beyond trivial matching counts or an arbitrary finite subcase. No extrapolation to larger graphs is claimed.",
+    "status": "PASS"
+  }
+}
