@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof counts cyclic transitions of each nonconstant affine evaluation word from the precise binary carry structure. The affine-mask-to-prefix-parity map is bijective and gives every possible zero-run count with exact multiplicity. Nonzero low-bit restrictions ensure no all-zero window of length \\(2^s+1\\); low-bit-zero words are stretched balanced affine words, for which all-zero windows are enumerated exactly by zero runs. This handles wrap-around, constants, all ranges and both coordinate orderings. Direct exhaustive codeword/window enumeration for m=2..9 agrees at every claimed width; the proof, not finite data, establishes the infinite family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2404.02471v1, §§2,5,6, states run formulas and bounds for the number of b-symbol weights, without the claimed complete RM(1,m) enumerator.",
+        "arXiv:2109.13764v1, §§2–3, relates b-symbol and generalized Hamming metrics but supplies no exact ordered RM(1,m) weight distribution.",
+        "DOI:10.3934/amc.2023028 studies MDS-code distributions; RM(1,m) for m>=3 is not MDS."
+      ],
+      "reasoning": "General run counts and MDS-specific results do not imply the constant multiplicity four nor all the exact levels for every m without the carry-transition lemma.",
+      "searches": [
+        "coding theory cyclic codes b-symbol weight distribution BCH de Bruijn subsequence combinatorics exact",
+        "first-order Reed Muller binary lexicographic evaluation b-symbol dyadic window exact weight distribution",
+        "Hadamard code symbol-pair spectrum exact multiplicities 4 repeated block windows",
+        "Hadamard code complete b symbol weight distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.16299v2 §§3–5",
+      "arXiv:2109.13764v1 §§2–3",
+      "arXiv:2404.02471v1 §§2,5,6",
+      "DOI:10.3934/amc.2023028 abstract (full text inaccessible)",
+      "published-finding corpus 2026/9/8/SCOPE080 abstract and ranked surrounding results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2404.02471v1 derives code-independent symbol weight cardinality estimates and run relations, whereas the claimed coefficients require the complete run-count distribution of affine binary-integer words.",
+        "arXiv:2103.16299v2 establishes general matrix/relation theory and worked examples of simplex/Hamming codes, not an implication fixing every weight coefficient for the present indexed RM code.",
+        "DOI:10.3934/amc.2023028 covers MDS code distributions; only m=2 is an intersecting elementary special case."
+      ],
+      "reasoning": "Published results cover the definition, general constraints, and some small cases; the exact all-m RM(1,m) distribution follows only after proving the carry-transition and stretched-block lemmas, not by mere substitution of a previously printed enumerator.",
+      "searches": [
+        "coding theory cyclic codes b-symbol weight distribution BCH de Bruijn subsequence combinatorics exact",
+        "pair weight distribution reflected Gray code ordering RM(1,m)",
+        "Reed-Muller length 2^m cyclic adjacent windows powers of two b weight enumerator",
+        "Reed-Muller codes b-symbol weight enumerator first order RM(1,m) exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binary-reflected Gray evaluation list equals the binary-index evaluation code under the invertible linear map on input labels; that alias is included in the theorem itself.",
+        "Published published-finding corpus 2026/9/8/SCOPE080 treats small binary cyclic symbol-pair codes meeting a Griesmer bound, not RM(1,m) in this evaluation order.",
+        "arXiv:2103.16299v2, §§3–5, develops generalized b-symbol weights and examples of simplex and Hamming codes rather than this complete RM spectrum."
+      ],
+      "reasoning": "Queried first-order Reed–Muller, Hadamard/Walsh-Hadamard, Gray-order, pair metric and dyadic windows; the alternate descriptions do not turn a published general bound into the claimed distribution.",
+      "searches": [
+        "Gray order first-order Reed Muller code symbol-pair weight enumerator binary affine Boolean functions Gray-cycle",
+        "pair weight distribution reflected Gray code ordering RM(1,m)",
+        "cyclic transition spectrum affine Boolean functions along binary reflected Gray code",
+        "Reed-Muller codes b-symbol weight enumerator first order RM(1,m) exact",
+        "first order Reed Muller codes symbol-pair weight distribution lexicographic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical RM(1,m) dyadic-plus-one full histogram surfaced in the listed published-finding corpus results or exact-term web searches.",
+        "Ordinary RM(1,m) Hamming enumerators give only weights zero, half-length, and length (standard), not the cyclic b-symbol tables."
+      ],
+      "reasoning": "Absence from finite catalogs is not a proof of novelty; an unindexed earlier equivalent calculation is explicitly retained as a residual risk.",
+      "searches": [
+        "first-order Reed Muller binary lexicographic evaluation b-symbol dyadic window exact weight distribution",
+        "Hadamard code symbol-pair spectrum exact multiplicities 4 repeated block windows",
+        "Reed-Muller length 2^m cyclic adjacent windows powers of two b weight enumerator",
+        "first order Reed Muller codes symbol-pair weight distribution lexicographic",
+        "Hadamard code complete b symbol weight distribution"
+      ]
+    },
+    "rationale": "Neither the 2021 general b-symbol definitions, the 2021 link with generalized Hamming weights, nor the 2024 cardinality bounds specifies these complete ordered RM(1,m) cyclic b-weight multiplicities. The MDS complete-distribution theorem applies only to an intersecting small case (m=2), not the all-m formula. The ordinary Hamming enumerator is strictly coarser and cannot determine the cyclic b-spectrum without new run analysis. Actual published-finding corpus, exact subject/alias web searches, and inspected relevant primary texts found no equivalent; an unindexed prior exact enumeration remains a genuine residual risk.",
+    "residual_risks": [
+      "A nonindexed prior exact cyclic b-symbol RM(1,m) formula could exist despite the documented searches.",
+      "DOI:10.3934/amc.2023028 full text not accessible; public description is limited to MDS codes and does not extend to RM(1,m) for m>=3."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general framework and examples, no covering RM(1,m) dyadic-plus-one complete distribution identified.",
+        "evidence": [
+          "arXiv:2103.16299v2, §§3–5; arXiv:2103.16299v1 first public 2021-03-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.16299v2",
+        "material_read": "Introduction, main definitions, §§3–5 and examples concerning simplex and Hamming codes.",
+        "method": "Primary open-access full HTML text read and compared for exact first-order RM(1,m) b-symbol coefficient law.",
+        "title": "Generalized b-Symbol Weights of Linear Codes and b-Symbol MDS Codes",
+        "trigger": "Defines the metric and explicitly computes b-symbol examples for classical codes."
+      },
+      {
+        "assessment": "General bounds/identities; none fixes the full cyclic b-weight distribution for the indexed RM family.",
+        "evidence": [
+          "arXiv:2109.13764v1, Theorem 2 and Theorem 13."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.13764v1",
+        "material_read": "Introductory results, zero-run formulas in §2, and generalized-weight relationships in §3.",
+        "method": "Primary open-access HTML full-text sections inspected at theorem and definition level.",
+        "title": "Connections among Hamming metric, b-symbol metric, and rth generalized Hamming metric",
+        "trigger": "Possible stronger general theorem connecting symbol spectra and generalized Hamming weights."
+      },
+      {
+        "assessment": "Code-independent bounds and cardinalities do not give RM(1,m) complete multiplicities or the dyadic-plus-one family.",
+        "evidence": [
+          "arXiv:2404.02471v1, §§2,5,6."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.02471v1",
+        "material_read": "Introduction, §2 run formula, §5 cardinality results and §6 cyclic-code discussion.",
+        "method": "Primary open-access HTML full text and theorem statements examined.",
+        "title": "Some bounds on the cardinality of the b-symbol weight spectrum of codes",
+        "trigger": "Potentially dominates a claim on exact code-spectrum cardinality."
+      },
+      {
+        "assessment": "MDS family can overlap the m=2 trivial member, but no general coverage of RM(1,m), m>=3; lack of full text remains a disclosed residual access risk.",
+        "evidence": [
+          "DOI:10.3934/amc.2023028; publisher abstract and attempted HTML."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/amc.2023028",
+        "material_read": "Publisher abstract and metadata; full HTML access attempted but unavailable behind publisher access gate.",
+        "method": "Public abstract inspected and publisher full-text HTML route attempted.",
+        "title": "The b-weight distribution for MDS codes",
+        "trigger": "Title directly concerns complete b-weight enumerators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f786bdd6-6b5b-49a0-9a8b-6c4e937a3aaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-order Reed–Muller family is a canonical low-rate affine evaluation code, and cyclic b-symbol weight captures an operationally distinct overlapping-read metric sensitive to coordinate order. Natural dyadic-plus-one windows align with the code’s recursive block structure. The theorem gives the full distribution for an infinite family, a constant interior multiplicity law, all exact positive weight levels, and the exact minimum, which generic cardinality or Hamming-weight results do not determine.",
+    "status": "PASS"
+  }
+}
