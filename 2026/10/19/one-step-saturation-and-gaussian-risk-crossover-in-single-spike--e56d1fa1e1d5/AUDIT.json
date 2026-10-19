@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For every fixed c>0 and integer ell>=2, n>ell, and independent real standard-Gaussian sketches, the finite projector identity follows by Sherman-Morrison and a direct Gaussian Schur complement of a Wishart Gram matrix with chi-squared n-ell residual degrees of freedom. For the iterative statement, the l-by-l Gram/n converges to I+cgg^T and the initial coefficient Z^TY/n converges to cgh, exactly on the unique top eigenvector. The transverse/top ratio after any positive integer power is bounded uniformly by its initial vanishing ratio because all eigenvalues are positive and the largest is simple. The map Z has condition number O_p(1) on its column coordinates, so its normalized image inherits this uniform convergence. The baseline depends on independent chi-square one; the numerator difference has a continuous joint law, justifying the beta-tail comparison. The rank-one-plus-identity decomposition of AA^T proves the spectral residual bound and bounded-convergence of expectations. The actual CHECK.py in this row passed 240 projector Schur tests, 960 direct-versus-reduced iterate tests, 960 spectral residual bounds, and 280 finite-dimension trials. Computations supplement, not establish, the uniform q claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang-Yang Theorem 2 (q=1) and Theorem 3 (general q) give expected/probabilistic matrix-approximation bounds under sketch-size conditions, rather than a fixed-ell two-Gaussian vector law.",
+        "Chenakkod-Derezinski Algorithm 1 powers Z Z^T but initializes Z Omega in the auxiliary range and uses sparse sketches with regularized-spectral bounds; this does not assess independent Y=A omega.",
+        "Tropp et al. 2017 analyze general sketches and an oblique estimator without the later sketch-power recurrence."
+      ],
+      "reasoning": "General Frobenius or spectral inequalities provide neither the precise fixed-width nondegenerate distribution nor the near-sure sample comparison; the distinct initialization in the other 2026 power method prevents direct specialization to the present two-independent-sketch model. No examined stronger theorem covers the joint statement.",
+      "searches": [
+        "sketch-power iteration Chang Yang 2026 exact Gaussian rank-one spike asymptotic fixed sketch width finite q one-pass randomized SVD",
+        "65F55 one-pass sketch-power iteration Gaussian rank-one spiked diagonal matrix spectral projector distribution finite sketch width no further gain with q",
+        "one-step optimality and saturation of sketch-power iteration (Z Z^T)^q Y vs range of Z, random Gaussian probe",
+        "\"sketch power\" Gaussian spike one iteration chi square limiting distribution rangefinder",
+        "arXiv:2605.09755v1 Secs. 1-3, Appendix A and Appendix B",
+        "arXiv:2603.26298v1 Secs. 3, 4.2.2, 5, 6 and Appendix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.26298v1 Eq. (6), Sections 2.3, 3, 4, 5-7, supplementary",
+      "arXiv:2605.09755v1 Sections 1-3, Appendix A and proofs",
+      "arXiv:2604.10215v2 Sections 1 and 4; PDF figures and relevant theorem",
+      "Tropp et al. 2017 SIAM J. Matrix Analysis Applications, sketch algorithms and error statements",
+      "Scientific title: exact random radius law for one spike ellipsoids in every codime",
+      "Scientific title: sharp multistage arp error products",
+      "Scientific title: exact haar moments sparse ssd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source operator (Z Z^T)^q A Omega matches the present mathematical rangefinder, but error upper bounds and q=1 numerical near-saturation do not imply a sharp probabilistic uniform convergence.",
+        "In the other sketched-power source the vector before powering lies in range Z, while here the independent initial vector may be better aligned than the auxiliary range, causing the explicit sample-level regression risk.",
+        "Townsend-Wang Sec. 4 addresses OSI/OSE single-sketch relative accuracy and a diagonal test matrix, not independent auxiliary sketch powers."
+      ],
+      "reasoning": "A direct implication test fails for each inspected theorem: the needed hypotheses differ or the conclusion is an inequality about another estimator. The complete claim requires a new fixed-width spectral-limit argument and a joint distribution calculation beyond these premises.",
+      "searches": [
+        "sketch-power iteration Chang Yang 2026 exact Gaussian rank-one spike asymptotic fixed sketch width finite q one-pass randomized SVD",
+        "randomized sketch power method nonmonotone quality increasing iterations wrong subspace singular vector finite n",
+        "one-step optimality and saturation of sketch-power iteration (Z Z^T)^q Y vs range of Z, random Gaussian probe",
+        "\"Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation\" arxiv authors 2026",
+        "arXiv:2603.26298v1 Eq. (6), Theorems 2-3, Sec. 4.2.2",
+        "arXiv:2605.09755v1 Algorithm 1, Theorem 2.1 and Appendix A",
+        "arXiv:2604.10215v2 Sec. 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical Gaussian inverse-Wishart quadratic forms imply the exact finite-n ceiling c n X/(V+c n X), and this component is credited as established.",
+        "The 2026 one-spike ellipsoid random-section law has a beta transform of Haar subspace projections, not q-powered independently seeded Gaussian sketches.",
+        "The primary SPI paper states the q-power operator and qualitative saturation but no independent-sketch chi-square joint limit."
+      ],
+      "reasoning": "Rephrasing as principal-angle capture, inverse-Wishart F ratio, or beta-law section radius recovers at most the auxiliary projector ceiling, not uniform convergence of the actual recursively powered Y across every q>=1, the baseline independent chi-square and the exact chance of regression. Therefore known equivalent forms do not imply the complete claim.",
+      "searches": [
+        "chi-square exact law critical n-scaling principal angle for Gaussian-sketched rank-one spike and sample capture",
+        "rank-one spike diagonal A=sqrt(c n),1,...,1 Gaussian sketch optimal projection beta F chi squared, subspace iteration",
+        "Published scientific result: Exact random-radius law for one-spike ellipsoids in every codimension (2026)",
+        "arXiv:2603.26298v1 Eq. (6), Secs. 2.3, 3, 5-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing mathematical tables contain the chi-square/F/beta distribution identity used in the proof, not the iteration-uniform sketch-power convergence.",
+        "The inspected ellipsoid result gives full beta distribution of a Haar random section radius, not this powered two-sketch principal angle."
+      ],
+      "reasoning": "A previously tabulated F ratio answers only the finite auxiliary ceiling. One must prove that the actual normalized iterates converge to it uniformly in q and couple the limiting independent baseline. The selected natural invariant is not a known-table recomputation. Search limitations remain acknowledged.",
+      "searches": [
+        "chi-square exact law critical n-scaling principal angle for Gaussian-sketched rank-one spike and sample capture",
+        "high-dimensional spike threshold for one-pass Gaussian sketch-power iteration (Z Z transpose)^q A omega, fixed sketch size",
+        "rank-one spike diagonal A=sqrt(c n),1,...,1 Gaussian sketch optimal projection beta F chi squared, subspace iteration",
+        "\"sketch-power\" \"rank-one\" spike asymptotic",
+        "Published scientific result: Exact random-radius law for one-spike ellipsoids in every codimension (2026)"
+      ]
+    },
+    "rationale": "The novelty assessed is the uniform-over-all-positive-powers asymptotic saturation for the independently initialized sketch-power algorithm and the exact joint Gaussian capture/regression law; standard beta and inverse-Wishart ingredients are explicitly not claimed new. Chang-Yang define precisely this operator and prove general error bounds, but their q=1 near-saturation is an empirical observation, not this fixed-width chi-square crossover. Chenakkod-Derezinski consider powers of a sketch with initialization already in its range, and bounds conditional on regularized spectral approximation; the independent initial sketch and its samplewise regression probability are not treated. The other inspected mathematical results involve different operators. Semantic search cannot certify global uniqueness, but no inspected primary text yields a theorem implying this complete statement.",
+    "residual_risks": [
+      "Semantic searches and inspected sources cannot establish universal bibliographic uniqueness; older spiked-Wishart or statistical PCA literature may present an equivalent independent-sketch joint limit under different terms.",
+      "The theorem is only for fixed auxiliary width, one critically scaled spike, two independent real-Gaussian sketches and exact arithmetic; no claim of general algorithmic monotonicity or oblique estimator accuracy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST SAME OPERATOR; no exact high-dimensional fixed-width one-spike chi-square joint law or uniform all-q theorem found in inspected text.",
+        "evidence": [
+          "Eq. (6) defines (ZZ^T)^qY",
+          "Theorem 2 gives q=1 expected error bounds with sketch size conditions; Theorem 3 covers general q via inequalities.",
+          "Section 7 comments q=1 nearly attains dominant sketch subspace in experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.26298v1",
+        "material_read": "Complete accessible HTML manuscript, including mathematical definitions, Theorems 2-3, numerical sections 4.2.2/4.3.5, proofs in Sections 5-7 and supplementary sections available in the HTML version.",
+        "method": "Read section texts and equations, inspect q-dependent error theorems and numerical saturation discussion.",
+        "title": "Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations",
+        "trigger": "Exact same sketch-power operator in Eq. (6) and matching primary MSC 65F55"
+      },
+      {
+        "assessment": "RELATED BUT DISTINCT: method initializes in range of auxiliary sketch as Z Omega, not independent Y=A omega; regularized-spectral approximation upper bounds do not imply samplewise joint capture/regression laws.",
+        "evidence": [
+          "Algorithm 1 sets Y=(Z Z^T)^q Z Omega",
+          "Theorem 2.1 is a spectral approximation inequality for sparse sketch matrices and a different dimensional regime."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.09755v1",
+        "material_read": "Complete accessible arXiv HTML including Algorithm 1, Theorem 2.1, Sections 1-3 and appendices on related work and technical proofs.",
+        "method": "Compare the initialization, sketch model, algorithmic claim, theorem conclusion and appendix scope.",
+        "title": "Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation",
+        "trigger": "Very close phrase and sketched power operator, published May 2026"
+      },
+      {
+        "assessment": "NOT COVERING: its co-range estimator and bounds predate and lack this auxiliary sketch-power operation; no inference to the exact joint law.",
+        "evidence": [
+          "The 2017 paper studies generalized sketches and a separate co-range sketch with expected low-rank approximation error bounds."
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/papers/TYUC17-Practical-Sketching.pdf",
+        "material_read": "Primary full-text PDF consulted, with relevant pages 1 and 8 visually inspected and the sketches/estimator and error-bound passages reviewed.",
+        "method": "Inspect original sketches and recovered estimator; compare mathematical objects.",
+        "title": "Practical Sketching Algorithms for Low-Rank Matrix Approximation",
+        "trigger": "Foundational one-pass algorithm behind the motivating SPI method"
+      },
+      {
+        "assessment": "NOT COVERING: different sketch distribution and no auxiliary powered sketch; its OSI/OSE error guarantee does not imply present exact limiting distribution.",
+        "evidence": [
+          "Section 4 Figure 3 uses A=diag(1,tau,...,tau) with n=30 and compares Gaussian versus sparse signed one-vector sketches.",
+          "Theorem 4.1 concerns an OSI relative Frobenius-error counterexample."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.10215",
+        "material_read": "Full PDF accessed; title page and page 9 visually inspected and Section 4 on the diagonal test matrix and Theorem 4.1 studied in extracted text.",
+        "method": "Compare single-sketch OSI counterexample, diagonal test dimensions, and theorem conclusion to independent Gaussian SPI powers.",
+        "title": "Oblivious Subspace Injection Is Not Enough for Relative Error",
+        "trigger": "2026 randomized-SVD analysis with diagonal spike test and injectivity assumptions"
+      },
+      {
+        "assessment": "DIFFERENT OBJECT: Haar-random section radii of one-spike ellipsoids; its beta distribution does not entail a sketch-power iteration or independent-baseline comparison.",
+        "evidence": [
+          "Its core law is a beta transform of one fixed-vector Haar projection, with no Y=A omega, Z=A Phi or power q."
+        ],
+        "identifier_or_url": "Scientific title identifier: Exact random-radius law for one-spike ellipsoids in every codimension (2026)",
+        "material_read": "Full RESULT.md read through authorized repository text access.",
+        "method": "Check its objects, beta distribution, quantifiers, and equivalence of functional outputs.",
+        "title": "Exact random-radius law for one-spike ellipsoids in every codimension",
+        "trigger": "Topically nearest indexed one-spike beta-law record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e56d1fa1-e1d5-42d8-843f-f4e29c4f8f46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At spike singular-value scale sqrt(c n), a fixed-width Gaussian rangefinder has an irreducible, nontrivial random capture ceiling. Knowing that even arbitrarily many additional powers cannot improve the asymptotic capture beyond q=1 is useful for deciding algorithmic iteration budgets versus sketch width. The sharp 1-1/sqrt(2) probability that an independent two-column auxiliary sketch *harms* a particular run distinguishes mean error improvements from sample-level guarantees. This is a meaningful phase-scale calculation and a structural diagnostic for one-pass low-rank algorithms, not merely a chi-square-table rewrite; it also identifies the precise regime and cases outside its scope.",
+    "status": "PASS"
+  }
+}
