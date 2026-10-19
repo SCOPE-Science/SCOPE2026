@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The point-process limit follows from independent rare Bernoulli reversals and direct harmonic-logarithm summation. Convergence of the ordered top atoms supplies asymptotic separation of the final two reversals. A deterministic count of steps opposing the terminal velocity then bounds the ballistic deficit and proves its exact asymptotic equivalence to twice the last reversal epoch. Exact finite-size survival products and independently generated paths corroborate the inequalities. No finite simulation is used to establish convergence.
+
+**Originality — PASS with a residual literature risk.** The nearest full primary sources are Pradhan–Ray–Roy's 2026 time-dependent reversal model and the 2019/2020 Engländer–Volkov–Wang critical-cooling scaling theorem. The former explicitly lists the logarithmically corrected inverse-time rate; the latter proves convergence to a random ballistic ray when the rate is smaller than inverse time. Neither inspected result states the logarithmic ballistic-front-deficit law or the full rescaled recent-reversal hierarchy. The result does not claim the previously established ray limit or classical Poisson approximation as new. Broad renewal/rare-event literature might imply the specialized observable without using its present terminology.
+
+**Value — PASS.** The limit distinguishes weakly ballistic motion from its approach to the actual ballistic support edge. It resolves a natural physical finite-time question left invisible by a degenerate velocity-scaling limit: what fraction of walks lie within a power-law-thin layer of the ballistic front, and what random scale sets that layer? The power-law boundary profile and joint reversal-age cascade are explicit and parameter-dependent, not an arbitrary computational slice.
+
+Self-review: passed. Independent audit: not yet performed.
