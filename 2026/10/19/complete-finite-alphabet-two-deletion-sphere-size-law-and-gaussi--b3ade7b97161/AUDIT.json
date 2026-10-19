@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The append-one-letter partition of two-deletion descendants proves the deterministic formula for any alphabet, with the two length-two bases covered. The two-state coefficient polynomial accounts for each new letter and return choice. For independent uniformly sampled letters, centered boundary-change variables are independent; conditional return indicators have constant one-over-(q-1) success probabilities. The exact polynomial second moment follows from orthogonality of degree-one and degree-two centered monomials and conditional total variance; all formulas include n=2. The Gaussian limit uses a Bernoulli CLT and L2-negligibility of quadratic and return noise. Direct exhaustive descendant sets, run formula, edge enumeration and independent transfer DP agree on 33 complete parameter cases; symbolic moments agree on 60 cases. Finite experiments only corroborate the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full text https://arxiv.org/html/2111.04255v1 Sec II and upper-bound statements: maximal binary ball volumes and intersections; not a distribution of random centers.",
+        "arXiv:2609.16837 abstract describes maximum pairwise intersections of q-ary deletion balls, not the one-center volume distribution.",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md Limitations explicitly exclude nonbinary alphabets and the full distribution."
+      ],
+      "reasoning": "Although maxima/intersections study the same deletion sets, they do not determine the histogram of single-center cardinalities. Even a bound on ball size fails to imply exact multiplicities or variance. The 2026 q-ary intersection paper is distinct in its two-center parameter and did not establish a direct implication; its full text was unavailable in the accessible HTML format.",
+      "searches": [
+        "Exact q-ary distribution of cardinality of two-deletion descendant sets by transitions, two-by-two transfer matrix, binomial return events, closed variance and central limit theorem",
+        "Exact variance number of distinct 2-deletion descendants q-ary uniform random word polynomial in n and alphabet size q",
+        "q-ary two deletion descendant count Var for q>=3 with leading n^3 coefficient (q-1)^3/q^4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2111.04255v1",
+      "https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md",
+      "https://arxiv.org/html/2103.01681v2",
+      "https://arxiv.org/abs/2609.16837",
+      "2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+      "2026/10/4/SCOPE-exact-inverse-branching-for-one-symbol-duplication-with-transpos--ebf19fb353f4",
+      "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md gives Var(B_{n,2})=(n-1)(n-2)(2n-3)/32, recovered exactly on setting q=2; does not imply probabilities at q≥3.",
+        "https://arxiv.org/html/2111.04255v1 defines binary D_t(x) and studies N(n,l,t), a two-center intersection maximum.",
+        "https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes Prop 3.1 uses binary runs and singleton statistics.",
+        "arXiv:2609.16837 studies q-ary intersection extrema with two different centers."
+      ],
+      "reasoning": "The claimed general law implies the known binary variance (a proper special case); conversely, a single binary moment cannot fix full nonbinary distributions. A binary run statistic is not equivalent to the q-ary run-return statistic: for q>2 the two changes can either return or not, creating a genuine conditional binomial term. Intersection extrema do not imply first or higher moments over uniformly random single centers.",
+      "searches": [
+        "Exact q-ary distribution of cardinality of two-deletion descendant sets by transitions, two-by-two transfer matrix, binomial return events, closed variance and central limit theorem",
+        "Exact variance number of distinct 2-deletion descendants q-ary uniform random word polynomial in n and alphabet size q",
+        "Distribution of two-deletion sphere sizes for q-ary words closed form second moment",
+        "q-ary two deletion descendant count Var for q>=3 with leading n^3 coefficient (q-1)^3/q^4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest record 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc computes only the binary variance.",
+        "Swart–Ferreira DOI:10.1109/TIT.2002.806155, Proposition 3.1 gives a binary run formula, not the nonbinary joint profile or transfer."
+      ],
+      "reasoning": "Deletion descendant volumes, number of distinct subsequences after two deletions, and radius-two spheres were compared as aliases. The extra q-2 nonreturn choices in the new transfer are absent in the binary setting and cannot be inferred from a binary variance identity.",
+      "searches": [
+        "Exact q-ary distribution of cardinality of two-deletion descendant sets by transitions, two-by-two transfer matrix, binomial return events, closed variance and central limit theorem",
+        "Number of distinct subsequences after deleting exactly two letters from non-binary strings; formula run count long runs ABA triples; probability law under uniform q-ary symbols",
+        "two deletion ball size distribution iid qary word generating function transfer matrix q≥3 all n first second moments asymptotic normal",
+        "full probability distribution two deletion sphere size transfer matrix of iid symbol changes and alternating triples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus table 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc is an all-n q=2 second moment, not complete nonbinary distributions.",
+        "Distinct channel record 2026/10/4/SCOPE-exact-inverse-branching-for-one-symbol-duplication-with-transpos--ebf19fb353f4 counts inverse parents after duplication/transposition, not two-deletion sphere volumes.",
+        "Distinct channel record 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 counts confusable pairs of two-read single-deletion outputs, not a one-center distribution."
+      ],
+      "reasoning": "Compared the statistics in closest indexed rows rather than looking only for identical digits or q-values. Our q=3,n=5 histogram contains ten ball sizes with exact 243-source total; no indexed exact distribution table or dominating all-alphabet theorem was identified. An undiscovered source remains possible.",
+      "searches": [
+        "Number of distinct subsequences after deleting exactly two letters from non-binary strings; formula run count long runs ABA triples; probability law under uniform q-ary symbols",
+        "two deletion ball size distribution iid qary word generating function transfer matrix q≥3 all n first second moments asymptotic normal",
+        "Distribution of two-deletion sphere sizes for q-ary words closed form second moment"
+      ]
+    },
+    "rationale": "The accepted contribution is the exact nonbinary full distribution and its transfer/variance/limit; the already-published binary variance is expressly not claimed new. The strongest published overlap proves only the q=2 variance, while the 2003 run formula is binary. The 2021 primary paper focuses on binary deletion-ball intersections and maxima. Nonbinary return-to-prior-symbol probabilities require genuine additional terms. Searches on exact domain, equivalent terms, alphabet parameter and matrix reduction found no implication covering the all-q distribution. Residual unindexed-equivalent risk is recorded.",
+    "residual_risks": [
+      "Older differently named q-ary run-statistic or generating-function literature might imply the two-state distribution and was not identified by search.",
+      "The 2026 q-ary intersection manuscript could only be scope-checked from its accessible abstract; no full-text NOT_COVERING conclusion is made for it.",
+      "Finite code does not prove infinite claims; a separately reconstructed induction, algebraic variance and CLT are the actual proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: addresses binary maximum intersections rather than q-ary one-center distribution",
+        "evidence": "Sec II defines D_t(x) and N(n,l,t); Theorems 1–3 involve maxima and intersections.",
+        "identifier_or_url": "https://arxiv.org/html/2111.04255v1",
+        "material_read": "Complete accessible HTML text, particularly abstract, introduction, preliminaries, equations (1)–(5) and theorem scope",
+        "method": "Inspected original author manuscript as HTML, compared domain and quantified objects",
+        "title": "Sequence Reconstruction Problem for Deletion Channels: A Complete Asymptotic Solution",
+        "trigger": "Primary 2021 motivating deletion sphere and natural extrema"
+      },
+      {
+        "assessment": "Partial ancestor of deterministic count restricted to binary; not nonbinary law or random-center variance",
+        "evidence": "Proposition 3.1 counts two-deletion descendants via binary run and singleton statistics.",
+        "identifier_or_url": "https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes",
+        "material_read": "Accessible long-form ResearchGate article text containing Proposition 3.1 and nearby calculation; original publisher PDF not obtained",
+        "method": "Read article text rather than relying on an abstract",
+        "title": "A note on double insertion/deletion correcting codes",
+        "trigger": "Directly related deterministic double-deletion run formula"
+      },
+      {
+        "assessment": "Fully covers the binary variance only and is acknowledged as such. Explicitly excludes q>2 and full distribution.",
+        "evidence": "Its Var formula matches our q=2 specialization; Limitations says no nonbinary alphabet and no full distribution.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md",
+        "material_read": "Complete RESULT.md including proof, relationship to prior work and limitations",
+        "method": "Fetched and read the full public research statement; compared formulas algebraically",
+        "title": "Exact variance of binary two-deletion sphere size",
+        "trigger": "Closest published indexed finding with an explicit second moment"
+      },
+      {
+        "assessment": "Abstract addresses maxima of intersection of two balls, which is different; full text unavailable and residual risk retained.",
+        "evidence": "arXiv abstract defines N_q(n,d,t) as a maximum pairwise intersection.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.16837",
+        "material_read": "Public arXiv abstract (full HTML inaccessible); theorem scope reported as pairwise intersection maxima",
+        "method": "Scope comparison of quantified statistic, not a whole-document non-coverage claim",
+        "title": "On Sequence Reconstruction Problem for q-ary Deletion Channels",
+        "trigger": "Recent q-ary deletion literature using similar objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3ade7b9-7161-411f-bf7c-9a37ae9bb5c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact source-volume distribution is a natural invariant for q-ary two-deletion channels, refining the previously studied binary variance and extremal volumes. The two-state transfer handles every alphabet and length, not a single arbitrary cutoff, and captures the new return/nonreturn transition mechanism that only appears for q>=3. A closed variance polynomial and precise Gaussian scale demonstrate the typical irregularity of deletion balls. Such a distribution may inform sphere-volume weighted coding estimates, though no unproved downstream code-rate claim is made.",
+    "status": "PASS"
+  }
+}
