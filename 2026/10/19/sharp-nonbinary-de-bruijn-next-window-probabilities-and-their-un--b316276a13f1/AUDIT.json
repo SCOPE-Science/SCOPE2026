@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The full infinite proof gives a reversible edge-labelled two-arc contraction, rank-one matrix-tree ratio, explicit nilpotent-resolvent overlap sum and exact classification of d0=0,-1,-2. Uniform geometric bounds and a closed alternating sum give sharp minima/maxima and unique equality families at every q>=3,n>=2. Separate successor-permutation and full determinant code verifies finite examples and equality cases. Constant words are correctly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cowan (1991) Theorem Section 3 gives the expected count of any pattern given all two-symbol transition counts, including recoded de Bruijn graphs.",
+        "Rødland (2006) abstract offers exact distributions under fixed k-word counts; full text not available.",
+        "Dawson--Good (1957) bibliographic abstract gives exact count-frequency law for circular arrays."
+      ],
+      "reasoning": "These general distribution/count formulas can yield the single-pattern probability, so merely expressing that marginal differently is not original. None of the examined full works states or proves the simultaneous sharp bounds and all-order equality classification. A stronger published *extremal* statement would cover the present theorem; its possible presence in uninspected general-distribution appendices is a residual risk.",
+      "searches": [
+        "Cowan 1991 Expected frequencies of DNA patterns using Whittle formula theorem Section 3",
+        "Rodland 2006 Exact distribution of word counts in shuffled sequences",
+        "Dawson Good 1957 Exact Markov probabilities from oriented linear graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.16545 PDF Sections 1--4 and references",
+      "Cowan 1991 full author text Sections 1--5, especially Theorem Section 3",
+      "arXiv:1708.03654 full text introductory/enumerative portions",
+      "Rødland 2006 DOI abstract",
+      "Dawson and Good 1957 journal contents and quoted abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sawada--Gabrić prove that the ensemble can be sampled uniformly, but a sampling algorithm does not fix the all-order minimum of a local event without an additional analysis.",
+        "Cowan supplies an implicit exact numerical marginal for every single candidate, not its global sharp envelope and rigidity over every n, q, w.",
+        "Tesler establishes cycle enumeration without the optimization."
+      ],
+      "reasoning": "The new inequalities and equality classifications require an analysis of the first overlap coefficient, period-two structure, and finite geometric tails. Earlier general formulas can in principle be specialized and optimized; no direct equality-class theorem was found in the inspected material. The earlier support-only result determines whether a marginal vanishes, not these positive probabilities.",
+      "searches": [
+        "arXiv:2510.16545 Sawada Gabric uniform random cycles adjacency probabilities",
+        "Cowan 1991 Markov conditional pattern expectation matrix tree",
+        "arXiv:1708.03654 Tesler multi de Bruijn enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Euler-circuit formulation is a sharp optimization of local two-arc adjacencies; Cowan (1991), Section 3 full theorem, proves general conditional expected pattern counts but contains no all-parameter sharp extremizer inequality.",
+        "Sawada--Gabrić, arXiv:2510.16545, Sections 2--4, constructs uniformly random Euler circuits but does not optimize individual factor frequencies."
+      ],
+      "reasoning": "Searching uniform factor marginals, edge-consecutive frequencies, and overlap-code aliases found no equivalent two-sided all-order theorem. General implicit count identities are acknowledged as background and not part of the originality claim.",
+      "searches": [
+        "sharp inclusion probabilities uniformly random de Bruijn cycle length n+1 pattern positive lower bound upper bound",
+        "uniform random de Bruijn word likelihood extremal factors ABA aab Hamming overlaps",
+        "quantitative next window occurrence probabilities maximal minimal factors de Bruijn cycles",
+        "all nonconstant (n+1)-words sampled de Bruijn cycles probability at least (q-2)/(q(q-1))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact successor-permutation enumeration of all binary orders two through five, ternary order two, and quaternary order two is independently reproduced in verify.py.",
+        "Complete finite profile checks for nonbinary parameter pairs q=3 to 7 and n=2 to 8 were calculated and compared with the analytic sharp families."
+      ],
+      "reasoning": "No accessible known table explicitly lists the all-order global sharp bound and equality classes. Finite reproduction is supporting evidence only, and an unindexed table could still overlap.",
+      "searches": [
+        "exact q-ary de Bruijn next order factor probability lower upper extrema",
+        "uniform random de Bruijn 1/(q-1) ABA q-2 q(q-1)"
+      ]
+    },
+    "rationale": "This finding claims only the sharp universal nonbinary probability envelope and full extremizer classification, not the general expected-count formula already proved by Cowan or the prior support classification. The 2025 unbiased-sampler primary paper, full Cowan 1991 theorem and accessible related count literature do not state this all-parameter optimization. Inaccessibility and indirect count-law implication remain noted risks.",
+    "residual_risks": [
+      "An all-order sharp optimization might be an unnoticed corollary or appendix of an earlier general Markov pattern-count formula.",
+      "Rødland 2006 full text and Dawson--Good 1957 full text could not be checked for exact extremizer classification.",
+      "Database and publication searches cannot certify absolute novelty; specialized or unindexed literature may overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNRELATED_TO_SHARP_EXTREMA",
+        "evidence": [
+          "Section 3 Algorithm R constructs uniform sampling from random arborescences.",
+          "No theorem states an all-order positive lower bound or identifies extremizing next-order factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.16545",
+        "material_read": "16-page PDF; introduction, preliminaries, algorithm, applications and references, inspected for marginal and extremal statements",
+        "method": "arXiv author preprint full PDF with page inspection",
+        "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+        "trigger": "2025 new uniformly random sampling model for de Bruijn cycles"
+      },
+      {
+        "assessment": "POINTWISE_MARGINAL_IS_IMPLIED_BUT_SHARP_OPTIMIZATION_NOT_STATED",
+        "evidence": [
+          "Section 3 theorem gives conditional expected pattern frequency as a ratio of Markov-transition count numbers.",
+          "Its general theorem does not optimize this quantity over all orders, alphabets and words or classify extremizers."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3214691",
+        "material_read": "Entire accessible 1991 author-authored text (Sections 1--5, especially Section 3 theorem)",
+        "method": "Author-uploaded full text rendered as accessible HTML on ResearchGate; compared Theorem and matrix-count setup",
+        "title": "Expected frequencies of DNA patterns using Whittle's formula",
+        "trigger": "Plausible exact prior for conditional local-event probability in uniformly random Euler tours"
+      },
+      {
+        "assessment": "NOT_COVERING_EXTREMAL_LAW",
+        "evidence": [
+          "Generalized cycle counts via Euler tours; no sharp marginal extrema for uniformly random ordinary de Bruijn cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+        "material_read": "Accessible arXiv full text, introduction and enumeration formula portions",
+        "method": "ArXiv full-text page",
+        "title": "Multi de Bruijn Sequences",
+        "trigger": "General enumeration including classical de Bruijn cycle counts"
+      },
+      {
+        "assessment": "GENERAL_PRIOR_PLAUSIBLE_BUT_INACCESSIBLE_FOR_DECISIVE_NONCOVERAGE",
+        "evidence": [
+          "Abstract reports exact distributions of pattern counts under fixed k-word composition, not explicit sharp extrema.",
+          "The full text could in principle contain an equivalent optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1143936143",
+        "material_read": "Abstract, keywords and bibliography; full text unavailable",
+        "method": "Cambridge article landing page; authorized institutional full-text attempt unsuccessful due unavailable institutional connection",
+        "title": "Exact distribution of word counts in shuffled sequences",
+        "trigger": "Potentially stronger general count law for prescribed factors conditioned on k-word counts"
+      },
+      {
+        "assessment": "GENERAL_DISTRIBUTION_BACKGROUND_WITH_ACCESS_RISK",
+        "evidence": [
+          "1957 abstract describes exact probabilities of m-tuple count vectors given n-tuple counts.",
+          "No accessible theorem statements ruling out an implicit equivalent extremal optimization."
+        ],
+        "identifier_or_url": "https://www.jstor.org/stable/2237055",
+        "material_read": "Bibliographic abstract and citations only; full text unavailable",
+        "method": "Journal issue contents, secondary quotation of abstract, and citation trail",
+        "title": "Exact Markov probabilities from oriented linear graphs",
+        "trigger": "Original conditional frequency distribution for circular Markov sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b316276a-13f1-41f2-b231-5b7bc1d54f57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An order-independent strictly positive lower probability for every nonconstant next-order word, together with all equality cases, is a motivated sharp sampling-coverage invariant for uniformly generated de Bruijn cycles. The exact worst-case sampling probability yields a concrete all-pattern union bound; it is neither a fixed small table nor a change of notation.",
+    "status": "PASS"
+  }
+}
