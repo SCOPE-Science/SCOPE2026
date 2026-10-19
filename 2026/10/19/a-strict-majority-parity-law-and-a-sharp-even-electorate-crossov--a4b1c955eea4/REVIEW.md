@@ -1,0 +1,11 @@
+# Scientific review — even-electorate strict majority
+
+**Correctness — PASS.** The beta-binomial definition and strict-majority convention are explicit. Two adjacent binomial-tail identities give strictly positive odd/even gaps. An exact two-trial identity, integrated against the Beta mixing law, gives a positive even-to-even increment for every real \(\alpha>\beta>0\) and all \(m\ge1\). The limiting inequality follows directly by reflection of the Beta density, not by finite simulations. The special integer case has rational closed forms, with \(A_8=2/3\) and \(A_{10}=15/22\). The extracted standalone checker performs exact arithmetic, but the general conclusion rests on proof.
+
+**Originality — PASS, with risk.** The two primary Braha–de Aguiar papers establish the stationary distribution, the asymptotic advantage and an odd-electorate nonasymptotic theorem. The 2026 paper's Appendix B credits Berg (1993) for the latter odd-only Polya–Eggenberger theorem. The new claim concerns specifically even strict-majority monotonicity and the sharp benchmark-crossing phase, not prior beta-binomial law or odd advantage. Search and accessible full-text comparisons did not find coverage; the Berg (1993) original is inaccessible and remains a priority risk. This is not an independent historical priority certification.
+
+**Mathematical value — PASS.** The original model explicitly fails to guarantee finite-size improvements. Exactly distinguishing the natural even strict-majority regime is a motivated voting-theory problem, because ties count as failures. The proof gives all-positive-shape comparisons, the unavoidable parity reversal on adding one voter, eventual even improvement over one voter, and the exact first even threshold in the smallest integer correct-zealot majority. The narrow exact cutoff contributes to, rather than replaces, the structural theorem.
+
+**Limits.** The result applies to fully mixed stationary beta-binomial vote counts and strict majorities, not to arbitrary graphs, tie-breaking conventions, or individual learning transients. Only self-review is performed. The historic Berg source was not read in full.
+
+Self-review: passed. Independent audit: not yet performed.
