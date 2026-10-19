@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For odd target lengths the two complementary alternating palindromes each have k runs and opposite starts, forcing k+1 host runs; for even lengths the complementary central-double alternators each have k-1 runs, forcing k host runs. The exactly counted arch decompositions after removal of the first zero or last one of the explicit W_k ensure all length-(k-1) binary suffix/prefix patterns occur; palindrome endpoints reduce all test patterns to those two cases. Witnesses have exactly 2ceil(k/2) runs and length 2k; 0^k and 1^k give the length bound. Fixed-run capacity follows by inversion and appending one zero. Actual verify.py passed for k<=28, every host n<=12, and constructions r<=36; finite checks corroborate but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barker et al., arXiv:2003.04629v1, sections 2 and 4: arch factorization and ordinary k-universality; their palindrome subsection computes universality for palindromic HOSTS.",
+        "Adamson et al., arXiv:2311.10658v1: language membership and algorithms for ordinary universality of REGULAR LANGUAGES."
+      ],
+      "reasoning": "Although standard universal-word theorems give sufficient examples and arch methods, they do not entail the sharp lower run obstruction for the restricted palindrome pattern class, nor the exact parity-dependent optimum. No inspected broader theorem includes it as an immediate specialization.",
+      "searches": [
+        "containing all length k binary palindrome subsequences minimum runs 2 ceil(k/2) universal host",
+        "Scattered Factor-Universality of Words arxiv:2003.04629v1 main universality theorem and palindrome-host proposition"
+      ]
+    },
+    "checked_sources": [
+      "Barker et al. (2020), Scattered Factor-Universality of Words, arXiv:2003.04629v1, primary HTML inspected.",
+      "Adamson et al. (2023), k-Universality of Regular Languages, arXiv:2311.10658v1, material statements inspected.",
+      "Public mathematical finding titled Closed-form law for binary subsequence universality: full test spectrum, not palindrome-only.",
+      "Public mathematical finding titled Fibonacci extremals for shortest absent subsequences of binary words: different extremal count."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-spectrum k-universality forces at least k+1 runs; palindrome-target k-universality requires k runs when k is even and k+1 when k is odd.",
+        "arXiv:2003.04629v1 does address the universality index of palindromic HOSTS; the new host is not required to be a palindrome and the tested PATTERNS, not the hosts, are palindromes."
+      ],
+      "reasoning": "The old statements imply upper constructions using full-spectrum universality but not the sharp even-order k-run construction. Conversely, the present theorem does not imply general full-spectrum universality or distributional classifications. It supplies a missing exact extremal implication for restricted test patterns.",
+      "searches": [
+        "\"palindromic subsequences\" \"runs\" \"universal\" words",
+        "arxiv:2311.10658v1 k-Universality of Regular Languages ordinary versus constrained patterns",
+        "palindromic scattered-subsequence universality binary run count sharp bound maximum floor(r/2) palindromes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classical full k-spectrum theorem tests all binary strings; the present theorem tests only palindrome targets. One can express the new threshold equivalently as maximum palindrome-universality order for a fixed host run count. No equal implication was located in the inspected sources."
+      ],
+      "reasoning": "The palindrome-target restriction is not equivalent to the full spectrum: the explicit even-order host needs one run fewer than ordinary universality, and it is not restricted to palindromic hosts. The primary results concern different quantifiers.",
+      "searches": [
+        "palindromic scattered-subsequence universality binary run count sharp bound maximum floor(r/2) palindromes",
+        "\"palindromic subsequence universality\" \"runs\" binary words",
+        "\"subsequence universal\" \"palindromes\" \"runs\" binary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public research-index closest results concern full binary subsequence universality, absent subsequence counts, and palindromic duplication codes; these use different objects or test spectra.",
+        "Available previous studies of alternating hosts count their palindromic subsequences, not run-optimal hosts for complete palindrome spectra."
+      ],
+      "reasoning": "The result is an all-orders symbolic formula and construction, not a finite table. Searches returned no exact value table or sequence with the same invariant. Absence from search is not proof of novelty.",
+      "searches": [
+        "binary words palindromic subsequence full spectrum runs extremal family (0011)^m",
+        "Minimum number of runs in a binary word containing all palindromes length k as scattered subsequences is 2 ceil(k/2)",
+        "\"all palindromes\" \"subsequences\" \"minimum\" binary word"
+      ]
+    },
+    "rationale": "Reviewed the primary accessible full text arXiv:2003.04629v1 (2020) and main parts of arXiv:2311.10658v1 (2023) and made targeted exact/alias published-record and literature searches. Ordinary all-pattern universality, ordinary universality of palindromic HOSTS, and palindromic-subsequence counts for a fixed alternating host have different quantifiers and neither imply this optimal run threshold for arbitrary hosts containing all palindrome PATTERNS. No decisive covering result found; residual risk includes unindexed equivalent results.",
+    "residual_risks": [
+      "Unindexed or inaccessible papers or general constrained-pattern-universality results could contain an equivalent sharp run threshold; absence from indexed queries cannot prove absolute uniqueness.",
+      "The precise new statement is restricted to palindrome test patterns over a binary alphabet; no higher-alphabet consequence is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed palindrome-PATTERN sharp host-run threshold; ordinary full-spectrum and palindrome-HOST statements are distinct.",
+        "evidence": "arXiv:2003.04629v1, sections 2, 4, 6; arXiv first version 2020-03-10.",
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "Accessible arXiv HTML: introduction and main claims, preliminaries, section 4 especially palindrome-host subsection, conclusion and relevant reference context.",
+        "method": "Read full HTML sections and locate substring \"palindrome\"; compared hypotheses, whether host or tested pattern must be palindrome, and run-count conclusions.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational primary work defining k-scattered-factor universality, arch factorization, palindromic host properties."
+      },
+      {
+        "assessment": "Not covering: tested language is the full k-spectrum; does not give the palindrome-only pattern threshold or the exact run formula.",
+        "evidence": "arXiv:2311.10658v1, first version 2023-11-17.",
+        "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+        "material_read": "Accessible HTML abstract, introduction, and primary regular-language universality and counting statements; searched for palindrome test targets.",
+        "method": "Statement-level comparison of ordinary all-pattern universality of members of regular languages against restricted palindrome-pattern requirement.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "General universality in constrained regular languages could dominate a restricted host-run assertion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95871b07-8ab2-4d17-835b-b84587ac7670",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves the exact host-run resource for the complete palindrome-subsequence test family at every order (a natural restricted spectrum), obtains simultaneous minimum host length 2k and minimum 2ceil(k/2) runs with constructive witnesses, and exposes a sharp parity split relative to full-spectrum universality. It is an infinite structural extremal theorem rather than a finite experiment, routine enumeration of a known table, or substitution into the full-universality law; it can inform design of low-run covering words under palindrome-restricted subsequence tests.",
+    "status": "PASS"
+  }
+}
