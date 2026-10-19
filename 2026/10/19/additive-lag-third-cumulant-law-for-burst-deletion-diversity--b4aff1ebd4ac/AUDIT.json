@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Verified all n>=3, q>=2 and three pairwise distinct lags: classical exact deletion-count identity; independent centered edge variables for forests, since every new leaf color is uniform; only triangles survive three-edge cumulant; triangles exist iff a+b=c and are counted as two per leftmost vertex; exact triangle product -(q-1)/q^3. Distinct edge pairs have zero covariance. Direct exact all-word enumeration for q=2,3 and n=3..7 checks ball sets, marginal histograms, covariance and each mixed third moment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schoeny et al. 2016 Appendix A establishes the binary marginal distribution and therefore covers that ancillary identity; its code-bound results do not state cross-length moments.",
+        "Xi et al. 2025 consider a deletion followed by an insertion yielding length n rather than deletion-only outputs of length n-b.",
+        "General centered equality-edge moment methods might contain the forest/triangle reduction in unrelated probabilistic settings; no source with stronger explicit burst-deletion-spectrum coverage was identified."
+      ],
+      "reasoning": "We distinguish component-wise statistics, compounded deletion-insertion balls, and genuinely joint three-distinct-length deletion-only moments. The known formulas subsume contextual claims but do not, as inspected, explicitly subsume the focal joint theorem.",
+      "searches": [
+        "Schoeny 2016 arXiv:1602.06820 full text Section IV Appendix A: run-array ball size distribution",
+        "Xi Sun Ge 2025 arXiv:2506.07817 full text: fixed-length burst Levenshtein ball expectation concentration",
+        "random qary autocorrelation matches at three lags a b and a+b third cumulant graph cycles"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1602.06820 (full text, Section IV and Appendix A)",
+      "arxiv:2506.07817 (open full-text problem definitions, relevant sections)",
+      "Published scientific-record search for: lag moment, q-ary burst diversity, marginal distribution aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marginal ball count and independent-per-lag Bernoulli distribution follow from the earlier run-array formula, but pairwise covariances and three-lag centered products depend on shared input letters across lag graphs.",
+        "The derived triangle moment is -2(n-c)(q-1)/q^3 exactly when a+b=c; it is not implied by giving only the marginal distribution of each D_b."
+      ],
+      "reasoning": "A full joint distribution would imply the focal claim; none was identified. One-dimensional marginals cannot determine a mixed moment in general. The inspected prior theorem states one-dimensional counts; a separate triangle dependency argument is supplied here.",
+      "searches": [
+        "Schoeny 2016 arXiv:1602.06820 equation (2), Appendix A and Section IV",
+        "Xi Sun Ge 2025 arXiv:2506.07817 introduction and probability results",
+        "joint mixed third central moment burst deletion ball cardinalities uniform q-ary random strings different burst lengths sum a+b=c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schoeny et al. 2016, equation (2) characterizes one burst-size via runs but does not identify a three-different-length moment.",
+        "The publicly indexed binary two-deletion-sphere variance result considers deletion of two nonnecessarily adjacent symbols, not this joint different-length family."
+      ],
+      "reasoning": "Potential aliases include mixed cumulant of lag-disagreement counts, q-ary matching-edge triangle moment, and cross-lag run-count cumulants. The published run-array equation gives each marginal as a sum, but the three-length joint expectation and its additive triangle count require a new joint comparison; no equivalent specific statement was located.",
+      "searches": [
+        "joint mixed third central moment burst deletion ball cardinalities uniform q-ary random strings different burst lengths sum a+b=c",
+        "fixed-length burst deletion sphere random word covariance third cumulants additive lag triangle",
+        "multi burst deletion lengths random word joint covariance moment sphere size third cumulant q-ary 2024 2016"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published binary burst-correcting code-size census gives finite optimum code sizes, not mixed moments.",
+        "Schoeny et al. 2016 Appendix A supplies a one-burst marginal table/formula; our claimed classification varies simultaneously over three different burst lengths and all n,q."
+      ],
+      "reasoning": "Known binomial single-length distribution is explicitly attributed; no exact published table of three-lag mixed moments or dominating multidimensional distribution was found in consulted resources.",
+      "searches": [
+        "Exact binomial distribution number of distinct strings after deleting contiguous length k block from uniform random word",
+        "random q-ary word substring deletion sphere cardinality iid binomial law",
+        "fixed-length burst deletion sphere random word covariance third cumulants additive lag triangle"
+      ]
+    },
+    "rationale": "Accessible 2016 primary source supplies and is explicitly credited with the marginal count/distribution; relevant 2025 paper instead studies deletion-plus-insertion balls and marginal expectations. Targeted literature and published record comparisons identified no joint distinct-burst-length third moment or equivalent additive-lag criterion; possible generic triangle cumulant overlap is a residual risk.",
+    "residual_risks": [
+      "Higher-order equality-edge cumulants or q-ary discrete autocorrelation theory may contain a mathematically equivalent triangle formula, perhaps without deletion-ball terminology.",
+      "Searches and inspected papers cannot establish uniqueness throughout unindexed literature.",
+      "The present result is a third mixed moment, not a complete joint distribution or a claim of statistical independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS marginal lag count and binary distribution; NO covering joint three-distinct-lag theorem identified in inspected material",
+        "evidence": [
+          "Section IV equation (2): size equals 1 plus the sum of row run counts minus one.",
+          "Appendix A states N(n,b,i)=2^b binomial(n-b,i-1), a binary one-lag marginal."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+        "material_read": "Full-text equation (2) on page 4, Section IV code size argument, and Appendix A distribution calculation on pages 15-16; introductory scope",
+        "method": "Open-access original PDF, text and visual inspection of page 4; find for run count, covariance and variance",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Primary early burst-deletion source and exact ball-size formula that could cover the new claim"
+      },
+      {
+        "assessment": "Different observable (deletion and re-insertion) and single-b-radius statistics, not three different deletion-only burst lengths",
+        "evidence": [
+          "Introduction defines equal-length ball via consecutive b deletions followed by b insertions.",
+          "Abstract promises explicit sizes, extremal values, expectation and concentration, not multi-lag third mixed cumulants."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2506.07817",
+        "material_read": "Abstract and full-text Introduction, problem definition of deletion-plus-insertion, related deletion-ball lemmas and probabilistic scope",
+        "method": "Open-access original PDF text; compared definitions and searched within document for covariance, joint and moment terms",
+        "title": "On the Fixed-Length-Burst Levenshtein Ball with Unit Radius",
+        "trigger": "Plausible recent source on random burst balls and their expectation and concentration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4aff1eb-d4ac-40c6-8e22-2f1bd0d8729d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Multiple possible burst lengths are a natural synchronization-channel uncertainty. Their diversity counts have individually known binomial laws and vanish in all cross covariances; the all-parameter nonzero third mixed cumulant only at additive length resonance is the first sharp structure in joint fluctuations. It distinguishes marginal descriptions from cross-scale behavior, with an exact finite-size coefficient and no arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
