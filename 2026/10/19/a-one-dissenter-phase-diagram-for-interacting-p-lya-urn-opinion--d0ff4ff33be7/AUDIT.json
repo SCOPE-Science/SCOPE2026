@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For all integer n>=3, g>1, 0<h<1, the fixed-point symmetry proof forces n-1 equal majority coordinates. Clearing strictly positive denominators yields the exact y(y-1)(A-By) factor, proving completeness and feasibility. Direct two-by-two Perron calculations give h0 and h1, the published convergence and boundary theorems supply the stochastic almost-sure alternatives, vanishing increments rule out cycling among distinct equilibria, and a factored positive determinant establishes interior local stability. The h_flip and width identities are exact. Standard-library rational checker verifies 4032 polynomial identities and 288 separate interior/stability cases; these finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang, Adler, Ajorlou, Jadbabaie, Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks, arXiv:2308.09275 (18 Aug 2023), revised 2024, public journal preprint pp. 1-2, 6-10.",
+        "Theorem 3 of the public revised preprint proves approach to the fixed-point set; Theorem 4 characterizes boundary attraction by spectral radius. Section V explicitly lists determination of interior equilibria as future work.",
+        "Jadbabaie, Makur, Mossel, Salhab, Inference in Opinion Dynamics under Social Pressure, arXiv:2104.11172 (22 Apr 2021), Sections 2 and 4 and equilibrium derivation."
+      ],
+      "reasoning": "The published spectral theorem already yields which boundary can attract after a graph-specific eigenvalue calculation, so boundary statements alone are not offered as originality. It does not identify the fixed-point set or the unique interior limit in this two-bias specialization. The new order-reversing group-symmetry argument, rational reduction, local stability, and majority inversion condition bridge that gap.",
+      "searches": [
+        "Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks theorem 3 theorem 4 interior equilibria",
+        "Inference in Opinion Dynamics under Social Pressure homogeneous complete graph equilibria",
+        "Jennifer Tang Jadbabaie 2023 stochastic opinion dynamics social pressure unique interior equilibrium heterogeneous biases"
+      ]
+    },
+    "checked_sources": [
+      "Tang, Adler, Ajorlou, Jadbabaie, Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks, arXiv:2308.09275 (18 Aug 2023), revised 2024, public journal preprint pp. 1-2, 6-10.",
+      "Jadbabaie, Makur, Mossel, Salhab, Inference in Opinion Dynamics under Social Pressure, arXiv:2104.11172 (22 Apr 2021), Sections 2 and 4 and equilibrium derivation.",
+      "Public arXiv submission-history entries confirm 2023-08-18 for arXiv:2308.09275 and 2021-04-22 for arXiv:2104.11172."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 (source 2023/24) implies the consensus boundary after computing the two Perron radii; Theorem 3 yields approach to some equilibrium, not an explicitly determined point.",
+        "The 2021 source gives homogeneous-honesty complete-graph fixed points but does not cover arbitrary independent g>1 and 0<h<1.",
+        "A direct calculation determines the only three possible fixed points, their physicality, stability, and the h_flip interval."
+      ],
+      "reasoning": "The boundary statements are explicitly treated as applications of the stronger published theorem. The new claim is the fully resolved three-regime a.s. limiting vector, uniqueness of interior equilibria, and the majority-public-inversion threshold for all integer n>=3 and independent biases. Neither source alone implies these without the novel algebraic fixed-point classification.",
+      "searches": [
+        "Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks theorem 4",
+        "Inference in Opinion Dynamics under Social Pressure complete graph homogeneous gamma equilibrium",
+        "interacting Pólya urn social pressure complete graph one positive bias g and n-1 negative bias h explicit interior equilibrium polarization phase transition thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang, Adler, Ajorlou, Jadbabaie, Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks, arXiv:2308.09275 (18 Aug 2023), revised 2024, public journal preprint pp. 1-2, 6-10.",
+        "Jadbabaie, Makur, Mossel, Salhab, Inference in Opinion Dynamics under Social Pressure, arXiv:2104.11172 (22 Apr 2021), Sections 2 and 4 and equilibrium derivation.",
+        "Source model has f(z,k)=kz/[1+(k-1)z]. The fixed-point equation for one g-biased and n-1 h-biased vertices reduces to a scalar factor y(y-1)(A-By) on the loopless complete graph."
+      ],
+      "reasoning": "Checked the original urn, stochastic-approximation, nonlinear-response, and two-bias community formulations. The 2021 work has one shared honesty magnitude in both directions, whereas this finding allows independent g and h, uses no self-loops, and identifies a distinct interval with a unique interior limit. The 2023/2024 work permits heterogeneous biases but leaves interior fixed-point determination open.",
+      "searches": [
+        "interacting Pólya urn social pressure complete graph one positive bias g and n-1 negative bias h explicit interior equilibrium polarization phase transition thresholds",
+        "heterogeneous stubbornness Pólya urn complete graph fixed equilibrium one dissenter strong bias weak majority exact consensus minority persistence",
+        "Jennifer Tang Jadbabaie 2023 stochastic opinion dynamics social pressure unique interior equilibrium heterogeneous biases",
+        "\"interacting Pólya urn\" \"interior equilibrium\" \"complete graph\" \"heterogeneous\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed social-opinion record: “Exact logarithmic switching lifetime near a nonfreezing seven-agent confidence system”; it concerns graph switching in deterministic bounded-confidence dynamics, not cumulative nonlinear urns.",
+        "The original prior-exact complete-graph source permits only equal honesty strength in opposing groups.",
+        "No exact one-dissenter two-independent-bias equilibrium table or closed-form phase diagram was identified in searches."
+      ],
+      "reasoning": "A search not returning a table is not proof of novelty; the actual closest indexed social-opinion result concerns a different process. The most relevant concrete exact table in the 2021 primary paper has shared honesty, and substituting h independently into it is invalid.",
+      "searches": [
+        "interacting Pólya urn social pressure complete graph one positive bias g and n-1 negative bias h explicit interior equilibrium polarization phase transition thresholds",
+        "heterogeneous stubbornness Pólya urn complete graph fixed equilibrium one dissenter strong bias weak majority exact consensus minority persistence",
+        "Jennifer Tang Jadbabaie 2023 stochastic opinion dynamics social pressure unique interior equilibrium heterogeneous biases"
+      ]
+    },
+    "rationale": "Against the closest two full-text primary works, the source general theorem supplies convergence-to-set and boundary eigenvalue criteria but not the exact interior equilibrium or deterministic limit when both boundary points repel. The older exact homogeneous-honesty complete-graph case has a different allowed bias family. Exact group-symmetry and fixed-point factorization yield a new natural complete classification for independent bias magnitudes; direct source and mathematical-index searches uncovered no covering statement. Residual risk is an equivalent specialist reinforced-urn result not located in these searches.",
+    "residual_risks": [
+      "Related nonlinear stochastic-approximation literature may contain an unlocated specialization to this same two-bias loopless complete graph.",
+      "The boundary threshold conditions themselves are algebraic specializations of an existing general theorem; novelty rests on the interior point, full limiting vector, uniqueness, and reversal threshold.",
+      "Independent literature review and independent proof audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers convergence to equilibrium set and spectral boundary rule, but does not give the independent-two-bias one-dissenter interior profile or inversion threshold.",
+        "evidence": [
+          "arXiv:2308.09275v3, Sections II–V, Theorems 3–4",
+          "https://web.mit.edu/jstang/www/papers/opinion_dynamics_convergence_jour_preprint.pdf pp. 1, 10-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.09275",
+        "material_read": "Public full-text arXiv HTML: model equations 2-18, equilibrium equations 19-20, Theorems 1,3,4 and their surrounding arguments, conclusion. Public 12-page journal preprint: pp. 1-2 and 6-11, including conditions for boundary stability, discussion of open interior-equilibrium determination, and references.",
+        "method": "Read relevant full-text sections from arXiv HTML and publisher-independent public PDF including visual page confirmation.",
+        "title": "Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks",
+        "trigger": "Exact stochastic model and most likely general-coverage theorem"
+      },
+      {
+        "assessment": "Provides a related exact limit for common honesty magnitude. The claimed independently tunable two-bias, loopless K_n system is not covered by those formulas.",
+        "evidence": [
+          "arXiv:2104.11172, Sections 2, 4, and proof of its equilibrium lemma"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.11172",
+        "material_read": "Full-text public manuscript: introduction; Section 2 model including common honesty parameter; Section 4 complete-graph equilibrium formulas and convergence; appendix equilibrium derivation.",
+        "method": "Read scholarly full-text HTML derived from the public 2021 preprint, with formulas and the homogeneous-honesty parameter restriction.",
+        "title": "Inference in Opinion Dynamics under Social Pressure",
+        "trigger": "Original complete-graph urn with explicit solution and potential source of domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0ff4ff3-3be7-4d73-9f93-9486aa945212",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single strongly biased minority individual facing n-1 contrary-biased individuals is a canonical public-opinion stress test. The model-specific exact classification resolves the source paper’s uncertainty about interior equilibria for a natural infinite family, isolates a strictly positive persistence interval and a separate sharp public-majority-inversion line, and supplies n-dependent quantitative thresholds potentially useful for influence studies. It is neither arbitrary parameter slicing nor a table recomputation; the uniqueness and stochastic limiting-vector conclusions are logically stronger than published convergence-to-set statements in this family.",
+    "status": "PASS"
+  }
+}
