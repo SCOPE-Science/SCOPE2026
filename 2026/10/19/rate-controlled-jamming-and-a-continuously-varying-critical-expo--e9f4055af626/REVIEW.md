@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (PASS)
+The finite model's independent exponential edge clocks yield the stated exact three-count Markov generator. Its density drift is globally Lipschitz on the unit cube, and bounded jumps provide a finite-time fluid limit. The first integral is obtained by differentiating \(u v^{-p}-v^{1-p}/(2(1-p))\) for \(p\ne1\), or \(u/v-(\log v)/2\) for \(p=1\). The proof checks positivity, uniqueness of the terminal root, and all three parameter regimes. The deterministic terminal squeeze avoids confusing fixed-time fluid convergence with a statement about random absorption time. The standalone checker passed 104 exact labeled-versus-reduced small-graph comparisons and its mathematical and simulation checks. Limits are for fixed positive parameters; no critical finite-size claim is made.
+
+## Originality (PASS, subject to stated residual risk)
+Hilhorst, Deloubrière, Washenberger and Täuber (arXiv:cond-mat/0403246v1) explicitly assume equal cross-species reaction rates and solve initial-density asymmetry. Hilhorst, Washenberger and Täuber (arXiv:cond-mat/0409079v1) allow a rate matrix but impose a transitive species equivalence, and explicitly set aside unequal initial densities in their subsequent fluctuation analysis. In contrast, the present family has only interchange symmetry of the first two species, and obtains a dense finite-graph terminal observable and its continuously variable onset exponent. The known equal-rate tripartite jamming law is correctly treated as a covered specialization. Ben-Avraham and Redner (1986) present a three-species mean-field solution; full-text access was unsuccessful, so an unknown equivalent rate-inhomogeneous specialization is an outstanding bibliographic risk, not something ruled out by an abstract. Comparisons apply to actual hypotheses and conclusions rather than merely titles.
+
+## Mathematical value (PASS)
+Rate bias changes the macroscopic residual population of a graph that admits a perfect matching, with a sharp threshold and a continuously tunable, sometimes nonintegral onset exponent. The essential-singularity endpoint separates power-law and infinitely flat response regimes, a structural finite-density effect not obtainable by simply substituting part sizes into the equal-rate product law. The explicit formula offers an exactly solvable benchmark for rate-heterogeneous irreversible adsorption. It does not determine terminal fluctuations or finite-size convergence rates.
+
+## Closest literature and limitations
+The two Hilhorst preprints supply the nearest reaction-kinetic frameworks. The 1986 Ben-Avraham–Redner article is also plausible but was available only in abstract and bibliographic form; the unavailable full text is a material originality limitation. A general claim of uniqueness in the literature is not made. The result concerns complete tripartite dense graphs, positive fixed rates, and macroscopic thermodynamic limits, not diffusion in finite spatial dimension or finite-size critical phenomena.
+
+Self-review: passed. Independent audit: not yet performed.
