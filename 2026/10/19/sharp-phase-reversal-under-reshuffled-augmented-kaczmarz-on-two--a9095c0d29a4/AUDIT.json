@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Direct derivation from Morshed equation (18); stable eigenvalues, exact symbolically checked discrete Lyapunov covariances, positive denominator and two factorizations prove universal sign and unique threshold. Finite tests only supplement algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Domingo-Enrich (2022), Section 5, eqs. (26)-(29): phase-randomized zero-th-order RR noise gives an averaged stationary variance formula; Mohammadi et al. (2022): iid-input momentum variance."
+      ],
+      "reasoning": "General LTI noise formula is broader but the cited RR result averages over a randomly shifted epoch and does not provide or order the distinct unshifted phases. The present sharp within-epoch reversal needs phase information removed by that averaging. An equivalent phase-resolved derivation elsewhere remains a residual risk.",
+      "searches": [
+        "arXiv:2206.00632v1 sections 3,5 and relevant appendix",
+        "arXiv:2209.11920 white-noise momentum noise amplification",
+        "published-finding corpus: shuffling stochastic gradient stochastic heavy ball per-phase variance reversal before end of epoch"
+      ]
+    },
+    "checked_sources": [
+      "Morshed, arXiv:2205.08085v3, Sec. 2.1 equation (18) and Algorithm 2; original 2022-05-17 date from arxiv version history",
+      "Domingo-Enrich, arXiv:2206.00632v1, Sec. 3 and 5 equations (9), (26)-(30) plus introduction and Appendix F structure",
+      "Mohammadi et al., arXiv:2209.11920v1, linear stochastic momentum and noise amplification formula",
+      "published-finding corpus search records for RAK, cyclic/momentum reshuffling aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Morshed source gives only recurrence and consistent-system convergence; Domingo-Enrich phase-averages the reshuffled stochastic momentum risk; Mohammadi covers white-noise linear momentum."
+      ],
+      "reasoning": "The iid variance follows from strong prior white-noise momentum theory and is not counted as novel. The core theorem is the exact opposite signs of the two RR-vs-iid comparisons and unique crossover, not a corollary of the prior phase-averaged bound alone.",
+      "searches": [
+        "arXiv:2205.08085v3 eq (18), Algorithm 2, convergence Theorem 3",
+        "arXiv:2206.00632v1 Section 5 eqs (26)-(30)",
+        "arXiv:2209.11920v1 noise amplification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2206.00632v1 Section 3 equation (9) is stochastic heavy-ball, structurally equal to the scalar recurrence after parameter substitution; Section 5 randomizes the epoch origin to compute phase-averaged risk."
+      ],
+      "reasoning": "The 2-row scheme IS exactly a scalar stochastic heavy-ball iteration, so method renaming has no originality. The accepted claim is the two individual phase variances and the sharp comparison reversal; a stationary phase average supplies only their sum, not each phase comparison.",
+      "searches": [
+        "published-finding corpus: epoch parity stationary variance random reshuffling heavy ball two data point scalar inconsistent Kaczmarz switch threshold 3-sqrt5",
+        "published-finding corpus: cyclic two phase stationary mean square random reshuffling momentum compare sampling with replacement crossover",
+        "Web: random reshuffling momentum stochastic gradient exact stationary covariance quadratic variance iid without replacement 2022 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching phase threshold or two-row stationary phase table in the consulted indexed results. Closest published published-finding corpus records concern cyclic block Kaczmarz bias, residual spikes and delayed Gauss-Seidel."
+      ],
+      "reasoning": "None of the inspected records gives the two exact phase variances or crossover; absence from an indexed search alone cannot establish priority.",
+      "searches": [
+        "published-finding corpus: epoch parity stationary variance random reshuffling heavy ball two data point scalar inconsistent Kaczmarz switch threshold 3-sqrt5",
+        "published-finding corpus: augmented Kaczmarz least squares random reshuffling fixed penalty scalar dual error variance",
+        "Web: Kaczmarz random reshuffling momentum linear system noise plateau exact stationary variance"
+      ]
+    },
+    "rationale": "Exact 2-phase covariance and sharp penalty crossover for the named augmented Kaczmarz recurrence are distinct from published consistent convergence, iid white-noise HB covariance, and phase-averaged RR spectral variance. Full original primary mathematical sections were compared; the general spectral formalism is an acknowledged priority risk.",
+    "residual_risks": [
+      "Other treatments of cyclostationary momentum noise could algebraically encode this same phase crossover.",
+      "The 2022 shuffling paper has general spectral formulas; its time/phase average does not state the individual phases, but independent priority verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines fixed-penalty update; source convergence concerns consistent data; no reshuffling-phase comparison.",
+        "evidence": [
+          "Eq. (18) gives the two-dimensional recursion; Algorithm 2 samples rows with replacement."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.08085v3",
+        "material_read": "Section 2.1 including eqs. (16)-(18), Algorithm 2, and convergence discussion/initial definitions",
+        "method": "Full-text HTML equation-by-equation reconstruction",
+        "title": "Penalty & Augmented Kaczmarz Methods For Linear Systems & Linear Feasibility Problems",
+        "trigger": "Exact original update and claims on noise/inconsistency"
+      },
+      {
+        "assessment": "Exact LTI RR framework and phase-averaged variance; no named phase-resolved sign reversal or sharp crossover in inspected sections.",
+        "evidence": [
+          "Section 5 explicitly randomizes the first reshuffle iteration to make the noise wide-sense stationary and obtain the time-average."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+        "material_read": "Full text access, Introduction, Sections 2-5 incl. eqs. (9),(26)-(30), and relevant appendix explanation of spectral method",
+        "method": "Material inspection of original HTML and PDF page 7",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Closest broader stochastic momentum and random reshuffling treatment"
+      },
+      {
+        "assessment": "Strong coverage of the iid baseline; does not address phase-specific random reshuffling stationary covariances.",
+        "evidence": [
+          "The paper analyzes linear momentum under additive stochastic disturbance, with exact covariance solutions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11920",
+        "material_read": "Full original paper, noisy momentum recurrence and Lyapunov noise amplification sections",
+        "method": "Proof-level comparison of iid forcing with the correlated two-step forcing used here",
+        "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+        "trigger": "Could dominate iid stationary covariance claims via heavy-ball"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a9095c0d-29a4-487f-a7b3-b11ea6997a72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural smallest inconsistent system and two-row epoch gives a full, quantitative phase-vs-average distinction: reshuffling uniformly helps at epoch boundaries but can hurt intermediate iterations. Exactly resolves a meaningful hyperparameter boundary missed by a phase-averaged guarantee.",
+    "status": "PASS"
+  }
+}
