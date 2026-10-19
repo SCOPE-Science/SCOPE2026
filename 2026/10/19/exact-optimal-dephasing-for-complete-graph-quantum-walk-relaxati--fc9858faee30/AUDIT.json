@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "An explicit invariant-space decomposition gives the full Liouvillian characteristic polynomial with the correct multiplicities. Its guaranteed negative real root, viewed as a quadratic relation in gamma, yields the exact upper bound by a nonnegative discriminant; factorization at gamma* proves attainment and strictness elsewhere. Routh–Hurwitz confirms the unique stationary eigenvalue. A fresh directly assembled full-Liouvillian checker passed 264 checks for n=3..8, without substituting finite numerics for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.18873, Section V and Appendix A, supplies a general decay bound parametrized by the Liouvillian gap.",
+        "arXiv:2204.01836, Section 4, supplies numerical nonmonotone convergence to classicality on complete graphs."
+      ],
+      "reasoning": "The general gap-dependent decay bound does not calculate or maximize the complete-graph gap. The earlier numerical observations do not imply the exact all-size optimizer.",
+      "searches": [
+        "fully connected dephasing Liouvillian gap optimal quantum walk",
+        "complete graph dephasing relaxation Liouvillian eigenvalues",
+        "quantum walk graph site basis dephasing non-monotone slow mode optimized relaxation rate spectral abscissa"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.01836",
+      "doi:10.1007/s11128-022-03647-x",
+      "arxiv:2512.18873"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bressanini–Benedetti–Paris, DOI:10.1007/s11128-022-03647-x, Section 4: computed QC-distance for complete, cycle and star graphs.",
+        "Luppi–Benedetti–Smirne, arXiv:2512.18873, Section V: decay inequality (47), generator (48), asymptotic weak/strong scalings."
+      ],
+      "reasoning": "The new theorem is an exact n-parameter polynomial and a global sharp optimization of an operator-spectrum invariant. Neither a qualitative nonmonotone finite-time QC-distance nor a general rate bound with an unspecified spectral gap entails these equalities. The new result does not claim the underlying dephasing equation or general spectral-semigroup theory.",
+      "searches": [
+        "site basis decoherence complete graph Haken–Strobl nonmonotone numerical convergence spectral gap",
+        "spectral gap Lindblad generator complete graph Kolmogorov nonclassicality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2204.01836, Section 4, formula (24), directly defines the same site-basis dephasing equation.",
+        "arXiv:2512.18873, Section V, formula (48), has the same generator with the graph Laplacian as Hamiltonian."
+      ],
+      "reasoning": "The Laplacian and adjacency Hamiltonians on a complete graph differ by a scalar and a sign, which leaves the characteristic roots unchanged after complex conjugation. The sources formulate the equivalent model but not the polynomial or its unique global optimum.",
+      "searches": [
+        "Haken-Strobl site dephasing continuous-time quantum walk on complete graph or fully connected graph exact spectral gap optimal gamma",
+        "All-to-all connected Hamiltonian adjacency complete graph continuous site dephasing exact eigenvalues cubic lambda^3+2gamma lambda^2+(gamma^2+n^2 J^2)lambda+2n gamma J^2, Lindbladian mixing",
+        "Haken Strobl complete graph spectrum dephasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific database matches included reports on coherent complete-graph transfer and independent dephasing models, rather than this Liouvillian polynomial.",
+        "The primary full-text sources contain no exact tabulated optimizer for the complete-graph spectral gap."
+      ],
+      "reasoning": "The actual searches yielded no exact database match for the parameterized spectrum. A negative search is not proof of uniqueness; the residual risk explicitly remains.",
+      "searches": [
+        "Full Liouvillian spectral gap of complete graph under uniform onsite Haken–Strobl pure dephasing, unique optimal dephasing gamma=(n−1)sqrt(n/(n−2)) J, maximum gap=sqrt(n/(n−2)) J",
+        "Site-local dephasing of the continuous-time quantum walk on a complete graph: exact Liouvillian characteristic polynomial and optimal spectral relaxation gap",
+        "complete graph Lindblad cubic spectrum dephasing"
+      ]
+    },
+    "rationale": "The two primary full-text comparisons distinguish exact complete-graph Lindbladian characteristic roots and a unique globally optimal site-dephasing rate from previously reported numerical classicalization and general spectral-gap bounds. Multiple targeted research-database and literature queries retrieved related but non-equivalent work. No claim is made of priority certification; a specialized exact fully connected excitonic model remains a residual risk.",
+    "residual_risks": [
+      "The exact polynomial could appear in a specialized earlier treatment of fully connected Haken–Strobl exciton systems not located by the searches.",
+      "Any optimization of a finite-time QC-distance or state-specific norm need not coincide with the proven spectral gap optimizer.",
+      "Self-review is not independent priority validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same physical model; computes QC-distance and discusses nonmonotone behavior but does not give an all-n Liouvillian characteristic polynomial or spectral-gap optimum.",
+        "evidence": [
+          "Section 4, Eq. (24), specifies site-dephasing generator.",
+          "Section 4 around Fig. 3 describes numerical QC-distance curves; Section 5 describes qualitative slowing at high dephasing."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11128-022-03647-x",
+        "material_read": "Open-access full-article HTML, specifically Sections 2, 3.1, 4 and 5, Eq. (4), Eq. (24), and discussion around Fig. 3.",
+        "method": "Read the relevant sections in the source article HTML, including its formulas and conclusions.",
+        "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+        "trigger": "Same Haken–Strobl generator and complete-graph noise-dependent classicalization"
+      },
+      {
+        "assessment": "Uses the abstract gap in its general bound and describes perturbative scaling; does not derive the exact complete-graph gap or global noise optimum.",
+        "evidence": [
+          "Section V, Eq. (47) and Eq. (48), introduces the spectral-gap decay bound and same generator.",
+          "Strong-dephasing approximation follows Eq. (48); no closed global maximum is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.18873",
+        "material_read": "PDF introduction, complete-graph discussion, Section V (pages 8–10), and Appendix A (page 14); page one visually inspected.",
+        "method": "Searched the available full-text PDF for spectral-gap occurrences, read the relevant Section V and Appendix A discussions.",
+        "title": "Temporal nonclassicality in continuous-time quantum walks",
+        "trigger": "Defines the Lindblad spectral gap explicitly for the same complete-graph model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc9858fa-ee30-4309-b925-427ead5129c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A 2022 complete-graph site-dephasing study notes slowing at large noise without an exact global mixing-rate design rule. The result supplies a sharp all-size optimum for a natural intrinsic operator invariant and its nontrivial scaling gamma*~nJ while the maximized gap tends J; this is not an arbitrary finite parameter table or routine normalization check. The result explicitly separates asymptotic spectral relaxation from finite-time operational performance.",
+    "status": "PASS"
+  }
+}

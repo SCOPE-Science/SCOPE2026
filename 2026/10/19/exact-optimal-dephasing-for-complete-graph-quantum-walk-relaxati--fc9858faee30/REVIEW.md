@@ -1,0 +1,11 @@
+# Assessment of the complete-graph dephasing optimum
+
+**Correctness — PASS.** The full Liouvillian is decomposed into \(n-1\) identical cubic blocks, a one-dimensional stationary mode, and \((n-1)(n-2)\) modes of eigenvalue \(-\gamma\). The cubic's negative real root bounds the relaxation gap; its discriminant as a quadratic in the dephasing rate gives a sharp upper bound. At the stated optimizer, explicit factorization makes all other modes strictly faster, and the vanishing discriminant proves uniqueness. Direct full-matrix replay passed 264 finite checks to approximately \(4\times10^{-13}\) eigenvalue accuracy. The infinite family rests on the written algebraic argument, not these checks.
+
+**Originality — PASS, subject to independent priority assessment.** Bressanini–Benedetti–Paris (arXiv:2204.01836, Sections 2 and 4) study complete-graph dephasing numerically and establish asymptotic classicalization, rather than an exact dimension-uniform Liouvillian spectrum or an optimizer of its gap. Luppi–Benedetti–Smirne (arXiv:2512.18873, Section V and Appendix A) use the Lindbladian gap in a general decay bound and state qualitative strong-dephasing scaling, without the present optimum. General theorems on contractive Lindblad semigroups and complete-graph symmetries are compatible with, but do not on their own supply, the sharp formula. A specialized older exact solution of the fully connected Haken–Strobl model remains a plausible priority risk.
+
+**Value — PASS.** The exact rate resolves a natural optimization problem underlying the reported nonmonotone impact of site decoherence. It distinguishes spectral relaxation from arbitrary finite-time classicalization metrics and provides a closed-size scaling law \(\gamma_*\sim nJ\) with a bounded maximum gap approaching \(J\), relevant to noise engineering in complete-graph excitation networks. It is a quantitative global optimum, not simply a restatement of strong-noise Zeno scaling.
+
+**Limits.** Only common site-dephasing rate, equal hopping, all-to-all graph, and \(n\ge3\) are proved. No finite-time optimum or experimental claim follows. Priority has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
