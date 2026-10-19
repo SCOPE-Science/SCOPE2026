@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** At the unique interior critical equilibrium, the Jacobian has purely imaginary spectrum. Differentiating the exact binomial payoff identity twice yields the cancellation \(gP'''+2g'P''=0\). Substitution into the full planar cubic first-focus formula proves vanishing for both feedback laws, with all parameter quantifiers explicit. The balanced-majority center follows independently from an exact reflection-reversing involution and a transverse half-return construction. Six independent exact normal-form contraction checks and four numerical periodic returns agree with these proofs.
+
+**Originality — PASS within the inspected evidence.** The source's appendix explicitly calculates numerical values of the first Lyapunov coefficient and uses their small negative signs to claim supercritical criticality; it does not prove this all-size exact cancellation. The original model's two protocols and critical thresholds were compared equation by equation. Earlier environmental-feedback game articles concern different payoff structures. Searches of mathematical research records for model names, parameter thresholds, first Lyapunov coefficients, reversible centers, binomial payoff identities, and equivalent normal forms revealed no result that implies the exact theorem. Unindexed specialist literature is a residual risk; absence from a database alone is not a novelty certificate.
+
+**Value — PASS.** The proposed all-parameter cancellation changes the mathematical interpretation of the model's central bifurcation claim. The balanced-majority subfamily gives an exact and naturally motivated alternative phase portrait—neutral local cycles instead of an attracting isolated critical cycle—relevant to interpreting collective-risk oscillations. This is structural information about a named published system, not a small coefficient-fitting improvement.
+
+The result does not classify higher-order focus quantities for asymmetric groups, nor establish global cycles or any new stochastic-population law. The analytic argument is independent of the six numerical test cases. Comparable proof statements could exist outside the inspected literature.
+
+Self-review: passed. Independent audit: not yet performed.
