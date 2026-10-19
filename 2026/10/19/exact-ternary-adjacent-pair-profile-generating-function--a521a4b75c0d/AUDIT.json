@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The integer edge-multiplicity matrix is realizable if and only if its imbalance is zero or a single endpoint difference and its positive-degree support is weakly connected. Balanced matrices decompose into two directed 3-cycles and three opposite-edge pairs, giving B(z). Each of the six imbalance sectors bijects with balanced matrices with one chosen edge positive, giving A(z). All disconnected possibilities are exhausted by multi-vertex loops, a reciprocally joined pair with an isolated loop, or an imbalanced joined pair with an isolated loop. The subtraction and leading coefficient were algebraically checked. Replaying verify.py checks direct word enumeration n<=9, independent Euler-matrix enumeration n<=13, and the exact reduced rational identity. Finite tests are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2010 balanced-matrix enumeration https://dmtcs.episciences.org/en/articles/2768/download: full-pair directed counts with equal in/out degrees, not six nonzero linear endpoint sectors.",
+        "2015 paper https://arxiv.org/pdf/1502.00517: Theorem 3.5 states asymptotic linear/cyclic ratio but not the all-length series.",
+        "2016 paper https://arxiv.org/pdf/1607.02279: Theorem 2.2 gives exact values in short-length regime and general lower bounds, not this all-length q=3, ℓ=2 series.",
+        "2012 expanded article https://doi.org/10.1109/TIT.2012.2191476: abstract concerns balanced types; full text not materially inspected."
+      ],
+      "reasoning": "The broad results imply the polynomial order and, combined with known cyclic leading coefficient, the factor seven in the leading term. They do NOT give exact coefficients for all block lengths or the disconnected-support correction in the linear model. The possibly broader 2012 journal version is residual because inaccessible full text was not checked.",
+      "searches": [
+        "Jacquet Knessl Szpankowski Counting Markov Types balanced frequency matrices cyclic q=3 generating function (1-z+z²)",
+        "ternary two-spectrum length n optimal code size exact sequence 1,9,24,65,156,342",
+        "\"number of Markov types\" \"three\" \"exact\" generating function"
+      ]
+    },
+    "checked_sources": [
+      "https://dmtcs.episciences.org/en/articles/2768/download",
+      "https://arxiv.org/pdf/1502.00517",
+      "https://arxiv.org/pdf/1607.02279",
+      "https://doi.org/10.1109/TIT.2012.2191476",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2010 exact balanced sector https://dmtcs.episciences.org/en/articles/2768/download yields B(z) but excludes A(z) and does not remove all disconnected profiles.",
+        "2015 Theorem 3.5 https://arxiv.org/pdf/1502.00517 supplies leading asymptotics, not the exact rational generating function.",
+        "2016 https://arxiv.org/pdf/1607.02279 proves a restricted n,ℓ exact formula and bounds, not the claimed infinite-n formula.",
+        "Published binary record https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 uses a two-node graph, missing the ternary 3-cycle and isolated-third-vertex corrections."
+      ],
+      "reasoning": "Cyclic closure has only the balanced sector. Deriving the new exact series requires enumerating all six imbalanced sectors and subtracting support-disconnected matrices, which are not implied by the cited leading-order comparison. The binary result has different graph topology. No inspected stronger theorem supplied all exact linear ternary coefficients.",
+      "searches": [
+        "number of distinct adjacent pair multispectra over ternary alphabet length n exact or asymptotic Markov type 2-gram spectra",
+        "pair empirical count matrices sequences qary number of distinct kgram multispectra length n",
+        "ternary bigram Markov profile rational generating function 7 sectors length n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacquet–Knessl–Szpankowski (2010), https://dmtcs.episciences.org/en/articles/2768/download, exact ternary balanced-matrix series in derivation of the three-letter case.",
+        "Kiah–Puleo–Milenkovic (2015), https://arxiv.org/pdf/1502.00517, Section 3 distinguishes cyclic balanced types from linear profiles with endpoints.",
+        "Chang et al. (2016), https://arxiv.org/pdf/1607.02279, Section 2 defines the same linear profile equivalence relation P_q(n,ℓ)."
+      ],
+      "reasoning": "The profile is exactly a nonnegative directed edge multiplicity matrix admitting an Euler trail (linear first-order Markov type). The balanced cyclic matrix series B excludes six nonzero endpoint imbalance sectors and does not enforce the same connectivity corrections. Neither equivalence by relabeling nor cyclic closure covers the claimed linear exact series.",
+      "searches": [
+        "ternary bigram profiles realizability Euler trails de Bruijn integer flow number of possible types",
+        "ternary bigram Markov profile rational generating function 7 sectors length n",
+        "number of realizable ternary Markov type frequency vectors with noncyclic words length n rational generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published binary pair-multispectrum profile record https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71: exact binary formula only, does not list ternary counts.",
+        "Ternary ranking record https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23: enumerates strict rank orderings, not exact realizable multiplicity vectors.",
+        "The cited 2010, 2015, and 2016 primary texts contain no identified exact all-length ternary linear coefficient table."
+      ],
+      "reasoning": "Actual exact-value and sequence searches did not surface an earlier table for the nine-entry linear ternary profile counts. Absence in an index is not proof of novelty; a buried or differently named table remains a residual risk.",
+      "searches": [
+        "exact ordinary generating function for the number of distinct ternary linear bigram count matrices, adjacent-pair Parikh vectors length n, coefficients 1 9 24 65 156",
+        "exact ternary linear length-two multispectrum count P_3(n) 7/8640 generating function 1 9 24 65 156 342 Euler trail connectivity",
+        "\"1, 9, 24, 65, 156, 342, 683\" bigram Markov",
+        "\"7/8640\" \"Markov\" types"
+      ]
+    },
+    "rationale": "The inspected 2010 balanced Markov type result and 2015 asymptotic profile theorem cover cyclic/balanced exact counts and leading-order linear behavior, but not the exact six imbalanced sectors with weak-connectivity corrections needed for an all-length ternary linear OGF. The closest published exact binary profile result explicitly excludes nonbinary alphabets. The full 2012 expanded paper remains inaccessible and is a specific residual risk.",
+    "residual_risks": [
+      "The expanded 2012 IEEE paper was inspected only at abstract level; an exact linear enumeration implicit in its full text could cover the claim.",
+      "An earlier unindexed exact ternary Markov-type/quasipolynomial formula or a table under different terminology may exist.",
+      "The known cyclic leading constant and linear/cyclic asymptotic factor already imply the leading coefficient; novelty rests on the complete exact all-length rational OGF and connectivity corrections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Balanced matrix series and leading constant are established. No exact all-length linear six-imbalance-sector series or disconnected-support correction identified.",
+        "evidence": "https://dmtcs.episciences.org/en/articles/2768/download",
+        "identifier_or_url": "doi:10.46298/dmtcs.2768",
+        "material_read": "Full OA conference paper, definitions of cyclic strings and balances, three-letter balanced generating function derivation and conclusions.",
+        "method": "Read journal-hosted PDF, inspected mathematical definitions and ternary example.",
+        "title": "Counting Markov Types",
+        "trigger": "First-order Markov profiles on the same three-symbol alphabet; closest enumeration."
+      },
+      {
+        "assessment": "General Ehrhart and asymptotic results, including known linear-to-balanced factor. No exact all-length ternary rational series identified.",
+        "evidence": "https://arxiv.org/pdf/1502.00517",
+        "identifier_or_url": "arxiv:1502.00517v1",
+        "material_read": "Abstract, Section 2 definitions, Section 3 profile enumeration including Corollary 3.4 and Theorem 3.5, and cited relationships.",
+        "method": "Read original arXiv OA PDF with search by relevant statements.",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Same profile object, arbitrary alphabet, pair-read length."
+      },
+      {
+        "assessment": "Exact formulas for short regime and bounds; no exact ternary pair-profile OGF for arbitrary lengths.",
+        "evidence": "https://arxiv.org/pdf/1607.02279",
+        "identifier_or_url": "arxiv:1607.02279v1",
+        "material_read": "Definitions and Theorems 2.1 and 2.2, stated exact range, asymptotic discussion and surrounding proofs.",
+        "method": "Read original arXiv OA PDF sections relevant to exact counts.",
+        "title": "Rates of DNA Sequence Profiles for Practical Values of Read Lengths",
+        "trigger": "Direct definition of the count P_q(n,ℓ) under linear words."
+      },
+      {
+        "assessment": "The abstract emphasizes balanced matrices. Exact full-text comparison is unresolved; this is recorded as a residual literature risk, not classified as non-covering.",
+        "evidence": "https://doi.org/10.1109/TIT.2012.2191476",
+        "identifier_or_url": "doi:10.1109/TIT.2012.2191476",
+        "material_read": "Bibliographic record and abstract only; full text not obtained.",
+        "method": "Searched arXiv and lawful open-access versions, inspected indexed abstract; authorized institutional full-text retrieval unavailable.",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "Expanded journal version of the most relevant balanced Markov-type paper."
+      },
+      {
+        "assessment": "The statement and proof are binary-specific and explicitly exclude larger alphabets; do not cover ternary balance cycles or corrections.",
+        "evidence": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "identifier_or_url": "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "material_read": "Complete RESULT.md proof, scopes and limitations.",
+        "method": "Fetched published primary result text directly from repository.",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Published exact count for analogous read-length-two binary profiles."
+      },
+      {
+        "assessment": "Claims an extremal realization length for ordinal rank profiles; that statistic is not the count of distinct integer multiplicity matrices. Not used as a whole-document noncoverage assertion.",
+        "evidence": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+        "identifier_or_url": "2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+        "material_read": "Published searchable title and summary only.",
+        "method": "Inspected published search record; full result not inspected.",
+        "title": "Exact worst-case realizing length for ternary window-two DNA profile rankings",
+        "trigger": "Same ternary pair count matrices used for ordering ranks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a521a4b7-5c0d-4848-923b-d4d7709b6a28",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adjacent-pair multiplicity profiles form a canonical complete-read reconstruction invariant. The first nonbinary (three-letter) full all-length enumeration yields an exact optimal profile-distinguishable code size and resolves the finer effects of free endpoints, 3-cycles, and isolated-support obstructions that asymptotic results ignore. The exact coefficients and period-six quasipolynomial structure are useful for finite-block benchmarks; the result is not merely a relabeling of the binary or cyclic formula.",
+    "status": "PASS"
+  }
+}
