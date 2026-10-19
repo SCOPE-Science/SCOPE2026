@@ -1,0 +1,37 @@
+# The sharp first nonminimal short-time Fourier support on the six-cycle
+
+## Finding
+For all nonzero complex-valued functions \(f,g\) on \(\mathbb Z_6\), define the short-time Fourier transform
+\[
+ V_gf(k,\ell)=6^{-1/2}\sum_{j=0}^{5}f(j)\overline{g(j-k)}e^{-2\pi i j\ell/6},\qquad k,\ell\in\mathbb Z_6.
+\]
+Then
+\[
+ \boxed{|\operatorname{supp}V_gf|=6\quad\text{or}\quad|\operatorname{supp}V_gf|\ge9.}
+\]
+Both possibilities occur. In particular, \(7\) and \(8\) are forbidden support cardinalities, and the first support level above the known minimum \(6\) is exactly \(9\). The witness \(f=g=(1,0,0,2,0,0)\) has six nonzero transform entries in the zero-delay row and three in the three-delay row.
+
+## Assumptions and scope
+All indices are modulo \(6\); zeros and supports refer to exact complex equality. The theorem covers every pair of nonzero complex signals, including inputs with zeros and arbitrary phases. The normalizing factor \(6^{-1/2}\) does not change supports. Only the group \(\mathbb Z_6\) is asserted; no implication for other orders is claimed.
+
+## Proof
+Write \(A=\operatorname{supp}f\), \(B=\operatorname{supp}g\), and \(S_k=A\cap(k+B)\). The \(k\)-th row of the transform is the ordinary six-point Fourier transform of \(h_k(j)=f(j)\overline{g(j-k)}\), whose **exact** time support equals \(S_k\).
+
+**Finite support-pattern lemma.** For every pair of nonempty subsets \(A,B\subset\mathbb Z_6\), either (i) \(A,B\) are both singletons, (ii) both are cosets of the order-two subgroup \(\{0,3\}\), (iii) both are cosets of the order-three subgroup \(\{0,2,4\}\), (iv) both equal \(\mathbb Z_6\), or the total Fourier-row support has at least \(12\) points. This is an exact finite lemma, not a numerical experiment: `check.py` enumerates all \(63^2=3969\) pairs of nonempty supports and certifies the lower bounds by matrix ranks over the finite field of \(1{,}000{,}003\) elements. To justify the certificate, let \(\zeta=e^{2\pi i/6}\). Its algebraic-integer relation \(\zeta^2-\zeta+1=0\) admits reduction \(\zeta\mapsto499502\) modulo the prime \(1{,}000{,}003\), preserving this relation. If a complex Fourier submatrix loses column rank, all of its maximal minors vanish as algebraic integers, so all reduced minors vanish as well. Contrapositively, full column rank after reduction proves full column rank over \(\mathbb C\). For each nonempty support \(S\), the checker determines the largest row-index set \(T\) on which the reduced Fourier matrix \(F_{T,S}\) has a nontrivial kernel, and sets \(L(S)=6-|T|\). Thus every complex function with exact support \(S\) has at least \(L(S)\) nonzero Fourier coefficients. Summing \(L(S_k)\) proves the lemma, with exactly \(50\) support-pairs achieving a bound smaller than \(12\): \(36\) singleton pairs, \(9\) order-two coset pairs, \(4\) order-three coset pairs, and one full-support pair. In all \(50\) cases the lower bound is \(6\), while all remaining pairs have lower bound at least \(12\). Every loop, matrix entry, rank test, and finite comparison appears in the standalone verifier.
+
+We analyze the four remaining support patterns. **Singletons:** only one delay row is nonzero, with six nonzero Fourier coefficients, giving support \(6\). **Order-two cosets:** exactly two delay rows are nonzero, each a two-point signal on opposite indices. Its Fourier transform is, up to an everywhere nonzero phase, \(a+b(-1)^\ell\) with \(ab\ne0\). Hence each active row has either three or six nonzero entries; the total is in \(\{6,9,12\}\). **Order-three cosets:** exactly three delay rows are active. The Fourier transform of each is two copies of a three-point Fourier transform, hence has an even positive support. If the total were \(8\), then two rows would have support \(2\), and the third support \(4\). Viewed on the order-three subgroup, the first two rows would each be a single character. Their quotient implies that the ratio of the window under a generating translation is a character. All translated window ratios are therefore characters; multiplying by the first single-character row makes the third row a character too. Thus the third row also has support \(2\), a contradiction. The total cannot be \(7\), since all rows have even support. **Full support:** all six delay rows are nonzero. If their total support were \(7\) or \(8\), at least four rows would have one Fourier coefficient. Among any four distinct delays modulo \(6\), two are adjacent. For two adjacent delays \(a,a+1\), the corresponding time-domain rows are nonvanishing characters \(c\zeta^{mj}\) and \(c'\zeta^{m'j}\). Their quotient makes \(\overline{g(j-a-1)}/\overline{g(j-a)}\) a character. Iterating this first-order translation identity makes the ratio for every delay a character; all six rows consequently have one Fourier coefficient, giving support exactly \(6\), not \(7\) or \(8\).
+
+The four exceptional patterns and the finite lemma prove the dichotomy. For \(f=g=(1,0,0,2,0,0)\), only delays \(0,3\) contribute: the first row has profile \(1+4(-1)^\ell\), which never vanishes, and the second \(2+2(-1)^\ell\), nonzero at exactly three frequencies. Thus \(9\) is attained. Taking \(f=g=\delta_0\) gives the minimum \(6\).
+
+## Verification
+Run `python3 check.py` in the directory containing `check.py`. It uses only the Python standard library. The primality test, primitive sixth-root condition, all reduced Fourier ranks, all \(3969\) support pairs, the four exceptional classes, and the nine-point witness are checked exactly. The expected output is included in `check_output.txt`. The finite-field work supplies rigorous *lower bounds*, not complex-valued existence certificates; existence is established directly by the displayed integer-valued witnesses. An independent line-by-line mathematical audit has not been performed.
+
+## Relationship to prior work
+Krahmer, Pfander and Rashkov (arXiv:math/0611493; 2006), in particular Section 4 and their tables and figures for \(\mathbb Z_6\), develop support-dependent inequalities and generic-window constructions. Their displayed lower bounds are not the sharp global exclusion of cardinalities \(7\) and \(8\) for arbitrary pairs. Nicola (arXiv:2204.14176; first public 2022-04-29) proves the universal minimum and classifies exactly-minimal pairs on cyclic groups; the next attainable support level is not part of his equality theorem. Related published uncertainty classifications for prime cycles and for the four-cycle do not imply the six-cycle statement: an order-six signal is neither a prime-order nor a prime-square case. This comparison is based on relevant primary full-text portions and targeted title/claim/equivalence searches; undiscovered equivalent work remains possible.
+
+## Limitations
+Only the first positive gap is classified, not the complete attainable-support spectrum or all nine-support pairs. The proof has an exact but finite computer-assisted support-pattern lemma; its correctness depends on the attached standalone source and the field-reduction argument. The finding has received self-review, not independent validation or publication certification.
+
+## References
+1. F. Nicola, *The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality*, arXiv:2204.14176 (first posted 29 April 2022), https://arxiv.org/abs/2204.14176.
+2. F. Krahmer, G. E. Pfander, P. Rashkov, *Uncertainty in time-frequency representations on finite Abelian groups and applications*, arXiv:math/0611493 (2006), https://arxiv.org/abs/math/0611493.
