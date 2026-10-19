@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact normal-equation coarse correction and Richardson matrices are multiplied directly. Each resulting rank-one matrix has the singular norm given by a closed scalar expression. A nonnegative squared identity bounds the pre-smoothed norm; differentiating a rational function gives the post-smoothed sharp supremum and optimizer; negativity of the cubic below 2 and strict monotonicity above 2 establishes the unique Euclidean safety transition. The common trace and determinant zero imply the exact T^j=λ^{j-1}T power law. 1,510 numerical matrix tests and extremum checks corroborate but do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.13091 general error propagator and two-grid interpretation; mathematical mechanism overlaps but there is no explicit exact two-dimensional Euclidean norm envelope in the material read.",
+        "arXiv:2603.25983 concerns equivalences between Richardson-accelerated methods and GMRES and monotonicity, not reported sharp two-order minimax solution-error norms.",
+        "Reusken, SIAM J. Numer. Anal. 31 (1994), discusses maximum-norm multigrid convergence, a different norm and a discretized elliptic PDE family."
+      ],
+      "reasoning": "A broad matrix identity governs C D and D C and the two products share eigenvalues; those general statements do not immediately settle the worst-case singular norm over all one-dimensional coarse spaces. Known spectral-radius or residual monotonicity is weaker than uniform Euclidean one-step nonexpansivity. The uninspected remainder of the source is a genuine unresolved bibliographic risk.",
+      "searches": [
+        "two-grid order presmoothing postsmoothing transient growth Richardson normal equation coarse projection",
+        "multigrid smoothing placement amplified Euclidean error one step least squares coarse correction two dimensional",
+        "aNGMRES preconditioned Richardson monotonicity 2026 He"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.13091 (primary, partially read through §3.1)",
+      "arXiv:2603.25983 (abstract)",
+      "DOI:10.1137/0731020 (abstract)",
+      "Public published-finding corpus semantic records matching two-grid, Richardson stagewise safety, Euclidean transient, and oblique projection comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.13091 derives coarse-grid projectors and common two-grid representations; it motivates the exact class.",
+        "He arXiv:2603.25983 studies equivalences and monotonicity; Reusken 1994 addresses L-infinity multigrid error on discretizations.",
+        "Direct algebra gives the exact envelopes (1-1/kappa) and (1-1/kappa)kappa^2/(2 sqrt(kappa^2-1)) above sqrt(2), the nonexpansion root 2.875..., and the power identity."
+      ],
+      "reasoning": "The same-projector order swap is a special case of general two-grid propagation, but the cited results as materially inspected do not quantify this natural supremum or identify the Euclidean stability frontier. No claim is made that the source itself lacks an uninspected theorem. Relevant source overlap risk is documented.",
+      "searches": [
+        "one step Richardson spectral radius versus Euclidean transient norm two grid",
+        "Anderson acceleration NGMRES order smoothing sharp Euclidean norm nonexpansive contraction threshold rank one",
+        "multigrid two-grid pre/post smoothing 2 by 2 Euclidean safety threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.13091, §2.3 and §3.1: a residual-minimal projector uses an A^T A inner product and smoothing can be placed before or after a coarse correction.",
+        "The present correction is C=I-P(P^T A^T A P)^(-1)P^T A^T A; applying it to a two-mode diagonal SPD matrix yields new sharp norm optimizers."
+      ],
+      "reasoning": "Equivalent formulations include a one-line normal-equations least-squares coarse correction and the oblique projection associated with Euclidean residual minimization. The general source operator formula alone does not assert the global coarse-line Euclidean minimax envelopes or cubic frontier, which are the assessed claims.",
+      "searches": [
+        "pre/post residual-minimal normal-equations two-grid A^T A projection norm Euclidean",
+        "Anderson acceleration NGMRES smoothing order fixed coarse projector",
+        "two-grid pre smoothing post smoothing normal equations oblique projection sharp norm amplification condition number Richardson 2x2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sharp-cubic threshold or matching two-order operator-norm table arose among the queried records; close hits discuss distinct Richardson two-step stage safety, Gauss-Seidel order, or oblique-projection conditioning.",
+        "The exact symbolic expressions were derived directly from the two-by-two correction rather than looked up in a table."
+      ],
+      "reasoning": "The inquiry sought exact equivalent numbers, aliases, and formula shapes, not only titles. Search misses cannot prove absence, especially in indexing or older multigrid sources.",
+      "searches": [
+        "sharp kappa 2.87512979 transient amplification post smoothing two grid SPD normal equations Richardson",
+        "rank one A squared orthogonal projection Richardson presmooth post smooth exact operator norm kappa squared over square root",
+        "Adler He Hu Lefebvre 2609.13091 pre postsmoothing transient growth sharp 2D phase transition"
+      ]
+    },
+    "rationale": "The result proves exact condition-number-wide Euclidean norm envelopes and a sharp cubic safety threshold for the order of a fixed normal-equations least-squares correction and a contractive Richardson smoother. The motivating paper gives general two-grid propagators but its inspected statements do not supply these optimized envelopes; other identified numerical iteration results concern different operators or norm guarantees. Primary text could not be read to completion, leaving a stated bibliographic risk rather than a fabricated exhaustive negative comparison.",
+    "residual_risks": [
+      "The end of arXiv:2609.13091, including possible appendices, could not be inspected; later material may contain an equivalent Euclidean envelope.",
+      "Older general two-grid and oblique projection literature may cover this specialized exact optimization with different terminology.",
+      "The theorem is not a stability comparison for actual adaptive AA and NGMRES history sequences, which use different evolving coarse spaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT FRAMEWORK OVERLAP; explicit eigenvalue/Euclidean sharp frontier not identified in read portion; later text uninspected, material uncertainty remains.",
+        "evidence": [
+          "arXiv:2609.13091 §2.3 has E=(I-BA)^post (I-pi) (I-BA)^pre; §3.1 has pi=P(P^T A^T A P)^(-1)P^T A^T A.",
+          "First public 2026-09-11 and primary MSC 65F10 displayed in accessible HTML."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.13091",
+        "material_read": "Accessible HTML abstract, introduction, §2.1–2.3, beginning of §3.1 through its NGMRES projection lemma and least-squares derivation; later sections and appendices not accessible on retry.",
+        "method": "Read primary arXiv HTML equations and definitions and attempted further HTML/PDF retrieval; no full-document negative inference.",
+        "title": "A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES",
+        "trigger": "Same normal-equation correction and smoothing placement in a September 2026 source with verified MSC 65F10."
+      },
+      {
+        "assessment": "Potentially related equivalence and monotonicity; no decisive implication in material read.",
+        "evidence": [
+          "The primary abstract asserts GMRES equivalences and monotonicity conditions, without the sharp two-grid coarse-line norm envelopes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.25983",
+        "material_read": "Primary abstract, bibliographic record; full sections inaccessible.",
+        "method": "Read arXiv listing and cross-indexed abstract.",
+        "title": "Properties of Nonlinear GMRES Applied to the Preconditioned Richardson Iteration",
+        "trigger": "Author-related predecessor analyzing preconditioned Richardson, normal residual minimization and monotonicity."
+      },
+      {
+        "assessment": "Studies L-infinity error for elliptic discretizations, not the stated normal-equations Euclidean two-dimensional family.",
+        "evidence": [
+          "Reusken (1994) derives sharp max-norm multigrid convergence estimates in a discretized PDE setting."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0731020",
+        "material_read": "Publisher bibliographic abstract only.",
+        "method": "Read institutional university metadata and abstract.",
+        "title": "On maximum norm convergence of multigrid methods for elliptic boundary value problems",
+        "trigger": "Classical multigrid ordering and smoothing norm estimates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7dcf2b2-2df8-4916-b308-b2d3ff1089b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same SPD system, strictly contractive Richardson smoother, and identical coarse space can be Euclidean-safe if smoothed before least-squares correction yet amplify the error if smoothed afterward. The exact sharp threshold and linear-in-conditioning amplification quantify a natural finite-horizon design risk hidden by common asymptotic eigenvalue rates. This is a complete natural 2D classification rather than an arbitrary unmotivated sample or normalization check.",
+    "status": "PASS"
+  }
+}
