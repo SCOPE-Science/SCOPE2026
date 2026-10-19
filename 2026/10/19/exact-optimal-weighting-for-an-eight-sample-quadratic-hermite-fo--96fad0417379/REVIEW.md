@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Two explicit Fourier-orthogonality identities reduce the real Hermitian squared-singular problem to a rank-two diagonal Gram block, two copies of a two-by-two block, and two scalar levels. The exact all-weight Rayleigh certificate proves global optimality and uniqueness at \(40/81\). The rank-two Hilbert–Schmidt bound proves the stated phase-retrieval stability inequality. The bundled exact-algebra checker verifies all nonstandard identities, with independent 9-by-8 numerical reconstructions; the universal claim rests on algebra, not finite testing.
+
+**Originality — PASS (best knowledge, not a uniqueness certification).** Jaming–Rathmair's 2022 polynomial-and-derivative sampling result already implies the eight-measurement **qualitative** injectivity statement; that is explicitly attributed, not republished as the novelty. Conca–Edidin–Hering–Vinzant address generic injectivity and the rank-two obstruction. The published-finding corpus and bibliographic comparisons did not find their implication to include the new, fully specified cross-channel minimax tuning, exact complete lifting spectrum, and explicit global projector metric bound. A matching undocumented weighted-frame calculation is the remaining risk.
+
+**Mathematical value — PASS.** Conditioning under relative measurement-channel amplification is a natural design invariant for phaseless polynomial sampling. The unique rational optimal gain and algebraic condition number give a concrete nontrivial balancing law for an explicitly constructible eight-reading design at the smallest known dimension-three sample count. The certified bound further connects that linear tuning to phase-difference stability. This is an exact and usable design fact, not a sample-count corollary or an arbitrary numerical singular-value printout.
+
+**Limitations.** The sharp condition number is for Hermitian lifting after quotienting its unavoidable null line, not the sharp nonlinear phase-retrieval condition number. The nonlinear bound is sufficient but not known to be optimal. An equivalent older quantitative analysis could change the novelty assessment. No independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
