@@ -1,0 +1,177 @@
+{
+  "correctness": {
+    "rationale": "An explicit integer rank labels every two-element state set bijectively from 1 to binomial(n,2). For the cyclic letter, non-head ranks fall by exactly one and layer heads wrap to larger ranks. For the other letter, precisely layer heads decrease rank by one, while all other pairs are fixed or increase. Therefore every action decreases rank by at most one and each pair has exactly one rank-decreasing action. The descending path is a unique shortest merging word, and its concatenated layer pattern proves the suffix master formula for all n>=2. The independent transition-graph reverse BFS and path-count program checked all pairs for n=2..80. Boundary n=2 and even diametrical case are proved, not extrapolated from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behague–Johnson, pp.3–4, states universal RDV(2,n)=binomial(n,2) and discusses known k-subset bounds.",
+        "Gonze–Jungers arXiv:1410.4034v5, introduction and Sections 2–3, studies synchronizing probability and triple rendezvous, not the pairwise spectrum.",
+        "Published record 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 concerns the shortest word causing a prescribed deficiency of the full-state image; record 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f concerns k-state avoidance of target states."
+      ],
+      "reasoning": "The 2020/2022 sharp upper-bound witness covers the unlabeled spectrum as a formal corollary, but does not specify each labeled pair rank or uniqueness of shortest input words. Neither whole-state image deficiency, triple rendezvous, avoiding thresholds nor generic shortest-path algorithms provides the specific letter-by-letter forced chain. Indexed summaries alone are limited evidence, with the residual full-text risk acknowledged.",
+      "searches": [
+        "Černý automaton pair synchronization times exact formula pair distance shortest merge time all pairs",
+        "pair automaton Černý automaton shortest pair reset time triangular permutation 1 to n(n-1)/2",
+        "\"Černý automaton\" \"pair\" \"weight\" formula",
+        "\"On the Synchronizing Probability Function and the Triple Rendezvous Time\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2008.12166v2 pp.1–4",
+      "arXiv:2008.12166v1 posting date 2020-08-27",
+      "DOI:10.37236/9819 bibliographic record",
+      "DOI:10.1137/0219033 author-hosted PDF p.7",
+      "arXiv:1410.4034v5 introduction and related passages",
+      "Behague thesis Chapter 2 p.43",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Behague–Johnson arXiv:2008.12166v2, p.4 gives the hardest pair (in its one-based convention) and optimal weight binomial(n,2), and a cyclic-distance intuition.",
+        "Eppstein gives BFS shortest path forests for general automata, not proof that the forest is a unique chain in the Černý family.",
+        "The new rank proof explicitly gives every pair distance and exactly one outgoing rank-descending letter."
+      ],
+      "reasoning": "From the known distance N for one pair and only N possible unordered pair states, a shortest N-step path traverses all pairs; this DOES imply the multiset {1,...,N} once each. We therefore do not claim that multiset as original. The existence of such a path does NOT force both transition letters to have different images at each pair, so it does not imply uniqueness of every optimal word. Nor does the scalar maximum identify the exact cyclic-pair-to-rank correspondence or its forced a/b pattern. Those are established by the new rank-action calculation.",
+      "searches": [
+        "Černý automaton C_n distinct shortest synchronizing lengths of all unordered pairs n(n-1)/2 permutation of 1 to binomial n 2 pair rank automaton",
+        "Černý automaton pair synchronization times exact formula pair distance shortest merge time all pairs",
+        "2022 synchronizing times k sets Cerny automata exact bound known example",
+        "\"Černý automaton\" \"pair\" \"weights\" cyclic distance exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behague–Johnson arXiv:2008.12166v2, pp.2–4 defines pair weight t(S) and gives maximum binomial(n,2) with a worst pair, but not an all-pairs bijection or unique shortest words.",
+        "Eppstein DOI:10.1137/0219033, p.7 constructs a shortest pair-path forest for any automaton without a closed Černý-specific ordered path formula."
+      ],
+      "reasoning": "Equivalent terms are pair rendezvous weight, distance to the diagonal in the pair automaton, and shortest pair merging time. IMPORTANT: the bare distinct-value spectrum is already implied by the previously known sharp maximum N, since a shortest N-step path in an N-pair graph visits every pair once. It is excluded from the new contribution. The candidate instead gives the exact correspondence between pairs and ranks, and the unique optimal word for each rank. The searched sources were compared for these stronger statements.",
+      "searches": [
+        "Černý automaton C_n distinct shortest synchronizing lengths of all unordered pairs n(n-1)/2 permutation of 1 to binomial n 2 pair rank automaton",
+        "Černý automaton pair synchronization times exact formula pair distance shortest merge time all pairs",
+        "all \\binom{n}{2} pair synchronization weights in Černý automaton are different, spectrum exactly 1,2,...,binomial(n,2), cyclic separation",
+        "Černý automaton C_n exact synchronizing weight t({i,j}) for every pair, ordering circular gaps",
+        "\"Černý\" \"pair\" \"distinct\" \"synchronizing\" lengths",
+        "\"pair weights\" \"Cerny automaton\" synchronization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited 2020/2022 paper shows the four-state power automaton and specifies one general-n extremal pair; the inspected pp.1–4 give no complete table over all unordered pairs.",
+        "The 2021 Behague thesis Chapter 2 p.43 repeats the extremal-pair argument but no all-pairs formula in the inspected passage.",
+        "The actual semantic research-record queries above retrieved related synchronizing and rank-profile entries, with no record matching the complete pair-spectrum claim."
+      ],
+      "reasoning": "A complete labeled distance table, complete optimal-word lists, or master-word suffix description would count as prior coverage. The prior extreme pair and its maximum N already imply the unlabeled count distribution, which is not novel. No source found in the inspected passages explicitly gave the stronger exact labeled formula plus uniqueness of optimal pair words. Unindexed historical tables or discussions remain possible.",
+      "searches": [
+        "Černý automaton C_n distinct shortest synchronizing lengths of all unordered pairs n(n-1)/2 permutation of 1 to binomial n 2 pair rank automaton",
+        "pair automaton Černý automaton shortest pair reset time triangular permutation 1 to n(n-1)/2",
+        "pair automaton is a Hamiltonian path in inverse shortest-path tree Černý automaton all pair weights distinct",
+        "\"Černý automaton\" \"pairs\" \"distance\" \"triangular\" synchronization",
+        "\"Černý\" \"pair\" \"distinct\" \"synchronizing\" lengths",
+        "\"Černý automaton\" \"pair automaton\" distance table",
+        "\"Černý automaton\" \"pair\" \"weights\" cyclic distance exact",
+        "\"Cerny\" \"pair weights\" distinct \"1\" \"n\""
+      ]
+    },
+    "rationale": "The known extremal pair distance N in an N-vertex pair graph already implies the unlabelled spectrum 1,...,N, because a shortest N-step route must traverse every pair before reaching a singleton. That spectrum is NOT claimed to be new. The candidate adds two assertions not entailed by this extremal argument: the explicit labeled formula identifying which pair realizes each rank, and uniqueness of the shortest merging word from every pair, equivalently a single explicit master-suffix chain. The inspected primary literature and indexed scientific records did not show these stronger claims. This is a best-knowledge originality assessment with a stated risk of historical equivalent presentations.",
+    "residual_risks": [
+      "An unindexed historical paper, thesis, software example, or table could already state the same complete pairing and unique shortest-word chain.",
+      "Relevant published automata-related records outside the directly indexed claim summaries could contain additional facts not visible from those summaries.",
+      "The inspected primary manuscript sections are not a guarantee of full global literature coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves maximal pair rendezvous time N, thereby also entailing the unlabeled distinct-value spectrum by general path-length reasoning; the inspected material does not explicitly give pair-by-pair ranks, uniqueness, or the common optimal master word.",
+        "evidence": [
+          "arXiv:2008.12166v2 pp.2–4",
+          "arXiv abstract history: 2020-08-27 v1, 2022-08-08 v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.12166",
+        "material_read": "PDF pp.1–4, especially definitions, Černý example, power-automaton diagram, and RDV(2,n) discussion; title and first-public version checked from arXiv abstract page",
+        "method": "Read extracted PDF text and inspected PDF page image",
+        "title": "Synchronizing Times for k-sets in Automata",
+        "trigger": "Same Černý family, pair rendezvous weight and exact extremal maximum"
+      },
+      {
+        "assessment": "Generic algorithm for shortest pair-merging words, not a formula for each pair in this automaton",
+        "evidence": [
+          "PDF p.7: reverse pair-automaton breadth-first-search shortest-path forest"
+        ],
+        "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf",
+        "material_read": "PDF p.7 and related algorithm exposition pp.7–9",
+        "method": "Read full-text PDF extraction and checked page image",
+        "title": "Reset Sequences for Monotonic Automata",
+        "trigger": "Original pair-state shortest-path forest and breadth-first search"
+      },
+      {
+        "assessment": "Concerns triple rendezvous and probability function, not full pair-by-pair distances or unique shortest path words",
+        "evidence": [
+          "arXiv:1410.4034v5, pp.1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1410.4034",
+        "material_read": "PDF introduction pp.1–3 and relevant passages found within full PDF",
+        "method": "Read extracted PDF text and inspected PDF page image",
+        "title": "On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata",
+        "trigger": "Introduced rendezvous-time language and related Černý extremal questions"
+      },
+      {
+        "assessment": "Repeats the known extremal weight and its distance heuristic; no full closed spectrum statement in the inspected passage",
+        "evidence": [
+          "Thesis PDF p.43: RDV(2,n) extremal pair and cycle-gap argument"
+        ],
+        "identifier_or_url": "https://nb453.user.srcf.net/wp-content/uploads/2021/09/thesis.pdf",
+        "material_read": "Chapter 2 pp.31–35 and the specific pair-weight passage at PDF p.43",
+        "method": "Searched and read PDF text passages",
+        "title": "Synchronizing Automata and Černý’s Conjecture (thesis chapter)",
+        "trigger": "Potentially stronger independent description of Černý pair rendezvous weights"
+      },
+      {
+        "assessment": "Different input object: whole-state image deficiency rather than pair-specific shortest-merging distance; full-document novelty comparison incomplete",
+        "evidence": [
+          "Claimed initial rank deficiency thresholds 3s-2 for s up to ceil(n/2)"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "material_read": "Published result title and indexed synopsis only; not full paper",
+        "method": "Read indexed published scientific claim summary",
+        "title": "Exact early deficiency profile of the Černý automata",
+        "trigger": "Same named automaton, possible stronger compression theorem"
+      },
+      {
+        "assessment": "Avoidance of target state sets rather than merging the two members of an input pair; no implication from displayed synopsis, full text not inspected",
+        "evidence": [
+          "Claimed k-avoiding threshold kn for 1≤k<n"
+        ],
+        "identifier_or_url": "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Published result title and indexed synopsis only; not full paper",
+        "method": "Read indexed published scientific claim summary",
+        "title": "Exact k-avoiding thresholds of the Cerny automata",
+        "trigger": "Same automaton, possible all-subset shortest-word coverage"
+      },
+      {
+        "assessment": "Classifies global five-state triple extremals, not the pair spectrum for the infinite Černý family",
+        "evidence": [
+          "Five-state binary triple rendezvous extremal at length seven"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0",
+        "material_read": "Indexed synopsis only",
+        "method": "Compared scientific claim summary",
+        "title": "The five-state binary triple-rendezvous extremal is unique",
+        "trigger": "Potential stronger finite-automata merging classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e77b532a-ed29-4f4a-a886-c79323fdf716",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Černý family is the canonical extremal synchronizing automaton, and shortest merging sequences of individual pairs form the fundamental shortest-path forest in reset algorithms. The known maximum forces the abstract 1..N spectrum and is not credited as new value. The motivated new information is the explicit rank of each labeled pair and the global rigidity: every one of their shortest merging words is unique and equal to a distinct suffix of one explicit word. This describes the exact optimal control from every pair for all n, not just a hard witness or a numerical sample.",
+    "status": "PASS"
+  }
+}
