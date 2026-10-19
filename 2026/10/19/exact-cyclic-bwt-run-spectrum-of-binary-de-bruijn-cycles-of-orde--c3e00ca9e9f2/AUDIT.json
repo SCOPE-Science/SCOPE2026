@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "A de Bruijn necklace of order five is exactly an Eulerian circuit of the four-bit de Bruijn digraph, uniquely rooted at its sole 00000 edge. The complete \\(32\\)-edge DFS visits all and only such circuits; the built-in five-factor assertion and collision assertion check bijection. For each accepted circuit, sorting the 32 literal cyclic rotations defines the BWT and yields its linear run number. The independent full \\(2^{16}\\) `01`/`10`-block enumeration uses the classical BWT-pair characterization and exact LF single-32-cycle criterion; all \\(2048\\) accepted BWT strings agree as sets between approaches, and their histograms independently agree. The included verify.py was executed from the actual locally prepared file, finishing VERIFY_OK with six cells 38,426,840,608,130,6. Finite exhaustive proof only: no infinite-order claim or extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantaci et al. (2017), Theorem 5.2, DOI 10.1016/j.tcs.2017.07.015, provides a general lower bound \\(2^{n-1}+2\\) and upper bound \\(2^n-2\\) on BWT runs for binary de Bruijn words; at order five these are 18 and 30.",
+        "Their bound includes all cycles, but the inspected proof does not enumerate how many cycles take each run number, nor show the sharper minimum \\(20\\) for \\(n=5\\).",
+        "The unrestricted total number of de Bruijn cycles is 2048, known from classical results and also verified, but an unweighted total does not imply any of the six refined histogram cells."
+      ],
+      "reasoning": "The earlier all-order statement dominates the scope but not the conclusion: its lower bound of 18 is weaker than the exact minimum 20; its upper bound does not supply attainment or multiplicity. The general BWT characterizations imply a finite algorithm but not the computed exact distribution without the separate enumeration.",
+      "searches": [
+        "Minimum and maximum Burrows Wheeler transform run count among all binary de Bruijn cycles of order five or six",
+        "\"de Bruijn\" \"BWT\" \"order 5\" \"minimum\" \"runs\"",
+        "\"BWT runs\" \"de Bruijn\" \"32\" minimization",
+        "Constrained de Bruijn cycles and exact enumeration of universal cycles for finite forbidden-factor binary languages"
+      ]
+    },
+    "checked_sources": [
+      "P. M. Higgins (2012), DOI 10.1016/j.tcs.2012.07.019, full lawful author version Section 3",
+      "S. Mantaci et al. (2017), DOI 10.1016/j.tcs.2017.07.015, full lawful author postprint Sections 3–5",
+      "G. Fici and J. Gabory (2025), DOI 10.4230/LIPIcs.MFCS.2025.48, full HTML paper",
+      "Z. Lipták and L. Parmigiani (2024), DOI 10.1007/978-3-031-55598-5_9, public abstract and author presentation, not full chapter",
+      "F. Ruskey, J. Sawada and A. Williams (2012), DOI 10.1137/100808782, official publication date, MSC and abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Higgins (2012) establishes alphabet-permutation BWT blocks; that alone does not fix whether LF is one cycle nor the counts by run number.",
+        "Mantaci et al. (2017), Theorem 5.2, establishes interval \\(18\\le r\\le30\\) at order five; the exact six numbers and sharper minimum are strictly additional.",
+        "Lipták–Parmigiani (2024) author slides pp. 39–40 and 45–75 emphasize BWT run-richness and random generation but do not give a per-run exhaustive spectrum.",
+        "Fici–Gabory (2025), Theorem 9, identifies Hamiltonian cycles via BWT inverse standard permutations; Theorem 12 counts the total, with no run refinement."
+      ],
+      "reasoning": "All inspected stronger-looking statements were compared by mathematical implication, including dual LF permutations and unweighted de Bruijn counting. None contains the proposed exact run spectrum as an explicit formula or already established table. The new work adds an exhaustive exact run-weighted classification that can be reconstructed from but is not stated by those premises.",
+      "searches": [
+        "de Bruijn cyclic rotation sorting Burrows Wheeler transform exact run distribution histogram enumeration order 5 BWT compression",
+        "\"de Bruijn\" \"BWT\" 2048 distribution six values",
+        "\"de Bruijn\" \"Burrows Wheeler\" \"order 5\" \"runs\" distribution",
+        "De Bruijn order five 32-bit cyclic words BWT run-length number minimum 20 maximum 30, exact enumeration of all 2048 BWT last-column words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Higgins (2012), Theorem 3.4, DOI 10.1016/j.tcs.2012.07.019, proves each BWT is a sequence of permutation blocks but gives no refined run-count multiplicities.",
+        "Fici–Gabory (2025), Theorems 9, 12 and 26, DOI 10.4230/LIPIcs.MFCS.2025.48, characterize BWT inverse LF cycles and enumerate all de Bruijn necklaces, but do not classify transition-count cells.",
+        "The independent exhaustive LF formulation shows that the claimed run statistic is exactly \\(32\\) minus the number of changes in a \\(16\\)-bit block-phase vector."
+      ],
+      "reasoning": "An exact spectrum expressed as LF phase changes or as a full run polynomial would imply the present table. The closest inspected theorems provide a reduction to a finite \\(65536\\)-vector problem, not its six specific solution counts. Equivalence-by-transformation was checked; the published reductions are premises, not the new numerical conclusions.",
+      "searches": [
+        "Exact BWT run distribution on binary de Bruijn sequences of order five and six",
+        "BWT alternating orientation blocks 01 10 de Bruijn LF single-cycle transition counts 2 4 6 8 10 12 and multiplicity",
+        "Exact Lyndon factorization or bijective BWT of binary de Bruijn sequences",
+        "\"de Bruijn\" \"BWT\" \"20\" \"22\" \"24\" \"26\" \"28\" \"30\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed searches returned the known total 2048 and representative order-five necklaces but not this BWT run histogram.",
+        "Fici–Gabory (2025) lists general de Bruijn counting totals, not run-refined values.",
+        "The order-five histogram produced by both independent exhaustive certificate routes is 20:38, 22:426, 24:840, 26:608, 28:130, 30:6."
+      ],
+      "reasoning": "The relevant published tables observed were totals of cycles, sample constructions and general upper/lower bounds. Those are not six-cell exact run distributions. The nonappearance of numerical matches in a search index is only corroborating evidence, not a conclusive uniqueness assertion.",
+      "searches": [
+        "\"38\" \"426\" \"840\" \"608\" \"130\" \"6\" \"de Bruijn\"",
+        "\"38, 426, 840, 608, 130, 6\" BWT",
+        "de Bruijn sequences order 5 BWT runs 20 22 24 26 28 30 minimum",
+        "Binary order five de Bruijn cyclic Burrows Wheeler run spectrum exactly 20:38, 22:426, 24:840, 26:608, 28:130, 30:6 over 2048 necklaces; exact min 20 max 30"
+      ]
+    },
+    "rationale": "Higgins (2012) provides the BWT permutation-block characterization but not the run-refined order-five census. Mantaci et al. (2017), Theorem 5.2, give only an order-five run interval \\(18\\) through \\(30\\), whereas exhaustive analysis yields minimum 20 and six exact multiplicities. Fici and Gabory (2025) give BWT-Hamiltonian-cycle descriptions and unrefined totals; the relevant sections contain no order-five run spectrum. Liptak and Parmigiani (2024) present a BWT-based generation algorithm, not an exact complete run table in the accessible author presentation. Indexed mathematical-record and literature queries for the exact coefficients, extrema, equivalent LF transition-statistics and wider domination found no covering published result, but search nonhits are not proofs of novelty. A related 2024 complete chapter remained inaccessible, so previously unindexed equivalence remains a residual risk.",
+    "residual_risks": [
+      "A prior unindexed exact order-five BWT histogram or alternative LF transition-count table may already exist; finite search cannot prove its global absence.",
+      "The full 2024 Lipták–Parmigiani chapter was not accessed; available author presentation and abstract were inspected but may omit a relevant appendix.",
+      "The result is a motivated exact finite classification, not a general formula over all de Bruijn orders or a claim about absolute compressed bit count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_BLOCK_CHARACTERIZATION_NOT_SIX_CELL_HISTOGRAM",
+        "evidence": [
+          "Theorem 3.4 is BWT image characterization for de Bruijn sets; examples concern standard permutation cycles. No inspected theorem computes run-number multiplicities for all order-five single-necklace cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.08392 ; DOI 10.1016/j.tcs.2012.07.019",
+        "material_read": "Full accessible author-version PDF, especially Section 3 pp. 14–17 and Theorem 3.4, Lemmas 3.6–3.7 and examples.",
+        "method": "Inspected searchable paper text and rendered pages for the core theorems; compared image characterization and examples to order-five run-count claim.",
+        "title": "Burrows–Wheeler transformations and de Bruijn words",
+        "trigger": "Same binary de Bruijn BWT images and possible direct coverage of the histogram"
+      },
+      {
+        "assessment": "GENERAL_BOUND_NOT_RUN_HISTOGRAM",
+        "evidence": [
+          "Theorem 5.2 yields \\(18\\le r\\le30\\) for n=5; it neither gives the six histogram cells nor the exact lower endpoint 20."
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf ; DOI 10.1016/j.tcs.2017.07.015",
+        "material_read": "Full lawful author-postprint sections 3 through 5; inspected Section 5 pp. 16–17 in rendered form and Theorem 5.2.",
+        "method": "Compared bounds specialized to binary order five and looked for an explicit run-count census.",
+        "title": "Measuring the clustering effect of BWT via RLE",
+        "trigger": "Potentially dominating exact all-order BWT run theorem"
+      },
+      {
+        "assessment": "DESCRIBES_UNWEIGHTED_TOTAL_AND_LF_CHAR_NOT_SPECTRUM",
+        "evidence": [
+          "Theorem 9 gives BWT inverse-standard-permutation Hamiltonian condition, and Theorem 12 gives total de Bruijn counts. No run-refined order-five table was found in inspected material."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol345-mfcs2025/html/LIPIcs.MFCS.2025.48/LIPIcs.MFCS.2025.48.html",
+        "material_read": "Full lawful HTML paper; contribution/related-work sections, definitions, Lemma 8 and Theorems 9, 12, 25, 26, counting table.",
+        "method": "Examined full text for runs, numerical order-five distribution and implication from Hamiltonian-cycles characterization.",
+        "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+        "trigger": "Later algebraic characterization might subsume the BWT statistic"
+      },
+      {
+        "assessment": "ACCESS_LIMITED_NO_DECISIVE_COVERAGE_EVIDENCE",
+        "evidence": [
+          "The inspected talk says BWT+RLE has many runs and focuses on random construction; no exact order-five 6-cell histogram appears there. Full chapter not inspected, retained as explicit residual risk."
+        ],
+        "identifier_or_url": "DOI 10.1007/978-3-031-55598-5_9 ; author talk https://profs.scienze.univr.it/~liptak/files/SeqBIM2024.pdf",
+        "material_read": "Public bibliographic abstract and related authors’ 2024 talk, notably slides on BWT-run behavior and random-de-Bruijn construction; the full 2024 chapter was not obtained.",
+        "method": "Searched arXiv and author open-access copies of the complete chapter and inspected the accessible author presentation and abstract. The full conference chapter remained unavailable.",
+        "title": "A BWT-Based Algorithm for Random de Bruijn Sequence Construction",
+        "trigger": "Same BWT-generation model might already enumerate run spectra"
+      },
+      {
+        "assessment": "DATES_AND_SUBJECT_SCOPE_ONLY",
+        "evidence": [
+          "Published online 8 May 2012; MSC 68R15; paper studies fixed-weight binary universal cycles, not exact BWT run histograms."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/100808782",
+        "material_read": "Official journal metadata, history, MSC codes and abstract; full article not inspected because this source is not the BWT spectrum comparator.",
+        "method": "Checked first-public online date (2012-05-08), subject MSC 68R15, and topical distinction between fixed-weight universality and cyclic BWT runs.",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Verified public date and permitted primary subject coding for de Bruijn sequence research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3e00ca9-e9f2-4e2b-9bd7-f2becb1b423f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full de Bruijn cycles are canonical shortest exhaustive 5-mer datasets, and cyclic BWT run count is a standard structural statistic used to evaluate run-length-based text indexing. The exact distribution over every one of 2048 order-five cycles, including a sharpened attainable minimum 20 and its 38 realizers, distinguishes which universal cycles are most/least run-friendly; the 6 exact multiplicity cells, mean, and variance give reproducible benchmarks for algorithms generating or choosing such cycles. This is a natural complete finite parameter value; no unsupported infinite or downstream theorem is required. The verified five-bit order is nonarbitrary as a complete natural family and a substantial nontrivial enumeration compared with earlier orders. Limits: significance is finite and BWT run count does not equal total encoded bits.",
+    "status": "PASS"
+  }
+}
