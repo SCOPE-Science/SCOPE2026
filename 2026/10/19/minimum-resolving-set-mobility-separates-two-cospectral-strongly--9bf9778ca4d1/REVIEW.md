@@ -1,0 +1,19 @@
+# Review: Minimum resolving-set mobility separates two cospectral strongly regular graphs
+
+## Correctness — PASS
+
+The domain consists exactly of the rook graph \(K_4\square K_4\) and the Shrikhande Cayley graph on \(\mathbb Z_4^2\), each with sixteen labeled vertices. The minimum landmark cardinality four is supported by published results (Cáceres et al., arXiv:math/0507527, and Bailey, arXiv:1312.4973) and checked by exhaustive tests of smaller sets. The rook minimum bases have the explicit \(144\)-element parametrization forced by the published empty-row/column criterion (Lemma 6.2). Every Shrikhande minimum basis belongs to exactly one of three explicitly specified 16-set translation families, verified by all \(\binom{16}{4}=1820\) candidates with a second independent pair-separation-mask representation. Two self-contained programs agree on the full one-landmark reconfiguration graphs: sixteen copies of \(K_3\square K_3\) versus \(48\) isolated vertices. They also confirm the two-replacement graphs' regular degrees \(26\) and \(10\), connectivity, and diameter three by breadth-first search from every state. The monotonicity of resolving sets proves a four-step capacity-six simulation of each two-replacement edge. At capacity five, each transition between minimum sets must replace only one landmark; hence disconnectedness follows. There is no infinite-family extrapolation.
+
+## Originality — PASS, subject to disclosed residual risk
+
+Cáceres et al., *On the Metric Dimension of Cartesian Products of Graphs* (first posted 2005-07-26; Lemma 6.2, Theorem 6.1), already imply the rook bases' cardinality, shape, and count. Bailey, *The metric dimension of small distance-regular and strongly regular graphs* (first posted 2013-12-17; Section 3 and Table 1), reports the metric dimension four of both graphs. Those older facts are not novelty claims. The distinct claim is the exact exchange-component contrast between these two cospectral graphs, plus the connected degree-and-diameter-three two-exchange graphs and the sharp two-spare-landmark capacity threshold. Searches for the graph-pair, metric-basis aliases, and exchange-move variants in published mathematical records and the relevant accessible primary full text have not identified coverage by those prior statements. A related project/thesis by J. Morentin, *Reconfigurations of Metric Bases*, was discoverable only as metadata and could not be examined in full; possible overlap with that source and unindexed computations is an acknowledged limitation. Lack of a hit is not proof of novelty.
+
+## Value — PASS
+
+The two nonisomorphic strongly regular graphs share the complete parameter quadruple \((16,6,2,2)\) and minimum metric dimension, yet one admits four single-landmark exchange neighbors at each metric basis and the other admits none. The structural contrast is a motivated obstruction for landmark relocation, and the exactly sharp capacity-six restoration gives a concrete resilience bound. The two-exchange diameters and full translation-family classification are nontrivial finite invariants beyond established graph-parameter tables, not an arbitrary parameter slice. This gives an exact benchmark for preserving distance distinguishability while moving optimal landmarks.
+
+## Limits and sources
+
+Only the stated two isomorphism types are covered. Independent external audit has not been performed. Sources: Cáceres et al. https://arxiv.org/abs/math/0507527 (full public text, especially Section 6), Bailey https://arxiv.org/abs/1312.4973 (full public text, Section 3 and Table 1), Morentin institutional metadata https://scholarworks.calstate.edu/concern/projects/pv63g4914 (full text inaccessible in checked route). The two standalone verification programs and outputs are included.
+
+Self-review: passed. Independent audit: not yet performed.
