@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Every eigenscalar of the sketched Ritz matrix is u*T A u/(u*T u), with positive real denominator. The squared-norm embedding gives a Hermitian compression H of T-I with ||H||<=epsilon on span(u,Au). The exact support function of u*H Au is epsilon sqrt(a^2 cos^2(phi)+b^2), hence the possible numerator is a translated ellipse; the tangent halfplane inequality gives sin(angle)=epsilon b/[a sqrt(1-epsilon^2)]. The positive polynomial (A-mu I)(L I-A) bounds b/a sharply by (L-mu)/(2sqrt(mu L)); this yields the stated angle and strict distortion threshold. A two-mode complex Gram sketch realizes tangency, the algebraic kappa=9 case reproduces lambda=(5+sqrt(2)i)/3, and real Gram matrices with off-diagonal -epsilon realize zero/negative Ritz values at/above the critical distortion. Packaged verify.py passed exact rational checks and 8,750 random complex embedding cases. Finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gustafson (1968), Section 4, states sharp accretivity conditions for products of positive selfadjoint operators; these concern the sign of real parts, not a full angular envelope for the specified sRR pencil.",
+        "Nakatsukasa--Tropp, arXiv:2111.00113v2 Sections 6.3--6.8, bound residual discrepancies and subspace-near-invariance instead of uniformly sharp eigenvalue angles under only spectral endpoints.",
+        "A published comparison on normal spectral filtering concerns Rayleigh residual distortion, not sketched Ritz eigenvalue arguments."
+      ],
+      "reasoning": "The published statements inspected do not imply the universal sharp distortion-dependent angular inequality with a complex equality sketch. Pure positive-real criteria are strictly weaker because they do not bound the nonzero argument below pi/2; residual bounds conditional on a nearly invariant trial space also do not dominate the all-trial-subspaces hypothesis.",
+      "searches": [
+        "numerical range product positive operators sectorial angle condition number bound",
+        "sectoriality numerical range AB positive definite Hermitian matrices norm perturbation identity epsilon",
+        "non-real eigenvalues sketched Hermitian Ritz right half plane epsilon threshold 2 sqrt kappa over kappa plus one"
+      ]
+    },
+    "checked_sources": [
+      "Bergermann, arXiv:2604.07158v1 (2026-04-08), full HTML Sections 2.4, 3, 5.3, 6.3.",
+      "Nakatsukasa and Tropp, arXiv:2111.00113v2, full HTML Sections 6.3--6.8.",
+      "Gustafson, Bulletin AMS 74 (1968), 488--492, DOI:10.1090/S0002-9904-1968-11974-3, public full transcription (partial symbol degradation).",
+      "Relevant published semantic results on normal spectral-filter Rayleigh-residual distortion (summary comparison only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bergermann (2026) sRR matrix equals (SB)^dagger SAB, and embedding bounds govern residuals; no uniform sharp sector theorem appears in Sections 2.4, 3, or 5.3.",
+        "Nakatsukasa--Tropp (2021) explicitly state Hermitian sRR Ritz values need not be real in Section 6.8; preceding sections provide residual or near-invariant-subspace estimates.",
+        "Gustafson (1968) provides sufficient positive-real criteria for positive operator products; it is a foundational prior result, not the present quantitative complex-argument law.",
+        "Related harmonic Ritz results form G=(SAB)*(SB), F=(SAB)*(SAB), whereas ordinary sRR forms G=(SB)*(SB), F=(SB)*(SAB). A positive-real threshold for the former does not state, and does not directly imply, the sharp angle of the latter."
+      ],
+      "reasoning": "Exact comparison uses matrix pencils and logical strength, not titles: positive-real membership gives only |arg|<pi/2, while this claim has a strictly smaller, sharp angle for every subcritical epsilon. The harmonic and ordinary Ritz pencils differ even with identical spectral endpoints; a normal spectral-filter residual inequality measures a different quantity. A stronger classical two-matrix numerical-range theorem may still imply this result in disguised form.",
+      "searches": [
+        "arxiv:2604.07158v1",
+        "arxiv:2111.00113v2",
+        "doi:10.1090/S0002-9904-1968-11974-3",
+        "non-real eigenvalues sketched Hermitian Ritz right half plane epsilon threshold 2 sqrt kappa over kappa plus one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2111.00113v2, Section 6.8, acknowledges nonreal sketched Ritz values for Hermitian input but contains no comparable quantified angle in the inspected sections.",
+        "Gustafson 1968, Definition 1 and Theorem 4.2/Corollary 4.4 concern maximal operator turning and sufficient product accretivity.",
+        "arXiv:2604.07158v1, Section 2.4 defines the same sRR matrix but gives eigenvector residual inequalities."
+      ],
+      "reasoning": "A translated ellipse for the complex bilinear form u* S*S A u gives the exact sector after maximizing ||Au||/(u*Au). Published operator-angle and nonreal-Ritz observations share ingredients but none inspected states this exact sketched pencil angle as a function of squared-norm distortion and condition ratio. The implication risk from a reparameterized classical numerical-range theorem remains disclosed.",
+      "searches": [
+        "sharp arcsin bound angle of sketched Rayleigh Ritz eigenvalues Hermitian positive definite matrix complex embedding epsilon kappa sector",
+        "\"sketched\" \"Ritz\" \"angle\" \"arcsin\" \"epsilon\"",
+        "Gustafson 1968 angle of operator and positive operator products Kantorovich sine maximum angle exact sector"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus semantic results returned related normal Rayleigh-residual distortion and general matrix-angle results, but no entry stating a sketched Hermitian Ritz angle formula.",
+        "No published exact table or database identified with a value equivalent to arcsin(epsilon(kappa-1)/(2 sqrt(kappa) sqrt(1-epsilon^2)))."
+      ],
+      "reasoning": "This is a continuum theorem, not a finite table entry. The searches check equivalents of its main formula and eigenvalue object; absence of a database hit is supporting search evidence, never a proof of novelty.",
+      "searches": [
+        "sharp arcsin bound angle of sketched Rayleigh Ritz eigenvalues Hermitian positive definite matrix complex embedding epsilon kappa sector",
+        "exact angular cone numerical range of perturbed positive definite matrix positive Gram T=I+H spectral condition number sketch",
+        "non-real eigenvalues sketched Hermitian Ritz right half plane epsilon threshold 2 sqrt kappa over kappa plus one",
+        "sketching Hermitian positive definite matrices complex nonreal Ritz values sector angle joint field of values of product positive definite matrices"
+      ]
+    },
+    "rationale": "Compared identical ordinary sRR definitions and residual estimates in Bergermann arXiv:2604.07158v1 Sections 2.4/3 and Nakatsukasa--Tropp arXiv:2111.00113v2 Sections 6.3--6.8. Those sources acknowledge nonreal Ritz values but inspected full-text passages do not give a sharp complex-angle vs squared-norm distortion envelope. Gustafson 1968 establishes classical positive-product angle/accretivity criteria; these ingredients are credited and no general antieigenvalue novelty is claimed. Published database searches checked angle/sector/numerical-range aliases. A previously treated sketched harmonic pencil has different Gram factors and only a positive-real result, not the present ordinary Ritz sharp angular bound. Risk of a reparameterized classical result is disclosed; this is a self-review, not independent certification.",
+    "residual_risks": [
+      "An older numerical-range or antieigenvalue theorem may imply the exact angle after a non-obvious parameter change; the 1968 digitization degrades some formulae.",
+      "Search coverage is necessarily incomplete and does not establish global uniqueness.",
+      "Complex sharpness is established; a different optimal sector may hold for exclusively real sketch and one-vector models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The same estimator and embedding setting appear, but not this sharp Hermitian positive-definite complex sector law in inspected material.",
+        "evidence": [
+          "arXiv:2604.07158v1 Section 2.4 equation (18) defines (SV)^dagger SAV.",
+          "Section 3 Proposition 4 treats arbitrary sketches.",
+          "Section 2.4 equation (19) gives eigenvector residual comparisons, not complex angle bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.07158v1",
+        "material_read": "Full accessible HTML, specifically abstract, Sections 2.4 and 3, algorithmic Section 5.3, eigenvalue experiments Section 6.3, and references.",
+        "method": "Read and compare mathematical definitions, displayed formula for sRR, embedding criterion, residual inequalities and numerical experiment claims.",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "New primary source defining the sketched Ritz matrix and deterministic subspace-embedding framework."
+      },
+      {
+        "assessment": "Establishes estimator and notes nonreal values but inspected results do not state a sharp sector under solely the embedding and spectral endpoint assumptions.",
+        "evidence": [
+          "arXiv:2111.00113v2 Section 6.3 equations (41)--(44) defines sRR and residual estimates.",
+          "Section 6.6 compares sketched and ordinary Ritz operators under near invariance.",
+          "Section 6.8 observes Hermitian sRR can have nonreal estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.00113v2",
+        "material_read": "Accessible full HTML; read eigenvalue derivation, Sections 6.3--6.8, formulas for sRR and residual estimates, and symmetric-case discussion.",
+        "method": "Compared full sRR pencil and matrix/eigenvalue implications of displayed bounds.",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Foundational sRR method and Hermitian-nonreal-Ritz warning; plausible prior stronger spectral theorem."
+      },
+      {
+        "assessment": "Prior theory of operator angle and accretive positive products is directly credited. Inspected theorem and corollaries do not explicitly provide this sketched sRR sector formula; degraded symbols and potentially related later literature are a residual implication risk.",
+        "evidence": [
+          "Theorem 4.2 and Corollary 4.4 establish positivity/accretivity criteria for product operators.",
+          "Section 5 provides positive lower bounds for real parts of products.",
+          "No sketch/pencil distortion formulation or exact complex Ritz angle formula appears in legible material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9904-1968-11974-3",
+        "material_read": "The public paper transcription covers pp. 488--492, Sections 1--7; mathematical symbols are partially degraded in the transcription, so the clean interpretation is strongest for the prose and named theorems in Sections 2, 4, 5.",
+        "method": "Compared Definition 1, Theorem 4.2, Corollary 4.4, and the nature of the positivity conclusions with the exact angular-envelope claim.",
+        "title": "The angle of an operator and positive operator products",
+        "trigger": "Plausible classical equivalence via antieigenvalue or positive-product numerical range."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e4ed034-3e0b-4479-9661-c1cf8e776253",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sRR eigenproblem for Hermitian A is generally nonsymmetric and can create nonreal eigenvalues. The new law completely solves a natural worst-case quantitative spectral-location question: it gives a sharp, dimension-independent distortion-to-angle conversion and a critical point of loss of positive-real location, with a genuine dimension-reducing witness. The result applies to every trial-space dimension under the exact joint-space embedding and can inform deterministic embedding design. It does not rely merely on naming a classical inequality; the matrix-pencil-specific sharp ellipse geometry and equality example provide an intrinsic numerical-analysis conclusion. It neither assumes nor claims sketch probability distributions, finite-precision stability, or convergence of complete algorithms.",
+    "status": "PASS"
+  }
+}
