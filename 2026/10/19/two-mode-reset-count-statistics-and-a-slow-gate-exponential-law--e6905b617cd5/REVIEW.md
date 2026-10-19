@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The two-state backward generator, reflecting reduction at an inactive transparent origin, eigenmode decomposition, two boundary conditions, and normalization at \(z=1\) derive both reset-count PGFs. A positive quadratic discriminant, location of both roots in \((0,1)\), and nonzero resultants prove that both modes survive. Expanding the PGF at the slow-gating scale gives the unit-exponential weak limit. Twelve independent finite-difference PGF comparisons across three parameter choices, algebraic checks and asymptotic checks corroborate the proof. Numerical checks are finite-resolution corroboration only.
+
+**Originality — PASS, subject to risk.** The 2021 Mercado-Vásquez–Boyer analysis gives the folded reflecting-gate model and time-to-absorption moments; the 2025 Żbik–Dybiec–Capała–Palmowski–Sokolov work gives the full-line transparent model and first-hitting-time Laplace transforms. The supplied statement instead concerns the complete reset-count distribution, two noncancelling modes and a singular count scaling. Full-text inspection of the two closest original papers identified no explicit coverage. Their Markov equations may imply these results after a generating-function tilt, so implicit coverage remains a residual risk; related 2026 Bressloff work was reviewed only at abstract level.
+
+**Value — PASS.** The number of unsuccessful reset attempts is a natural physically measurable search-cost observable. Its exact nongeometric law exposes gate memory hidden by first-passage-time means, and its small-switching limit yields a nontrivial universal distributional scaling with a clear mechanism (waiting for the initial inactive gate to activate). The contribution is an exact finite-state classification of that search-cost law, not a new general PDE technique.
+
+Self-review: passed. Independent audit: not yet performed.
