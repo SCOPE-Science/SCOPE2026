@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "At fixed \\(0<\\phi<\\pi\\) the compact zero-band states have positive invertible tridiagonal Gram matrix with inverse kernel \\((1+r^2)(-r)^{|i-j|}/(1-r^2)\\). Two defect plaquettes give a four-dimensional rank reduction with matrix blocks \\(D=\\operatorname{diag}((1+r)/2,(1-r)/2)\\) and cross-block \\(t\\begin{psmallmatrix}-1&-1\\\\1&1\\end{psmallmatrix}\\), \\(|t|=(1-r^2)r^{d-1}/4\\). Symbolic determinant equals \\(\\big[(x-1/2)^2-r^2/4\\big]^2-4t^2(x-1/2)^2\\), providing four exact eigenvalues and each same-branch splitting \\(2|t|\\). The isolated flat-band perturbation expansion yields epsilon times these eigenvalues plus \\(O(\\varepsilon^2)\\), at fixed parameters; no nonzero-strength equality is claimed. Standalone verification reconstructed exact compact states, checked symbolic determinant, six independent projected finite sections and twelve full finite-chain spectra. The proof does not infer infinite conclusions from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest multi-impurity paper arXiv:2407.15789v1 derives general qualitative SSH engineering and displays numerical impurity-mode gaps, with Appendix A explicitly noting near-equality",
+        "Its Eq. (4) concerns a single impurity pair and its Appendix A has plots, not an analytical quartic spectrum for two separated pairs"
+      ],
+      "reasoning": "General physical claims of exponential coupling and qualitative approximate equal channels do not mathematically determine a universal exact prefactor nor prove exact equality of the two projected spectra. The current result does not assert the general multi-defect SSH spectrum and is therefore not a corollary of an inspected stronger exact theorem.",
+      "searches": [
+        "Search: Flux-mediated effective Su Schrieffer Heeger model impurity decorated diamond chain two impurities equal high low band splittings exact exponential distance",
+        "Search: flat-band diamond-chain two onsite impurity pairs symmetric perturbation quartic spectrum two branches same tunneling amplitudes",
+        "arXiv:2407.15789v1 Appendix A: full material comparison for analytic stronger multi-impurity theorem"
+      ]
+    },
+    "checked_sources": [
+      "Viedma et al., arXiv:2407.15789v1, Sec. II and Appendix A, https://pubs.aip.org/aip/app/article/9/12/120801/3325099/Flux-mediated-effective-Su-Schrieffer-Heeger-model",
+      "Marques et al., arXiv:2407.14405v1, equal-impurity subsection, https://www.researchgate.net/publication/382445493_Impurity_flat_band_states_in_the_diamond_chain"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Single-pair eigenvalues \\(\\varepsilon(1\\pm r)/2\\) do not imply interaction between two distinct pairs without the four-index inverse Gram cross-kernel",
+        "Numerical Appendix A shows a common exponential trend and near-equality without mathematical exactness"
+      ],
+      "reasoning": "The new statement is stronger in exactness and less general in impurity number than the earlier phenomenology. It requires evaluating and diagonalizing the four-coordinate inverse Gram compression; the prior one-pair eigenvalues do not determine its off-diagonal interaction. Our \\(d\\to\\infty\\) limit agrees with, rather than contradicts, the earlier theorem.",
+      "searches": [
+        "arXiv:2407.14405v1 Eq. (42)-(43): one pair spectrum",
+        "arXiv:2407.15789v1 Sec. II Eq. (4)-(5) and Appendix A Eq. (A1): 2 or multiple impurity sites",
+        "Search: two separated impurities flat band SSH equal high low couplings exact determinant analytical"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.15789v1 Appendix A (two separated pairs) defines coupling by half of lower-mode doublet gap and compares upper/lower numerically",
+        "arXiv:2407.14405v1 equal-impurity subsection derives \\(\\varepsilon(1\\pm r)/2\\) for a single pair, a non-equivalent two-dimensional eigenproblem"
+      ],
+      "reasoning": "The new four-dimensional projected operator is not the old single-pair two-dimensional operator: the new cross-pair block is nonzero for every fixed \\(0<\\phi<\\pi\\) and finite d. The four roots reveal a common shift ±h absent from the single-pair formula. The old half-gap definition is equivalent to the new tunneling convention but does not imply its exact closed form.",
+      "searches": [
+        "arXiv:2407.15789v1 Sec. II, Appendix A: equal impurity doublets and half gaps",
+        "arXiv:2407.14405v1 Sec. IV: dual compact-localized-state basis, Gram inverse",
+        "Search: diamond chain flat-band projection two identical symmetric impurity pairs exact energy splitting nonorthogonal compact localized states inverse Gram matrix",
+        "Search: exact two-dimer impurity splitting diamond chain inverse Toeplitz Gram matrix equal channels amplitude"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2407.15789v1 Fig. 2 and Fig. 6 list numerical effective couplings, including a near-0.17 ratio at flux pi/2",
+        "No exact table or database supplied the analytic four-level roots or exact flux/separation prefactor in the checked sources"
+      ],
+      "reasoning": "The reported ratio near 0.17 and the plotted exponential curves are consistent with the present \\(3-2\\sqrt2\\) prediction but do not constitute an exact formula or complete table for all fluxes and integer separations.",
+      "searches": [
+        "Search: two separated plaquettes identical onsite detuning flux diamond chain weak disorder spectral splitting analytical",
+        "Search: impurity flat band states in diamond chain Viedma Marques 2407.14405 exact inter-impurity coupling phase dependence",
+        "Search: diamond-chain two impurity pair coupling ratio (sqrt(2)-1)^2 0.171572875"
+      ]
+    },
+    "rationale": "The closest original source, Viedma et al. arXiv:2407.15789v1, Appendix A, directly measures two-plaquette coupling numerically and describes high/low couplings as approximately equal; it does not state the exact four-level secular factorization or common prefactor. Marques et al. arXiv:2407.14405v1 gives a single-impurity-plaquette two-level compression, whose doublet energies are recovered when pair separation tends to infinity, but not the finite-separation four-level spectrum. Searches for exact two-pair coupling laws, aliases, inverse Gram Toeplitz formulations and stronger multi-impurity coverage found no claiming theorem. Residual risk: a related 2024 doctoral thesis was indexed but its full text could not be read.",
+    "residual_risks": [
+      "The related 2024 doctoral thesis was not read in full; it may contain additional derivations.",
+      "A mathematical re-expression of the four-level spectrum could conceivably occur in a less obviously titled prior work, despite searched aliases and close primary inspection.",
+      "No independent originality or correctness audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact four-root law, common analytical prefactor, or exact numerical-ratio identity in inspected sections. It contains the qualitative/empirical phenomena being explained.",
+        "evidence": "Sec. II Eq. (4)-(5) one-pair effective matrix; Sec. III coupling ratio 0.17; Appendix A Eq. (A1) numeric half-gap and paragraphs describing approximate high/low equality.",
+        "identifier_or_url": "arXiv:2407.15789v1; https://pubs.aip.org/aip/app/article/9/12/120801/3325099/Flux-mediated-effective-Su-Schrieffer-Heeger-model",
+        "material_read": "Full accessible HTML article including Sec. II, Fig. 2, Sec. III and full Appendix A (definition A1 and commentary through Fig. 6), including statements of single-pair analytic expressions",
+        "method": "Read searchable author/publisher full text and compared the specific formulas and quantifiers with the proposed four-level spectral factorization",
+        "title": "Flux-mediated effective Su-Schrieffer-Heeger model in an impurity decorated diamond chain",
+        "trigger": "Identical lattice, two separated impurity pairs, approximately equal higher/lower couplings"
+      },
+      {
+        "assessment": "Its equal-impurity theorem treats two sites in one plaquette (one localized doublet), not two *separated impurity plaquettes* giving four modes. Framework supports, but does not state, the new computation.",
+        "evidence": "Abstract expressly restricts to midchain plaquette; Eqs. (42)-(43) show \\(\\varepsilon(1\\pm e^{-\\theta})/2\\) only.",
+        "identifier_or_url": "arXiv:2407.14405v1; https://www.researchgate.net/publication/382445493_Impurity_flat_band_states_in_the_diamond_chain",
+        "material_read": "Accessible full-text preprint excerpted continuously through methodology, equal-impurity 2x2 compressed matrix, Eqs. (42)-(44), and sections on disorder and single impurity",
+        "method": "Inspected full searchable author preprint and searched for multi-plaquette pair problem",
+        "title": "Impurity flat band states in the diamond chain",
+        "trigger": "Potential stronger flat-band projection formula and same onsite impurity pair"
+      },
+      {
+        "assessment": "Not used as evidence of noncoverage. A specific unresolved priority risk, not decisive evidence of a stronger exact theorem.",
+        "evidence": "Search-visible discussion of impurity pair spectra and nearby coupling plot; complete comparison unavailable.",
+        "identifier_or_url": "2024 thesis indexed at https://ddd.uab.cat/pub/tesis/2024/hdl_10803_693178/dvp1de1.pdf",
+        "material_read": "Only indexed excerpts describing numerical impurity-pair coupling and distance ratios, not the complete section",
+        "method": "Attempted to access the open repository and alternative mirror; full text did not load",
+        "title": "Harnessing topology in photonic waveguide systems (doctoral thesis)",
+        "trigger": "Same researcher and similar photonic lattice, potential extended derivations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b9ee734e-e754-42d2-87be-22f69b75cd9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary two-pair experiment establishes the physically motivated quantitative question and explicitly finds high/lower branch near-equality surprising. The exact four-root law proves equal first-order tunneling despite different mode extents, gives the full flux- and separation-dependent prefactor and reproduces its 0.17 coupling-ratio measurement as \\(3-2\\sqrt2\\). This is relevant to matching effective SSH channel couplings, not an arbitrary slice, known-table recalculation or unmotivated improvement in numeric precision. The theorem does not claim broad many-impurity topology.",
+    "status": "PASS"
+  }
+}
