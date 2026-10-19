@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The tensor/direct-sum identification gives the exact optimal Gram eigenvalue ratio. Since the three-atom Fourier transform never vanishes on the real line, there cannot be a complete orthogonal exponential family. For near-tight Gram matrices, a quantitative local inverse lemma around the two isolated three-term Fourier zeros produces complementary residue-class integer approximants to \(3t\) and \(3\sqrt2t\). Their nonzero integer quadratic norm forces \(\kappa(t)-1\gg 1/(1+R)\). Conversely, the displayed positive Pell sequence has complementary residues, bounded successive denominator ratios, and approximates the two cube-root phases with accuracy \(O(q^{-1})\). An exact Hermitian perturbation matrix with eigenvalues \(-\sqrt6,0,\sqrt6\) establishes the stated subsequential coefficient. These arguments cover all real \(t\), all sufficiently large \(R\), and the entire infinite Pell sequence; tests alone are not used to justify quantifiers.
+
+## Originality — PASS, with identified residual literature risk
+The full September 2026 manuscript by Sha Wu (arXiv:2609.27364v1) proves qualitative spectrality and common-density restrictions for weighted parallel segments; it does not estimate almost-tight Riesz ratios or construct three-coset bases on an irrational three-segment example. The full 2025 manuscript of Kolountzakis–Shi–Wu (arXiv:2512.19872) studies spectra and orthogonal-set growth, not sharp near-orthogonal conditioning. Ferguson–Mayeli–Sothanaphan (arXiv:1904.04487) develop finite-abelian quantitative spectrality rather than this real irrational measure. The 2026 product-spectrality result (arXiv:2607.01500) supplies a qualitative implication for non-spectrality, so that implication alone is NOT asserted novel; the claimed difference is the sharp inverse-bandwidth law and explicit asymptotic coefficient. Its full text was inaccessible and remains a literature risk. An unindexed near-unitary/Diophantine specialization may exist.
+
+## Value — PASS
+For a canonical three-fiber measure satisfying the known equal-density necessary condition, no exponential orthonormal basis exists, yet complete exponential Riesz bases can be made arbitrarily close to tight. The proof identifies the exact power-law cost, in vertical-coset bandwidth, of that approximation, and a closed Pell family with an exact coefficient. This distinguishes exact spectrality from arbitrarily favorable stable reconstruction and supplies a sharp natural resource law. It does not assert global optimization over arbitrary exponential bases.
+
+## Limitations
+The exact coefficient concerns only the specified Pell subsequence and the optimal order only the defined three-coset product family. No overall unrestricted spectral tightness minimum or individual exact formula for \(K(R)\) is established. Full text of arXiv:2607.01500 remained unavailable; earlier equivalent quantitative specializations cannot be ruled out without independent bibliographic review.
+
+Self-review: passed. Independent audit: not yet performed.
