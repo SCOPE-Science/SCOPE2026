@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Centralizer=M2(Fq[t]/t^n) exactly. Every nonzero matrix splits uniquely by minimum t-valuation. In shallow strata, the primitive square-zero reduction is one Jordan conjugacy orbit with orbit-stabilizer size (q²−1)q^(2m−2); its lifts have uniformly distributed determinant in t^mR because a cofactor is a unit. Smith normal form gives each Fq-rank. Deep strata are all matrices over a shorter truncated polynomial ring, separated into invertible and rank-one residues; uniform determinant valuation again yields the exact rank polynomial. Exhaustive independent polynomial-arithmetic and linear-rank tests passed eight finite cases, and the rational formula passed 96 parameter consistency tests. The finite tests are not offered as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The fixed-double-block 2022 paper states an orbit-possibility classification; Britnell–Wildon treats class commutation; Sharma treats simultaneous-similarity counts.",
+        "A prior square-zero chain-ring valuation census has the same total count but not the rank profile."
+      ],
+      "reasoning": "The broader object family of all centralizer nilpotents does not imply individual square-zero rank counts. A stronger total over all matrices or a coarser entry-valuation partition is insufficient, since an entry-valuation stratum mixes several ranks. The proof computes the missing determinant valuation conditional on that stratum.",
+      "searches": [
+        "zero square matrices in centralizer J_n ⊕ J_n enumerating counting",
+        "number of solutions X^2=0 2x2 matrices truncated polynomial ring F_q[t]/t^n",
+        "square-zero centralizer finite local chain ring two equal Jordan blocks maximal rank enumeration",
+        "nilpotent Jordan blocks two equal sizes square-zero centralizer q point count",
+        "arxiv:1409.2698v1",
+        "arxiv:2212.08425v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.08425v1",
+      "arxiv:1001.0811v1",
+      "arxiv:1409.2698v1",
+      "Previously established square-zero total and minimum-entry-valuation strata over finite chain rings (comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Older valuation count yields P(1)=ceil(n/2)(q²−1)q^(2n−2)+q^(4floor(n/2)), a consequence and prior, but its valuation counts do not determine rank.",
+        "The new proof uses conditional determinant valuation with unit cofactors and Smith exponent rank, steps not in the previously checked total claim."
+      ],
+      "reasoning": "The accepted statement is solely the rank polynomial, not the aggregate total or primitive Jordan orbit fact. The aggregate total is a corollary whose prior status is acknowledged. The prior existence criterion for ranks and total do not logically entail the individual positive integer coefficients.",
+      "searches": [
+        "count square-zero matrices centralizing two equal Jordan blocks finite fields q formula",
+        "number of solutions X^2=0 2x2 matrices truncated polynomial ring F_q[t]/t^n",
+        "square-zero centralizer finite local chain ring two equal Jordan blocks maximal rank enumeration",
+        "number of nilpotent square-zero matrices by rank in centralizer of regular nilpotent doubled block",
+        "arxiv:2212.08425v1",
+        "\"square-zero\" \"2x2\" \"finite chain ring\" \"number\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bogdanić et al. list the nilpotent Jordan partitions with nonempty centralizer intersection, not finite-field point counts for fixed square-zero ranks.",
+        "Britnell and Wildon ask which similarity classes commute, not how many individual commuting matrices have each rank."
+      ],
+      "reasoning": "The equivalent formulation is the number of square-zero matrices with Jordan type (2^r,1^(2n-2r)) in a fixed commutant, equivalently the rank distribution of square-zero elements in M2(Fq[t]/t^n). No displayed theorem in the materially read sources counts these fibers. Their existence/commutation results neither express nor determine the fiber cardinalities.",
+      "searches": [
+        "count square-zero matrices centralizing two equal Jordan blocks finite fields q formula",
+        "count of square zero matrices commuting with J_n direct sum J_n over finite fields q 2x2 truncated polynomial ring",
+        "square-zero 2 by 2 matrices over finite chain ring rank distribution F_q[t]/t^n Jordan type commuting J_n direct sum J_n",
+        "Jordan rank profile cardinality intersection square-zero orbit centralizer two equal Jordan blocks",
+        "arxiv:2212.08425v1",
+        "arxiv:1001.0811v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 3/Table 1 of arXiv:2212.08425 gives possible partitions (P1)–(P9), not numerical coefficients in q for each square-zero rank.",
+        "The exhaustive finite numerical examples generated by checker.py agree with the formula but have not been used as a claimed novelty proof."
+      ],
+      "reasoning": "No checked finite-field matrix database/table enumerates the family by each rank. A table of admissible Jordan partitions is Boolean existence information, not the exact intersection cardinalities.",
+      "searches": [
+        "\"square-zero\" \"2x2\" \"finite chain ring\" \"number\"",
+        "square-zero 2 by 2 matrices over finite chain ring rank distribution F_q[t]/t^n Jordan type commuting J_n direct sum J_n",
+        "number of nilpotent square-zero matrices by rank in centralizer of regular nilpotent doubled block",
+        "arxiv:2212.08425v1 Theorem 3 and Table 1"
+      ]
+    },
+    "rationale": "The exact rank-by-rank polynomial is a strict refinement of a previously known total/entry-valuation census and of the 2022 Jordan-orbit existence theorem. Neither the total nor orbit existence implies the rank multiplicities; the determinant-valuation distribution is the additional result. Closest relevant primary texts were materially inspected; novelty remains conditional on unindexed equivalent formulations.",
+    "residual_risks": [
+      "A rank distribution equivalent to this formula may be hidden in unindexed Hall-polynomial or finite-module representation counting literature.",
+      "The prior total/valuation census is a close antecedent; only rank-stratified coefficients and conditional determinant law are asserted as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Lists orbit partition possibilities, does not give rank-stratified finite-field cardinalities",
+        "evidence": "Its Question 2 and Theorem 3 describe exactly which nilpotent orbit partitions intersect N(B); Table 1 lists partition shapes.",
+        "identifier_or_url": "arxiv:2212.08425v1",
+        "material_read": "Original 25-page full-text source: abstract, introduction, Theorem 3/Table 1, centralizer matrix reductions in section 2, and sections 3–4 relevant to orbit existence",
+        "method": "Read full-text article sections, equation/theorem searches, and checked page images",
+        "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+        "trigger": "Identical fixed nilpotent centralizer, direct coverage risk"
+      },
+      {
+        "assessment": "The notion of commuting classes asks existence, not number of matrices of each rank inside a fixed centralizer",
+        "evidence": "Introduction explicitly defines two classes to commute if representatives commute; Theorems 2.8 and 4.10 concern class types and existence.",
+        "identifier_or_url": "arxiv:1001.0811v1",
+        "material_read": "Full-text PDF introduction, sections on commuting types and nilpotent-class existence, and overall theorem roadmap",
+        "method": "Read primary PDF and inspect its first-page image and theorem descriptions",
+        "title": "On types and classes of commuting matrices over finite fields",
+        "trigger": "Possible stronger commuting Jordan-class theory"
+      },
+      {
+        "assessment": "Counts simultaneous-similarity classes, not unquotiented fixed-centralizer square-zero rank fibers",
+        "evidence": "Its counting object is an orbit count under simultaneous similarity, rather than point counts of the fixed centralizer.",
+        "identifier_or_url": "arxiv:1409.2698v1",
+        "material_read": "Primary PDF abstract, introduction, enumerative setup and small-dimension methodology",
+        "method": "Read primary full-text sections and inspect page images",
+        "title": "Simultaneous Similarity Classes of Commuting Matrices over a Finite Field",
+        "trigger": "Potential counting formula after quotient by conjugation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1e3f377-f9a1-45e0-a6d3-9308d27bb7cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For square-zero matrices the rank determines the full Jordan type. Counting every rank in the natural equal-double-block centralizer refines existing orbit-possibility classification to exact finite-field point counts for an infinite parameter family. The result is a complete geometric/arithmetic invariant with substantive determinant-valuation arguments, not merely a small numerical experiment.",
+    "status": "PASS"
+  }
+}
