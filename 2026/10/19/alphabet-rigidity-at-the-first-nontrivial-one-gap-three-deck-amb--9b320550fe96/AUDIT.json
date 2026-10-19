@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Two exact full-array enumerators exhaust all 3^n ternary words for each 1<=n<=13, with independently derived direct-index and incremental recurrences. At n=13 the two enumerators return 1594311 profiles, twelve disjoint doubletons and support size exactly two for every doubleton. At 3<=n<=12 the map is injective. All coordinates are <=165 and exactly represented as uint8_t; word IDs are uint32_t, and all arrays are fully compared without hashing. The proof that a letter map sends equal decks to equal decks reduces every arbitrary q>=2 collision to a ternary collision while preserving a differing position; if the q-ary pair collectively uses three symbols, the ternary images must do so, contradicting the exhaustive ternary classification. Exact codebook counting follows by selecting one representative per fiber. The elementary n=2 exception and range boundaries are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2201.12671v2: introductory general-binary reduction for the ordinary (ungapped) k-deck and Table of binary G(3)=13; later construction discusses arbitrary alphabets but only existence bounds.",
+        "The earlier binary length-thirteen fiber classification entails the q=2 part and already implies the alphabet-free injectivity assertion at lengths 3 through 12 by binary projection."
+      ],
+      "reasoning": "The known binary theorem and nongapped reductions do not prohibit genuinely ternary ambiguous fibers at length thirteen. The new ternary exhaustive classification rules those out, and a three-color projection proves the stronger all-q structural claim. The binary subcase and earlier-length injectivity are explicitly prior/subsumed, not presented as separate novel theorems.",
+      "searches": [
+        "\"gapped k-deck\" binary ternary q-ary uniqueness threshold",
+        "gapped k deck first collision arbitrary alphabet no earlier collision length 13 ternary alphabet binary ambiguity",
+        "\"generalized Parikh matrices\" \"gapped\" 2021 subsequence equivalence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2201.12671v2",
+      "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2201.12671v2: k=3 threshold 13, binary example, no complete q=3 or all-q fiber classification.",
+        "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf: results are language-restricted complexity claims for Thue-Morse and Sturmian sequences, and one-gap order-two binary equivalence.",
+        "Previous binary complete classification: four two-symbol doubletons in the 8192 binary words, recovered as the q=2 case."
+      ],
+      "reasoning": "Prior binary fibers yield exactly four ambiguous pairs for each individually fixed two-symbol subalphabet but do not exclude extra fibers involving a third symbol. The new assertion excludes every such extra fiber and determines all q-ary maximum reconstruction-code sizes and the full number of maximum labeled codebooks. Thus the new content is not entailed by the prior q=2 assertion.",
+      "searches": [
+        "Golm Nahvi Gabrys Milenkovic 2022 gapped k deck G(3) = 13",
+        "Complete length-thirteen binary one-gap three-deck reconstruction classes 8188 profiles 4 doubletons",
+        "\"gapped binomial\" \"arbitrary alphabet\" \"reconstruct\" \"three\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2201.12671v2: Section II defines the complete gapped deck and distinguishes the exact-length deck.",
+        "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf: Sections I-II define equivalent one-gap binomial coefficients."
+      ],
+      "reasoning": "Compared complete one-gap three-decks, (1,3)-binomial equivalence, gapped 3-deck, and nonadjacent-index scattered-subsequence multiplicity vectors. These are equivalent under the definitions; no examined source states the ternary twelve-doubleton census or the all-alphabet two-symbol-support rigidity.",
+      "searches": [
+        "\"gapped 3-deck\" \"alphabet\" \"13\" reconstruction",
+        "\"one-gap\" \"3-deck\" \"ternary\" reconstruction",
+        "gapped three deck arbitrary alphabet minimum collision length 13 all symbols q ary equivalence class one gap length thirteen"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2201.12671v2: numerical table reports k=3 threshold 13 and one example of an ambiguous binary pair.",
+        "Relevant research-index results concerned binary two-read multispectra and deletion-code graphs, not the ternary length-thirteen profile table."
+      ],
+      "reasoning": "No exact table for twelve ternary doubletons, all-q multiplicity rigidity, or q^13-4 binom(q,2) was identified. Exact numeric searches alone are not evidence of novelty and are not treated as a proof.",
+      "searches": [
+        "\"1594311\" \"gapped\" \"deck\"",
+        "\"1594311\" subsequence profiles",
+        "\"67108840\" \"gapped\" reconstruction",
+        "Complete length-thirteen binary one-gap three-deck reconstruction classes 8188 profiles 4 doubletons"
+      ]
+    },
+    "rationale": "The binary threshold and the complete binary four-pair classification are prior and explicitly excluded from novelty. Inspected primary work on gapped decks and gapped-binomial equivalence has no proven all-alphabet first-ambiguity fiber classification. The new nontrivial assertion is the exclusion of every ternary-or-higher support collision at length 13, which is not implied by the binary q=2 result. It yields complete q-ary fiber and codebook counts. Searches cannot prove uniqueness; unindexed equivalent results remain a risk.",
+    "residual_risks": [
+      "Unindexed source may have already enumerated ternary one-gap three-deck fibers or the implied all-q theorem.",
+      "A later work on generalized subsequence matrices was found by abstract/snippets only and is not used to claim whole-document noncoverage; its relation to the precise finite classification is not fully inspected.",
+      "Finite base verification is algorithmic and has not been externally independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces exactly the model and one binary collision at length 13; does not classify ternary doubletons or state alphabet-independent support rigidity.",
+        "evidence": [
+          "Definitions of B^(k) and D^(k), and G(3)=13 numerical row, arxiv:2201.12671v2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.12671v2",
+        "material_read": "HTML primary paper: definitions and distinctions between full and exact deck in Sections I-II, key construction statements in III-IV, finite k=3 numerical table, bounds and references.",
+        "method": "Opened readable primary full-text HTML and inspected the relevant sections including numerical table and stated results.",
+        "title": "The Gapped k-Deck Problem",
+        "trigger": "Introduced precisely the gapped deck observation and reported the binary k=3 threshold."
+      },
+      {
+        "assessment": "Studies complexity over fixed infinite-word languages and (1,2) equivalence, not the full q-ary finite-word (1,3) fiber census.",
+        "evidence": [
+          "Sections I-II, IV-VI, doi:10.1109/ISIT54713.2023.10206676."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+        "material_read": "Primary PDF: introduction/definitions, comparison to reconstruction, main Thue-Morse and Sturmian results, conclusions and remarks.",
+        "method": "Read searchable primary PDF text and inspected a page image for the definitions.",
+        "title": "Gapped Binomial Complexities in Sequences",
+        "trigger": "The closest alternative terminology (g,k)-binomial equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b320550-fe96-4515-8e46-70ff7f0bc6b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines the complete ambiguity structure at the natural nondegenerate binary k=3 threshold on every alphabet, rather than merely repeating the four binary pairs. Excluding extra three-letter fibers is a substantive issue because increasing alphabet size could create entirely new confusabilities. The result gives exact largest zero-error code sizes and all maximum labeled codebook counts, including the practically motivated four-symbol alphabet (67108840 codewords and 2^24 optimal codebooks). A finite exhaustive ternary lemma has direct all-alphabet consequences by a mathematical projection theorem; no claim about longer lengths is inflated.",
+    "status": "PASS"
+  }
+}
