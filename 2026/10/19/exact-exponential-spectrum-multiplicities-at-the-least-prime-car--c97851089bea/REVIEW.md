@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem is quantified over all squarefree \(N=p r_1\cdots r_t\) with distinct primes \(p<r_1<\cdots<r_t\). The proof establishes the key short vanishing-sum lemma, including the prime base case and the composite induction using \(\Phi_s\) over a coprime cyclotomic field. This lemma rules out cancellations shorter than \(p\) and shows every cancellation of \(p\) terms is a rotated complete \(p\)-cycle. Applied to Fourier character values, it gives an exact zero criterion; orthogonality gives the simultaneous spatial and frequency CRT coordinate constraint. Multiplying explicit independent CRT choices proves every stated count without overcounting subsets. Numerical checks use exact cyclotomic arithmetic; the infinite theorem does not rely on finite testing.
+
+## Originality — PASS, with historical-priority risk
+Actual research-record queries compared equivalent spectral pairs, Fourier zero/vanishing sums, prime-cardinality Fourier minors, fixed-set spectrum multiplicities, and squarefree Fourier basis counts. The closest public multiplicity classification found concerns four-point sets on the **non-squarefree** group \(\mathbb Z_{4p}\) and yields three strata, not the present all-squarefree \(2^t\)-stratum formula. Zhou's 2025 paper concerns nonsingularity of *principal* minors, not complete orthogonality or all spectrum counts. Tan and Zhang's 2026 published abstract proves a set-level squarefree spectral/tiling characterization, which at cardinality \(p\) gives existence but not this fixed-support multiplicity or pair count. Its complete paper text was not accessible; an implicit stronger classification in its lemmas is a real residual priority risk. An equivalent older characterization could also appear under mask-polynomial, Hadamard-pair, or cyclotomic-tiling language. Search nonmatches alone are not proof of novelty.
+
+## Value — PASS
+The classification determines the full **fiber** of orthogonal frequency bases for every natural minimum-cardinality spectral subset in an arbitrary squarefree cyclic group. It quantifies how each prime-coordinate collapse amplifies the number of possible orthogonal bases by an exact factor and proves every one of \(2^t\) arithmetically distinct levels occurs. Unlike an existence-only Fuglede criterion, it yields an exact global count of all ordered spectral pairs, answering a natural structural and enumeration question that grows with the number of prime factors.
+
+## Prior literature and limits
+W. Zhou, arXiv:2505.01189v1 (full public text inspected); H. Tan and Y. Zhang, arXiv:2610.02218 (abstract inspected only); R. D. Malikiosis, arXiv:2005.05800 (bibliographic/general-theorem comparison); *Exact spectrum multiplicities for four-point spectral sets in \(\mathbb Z_{4p}\)* (public result, full statement/proof inspected). The theorem is limited to squarefree order and least-prime cardinality. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
