@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonalization makes the centered Gaussian-probe risk 2S(k)/N, where S(k) is the squared logarithmic spectral tail. The adjacent ratio assumption yields the termwise shift S(k+h)<=q^(2h) S(k), establishing the global budget inequality; N<=2^(N-1) proves the stated sufficient q bound. Finite geometric matrices with B=2c prove necessity. Exact adjacent risk ratios resolve all geometric optimizers and ties; the integral test and compact-interior optimization yield the polynomial limit and constant. A standalone stdlib program passed 7,205 checks; finite computation is not used as an infinite proof. The trace-class infinite examples use convergent Gaussian series, not non-existent Hilbert-valued standard Gaussians.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Epperly--Tropp--Webber (arxiv:2301.07825) covers exchangeable trace and Nyström variants, which are different algorithm families and may outperform this restricted estimator.",
+        "Saibaba--Alexanderian--Ipsen (arxiv:1605.04893) provides randomized subspace iteration and logdet error analysis, not the equalized ideal spectral-deflation rank/probe count optimization."
+      ],
+      "reasoning": "Broader randomized trace and log-determinant approximation results are not automatically exact optimal-split classifications for the restricted estimator with known top spectral modes. However, an uninspected special case in another source could cover the claim; that residual bibliographic possibility is recorded rather than ruled out.",
+      "searches": [
+        "Gaussian trace variance geometric log eigenvalue tails optimal probe count polynomial spectra ideal preconditioner",
+        "Nyström log determinant optimal number of Gaussian probes geometric eigenvalue decay rank sample tradeoff fixed total budget",
+        "arxiv:1605.04893 randomized matrix-free log-determinant estimators",
+        "arxiv:2301.07825 XNysTrace minimax"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05778v1, Sections 2--5 and conclusion",
+      "arxiv:2301.07825, introduction and leading estimator theory sections",
+      "arxiv:1605.04893, introduction and Section 2",
+      "Accessible mathematical research records queried for ideal spectral deflation logdet budget optimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From the published identity ℓ variance=2 times the squared residual-log spectral tail divided by probe count, the theorem derives S(k+h)<=q^{2h}S(k), yielding a uniform inequality V1/VN <= N q^{2c(N-1)}.",
+        "A finite geometric log-spectrum at B=2c and d tending to infinity shows q>2^{-1/(2c)} violates the guarantee, independently of title or parameter phrasing."
+      ],
+      "reasoning": "The cited pairwise inequality alone does not state whether the same sharp q works across every finite dimension, spectrum, integer budget, and number of probes. The new implication bound gives this all-quantifier result; its reverse sharpness and continuous-vs-finite allocation consequences supply additional distinct claims. No claim is made that the variance formula itself is new.",
+      "searches": [
+        "preconditioned logdet one probe pairwise allocation condition geometric decay exact threshold",
+        "arxiv:2601.05778v1 eq. (11) one versus several Gaussian probes",
+        "Nyström log determinant optimal number of Gaussian probes geometric eigenvalue decay rank sample tradeoff fixed total budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cortinovis--Toni Section 2 eq. (8) and (10) gives the Gaussian variance formula used here; eq. (11) compares allocations pairwise, but the inspected statements do not give a sharp all-spectrum-class decay threshold.",
+        "XTrace analyzes exchangeable trace estimators under budgets rather than rank truncations with known eigenvectors and a fixed exact-probe cost."
+      ],
+      "reasoning": "An exact spectral-preconditioner trace-risk comparison is the closest same-object form. This theorem explicitly credits that formula and advances a uniform all-allocation equivalence: a single adjacent-ratio constant suffices, the constant is necessary via finite witnesses, and geometric/power-law spectra admit different complete allocation regimes. Neither a restated pairwise comparison nor equality of labels implies these results.",
+      "searches": [
+        "uniform sharp spectral decay one probe optimal log determinant rank sample allocation q threshold",
+        "preconditioned logdet one probe pairwise allocation condition geometric decay exact threshold",
+        "arxiv:2601.05778v1 Section 2 equations (8), (10), (11)",
+        "arxiv:2301.07825 XTrace budget allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paper's spectral analysis supplies a computable formula for each candidate allocation; the claimed boundary q=2^{-1/(2c)} is proved in the present argument from a shifted-tail inequality.",
+        "The finite witness family and infinite-spectrum closed optimizer use analytic geometric sums rather than a preexisting numerical table."
+      ],
+      "reasoning": "This is an all-dimensions analytic threshold and asymptotic allocation theorem, not an exact enumeration taken from a finite tabulation. Query results included unrelated numerical-radius allocation transitions but no matching log-determinant allocation table.",
+      "searches": [
+        "preconditioned log determinant one probe optimal mixed budget allocation geometric eigenvalue decay multiple Gaussian trace samples phase transition",
+        "uniform sharp spectral decay one probe optimal log determinant rank sample allocation q threshold",
+        "Gaussian trace variance geometric log eigenvalue tails optimal probe count polynomial spectra ideal preconditioner",
+        "arxiv:2601.05778v1 numerical studies spectral decay trace variance geometric spectra"
+      ]
+    },
+    "rationale": "The central spectral variance identity and a pairwise allocation criterion are explicitly prior work (Cortinovis--Toni, 2026). A comparison by implication found no matching sharp uniform adjacent-log-decay threshold across all finite dimensions and budgets, nor its necessity witness and geometric-versus-polynomial allocation classification, in inspected primary text or accessible mathematical records. The claim is restricted to the ideal spectral-deflation estimator, not practical Nyström or unrestricted trace estimation. Residual unindexed or incompletely read literature may contain related or dominating claims.",
+    "residual_risks": [
+      "Published pairwise inequalities may permit a simple deduction of the specific threshold, though no equivalent all-quantifier theorem was identified in inspected material.",
+      "Related special cases could occur in unindexed numerical linear algebra literature or portions of papers not read in full.",
+      "Idealized cost is not an empirical proxy for actual exact top eigenpair and logarithmic quadratic-form costs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides prior variance formula and individual allocation comparison, not an identified proof of the uniform sharp q threshold, the finite necessity witness, or the asymptotic polynomial split.",
+        "evidence": [
+          "arxiv:2601.05778v1, Section 2 equations (8)--(11)",
+          "arxiv:2601.05778v1, Sections 3--5 and conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.05778",
+        "material_read": "Open arXiv manuscript HTML: Section 2, equations (8), (10), (11), treatment of ideal preconditioning; Sections 3 and 4 on randomized Nyström and adaptive logdet calculation; Section 5 experiments and conclusion.",
+        "method": "Compared source variance and allocation equations against the claimed full-quantifier adjacent-ratio threshold and finite sharp witness, and distinguished actual randomized Nyström from ideal exact deflation.",
+        "title": "Preconditioned log-determinant approximation: one Gaussian probe vector is almost always enough",
+        "trigger": "Direct motivating source with the same ideal spectral preconditioner and budget comparison."
+      },
+      {
+        "assessment": "Analyzes exchangeable trace-estimator families rather than the stipulated known-eigenvector spectral deflation split; does not supply identified equivalent sharp decay threshold.",
+        "evidence": [
+          "arxiv:2301.07825, introduction and estimator/theory descriptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+        "material_read": "Open accessible manuscript: abstract, introduction, estimator descriptions and Sections 1.5--1.7 with related discussion and leading theoretical sections.",
+        "method": "Compared estimator definitions, sample reuse and cost model, not just topic titles.",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "Prior fixed-budget trace-estimator research potentially dominating allocation comparisons."
+      },
+      {
+        "assessment": "Gives different randomized subspace-iteration bounds; no same-parameter all-budget one-probe optimality law identified in inspected material.",
+        "evidence": [
+          "arxiv:1605.04893, introduction and Section 2 / Theorem 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.04893",
+        "material_read": "Open manuscript introduction and Section 2 with its main trace/log-determinant formulation and Theorem 2.1.",
+        "method": "Compared subspace-iteration estimator assumptions with exact ideal spectral deflation and Gaussian quadratic-form allocation.",
+        "title": "Randomized Matrix-free Trace and Log-Determinant Estimators",
+        "trigger": "Potential earlier general log-determinant error coverage with spectral approximation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd4aa456-1840-4112-bbdf-0276dd9c4338",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating study explicitly asks how to allocate computation between rank of a preconditioner and number of trace probes. The exact dimension-independent q frontier and finite necessity example give a mathematically falsifiable allocation rule for an entire natural spectral class, not an arbitrary slice. The explicit closed geometric optimizer and polynomial fractional split demonstrate a substantive change of resource-allocation regime with decay type. The quantified theorem clarifies the ideal limit of one-probe recommendations, while not claiming practical Nyström performance.",
+    "status": "PASS"
+  }
+}
