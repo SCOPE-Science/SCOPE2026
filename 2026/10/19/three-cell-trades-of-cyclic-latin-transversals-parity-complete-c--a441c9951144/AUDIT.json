@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The 3-row parity lemma is a complete combinatorial argument; backtracking over unused columns/symbols and independent symbol-permutation enumeration exhaust all order-nine transversals. Two distinct adjacency methods produce 2025 vertices, 4131 edges, four components exactly matching the four parity classes, the specified degrees and all-source diameters 8,8,8,7. Both verifier programs were actually executed with captured outputs; finite enumeration is not used to infer a higher-order theorem. A byte-exact replay path accompanies the finding.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cavenagh–Wanless (2009 online), Theorem 5: attainable two-transversal intersection sizes I(n) for odd n, not connectivity of an adjacency graph.",
+        "Wanless (2004), Sections 1–2: vertices are entire Latin-square main/isotopy classes and moves switch row/column/symbol cycles in complete Latin squares.",
+        "Best–Wanless (2019), Lemma 5: four transversal parity types, not reachability of three-cell changes."
+      ],
+      "reasoning": "A pairwise existence spectrum does not imply that all states with a common parity are joined by iterated size-three trades: at order 7 our complete computation gives 21 isolated transversals despite available size-three intersections. Whole-square cycle switching concerns a different state space. Parity conservation alone provides a necessary condition, not the order-nine sufficiency.",
+      "searches": [
+        "web: Cycle switches in Latin squares Wanless pdf 2004",
+        "web: On the number of transversals in Cayley tables cyclic groups Cavenagh Wanless pdf",
+        "published-finding corpus: cyclic Latin square order nine transversals graph adjacent if exactly three cells differ; four parity connected components 2025 4131 edges"
+      ]
+    },
+    "checked_sources": [
+      "Cavenagh & Wanless, doi:10.1016/j.dam.2009.09.006, 2009 online PDF, Sections 1,4,5",
+      "Wanless, doi:10.1007/s00373-004-0567-7, 2004 PDF, Sections 1,2",
+      "Best & Wanless, arXiv:1912.11230, 2019 PDF, Sections 1,2",
+      "Evans, doi:10.37236/6882, 2018 publisher abstract",
+      "public mathematical-record result on order-11 normalized-orthomorphism multiplier classes: normalized orthomorphism multiplier classes for DCLS(11)",
+      "public mathematical-record result on order-eight Latin-square transversal packing: order-eight Latin-square transversal packing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cavenagh–Wanless Theorem 5 establishes existence of pairs sharing n-3 cells for odd n>5, but not paths between arbitrary pairs.",
+        "Best–Wanless parity types are necessary invariants under the present even 3-cycles; equality of signs need not imply connectivity, as shown by the computed order-seven exception.",
+        "Wanless cycle-switch graphs use whole-square moves and permit changes to the Latin-square entries, unlike the fixed-square transversal state space."
+      ],
+      "reasoning": "The precise theorem is an iff reachability statement for D9 and an exact graph census. None of the inspected source statements, alone or together, yields its converse (parity equality implies a path), edge count, four diameter values or absence of isolated order-nine states.",
+      "searches": [
+        "published-finding corpus: cyclic Latin square order nine transversals graph adjacent if exactly three cells differ; four parity connected components 2025 4131 edges",
+        "published-finding corpus: complete mappings Z9 three-position cycle switch parity of column and symbol permutations connected components",
+        "web: latin square transversals 3 cell switch graph parity connected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cavenagh–Wanless, Discrete Applied Mathematics 158 (2010), 136–146, introduction: cyclic group table transversals are complete mappings/orthomorphisms/toroidal semi-queens.",
+        "The Latin difference table D9 and addition table B9 are isotopic by row inversion; a three-cell transversal move corresponds to a three-row reassignment in either labeling.",
+        "public mathematical-record result on order-11 normalized-orthomorphism multiplier classes concerns DCLS(11) normalized-orthomorphism multiplier classes and total transversal spectra, not three-cell trade reachability."
+      ],
+      "reasoning": "The orthomorphism formulation is exactly equivalent, not a distinct novelty claim. Published results on the number and equivalence of order-11 orthomorphisms do not determine connected components of the fixed order-nine trade graph. Searches included all these aliases.",
+      "searches": [
+        "published-finding corpus: complete mappings Z9 three-position cycle switch parity of column and symbol permutations connected components",
+        "published-finding corpus: orthomorphism trade graph 3 cycle 9 7 5 permutations",
+        "web: orthomorphisms three cycle swap graph cyclic group order 9 parity components",
+        "web: latin square transversals 3 cell switch graph parity connected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The total count of 2025 cyclic-order-nine transversals is previously tabulated as a known count and is explicitly not claimed as new.",
+        "public mathematical-record result on order-eight Latin-square transversal packing: transversal packing and orthogonal mates of special order-eight squares, not order-nine three-cell swaps.",
+        "The cited sources examined here do not give the 4131 trade edges or parity-component sizes (486,486,486,567)."
+      ],
+      "reasoning": "Total vertex counts or transversal packing tables are insufficient to derive adjacency or reachability; the trade graph and diameters require additional exact computations. Absence from consulted tables is not universal proof of novelty.",
+      "searches": [
+        "published-finding corpus: cyclic Latin square order nine transversals graph adjacent if exactly three cells differ; four parity connected components 2025 4131 edges",
+        "published-finding corpus: Latin transversal reconfiguration 3-cycles sign parity reachability n=9",
+        "web: cyclic Latin square 2025 transversals order 9",
+        "web: complete mappings 2025 9 cyclic"
+      ]
+    },
+    "rationale": "The closest inspected studies supply (i) total transversal and two-transversal intersection counts in cyclic Latin squares, (ii) cycle switching on whole Latin squares, and (iii) parity types of a transversal. None supplies or implies the transitive reachability classification for three-cell changes of transversals of the fixed order-nine cyclic square. Full-text material and 4 focused published-record searches were compared by statement/implication, not merely title. Unindexed exact computations remain a stated risk.",
+    "residual_risks": [
+      "An unindexed or obscure computational classification may already determine this order-nine three-cell trade graph under terminology such as Latin transversal switching, orthomorphism trades, or toroidal semi-queens.",
+      "The complete text of the plausible-title Evans 2018 article was not inspected; its abstract indicates a different construction and group.",
+      "Searches cannot certify global publication priority; computational code is included for independent replay but an independent audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 5 classifies existence of transversal pairs by intersection size, not connected components of the corresponding trade graph.",
+        "evidence": [
+          "Article first available online 29 September 2009 (first-page date).",
+          "Section 4 Theorem 5: I(n)={0,...,n−3}∪{n} for odd n other than 5."
+        ],
+        "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/bntransDAM.pdf",
+        "material_read": "Full-text introduction and literature discussion, Section 4 Theorem 5 and proof of attainable pairwise intersections, Section 5 relationship with bitrades, and visible numerical tables",
+        "method": "Author-hosted open-access PDF; text and page-image inspection",
+        "title": "On the number of transversals in Cayley tables of cyclic groups",
+        "trigger": "Same cyclic table transversals and possible size-three differences, potentially a stronger theorem"
+      },
+      {
+        "assessment": "Its vertices are whole Latin squares (usually classes) and moves transform a square, unlike fixed-square transversal swaps.",
+        "evidence": [
+          "Abstract explicitly: vertices are classes of Latin squares; order at most eight.",
+          "Section 2: cycle switch replaces entries in two rows or columns of the square itself."
+        ],
+        "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+        "material_read": "Full-text abstract, introductory definitions, Section 2 statements and actual formulas for row and column cycle switches",
+        "method": "Author-hosted PDF; text and page-image inspection",
+        "title": "Cycle Switches in Latin Squares",
+        "trigger": "Graph connectivity under cycle switches might imply a reconfiguration result"
+      },
+      {
+        "assessment": "Parity classes are established prior mathematics; no three-cell trade reachability or order-nine component classification found in inspected material.",
+        "evidence": [
+          "Lemma 5: permutation-sign product relation and four possible transversal types.",
+          "Definition 6 and Theorem 7 concern parity-weighted counts, not trade-graph connected components."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.11230",
+        "material_read": "Full-text introduction, Section 2 Lemma 5 and definition of four parity types, and later parity counting results",
+        "method": "Open arXiv PDF; text and page-image inspection",
+        "title": "Parity of transversals of Latin squares",
+        "trigger": "Two permutation signs might already have been classified as invariants"
+      },
+      {
+        "assessment": "Abstract concerns constructing pairwise orthogonal orthomorphisms over a product of additive finite-field groups, not swaps in Z9; full-text overlap not fully excluded.",
+        "evidence": [
+          "Evans (2018), abstract and publication date 2018-03-02."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v25i1p43",
+        "material_read": "Journal abstract and publication metadata; full text not inspected",
+        "method": "Publisher open abstract page",
+        "title": "The Orthomorphism Graph L3(q)",
+        "trigger": "Plausible title involving orthomorphism graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a441c995-1144-44a0-90b6-1499fc4e40fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Changing exactly three entries is the minimal possible nontrivial local operation between transversals, so component connectivity is the natural irreducibility question for constrained sampling/navigating transversals. The cyclic order-nine square is the first composite odd cyclic-group table with transversals. Parity completely governs its reachability even though 21 transversals are frozen already at order seven; the full 4-component census, diameters and degree strata give a useful sharp finite benchmark beyond total enumeration.",
+    "status": "PASS"
+  }
+}
