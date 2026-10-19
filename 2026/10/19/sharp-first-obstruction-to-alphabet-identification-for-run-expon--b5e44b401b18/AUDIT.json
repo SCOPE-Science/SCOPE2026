@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Every word pattern with at least three symbols and length at most 12 has exactly one restricted-growth representative. Two separately written exact period-maximal-run evaluators exhaustively check all pairs of symbols for all canonical classes with at least three letters through length 12 (4,211,549 at length 12 alone), agreeing on zero resistant classes for lengths 3–11 and a unique class 001101121122 for length 12; per-length counts are in RESULT.md and verified by verify.py. A direct least-period checker verifies seven/four/six/four complete family run triples for k=2..9, whose exponents give k+12, k+11, k+34/3, k+11. In any word whose last non-tail-letter index is T, a nonconstant run of period p has p<=T-1 and endpoint <=2T-2; this independently proves run-list stabilization in the family for k>=8. The combined finite exhaustion and infinite-tail proof establish the precise quantifiers; computations do not claim other intervals or global extrema.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Czarkowski (2026), DOI 10.4230/LIPIcs.CPM.2026.23, Section 1, Definitions 2, Sections 3.3 and 3.5: general and binary run-exponent upper bounds; no claim about strict loss under pairwise alphabet identification.",
+        "Crochemore et al. (2010), arXiv:1003.4866, Sections 2–4: definitions, extremal bounds and binary morphic lower-bound construction; no all-pair loss classification or first obstruction.",
+        "Full-text Czarkowski Section 3.5 handles unrestricted alphabets directly rather than deducing the general upper bound by monotone letter collapse."
+      ],
+      "reasoning": "Universal lower or upper bounds on sigma(n) and sigma_2(n) would not imply the quantified per-word merge-resistant predicate, the unique minimum, or the explicit behavior of the given infinite family. No inspected stronger alphabet-projection theorem subsumes these statements.",
+      "searches": [
+        "binary versus arbitrary alphabet maximal sum of exponents runs alphabet restriction no monotonicity merging",
+        "arxiv:1003.4866",
+        "doi:10.4230/LIPIcs.CPM.2026.23"
+      ]
+    },
+    "checked_sources": [
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2026.23",
+      "https://arxiv.org/pdf/1003.4866",
+      "Published article: Second-order digital oscillation for distinct substrings of a uniform random word (2026); different invariant.",
+      "Published article: Fixed hidden alphabets preserve almost all finite-language projection blow-up (2026); different invariant."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Czarkowski (2026), DOI 10.4230/LIPIcs.CPM.2026.23, Section 1, Definitions 2, Sections 3.3 and 3.5: general and binary run-exponent upper bounds; no claim about strict loss under pairwise alphabet identification.",
+        "Crochemore et al. (2010), arXiv:1003.4866, Sections 2–4: definitions, extremal bounds and binary morphic lower-bound construction; no all-pair loss classification or first obstruction.",
+        "Nearby published mathematical records instead concern random-word distinct-substring deficits and alphabet coding complexity, not maximal-run exponent changes under pairwise letters."
+      ],
+      "reasoning": "The earlier estimates bound all-word maximum sums and are compatible with both existence and nonexistence of a merge-resistant word. Constructive ternary-to-binary morphisms produce some binary words but do not assign each original word a nondecreasing one-pair quotient. Thus the prior statements do not logically entail the sharp first obstruction.",
+      "searches": [
+        "Czarkowski Improved Bounds on the Sum of Exponents of Runs in a String 2026",
+        "maximal repetitions run exponent sum sigma2(n) alphabet identification ternary binary",
+        "arxiv:1003.4866"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Czarkowski (2026), DOI 10.4230/LIPIcs.CPM.2026.23, Section 1, Definitions 2, Sections 3.3 and 3.5: general and binary run-exponent upper bounds; no claim about strict loss under pairwise alphabet identification.",
+        "Crochemore et al. (2010), arXiv:1003.4866, Sections 2–4: definitions, extremal bounds and binary morphic lower-bound construction; no all-pair loss classification or first obstruction.",
+        "Published-source semantic queries for run energy, alphabet quotient, pairwise letter identification, maximal repetitions, and the exact 12-symbol witness returned no equivalent sharp minimality classification."
+      ],
+      "reasoning": "A pairwise alphabet identification is a noninjective length-preserving coding, unlike Crochemore et al.’s general nonuniform alphabet-to-binary morphism used to generate a lower-bound sequence. The article definitions give the same run-exponent invariant, but their extremal inequalities concern maxima over all words rather than local energy change under every quotient of a fixed word.",
+      "searches": [
+        "sum of exponents of maximal repetitions runs under alphabet projection identification of two symbols, strictly decreases, unique ternary length twelve",
+        "merged alphabet reduces sum of run exponents example 001101121122",
+        "doi:10.4230/LIPIcs.CPM.2026.23"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit canonical census generated here: n=3..12 tested counts [1,7,36,171,813,4012,20891,115463,677546,4211549] with only the last having one resistant class.",
+        "Czarkowski (2026), DOI 10.4230/LIPIcs.CPM.2026.23, Section 1, Definitions 2, Sections 3.3 and 3.5: general and binary run-exponent upper bounds; no claim about strict loss under pairwise alphabet identification.",
+        "The checked primary numerical tables tabulate extremal sums and binary constructions, not complete all-pair word-identification spectra."
+      ],
+      "reasoning": "The unique obstruction is not a parameter inherited from a known table in the inspected sources. Searching the full witness and aliases yielded no indexed matching table; an unpublished or unindexed enumeration is a residual risk.",
+      "searches": [
+        "first alphabet-identification irreducible word 001101121122 maximal repetitions",
+        "canonical ternary length 12 word all two-letter identifications reduce total exponent",
+        "sum exponents maximal repetitions alphabet merging length 12 ternary word"
+      ]
+    },
+    "rationale": "The primary full texts address extremal run-exponent bounds and binary morphic constructions but not the logical property that every pairwise symbol identification strictly lowers a given word’s run-exponent sum, much less its unique sharp first length and all-length family. Actual semantic searches for direct reformulations, exact witness, and potential stronger results did not identify a covering statement. This is a same-model originality conclusion with the stated indexing risk, not a proof of priority.",
+    "residual_risks": [
+      "Unindexed earlier classifications of alphabet identification or run-sum counterexamples may exist, including under terminology not captured by the searches.",
+      "The literature compares global extrema, so this local result cannot be interpreted as a separation between unrestricted and binary optimum run-exponent sums.",
+      "The self-review is not an external priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-pair strict-merge obstruction; covers globally maximal run-exponent bounds.",
+        "evidence": [
+          "DOI 10.4230/LIPIcs.CPM.2026.23; general upper bound 2.3n, binary upper bound 2.2n; Section 3.5 directly enumerates general-alphabet local configurations."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.23/LIPIcs.CPM.2026.23.html",
+        "material_read": "Primary original full HTML including Sections 1, 2, 3.3, 3.5, and appendices; explicit definitions, principal bounds and general-alphabet approach.",
+        "method": "Read publisher-hosted full HTML and searched for alphabet mergers/identifications.",
+        "title": "Improved Bounds on the Sum of Exponents of Runs in a String",
+        "trigger": "Closest same-invariant contemporary source; binary and unrestricted alphabet comparison."
+      },
+      {
+        "assessment": "NOT_COVERING the all-pair letter-identification predicate; its morphic constructions and global bounds do not entail the classification.",
+        "evidence": [
+          "arXiv:1003.4866, Section 3: morphism from 3-letter alphabet to binary nonuniform codewords; Sections 3–4 give global sum-of-exponents bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1003.4866",
+        "material_read": "Primary seven-page arXiv preprint: abstract, preliminaries, Section 3 binary morphism, Section 4 upper bounds and conclusion; PDF page 3 screenshot inspected.",
+        "method": "Read text from primary PDF plus page image for critical morphism passages.",
+        "title": "On the Maximal Sum of Exponents of Runs in a String",
+        "trigger": "Foundational same-object, same-invariant paper, including an alphabet-to-binary morphic construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5e44b40-1b18-4399-9bb1-33d4e358a04d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The contemporary paper explicitly separates unrestricted versus binary alphabet run-exponent bounds. Attempting to simplify by symbol-coalescence is mathematically natural but not known monotone. The exact first obstruction, uniqueness up to renaming, and persistent examples at every longer length delimit that potential proof strategy sharply. This provides a structural boundary rather than an arbitrary slice, without claiming improvement of global numeric constants.",
+    "status": "PASS"
+  }
+}
