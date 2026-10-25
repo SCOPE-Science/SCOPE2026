@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T05:45:33Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned assigned RESULT.md at Git blob 55ad00b6ddb2d051d3715b10671b4df7eca45299 and verify.py blob e73c3342660f6340d538011ca7983041e01c5084",
+        "Original full 2019 paper doi:10.3934/dcdsb.2019130, system (2.2) p.6054 and Section 2.3 p.6057, checked equation-by-equation.",
+        "Independent_dynamo_checks.py and independent_dynamo_results.json symbolically verify full generator identity, tangency chain, parameter specialization and Jacobian characteristic polynomial.",
+        "No k4, k5 or k6 appears in exact generator equation; result holds even for nonzero couplings."
+      ],
+      "rationale": "The final theorem is correct for the displayed polynomial ODE on k1=0,k2=g,k3=0, with r>0 and g>0. Independently computed full generator L H = -g*x² +(g-k2)-k3*z +g(1+m)*k1*x*u/r; hence L H=-g*x² identically for all k4,k5,k6. For compactly supported invariant probability mu, d/dt E_mu H=0 gives E_mu x²=0 and supp(mu) subset {x=0}; invariance and uniqueness force y=0 (from xdot=r*y), then v=0 (from ydot=v), then u=0 (from vdot=-u), so supp(mu) lies on the equilibrium line. Conversely any measure supported on the line is stationary. A recurrent point has H(phi_t p) nonincreasing; return times approaching p force its time-integrated dissipation to vanish on every finite time interval, hence x(t) identically zero and the same tangency chain yields p on the line. This does NOT prove all orbits are bounded, nor all complete bounded orbits are equilibria: heteroclinic dynamics can remain. At the published parameters H=z+126*x²/61 and origin is exactly stationary. These conclusions are proved analytically, not from finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior result has *stronger dynamical conclusion* of convergence of every bounded forward trajectory, but stated on k4=k5=0.",
+          "The exact prior convergence proof only references xdot=r(y-x), zdot=g(mx²-(1+m)xy), and tangent equations ydot=v, vdot=-u when x=y=v=0. The k4,k5 terms in udot vanish or are immaterial.",
+          "The assigned enlarged parameter slice differs only by freeing k4,k5, which do not enter Hdot or the tangency chain."
+        ],
+        "reasoning": "The prior theorem is narrower in parameter space and should NOT be mislabeled as a literal broader statement. Nevertheless its proof automatically establishes the exact current conclusions, and indeed convergence for bounded orbits, on the enlarged slice. This is decisive method-level implication, not a mere parameter-name match.",
+        "searches": [
+          "Resultary exact-identity query above; top ranked SCOPE-20261011-dced9fadf5ee",
+          "GitHub: older SCOPE-20261011-dced9fadf5ee complete RESULT.md and source commit 43952aa51b56846e18932f9ad2feba7a1a909f71",
+          "GitHub: assigned commit a4927a3e95c59c3be71cda219f66aa9fbc02e369 and tree 1e838f02c729e979bf0a867741d1b081842ac4a9"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/dcdsb.2019130",
+        "doi:10.1186/s13662-019-2284-0",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/43952aa51b56846e18932f9ad2feba7a1a909f71/2026/10/11/exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-monotone-coboundary-excludes-recurrent-chaos-on-the-line-equil--ed9a3605b311"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For arbitrary k4,k5, direct independent calculation yields L H= -g x² + (g-k2)-k3*z+g*(1+m)*k1*u*x/r, which involves neither k4 nor k5.",
+          "Hence the earlier proof extends literally after setting k1=0,k2=g,k3=0, even with nonzero k4,k5; invariant support tangency still forces x=y=v=u=0.",
+          "2019 source (2.2) matches the vector field and Section 2.3 claims chaos from (21,0.1,1,0,0) and hyperchaos from origin for the same base parameters.",
+          "A related 2019 open-access paper uses different x,y,z,u,v couplings; its generic no-chaos Theorem 2.1 has conditions disjoint from this slice."
+        ],
+        "reasoning": "The original 2019 model paper is the target of a genuine mathematical correction; alone it does not imply the claim. The **earlier different SCOPE record** does: its proof requires none of the extra k4=k5=0 assumptions. The extension to unrestricted couplings is immediate, so the final claim lacks independent originality. No fabricated earlier broad theorem is claimed.",
+        "searches": [
+          "Resultary: 5D dynamo with line of equilibria exact Lyapunov coboundary degenerate k3=0 quasiperiodic attractors",
+          "GitHub prior RESULT.md proof and verification source (published original https://github.com/SCOPE-Science/SCOPE2026/blob/43952aa51b56846e18932f9ad2feba7a1a909f71/2026/10/11/exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee/RESULT.md)",
+          "Full primary Bao et al. 2019 DOI doi:10.3934/dcdsb.2019130 pages 6054-6057",
+          "Full related Bao/Liu 2019 DOI doi:10.1186/s13662-019-2284-0 Section 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261011-dced9fadf5ee Finding & Proof: H=z+g(1+m)x²/(2r), Hdot=-g x², all compact invariant probability measures supported on equilibrium line; no non-equilibrium compact recurrence.",
+          "SCOPE-20261011-dced9fadf5ee additionally classifies bounded-forward-orbit convergence to a single equilibrium.",
+          "Assigned SCOPE-20261011-ed9a3605b311 has word-for-word identical defining H and recurrence/measure consequences but admits arbitrary k4,k5."
+        ],
+        "reasoning": "The prior published source establishes the same object, observable, cancellation, and all advertised conclusions on k4=k5=0. The additional parameter values are handled by the same proof after deleting superfluous restrictions; no new equality or nonstandard lemma is needed. A different title is immaterial.",
+        "searches": [
+          "Resultary: 5-dimensional segmented disc dynamo Bao Chen Liu Deng 2019 line equilibrium k1=0 k2=g k3=0 strict Lyapunov H=z+g(1+m)x^2/(2r) H'=-g x^2 rules out recurrent chaos",
+          "Resultary: segmented disc dynamo line equilibria Lyapunov monotone first integral invariant probability measures recurrence exclusion numerical chaos correction",
+          "GitHub pinned prior original RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/blob/43952aa51b56846e18932f9ad2feba7a1a909f71/2026/10/11/exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed SCOPE-20261011-dced9fadf5ee as an exact same-system same-identity result and separately mirrored SCOPE-20261011-ed9a3605b311 itself; the former has independent record_id dced9fadf5ee.",
+          "SOURCE.json of the first record reports source_commit=43952aa51b56846e18932f9ad2feba7a1a909f71 and source_commit_time=2026-10-11T13:03:06Z; current assigned record earliest commit is 2026-10-11T13:03:44Z.",
+          "Original DOI article Fig.3 and Section 2.3 give the same parameter vector and numeric examples; it does not supply the later analytic identity."
+        ],
+        "reasoning": "This is not merely an unsuccessful database search: an actual indexed earlier theorem explicitly contains the same invariant and conclusions, with source-file and commit evidence. The current record mirror is not counted twice.",
+        "searches": [
+          "Resultary semantic query exact dynamo identity, 25 results",
+          "Resultary recurrence/invariant measure query, 25 results",
+          "GitHub Resultary/2026 record SCOPE-20261011-dced9fadf5ee RESULT.md, METADATA.json, SOURCE.json",
+          "Web: \"10.3934/dcdsb.2019130\" erratum correction Lyapunov line equilibrium"
+        ]
+      },
+      "rationale": "A distinct, earlier published SCOPE record SCOPE-20261011-dced9fadf5ee (source commit 43952aa5 at 2026-10-11T13:03:06Z; assigned source committed 2026-10-11T13:03:44Z) explicitly gives the identical H, exact derivative, compact invariant-probability classification, recurrence exclusion and numerical correction for the very same Bao–Chen–Liu–Deng vector field. Its displayed formal theorem sets k4=k5=0, while the assigned claim allows arbitrary k4,k5, so the literal statement does extend the stated parameter domain. However reading the *complete prior proof* shows no step uses k4 or k5: the x,z equations and the tangency chain x=0 => y=0 => v=0 => u=0 are exactly the same for arbitrary values. The claimed generalization is therefore a mechanical removal of unused hypotheses, not an independently original construction or proof. The earlier source further proves bounded-forward-orbit convergence, stronger than the current claim on its original slice. The current Resultary hit SCOPE-20261011-ed9a3605b311 is a mirror of the assessed record and is not counted as separate prior art. The original 2019 paper is scientifically inconsistent with the corrected recurrence conclusion for its Section 2.3 example, but this correction had already been published in SCOPE-20261011-dced9fadf5ee.",
+      "residual_risks": [
+        "Temporal priority between near-simultaneous records is based on visible Git commits 38 seconds apart, not an independent authorship or conceptual-development history; the coverage conclusion is about already accessible mathematics.",
+        "The earlier theorem is formally narrower (k4=k5=0), but its full proof extends immediately to arbitrary couplings. Do not describe its stated theorem as explicitly covering all k4,k5.",
+        "No mechanism for the 2019 source numerical discrepancies is proved; local tangent instability is not itself a recurrent hyperchaotic attractor.",
+        "The 2019 paper states k5>=0 among model parameters; the assigned negative-k5 extension is a mathematically meaningful polynomial ODE but not within the source-stated physical parameter set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model identity and numerical contradiction confirmed. Not covering the analytical monotone law. Original model allows k5>=0 even though the algebraic extension of its printed ODE to negative k5 is well defined.",
+          "evidence": "p.6054, (2.2) includes xdot=r(y-x)+k1u, zdot=g(mx²+1-(1+m)xy)-k2-k3z; p.6057, Section 2.3 specifies (m,r,g,k1,k2,k3,k4,k5,k6)=(1.1,6.1,12,0,12,0,0,0,-100); chaotic Fig.3 and purported hyperchaos from exact equilibrium origin.",
+          "identifier_or_url": "doi:10.3934/dcdsb.2019130",
+          "material_read": "Entire 17-page lawful institutional full text, pp.6053–6069; especially p.6054 system (2.2), p.6055 line equilibria, p.6057 Section 2.3, pp.6059–6064 bifurcations, references.",
+          "method": "After arXiv and free-open-access full-text routes failed, read institutional extracted full text pages 1–17; compared equations and precise initial conditions/parameters directly.",
+          "title": "Coexisting hidden attractors in a 5D segmented disc dynamo with three types of equilibria",
+          "trigger": "Exact original model and directly contradictory claimed chaotic/hyperchaotic examples."
+        },
+        {
+          "assessment": "DECISIVELY COVERING the exact H identity and compact invariant-state/recurrence conclusion on k4=k5=0. Its proof also establishes the current broader-k4,k5 claim with no new argument, even though the formal prior theorem was narrower. It proves extra bounded-orbit convergence.",
+          "evidence": "The first Finding is H=z+g(1+m)x²/(2r), Hdot=-gx²; the preceding proof never uses k4=k5=0 except as redundant declared restrictions; SOURCE.json source commit 43952aa5 at 2026-10-11T13:03:06Z, while assigned source first committed 2026-10-11T13:03:44Z.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/43952aa51b56846e18932f9ad2feba7a1a909f71/2026/10/11/exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee/RESULT.md",
+          "material_read": "Full earlier SCOPE RESULT.md: Finding, Assumptions, Proof, Verification, Relationship to Prior Work, Limitations; also full REVIEW.md, METADATA.json and SOURCE.json (Resultary sync).",
+          "method": "Read full GitHub file at pinned earlier source commit and the corresponding Resultary record; compared every hypothesis and actual proof dependency; checked both source commit timestamps via GitHub commits endpoint.",
+          "title": "Exact Lyapunov monotonicity rules out bounded recurrent dynamics on the line-equilibrium slice of a 5D segmented disc dynamo",
+          "trigger": "Top independent Resultary match, same differential equations, parameters, observable and recurrence conclusions."
+        },
+        {
+          "assessment": "NOT SAME SYSTEM: this model has zdot=g(mx²+1-(1+m)xy)-k1u+k6z, udot=k2*y²-k3*z, vdot=k4*x-xz+k5*v, rather than the assessed 2019 DCDS-B equations; does not supply current H.",
+          "evidence": "Springer full HTML Section 2.1 Eq.(2.2) and Theorem 2.1 show its no-bounded-chaos criterion g=k2=0 and other equalities, unlike k1=0,k2=g,k3=0.",
+          "identifier_or_url": "doi:10.1186/s13662-019-2284-0",
+          "material_read": "Lawful open-access full text at Springer Nature, especially Section 2.1 equations (2.1) and (2.2), Theorem 2.1, Sections 2.2–3 and 4–6.",
+          "method": "Read full HTML and compared equations and parameter placement, not titles.",
+          "title": "Multistability and bifurcations in a 5D segmented disc dynamo with a curve of equilibria",
+          "trigger": "Same-authority related five-dimensional dynamo with line-equilibrium regimes and no-chaos discussion."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "SCOPE-20261011-dced9fadf5ee full Finding/Proof: identical exact H and stationary/recurrence conclusions, plus stronger bounded-forward-orbit convergence.",
+        "The independent symbolic check proves k4/k5 independence at the generator level and in the invariant tangency chain; no nonroutine new computation arises.",
+        "2019 primary article Section 2.3 motivates the obstruction, but it is already the explicit target of the earlier published finding."
+      ],
+      "rationale": "Correcting a published chaotic-regime computation is mathematically motivated, and a global recurrence obstruction is generally of interest. However this particular record reproduces an already published same-system strict Lyapunov function, the exact stationary-measure classification, the exact origin consistency check, and all recurrence consequences. The only enlarged parameter domain comes from leaving k4 and k5 unrestricted: these coefficients never enter the defining Hdot calculation or the invariant-set tangency chain, so the prior published proof passes through verbatim. No new mechanism, independent nontrivial parameter boundary, sharper invariant, new counterexample, or additional classification is established. The earlier record even proved a stronger bounded-orbit convergence statement on the original slice. Under the same scientific value bar, this mechanical deletion of unused hypotheses is not a separately valuable theorem, despite the intrinsic importance of the correction already published.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/dcdsb.2019130",
+    "doi:10.1186/s13662-019-2284-0",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/43952aa51b56846e18932f9ad2feba7a1a909f71/2026/10/11/exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lyapunov-monotonicity-rules-out-bounded-recurrent-dynamics--dced9fadf5ee",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-monotone-coboundary-excludes-recurrent-chaos-on-the-line-equil--ed9a3605b311"
+  ],
+  "disposition": "failed",
+  "final_claim": "The given 5D polynomial dynamo on k1=0,k2=g,k3=0 has H=z+g(1+m)x²/(2r), Hdot=-g*x²; all compactly supported stationary probability measures and recurrent points lie on its equilibrium z-axis, including arbitrary real k4,k5,k6. Original published parameter case k4=k5=0 is explicitly covered by a distinct earlier result.",
+  "limitations": [
+    "Applies only to the specified polynomial ODE and k1=0,k2=g,k3=0 with r,m,g>0; no assertion that arbitrary trajectories are bounded.",
+    "The earlier 2019 source states k5>=0 for its original model. Allowing negative k5 is a mathematical extension only.",
+    "This result neither diagnoses the precise numerical implementation error nor excludes transient nonrecurrent behavior."
+  ],
+  "residual_risks": [
+    "Temporal priority between near-simultaneous records is based on visible Git commits 38 seconds apart, not an independent authorship or conceptual-development history; the coverage conclusion is about already accessible mathematics.",
+    "The earlier theorem is formally narrower (k4=k5=0), but its full proof extends immediately to arbitrary couplings. Do not describe its stated theorem as explicitly covering all k4,k5.",
+    "No mechanism for the 2019 source numerical discrepancies is proved; local tangent instability is not itself a recurrent hyperchaotic attractor.",
+    "The 2019 paper states k5>=0 among model parameters; the assigned negative-k5 extension is a mathematically meaningful polynomial ODE but not within the source-stated physical parameter set."
+  ],
+  "schema_version": 1
+}
