@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Positive-energy argument excludes unstable or imaginary eigenvalues, including one-zero-damper endpoints. Root sum plus a nonzero odd shifted quartic coefficient proves strict unique equal allocation below and at critical budget; negative polynomial evaluation at the slow real balanced eigenroot proves strictness above critical. Simple and double-root implicit expansions give all three sensitivity coefficients; exactly six symbolic equalities and numerical diagnostics passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Freitas–Lancaster 1999 Proposition 4.1 classifies two-dimensional unrestricted damping matrices and its general optimal-value proof requires eigenvalue coalescence of all characteristic exponents.",
+        "Krenk–Høgsberg 2014 optimizes a tuned-mass absorber with a relative displacement damper and a forced-vibration response objective."
+      ],
+      "reasoning": "The strong unrestricted result does not dominate the imposed fixed-sum *diagonal* subset: its optimal damping matrix normally requires off-diagonal entries and its optimizer occurs at a different trace. TMD response reduction uses different actuator location and target. No inspected result contains this stated fixed-budget all-coupling inequality or the cusp coefficients.",
+      "searches": [
+        "\"On the Optimal Value of the Spectral Abscissa for a System of Linear Oscillators\" Freitas Lancaster full text",
+        "\"distribution of damping\" \"two-degree-of-freedom\" optimal decay",
+        "doi:10.1137/S0895479897331850",
+        "doi:10.1016/j.jsv.2013.11.029"
+      ]
+    },
+    "checked_sources": [
+      "Freitas–Lancaster 1999 full author manuscript, DOI 10.1137/S0895479897331850",
+      "Ryu et al. 2015 full preprint, arXiv:1504.08085",
+      "Krenk–Høgsberg 2014 accessible manuscript, DOI 10.1016/j.jsv.2013.11.029",
+      "Pavić 2018 full primary article, DOI 10.1155/2018/1098531",
+      "Nakić 2013 abstract only, https://hrcak.srce.hr/101454"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ryu et al. 2015 Sec. II studies asymmetric damping including a zero-damper oscillator, not the whole fixed sum family.",
+        "Freitas–Lancaster 1999 derives unconstrained extrema over symmetric damping matrices rather than fixed-trace physically diagonal matrices.",
+        "Pavić 2018 analyzes spatially distributed hysteretic losses and forced-response levels."
+      ],
+      "reasoning": "Neither a rate bound over a larger family without a budget nor an isolated exceptional point yields an all-budget constrained uniqueness theorem and three-regime perturbation formulas. The latter need the characteristic polynomial and the even-quartic and real-root obstruction arguments separately.",
+      "searches": [
+        "arXiv:1504.08085",
+        "doi:10.1137/S0895479897331850",
+        "doi:10.1155/2018/1098531",
+        "\"fixed sum of two independent grounded viscous damper coefficients\" oscillators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The author-uploaded Freitas–Lancaster 1999 full text defines unrestricted optimization over all real symmetric damping matrices and computes its two-dimensional extremizers.",
+        "Ryu et al. 2015 full arXiv manuscript analyzes eigenvalue coalescence in coupled damped systems with parameter variations that do not hold the two local damping coefficients to a prescribed sum."
+      ],
+      "reasoning": "The current theorem is a fixed-trace diagonal nonnegative allocation with an exact coupling-independent best rate and all-three-regime local sensitivity. The unrestricted symmetric-matrix problem has a larger feasible class and a different best rate; existence of unrestricted optimizers gives no constrained optimizer, uniqueness or perturbation law. The exceptional-point model is not the same constrained optimization.",
+      "searches": [
+        "\"fixed trace\" \"damping matrix\" \"spectral abscissa\" optimization",
+        "\"two oscillators\" \"fixed total damping\" optimal equal",
+        "arXiv:1504.08085",
+        "doi:10.1137/S0895479897331850"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant primary sources describe analytic optimization over different damping classes and different objectives, not a table of fixed-total local damping optima."
+      ],
+      "reasoning": "The present value and cusp are symbolic parameter formulas, not numerical table cells. No published exact record located in the examined sources, though database search non-detection does not establish historical uniqueness.",
+      "searches": [
+        "\"optimal damping\" \"two mass\" \"dampers\" \"decay rate\" 2008",
+        "\"damping budget\" \"spectral abscissa\" oscillators",
+        "\"two oscillators\" \"fixed total damping\" optimal equal"
+      ]
+    },
+    "rationale": "The closest full primary literature treats unrestricted symmetric damping matrices, exceptional points on different parameter paths, tuned-mass absorber response, or hysteretic damping, none giving the fixed-trace local diagonal all-budget optimum with a critical imbalance cusp. Detailed implication comparisons and remaining alternate-formulation priority risk are recorded.",
+    "residual_risks": [
+      "Fixed-trace diagonal damping optimization may have been solved in historical vibration-control literature under alternate terminology; the compared sources do not prove global historical novelty.",
+      "Nakić 2013 complete manuscript was inaccessible, so only the abstract objective could be compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different unconstrained problem; does not imply fixed-sum diagonal allocation and critical cusp.",
+        "evidence": "Optimization over the whole symmetric matrix space; two-dimensional optimal matrices generally non-diagonal with a trace dictated by stiffness.",
+        "identifier_or_url": "https://www.researchgate.net/publication/2671050_On_the_Optimal_Spectral_Abscissa_for_a_System_of_Linear_Oscillators",
+        "material_read": "Author-uploaded full manuscript: introduction, unconstrained problem setup, optimal-value theorem and proof, full two-dimensional matrix classification and trace condition",
+        "method": "Read available manuscript text and compared admissible matrix classes, spectral objectives, and implications",
+        "title": "On the Optimal Spectral Abscissa for a System of Linear Oscillators",
+        "trigger": "Same spectral-abscissa objective, including dimension two"
+      },
+      {
+        "assessment": "Related exceptional-point rate optimization, no theorem for the constrained local damping budget.",
+        "evidence": "The reported model and parameter sweep include a fixed-undamped oscillator; both local dampers are not jointly constrained by a given sum.",
+        "identifier_or_url": "https://arxiv.org/pdf/1504.08085",
+        "material_read": "Complete six-page original PDF, all pages including equations and applications",
+        "method": "Read primary full text and compared its damping-path parameters to a fixed two-damper sum",
+        "title": "Exceptional points in coupled dissipative dynamical systems",
+        "trigger": "Identical physical coupled-oscillator family and exceptional-point optimization"
+      },
+      {
+        "assessment": "Relative-motion absorber and response optimization, not two grounded dampers with fixed total spectral-abscissa objective.",
+        "evidence": "Tuned-mass absorber damping connects the two moving elements, unlike the independently grounded local dampers here.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jsv.2013.11.029",
+        "material_read": "Available author manuscript body, equations and conclusion",
+        "method": "Read accessible original text and compared actuator location and objective",
+        "title": "Tuned mass absorber on a flexible structure",
+        "trigger": "Two-degree-of-freedom vibration damping optimization"
+      },
+      {
+        "assessment": "Hysteretic stiffness damping and forced kinetic-energy reduction do not entail the viscous spectral theorem.",
+        "evidence": "Uses complex stiffness and response-energy criteria, rather than linear viscous local damper spectral abscissa.",
+        "identifier_or_url": "https://doi.org/10.1155/2018/1098531",
+        "material_read": "Full accessible published HTML, model, principal equations and appendix",
+        "method": "Read primary text and distinguished damping law and target functional",
+        "title": "Analysis of Vibration Reduction by Damping Using Simple Analytical Modelling",
+        "trigger": "Damping-distribution optimization"
+      },
+      {
+        "assessment": "Different integrated-energy objective according to abstract, but full comparison remains uncertain.",
+        "evidence": "Abstract addresses the trace of a Lyapunov solution, not the eigenvalue spectral abscissa under a fixed local damping sum.",
+        "identifier_or_url": "https://hrcak.srce.hr/101454",
+        "material_read": "Only discoverable abstract and bibliographic details; complete primary manuscript unavailable in this run",
+        "method": "Read abstract and compared its stated functional to the current spectral abscissa",
+        "title": "Minimization of the trace of the solution of Lyapunov equation connected with damped vibrational systems",
+        "trigger": "Related damping design with Lyapunov objective"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "419e66f0-5b6b-4adf-b59e-c573b5fddb59",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact unique optimal allocation for every fixed damping budget and every positive coupling solves a physically constrained two-actuator design problem; the coupling-independent optimal rate, unique jointly optimized critical value, and counterintuitive linear imbalance cusp at the global optimum quantify a meaningful robustness tradeoff beyond a routine modal calculation.",
+    "status": "PASS"
+  }
+}
