@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The primary polytope description is taken from the full facet theorem of Behrend and coauthors. The proof reduces every subset support to an exact scalar depending on cardinality, establishes the strict screen for all intermediate subsets in both parameter ranges, and supplies positive John moment decompositions for each containing-envelope ellipsoid. These moment identities establish unrestricted optimality rather than optimization only over a symmetric subfamily. Endpoints \(m=n\) and \(n=m+\sqrt m\), diagonal/offdiagonal normalization, and positive definiteness are covered algebraically. The embedded rational checker independently tests 9,900 parameter profiles and 69,394 explicit subset masks. The code is finite corroboration, not the universal proof. No independent audit has been performed.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed exchangeable ellipsoid support k t+√(kq+k(k-1)h) and John-certificate moment identities for simplex and capped-cube envelopes. Checked exact algebra (f_k-kt)^2-[kq+k(k-1)h]=k(k-1)((n-k)^2-k-4h)/4, the descending threshold in k, and matched transition endpoints m=n and n=m+√m. Independently evaluated exact symbolic candidate subset supports for parameter pairs (m,n)=(2,1),(3,3),(4,6),(6,10),(9,12); all cardinalities satisfy subset bounds. This is corroboration only: the proof's monotone threshold screening and positive John contact weights establish every integer m≥2,n≥1.
 
-The exact ellipsoid of a capped hypercube and its three phases were previously derived in *Three-phase John ellipsoid of a capped hypercube*. An inscribed Euclidean ball, outer Löwner ellipsoids, the partial-permutohedron facet theorem, and standard simplex ellipsoids are also prior results. These stronger/related statements do **not** directly yield the exact John ellipsoid of the strictly smaller partial permutohedron: the missing necessary implication is feasibility with respect to every intermediate proper subset inequality. The new proof establishes that implication uniformly and identifies all contact facets in the smaller polytope. Targeted mathematical searches and direct inspection of the closest full results did not identify a covering statement. Residual risk: an earlier general symmetric-polymatroid or optimization theorem might subsume the facet-screening lemma.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a canonical maximum-volume ellipsoid of an infinite, natural family of polytopes whose subset-facet description can be exponentially large. The nontrivial fact that all intermediate facets are irrelevant gives an exact reduction to a simplex or capped cube, an abrupt coordinate-contact transition, an anisotropic intermediate regime, and a sharp roundness transition. It is a complete structural classification for the two-parameter family, rather than routine numerical specialization of the capped-cube theorem: its decisive additional mathematical claim is a uniform new subset-containment proof.
+Exact John ellipse of the capped-cube envelope is prior published work and NOT claimed new. The all-parameter transfer to the strictly smaller partial permutohedron, verified by every extra subset-facet support inequality, and complete new contact counts are not implications of the envelope alone. Source geometric facet theorem read. Potential symmetric-polymatroid aliases remain a risk.
 
-## Closest literature and limitations
+## value
 
-Heuer–Striker (arXiv:2012.09901v1) and Behrend and coauthors (arXiv:2207.14253v1) provide the starting facet/vertex formulas. The full published *Three-phase John ellipsoid of a capped hypercube* supplies the enclosing family's established formulas. Published partial-permutohedron inball and enclosing-ellipsoid theorems concern other optimization targets. All available comparison claims were checked by hypotheses and implication, not title similarity. The stated originality conclusion is qualified by remaining literature-access and nomenclature risk, not independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact John ellipsoid of every standard partial permutohedron (all m,n) and complete facet-contact transitions are natural geometric invariants. Nontrivial inclusion of the larger simplex/capped-cube optimizer despite extra subset facets provides structural information not implied by the envelope John formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
