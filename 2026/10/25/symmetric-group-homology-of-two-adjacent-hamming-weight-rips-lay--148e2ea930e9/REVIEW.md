@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof starts from the published two-rank homotopy concentration (Feng–Nukala, Theorem 13), independently classifies all pure and mixed cliques, calculates their oriented cellular Euler classes, and uses Jacobi–Trudi telescoping to turn the resulting virtual characters into actual rational Specht decompositions. Each mixed simplex has precisely one vertex on at least one rank, so the two cone-counts overcount only mixed edges; this is the pivotal nonstandard step. A standalone enumerator confirms all class traces for six parameter pairs, including every conjugacy class of \(S_8\); it is corroboration rather than a substitute for the proof.
+
+**Originality — PASS against inspected evidence.** The 2023 Feng–Nukala paper establishes sphere-wedge counts but does not determine the natural symmetric-group representations. Previously indexed single-rank symmetry results determine only one of the two pure layers. This claim treats the union and accounts for additional mixed simplices by an incidence-graph homology summand, yielding a new three-row Specht series. No retrieved source implies this two-rank decomposition; inaccessible or unindexed material remains a priority risk.
+
+**Value — PASS.** The module is not determined by the known Betti number. The natural inclusion graph between adjacent Boolean ranks contributes an entire family of nontrivial irreducible modules; these distinguish the two-layer complex from simply combining the homology dimensions of its constituent ranks. The theorem also determines the vanishing of rational quotient homology for two natural label-symmetry groups across an infinite parameter family.
+
+**Closest literature and limits.** Feng–Nukala, arXiv:2302.14664, Corollary 11 and Theorem 13, provides the exact nonequivariant premise. One-rank equivariant claims in the indexed research corpus and accessible historical claims are explicitly subsumed as inputs, not claimed here as new. Rational representation decomposition does not determine integral torsion, quotient homotopy, or equivariant attaching maps. Some possibly relevant indexed documents were available only as summaries; these are retained as residual bibliographic risks, not declared fully inspected.
+
+Self-review: passed. Independent audit: not yet performed.
