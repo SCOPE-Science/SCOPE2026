@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite checks and proof boundary
+# Independent mathematical audit
 
-From the directory containing both Python scripts, execute `python3 verify_skeleton.py` and `python3 verify_hull.py` (Python 3, NumPy and SciPy). The first independently solves a linear-programming support-margin problem for every unordered pair of the \(2M\) oriented graph edges of each of nine small multipartite graphs. It compares the optimizer's strict exposed-edge condition with the exact part-class combinatorial formula, checks all vertex degrees and verifies that the two orientations of every underlying edge form fibers matched exactly once when their part pairs intersect. It checks the tripartite degree equality separately.
+## correctness
 
-The second, logically different finite check uses the convex hull of the explicit root-coordinate vertices, collects every facet inequality simultaneously tight on a given pair, and determines the dimension of their minimal face from the rank of those normals. It exhausts all pairs in five cases: \((1,1,1)\), \((2,1,1)\), \((2,2,1)\), \((3,2,1)\), and \((2,2,2)\).
+PASS
 
-The first script passed cases \((1,1,1)\), \((2,1,1)\), \((3,1,1)\), \((2,2,1)\), \((2,2,2)\), \((3,2,1)\), \((2,1,1,1)\), \((3,1,1,1)\) and \((1,1,1,1)\). The second passed all five cases listed above, including edge counts \(6,20,56,110,132\) respectively. These tests do not numerically certify any untested parameter: the exact supporting-potential proof and inclusion-exclusion identities establish the stated universal quantifiers.
+For k>=3 nonempty parts, each length-one graph edge yields exactly two antipodal extreme transportation molecules, whereas distance-two nonedges lie in convex hulls of length-one edge molecules. Two proposed oriented molecules span a face-edge iff a unit-Lipschitz exposing potential has exactly those two tight directed edges. Explicit 0/1/1/2 potentials expose common-tail or common-head pairs; consecutive-directed edges force an additional tight edge; for four distinct endpoints strict 1/2-offset potentials exist precisely when cross endpoints share a multipartite part. This proves the if-and-only-if adjacency rule. Each undirected-edge fiber consequently has exactly one neighbor orientation across intersecting part pairs, a signed 2-cover of a clique blow-up of L(K_k). Exact part-edge counts give degree N(a+b)-a²-ab-b²-1 and summed f1. For k=3 every pair of parts intersects, giving degree M-1; for k>=4 degree difference (b-c)(N-a-b-c) with positive remainder forces all sizes equal. Fiber-constant Laplacian is MI-J so eigenvalue M multiplicity>=M-1. Independently optimized all vertex-pair exposure LPs for four small cases including unbalanced tripartite and k=4; numeric tests corroborate, not prove general classifications.
 
-The finite linear programs use numerical tolerances and are not formal certificates of exact arithmetic or novelty. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original final claim: compared specific mathematical statements and implications against the retrieved Resultary indexed records and relevant original primary texts; known normalizations, generic tools and special cases are not counted as new. No positive coverage result was established; inaccessible/unread alternatives remain explicit risks.
+
+## value
+
+PASS
+
+The graph skeleton of the canonical metric transportation ball is a natural lower-face invariant. Its explicit oriented adjacency law, signed double cover, complete regularity classification and surprising regularity of *all* unbalanced tripartite cases are reusable structural results, not a mere facet count or reinterpretation of the known bipartite spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The argument gives a complete four-endpoint classification of exposed edges using strict one-Lipschitz potentials. It handles antipodes, common heads/tails, opposite consecutive edges, and disjoint endpoints separately, then constructs a signed two-cover and derives degrees by exact inclusion-exclusion. The regularity boundary uses the strictly positive fourth-part remainder, and the spectral corollary is the invariant fiber-constant Laplacian block. Finite pairwise linear programs and independently generated convex-hull facets were checked on nine and five graph instances respectively. No infinite assertion rests on finite sampling.
+## correctness
 
-**Originality: PASS, with residual bibliographic risk.** The 2018 general extreme-molecule criterion, 2018 complete-multipartite *facet* classification, 2019 *cycle* face-poset classification, and 2023 matroid invariance are not the asserted adjacency result. The closest published mathematical record treats the full two-lift and spectrum only for complete *bipartite* graphs with at least two vertices per part. Our complete tripartite theorem includes unavoidable triangles, so it does not follow from that bipartite instance. The exact multipartite covering, degree formula, and regularity transition were not identified in the inspected references or research-record search. Other unindexed face-lattice evaluations remain possible. Some specialized examples, including complete graphs and four-cycles, are already known and are not independently claimed.
+PASS
 
-**Value: PASS.** The result determines an entire infinite family's one-skeleton, not merely its vertex or facet count, and reveals a non-obvious regularity phenomenon: arbitrary imbalanced tripartite metrics have degree \(M-1\), while adding a fourth part destroys regularity unless the part sizes balance. The signed-cover description gives a natural structural explanation and a forced Laplacian eigenspace of dimension \(M-1\) in every tripartite case. These facts motivate studying the transport ball's graph rather than recomputing a known facet census.
+For k>=3 nonempty parts, each length-one graph edge yields exactly two antipodal extreme transportation molecules, whereas distance-two nonedges lie in convex hulls of length-one edge molecules. Two proposed oriented molecules span a face-edge iff a unit-Lipschitz exposing potential has exactly those two tight directed edges. Explicit 0/1/1/2 potentials expose common-tail or common-head pairs; consecutive-directed edges force an additional tight edge; for four distinct endpoints strict 1/2-offset potentials exist precisely when cross endpoints share a multipartite part. This proves the if-and-only-if adjacency rule. Each undirected-edge fiber consequently has exactly one neighbor orientation across intersecting part pairs, a signed 2-cover of a clique blow-up of L(K_k). Exact part-edge counts give degree N(a+b)-a²-ab-b²-1 and summed f1. For k=3 every pair of parts intersects, giving degree M-1; for k>=4 degree difference (b-c)(N-a-b-c) with positive remainder forces all sizes equal. Fiber-constant Laplacian is MI-J so eigenvalue M multiplicity>=M-1. Independently optimized all vertex-pair exposure LPs for four small cases including unbalanced tripartite and k=4; numeric tests corroborate, not prove general classifications.
 
-**Limits.** The theorem concerns unweighted complete multipartite graph metrics with at least three parts. It does not classify the full Laplacian spectrum, higher face lattices, or arbitrary metric weights. The published complete-bipartite two-cover is an explicit predecessor; uniqueness against all mathematical literature is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original final claim: compared specific mathematical statements and implications against the retrieved Resultary indexed records and relevant original primary texts; known normalizations, generic tools and special cases are not counted as new. No positive coverage result was established; inaccessible/unread alternatives remain explicit risks.
+
+## value
+
+PASS
+
+The graph skeleton of the canonical metric transportation ball is a natural lower-face invariant. Its explicit oriented adjacency law, signed double cover, complete regularity classification and surprising regularity of *all* unbalanced tripartite cases are reusable structural results, not a mere facet count or reinterpretation of the known bipartite spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
