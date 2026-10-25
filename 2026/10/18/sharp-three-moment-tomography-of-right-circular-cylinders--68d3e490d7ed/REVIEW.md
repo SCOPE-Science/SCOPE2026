@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Direct integration of the established one-dimensional cylinder width representation gives all three raw moments. Eliminating height with the first moment leaves a positive-leading quadratic in diameter. Two distinct candidates are interchanged by the Vieta involution; exact polynomial division expresses their third-moment difference as their diameter difference multiplied by a strictly negative quadratic. Its discriminant is negative because an explicitly defined quartic is increasing for arguments at least three and is negative at \(22/7\). The two-moment obstruction follows from the unique minimum of the normalized second-moment ratio. At the fold of that ratio, the third moment has nonzero derivative, proving local inverse stability. Symbolic and numerical checks supplement these exact arguments.
+## correctness
 
-## Originality
-**PASS, subject to historical priority uncertainty.** The closest inspected full text, Abas (2026), Proposition 7.4, already gives the entire cylinder width distribution and therefore law-level identification; those results are explicitly not claimed. Its finite scalar-moment theorem is for orthotopes. The new assertion is the precise three-versus-two cutoff for **raw scalar moments of a cylinder**, plus a stable finite-data inverse. Published records about conical width distributions, cylindrical planar shadow covariances and moment tomography of orthotopes/ellipsoids concern different geometries or measured quantities. Abstract-level access only to the later companion paper leaves residual overlap risk; a full-document noncoverage judgment is not asserted.
+PASS
 
-## Mathematical value
-**PASS.** The full width distribution is substantially more information than finitely many scalar moments. For a natural, geometrically distinct nonpolyhedral family, three moments suffice globally despite the two-parameter nature of the cylinder; the two-moment map has a genuine fold and an open nonuniqueness region. The discriminant identity resolves the global ambiguity nonperturbatively and gives local stability, furnishing a precise finite-tomography cutoff and an explicit reconstruction algorithm.
+Using T=|U·e|~Uniform(0,1), Minkowski support additivity gives W=d sqrt(1-T^2)+hT. Direct integrals give m1=pi*d/4+h/2; m2=(2d^2+2dh+h^2)/3; m3=3pi*d^3/16+3d^2h/4+3pi*d*h^2/16+h^3/4. Fix m1=m: h=2m-pi*d/2, and m2 becomes a strictly convex quadratic in d with candidate root sum P=8m(pi-2)/(pi^2-4pi+8). The m3 divided difference [G_m(d)-G_m(P-d)]/(2d-P) has leading coefficient pi(pi^2-12)/64<0 and negative discriminant for m>0: discriminant proportional to -(pi^2-12)*Q(pi), Q(z)=z^4-6z^3+4z^2+36z-64, Q strictly increasing on z>=3 yet Q(22/7)=-104/2401<0. Thus two distinct m2-candidates have distinct m3. The scale-free R(h/d)=m2/m1^2 decreases then increases with minimum at lambda*=(4-pi)/(pi-2), yielding two-moment collisions. Immersion at the quadratic fold follows from nonzero m3 derivative; injective C1 immersion plus compactness implies compact-set Lipschitz inverse. Independently verified integral m3 and divided-difference symbolic coefficients/discriminant with SymPy, plus finite positive collision; these do not replace the all-cylinder algebra.
 
-## Limits
-The result is conditional on the object being a right circular cylinder, with positive diameter and height, uniformly random orientations, and exact moments. It does not give a universal uniform condition number near degeneracies or claim novelty for the full width law. The later companion manuscript was not fully available for comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original claim: the mathematical implication and same-object comparisons below show no identified covering result. The decisive proof and quantitative classification are distinct from established background; incomplete primary sources are named as priority risks, not cleared without reading.
+
+## value
+
+PASS
+
+The first two or three unlabeled spherical width moments are minimal low-data inputs in integral geometry/inverse stereology; a sharp cutoff strictly stronger than entire-law identifiability and a stability assertion are motivated exact tomography facts. The nontrivial quadratic fold resolved by a strict cubic moment is useful for reconstruction without direction labels, not routine cylinder-volume substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
