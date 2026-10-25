@@ -1,11 +1,27 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Shannon order comparison is reduced to the exact integer product \(P(a)=\prod_i a_i^{a_i}\); inverse Simpson and Berger–Parker comparisons reduce to \(S(a)=\sum_i a_i^2\) and \(M(a)=\max a_i\). The standalone finite checker exhaustively enumerates 49,958 pairs of equal-census, equal-richness partitions and checks both orientations, while a separately programmed partition-count dynamic recurrence verifies completeness. No exceptions occur through census nineteen, and exactly one oriented pair occurs at census twenty. Exact numerical witnesses and continuity of Hill curves prove the two finite-order crossings. Nothing beyond the explicitly finite census range is inferred from enumeration.
+## correctness
 
-**Originality — PASS, with risk.** Hill (1973), Tóthmérész (1995), Jost (2006), and Liu et al. (2006 online / 2007 issue) establish the interpretation and non-comparability of diversity rankings. In the accessible full Liu paper, definitions, demonstrations and empirical tables do not provide the sharp equal-richness twenty-individual threshold or the unique four-species boundary pair. Tóthmérész's paper remained full-text inaccessible, and hidden equivalent results in diversity-profile literature remain possible. A general rank reversal without the equal-richness condition does not entail the fixed-richness Shannon comparison.
+PASS
 
-**Value — PASS.** Shannon, inverse Simpson and reciprocal dominance are standard ecological indices that respond differently to rarity and concentration. Enforcing identical richness and total abundance controls two confounders; the precise first census and single boundary pair identify the earliest genuine strict triple-order conflict after those controls. Two crossings follow without assuming that any one index supplies a canonical total ordering. The sharp finite classification is intrinsically a meaningful boundary fact, independent of any downstream large-network theorem.
+Converted the three diversity comparisons exactly to integer inequalities on S=Σa_i², P=∏a_i^{a_i}, and M=max(a_i): S(A)<S(B), P(A)>P(B), M(A)>M(B). The witness gives S=134<136, P=4627325525704704>4503599627370496, and M=9>8. Independent partition recursion checked against coin-DP counts all positive partitions through N=20 and all same-richness unordered pairs in both orientations: 49,958 pairs, no witness below 20, one ordered witness at 20. Continuity of D_q plus the strict sign pattern at q=1,2,∞ gives two distinct finite crossings above order one. The local replay was not byte-identical to the packaged script.
 
-**Limitations.** Exact integer abundances; no statement about sample-estimation uncertainty, other order triples, or all possible crossover counts. An independent scientific validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result is a discrete minimality theorem for a specified strict order pattern, not a redefinition of Hill numbers or the general observation that profiles can cross.
+
+The broad diversity-ordering literature motivates the question but does not dominate the exact fixed-N, fixed-richness integer result in inspected material.
+
+No exact previously published profile table was located; the census is exhaustive over the specified finite domain.
+
+The precise minimal integer threshold and unique witness are additional to the general crossing phenomenon.
+
+## value
+
+PASS
+
+A natural exact minimum census for a strict three-order ranking reversal under equal total and richness is a meaningful boundary invariant in diversity-ordering theory. The witness is not an arbitrary unmotivated slice: it demonstrates the first point where two continuous effective-diversity profiles must cross twice while matching census and richness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
