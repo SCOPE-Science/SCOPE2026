@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the standard triangular lattice with step set
-\[
-\pm(1,0),\quad\pm(0,1),\quad\pm(1,1).
-\]
-The quotient label is \(a+3b\pmod n\), so the deck lattice is
-\[
-L_n=\{(a,b):a+3b\equiv0\pmod n\}.
-\]
-The exact word norm is
-\[
-N(a,b)=\max(|a|,|b|,|a-b|).
-\]
-For \(n\ge17\), every endpoint of a path of at most four edges has \(|a+3b|\le16<n\), so a closed projected path at those lengths satisfies \(a+3b=0\) as an integer equality. Exhausting the six allowed step types shows that the first nonzero relation occurs at length four and is exactly \(\pm(-3,1)\).
+# Independent mathematical audit
 
-For any class outside \(\mathbb Z(-3,1)\), one has \(|a+3b|\ge n\), while \(|a+3b|\le4N(a,b)\), giving the lower bound \(\lceil n/4\rceil\). The four residue-class witness vectors in `RESULT.md` attain it.
+## correctness
 
-The checker also reconstructs the cyclic one-skeletons for every \(17\le n\le40\), exhausts their simple three- and four-cycles, and confirms that exactly \(n\) homologically nonzero four-cycles occur and that they are precisely the consecutive four-cycles.
+PASS
 
-Exact successful output:
+For n>=17 the triangles are the quotient of the triangular lattice by L_n={(a,b):a+3b=0 (mod n)}, with H1=L_n and basis u=(-3,1),v=(n,0). The exact step norm is N=max(|a|,|b|,|a-b|). For any nonzero closed edge walk of length ell<=4, |a+3b|<=4ell<=16<n, hence a+3b=0 as an integer and (a,b)=tu. The norm N(tu)=4|t| excludes essential loops of length <4 and forces endpoints +/-u at length4. A word realizing -u in 4 steps must consist of three -e1 and one e2 step; its projections are exactly the n distinct consecutive four-cycles C_i, all primitive. For classes outside Zu, |a+3b|>=n and <=4N<=4ell, giving ell>=ceil(n/4). For n=4r+s the four explicit endpoints (r,r),(r+1,r),(r-1,r+1),(r,r+1) respectively have a+3b=n and N=ceil(n/4); monotone step words of 4s plus at most two final 1/3-steps have no repeated cyclic vertices. The conclusion is unbounded in n; bounded independent checks are corroboration only.
 
-`VERIFY_OK short_relation_vectors=none_through3;length4=plusminus(-3,1) | family=T_{n,1,3} range=n>=17 H1=Z^2 | simple_integral_1_systole=4 minimizers=n consecutive_4_cycles one_primitive_direction=yes | second_independent_homology_minimum=ceil(n/4) | finite_replay=n17..40 passed`
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the exact family is published, and general quotient-lattice classification is known, but inspected earlier primary full texts do not state or dominate the exact n-carrier bent four-edge shell plus independent min ceil(n/4). Brehm--Kühnel's shortest STRAIGHT loop normal form does not cover shortest bent essential cycles. The matching Resultary record is the same finding; the same-family flag-count and Klein-bottle systole findings have different invariants. These deductions are elementary after constructing the lattice and word norm, so historical priority remains qualified by explicit risks.
+
+## value
+
+PASS
+
+The natural combinatorial edge homology systole on a published vertex-transitive torus triangulation has a complete first carrier shell and two exact independent minima for an infinite parameter family. All n shortest essential cycles lie in a single primitive direction while the next independent minimum grows ceil(n/4), yielding an explicit unbounded rank-two anisotropy ratio. The threshold n>=17 is mathematically meaningful (n=16 admits an extra independent 4-edge +4-step cycle); this is neither a finite isolated datum nor a generic graph-theory exercise, despite the elementary lattice proof. No stronger global metric or torus-optimality statement is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,16 @@
-# Same-model review
+# Mathematical review
 
-## Correctness
-PASS. The torus is realized as the quotient of the standard triangular tessellation by \(L_n=\{(a,b):a+3b\equiv0\pmod n\}\). The exact triangular-lattice norm reduces both minima to elementary lattice inequalities. Short-word enumeration proves that the first nonzero kernel vectors have norm four and are exactly \(\pm(-3,1)\); residue-class witnesses attain the second independent lower bound \(\lceil n/4\rceil\). The standalone verifier independently replays the finite short-word classification and the actual cyclic graphs for \(17\le n\le40\).
+## Correctness and scope
+The published cyclic face prescription for \(T_{n,1,3}\) is the quotient of the triangular tessellation by \(L_n=\{(a,b):a+3b\equiv0\pmod n\}\), whose free rank-two basis is \((-3,1),(n,0)\). An edge word has length at least \(N(a,b)=\max(|a|,|b|,|a-b|)\). For \(n\ge17\), a word of at most four edges closes only when \(a+3b=0\) as an integer; the first nonzero endpoints are exactly \(\pm(-3,1)\). All four-step words representing these endpoints project to the \(n\) consecutive four-cycles, a single primitive free-homology direction.
 
-## Originality
-PASS. The primary source defines and classifies the cyclic torus family but does not state homology systoles or successive minima. Exact-notation, lattice, cycle, and formula searches found no covering result. Related torus results found in the literature concern different invariants and do not imply this four-cycle and growing-gap theorem. An unindexed historical calculation remains a residual risk.
+For any independent class \(|a+3b|\ge n\), so the length is at least \(\lceil n/4\rceil\). Monotone step words with increments \(4\), plus one increment \(1\) or one/two increments \(3\) according to \(n\pmod4\), attain that length without vertex repetition. The formulas apply to every integer \(n\ge17\). Finite graph enumeration can corroborate, not establish, these universal quantifiers.
 
-## Value
-PASS. The theorem identifies a natural infinite family in which the absolute shortest nonzero homology shell sees only one primitive direction, while the first independent direction has exact length \(\lceil n/4\rceil\). This gives a concrete and growing combinatorial anisotropy invariant rather than another isolated finite count.
+## Closest prior results
+Datta and Upadhyay (*Degree-regular triangulations of torus and Klein bottle*, arXiv:math/0403433) define this cyclic family, its torus topology, and cyclic symmetry. Brehm and Kühnel (*Equivelar maps on the torus*, Stuttgart preprint 2006/013) establish the general translation-lattice quotient framework; their Proposition 4 concerns shortest **straight** edge loops, not shortest possibly bending noncontractible edge cycles. The complete exact empty-triangle criterion for the same cyclic family is a different combinatorial invariant. Related Klein-bottle torsion systole counts do not imply the free rank-two torus homology statement.
 
-## Closest literature and limitations
-Datta and Upadhyay's arXiv:`math/0403433v1` is the exact-object source. It supplies the face formula, torus topology, and cyclic symmetry. The result applies only to \(T_{n,1,3}\) for \(n\ge17\), uses simplicial edge length, and does not classify all second-minimum carriers.
+The present contribution is the full first four-cycle homology shell with its \(n\) carriers and the exact independent second length. This is an elementary but specific word-norm calculation. An unindexed equivalent enumeration or wider exact edge-width formula would affect historical priority.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Mathematical value and limitations
+These two exact minima demonstrate increasing anisotropy of an infinite vertex-transitive triangulation family. The parameter threshold is substantive: at \(n=16\) the all-\(+4\) four-cycle contributes another homology direction. The theorem concerns simple combinatorial edge cycles, not continuous Riemannian systoles, and does not enumerate all second-minimum carriers.
+
+No formal verification or external expert attestation is asserted.
