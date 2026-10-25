@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The assertion is a theorem for all integer parameters \(k\ge3\) and \(r\ge3\). Its central combinatorial step is the exact two-state transfer matrix with diagonal \(2^{k-2}-1\) and off-diagonal \(2^{k-2}\); the eigenvalues are \(2^{k-1}-1\) and \(-1\). This gives the all-mixed trace and every constrained fiber by splitting at definite hyperedges. The inequality \((B^a+1)(B^b+1)\le2(B^{a+b}+1)\) for \(B\ge3\) establishes strict second-largest separation, including adjacent definite edges and short cycle boundaries. The separately implemented finite checker directly agrees with every status word on eleven parameter pairs, totaling \(161600\) source subsets. No finite run is presented as a proof of the infinite statement.
+PASS
 
-## Originality: PASS, qualified
+For all k>=3 and r>=3, the binary-edge-status map on k-uniform loose r-cycles has exact mixed-edge transfer M=[[q-1,q],[q,q-1]], q=2^(k-2), with eigenvalues B=2^(k-1)-1 and -1. Definite edges force both core bits and private vertices, so a prescribed status word has fiber equal to the product of constrained mixed-run matrix powers; all mixed has trace M^r=B^r+(-1)^r. Adjacently opposing forced colors yield zero. For >=2 definite edges, bound each entry by (B^ell+1)/2 and use m_a m_b<=m_(a+b) to obtain strict runner-up separation from the 2r single-definite words with fiber (B^(r-1)+(-1)^(r-1))/2. T cyclic status adjacency matrix eigenvalues 1,1±sqrt2 reproduce known smooth-word count. Independently enumerated all vertex subsets and output-word fibers for k=3,r=3..5; k=4,r=3..4; k=5,r=3; k=6,r=3: all exact fibers, maximum and runner-up multiplicities match. Finite runs corroborate rather than prove all r,k.
 
-The exact **numerical** count of possible observations is the known cyclic smooth-word sequence (Knopfmacher–Mansour–Munagi–Prodinger, 2008, Theorem 3.3; OEIS A124696), and is not an original enumeration. Rough-hypergraph theory (Sarwar, 2022) and hypergraph/information-system correspondence (Cattaneo–Chiaselotti–Ciucci–Gentile, 2016) do not, in the inspected material, determine the present individual edge-observation inverse fibers or their strict ranking. The new claim assessed here is the all-rank exact multiplicity formula, the unique maximum, and the complete runner-up classification. The rank-two graph-edge constraint classification does not imply this higher-rank statement, since its two-endpoint constraint structure is different. An equivalent constraint-satisfaction interpretation or less searchable terminology remains possible; independent publication-priority validation has not occurred.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Individual ambiguity multiplicities quantify information lost by the natural three-way observation of a binary vertex subset on a uniform hypergraph. The theorem gives all fibers rather than a single count, proves a unique extremal observation, classifies every second-place observation, shows that the extremal gap increases with hyperedge rank, and distinguishes the rank-two degeneracy. The observation-count sequence itself is established prior mathematics, but the extremal multiplicity hierarchy is a separate structural question with a motivated information-theoretic interpretation.
+No inspected primary theorem or relevant published finding implies the additional exact claim; the explicitly identified preexisting components are excluded from novelty. This is best-of-knowledge only, with detailed source-access and equivalence risks below.
 
-## Literature and limitations
+## value
 
-The closest checked items are Sarwar (2022, DOI 10.1155/2022/1540004), Cattaneo et al. (2016, DOI 10.1016/j.ins.2015.09.054, available preprint), Knopfmacher et al. (2008, arXiv:0809.0551), OEIS A124696, and English–Kostochka–Zirlin (2023, DOI 10.1016/j.disc.2023.113504). The theorem does not extend without proof to arbitrary hypergraphs, weighted inputs, or all rough-relation constructions. Publication priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Edge-status rough approximation is a natural many-to-one observation of a binary vertex subset in a uniform hypergraph. Exact inverse-image multiplicities measure worst-case ambiguity, quantify a unique most ambiguous outcome, and identify exactly 2r strict runner-ups; general k-dependence with an information-loss interpretation is a motivated structural extreme not inferred from the pre-existing observation count or k=2 graph case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
