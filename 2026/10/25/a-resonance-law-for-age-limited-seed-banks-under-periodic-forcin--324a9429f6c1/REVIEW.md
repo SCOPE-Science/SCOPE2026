@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The total-viable-seed scalar recurrence follows by replacing the oldest outgoing age class. Under Floquet scaling, it yields two symmetric closed characteristic-polynomial identities when viable seed age is a multiple of the environmental period or one less. An auxiliary discrepancy satisfies a one-step multiplier \(b\), making cancellation of the exceptional root \(\mu=b^m\) legitimate; the final identities are polynomial identities. Exact symbolic/rational examples were checked, and the five-age opposite growth signs have strictly positive exact coordinatewise Collatz–Wielandt witnesses. Numerical spectral estimates are not used to certify the inequalities. The theorem is limited to the hypotheses stated in the result.
+
+## Originality — PASS (best-knowledge)
+Mertens, van den Bosch and Heesterbeek (2002) show that ordered crop rotations in their soil-depth-structured weed model can change growth rates, including an \(AABB\) versus \(ABAB\) comparison. Thus order effects themselves are old; their reported conclusion does not specify the all-period congruence-isospectral seed-age family proved here. Mertens et al. (2006) address cyclic permutations and transient effects; arbitrary permutation spectra and the congruence classes are different statements. Cushing and Ackleh (2011/2012) derive periodic net reproductive numbers and some period-two Leslie formulas, but the accessible material does not cover the all-period arbitrary-order characteristic identities. Meyer and Li (2013) investigate age-structured seed banks with spatial dispersal and spreading speeds, not the stated permutation problem. Relevant full texts were not all accessible, so equivalent earlier results in matrix rearrangement or renewal theory remain a risk. No claim of certified literature uniqueness is made.
+
+## Mathematical value — PASS
+The result classifies an infinite family of biologically interpretable seed-longevity versus environmental-period resonances, at the level of all eigenvalues rather than a single mean. It identifies a sharp four-season age-limit boundary: two age classes strictly prefer alternation, three or four are blind to order, while five can prefer clustering sufficiently to reverse the growth-versus-decline verdict. The property is useful for interpreting when crop/weather ordering can matter in finite-age seed bank projections; it is not a routine scalar averaging fact.
+
+## Limits and closest published work
+The comparison concerns only deterministic low-density linear projections, not transient seed abundance, stochastic extinction, or ecological coexistence. The closest published works include Mertens et al. (2002, DOI 10.1890/1051-0761(2002)012[1125:WPACRE]2.0.CO;2), Mertens et al. (2006, DOI 10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2), Cushing and Ackleh (DOI 10.1080/17513758.2010.544410), and Meyer and Li (DOI 10.1137/120880501). Inaccessible historical full text remains the main originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
