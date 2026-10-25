@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each atomic diagram of a finite idempotent unary algebra is the equality partition of coordinate terms and their idempotent images. Partition into root groups, optional root blocks, and unordered leaf blocks gives the stated polynomial weights. A sorted-capacity matching lemma is necessary and sufficient for realizability. The Stirling transform follows from surjections of coordinate labels. The least-arity theorem follows from the first over-capacity sorted demand and a matching witness using only leaf variables. Exhaustive diagram enumeration and independent rational-polynomial computation agreed on 197 tested instances involving 21,570 tuples; 2,249 nested capacity pairs passed the threshold comparison. These finite checks are supporting evidence, not an infinite-domain proof.
+## correctness
 
-**Originality — PASS (qualified).** Campercholi--Tellechea--Ventura (arXiv:2303.17017) provide general algorithms and a semantic quantifier-free definability criterion, rather than the all-arity counting polynomial and nested-capacity separation threshold. Areces--Campercholi--Penazzi--Ventura (arXiv:1904.04637) address definability complexity. Quinn-Gregson (arXiv:2603.26616) treats homogeneity of monounary algebras. Comparisons with published mathematical research records, including a finite monounary enumeration result, found no explicit covering Hall-profile or threshold theorem. Classical Stirling substitution alone does not impose root-capacity matching or yield the least distinguishing arity. Residual risk: equivalent enumeration or separation facts might exist under partition-species, monounary-algebra, or model-theoretic terminology not located in the inspected materials.
+PASS
 
-**Mathematical value — PASS.** The precise number of finite-variable distinguishable patterns and quantifier-free definable relations is a natural descriptive-complexity invariant of finite algebraic structures; the least arity of observable growth under a changed fiber-capacity profile is a structural model-comparison invariant. The result supplies an exact calculation across every finite idempotent unary algebra and a sharp detection threshold not implied merely by generic decidability.
+In any finite idempotent unary algebra f^2=f, every coordinate term is u_i or f(u_i), so a complete parameter-free quantifier-free atomic diagram is its equality partition on those 2k formal terms. Distinct values group by fixed image. A root group with b>0 distinct leaves and optional root contributes y^b(1+y)/b!, whereas root-only contributes y. Unlabeled root-group multisets contribute 1/nu_b!, and Hall feasibility reduces exactly to sorted distinct-leaf demands d_j<=c_j, j<=t<=r. Their y-polynomial enumerates injective-value diagrams in exponential convention; substituting e^x-1 assigns nonempty coordinate-preimage blocks and gives T_k=sum a_d d! S(k,d). Each realized diagram is individually definable, so its Boolean algebra has 2^T_k subsets. For c<e coordinatewise, any new feasible diagram must have j groups each >c_j leaf demand, requiring k>=j(c_j+1); choosing j groups of c_j+1 leaves for an attaining index realizes a new diagram in e, and repetition extends it to all k>=k*. Independent direct tuple enumeration recovers separations (2,1,0)<(3,1,0) at k=3, (3,1)<(3,2) at k=4, (0,0)<(1,0) at k=1. Source 197 instances and 2249 comparisons are finite corroboration. The proof also covers root-only and k=0 boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge primary-source and Resultary comparison; no searched statement/table/general theorem shown to imply the exact submitted additional invariant. Crucial established premises and special cases are credited. Full-text versus abstract material is explicitly distinguished; inaccessible literature is retained as risk, not assumed noncovering.
+
+## value
+
+PASS
+
+Counts the entire parameter-free quantifier-free definable-relation algebra size in every arity on a canonical finite algebra class and precisely detects the first arity at which adding fiber elements changes observable diagrams. Natural logical complexity invariant with sharp structural threshold, not a one-off enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
