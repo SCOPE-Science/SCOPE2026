@@ -1,0 +1,11 @@
+# Scientific review — Pappus induced-forest homotopy and symmetry
+
+**Correctness: PASS.** The graph is specified independently of software graph catalogs by its LCF edges. Two algorithms agree on all \(2^{18}\) induced vertex subgraphs. All \(1704456\) Hasse incidences are included in the acyclicity test. The signed integer Morse chain complex has a primitive surjective \(\partial_{10}\), a rank-\(21\) primitive \(\partial_{11}\), and zero composite. The high-connectivity argument upgrades the resulting integral homology to the asserted homotopy equivalence. A separate graph-distance backtrack exhausts \(216\) automorphisms; signed simplicial Lefschetz evaluation yields the rational character. The standalone source recomputes rather than trusting a stored log.
+
+**Originality: PASS, subject to literature risk.** In the inspected 2015 devoid-complex paper, the computed graph families are paths, cycles, forests, and chordal-graph dominance constructions; none is this Pappus induced-forest invariant. The 2017 thesis defines the precise construction (§1.5.1), without a Pappus classification. The 2023 forest-filtration paper studies several families but does not state this result. The nearest indexed Pappus homotopy statements concern matching, independence, Čech and Rips complexes, whose allowed simplices differ. An equal sphere multiplicity in the Pappus matching complex does not imply a homotopy equivalence of these different objects. Targeted exact and semantic searches found no stronger applicable statement; unindexed literature remains a genuine risk.
+
+**Value: PASS.** The Pappus graph is the canonical highly symmetric incidence graph of Pappus's \((9_3)\) configuration. Its exact vertex-induced forest topology is motivated by feedback vertex sets and the forest filtration. The high-dimensional sphere-wedge result and complete symmetry character give a natural finite benchmark, and the one-dimensional fixed subspace is information unobtainable from the Betti rank alone. This is a finite structural classification, not a general-family advance.
+
+Scientific limitations: the rational character is not a classification of integral symmetry lattices; no equivariant homotopy equivalence is claimed; an independent external audit has not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
