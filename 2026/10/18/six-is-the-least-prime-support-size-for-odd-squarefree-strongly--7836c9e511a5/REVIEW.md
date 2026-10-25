@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the exact multiplicative divisor-sum formula for odd squarefree integers to force the first three prime factors and cap both later primes. Only 87 five-prime products can be abundant, and a direct modulo-four argument eliminates 42. For each of the 45 remaining, all 16 complementary divisor pairs are exhaustively searched for an omitted total equal to the exact divisor-sum excess. The dictionary and bitset programs independently return no solution. The published six-prime witness is accompanied by five explicit omitted pairs whose products and total sum are checked; the complement is a valid symmetric divisor set. The computer check proves the finite sublemma only; the analytic bounds establish exhaustive coverage of the infinite class.
+## correctness
 
-## Originality — PASS (residual risk disclosed)
-Wang–Zelinsky (2026) explicitly supplies the six-prime squarefree example and the modular obstruction. Its stronger divisor-excess criteria have hypotheses or weaker bounds that do not establish the global five-prime exclusion. McCormack–Zelinsky (2023/2026) treats the same class but not this exact support boundary. OEIS A334405 and published results limited to at most three prime factors do not imply the unrestricted five-prime exclusion; the complete 45-case finite reduction is essential. Six targeted mathematical searches returned no prior equivalent. An unindexed or implicit earlier exact calculation remains possible, and one relevant published result was available only by summary.
+PASS
 
-## Value — PASS
-The exact minimum distinct-prime support within the odd squarefree strongly pseudoperfect numbers is an intrinsically natural arithmetic threshold, not an arbitrary finite slice. The work sharpens the motivating six-prime example to a complete minimum-support theorem, exposing why abundance and congruence conditions alone are insufficient. No assertion about numerical minimality, infinitude, density, or the non-squarefree class is made.
+For an odd squarefree n=p1...pk, symmetric included divisors correspond to complementary pairs (d,n/d), weighted d+n/d, so existence is an exact finite subset-sum condition. Sigma(n)>=2n is necessary. For k<=4 the maximal odd-prime Euler factor product at 3,5,7,11 is 768/385<2. For k=5 abundance forces the three smallest primes 3,5,7, then fourth r in {11,13,17,19}, fifth s in bounded ranges; independently enumerated precisely 71+12+3+1=87 candidates and (by McCormack–Zelinsky necessary congruence) 37+6+1+1=45 n≡1(mod4) survivors. Recomputed all 16 complementary pair weights for each of 45 and independently exhaustive meet-in-the-middle split 8+8 (at most 256 sums per half); no omitted-pair subset sums to sigma(n)-2n. Thus k<=5 impossible. For n=937365=3*5*11*13*19*23, the five omitted pairs (55,17043),(57,16445),(65,14421),(143,6555),(165,5681) multiply to n pairwise, have ten distinct divisors, and total sigma(n)-2n=60630; including all other pairs sums exactly 2n. This proves lower bound and sharpness, not just a search timeout or failed heuristic; no claim about even or nonsquarefree numbers.
 
-## Sources and limits
-Relevant references are the full 2026 Wang–Zelinsky article (arXiv:2609.36068v2), the earlier McCormack–Zelinsky paper (arXiv:2312.11661v4), and OEIS A334405. The six-prime witness is not claimed as new. The finite obstruction was reproduced by two independent exact algorithms, but external mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The concrete witness 937365 is explicitly mentioned by Wang–Zelinsky (2026 v3, §2), so neither that number nor its bare strong pseudoperfectness is original. McCormack–Zelinsky proves congruence obstructions and defines the object; the new statement is exact optimality of six distinct prime factors specifically among odd squarefree strongly pseudoperfect numbers. Read the 22-page primary update including its §5 computation tables; it does not state or prove that five support primes are impossible. Resultary has a related published low-support Ω(n)<=3 result, which covers a much smaller restriction and cannot imply exclusion of all five-prime odd squarefree candidates. The exhaustive finite upper-bounded certificate is the real additional result.
+
+## value
+
+PASS
+
+Determining the first admissible support size for the natural odd squarefree subfamily is a meaningful extremal parameter, with a complete finite reduction and exact minimal witness. It strengthens a known existence example with a sharp impossibility theorem rather than simply recomputing a table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T07:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an odd squarefree n=p1...pk, symmetric included divisors correspond to complementary pairs (d,n/d), weighted d+n/d, so existence is an exact finite subset-sum condition. Sigma(n)>=2n is necessary. For k<=4 the maximal odd-prime Euler factor product at 3,5,7,11 is 768/385<2. For k=5 abundance forces the three smallest primes 3,5,7, then fourth r in {11,13,17,19}, fifth s in bounded ranges; independently enumerated precisely 71+12+3+1=87 candidates and (by McCormack–Zelinsky necessary congruence) 37+6+1+1=45 n≡1(mod4) survivors. Recomputed all 16 complementary pair weights for each of 45 and independently exhaustive meet-in-the-middle split 8+8 (at most 256 sums per half); no omitted-pair subset sums to sigma(n)-2n. Thus k<=5 impossible. For n=937365=3*5*11*13*19*23, the five omitted pairs (55,17043),(57,16445),(65,14421),(143,6555),(165,5681) multiply to n pairwise, have ten distinct divisors, and total sigma(n)-2n=60630; including all other pairs sums exactly 2n. This proves lower bound and sharpness, not just a search timeout or failed heuristic; no claim about even or nonsquarefree numbers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary related finding about Ω<=3 excludes only a proper subfamily; broader Wang–Zelinsky restrictions treat product constructions and congruences, not all 45 surviving squarefree products."
+        ],
+        "reasoning": "Exclusion of all five-prime candidates is stronger than the known three-prime bound and not implied by a separate six-prime example.",
+        "searches": [
+          "Resultary \"strongly pseudoperfect integers with Omega(n)<=3\"",
+          "Wang Zelinsky §3 restrictions 2026",
+          "odd abundant 5-prime support classification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.36068v3 (21 Oct 2026), §2 example 937365 and §5 tables",
+        "arXiv:2312.11661v4 Proposition 36",
+        "OEIS A334405",
+        "Resultary SCOPE-strongly-pseudoperfect-integers-with-omega-n-le3--e44b0bb26fb1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known: 937365 works and n≡3 mod4 impossible. New: 87 candidates ->45-> zero possible at omega=5."
+        ],
+        "reasoning": "The new exhaustive impossibility adds an independent mathematical statement; known congruence is credited as input, not falsely claimed new.",
+        "searches": [
+          "Wang Zelinsky 937365 example vs least prime support",
+          "McCormack Zelinsky mod 4 Proposition 36",
+          "Resultary low support result Ω<=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Zelinsky explicitly names n=937365 as odd squarefree strongly pseudoperfect but proves no 5-prime impossibility. Proposition 36 mod4 restriction is prior."
+        ],
+        "reasoning": "Same object and normalized paired-divisor definition; the example and congruence are covered, but the five-prime exhaustive exclusion and least-support conclusion are not logical consequences of that alone.",
+        "searches": [
+          "odd squarefree strongly pseudoperfect least number distinct prime factors five impossible Wang Zelinsky",
+          "\"odd squarefree\" \"strongly pseudoperfect\" least prime factors",
+          "Wang Zelinsky arXiv:2609.36068v3 Proposition 3, §2, §5",
+          "McCormack Zelinsky arXiv:2312.11661v4 Proposition 36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS/Wang–Zelinsky contains witness 937365 and other smaller numerical strong pseudoperfect values; tables do not certify absence of all five-prime candidates."
+        ],
+        "reasoning": "A prefix of the increasing sequence alone cannot prove the global least support. The finite abundance/candidate bounds combined with complete subset-sum certificate close that gap.",
+        "searches": [
+          "OEIS A334405 strong pseudoperfect listed values",
+          "Wang Zelinsky computational table §5",
+          "2026 odd squarefree support 937365"
+        ]
+      },
+      "rationale": "The concrete witness 937365 is explicitly mentioned by Wang–Zelinsky (2026 v3, §2), so neither that number nor its bare strong pseudoperfectness is original. McCormack–Zelinsky proves congruence obstructions and defines the object; the new statement is exact optimality of six distinct prime factors specifically among odd squarefree strongly pseudoperfect numbers. Read the 22-page primary update including its §5 computation tables; it does not state or prove that five support primes are impossible. Resultary has a related published low-support Ω(n)<=3 result, which covers a much smaller restriction and cannot imply exclusion of all five-prime odd squarefree candidates. The exhaustive finite upper-bounded certificate is the real additional result.",
+      "residual_risks": [
+        "The previously known witness is not novel. Only the omega>=6 theorem and sharpness are assessed original.",
+        "Independence of the finite elimination depends on correctly bounding all abundant five-prime factorizations; this was independently recomputed with exact arithmetic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_WITNESS_NOT_MINIMALITY",
+          "evidence": "Page 7 explicitly states 937365=3*5*11*13*19*23 works. Congruence restriction but no universal five-prime impossibility theorem.",
+          "identifier_or_url": "arXiv:2609.36068v3 https://arxiv.org/pdf/2609.36068",
+          "material_read": "Primary 22-page PDF, definition/§1, constructions/§2, restrictions/§3 and §5 tables including 937365; first page visually inspected",
+          "method": "Read relevant proof sections and source tables, compared implication",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Exact object and known six-factor witness"
+        },
+        {
+          "assessment": "KNOWN_MODULAR_OBSTRUCTION",
+          "evidence": "Proposition 36 excludes n≡3(mod4), used here as a sieve, not a complete five-prime exclusion.",
+          "identifier_or_url": "arXiv:2312.11661v4 https://arxiv.org/pdf/2312.11661",
+          "material_read": "Primary PDF 27 pages; §§16-18 Proposition 35-37 and definitions; first page visually inspected",
+          "method": "Read the actual relevant proposition/proof",
+          "title": "Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba’s Function",
+          "trigger": "Original definition and modular obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the first admissible support size for the natural odd squarefree subfamily is a meaningful extremal parameter, with a complete finite reduction and exact minimal witness. It strengthens a known existence example with a sharp impossibility theorem rather than simply recomputing a table entry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
