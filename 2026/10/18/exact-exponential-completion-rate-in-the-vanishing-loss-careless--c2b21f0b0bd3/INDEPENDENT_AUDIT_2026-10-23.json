@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:58:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the post-draw independent-loss chain, exchangeable stationary q_k=P(A present) obeys q_k=s^k((1-k/n)q_k+(k/n)q_{k-1}). This yields exact full mass a_n=prod_{k=1}^n[1+(n/k)(s^{-k}-1)]^{-1}, s=1-c/n. With -n log s→c, continuous f_b(x)=log(1+(e^{bx}-1)/x) yields -log a_n/n→I(c) by uniform Riemann sums including x=0. The empty-start chain is monotonically dominated under common draws and per-label losses by stationarity, so P(T<=t)<=t a_n. Coupling arbitrary starts with identical randomness leaves an initial disagreement only if that label was unselected AND survived all losses, leading to TV<=n[(1-1/n)(1-c/n)]^t. An O(n^2) block reduces TV to <=a_n/2, giving conditional target probability >=a_n/2 at each endpoint, geometric upper tail and E T=exp(nI(c)+o(n)). Strict e^{cx}-1>cx yields I(c)>log(1+c). Independently solved n=3,p=1/3 stationary 8-state system, full mass 128/3105, matching product. This is a logarithmic rate, not a sharp prefactor or exponential limit law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long fixed-p stationary-entry estimates cannot be substituted p=c/n without uniform bounds.",
+          "General rare-hit mixing theorems could recover hitting exponent given exact a_n and polynomial mixing, but do not on their own provide this stationary large-deviation integral."
+        ],
+        "reasoning": "General Markov-chain tools can furnish the hitting/mixing step, and are credited; the new exact triangular stationary exponent and strict independence-gap require separate work.",
+        "searches": [
+          "arXiv:2605.14511 sections 5.1-5.4",
+          "Aldous 1982 Markov chains with almost exponential hitting times"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 542fa1b6e47b2f4ee00616dd9b974beeb0fff966",
+        "Resultary query: careless coupon collector p=c/n stationary full occupancy probability hitting time logarithmic exponent",
+        "arXiv:2602.20705",
+        "arXiv:2605.14511",
+        "Aldous 1982 rare hitting-time theorem (bibliographic only)",
+        "Resultary coupon search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source states mean-field proposals rather than unconditional exact integral.",
+          "Fixed-p sharp flux asymptotics do not imply c/n scaling absent uniform error estimates."
+        ],
+        "reasoning": "The claimed lower/upper large-deviation equality is not a corollary of either result under their stated hypotheses; exact stationary inclusion recursion and uniform O(n^2) coupling establish the missing bridge.",
+        "searches": [
+          "arXiv:2602.20705 main c/n regime discussion",
+          "arXiv:2605.14511 section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The occupancy event is the same post-loss all-state target; the stationary recurrence itself is a prerequisite, not claimed new.",
+          "The product of one-point marginals predicts log(1+c) but does not equal the exact I(c)."
+        ],
+        "reasoning": "Compared rare-target stationary-mass, first passage, and metastable mixing representations; only logarithmic equality of hit and inverse-mass scales is asserted, not an Exp-law equivalence.",
+        "searches": [
+          "careless coupon collector p=c/n stationary full occupancy probability hitting time logarithmic exponent",
+          "arXiv:2602.20705, stationary occupancy and careless model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published Resultary reset model concerns catastrophes and a different transition mechanism; no table for full post-draw independent-loss occupancy rate I(c) was found."
+        ],
+        "reasoning": "This is an all-n triangular asymptotic, not a small finite-state lookup; lack of a matching table is not novelty certification.",
+        "searches": [
+          "careless coupon collector p=c/n stationary full occupancy probability hitting time logarithmic exponent",
+          "Resultary balanced nonuniform reset coupon collectors profile rates"
+        ]
+      },
+      "rationale": "Cruciani–Dudeja arXiv:2602.20705 establishes the model and heuristically discusses c/n exponential mean-field scales, but not this unconditional exact I(c). Long arXiv:2605.14511 treats stationary entry for fixed loss rates and does not supply a uniform triangular-array c/n limit. Compared rare-target stationary-mass, first passage, and metastable mixing representations; only logarithmic equality of hit and inverse-mass scales is asserted, not an Exp-law equivalence. General Markov-chain tools can furnish the hitting/mixing step, and are credited; the new exact triangular stationary exponent and strict independence-gap require separate work.",
+      "residual_risks": [
+        "An existing rare-hit theorem combined with an independently tabulated exact stationary rate could subsume the final exponent; no exhaustive earlier literature search.",
+        "The statement does not prove a normalized exponential limiting distribution or prefactor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IDENTICAL MODEL, DOES NOT ESTABLISH CLAIMED UNCONDITIONAL EXPONENT",
+          "evidence": [
+            "The mean-field derivation assumes independence; the new integral differs strictly from log(1+c)."
+          ],
+          "identifier_or_url": "arXiv:2602.20705",
+          "material_read": "Primary PDF model definition, main asymptotics, c/n mean-field discussion and limitations",
+          "method": "Full PDF opened; inspected matching theorem sections and page image",
+          "title": "The Careless Coupon Collector's Problem",
+          "trigger": "Identical update rule and c/n metastability regime"
+        },
+        {
+          "assessment": "FIXED LOSS, NO CHECKED UNIFORM C/N RATE",
+          "evidence": [
+            "Fixed-p asymptotics alone cannot be evaluated at p=c/n without triangular control."
+          ],
+          "identifier_or_url": "arXiv:2605.14511",
+          "material_read": "Primary PDF fixed-loss careless sections 5.1–5.4 and discussion of assumptions",
+          "method": "Full PDF opened; inspected relevant sections and page image",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Same model and potentially stronger stationary hitting theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural vanishing-loss regime singled out as metastable in the original careless coupon-collector model, this gives an unconditional explicit integral for the true exponential waiting scale and shows the independent-marginal heuristic gets the exponent wrong. The distinction is intrinsic rare-event dependency, not merely a numerical example or standard formula restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed c>0, post-draw global independent per-coupon loss c/n and uniform sampling.",
+    "Finite n stationary checks do not prove the n→∞ limit; exact coupling and Riemann arguments do."
+  ],
+  "schema_version": 1
+}

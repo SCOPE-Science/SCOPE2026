@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact stationarity recurrence is obtained directly from the update rule for any fixed target set; an independently solved full transition matrix verifies it at small sizes. The integral limit is a uniform Riemann-sum limit, including the endpoint at zero. Monotonicity bounds first hitting from below through stationary mass, while a shared-randomness coupling yields a polynomial uniform mixing time relative to an exponentially rare target. Iterating stationary-mass bounds at separated block endpoints proves the matching upper bound and the expected-time exponent. These arguments apply for every fixed positive \(c\) and sufficiently large \(n\). Finite computations are supporting evidence only.
+## correctness
 
-## Originality: PASS, qualified
-The source establishing the careless process and its \(c/n\) metastable window (Cruciani–Dudeja, arXiv:2602.20705v1) does not establish an unconditional exact logarithmic hitting-time constant. Long's full-text fixed-loss result (arXiv:2605.14511v1) does not provide uniform triangular-array asymptotics. Generic finite-state stationary inclusion formulas, already available in earlier mathematical work, are used as ingredients and **not** claimed as novel. The distinct final theorem is the explicit limiting exponential first-passage rate and its strict separation from the marginal-independence prediction. Remaining priority risks include a general unindexed rare-event hitting theorem together with an independently established stationary large-deviation rate.
+PASS
 
-## Mathematical value: PASS
-The original source identifies \(p=c/n\) as an exponentially metastable regime but not its unconditional exact growth exponent. The theorem determines that exponent as an explicit one-dimensional integral and quantifies a strict failure of the natural product-marginal approximation at exponential scale. This closes a mathematically motivated scaling gap in a nonmonotone coupon process; it does not depend on an arbitrary finite parameter or numerical curiosity.
+For the post-draw independent-loss chain, exchangeable stationary q_k=P(A present) obeys q_k=s^k((1-k/n)q_k+(k/n)q_{k-1}). This yields exact full mass a_n=prod_{k=1}^n[1+(n/k)(s^{-k}-1)]^{-1}, s=1-c/n. With -n log s→c, continuous f_b(x)=log(1+(e^{bx}-1)/x) yields -log a_n/n→I(c) by uniform Riemann sums including x=0. The empty-start chain is monotonically dominated under common draws and per-label losses by stationarity, so P(T<=t)<=t a_n. Coupling arbitrary starts with identical randomness leaves an initial disagreement only if that label was unselected AND survived all losses, leading to TV<=n[(1-1/n)(1-c/n)]^t. An O(n^2) block reduces TV to <=a_n/2, giving conditional target probability >=a_n/2 at each endpoint, geometric upper tail and E T=exp(nI(c)+o(n)). Strict e^{cx}-1>cx yields I(c)>log(1+c). Independently solved n=3,p=1/3 stationary 8-state system, full mass 128/3105, matching product. This is a logarithmic rate, not a sharp prefactor or exponential limit law.
 
-## Scope and closest literature
-The result is logarithmic, not a limit law at a sharply normalized hitting-time scale. Models with fixed positive loss, heterogeneous draws, alternate update orders, or variable \(c\) are outside the theorem. The closest primary papers are E. Cruciani and A. Dudeja, *The Careless Coupon Collector's Problem*, arXiv:2602.20705v1, and C. D. Long, *Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors*, arXiv:2605.14511v1.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cruciani–Dudeja arXiv:2602.20705 establishes the model and heuristically discusses c/n exponential mean-field scales, but not this unconditional exact I(c). Long arXiv:2605.14511 treats stationary entry for fixed loss rates and does not supply a uniform triangular-array c/n limit. Compared rare-target stationary-mass, first passage, and metastable mixing representations; only logarithmic equality of hit and inverse-mass scales is asserted, not an Exp-law equivalence. General Markov-chain tools can furnish the hitting/mixing step, and are credited; the new exact triangular stationary exponent and strict independence-gap require separate work.
+
+## value
+
+PASS
+
+For the natural vanishing-loss regime singled out as metastable in the original careless coupon-collector model, this gives an unconditional explicit integral for the true exponential waiting scale and shows the independent-marginal heuristic gets the exponent wrong. The distinction is intrinsic rare-event dependency, not merely a numerical example or standard formula restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
