@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:56:50.069400Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md full formal product argument, selected factors and telescoping",
+        "Independent exact integer coefficients of P_plus (48) and P_minus (55), and 21,895 DP adjacent counts through n=150",
+        "Craig Research in Number Theory 8 (2022) article 52 abstract and footnote",
+        "Sellers–Sills–Mullen EJC 11 (2004) R43 Section 3.1"
+      ],
+      "rationale": "Write Q(q)=∏_{j>=1}(1+q^j). Distinct-part marking gives q^(-k) ∑_n(A_k(n)-A_(k+1)(n))q^n=(1-q)∏_{j not in {k,k+1}}(1+q^j) as formal series. Binary-expansion factorization (1-q)∏_i(1+q^(2^i))=1 reduces generic adjacent nonpowers-of-2 to manifestly nonnegative restricted distinct-part product. If k or k+1 is m=2^s>=8, the remaining quotient has denominator (1+q^m). Numerator includes 1+q^(3m), quotient exactly 1-q^m+q^(2m). With h=m/8, the five distinct available nonpower-of-2 factors indexed T+=(3,5,6,7,10)h, except (m,b)=(8,7) where T-=(3,5,6,10,14)h, yield P±(q^h). Both finite integer polynomials (1-z^8+z^16)∏_(a in T±)(1+z^a) have all nonnegative coefficients, independently reconstructed (48 and 55 coefficients, minimum 0, sum32); remaining formal factors are nonnegative, proving every A_k(n)-A_(k+1)(n)>=0 for k>=5. Finite independent DP additionally checked 21,895 comparisons to n=150 but is not the all-n proof. Telescoping over residues yields all-n D_r,t>=D_s,t for t>=6,5<=r<s<=t.",
+      "residual_risks": [
+        "The positivity of two polynomials is finite but fully reconstructed exactly, making that computer check a legitimate certificate within a symbolic infinite proof.",
+        "No claim for k<=4 or strict inequalities; boundary n=0 and negative exponents handled by formal series."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Craig proves eventual all-t and effective n>8 for t<=10; its numerics suggest exceptions only with r<=4. Sellers–Sills–Mullen have a more general Euler/Guy partition-ideal equivalence but not a monotonicity theorem for all k>=5."
+        ],
+        "reasoning": "Craig asymptotics have n thresholds depending on t and hence do not imply all n/t; binary partition bijection is equality between distinct families, not the desired signed difference positivity at power-of-two adjacent indices.",
+        "searches": [
+          "Craig 2022 Corollary 1.3 and Springer notes",
+          "Sellers–Sills–Mullen 2004 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Craig Research in Number Theory 2022 publisher abstract and notes, full text inaccessible",
+        "Sellers–Sills–Mullen 2004 primary journal mathematical Sections 1 and 3.1",
+        "Resultary semantic searches of strict partition frequencies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Craig’s finite-t effective result and classical Guy identity supply motivation and generic case; neither directly produces a factorization with nonnegative P± for m=2^s all s>=3."
+        ],
+        "reasoning": "Prior results do not imply a fixed-n all-t claim. Conversely, current result does not settle Craig’s r<=4 inequalities and never claims the full conjecture.",
+        "searches": [
+          "Craig Corollary 1.3 and footnote 2",
+          "Sellers–Sills–Mullen Section 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Craig studies residue-part frequencies D_{r,t}; Sellers–Sills–Mullen study partition ideals and Guy’s no-powers-of-two identity."
+        ],
+        "reasoning": "The equivalence between A_k monotonicity and all-progressions D ordering in a restricted direction is supplied by telescoping. Binary identity handles generic factors but does not resolve the exceptional adjacent 2^s boundaries.",
+        "searches": [
+          "Resultary mathematical findings search: strict partitions part multiplicity part frequency monotonicity",
+          "Craig arXiv:2110.15835v5 Corollary 1.3",
+          "Sellers–Sills–Mullen DOI:10.37236/1796 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Craig publisher notes list five numerically plausible exceptions, all with lower residue r<=4, but no exact all-k>=5 positivity certificate; current P± pair was not found in primary bibliographic comparison."
+        ],
+        "reasoning": "Numerical exceptional-case table is a prior conjectural prediction, not a proof of the exact uniform theorem; only the two explicit polynomials verify all remaining binary boundaries.",
+        "searches": [
+          "Resultary mathematical findings search: strict partitions part multiplicity part frequency monotonicity",
+          "Craig 2022 exception list (1,2,2),(2,3,4),(2,4,4),(3,4,7),(4,5,8)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for a uniform all-n ALL-MODULI part-frequency inequality on residues >=5. Craig (2022) proved fixed-modulus eventual inequalities in general and all n>8 only when modulus <=10, and listed numerical potential exceptional (r,s,n) involving residues <=4; it did not give this all-moduli partial theorem in the inspected abstract and source notes. Sellers–Sills–Mullen (2004) supply Guy’s classical no-powers-of-two distinct-part bijection, which explains the generic binary factorization but does not handle adjacent pairs straddling 2^s via the two finite positivity polynomials. The exact two-certificate argument is additional, not a renaming of the classical identity. Craig full primary text unavailable via OA/arXiv and Oxford VPN disconnected; possible implicit theorem remains risk.",
+      "residual_risks": [
+        "Craig full text not accessible via lawful paths; an implicit lemma or appendix may already cover the all-t residue>=5 case.",
+        "A more general partition injection/bijection for adjacent k>=5 could provide equivalent statement without this certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible abstract proves eventual all-t and effective n>8 for 2<=t<=10, not stated all-t r>=5 result. Do not infer full-document noncoverage; possibility remains in residual risks.",
+          "evidence": "Published abstract lines 34–39; Note 2 exceptional triples lines 88–92.",
+          "identifier_or_url": "https://doi.org/10.1007/s40993-022-00355-4",
+          "material_read": "Springer journal abstract, access notice, Notes 1–2 including five suspected exceptions, and references inspected; arXiv html/pdf and OA attempts failed; Oxford Download returned vpn_disconnected. Complete text not inspected.",
+          "method": "Primary journal abstract and numbered notes with lawful institution attempt",
+          "title": "On the number of parts in congruence classes for partitions into distinct parts",
+          "trigger": "Exact same D_{r,t}(n) quantity and plausible full covering inequality"
+        },
+        {
+          "assessment": "Proves Guy/Andrews partition-ideal equivalences and bijections (generic factorization) but not the adjacent-part frequency positivity at powers of two.",
+          "evidence": "Introduction Guy theorem, Theorem 3.1, Section 3.1, Theorem 3.6.",
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_11/PDF/v11i1r43.pdf",
+          "material_read": "19-page public PDF text, introduction, Theorem 3.1 and Section 3.1 proof and partition ideals read; PDF screenshot returned 403 Forbidden.",
+          "method": "Primary journal PDF extracted text; screenshot attempt failed HTTP403",
+          "title": "Bijections and Congruences for Generalizations of Partition Identities of Euler and Guy",
+          "trigger": "Classical power-of-two cancellation / restricted distinct partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Craig distinct-part congruence-class frequency conjecture on unrestricted moduli",
+        "Canonical cutoff k>=5 with complete binary power boundary certificates"
+      ],
+      "rationale": "This proves a natural infinite-domain slice of Craig’s open all-modulus distinct-part frequency ordering problem, with no bound on n or modulus, and eliminates every power-of-two exception above 8 by two universal finite positivity certificates. It reduces the missing adjacent inequalities to k=1..4 while yielding a concrete positive partition interpretation for all generic k. This is a motivated substantial combinatorial threshold and not merely a small-degree verification.",
+      "residual_risks": [
+        "Does not settle residues below five or assert sharpness/strict positivity; significant but partial progress."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The positivity of two polynomials is finite but fully reconstructed exactly, making that computer check a legitimate certificate within a symbolic infinite proof.",
+    "No claim for k<=4 or strict inequalities; boundary n=0 and negative exponents handled by formal series.",
+    "Craig full text not accessible via lawful paths; an implicit lemma or appendix may already cover the all-t residue>=5 case.",
+    "A more general partition injection/bijection for adjacent k>=5 could provide equivalent statement without this certificate.",
+    "Does not settle residues below five or assert sharpness/strict positivity; significant but partial progress."
+  ],
+  "schema_version": 1
+}
