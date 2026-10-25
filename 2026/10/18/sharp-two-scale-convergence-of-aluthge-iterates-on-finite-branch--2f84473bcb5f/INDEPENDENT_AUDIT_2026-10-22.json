@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:17:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/sharp-two-scale-convergence-of-aluthge-iterates-on-finite-branch--2f84473bcb5f/RESULT.md",
+        "2026/10/18/sharp-two-scale-convergence-of-aluthge-iterates-on-finite-branch--2f84473bcb5f/artifacts/verify.py"
+      ],
+      "rationale": "The operator has one root with d≥2 outgoing infinite rays, positive root weights a_i and constant positive tail weights c_i, and fixed 0<t<1. Distinct input columns have disjoint images, so |S_m| is diagonal and the polar recursion is exactly a_{i,m+1}=a_{i,m}c_i^t R_m^{-t/2}, while all tail weights remain c_i. Normalized squared root weights follow softmax ratios proportional to a_i²(c_i/C)^{2tm}; their log-normalization z_m tends to zero as Q rho^{2m}, with rho=max_{c_i<C}(c_i/C)^t and Q the total leading normalized slow mass. The remaining root-column logarithm satisfies h_{m+1}=(1-t)h_m+z_{m+1}-z_m, whence h_m→0. Since all nonroot columns agree throughout, the squared operator-norm error is exactly C²{[e^{(h_m-z_m)/2}-1]^2+e^{h_m}(1-e^{-z_m})}. Comparing the scalar eta=1-t mode with the slow-ray rho mode yields precisely the four nonzero limits, including the quadrature constant at eta=rho and the cancellation H=0 when eta>rho. The series H converges for eta≥rho because the forcing decays as rho^{2m}; root rescaling changes H by 2log(s) without changing rho,Q. The all-equal-tail boundary reduces to a scalar exponential. An independent 35-iterate four-regime recurrence comparison passed; its finite nature is explicitly distinguished from norm-convergence proof.",
+      "residual_risks": [
+        "Finite numerical/modular experiments corroborate but do not substitute for analytic or integer-exact proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trepkowski handles general, even unbounded trees but does not provide norm-convergent iterated constant-tail stars.",
+          "Finite-dimensional iteration survey concerns finite matrices and cautions about infinite-dimensional convergence.",
+          "Rion full original unavailable: Oxford authenticated retrieval returned vpn_disconnected; cannot infer whole-paper noncoverage."
+        ],
+        "reasoning": "Broad operator classes in prior results do not logically imply a stronger all-parameter norm-rate theorem without iteration hypotheses and asymptotic coefficients. Retain priority risk for Rion.",
+        "searches": [
+          "arXiv:1401.4415 Theorem 4.1 and §§5–7",
+          "Rion Houston J Math 42 2016 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1401.4415",
+        "https://www.math.uh.edu/~hjm/restricted/pdf42(4)/09rion.pdf",
+        "https://comptes-rendus.academie-sciences.fr/mathematique/articles/10.1016/j.crma.2016.10.005/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trepkowski eq (4.1) is the immediate weight transform for one application.",
+          "Quasinormal/hyponormal tests classify fixed shifts rather than convergence dynamics.",
+          "A one-ray eventual-lower-bound theorem lacks competing ray weights c_i/C and branch redistribution."
+        ],
+        "reasoning": "None inspected theorem supplies eta vs rho resonance, exact operator-norm coefficients or unique tuning of H. The inaccessible Rion paper is not declared globally non-covering.",
+        "searches": [
+          "Trepkowski arXiv:1401.4415 Theorem 4.1",
+          "Exner Jung Lee 2021 one-branching vertex n-contractivity",
+          "K Rion 2016 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trepkowski arXiv:1401.4415 Theorem 4.1 gives the one-step coefficient multiplier; the present solved normalized ratio/log-mass recurrence adds an infinite-time limit and four sharp constants.",
+          "Rion (2016) abstract describes single-ray SOT convergence or interval of SOT subsequential limits."
+        ],
+        "reasoning": "Compared Aluthge iterates, softmax weights, quasinormalization, and log-mass coupling; a one-step rule becomes the current theorem only after further nontrivial asymptotic analysis.",
+        "searches": [
+          "Resultary: finite branching directed tree Aluthge iteration convergence root weights quasinormal exact rates",
+          "Web: K Rion Convergence properties of the Aluthge sequence of weighted shifts pdf 2016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed results discuss other weighted shifts, numerical radii, and iteration types; none states the root-column four-rate constant table."
+        ],
+        "reasoning": "Search is negative evidence only; no exact table was identified.",
+        "searches": [
+          "Resultary: finite branching directed tree Aluthge iteration convergence root weights quasinormal exact rates",
+          "Resultary: iterated t Aluthge transform directed tree weighted shifts finite branching constant rays norm convergence rate resonance"
+        ]
+      },
+      "rationale": "Trepkowski supplies the one-step tree polar weight update, but not its infinite iteration phase diagram; the same one-branch tree appears in contractivity/hyponormality literature, whose static hypotheses do not imply the exact two-scale asymptotics. A general finite-matrix convergence theorem cannot handle these noncompact ray operators. The historical Rion unilateral-shift paper is a plausible uninspected source, but its abstract addresses strong-limit alternatives for eventually lower-bounded one-ray weights; it does not decisively cover this distinct multi-ray exact-rate classification.",
+      "residual_risks": [
+        "Rion 2016 original not read: authorized institutional tool reported vpn_disconnected; its full historical implications remain a documented priority risk.",
+        "Rates are pointwise for finite positive d and fixed t; no claim for general infinite-branch trees or variable tail weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact one-step formula, not repeated-star asymptotic results",
+          "evidence": "Theorem 4.1 factor is ||S e_v||^t/||S e_parent(v)||^t; subsequent sections concern domains, closability and examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.4415",
+          "material_read": "Full 15-page paper accessed; introduction, Definition 1.1, §4 Theorem 4.1 and formula (4.1), later examples on unbounded shifts",
+          "method": "arXiv primary PDF text with screenshot of Theorem 4.1 page",
+          "title": "Aluthge transforms of weighted shifts on directed trees",
+          "trigger": "same transformation and weighted directed trees"
+        },
+        {
+          "assessment": "PRIORITY_RISK_FULL_TEXT_INACCESSIBLE",
+          "evidence": "Abstract concerns unilateral eventually lower-bounded weights and SOT limits; complete theorems/appendices could not be read.",
+          "identifier_or_url": "https://www.math.uh.edu/~hjm/restricted/pdf42(4)/09rion.pdf",
+          "material_read": "Published abstract and journal bibliographic metadata only; full article unavailable",
+          "method": "Open-access/preprint lookup then authorized institutional request; institutional connector reported vpn_disconnected",
+          "title": "Convergence properties of the Aluthge sequence of weighted shifts",
+          "trigger": "plausible stronger original about iterated weighted shifts"
+        },
+        {
+          "assessment": "Different toral/spherical transformations of commuting two-variable shifts",
+          "evidence": "Studies transform definitions and quasinormal fixed points rather than scalar root-column one-branching dynamics.",
+          "identifier_or_url": "https://comptes-rendus.academie-sciences.fr/mathematique/articles/10.1016/j.crma.2016.10.005/",
+          "material_read": "Primary publisher abstract, definitions of toral/spherical transforms and scope",
+          "method": "Publisher public summary",
+          "title": "Toral and spherical Aluthge transforms of 2-variable weighted shifts",
+          "trigger": "alternative multi-variable shift Aluthge transforms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1401.4415"
+      ],
+      "rationale": "The exact competition between intrinsic slow-ray contraction rho and Aluthge relaxation eta has an operator-norm resonance not visible from one-step formulas; the tunable root-weight normalization that kills the nominal slower eta mode exposes a substantive boundary phenomenon in noncompact operator iteration. A fully quantified finite-branch family with explicit positive constants is a motivated tractable model rather than renaming a scalar recurrence.",
+      "residual_risks": [
+        "Value assessment is confined to the exact claimed object/family and is not a claim of general classification beyond its scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent assessment based on explicitly reconstructed mathematics and actual package files; repository script outputs are corroboration, not proof.",
+    "No worldwide novelty guarantee; inaccessible plausible primary source was recorded where applicable.",
+    "No complete sanitized public-file replacements were staged; publication must remain withheld."
+  ],
+  "schema_version": 1
+}

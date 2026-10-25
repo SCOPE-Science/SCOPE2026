@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining polar decomposition of the weighted-tree shift gives the exact root-weight recursion, preserving each constant ray. The positive root mass reduces to a contractive scalar logarithmic recurrence with exponentially decaying forcing. An exact orthogonal decomposition of the operator-norm error proves the full convergence statement and all four nonzero leading constants, including resonance and the uniquely scaled cancellation case. The equal-tail boundary is handled independently. Direct standalone checks of 6,800 scalar identities corroborate but do not replace the argument. Risks: the proof assumes fixed strictly positive weights and finitely many rays; no assertion beyond these boundaries has been made.
+## correctness
 
-## Originality — PASS (bibliographic uncertainty remains)
-Trepkowski's full 2014 text establishes the single-transform formula, not iterated rates or the closed norm error. The full 2008 Antezana–Pujals–Stojanoff survey treats finite matrices and generic Hilbert-space limitations, not this tree class. Exner–Jung–Lee (2021) and the 2023 one-branching shift study give properties of related operators but do not iterate the Aluthge map. Rion (2016) studies ordinary unilateral shifts, not coupled branches; only its abstract was accessible. The available comparisons do not identify an equivalent/stronger theorem, but full historical priority is not established. The recorded risk about Rion must not be interpreted as a complete-text exclusion.
+PASS
 
-## Value — PASS
-The problem is motivated by the classical failure of general Aluthge convergence on infinite-dimensional Hilbert spaces. The result gives an all-finite-multiplicity noncompact family with exact norm convergence, a quasinormal limit, and a genuine competition of two intrinsic decay scales; the resonance and cancellation transitions are structural, not arbitrary sample computations. A scalar fixed-point observation alone would not deliver the sharp operator-norm phase classification.
+The operator has one root with d≥2 outgoing infinite rays, positive root weights a_i and constant positive tail weights c_i, and fixed 0<t<1. Distinct input columns have disjoint images, so |S_m| is diagonal and the polar recursion is exactly a_{i,m+1}=a_{i,m}c_i^t R_m^{-t/2}, while all tail weights remain c_i. Normalized squared root weights follow softmax ratios proportional to a_i²(c_i/C)^{2tm}; their log-normalization z_m tends to zero as Q rho^{2m}, with rho=max_{c_i<C}(c_i/C)^t and Q the total leading normalized slow mass. The remaining root-column logarithm satisfies h_{m+1}=(1-t)h_m+z_{m+1}-z_m, whence h_m→0. Since all nonroot columns agree throughout, the squared operator-norm error is exactly C²{[e^{(h_m-z_m)/2}-1]^2+e^{h_m}(1-e^{-z_m})}. Comparing the scalar eta=1-t mode with the slow-ray rho mode yields precisely the four nonzero limits, including the quadrature constant at eta=rho and the cancellation H=0 when eta>rho. The series H converges for eta≥rho because the forcing decays as rho^{2m}; root rescaling changes H by 2log(s) without changing rho,Q. The all-equal-tail boundary reduces to a scalar exponential. An independent 35-iterate four-regime recurrence comparison passed; its finite nature is explicitly distinguished from norm-convergence proof.
 
-## Boundaries
-Nonconstant ray sequences, infinitely many branches, nonpositive weights, and parameter-uniform endpoint limits remain open here. The historical Rion text was inaccessible and creates residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Trepkowski supplies the one-step tree polar weight update, but not its infinite iteration phase diagram; the same one-branch tree appears in contractivity/hyponormality literature, whose static hypotheses do not imply the exact two-scale asymptotics. A general finite-matrix convergence theorem cannot handle these noncompact ray operators. The historical Rion unilateral-shift paper is a plausible uninspected source, but its abstract addresses strong-limit alternatives for eventually lower-bounded one-ray weights; it does not decisively cover this distinct multi-ray exact-rate classification.
+
+## value
+
+PASS
+
+The exact competition between intrinsic slow-ray contraction rho and Aluthge relaxation eta has an operator-norm resonance not visible from one-step formulas; the tunable root-weight normalization that kills the nominal slower eta mode exposes a substantive boundary phenomenon in noncompact operator iteration. A fully quantified finite-branch family with explicit positive constants is a motivated tractable model rather than renaming a scalar recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
