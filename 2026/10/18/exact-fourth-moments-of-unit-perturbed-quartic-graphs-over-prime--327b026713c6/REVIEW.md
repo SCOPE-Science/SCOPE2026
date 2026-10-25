@@ -1,15 +1,21 @@
-# Scientific review: unit-perturbed quartic fourth moments
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim concerns ordered additive energy of \((x,x^4+cx^2)\) over \(\mathbb Z/p^2\mathbb Z\) for all primes \(p\ge5\) and unit \(c\). The change to sum and two differences is bijective, and the collision polynomial factors into two independent linear factors and a quadric whose gradient never vanishes on its modulo-prime zero set. A one-factor zero has exactly \(p^2\) lifts; any multiple-component intersection has \(p^3\) lifts. The intersection cardinalities use standard binary quadratic-character sums, and inclusion–exclusion establishes the formula. Every coefficient and normalization was rechecked against independent direct pair-fiber counts, not just against the factorized equation. The phase reversal follows by character substitution, not extrapolation. The proof is valid uniformly in \(p\) and \(c\); finite checks are supplementary.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-Hickman and Wright's 2018 prime-power Fourier restriction work provides polynomial-graph and congruence-estimate context but not this explicit quartic-plus-quadratic constant-input fourth moment. Mockenhaupt and Tao address the finite-field collision mechanism rather than the singular-lift prime-square calculation. Published notes on the unperturbed quartic over finite fields and on the prime-square parabola concern different objects and do not imply the formula for unit quadratic perturbations. Statement, parameter, equivalence, and broader-coverage searches found no directly covering published result. This is a best-knowledge comparison rather than a proof that no older equivalent identity exists; unindexed elementary arithmetic counts remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The additive energy is the exact fourth Fourier moment of constant input on a natural degree-four deformation over the first nonfield local ring. The result covers every prime and every unit coefficient, not a selected numerical slice. It isolates how transverse and singular intersection lifts contribute and exhibits two genuinely distinct quadratic-residue branches with a mod-four reversal of their ordering, together with invariance under changing the higher base-prime digit of the perturbation. These are structural invariants that provide precise test data for local-ring Fourier restriction beyond the known pure-graph and parabolic examples. No sharp unrestricted operator norm is claimed.
+For p≥5 and unit c in Z/p², (a+b=d+e) becomes one-to-one (s,t,w), 2 invertible, and quartic+quadratic equality reduces to (t−w)(t+w)(t²+w²+6s²+4c)≡0 mod p². Every base-p triple in exactly one smooth factor yields p² lifts; any in at least two zero factors yields p³ lifts, no others lift. Q=0 is nonsingular since c is a unit; binary conic H=p−χ(−3), triple intersection J=1+χ(−6c), total quadratic locus p²+p χ(6c). Union U=3p²+p(η−3)+2δ+J, multiple intersection I=3p−2δ−2J, hence E=p²U+p²(p−1)I, giving both formulas. Character substitution χ(−6c)=χ(−1)η yields class difference −2p²(p−3) for p≡1 mod4 and +6p²(p−1) for p≡3 mod4; Fourier orthogonality with probability output p^(−4) yields L4^4=E exactly, not full extension norm. Independent direct pair-sum map (not 3-factor enumeration) verified p=5,7,11, coefficients 1,2,1+p,2+p plus p=7,c=3; e.g. E_5,1=2925, E_5,2=3025, E_7,1=10437, E_7,3=12201. Finite cases do not prove all primes.
 
-## Closest literature and limits
-References in `RESULT.md` identify the principal finite-ring restriction source and finite-field additive-collision source. An older hidden equivalent energy computation cannot be excluded. The proof does not determine the full two-sum fiber spectrum, the nonunit perturbation regime, or the unrestricted sharp extension constant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite-field quartic energy and prime-power quadratic parabola results do not imply the unit-deformed quartic graph collision number over the nonfield Z/p². Crucial smooth-factor versus intersecting-factor lift multiplicities have no analogue in the pure-field formula. Hickman–Wright supplies general ring-restriction setup, not this explicit Legendre residue-class split. Source formulas are compared by objects, parameters, and normalization, not merely titles.
+
+## value
+
+PASS
+
+Constant-input Fourier fourth moment/additive energy is a natural exact invariant of polynomial graphs over local rings, influencing Fourier extension lower bounds and collision structure. The sharp p mod4 reversal of which unit perturbation has greater energy is an unexpected arithmetic classification and cannot be inferred by formally substituting the pure quartic or parabolic cases. Its complete uniform p≥5 count is meaningful even without proving the unrestricted operator norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
