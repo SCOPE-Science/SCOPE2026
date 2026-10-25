@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof identifies the enhanced deficit with the ordinary polygonal isoperimetric deficit of the central symmetral; the area formula in generator lengths gives a circulant sine kernel. Its eigenvalues have an elementary exact trigonometric form, yielding a strictly positive nonconstant spectrum, the optimal parity-dependent coefficient, and complete equality eigenspaces. Positivity of the Fourier soft-mode lengths realizes each sharp equality polygon. All quantifiers include \(n=2\) and \(n=3\), whose entire nonconstant spectra are minimal. The independent reconstruction checker agrees with 1,163 geometric instances of orders \(2\le n\le21\). This finite experiment supports but does not replace the all-order proof.
+PASS
 
-## Originality
+For n>=2, strict convexity/equiangularity and opposite-edge parallelism give the central symmetral Q=(P-P)/2 with edge lengths b_j=(ell_j+ell_(j+n))/2 and L(Q)=L(P). The shoelace cancellation and Brunn–Minkowski sign of the oriented midpoint-chain area give A(Q)=A(P)+2|A*(W)|, so the Wigner-enhanced D is L(Q)^2−8n tan(theta)A(Q) with theta=pi/(2n). The zonogon area is the exact circulant quadratic form B_jr=sin(pi|j−r|/n)/2 (diagonal zero). Its nonconstant Fourier eigenvalues are lambda_k=4n sin^2(theta)/(sin^2(pi k/n)−sin^2(theta)), positive for 1<=k<n; the zero mode vanishes. Parseval gives D=n sum lambda_k |bhat_k|^2. Minimizing lambda_k at maximal sin^2 gives sharp kappa_n=4n tan^2(theta) when n even and 4n sin^2(theta)/cos(2theta) when n odd. Exact equality modes are k=n/2 for even n or the conjugate pair (n±1)/2 for odd n, realized by positive small-amplitude centrally symmetric polygons. For n=2,3 every nonconstant frequency is a minimum, so every admissible polygon realizes equality. I independently constructed circulant matrices and DFT spectra for n=2..44 and verified random positive length forms and soft-mode equality, beyond just reading packaged CHECK.py; this is finite corroboration of the analytic diagonalization.
 
-**PASS, with explicit historical-priority risk.** Konicer et al., arXiv:2606.22612, Theorem 4.4, give nonnegativity and characterize zero deficit. The present claim adds the exact optimal variance coefficient, its even/odd formula, the full Fourier spectrum and all sharp equality modes of the Wigner-enhanced deficit. Their Remark 4.6 credits a general discrete Fourier method, and Kwong (2024) develops that broad machinery: neither inspected statement gives the newly specified sharp coefficient. Indrei (2015) supplies existence of quantitative polygonal stability constants, but not this optimal special-metric coefficient. Close research records concern Wigner-caustic area in a restricted octagon class, stability of reduced odd polygons, or differently constrained equal-area polygons. An uninspected 1985 primary Fourier source and partially accessible zonotope work remain meaningful possible priority overlaps; missing text was not treated as proof of noncoverage.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Opposite-edge pair sums are the natural invariant of the central symmetral governing the enhanced inequality, while the original result gives no numerical control on departure from their equality pattern. The theorem yields globally sharp, scale-consistent control at every order, including an exact parity effect and all minimizing geometric deformations. Its reach is intentionally limited to the equiangular class and does not claim the general CPPOS case.
+Best-of-knowledge novelty is the specific fully quantified invariant, not the underlying classical method or any known special-case total count. The relevant aliases (central symmetral, CPPOS, discrete Fourier inequality and polygonal Wigner caustic) were compared by the actual deficit identities, not by naming alone. An implication in one direction from sharp positivity to zero-deficit classification is not equivalence. The known results do not logically fix lambda_k at each k, so they do not obviously dominate the proposed all-mode refinement.
 
-## Relationship to literature and limits
+## value
 
-The full proof of Theorem 4.4 and Remark 4.6 of the motivating 2026 paper, the full HTML of Kwong (2024), and the primary Indrei (2015) stability PDF were examined. Fisher–Ruoff–Shilleto (1985) could be checked only through bibliographic information and its quotation in Indrei; the full paper was inaccessible. Consequently a narrower formula-level priority risk survives, and no independent validation is claimed. The supplied standard-library checker tests finite examples rather than proving universal positivity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp spectral gap quantifies the precise Wigner-enhanced polygonal isoperimetric deficit in a natural CPPOS class; the parity-dependent κ_n and equality Fourier modes are needed to measure and classify near-extremizers, not implied by a nonnegative deficit or a zero-set theorem. The all-n coefficient and exact spectrum constitute a nontrivial quantitative stability refinement with explicit extremizing geometry, not a restatement of standard Jensen convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T11:00:44.396314Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-fourier-stability-of-the-wigner-enhanced-polygonal-isoperi--2452a42433fb",
+        "RESULT.md pinned Git blob 84e1c82b1302ef3ac41cdfdd5cf5c040d86019cc",
+        "CHECK.py pinned Git blob d5817f8df888cd5ad82f513568a4f1fa88e69caa"
+      ],
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-fourier-stability-of-the-wigner-enhanced-polygonal-isoperi--2452a42433fb",
+        "RESULT.md pinned Git blob 84e1c82b1302ef3ac41cdfdd5cf5c040d86019cc",
+        "CHECK.py pinned Git blob d5817f8df888cd5ad82f513568a4f1fa88e69caa",
+        "Independent audit script: /mnt/data/scope_worker02_run_20261022T1043/independent_checks.py (private working file; independently executed)."
+      ],
+      "rationale": "For n>=2, strict convexity/equiangularity and opposite-edge parallelism give the central symmetral Q=(P-P)/2 with edge lengths b_j=(ell_j+ell_(j+n))/2 and L(Q)=L(P). The shoelace cancellation and Brunn–Minkowski sign of the oriented midpoint-chain area give A(Q)=A(P)+2|A*(W)|, so the Wigner-enhanced D is L(Q)^2−8n tan(theta)A(Q) with theta=pi/(2n). The zonogon area is the exact circulant quadratic form B_jr=sin(pi|j−r|/n)/2 (diagonal zero). Its nonconstant Fourier eigenvalues are lambda_k=4n sin^2(theta)/(sin^2(pi k/n)−sin^2(theta)), positive for 1<=k<n; the zero mode vanishes. Parseval gives D=n sum lambda_k |bhat_k|^2. Minimizing lambda_k at maximal sin^2 gives sharp kappa_n=4n tan^2(theta) when n even and 4n sin^2(theta)/cos(2theta) when n odd. Exact equality modes are k=n/2 for even n or the conjugate pair (n±1)/2 for odd n, realized by positive small-amplitude centrally symmetric polygons. For n=2,3 every nonconstant frequency is a minimum, so every admissible polygon realizes equality. I independently constructed circulant matrices and DFT spectra for n=2..44 and verified random positive length forms and soft-mode equality, beyond just reading packaged CHECK.py; this is finite corroboration of the analytic diagonalization.",
+      "residual_risks": [
+        "Polygon orientation matters: Wigner signed area is nonpositive for the stated convex paired-parallel edges; without that sign A(P)+2|A*(W)| would not equal A(Q).",
+        "No result is asserted for nonequiangular polygonal turning angles, individual opposite-edge differences, or arbitrary signed Wigner chains."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Konicer et al establish only D>=0 with zero-deficit equality in the constant opposite-pair case; their Remark 4.6 cites Fourier methodology but does not state the sharp coefficient or full mode spectrum. Kwong treats general Fourier isoperimetric quadratic forms and edge-energy variants, but the inspected formulas do not deliver this specific Wigner deficit eigenvalue list/soft modes."
+        ],
+        "reasoning": "General Fourier methods could make the calculation possible, but known qualitative nonnegativity is weaker than globally optimal L2 variance stability with complete equality-mode classification. The exact proposed coefficient was compared to prior statements rather than assuming techniques imply values.",
+        "searches": [
+          "Sharp Fourier spectral stability equiangular polygons with parallel opposite sides Wigner caustic enhanced isoperimetric deficit opposite-edge lengths",
+          "Konicer et al Theorem 4.4 and Remark 4.6, arXiv:2606.22612",
+          "Kwong, arXiv:2111.13352"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-fourier-stability-of-the-wigner-enhanced-polygonal-isoperi--2452a42433fb",
+        "Resultary semantic search: Sharp Fourier spectral stability equiangular polygons with parallel opposite sides Wigner caustic enhanced isoperimetric deficit opposite-edge lengths",
+        "https://arxiv.org/abs/2606.22612",
+        "https://arxiv.org/abs/2111.13352",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-wigner-caustic-area-bound-within-the-equiangular-constant--e2fc8c8ec4e3",
+        "https://doi.org/10.2307/2322190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 supplies D>=0 and the precise zero set p_j constant. Resultary octagon study stays on D=0 and controls a DIFFERENT Wigner-area ratio. The new full spectral identity implies those zero-deficit criteria but neither existing result conversely yields its sharp n-dependent positive coefficient."
+        ],
+        "reasoning": "An implication in one direction from sharp positivity to zero-deficit classification is not equivalence. The known results do not logically fix lambda_k at each k, so they do not obviously dominate the proposed all-mode refinement.",
+        "searches": [
+          "https://arxiv.org/abs/2606.22612",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-wigner-caustic-area-bound-within-the-equiangular-constant--e2fc8c8ec4e3",
+          "https://arxiv.org/abs/2111.13352"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The enhanced deficit is exactly the ordinary isoperimetric deficit of a centrally symmetric equiangular zonogon, expressed in opposite-edge pair sums; Fourier-diagonalizing the sine kernel is an equivalent quadratic-form formulation."
+        ],
+        "reasoning": "The relevant aliases (central symmetral, CPPOS, discrete Fourier inequality and polygonal Wigner caustic) were compared by the actual deficit identities, not by naming alone.",
+        "searches": [
+          "Sharp Fourier spectral stability equiangular polygons with parallel opposite sides Wigner caustic enhanced isoperimetric deficit opposite-edge lengths",
+          "https://arxiv.org/abs/2606.22612",
+          "https://arxiv.org/abs/2111.13352"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Wigner octagon result optimized the area proportion |A*(W)|/A(P) exclusively along the zero-enhanced-deficit equality class; it gives no stability spectrum away from D=0. Fisher–Ruoff–Shilleto is a possible earlier polygonal Fourier source, but its full text could not be accessed."
+        ],
+        "reasoning": "Resultary record was materially read in full, and is distinct. No exact same-scope Fourier coefficient database was found; Fisher full-text incompleteness is a named priority risk, not an automatic O failure.",
+        "searches": [
+          "Resultary semantic query: Sharp Fourier spectral stability equiangular polygons with parallel opposite sides Wigner caustic enhanced isoperimetric deficit opposite-edge lengths",
+          "Resultary: 2026/10/11/SCOPE-sharp-wigner-caustic-area-bound-within-the-equiangular-constant--e2fc8c8ec4e3",
+          "https://doi.org/10.2307/2322190"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the specific fully quantified invariant, not the underlying classical method or any known special-case total count. The relevant aliases (central symmetral, CPPOS, discrete Fourier inequality and polygonal Wigner caustic) were compared by the actual deficit identities, not by naming alone. An implication in one direction from sharp positivity to zero-deficit classification is not equivalence. The known results do not logically fix lambda_k at each k, so they do not obviously dominate the proposed all-mode refinement.",
+      "residual_risks": [
+        "Fisher–Ruoff–Shilleto (1985) full text inaccessible: arXiv and lawful OA attempts failed; authorized Oxford connection returned vpn_disconnected. A priority-equivalent older spectral coefficient may remain unexamined.",
+        "The Fourier technique itself is known; the candidate novelty is only this explicitly computed sharp enhanced-deficit spectrum and all equality eigenspaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_ANTECEDENT_NOT_STATED_SHARP",
+          "evidence": "Proves D>=0 and the zero-deficit equality p_j constant; Fourier possibility acknowledged, but no displayed best κ_n or all spectral eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22612",
+          "material_read": "Public complete text accessible in HTML; read Theorem 4.4, equations (4.4)–(4.9), and Remark 4.6 and their surrounding proof/discussion.",
+          "method": "accessible primary full-text HTML with theorem/section inspection",
+          "title": "Convex Polygons with Parallel Opposite Sides: Convergence, Reconstruction, and Isoperimetric Inequalities",
+          "trigger": "Same enhanced isoperimetric deficit and Wigner caustic equality"
+        },
+        {
+          "assessment": "FOURIER_TECHNIQUE_ANTECEDENT",
+          "evidence": "Contains broad Fourier isoperimetric methods, with different edge energies; inspected results do not state the exact opposite-pair Wigner-enhanced κ_n with equality modes.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.13352",
+          "material_read": "Accessible primary text: discrete Fourier forms, principal theorem and applications sections 3–5 inspected; not a full negative index proof.",
+          "method": "lawful open full text with mathematical theorem/formula comparison",
+          "title": "A Unified Approach to Higher Order Discrete and Smooth Isoperimetric Inequalities",
+          "trigger": "General Fourier formula potentially implying n-uniform stability"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_INVARIANT",
+          "evidence": "It optimizes a Wigner area RATIO only within the zero-enhanced-deficit octagonal class, not variance stability of nonconstant pair sums.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-wigner-caustic-area-bound-within-the-equiangular-constant--e2fc8c8ec4e3",
+          "material_read": "Entire public RESULT.md read including finding, proof, equality-family parameterization and limitations.",
+          "method": "published Resultary full GitHub result blob",
+          "title": "Sharp Wigner-caustic area bound within the equiangular constant-width octagon family",
+          "trigger": "Closely named published result involving identical CPPOS/Wigner setup"
+        },
+        {
+          "assessment": "ACCESS_RISK_NOT_FULLY_COMPARED",
+          "evidence": "Unable to inspect the historical complete paper for potentially equivalent older sine-circulant spectrum. This is a residual priority risk, not evidence that it covers the claim.",
+          "identifier_or_url": "https://doi.org/10.2307/2322190",
+          "material_read": "Publisher/bibliographic abstract only; arXiv and lawful OA search did not yield primary full text. Authorized Oxford request returned vpn_disconnected, no reading of article body.",
+          "method": "OA search then authorized institutional request; VPN blocked",
+          "title": "Perpendicular Polygons",
+          "trigger": "Early discrete Fourier/orthogonal polygon theory may encode coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-fourier-stability-of-the-wigner-enhanced-polygonal-isoperi--2452a42433fb",
+        "https://arxiv.org/abs/2606.22612",
+        "https://arxiv.org/abs/2111.13352",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-wigner-caustic-area-bound-within-the-equiangular-constant--e2fc8c8ec4e3",
+        "https://doi.org/10.2307/2322190"
+      ],
+      "rationale": "The sharp spectral gap quantifies the precise Wigner-enhanced polygonal isoperimetric deficit in a natural CPPOS class; the parity-dependent κ_n and equality Fourier modes are needed to measure and classify near-extremizers, not implied by a nonnegative deficit or a zero-set theorem. The all-n coefficient and exact spectrum constitute a nontrivial quantitative stability refinement with explicit extremizing geometry, not a restatement of standard Jensen convexity.",
+      "residual_risks": [
+        "The result is limited to the equiangular subgroup; it cannot bound raw individual opposite-side differences or general CPPOS polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
