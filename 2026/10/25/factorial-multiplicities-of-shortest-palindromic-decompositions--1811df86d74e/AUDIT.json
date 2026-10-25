@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every Zimin palindrome is exactly an integer interval corresponding to a forward Gray-cube edge; proof includes converse and 2-adic center bound. All minimum hypercube paths flip target bits once. Index monotonicity is equivalent to an even number of previously chosen greater bit positions, so deleting the last choice gives the exact recurrence and factorial solution. Literal-palindrome dynamic programming checks prefixes 0..500.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li 2020 enumerates admissible mask operations and their minimum number, without counting all optimal orderings in the full inspected text.",
+        "Fici et al. Lemma 12 states exactly popcount(n) palindromic suffixes."
+      ],
+      "reasoning": "The prior minimum-length and suffix-count statements are not upper bounds or enumeration formulas for distinct optimal decompositions; their methods could inspire one, but do not explicitly establish this count.",
+      "searches": [
+        "arxiv:2007.08317 sections 3–6, Theorem 1 and Proposition 1",
+        "arxiv:1403.2431 sections 2 and 4, Lemma 12",
+        "Web: \"palindromic length\" \"optimal decompositions\" ruler"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.2431 (primary full PDF, inspected relevant pages)",
+      "arxiv:2007.08317 (primary full HTML)",
+      "oeis:A005811",
+      "published-finding corpus semantic search for formula/aliases; top IDs related published-finding corpus records on other problems, related published-finding corpus records on other problems; both concern different combinatorial objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Li gives minimum number of factors; Proposition 1 gives minimum number of masks.",
+        "The Zimin suffix lemma measures the number of suffix palindromes, without enumeration of complete optimal partitions."
+      ],
+      "reasoning": "The exact new theorem requires analyzing which permutations of distinct Gray flips produce increasing time coordinates; the prior scalar and suffix results do not imply that every permitted order gives an optimal partition or establish the factorial count.",
+      "searches": [
+        "arxiv:2007.08317 Theorem 1 and Proposition 1",
+        "arxiv:1403.2431 Lemma 12",
+        "published-finding corpus: Count all minimum palindromic factorizations of a finite prefix of the infinite Zimin/ruler word: if binary n has r runs, the number equals factorial(ceil(r/2)) times factorial(floor(r/2)); monotone Gray code cube paths."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li 2020 Theorem 1 (arxiv:2007.08317) shows minimum length equals binary-run count; that also equals popcount of Gray integer, but not count of minimizers.",
+        "No multiplicity theorem located by these queries."
+      ],
+      "reasoning": "Compared count of optimal cut lists, not minimum length. Binary-run equivalence is prior work, but a single scalar optimum does not fix its multiplicity.",
+      "searches": [
+        "published-finding corpus: Count all minimum palindromic factorizations of a finite prefix of the infinite Zimin/ruler word: if binary n has r runs, the number equals factorial(ceil(r/2)) times factorial(floor(r/2)); monotone Gray code cube paths.",
+        "Web: \"ruler sequence\" \"number of optimal\" \"palindromic\"",
+        "Web: \"Zimin\" \"optimal palindromic factorizations\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005811 records the minimum-length/runs sequence; no table of all optimal factorization multiplicities found in inspected results."
+      ],
+      "reasoning": "An existing table for r(n) is not a table for factorial(r/2)-product multiplicities; no exact relevant count table found.",
+      "searches": [
+        "OEIS A005811: digit runs (with Li 2020 citation)",
+        "published-finding corpus: Count all minimum palindromic factorizations of a finite prefix of the infinite Zimin/ruler word: if binary n has r runs, the number equals factorial(ceil(r/2)) times factorial(floor(r/2)); monotone Gray code cube paths.",
+        "Web: \"ruler sequence\" \"palindromic\" factorial factorizations"
+      ]
+    },
+    "rationale": "The exact factorial multiplicity is not the previously proved minimum-length statement. Fici et al. Lemma 12 counts palindromic suffixes, Li 2020 Theorem 1 counts minimum palindromic length via binary runs. Neither inspected full text states the number of distinct optimal cut sequences. The present direct bijection to strictly increasing Gray-cube geodesics yields an explicit factorial formula and does not follow from scalar minimum length alone. Earlier unindexed results remain possible.",
+    "residual_risks": [
+      "Semantic and web searches do not establish absence from unindexed or unpublished literature.",
+      "A separate independent mathematical audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_BACKGROUND_ONLY",
+        "evidence": [
+          "Page 10 Lemma 12 counts suffix palindromes B(n), not optimal complete partitions.",
+          "Page 12 Theorem 13 analyzes worst-case algorithm runtime."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.2431",
+        "material_read": "Abstract, introductory definitions, Lemma 12 proof, Theorem 13 and adjacent pages",
+        "method": "Primary arXiv PDF text and rendered page inspection",
+        "title": "A Subquadratic Algorithm for Minimum Palindromic Factorization",
+        "trigger": "Same Zimin word, palindromic suffix characterization and algorithm"
+      },
+      {
+        "assessment": "PRIOR_MINIMUM_LENGTH_NOT_MULTIPLICITY",
+        "evidence": [
+          "Theorem 1 identifies the exact minimum as binary-run count.",
+          "Proposition 1 addresses minimal masks; no enumeration of their admissible orderings or exact factorial count appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.08317v1",
+        "material_read": "Complete HTML article, in particular sections 3–6, Proposition 1, Theorem 1 and concluding remarks",
+        "method": "Full arXiv HTML text with theorem and section navigation",
+        "title": "Palindromic length sequence of the ruler sequence and of the period-doubling sequence",
+        "trigger": "Likely stronger scalar optimum theorem, risk of coverage"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": [
+          "A005811 is digit-run count for binary n, not partition multiplicity."
+        ],
+        "identifier_or_url": "https://oeis.org/A005811",
+        "material_read": "Definition, formulas, attribution to 2020 Li article",
+        "method": "Online sequence entry text",
+        "title": "OEIS A005811",
+        "trigger": "Sequence matching the minimum lengths"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1811df86-d74e-44f4-b439-2dc0fdedd87c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All optimal palindromic factorizations are natural combinatorial objects whose population is not controlled by knowing merely their minimum number of pieces. The theorem supplies an all-length factorial enumerator and explicit Gray-geodesic classification, revealing a universality across binary-run lengths; no arbitrary subfamily or parameter is introduced.",
+    "status": "PASS"
+  }
+}
