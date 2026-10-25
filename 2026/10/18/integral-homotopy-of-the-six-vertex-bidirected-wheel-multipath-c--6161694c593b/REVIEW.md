@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The theorem refers to exactly the twenty directed arcs of the bidirected six-vertex wheel. A pair of exhaustive enumerations agrees on all 871 faces, and an acyclic matching with 408 pairs is checked against all 2910 Hasse incidences. The signed integral Morse matrices have unit Smith rank ten from degree three to two and zero from degree four to three. Integral four-cycles are lifted from every top critical cell, and two spanning degree-two cocycles have vanishing cup evaluations on every lifted four-cycle. The simply connected three-skeleton and integral Hilton–Milnor description of its third homotopy group show that these computations nullify the ten four-cell attaching maps. All scripts have been replayed from their deliverable file paths.
+## correctness
 
-## Originality
-Compared with arXiv:2208.04656 (multipath complexes; no wheel classification), arXiv:2601.05670 (bidirected polygonal graphs with no hub), arXiv:2110.11206 (path posets and cohomology) and searched mathematical records. The closest indexed result concerns bidirected double-star trees, whereas published wheel Morse-complex results concern a different complex. Neither statement subsumes the wheel multipath result. The indexed search is not comprehensive, and an unindexed equivalent treatment remains possible.
+PASS
 
-## Value
-A standard, vertex-transitive family of graphs acquires a natural new bidirected instance with homology in three consecutive dimensions. Unlike rank-only computations, the theorem determines integral torsion and all potentially nontrivial degree-four attaching maps. The precise small symmetric graph is a meaningful comparison point for bidirectional polygonal and tree results. The theorem intentionally asserts no uniform classification for larger wheels.
+For the full 20-arc bidirected wheel C5*K1, independent two-method enumeration confirms 871 augmented faces with cardinalities (1,20,130,330,310,80). Newly computed mod-2 ranks (19,111,217,70) yield H2=2,H3=23,H4=10. Exact greedy Morse matching of 408 incidences including empty cell has residual critical 12 2-cells,33 3-cells and 10 4-cells; verified acyclicity and integer d3 of unit rank ten, d4=0. Independently reconstructed integer Morse chains, two rationally independent integral 2-cocycles and ten exact integral top 4-cycles, each with zero simplicial boundary; all 30 independent unordered cup evaluations are exactly zero. Algebraic unit cancellations give 3-skeleton ∨2 S² ∨23 S³. H2 diagonal and mixed Alexander–Whitney cup products annihilate its two Hopf and one Whitehead components of π3(∨2 S²), while d4 eliminates 3-sphere degrees; integral torsion-free π3 makes ten 4-cell maps null. Thus integral wedge ∨2 S2 ∨23 S3 ∨10 S4.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Directed path-system/multipath complex of bidirected wheel with 5-cycle rim + one universal hub, not the ordinary discrete-Morse complex of a wheel, ordinary edge matching complex, or bidirected pentagon alone. Caputi et al polygonal digraph theory covers bidirected C5 but adding hub arcs changes simplicial vertices and face constraints fundamentally; published wheel discrete-Morse characters address a different graph invariant. No stronger paper inspected computes this 20-arc multipath wedge. General multipath formalism defines the object but no formula for wheel hub case. Ordinary wheel discrete-Morse complex uses graph gradient-matchings, not arc subsets. Thus neither a same-object theorem nor a dominating parameter family found.
+
+## value
+
+PASS
+
+Wheel W6 is a canonical finite graph with universal hub and odd cycle; its bidirected directed-path complex includes path compatibility and directed-cycle constraints absent from ordinary graph matching complexes. Exact integral 2/3/4 homotopy wedge and vanishing quadratic attaching obstructions are a motivated natural finite invariant, useful to compare to bidirected polygons and more general wheel families, not an unmotivated recomputation of a standard textbook object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
