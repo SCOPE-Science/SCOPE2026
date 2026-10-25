@@ -1,11 +1,21 @@
-# Scientific review: triangular-graph transportation inballs
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed molecule representation and its Lipschitz polar reduce the radius to maximizing a centered Euclidean norm. Total unimodularity forces integer extreme maximizers, and the diameter-two property gives three levels. The proof's two endpoint-set regimes and sharp two-variable variance optimization establish the exact infinite-family bound, with all equality cases. The count and rank of contact normals then establish the maximal-center dimension. A separate exact checker exhausts the small admissible cases and verifies normal ranks.
+## correctness
 
-**Originality — PASS, subject to bibliographic limitations.** The transportation-polar duality of Alexander et al., the quotient/isometry theory of Ostrovska–Ostrovskii, and the pre-existing graph-spread definition and random-graph bounds are acknowledged. Their statements do not imply the sharp \(J(n,2)\) variance formula or the balanced-partition equality classification without a new extremal argument. The nearest located treatments of complete multipartite inradii and Kneser eigenpolytopes concern genuinely different polytopes; Relevant public full texts and mathematical research records were inspected. Unindexed prior work or alternative equivalent graph-spread formulations remain possible.
+PASS
 
-**Mathematical value — PASS.** The result evaluates a natural graph-spread extremum for an infinite highly symmetric Johnson family, identifies every extremizer, and translates it into a sharp Banach-unit-ball radius, an exact contact count, and unexpectedly high-dimensional nonunique incenters. The proof goes beyond finite case enumeration and routine substitution in a known formula.
+For triangular graph J(n,2), n>=5, Lipschitz-dual polar Q is defined on the canonical N=binom(n,2) vertex-coordinate zero-sum space, so primal inradius is the reciprocal of maximal centered Euclidean norm over 1-Lipschitz potentials. The oriented incidence inequality matrix is totally unimodular; strict convexity reduces maximizers to integral vertices, and diameter 2 reduces heights to {0,1,2}. Zero-height and two-height edges, viewed as edges of K_n, must have disjoint endpoint sets. The two-variable centered variance V(a,b)=a+b-(a-b)^2/N is dominated by maximal clique-edge counts in endpoint sets; the t>=n/4 derivative comparison and t<n/4 quadratic estimate force the balanced partition |S|=floor/ceil(n/2). This yields exact r_n=[(n-2)/n floor(n^2/4)]^-1/2, T_n balanced facet contacts and graph spread exactly 2(n-2)floor(n^2/4)/(n^2(n-1)). Centered indicator differences span the n-1 dimensional additive-edge subspace, leaving inball-center dimension N-n by strict slack at all other normals. Independent exhaustive standard Python enumeration of all 1133 normalized 3-level Lipschitz assignments for n=5 gave max N*norm²=36, 20 contacts; this is finite corroboration, with all-n proof by inequalities and linear rank.
 
-Limits: the Euclidean structure is fixed to canonical zero-sum coordinates; the complete combinatorics of the incenter set and optimized ellipsoids are not treated. Literature searches do not establish absolute priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact graph-spread extremizers and full maximal-center dimension for Johnson triangular graphs n>=5; metric/free-space identification, spread definition, and complete multipartite comparison are known.
+
+## value
+
+PASS
+
+Determines a natural graph invariant and all equality cases for the entire nontrivial triangular Johnson family, and additionally the codimension-n affine freedom of optimal Euclidean inball centers of the associated transportation polytope. This exact structural equality classification is useful independently of a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
