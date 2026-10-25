@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:03:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian STFT radial Hermite eigenvalues are λ_n(a,w)=1/n!∫_a^{a+w}e^(−u)u^n du. Telescoping adjacent difference equals [e^(−a)a^(n+1)−e^(−(a+w))(a+w)^(n+1)]/(n+1)!, with sign of H(a,w)−(n+1), H=w/log(1+w/a), and H(0,w)=0. Thus unique maximum at floor H and adjacent tie only when H=m; crossing a_m=w/(e^(w/m)−1). Crossing derivative jump is w e^(−a_m)a_m^(m−1)/((m−1)!(a_m+w))>0, with asymptotic w/(sqrt(2π)m^(3/2)). Center c=a+w/2, Stirling uniformly for bounded maximizer n−c and s∈[−w/2,w/2] yields relative correction −[B2({c})/2+w²/24]/c with uniform O_w(c^(−2)); rare floor(c)−1 maximizing cases near integer c change coefficient only O(1/c). Fractional c dense along chosen sequences gives exact second-term range. Independent high-precision incomplete-gamma top-mode calculations verified crossings for 12 (m,w) cases, and two-term numeric errors ~10^(−9) at a≈1000 for w=1. These finite checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Daubechies radial Gaussian Hermite diagonalization and Knutsen operator norm bound (Proposition 3.1)"
+        ],
+        "reasoning": "General diagonalization alone is an input; it does not imply the full maximizing-mode staircase with exact w-dependent corners or the periodic second coefficient. Knutsen w=1 bound has error of precisely the new term order.",
+        "searches": [
+          "Gaussian ring operator norm maximizer index logarithmic mean exact annulus crossing Bernoulli polynomial",
+          "Daubechies 1988 time-frequency localization operator"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+        "https://doi.org/10.1109/18.9761",
+        "https://arxiv.org/abs/1202.5841",
+        "Resultary query: Gaussian STFT annular localization Hermite eigenvalue crossings Bernoulli polynomial fractional center norm asymptotic",
+        "Resultary query: Gaussian ring operator norm maximizer index logarithmic mean exact annulus crossing Bernoulli polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knutsen shows 2 neighboring modes and O(R^−3) error, not exact tie or B2({c}); Abreu–Dörfler focus inverse shape rigidity"
+        ],
+        "reasoning": "The claimed second asymptotic term cannot be deduced from an O(R^−3) interval without a sharper evaluation and maximizing-index resolution; the prior numerical radius-order cannot dominate the uniform fractional-center correction.",
+        "searches": [
+          "Knutsen open-access JFAA 26 (2020) §3.1 Prop3.1 proof",
+          "Abreu–Dörfler 2012 inverse localization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knutsen annular eigenvalues have identical Poisson interval integrals after a=πR²,w=1; paper allows maximizing index among m,m+1"
+        ],
+        "reasoning": "Reparametrization shows same spectral family in w=1, but index bound does not determine exact switching by the logarithmic mean nor give transversality/cusp.",
+        "searches": [
+          "Gaussian STFT annular localization Hermite eigenvalue crossings Bernoulli polynomial fractional center norm asymptotic",
+          "Knutsen 2020 Section 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Knutsen fixed-area ring leading norm ± C R^(−3) but no next coefficient; no relevant Resultary exact annular table among hits"
+        ],
+        "reasoning": "The exact formula is a continuum of crossings and oscillatory asymptotic, not a known finite integer table. Absence of a matching table is not proof of novelty.",
+        "searches": [
+          "Resultary semantic Gaussian STFT annular localization Hermite eigenvalue crossings Bernoulli polynomial fractional center norm asymptotic",
+          "Knutsen 2020 Prop 3.1"
+        ]
+      },
+      "rationale": "The nearest primary source Knutsen (2020), open-access Section 3.1, treats the exact same Gaussian ring with w=1, but only bounds the maximizing index by two neighboring integers and gives leading R^(−1) norm with O(R^(−3)) error. The new continuous w>0 crossing radii, strict cusp jumps, Bernoulli-fractional-center coefficient and full subsequential range are not furnished by this general bound or by the underlying radial eigenvalue formula. Possible implicit local Poisson central-limit expansion with lattice corrections is a residual priority risk.",
+      "residual_risks": [
+        "Classical refined local central-limit/Poisson saddlepoint results may implicitly encode the B2 correction; exact prior application to the operator not exhaustively ruled out.",
+        "Asymptotic requires w fixed as a→∞; no uniform growing-width conclusion.",
+        "Numeric incomplete-gamma differences can suffer cancellation at extreme a; the proof is asymptotic Stirling, not floating-point evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_STRICTLY_WEAKER_BOUND",
+          "evidence": "Knutsen (2020) §3.1: λ_k=∫_a^{a+1}e^{−u}u^k/k! du, identifies only candidate m/m+1 near a and ||P||=(π√2 R)^−1+O(R^−3), not the crossings a_m, jump amplitudes, or Bernoulli fractional-center coefficient.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+          "material_read": "Open-access HTML Section 2 Hermite spectrum and complete Section 3.1 ring construction, index bound, Proposition 3.1 and proof",
+          "method": "Full open-access article HTML reading, exact equation and asymptotic comparison",
+          "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "Identical Gaussian annulus localization operator and operator norm at w=1"
+        },
+        {
+          "assessment": "SPECTRAL_INPUT_ONLY",
+          "evidence": "Daubechies (1988) supplies radial Gaussian Hermite diagonalization; does not in the compared theorem establish fixed-width annular spectral switching or periodic second coefficient.",
+          "identifier_or_url": "https://doi.org/10.1109/18.9761",
+          "material_read": "Classical spectral theorem as reproduced and cited in open-access Knutsen 2020, not a claim of independent full 1988 text reading",
+          "method": "Known theorem comparison through precise cited primary result",
+          "title": "Time-frequency localization operators: A geometric phase space approach",
+          "trigger": "Gaussian radial localization Hermite eigenbasis and exact eigenvalue integral"
+        },
+        {
+          "assessment": "INVERSE_GEOMETRY_NOT_SHARP_ANNULUS_NORM",
+          "evidence": "Abreu–Dörfler (2012) concern inverse Hermite eigenfunction and domain geometry, not maximizing-mode transition and Bernoulli norm law.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.5841",
+          "material_read": "ArXiv abstract and cited statement about radial annular symmetry, not the complete manuscript",
+          "method": "Original-source model and theorem-level comparison",
+          "title": "An Inverse Problem for Localization Operators",
+          "trigger": "Concentric annuli preserve Hermite eigenfunctions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining which Hermite mode actually maximizes an annular time-frequency mask is a natural spectral optimization problem explicitly left at adjacent ambiguity in the primary source. Exact eigenvalue switching and corner amplitudes resolve this ambiguity, and the uniform oscillatory next term sharpens a known O(R^(−3)) uncertainty with the important fact that no constant correction exists. The exact fixed-width classification is mathematical substance beyond a routine asymptotic evaluation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+    "https://doi.org/10.1109/18.9761",
+    "https://arxiv.org/abs/1202.5841",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909",
+    "Git RESULT.md blob: 273b10237befe912a7ea3c7c87dcf726f5944e72",
+    "Resultary semantic search: Gaussian STFT annular localization Hermite eigenvalue crossings Bernoulli polynomial fractional center norm asymptotic",
+    "Resultary semantic search: Gaussian ring operator norm maximizer index logarithmic mean exact annulus crossing Bernoulli polynomial"
+  ],
+  "disposition": "passed",
+  "limitations": "Gaussian normalized window, single concentric annulus; only fixed w>0 for two-term asymptotic, full exact crossings a≥0.",
+  "residual_risks": [
+    "Classical refined local central-limit/Poisson saddlepoint results may implicitly encode the B2 correction; exact prior application to the operator not exhaustively ruled out.",
+    "Asymptotic requires w fixed as a→∞; no uniform growing-width conclusion.",
+    "Numeric incomplete-gamma differences can suffer cancellation at extreme a; the proof is asymptotic Stirling, not floating-point evidence."
+  ],
+  "schema_version": 1
+}

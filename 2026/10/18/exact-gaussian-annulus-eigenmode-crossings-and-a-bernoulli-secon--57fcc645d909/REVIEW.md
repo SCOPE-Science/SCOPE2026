@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The radial Gaussian STFT reproducing formula, including its normalization in the variable \(u=\pi(x^2+\xi^2)\), gives \(\lambda_n=\int_a^{a+w}e^{-u}u^n/n!\,du\). An exact adjacent-eigenvalue boundary identity gives the unique maximum or precisely one consecutive tie at the logarithmic-mean thresholds; monotonicity of that logarithmic mean excludes all other crossings. Differentiating the boundary identity at the tie proves a strictly positive jump in the derivative of the operator norm. The uniform Stirling expansion, with the maximizing index at a bounded offset from the annular mean, gives the Bernoulli second-order coefficient and a relative \(O_w(c^{-2})\) remainder even next to a mode switch. The oscillation interval follows by selecting the fractional part of \(c\). An executable high-precision checker made 450 successful numerical assertions on integrals, mode orderings, ties, cusp amplitudes and the asymptotic coefficient. These finite checks are corroborative only; the unrestricted theorem is established by the analytic proof.
+## correctness
 
-## Originality — PASS, with limitations
-The Hermite diagonalization and incomplete-gamma eigenvalues originate with Daubechies (1988). Abreu–Dörfler (2012, arXiv:1202.5841) studies inverse geometric rigidity and notes the persistence of Hermite modes on concentric annuli. The closest direct comparison is Knutsen, *Daubechies' Time-Frequency Localization Operator on Cantor Type Sets I* (2020), Section 3.1: the identical Gaussian ring with area one has the exact integral eigenvalues, a two-neighbor mode localization, and the leading norm estimate with an unspecified error of order \(O(R^{-3})\). This proves that those ingredients cannot be claimed as new. Neither the inspected full sections of that work nor the other inspected sources gives the exact logarithmic-mean mode transition set, its one-sided derivative jumps, or the explicit radius-dependent Bernoulli coefficient at the previously unresolved \(R^{-3}\) order. Consequently the combined theorem is not implied by the statements inspected. Residual priority risk: a local Poisson asymptotic, incomplete-gamma interval maximization or numerical special-function study outside the inspected literature could imply or state an equivalent formula.
+PASS
 
-## Mathematical value — PASS
-The Gaussian annulus is a standard nontrivial test case for phase-space concentration and appears explicitly in a published operator-norm estimate. The theorem determines, for every annular area and radius, exactly which Hermite state maximizes concentration and quantifies all nonsmooth transitions. Most importantly it resolves the precise next-order error left unspecified in a relevant existing annular estimate and proves a nonconstant oscillatory coefficient and sharp accumulation interval. It is a natural structural refinement, not a fixed numerical special case or mere restatement of diagonalization.
+Gaussian STFT radial Hermite eigenvalues are λ_n(a,w)=1/n!∫_a^{a+w}e^(−u)u^n du. Telescoping adjacent difference equals [e^(−a)a^(n+1)−e^(−(a+w))(a+w)^(n+1)]/(n+1)!, with sign of H(a,w)−(n+1), H=w/log(1+w/a), and H(0,w)=0. Thus unique maximum at floor H and adjacent tie only when H=m; crossing a_m=w/(e^(w/m)−1). Crossing derivative jump is w e^(−a_m)a_m^(m−1)/((m−1)!(a_m+w))>0, with asymptotic w/(sqrt(2π)m^(3/2)). Center c=a+w/2, Stirling uniformly for bounded maximizer n−c and s∈[−w/2,w/2] yields relative correction −[B2({c})/2+w²/24]/c with uniform O_w(c^(−2)); rare floor(c)−1 maximizing cases near integer c change coefficient only O(1/c). Fractional c dense along chosen sequences gives exact second-term range. Independent high-precision incomplete-gamma top-mode calculations verified crossings for 12 (m,w) cases, and two-term numeric errors ~10^(−9) at a≈1000 for w=1. These finite checks are corroboration only.
 
-## Limitations and citation scope
-The proof requires fixed annular area for the two-term asymptotics, and the window must be Gaussian. The claim excludes broader masks and growing-bandwidth asymptotics. Priority remains uncertain beyond the inspected full texts and semantic indexing; the absence of a retrieved identical title alone is not novelty evidence. The historical 1988 article is earlier groundwork whose exact first public day has not been established; the explicitly dated archived source is the February 27, 2012 arXiv submission.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest primary source Knutsen (2020), open-access Section 3.1, treats the exact same Gaussian ring with w=1, but only bounds the maximizing index by two neighboring integers and gives leading R^(−1) norm with O(R^(−3)) error. The new continuous w>0 crossing radii, strict cusp jumps, Bernoulli-fractional-center coefficient and full subsequential range are not furnished by this general bound or by the underlying radial eigenvalue formula. Possible implicit local Poisson central-limit expansion with lattice corrections is a residual priority risk.
+
+## value
+
+PASS
+
+Determining which Hermite mode actually maximizes an annular time-frequency mask is a natural spectral optimization problem explicitly left at adjacent ambiguity in the primary source. Exact eigenvalue switching and corner amplitudes resolve this ambiguity, and the uniform oscillatory next term sharpens a known O(R^(−3)) uncertainty with the important fact that no constant correction exists. The exact fixed-width classification is mathematical substance beyond a routine asymptotic evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
