@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The source algorithm's single-active-coordinate rank-one update is reduced to an exact Bernoulli-switching two-state recurrence. Its linearization, covariance transfer matrix, exact determinant, small-step derivative, PSD-cone spectral-radius argument, and large-step instability establish an if-and-only-if frontier with boundary behavior. A standalone standard-library verifier independently checks the algebra by exact rational arithmetic (1,403 assertions). The full nonlinear iteration is not claimed globally unstable.
+
+**Originality — PASS under the accessible record; publication priority remains uncertain.** The complete accessible mathematical argument in Tsipinakis–Parpas (arXiv:2309.05309v1) was compared with the source's randomized restriction and momentum algorithm; it does not state the displayed Bernoulli mean-square threshold. Related exact-result database records for Bernoulli error feedback, scalar MARINA, KGSM, constant-step Signum, and deterministic clipped heavy-ball concern different moment operators and do not dominate this claim. Relevant stochastic control literature supplies general covariance stability criteria but not the present exact parameters. Equivalent results in specialized stochastic optimization remain a residual risk.
+
+**Mathematical value — PASS.** The closed-form sharp boundary gives an actionable step/momentum/coarse-sampling tradeoff for a published optimizer and establishes a qualitative gap: when the sampled-coordinate fraction is fixed below one, the admissible linearized mean-square step vanishes as momentum approaches one, despite the finite full-coordinate threshold. This nontrivial sampling–momentum interaction is not a normalization check. It is a local and deliberately narrow structural result, not a general convergence theorem.
+
+**Closest sources and limits.** Tsipinakis–Parpas (2023) is the originating algorithm. Mathematical-record results on scalar MARINA, Bernoulli error feedback and other momentum algorithms have differing update states and cannot simply be read as the same theorem. No independent priority or correctness assessment has been performed, and specialized literature could contain an equivalent statement.
+
+Self-review: passed. Independent audit: not yet performed.

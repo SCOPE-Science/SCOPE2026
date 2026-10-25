@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact nonlinear restricted recurrence and derivative A0,A1 established directly from rank-one floor. Covariance matrix reconstructed. Identity det(I-M)=qs[2(1-beta²)-(1+beta-2beta q)s] checked algebraically; PSD cone spectral radius must be positive real eigenvalue, unique positive +1 crossing; small-s derivative negative and large-s trace diverges, giving exact iff result. Standalone exact-rational verifier passes 1403 assertions. Nonlinear global instability is not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2402.04074 discusses general stochastic communication stability criteria, not the Simba specialization",
+        "arxiv:2309.05309v1 provides general algorithm and deterministic convergence context but no random linearized threshold"
+      ],
+      "reasoning": "General positive-operator spectral-radius criteria are known and used as proof ingredients, but those abstract criteria do not themselves specify the sharp stability frontier of the Simba sampling mechanism. Existing specialized algorithm results do not dominate the claimed q,beta formula.",
+      "searches": [
+        "random coordinate selection momentum SGD with exponentially averaged gradients, gradient normalization random update, exact 3 by 3 moment recurrence stability",
+        "randomized signum normalized stochastic momentum dropout coordinate selection Bernoulli exact local mean-square stability threshold eigenvalue floor",
+        "mean-square stability momentum coordinate dropout quadratic random update",
+        "2026/10/4/SCOPE-exact-half-dropout-mean-square-stability-frontier-for-scalar-mar--a7f750c71557",
+        "2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+        "2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2309.05309",
+      "https://arxiv.org/abs/2402.04074",
+      "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+      "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+      "2026/10/4/SCOPE-exact-half-dropout-mean-square-stability-frontier-for-scalar-mar--a7f750c71557",
+      "2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+      "2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary algorithm supplies the update definition but its convergence analysis does not establish the exact Bernoulli covariance spectral boundary",
+        "MARINA and Bernoulli error-feedback have different stored-gradient/error-memory state laws"
+      ],
+      "reasoning": "The source algorithm implies the update recurrence on the chosen invariant coordinate, which is acknowledged. The stated sharp q-dependent boundary requires new parameter-specific covariance/determinant analysis not presented in the compared work. Independent priority remains uncertain.",
+      "searches": [
+        "Simba Tsipinakis Parpas arxiv 2309.05309 randomized coarse coordinate preconditioning momentum beta exact local mean square stability Bernoulli selection 2(1-beta^2)/(1+beta-2beta q)",
+        "Simba Tsipinakis Parpas mean square momentum randomized coordinates",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "2026/10/4/SCOPE-exact-half-dropout-mean-square-stability-frontier-for-scalar-mar--a7f750c71557",
+        "2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2309.05309v1, Algorithms and convergence sections: stochastic restriction and EMA but no exact local covariance frontier",
+        "Bernoulli error-feedback and KGSM records have distinct memory/error-recurrence matrices"
+      ],
+      "reasoning": "Matrix-level comparison: an exact scalar threshold for random-coordinate Simba requires the joint (x,G) covariance operator shown in the proof. The listed similarly named stability results correspond to different state-transition laws, so no algebraic equivalence or implication follows.",
+      "searches": [
+        "Simba randomized coarse restriction momentum, mean square stability scalar quadratic under Bernoulli coordinate sampling q, exact critical step 2(1-beta squared)/(1+beta-2beta q)",
+        "random coordinate selection momentum SGD with exponentially averaged gradients, gradient normalization random update, exact 3 by 3 moment recurrence stability",
+        "Simba Tsipinakis Parpas arxiv 2309.05309 randomized coarse coordinate preconditioning momentum beta exact local mean square stability Bernoulli selection 2(1-beta^2)/(1+beta-2beta q)",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus semantic searches returned the listed related records and no identical threshold",
+        "The claimed curve is derived from a characteristic polynomial, not an external numerical table"
+      ],
+      "reasoning": "Searched source algorithm, closed-form threshold parameters and alternative coordinate-dropout labels. No exact database/table entry identified; search absence alone does not establish novelty.",
+      "searches": [
+        "Simba randomized coarse restriction momentum, mean square stability scalar quadratic under Bernoulli coordinate sampling q, exact critical step 2(1-beta squared)/(1+beta-2beta q)",
+        "Simba Tsipinakis Parpas arxiv 2309.05309 randomized coarse coordinate preconditioning momentum beta exact local mean square stability Bernoulli selection 2(1-beta^2)/(1+beta-2beta q)",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "2026/10/4/SCOPE-exact-half-dropout-mean-square-stability-frontier-for-scalar-mar--a7f750c71557",
+        "2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+        "2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "rationale": "Compared the exact derivative covariance matrix, sharp zero of det(I-M), iid coordinate sampling, and momentum parameter law with the 2023 primary Simba algorithm and the closest mathematical records. The exact formula and sampling-momentum collapse were not covered by the inspected claims. This is best-knowledge originality with residual specialty-literature priority risk.",
+    "residual_risks": [
+      "An exact matching coordinate-momentum result may exist in uninspected specialized switching/optimization literature.",
+      "published-finding corpus semantic recall is not exhaustive; record comparisons establish best-knowledge rather than absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE METHOD; NO COVERING STABILITY FORMULA IDENTIFIED",
+        "evidence": [
+          "Algorithm 1 uses a rank-one gradient momentum outer product and randomized coordinate restriction with a floored inverse-square-root eigenvalue",
+          "Convergence analysis does not state the exact Bernoulli mean-square condition for a single active quadratic axis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.05309",
+        "material_read": "Accessible arXiv full HTML: introduction, algorithm description and main convergence analysis",
+        "method": "Read text and compare formula and exact statement",
+        "title": "Simba: A Scalable Bilevel Preconditioned Gradient Method for Fast Evasion of Flat Areas and Saddle Points",
+        "trigger": "Originating method, momentum update, eigenvalue flooring and random coarse coordinate restriction"
+      },
+      {
+        "assessment": "GENERAL METHOD; NO CLAIM OF SIMBA PARAMETER FRONTIER",
+        "evidence": [
+          "General mean-square covariance spectral criterion does not determine the current exact coefficient law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.04074",
+        "material_read": "Accessible HTML overview and methodological stability discussion",
+        "method": "Compared abstract covariance methodology with specialized Simba recursion",
+        "title": "General mean-square stability methodology for stochastic communication",
+        "trigger": "Possible broad stochastic switching linear stability coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "373b53c8-a4d0-44ba-8ed3-3ce662b0546d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an existing randomly coarsened momentum-preconditioned optimizer, gives sharp admissible local mean-square step budget and quantitatively exposes singular high-momentum sampling penalty. This is a practical nonobvious stability tradeoff and differs substantively from routine deterministic momentum threshold substitution; scope remains one active axis.",
+    "status": "PASS"
+  }
+}
