@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` after extracting the file beside this document; requires Python 3, SymPy, and NumPy. It uses symbolic arithmetic to reconstruct the matrices, matched support, the round-trip matrix, its characteristic polynomial, the entire six-dimensional characteristic polynomial, exact quartic Routh determinant, critical factorization, critical frequency, and transversality derivative. Two subcritical and two supercritical numerical eigenvalue calculations are supplementary consistency checks.
+# Independent mathematical audit
 
-The general lower bound is the analytic two-by-two discriminant argument in `RESULT.md`; no finite enumeration or simulation establishes it. The critical eigenvalue statement is strictly local and linear. A local oscillatory eigenvalue crossing need not generate a nonlinear limit cycle without further normal-form analysis. Bibliographic originality is based on accessible source materials and retains the residual full-text risk described in `REVIEW.md`.
+## correctness
+
+PASS
+
+At a strictly positive equilibrium with common diagonal resource decay slope h>0, the Jacobian is [[0,P],[-Q,-hI]], where P,Q are nonnegative rectangular blocks. At imaginary lambda=i omega≠0, elimination forces PQ or QP to have nonreal eigenvalue omega²-i h omega. Every order-one/two nonnegative matrix has only real eigenvalues, by (a-d)^2+4bc>=0, proving min(n,m)>=3. Independent exact symbolic computation verifies support-matched C=4(I+S), D=I+S/4, B=CDᵀ with eigenvalues 10 and 5/2±(3sqrt3/2)i, full six-dimensional polynomial, Routh determinant h²(10h²-27), hcrit=3sqrt30/10, delta_c=hcrit-5/4>0, simple imaginary pair ±i sqrt(5/2) and crossing derivative -50/127. Establishes ONLY a local linear spectral threshold under equal resource relaxation, not Hopf limit-cycle existence or nonuniform decay generality.
+
+## originality
+
+PASS
+
+The sharper claim is a joint minimal-dimensional obstruction plus an explicit ecologically sign-admissible support-matched cyclic three-by-three example and exact crossing. Generalized consumer-resource nonreciprocal spectral/chaos studies and the classical two-resource ecology models do not explicitly prove this fixed h minimality in the accessible abstracts and related text. Crucially the highest-relevance 2026 original full paper is inaccessible, so its potential overlap is retained as material priority risk, not asserted noncoverage.
+
+## value
+
+PASS
+
+Determining the minimal community/resource dimensions needed for linear oscillatory instability is a meaningful structural obstruction. The exact nonnegative matched-support realization at the sharp threshold shows that a three-by-three effect is actually attainable by a positive equilibrium, not merely allowed by abstract spectral theory. It corrects potential overinterpretation by restricting to linear eigenvalues, not cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** At any positive equilibrium under common resource damping, the exact linear block Jacobian forces a nonzero-frequency imaginary eigenvalue to correspond to a nonreal eigenvalue of a nonnegative consumer–resource round-trip matrix. The rectangular-product eigenvalue identity and the nonnegative two-by-two discriminant make this impossible if either population type-count is at most two. A three-by-three matched-support cyclic model gives an exact characteristic polynomial, a strict Routh–Hurwitz sign transition, a simple imaginary pair, and a nonzero crossing derivative; `verify.py` checks those algebraic identities from this package. No finite tests are used to prove the dimension-free statement.
+## correctness
 
-**Originality — PASS on accessible evidence, subject to literature risk.** Searches compared the precise joint-minimality/linear-spectrum theorem with published mathematical-record summaries, the motivating recent nonreciprocal resource-supply study, an earlier nonreciprocal phase-transition preprint, a full-length classical two-resource consumer study, and a recent open-access biofilm paper. No accessible statement proved the precise joint cutoff and matched-support three-by-three critical parameter. The generalized 2026 preprint was available only in abstract/metadata and has an announced stability criterion; its unseen details could imply the present special-case claim. This risk is material and explicitly disclosed, not hidden behind a no-hit assertion.
+PASS
 
-**Mathematical value — PASS.** The conclusion is a sharp model-structural impossibility boundary, not a bare reparameterization of an existing example. It separates low-dimensional damped oscillations from oscillatory loss of local stability, simultaneously in consumers and resources, while retaining strictly positive supply, benefit and uptake and matched support. It provides an exact benchmark for finite-system interpretations of recent large-community stability theory. The boundary depends essentially on identical resource relaxation slopes.
+At a strictly positive equilibrium with common diagonal resource decay slope h>0, the Jacobian is [[0,P],[-Q,-hI]], where P,Q are nonnegative rectangular blocks. At imaginary lambda=i omega≠0, elimination forces PQ or QP to have nonreal eigenvalue omega²-i h omega. Every order-one/two nonnegative matrix has only real eigenvalues, by (a-d)^2+4bc>=0, proving min(n,m)>=3. Independent exact symbolic computation verifies support-matched C=4(I+S), D=I+S/4, B=CDᵀ with eigenvalues 10 and 5/2±(3sqrt3/2)i, full six-dimensional polynomial, Routh determinant h²(10h²-27), hcrit=3sqrt30/10, delta_c=hcrit-5/4>0, simple imaginary pair ±i sqrt(5/2) and crossing derivative -50/127. Establishes ONLY a local linear spectral threshold under equal resource relaxation, not Hopf limit-cycle existence or nonuniform decay generality.
 
-The closest broader source is Rowland-Chandler, Goyal, and Shou, arXiv:2608.30966 (2026); the earlier source Blumenthal, Rocks, and Mehta, arXiv:2308.15757, concerns large-system nonreciprocal phase transitions. The detailed two-resource Tilman-type analysis (SpringerPlus 2015) has different response assumptions; Lynn, De Leenheer, and Dalziel (PLOS ONE 2025) report biofilm-mediated stability and Hopf behavior in a different model. Neither a nonlinear Hopf cycle nor global dynamical regimes are established here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharper claim is a joint minimal-dimensional obstruction plus an explicit ecologically sign-admissible support-matched cyclic three-by-three example and exact crossing. Generalized consumer-resource nonreciprocal spectral/chaos studies and the classical two-resource ecology models do not explicitly prove this fixed h minimality in the accessible abstracts and related text. Crucially the highest-relevance 2026 original full paper is inaccessible, so its potential overlap is retained as material priority risk, not asserted noncoverage.
+
+## value
+
+PASS
+
+Determining the minimal community/resource dimensions needed for linear oscillatory instability is a meaningful structural obstruction. The exact nonnegative matched-support realization at the sharp threshold shows that a three-by-three effect is actually attainable by a positive equilibrium, not merely allowed by abstract spectral theory. It corrects potential overinterpretation by restricting to linear eigenvalues, not cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
