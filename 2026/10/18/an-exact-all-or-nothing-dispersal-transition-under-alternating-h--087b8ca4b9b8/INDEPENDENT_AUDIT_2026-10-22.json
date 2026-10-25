@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T00:55:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@875480c798577c14e05ef382db7e0f43fa956786/2026/10/18/an-exact-all-or-nothing-dispersal-transition-under-alternating-h--087b8ca4b9b8/RESULT.md",
+        "Actual package code and verification file; independent stated finite spot checks"
+      ],
+      "rationale": "With odd/even D1=diag(B,b), D2=diag(b,B) and migration matrix P(d)=[[1-d,cd],[cd,1-d]], the two-season transfer is (J P(d) D1)^2. Its one-season positive square root Perron root equals lambda_max of symmetric [[cdB,sqrt(Bb)(1-d)],[sqrt(Bb)(1-d),cdb]], giving Lambda(d)=[cd(B+b)+sqrt(c^2d^2(B-b)^2+4Bb(1-d)^2)]/2. The radicand is squared Euclidean norm of the affine vector (u*d,v*(1-d)) with u=c(B-b)>0,v=2sqrt(Bb)>0, which is strictly convex on [0,1]; hence every interior d loses to the endpoint chord. Endpoints are sqrt(Bb) and cB, giving exact c*=sqrt(b/B), with just endpoints tied at equality. Differentiating the norm twice gives g=u^2v^2/g^3 and the stated uniform strong-convexity penalty. Independently checked Decimal parameter examples (B,b)=(4,1), c=1/4,1/2,3/4: exact winners d=0,both endpoints,d=1; all sample interiors are inferior. Real-parameter universality rests on analytic strict convexity, not sampled values.",
+      "residual_risks": [
+        "Exactly two complementary period-two patches; no density dependence or environmental stochasticity",
+        "Common constant migration survival 0<c<=1 and common d across patches",
+        "No evolutionary stability, genotype competition, or empirical predictions"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schreiber–Li 2010 Theorem 2 and Appendices A/B treat cost-free stochastic dispersal and invasion in periodic environments, excluding c<1.",
+          "Schreiber–Li conclusion explicitly identifies costs of dispersal as an analytic challenge.",
+          "Massol et al. 2015 DOI:10.1111/evo.12699 studies dispersal costs and life cycles, but only bibliographic/abstract material was accessible; Oxford institutional retrieval returned vpn_disconnected and no access bypass was attempted."
+        ],
+        "reasoning": "A cost-free theorem cannot be specialized to a nonconservative transfer matrix, and an ESS result does not automatically optimize individual demographic growth. The 2015 cost-bearing source is a material unresolved bibliographic risk, not treated as proven NOT_COVERING.",
+        "searches": [
+          "two patch alternating periodic habitat optimal dispersal rate migration mortality c phase transition all or nothing period two Perron growth",
+          "migration cost two patches period two dispersal survival exact optimal endpoint rate 0 or 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1007.5267 (full primary)",
+        "DOI:10.1111/evo.12699 (abstract; Oxford VPN disconnected)",
+        "DOI:10.1086/285453 (partial)",
+        "DOI:10.1007/s002850100106 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schreiber–Li 2010 Theorem 2 assumes S column stochastic and stable competing phenotypes; the paper identifies direct migration costs as outside its hypotheses.",
+          "McPeek–Holt 1992 original model section reportedly assumes no individuals die during dispersal and uses density regulation, but complete text not read here.",
+          "Massol et al. 2015 abstract includes cost-bearing dispersal and life-cycle distinctions, so overlap remains to be checked in full."
+        ],
+        "reasoning": "Neither explicit no-cost full source nor related density-regulated ecological frameworks entail the exact Lambda(d) strict convexity and quantitative c<1 threshold without additional computation. The closest inaccessible cost-bearing work is retained as priority risk, not an automatic O failure.",
+        "searches": [
+          "two patch alternating periodic habitat optimal dispersal rate migration mortality c phase transition all or nothing period two Perron growth",
+          "migration cost two patches period two dispersal survival exact optimal endpoint rate 0 or 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schreiber–Li arXiv:1007.5267 Section 2 assumes a column-stochastic migration matrix, therefore no travel loss; it analyzes competitive invasion and evolutionarily stable strategies.",
+          "For c<1 the audited P_c(d) is substochastic with column sum 1-(1-c)d and objective is low-density Floquet multiplier, not multi-phenotype invasion fitness."
+        ],
+        "reasoning": "Queries included migration survival, periodic two-patch Perron/Floquet growth, bang-bang all-or-nothing rates and migration mortality. Cost-free ESS models are not equivalent to positive-cost one-phenotype multiplier maximization.",
+        "searches": [
+          "two patch alternating periodic habitat optimal dispersal rate migration mortality c phase transition all or nothing period two Perron growth",
+          "migration cost two patches period two dispersal survival exact optimal endpoint rate 0 or 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact result is a real-parameter continuum c*=sqrt(b/B), with strict interior penalty, not a discrete table.",
+          "Resultary searches found seasonal population-model threshold claims but none with this four-parameter transfer matrix optimization."
+        ],
+        "reasoning": "Finite examples are corroboration only and cannot preempt the closed-form theorem; no relevant integer database could by itself determine the continuum statement.",
+        "searches": [
+          "two patch alternating periodic habitat optimal dispersal rate migration mortality c phase transition all or nothing period two Perron growth",
+          "migration cost two patches period two dispersal survival exact optimal endpoint rate 0 or 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison identifies no prior theorem implying the final claim at its actual hypotheses; known overlap and residual bibliographic risks are recorded, not erased.",
+      "residual_risks": [
+        "Massol et al. 2015 full text inaccessible: potentially close dispersal-cost result; scientific comparison remains best-of-knowledge with explicit priority risk.",
+        "Other work on strongly convex Perron roots of affine positive matrices could specialize to this result.",
+        "No general ecological ESS or stochastic persistence statement has been established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering c<1 direct-cost multiplier maximization",
+          "evidence": [
+            "A1 requires S irreducible column-stochastic; the text says there is no direct dispersal cost; conclusion lists cost of dispersal as unresolved challenge."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1007.5267",
+          "material_read": "Full open preprint body via arXiv abstract URL including Section 2 model/Assumptions, Section 3 Theorem 2, Section 4 applications, conclusion and Appendices A/B",
+          "method": "Read full legal open arXiv rendered paper; inspected hypotheses, objective and matrices",
+          "title": "Evolution of unconditional dispersal in periodic environments",
+          "trigger": "Same two-patch period-two dispersal, possible dominating theorem"
+        },
+        {
+          "assessment": "Plausible same-topic source NOT adjudicated by full text; high-priority residual risk",
+          "evidence": [
+            "Abstract concerns dispersal costs and life-cycle outcomes, but does not itself state current complementary two-patch period-two Floquet threshold."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/evo.12699",
+          "material_read": "Publisher/online bibliographic description and accessible abstract only; full material could not be read",
+          "method": "Tried arXiv and lawful OA, then authorized Oxford tool, which returned vpn_disconnected; no retry or bypass",
+          "title": "Evolution of dispersal in spatially and temporally variable environments: The importance of life cycles",
+          "trigger": "Explicit dispersal cost makes exact threshold possibly covered"
+        },
+        {
+          "assessment": "Not enough material for entire-paper NOT_COVERING",
+          "evidence": [
+            "Available model description refers to zero travel mortality and density regulation; later sections may have adjacent results."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/285453",
+          "material_read": "Abstract and model description as available in published accessible context; remainder not full-read in this run",
+          "method": "Examined accessible indexed abstract and quoted model assumption",
+          "title": "The Evolution of Dispersal in Spatially and Temporally Varying Environments",
+          "trigger": "Original two-patch ecological comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1007.5267 (full primary)",
+        "DOI:10.1111/evo.12699 (abstract; Oxford VPN disconnected)",
+        "DOI:10.1086/285453 (partial)",
+        "DOI:10.1007/s002850100106 (abstract)"
+      ],
+      "rationale": "The precise migration-cost phase boundary and strict gap distinguish pure strategy switching from intermediate evolutionary optima in a concrete, commonly used alternating source/sink toy model. Complete analytic optimization over a real parameter family can benchmark cost-bearing dispersal models, though it is not an ESS or empirical prediction.",
+      "residual_risks": [
+        "Value is claimed for the exact restricted mathematical invariant, not for a general theorem outside stated assumptions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two complementary period-two patches; no density dependence or environmental stochasticity",
+    "Common constant migration survival 0<c<=1 and common d across patches",
+    "No evolutionary stability, genotype competition, or empirical predictions",
+    "Massol et al. 2015 full text inaccessible: potentially close dispersal-cost result; scientific comparison remains best-of-knowledge with explicit priority risk.",
+    "Other work on strongly convex Perron roots of affine positive matrices could specialize to this result.",
+    "No general ecological ESS or stochastic persistence statement has been established."
+  ],
+  "schema_version": 1
+}
