@@ -1,15 +1,21 @@
-# Assessment of the three-cube matching-complex symmetry theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the ordinary matching complex of the twelve-edge cube. Exact enumeration produces face vector \((12,42,44,9)\). The three signed boundary ranks are \((11,31,9)\), a rank-maximal \(31\)-minor equals \(-1\), and the nine three-boundaries have a \(+1\) determinant minor in the computed integral kernel basis. These integer certificates establish \(\widetilde H_2\cong\mathbb Z^4\) with no other reduced integral homology. The quotient coordinates are explicit. All \(48\) signed automorphisms yield the stated rational character both via Lefschetz traces and via actual integral quotient matrices. Central inversion has the stated integral matrix; its eigenlattices are saturated, and their basis determinant has absolute value two.
+PASS
 
-## Originality — PASS, with specified risk
+Independently generated all matching faces (12,42,44,9) and integer boundaries with ranks (11,31,9), exact ∂1∂2=∂2∂3=0; the source-specified rank-31 ∂2 minor is -1 and rank-9 ∂3-coordinate minor is +1. Reconstructed the homology quotient q on oriented triangle coordinates, showed q∂3=0, computed its four cycle representatives, and checked all 48 signed automorphism action traces against the exact S4×C2 formula. Reconstructed central antipodal action J on the integral quotient (not only its asserted trace), J²=I, trace2; independent eigenbasis determinant -2 proves the nonsplit index-two obstruction.
 
-The direct same-object public result proves only the nonequivariant wedge of four two-spheres; its full result was inspected. Braun–Hough and Matsushita treat planar ladder-grid families, not the periodic three-cube or its full automorphism action. The same-cube three-cut complex has a different face condition and a different central character value. Searches covering the matching/line-graph aliases, the four-dimensional character, integral eigensublattices, and index-two gluing found no implication of this result. An older unindexed equivariant computation or a differently worded general theorem remains a bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cube is the smallest nontrivial hypercube with a four-dimensional matching-homology group. Classifying its full symmetry distinguishes an absolutely irreducible three-dimensional contribution from an antipodal-odd line. The primitive rank-one invariant lattice and the index-two failure of integral splitting show a genuine integral extension that ordinary Betti numbers and semisimple rational characters cannot see. This precise integral obstruction is a natural benchmark for equivariant matching-complex models and cannot be recovered by merely restating the known wedge homotopy type.
+Existing cube matching result proves nonequivariant four-sphere homotopy; the separately published cube three-cut equivariant module concerns a different complex with a different antipodal trace. The tested increment is the full natural matching-complex character and, crucially, the index-two nonsplit integral central eigensublattice. No primary/source evidence identified that forces this integral statement from a known nonequivariant classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Homotopy type alone discards both group characters and integral extensions. A minimal symmetric graph exhibits a concrete nontrivial order-two integral gluing between irreducible rational constituents, an independently usable equivariant homology invariant and a motivated obstruction to splitting. This is more than repackaging the known four-sphere count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

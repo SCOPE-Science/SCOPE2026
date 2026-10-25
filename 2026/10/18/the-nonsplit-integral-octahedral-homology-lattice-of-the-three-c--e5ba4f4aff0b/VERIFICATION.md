@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction of the three-cube matching-homology calculation
+# Independent mathematical audit
 
-Run `python3 verify.py` with SymPy. The script independently constructs every cube edge and every matching face from binary adjacency, computes exact boundary ranks and both explicit integer unit minors, and constructs an integral quotient basis. It checks boundary compositions, evaluates all \(48\) graph automorphisms on oriented faces, compares the Lefschetz and quotient-basis character calculations, and verifies the integral antipodal eigenlattice index. The expected last line is `VERIFY_OK`.
+## correctness
 
-The result is finite and exact. No floating-point arithmetic, random search, outside solver, or inaccessible saved certificate is needed. The complete finite calculation proves the stated assertions for this twelve-edge graph, not for all hypercubes. Bibliographic uniqueness cannot be established by computational verification alone. Independent scientific audit has not been performed.
+PASS
+
+Independently generated all matching faces (12,42,44,9) and integer boundaries with ranks (11,31,9), exact ∂1∂2=∂2∂3=0; the source-specified rank-31 ∂2 minor is -1 and rank-9 ∂3-coordinate minor is +1. Reconstructed the homology quotient q on oriented triangle coordinates, showed q∂3=0, computed its four cycle representatives, and checked all 48 signed automorphism action traces against the exact S4×C2 formula. Reconstructed central antipodal action J on the integral quotient (not only its asserted trace), J²=I, trace2; independent eigenbasis determinant -2 proves the nonsplit index-two obstruction.
+
+## originality
+
+PASS
+
+Existing cube matching result proves nonequivariant four-sphere homotopy; the separately published cube three-cut equivariant module concerns a different complex with a different antipodal trace. The tested increment is the full natural matching-complex character and, crucially, the index-two nonsplit integral central eigensublattice. No primary/source evidence identified that forces this integral statement from a known nonequivariant classification.
+
+## value
+
+PASS
+
+Homotopy type alone discards both group characters and integral extensions. A minimal symmetric graph exhibits a concrete nontrivial order-two integral gluing between irreducible rational constituents, an independently usable equivariant homology invariant and a motivated obstruction to splitting. This is more than repackaging the known four-sphere count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
