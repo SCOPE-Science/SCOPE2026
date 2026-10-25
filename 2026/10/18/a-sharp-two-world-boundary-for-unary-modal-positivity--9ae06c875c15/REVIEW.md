@@ -1,15 +1,21 @@
-# Review of the two-world modal positivity classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification uses complete, finite function-algebra closure, not limited formula-depth search. On two worlds each unary term operation has four outputs, each a two-bit set, so there are at most \(256\) operations. Both the positive and unrestricted formula grammars are represented exactly by the respective least generated closure, by a two-way structural induction. The exhaustive computation checks every one of sixteen relations, all ten isomorphism types, and every possible generated term operation. A second independent eight-bit implementation reproduces all sixteen rows. The explicit formula \(\chi(p)=\Diamond p\wedge(\Box p\vee\neg p)\) is monotone on both obstructing types, and the stated directed simulation proves it cannot be positive. One-world minimality is checked exhaustively. The limits are one variable and exactly one or two worlds.
+PASS
 
-## Originality — PASS, subject to specified residual risk
+On two worlds, each single-variable modal operation has four input valuations and 2-bit output, so exactly 256 possible tables. Saturation from constants/identity under ∧∨□◇ and optionally complement is exactly the positive or full grammar by induction both directions; it reaches a true finite fixed point independent of formula depth. Monotone full terms are detected by the four covers in P(W). Independently reimplemented 8-bit complete saturation for all 16 labeled relations; bad masks exactly [7,14,15], representatives 7 with (|P|,|T|,|M|,|M\P|)=(10,64,18,8) and 15 with (5,16,6,1), all other tables agree with frozen table. χ(p)=◇p∧(□p∨¬p) is monotone, and positive simulation on Z={(0,0),(0,1),(1,0)} rules out positive representation for bad types. Both singleton frames have equality. Structural/computational completeness is finite algebra, not bounded syntactic depth.
 
-The closest primary source, Lev Dvorkin, *Monotonicity versus positivity in modal logics* (arXiv:2602.02837), has already established the two-point **full cluster** obstruction (Proposition 4.8). That obstruction is acknowledged as existing knowledge. The same work establishes positive definability for its two-world \(D_1\) example (Proposition 4.16) and supplies a general finite-frame preservation criterion (Proposition 4.12); these do not state or enumerate all two-world relations or the monotone and positive term spectra. The new contribution is the exact sixteen-relation classification, ten-type spectrum, and the bidirected one-loop nontransitive obstruction. Targeted searches for aliases, unary modal clone counts, and equivalent finite-frame classification, together with comparisons to indexed results on variable-free modal fragments and modal algebra operators, did not find the full statement. Residual risk: an unpublished or unindexed exhaustive two-world enumeration could subsume the result; a thematically related 2026 paper on additive normal interpretations was read in its accessible scholarly full-text version, and its Example 2.4 reiterates the known complete-cluster counterexample rather than the sixteen-frame classification.
+## originality
 
-## Value — PASS
+PASS
 
-The result is the smallest-world full classification of failure of unary Lyndon positivity. The nonsymmetric one-loop obstruction sharpens the known complete-cluster example and shows that complete mutual accessibility plus a single reflexive loop suffices, without transitivity. The exact term-operation counts distinguish the strength of the obstruction: eight nonpositive monotone operations on the one-loop two-cycle versus one on the full cluster. These are natural finite-algebra invariants measuring semantic expressivity, not an arbitrary sampled parameter or a routine restatement of a known example. The exhaustive method is portable to tests on larger finite frames, although no larger-frame theorem is claimed.
+Dvorkin arXiv:2602.02837 Proposition 4.8 already refutes unary monotone positivity for the two-point complete cluster and Proposition 4.16 gives positivity for a D1 frame. The added one-loop bidirectional nontransitive obstruction, all-16 iff criterion and exact function spectra are distinct; neither an isolated prior witness nor a general positivity-preservation criterion supplies the complete census. Dvorkin 2606.31871 Example 2.4 reuses cluster example; its additive-normal analysis is not the full counting table.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete smallest nontrivial frame-size classification identifies exact structural cause of failure and counts the degree of nonpositive monotone operations. Distinguishing 8 failures on a single-loop bidirectional nontransitive frame from 1 on a full cluster is a natural quantitative term-algebra invariant, not arbitrary sampling; it sharpens a known obstruction and its one-world lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

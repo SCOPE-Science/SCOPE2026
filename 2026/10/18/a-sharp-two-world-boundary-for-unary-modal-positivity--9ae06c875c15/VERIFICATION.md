@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The source `check_unary.py` constructs complete four-tuple truth tables for the positive and full unary modal term algebras of every labeled two-world Kripke frame. It independently checks the semantic monotonicity filter, the precise three failing relation masks, and the positive-simulation countermodel for representatives \(7\) and \(15\). It additionally covers both one-world relations.
+## correctness
 
-The source `check_unary_independent.py` uses an eight-bit representation and a separate saturation procedure. It computes all sixteen instances and reproduces every positive, full, and monotone operation count. Both programs terminated successfully and printed their PASS marker when run with Python 3.
+PASS
 
-Completeness is guaranteed by the proof that there are exactly \(256\) possible unary truth tables on the four valuations and that the closure operators realize precisely the two formula grammars. Enumerating formula strings to a fixed depth would not supply that guarantee; the supplied computation instead reaches fixed points.
+On two worlds, each single-variable modal operation has four input valuations and 2-bit output, so exactly 256 possible tables. Saturation from constants/identity under ∧∨□◇ and optionally complement is exactly the positive or full grammar by induction both directions; it reaches a true finite fixed point independent of formula depth. Monotone full terms are detected by the four covers in P(W). Independently reimplemented 8-bit complete saturation for all 16 labeled relations; bad masks exactly [7,14,15], representatives 7 with (|P|,|T|,|M|,|M\P|)=(10,64,18,8) and 15 with (5,16,6,1), all other tables agree with frozen table. χ(p)=◇p∧(□p∨¬p) is monotone, and positive simulation on Z={(0,0),(0,1),(1,0)} rules out positive representation for bad types. Both singleton frames have equality. Structural/computational completeness is finite algebra, not bounded syntactic depth.
 
-For the two obstructing isomorphism types, an additional noncomputational proof uses a directed positive simulation and the explicit formula \(\Diamond p\wedge(\Box p\vee\neg p)\). The simulation has three related pairs and satisfies the atomic, forth, and back clauses. The result does not extend to additional propositional variables or larger world sets. Reproducible computation is not an independent audit.
+## originality
+
+PASS
+
+Dvorkin arXiv:2602.02837 Proposition 4.8 already refutes unary monotone positivity for the two-point complete cluster and Proposition 4.16 gives positivity for a D1 frame. The added one-loop bidirectional nontransitive obstruction, all-16 iff criterion and exact function spectra are distinct; neither an isolated prior witness nor a general positivity-preservation criterion supplies the complete census. Dvorkin 2606.31871 Example 2.4 reuses cluster example; its additive-normal analysis is not the full counting table.
+
+## value
+
+PASS
+
+The complete smallest nontrivial frame-size classification identifies exact structural cause of failure and counts the degree of nonpositive monotone operations. Distinguishing 8 failures on a single-loop bidirectional nontransitive frame from 1 on a full cluster is a natural quantitative term-algebra invariant, not arbitrary sampling; it sharpens a known obstruction and its one-world lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
