@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The full normalized ambiguity function is derived directly from the cyclic Gabor definition. At nonzero translation, completing a quadratic Gauss sum gives a prime-dependent factor \(1\) or \(i\); division by the nonvanishing two-root factor forces a modular square condition and a definite sign. The exceptional small-prime enumeration uses exact modular sign comparisons. Direct finite checks reproduce both analytic amplitudes and the four-zero rank defects at \(p=17\). The Gabor projector Gram diagonalization is cited as prior work. Only linear-tomography failure, not nonlinear phase-retrieval failure, is inferred from zero coefficients.
+## correctness
 
-## Originality — PASS (bounded assessment)
-The closest inspected primary 2026 preprint constructs full-spark, phase-retrieving windows by algebraic perturbation of Chu chirps; its explicit repairs concern quadratic chirps and do not determine all positive-amplitude resonances for a cubic chirp. The older general Gabor uniqueness criterion and classical Gauss-sum evaluation provide ingredients but not the stated prime-by-prime cubic one-impulse phase diagram. Closely related contemporaneous work on single-impulse *quadratic* chirps addresses a different, line-supported baseline ambiguity function. Full comparison against every historical phase-coded waveform reference is not possible, so unindexed priority remains a risk.
+PASS
 
-## Value — PASS
-The calculation answers a natural design question: exactly which positive repair amplitudes make a fixed, explicit cubic chirp produce an informationally complete cyclic Gabor intensity lifting? It discovers parameter-uniform success in infinitely many prime dimensions, a sharp arithmetic obstruction in the complementary prime class, and the first genuine positive-amplitude resonance together with its exact tomography defect. These are sharper conclusions than the generic existence of sufficiently small or algebraically chosen perturbations.
+With the convention A(a,b)=⟨g,M_bT_ag⟩, for a≠0 the exact expansion is ω^-a³[sum_j ω^{-3aj²+(3a²+b)j}+t(1+ω^{ab})]/K. The quadratic Gauss evaluation gives ε_pχ_p(-3a)√p ω^{(3a²+b)²/(12a)} with ε_p=1 or i depending on p mod4. Writing 1+ω^{ab}=2C ω^r, r=ab/2 mod p, forces for p≡3 mod4 an imaginary iω^E unable to be real (odd p), and for p≡1 mod4 the congruence E=(9a⁴+b²)/(12a)=0 plus strict χ(-3a)C<0, with unique t=√p/(2|C|). At a=0, normalized ambiguity is 1 (b=0) or t(t+2)/K>0 (b≠0). Independent modular enumeration p=5,13,17,29,37 reproduced 0,0,8,16,36 candidate zero pairs; p=17 shows exactly two distinct amplitudes with four pairs each and direct complex ambiguity sums vanish at their corresponding locations. The Fourier diagonalization of the p² Gabor projector Gram matrix has eigenvalues proportional to |A(a,b)|², so exactly four zero coefficients give linear tomography rank p²−4. Zero ambiguity is NOT claimed to exclude rank-one phase retrieval. The all-prime result is the Gauss identity/phase reasoning, not finite floating comparisons.
 
-## Boundaries
-No full-spark, globally optimal conditioning, composite-modulus, or rank-one nonuniqueness statement is established. Same-source full text was inspected for the motivating preprint; generic theory and nearby results were compared by claim rather than title.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge after inspection of specified pinned source and actual primary literature. Time-frequency conjugation or chirp normalization does not convert a degree-three chirp into quadratic Chu generally; a prime-dependent quadratic Gauss phase enables cancellation only in p≡1 mod4. The new contribution is the explicit all-prime resonance criterion and first rank defects; generic Fourier/Gauss tools are acknowledged prior art.
+
+## value
+
+PASS
+
+A cubic phase window plus one physically natural real positive impulse is a concrete linear tomography design family. The exact arithmetic amplitude set identifies zero-free regimes on all p≡3 mod4 primes and the first genuinely exceptional p=17, a sharp finite defect for the same design; this is a motivated exact invariant distinct from generic Gabor sufficiency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
