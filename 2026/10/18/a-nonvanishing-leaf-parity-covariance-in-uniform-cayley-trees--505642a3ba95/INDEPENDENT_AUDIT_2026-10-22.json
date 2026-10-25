@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:59:46Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob 2663bed931221f919053d8c1cd66ad6a4d8076fa",
+        "Frozen verify.py blob ede94171e4aa5abbd653d0747b109da939bd98ae",
+        "Own independent full labeled-tree enumeration n=3,4,5,6 confirms the covariance identity and boundary n=3"
+      ],
+      "limitations": [
+        "Asymptotic constant rests on the integral remainder proof, not enumerations. No claim of positive covariance for every n>=4 or of a joint greedy-algorithm identity."
+      ],
+      "rationale": "Deleting a conditioned leaf gives a uniform (n-1)-vertex Cayley tree and uniform attachment. Splitting the marked leaf into root versus nonroot cases yields the stated exact covariance p_n[2n-1+(n-3)b_{n-1}-n b_n]. Path-counting produces w_n and b_n; integral remainder and Laplace expansion w_n=-3/(4n)-11/(16n^2)+O(n^{-3}) imply b_n=n/2+1/8+1/(32n)+O(n^{-2}), hence covariance 1/(8e)+O(1/n). Conditional bipartite Prüfer occupancy is correctly distinguished from novelty. Independent full Cayley enumeration at n=3..6 reproduces exact covariance 0,3/32,144/3125,665/11664.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forest-containing enumeration and local degree frequencies supply tools and marginals, but no theorem about covariance with root parity count; Contat Gaussian variance does not imply unscaled covariance."
+        ],
+        "reasoning": "These broader enumeration/local-limit theorems do not fix the mixed second moment needed for the limit.",
+        "searches": [
+          "Dong and Ge arXiv:2103.05294 Theorem 4",
+          "Hladky Nachmias Tran arXiv:1711.09788",
+          "Contat arXiv:2103.03800"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2103.03800",
+        "https://arxiv.org/abs/2103.05294",
+        "https://arxiv.org/abs/1711.09788",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coincidence of parity size and a greedy-set marginal does not determine how parity correlates with leaves; bipartite spanning tree formula supports the conditional law but not the covariance extraction."
+        ],
+        "reasoning": "New claim requires specific joint marking, distinguishing it from both source conclusions.",
+        "searches": [
+          "Contat arXiv:2103.03800 Theorem 1",
+          "Dong-Ge arXiv:2103.05294 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contat identifies the marginal law of even-depth vertex count with greedy independent-set size, not the joint parity/leaf covariance; Prüfer empty-box degree laws are classical."
+        ],
+        "reasoning": "Equivalent single-statistic distributions are not equivalent joint laws or covariances.",
+        "searches": [
+          "Resultary: uniform Cayley tree root even distance parity vertices covariance number of leaves 1/(8e) exact joint leaf parity statistics bipartite Prufer",
+          "Contat arXiv:2103.03800 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical Cayley and bipartite spanning-tree counting tables contain marginal counts; the exact mixed moment and limit require marked leaf deletion."
+        ],
+        "reasoning": "A table of tree counts is not an exact joint covariance table; no relevant existing table identified.",
+        "searches": [
+          "Resultary semantic query for Cayley tree leaf parity covariance",
+          "Dong and Ge enumeration paper Theorems 1-4"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements and mathematical implications; the named comparisons identify prior facts without conflating them with the claimed new invariant or construction. Historical-priority risks remain explicit.",
+      "residual_risks": [
+        "Earlier bivariate generating-function literature could contain an implicit special case.",
+        "Existing Resultary recursive-tree leaf/degree covariance concerns a different random-tree law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: parity marginal and greedy independent-set distribution, not mixed covariance",
+          "evidence": "Theorem 1; proof setup; absence of a leaf count in accessible searchable text",
+          "identifier_or_url": "https://arxiv.org/abs/2103.03800",
+          "material_read": "Read PDF introduction, Theorem 1 and proof pages concerning its marginal distribution; text search for leaf found no matches",
+          "method": "primary arXiv PDF text and page screenshot",
+          "title": "A surprising symmetry for the greedy independent set on Cayley trees",
+          "trigger": "Same parity-class statistic on uniform Cayley trees"
+        },
+        {
+          "assessment": "ADJACENT: forest-containing counts but no rooted-Cayley root-even/leaf covariance",
+          "evidence": "Theorem 4 and standard complete-bipartite tree count",
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "Read PDF abstract, introductory theorems and spanning-forest formula; inspected first page image",
+          "method": "primary arXiv PDF text and page screenshot",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Same bipartite Prüfer/completion counting mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Leaf-deletion exact covariance and asymptotic constant",
+        "Theorem separates the parity statistic from an independent greedy-set joint interpretation"
+      ],
+      "limitations": [],
+      "rationale": "The nonzero unscaled mixed covariance 1/(8e) refines two natural statistics of a canonical random-tree model, quantifying dependence invisible from known individual Gaussian-scale fluctuations; exact n formula is useful for random-tree comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
