@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T16:55:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-zero-hit-variance-for-primitive-padovan-orbits-modulo-powe--3b25687bed0c/RESULT.md",
+        "RESULT.md blob 2314ffcd7abc6a2719c508049ee27b4c6a82f4fa",
+        "verify.py inspected blob f8e9818c009a7127434895fce62b2f787401c518",
+        "independent complete primitive-cycle k=1..4 enumeration"
+      ],
+      "rationale": "PASS: Q is unimodular and Q^7=I+2B, Q^14=I+4D with det(B)=det(D)=1. Squaring shows the exact primitive period T_k=7·2^(k-1), giving N_k=4^(k-1) cycles. For lag h not divisible by 7 the two observation rows remain independent mod 2; for h=7t their common 2-adic content is 2^(1+v_2(t)), which leads to primitive solution count C_h=2^(k+hval-1). Summing the six ordinary lag classes and k-1 2-adic valuation classes gives E Z_k=3, E Z_k²=k+8, Var=k-1. Independently enumerated all primitive cycles for k=1..4 and checked exact first two moments, including k=1 boundary. This does not prove the infinite period lifting by enumeration.",
+      "residual_risks": [
+        "All k≥1, exactly recurrence modulo powers of two; nonprimitive states and distribution beyond first two moments excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kamlovskii 2009: estimates of element frequencies for vector recurrences over Galois rings; 2013: sharpened bounds for cycles/patterns, including nonmaximal periods; Taş Theorem 2.2 period lifting."
+        ],
+        "reasoning": "General frequency papers are materially relevant and might imply an exact moment indirectly. They were inaccessible in full, so no whole-document exclusion is asserted. Inspected abstracts discuss estimates, whereas the present exact uniform-cycle second moment is a different stated observable; originality passes with explicit residual risk.",
+        "searches": [
+          "https://www.mathnet.ru/eng/sm4528",
+          "https://geodesic.mathdoc.fr/item/IM2_2013_77_6_a2/",
+          "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf",
+        "https://www.mathnet.ru/eng/sm4528",
+        "https://geodesic.mathdoc.fr/item/IM2_2013_77_6_a2/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taş–Karaduman Theorems 2.1–2.3: periodicity, prime-power period lift, CRT periods; Kamlovskii abstracts: estimates from character sums."
+        ],
+        "reasoning": "Prior period results provide T_k but not the two-time zero incidence counts. The Kamlovskii texts may contain a general implication, unresolved because the full theorems were unavailable; absent coverage evidence does not imply scientific failure.",
+        "searches": [
+          "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf",
+          "https://www.mathnet.ru/eng/sm4528",
+          "https://geodesic.mathdoc.fr/item/IM2_2013_77_6_a2/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All primitive companion-matrix states mod 2^k correspond to cycles of recurrence u_(n+3)=u_(n+1)+u_n; zero counts are coordinate-symbol occurrence frequencies."
+        ],
+        "reasoning": "Compared both companion matrix and frequency-of-zero aliases, counting cycles uniformly and primitive states uniformly (equal period). Taş treats a prescribed Padovan seed, not all primitive cycles.",
+        "searches": [
+          "Resultary: zero hits mean variance primitive Padovan linear recurrence orbits modulo 2^k Galois rings exact moments",
+          "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf",
+          "https://www.mathnet.ru/eng/sm4528"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Padovan paper records period-lifting facts and examples; no cycle-wide zero-hit histogram table was found in inspected §2."
+        ],
+        "reasoning": "The exact full ensemble moment is not a known sequence-period table or a recomputation from a cited fixed seed; finite orbit enumeration alone is not general proof.",
+        "searches": [
+          "web: Padovan variance zero hits cycles",
+          "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge claim-versus-prior assessment with direct source comparisons; see four named checks, source inspections and retained risks.",
+      "residual_risks": [
+        "Kamlovskii 2009/2013 primary full theorems unavailable, and a more general exact frequency identity could imply these moments.",
+        "A related prior all-seed orbit census may be unindexed.",
+        "No priority guarantee from finite computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides fixed-seed period facts, not a stated second moment across all primitive triples.",
+          "evidence": [
+            "PDF pp.456–458: matrix Q, Theorem 2.2 on prime-power period lifting, 2.3 CRT."
+          ],
+          "identifier_or_url": "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf",
+          "material_read": "Seven-page PDF: introduction and §2 Theorems 2.1–2.3, matrix and period definitions, comparison of zero/frequency terminology.",
+          "method": "PDF text and first/third page visual screenshots",
+          "title": "The Padovan Sequences in Finite Groups",
+          "trigger": "same recurrence companion matrix Q"
+        },
+        {
+          "assessment": "Cannot exclude implicit exact moments from full article.",
+          "evidence": [
+            "Abstract: asymptotically optimal frequency estimates via trigonometric sums."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/sm4528",
+          "material_read": "Abstract, index, keywords and bibliographic entry; full English PDF timed out and institutional retrieval reported a disconnected authorization link.",
+          "method": "Primary journal landing, PDF retrieval attempt, authorized access attempt",
+          "title": "Frequency characteristics of linear recurrence sequences over Galois rings",
+          "trigger": "possibly dominating vector-recurrence zero-frequency theorem"
+        },
+        {
+          "assessment": "Stronger covering theorem remains a risk, no full-text NOT_COVERING judgment.",
+          "evidence": [
+            "Abstract: generalized/sharpened estimates for elements and r-patterns on cycles."
+          ],
+          "identifier_or_url": "https://geodesic.mathdoc.fr/item/IM2_2013_77_6_a2/",
+          "material_read": "Abstract and bibliography, not full article; authorized full-text tool was safety-blocked.",
+          "method": "Mathdoc primary bibliographic mirror and attempted authorized access",
+          "title": "Frequency characteristics of coordinate sequences of linear recurrences over Galois rings",
+          "trigger": "coordinate occurrence and cycle theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-zero-hit-variance-for-primitive-padovan-orbits-modulo-powe--3b25687bed0c/RESULT.md",
+        "https://www.thaiscience.info/journals/Article/CMJS/10932734.pdf",
+        "https://www.mathnet.ru/eng/sm4528",
+        "https://geodesic.mathdoc.fr/item/IM2_2013_77_6_a2/"
+      ],
+      "rationale": "PASS: The exact variance k-1 of zero-hit counts on every primitive orbit is a natural finer statistic beyond classical period computations; it quantifies increasingly unequal zero occurrence despite constant mean. A complete ensemble moment can support error analysis and pseudorandom-recursion design; no paper-sized extension is required.",
+      "residual_risks": [
+        "Mathematical motivation is specific to the stated object/invariant; no claim of broad downstream theorem or priority certification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All k≥1, exactly recurrence modulo powers of two; nonprimitive states and distribution beyond first two moments excluded.",
+    "Best-of-knowledge originality is not external publication-priority certification.",
+    "Publication plan not_ready due to public-file confidentiality constraints; does not change science."
+  ],
+  "schema_version": 1
+}

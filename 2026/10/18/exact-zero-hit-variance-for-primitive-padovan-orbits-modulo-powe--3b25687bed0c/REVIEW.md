@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof covers every positive exponent, proves a common primitive period via explicit integral matrix identities, computes each two-time zero-incidence count using rank-one congruences, and double-counts the first and second moments without any probabilistic independence assumption. The independent enumerator checks small moduli but does not replace the infinite algebraic proof. The reduction-of-kernel parity argument, boundary exponent \(k=1\), and all lag multiplicities were checked separately.
+## correctness
 
-**Originality — PASS under presently accessible evidence, with material residual risk.** Full text was inspected for Taş–Karaduman (2014), whose Padovan period-lifting result is relevant but does not contain an ensemble zero-count variance formula. The first-public-dated Taş–Deveci–Karaduman source (17 November 2014) concerns a different higher-order recurrence. Kamlovskii (2009, 2013) supplies the broad recurrence-frequency context; the accessible abstracts emphasize bounds/estimates and do not explicitly include this formula. Relevant search terms included primitive initial triples, zero count variance, Padovan cycles, powers of two and finite Galois rings; no accessible finding or database record with an equivalent statement was found. However the complete general-frequency papers could not be materially compared, and hidden implications remain possible. Negative search results are not priority proof.
+PASS
 
-**Value — PASS.** A global zero-count fluctuation statistic over every primitive cycle is a natural arithmetic invariant of a recurrence over a finite local ring. Its exact linear variance law is not an isolated small computation: it comes from all \(2^k\) modulus levels and an exact stratification of time lags by the binary valuation. The constant mean versus growing variance highlights genuine concentration heterogeneity that fixed-seed frequency bounds do not by themselves quantify.
+PASS: Q is unimodular and Q^7=I+2B, Q^14=I+4D with det(B)=det(D)=1. Squaring shows the exact primitive period T_k=7·2^(k-1), giving N_k=4^(k-1) cycles. For lag h not divisible by 7 the two observation rows remain independent mod 2; for h=7t their common 2-adic content is 2^(1+v_2(t)), which leads to primitive solution count C_h=2^(k+hval-1). Summing the six ordinary lag classes and k-1 2-adic valuation classes gives E Z_k=3, E Z_k²=k+8, Var=k-1. Independently enumerated all primitive cycles for k=1..4 and checked exact first two moments, including k=1 boundary. This does not prove the infinite period lifting by enumeration.
 
-**Outstanding limitations.** The complete distribution is not determined and the formula is not asserted for nonprimitive seeds or other primes. Fully assessing whether Kamlovskii's general estimates imply the theorem requires access to complete source texts. The 2014 archival date is attached to the explicitly online-dated Fibonacci-Padovan publication, rather than a fabricated first-online date for the separate Chiang Mai paper.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge claim-versus-prior assessment with direct source comparisons; see four named checks, source inspections and retained risks.
+
+## value
+
+PASS
+
+PASS: The exact variance k-1 of zero-hit counts on every primitive orbit is a natural finer statistic beyond classical period computations; it quantifies increasingly unequal zero occurrence despite constant mean. A complete ensemble moment can support error analysis and pseudorandom-recursion design; no paper-sized extension is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
