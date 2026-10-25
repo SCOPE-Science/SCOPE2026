@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The maps and persistence structure are defined explicitly. The homology distance is zero because the sole transition map is an isomorphism between integral homology spheres. The length-\\(m\\) interleaving is explicit; every shorter interleaving would force a degree \\(\\pm1\\) map \\(S^3\to\\Sigma\\), contradicting the degree-120 universal cover. Every lower-set fiber has contractible target after shift \\(2\\lceil m/2\rceil\\), with a compatible point section, so the stated fiber hypothesis holds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.8: \\(d_{\\mathrm{HC}}(P,Q)\\le2\\varepsilon|Q|\\) under weakly \\(\\varepsilon\\)-contractible lower/upper fibers",
+        "Corollary 3.10: corresponding upper bound for persistent homology, \\(d_{\\mathrm I}\\le2\\varepsilon|Q|\\)",
+        "The 2026 paper lists comparison of d_I and d_HC as a future direction"
+      ],
+      "reasoning": "The prior theorem bounds d_HC from above but does not supply a family with fixed Q, zero homology distance, and exact homotopy distance m for all m. The new family gives an explicit quantitative separation rather than a restatement of the bound.",
+      "searches": [
+        "arXiv:2605.11615, full text sections 3.2 and concluding remarks",
+        "arXiv:2307.00177, introduction and main homological theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.11615 full text",
+      "arXiv:2307.00177 full text",
+      "Official MSC2020 description of 55N31: persistent homology and applications / topological data analysis"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 theorem gives an upper bound linear in \\(\\varepsilon\\) and \\(|Q|\\) but does not determine \\(d_{\\mathrm{HC}}\\) or the difference from \\(d_{\\mathrm I}\\).",
+        "The 2023 paper treats homological interleavings and does not state this exact homotopy-distance family."
+      ],
+      "reasoning": "The exact equality \\(d_{\\mathrm{HC}}=m\\) and \\(d_{\\mathrm I}=0\\) follows from the constructed persistence objects and covering-degree obstruction. It is not implied by the prior upper bound; the prior paper explicitly motivates studying this distance gap.",
+      "searches": [
+        "arXiv:2605.11615, Theorem 3.8, Corollary 3.10, concluding remarks",
+        "arXiv:2307.00177, main theorem and stated homological scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guzeev–Tanaka, arXiv:2605.11615, Theorem 3.8 and concluding remarks",
+        "Related published literature distinguishes homotopy type from homology, but does not state a persistence interleaving-distance family."
+      ],
+      "reasoning": "The inspected literature contains general examples where homology fails to determine homotopy type, but the inspected sources do not state a persistence interleaving-distance gap, the delayed replacement construction, or the exact pair of formulas proved here.",
+      "searches": [
+        "\"homotopy commutative interleaving distance\" and \"persistent homology interleaving distance\"",
+        "\"Poincaré homology sphere\" delayed persistence poset homotopy interleaving",
+        "Semantic literature query: arbitrarily large gap between homotopy commutative interleaving distance and persistent homology interleaving distance using a homology sphere to S3 degree-one map"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching record surfaced; closest records are identified under equivalent_formulations.",
+        "No dedicated public table of exact homotopy-interleaving examples was identified in the inspected paper."
+      ],
+      "reasoning": "No specific published table or benchmark database containing this family was identified. The exact comparison is made against the full text of the closest primary papers, and absence from those sources is not treated as proof of global novelty.",
+      "searches": [
+        "Search of accessible prior claims for interleaving, Quillen–McCord, Poincaré homology sphere, and degree-one map",
+        "Semantic research-record searches for exact homotopy/homology interleaving gaps"
+      ]
+    },
+    "rationale": "The inspected 2026 primary paper states the homotopy/homology distance gap as a future direction but does not give this family or exact values \\(d_{\\mathrm{HC}}=m\\), \\(d_{\\mathrm I}=0\\). The earlier 2023 result is homological. The bounded record search returned conceptually related but mathematically distinct homotopy-versus-homology examples; no exact implication or equivalent construction was identified.",
+    "residual_risks": [
+      "The literature and record searches are bounded; an unindexed or unpublished equivalent may exist.",
+      "No explicit minimal triangulations or face-list data are included; the construction is an existence family via simplicial approximation.",
+      "This establishes an unbounded gap but does not settle sharpness of the coefficient in the general 2 ε |Q| upper bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies an upper bound and motivates the comparison, but does not give the fixed-target family with \\(d_{\\mathrm{HC}}=m\\) and \\(d_{\\mathrm I}=0\\).",
+        "evidence": "Theorem 3.8; Corollary 3.10; concluding remarks on the difference between d_I and d_HC.",
+        "identifier_or_url": "arXiv:2605.11615",
+        "material_read": "Full arXiv HTML: definitions of weakly ε-contractible persistence spaces, Theorem 3.8, Corollary 3.10, and concluding remarks.",
+        "method": "Statement-by-statement comparison with the proposed family and its exact distance calculation.",
+        "title": "Quillen-McCord theorem for persistence finite posets",
+        "trigger": "Recent literature explicitly identifies the gap between homology and homotopy interleaving distances as a future direction."
+      },
+      {
+        "assessment": "Provides a homological interleaving bound, not an exact homotopy-commutative interleaving-distance example.",
+        "evidence": "Introduction and main theorem state the persistent homological bound.",
+        "identifier_or_url": "arXiv:2307.00177",
+        "material_read": "Full arXiv HTML sections on the homological Quillen-McCord theorem, persistence modules, and the main theorem.",
+        "method": "Compare the claimed invariant and the hypotheses, rather than title or parameters alone.",
+        "title": "Persistent homological Quillen-McCord theorem",
+        "trigger": "Earlier homological form of the same theorem family."
+      },
+      {
+        "assessment": "Supports the standard covering-space fact needed for the degree obstruction; the mathematical construction itself is not attributed to this source.",
+        "evidence": "The Poincaré homology sphere is described as a quotient of S^3 by the binary icosahedral group of order 120.",
+        "identifier_or_url": "https://www.maths.ed.ac.uk/~v1ranick/papers/cannon2.pdf",
+        "material_read": "Search-result excerpt concerning the Poincaré homology sphere as S^3 modulo the binary icosahedral group of order 120; not a full-text proof inspection.",
+        "method": "Use only the stated quotient and covering-group facts; the degree-one collapse map is proved directly in the result.",
+        "title": "What is a topological manifold?",
+        "trigger": "Check the standard topological input used for the Poincaré homology sphere."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6943e792-dcc8-48f9-8a1e-f983e68095da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact family gives arbitrarily large homotopy-distance separation at zero persistent-homology distance while satisfying the cited lower-fiber hypothesis and keeping the target fixed. It is a useful calibration benchmark for the information lost under homology, directly motivated by an explicitly stated question in recent primary literature. The claim does not overstate this as a sharpness result for the general upper bound.",
+    "status": "PASS"
+  }
+}
