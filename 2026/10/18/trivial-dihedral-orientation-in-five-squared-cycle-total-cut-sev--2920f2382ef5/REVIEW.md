@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The domain is exactly \(k\in\{4,5,6,7,8\}\), \(n=3k+3\), with the total cut complex defined by complement-independent facets. The attached C++17 program generates the complete Boolean face posets and all 210 dihedral permutations, constructs each vertex-orbit partition, checks the exact fixed-face alternating sum \(S(g)=1\), and independently certifies one critical seven-face under acyclic sequential element matching. The augmented reduced Lefschetz sign is derived explicitly, rather than guessed: \(\widetilde L(g)=-S(g)=-\mathrm{tr}(g_*|\widetilde H_7)\). A separate Python implementation confirms the signed fixed-simplex trace for all 30 permutations when \(n=15\). The printed exact run counts and successful exit codes are included. The theorem's dependence on the acyclicity theorem and averaging over rational coefficients is explicit.
+## correctness
 
-## Originality (PASS)
-The same five **nonequivariant** homotopy types were already determined in the published finite published-finding corpus finding *Five consecutive squared-cycle total-cut complexes are seven-spheres*; no novelty is asserted for \(X_k\simeq S^7\). The new object is the complete \(D_{3k+3}\)-integral orientation character and the rational homology of the quotient. published-finding corpus searches for the dihedral module, quotient homology, rotation/reflection degree, Alexander dual and squared-cycle total cuts returned related but not covering findings; full descriptions of the most plausible hits were inspected. The closest published equivariant theorem applies to bounded-independence complexes of cycle powers when \(n\ge4k\), whereas here \(n=3k+3<4k\). The 2022 and 2025 foundational papers and the five-sphere result give no such orientation calculation. Unindexed parallel work remains a modest residual risk.
+PASS
 
-## Mathematical value (PASS)
-The complete orientation character is natural extra topology of a five-case finite sphere family arising from a published squared-cycle total-cut conjecture. Nonequivariant sphere type allows both signs for a reflection; the all-trivial answer rules out the orientation-reversing alternative for all five cases and determines whether the top rational class survives the full dihedral quotient. This is a meaningful symmetry-and-quotient classification, not simply another Betti-number calculation or a parameter substitution.
+For each k=4..8, n=3k+3, total-cut facets are complements of independent k-sets in C_n^2. The earlier full published independent package proves X_k≃S^7 by exhaustive augmented acyclic matching (single 8-vertex critical face), giving integral rank-one H7. Independently reconstructed all independent k-sets by cyclic-distance test (75,126,196,288,405) and computed fixed-orbit face alternating sums for all 205 NONIDENTITY dihedral symmetries without using the saved face bitset; all equal +1. Identity has trace 1 on rank-one H7. The signed augmented Lefschetz sign (-S) cancels the degree-7 sign, hence every orientation character is +1. Rational quotient homology follows from finite-group invariants after admissible barycentric subdivision. Only these five cases.
 
-## Scope and limitations
-No assertion covers \(k\ge9\), arbitrary powers or integral quotient homology. External independent audit is outstanding; possible unindexed equivalents cannot be eliminated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same five ordinary sphere homotopy types are fully covered by an earlier 2026 mathematical report, but a sphere has two possible orientation characters and that report has no equivariant calculation. A broader cycle-power bounded-independence character theorem has n>=2pk; the submitted n=3k+3 falls strictly below n>=4k. Searches found no direct same-object all-group orientation table. Best-of-knowledge assessment with explicit risk.
+
+## value
+
+PASS
+
+Five canonical finite total-cut sphere cases arise in the published squared-cycle conjecture; the reflection sign is genuine information not fixed by homology rank. The all-trivial character resolves the orientability alternative and exactly determines rational classes of the dihedral quotient, rather than just recomputing old homotopy types. Finite self-contained orientation information is naturally useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

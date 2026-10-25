@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical scope
+# Independent mathematical audit
 
-Compile and run the complete enumeration and integral Morse/dihedral certificate with a C++17 compiler:
+## correctness
 
-```sh
-g++ -std=c++17 -O3 -Wall -Wextra -pedantic verify_dihedral_cut.cpp -o verify_dihedral_cut
-./verify_dihedral_cut
-```
+PASS
 
-Expected successful final line: `ALL_CHECKS_PASSED`. The executed successful run and its five detailed case lines are reproduced verbatim in `verification_output.txt`. Source is standalone; no dependencies beyond the C++17 standard library. The face universe for the largest case contains \(2^{27}\) masks and requires substantial RAM; the executable visits them all. Each of the 210 dihedral elements is checked, rather than only using a few examples. The sequential matching is exact on the full face poset and leaves only the seven-face mask `21846`; the critical theorem is the acyclicity of sequential element matchings as stated in Bayer et al. (Theorem 7.5).
+For each k=4..8, n=3k+3, total-cut facets are complements of independent k-sets in C_n^2. The earlier full published independent package proves X_k≃S^7 by exhaustive augmented acyclic matching (single 8-vertex critical face), giving integral rank-one H7. Independently reconstructed all independent k-sets by cyclic-distance test (75,126,196,288,405) and computed fixed-orbit face alternating sums for all 205 NONIDENTITY dihedral symmetries without using the saved face bitset; all equal +1. Identity has trace 1 on rank-one H7. The signed augmented Lefschetz sign (-S) cancels the degree-7 sign, hence every orientation character is +1. Rational quotient homology follows from finite-group invariants after admissible barycentric subdivision. Only these five cases.
 
-An independently written Python 3 test recomputes the complete face set from a different combinations-based construction, and directly evaluates the signed fixed-simplex traces (not orbit sums) in the \(n=15\), \(k=4\) case:
+## originality
 
-```sh
-python3 verify_signed_15.py
-```
+PASS
 
-Expected line: `INDEPENDENT_SIGNED_CHECK_OK 30 dihedral elements, reduced Lefschetz -1`.
+The same five ordinary sphere homotopy types are fully covered by an earlier 2026 mathematical report, but a sphere has two possible orientation characters and that report has no equivariant calculation. A broader cycle-power bounded-independence character theorem has n>=2pk; the submitted n=3k+3 falls strictly below n>=4k. Searches found no direct same-object all-group orientation table. Best-of-knowledge assessment with explicit risk.
 
-The evidence proves only the five explicitly stated finite cases. Other values of \(k\) or \(n\) are untested and unproved. Integral homology of topological orbit spaces and their homotopy types are not asserted. The nonequivariant sphere classification precedes this calculation, and this package claims only its new full orientation character and rational quotient consequence. Independent external mathematical audit has not been performed.
+## value
+
+PASS
+
+Five canonical finite total-cut sphere cases arise in the published squared-cycle conjecture; the reflection sign is genuine information not fixed by homology rank. The all-trivial character resolves the orientability alternative and exactly determines rational classes of the dihedral quotient, rather than just recomputing old homotopy types. Finite self-contained orientation information is naturally useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
