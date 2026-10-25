@@ -1,0 +1,15 @@
+# Review of equilibrium hyperplanes and their tripartite census
+
+## Correctness — PASS
+The claimed object is a fully occupied, two-color, equal-part complete multipartite graph with strict mutual swaps and symmetric half-peaked **open-neighborhood** utilities. For red in part \(i\) and blue in part \(j\), exact integer utility comparisons reduce to \(|a_j-2|<|a_i|\) and \(|a_i+2|<|a_j|\), with \(a_i=2R-(h-1)m-2r_i\). Squaring both sides gives the necessary and sufficient red-count criterion. The integer potential strictly decreases for each move. For three parts, the binomial census follows from the three pair events and their pairwise intersections; no triple intersection is possible. The lattice local CLT establishes the stated leading probability, with error controlled using binomial point-mass bounds. Explicit utilities were enumerated for 42,816 binary placements and 1,468,544 oriented opposite-color cross-part cases. This finite computation corroborates but does not replace the all-size proof.
+
+## Originality — PASS, with bibliographic limitations
+The principal primary comparison is Bilò et al., *Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games* (2022, arXiv:2204.12599). Its agent-inclusive neighborhood and general almost-regular finite-improvement result differ from the open-neighborhood exact hyperplane and equilibrium-count distribution. Kreisel et al. (arXiv:2105.06561) study monotone same-type utility, while Friedrich et al. (arXiv:2302.12107) study jumps into vacant nodes. Relevant mathematical-result index searches and accessible earlier scientific claims did not identify an implication covering the count and asymptotic. The open-neighborhood formulation is explicitly material; replacing it by a self-inclusive one invalidates the swap law. No claim of exhaustive world-literature coverage is made; possible equivalent statements in unindexed papers remain a genuine risk.
+
+## Mathematical value — PASS
+The result turns a dynamical equilibrium problem on a natural family of dense networks into a sharp integer hyperplane criterion. It provides a full, exact three-community equilibrium count and a nontrivial asymptotic frequency law: despite exponentially many unstable placements, their proportion tends to zero at a quantified inverse-square-root rate. The interpretation addresses the structure and prevalence of instability rather than rederiving a known existence theorem. A concrete motivation is how an individual's self-inclusion convention and network community structure alter opportunities for bilateral improvement.
+
+## Limits and closest literature
+The game is binary, fully occupied, equal-part, symmetric about one-half, and based on open neighborhoods. Fixed-composition probabilities and unequal-part extensions are not asserted. The 2022 single-peaked primary paper is the closest comparison, but its almost-regular convergence theorem is not claimed as new here. Source-search noncoverage is evidence of no identified collision, not proof of global uniqueness. The verification is not an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
