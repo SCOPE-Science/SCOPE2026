@@ -1,19 +1,21 @@
-# Review of the characteristic-two elementary-symmetric cubic classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivative identity \(D_i=e_2+e_1x_i+x_i^2\) and Euler's formula hold in characteristic \(2\). The singular-coordinate quadratic bounds the possible distinct coordinate values by two. Exhausting the parity classes of multiplicities yields precisely the claimed binary points or two-block projective lines, with no omitted one-value case. The polar-rank and radical-value calculations prove the isolated nodes and generic transverse quadrics; translation invariance gives the exact multiplicity-three diagonal cone. Geometric integrality and normality follow from singular codimension, smooth witnesses and Serre's criterion. The standalone exact finite-field checks corroborate \(n=4,5,6,7\), but they are not used as infinite proofs.
+PASS
 
-## Originality — PASS, subject to risk
+For E=e2,S=e1, derivative D_i=E+S x_i+x_i² makes singular coordinate values roots of common quadratic. Two-value multiplicities r,s give restrictions modulo four via binomial mod2; n≡2 mod4 admits exactly 1+1 block lines, other cases binary points |I|≡1 mod4. Polar ranks of quadratic tangent forms determine ordinary nodes and transverse nondegeneracy; diagonal translation invariance yields exact e3 homogeneous cubic germ mult3. Singular locus dimension≤1, ambient dimension n-2≥2, implies regular in codim1; hypersurface CM and irreducibility argument gives normality. Independent complete F4 projective enumeration gives n4..7 singular counts 4,6,25,28, exactly matching predicted sets.
 
-The closest primary comparison is Cafure–Matera–Privitelli (arXiv:1109.2265v1), whose Theorem 3.1 supplies the general at-most-two-coordinate-value restriction and a dimension bound, but does not derive characteristic-two mod-four singular components, counts, tangent cones or the diagonal multiplicity. The classical four-variable Cayley cubic is an acknowledged covered special case. A published-index comparison and relevant historical mathematical records yielded no stronger all-rank classification. Overlap in obscure or unindexed texts remains possible; absence of a search hit is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural all-rank cubic family exhibits a sharp arithmetic singularity dichotomy: isolated nodes in three congruence classes and exponentially many mutually intersecting singular lines in the fourth. The exact singular strata, component counts, transverse quadratic geometry and normality are jointly useful as a geometric classification and not merely a single enumerated example.
+Cafure–Matera–Privitelli Theorem3.1 already gives at most d-1 distinct coordinate values for symmetric hypersurfaces; d=3 gives two-value restriction. It does not determine the exact char2 residue pattern, components, intersections or tangent cones. Cayley cubic n=4 ordinary nodes classical.
 
-## Scope and risk
+## value
 
-The theorem concerns only the reduced singular locus and selected local tangent cones, not scheme multiplicities along the Jacobian ideal or resolution of higher-dimensional singularities. The classification is subject to subsequent independent mathematical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform all-n singularity and normality classification for a particularly natural elementary symmetric hypersurface, detecting finite-to-line-arrangement transition modulo4; useful input for arithmetic geometry/coding-related symmetric hypersurfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

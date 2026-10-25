@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or newer; only the standard library is used. The script enumerates all projective points over the four-element field for \(4\le n\le7\), evaluates each of the \(n\) polynomial derivatives directly, and compares the exact singular-point sets to the proposed classification. It prints counts \(4,6,25,28\) and `VERIFY_OK` on success. No randomization is involved. This is independent small-rank finite-field confirmation, not an exhaustive check over algebraically closed fields or all ranks. The proof in RESULT.md establishes the infinite statements symbolically through two-coordinate reduction and parity.
+## correctness
 
-For isolated nodes, check the projectivized quadratic tangent cone and its characteristic-two polar form; an odd-dimensional nondegenerate quadratic form can have a one-dimensional polar radical, provided the quadratic form is nonzero on that radical. No external or independent audit is claimed.
+PASS
+
+For E=e2,S=e1, derivative D_i=E+S x_i+x_i² makes singular coordinate values roots of common quadratic. Two-value multiplicities r,s give restrictions modulo four via binomial mod2; n≡2 mod4 admits exactly 1+1 block lines, other cases binary points |I|≡1 mod4. Polar ranks of quadratic tangent forms determine ordinary nodes and transverse nondegeneracy; diagonal translation invariance yields exact e3 homogeneous cubic germ mult3. Singular locus dimension≤1, ambient dimension n-2≥2, implies regular in codim1; hypersurface CM and irreducibility argument gives normality. Independent complete F4 projective enumeration gives n4..7 singular counts 4,6,25,28, exactly matching predicted sets.
+
+## originality
+
+PASS
+
+Cafure–Matera–Privitelli Theorem3.1 already gives at most d-1 distinct coordinate values for symmetric hypersurfaces; d=3 gives two-value restriction. It does not determine the exact char2 residue pattern, components, intersections or tangent cones. Cayley cubic n=4 ordinary nodes classical.
+
+## value
+
+PASS
+
+Uniform all-n singularity and normality classification for a particularly natural elementary symmetric hypersurface, detecting finite-to-line-arrangement transition modulo4; useful input for arithmetic geometry/coding-related symmetric hypersurfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
