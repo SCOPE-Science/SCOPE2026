@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Each omitted k-set has all Johnson-graph neighbors allowed. Thus the deterministic loss of maximizing a score vector is exactly the kth adjacent order-statistic gap if, and only if, its top-k label set is omitted. Reversing the scores gives the bottom-k loss. The sorted Gaussian values and their centered norm are independent of label permutations; the top/bottom k-set pair is uniform over ordered pairs whose intersection equals max(0,2k-n), with N*L outcomes. Expanding the square of the two losses leaves an m-dependent term plus 2*gamma*C/(N*L), while linear and mixed terms depend on m alone. Positive spacings give gamma>0. Both explicit six-element families have two excluded triples, C=2 versus C=0, and the resulting gap is E[S^2]/5. Rank-three Ehrhart equality follows from Ferroni–Schroeter Proposition 7.12, with five finite dilate checks as corroboration. Independent exhaustive finite checks cover 13,800 strict-score support comparisons; those do not substitute for the symbolic all-ranks proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferroni–Schroeter Corollary 5.4 gives equal valuative invariants for fixed n,k,m; Proposition 7.12 gives Ehrhart polynomial formulas.",
+        "Faustini–Vargas arXiv:2512.05250 compares pairs of circuit-hyperplanes for the cd-index, not squared Euclidean width."
+      ],
+      "reasoning": "The new quadratic metric statistic is not a matroid valuation, so the previously proved count-only valuation results do not force it to agree or imply its coefficient. A published pair-sensitive cd-index is a different invariant, and known Gaussian mean-width results address first moments, not the ordered-pair correction in second moments.",
+      "searches": [
+        "\"matroid base polytope\" \"mean width\" \"variance\"",
+        "\"random direction\" matroid base polytope gaussian support",
+        "\"sparse paving\" valuative invariants cd-index circuit hyperplanes",
+        "arXiv:2208.04893 Corollary 5.4 Proposition 7.12"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12442v1 (Hanely et al., 2022)",
+      "arXiv:2208.04893v1 (Ferroni and Schroeter, 2022)",
+      "DOI:10.1112/jlms.12984 (full 2024 article)",
+      "arXiv:2512.05250v1 (Faustini and Vargas, 2025)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new formula depends on C(F), the count of ordered forbidden pairs with minimal possible intersection, and yields a positive difference for complementary versus one-point-intersecting forbidden triples.",
+        "Ferroni–Schroeter formulas depend on m, whereas for both examples m=2; their formulas neither state nor determine an angular second moment.",
+        "Faustini–Vargas provides combinatorial cd-index variation, not the Gaussian spacing coefficient gamma."
+      ],
+      "reasoning": "Knowing the Ehrhart polynomial, volume, and mean width only fixes invariants depending on n,k,m and does not determine C(F). The full Gaussian one-swap defect identity and ordered-pair covariance are additional necessary steps, and no inspected primary statement entails them.",
+      "searches": [
+        "Ferroni Schroeter sparse paving Ehrhart formula matroid valuation width variance",
+        "Hanely Martin McGinnis paving matroid polytope Ehrhart slices",
+        "Faustini Vargas split matroid cd-index pair interactions 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For rank k, maximizing over a matroid base polytope is maximum-weight basis selection; here deleting a Johnson-independent family from the hypersimplex changes the top-k score only through an adjacent Gaussian spacing.",
+        "Ferroni and Schroeter, arXiv:2208.04893, section on sparse-paving valuative invariants, gives invariant formulas based on the number of circuit-hyperplanes but contains no equivalent moment calculation."
+      ],
+      "reasoning": "The identical question can be phrased as covariance of constrained and unconstrained Gaussian maximum-weight bases, or as spherical second intrinsic width moment. Search and full-text inspection supplied no equivalent statement, while neither Ehrhart invariance nor expectation of width determines its variance.",
+      "searches": [
+        "\"sparse paving matroid\" \"support function\" \"Gaussian\"",
+        "\"sparse paving matroid\" \"width\" \"variance\" polytope",
+        "\"sparse paving matroid\" \"spherical\" \"moment\"",
+        "\"matroid\" \"Ehrhart-equivalent\" \"width variance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hanely et al., arXiv:2201.12442, examines lattice-point counts and hyperplane slices of paving matroid polytopes.",
+        "Our six-element two-family checker enumerates all 720 score permutations and the first five Ehrhart dilates, with defect classes (648,72) and (576,144)."
+      ],
+      "reasoning": "The target is a closed symbolic spherical variance separation, not a count of known rank-three matroids or a recomputation of a numerical database entry. The lattice-point agreement is inherited from the published count-only theorem and is not claimed as a new enumeration.",
+      "searches": [
+        "\"rank three\" \"six\" \"sparse paving\" \"Ehrhart\" \"width\"",
+        "\"sparse paving\" \"second moment\" width",
+        "\"circuit hyperplane\" \"normal cone\" spherical",
+        "arXiv:2201.12442 Sections 2, 5, 8"
+      ]
+    },
+    "rationale": "Relevant published matroid-polytope work proves the underlying sparse-paving Ehrhart and valuative formulas, not the nonlinear spherical width second moment or its intersection-pair sensitivity. A later non-valuative cd-index paper uses pair information for a different combinatorial invariant. Searches for Gaussian top-k support differences and spherical width variance of sparse-paving matroids yielded no implying result; residual risk from unindexed Gaussian greedy optimization remains.",
+    "residual_risks": [
+      "A broadly equivalent expression may have appeared in less-indexed work on Gaussian random greedy matroid optimization, spherical second width moments, or Gaussian score orderings.",
+      "The exact positive coefficient gamma is not reduced to a closed elementary constant; this does not affect the proved pairwise difference."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Ehrhart slices and sparse-paving valuations, not angular width variances or the compatible-pair Gaussian coefficient",
+        "evidence": [
+          "arXiv:2201.12442v1, dated January 28, 2022; sections 2, 5, 8, especially remark 5.11 on count-only Ehrhart behavior"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.12442",
+        "material_read": "Accessible complete HTML exposition, including abstract, paving-matroid setup and hypersimplex slices, sections 2, 5, 8 and relevant statements/remarks on sparse paving Ehrhart dependence",
+        "method": "Open-access full HTML read and searches within definitions, propositions and relevant sections",
+        "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+        "trigger": "Earliest public source for canonical paving/sparse-paving polytope descriptions and lattice-point formulas"
+      },
+      {
+        "assessment": "Provides known equal Ehrhart polynomials but does not evaluate non-valuative spherical width variance; comparison leaves new claim not implied",
+        "evidence": [
+          "Corollary 5.4 (valuative invariants of sparse paving matroids), Proposition 7.12 (Ehrhart polynomial formula)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.04893",
+        "material_read": "Accessible complete scholarly HTML body, introduction, definitions, section 5 including Corollary 5.4, section 7 including Proposition 7.12, and searches for width and variance",
+        "method": "Primary full text read and targeted text searches through main statements and appendices",
+        "title": "Valuative Invariants for Large Classes of Matroids",
+        "trigger": "Strongest likely implication: all sparse-paving matroids with same number of circuit-hyperplanes share matroid valuations and Ehrhart polynomial"
+      },
+      {
+        "assessment": "Finds pair-sensitive corrections for the combinatorial cd-index, not Gaussian support width or angular second moments",
+        "evidence": [
+          "arXiv:2512.05250, dated December 4, 2025, cd-index pair-sensitive theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.05250",
+        "material_read": "Accessible complete HTML introduction, definitions and main structural statements, with searches for Euclidean width and variance",
+        "method": "Primary full text read and targeted concept comparison",
+        "title": "Almost-valuative Invariants of Connected Split Matroids: The cd-index",
+        "trigger": "Potentially stronger pair-sensitive result for matroid polytopes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8948d998-0837-4bdd-a9a5-77a25a310e9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ehrhart- and mean-width-indistinguishable matroid polytopes need not be indistinguishable by random Euclidean directions. The exact all-rank formula isolates the first nonlinear correction as a natural forbidden-circuit pair-incidence statistic, with an explicit rank-three six-point witness where that statistic changes from 0 to 2. This supplies a transparent boundary to established valuative equivalence and motivates directional geometry beyond Ehrhart/volume counts; the result is a structural identity, not a routine special-case enumeration.",
+    "status": "PASS"
+  }
+}
