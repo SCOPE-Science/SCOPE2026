@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem explicitly fixes update semantics, independent probabilities, all initial pairs, and exact-arithmetic mean-square convergence. For each coordinate, the two-step augmented update has two explicit matrices; its covariance map preserves the positive semidefinite cone. A strictly positive definite comparison matrix \(W\) obeys two exact identities. Their sign gives a two-step strict contraction, a nonzero fixed covariance at equality, or an exponentially expanding covariance above the boundary. Decomposing \(W\) into two rank-one deterministic initial covariances proves that failure is witnessed by a deterministic initialization rather than an illicit randomized one. Exact rational code checks the identities; the universal result follows from the proof, not finite sampling.
+PASS
 
-## Originality — PASS with residual risk
+The exact selected-coordinate recurrence u[k+1]=u[k]-alpha*Bernoulli(p)*u[k-1] is faithful to the stated additive, one-commit-old model; dependence across coordinates is irrelevant because E||e||^2 splits. Independently expanded the two 2x2 Bernoulli maps with SymPy: L(W)=W-d E11 and L^2(W)=W-d[[2,1],[1,1]], W=[[1,t],[t,1]], t=1/(1+alpha p), d=alpha p(2/(1+alpha p)-alpha). The latter decrement matrix is positive definite; positive-map iteration proves geometric mean-square decay for d>0, an invariant covariance at equality, and exponential augmented error for d<0. Its two rank-one deterministic starts imply an actual bad deterministic initial state. The global iff condition alpha+alpha^2 max_i p_i<2, strict minimum m>alpha^2/(2-alpha) for alpha<2, and the weaker mean-root criterion 0<alpha*p_i<1 follow. Independently checked 5/4 equal-collision vectors have squared collision 3/8 but opposing thresholds; finite checks do not replace the all-p proof.
 
-Full text of the motivating randomized Kaczmarz experiment, of a classic asynchronous Kaczmarz sufficient-condition paper, of a related nonuniform asynchronous linear solver paper, and of a nearby published exact random-delay Gauss–Seidel result was compared with the new *self-stale, additive-correction* claim. The published random-delay Gauss–Seidel result instead overwrites a coordinate using the other coordinate's stale value, with a different recurrence. General jump-linear-system criteria include an implicit spectral-radius characterization, explicitly acknowledged; they do not state the derived sampling-diversity inequality or equal-global-collision/unequal-stability example. The relevant 2026 Carson–Ma article was checked only at the abstract level; a possible older exact special-case statement remains a scientific risk. The novelty claim is specifically about the explicit identity-Kaczmarz boundary, not the general covariance method.
+## originality
 
-## Value — PASS
+PASS
 
-The natural stability question is suggested by instability and row-sampling concentration in asynchronous Kaczmarz. The result provides an exact iff threshold and a practical benchmark for the number of orthogonal rows needed for stable overrelaxed stale updates. The exact equal-global-collision example shows why the total collision rate is an insufficient summary and why the largest row probability matters. It also sharply separates first-moment convergence from mean-square convergence. This is a structural, explicitly motivated classification, not an arbitrary numerical instance or a claimed general parallel-algorithm guarantee.
+Exact finite-dimensional mean-square stability of a one-step-delayed Bernoulli linear iteration is a specialization of general jump-system covariance theory. Its explicit scalar threshold, boundary witnesses, and row-diversity/equal-collision comparison were not found as stated mathematical consequences in the materially inspected Coleman treatment or ranked research records. We credit the general lifted spectral test and do not assert novelty of the method.
 
-## Closest literature and limitations
+## value
 
-Coleman's 2026 work motivates the stochastic row-update/staleness mechanism without proving this benchmark threshold. Liu–Wright–Sridhar (2014) supplies bounded-delay sufficient estimates, Jensen–Coleman–Sosonkina (2020/2021) supplies nonuniform asynchronous implementation evidence, and generic jump-system work supplies covariance/spectral tests. The exact public random-delay Gauss–Seidel work uses a different overwrite model. Only an identity system, i.i.d. choices, fixed one-commit staleness, and exact arithmetic are proved. General high-dimensional/nonlinear/adaptive or actual concurrency conclusions are not claimed; originality may be affected by inaccessible literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, motivated concurrency surrogate isolates stale-self row collisions without row coherence, gives an exact minimum-diversity phase diagram and demonstrates that equal successive-row collision probabilities can mask opposite mean-square behavior. It also exposes a meaningful first-moment/MSE gap. The theorem is limited to iid sampling of an orthogonal identity system, not hardware scheduling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
