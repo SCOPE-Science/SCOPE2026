@@ -1,13 +1,21 @@
-# Scientific review: logarithmic edge completion of consecutive cycle sums
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof defines a simple graph on the original consecutively labeled cycle and adds exactly \(\lfloor\log_2(n-2)\rfloor\) nonexisting chords. Its suffix sums differ by \(t-1\), so every intervening target has an additive residue between \(0\) and \(t-2\), representable by binary digits indexing vertices outside the suffix. Each digit is joined directly to the suffix endpoint. The boundary targets smaller than \(n\) and equal to \(T_n\) are handled independently. Exhaustive and sampled checks test the finite construction without substituting for the proof.
+## correctness
 
-**Originality — PASS, with stated risk.** In [1, Section 5], the authors define the same invariant, give only the \(n/2-1\) edge bound, and explicitly leave sublinear improvement open. The logarithmic result is not a corollary of that bound; the new connected binary-star chord family supplies a missing construction. Searches for equivalent weighted graph-completion formulations and broader covering results disclosed no stronger theorem. Indexed results about graph cycles, cover-free families, and unrelated edge-addition parameters do not control connected label-sum completeness. Risk: a prior unindexed or differently named binary-star completion construction could exist.
+PASS
 
-**Value — PASS.** A logarithmic rather than linear edge construction resolves an explicit open quantitative direction for a natural graph-number-theoretic invariant. It is an unbounded-family statement with a complete witness algorithm, not a finite isolated improvement. Neither optimality nor a matching lower bound is claimed.
+For every n>=8, add exactly the chords {n,2^j} with j>=1 and 2^j<=n-2, i.e. floor(log2(n-2)) edges. Define suffix sums S_t=sum_{i=t}^n i with S_(t-1)-S_t=t-1. Targets 1..n-1 are singleton labels; T_n is all vertices. Each remaining target k is in unique interval S_t<=k<S_(t-1), 2<=t<=n; residue r=k-S_t is in 0..t-2. Expand r in distinct powers of two, each smaller than t, and attach those corresponding vertices to the suffix. Bit 1 attaches to n via the original C_n edge and bit 2^j>=2 attaches via a new chord. The induced set is connected and its sum exactly k. This proves the unrestricted logarithmic upper bound without algorithm execution. Independently generated and BFS-checked 4,876 target witnesses across n8..30 against chord graph; read actual verifier implementing a related finite check. No matching lower bound or exact minimum asserted.
 
-**Closest primary source.** [1] J. Marotti and J. Needleman, *Consecutive Cycle Sums*, arXiv:2610.08889v1, especially the definition and proposition in Section 5. The complete accessible article, including its stated future question and references, was inspected.
+## originality
 
-**Limitations.** No exact value of \(\mathrm{mEC}(n)\) is shown. The bound is for a fixed ordering and connected vertex sets; equivalent discoveries under other terminology cannot be absolutely excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Marotti–Needleman arXiv:2610.08889 is the same newly introduced consecutive cycle-sum edge completion problem. The accessible abstract/metadata confirm its scope; original assigned package attributes to its Section 5 a linear upper bound and the open sublinear direction. Attempts to retrieve its complete arXiv PDF/HTML and lawful OA failed. Authorized Oxford request returned vpn_disconnected; no retry or bypass. Cannot assert whole-document noncoverage from the abstract, and a hidden logarithmic construction remains explicit priority risk. Within actually accessible evidence and direct comparison, no source demonstrating logarithmic all-n construction was found; best-of-knowledge O assessment is qualified.
+
+## value
+
+PASS
+
+The underlying paper explicitly motivates reducing the number of chords needed for consecutive-label cycle connected subset sums. A constructive O(log n) improvement over the prior stated linear bound resolves the qualitative sublinear direction and provides an explicit witness for every integer target; not a routine restatement of an unconnected subset-sum lemma because connectivity must be enforced.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

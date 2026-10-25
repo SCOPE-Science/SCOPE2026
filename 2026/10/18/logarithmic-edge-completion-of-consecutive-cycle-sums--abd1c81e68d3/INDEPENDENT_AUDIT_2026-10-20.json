@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T19:54:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=8, add exactly the chords {n,2^j} with j>=1 and 2^j<=n-2, i.e. floor(log2(n-2)) edges. Define suffix sums S_t=sum_{i=t}^n i with S_(t-1)-S_t=t-1. Targets 1..n-1 are singleton labels; T_n is all vertices. Each remaining target k is in unique interval S_t<=k<S_(t-1), 2<=t<=n; residue r=k-S_t is in 0..t-2. Expand r in distinct powers of two, each smaller than t, and attach those corresponding vertices to the suffix. Bit 1 attaches to n via the original C_n edge and bit 2^j>=2 attaches via a new chord. The induced set is connected and its sum exactly k. This proves the unrestricted logarithmic upper bound without algorithm execution. Independently generated and BFS-checked 4,876 target witnesses across n8..30 against chord graph; read actual verifier implementing a related finite check. No matching lower bound or exact minimum asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assigned manuscript cites previous linear upper bound n/2-1 and a sublinear open direction; complete original primary text could not be independently read."
+        ],
+        "reasoning": "No accessible stronger all-n completion theorem was found. Inaccessibility is a real risk, not grounds to state the whole prior paper is noncovering or to invent a novelty guarantee.",
+        "searches": [
+          "arXiv:2610.08889 abstract and assigned citation of Section 5",
+          "adding O(log n) chords to consecutive labeled cycle C_n make every connected subset sum from 1 to n(n+1)/2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08889 accessible abstract; full primary inaccessible",
+        "Original paper Section 5 claims only as quoted in inspected assigned package, not independently validated",
+        "Actual Git RESULT.md and verify_binary_chords.py tree 8e6294...",
+        "Resultary targeted labeled-cycle edge-completion search",
+        "Oxford institutional status vpn_disconnected; no unauthorized access or retry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A linear bound mEC(n)<=n/2-1 (as attributed in original package) does not mathematically imply an O(log n) bound; the new suffix-gap powers-of-two hub argument provides the stronger witness."
+        ],
+        "reasoning": "Implication comparison is conditional on the accessible prior statements. The inaccessible full article could conceivably have an equal or stronger unquoted theorem, retained as material priority risk.",
+        "searches": [
+          "Marotti–Needleman arXiv:2610.08889 accessible abstract",
+          "adding O(log n) chords to consecutive labeled cycle C_n make every connected subset sum from 1 to n(n+1)/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is an all-target connected induced-subset-sum completion with at most floor(log2(n-2)) extra edges, distinct from classical arbitrary subset sum and graph chord count."
+        ],
+        "reasoning": "Searched exact invariant mEC, sum-consecutive cycles and additive edge-completion equivalents. Main same-object prior paper identified; its complete Section 5 not independently accessible.",
+        "searches": [
+          "adding O(log n) chords to consecutive labeled cycle C_n make every connected subset sum from 1 to n(n+1)/2",
+          "arXiv:2610.08889 Consecutive Cycle Sums abstract",
+          "consecutive labeled cycle connected subset sums, binary chord hub aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This result gives a constructive upper bound for all n>=8, not a finite exact mEC(n) table or a claim of optimality."
+        ],
+        "reasoning": "Small-n tables, if present in prior work, do not imply the logarithmic constructive bound, and no uninspected table is asserted absent.",
+        "searches": [
+          "adding O(log n) chords to consecutive labeled cycle C_n make every connected subset sum from 1 to n(n+1)/2",
+          "mEC(n) minimum edge completion in arXiv:2610.08889"
+        ]
+      },
+      "rationale": "Marotti–Needleman arXiv:2610.08889 is the same newly introduced consecutive cycle-sum edge completion problem. The accessible abstract/metadata confirm its scope; original assigned package attributes to its Section 5 a linear upper bound and the open sublinear direction. Attempts to retrieve its complete arXiv PDF/HTML and lawful OA failed. Authorized Oxford request returned vpn_disconnected; no retry or bypass. Cannot assert whole-document noncoverage from the abstract, and a hidden logarithmic construction remains explicit priority risk. Within actually accessible evidence and direct comparison, no source demonstrating logarithmic all-n construction was found; best-of-knowledge O assessment is qualified.",
+      "residual_risks": [
+        "Nearest identical-object primary paper could contain an equivalent or stronger bound in material not accessed; priority assessment provisional.",
+        "Authorized Oxford service reported VPN disconnected; full Section 5 was not read, so no whole-document NOT_COVERING conclusion.",
+        "No matching lower bound or optimality known from this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract confirms identical question, but insufficient to conclude entire work does not cover the logarithmic bound",
+          "evidence": "ArXiv first submitted 2026-10-06; source package cites Section 5 and linear bound; authorized institutional request returned vpn_disconnected.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08889",
+          "material_read": "Accessible October 2026 arXiv title, abstract and bibliographic data; full PDF/HTML not retrieved",
+          "method": "arXiv abstract and attempted lawful OA/full-text access, then authorized institutional Oxford request",
+          "title": "Consecutive Cycle Sums",
+          "trigger": "Identical mEC invariant and closest primary work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The underlying paper explicitly motivates reducing the number of chords needed for consecutive-label cycle connected subset sums. A constructive O(log n) improvement over the prior stated linear bound resolves the qualitative sublinear direction and provides an explicit witness for every integer target; not a routine restatement of an unconnected subset-sum lemma because connectivity must be enforced.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.08889 accessible abstract; full primary inaccessible",
+    "Original paper Section 5 claims only as quoted in inspected assigned package, not independently validated",
+    "Actual Git RESULT.md and verify_binary_chords.py tree 8e6294...",
+    "Resultary targeted labeled-cycle edge-completion search",
+    "Oxford institutional status vpn_disconnected; no unauthorized access or retry"
+  ],
+  "disposition": "passed",
+  "limitations": "Only consecutive fixed cyclic labels, n>=8, connected induced vertex subsets; no optimality, exact mEC(n), arbitrary labelling or matching lower bound.",
+  "residual_risks": [
+    "Nearest identical-object primary paper could contain an equivalent or stronger bound in material not accessed; priority assessment provisional.",
+    "Authorized Oxford service reported VPN disconnected; full Section 5 was not read, so no whole-document NOT_COVERING conclusion.",
+    "No matching lower bound or optimality known from this audit."
+  ],
+  "schema_version": 1
+}
