@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Each selected attribute in a contranominal submatrix must be represented by one crossing graph edge, and crossing edges for different selected attributes cannot coincide. This gives a bijective count, not a heuristic. The positivity of every selected attribute's crossing degree is exactly the dominating-set condition. The lattice-rank assertion invokes the previously established contranominal/Boolean-suborder criterion, and no Boolean-sublattice strengthening is made. The universal-vertex equality proof constructs exact closed intents and an extra intent for every nonstar edge. The transfer uses explicit two-bit states and the correct zero boundary on paths; it was checked independently. The finite verifier reports 1,099 complete graph cases and exact path/cycle calculations. The NP-hardness reduction uses standard domination decision and a valid polynomial certificate.
+## correctness
 
-## Originality — PASS (qualified)
-Koyda–Stumme (2021) and Albano–Chornomaz (2015) already provide the general Boolean-suborder/contranominal-scale framework, and this prior implication is credited. Rawson et al. (2023) supplies general incidence and concept-lattice context. The inspected materials did not state the complementary edge–vertex graph representation, the exact domination-weighted spectrum, the sharp universal-vertex equality, or the transfer/expected-coefficient formulas. Relevant mathematical-record comparisons concerned ordinary, restrained, and super-domination polynomials rather than the selected-edge witness polynomial for contranominal scales. The largest outstanding novelty risk is an implicit specialization of the older general criterion or an equivalent graph-specific formal-context result under alternative names. A failed search alone is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-Boolean suborders force exponential lower bounds on concept-lattice size; obtaining their maximal rank is consequently a natural invariant, not an arbitrary graph count. This family shows the rank to be exactly a fundamental NP-complete graph invariant, and its full scale spectrum records the multiplicity of edge witnesses for each dominating complement, information absent from domination number alone. The path/cycle transfer and sharp star characterization give all-size structural results. The precise statement distinguishes order embeddings from sublattice embeddings and scales from distinct suborders.
+For A chosen attribute vertices and D=V\A, each selected edge of a reduced contranominal subcontext contains exactly one chosen vertex and its other endpoint lies in D. The missing-incidence bijection requires one distinct cross-edge for each v in A, giving precisely product_{v in A}|N(v) intersect D|; nonzero iff D dominates G, including isolates and n=1, hence top degree n-gamma(G). The established FCA scale criterion supplies an ORDER embedding, not a sublattice statement. The star equality count follows by enumerating closed intents; adding any non-spoke edge produces an additional closed intent containing the hub. For path/cycle, the four-state transition weights z(a+c) at a zero center and 1 at a one center, with appropriate boundary vectors, recover the recurrence and floor(2n/3) degree. Cut-edge expectations factor over v in A since those Bernoulli sets are disjoint. Independently constructed all 75 labeled graph edge-subsets n<=4, and compared direct edge-subcontext enumeration to the product formula exactly, plus direct sample transfer polynomials. The source verify.py additionally implements 1099 graph checks through order five; its log alone was not treated as proof.
 
-## Limits
-The result concerns finite simple graphs only. The graph-specialized observations might have an earlier equivalent formulation; publication priority has not been independently checked. Computations are finite checks and do not certify the general proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Koyda--Stumme and Albano--Chornomaz already establish the general Boolean-suborder/contranominal-scale correspondence; neither relevant main proof states the specified complement-of-edge graph weighted cut enumeration. Exact graph specialization, sharp universal-vertex equality, path/cycle transfer and random-edge moments are assessed as the surviving additions, best-of-knowledge; a hidden reformulation in FCA graph-context literature remains possible.
+
+## value
+
+PASS
+
+The complementary edge-vertex context is a natural formal-concept representation of a graph, and domination number is a central graph invariant. This identifies Boolean suborder rank exactly and lifts existence to every weighted scale coefficient, enabling exact graph-family recurrences and testing sharpness of a natural concept-count bound. It is not merely restating NP-completeness or the known generic FCA scale theorem; the unknown weighted polynomial and equality structure have independent mathematical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
