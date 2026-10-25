@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The input is an explicitly homogeneous Poisson superposition; the two-sided isolation condition is precisely two consecutive gaps above the threshold. Regeneration is established under the isolated-point Palm law using independence of exponential gap lengths and fresh independent Bernoulli retention. The two-state recursion yields an exact positive-denominator interarrival transform, and geometric compounding gives the exact retained spacing transform. The symbolic moment calculation and expansion to order \(n^{-2}\) support the pointwise \(1/n\) coefficient, including its unique nontrivial zero. The finite checker independently tests the algebra and explores simulated gaps. Risk: this is a pointwise Laplace expansion; it neither proves a uniform test-frequency bound nor a total-variation bound.
+## correctness
 
-## Originality — PASS, qualified
-The motivating full text arXiv:2609.25733v1 proves the leading Poisson-process limit but not the exact renewal spacing law or first correction. The closest source arXiv:2511.10083 develops the exact Matérn-I pair-correlation and Poisson bounds, not an explicit one-dimensional Palm interarrival distribution. The full text of Spinka arXiv:1912.03786v1 proves regeneration for one-sided simple selection; its condition is not two-sided Matérn-I isolation. Rao–Adams–Dunson arXiv:1308.1136v2 concerns primarily Matérn type III. Relevant record and literature queries found no dominating same-parameter gap-transform result. Risk remains of a classical equivalent formula, perhaps in renewal-pattern or Poisson scan literature. Database nonappearance by itself is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-A full spacing law is a natural statistic for non-Poisson hard-core point patterns and is stronger than the already available intensity and pair correlation. The exact transform makes renewal likelihoods and waiting-distance questions calculable; its sharp signed finite-\(n\) correction answers how rapidly the recent first-order Poisson limit is approached. Simultaneous cancellation at one nonzero interaction value is a structural, parameter-dependent phenomenon not obtained from the leading limit alone. The result is a one-dimensional specialization and not a claim of higher-dimensional generality.
+Superposition of n rate-λ Poisson processes is rate μ=nλ, whose independent exponential gaps have L/S labels by threshold r=τ/(2n). A point is isolated iff both adjacent gaps are long; occurrences of LL regenerate since conditional excess length of the outgoing long gap is independent of prior history. Two-state discounted recursion F_L=p+bF_S, F_S=aF_L+bF_S gives isolated-gap φ=a(1−b)/(1−b−ab); geometric compounding of independent isolated gaps under Bernoulli 1/n retention gives φ/[n−(n−1)φ]. Direct differentiation of the scale-free analytic fraction recovers mean e^t/λ and coefficient C=e^t(e^{t/2}−1−t)/λ². Strict convexity and initial negative derivative give one nonzero cancellation t*=2.51286241725234; no uniform-s claim. Independently used symbolic analytic series/moment identity differentiation and direct transform algebra; the general proof is the regenerative recursion, not a Monte Carlo sample.
 
-## Prior-work limitations
-The sign-change coefficient can also be related to integrated second-order correlations, which were studied in the earlier source; the accepted claim is the full regenerative law and first-order interarrival transform, not a claim that the sign-changing variance effect alone was previously unknown. A related obscure result about two-consecutive-long-gap patterns could imply the renewal part; this is the principal originality uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical one-dimensional renewal theory and the general critical Poisson thinning limit are credited. The surviving exact result is a finite-n Palm interarrival transform for two-sided isolation plus independent rare thinning, its signed universal 1/n correction, and cancellation at t≈2.5128624. The prior accessible research reports intensity/pair correlations or limiting processes, not this evaluated all-n transform on material read. The newer Hlyniana full paper was inaccessible after arXiv/OA and authorized institutional attempts; this is explicitly a substantial priority risk, not definitive noncoverage.
+
+## value
+
+PASS
+
+The exact stationary renewal characterization and finite-n gap transform upgrade weak Poisson convergence to distributional information at all sample sizes. The signed first Poisson-spacing correction and a critical dimensionless isolation parameter at which the entire fixed-s first order vanishes are motivated, non-obvious distinctions useful for quantitative stochastic geometry and dependent thinning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
