@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The full \(65,535\)-section coefficient space is partitioned into \(49,515\) forms with explicit geometric singular-point witnesses and \(16,020\) remaining forms. Independently evaluated singularity certificates cover the former. An independently implemented \(72\)-element group action partitions the latter into \(252\) orbits, and exact four-chart polynomial-ideal calculations prove all orbit representatives geometrically smooth. Therefore no untested smooth forms survive. The cohomological Hasse–Witt coefficient formula follows from Frobenius on the standard Čech basis, and both independent binary-matrix implementations agree on all weighted strata. The class-weighted and equation-weighted totals reconcile. A residual computational risk is shared interpretation of coordinate encoding; explicit formulas in the result and positive/negative independent implementations reduce that risk.
+## correctness
 
-## Originality — PASS, qualified
-The 2020 Xarles census and the preceding split-quadric smooth census already classify the individual curves: no originality is claimed for those base counts or for \(2\)-ranks alone. The closest 2023 Dragutinović paper already supplies the \((3,3)\) Hasse–Witt matrix and forbids one relevant EO type \([4,3]\) in characteristic two; the narrower exclusion is therefore not novel in isolation. The inspected primary text, however, does not provide a full finite-field joint table or prohibit *all* \(a\ge2\) for every smooth split-quadric genus-four curve over \(\mathbf F_2\). Camacho-Navarro's inspected calculations cover odd-characteristic examples. Actual research-record and local historical-claim comparisons found no equivalent five-bin equation- and isomorphism-weighted classification. Remaining risk: unpublished postprocessing of the published census (or an overlooked table in a subsequent source) could contain these exact results. Absence from searches alone is not proof of priority.
+PASS
 
-## Value — PASS
-The precise finite-family invariant is motivated by the arithmetic geometry of genus-four Jacobians: the \(a\)-number measures the local Frobenius/Cartier defect and refines the known isogeny/zeta classification. The complete class-and-equation weighted stratification gives a sharp natural restriction, namely no \(a\ge2\), and yields the exact distribution across all \(252\) smooth split classes. It distinguishes a natural moduli subfamily from possible characteristic-two EO behavior; this is not merely a count of arbitrary coefficient slices. It is an exact finite classification, not a characteristic-independent theorem.
+The sequence O(-3,-3) --F--> O identifies H1(C,O_C) with H2(P1xP1,O(-3,-3)); Frobenius is F times squaring on the four Cech monomials, producing H_(k,l),(i,j)=c_(2i-k,2j-l) over F2. Since dim=4, a=4-rank(H) and f=rank(H^4). The 16-bit mask loops really cover 65,535 nonzero sections. Geometric negatives have 49,515 explicit points over degrees 1..6 and an independent direct-substitution checker; the complement is not declared smooth from this degree cutoff. All 252 orbits of that complement undergo four-chart exact Groebner unit-ideal tests (F,Fx,Fy), which establish geometric smoothness in every extension. 72 finite-automorphism transformations preserve this property, and canonical uniqueness of the containing smooth quadric identifies their orbits with abstract F2-isomorphism classes within the family. The separate C++ mask count and Python orbit-weighted rank distribution coincide. Fresh independent four-chart exact GF2 Groebner and Hasse-rank checks of six actual orbit representatives (6150,6183,6289,10723,30857,45515) found all smooth with a<=1, including ordinary and nonordinary examples; this small replay corroborates but does not independently exhaust all 252 Groebner certificates.
 
-## Source and evidence limits
-Primary full-text material consulted: Xarles (arXiv:2007.07822), Camacho-Navarro (arXiv:2012.08705), Dragutinović (arXiv:2301.12897, including smooth-quadric/EO discussion). The source paper's formula is prior work. The numerical table relies on exact executable code and data included here; no independent human mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accepted claim is the five-bin joint (p-rank,a-number) equation/class distribution in the exact split-quadric F2 family and sharp a<=1 exclusion. The 252-class genus-four enumeration, cohomological Frobenius matrix and some EO exclusions are explicitly prior. Published L-polynomials can determine the stable p-rank but not a-number or the joint five bins without additional Cartier calculations. Searches did not identify a prior complete equation-and-isomorphism weighted joint table; historical uniqueness is not certified.
+
+## value
+
+PASS
+
+A complete small-field arithmetic-geometric stratification of a natural genus-four canonical family fixes a sharp a-number boundary and gives simultaneous equation and isomorphism counts. It can be used as a finite-field benchmark for Cartier/EO genus-four classifications and is not merely an isolated arbitrarily chosen test curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
