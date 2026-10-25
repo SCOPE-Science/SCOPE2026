@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Independent parent selections yield three explicit index cases for Cov(A_i,I_j L_j). Summing and telescoping gives Cov(R_n,Q_n)=H_(n-2)-H_(n-2)^(2)-(n-2)^2/(n-1)^2. Consecutive differences are (m^2+m-1)/((m+1)(m+2)^2)>0, and exact values at n=5 and n=6 fix the strict transition. An exact rational verifier enumerated all 46,232 rooted recursive trees with 3<=n<=9 and checked the formula. Finite enumeration supports, not replaces, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "R. van der Hofstad, G. Hooghiemstra, P. van Mieghem (2002) abstract states finite-n level-size covariance for all levels.",
+        "Toofanpour et al. (2022), doi:10.1137/S0040585X97T991040, publisher abstract distinguishes protected and nonprotected nodes and gives asymptotic covariance."
+      ],
+      "reasoning": "The 2002 exact formula has no terminal mark and cannot determine Q_n. A nonprotected node may be a leaf or an internal vertex adjacent to a leaf, so the 2022 protected/nonprotected profile does not directly determine terminal node counts. Full protected-node paper was inaccessible; its implicit consequences remain a risk.",
+      "searches": [
+        "random recursive tree generation sizes covariance recursive tree profile joint moments",
+        "On the covariance of the level sizes in random recursive trees",
+        "Normal Limit Law for Protected Node Profile of Random Recursive Trees"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1611.07466",
+      "doi:10.1137/S0040585X97T991040",
+      "https://www.sciweavers.org/publications/covariance-level-sizes-random-recursive-trees",
+      "published-finding corpus:2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "published-finding corpus:2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f proves root-degree/all-leaf covariance (n-2)/(2(n-1)).",
+        "2002 result covers Cov(level 1 size, level 2 size), not Cov(level 1 size, terminal part of level 2).",
+        "1982 Dondajewski–Szymański title concerns degree distributions within strata; full text was not accessible."
+      ],
+      "reasoning": "An all-leaf aggregate cannot recover its particular second-level component without another relation, and unmarked level size cannot recover terminal fraction. The 1982 article is a legitimate unresolved priority risk, not a documented counterexample or proof of coverage.",
+      "searches": [
+        "covariance random recursive tree root degree leaves at depth two generation two leaf count exact harmonic",
+        "random recursive tree generation sizes covariance recursive tree profile joint moments",
+        "random recursive tree root degree total leaf count covariance",
+        "strata random recursive tree vertex degree distribution 1982"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus close match: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f (total leaves only)",
+        "The mark Q_n counts vertices at level two with outdegree zero, and is not a scalar multiple of the whole level-size profile."
+      ],
+      "reasoning": "Equivalent uses include second-generation terminal nodes and leaf profile at depth 2. The nearest retrieved SCOPE finding uses all leaves, so does not imply a formula for the depth-two subcount.",
+      "searches": [
+        "covariance random recursive tree root degree leaves at depth two generation two leaf count exact harmonic",
+        "random recursive tree level two leaf profile root-degree mixed covariance no children number leaves second generation",
+        "root degree random recursive tree depth two leaves covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned no exact finite covariance table for root outdegree versus depth-two terminal leaves.",
+        "The new exact-rational verifier enumerates sizes n=3..9, independently from named databases."
+      ],
+      "reasoning": "Neither failure of exact-table search nor a finite enumeration proves priority. No exact database/table implying the claim was identified, and no database-independent novelty claim is asserted.",
+      "searches": [
+        "covariance random recursive tree root degree leaves at depth two generation two leaf count exact harmonic",
+        "random recursive tree level two leaf profile root-degree mixed covariance no children number leaves second generation",
+        "random recursive tree level leaf profile joint covariance root degree leaves at depth 2",
+        "random recursive trees leaves at level two covariance exact n"
+      ]
+    },
+    "rationale": "The target is the mixed covariance of root outdegree with the depth-two terminal-leaf count, not all level-two nodes, all rooted leaves, or the protected-node level profile. Relevant exact unmarked-level and whole-tree-leaf results do not determine this intersection. Literature risk persists for the inaccessible 1982 stratified-degree work and protected-node full text.",
+    "residual_risks": [
+      "Original 1982 Dondajewski–Szymański degree-distribution-by-stratum full text was inaccessible and could imply this exact covariance.",
+      "Publisher full text of Toofanpour et al. was inaccessible; the examined abstract alone cannot exclude implicit stronger mixed moments.",
+      "The literature comparison is necessarily nonexhaustive; historical-priority claims remain provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract discusses protected/nonprotected profiles and asymptotic joint laws; cannot infer that the exact mixed statistic is absent from the inaccessible article.",
+        "evidence": [
+          "Publisher page section Abstract and references, published 2022-11-07",
+          "The paper cites the 1982 degree-by-stratum work and 2006 unmarked profile."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/S0040585X97T991040",
+        "material_read": "Publisher abstract, bibliographic metadata, and complete visible reference list (not paywalled main text)",
+        "method": "Direct HTML inspection",
+        "title": "Normal Limit Law for Protected Node Profile of Random Recursive Trees",
+        "trigger": "Similar node-by-level terminal/nonterminal profile in the same recursive-tree model"
+      },
+      {
+        "assessment": "Explicit all-level exact covariance for the size of each generation; does not state the terminal-leaf refinement.",
+        "evidence": [
+          "2002 abstract: analytic expression valid for all k,l,N for level sizes."
+        ],
+        "identifier_or_url": "https://www.sciweavers.org/publications/covariance-level-sizes-random-recursive-trees",
+        "material_read": "Available abstract and classification, not full article",
+        "method": "Direct HTML inspection",
+        "title": "On the covariance of the level sizes in random recursive trees",
+        "trigger": "Exact all-size covariance of tree-generation counts would dominate an unmarked-level claim"
+      },
+      {
+        "assessment": "Discusses degrees and depths of high-degree/random vertices and asymptotics, not the joint root-degree/level-two-terminal statistic.",
+        "evidence": [
+          "arXiv first version posted 2016-11-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.07466",
+        "material_read": "Primary abstract and dated arXiv bibliographic entry",
+        "method": "Abstract-page inspection",
+        "title": "Depth of vertices with high degree in random recursive trees",
+        "trigger": "Qualifying middle-cohort source on joint degree/depth for random recursive trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3725b936-2945-4914-a775-f7c61f933459",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The covariance at one distinguished generation has a strict, fully classified finite-size sign reversal at n=6 and grows like log n, while the root-degree/all-leaf covariance is bounded. This documents forced opposite-sign contributions from the remainder of the terminal profile, a natural structurally motivated depth-specific dependence not deduced from the unmarked level-size or all-leaf statistic.",
+    "status": "PASS"
+  }
+}
