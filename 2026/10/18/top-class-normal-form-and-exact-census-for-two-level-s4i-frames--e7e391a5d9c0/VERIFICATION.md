@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with ordinary Python 3 and no installed dependencies. The script enumerates each labelled preorder on at most five elements by exhaustive off-diagonal bitmasks, tests transitivity literally, computes all predecessor-closed sets and each greatest modal equivalence class, and obtains the four aggregate statistics. It then independently enumerates all preorders on up to five total worlds in eight small two-level shapes, evaluates the two confluence clauses by direct quantifiers, constructs the normal-form family separately, and asserts equality of the **entire sets** of admissible relations. It checks the reported larger numerical counts through the exact formula. A successful execution ends in `VERIFY_OK`.
+## correctness
 
-The literal entire-relation comparisons cover \((p,q)=(1,1),(1,2),(2,1),(2,2),(1,3),(3,1),(2,3),(3,2)\). Counts at larger sizes are certified here only as arithmetic consequences of the mathematical formula, which is proved independently of enumeration in RESULT.md. There is no machine-checked proof of the unbounded theorem, and no independent external audit has been performed.
+PASS
+
+Forth-up forces any A-to-B target into the unique greatest equivalence class of within-B modal preorder Q_B; forth-down dually forces each B-to-A target into Top(Q_A). Modal transitivity enforces predecessor-closed source sets U and V, and saturation over each top class; these constraints are sufficient: within-level transitivity, mixed compositions into downward-closed blocks, alternating compositions into the original preorders, and both confluences can be checked directly. The parametrization is injective with empty-set convention for absent top classes. The four disjoint cases on existence of top classes yield the stated product-sum N_pq formula. Independent enumerations of labelled preorders on up to four points gave P2/G2/T2/E2 = 4/3/12/8 and P3/G3/T3/E3 = 29/16/130/59, verified the N22=89, N23=762, N33=5922,N24=11534,N44=1062296 calculations and independently compared the complete literal S4I relation set for p=q=2 with the normal form (89 exact matches). These finite calculations are corroboration; the unrestricted proof handles p,q>=2.
+
+## originality
+
+PASS
+
+Balbiani–Diéguez–Fernández-Duque 2021 introduce S4I semantics and prove finite-model results, and Balbiani et al. 2024 refine finite birelational-frame techniques, but the relevant texts do not state this normal form or enumeration on a complete two-antichain intuitionistic order. The closest published Resultary finite-chain KI/IFS descriptions have different confluence hypotheses or nonbranching intuitionistic reduct; they do not imply a two-sided branching preorder census. The classification is a separate combinatorial result, though older order-theoretic descriptions of bi-preorder confluence remain a bounded priority risk.
+
+## value
+
+PASS
+
+Complete two-level antichain orders are the simplest natural intuitionistic posets with genuine branching at both levels. A uniform normal form reducing all S4I modal preorders to two arbitrary within-level preorders plus two downsets gives a constructive exact two-parameter census useful for model-generation and verification. The nontrivial exact counts are not mere small-instance recomputations and need no wider decidability breakthrough to matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

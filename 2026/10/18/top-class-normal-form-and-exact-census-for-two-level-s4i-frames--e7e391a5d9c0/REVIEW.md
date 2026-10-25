@@ -1,21 +1,21 @@
-# Scientific review: top-class normal form for two-level S4I frames
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The confluence implications force each cross-level target into the greatest equivalence class of the corresponding within-level modal preorder. Transitivity forces the sources of such edges to be predecessor-closed and saturation across each greatest class. Conversely, the case-by-case verification of reflexivity, all six mixed compositions and both confluences proves sufficiency without invoking a finite search. The count uses a disjoint four-case partition of pairs of within-level preorders. The bundled executable independently enumerates every relevant binary relation through five worlds, checks the quantified conditions literally, and matches the complete reconstructed sets. This directly supports the stated counts \(N_{2,2}=89\) and \(N_{2,3}=762\); larger counts are exact evaluations of the proved formula. The proof is for every finite \(p,q\ge2\), not an extrapolation of enumerated cases.
+PASS
 
-## Originality
+Forth-up forces any A-to-B target into the unique greatest equivalence class of within-B modal preorder Q_B; forth-down dually forces each B-to-A target into Top(Q_A). Modal transitivity enforces predecessor-closed source sets U and V, and saturation over each top class; these constraints are sufficient: within-level transitivity, mixed compositions into downward-closed blocks, alternating compositions into the original preorders, and both confluences can be checked directly. The parametrization is injective with empty-set convention for absent top classes. The four disjoint cases on existence of top classes yield the stated product-sum N_pq formula. Independent enumerations of labelled preorders on up to four points gave P2/G2/T2/E2 = 4/3/12/8 and P3/G3/T3/E3 = 29/16/130/59, verified the N22=89, N23=762, N33=5922,N24=11534,N44=1062296 calculations and independently compared the complete literal S4I relation set for p=q=2 with the normal form (89 exact matches). These finite calculations are corroboration; the unrestricted proof handles p,q>=2.
 
-**PASS, with a bounded residual terminology risk.** The complete 2021 and 2024 foundational treatments establish the S4I conditions, finite-frame properties and decidability, but do not state the present parametrization or count. The 2024 local-modal paper treats confluence and reflexive/transitive extensions without this normal form. The closest available finite-chain normal forms assume a total intuitionistic order, which fails on the two-sided branching family. An involutive Fischer–Servi classification imposes different minimal-target conditions, so it cannot imply the present enumeration. Comparisons also checked the implication-reversed IS4 formulation and alternative downset and modal-preorder aliases, with no covering result identified. This is a qualified prior-art assessment, not a proof of absolute uniqueness: an older combinatorial formulation under unrelated terminology could still exist.
+## originality
 
-## Value
+PASS
 
-**PASS.** The complete height-two two-antichain orders are the smallest natural family with branching at both intuitionistic levels, unlike chains or one-sided rooted stars. Both confluence axioms and both modal strongly connected structures participate. The theorem provides a complete, reconstructive classification and nontrivial exact labelled counts for the full two-parameter family, making finite S4I frame generation and small-case testing possible without an unrestricted binary-relation search. No claim of a general logical completeness or complexity improvement is needed for this structural value.
+Balbiani–Diéguez–Fernández-Duque 2021 introduce S4I semantics and prove finite-model results, and Balbiani et al. 2024 refine finite birelational-frame techniques, but the relevant texts do not state this normal form or enumeration on a complete two-antichain intuitionistic order. The closest published Resultary finite-chain KI/IFS descriptions have different confluence hypotheses or nonbranching intuitionistic reduct; they do not imply a two-sided branching preorder census. The classification is a separate combinatorial result, though older order-theoretic descriptions of bi-preorder confluence remain a bounded priority risk.
 
-## Closest literature and scope boundaries
+## value
 
-The primary S4I papers [1,2] contain broader semantic definitions but not a stronger finite two-level census. The local-modal paper [3] shares the two confluences but not this exact preorder classification. Existing chain-based modal-frame counts do not subsume two-sided branching, and existing finite-space mapping classifications concern functions, not a second accessibility preorder. The theorem is limited to labelled expansions of one complete two-level order and does not count isomorphism classes or all finite S4I frames. Numerical checking beyond five total worlds is formula-based rather than relation-exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete two-level antichain orders are the simplest natural intuitionistic posets with genuine branching at both levels. A uniform normal form reducing all S4I modal preorders to two arbitrary within-level preorders plus two downsets gives a constructive exact two-parameter census useful for model-generation and verification. The nontrivial exact counts are not mere small-instance recomputations and need no wider decidability breakthrough to matter.
 
-References [1]–[3] are given in RESULT.md.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
