@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scientific limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the directory containing the standalone verifier. It requires only Python's standard library. The script directly evaluates Galois common-attribute sets for **every** object subset in every complete binary incidence matrix under study, then sums the matrix probabilities exactly as rational numbers. It compares the resulting exact expectation with the proposed binomial formula for all 29 finite cases (10,238 incidence matrices in total). The code also evaluates the analytic finite formula at critical sizes. The finite checks passed and are not infinite certificates.
+## correctness
 
-The critical-window and exponentially small expectation assertions are **not** deduced from computing sample sizes. Their proof uses the exact per-column bad-event probability, a uniform threshold bound, a summable Markov–Borel–Cantelli argument valid without cross-size independence, the central limit theorem for an auxiliary symmetric binomial count, and standard binomial large deviations.
+PASS
 
-All claims require \(p\in(0,1)\), a positive integer number of attributes at each size, and independent equal-probability incidences within each context. The proof does not characterize stability of non-top concepts, heterogeneous or dependent incidence models, or finer random fluctuations of the stability statistic. A related 2022 paper on stability algorithms could only be compared via its public abstract; an earlier implicit reduction to a random coverage threshold is a residual originality risk. No independent external audit has been conducted.
+For independent Bernoulli p incidences and canonical top concept, conditioning on a fixed t-object subteam gives per-attribute failure probability p^t-p^m and exact mean 2^-m sum_t binom(m,t)(1-p^t+p^m)^N, including t=0,m boundaries. With beta=-log p and r_m=(log N)/beta, the uniform probability of mismatch outside a width m^1/4 band is at most exp(-beta m^1/4)+exp(-exp(beta m^1/4)/2), and the central-binomial band mass is O(m^-1/4). Markov and Borel-Cantelli give actual-context almost-sure threshold approximation under arbitrary cross-size coupling, and boundedness L1. Binomial CLT at r_m=m/2+(b/beta)sqrt m yields Phi(-2b/beta). Choosing fixed binomial-tail cutoffs yields regimes c<beta/2 ->1, c>beta/2 ->0, plus exponential mean decay -D(min(c/beta,1)||1/2), including c>=beta saturation at -log2 from the full-object subteam lower bound. Read direct complete-matrix enumerator to cross-check formula; numerical values are not proof of a.s. limits.
+
+## originality
+
+PASS
+
+Sakurai 2021 studies expected TOTAL concept counts in Bernoulli random contexts, not stability of top concept. Zhi 2014 and Mouakher/Ko 2022 address computation of concept stability for fixed contexts, not sharp Gaussian crossover under exponentially many random attributes. Best-of-knowledge new quenched critical-window and exact large-deviation rate. Related random set-covering threshold analogies may imply part after reduction and 2022 full paper not examined; residual risk recorded.
+
+## value
+
+PASS
+
+Top concept intensional stability is canonical measure of attribute preservation upon random deletion of objects. An exponential attribute scaling naturally causes a phase transition with nontrivial Gaussian critical width, and a coupling-independent almost-sure law and exact unstable-side rate provide a useful rigorous stochastic calibration benchmark; not an arbitrary limit parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

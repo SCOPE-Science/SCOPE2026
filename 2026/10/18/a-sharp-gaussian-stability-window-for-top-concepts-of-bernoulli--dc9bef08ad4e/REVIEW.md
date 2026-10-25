@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For an object subset of cardinality \(t\), a specified attribute witnesses failure of intent preservation with exact probability \(p^t-p^m\); independent columns establish the finite expectation formula. Uniform exponential bounds below and above \(r_m=\log N_m/(-\log p)\), a central binomial band bound, and summable Borel–Cantelli estimates establish an almost-sure coupling-free cutoff. De Moivre–Laplace establishes the nontrivial Gaussian critical window. Standard binomial large deviations plus explicit two-sided threshold bounds establish the stated exponential rate. The direct exhaustive verifier checks the normalization, including empty-subset and full-subset boundary cases, for 29 parameter/probability settings and 10,238 full matrices. That finite computation is not a proof of asymptotics.
+## correctness
 
-**Originality — PASS, qualified.** Sakurai (2021, full text examined) gives a Bernoulli random-context model and a formula for the *total number of concepts*, not a top-concept stability functional or its quenched transition. Zhi (2014, full text examined) gives exact stability methods for deterministic contexts, not random-context asymptotic behavior. Mouakher and Ko (2022, abstract only) develop stability computation methods. Emilion and Levy (2009, abstract only) analyze expected concept counts and frequent itemsets. Database comparisons using statements and equivalence aliases did not identify a stronger result implying the two-parameter critical Gaussian stability profile. The literature search is not proof of first discovery. The inaccessible full 2022 paper and potential implicit coverage in random-set covering literature are residual risks.
+PASS
 
-**Mathematical value — PASS.** Intensional stability measures whether a concept survives deletion of objects; the top concept is a canonical, non-arbitrary invariant even in randomly generated contexts. Exponentially many candidate attributes create a sharp shift from typical stability to near-zero stability, and the theorem locates its logarithmic critical scale, resolves its \(\sqrt m\) crossover, establishes that the limit holds for actual contexts rather than merely expectations, and provides a full large-deviation exponent on the unstable side. This gives a natural null-model calibration benchmark for concept-stability scores. No generalization to other concepts is asserted.
+For independent Bernoulli p incidences and canonical top concept, conditioning on a fixed t-object subteam gives per-attribute failure probability p^t-p^m and exact mean 2^-m sum_t binom(m,t)(1-p^t+p^m)^N, including t=0,m boundaries. With beta=-log p and r_m=(log N)/beta, the uniform probability of mismatch outside a width m^1/4 band is at most exp(-beta m^1/4)+exp(-exp(beta m^1/4)/2), and the central-binomial band mass is O(m^-1/4). Markov and Borel-Cantelli give actual-context almost-sure threshold approximation under arbitrary cross-size coupling, and boundedness L1. Binomial CLT at r_m=m/2+(b/beta)sqrt m yields Phi(-2b/beta). Choosing fixed binomial-tail cutoffs yields regimes c<beta/2 ->1, c>beta/2 ->0, plus exponential mean decay -D(min(c/beta,1)||1/2), including c>=beta saturation at -log2 from the full-object subteam lower bound. Read direct complete-matrix enumerator to cross-check formula; numerical values are not proof of a.s. limits.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sakurai 2021 studies expected TOTAL concept counts in Bernoulli random contexts, not stability of top concept. Zhi 2014 and Mouakher/Ko 2022 address computation of concept stability for fixed contexts, not sharp Gaussian crossover under exponentially many random attributes. Best-of-knowledge new quenched critical-window and exact large-deviation rate. Related random set-covering threshold analogies may imply part after reduction and 2022 full paper not examined; residual risk recorded.
+
+## value
+
+PASS
+
+Top concept intensional stability is canonical measure of attribute preservation upon random deletion of objects. An exponential attribute scaling naturally causes a phase transition with nontrivial Gaussian critical width, and a coupling-independent almost-sure law and exact unstable-side rate provide a useful rigorous stochastic calibration benchmark; not an arbitrary limit parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
