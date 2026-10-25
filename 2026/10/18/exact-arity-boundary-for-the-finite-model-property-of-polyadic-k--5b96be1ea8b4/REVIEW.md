@@ -1,11 +1,21 @@
-# Scientific review: exact arity boundary for the finite-model property
+# Independent mathematical audit
 
-**Correctness (PASS).** The finite-arity direction uses a finite subformula closure and an explicitly justified relational filtration, including nullary operators and arbitrarily many operator symbols. The infinite-arity direction constructs a well-founded infinitely branching atom-free formula whose coordinate obligations have disjoint satisfaction sets, and gives a countable witness model. This proves that the least possible witness cardinality is exactly \(\aleph_0\). The stated set-theoretic and semantic assumptions are necessary to delimit the proof. The standalone program only checks bounded instances.
+## correctness
 
-**Originality (PASS, with historical-priority risk).** The 2026 motivating article defines arbitrary argument-position sets, but its examined syntax, semantics, and discussion do not establish this if-and-only-if finite-model criterion. Classical filtrations establish the finitary case. Earlier sources on quantified infinitary atomic predicates and primitive infinity-diamond modalities concern different signatures. Available mathematical record searches yielded no matching theorem and no stronger claim clearly implying the complete signature classification; absence from search results is not proof of priority. A broader older infinitary-modal theorem could encompass the argument.
+PASS
 
-**Value (PASS).** This is a natural complete classification of a foundational semantic property at exactly the signature generality newly emphasized in the motivating article. It distinguishes infinite *operator families* (harmless for finite models) from one infinitely positioned operator (sufficient to force infinity), and does so in the variable-free fragment without additional Boolean infinitary operations. The infinite case has a sharp least model cardinal, not merely a nonconstructive failure.
+In ZFC, each operator has a set of argument positions; well-founded formula trees may be infinitely branching but have no infinite branch. If every arity is finite, every formula parse tree is finitely branching and well-founded, hence finite by König lemma, even with infinitely many symbols; filtration through its finite subformulas (including nullary modalities) gives a finite model and respects existential tuple witnesses. If one arity I is infinite, inject natural indices j(n) into I and designate a position a. Define a derived unary E diamond via the designated coordinate, then χ_n=E^n top ∧ ¬E^(n+1) top, pairwise inconsistent in all frames. One infinitely branching atom-free Δ_o formula puts χ_n at coordinates j(n), forcing infinitely many distinct successor worlds. The exact countable model uses natural-number chain n→n-1 and a root tuple r assigning coordinate j(n) to n, so the sharp minimum is aleph_0. Source finite checker only tests truncations arities1..9. Independently checked disjoint finite-chain height truth sets; proof for infinite syntax is deductive.
 
-**Closest literature and limits.** Girlando–Montesi (2026), Sections 3 and 8, is the direct semantic background; Blackburn–de Rijke–Venema (2001) supplies classical finitary filtrations; Jaakkola (2022/2023), Sayed Ahmed (2013), and Bellas Acosta–Venema (2022/2024) are related but use different operators or syntactic resources. ZFC, unrestricted frames, well-founded infinitary branching syntax, and classical Boolean semantics are explicit. The 2022 infinity-diamond article was available at abstract/bibliography level only, leaving a residual equivalence risk from uninspected full text.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for the precise if-and-only-if under unrestricted existential-tuple semantics with well-founded infinitary arity. Classical finite filtration is prior, as are general modal infinitary operators and the infinitely-branching syntax in Girlando–Montesi. An infinity diamond explicitly quantifies over infinitely many successors, but here ordinary existential tuple binds infinitely many distinct height types without a special infinity connective. Full texts of relevant general infinitary language papers were not all accessible, leaving a real residual domination risk.
+
+## value
+
+PASS
+
+Gives a natural exact signature-level FMP boundary, distinguishing an infinite *family* of finitary modal operators from any single infinite-arity operator. An atom-free one-formula witness with least countable model supplies a sharp structural classification rather than a routine example, under clearly specified ZFC/well-founded syntax.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
