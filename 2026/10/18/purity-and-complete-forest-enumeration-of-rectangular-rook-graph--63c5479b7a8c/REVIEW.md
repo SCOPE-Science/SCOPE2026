@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact correspondence \(R_{m,n}=L(K_{m,n})\) reduces induced vertex forests to selected bipartite linear forests. The maximality test is equivalent to excluding edges between degree-at-most-one vertices in distinct selected components; the case split forces either a balanced spanning Hamilton path or degree exactly two throughout the smaller bipartition class. Path-component counts, endpoint factors and reversal normalization yield the displayed formal exponential generating function and exact facet counts. All boundary cases \(m,n\ge2\), particularly square versus unequal sides, are handled. The packaged direct adjacency checker exhausts \(370512\) subsets on ten profiles; the proof alone establishes all parameter values.
+PASS
 
-## Originality — PASS (subject to bibliographic risk)
+The rook graph is L(K_m,n); selected cells induce a graph with cycles precisely when selected bipartite edges have degree>=3 (a line-graph triangle) or contain a cycle, hence induced forests correspond bijectively to bipartite linear forests including isolated base vertices. Two-sorted labeled exponential formula on alternating paths with r/r and r+1/r vertex counts gives exp(u+v+[uv z+uv(u+v)z²/2]/[1-uvz²]); reversals and factorial normalizations are correctly counted. Inclusion-maximal selected linear forest iff every pair of selected-degree<=1 vertices on opposite sides lies in one component. If both sides have low-degree vertices, this forces one spanning path with opposite-side endpoints, thus m=n and size m+n-1. For m<n, every vertex of smaller side has degree2 (the opposite alternative violates forest edge bound), giving size 2m; after contracting degree2 small-side vertices the larger side carries a simple linear forest with m edges and n-m components, whose path EGF B(u)=u+u²/[2(1-u)] and m! distinct edge labels give m!n!/(n-m)! [u^n]B(u)^{n-m}. m=n gives (m!)² alternating Hamilton paths. Small cases and empty/isolated vertices are accounted for. Independent union-find cycle tests on actual rook-cell induced subgraphs, not the repository checker, reconstructed entire polynomial and maximal counts for (2,2),(2,3),(2,4),(3,3),(3,4); finite enumeration is corroboration only.
 
-The 2021 well-\(f\)-covered article [1] proves results for \(K_{r,s}\), not its line graph. The 2023 OEIS entry [2] tabulates connected induced rook paths, not the full forest and maximal-facet distributions. The inspected 2023 LF-cover paper [3] concerns spanning edge-linear forests and an algebraic cover condition, not this enumeration. No covering theorem was identified in the searched mathematical findings and primary literature. The 2007 Tankus–Tarsi article [4], especially its broad treatment of maximal linear forests, remained inaccessible beyond its abstract; this is a material residual risk for the purity component. The full maximal-set enumerator and all-size polynomial are not given by that abstract, and no stronger accessible coverage was found.
+## originality
 
-## Value — PASS
+PASS
 
-This describes the complete face and facet enumerators of a natural two-parameter induced-forest complex and proves it is pure, despite nonlinear acyclicity constraints. The structural transition at equal side sizes is explicit: square boards have maximal forests corresponding to Hamilton paths, whereas rectangular boards have labeled edge-subdivision models over ordinary linear forests. Exact counts and a global greedy-extension property go substantially beyond a mere maximum-size bound.
+Previously known well-f-covered classification for K_m,n concerns base graph rather than induced forests of its line graph. OEIS A360850 counts individual connected paths, not disconnected forests or facets. Williams’s LF-cover Proposition2.21 proves complete-bipartite graphs have an LF-cover, a different existence invariant, not purity of all maximal linear forests nor enumerators. Tankus–Tarsi 2007 treats greedy/maximal paths and maximum linear forests and could contain related facts: only its abstract was accessible, Oxford auth disconnected, so retain the unresolved priority risk without declaring full text noncovering. The explicit all-size bivariate EGF, purity and complete facet counts remain best-of-knowledge original.
 
-## Sources, risks and verification limits
+## value
 
-[1] arXiv:2105.14339; [2] OEIS A360850; [3] arXiv:2310.14410, Section 2.2; [4] DOI:10.1016/j.disc.2006.09.031 (abstract only). Bibliographic priority remains open to independent checking, especially [4]. Finite enumeration is an independent computational consistency test but not an infinite proof or independent scientific review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem supplies a complete face enumerator and facet enumerator of a natural two-parameter induced-forest simplicial complex, plus unexpected purity. The sharp transition from alternating Hamilton paths (m=n) to contracted linear forests (m<n) is a structural classification beyond largest-set size. The exact labeled coefficient formula is a natural reusable invariant for later topological/combinatorial study, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

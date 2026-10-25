@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:47:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob c1488b3212d863cf0259bccf24083437ecd8c895; proof steps1-4",
+        "Independent induced-graph union-find enumeration 5 profiles",
+        "verification/verify_induced_forests.py blob e05a253eeaac68161732cfdcdb781de656e1ce1b (source inspected, results independently checked)"
+      ],
+      "rationale": "The rook graph is L(K_m,n); selected cells induce a graph with cycles precisely when selected bipartite edges have degree>=3 (a line-graph triangle) or contain a cycle, hence induced forests correspond bijectively to bipartite linear forests including isolated base vertices. Two-sorted labeled exponential formula on alternating paths with r/r and r+1/r vertex counts gives exp(u+v+[uv z+uv(u+v)z²/2]/[1-uvz²]); reversals and factorial normalizations are correctly counted. Inclusion-maximal selected linear forest iff every pair of selected-degree<=1 vertices on opposite sides lies in one component. If both sides have low-degree vertices, this forces one spanning path with opposite-side endpoints, thus m=n and size m+n-1. For m<n, every vertex of smaller side has degree2 (the opposite alternative violates forest edge bound), giving size 2m; after contracting degree2 small-side vertices the larger side carries a simple linear forest with m edges and n-m components, whose path EGF B(u)=u+u²/[2(1-u)] and m! distinct edge labels give m!n!/(n-m)! [u^n]B(u)^{n-m}. m=n gives (m!)² alternating Hamilton paths. Small cases and empty/isolated vertices are accounted for. Independent union-find cycle tests on actual rook-cell induced subgraphs, not the repository checker, reconstructed entire polynomial and maximal counts for (2,2),(2,3),(2,4),(3,3),(3,4); finite enumeration is corroboration only.",
+      "residual_risks": [
+        "The theorem concerns vertex-induced forests of LINE graph L(K_m,n), not base graph vertex forests or independent rooks.",
+        "The EGF includes m=0/n=0 for formal identity, while purity theorem quantifies m,n>=2; all counts for labeled row/column vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jafarpour-Golzari theorems apply to a graph’s own vertex-induced forests, with statements on K_m,n rather than L(K_m,n).",
+          "Williams Prop2.21 gives one LF-cover of K_m,n, not a classification of every inclusion-maximal edge-linear forest.",
+          "Tankus–Tarsi abstract mentions greedy maximum linear forests but no formula; full-text absent."
+        ],
+        "reasoning": "The general well-f-covered definition does not by itself prove rook instances, and LF-coverability does not force all maximal linear forests to have same size. A potentially relevant maximal-linear-forest theorem in Tankus–Tarsi is explicitly retained as priority risk because full implication comparison was not possible.",
+        "searches": [
+          "Jafarpour-Golzari Graphs whose all maximal induced forests same order 2021",
+          "Tankus Tarsi maximum linear forests 2007",
+          "Williams LF Covers König type Prop2.21"
+        ]
+      },
+      "checked_sources": [
+        "Jafarpour-Golzari 2021 arXiv:2105.14339 (open full paper), stated base K_m,n result",
+        "Williams 2024 arXiv:2310.14410v4 Section2.2 Prop2.21, full PDF/page11",
+        "OEIS A360850 connected induced rook paths",
+        "Tankus and Tarsi 2007 DOI 10.1016/j.disc.2006.09.031 abstract only; institutional vpn_disconnected",
+        "Resultary rook forest enumeration semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Williams Prop2.21 proves LF-cover existence, not an induced-forest enumerator.",
+          "Jafarpour-Golzari focuses on vertex induced forests of base K_m,n, a different graph."
+        ],
+        "reasoning": "No inspected theorem forces the endpoint maximality classification and its square-versus-rectangle transition. The all-size EGF could be constructed from standard labeled path species but is not covered by the connected-path table alone; actual equality cases are new distinct work.",
+        "searches": [
+          "Williams 2024 Prop2.21 complete bipartite LF-cover",
+          "OEIS A360850 connected paths",
+          "Jafarpour-Golzari 2021 well-f-covered line graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook induced-forest complex is isomorphic to simplicial complex of edge subsets of K_m,n inducing disjoint paths (linear forests).",
+          "The facet problem becomes counting inclusion-maximal linear forests of K_m,n with marked edge labels."
+        ],
+        "reasoning": "Alternative phrases well-f-covered line graph, maximal edge-linear forest, and path forest in K_m,n were compared; standard equimatchable/well-covered rook result instead concerns independent rook subsets (=matchings), a strictly different complex.",
+        "searches": [
+          "Resultary: rook graph Cartesian product complete graphs induced forests well-f-covered linear forest exponential generating function",
+          "Web rook graph induced acyclic subset full forest polynomial",
+          "Web maximal linear forests edge complete bipartite equimatchable generalized"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A360850 concerns connected induced paths, whereas the displayed EGF includes disconnected unions and isolated base vertices; no exact forest/facet polynomial table located.",
+          "Independent exact small profiles F_2,4=(1,8,28,48,30) and F_3,3=(1,9,36,78,81,36) agree with package."
+        ],
+        "reasoning": "Connected path counts can enter an exponential formula when augmented with isolated vertices and two-sort labels; tabulating paths alone is not the full two-parameter F_m,n nor counts of maximal forests. Standard exponential formula is cited as a tool, not as a published exact final result.",
+        "searches": [
+          "OEIS A360850 number paths rook graph",
+          "complete bipartite linear forests labeled enumeration generating function"
+        ]
+      },
+      "rationale": "Previously known well-f-covered classification for K_m,n concerns base graph rather than induced forests of its line graph. OEIS A360850 counts individual connected paths, not disconnected forests or facets. Williams’s LF-cover Proposition2.21 proves complete-bipartite graphs have an LF-cover, a different existence invariant, not purity of all maximal linear forests nor enumerators. Tankus–Tarsi 2007 treats greedy/maximal paths and maximum linear forests and could contain related facts: only its abstract was accessible, Oxford auth disconnected, so retain the unresolved priority risk without declaring full text noncovering. The explicit all-size bivariate EGF, purity and complete facet counts remain best-of-knowledge original.",
+      "residual_risks": [
+        "Tankus–Tarsi 2007 full text unavailable after lawful routes and Oxford VPN disconnected; may contain a broader greedy linear-forest result implying purity, but cannot responsibly mark whole paper noncovering.",
+        "Unindexed rook graph forest-complex enumeration may duplicate part of the exact bivariate formula or facet enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED DEFINITION, different graph on which induced forest is taken",
+          "evidence": "The published complete bipartite classification is for K_m,n itself, not its line graph K_m □ K_n.",
+          "identifier_or_url": "arXiv:2105.14339 | https://arxiv.org/html/2105.14339v1",
+          "material_read": "Full accessible arXiv HTML scanned for complete bipartite cases and graph families, definitions and theorems involving induced vertex forests",
+          "method": "open-access full HTML reading targeted relevant classes",
+          "title": "Graphs whose all maximal induced forests are of the same order",
+          "trigger": "Closest named purity invariant well-f-covered"
+        },
+        {
+          "assessment": "DIFFERENT LF-COVER invariant, not exact all-maximal forest/facet counts",
+          "evidence": "Prop2.21 constructs an LF-cover of any K_a,b but does not classify the entire family of maximal edge-linear forests; algebraic LF cover condition differs from line-graph induced-forest purity.",
+          "identifier_or_url": "arXiv:2310.14410v4 | https://arxiv.org/pdf/2310.14410",
+          "material_read": "Complete 22-page open-access PDF available; inspected definitions of LF-cover and Section2.2 Proposition2.21, including rendered page 11",
+          "method": "arXiv PDF full text extraction plus specific relevant page image",
+          "title": "LF-Covers and Binomial Edge Ideals of König Type",
+          "trigger": "Same selected-edge linear forest on K_m,n, potential direct overlap"
+        },
+        {
+          "assessment": "CONNECTED COMPONENT counts only",
+          "evidence": "Its connected paths are building blocks but not all disconnected forest polynomials or numbers of inclusion-maximal forests.",
+          "identifier_or_url": "https://oeis.org/A360850",
+          "material_read": "Sequence definition and connection between undirected paths in base K_m,n and induced connected rook paths",
+          "method": "OEIS sequence definition/bibliographic comparison; no exhaustive full appendix",
+          "title": "OEIS A360850: Number of undirected paths in complete bipartite graphs",
+          "trigger": "Exact connected-path counts possibly tabulate parts of forest EGF"
+        },
+        {
+          "assessment": "PARTIAL: no full-text implication verdict",
+          "evidence": "2007 abstract promises greedy-schema classifications and maximum linear forests; may cover the rook purity part or imply some maximum-size statement, but cannot establish or exclude the complete EGF and facet enumerator.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2006.09.031",
+          "material_read": "Publisher/ResearchGate abstract only; full text not found via arXiv or lawful OA; protected institutional request returned vpn_disconnected",
+          "method": "web OA/preprint search, bibliographic abstract, authorized institutional retrieval attempted after failures; no human-verification bypass",
+          "title": "Greedily constructing Hamiltonian paths, Hamiltonian cycles and maximum linear forests",
+          "trigger": "Strongest plausible earlier characterization of when greedy maximal linear forests are maximum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md path/line-graph translation and exponential formula",
+        "Jafarpour 2021 well-f-covered notion",
+        "OEIS A360850 connected-path counts as prior contrast"
+      ],
+      "rationale": "The theorem supplies a complete face enumerator and facet enumerator of a natural two-parameter induced-forest simplicial complex, plus unexpected purity. The sharp transition from alternating Hamilton paths (m=n) to contracted linear forests (m<n) is a structural classification beyond largest-set size. The exact labeled coefficient formula is a natural reusable invariant for later topological/combinatorial study, not an arbitrary slice.",
+      "residual_risks": [
+        "No claim of purity for arbitrary line graphs or Cartesian products; arbitrary other forest-graph invariants remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m,n>=2 for purity; all-size EGF extends formally to zero rows/columns.",
+    "No inaccessible Tankus–Tarsi full-text noncoverage asserted.",
+    "Direct independent exhaustive checks cover five boards only, not all parameters.",
+    "The frozen PUBLIC AUDIT.json and METADATA.json contain scope_run_id operational identifiers. No complete, semantically sanitized versions with exact source blob guards and content hashes were prepared. Keep scientific evidence, withhold publication; server status-file postprocessing is not a substitute for verified removal from source-public metadata."
+  ],
+  "schema_version": 1
+}
