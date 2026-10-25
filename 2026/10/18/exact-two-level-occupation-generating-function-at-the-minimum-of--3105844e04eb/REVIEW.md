@@ -1,9 +1,21 @@
-# Review of the finite two-level occupation law
+# Independent mathematical audit
 
-**Correctness — PASS.** Each finite path decomposes uniquely at its first global minimum. Positive first-return excursions have the Catalan generating series \(e(z)=(1-\sqrt{1-z^2})/2\); their excursions through level one give \(A(z,v)\). The strictly positive meander decomposition gives \(C(z,v)\). Marking the global minimum and the level immediately above it then yields the asserted coefficient identity for every \(n\ge0\). The rare-cell probability follows from an exact coefficient extraction and the reflection principle. The standalone checker compares all joint coefficients up to horizon ten and verifies the algebraic factors at rational weights; these tests supplement the full proof.
+## correctness
 
-**Originality — PASS on available evidence.** Pitman and Tang (arXiv:2007.13991, Theorem 4.1) derive the limiting near-minimum occupation process, not the displayed finite-horizon bivariate generating function. Katzenbeisser and Panny (1990) derive finite distributions for visits to fixed levels and for counts at the maximum; their listed joint formulas cover the number of global maxima with endpoint or maximum height, not the joint minimum-and-one-above occupation count. Csáki and Hu (2003) study ranked excursion length and height, and Régnier et al. (2022) study distinct-site counts. Direct literature searches, available prior-claim comparisons, and mathematical implication checks uncovered no stronger printed law. Residual historical-priority risk: a classical weighted-barrier or continued-fraction formula not located here might specialize to this joint identity.
+PASS
 
-**Value — PASS.** The count of observations at the first two lattice order-statistic levels is an intrinsic random-walk extremal invariant; single-level laws cannot determine their dependence. The result supplies all finite joint probabilities by coefficient extraction and a sharp vanishing-probability cell, complementing a previously known joint limit rather than merely recomputing it. The scope is the full finite-horizon symmetric nearest-neighbour family, not an arbitrary slice of parameters. No extension to other increments or independent scientific validation is asserted.
+First-attainment of global minimum splits every path bijectively into a reversed strictly-positive meander, L0-1 complete strictly-positive return excursions, and terminal meander; level-one visits are preserved by the reversal and marked independently. Catalan first-return e=(1-sqrt(1-z²))/2 and meander q=(1+z+sqrt(1-z²))/(2sqrt(1-z²)), h=q/(1-e), give A=z²v/[4(1-ve)] and C=1+zv[1+zh/2]/[2(1-ve)], hence sum_n z^n E[u^L0 v^L1]=uC²/(1-uA). Coefficient [u v] is z+z²h/2, implying P(L0=L1=1)=2^-(n-1)binom(n-2,floor((n-2)/2)) for all n>=2 and sharp asymptotic (2pi n)^-1/2. Independent exhaustive direct paths n2..10 gave 1/2,1/4,1/4,3/16,... as predicted. Formal decomposition proves all n; enumeration is bounded check.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier Pitman–Tang theorem supplies limiting near-minimum occupation process, while Katzenbeisser–Panny gives exact endpoint-conditioned fixed-level visits and extrema/hitting-time counts. The complete finite-horizon joint counts at two dynamically defined adjacent order-statistic levels are not stated by the relevant inspected sections.
+
+## value
+
+PASS
+
+Exact all-horizon joint distribution of the two smallest occupation-height levels is a canonical refinement of extremal random-walk local time and determines rare finite-time cells not fixed by the limiting branching law; a motivated exact inverse/combinatorial statistic, not routine single-level counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
