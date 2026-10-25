@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The twin-vertex obstruction makes two initially white vertices in the same peripheral clique impossible to force, and explicit blue-hub/full-clique forcing sequences prove the converse. This gives the exact polynomial, its valuation and initial coefficient. Evaluating its reduced polynomial at \(z=-1\) reconstructs the full product of the peripheral linear factors. The critical-window law follows from independent rare two-white-clique obstructions, uniform error summability under the stated maximum-size hypothesis, and disappearance of the one excluded all-one-omission configuration. A standalone brute-force simulation verified all labeled subsets of 38 small profiles. No finite calculation is substituted for the infinite argument.
+## correctness
 
-**Originality — PASS (best-knowledge, with limitations).** The foundational zero-forcing-polynomial paper and the random-initial-set threshold paper were compared at the statement level with the recognition and heterogeneous probability-limit results. The closest indexed result covers the friendship-graph specialization exactly; it cannot by itself recover distinct peripheral sizes or prove the heterogeneous Rayleigh window. Skew forcing uses a different rule, while scalar block-graph forcing provides different output. Relevant searches did not identify a statement implying this combined heterogeneous recognition/threshold theorem. An unindexed or inaccessible block-graph all-set enumeration remains an explicit residual priority risk, so failed searches are not treated as uniqueness proofs.
+PASS
 
-**Value — PASS.** Unlike a scalar zero-forcing value, the polynomial recovers a complete multiset of block sizes, giving an infinite-family polynomial-recognition theorem with constructive inversion. The random-set part supplies a motivated sharp limiting law for variable-size clique blocks and identifies the precise double-white local mechanism and maximum-size condition. The known friendship subcase is acknowledged rather than relabeled as new.
+A two-white pair in any peripheral clique is a permanent false-twin-like obstruction to ordinary blue-only forcing; every clique therefore starts with at most one white vertex. If hub is blue, cliques complete; if hub is white, a completely blue peripheral clique forces the hub, while one omitted vertex in each clique is an initial deadlock. Counting gives z^s[(1+z)∏(z+r_i)-∏r_i], and the valuation s+1 gives z(G;Z)=C(1+Σ1/r_i). Setting H=z^(−s)Z yields Q=(H(z)−H(−1))/(z+1), so roots recover the full multiset, including repetitions and t=1. The independent white-vertex Bernoulli model yields P=∏a_i−(1−p)∏b_i with independent deficiency indicators. Under L=Σbinom(r_i,2)→∞ and R=max r_i=o(√L), Σ(1−a_i)→λ², max_i(1−a_i)→0 and cubic remainders O(RL(λ/√L)^3)→0, giving Poisson(λ²), forcing success e^(−λ²), unique median and √L(1−p_half)→√log2. Independent fresh all-subset forcing simulations matched polynomial for (2), (2,3), (3,3), (2,2,3), including 256 subsets in latter; analytic argument covers arbitrary profiles.
 
-Closest literature: Boyer et al. 2018 (polynomial), Curtis et al. 2022 (random thresholds), and the indexed friendship polynomial (special case). Independent checking of priority and mathematical details remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality of the fully heterogeneous polynomial recognition and universality window remains best-of-knowledge after expressly excluding the known friendship special case and distinguishing prior random forcing.
+
+## value
+
+PASS
+
+The complete ordinary zero-forcing polynomial, rather than just the scalar forcing number, is a graph-recognition invariant within a natural heterogeneous windmill class. Its exact inverse root formula and mathematically motivated local pair-obstruction scale yield a full probabilistic threshold law; this supplies structural information about graph invariants and a nonuniform limit regime beyond a known uniform friendship table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
