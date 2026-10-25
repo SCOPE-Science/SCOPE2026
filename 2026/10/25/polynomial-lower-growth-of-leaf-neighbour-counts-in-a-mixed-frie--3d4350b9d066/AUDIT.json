@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The exact birth/death probabilities for the fixed vertex's leaf-neighbour count yield the stated drift identity. The positive-part transform gives E[Y_{n+1}|F_n]≥(1+(1-2p)/n)Y_n. A positive-probability event gives an explicit positive starting expectation, and gamma-product iteration proves the claimed liminf constant.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 paper's qualitative statement that every fixed vertex's degree diverges does not specify how many neighbours of that vertex remain leaves.",
+        "The 2013 paper bounds the limiting global leaf fraction; it does not give a fixed-vertex expectation lower bound."
+      ],
+      "reasoning": "Neither cited result implies a lower bound of order n^(1-2p) for E[(L_n(v)-1)_+]. Degree divergence can occur without a stated rate for leaf-neighbour count, and a global leaf-fraction bound does not identify the distribution of leaves around each fixed vertex.",
+      "searches": [
+        "published-finding corpus query: random friend tree p-variant direct attachment probability p leaf neighbors growth",
+        "published-finding corpus query: random walk attachment graph mixture direct attachment and neighbor attachment degree growth rate",
+        "arXiv:2403.20185v1, results on normalized degree and discussion of p-variant",
+        "arXiv:1303.1052v2, theorem on global leaf proportion for zero-step/one-step mixture"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.20185v1 — Random friend trees; first public date 2024-03-29; full arXiv HTML inspected.",
+      "arXiv:1303.1052v2 — Random walk attachment graphs; first public date 2013-03-05; full arXiv HTML inspected.",
+      "published-finding corpus semantic queries: random friend tree p-variant direct attachment probability p leaf neighbors growth; random walk attachment graph mixture direct attachment and neighbor attachment degree growth rate; random friend tree interpolating direct attachment and one-step redirection leaf degree polynomial growth.",
+      "Closest published-finding corpus records: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f; 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba; 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The derived identity is E[Delta L|F_n] = ((1-2p)(L-1)+(1-p)(1-L/D+S))/n, where L≤D and S≥0.",
+        "The 2024 source supplies the model variant and qualitative degree-divergence context; the 2013 source supplies global leaf-proportion bounds, not the stated local rate."
+      ],
+      "reasoning": "The claim follows from a new local drift inequality plus a positive-probability seed event and exact product iteration. The inspected prior statements do not imply this inequality or the explicit positive liminf constant. The remaining risk is unindexed literature on the same local statistic.",
+      "searches": [
+        "arXiv:2403.20185v1, lines discussing the direct-versus-neighbour p-variant",
+        "arXiv:1303.1052v2, full HTML sections 1–5, especially the mixed walk-length bounds",
+        "published-finding corpus query: random friend tree p-variant direct attachment probability p leaf neighbors growth",
+        "published-finding corpus query: random walk attachment graph mixture direct attachment and neighbor attachment degree growth rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Addario-Berry et al. define the random friend tree and mention the direct-versus-neighbour mixture; the inspected text gives a qualitative degree-divergence observation, not this expectation bound.",
+        "Cannings–Jordan analyze a zero-step/one-step random-walk mixture but state results for the global proportion of leaves."
+      ],
+      "reasoning": "The present observable is the number of degree-one neighbours of a single fixed labelled vertex, transformed as (L_n(v)-1)_+. It is neither the global leaf proportion nor total degree. The exact conditional-drift recurrence is not stated in the inspected sources.",
+      "searches": [
+        "published-finding corpus query: random friend tree p-variant direct attachment probability p leaf neighbors growth",
+        "published-finding corpus query: random walk attachment graph mixture direct attachment and neighbor attachment degree growth rate",
+        "published-finding corpus query: random friend tree interpolating direct attachment and one-step redirection leaf degree polynomial growth",
+        "arXiv:2403.20185v1, model definition and mixed-variant discussion",
+        "arXiv:1303.1052v2, sections 2–3 and mixed walk-length discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published-finding corpus records concern root degree versus total leaf count in a uniform random recursive tree, root degree versus path length, and endpoint degree versus distance in a uniform Cayley tree.",
+        "No exact table or database result for the mixed friend-tree local leaf-neighbour statistic was returned."
+      ],
+      "reasoning": "No exact database/table applies to this newly derived local expectation bound. published-finding corpus search is semantic and non-exhaustive; its failure to return a match is only a bounded overlap check, not a novelty proof.",
+      "searches": [
+        "published-finding corpus query: random friend tree p-variant direct attachment probability p leaf neighbors growth",
+        "published-finding corpus query: random walk attachment graph mixture direct attachment and neighbor attachment degree growth rate",
+        "published-finding corpus query: random friend tree interpolating direct attachment and one-step redirection leaf degree polynomial growth",
+        "Closest published-finding corpus IDs: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f; 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba; 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+      ]
+    },
+    "rationale": "Best-knowledge comparison of the precise observable and implication against the full relevant 2024 friend-tree paper, the full 2013 zero-step/one-step attachment paper, and actual published-finding corpus searches did not identify a covering statement. This is not an exhaustive novelty guarantee.",
+    "residual_risks": [
+      "published-finding corpus semantic search is not exhaustive; unindexed literature may contain related local statistics for the mixed attachment model.",
+      "The result proves only a lower bound for an expectation. It does not establish almost-sure polynomial growth, an upper bound, the exact growth exponent, or a phase transition.",
+      "The proof uses the model convention in which the direct/one-step choice is made independently at each arrival, as described in the cited sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant model and motivation, but the inspected text does not state a polynomial expectation lower bound for the number of leaf-neighbours of each fixed vertex.",
+        "evidence": "arXiv:2403.20185v1, first posted 2024-03-29; MSC list begins with 60C05.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.20185",
+        "material_read": "Full arXiv HTML was inspected: model definition; MSC list; local/global result statements; and the open-questions section describing the p-variant. Relevant passages include the model definition and the discussion of the p-variant and degree divergence.",
+        "method": "Compared the exact observable, parameter regime, and quantitative conclusion against the stated model variant and results.",
+        "title": "Random friend trees",
+        "trigger": "The source introduces the friend-tree model and explicitly discusses direct attachment with probability p versus neighbour attachment with probability 1-p."
+      },
+      {
+        "assessment": "Covers global leaf proportions and their limiting bounds; it does not state the fixed-vertex expected leaf-neighbour lower bound proved here.",
+        "evidence": "arXiv:1303.1052v2, especially sections 2–3 and the mixed-length discussion in section 3.",
+        "identifier_or_url": "https://arxiv.org/abs/1303.1052",
+        "material_read": "Full arXiv HTML sections 1–5, including the model definition, global leaf-proportion theorem, mixed walk-length inequalities, and discussion.",
+        "method": "Matched the zero-step probability p and one-step probability 1-p to the present model, then compared the observable and conclusion.",
+        "title": "Random walk attachment graphs",
+        "trigger": "The paper studies the same mixture as a zero-step/one-step random walk, making it the closest earlier model comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d4350b9-d066-4a19-8e0b-8aa167c26604",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of leaf-neighbours is the local reinforcement statistic that drives attachment probabilities in this model. The mixed direct/one-step variant is explicitly proposed as a natural model extension, and the new bound quantifies a parameter-dependent lower-growth scale for each fixed vertex where the inspected literature supplies only qualitative degree divergence or global leaf-fraction bounds.",
+    "status": "PASS"
+  }
+}
