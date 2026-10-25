@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T23:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Enumerate 120 matrices in SL(2,F5) and all 7021 unordered two-element normalized supports {1,x,y}. Simultaneous conjugation and reanchoring partitions them into precisely 62 nonoverlapping orbits, each left-translation invariant in rank. Integer regular-convolution matrices have exactly three unit entries in each row. For each orbit representative the four claimed independently primality-checked primes give coinciding modular ranks; product exceeds 3^60, the universal Hadamard bound on every 120x120 square minor. Hence any larger minor zero modulo all primes must vanish over Z, while a rank-size nonzero modular minor survives in characteristic zero. The 62 orbits yield 35 quotient-order triples and exactly {0:159240,4:38400,5:28800,10:28800,20:14400,22:7200,30:2400,40:1200,80:400} supports, 280840 total and 121600 singular. The 400 supports with 80-dimensional kernel are cosets of the ten order-3 subgroups (40 cosets each). Read complete check.cpp and its exact group, orbit, rank logic. An independently coded numba group algorithm exhaustively reproduced all 62 orbits, 35 signatures and four-prime ranks and histogram, not just an old log. The complete finite domain is proved by exhaustive exact certificate; no infinite-family claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Siemons--Zalesski main singularity theorem assumes normal/conjugacy-invariant inverse-closed connection sets.",
+          "The three-element support may be nonnormal, noninverse-closed and contain identity."
+        ],
+        "reasoning": "The stronger-looking normal-Cayley theorem does not cover arbitrary directed triples; general block formulas need the additional exact finite classification.",
+        "searches": [
+          "binary icosahedral SL(2,5) three element Cayley support singular convolution rank nullity table",
+          "arxiv:1804.01204",
+          "doi:10.37236/3105"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1205.1451",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/",
+        "https://arxiv.org/pdf/1804.01204",
+        "published-record:2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578",
+        "published-record:2026/10/11/SCOPE-complete-three-tap-fourier-rank-census-on-elementary-generalized--7d6c365ba4ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The A5 quotient representations omit faithful spinorial representations of the central double cover, so quotient nullities do not imply these 120-dimensional ranks.",
+          "The normal-Cayley theorem excludes most supports in the enumeration."
+        ],
+        "reasoning": "The 22-dimensional (6,10,10) kernel stratum and 35-type order sufficiency require independent finite group-algebra work beyond the cited statements.",
+        "searches": [
+          "binary icosahedral SL(2,5) three element Cayley support singular convolution rank nullity table",
+          "arxiv:1804.01204",
+          "doi:10.37236/3105",
+          "assigned-frozen-record:2026/10/18/exact-three-tap-convolution-nullities-on-the-icosahedral-rotatio--49866d6f62a3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent statement: all ranks of group-algebra elements 1+x+y or zero eigenvalues of directed regular Cayley adjacency matrices of SL(2,F5).",
+          "Dechant gives a group model, while Arezoomand--Taeri gives block Fourier factorization, not actual 35 ranks."
+        ],
+        "reasoning": "A computational recipe for general groups is not itself the full orbit-and-signature answer on this finite group.",
+        "searches": [
+          "binary icosahedral SL(2,5) three element Cayley support singular convolution rank nullity table",
+          "doi:10.37236/3105",
+          "arxiv:1205.1451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary tables concern extraspecial ternary Heisenberg or elementary generalized dihedral groups, not SL(2,F5).",
+          "No inspected SL(2,F5) table lists 35 triple-order signatures or nullity 22."
+        ],
+        "reasoning": "The known group character table alone does not tabulate ranks of all 1+rho(x)+rho(y); absence of an indexed table is not proof of priority.",
+        "searches": [
+          "binary icosahedral SL(2,5) three element Cayley support singular convolution rank nullity table",
+          "published-record:2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578",
+          "published-record:2026/10/11/SCOPE-complete-three-tap-fourier-rank-census-on-elementary-generalized--7d6c365ba4ff"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for SL(2,F5)'s complete 35-signature three-tap rank census and intrinsic order-signature rigidity. The published Cayley spectral factorization supplies a method but not these 62 orbit ranks; conjugacy-invariant normal-Cayley singularity results do not apply to arbitrary nonnormal supports. The A5 quotient and ternary-Heisenberg/dihedral three-tap results cannot determine faithful spinorial blocks of the double cover. Unindexed rank tables remain risk.",
+      "residual_risks": [
+        "Historical 120-group Cayley spectral/computer algebra tables may implicitly list these ranks under different group names.",
+        "The exact finite rank proof depends on faithful implementation of the full determinant, orbit and modular elimination certificate; independent reimplementation verified the reported group statistics but is still computational."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Fourier block method, no evaluated exact SL(2,5)/A5 all-support three-tap nullity table",
+          "evidence": [
+            "A general method to calculate rank is not already the exact orbit/signature and support-count classification."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/",
+          "material_read": "Open-access full 14-page primary PDF, introduction, regular-representation factorization theorem and relevant main statements; searched for A5 and icosahedral specializations",
+          "method": "Direct PDF reading with page image",
+          "title": "On the Characteristic Polynomial of n-Cayley Digraphs",
+          "trigger": "General spectral regular-representation decomposition might dominate the census"
+        },
+        {
+          "assessment": "Conjugacy-invariant connection sets and normal Cayley graphs, not arbitrary nonnormal directed three-term sets",
+          "evidence": [
+            "Its G-invariance and inverse-closure assumptions exclude generic three-point supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.01204",
+          "material_read": "Original 22-page PDF introduction and main Theorem 1.1 with exact normal/inverse-closed hypotheses",
+          "method": "Direct PDF text and page image",
+          "title": "Remarks on singular Cayley graphs and vanishing elements of simple groups",
+          "trigger": "Potential stronger finite simple group singularity theorem"
+        },
+        {
+          "assessment": "Studies group geometry and roots, not 120x120 convolution nullity spectra",
+          "evidence": [
+            "The group construction supplies an object, not ranks for all 280840 triples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1451",
+          "material_read": "Original open arXiv PDF introduction and icosian representation section including binary group discussion",
+          "method": "Direct primary PDF text and first page",
+          "title": "Clifford algebra unveils a surprising geometric significance of quaternionic root systems of Coxeter groups",
+          "trigger": "Canonical binary icosahedral 120-element realization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The binary icosahedral group is the canonical nontrivial perfect central cover of A5, a natural group for finite noncommutative harmonic analysis. Exhaustively determining all unweighted 3-tap convolution kernels by intrinsic quotient orders, with a distinctive 22-nullity stratum and extremal cosets, supplies a reusable exact invariant in a natural nonabelian example; general group-wide theorem not required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1205.1451",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/",
+    "https://arxiv.org/pdf/1804.01204",
+    "published-record:2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578",
+    "published-record:2026/10/11/SCOPE-complete-three-tap-fourier-rank-census-on-elementary-generalized--7d6c365ba4ff"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Precisely 3 distinct unit-coefficient support elements, complex group algebra of SL(2,F5); weighted taps or other binary polyhedral groups not classified.",
+    "No general theorem that order signatures suffice in other groups."
+  ],
+  "residual_risks": [
+    "Historical 120-group Cayley spectral/computer algebra tables may implicitly list these ranks under different group names.",
+    "The exact finite rank proof depends on faithful implementation of the full determinant, orbit and modular elimination certificate; independent reimplementation verified the reported group statistics but is still computational."
+  ],
+  "schema_version": 1
+}

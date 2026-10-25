@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All supports reduce to \(7{,}021\) normalized pairs and exactly \(62\) orbits under conjugation and basepoint selection. The executable finite enumeration checks completeness and all \(35\) intrinsic order signatures. The critical characteristic-zero inference is *proved*, not presumed: each integer convolution matrix has three ones per row, so every minor is bounded by \(3^{60}\) and vanishing modulo four primes of product greater than this bound forces integer vanishing. Modular rank in the same orbit is therefore exact over \(\mathbb C\). The program was compiled and run successfully, and the resulting counts sum to \(\binom{120}{3}\). The cardinality of the maximal coset stratum is checked independently using order-three subgroups.
+PASS
 
-## Originality — PASS, with residual risk
+Enumerate 120 matrices in SL(2,F5) and all 7021 unordered two-element normalized supports {1,x,y}. Simultaneous conjugation and reanchoring partitions them into precisely 62 nonoverlapping orbits, each left-translation invariant in rank. Integer regular-convolution matrices have exactly three unit entries in each row. For each orbit representative the four claimed independently primality-checked primes give coinciding modular ranks; product exceeds 3^60, the universal Hadamard bound on every 120x120 square minor. Hence any larger minor zero modulo all primes must vanish over Z, while a rank-size nonzero modular minor survives in characteristic zero. The 62 orbits yield 35 quotient-order triples and exactly {0:159240,4:38400,5:28800,10:28800,20:14400,22:7200,30:2400,40:1200,80:400} supports, 280840 total and 121600 singular. The 400 supports with 80-dimensional kernel are cosets of the ten order-3 subgroups (40 cosets each). Read complete check.cpp and its exact group, orbit, rank logic. An independently coded numba group algorithm exhaustively reproduced all 62 orbits, 35 signatures and four-prime ranks and histogram, not just an old log. The complete finite domain is proved by exhaustive exact certificate; no infinite-family claim.
 
-The Dechant icosian construction describes the group but not convolution singularities. Arezoomand–Taeri gives general spectral decomposition, but not this \(35\)-signature group-specific census. Siemons–Zalesski treats inverse-closed and conjugacy-invariant connection sets, unlike arbitrary unweighted triples. Related classifications for dihedral/Heisenberg groups and smaller binary polyhedral groups do not logically imply the \(\operatorname{SL}(2,5)\) census; nor does an alternating-group quotient calculation determine the faithful spinorial summands. Searches for aliases and a stronger dominating result did not identify an explicit covering theorem. Residual risk: an older unindexed table of regular-representation ranks or equivalent representation-determinant formulas could contain these values.
+## originality
 
-## Value — PASS
+PASS
 
-The binary icosahedral group is the canonical nontrivial double cover of the smallest nonabelian simple rotation group. The theorem determines singularity and *all* kernel dimensions for every equal-weight three-element convolution and packages the answer in an intrinsic quotient-order statistic. Its \(22\)-dimensional exceptional stratum and proof that group orders alone suffice here (rather than additional conjugacy-class data required on the rotational quotient) provide substantial structural information beyond an isolated computation. Complete support incidence and a sharp extremal coset characterization have clear reuse value in finite noncommutative harmonic analysis.
+PASS best-of-knowledge for SL(2,F5)'s complete 35-signature three-tap rank census and intrinsic order-signature rigidity. The published Cayley spectral factorization supplies a method but not these 62 orbit ranks; conjugacy-invariant normal-Cayley singularity results do not apply to arbitrary nonnormal supports. The A5 quotient and ternary-Heisenberg/dihedral three-tap results cannot determine faithful spinorial blocks of the double cover. Unindexed rank tables remain risk.
 
-## Scientific limitations
+## value
 
-The theorem covers exact unit coefficients and precisely three distinct taps on one 120-element group. It does not assert wider-group uniformity, weighted generalizations, or independent scientific validation. Priority against inaccessible historical group-algebra records remains uncertain. The computer-assisted proof is self-contained, finite, and reproducible from the attached C++ source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The binary icosahedral group is the canonical nontrivial perfect central cover of A5, a natural group for finite noncommutative harmonic analysis. Exhaustively determining all unweighted 3-tap convolution kernels by intrinsic quotient orders, with a distinctive 22-nullity stratum and extremal cosets, supplies a reusable exact invariant in a natural nonabelian example; general group-wide theorem not required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

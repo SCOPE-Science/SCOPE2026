@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `g++ -O2 -std=c++17 check.cpp -o check && ./check` with a C++17 compiler and Boost multiprecision headers. The checker enumerates the 120 determinant-one 2-by-2 matrices modulo five, builds the multiplication/inversion/conjugation tables, and exhausts all 7,021 identity-normalized unordered supports in 62 disjoint orbits. For every orbit representative it performs four-prime exact elimination on the 120-by-120 three-ones-per-row regular matrix. The four primes are trial-division primality-checked; their product is compared using arbitrary-precision integers against the universal Hadamard bound. The code asserts the 35-signature completeness, all nine nullity-count entries, 280,840 total supports, the 22-nullity signature, and the sharp 80-nullity signature.
+## correctness
 
-The complete checker was compiled with GNU C++ 14.2.0 and executed successfully; stdout began with `PASS group=SL(2,5), normalized_pairs=7021, conjugation/rebasing_orbits=62, distinct_order_signatures=35`. No floating-point extrapolation is used. A finite exact proof of this group's census does not settle other groups, nonunit weights, or external priority questions.
+PASS
+
+Enumerate 120 matrices in SL(2,F5) and all 7021 unordered two-element normalized supports {1,x,y}. Simultaneous conjugation and reanchoring partitions them into precisely 62 nonoverlapping orbits, each left-translation invariant in rank. Integer regular-convolution matrices have exactly three unit entries in each row. For each orbit representative the four claimed independently primality-checked primes give coinciding modular ranks; product exceeds 3^60, the universal Hadamard bound on every 120x120 square minor. Hence any larger minor zero modulo all primes must vanish over Z, while a rank-size nonzero modular minor survives in characteristic zero. The 62 orbits yield 35 quotient-order triples and exactly {0:159240,4:38400,5:28800,10:28800,20:14400,22:7200,30:2400,40:1200,80:400} supports, 280840 total and 121600 singular. The 400 supports with 80-dimensional kernel are cosets of the ten order-3 subgroups (40 cosets each). Read complete check.cpp and its exact group, orbit, rank logic. An independently coded numba group algorithm exhaustively reproduced all 62 orbits, 35 signatures and four-prime ranks and histogram, not just an old log. The complete finite domain is proved by exhaustive exact certificate; no infinite-family claim.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for SL(2,F5)'s complete 35-signature three-tap rank census and intrinsic order-signature rigidity. The published Cayley spectral factorization supplies a method but not these 62 orbit ranks; conjugacy-invariant normal-Cayley singularity results do not apply to arbitrary nonnormal supports. The A5 quotient and ternary-Heisenberg/dihedral three-tap results cannot determine faithful spinorial blocks of the double cover. Unindexed rank tables remain risk.
+
+## value
+
+PASS
+
+The binary icosahedral group is the canonical nontrivial perfect central cover of A5, a natural group for finite noncommutative harmonic analysis. Exhaustively determining all unweighted 3-tap convolution kernels by intrinsic quotient orders, with a distinctive 22-nullity stratum and extremal cosets, supplies a reusable exact invariant in a natural nonabelian example; general group-wide theorem not required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
