@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact 30-edge presentation, all 495 four-subsets, 285 disconnected complements and 3502 nonempty faces are independently reconstructible. The supplied checker proves global acyclicity of its Morse matching, verifies the one/six/twenty-one critical-cell profile and obtains a primitive rank-one integral Morse boundary (Smith invariants `1,0,0,0,0,0`). The homotopy conclusion follows from the sixth Hurewicz isomorphism for a six-sphere wedge and cancelling one unit-attached cell pair. A second explicit face enumerator confirms counts and Euler characteristic.
+## correctness
 
-## Originality — PASS
-published-finding corpus searches for the exact four-cut, dual description, graph and numerical parameters returned a closest icosahedral **three**-cut result and threshold-four results for **different** graphs. The general high-girth formula does not apply to the triangular icosahedron. In the examined primary fulltexts, arXiv:2304.13675 defines the complex and classifies other graph families, while arXiv:2407.08158 treats different families. These statements do not imply the threshold-four icosahedral integral homotopy type. Full text of the indexed icosahedral threshold-three entry could not be retrieved; indexed scope and mathematical difference were checked. An unindexed equivalent remains possible.
+PASS
 
-## Mathematical value — PASS
-The result answers a natural next case for a canonical graph and a cut-complex threshold, giving the *homotopy type* rather than only face counts or Betti numbers. Nonzero next-to-top homology yields non-shellability despite purity. The contribution is finite and focused; no general family theorem is claimed.
+Independent from the packaged checker, constructed the exact 12-vertex 30-edge icosahedron, enumerated all 495 four-sets (285 disconnected facets) and 3,502 nonempty faces. Rebuilt the given vertex-toggle Morse matching and topologically sorted all 19,524 complete Hasse covers; critical cells precisely 1 in degree 0, 6 in degree 6, and 21 in degree 7. Independently implemented signed recursive Morse reduction and exact Smith normal form; 6×21 attaching matrix has four unit entries in one column and invariant factors (1,0,0,0,0,0). The primitive attaching map cancels one 6/7 pair, yielding 5×S6+20×S7 integrally; lower-degree H6 obstructs pure shellability.
 
-## Closest literature and limitations
-Bayer et al., arXiv:2304.13675 (2023), and Bayer et al., arXiv:2407.08158 (2024), classify other cut-complex families. An indexed icosahedral three-cut result is distinct; a stronger high-girth result excludes triangles. Exact finite computation is sufficient for this single graph but not for arbitrary graphs. No independent external mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full published icosahedral THREE-cut theorem is on a different complex (S7+6 S8), with k=3 not k=4; it does not imply this mixed S6/S7 result. The full high-girth theorem does not apply to the triangle-rich icosahedron (girth 3). Bayer original cut-complex publications give definitions and families, but no matching statement identified in inspected source material or Resultary searches. This is a best-of-knowledge assessment with nonexhaustive primary-source access risks.
+
+## value
+
+PASS
+
+A complete integral mixed-dimensional homotopy type for the ordinary four-cut complex of a canonical Platonic graph is a natural, previously unknown exact invariant. It detects nonshellability and illustrates behavior sharply outside the high-girth wedge-in-top-degree regime; finite closed classifications of canonical graphs are independently useful even without a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
