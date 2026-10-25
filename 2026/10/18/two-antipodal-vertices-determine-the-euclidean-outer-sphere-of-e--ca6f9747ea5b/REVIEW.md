@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed Euclidean metric and normalization are specified through the height-averaged coherent-path vertex formula, not inferred from combinatorial isomorphism. Coordinatewise integration gives the explicit squared norm (7). The ordered-height domain is a simplex, the norm formula is a convex quadratic on it, and all corner patterns are evaluated exactly. The strict separation between one-vertex and multivertex paths gives both the radius and the quantitative gap. The antipodal pair certifies global optimality and uniqueness of the Euclidean enclosing center. An exact rational checker independently integrates each path and checks 198,294 vertices. Finite experiments are corroborative, not substitutes for the analytic proof.
+## correctness
 
-## Originality — PASS, with stated bibliographic risk
-Black and De Loera already prove coherent-path indexing and explicit geometric vertex data (arXiv:2102.01237, Theorem 1.1). Their numerical diameter is in the flip graph, not the Euclidean metric. The closest published theorem for the canonical polar signohedron calculates Euclidean shells in that **different realization** and explicitly limits itself to it; it does not determine the orientation-dependent normalized coordinates here. A published complete coherent-path flip-distance enumerator likewise cannot imply ambient Euclidean radii. Actual scientific searches and statement-level comparisons produced no covering theorem. A separately indexed, equivalent orientation-dependent Euclidean theorem remains a residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The theorem answers a geometrically natural quantitative question left unaddressed by the primary classification: which of exponentially many coherent paths control the unique enclosing Euclidean ball in an orientation-dependent fiber-polytope realization? It gives a complete all-dimensional two-contact classification, a sharp continuous radius law depending only on the top two heights, and a positive uniform clearance for every multistep vertex. It is neither an arbitrary parameter slice nor a metric transfer from a combinatorially equivalent polytope.
+For D_n with strictly increasing 0<a1<...<an and normalized height average, the trapezoidal vertex formula gives coordinates sigma_j(t_{j+1}-t_{j-1})/(4A) and -(t1+tk)/(4A) in the nth direction. For one intermediate point, squared norm is [1+(t/A)^2]/4, attaining maximum exactly at ±e_{n-1}. For k>=2 the squared norm is convex on -B<=t1<=...<=tk<=B; independently enumerated its ordered-simplex vertices for rational A>B and k=2..9 and checked the proof’s extremal forms, max Fk<=2(A+B)^2. Thus clearance >=(A-B)^2/(8A^2) and no multi-point path contacts. The antipodal extremal pair forces the minimum-radius centered origin ball, uniqueness by squared-distance averaging, and unique diametral pair; no affine-coordinate metric changes are assumed. Coherent-path enumeration relies on the genuinely applicable Black-De Loera indexing theorem; finite exact tests corroborate but are not all-real proof.
 
-## Closest literature and scope limits
-Black--De Loera 2021 is the primary structural input and not claimed as new. The canonical polar and graph-distance theorems are distinguished by metric and realization; no statement about arbitrary affine realizations, John ellipsoids, or independent validation is made. An unindexed equivalent result cannot be entirely excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact final statement, including earlier stronger/special-case results and mathematical implications, did not identify decisive coverage of the stated new component; this is not an exhaustive global priority certification.
+
+## value
+
+PASS
+
+A canonical realization-sensitive geometric optimization of the cross-polytope fiber polytope: the exact minimum Euclidean enclosing radius and contacts depend solely on two largest heights despite exponentially many vertices. This is a meaningful strong geometric rigidity/clearance statement not implied by graph-flip diameter or combinatorial equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
