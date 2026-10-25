@@ -1,15 +1,21 @@
-# Review: Sharp Hausdorff Lipschitz constants for radial-subharmonic weighted perimeters
+# Independent mathematical audit
 
-## Correctness — PASS
-The normal variation identity (5), the radial divergence formula with zero origin flux, monotonicity of quermassintegrals, and the inclusion-bound for the nonnegative radial Laplacian jointly prove (1)--(2) with the exact ball derivative. Published qualitative continuity and origin-anchored inclusion monotonicity justify degenerations and the comparison used for Minkowski interpolation. Dividing interpolation into equal Hausdorff steps proves the exact (3) without increasing the containing radius. Concentric balls attain the optimal infinitesimal coefficient; positive Laplacian produces the strict geometric gap. The standard-library checker independently tests exact formulas on explicit models.
+## correctness
 
-## Originality — PASS
-The initiating 2026 weighted-perimeter paper and its later dedicated continuity paper state qualitative continuity and monotonicity, not the sharp global coefficient or the radius-dominated parallel-body comparison. The nearest published planar note proves optimal regularity exponents; its positive-power constant is not optimal for \(0<p<1\). Its \(p\ge1\) planar constant already matches ours, a known overlap disclosed in the result. Full-source comparisons do not identify any theorem dominating the all-dimensional general radial-subharmonic result. A classically formulated unindexed parallel-increment inequality is a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The finding determines the exact global sensitivity required for Hausdorff-stable convex surface-moment optimization and gives a strict, quantitative mechanism for ball extremality. It handles nonsmooth and degenerate convex sets, singular positive-power gradients, and genuinely nonhomogeneous radial-subharmonic densities in every dimension. The sharp coefficient for \(0<p<1\) improves the existing planar estimate; the result is not merely an alternative proof of continuity.
+For compact convex 0∈K⊂RB and continuous nonnegative nondecreasing radial φ with C2 away from 0 and nonnegative radial Laplacian, the smooth outer parallel derivative is ∫_{∂(K+sB)}H_s φ + ∫_{K+sB}Δφ. Positivity bounds the flux integral by the radius-(R+s) ball; bounding φ by φ(R+s) and total mean curvature through inclusion-monotone W2 gives derivative <=G′(R+s) with G(R)=nω_nR^(n−1)φ(R). Keeping the discarded Δ term gives the stated deficit. Origin-containing inclusion monotonicity and multiplicity-corrected perimeter continuity, explicitly cited primary antecedents, provide the lower bound and pass to degenerate K. Minkowski interpolation h_u=(1−u)h_K+u h_L has Hausdorff speed d_H(K,L); subdivision and the parallel estimate yield sharp Lipschitz coefficient G′(R). Concentric ball radii R and R−ε attain the limiting ratio. Power φ=r^p (p>0) obeys the flux and Δ assumptions even 0<p<1. Independent exact/numerical integrations checked 4 rectangles and parallel arcs against the ball envelope, not a proof for all convex bodies. A positive Δ almost everywhere yields strict deficit for proper K. The common center and subharmonicity assumptions are essential.
 
-## Scope and verification limits
-No conclusion is asserted without the common origin constraint or nonnegative radial-subharmonicity. The full analytic proof establishes infinite-dimensional quantifiers; finite checker outputs only corroborate explicit instances. No independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the actual final claim, with explicit antecedent coverage and residual risk. The all-dimensional radial-subharmonic sharp inequality requires a new explicit differential comparison and chaining argument. It is more than repeating established generic continuity, while the classical unweighted coefficient and covered planar p>=1 power case are known.
+
+## value
+
+PASS
+
+The optimal Hausdorff modulus of weighted perimeter is a natural stability invariant. A dimension-independent METHOD yielding exactly G′(R) for the sizeable radial-subharmonic class, strict parallel deficits and the previously nonsharp planar 0<p<1 coefficient (also higher-dimensional power coefficients) supplies meaningful quantitative geometry beyond general continuity. Overlapping unweighted and p>=1 planar constants are expressly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
