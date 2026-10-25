@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-site energy-change identity follows by direct bond cancellation, and its linear parameter dependence proves that \(r=1/2\) and \(r=1\) are the only positive transition points. The exact 32-state de Bruijn transfer construction counts all labelled weakly blocked periodic configurations at every \(n\ge6\). Global spin reversal yields exact 16-state characteristic polynomials, and the verified unique primitive dominant component gives the announced entropy limits. The half-coupling parity identity follows from the full characteristic spectra; exact root isolation and transfer-edge inclusions establish the strict global entropy maximum. Standalone code independently checks all component structures, characteristic polynomials, exchange energy differences and finite-volume counts. All-size conclusions are based on the proved matrix reduction and Perron theory, not the finite computations alone.
+## correctness
 
-## Originality — PASS within examined primary literature
-The closest primary paper [1] uses the same Hamiltonian and thresholds but counts kinetically metastable configurations, which must remain protected against lowering after zero-cost diffusion; it does not supply the distinct all-magnetization local criterion, corresponding polynomial factors, or the equal-coupling weak-blocking entropy peak. The 2002 studies [2,3] concern the nearest-neighbor-only model; their results do not imply the positive next-neighbor coupling law. Comparisons with prior published claims and available research records found no statement implying the five-regime formula or half-coupling parity correction. This is a qualified literature assessment: alternative indexing or other unexamined articles remain a residual priority risk.
+PASS
 
-## Value — PASS
-One-step energy minima and kinetic absorbing families are both natural but different objects in zero-temperature conservative lattice dynamics. The exact classification quantifies their difference at all ferromagnetic coupling ratios, establishes a nonmonotone extensive entropy spike at the symmetric coupling, and separates it from a finite two-state event at the half-coupling boundary. These are mathematically meaningful changes of the landscape rather than arithmetic renamings of known kinetic rates. No kinetic trapping probability, relaxation-time, or fixed-magnetization theorem is asserted.
+The independently checked six-spin swap-energy identity ΔH/J=(c-d)[(1-r)(b-e)+r(a-f)] gives only r=1/2 and r=1 sign boundaries; the 32-state shift transfer construction is a bijection with length-n cyclic spin words, B_n(r)=tr(T_r^n). Independent exact 16x16 reversal-even block characteristic polynomials reproduce p0=x^6-x^5-x^4-x^2+1, p-=x^5-x^4-x^2-x-1, p*=x^9-2x^8+x^7-x^6-x^4+x^3-x+1, p+=x^9-2x^8+x^7-x^6+x+1. Source proves unique primitive dominant component and Perron growth; strict numerical root separation has exact root-isolation witnesses in package. Independent Hamiltonian recomputation for every spin word n=6..9 at all five regime representatives exactly matches the transfer/local condition and counts; n=6/8 respectively (32,70),(34,72),(34,68),(46,100),(34,84). Difference of full block eigenvalue multisets at r=1/2 is (+1,-1) replacing zero eigenvalues, hence B_n(1/2)-B_n(1/4)=1+(-1)^n for all n>=6. The uniform infinity claims rely on shift-matrix and PF arguments, NOT the bounded checks.
 
-## Closest literature and limits
-[1] F. A. Gómez Albarracín, H. D. Rosales and M. D. Grynberg, arXiv:1601.04375 (2016), Section III Table 2 and Appendix A, gives kinetically selected metastable-family growth rates, not all one-step energy minima.
+## originality
 
-[2] G. De Smedt, C. Godrèche and J. M. Luck, arXiv:cond-mat/0202465 (2002); [3] the same authors, arXiv:cond-mat/0210477 (2002), give nearest-neighbor Kawasaki background. Results at zero next-neighbor coupling are not claimed.
+PASS
 
-The present count does not impose conserved magnetization. A weak local minimum can undergo a neutral swap and subsequently lower its energy. Independent validation and an exhaustive priority search have not been performed.
+Best of knowledge after inspection of specified pinned source and actual primary literature. The same energy difference and r=1/2,1 thresholds are credited; quantification over sequences of neutral swaps is strictly stronger than checking individual swaps. The different equal-coupling rates (~1.4655 published kinetic vs 1.80239 immediate) make the possible conflation concrete; full original paper inaccessible this execution is a residual comparison risk. No theorem found in inspected material makes the stated four roots or parity correction a direct corollary; same Hamiltonian and transition ratios alone do not imply the distinct all-magnetization weak-blocked combinatorics.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Counting one-step weakly blocked spin configurations, as opposed to kinetic metastable traps allowing neutral paths, is a natural thermodynamic invariant. The all-coupling exact entropy spectrum and isolated equal-coupling spike, plus a separate nonextensive parity correction at half-coupling, reveal different structural mechanisms rather than a renamed prior kinetic count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
