@@ -12,7 +12,7 @@ Its **unique John ellipsoid**, for every such graph, is
 \[
 \boxed{J_G=\Bigl\{x:\sum_{i\in V}\frac{x_i^2}{d_i^2}\le1\Bigr\}.}
 \]
-If \(G\) is connected and \(n\ge3\), the entire set \(K_G\cap\partial J_G\) is precisely \(\{\pm d_i e_i:i\in V\}\), of cardinality \(2n\).
+If \(G\) is connected and \(n\ge3\), the entire set \(\partial K_G\cap\partial J_G\) is precisely \(\{\pm d_i e_i:i\in V\}\), of cardinality \(2n\).
 
 Suppose additionally that \(G\) is connected and bipartite with nonempty vertex classes \(A,B\), where \(|A|=p\), \(|B|=q\), and is **biregular**: every vertex in \(A\) has degree \(d_A\) and every vertex in \(B\) has degree \(d_B\). Write \(m=p d_A=q d_B\). Then its **unique Löwner ellipsoid** is
 \[

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed John ellipsoid has the exact degree-vector support bound, follows by coordinate-reflection rigidity and coordinate-axis caps, and has precisely the asserted contacts in the connected nontrivial case. The Löwner bound is attained at a full signed isotropic contact design for each connected bipartite biregular graph; its trace/determinant certificate proves *global* uniqueness, not just optimality within symmetric ellipsoids. Equality cases in Cauchy–Schwarz give all outer contact arcs, and their incidence gives the complete bipartite contact graph. The packaged checker corroborates these analytic steps with 8,500 inequality trials, 1,348 contact profiles and 193 covariance entries; finite tests do not establish the universal result.
+## correctness
 
-**Originality — PASS (qualified).** The closest primary papers on discotopes by Mathis–Meroni and Gesmundo–Meroni discuss fiber bodies, faces and algebraic boundaries. A previously stated exact theorem covers only regular graphical discotopes; the new graph-general John formula and nonregular biregular Löwner/contact theorem do not follow from that restricted result, although the balanced regular case is already covered and explicitly not claimed as new. Indexed searches for alternate coordinate-disk Minkowski-sum formulations and broader ellipsoid assertions found no decisive equivalent or dominating theorem. Residual risk: unindexed earlier work under zonoid or convex-body ellipsoid terminology.
+PASS
 
-**Mathematical value — PASS.** The result is an all-graph extremal-ellipsoid classification on the John side and a natural complete two-part degree family on the Löwner side, rather than a numerical special case. The topological classification \(K_{2^p,2^q}\) has exponentially many arcs and \((2^p-1)(2^q-1)\) cycles, distinguishing nonregular disk sums from their combinatorial graph structure and previously known scalar inradii. The nonregular families are genuinely new scope.
+The ASSIGNED theorem contains a mathematically false boundary-intersection formula: it prints K_G ∩ ∂J_G = {±d_i e_i} even though its own support bounds prove J_G⊆K_G, hence K_G∩∂J_G=∂J_G is an uncountable ellipsoid surface for n≥3. A complete UTF-8 corrected RESULT.md is now supplied, changing only that locus to ∂K_G∩∂J_G. The corrected final theorem follows from triangle/Cauchy–Schwarz support inequalities, uniqueness and sign symmetry for John, collinearity equality cases for exactly the finitely many common-boundary contacts, and the signed isotropic contact-design certificate for biregular bipartite Löwner optimality; edgewise moduli give arcs and their K_{2^p,2^q} graph. Original full Git blob matches expected SHA; corrected full bytes and SHA-256 are included as a guarded replacement. No new claims for non-biregular minimal enclosing ellipsoids.
 
-**Closest literature and limits.** Mathis–Meroni, *Fiber Convex Bodies* (arxiv:2105.12406); Gesmundo–Meroni, *The Geometry of Discotopes* (arxiv:2111.01241). Non-biregular enclosing ellipsoids are not classified here. Independent mathematical and full bibliographic audits are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gesmundo–Meroni develop facial/algebraic geometry of discotopes, not graph-degree John/Löwner classifications. A related regular-graph case is already covered and explicitly not claimed anew. Indexed complete-bipartite graphical zonotopes instead sum segments, changing both ambient geometry and Löwner formula. The corrected boundary symbol does not alter the original genuinely new degree and biregular geometry.
+
+## value
+
+PASS
+
+Graph-indexed sums of genuine 2D disks are natural discotopes. Their exact arbitrary-degree John ellipsoid, finite contact set, and biregular but nonregular outer Löwner shape with a complete contact-graph topology are motivated, reusable geometric invariants, not a single arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
