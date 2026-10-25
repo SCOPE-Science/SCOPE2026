@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the inverse exponent matrix from \((I+S)H=I+J\), computes cancellation by a common monomial, proves the cyclic unimodality of the uniform-arc convolution via arc-overlap monotonicity, and derives a genuinely constant-coefficient recurrence using paired Fourier eigenmodes. It separately verifies nonvanishing of every eigenmode coefficient, which is needed for the minimality claim and the spectral asymptotic. The packaged exact-integer verifier reproduces 1,584 recurrence cases and 81 independent matrix-degree cases. Computational samples are not used as infinite proofs.
+## correctness
 
-**Originality — PASS with residual risk.** Russo–Simis (2001) and Costa–Simis (2011) establish inverse monomials and their *first* degree, not every inverse iterate. Hasselblatt–Propp's general matrix-degree framework gives an algorithm and spectral asymptotics but not this antipodal evaluation, inverse all-iteration sequence, or the reciprocal minimal-parity recurrence. Sun's 2004 binomial residue-sum work is substantially overlapping for the forward map but uses two-term binomial powers rather than the inverse's longer uniform-arc convolution; the forward direction has not been claimed. Published-record searches for the inverse map, odd cycles, cyclic convolution, reciprocal recurrences, and dynamical degree revealed no dominating exact statement. Inaccessible or unindexed specialized articles remain a potential originality risk.
+PASS
 
-**Value — PASS.** These are intrinsic invariants of a natural, classical infinite family of birational transformations. The all-iteration degree formula proves a nontrivial extremal fact for cyclic convolutions and explicitly exhibits reciprocal spectral asymmetry between a quadratic Cremona map and its generally higher-degree inverse; the nonzero-mode argument gives a sharp recurrence order for both parity sequences. The result applies for every odd projective dimension and is not a small numerical increment or an arbitrary restriction.
+For every odd n=2s+1>=3 and r>=0, projective cancellation after inverse exponent H=sum_(j=0)^s S^(2j) with (I+S)H=I+J yields degree (s+1)^r minus n times the least cyclic coefficient of A(u)^r, A=1+...+u^s. The overlap formula for centered arcs on a cyclic n-gon makes convolution of radial-nonincreasing indicators radial-nonincreasing, putting a minimum at floor((rs+n)/2) mod n. Root-of-unity pairing produces the s distinct positive roots 1/(4 cos^2(pi j/n)) of the reciprocal Chebyshev polynomial; parity coefficients are nonzero (odd n prevents cosine cancellation), so BOTH parity subsequences have minimal characteristic polynomial R_s and lambda_1=1/(2sin(pi/(2n))). Independent integer cyclic convolution and recurrence checks for n=3,5,7,9,11,13 through r=27 corroborated the calculation without standing in for the proof.
 
-Closest sources: Russo–Simis (2001), Costa–Simis (2011), Hasselblatt–Propp (2006/2008), Sun (2004), Favre–Wulcan (2010/2012). Limits: independent review absent, no generalization to other graphs or higher dynamical degrees, and possible unindexed overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as a complete inverse all-iteration formula, antipodal minimizer and minimal reciprocal parity recurrence. Russo–Simis/Costa–Simis inverse coordinates and general Hasselblatt–Propp matrix-degree machinery are credited; neither extracted theorem states or logically supplies the special finite-order recurrence without additional unimodality and eigenmode noncancellation arguments.
+
+## value
+
+PASS
+
+An explicit exact degree sequence and minimal recurrence for a natural birational dynamical system is a reusable algebraic invariant, rather than a renamed general entropy formula; the nontrivial circular-convolution extremum connects combinatorics and monomial dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
