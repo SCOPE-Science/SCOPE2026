@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T11:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Belton defines semiprime density Delta2(t)=a1(t)U(t)+a2(t)/2 with a1=1,a2=0 on 1/2<t<1, so exact branch-normalized density is U(t). For 1/2<t<1, the fractional-part integral gives zeta(t)<0 and derivative bounded by -(1-t)^(-2)+1/t<0; therefore (d/dt)log|zeta(t)|>0. For n>=2, local uniform convergence justifies Möbius/zeta differentiation and interchange with Euler-product log derivative: U_prime=zeta_prime(t)/zeta(t)-sum_{m>=2}Lambda(m)F(m^(-t)), F(z)=sum_{n>=2}mu(n)z^n. For 0<z<=1/sqrt(2), mu(2)=mu(3)=mu(5)=-1 and mu(4)=0, while mu(n)<=1 gives F(z)<=-z^2-z^3-z^5+z^6/(1-z)<0 since z^4/(1-z)<1. Hence U_prime>0 everywhere. At t down to 1/2, n=2 term yields (1/2)log(2t-1)+O(1) -> -infinity; at t up to1, log|zeta(t)|=-log(1-t)+O(1)->+infinity. This proves unique tau with one sign crossing. Integrability of logarithmic endpoint singularities, plus derivative of G(y)=e^(-tau y)B(e^y), gives G_prime=sum-integral of (t-tau)U(t)/t * exp((t-tau)y)>0, and opposite divergent limits; unique integrated zero follows. The supplied verify.py is numerical illustration only; every quantified step above is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belton treats multiple real-cut intervals and branch structures, but does not establish the complete upper-cut sign monotonicity in sections inspected.",
+          "Mathar studies absolutely convergent prime-zeta/almost-prime Dirichlet series, not this negative-zeta real boundary branch.",
+          "Belovas et al. zero regions in complex plane do not force this real-cut density or its integral to have one root."
+        ],
+        "reasoning": "A broader object in the title is not logical coverage: the precise negative-real zeta boundary log, first Möbius term and sign of derivatives are essential. No stronger primary theorem inspected yields the two transitions.",
+        "searches": [
+          "Belton arXiv:2610.11024v1 full accessible article",
+          "Mathar arXiv:0803.0900v3",
+          "Belovas–Čepaitytė–Sabaliauskas doi:10.2478/auom-2025-0017"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA b77f0e41a1e52e9bedd6569727a637f659ebe508 and verify.py SHA dcd5c4065e8040e5e03084675917524ed7f260e0 read completely",
+        "Belton 2026 arXiv:2610.11024v1 full HTML and original density equations",
+        "Mathar arXiv:0803.0900v3 bibliography and subject description",
+        "Belovas et al. 2025 zero-region journal article description",
+        "Resultary two prime-zeta/real-cut semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Belton equation for density and upper contribution is an input, but the proof requires the sign of zeta_prime/zeta and negative Möbius generating series throughout z<=1/sqrt(2).",
+          "The integrated unique zero additionally needs an everywhere positive derivative after reweighting by the unique density root."
+        ],
+        "reasoning": "No accessed prior equation asserts these sign inequalities as a theorem; an explicit new argument is needed. Branch ambiguity is neutralized by the |zeta(t)| convention.",
+        "searches": [
+          "Belton 2026 arXiv:2610.11024 §§2 and 5",
+          "Mathar 2009 arXiv:0803.0900",
+          "Camargo 2025 preprint indexed prime-zeta analytic continuation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belton Delta2(t) equals U(t) on (1/2,1) and B(x) is its isolated upper real-cut contribution, not the full smooth semiprime function.",
+          "Derivative positivity for U is stronger than continuity and signedness; normalized B transform is strictly increasing despite signed U."
+        ],
+        "reasoning": "Checked semiprime-density, prime-zeta logarithmic Möbius sum and Laplace/real-cut variants. Earlier formula introduces the same object, but a definition and convergence result alone do not imply unique sign-transition theorems.",
+        "searches": [
+          "Belton arXiv:2610.11024v1 §§2,5",
+          "Mathar arXiv:0803.0900v3 k-almost-prime zeta",
+          "Resultary: prime zeta function Möbius series real cut semiprime jump density one zero Belton"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical sign samples or tables of prime-zeta zeros do not establish strict positivity U_prime on the full continuum or unique B zero for all x>0.",
+          "The theorem includes no claimed numerical value of tau or xi, instead an exact zero-count and monotonic normalized transform."
+        ],
+        "reasoning": "No lookup of a numerical table would replace the global analytic proof. Failed catalogue searches are not proof of priority.",
+        "searches": [
+          "Belton arXiv:2610.11024v1 plots/signed densities",
+          "Mathar arXiv:0803.0900v3 singularity discussions",
+          "Resultary: semiprime jump density upper real cut Riemann R function unique sign zero"
+        ]
+      },
+      "rationale": "Belton (2026) introduces precisely this semiprime upper-real-cut density and integral, discusses signed densities without the strict-monotone one-zero classification. The claimed novelty is an exact real-branch sign theorem for both density and integrated cut—not the definition of prime zeta, Möbius inversion, or generic Laplace transform positivity. The recent primary arXiv full text was consulted; no mathematically dominating statement or table found in the inspected sections; older prime-zeta monotonicity sources remain bibliographic risks.",
+      "residual_risks": [
+        "Historical prime-zeta real-branch logarithmic derivative inequalities may imply U monotonicity implicitly",
+        "The stated sign theorem is only for upper (1/2,1) real-axis semiprime cut, not global semiprime smooth function",
+        "Analytic proof uses local uniform convergence; finite numerical verify.py not an all-t certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines U, Delta2 and cut contribution, not the monotonicity and unique-zero result in inspected text",
+          "evidence": [
+            "The mathematical density formula is directly credited."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.11024v1",
+          "material_read": "Full lawful arXiv HTML, especially the definitions/equations (4)-(5), real-axis branch sections and §5 signed-density discussion",
+          "method": "Primary full HTML reading",
+          "title": "A note on Riemann’s R-function and almost primes",
+          "trigger": "Original defining source with the exact semiprime density and upper real cut"
+        },
+        {
+          "assessment": "Different absolutely convergent almost-prime generating-series framework; possible historical equivalent sign lemma remains risk",
+          "evidence": [
+            "No categorical noncoverage inferred from a summary."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0803.0900v3",
+          "material_read": "Accessible bibliographic/abstract and study descriptions of Dirichlet series and singularities; whole derivative appendix not independently re-read here",
+          "method": "Public arXiv indexed description",
+          "title": "Series of Reciprocal Powers of k-almost Primes",
+          "trigger": "Potential implicit prime-zeta/Möbius continuation identity"
+        },
+        {
+          "assessment": "Complex zero-region coverage does not directly establish upper-real-cut semiprime Möbius density monotonicity",
+          "evidence": [
+            "No claim of reading full paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/auom-2025-0017",
+          "material_read": "Publication abstract/metadata and stated zero-region subject; complete paper not read",
+          "method": "Indexed primary journal description",
+          "title": "On the zero-free region and the distribution of zeros of the prime zeta function",
+          "trigger": "Potential prime-zeta zero theorem in same broad research area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A density with logarithmic endpoint divergences and potential changes of sign is a natural analytic invariant in a published almost-prime continuation construction. A global unique density zero and a unique zero of the weighted semiprime contribution are structural facts permitting unequivocal sign interpretation; monotonicity of the Laplace-normalized integral is an independently usable analytic lemma, not a redundant restatement of an endpoint sign test. Scope remains strictly upper real cut and does not claim a full semiprime-counting error theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA b77f0e41a1e52e9bedd6569727a637f659ebe508 and verify.py SHA dcd5c4065e8040e5e03084675917524ed7f260e0 read completely",
+    "Belton 2026 arXiv:2610.11024v1 full HTML and original density equations",
+    "Mathar arXiv:0803.0900v3 bibliography and subject description",
+    "Belovas et al. 2025 zero-region journal article description",
+    "Resultary two prime-zeta/real-cut semantic searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite and symbolic checks are distinguished from all-parameter or infinite-state proofs; see the mathematical proof reconstruction.",
+    "Frozen METADATA.json contains scope_run_id and research AUDIT.json contains operational provenance; full sanitized source package and status replacements not independently prepared, hence cannot safely hand an import-ready publication plan."
+  ],
+  "residual_risks": [
+    "Historical prime-zeta real-branch logarithmic derivative inequalities may imply U monotonicity implicitly",
+    "The stated sign theorem is only for upper (1/2,1) real-axis semiprime cut, not global semiprime smooth function",
+    "Analytic proof uses local uniform convergence; finite numerical verify.py not an all-t certificate."
+  ],
+  "schema_version": 1
+}

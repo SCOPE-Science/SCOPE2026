@@ -1,9 +1,21 @@
-# Review of the semiprime real-cut sign transitions
+# Independent mathematical audit
 
-**Correctness (PASS).** A corrected fractional-part representation of the Riemann zeta function shows \(\zeta(t)<0\) and \(\zeta'(t)<0\) for \(\tfrac12<t<1\). The Möbius power series \(F(z)\) is strictly negative for \(0<z\le 1/\sqrt2\), so the logarithmic derivative formula gives \(U'(t)>0\). The endpoint logarithms have opposite signs and are integrable. After factoring \(e^{\tau y}\) from the upper-cut integral, differentiation yields a strictly positive integrand and the endpoints are opposite infinities. No finite computation is used in the proof.
+## correctness
 
-**Originality (PASS with risk).** Belton (arXiv:2610.11024v1) defines \(U\), \(\Delta_2\), and the upper real-cut integral and establishes their analytic role, but no strict one-crossing theorem is stated. Mathar (arXiv:0803.0900v3) treats older almost-prime Dirichlet polynomial and prime-zeta singularities, not this complete real-cut sign classification. Searches for sign changes, monotonicity, branch equivalences, real zeros, and broader zero-free coverage did not identify a covering theorem. Work on complex prime-zeta zeros above the line \(\Re s=1\) is not logically stronger in the required direction. Fröberg's historical full text and portions of later complex-zero studies were not examined; implicit coverage remains possible. Absence from searches is not treated as novelty proof.
+PASS
 
-**Value (PASS).** A newly introduced signed density with logarithmic singular endpoints need not have a fixed number of real sign changes, and its Laplace-type integral need not inherit the count. The result identifies both transition laws exactly, for the entire natural parameter ranges, giving structural control of the upper-cut semiprime contribution isolated in the motivating paper. It does not assert sign control of the complete semiprime smooth function or prime-counting errors.
+Belton defines semiprime density Delta2(t)=a1(t)U(t)+a2(t)/2 with a1=1,a2=0 on 1/2<t<1, so exact branch-normalized density is U(t). For 1/2<t<1, the fractional-part integral gives zeta(t)<0 and derivative bounded by -(1-t)^(-2)+1/t<0; therefore (d/dt)log|zeta(t)|>0. For n>=2, local uniform convergence justifies Möbius/zeta differentiation and interchange with Euler-product log derivative: U_prime=zeta_prime(t)/zeta(t)-sum_{m>=2}Lambda(m)F(m^(-t)), F(z)=sum_{n>=2}mu(n)z^n. For 0<z<=1/sqrt(2), mu(2)=mu(3)=mu(5)=-1 and mu(4)=0, while mu(n)<=1 gives F(z)<=-z^2-z^3-z^5+z^6/(1-z)<0 since z^4/(1-z)<1. Hence U_prime>0 everywhere. At t down to 1/2, n=2 term yields (1/2)log(2t-1)+O(1) -> -infinity; at t up to1, log|zeta(t)|=-log(1-t)+O(1)->+infinity. This proves unique tau with one sign crossing. Integrability of logarithmic endpoint singularities, plus derivative of G(y)=e^(-tau y)B(e^y), gives G_prime=sum-integral of (t-tau)U(t)/t * exp((t-tau)y)>0, and opposite divergent limits; unique integrated zero follows. The supplied verify.py is numerical illustration only; every quantified step above is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Belton (2026) introduces precisely this semiprime upper-real-cut density and integral, discusses signed densities without the strict-monotone one-zero classification. The claimed novelty is an exact real-branch sign theorem for both density and integrated cut—not the definition of prime zeta, Möbius inversion, or generic Laplace transform positivity. The recent primary arXiv full text was consulted; no mathematically dominating statement or table found in the inspected sections; older prime-zeta monotonicity sources remain bibliographic risks.
+
+## value
+
+PASS
+
+A density with logarithmic endpoint divergences and potential changes of sign is a natural analytic invariant in a published almost-prime continuation construction. A global unique density zero and a unique zero of the weighted semiprime contribution are structural facts permitting unequivocal sign interpretation; monotonicity of the Laplace-normalized integral is an independently usable analytic lemma, not a redundant restatement of an endpoint sign test. Scope remains strictly upper real cut and does not claim a full semiprime-counting error theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
