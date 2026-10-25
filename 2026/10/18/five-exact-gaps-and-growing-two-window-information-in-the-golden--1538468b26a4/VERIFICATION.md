@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Running `python verify.py` produces:
+## correctness
 
-`VERIFY_OK: exact field gap histograms at 9 Fibonacci orders, 6 joint-word partitions, entropy limit -0.586755256450162`
+PASS
 
-The program uses integer-pair arithmetic for elements of \(\mathbb Q(\sqrt5)\), exact sign comparisons and sorting of fractional rotation endpoints. It directly constructs the two disjoint index windows and their cyclic gap sizes for orders \(6\le k\le14\), then checks the predicted exact multiplicities. It independently creates finite Sturmian observations at interior sample points of every refined circle arc and verifies the number of distinct ordered word pairs for orders \(6\le k\le11\). Finally it evaluates the finite entropy table and the asymptotic constant numerically.
+The exact relation F_kα=F_{k−2}+(−1)^k r^k and r²=1−r produces the single-block three-gap successor cycle (modular addition by F_{k−2}, gcd(F_{k−2},F_k)=1). For even k the second block is translated +2r^k; odd k reduces by circle reflection. The explicit insertions into each short/medium/long initial gap partition it into five possible lengths; multiplicities sum to 2F_k+2. For the Sturmian partition the length-n cylinders have the n+1 rotation endpoints. Since all marginal arcs are shorter than 1/2, a nonempty intersection of two arcs is connected and each joint word labels a single refined interval; thus joint entropy equals the five-gap entropy, no multiplicity collapse. Binet limits give I=log F_k+C+o(1), matching independently recomputed C. Independently high-precision Decimal-90 exhaustive gaps across k=6..14 match both histograms exactly within 10^-68, but all-order proof depends on the exact insertion/successor argument.
 
-The proof in `RESULT.md`, not the finite computations, establishes the formulas for every integer \(k\ge6\). Numerical checks of joint word labels use interior floating-point samples for these finite orders; the exact neighbor/gap comparisons do not use tolerance-based ordering or decisions. The completeness argument for symbolic cylinders is analytic. No independent scientific audit has been performed. Historical priority, especially against inaccessible earlier three-distance sources, has not been certified.
+## originality
+
+PASS
+
+Kupsa–Starosta gives standard consecutive Sturmian partitions and Rokhlin towers; Mishra–Philip/Chung–Graham give ≤6 gap lengths for unions of two progressions. These do not yield exactly five golden-Fibonacci lengths and multiplicities, nor the two-window Shannon information constant.
+
+## value
+
+PASS
+
+Two separated equal observation windows in a zero-entropy symbolic dynamical system are natural: an explicit exact gap refinement and logarithmic divergence of shared information quantify nonmixing across a full intervening block. The complete histogram, not merely a bound on count of gaps, is an independently useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

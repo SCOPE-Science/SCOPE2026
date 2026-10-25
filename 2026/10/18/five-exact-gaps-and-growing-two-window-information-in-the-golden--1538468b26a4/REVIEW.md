@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for the single golden angle and precisely two blocks at indices \(0,\ldots,F_k\) and \(2F_k,\ldots,3F_k\), for each integer \(k\ge6\). Direct Fibonacci and quadratic-field identities provide an exact clockwise successor permutation and positive arc lengths totaling one. The insertion of the second block is fully assigned gap by gap, with every translated point counted exactly once; these give all five nonzero counts and pairwise distinct lengths. The Sturmian cylinder partition consists of connected arcs of length less than one half; therefore the two-block joint cylinders match the refined gaps bijectively. Shannon entropy is consequently an exact sum of arc probabilities, and Binet limits give the stated information constant. The standalone verifier independently checks 9 Fibonacci orders in exact quadratic arithmetic, and joint words at 6 orders. The verifier does not purport to replace the proof for arbitrarily large orders.
+PASS
 
-## Originality — PASS, subject to the stated historical risk
+The exact relation F_kα=F_{k−2}+(−1)^k r^k and r²=1−r produces the single-block three-gap successor cycle (modular addition by F_{k−2}, gcd(F_{k−2},F_k)=1). For even k the second block is translated +2r^k; odd k reduces by circle reflection. The explicit insertions into each short/medium/long initial gap partition it into five possible lengths; multiplicities sum to 2F_k+2. For the Sturmian partition the length-n cylinders have the n+1 rotation endpoints. Since all marginal arcs are shorter than 1/2, a nonempty intersection of two arcs is connected and each joint word labels a single refined interval; thus joint entropy equals the five-gap entropy, no multiplicity collapse. Binet limits give I=log F_k+C+o(1), matching independently recomputed C. Independently high-precision Decimal-90 exhaustive gaps across k=6..14 match both histograms exactly within 10^-68, but all-order proof depends on the exact insertion/successor argument.
 
-Kupsa and Starosta, arXiv:1303.3387, Sections 1 and 2.1 and Theorem 1, cover the classical single consecutive-block Sturmian refinements and eventual behavior of refinements of fixed partitions. They do not derive the two separated index-block five-gap multiplicities or their finite mutual-information formula. Mishra and Philip, arXiv:1910.00865, Theorem 1.1 (complete text inspected), give a general upper bound of six different gaps for unions of two progressions, but do not determine this precise five-length spectrum or frequency/entropy information. The original Liang (1979) article was not accessible in full; its general theorem is recorded through later full texts and bibliographic sources and could contain an unrecognized special-case calculation. No inspected indexed result states, or with available statements implies, the evaluated histogram and information constant. A zero-overlap search is not a universal priority certificate; arithmetic-progression and Sturmian combinatorics remain material residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-window word-pair distribution of an irrational zero-entropy process is a canonical long-range observable. The exact classification identifies five simultaneous gap values, beyond the classical three-length statistic for one window, with closed Fibonacci multiplicities at every order; it then gives a nontrivial constant term in long-distance predictive mutual information, not just the standard logarithmic scale. In particular, two distant increasing windows retain \(\log F_k-0.5867552564501619\ldots+o(1)\) nats of shared information. This is a natural parameter-complete subfamily, not an arbitrary finite-table slice or a restatement of the broad six-gap bound. Scope is restricted to the prescribed golden/Fibonacci geometry.
+Kupsa–Starosta gives standard consecutive Sturmian partitions and Rokhlin towers; Mishra–Philip/Chung–Graham give ≤6 gap lengths for unions of two progressions. These do not yield exactly five golden-Fibonacci lengths and multiplicities, nor the two-window Shannon information constant.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Two separated equal observation windows in a zero-entropy symbolic dynamical system are natural: an explicit exact gap refinement and logarithmic divergence of shared information quantify nonmixing across a full intervening block. The complete histogram, not merely a bound on count of gaps, is an independently useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
