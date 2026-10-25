@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:57:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For grade(A,r)>k, AV_k=V_kH+βv_{k+1}e_kᵀ and nonzero irreducible tridiagonal Lanczos cofactor γ=βe_kᵀH^-1e1. Orthogonal invariance of Gaussian sketches makes U=SV_k and h=Sv_{k+1} independent; z=(UᵀU)^-1Uᵀh=G/R with independent G∼N_k and R∼χ_{s-k+1}. The sketched Galerkin operator H+βze_kᵀ has determinant det(H)(1+wᵀz), and Sherman–Morrison y=a-γH^-1G/(R+wᵀG). The numerator does not cancel the denominator on the open half-space wᵀG<0 where a positive chi density meets L=R+wᵀG=0. Integrating this transversal simple pole yields a finite positive C/T energy-error tail; p<1 is exactly locally integrable, p≥1 diverges for every finite s. The sketch of the ordinary least-squares projection instead produces an affine nonsingular transform of Student_ν, yielding exact ν-moment cutoff. Under the terminal-grade case β=0 the obstruction disappears, appropriately excluded. Independent analytic algebra checked against the pinned checker defining equations, 1-step and multistep rank-one matrix reductions; bounded source rational and numerical checks are not proof of tail convergence. We did not independently execute every source numerical tail test in this audit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Timsit–Grigori–Balabanov 2023 Section 5.1 displays finite-sample randomized Ritz/error spikes; Güttel–Schweitzer 2022 gives sketched FOM interpolation and empirical instability. Both contrast with unconditional moment quantifiers here."
+        ],
+        "reasoning": "High-probability sketch concentration conditional on embedding cannot imply finite unconditional first moments; an exceptional bad-sketch event remains, with scale invariant Gaussian regression support touching the inverse pole.",
+        "searches": [
+          "Gaussian sketch Krylov Galerkin infinite expected error inverse generalized Wishart singular square Gram regardless oversampling",
+          "arxiv:2302.07466",
+          "arxiv:2208.11447",
+          "arxiv:1803.02602",
+          "arxiv:2111.14641"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md 9eee0c3a2caf4b9d4213717e77ea700e33edbe53; check.py 08aec6504bf3dead254c4d9aa3baab838c12355f",
+        "arxiv:2302.07466 full text",
+        "arxiv:2208.11447 full text",
+        "arxiv:1706.03665 full text Theorem 2",
+        "arxiv:1803.02602 abstract",
+        "Resultary semantic search Gaussian sketch Krylov Galerkin infinite expected error inverse generalized Wishart singular square Gram regardless oversampling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ahfock–Astle–Richardson Theorem 2 describes the multivariate Student coefficient law in Gaussian sketching, directly covering the minimal residual tail mechanism.",
+          "The Galerkin rank-one inverse pole arises only after combining that law with nonzero Lanczos cofactor and unguarded Galerkin normal equation."
+        ],
+        "reasoning": "The known Student fact and sketch projection definitions supply ingredients, but their original statements do not appear to assert every finite s/k energy-error 1/T tail with positive constant; this is a nontrivial derived result, yet implication via an unindexed general inverse-regression theorem remains possible.",
+        "searches": [
+          "arxiv:1706.03665",
+          "arxiv:2306.03593",
+          "arxiv:2302.07466",
+          "Gaussian sketch Krylov Galerkin infinite expected error inverse generalized Wishart singular square Gram regardless oversampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact k-dimensional regression coefficient z=G/R is a known multivariate Student law; sketched FOM is a Petrov–Galerkin inverse (H+βze_kᵀ)^-1e1, not merely the Gaussian-sketch least-squares estimator."
+        ],
+        "reasoning": "The Student law overlaps classical randomized least squares; it does not directly state the heavy-tailed nonlinear inverse affine-hyperplane pole caused by nonzero Lanczos coupling γ in every nonterminated grade.",
+        "searches": [
+          "Gaussian sketch Krylov Galerkin infinite expected error inverse generalized Wishart singular square Gram regardless oversampling",
+          "arxiv:2302.07466",
+          "arxiv:2208.11447",
+          "arxiv:1706.03665"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary related numerical linear algebra results concern fixed-frame weak Gauss–Newton or deterministic GMRES error, not an unconditional Gaussian-sketch k-dimensional Galerkin tail table."
+        ],
+        "reasoning": "An exact tail constant is defined by the universal Gaussian/chi integral rather than a small experimental table; retrieved indexed claims did not cover it, without proving global absence.",
+        "searches": [
+          "Gaussian sketch Krylov Galerkin infinite expected error inverse generalized Wishart singular square Gram regardless oversampling",
+          "Resultary published records: top 8, closest SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af and SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+        ]
+      },
+      "rationale": "Best of knowledge after inspection of specified pinned source and actual primary literature. The Student law overlaps classical randomized least squares; it does not directly state the heavy-tailed nonlinear inverse affine-hyperplane pole caused by nonzero Lanczos coupling γ in every nonterminated grade. The known Student fact and sketch projection definitions supply ingredients, but their original statements do not appear to assert every finite s/k energy-error 1/T tail with positive constant; this is a nontrivial derived result, yet implication via an unindexed general inverse-regression theorem remains possible.",
+      "residual_risks": [
+        "An older general theorem on moments of inverses of Student-affine matrices may imply the same tail as a corollary, even if not cited under Krylov terminology.",
+        "Tail constant is an integral, not a simple closed form for general k; asymptotic dominated-convergence step relies on Gaussian/chi bounds on large-G events.",
+        "No claims for guarded solvers, discrete/structured sketches, adaptive basis construction, or terminated Krylov spaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-sample spikes and algorithms are present; unrestricted unconditional mean-error theorem not located in the examined sections",
+          "evidence": [
+            "Section 4 formulation and Section 5.1 spiking error plots; not an exhaustive proof of absence in every possible paragraph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.07466",
+          "material_read": "Full 23-page arXiv PDF, projection definitions and Section 5.1 discussions of spiking errors, inspected relevant formulae",
+          "method": "Public full-text PDF and screenshots",
+          "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+          "trigger": "Exact sketched FOM/GMRES operators, Ritz instability"
+        },
+        {
+          "assessment": "Describes randomized projections and Ritz behavior but not the specific all-s SPD Galerkin moment law in inspected statements",
+          "evidence": [
+            "Sections 2 and 5; nonterminated Krylov grade and unconditional C/T tail not stated there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.11447",
+          "material_read": "Publicly accessible full PDF, Sections 2 and 5 including sketching/interpolation; relevant formal formulae read",
+          "method": "Public full-text PDF and screenshot",
+          "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+          "trigger": "sFOM and randomized Ritz values"
+        },
+        {
+          "assessment": "Known Student tail for Gaussian sketch regression, explicitly credited and applied to the minimal-residual comparison",
+          "evidence": [
+            "Theorem 2 and multivariate t coefficient distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.03665",
+          "material_read": "Full 58-page arXiv PDF, Section 3.1 and Theorem 2, relevant derivation inspected",
+          "method": "Public full-text PDF and screenshot",
+          "title": "Statistical properties of sketching algorithms",
+          "trigger": "Exact Gaussian sketch Student distribution"
+        },
+        {
+          "assessment": "Relevant prior framework remains as overlap risk, not claimed definitively noncovering",
+          "evidence": [
+            "Source defines randomized Galerkin and high-probability estimation, as cited in assigned package."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.02602",
+          "material_read": "Abstract and secondary context; full primary manuscript not independently inspected in this execution",
+          "method": "Public abstract and source references",
+          "title": "Randomized linear algebra for model reduction. Part I: Galerkin methods and error estimation",
+          "trigger": "Prior randomized Galerkin framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies an important unconditional instability masked by high-probability subspace embedding guarantees: arbitrarily large finite Gaussian oversampling cannot make unsafeguarded sketched FOM/Galerkin have finite absolute mean energy error, despite SPD A. The minimal-residual contrast explains which projection/safeguard mitigates heavy tails and separates rare failures from typical performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older general theorem on moments of inverses of Student-affine matrices may imply the same tail as a corollary, even if not cited under Krylov terminology.",
+    "Tail constant is an integral, not a simple closed form for general k; asymptotic dominated-convergence step relies on Gaussian/chi bounds on large-G events.",
+    "No claims for guarded solvers, discrete/structured sketches, adaptive basis construction, or terminated Krylov spaces.",
+    "Finite independent arithmetic tests are not an infinite-parameter proof; mathematical arguments support the unrestricted quantifiers.",
+    "Scientific PASS does not imply transport/publication readiness, prior novelty certification, independent Lean certification or an expert attestation."
+  ],
+  "schema_version": 1
+}

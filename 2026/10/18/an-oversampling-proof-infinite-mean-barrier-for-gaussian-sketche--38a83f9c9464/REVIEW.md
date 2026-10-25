@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-dimensional Gaussian-regression identity yields the exact spherical Student law with \(\nu=s-k+1\) degrees of freedom for the randomized Lanczos coupling. The rank-one determinant lemma and irreducible Jacobi cofactor guarantee a simple noncancelling Galerkin pole in every nonterminated Krylov dimension. The chi–Gaussian integral establishes a positive finite \(1/T\) energy-error tail constant; local one-dimensional integrability gives precisely the moment boundary \(p=1\). Gaussian complete-sketch least-squares theory yields the stated \(\nu\)-moment boundary for minimal residual. Verification independently passed 2,396 rational one-step checks, 208 exact rational two-/three-step reductions, 15 numerical tail checks, and four agreement checks of the chi/Gaussian integral with the closed one-step constant. The finite checks do not establish the theorem without the analytic proof.
+## correctness
 
-**Originality — PASS (qualified literature comparison).** The closest sources define the two projections and establish high-probability embedding bounds (Balabanov–Nouy, 2018; Balabanov–Grigori, 2021), and report nonphysical Ritz values or finite-sample numerical spikes (Güttel–Schweitzer, 2022; Timsit–Grigori–Balabanov, 2023). None of the inspected statements provides the universal nonterminated-\(k\), every-finite-\(s\) \(1/T\) Galerkin energy-error law, its positive integral constant, or the unconditional infinite-mean conclusion. Ahfock–Astle–Richardson and Browne–Andrews already establish the Student law for complete Gaussian-sketch least squares, so the minimal-residual comparison is *not* claimed to be novel in isolation. The genuinely added implication is the Lanczos-induced **inverse rank-one pole** and its exact global heavy-tail consequence. The result is a derived theorem from classical probability and linear algebra, and it may be implicit in unindexed material: priority remains subject to independent literature review.
+PASS
 
-**Value — PASS.** The sharp result identifies a structural statistical failure of unsafeguarded Gaussian-sketched Galerkin projection that does **not** disappear with any finite number of sketch rows, even when the underlying system is SPD. It explains published extreme Ritz-error spikes while distinguishing the less pathological sketched least-squares alternative at the same Krylov dimension. This gives a meaningful criterion for using safeguards or robust error summaries. It does not imply typical divergence or contradict conditional high-probability bounds.
+For grade(A,r)>k, AV_k=V_kH+βv_{k+1}e_kᵀ and nonzero irreducible tridiagonal Lanczos cofactor γ=βe_kᵀH^-1e1. Orthogonal invariance of Gaussian sketches makes U=SV_k and h=Sv_{k+1} independent; z=(UᵀU)^-1Uᵀh=G/R with independent G∼N_k and R∼χ_{s-k+1}. The sketched Galerkin operator H+βze_kᵀ has determinant det(H)(1+wᵀz), and Sherman–Morrison y=a-γH^-1G/(R+wᵀG). The numerator does not cancel the denominator on the open half-space wᵀG<0 where a positive chi density meets L=R+wᵀG=0. Integrating this transversal simple pole yields a finite positive C/T energy-error tail; p<1 is exactly locally integrable, p≥1 diverges for every finite s. The sketch of the ordinary least-squares projection instead produces an affine nonsingular transform of Student_ν, yielding exact ν-moment cutoff. Under the terminal-grade case β=0 the obstruction disappears, appropriately excluded. Independent analytic algebra checked against the pinned checker defining equations, 1-step and multistep rank-one matrix reductions; bounded source rational and numerical checks are not proof of tail convergence. We did not independently execute every source numerical tail test in this audit.
 
-**Limits and closest literature.** See Sections 4.3 and 5.1 of the cited 2021 and 2023 Krylov projection papers and the 2022 sFOM interpolation analysis. The 2017/2023 Gaussian-sketch regression distribution formula materially overlaps and is credited. Further review of alternate names for inverse multivariate-Student matrix functionals remains a bibliographic uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge after inspection of specified pinned source and actual primary literature. The Student law overlaps classical randomized least squares; it does not directly state the heavy-tailed nonlinear inverse affine-hyperplane pole caused by nonzero Lanczos coupling γ in every nonterminated grade. The known Student fact and sketch projection definitions supply ingredients, but their original statements do not appear to assert every finite s/k energy-error 1/T tail with positive constant; this is a nontrivial derived result, yet implication via an unindexed general inverse-regression theorem remains possible.
+
+## value
+
+PASS
+
+This identifies an important unconditional instability masked by high-probability subspace embedding guarantees: arbitrarily large finite Gaussian oversampling cannot make unsafeguarded sketched FOM/Galerkin have finite absolute mean energy error, despite SPD A. The minimal-residual contrast explains which projection/safeguard mitigates heavy tails and separates rare failures from typical performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
