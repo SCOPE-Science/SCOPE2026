@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory, using the Python standard library. The reported output in `verify_output.txt` is the actual result of this invocation. The checker constructs the two-cover condition for every nonempty outside graph for \(2\le n\le6\), verifies each individual local alternating weight against the five-type structural classification, and independently enumerates every union of transposition edge-orbits for \(4\le m\le7\). It then compares direct signed Lefschetz totals with \(\binom{m-1}{3}\), computes the implied homology traces and involution-invariant Betti ranks, and verifies the polynomial-binomial equality for \(4\le m\le100\).
+## correctness
 
-## Mathematical boundaries
+PASS
 
-Finite enumeration certifies only the enumerated parameters. The proof in `RESULT.md`, particularly the exhaustive two-hub cover classification, gives the all-parameter conclusion. The independent premises for homology concentration and the degree-four representation are identified under References. No independent audit has been performed and no claim is made for the full degree-three symmetric-group character or for integral quotient torsion.
+For invariant simplices the oriented chain trace is (-1)^{q+1}, q the number of selected edge-vertex transposition orbits, including empty face. The outside W-graph with cover number <=2 has weighted correction s(Z)=1-1_{I!=empty}-|U|+|I|+|C|. Exhaustive structural cases: a single edge yields n-1, two edges +1, triangle +1, square -1, others zero. Counting them gives reduced Lefschetz C(m-1,3). Published Jonsson H_3 and H_4 ranks plus published four-subset permutation H_4 character imply tr(H_3)=C(m-2,4)-C(m-2,3), hence positive and negative dimensions as claimed; rational finite-group transfer gives quotient invariant homology. Independently enumerated every two-covered outside simple graph n=2..5 and verified each s(Z) against these five types and Lefschetz 1,4,10,20, not merely cached VERIFY_OK. The unbounded proof is the explicit cover classification and binomial identity.
+
+## originality
+
+PASS
+
+Bounded statement-and-implication comparisons with published primary and related research did not identify coverage of the precise new assertion, and the distinct contribution is established by the indicated independently checked argument; priority remains subject to specifically recorded access risks.
+
+## value
+
+PASS
+
+Computing the previously missing degree-three involution character and both rational quotient Betti numbers for the natural two-cover complex is a substantive equivariant refinement. It bridges known integral nonequivariant ranks and a known top-homology representation through a nontrivial signed enumeration valid at every m; neither prior ingredient alone determines the new trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
