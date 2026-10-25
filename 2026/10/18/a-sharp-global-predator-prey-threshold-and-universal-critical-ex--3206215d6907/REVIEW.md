@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact model was reconstructed from Ramraj–Poornima (2026), Equation (1). The absorbing estimate using \(u+v/c\) cancels predation without an extra inequality. The prey per-capita derivatives are strictly negative in both densities; this proves uniqueness of positive equilibrium in both \(\eta>0\) and \(\eta=0\) cases. The Jacobian trace and determinant give a strictly stable interior equilibrium. The exact Dulac factor \(1/(uv)\) gives negative divergence on the entire positive quadrant and excludes positive cycles. Boundary-axis flows and stable manifolds exclude boundary omega-limit circuits, yielding global attraction by the planar limit-set alternatives. At invasion equality the nonzero quadratic coefficient of the center dynamics gives the sharp \(1/t\) limits. Symbolic and exact-rational checks were executed from the included `verify.py`; numerical time horizons do not prove asymptotics. Residual proof risk: the global conclusion invokes standard compact planar omega-limit classification and local stable/center manifold theorems rather than reproducing their proofs.
+PASS
 
-## Originality — PASS, literature-based
+For H=u+v/c, predation cancels in H′ and H′+mH≤(r+m)²/(4a), establishing bounded global positive flow with η=0 permitted. Monotone prey per-capita response and predator nullcline imply unique positive equilibrium iff Θ=cbu1−m>0; its trace<0 and det>0. Dulac B=1/(uv) has strictly negative divergence −(a+rα/D²)/v−η/u; boundary manifolds exclude heteroclinic cycles, so all positive orbits approach correct equilibrium. At Θ=0 center manifold gives u−u1=−κv/σ+O(v²), v′=−qv²+O(v³), q=η+cbκ/σ>0, proving exact t^-1 limits. Independent symbolic balance/divergence and bounded trajectory diagnostics corroborate components, not the global infinity argument.
 
-The motivating source establishes only local coexistence stability, a restricted boundedness theorem, and numerical indications of global attraction, and explicitly leaves rigorous global behavior and vanishing interference unresolved. He–Li (2022) proves global stability in a different fear-model functional form and does not provide a theorem for the joint fear–crowding denominator and quadratic predator competition. Wang–Zanette–Zou (2016) concerns another response mechanism, permitting cycles. Hou–Baigent (2015) offers general criteria for Kolmogorov systems, including hypotheses at the origin not satisfied here. Earlier generic planar and center-manifold methods are acknowledged. Searches of the relevant indexed research record and full/text-accessible literature found no statement or stronger theorem directly implying the complete present model-specific global and critical-rate claim; this is not a proof of uniqueness. Risks: an unindexed special theorem or a different general convergence criterion might subsume part of the argument; neighboring models already have extinction/coexistence thresholds, and these are not claimed as novel by themselves.
+## originality
 
-## Value — PASS
+PASS
 
-This answers a mathematically explicit gap in the 2026 paper: a global all-initial-data classification rather than a few illustrative numerical trajectories. It also excludes the hypothesized weak-interference Hopf transition for exactly this model, removes a restrictive auxiliary boundedness hypothesis, and quantifies the critical predator-extinction rate even when quadratic predator self-competition is zero. The combination distinguishes true asymptotic extinction from very slow transient decay and supplies a rigorous structural baseline before more complex food-chain or spatial effects are introduced. Value is confined to the model's specified dynamical class.
+Best-of-knowledge mathematical priority assessment: the primary work is credited for model, antecedent formulas and context; the stronger exact theorem is not shown to be explicitly stated or automatically implied by the read material. Inaccessible full texts and older equivalent formulations are recorded explicitly rather than turned into categorical exclusions. A monotonic prey nullcline, unconditional H bound, Dulac sign, boundary dynamics and center-manifold q yield the new conclusions, rather than a mechanical consequence of local eigenvalues. Center theorem is classical acknowledged machinery.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The motivating same mathematical model article explicitly leaves rigorous global convergence open and invokes stronger-than-needed boundedness conditions. Exact all-initial-state dichotomy, no-cycle proof at zero predator self-competition, and universal critical t^-1 coefficient fill concrete mathematical dynamical-system gaps; critical slowing is not read off local stability tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
