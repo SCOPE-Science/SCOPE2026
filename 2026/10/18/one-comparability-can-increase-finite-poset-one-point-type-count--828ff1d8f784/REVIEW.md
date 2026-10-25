@@ -1,19 +1,21 @@
-# Review: One comparability can increase one-point type counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ideal/filter representation follows from transitivity and exactly encodes extensions over fixed parameters. The three-case classification of a complete two-level poset yields \(2^{a+b}+2^a+2^b-2\). The comparison with one deleted incidence is exact: restoring the incidence admits \(2^{a+b-2}\) new ternary assignments and forbids exactly two old ones, proving the all-size jump. An independent transitive-closure implementation exhausts all partial orders and feasible relation additions on at most four old points, yielding no increases through three and six comparison orbits at four. The separate finite checks of the closed forms are supporting evidence, not substitutes for the symbolic proof.
+PASS
 
-## Originality — PASS, with explicit risks
+Over a fixed labelled poset, one-point extensions are precisely disjoint ideal/filter pairs L,U with all L<U. In Q=A⊕B there are 2^(a+b) middle placements and 2^a-1 and 2^b-1 upper/lower placements. Removing u<v permits two previously forbidden placements and disallows 2^(a+b-2) formerly permitted u<x<v placements. Thus c(Q)=2^(a+b)+2^a+2^b-2, c(P)=3·2^(a+b-2)+2^a+2^b and the difference=2^(a+b-2)-2 for a,b>=1, including the negative a=b=1 case. Independently reconstructed an exhaustive generator of transitively closed strict labelled posets and tested all n<=4 and all legal directed added comparabilities, obtaining labelled poset counts (1,3,19,219), 1044 additions at n=4, 120 positive changes, none for n<=3. The last six-isomorphism-class multiplicity breakdown was reported by supplied verifier but was not separately canonicalized in this run.
 
-Dolinka–Mašulović (2010 preprint / 2012 journal), Lemma 4.3, already describes inserted points by sets of parameters below and above them. The accessible full `RESULT.md` of *Finite-parameter 1-type counting in the random poset is #P-complete* already gives the counting invariant, the model-theoretic identification, and a complexity classification. Neither inspected result provides the change under adjoining one comparability. The claim is the exact nonmonotone jump, its sharp four-point threshold, and the first failure census—not the pre-existing extension encoding, count-complexity result, or characterization of the random poset. Oliver Pretzel (1980) studies insertion positions and is a particularly relevant priority risk; only its abstract concerning their **dimension** was accessible. Its full text was not checked, so originality is conditional on this specific unresolved source comparison, though no available evidence gives a dominating result. Searches and full-text comparisons cannot prove first discovery.
+## originality
 
-## Value — PASS
+PASS
 
-Adding order relations might be expected to restrict available one-point extensions. The result shows the opposite behavior, and the gain \(2^{n-2}-2\) is unbounded and exponential while changing only one relation in a natural height-two family. The first size and complete first failure layer make this a motivated sharp boundary for orbit/type counting, not an isolated arbitrary numerical curiosity. The exact formula identifies the competing mechanisms behind the jump (new interval placements versus lost boundary placements), useful for analyzing parameter changes in Fraïssé limits and for testing counting algorithms.
+Best-of-knowledge, subject to explicitly documented priority risks: searched the available Resultary records and primary literature, compared the exact claimed quantifiers/invariants to prior implications rather than matching titles, and did not treat inaccessible full text as proof of noncoverage.
 
-## Scope and limitations
+## value
 
-The infinite formula concerns near-complete height-two orders. The complete classification of increases concerns four old points only. It does not classify arbitrary large-poset edge additions. Pretzel's uninspected full text and unindexed older insertion-position calculations remain originality risks. Source evidence is not an independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single relation making a finite order more constrained can nevertheless increase the number of labeled one-point extensions by an exponentially growing amount; this reverses a plausible monotonicity expectation and gives the sharp four-point threshold. The exact jump is independently useful in random-poset type counting and one-point-extension enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
