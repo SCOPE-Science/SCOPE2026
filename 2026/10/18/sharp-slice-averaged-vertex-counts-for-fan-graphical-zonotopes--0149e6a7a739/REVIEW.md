@@ -1,19 +1,21 @@
-# Scientific assessment: fan graphical-zonotope slice averages
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The directional average is explicitly defined over uniform offsets across the support interval, so it must not be confused with averaging over random orientations. The proof first counts section vertices by integrated edge crossings, then uses the graphical-arrangement contraction correspondence to obtain each edge-direction multiplicity exactly. Contracting a tree edge of a cone over a tree yields a smaller tree cone and gives multiplicity \(2\cdot3^{n-2}\); contracting the apex spoke at a vertex of degree \(d\) gives a cone over a \(d\)-component forest and multiplicity \(2^d3^{n-1-d}\). Both follow directly from chromatic polynomials evaluated at \(-1\). For the fan the exact quotient is \(2\cdot3^{n-2}(1-J/(3D))\). Two applications of the path triangle inequality at each internal vertex yield \(2J\le(n-2)(D-J)\). Equality forces one common nonzero internal coordinate difference and endpoints between that value and zero; the upper equality is \(J=0\). Finite verifier checks 19,496 integer normals for both equality descriptions, exact zonotope edge enumerations at five sizes, direct slicing integrals at three sizes, and eight non-path tree cones. These checks support but do not replace the all-dimensional proof.
+PASS
 
-## Originality — PASS, with limits
+The average number of generic section vertices equals sum_over_zonotope_edges |u·direction| divided by zonotope width. Graphical zonotope edge multiplicity in root direction e equals acyclic orientations of contracted graph G/e. Cone over tree chromatic polynomials give weights 2·3^(n-2) on tree edges and 2^(deg v)3^(n-1-deg v) on spokes. For a fan this simplifies to C(1-J/(3D)); two endpoint path triangle inequalities give 2J≤(n-2)(D-J), the exact lower bound and equality normals. Continuous image on intrinsic sphere gives complete interval. Independently recomputed chromatic(-1) of every fan-edge contraction n=3..5; exact integer counts agree.
 
-Bárány and Domokos, *Same average in every direction* (first arXiv submission 2023-10-29), establish the section-edge average formula and conditions for a **constant** average, not fan-specific sharp nonconstant minima/maxima with equality normal sets. Grujić, *Counting faces of graphical zonotopes* (2016), provides chamber, acyclic-orientation and contraction face-count machinery; its face-number results are not optimized directional slicing averages. An accessible comparison with recorded mathematical claims about graphical-zonotope widths, minimum-radius cut quotients, and fan-graph symmetric-edge polytopes concerns different bodies or invariants and does not imply the exact averaged fan-section extrema. This is not a claim that the general section-edge identity, Stanley's chromatic evaluation or the contraction correspondence is new. An equivalent special-case theorem in older stereological or graph-arrangement literature remains an identifiable bibliographic risk. Exact problem and formula searches did not reveal it, but that is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform-offset section complexity is the central invariant of the motivating 2023 problem. The fan family produces zonotopes of unbounded dimension with exponentially many vertices \(2\cdot3^{n-1}\), yet its entire sharp directional average range, the ratio tending to \(3/2\), and all optimal normal families are now explicit. The general cone-over-tree degree formula shows why this behavior arises and provides exact directional data for every tree cone, not an arbitrary isolated numerical slice. The result resolves a natural complete family rather than only incrementally estimating a constant.
+Bárány–Domokos introduced the general slice-averaged edge-projection formula and constant-average phenomena; Grujić and Stanley underpin zonotope acyclic orientations and chromatic evaluation. None of those inspected works provide the cone-over-tree weighted directional identity plus exact fan sharp extrema and full equality-normal characterization.
 
-## Limits and closest literature
+## value
 
-The scalar range and optimizer classifications apply to unweighted path-cone graphical zonotopes; the tree-cone extension supplies a profile, not arbitrary-tree optimizers. All supporting numerical checks are finite. The primary literature sections were read in accessible arXiv HTML; the identified noncovering comparisons remain subject to the residual possibility of differently phrased earlier work. Independent mathematical validation has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fan is a natural sparse graphical-zonotope family with nonconstant section complexity; the exact full range, all equality directions, and extension to arbitrary tree cones solve a motivated intrinsic-geometric optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
