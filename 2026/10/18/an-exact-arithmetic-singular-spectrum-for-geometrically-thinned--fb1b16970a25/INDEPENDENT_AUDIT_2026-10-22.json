@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:51:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each integer b>=2 the selected row N_k=b^k-1 has block-constant coefficient. The normalized constant-block input isometry U and sparse output isometry V give R_b=V T_q U* with q=b^(-1/2) and T_q=sqrt(1-q^2)D(I-qS)^(-1), D_kk=k^(-1/2). The inverse B has positive Jacobi square J=B*B with diag k(1+c)/(1-c), offdiag -sqrt(c k(k+1))/(1-c), c=q^2. Carleman sum of reciprocal offdiagonals diverges; the n-shifted Meixner(2,c) orthonormal recurrence yields a unitary to multiplication by m+1 on the complete discrete Meixner L2 probability space. Hence J eigenvalues 1,2,... are simple, and R_b nonzero singular sequence j^(-1/2) exactly. Zero singular multiplicity infinite; no b=1 assertion. Compactness, weak S2 and p>2 Schatten criterion follow. Independent finite Jacobi leading five inverse-square singular eigenvalues at q=1/sqrt2,1/sqrt3,0.4 agreed with 1..5 within 1.2e-13; numerical finite truncations do NOT prove the infinite equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bellavita–Dellepiane–Stylogiannis develop compactness and Schatten criteria for Rhaly/factorable operators, not a theorem assigning all singular values j^(-1/2) to this row-sparse square-root normalization.",
+          "The candidate is not arbitrary terraced-matrix Schatten membership but the entire arithmetic spectral ladder in a particular natural thinning."
+        ],
+        "reasoning": "Broader membership results constrain the admissible Schatten exponents, but do not imply the exact sequence with multiplicities or invariance in b. A hidden general Jacobi representation remains a priority risk.",
+        "searches": [
+          "exact singular values geometrically thinned Rhaly terraced matrix Meixner polynomials arithmetic eigenvalues",
+          "arxiv:2606.15875v1",
+          "arxiv:2503.21930"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen sparse Rhaly RESULT.md/CHECK.py/METADATA.json and 3bb56828b96d8fcbc104d4e9da47c12a18a53ac4 tree",
+        "arxiv:2606.15875v1",
+        "arxiv:2503.21930",
+        "Resultary Hahn–Exton geometric Rhaly RESULT.md",
+        "DLMF §§18.19,18.22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Meixner recurrence gives diagonal coefficients n+(n+2)c over 1-c and offdiagonals -sqrt(c(n+1)(n+2))/(1-c); adding 1 matches J.",
+          "The dense-geometric paper has finite trace, while R_b has infinite trace of R_bR_b*: incompatible spectral implications."
+        ],
+        "reasoning": "Classical Meixner identities are necessary proof tools but do not themselves identify the natural sparse Rhaly operator or base-independent singular ladder. Neither exact published determinant nor known membership criterion directly asserts its spectrum.",
+        "searches": [
+          "arxiv:2606.15875v1",
+          "Resultary:2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443",
+          "DLMF:18.19",
+          "DLMF:18.22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026-10-11 full RESULT.md studies W_t with row n coefficients t^n for ALL j<=n, Hilbert-Schmidt norm squared (1-t^2)^(-2), versus sparse R_b having sum of squared singular values harmonic/infinite.",
+          "Classical Meixner(2,c) Jacobi recurrence does give the inverse operator spectrum once a new block-compression identification is constructed."
+        ],
+        "reasoning": "The closest explicit singular-spectrum paper concerns a different dense trace-class matrix and cannot be unitarily equivalent to the sparse non-Hilbert-Schmidt model: Hilbert-Schmidt membership is a unitary invariant. The ordinary eigenvalue formula for W_t is likewise different from nonzero singulars of R_b.",
+        "searches": [
+          "exact singular values geometrically thinned Rhaly terraced matrix Meixner polynomials arithmetic eigenvalues",
+          "Resultary:2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443",
+          "arxiv:2408.03182"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest published Resultary hit gives Hahn–Exton zeros, not the arithmetic sequence; no exact s_j=j^(-1/2) sparse Rhaly table was returned among inspected matches."
+        ],
+        "reasoning": "Full singular-value table in a different normalization cannot cover this object. Semantic search nonmatch is only evidence of limited coverage, not proof of global novelty.",
+        "searches": [
+          "exact singular values geometrically thinned Rhaly terraced matrix Meixner polynomials arithmetic eigenvalues",
+          "Resultary semantic search results for Rhaly singular spectra"
+        ]
+      },
+      "rationale": "The exact full base-independent sparse-row weak-Schatten singular ladder is not supplied by the inspected distinct dense geometric Rhaly Fredholm determinant, nor by published Rhaly Schatten membership criteria. Meixner Jacobi diagonalization is classical. Best-of-knowledge judgment retains the risk of an older equivalent sparse weighted-Jacobi representation.",
+      "residual_risks": [
+        "Potential earlier special-function/Jacobi spectral representation that happens to equal this geometrically thinned row map was not ruled out exhaustively.",
+        "Carleman/operator-core identification relies on the natural inverse domain; the analytic proof is more decisive than finite eigenvalue checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the same operator: its W_t is dense row-weight t^n and trace class, not the sparse weak-S2 R_b",
+          "evidence": "W_t coefficient formula t^n sum_{j<=n}a_j; sum_j s_j(W_t)^2=(1-t^2)^(-2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443",
+          "material_read": "Complete frozen public RESULT.md, including operator matrix, Fredholm determinant, proof and boundaries",
+          "method": "GitHub primary RESULT.md blob full-text reading",
+          "title": "Hahn–Exton zeros determine every singular value of a geometric Rhaly operator",
+          "trigger": "Extremely similar subject: singular values of a geometric Rhaly operator"
+        },
+        {
+          "assessment": "No explicit all-j sparse-row arithmetic singular sequence identified in relevant mathematical statements",
+          "evidence": "Membership/compactness criteria do not identify every nonzero s_j or base independence.",
+          "identifier_or_url": "https://arxiv.org/html/2606.15875v1",
+          "material_read": "Full HTML theorem statements and relevant factorable/Schatten sections compared",
+          "method": "ArXiv lawful open full-text reading",
+          "title": "Rhaly operators on weighted Hardy spaces and factorable matrices",
+          "trigger": "Potential general theorem with stronger coverage over Rhaly matrices"
+        },
+        {
+          "assessment": "Membership results plausible, precise all-j singular values not verified there; retain incomplete-full-text risk",
+          "evidence": "Article concerns Schatten membership rather than the stated Meixner spectral reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.21930",
+          "material_read": "Abstract and relevant public theorem-level description; not asserted as complete article reading",
+          "method": "ArXiv abstract/result comparison",
+          "title": "Schatten class for Rhaly matrices and spaces of analytic functions",
+          "trigger": "Another potentially dominating general Rhaly Schatten theorem"
+        },
+        {
+          "assessment": "COVERS the underlying special-function recurrence but not the Rhaly operator claim",
+          "evidence": "Recurrence and Meixner completeness used as classical premise.",
+          "identifier_or_url": "https://dlmf.nist.gov/18.22",
+          "material_read": "Relevant recurrence/orthogonality definitions in the source RESULT and referenced DLMF identity; no exhaustive DLMF reading claimed",
+          "method": "Formula comparison and independent finite polynomials",
+          "title": "Meixner recurrence and orthogonality, NIST DLMF",
+          "trigger": "Nonstandard recurrence is proof-critical"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Geometric row thinning produces a natural compact-but-not-Hilbert-Schmidt operator with a complete, unexpectedly base-independent singular ladder, exact approximation errors and a sharp weak Schatten boundary. It distinguishes sparse geometry from dense Rhaly and is useful for operator-theoretic spectral and ideal theory; not merely a renaming of a textbook Meixner formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual frozen sparse Rhaly RESULT.md/CHECK.py/METADATA.json and 3bb56828b96d8fcbc104d4e9da47c12a18a53ac4 tree",
+    "arxiv:2606.15875v1",
+    "arxiv:2503.21930",
+    "Resultary Hahn–Exton geometric Rhaly RESULT.md",
+    "DLMF §§18.19,18.22"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The infinite Jacobi/Meixner argument, not truncation, carries the theorem.",
+    "Only b>=2 and q in (0,1); full R_b has infinitely many zero singular vectors."
+  ],
+  "residual_risks": [
+    "Potential earlier special-function/Jacobi spectral representation that happens to equal this geometrically thinned row map was not ruled out exhaustively.",
+    "Carleman/operator-core identification relies on the natural inverse domain; the analytic proof is more decisive than finite eigenvalue checks."
+  ],
+  "schema_version": 1
+}

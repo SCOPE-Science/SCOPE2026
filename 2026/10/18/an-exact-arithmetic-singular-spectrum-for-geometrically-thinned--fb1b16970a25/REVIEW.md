@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-An explicit orthogonal block compression produces the triangular matrix \(T_q\). Its densely defined inverse has a Jacobi square \(B^*B\), which is selfadjoint by Carleman's criterion, and the complete orthonormal Meixner basis diagonalizes it with eigenvalues \(1,2,\ldots\). Spectral inversion proves all nonzero singular values are \(j^{-1/2}\) in infinite dimension. The exact rational identity and finite Jacobi tests in `CHECK.py` independently check signs, normalization and indexing; finite computation is not substituted for the analytic proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-The public 2026 Rhaly/factorable-matrix source and its 2025 predecessor give Schatten membership criteria but no corresponding exact base-independent spectrum in the material inspected. A geometric Rhaly finding elsewhere deals with coefficients at every row and a basic-Bessel spectral determinant; a generalized Cesàro finding gives a first-order asymptotic coefficient, not the entire sparse Rhaly spectrum. The Meixner recurrence is classical, not claimed new. The newly established implication is that the specific sparse Rhaly compression is an exact Meixner Jacobi inverse. An unrecognized older orthogonal-polynomial/operator-model identification remains a priority risk; negative search is not conclusive proof of novelty.
+PASS
 
-## Mathematical value — PASS
-A natural class of geometric row samplings in factorable-matrix theory has a fully explicit approximation spectrum independent of the geometric sampling base. The exact result sharpens mere compactness/Schatten tests, exhibits a borderline weak-Schatten-two model, and identifies the structural Jacobi mechanism rather than a computed special case. It does not claim a generic Rhaly classification.
+For each integer b>=2 the selected row N_k=b^k-1 has block-constant coefficient. The normalized constant-block input isometry U and sparse output isometry V give R_b=V T_q U* with q=b^(-1/2) and T_q=sqrt(1-q^2)D(I-qS)^(-1), D_kk=k^(-1/2). The inverse B has positive Jacobi square J=B*B with diag k(1+c)/(1-c), offdiag -sqrt(c k(k+1))/(1-c), c=q^2. Carleman sum of reciprocal offdiagonals diverges; the n-shifted Meixner(2,c) orthonormal recurrence yields a unitary to multiplication by m+1 on the complete discrete Meixner L2 probability space. Hence J eigenvalues 1,2,... are simple, and R_b nonzero singular sequence j^(-1/2) exactly. Zero singular multiplicity infinite; no b=1 assertion. Compactness, weak S2 and p>2 Schatten criterion follow. Independent finite Jacobi leading five inverse-square singular eigenvalues at q=1/sqrt2,1/sqrt3,0.4 agreed with 1..5 within 1.2e-13; numerical finite truncations do NOT prove the infinite equivalence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact full base-independent sparse-row weak-Schatten singular ladder is not supplied by the inspected distinct dense geometric Rhaly Fredholm determinant, nor by published Rhaly Schatten membership criteria. Meixner Jacobi diagonalization is classical. Best-of-knowledge judgment retains the risk of an older equivalent sparse weighted-Jacobi representation.
+
+## value
+
+PASS
+
+Geometric row thinning produces a natural compact-but-not-Hilbert-Schmidt operator with a complete, unexpectedly base-independent singular ladder, exact approximation errors and a sharp weak Schatten boundary. It distinguishes sparse geometry from dense Rhaly and is useful for operator-theoretic spectral and ideal theory; not merely a renaming of a textbook Meixner formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
