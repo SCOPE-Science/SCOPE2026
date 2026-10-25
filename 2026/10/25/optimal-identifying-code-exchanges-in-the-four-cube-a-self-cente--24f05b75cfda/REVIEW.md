@@ -1,0 +1,19 @@
+# Scientific assessment of optimal identifying-code exchanges in the four-cube
+
+## Correctness
+
+**PASS.** The claim is restricted to the finite graph with sixteen cube vertices. The closed-ball signature predicate translates the mathematical identifying-code definition exactly. `scripts/check_mask.py` exhausts all 65,536 possible vertex subsets, obtaining minimum cardinality seven and 960 optima; both checkers also confirm that dropping only nonemptiness admits precisely 192 six-element pair-separating sets, explaining why coverage must be independently enforced; it constructs all candidate one-codeword exchanges, obtains degree nine and 4,320 edges, and counts twelve incident triangles per vertex. Exhausting the 384 cube isometries partitions the optima into disjoint orbits of sizes 384, 384, and 192. BFS at representatives gives the common eight-entry shell vector. Independently, `scripts/check_sets.py` enumerates the 6- and 7-subsets as concrete vertex sets, constructs exchanges from common six-element cores, and runs all 960 BFS traversals; its output corroborates the count, connectivity, degree, diameter, and entire shell vector. No infinite conclusion, probabilistic argument, black-box solver, or unreported computation enters the proof.
+
+## Originality
+
+**PASS, with residual priority uncertainty.** Karpovsky–Chakrabarty–Levitin 1998 studies the defining fault-location code and binary-cube size bounds, including an early six-code table entry at dimension four that is not correct for the explicit nonempty-signature criterion here; Blass–Honkala–Litsyn 2001 studies bounds and constructions. Charon–Cohen–Hudry–Lobstein 2010 uses local codeword replacements heuristically while constructing identifying codes, but its accessible sections provide neither this fixed-cardinality optimum-state exchange graph nor the exact distances. Herva–Laihonen–Lehtilä 2024, §2 and Table 1, credits the known value seven for ordinary identifying codes in dimension four but concerns local identifying-code minima. The published minimum size alone does not imply 960 optimum configurations, nine exchange neighbors per configuration, three orbit types, or diameter seven. Searches included “identifying codes Q4 960,” “minimum identifying codes hypercube reconfiguration graph,” “optimal separating dominating sets four-cube exchange,” and exact invariant/alias searches. Related published identifying-code exchange results concern other graphs (including the Shrikhande and rook graphs of degree six, unlike the degree-four cube) and do not entail the present assertion. No matching mathematical research record was found. This is evidence against obvious coverage, not a uniqueness certificate; the full 2010 publisher text was not inspectable.
+
+## Value
+
+**PASS.** A minimum identifying code is an optimal fault-location sensor placement. A single-codeword exchange models reconfiguring that optimal deployment without ever forfeiting identification. The result shows that all 960 deployments are mutually reachable without an extra sensor, that every one has exactly nine immediate safe alternatives, and that seven exchanges always suffice. The common complete distance profile across three inequivalent natural symmetry classes is a structural invariant not implied by the previously known minimum cardinality. The exact finite result is motivated by robustness and mobility of optimum sensor placements; it is not offered as an arbitrary numerical lookup or a general hypercube theorem.
+
+## Scope and remaining uncertainty
+
+The evidence certifies the finite calculation and its proof interpretation only. Search coverage is incomplete for inaccessible or unindexed equivalent work, especially the full text of Charon et al. 2010. Independently obtained software checks are not an external scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
