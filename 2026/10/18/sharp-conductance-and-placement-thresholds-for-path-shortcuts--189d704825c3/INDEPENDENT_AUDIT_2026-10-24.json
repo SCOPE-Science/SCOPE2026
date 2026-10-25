@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T16:55:42.167116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/verify.py"
+      ],
+      "rationale": "For a unit path the third eigenvalue Λ=2−2cos(2pi/n) is the rank-one interlacing upper ceiling for a single nonnegative chord Laplacian. An edge vector b not orthogonal to the second nonconstant cosine mode u_2 admits a mean-zero combination of u_1,u_2 killed by b with Rayleigh quotient strictly <Λ (using b·u_1≠0), so saturation forces i+j=n−1. Reversal then separates the unchanged even sector (least positive Λ) and odd sector A=(L−ΛI)|odd with one strictly negative eigenvalue. Schur inertia gives A+wbb^T PSD iff 1+w b^TA^{-1}b<=0. The explicitly checked piecewise sine/cosine Green solution has b^TA^{-1}b=−sin((2i+1)2pi/n)/sin(2pi/n); hence the exact strict-positive sine and sharp w threshold, including equality. Maximizing sine over admissible odd r=2i+1 yields delta_n nearest-odd formula, n4 endpoint, w1 optimizer set and asymptotic 2pi/n+O(n^-3). Independently built each augmented path Laplacian and checked all chord choices for n4..14 by dense eigenvalues; no finite SVD can establish the all-n theorem.",
+      "residual_risks": [
+        "For conductance w < threshold the best attainable unsaturated placement is not classified.",
+        "Unit base-edge weights and one nonadjacent positive shortcut, unnormalized Laplacian only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fallat–Kirkland–Pati 2003 publisher abstract maximizes algebraic connectivity among fixed-girth unicyclic graphs.",
+          "Ghosh–Boyd full conference PDF addresses general algebraic-connectivity edge augmentation using heuristics, SDPs and secular estimates.",
+          "Shiu et al. full primary source gives minimum connectivity for caterpillar unicyclic graphs, an opposite objective."
+        ],
+        "reasoning": "Fixed-girth unweighted extremality could dominate some w=1 values, but cannot automatically imply a threshold for arbitrary real conductance of ONE new edge. Complete Fallat paper not read; possible specialized implications are explicitly retained.",
+        "searches": [
+          "doi:10.1080/0308108031000069182",
+          "doi:10.1109/CDC.2006.377282",
+          "Shiu Guo Li minimum algebraic connectivity caterpillar unicyclic graph 2011"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1109/CDC.2006.377282",
+        "doi:10.1080/0308108031000069182",
+        "https://journals.uwyo.edu/index.php/ela/article/download/957/957/957",
+        "Resultary semantic query: path graph algebraic connectivity one added shortcut edge rank one interlacing saturation lambda2 conductance placement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard rank-one interlacing inequality gives only α2≤λ3(P_n), not equality classification.",
+          "The special identity b^T (L(P_n)−λ3 I)^−1 b=−sin((2i+1)θ)/sinθ along antisymmetric sector supplies the required exact necessary-and-sufficient equality.",
+          "A fixed-girth unweighted theorem is not a continuous conductance inequality."
+        ],
+        "reasoning": "The demonstrated resolvent calculation and positive-semidefinite inertia threshold are extra mathematics not found in primary general optimization comparisons. Inaccessible 2003 source could nevertheless contain an unweighted special case; no blanket noncoverage assertion.",
+        "searches": [
+          "Ghosh Boyd Growing Well-Connected Graphs 2006 pdf Fiedler perturbation",
+          "Fallat Kirkland Pati 2003 fixed girth maximum",
+          "Shiu Guo Li 2011 unicyclic minimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-shortcut path is a chorded path/unicyclic graph, with a rank-one Laplacian perturbation; fixed girth is one alternative classification.",
+          "Ghosh–Boyd 2006 considers selecting edges to increase algebraic connectivity in a general network."
+        ],
+        "reasoning": "General rank-one updates and Fiedler maximization are mathematically related, but they do not identify exactly when the THIRD unaugmented path eigenvalue becomes the new second eigenvalue, with reflected endpoints and minimal positive chord conductance.",
+        "searches": [
+          "path graph algebraic connectivity one added shortcut edge rank one interlacing saturation lambda2 conductance placement",
+          "Ghosh Boyd growing well connected graphs 2006 add chord path",
+          "Fallat Kirkland Pati maximize algebraic connectivity fixed girth unicyclic 2003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted n4..33 finite numerical checking does not determine all n; the proof supplies a closed sine criterion.",
+          "Generic optimizer tables for unicyclic graph families do not encode all continuous conductances and tie sets."
+        ],
+        "reasoning": "No complete exact continuous-w equality table was identified; this is not mathematical proof of priority.",
+        "searches": [
+          "path graph algebraic connectivity one added shortcut edge rank one interlacing saturation lambda2 conductance placement",
+          "weighted chorded path algebraic connectivity lambda3 saturation table",
+          "single chord path graph spectral gap all maximizers n unit conductance"
+        ]
+      },
+      "rationale": "Exact saturation equality, minimal conductance and complete optimizer family are not merely the rank-one interlacing ceiling or known generic Fiedler-vector heuristics. The full 2003 unicyclic extremal source was inaccessible, creating a concrete but not automatic originality failure risk.",
+      "residual_risks": [
+        "Fallat–Kirkland–Pati 2003 complete paper unavailable, Oxford VPN disconnected; may imply unweighted endpoint classification.",
+        "Older weighted-path spectral optimization literature under different terminology could include the sine threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General technique and Fiedler comparison prior; exact centered chord threshold absent from inspected arguments",
+          "evidence": "Numerical/greedy addition framework, not explicit all-order shifted resolvent for one unit-weight path.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+          "material_read": "Public primary conference PDF §§I–V, problem formulation, SDP/edge heuristics and rank-one arguments",
+          "method": "Read accessible PDF text and compared optimization domain and final equality claims",
+          "title": "Growing Well-connected Graphs",
+          "trigger": "Foundational graph edge algebraic connectivity maximization"
+        },
+        {
+          "assessment": "Substantial priority risk for unweighted chorded path optimizer; weighted continuous threshold not addressed in accessible abstract",
+          "evidence": "Statement concerns maximizing over unicyclic graphs at fixed girth rather than fixed original path with varying one-edge conductance.",
+          "identifier_or_url": "https://doi.org/10.1080/0308108031000069182",
+          "material_read": "Original publisher abstract/metadata; legal OA attempt and Oxford paper access blocked vpn_disconnected",
+          "method": "Read abstract only; explicitly avoid full-text noncoverage conclusion",
+          "title": "Maximizing Algebraic Connectivity Over Unicyclic Graphs",
+          "trigger": "Highly plausible broader fixed-girth unicyclic theorem"
+        },
+        {
+          "assessment": "Not directly covering sharp added-chord saturation; relevant discussion of unicyclic extrema",
+          "evidence": "Minimum versus maximum algebraic connectivity and different feasible family.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/957/957/957",
+          "material_read": "Public primary PDF introduction and cited main minimum-connectivity theorems",
+          "method": "Compared maximization/minimization quantifiers and graph families",
+          "title": "The Minimum Algebraic Connectivity of Caterpillar Unicyclic Graphs",
+          "trigger": "Secondary discussion of Fallat results and related class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.1109/CDC.2006.377282",
+        "doi:10.1080/0308108031000069182",
+        "https://journals.uwyo.edu/index.php/ela/article/download/957/957/957"
+      ],
+      "rationale": "A path with one shortcut is a canonical constrained network-design/consensus problem. Interlacing alone yields a ceiling but not whether it is reachable; the theorem solves exactly the minimum link conductance, every saturated location at all positive conductances, and the family of n-dependent unit-link ties, with a sharp 2pi/n strength scale. These are motivated design quantities, not arbitrary numerology.",
+      "residual_risks": [
+        "Below saturation conductance, exact optimal placement remains unclassified, explicitly not part of accepted claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For conductance w < threshold the best attainable unsaturated placement is not classified.",
+    "Unit base-edge weights and one nonadjacent positive shortcut, unnormalized Laplacian only.",
+    "Fallat–Kirkland–Pati 2003 complete paper unavailable, Oxford VPN disconnected; may imply unweighted endpoint classification.",
+    "Older weighted-path spectral optimization literature under different terminology could include the sine threshold.",
+    "Below saturation conductance, exact optimal placement remains unclassified, explicitly not part of accepted claim."
+  ],
+  "schema_version": 1
+}

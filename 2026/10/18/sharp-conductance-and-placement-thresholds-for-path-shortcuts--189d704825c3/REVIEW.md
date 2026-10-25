@@ -1,19 +1,21 @@
-# Scientific review of shortcut-conductance saturation on paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single-link rank-one interlacing ceiling is exactly the path's third-smallest combinatorial-Laplacian eigenvalue, \(2-2\cos(2\pi/n)\). A Rayleigh-quotient test vector eliminates every non-reflection-centered chord. In the surviving reflection-centered case, parity decomposes the spectrum into a positive symmetric sector and an antisymmetric shifted block with exactly one negative eigenvalue. The rank-one Schur-complement inertia criterion reduces saturation to one resolvent quadratic form, computed explicitly using the path's discrete cosine solutions and a sine continuation at the source vertex. The result is \(-\sin((2i+1)2\pi/n)/\sin(2\pi/n)\), giving the necessary-and-sufficient threshold. Maximizing the sine over admissible odd indices gives the exact minimum conductance and the complete unit-weight optimizer count. The all-order proof includes both strict and equality boundaries. The accompanying finite numerical checker reproduced 6,611 tests, but the checker alone would not establish the theorem.
+PASS
 
-## Originality — PASS, with stated access risk
+For a unit path the third eigenvalue Λ=2−2cos(2pi/n) is the rank-one interlacing upper ceiling for a single nonnegative chord Laplacian. An edge vector b not orthogonal to the second nonconstant cosine mode u_2 admits a mean-zero combination of u_1,u_2 killed by b with Rayleigh quotient strictly <Λ (using b·u_1≠0), so saturation forces i+j=n−1. Reversal then separates the unchanged even sector (least positive Λ) and odd sector A=(L−ΛI)|odd with one strictly negative eigenvalue. Schur inertia gives A+wbb^T PSD iff 1+w b^TA^{-1}b<=0. The explicitly checked piecewise sine/cosine Green solution has b^TA^{-1}b=−sin((2i+1)2pi/n)/sin(2pi/n); hence the exact strict-positive sine and sharp w threshold, including equality. Maximizing sine over admissible odd r=2i+1 yields delta_n nearest-odd formula, n4 endpoint, w1 optimizer set and asymptotic 2pi/n+O(n^-3). Independently built each augmented path Laplacian and checked all chord choices for n4..14 by dense eigenvalues; no finite SVD can establish the all-n theorem.
 
-A. Ghosh and S. Boyd (2006), *Growing Well-connected Graphs*, supply the general link-addition optimization framework and secular bounds but do not state or imply the exact path-specific equality and conductance threshold from their inspected arguments; their paper uses heuristics and examples rather than the reflection-resolvent classification. S. M. Fallat, S. Kirkland and S. Pati (2003), *Maximizing Algebraic Connectivity Over Unicyclic Graphs*, investigate maximization over unrestricted unicyclic graphs with fixed girth, rather than the positive-conductance saturation threshold after adjoining one link to a fixed path. Their accessible abstract and the full-text 2011 secondary exposition were inspected; their 2003 full text could not be obtained, so an unrecognized stronger implication remains a genuine risk. W. C. Shiu, J.-M. Guo and J. Li (2011) prove a minimum-connectivity result for caterpillar unicyclic graphs, not the present maximum of a weighted one-link path augmentation. Equivalent-formulation searches for weighted rank-one perturbations, chorded paths, Fiedler optimization and saturation found no covering claim in inspected sources or available research records. Non-detection is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The question is a motivated network-design optimization: how strong must a *single* additional link be for a path consensus system to reach the strongest algebraic connectivity that any rank-one increase can permit? The theorem gives the exact minimal conductance, all equalities at every conductance above it, all unit-cost optima, and the asymptotic \(2\pi/n\) physical strength scaling. Those structural outcomes are not supplied by the generic rank-one interlacing ceiling and specify an unusual family of equally efficient, not necessarily end-to-end connections. The lower-conductance optimization problem is intentionally left open.
+Exact saturation equality, minimal conductance and complete optimizer family are not merely the rank-one interlacing ceiling or known generic Fiedler-vector heuristics. The full 2003 unicyclic extremal source was inaccessible, creating a concrete but not automatic originality failure risk.
 
-## Sources and limitations
+## value
 
-Relevant inspected primary full texts: Ghosh–Boyd (2006), https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf ; Shiu–Guo–Li (2011), https://journals.uwyo.edu/index.php/ela/article/download/957/957/957 . The most significant incomplete comparison is Fallat–Kirkland–Pati (2003), DOI 10.1080/0308108031000069182, whose publisher abstract was accessible but whose complete paper was not. The mathematical statement is restricted to one positive-weight shortcut on a unit-weight undirected path. The demonstration is not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A path with one shortcut is a canonical constrained network-design/consensus problem. Interlacing alone yields a ceiling but not whether it is reachable; the theorem solves exactly the minimum link conductance, every saturated location at all positive conductances, and the family of n-dependent unit-link ties, with a sharp 2pi/n strength scale. These are motivated design quantities, not arbitrary numerology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
