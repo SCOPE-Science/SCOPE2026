@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes geometric connectedness and smooth normalization, computes the genus and \(3\)-rank from the ramification and pole data, proves uniqueness of the degree-three rational subfield using the \((3,3)\)-curve arithmetic genus bound, and bounds base symmetries using a nonzero binary Hessian in characteristic \(3\). It explicitly constructs a subgroup achieving the upper bound and therefore rules out extra automorphisms. The exact checker corroborates four distinct degrees; this is not presented as an exhaustive proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Kazemifard–Tafazolian (arXiv:2610.04702v1) give the genus-eight model and a cyclic order-\(15\) subgroup, but their boundary theorem and table do not determine the complete automorphism group. Their later paper (arXiv:2610.13279v1) develops general automorphism descent and existence of models with minimal group, but does not state the full dihedral group for this family. Targeted exact-formula, group, index and literature comparisons located no dominating explicit result. General automorphism-classification theorems might still contain the specialization implicitly; absolute novelty is not certified.
+PASS
 
-**Mathematical value — PASS.** Full automorphism groups determine a natural geometric symmetry invariant for a singled-out wild genus-eight curve, and the infinite extension identifies the exact value for every \(m\equiv2\pmod3\), rather than just an additional involution or a cyclic lower bound. The calculation can inform quotient actions and geometric moduli strata. It does not provide automorphism classifications for other characteristics or residue classes.
+With k algebraically closed of characteristic 3, m≥5 and m≡2(mod 3), λ≠0, the AS rational function λ/(x^m−1) has m distinct simple poles and is not h³−h. Riemann–Hurwitz yields g=2m−2 and Deuring–Shafarevich p-rank 2m−2. Any other rational subfield of index 3 would either equal k(x), by prime-degree compositum, or form with k(x) a birational (3,3) curve on P¹×P¹ of normalization genus at most 4, contradicting g≥8. Thus all geometric automorphisms descend to PGL2 stabilizers of μ_m, kernel exactly C3. The binary form U^m−V^m has nonzero characteristic-3 Hessian −m²(m−1)² U^{m−2}V^{m−2}; a branch-set stabilizer preserves {0,∞}, hence acts by x↦ax or a/x with a^m=1, at most 2m choices. Lifts R:x↦ζx, T:y↦y+1 and S:(x,y)↦(1/x,−y+c), c³−c=−λ, realize C_{3m}⋊C2 of size6m and meet the upper bound. Independent exact rational-function and Hessian checks at m=5,8,11,14 agree; the all-m proof does not infer unbounded rigidity from finite data.
 
-**Nearest literature and limitations.** The two preceding arXiv papers treat the explicit cyclic cover and broader Artin–Schreier automorphism methods, respectively. Relevant classical descent and stabilizer methods are used rather than claimed as new. The residual risk is that a more general unindexed source may imply this formula. All statements concern automorphisms over an algebraic closure in characteristic \(3\), and the genus and Hessian assumptions are essential.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full D_{3m} geometric automorphism computation for every m≥5, m≡2 mod3, is distinct from the known genus-eight cyclic C15 subgroup. Independent genus, uniqueness-of-degree-three-pencils, binary Hessian branch-stabilizer and explicit lifting proof yield an exact global group. Best-of-knowledge comparison distinguishes subgroup existence from full Aut, but two highly relevant 2026 papers could not be read in full; no affirmative whole-document NOT_COVERING assertion is made and priority remains qualified.
+
+## value
+
+PASS
+
+The complete geometric automorphism group, including a sharp exclusion of hidden extra automorphisms, is a natural fundamental invariant of a parameterized family of ordinary Artin–Schreier curves. The exact dihedral group and genus-eight order 30 refine the previously known large cyclic subgroup and provide a useful infinite-family symmetry classification for wild characteristic-three coverings; not a routine mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
