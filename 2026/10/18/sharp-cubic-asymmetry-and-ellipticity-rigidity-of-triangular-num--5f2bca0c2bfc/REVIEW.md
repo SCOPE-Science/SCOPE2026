@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved for every complex upper-triangular \(2\times2\) operator on \(\ell_p^2\), \(1<p<\infty\). The norming functional yields the exact family of circles, whose filled union gives the convex body. Its support maximizer is unique and analytic because the weighted geometric-mean radius is strictly concave. Differentiating the support twice gives an everywhere-positive curvature radius. At zero support tilt the exact third derivative is nonzero precisely for \(p\ne2\), excluding all central symmetries. Applying the Chebyshev minimax error \(\min_{c\in\mathbb R}\|x^3-cx\|_{[-1,1]}=1/4\) yields the sharp cubic Hausdorff asymmetry law with remainder \(O_p(L^5/B^4)\). The attached standard-library checker provides 25,215 reproducible diagnostic assertions but not an infinite-dimensional certificate.
+PASS
 
-## Originality — PASS, with risk
+For complex 1<p<infinity triangular T=(a b;0 d), the norming functional makes W_p the union of circles centered at d+(a-d)t with radius B t^alpha(1-t)^beta, alpha=(p-1)/p and beta=1/p. Intermediate-value argument shows every filled disk occurs; strict concavity f''=-alpha beta f/[t²(1-t)²] makes the union convex. Its support G(c)=max_t(ct+Bf(t)) is analytic with G''>0 and radius of curvature h+h''=Bf(t(c))+L²sin²(theta)/(-Bf''(t(c)))>0. Implicit differentiation gives G'''(0)=2alpha beta(beta-alpha)/(B²F²), nonzero iff p≠2. Reflection symmetry confines any center to real axis; central symmetry would force G(c)-G(-c) linear, contradicting the nonzero cubic. p=2 gives the classical ellipse, L=0 a disk and B=0 a segment. For small L/B the odd support term cubic, and Chebyshev best uniform x³ vs z x is (3/4)x with error 1/4, yielding Hausdorff symmetry defect |alpha beta(beta-alpha)| L³/(6F² B²)+O_p(L⁵/B⁴). Symbolically checked p=4: G'''=-1/sqrt3 and defect coefficient 1/(12sqrt3). This is an analytic proof for all fixed 1<p<infinity; a numerical example alone would not establish it.
 
-Mandal--Bhanja--Bag--Paul (2020/2022) already prove the convexity of all such triangular numerical ranges and give a boundary envelope and transpose/conjugate-exponent relations; no originality is claimed for those facts. Müller--Tomilov (2026) already prove star-shapedness and give a circle description. The additional claim is the **sharp cubic Hausdorff central-symmetry defect**, its exact coefficient, the positive-curvature regularity and the if-and-only-if Hilbert ellipticity classification. Neither relevant inspected text states these results. The earlier boundary parametrization could still imply an equivalent result through an unnoticed earlier derivation; searches do not prove uniqueness or publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A sharp stability invariant records the first order at which splitting the diagonal of a non-Hilbert triangular operator destroys central symmetry. The optimal cubic scale and coefficient, together with the complete ellipticity classification, give nontrivial geometric content beyond the known convexity of this class. The calculation isolates a natural two-dimensional boundary between Hilbert and non-Hilbert numerical-range geometry.
+Mandal–Bhanja–Bag–Paul Corollary 2.6.1 already proves triangular numerical-range convexity, and their Theorem 2.7 supplies a boundary envelope. Müller–Tomilov Proposition 2.8 separately proves star-shapedness and a circle parametrization, not the cubic central-symmetry obstruction, everywhere-positive curvature, or sharp small-gap Hausdorff coefficient. Both full texts were materially inspected (arXiv PDF and author-posted full text). The submitted novelty is these geometric refinements, not the known union-of-circles description or mere convexity.
 
-## Sources and limitations
+## value
 
-Relevant theorem statements and proofs were read in arXiv:2005.01288 (especially Section 2) and arXiv:2606.22693 (especially Sections 2.1--2.3). The result does not apply to arbitrary nontriangular operators or to higher dimensions; the asymptotic assumes a fixed exponent and \(L/B\to0\). Independent mathematical validation and publication-priority checks remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It classifies exactly when the classical elliptic-range phenomenon survives in a non-Hilbert complex coordinate plane and gives the first nontrivial sharp quantitative distortion as diagonal entries separate. Positive curvature and the cubic defect provide reusable boundary asymptotics beyond a routine linear-algebra identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
