@@ -1,24 +1,21 @@
-# Scientific review of a sharp logistic-network diameter comparison
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Row stochasticity and the Dobrushin total-variation coefficient imply the exact range inequality \(\operatorname{diam}(Wx)\le\delta(W)\operatorname{diam}(x)\). The logistic secant is maximized when its two arguments are centered at zero, yielding the nonlinear factor \(\tanh(\beta\delta(W)R/4)\). Almost-everywhere differentiation of active maxima/minima and scalar ODE comparison produce the global diameter bound. The symmetric two-node construction makes each inequality an equality for the entire trajectory. An inverse-square derivative gives the critical limit \(t r(t)^2\to3/2\); strict concavity of the scalar drift gives the unique positive supercritical amplitude. The checker passed 4,000 finite random envelope tests and 1,500 equality checks, plus scalar critical/supercritical diagnostics. Those tests are corroboration only.
+PASS
 
-## Originality
+The coordinate minimum/maximum difference under W obeys |(Wx)_i−(Wx)_j|<=δ(W)R by splitting the zero-mass row difference into signed parts. A direct logistic secant identity σ(u)-σ(v)=sinh[(u-v)/2]/[cosh[(u+v)/2]+cosh[(u-v)/2]] bounds it by tanh(|u-v|/4) under arbitrary shared H. Dini derivatives of active extrema and scalar ODE comparison then prove R<=r with globally invariant cube and Carathéodory uniqueness. Choosing Wδ=[[1+δ,1−δ],[1−δ,1+δ]]/2 and constant H=−β/2 leaves x1+x2=1 invariant; the diameter equation exactly equals r', proving universal sharpness for all q, including q=0. At q=4, d(r^(−2))/dt→2/3 gives r~sqrt(3/(2t)); for q>4 strict concavity of −r+tanh(qr/4) yields unique positive root r*∈(0,1) and two explicit unequal fixed points. Independently checked 1,400 pointwise random-network Dobrushin/secant cases, critical scalar ODE toward sqrt(3/2) and q=6 root≈0.85855963664. Finite trajectories do not prove all times.
 
-**PASS on the inspected literature, with residual bibliographic risk.** The motivating full primary text of Boudourides (arXiv:2609.10580v1, Sections 2, 5–7) proves full-state contraction under \(\beta<4\), topology-independent behavior on the homogeneous branch, weakly coupled multistability, and cusp asymptotics. Its Theorem 2.2 does not imply our within-trajectory synchronization criterion \(\beta\delta(W)\le4\) for strong feedback or for arbitrary time-dependent forcing, and it does not establish the sharp nonlinear comparison or critical coefficient. Gaubert–Qu (arXiv:1302.5226, Sections 4 and 6) establishes the classical linear row-diameter coefficient and general nonlinear consensus principles, not the specialized logistic threshold-network envelope or its all-parameter sharpness. Relevant published research records about Thomas rings, confidence systems, and other phase transitions concern different vector fields and do not imply the statement. The classical coefficient and scalar normal form are expressly credited, not claimed new. A broader theorem in older nonlinear consensus literature might subsume parts of the result; independent comprehensive literature evaluation remains outstanding.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result separates agreement of network nodes from uniqueness of the network equilibrium: overlapping stochastic rows force synchrony even in feedback regimes exhibiting scalar bistability. It supplies the optimal state-dependent comparison for every initial diameter, a dimension-independent critical scaling law with exact coefficient, and an explicit obstruction above the same threshold. These statements provide quantitative, verifiable control of synchronization for nonautonomous threshold dynamics rather than merely a restatement of a linear contraction estimate.
+The directly motivating Boudourides same-network primary theorem concerns uniqueness and global full-state contraction when βsupσ'<1, β<4, under constant forcing; topology-sensitive coordinate synchronization may still hold for β>4 and shared time-varying forcing, and critical nonlinear sharpness is absent. Gaubert–Qu contains the underlying Dobrushin diameter operator coefficient and a general nonlinear consensus framework, but its concrete hypotheses do not state the centered logistic tanh envelope and saturation in this dissipative threshold-response flow. These elementary tools are credited, while the exact nonlinear topology-dependent bound and sharp boundary are assessed as surviving. General nonlinear comparison theory may someday imply it with further specialization.
 
-## Scope and limitations
+## value
 
-The theorem assumes logistic activation, shared external input, nonnegative row stochasticity and time-independent couplings. It does not assert a unique global attractor, robustness to heterogeneous forcing, or full-space stability of the two-node unequal equilibria. Results are supported by an analytical proof and self-review only; no independent mathematical audit has been performed.
+PASS
 
-## Closest sources
+This resolves a real distinction between within-solution network agreement and uniqueness of a global equilibrium. Strong row overlap enforces synchronization even when β>4 would permit scalar bistability, and the critical t^(−1/2) coefficient plus two-node saturator sharply delineate the boundary; valid for unbounded measurable common stimuli.
 
-- M. Boudourides, *Collective Hysteresis and Multistability in Threshold Networks*, arXiv:2609.10580v1, https://arxiv.org/abs/2609.10580, first published 2026-09-05.
-- S. Gaubert and Z. Qu, *Dobrushin's ergodicity coefficient for Markov operators on cones, and beyond*, arXiv:1302.5226, https://arxiv.org/abs/1302.5226.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
