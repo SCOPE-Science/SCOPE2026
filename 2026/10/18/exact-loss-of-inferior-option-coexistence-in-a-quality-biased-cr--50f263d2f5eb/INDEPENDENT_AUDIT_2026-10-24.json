@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:47:10Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent supplementary finite and symbolic checks, not substituted for proofs in RESULT.md.",
+      "rationale": "For real q>1 and 0<z<1/2, boundary flow signs exclude boundary equilibria; all equilibria are interior. Dividing stationary equations yields ratio r=(x+z)/(y+z) with x/y=q²r²; exhaustive rational parametrization uses D=q²r³+(q²+q)r²-(q+1)r-1 and positive branches r in (0,q^-2) or (1,infinity). On the latter branch Z(r) strictly decreases from 1/2 to 0. On low-quality branch t=q²r in (0,1), Phi=q²t(1-t)/H and Phi_prime=q²G/H², with G(0)>0, G(1)<0 and G_prime<0 for q>1; hence exactly one nondegenerate maximum z*(q). Independently SymPy-reduced the derivative and Jacobian/ratio rational identities to zero; q=2 root t*=0.464372607811233 yields z*=0.049306126020888. Jacobian has negative trace at any equilibrium, and det=-(q²r²-1)E(r)/D², giving stable high branch, stable lower-r inferior branch and saddle upper-r inferior branch, and precisely one zero eigenvalue at fold. Denominator monotonicity in q proves strict threshold decrease and the sharp limits 1/5 and q² z*->1/4. These are local ODE equilibria, not stochastic/global fate claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reina 2023 p8 explicitly calls asymmetric fixed-point formulas too complex for direct study and plots representative folds",
+          "AAMAS 2024 abstract studies mixtures of voter-like behaviors and cost of interaction; no full PDF read due size",
+          "2025 study uses nonlinear inhibitory responses rather than identical quality-scaled linear mass action"
+        ],
+        "reasoning": "Same-paper published numerical threshold and software create high priority comparability, but the public main theorem text read does not derive strict uniqueness/quartic root for all q. A broader implicit notebook conclusion is not excluded without direct inspection.",
+        "searches": [
+          "Reina et al. 2023 main full paper pp6-8 and Code Availability Mathematica notebooks",
+          "Antonic Zakir Dorigo Reina AAMAS 2024 heterogeneous decision-maker model",
+          "March-Pons Pastor-Satorras Miguel 2025 nonlinear inhibitory responses"
+        ]
+      },
+      "checked_sources": [
+        "Reina et al. 2023 full 12-page OA PDF mathematical model, Eq8, Fig5b and stability text",
+        "Antonic et al. AAMAS 2024 abstract; full PDF too large to inspect",
+        "March-Pons et al. 2025 abstract/model scope",
+        "Resultary 12 hits exact cross-inhibition fold query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate proves the maximum of Phi_q(t) has a unique root of strict-decrease quartic G_q for every real q>1",
+          "For q=2 independently checked t*=0.4643726 and z*=0.049306126, while 2023 source only indicates qualitative numerical fold"
+        ],
+        "reasoning": "The candidate theorem strengthens rather than contradicts prior model behavior; prior explicit qualitative conclusions are included as corollaries, but do not imply the exact root inequalities. Notebook contents still a residual risk.",
+        "searches": [
+          "2023 cross inhibition equation8 and Fig5 phase diagram",
+          "2024 heterogeneous behaviors abstract",
+          "2025 nonlinear inhibition alternative models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2023 paper §Methods eq.(8) is exactly xdot=q u(x+z)-x(y+z), ydot=u(y+z)-q y(x+z)",
+          "2023 Fig5(b) reports numerical quality-dependent fold, inferiority stability; not new simply because reworded"
+        ],
+        "reasoning": "Qualitative existence of two stable branches and quality-dependent numerical fold are equivalent known statements. Originality attaches only to a proven exhaustive algebraic all-q classification and exact limit coefficients, not those antecedents.",
+        "searches": [
+          "Resultary: Cross-inhibition quality biased two options balanced zealots Reina Zakir De Masi Ferrante, exact saddle-node coexistence threshold fold all q",
+          "Reina et al. 2023 DOI:10.1038/s42005-023-01345-3 Eq8 Fig5b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published numerical fold curve from 2023 is already a prior approximate table/diagram",
+          "No table of exact algebraic all-q roots in inspected 2023 main text"
+        ],
+        "reasoning": "A plotted fold location at finite q is evidence of known effect but not proof of algebraic isolation or sharp q->1/infinity limits.",
+        "searches": [
+          "Resultary exact cross-inhibition inferior consensus stable fold q z root 2023",
+          "Reina et al. 2023 Fig.5b graphical quality-ratio phase boundary"
+        ]
+      },
+      "rationale": "Reina–Zakir–De Masi–Ferrante 2023 explicitly derive exact SAME ODE (8), report the inferior-quality stable branch and numerical fold versus quality ratio in their Figure5, and state that asymmetric fixed-point equations are too complex to analyze in their printed form. This qualitative model, fold and monotone trend are prior and credited. The assessed extension is the exhaustive real-q physical root isolation, uniqueness/nondegeneracy, Jacobian type partition, explicit quartic root threshold and exact two asymptotic limits. The inspected 2024 AAMAS heterogeneous-decision-makers abstract concerns mixtures of behaviors, not this single-species parameter root theorem, but 23MB proceedings PDF could not be read; stronger supplementary notebook to 2023 paper remains a genuine priority risk.",
+      "residual_risks": [
+        "2023 original same mathematical model Mathematica notebook was not extracted; it may implicitly algebraically compute the fold even though original text reports numerical curves.",
+        "2024 AAMAS conference complete proceedings PDF and supplemental code were not read; potential stronger quantitative coverage remains.",
+        "Local fixed-point stability is not a global basin/switching theorem; q=1 and z endpoints excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_EQUATIONS_AND_QUALITATIVE_FOLD_PRIOR",
+          "evidence": [
+            "p7 equation (8) identical ODE; Fig5b fold threshold decreasing with q; p8 says asymmetric fixed points too complex to analyze and uses representative plots"
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/202997/1/s42005-023-01345-3.pdf",
+          "material_read": "Read original 12-page OA published PDF, especially Eq(7)-(8), Fig5 caption and stability paragraphs around printed pp6-8",
+          "method": "PDF visual screenshot and line text; compare q,z model normalization and scope of prior fold statement",
+          "title": "Cross-inhibition leads to group consensus despite the presence of strongly opinionated minorities and asocial behaviour",
+          "trigger": "Identical exact model and bifurcation phenomenon; decisive primary comparison"
+        },
+        {
+          "assessment": "ABSTRACT_DIFFERENT_MODEL_FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Antonic et al. AAMAS 2024 abstract emphasizes heterogeneous behavioral cost and four models, not exact Eq8 quartic threshold"
+          ],
+          "identifier_or_url": "https://doi.org/10.5555/3635637.3662853",
+          "material_read": "2024 ACM primary abstract and bibliography; original conference PDF 23MB unavailable to current text reader",
+          "method": "Tried Proceedings PDF; returned content too large; compared abstract heterogeneous-behavior quantifiers to one-behavior fold",
+          "title": "Collective Robustness of Heterogeneous Decision-Makers Against Stubborn Individuals",
+          "trigger": "Same zealot and quality decision context, possibly stronger mean-field theorem"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_DYNAMICS",
+          "evidence": [
+            "March-Pons et al. Communications Physics 8 (2025) analyzes nonlinear inhibitory responses, not the identical fixed linear ODE"
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s42005-025-02046-9",
+          "material_read": "Accessible article abstract and referenced model description; complete article not independently read here",
+          "method": "Compare nonlinear inhibitory transition response and quality-bias mass action",
+          "title": "Non-linear inhibitory responses enhance performance in collective decision-making",
+          "trigger": "Newer possible generalization of cross inhibition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source model directly asks when inferior-option local consensus survives stubborn zealots despite quality advantage. Determining a unique, all-real-q algebraic threshold, branch stability and decay as q^-2 replaces a qualitative fold plot with a complete falsifiable bifurcation classification useful for model calibration. It is mathematical structure rather than merely retabulating plotted parameter values. It does not establish global basins, optimal policy, or random finite-swarm switching time.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Reina et al. 2023 full 12-page OA PDF mathematical model, Eq8, Fig5b and stability text",
+    "Antonic et al. AAMAS 2024 abstract; full PDF too large to inspect",
+    "March-Pons et al. 2025 abstract/model scope",
+    "Resultary 12 hits exact cross-inhibition fold query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic mean-field and balanced zealot fractions only; no stochastic conclusions.",
+    "q>1 and z strictly 0..1/2; at the fold local semistability beyond the Jacobian eigenvalues is not claimed."
+  ],
+  "residual_risks": [
+    "2023 original same mathematical model Mathematica notebook was not extracted; it may implicitly algebraically compute the fold even though original text reports numerical curves.",
+    "2024 AAMAS conference complete proceedings PDF and supplemental code were not read; potential stronger quantitative coverage remains.",
+    "Local fixed-point stability is not a global basin/switching theorem; q=1 and z endpoints excluded."
+  ],
+  "schema_version": 1
+}
