@@ -1,15 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The quadratic nullcline has exactly one positive branch, and the reduced equations are smooth and positive-invariant. The displayed inverse-coordinate derivative, polynomial numerator, critical-point derivative, and elimination identity were checked by a standalone exact SymPy script; the positivity argument treats the exceptional parameter \(q=1\) separately. Explicit inward rectangle inequalities establish global boundedness in the positive interior. Equilibrium uniqueness comes from a quadratic with exactly one positive root; the Jacobian determinant is positive at that root. For \(q\ge q_*\) uniform strict negative divergence excludes cycles, and the sole equilibrium is a sink, so Poincaré--Bendixson yields global convergence. For smaller \(q\), an explicitly selected repelling equilibrium and inward outer rectangle yield a compact annulus free of equilibria and hence a periodic orbit. All claims concern only the specified planar reduction.
+## correctness
 
-## Originality — PASS, with residual bibliographic uncertainty
+PASS
 
-The Arizona open textbook's exact fast-\(x\) system (8.3) is the immediate antecedent but reports numerical behavior and fixed-point exercises, not the exact sharp parameter-uniform cutoff. Llibre--Oliveira (2019/2022), He--Zhao (2024) and Cai--Liu--Zhang (2018) explicitly treat a different, fast-\(y\) Oregonator reduction, so their unstable-equilibrium periodic-orbit results do not dominate a uniform sharp \(q\)-cutoff for the square-root fast-\(x\) system. Relevant 1974, 1977, 1996, and 2000 treatments exist, but several full texts could not be inspected; searchable material did not establish that they contain this exact theorem. Historical priority remains a nonzero risk, rather than being established by the absence of a search hit.
+The fast-x root X_q(y) is positive with uniform bounds m≤X≤M, giving forward quadrant invariance and global bounded trapping. The equilibrium condition reduces to quadratic qx²+(q+f−1)x−(1+f)=0, with exactly one positive root. On 0<q<1, use y=x(1−qx)/(x−1), X' =−(x−1)^2/D, h'=N/D where D=qx²−2qx+1>0. The sign threshold occurs at q0(x)=(x²−2x−1)/(2x(x²−x−1)) for x>1+√2, maximized at unique c>1+√2 solving c³−3c²−3c−1=0. The resultant gives 10q_*³+6q_*²+12q_*−1=0. Above q* one has h'≥0, strict negative divergence, positive equilibrium determinant and sink, so Poincaré–Bendixson and trapping prove global attraction and no cycles. Below it choose x=c, f=(1+c)(1−qc)/(c−1), s=1 and ω=−h'/2 to construct a hyperbolic source and trapping annulus, yielding a positive periodic orbit. Independent exact symbolic derivative and resultant checks reproduced q*=0.07973231434646405, c=3.847322101863..., and negative h'(c) for three subcritical q. The finite checks do not replace planar theorems.
 
-## Value — PASS
+## originality
 
-The cutoff answers a natural global model question: for which dimensionless kinetic rate-constant ratio can oscillations **ever** occur, over arbitrary auxiliary feedback and time scales? The theorem gives a complete sharp dichotomy, an algebraic exact value, global attraction on one side, and an explicit periodic-orbit construction on the other. The constructive converse prevents the result from being merely a sufficient local damping test. The result identifies a meaningful parameter-wide boundary, not an arbitrary numerical slice or a formal reformulation.
+PASS
 
-The cutoff does not transfer automatically to the uneliminated system. The original Field--Noyes primary paper and some later relevant full texts were not fully accessible; independent review of historical overlap remains useful.
+The theorem belongs to the fast-x square-root quasi-steady reduction, not full 3D Field–Noyes or fast-y Tyson/Llibre models. Same mathematical model Arizona teaching material gives the reduction and sample phase portraits, not an all-(f,s,ω) sharp q boundary. Llibre–Oliveira’s full accessible accepted preprint proves a cycle criterion for a different rational fast-y equation. Historical Field–Noyes and Troy full papers remain plausible access-limited overlap risks; none of their available cited statements settles the exact iff q threshold. Best-of-knowledge O PASS with explicit limitations.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A parameter-uniform global nonoscillation threshold versus explicit existence of sustained oscillations is a natural bifurcation boundary for a classical chemical-kinetics planar reduction. Proving both sides by analytic divergence and a constructive annulus is more informative than parameter-specific Hopf numerics, and distinguishes the fast-x model from nearby but mathematically different reductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
