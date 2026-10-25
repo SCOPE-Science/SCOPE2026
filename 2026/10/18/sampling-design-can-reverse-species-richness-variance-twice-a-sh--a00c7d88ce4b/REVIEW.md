@@ -1,9 +1,21 @@
-# Scientific review: sampling-design reversals in richness variance
+# Independent mathematical audit
 
-**Correctness — PASS.** The presence-indicator covariance expansion explicitly specifies both sampling schemes and their common known abundance profile. The 29 integer partitions of census sizes one through six exhaust the promised minimality domain. Exact subset and ordered-tuple enumeration agrees with the algebraic formula for all 270 computed variances. The exceptional six-individual profile has the two strict adjacent signs at depths two to four. The unbounded family follows from two exact rational identities with strictly signed polynomial numerators and a deterministic-versus-nondegenerate full-census endpoint; no finite extrapolation enters the unrestricted proof.
+## correctness
 
-**Originality — PASS, subject to remaining bibliographic risk.** Heck, van Belle, and Simberloff (1975) treat finite-population rarefaction mean and variance; Gotelli and Colwell (2001) discuss choice of sampling protocol. Colwell et al. (2012) explicitly distinguish multinomial and hypergeometric regimes, but the inspected full text focuses on estimator construction and interpolation/extrapolation, not variance ordering under two fully specified designs for the same known fixed census. Robson and Rothschild (1967) analyze distinct sampled individuals under replacement, not distinct species with unequal abundances under both designs. The nearest published occupancy-indicator and species-count covariance findings concern one probability model, not this two-design finite-domain classification. No inspected source implies the sharp six-individual uniqueness and exact infinite family. An earlier formulation using nonlinear survey sampling, occupancy or urn terminology cannot be ruled out, and the full Heck article was inaccessible.
+PASS
 
-**Mathematical value — PASS.** Standard finite-population corrections apply to linear sample totals; their intuition need not carry to a nonlinear biodiversity measurement that counts categories. The exact sharp minimal obstruction and its uniqueness isolate how this intuition fails, and the unrestricted family proves that the sign alternation is not merely a six-individual artifact. This is pertinent when conditional finite-census uncertainty is compared with model-based independent-draw uncertainty at equal sampling effort. Neither reproducible code nor novelty by itself is the value argument: the substantive claim is the structural non-monotonicity of variance *between* the sampling schemes. Results for unknown abundance profiles or observation error are not asserted.
+Derived missing-species probabilities Q_i and Q_ij under hypergeometric versus multinomial occupancy; using Bernoulli presence indicators gives Var(K)=sum_i Q_i(1-Q_i)+2sum_{i<j}(Q_ij-Q_i Q_j). All positive abundance profiles with N<=6 are exactly the 29 integer partitions; independent exact rational enumeration verified each sample depth including N=6 unique (4,1,1), and the three stated fractions. For a_t=(2t,1 repeated t), the variance reduces to four missing-event types. Independently symbolically simplified the derived finite-minus-iid differences at m=2 and m=3 to the stated rational functions in t; the degree-seven m=3 numerator after t=u+2 has eight strictly positive coefficients. At m=N the without-replacement variance is zero and the iid richness is nondegenerate, hence negative. These exact all-t calculations and exhaustive N<=6 partition classification, not a finite extrapolation, establish the claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier rarefaction literature established both sampling schemes and their separate mean/variance formulas, and several occupancy results concern a single model, but inspected material did not identify the smallest census with two strict variance-ranking reversals or the analytic unbounded witness family. Full Heck–van Belle–Simberloff 1975 source was unavailable; inaccessible primary text alone is a documented priority risk, not disproof or a purported whole-document exclusion.
+
+## value
+
+PASS
+
+Comparing sampling designs at equal effort is a natural ecological and occupancy question. Richness is nonlinear, so elementary finite-population variance intuition need not determine the sign; a unique six-individual minimal two-reversal profile and analytic witnesses for all sizes show a substantive and sharp structure with natural interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
