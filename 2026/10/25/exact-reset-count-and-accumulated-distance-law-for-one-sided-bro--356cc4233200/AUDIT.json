@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every \\(D,r,L>0\\) the first actual-reset depth transform follows uniquely from a two-region bounded Feynman-Kac equation and first-derivative matching, yielding \\(q\\kappa/(\\kappa+s)\\), and target-before-reset probability \\(p\\). Strong Markov renewal gives independent trials, \\(N\\) geometric, iid conditional exponential depths and the exact joint PGF-Laplace transform. Summing gamma densities proves the zero-atom/exponential mixture and moments, while direct weak-limit arguments prove the singular small-r and limiting large-r behavior. The resonant transform at \\(s=\\kappa\\) is recovered by continuity. An independent exact Brownian-bridge-corrected trajectory simulation checks a grid of \\(r\\). The proof (not finite experiments) covers all positive parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sunil, Blythe, Evans, Majumdar, J. Phys. A 56 (2023) 395001, full Secs. 2-3 and Appendix B: generic unconditional reset renewal machinery, not this state-dependent killed diffusion.",
+        "Plata, Gupta, Azaele, arXiv:2007.12417, Sec. IV and Appendices C-D: half-line reset model and mean first-passage time; no accumulated jump-cost transform."
+      ],
+      "reasoning": "Examined whether a more general result directly implies the full joint law. The general renewal formula requires the first-reset cost-depth transform as input; for smart resets this requires solving the half-line killed-diffusion problem, which is not evaluated in the general unconditional-reset source. The asymmetric-reset source supplies MFPT, not accumulated jump costs. Broader renewal concepts are credited.",
+      "searches": [
+        "Web: smart resetting Poisson monitoring negative positions cost distribution probability no reset",
+        "Web: 2023 cost of stochastic resetting Sunil Blythe Evans Majumdar negative resets distribution joint cost conditional smart resetting",
+        "Web: \"state dependent resetting\" \"number of resets\" geometric Brownian absorption"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.10108; published DOI 10.1103/PhysRevResearch.7.013033, full text read",
+      "arxiv:2304.09348; DOI 10.1088/1751-8121/acf3bb, full text read",
+      "arxiv:2007.12417, full text read",
+      "arxiv:2206.07618, full text read",
+      "arxiv:2202.02715, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known from smart-reset paper: mean total return distance \\(L\\) and mean successful resets \\(L\\sqrt{r/D}\\). These are implied by, but do not imply, a full distribution of total cost.",
+        "Known from Sunil et al.: for unconditional resets the no-reset probability is \\(e^{-L\\sqrt{r/D}}\\), whereas for smart resets the proved value is \\((1+L\\sqrt{r/D})^{-1}\\). These are distinct and demonstrate that the source geometric law does not cover the present one.",
+        "Plata et al. model supports state-dependent backward equations and MFPT, but not full cost fluctuation or conditional count laws."
+      ],
+      "reasoning": "Neither matching model parameters nor related renewal formalism establishes the proposed mixture: first the sign-restricted reset-killing probability and conditional negative excursion depth must be solved. The joint transform strictly strengthens the prior first moments. An implicit derivation in an unsearched treatment remains possible and is explicitly considered.",
+      "searches": [
+        "Tal-Friedman et al., arXiv:2409.10108, article Sec. II and Appendix C Eqs. C1-C5",
+        "Sunil et al., arXiv:2304.09348, Sec. 2 Eqs. (3)-(21)",
+        "Plata et al., arXiv:2007.12417, Sec. IV and Appendix C",
+        "Web: \"smart resetting\" \"geometric\" number of resets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tal-Friedman et al., arXiv:2409.10108, published article Sec. II, Appendix C: average cost and integrated occupation density only; Eq. C5 gives mean.",
+        "Sunil et al., arXiv:2304.09348, Sec. 2 and Sec. 2.1, Eq. (21): geometric counts for unconditional full-space resets; joint cost transform in Eq. (14) uses unconditional resetting."
+      ],
+      "reasoning": "Checked the equivalent formulations as a joint generating/Laplace law, zero-atom plus exponential cost mixture, iid exponential reset depths, Gamma conditional cost, and geometric reset-count laws. The source model has the same geometry but computes only averages; the other geometric-count model resets at every Poisson time, so its \\(p=e^{-L\\sqrt{r/D}}\\) and its reset-depth kernel are different. Generic geometric renewal is insufficient to determine a model-specific exponential mark law.",
+      "searches": [
+        "Web: one-sided resetting Brownian target cumulative reset costs exponential distribution geometric visits",
+        "Web: \"state dependent resetting\" \"number of resets\" geometric Brownian absorption",
+        "Web: smart resetting total reset displacement exponential mixture geometric Brownian",
+        "Web: \"smart resetting\" \"variance\" \"cost\" Brownian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved mathematical database analogue addresses a discrete catastrophe restart-time variance envelope at fixed success probability, not one-sided Brownian spatial reset-depths.",
+        "Search comparisons identified ordinary reset-cost analyses, not an exact table or database entry for the smart Brownian reset-distance mixture."
+      ],
+      "reasoning": "Compared exact full parameter-dependent laws, not matching nomenclature; the closest memoryless catastrophe entry concerns restart-time variance instead of stochastic spatial reset-depth costs. A null or weak search result is not a uniqueness proof.",
+      "searches": [
+        "Web: smart resetting total reset displacement exponential mixture geometric Brownian",
+        "Web: \"smart resetting\" \"cost distribution\" exponential",
+        "Web: \"smart resetting\" \"cost distribution\" exponential",
+        "Web: one-sided resetting Brownian target cumulative reset costs exponential distribution geometric visits"
+      ]
+    },
+    "rationale": "The model, positive-rate constant mean cost and expected reset count are already in Tal-Friedman et al. Appendix C and Sec. II; no priority is claimed for them or for ordinary renewal methods. The separately checked contribution is the explicit state-dependent reset-depth transform, full joint law, mixed total-cost distribution, conditional reset-count law and singular cost fluctuations. Sunil et al. gives a joint-cost renewal scheme for unconditional resetting, not a covering evaluated one-sided transform. Plata et al. treats state-dependent resetting and MFPT without this reset-cost law. Relevant primary full texts and historical title/claim analogues were compared by implication; no equivalent evaluated result was found. Risk of an unlocated implicit/general method is acknowledged.",
+    "residual_risks": [
+      "The reset mark law can be reconstructed from the source paper's negative-side occupation kernel and generic marked-renewal arguments; an equivalent prior derivation may exist despite not being explicitly stated in inspected texts.",
+      "Unlocated analyses of half-line killed Brownian motion and Brownian reset-cost accumulation could contain an equivalent exponential mixture.",
+      "The full text of arxiv:2202.02715 was not materially inspected; its abstract indicates ordinary rather than smart resetting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same process and first moments, but not the exact joint count/cost law, exponential mark law, fluctuation formula or singular probability limit",
+        "evidence": "Sec. II Eq. (10) and Appendix C Eq. (C5) state mean cost \\(F_0L\\); main text gives mean successful measurements \\(L\\sqrt{r/D}\\); Appendix C integrates an occupation kernel rather than a pathwise generating function.",
+        "identifier_or_url": "arxiv:2409.10108; doi:10.1103/PhysRevResearch.7.013033",
+        "material_read": "ResearchGate full text of published article: setup and Sec. II including Eqs. (5)-(14), measurement discussion, and Appendices C and D, especially C1-C5 and integrated negative-position occupation formula",
+        "method": "Read article text and compared the explicitly derived mean cost and reset count to all proposed joint-law implications",
+        "title": "Smart Resetting: An Energy-Efficient Strategy for Stochastic Search Processes",
+        "trigger": "Exact same smart half-line monitoring model and energy observable"
+      },
+      {
+        "assessment": "General renewal method applies to all-position resetting, not an already-evaluated one-sided smart-reset formula; no dominating exact instance for the present process",
+        "evidence": "Sec. 2 Eq. (3) integrates every reset position; Sec. 2.1 Eq. (21) gives a geometric count with success exp(-L sqrt(r/D)), unlike the present p.",
+        "identifier_or_url": "arxiv:2304.09348; doi:10.1088/1751-8121/acf3bb",
+        "material_read": "Full publicly readable published paper text, Secs. 2-3, formulas (3)-(21), and subsequent cost sections and appendices concerning unconditional resetting",
+        "method": "Read the renewal kernel and explicit Brownian count/cost formulas, checked reset protocol and parameters",
+        "title": "The cost of stochastic resetting",
+        "trigger": "Potentially dominating general joint cost/count renewal results"
+      },
+      {
+        "assessment": "Relevant half-line framework, but study derives stationary states and MFPT rather than accumulated distance fluctuation or marked reset counts",
+        "evidence": "Sec. IV and Appendix D Eq. (34) give the pure-diffusion MFPT; paper conclusion describes stationary law and MFPT.",
+        "identifier_or_url": "arxiv:2007.12417",
+        "material_read": "Full arXiv HTML, Secs. II-IV, conclusions and Appendices C and D",
+        "method": "Compared backward generator, MFPT and observables to cost-mark transform and count law",
+        "title": "Asymmetric Stochastic Resetting: Modeling Catastrophic Events",
+        "trigger": "Same type of state-dependent half-line reset"
+      },
+      {
+        "assessment": "Work fluctuations under stochastic return processes differ from instantaneous smart resets until absorption; does not display this geometric/exponential joint law",
+        "evidence": "Model concerns stochastic return dynamics and work, rather than sign-filtered instantaneous negative-position resets.",
+        "identifier_or_url": "arxiv:2206.07618",
+        "material_read": "Full arXiv HTML including model, key work definitions and main conclusions",
+        "method": "Compared return protocol, stopping conditions and observables",
+        "title": "Work fluctuations for diffusion dynamics submitted to stochastic return",
+        "trigger": "Potential broader coverage of fluctuating resetting work"
+      },
+      {
+        "assessment": "Abstract describes integrated path functionals under ordinary resetting, not discrete jump-cost marks; an unreviewed-body equivalence is retained as risk",
+        "evidence": "Abstract defines integrals up to the first-passage time under constant-rate unconditional resetting.",
+        "identifier_or_url": "arxiv:2202.02715",
+        "material_read": "Public abstract and bibliographic description only; entire paper not fully inspected",
+        "method": "Compared stated observable class and resetting protocol",
+        "title": "First-passage Brownian functionals with stochastic resetting",
+        "trigger": "Potential general Brownian path-functionals coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "356cc423-3200-43e0-8694-a0714da20dc4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the existing energy-efficient smart search model, mean total drag cost equals \\(L\\) irrespective of the monitoring rate, so mean-energy optimization hides cost risk. The exact full joint distribution gives observable-specific tail quantiles, the fraction of cost-free searches, a count conditioned on measured work, and \\(\\operatorname{Var}(C)=L^2+2L\\sqrt{D/r}\\), showing diverging risk from rare expensive trajectories at small r even as typical cost vanishes. These are natural full-path cost/risk observables tied directly to the source physical model, not an arbitrary moment or trivial parameter substitution. Scope remains idealized Brownian reset with linear distance cost.",
+    "status": "PASS"
+  }
+}

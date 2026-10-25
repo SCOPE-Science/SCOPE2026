@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact first-reset exponential-depth transform follows from the sign-dependent killed-diffusion boundary-value problem and matching the derivative across the monitoring boundary; its normalization gives the geometric trial-success probability. Renewal produces the full joint transform and conditional Gamma family. Summation yields the zero-atom/exponential total distance law and the nonuniform weak-rate limit. The included exact-bridge trajectory simulator and BVP residual checks independently corroborate all key algebraic expressions. All claims require \(D,r,L>0\) and instantaneous, negative-only reset rules.
+
+**Originality — PASS, with residual risk.** Tal-Friedman et al. (arXiv:2409.10108, article Sec. II and Appendix C) already prove the constant mean cost and expected number of successful measurements. They do not explicitly provide the full joint reset-count/cost law. Sunil et al. (arXiv:2304.09348) derive a general renewal transform for ordinary resetting at all Poisson times, which has a different geometric success parameter. Plata et al. (arXiv:2007.12417) derive mean first-passage relations for state-dependent resetting, without the cost mixture. Exact equivalent forms, broad-method implication, table/database results, and model-specific prior-claim implications were checked against available primary texts and mathematical research records. A previous derivation implicit in broader killed-diffusion or stochastic-cost work remains a genuine residual risk; a negative search is not proof of uniqueness.
+
+**Mathematical value — PASS.** The mean energetic cost is rate-independent but the complete law is not: its zero-cost mass, exact exponential tail, conditional jump-count distribution and diverging weak-rate variance show a physically meaningful risk phenomenon. This is a naturally motivated path-level classification, not a recomputation of the known mean.
+
+**Scientific limits.** No result is claimed for nonlinear costs, non-Poisson monitoring, drift, moving targets, passage-time/cost joint statistics or return mechanics that alter subsequent dynamics. An all-rate proof and one implementation of finite numerical tests are provided, but no external validation or independent audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
