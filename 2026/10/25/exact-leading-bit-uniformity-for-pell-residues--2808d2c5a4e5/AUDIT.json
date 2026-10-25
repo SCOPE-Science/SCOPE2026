@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For A=[[2,1],[1,0]], direct multiplication gives A^4 = I+4B modulo 16 with B=[[3,3],[3,1]], and B^2 is even. Squaring yields A^(2^s)=I+2^s B modulo 2^(s+2) for every s>=2. For d=u*2^s with u odd, the upper-right entry of A^n(A^d-I) is 2^s times an odd integer, so nu_2(P_(n+d)-P_n)=s. Within each index class modulo 2^(k-r), the 2^r Pell values are pairwise distinct modulo 2^k and all congruent modulo 2^(k-r), hence exhaust that class; counting index classes proves the exact multiplicity. The finite script checks 36 (k,r) cases, 2040 indices, 1152 valuation instances, and the stated boundary example; these checks are supplementary to the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deveci-Saraçoğlu, On the Pell Polynomials and the Pell Sequences in Groups (2016), Section 3.1, establishes period relations but does not state leading-bit frequencies.",
+        "The prior-week all-state Pell cycle-spectrum claim counts cycles of the companion map on pairs of residues; cycle multiplicities do not determine the first-coordinate value histogram along one selected orbit.",
+        "The MathOverflow one-bit relation controls the highest bit only; no inspected source states the all-r law."
+      ],
+      "reasoning": "The broader period and state-cycle results concern orbit length or all-state cycle counts, whereas the present claim is an exact scalar-value histogram along a specified index block. Those data do not imply the stated multiplicities without the valuation-isometry argument.",
+      "searches": [
+        "Pell numbers modulo 2^k period exact recurrence matrix",
+        "period of Pell sequence modulo prime powers p-adic lifting number theory paper",
+        "Pell sequence residues modulo 2^k leading binary digits uniform",
+        "Pell state cycle spectrum modulo powers of two"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1608.06086v1, Power of Two as Sums of Three Pell Numbers (2016-08-22).",
+      "Deveci-Saraçoğlu, On the Pell Polynomials and the Pell Sequences in Groups, Chiang Mai Journal of Science 43(1) (2016), 247-256, relevant full-text sections pp. 247-251.",
+      "Deveci-Karaduman, The Pell Sequences in Finite Groups, Utilitas Mathematica 96 (2015), 263-276; metadata and abstract inspected, full-text access unresolved.",
+      "OEIS A000129, Pell numbers; recurrence and initial terms only.",
+      "MathOverflow discussion on coarse well-distributedness/equidistribution of Pell sequence prefixes; one-bit special case and short-prefix question.",
+      "Targeted mathematical-result queries for Pell leading-bit distribution, dyadic interval frequencies, 2-adic valuation of Pell differences, Pell periods, and equivalent state-cycle formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 arXiv paper concerns sums of three Pell numbers equal to powers of two; its inspected theorem and valuation lemmas do not state a leading-bit distribution result.",
+        "The accessible 2016 open-access paper treats Pell polynomial periods and period relations, not the exact interval counts.",
+        "The later discussion states a one-bit toggle but asks about short-prefix behavior; it does not imply the all-r full-block statement.",
+        "The prior own-ledger result classifies periods and cycle counts for the two-coordinate map, not the first-coordinate histogram of the standard seed."
+      ],
+      "reasoning": "No inspected source decisively implies the full claim for every r<=k-2. The standard-seed period theorem alone does not determine the frequency of high-bit prefixes. The 2015 Pell-period article is a named residual risk because its full text was not obtained through a verified lawful OA/official route; the accessible evidence seen only indicates a standard-seed period theorem, which by itself is insufficient to imply these counts.",
+      "searches": [
+        "arXiv:1608.06086v1 full text: recurrence definitions, 2-adic lemmas, main theorem and proof sections",
+        "https://www.thaiscience.info/Journals/Article/CMJS/10980096.pdf: Sections 2 and 3.1, Theorems 3.1.1-3.1.4",
+        "MathOverflow: Coarse well-distributedness/equidistribution of Pell sequence prefixes",
+        "prior-week own-ledger item c46e4178-0d2b-4537-85f7-ecc9a3f88e38: exact Pell-state cycle spectrum modulo powers of two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The targeted mathematical-record search returned Pell digit-extraction thresholds and Lucas-period results but no exact top-r-bit distribution statement.",
+        "The accessible 2016 Pell-polynomial paper, Sections 2 and 3.1 (Theorems 3.1.1-3.1.4), treats periodicity and period relations; the inspected sections do not give the interval multiplicities proved here.",
+        "The later MathOverflow discussion records a half-period toggle for the most significant bit, but not the higher-r distribution law."
+      ],
+      "reasoning": "The interval-count claim is equivalent to uniformity of the first r most significant bits of the least residue over the specified 2^k-index block. The proof establishes a stronger local fact, nu_2(P_(n+d)-P_n)=nu_2(d) for d divisible by four. The one-bit special case is acknowledged as prior context; it does not state the quantified family for all 1<=r<=k-2.",
+      "searches": [
+        "top two binary digits of Pell numbers modulo powers of two are uniformly distributed over a full period",
+        "exact quartile distribution Pell sequence residues modulo powers of two",
+        "Pell numbers 2-adic valuation of differences P_n-P_m equals valuation of n-m for n congruent m modulo 4",
+        "MathOverflow: Coarse well-distributedness/equidistribution of Pell sequence prefixes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000129 gives the Pell recurrence and initial terms, not the stated dyadic interval-frequency table.",
+        "No matching exact leading-bit multiplicity table was returned by the targeted result searches; the closest Pell records concern coordinate extraction, cycle counts, or other recurrence invariants."
+      ],
+      "reasoning": "The relevant table would need to give exact counts for every leading-bit prefix as k and r vary. The sequence entry alone records terms and recurrence, not those modular block frequencies; absence from the search results is not treated as proof of novelty.",
+      "searches": [
+        "site:oeis.org Pell sequence modulo 2^k top bits uniform distribution",
+        "site:oeis.org \"Pell numbers\" \"high bits\" modulo powers of two",
+        "exact dyadic distribution of Pell residues modulo 2^k top bits"
+      ]
+    },
+    "rationale": "The precise all-r leading-bit distribution is not stated in the accessible primary texts or the targeted mathematical-record searches. The later Pell-prefix discussion records only the one-bit toggle, and the earlier all-state Pell cycle census is a different invariant. A 2015 Pell-period source remains a plausible literature risk because its full text could not be verified through a lawful open-access/official route; the claim is limited accordingly and no absolute priority is asserted.",
+    "residual_risks": [
+      "The 2015 Pell-period article was not fully inspected through a verified lawful open-access or official-publisher route; only its record and abstract-level/theorem-summary evidence were available. A result in its uninspected full text could be more relevant than the material seen.",
+      "A general 2-adic interpolation or recurrence-isometry theorem not found in the targeted searches could imply the exact distribution as a corollary.",
+      "The prior-week all-state Pell cycle-spectrum result is closely related in object and modulus, although its quantified invariant is different; historical overlap searches are not exhaustive.",
+      "No claim is made about short-prefix equidistribution, uniformity for r>k-2, or global priority beyond the inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Pell-sequence and 2-adic background but does not state a leading-bit distribution for residues modulo 2^k.",
+        "evidence": [
+          "arXiv:1608.06086v1; first public date 2016-08-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.06086",
+        "material_read": "Accessible arXiv full-text view: definitions and introduction, Theorem 2, valuation lemmas, and the relevant proof sections on sums of three Pell numbers equal to powers of two.",
+        "method": "Compared the stated objects, quantified conclusion, and proof lemmas with the exact modular interval-frequency claim.",
+        "title": "Power of Two as Sums of Three Pell Numbers",
+        "trigger": "Archival primary literature on the Pell recurrence and its 2-adic context."
+      },
+      {
+        "assessment": "Establishes periodicity and relations between Pell-polynomial and Pell-sequence periods; the inspected sections do not state the all-r leading-bit multiplicity law.",
+        "evidence": [
+          "Chiang Mai Journal of Science 43(1) (2016), 247-256, pp. 247-251."
+        ],
+        "identifier_or_url": "https://www.thaiscience.info/Journals/Article/CMJS/10980096.pdf",
+        "material_read": "Full PDF, pp. 247-251, definitions and Section 3.1, including Theorems 3.1.1-3.1.4; later group-specific sections were not needed for this comparison.",
+        "method": "Read the recurrence, matrix representation, periodicity results, and their stated scopes; compare them with scalar high-bit frequencies.",
+        "title": "On the Pell Polynomials and the Pell Sequences in Groups",
+        "trigger": "Primary open-access source on Pell recurrences modulo m and period lifting."
+      },
+      {
+        "assessment": "A plausible period-related source remains incompletely inspected. The material available indicates a standard-seed period theorem, which alone does not imply leading-bit frequencies; broader coverage remains a residual risk.",
+        "evidence": [
+          "Deveci-Karaduman, Utilitas Mathematica 96 (2015), 263-276; full-text access limitation explicitly retained."
+        ],
+        "identifier_or_url": "https://avesis.atauni.edu.tr/yayin/cf206b58-0dbc-4091-995c-59b8a9f050b4/the-pell-sequences-in-finite-groups",
+        "material_read": "University publication record, title, abstract, and metadata; a theorem summary surfaced in search, but the full article was not accessed through a verified lawful OA or official-publisher route.",
+        "method": "Bounded open-access and official-publisher search; no third-party full-text copy was used as a verified primary-text inspection.",
+        "title": "The Pell Sequences in Finite Groups",
+        "trigger": "Closest earlier source on the standard Pell sequence period modulo powers of two."
+      },
+      {
+        "assessment": "Relevant prior context for r=1, but it does not state the higher-r interval counts or solve the different short-prefix question.",
+        "evidence": [
+          "MathOverflow discussion; consulted 2026-10-21."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/480265/coarse-well-distributedness-equidistribution-of-pell-sequence-prefixes",
+        "material_read": "Search-returned question excerpt and its stated half-period relation; the discussion concerns short prefixes.",
+        "method": "Compared its one-bit statement and prefix-length quantifiers against the present all-r result over the full 2^k-index block.",
+        "title": "Coarse well-distributedness/equidistribution of Pell sequence prefixes",
+        "trigger": "Direct alias search for high-bit balance and prefix equidistribution."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2808d2c5-a4e5-4c4b-a365-52a20d284a76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an exact distribution law for every fixed number of leading binary digits, not just parity or the most significant bit, for a canonical second-order recurrence modulo powers of two. The cutoff r<=k-2 is mathematically meaningful: at r=k-1 uniformity can fail, as the explicit modulus-16 example shows. The valuation-isometry proof supplies a reusable structural explanation for the exact histogram, while the scope explicitly excludes the harder short-prefix problem. This is a natural digital-distribution invariant rather than an arbitrary finite slice or a recomputation of a term table.",
+    "status": "PASS"
+  }
+}
