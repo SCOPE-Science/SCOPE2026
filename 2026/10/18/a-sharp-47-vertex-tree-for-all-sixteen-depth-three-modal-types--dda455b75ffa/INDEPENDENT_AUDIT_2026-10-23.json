@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:19:59.775554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 05045740774adc9e2c5c6f2427e133b5847c1612, witness.json c872cb88b8c708204ea574f3d1f0918f37226c17 and verify.py 6f97ab5eaa39213b36a46c0d8f86b2732cb73ad7",
+        "Independent arborescence/type-recursion/potential-table reproduction audit_math_evidence_13.json"
+      ],
+      "rationale": "Depth-j types are exactly finite sets of depth-(j-1) child types, so 2,4,16 possible depth-1,2,3 codes. For each code t the level-two reduction beta(t) follows by mapping child level-two type 0 to level-one 0 and 1,2,3 to 1. Summing distinct-child-demand weights lambda=(1,2,3,4) over all tree edges establishes |V| >= sum_v h(t_v) + lambda_{beta(type(root))}, h=1+D-lambda_beta. Independently reproduced h=(0,0,0,0,1,1,3,3,2,2,4,4,5,5,7,7), all >=0 and 16-distinct-types sum=44. Type 4 forces a path of length three, hence the root must have type >=4, giving root weight >=3, lower bound 47. Independently parsed witness.json: 47 vertices, 46 edges, unique root, all vertices reachable, actual computed tau_3 labels equal supplied labels and cover 0..15; 44+3=47. This verifies constructive upper bound and universal lower bound without enumerating all smaller trees.",
+      "residual_risks": [
+        "Tree edges must mean immediate-child forward accessibility; for descendants, DAGs, counted modalities or propositional labels this exact bound does not follow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bounded contractions minimize individual pointed models over general frames; tableau minimality addresses Herbrand models of a given formula, not simultaneity in one arborescence."
+        ],
+        "reasoning": "Both bodies handle broader modal syntax/frameworks but do not entail the simultaneous tree upper/lower bound without a new combinatorial optimization argument.",
+        "searches": [
+          "Bolander–Burigana Better Bounded Bisimulation Contractions arXiv:2405.00480 Theorems 4.4/5.6",
+          "Papacchini–Schmidt 2011 DOI 10.1016/j.entcs.2011.10.013"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2405.00480",
+        "https://doi.org/10.1016/j.entcs.2011.10.013",
+        "Resultary semantic: minimum vertex rooted tree realizing all modal depth three bisimulation types unlabeled one modality 47",
+        "Bolander–Burigana Better Bounded Bisimulation Contractions arXiv:2405.00480 Theorems 4.4/5.6",
+        "Resultary depth-three type-complete tree semantic query",
+        "Bolander–Burigana 2024 Definitions 3.10 and Theorem 5.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharing child representatives in DAGs can realize all types with fewer vertices, whereas a tree uniquely allocates child witnesses; the claimed 47 bound is tree-only."
+        ],
+        "reasoning": "Prior pointed contraction results allow sharing/general accessibility and do not lower-bound a single all-type rooted directed tree.",
+        "searches": [
+          "Bolander–Burigana 2024 Definitions 3.10 and Theorem 5.6",
+          "Papacchini–Schmidt 2011 tableau model generation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statement is a tree-realization problem for all k-bisimulation classes, not minimization of one pointed theory."
+        ],
+        "reasoning": "Aliases modal type, bounded bisimulation and universal realizations were compared, rather than merely lexical searches for the number 47.",
+        "searches": [
+          "Resultary semantic: minimum vertex rooted tree realizing all modal depth three bisimulation types unlabeled one modality 47",
+          "Bolander–Burigana 2024 arXiv:2405.00480"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sixteen possible depth-three codes are routine, but the exact 47-node optimum uses a global weighted demand bound and an attaining tree."
+        ],
+        "reasoning": "Neither a 16-type enumeration nor minimal pointed models provide an existing 47-node combinatorial table; no exact matching prior table located.",
+        "searches": [
+          "Resultary depth-three type-complete tree semantic query",
+          "Independent checked witness.json 47-tree type census"
+        ]
+      },
+      "rationale": "The finite-model type recursion and bounded bisimulation characteristic formulae are standard, but the simultaneous realization of all sixteen depth-three theories inside one rooted tree minimizes a different resource than pointwise model contraction or inclusion-minimal Herbrand models. No earlier exact 47-node cover was identified in targeted published research.",
+      "residual_risks": [
+        "Finite modal-model enumerations in unindexed thesis literature could overlap; author PDF of 2011 tableaux article was not completely reread."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish all-type joint realization optimum in one unlabelled tree",
+          "evidence": "The contraction target is one pointed state model, and the admissible frame class is not the required global arborescence.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.00480",
+          "material_read": "Full accessible article with Definitions 3.10 and main contraction Theorems 4.4, 5.6 and labelled multi-modal examples",
+          "method": "arXiv PDF full-text theorem/setting reading; page-image visual check",
+          "title": "Better Bounded Bisimulation Contractions",
+          "trigger": "Highest-relevance primary work on bounded-bisimulation minimization"
+        },
+        {
+          "assessment": "Not evidence of a 47-node all-type optimum",
+          "evidence": "Inclusion-minimal Herbrand interpretations of input formulae do not require every bounded modal type to occur in one rooted tree.",
+          "identifier_or_url": "https://doi.org/10.1016/j.entcs.2011.10.013",
+          "material_read": "Model/objective description and author-paper result statements, not an independently read complete PDF",
+          "method": "Targeted source and bibliographic inspection",
+          "title": "A Tableau Calculus for Minimal Modal Model Generation",
+          "trigger": "Modal model minimality under supplied formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scientific RESULT.md blob 05045740774adc9e2c5c6f2427e133b5847c1612",
+        "Actual source tree 8d3f2aaa5217dce1fe618947a766a2cfc7919d57",
+        "Independent finite certificate audit_math_evidence_13.json"
+      ],
+      "rationale": "Sharp resource cost for one finite rooted tree realizing all depth-three atom-free modal types is a natural finite-model-theory invariant, distinct from the trivial type count and provably larger than shared-state DAG realization; weighted dual inequality and explicit witness explain the gap.",
+      "residual_risks": [
+        "No assertion for greater depth, labelled languages or general Kripke relations; a single finite-depth optimum is intentionally narrow."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among finite unlabeled atom-free one-modality immediate-child rooted directed trees that realize all 16 depth-three modal types somewhere, the least number of vertices is exactly 47.",
+  "limitations": [
+    "Tree edges must mean immediate-child forward accessibility; for descendants, DAGs, counted modalities or propositional labels this exact bound does not follow.",
+    "Finite modal-model enumerations in unindexed thesis literature could overlap; author PDF of 2011 tableaux article was not completely reread.",
+    "No assertion for greater depth, labelled languages or general Kripke relations; a single finite-depth optimum is intentionally narrow.",
+    "Historical gap around lost 12 UTC claim response remains preserved; signed sequence checkpoint is not scientific validation.",
+    "Publication blocked because operational provenance is contained in potentially public metadata; full safety/guarded sanitization withheld."
+  ],
+  "schema_version": 1
+}
