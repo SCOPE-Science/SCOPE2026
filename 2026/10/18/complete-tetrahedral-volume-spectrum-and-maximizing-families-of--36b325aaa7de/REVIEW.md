@@ -1,16 +1,21 @@
-# Self-review: maximal tetrahedra in the regular icosidodecahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies the unique edge-one regular icosidodecahedron and all closed contained tetrahedra. The coordinate construction gives its 30 vertices exactly as edge midpoints of a regular edge-two icosahedron. Its 27-level vertex-tetrahedron spectrum is an exhaustive integer-ring computation over all \(\binom{30}{4}=27405\) distinct quadruples, with independent three-by-three difference and four-by-four homogeneous determinant formulas. The largest unsigned determinant corresponds to volume \((7+11\varphi)/12\), reached by 60 quadruples. Affinity in each of four tetrahedron vertices extends this bound to all contained tetrahedra. Exact codegree and common-triple calculations force at most one nonvertex maximizing corner and identify the 20 triangular-facet families. The containing-polytope volume is independently derived by truncating 12 equal vertex pyramids from the icosahedron, and agrees with its established expression. The embedded standalone `verify.py` was executed successfully from its actual package directory without floating-point calculations.
+## correctness
 
-Risk and limitation: the exhaustive computation certifies this finite specified polyhedron, not arbitrary combinatorial icosidodecahedra. Continuous equality follows from the separate analytic determinant argument, not from finite sampling. No independent audit has been performed.
+PASS
 
-## Originality — PASS, subject to historical priority uncertainty
-A comparison of mathematical statements, including aliases “rectified icosahedron,” “regular icosidodecahedron,” “edge-midpoint icosahedron,” exact maximum-volume tetrahedron, full four-vertex determinant spectrum, and face-supported continuous equality configurations, disclosed no equivalent result in the checked publications or semantic mathematical results. Gritzmann–Klee–Larman (1995) treat maximum simplices in general polytopes; a complete text was not available, so their abstract alone cannot exclude an old specific example. Nikolov (2014) gives algorithms and approximation guarantees, not the 27-level exact census. Horváth–Lángi (2014) optimize the volume of polytopes inscribed in a sphere, not simplex containment in one fixed regular solid. Lassak (2011) gives a general containment property rather than this exact sharp instance. The prior archived 12-vertex icosahedron determinant spectrum does not imply its 30-edge-midpoint rectification's determinant spectrum or 20 new face families. Searches of separately published mathematical results identified no covering theorem; this is evidence against located overlap, not proof of novelty.
+Constructed 12 icosahedron vertices and all 30 edge midpoints in exact Z[φ] arithmetic; independently enumerated every C(30,4)=27405 four-vertex determinant with exact Q(sqrt5) sign comparison. Reproduced all 27 histogram values/multiplicities, exactly 60 maxima at (7+11φ)/12, maximum fixed-pair codegree 3, and completion-degree distribution {1:180,3:20}. Independently checked all twenty 3-completion triangles are genuine supporting equilateral triangular facets and the opposite fixed triples have squared side φ^4 in doubled coordinates. Determinant separate affinity proves every unrestricted simplex volume ≤ maximal vertex tetra; pair-codegree bound forbids two nonvertex optimal points; completion classification proves all twenty continuous families. Inspected actual exact arithmetic verify.py and full RESULT.md; independent script separately checked major certificate invariants. Finite enumeration is complete for this ONE 30-vertex polyhedron, not a statement for arbitrary polytopes.
 
-Risk and limitation: historical regular-polytope literature and the inaccessible full Gritzmann–Klee–Larman paper might contain a corresponding computation under different names. Avoid an absolute priority or independent-certification claim.
+## originality
 
-## Value — PASS
-The largest contained simplex is a classical affine-invariant measure of how efficiently a convex body can be represented by a simplex; the regular icosidodecahedron is a canonical Archimedean body with a geometrically motivated 30-point configuration. Giving all 27 possible vertex-tetrahedron volumes with their multiplicities is a complete invariant, not a single arbitrarily selected determinant. The sharp unrestricted containment fraction, 60 vertex-supported equality cases, and 20 continuous families resolve the complete natural optimization problem and reveal why the vertex-only equality count is incomplete. The exact finite certificate and accompanying analytic reduction are reproducible. No downstream conjecture or sweeping generalization is assumed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fresh comparison of exact statements and implications, with inspected primary mathematical sources, bounded Resultary searching, and recorded inaccessible potentially relevant sources. A census of 12 original icosahedron vertices cannot determine determinants of 30 pairwise edge midpoints: sums generate new mixed determinants and equality configurations. Multilinear vertex-max principle establishes only existence of vertex maximizers, not the unique 27-level histogram or all nonvertex equality points.
+
+## value
+
+PASS
+
+The exact volume distribution and full maximizing locus are natural complete invariants of a canonical regular Archimedean polyhedron. The 20 continuous maximizing families reveal nontrivial equality geometry beyond brute-force maxima. The finite 27-level census is mathematically motivated and useful independently of a general theorem for all polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
