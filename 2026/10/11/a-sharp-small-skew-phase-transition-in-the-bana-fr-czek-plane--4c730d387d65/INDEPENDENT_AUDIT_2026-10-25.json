@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T09:55:36.668629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source RESULT.md at blob 18f254c56f2795b3f2eb8fabba0093e6e97bddd9",
+        "Primary definition arXiv:2610.03050v1",
+        "Independent exact rational and numerical checks"
+      ],
+      "rationale": "From the exact real norm N=max(λ|u|,√(u²+v²)), N²=max(Q_strip,Q_Euclidean), choose an active quadratic at each N-unit vector. In equal-branch cases the τ-linear terms of [Q(x+τy)+Q(y−τx)]/2 cancel; mixed cases give linear cross term H=(λ²−1)x₁y₁−x₂y₂, bounded below by −max_{0≤t≤h}[(λ−λ^−1)t+q√(1−t²)], h=1/λ, q=√(1−h²). This concave function has argmax t=min(q,h), yielding C=λq (1<λ≤√2) and C=2q² (λ≥√2). The τ² remainders are nonnegative uniformly in all unit pairs, proving S²≥1−Cτ. For reverse asymptotic choose actual strict-activity unit points x=(h,s), s<q, y=(−t,√(1−t²)), 0<t<h; for fixed s,t and sufficiently small τ the squared objective equals 1−τ[(λ−λ^−1)t+s√(1−t²)]+O(τ²). Then first take τ↓0 and subsequently s↑q,t→min(q,h) to obtain limsup≤−C. Thus (S²−1)/τ→−C and S(0)=1 implies S_derivative(0+)=-C/2. Both formulas equal 1/2 at λ=√2. Exact rational checks λ=5/4 (C=3/4) and λ=5/3 (C=32/25), plus independent bounded minimization, corroborate without constituting a continuum proof.",
+      "residual_risks": [
+        "Only first right derivative is proved; no full τ∈(0,q) profile or minimizer classification.",
+        "No formal proof assistant or external attestation performed; no such certification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Liu Proposition 2.1 provides global Lipschitz control and Example 3.5 computes the same infimum only beyond a positive threshold.",
+          "Wang et al. full primary manuscript establishes L_YJ(ξ,η,X)=1+2ξη(1−λ^−2)/(ξ²+η²); its Lemma 2.1 high-λ estimate is analogous but is deployed to a supremum, not the full desired infimum.",
+          "Chen–Liu–Tan–Wang 2024 skew generalized von Neumann–Jordan result maximizes a differently normalized expression under extra parameter assumptions.",
+          "Resultary Zbăganu phase diagram supplies a supremal value with a superficially matching λ=√2 crossover but without an implication theorem connecting it to this endpoint slope."
+        ],
+        "reasoning": "The same-space primary literature covers general bounds, distinct supremal constants and positive-τ saturation. None of the inspected stronger statements proves this exact all-λ infimal derivative, despite partial reuse of geometric optimization tools.",
+        "searches": [
+          "https://arxiv.org/html/2610.03050v1",
+          "https://arxiv.org/abs/2411.13285",
+          "https://arxiv.org/abs/2412.11665",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md",
+          "DOI:10.7153/jmi-10-43 older same-space James/von Neumann–Jordan"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.03050v1",
+        "https://arxiv.org/abs/2411.13285",
+        "https://arxiv.org/abs/2412.11665",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65/RESULT.md",
+        "DOI:10.7153/jmi-10-43 (metadata/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xu–Liu equality formula has hypotheses τ≥q; τ=0 is outside that range because λ>1 gives q>0. The Lipschitz constant bounds but does not determine the derivative.",
+          "Wang et al. use the same-plane high-λ geometric inequality ≤2q² in proving the SUPREMAL L_YJ formula; the infimal mean-2 normalizations and low-λ constrained optimum are absent.",
+          "Saturation theorem fixes exact equality above τ_c>0 and strict non-equality below; it gives no asymptotic rate of departure at τ=0.",
+          "Zbăganu coefficient can be algebraically expressed as C(λ)=q C_Z(λ) for this norm, but the numerical coincidence alone is not a proof of a general extremal identity; the needed sharp infimal asymptotics are not in its theorem."
+        ],
+        "reasoning": "None of the compared prior implications supplies both a uniform first-order mixed-branch lower bound and a matching strict-branch upper witness for every λ>1. The target proof closes that two-sided gap; overlap of high-regime geometric bounds is explicitly credited.",
+        "searches": [
+          "https://arxiv.org/html/2610.03050v1 Example 3.5 / Proposition 2.1",
+          "https://arxiv.org/abs/2411.13285 Lemma 2.1 and Theorem 2.1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be/RESULT.md complete RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md complete RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is equivalent to lim_{τ↓0}(S_λ(τ)^2−1)/τ=−C(λ), where C=λ sqrt(1−λ^−2) below √2 and 2(1−λ^−2) above.",
+          "Xu–Liu arXiv:2610.03050v1 defines the same infimal skew functional and gives exact positive-τ formula only on τ≥sqrt(1−λ^−2).",
+          "Published Resultary saturation-threshold result studies equality with a global Euclidean lower envelope for τ≥τ_c>0, not the derivative at zero.",
+          "Full Wang et al. arXiv:2411.13285 paper defines a supremal Euler–Lagrange ratio and gives a high-λ 2q² optimization inequality, but no matching infimal endpoint derivative."
+        ],
+        "reasoning": "Changing from the supremal product or ratio to an infimal unit-pair perturbation is not an equivalence. A value at all τ≥τ_c>0 and a Lipschitz bound do not fix a first-order coefficient at τ=0; the proof requires a sharp lower bound for all unit pairs and a matching limiting strict-branch construction.",
+        "searches": [
+          "Resultary semantic: Banaś Frączek skew Schäffer small parameter derivative at zero phase transition sqrt 2 exact coefficient",
+          "Resultary semantic: infimal skew Schäffer constant for max of Euclidean and strip norm small skew asymptotic, generalized James Banaś–Frączek",
+          "Resultary semantic: Banaś Frączek skew Schaffer right derivative lambda geometry",
+          "https://arxiv.org/html/2610.03050v1",
+          "https://arxiv.org/abs/2411.13285"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search found the target record itself; self/duplicate postings are not independent mathematical priority evidence.",
+          "Other hits were the same-plane sharp lower-envelope saturation theorem and distinct-invariant Zbăganu, Dragomir and Ptolemy constants.",
+          "No inspected source table gives the τ=0 derivative coefficient as a tabulated value, and this is a continuum real-parameter invariant rather than a finite-integer database."
+        ],
+        "reasoning": "The exact two-branch slope was not found outside publication of this same source. A negative lookup does not establish novelty; unindexed calculations and later versions remain priority risks.",
+        "searches": [
+          "Resultary query (1): same-plane skew Schäffer slope and sqrt2 transition",
+          "Resultary query (2): max Euclidean/strip norm small skew asymptotic",
+          "Resultary query (3): Banas Fraczek skew Schaffer derivative geometry",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge original endpoint coefficient and λ=√2 active-set switch. Xu–Liu 2026 establishes the same infimal norm and only the positive-skew envelope for τ≥sqrt(1−λ^−2); this does not determine its derivative at 0. The same-plane Wang et al. 2024/2025 FULL OA paper gives a supremal Euler–Lagrange constant and, in its high-λ proof, a related 2q² bilinear bound, but neither the full small-skew infimum nor the low-λ coefficient or matching witnesses. Chen et al. give a supremal von Neumann–Jordan functional. Published independent Resultary records determine a positive-skew saturation threshold and a Zbăganu supremum, neither of which mathematically implies the two-branch infimal endpoint derivative by any identified identity; the target Resultary item itself is duplicate dissemination of the source being audited, NOT an antecedent independent discovery. Priority remains qualified by contemporary or unindexed equivalent calculations.",
+      "residual_risks": [
+        "Contemporaneous 2026-10-11 results appear in a shared publication batch; no priority chronology asserted.",
+        "Wang et al. preprints supply a high-λ bilinear lemma, and an unrecognized short reduction connecting their supremal invariant to this derivative cannot be ruled out.",
+        "An older equivalent endpoint modulus under different terminology, or a recent unindexed erratum/preprint, may not appear in searches.",
+        "2016 James/von Neumann–Jordan full text was not re-read this run (retrieval timed out)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: τ≥sqrt(1−λ^−2) exact formula and global Lipschitz only, no τ=0 derivative.",
+          "evidence": [
+            "Definition (2) of skew mean; Proposition 2.1 S(0)=1 and Lipschitz; Example 3.5 exact formula over the strictly positive threshold domain."
+          ],
+          "identifier_or_url": "arXiv:2610.03050v1",
+          "material_read": "arXiv primary PDF introduction, definition (2), Proposition 2.1, Example 3.5 and proof, with pages 4–5 visually inspected and relevant full-text sections queried.",
+          "method": "Full primary PDF and page-image inspection with precise statement-versus-τ-domain comparison.",
+          "title": "Skew Schäffer Type Constants",
+          "trigger": "Focal primary source introducing exact infimal skew constant on the same Banaś–Frączek norm."
+        },
+        {
+          "assessment": "PARTIAL GEOMETRIC OVERLAP; does not cover the new infimal endpoint result, though high-λ 2q² bound occurs in a supremal constant proof.",
+          "evidence": [
+            "Theorem 2.1 computes L_YJ=1+[2ξη/(ξ²+η²)](1−λ^−2). Lemma 2.1 uses a ≤2(1−λ^−2) estimate for the λ≥√2 branch; neither establishes the infimal τ=0 derivative for all λ."
+          ],
+          "identifier_or_url": "arXiv:2411.13285v1; DOI:10.1007/s12215-025-01277-7",
+          "material_read": "Full eight-page lawful open-access arXiv PDF, including definition, Lemmas 2.1–2.2, Theorem 2.1 and proof; title and interior pages visually checked.",
+          "method": "Primary PDF/full-text and page-image mathematical implication comparison, not abstract-only.",
+          "title": "On the L_YJ(ξ,η,X) constant for the Banaś–Frączek space",
+          "trigger": "Potential dominating exact same-space Euler–Lagrange theorem; old audit had only abstract access."
+        },
+        {
+          "assessment": "Distinct supremal functional and parameter domain; not a proof of the infimal small-τ slope.",
+          "evidence": [
+            "Theorem 1 addresses a skew generalized von Neumann–Jordan constant with supremum normalization, p≥2 and additional λ restrictions."
+          ],
+          "identifier_or_url": "arXiv:2412.11665v1",
+          "material_read": "Ten-page primary arXiv PDF with the definition and main theorem on supremal skew quotients; principal theorem page visually inspected.",
+          "method": "Primary full-paper mathematical definition and theorem comparison.",
+          "title": "Skew generalized von Neumann–Jordan constant for the Banaś-Frączek space",
+          "trigger": "Potential same-space two-parameter skew theorem."
+        },
+        {
+          "assessment": "No coverage of exact derivative at τ=0: strictness for τ<τ_c does not quantify first-order loss.",
+          "evidence": [
+            "Theorem asserts S²=(1+τ²)(1+λ^−2)/2 iff τ≥τ_c>0; for τ<τ_c states only strict >."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be/RESULT.md",
+          "material_read": "Entire published RESULT.md, including global envelope, equality-pair classification, exact τ_c and proof Steps 1–4.",
+          "method": "Direct full primary-result text via connected GitHub read; compared quantifiers and implied endpoint limits.",
+          "title": "Exact saturation threshold for quadratic skew Schäffer constants on the Banaś–Frączek plane",
+          "trigger": "Nearest independent published exact study of the SAME infimal constant and norm."
+        },
+        {
+          "assessment": "Related geometry but different SUP product quotient; no established implication to the INF mean-2 derivative.",
+          "evidence": [
+            "C_Z(λ)=λ below √2 and 2√(1−λ^−2) above; derivative coefficient is q C_Z/2 numerically, but prior statement has no identity proving this."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md",
+          "material_read": "Entire published RESULT.md, proof and equality-classification for C_Z.",
+          "method": "Direct full GitHub science text and mathematical comparison of functional definitions.",
+          "title": "Exact Zbăganu phase diagram of the Banaś–Frączek plane",
+          "trigger": "Same-space λ=√2 branch switch and possible reduction to a supremal product constant."
+        },
+        {
+          "assessment": "Access-limited comparison: predates skew Schäffer nomenclature, related moduli could share a disguised coefficient.",
+          "evidence": [
+            "2016 paper concerns James and von Neumann–Jordan constants, but its complete proof was not independently re-read this run."
+          ],
+          "identifier_or_url": "DOI:10.7153/jmi-10-43",
+          "material_read": "Search-visible title, abstract and theorem metadata; direct PDF full-text retrieval in this run timed out. Prior package cites it, not treated as full reading in this audit.",
+          "method": "Bounded metadata/abstract-based comparison; no whole-document noncoverage inference.",
+          "title": "On the James type constant and von Neumann–Jordan constant for a class of Banaś–Frączek type spaces",
+          "trigger": "Older same-space James-type invariants potentially relevant to endpoint constants."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.03050v1",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md"
+      ],
+      "rationale": "The coefficient is the precise natural sensitivity of the new quadratic skew Schäffer infimum for its canonical real two-dimensional Banaś–Frączek norm at τ=0, exactly where the focal source has no formula. The λ=√2 regime boundary determines whether the mixed strip/circle perturbation optimiser is interior on the circular arc or constrained by the strip cap. This is a structural global-in-λ transition, not a numerical interpolation or arbitrary slice; it supplies a mathematically useful sharp endpoint boundary even without the complete positive-τ profile.",
+      "residual_risks": [
+        "Finding is limited to real two-dimensional quadratic skew invariant; downstream uses not proved and should not be advertised."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is best-of-knowledge, not categorical historical priority; recent unindexed equivalent calculations remain possible.",
+    "High-lambda bilinear bound is partly anticipated by arXiv:2411.13285; no new claim for that elementary inequality alone.",
+    "No exact S_λ(τ) on a positive neighborhood, higher-dimensional or complex-field extension is claimed.",
+    "Existing AUDIT/METADATA privacy fields remain unsanitized: publication withheld as not_ready; this is transport/privacy incomplete rather than scientific failure."
+  ],
+  "schema_version": 1
+}

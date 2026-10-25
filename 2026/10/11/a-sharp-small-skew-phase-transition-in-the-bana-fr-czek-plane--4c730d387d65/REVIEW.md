@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof works with the exact max-of-two-quadratics representation of the Banaś–Frączek norm, so no unjustified differentiation at the nonsmooth junction is needed. Equal active-branch choices cancel at first order. Mixed choices reduce to the sharp constrained maximization
-\[
-\max_{0\le t\le\lambda^{-1}}
-\left((\lambda-\lambda^{-1})t+\sqrt{1-\lambda^{-2}}\sqrt{1-t^2}\right).
-\]
-Its unconstrained maximizer is \(t=\sqrt{1-\lambda^{-2}}\); this lies inside the allowed interval exactly for \(\lambda\le\sqrt2\). The resulting two exact branches give the lower derivative of \(\mathcal S_\lambda^2\), and strict mixed-branch unit vectors approaching the relevant boundary give matching upper asymptotics. Taking a square root yields the claimed derivative.
+## correctness
 
-## Originality
-PASS. The focal preprint computes this exact infimal invariant for the same plane only on \(\sqrt{1-\lambda^{-2}}\le\tau\le1\) and gives general parameter-Lipschitz bounds; it does not state the endpoint derivative at zero. The inspected 2016 Banaś–Frączek paper treats the classical James-type supremum at the symmetric parameter. A 2025 same-space paper treats a supremal Euler–Lagrange constant according to its abstract. Exact searches for the derivative, asymptotic expansion, source identifier, same-space aliases, and the \(\sqrt2\) transition did not locate an implication-equivalent statement. Residual risks from recent indexing and the inaccessible full text of the 2025 comparison are retained.
+PASS
 
-## Value
-PASS. The result determines the natural first-order sensitivity at the endpoint omitted by the focal example and exposes a geometric phase transition at \(\lambda=\sqrt2\): below it the unconstrained mixed-branch optimum lies on the round arc, while above it the strip constraint becomes active. This is a structural boundary law for the new invariant, not a routine substitution or a tiny numerical improvement.
+From the exact real norm N=max(λ|u|,√(u²+v²)), N²=max(Q_strip,Q_Euclidean), choose an active quadratic at each N-unit vector. In equal-branch cases the τ-linear terms of [Q(x+τy)+Q(y−τx)]/2 cancel; mixed cases give linear cross term H=(λ²−1)x₁y₁−x₂y₂, bounded below by −max_{0≤t≤h}[(λ−λ^−1)t+q√(1−t²)], h=1/λ, q=√(1−h²). This concave function has argmax t=min(q,h), yielding C=λq (1<λ≤√2) and C=2q² (λ≥√2). The τ² remainders are nonnegative uniformly in all unit pairs, proving S²≥1−Cτ. For reverse asymptotic choose actual strict-activity unit points x=(h,s), s<q, y=(−t,√(1−t²)), 0<t<h; for fixed s,t and sufficiently small τ the squared objective equals 1−τ[(λ−λ^−1)t+s√(1−t²)]+O(τ²). Then first take τ↓0 and subsequently s↑q,t→min(q,h) to obtain limsup≤−C. Thus (S²−1)/τ→−C and S(0)=1 implies S_derivative(0+)=-C/2. Both formulas equal 1/2 at λ=√2. Exact rational checks λ=5/4 (C=3/4) and λ=5/3 (C=32/25), plus independent bounded minimization, corroborate without constituting a continuum proof.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.03050v1, especially Proposition 2.1 and Example 3.5. DOI:10.7153/jmi-10-43 is the older full-text same-space James-type comparison. DOI:10.1007/s12215-025-01277-7 is a recent same-space Euler–Lagrange comparison available only at abstract level here. The result is first-order only and does not determine the full small-skew profile or positive-skew minimizers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original endpoint coefficient and λ=√2 active-set switch. Xu–Liu 2026 establishes the same infimal norm and only the positive-skew envelope for τ≥sqrt(1−λ^−2); this does not determine its derivative at 0. The same-plane Wang et al. 2024/2025 FULL OA paper gives a supremal Euler–Lagrange constant and, in its high-λ proof, a related 2q² bilinear bound, but neither the full small-skew infimum nor the low-λ coefficient or matching witnesses. Chen et al. give a supremal von Neumann–Jordan functional. Published independent Resultary records determine a positive-skew saturation threshold and a Zbăganu supremum, neither of which mathematically implies the two-branch infimal endpoint derivative by any identified identity; the target Resultary item itself is duplicate dissemination of the source being audited, NOT an antecedent independent discovery. Priority remains qualified by contemporary or unindexed equivalent calculations.
+
+## value
+
+PASS
+
+The coefficient is the precise natural sensitivity of the new quadratic skew Schäffer infimum for its canonical real two-dimensional Banaś–Frączek norm at τ=0, exactly where the focal source has no formula. The λ=√2 regime boundary determines whether the mixed strip/circle perturbation optimiser is interior on the circular arc or constrained by the strip cap. This is a structural global-in-λ transition, not a numerical interpolation or arbitrary slice; it supplies a mathematically useful sharp endpoint boundary even without the complete positive-τ profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
