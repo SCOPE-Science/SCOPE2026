@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Reduced cotrees give a complete duplicate-free enumeration of connected cographs. The bundled standard-library program executes the recurrence, confirms the published enumeration counts (\(1,1,2,5,12,33,90,261,766,2312,7068,21965\)), and performs shared-dictionary colour refinement on the entire population at each order. Its assert-based exhaustive classification returns no collisions through order \(11\) and precisely three two-element classes at order \(12\). Their degrees and complement component sizes are explicit, with direct mathematical regularity and nonisomorphism arguments. Computational exhaustive proof is restricted to the stated finite range; all code dependencies are supplied.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk disclosed).** The primary full text by Arvind–Köbler–Rattan–Verbitsky establishes the general colour-refinement framework and regular-graph obstruction, but no identified statement determines the first failing order **within connected cographs**, nor the exact three-pair classification. The public House of Graphs catalogue provides the independent population counts, not colour-refinement collision data in its examined overview. A primary cotree-enumeration work explains generation but has not been established to imply this property. Semantic searches under colour refinement, one-dimensional Weisfeiler–Leman, fractional isomorphism and two-variable counting logic, and comparison with other published graph-class results, produced no stronger applicable statement. Unindexed tables and nonaccessible full texts remain an acknowledged originality risk; absence in searches is not treated as proof of novelty.
+PASS
 
-**Value — PASS.** This is the first complete cutoff at which the simplest standard graph-isomorphism refinement provably loses faithfulness on the natural connected \(P_4\)-free class; it also classifies *all* minimal counterexample pairs. A sharp obstruction threshold for a canonical graph class is useful for calibrating finite-model expressiveness and for validating graph-isomorphism and refinement implementations. The order-12 census is not an arbitrary slice because all smaller orders are ruled out and all threshold cases characterized. The result does not require an infinite extension for its intrinsic significance.
+Connected cographs have unique alternating reduced join/union cotrees; canonical complement-component decomposition proves no duplicates. An independently rewritten exact enumerator built every reduced cotree and globally synchronized 1-WL color signatures for all connected cographs n=1..12, recovering counts 1,1,2,5,12,33,90,261,766,2312,7068,21965; zero indistinguishable nonisomorphic pairs through n11 and exactly three two-element indistinguishable classes at n12 with common degrees 7,8,9. The submitted three explicit pairs have distinct complementary component-size multisets, so are nonisomorphic while each member is regular of identical degree; the original source verifies their placement in exactly those collision classes. Shared-color refinement for n rounds suffices for pairwise equality because a balanced equitable refinement preserves pairwise indistinguishability until proper splits, each consuming at least one of n vertex classes. This is an exhaustive finite proof, not an experiment extrapolated to larger n.
 
-Residual limits: no independent audit has occurred; inaccessible or unindexed literature could contain a stronger result, and reproduction requires executing the self-contained enumerator. These limitations do not alter the precise proved finite assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
+
+## value
+
+PASS
+
+The first minimal failure order of basic graph-isomorphism refinement within the natural hereditary P4-free class is a motivated finite-model classification. All three threshold witness pairs and absence of smaller collisions make the exact small cutoff mathematically self-contained and useful as a canonical algorithmic test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
