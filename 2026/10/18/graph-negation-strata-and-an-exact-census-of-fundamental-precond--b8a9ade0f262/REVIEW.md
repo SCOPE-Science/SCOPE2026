@@ -1,19 +1,21 @@
-# Scientific review: graph-negation strata of fundamental preconditionals
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem adopts precisely Holliday's five preconditional laws together with Chen's three additional \(\mathsf F\)-algebra conditions. The proof derives a symmetric irreflexive graph from negation using the antitone, doubly inflationary self-adjoint polarity. It reconstructs each two-atom antecedent row and checks the only remaining importation conditions, giving the independent choices \(9^3\), \(9^2\), \(4\cdot2^2\), and \(1\). Burnside's lemma gives \(194\) using fixed counts \(41\) and \(10\). The explicit graph-realization operation satisfies every defining law without finiteness. The exhaustive row-first compiled checker and the graph-first literal-law checker both reproduce \(1021\) and \(194\); mathematical completeness comes from the row classification, not extrapolation from bounded tests.
+PASS
 
-## Originality
+The five P1--P5 laws match Holliday Definition 1; Chen Definition 3.3 adds conditional identity, semicomplementation and double-negation inflation. Antitone negation with inflation is self-adjoint, and a semicomplementation on P({1,2,3}) induces an undirected irreflexive relation; its common-neighbor polarity controls all unary row-zero entries. P3/P4 imply each row depends monotonically on A intersection B; with conditional identity the whole-universe row is identity, and the 2-atom rows have three candidate singleton values per side. Remaining P5 constraints reduce to singleton negation checks and give per-labeled-graph counts 729,81,16,1 for empty, single-edge, path and triangle; the sum 729+3*81+3*16+1=1021. Independently enumerated all graph-based candidate binary operations and directly checked every P1--P5 triple plus all extra laws, obtaining 1021. Recomputed S3 fixed counts (1021,41,41,10,10,41) and Burnside quotient 194. For arbitrary Y the explicit (A intersect B) union N(A\B) obeys every axiom by looplessness/antitonicity of common neighbors; the finite check is NOT offered as a proof for infinite Y.
 
-**PASS under the inspected literature, with historical-priority risk.** Chen, arXiv:2607.20221v1, Definitions 3.1 and 3.3, provides the exact algebraic class but not this finite-Boolean count. Holliday, arXiv:2402.02296, gives basic axioms, precomplementation construction and relational representation; its involutive-negation rigidity describes only the triangle graph in the current classification. Relevant published finite-chain and height-two normal forms do not dominate the three-atom Boolean case. Equivalences to graph polarities and to selection-function semantics were explicitly checked: the simple-graph description of the unary negation alone is not asserted to be new, and the conditional census does not follow from the more restrictive selection-frame representation assumptions. A prior unindexed finite conditional-algebra enumeration could still cover these counts.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is the first Boolean carrier with three atoms, where intermediate two-atom antecedents produce compatibility restrictions not present in the height-two four-element boundary. The exact operation count, graph-stratified normal form, and orbit count distinguish the freedom of binary conditionals from that of their unary negations. Realizing every graph under the full \(\mathsf F\) axioms supplies a structural bridge from weak-negation polarities to conditional algebra semantics; it is not merely a table lookup or an arbitrary finite slice.
+Holliday supplies the preconditional axioms and derived unary negation; Chen specifies the F subclass and general completeness/finite-model results. The actual exact three-atom Boolean conditional census (1021/194), its 4 graph-negation strata, and a direct universal graph construction are not contained in their consulted algebraic sections. Resultary finite-chain factorial censuses enumerate different carriers; a common unary polarity cannot determine binary conditional multiplicity, as the edgeless graph already admits 729 binary expansions.
 
-## Scope and remaining limitations
+## value
 
-The exact census covers only \(\mathcal P(\{1,2,3\})\), not all bounded lattices of that size. Graph realization holds for arbitrary sets, but no enumeration in four or more atoms is claimed. Priority beyond accessible indexed sources is not certified. The two executable verifiers constitute reproducibility evidence, not independent human validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Boolean algebra with three atoms is the first Boolean carrier with proper two-atom antecedents, so P5 compatibility is genuinely new compared with the two-atom boundary. A complete labeled and orbit census quantifies the gap between unary negation and possible binary conditional enrichments; its graph stratification yields a structural normal form and a canonical test case for finite nonclassical semantics. The all-graph realizability construction supplies a non-finite structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

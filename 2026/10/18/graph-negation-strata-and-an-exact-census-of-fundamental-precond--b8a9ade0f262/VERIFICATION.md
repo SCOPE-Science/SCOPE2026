@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the graph-negation census
+# Independent mathematical audit
 
-The mathematical claim is proved in `RESULT.md`, including a complete row normal form, all graph strata, Burnside fixed-point counts, and the unrestricted graph-realization construction. Executable programs provide additional finite checks.
+## correctness
 
-Run `g++ -std=c++17 -O2 verify_exhaustive.cpp -o verify_exhaustive` followed by `./verify_exhaustive`; its expected output is:
+PASS
 
-```
-DIRECT_CENSUS_OK T=7820 F=1021 graph_counts=729,81,81,16,81,16,16,1 fixed_points=1021,41,41,10,10,41 isomorphism_classes=194
-```
+The five P1--P5 laws match Holliday Definition 1; Chen Definition 3.3 adds conditional identity, semicomplementation and double-negation inflation. Antitone negation with inflation is self-adjoint, and a semicomplementation on P({1,2,3}) induces an undirected irreflexive relation; its common-neighbor polarity controls all unary row-zero entries. P3/P4 imply each row depends monotonically on A intersection B; with conditional identity the whole-universe row is identity, and the 2-atom rows have three candidate singleton values per side. Remaining P5 constraints reduce to singleton negation checks and give per-labeled-graph counts 729,81,16,1 for empty, single-edge, path and triangle; the sum 729+3*81+3*16+1=1021. Independently enumerated all graph-based candidate binary operations and directly checked every P1--P5 triple plus all extra laws, obtaining 1021. Recomputed S3 fixed counts (1021,41,41,10,10,41) and Burnside quotient 194. For arbitrary Y the explicit (A intersect B) union N(A\B) obeys every axiom by looplessness/antitonicity of common neighbors; the finite check is NOT offered as a proof for infinite Y.
 
-Run `python3 verify_graph.py`; its expected output is:
+## originality
 
-```
-GRAPH_CLASSIFICATION_OK total=1021 classes=194 graph_counts=[729, 81, 81, 16, 81, 16, 16, 1] witness_graphs=75
-```
+PASS
 
-`verify_exhaustive.cpp` generates candidate operation rows using elementary inequalities and checks every remaining importation and double-negation condition; its \(512000\) row combinations exhaust the restricted search space by the normal-form proof. `verify_graph.py` independently generates graph-indexed candidate rows and checks all five original axioms on the full \(8^3\) argument set. It additionally verifies the graph witness formula for all simple graphs on one through four vertices. The programs do not constitute a proof about infinite graphs or establish publication priority; those are separate mathematical and literature questions. All results are reproducible with a standard C++17 compiler and Python 3's standard library.
+Holliday supplies the preconditional axioms and derived unary negation; Chen specifies the F subclass and general completeness/finite-model results. The actual exact three-atom Boolean conditional census (1021/194), its 4 graph-negation strata, and a direct universal graph construction are not contained in their consulted algebraic sections. Resultary finite-chain factorial censuses enumerate different carriers; a common unary polarity cannot determine binary conditional multiplicity, as the edgeless graph already admits 729 binary expansions.
+
+## value
+
+PASS
+
+The Boolean algebra with three atoms is the first Boolean carrier with proper two-atom antecedents, so P5 compatibility is genuinely new compared with the two-atom boundary. A complete labeled and orbit census quantifies the gap between unary negation and possible binary conditional enrichments; its graph stratification yields a structural normal form and a canonical test case for finite nonclassical semantics. The all-graph realizability construction supplies a non-finite structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
