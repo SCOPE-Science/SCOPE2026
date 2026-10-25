@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T18:44:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For n>=2 the cube homomorphism on the cyclic unit group (Z/3^n)^* has kernel size three and image exactly ±1 mod9. Nonunit cubes vanish mod27. The residue classes ±1, ±2, 3/4/5/6 and 0 mod9 therefore partition all targets with the stated counts. For r=0 mod9, fix unit x and set y=-x+3t; x^3+y^3=9 t(x^2-3xt+3t^2), whose derivative is x^2 mod3 and whose reduction is x^2 t, proving Hensel bijection for each n and exactly 2*3^n opposite-unit pairs. For both coordinates multiples of three, each lower modulus 3^(n-3) pair has 3^4=81 lifts. n=0,1,2 treated separately. Independent exact cyclic cube-frequency convolution checked every target for n=1..7 (3+9+27+81+243+729+2187=3279 residues), reproducing N_n(1)=2*3^n. This finite corroboration is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known Cohen p≡1 mod3 cubic congruence setting excludes p=3, the ramified prime in the claim.",
+          "Finch--Sebah describes cube images and single-variable counts, not an evaluated all-target additive self-convolution for 3^n.",
+          "Monsky concerns fixed-sum-of-two-cubes rational Diophantine representations, not modular ordered-pair densities."
+        ],
+        "reasoning": "The cited antecedents do not directly imply the full local p=3 convolution law from their stated results; an unindexed local-density computation or simple derivation remains possible.",
+        "searches": [
+          "Cohen, The number of solutions of certain cubic congruences (1955)",
+          "Finch--Sebah arXiv:math/0604465",
+          "Monsky arXiv:2309.00162",
+          "Resultary semantic search: solutions x^3+y^3 congruent r modulo 3^n all residues complete counts local density"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A087412",
+        "https://oeis.org/A087786",
+        "https://msp.org/pjm/1955/5-6/pjm-v5-n6-p05-p.pdf",
+        "https://arxiv.org/abs/math/0604465",
+        "https://arxiv.org/abs/2309.00162"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A087412 explicitly states conjecture a(3^e)=2*3^e; this follows from the new r=1 specialization, not from the already-known r=0 counts.",
+          "Knowing cube-map image and root multiplicity does not alone give the closed opposite-unit Hensel count at all targets without additional convolution argument."
+        ],
+        "reasoning": "Full all-target formula is not a mere renaming of the known zero-target difference-of-cubes count, but its construction is elementary and may have been implicit in earlier density studies.",
+        "searches": [
+          "OEIS A087412 Formula dated 2018-07-17",
+          "OEIS A087786 Formula dated 2018-07-17",
+          "Finch--Sebah arXiv:math/0604465"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A087412 is exactly the r=1 specialization; it still labels 2*3^e for e>1 a conjecture in a dated 2018 formula comment.",
+          "A087786 counts x^3-y^3=0, equivalent by y -> -y to the r=0 branch of x^3+y^3=0; its prime-power counts are already known."
+        ],
+        "reasoning": "The zero target is a covered special case and is credited. The all-target local distribution and r=1 formula strictly extend it; the r=1 conjecture in A087412 is an explicit dated gap, not a proof that later work is nonexistent.",
+        "searches": [
+          "Resultary semantic search: solutions x^3+y^3 congruent r modulo 3^n all residues complete counts local density",
+          "OEIS:A087412 (2018 formula note)",
+          "OEIS:A087786 (2018 formula note)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A087412 has tabulated initial a(n) and conjectural formula at powers of three for target one, not an all-r exact table.",
+          "A087786 contains an explicit multiplicative formula including 3^n at target zero; that row is preexisting."
+        ],
+        "reasoning": "The new formula describes all 3^n targets, including two ±2 classes, four impossible mod9 classes, and a zero-class valuation recursion. An existing A087786 database covers only the r=0 projection.",
+        "searches": [
+          "https://oeis.org/A087412",
+          "https://oeis.org/A087786",
+          "Resultary semantic search: solutions x^3+y^3 congruent r modulo 3^n all residues complete counts local density"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS on the exact final claim after new Git-tree proof and computation reconstruction, Resultary semantic searches, checked primary theorem scopes and explicit source risks. Not a claim of comprehensive historical priority, external certification or entire-paper noncoverage where material was inaccessible. All known special-case antecedents are credited.",
+      "residual_risks": [
+        "Published or unindexed local-density formulas might contain the same all-target recursion as a corollary even without matching labels.",
+        "Finite independent convolution covers n<=7 only; infinite proof relies on standard unit cyclicity and Hensel derivative invertibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_CONJECTURE_SOLVED_FOR_TARGET_ONE",
+          "evidence": [
+            "Entry formula reads Conjecture: a(3^e)=2*3^e for e>1."
+          ],
+          "identifier_or_url": "https://oeis.org/A087412",
+          "material_read": "whole online entry including formula block dated 17 July 2018",
+          "method": "direct read of OEIS primary sequence/database entry",
+          "title": "OEIS A087412: Number of solutions x^3 + y^3 ≡ 1 (mod n)",
+          "trigger": "identical r=1 specialization"
+        },
+        {
+          "assessment": "COVERS_ZERO_TARGET_BRANCH",
+          "evidence": [
+            "Formula gives all prime-power zero-target counts; y->-y changes x^3-y^3 to x^3+y^3 at r=0."
+          ],
+          "identifier_or_url": "https://oeis.org/A087786",
+          "material_read": "whole online entry including 2018 prime-power formula",
+          "method": "direct read of primary sequence/database entry",
+          "title": "OEIS A087786: Number of solutions x^3 - y^3 ≡ 0 (mod n)",
+          "trigger": "algebraically equivalent zero-target branch"
+        },
+        {
+          "assessment": "COMPLETE_COVERAGE_NOT_DETERMINED",
+          "evidence": [
+            "Cohen p≡1 mod3 stated limitation excludes ramified p3, but full unpublished deductions cannot be excluded."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1955/5-6/pjm-v5-n6-p05-p.pdf",
+          "material_read": "article title and hypotheses as given in source RESULT.md; no independent full primary text inspected this run",
+          "method": "source bibliographic comparison only",
+          "title": "The number of solutions of certain cubic congruences",
+          "trigger": "possible broader binary cubic representation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Prime 3 is the exceptional ramified prime for cubic power congruences. Resolving the explicit A087412 three-power conjecture and obtaining the full exact additive two-cube local representation distribution with a nonunit singular recursion is a natural, independently useful arithmetic counting fact. The solvability criterion r mod9∈{0,1,2,7,8} and exact number of pairs for every n are mathematically motivated. Already-known r=0 OEIS formula is credited, and value does not rely on that special case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://oeis.org/A087412",
+    "https://oeis.org/A087786",
+    "https://msp.org/pjm/1955/5-6/pjm-v5-n6-p05-p.pdf",
+    "https://arxiv.org/abs/math/0604465",
+    "https://arxiv.org/abs/2309.00162"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single final claim was assessed under the same C/O/V bar; published ingredients credited.",
+    "Independent exact finite checks corroborate only their stated domains; unbounded statements follow mathematical arguments, not brute-force extrapolation.",
+    "No formal Lean proof, outside human attestation, unconditional novelty guarantee, or public publication is claimed."
+  ],
+  "residual_risks": [
+    "Published or unindexed local-density formulas might contain the same all-target recursion as a corollary even without matching labels.",
+    "Finite independent convolution covers n<=7 only; infinite proof relies on standard unit cyclicity and Hensel derivative invertibility."
+  ],
+  "schema_version": 1
+}
