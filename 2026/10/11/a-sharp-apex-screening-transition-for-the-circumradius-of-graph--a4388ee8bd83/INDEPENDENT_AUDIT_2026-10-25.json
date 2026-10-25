@@ -1,0 +1,231 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:51:53.912091Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "H finite simple vertex-transitive with an edge implies 1≤a=alpha(H)≤N/2: uniform maximum-independent-set marginal a/N and a fixed-edge exclusion inequality.",
+        "Mean q=(a/N 1,0) of all maximal-cardinality independent-set vertices yields exactly Q=a-a²/N; hub h=(0,1) is distance squared D=1+a²/N from q.",
+        "λ=max(0,D−Q)/(2D), t=(1−λ)a/N; 0<t<1/2. Every rim independent-set vector of size k has squared distance Nt²+λ²+k(1−2t), so contacts occur precisely at k=a.",
+        "Hub squared distance D(1−λ)² is ≤ Q+Dλ² with equality iff δ=D−Q≥0. Exact slack for k<a is (a−k)(1−2t)>0 and screened-hub slack is −δ.",
+        "Weight all maximum rim vertices by (1−λ)/|A| and hub by λ. Their barycenter is c; the weighted squared-distance identity equals R²+||y−c||² for arbitrary y, proving global optimum and unique center.",
+        "For complement C_N (N≥5) the independent number is 2; δ=−1+8/N is zero at N=8 and negative for N≥9. This witnesses sharpness with no false finite-to-infinite extrapolation.",
+        "Independent Python Fraction enumeration (separate implementation, not trusting verify.py logs) checked all rim independent vectors and hub of 41 graphs, 1,733 independent vertices, 241 maximum contacts; reran weighted center certificate and contact strictness; complement C8,C9,C10 have δ 0,−1/9,−1/5 and radii squared 3/2,14/9,8/5.",
+        "Independently recomputed Git tree object SHA-1 from all seven source blob SHA-1 values/modes/names equals assigned tree SHA; each source file content was separately fetched by path at the frozen commit and blob identity matched the source tree."
+      ],
+      "rationale": "The all-N proof follows from exact maximum-independent-set orbit marginals, strict rim-cardinality monotonicity and a convex weighted-contact barycenter/variance certificate, not a finite test. Each δ sign including δ=0 is verified; uniqueness follows by strict ||y−c||² increase for other centers. Independent rational checks corroborate 41 finite instances and sharp boundary.",
+      "residual_risks": [
+        "The proof depends on full vertex-transitivity and standard Euclidean indicator coordinates; outside that domain the formula need not hold.",
+        "Computed finite tests are corroborative and not a proof for infinite parameter families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohsugi–Tsuchiya §3.2 identifies stable-set polytopes as anti-blocking 0/1 polytopes and proves lattice h*/gamma consequences, not minimum Euclidean spheres; https://link.springer.com/article/10.1007/s00454-020-00236-6.",
+          "Merino–Mütze §1.6.3 generates stable sets and Hamilton paths in 0/1-polytope skeleta, not Euclidean enclosing-ball invariants; https://arxiv.org/html/2304.08567v2.",
+          "All-matroid theorem includes generic 0/1 projection formula, but its matroid rank-class conclusions apply to matroid independence polytopes rather than arbitrary graph stable-set polytopes; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md.",
+          "The complete-multipartite part-threshold formula covers graph cones only when the rim is complete multipartite; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md."
+        ],
+        "reasoning": "No inspected broad result supplies a closed form for the projection at every transitive graph cone, nor all strict rim contacts and the sign of delta, without the graph-specific orbit and one-dimensional computation. The general Boolean projection identity is logically stronger as a characterization but not an explicit closed-form classification; it is acknowledged and the degree of mechanical derivability is a value/priority risk. The complete-multipartite screening is a real prior special case, not dismissed by different parameterization.",
+        "searches": [
+          "\"minimum enclosing ball\" \"0/1 polytope\" center projection",
+          "\"circumradius\" \"stable set polytopes\" graph",
+          "\"graph join\" stable set polytope \"minimum enclosing\" sphere",
+          "Resultary query: minimum enclosing sphere circumradius stable set polytope of cone over vertex-transitive graph independent sets hub screening center radius contact vertices",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md",
+          "https://link.springer.com/article/10.1007/s00454-020-00236-6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2304.08567v2",
+        "https://link.springer.com/article/10.1007/s00454-020-00236-6",
+        "https://doi.org/10.1137/S1052623497321973",
+        "https://doi.org/10.1002/nav.3800210414",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-extreme-cardinality-layers-determine-the-minimum-enclosing-spher--6b8d598a6173/RESULT.md",
+        "Resultary semantic search: minimum enclosing sphere circumradius stable set polytope of cone over vertex-transitive graph independent sets hub screening center radius contact vertices",
+        "Resultary semantic search: circumball vertex-transitive 0/1 polytope maximum independent sets and pyramid apex threshold",
+        "Web searches: graph join / wheel STAB circumradius; pyramid apex MEB; generic Boolean projection; tropical sources excluded as non-Euclidean"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-multipartite result proves exact screening when independent sets live in a single class; a cone over C5 or C7 is not generally complete multipartite, so that exact result does not cover the claimed family.",
+          "The S-hypersimplex result has all vectors of chosen weights, unlike graph-cone STAB with forbidden configurations; no direct object equality.",
+          "The Boolean projection identity implies a general optimization characterization; its explicit graph-cone computation uses transitive graph structure and an apex/rim feasible triangle, absent in the published proof.",
+          "Dahl published abstract says facet descriptions/rank inequalities for particular circulants, not an enclosing-sphere theorem; full-body implication remains untested due to access; https://doi.org/10.1137/S1052623497321973."
+        ],
+        "reasoning": "The existing Boolean projection identity together with standard group averaging gives a short route to the current exact formula, and this is the strongest overlap; it is a broad tool, not a stated graph-cone numeric result. More specialized prior results cover proper subfamilies or different Boolean polytopes. Because an unstated folklore projection specialization may exist, novelty is best-of-knowledge rather than certified.",
+        "searches": [
+          "https://arxiv.org/html/2304.08567v2 sections 1.3, 1.6.3, 6",
+          "https://link.springer.com/article/10.1007/s00454-020-00236-6 sections 1, 3.1–3.3",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md complete primary scientific RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md complete primary scientific RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-extreme-cardinality-layers-determine-the-minimum-enclosing-spher--6b8d598a6173/RESULT.md complete primary scientific RESULT.md",
+          "https://doi.org/10.1137/S1052623497321973 bibliographic abstract and OA/preprint searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Boolean-ball lemma (proof part 1, formulas (12)–(16)): for every Boolean polytope P, Chebyshev center is projection of the half-cube midpoint onto P; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md.",
+          "In the present cone, transitivity reduces the feasible invariant slice to (t 1_N,lambda) with t≤(1-lambda)alpha/N; evaluating that specific projection gives lambda=(D-Q)_+/(2D), including the apex tangent/interior transition.",
+          "Resultary semantic search returned the record under audit itself and adjacent classifications, not a separate exact equivalent in a different published family."
+        ],
+        "reasoning": "The all-Boolean projection identity is an equivalent variational formulation of any Boolean-polytope minimum ball. It is foundational and is expressly credited, not claimed new. The present theorem supplies the exact graph-dependent projection and strict stable-set contact classification, which the generic formula alone leaves unevaluated. Generic pyramid/point-set terminology could encode an earlier equivalent theorem and remains a documented risk.",
+        "searches": [
+          "\"stable set polytope\" circumradius vertex transitive cone minimum enclosing ball",
+          "\"minimum enclosing ball\" \"independence polytope\" graph cone apex",
+          "\"minimum enclosing sphere\" \"pyramid\" \"base\" \"apex\" critical height ball",
+          "Euclidean Chebyshev center convex hull simplex apex circumradius pyramid ball base face criterion",
+          "Resultary query: circumball vertex-transitive 0/1 polytope maximum independent sets and pyramid apex threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published S-hypersimplex result classifies unions of complete Hamming-weight layers, not the restricted maximum independent sets of an arbitrary vertex-transitive graph; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-extreme-cardinality-layers-determine-the-minimum-enclosing-spher--6b8d598a6173/RESULT.md.",
+          "Published multipartite screening theorem gives an exact family with its own part-size table/equation, not all cycles, anti-cycles, or odd wheels; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md.",
+          "Independent exact enumeration of 41 graphs gives 1733 independent rim vectors, 241 maximum contacts, including complement C8 and C9 radius-boundary cases. This test is newly performed corroboration, not a literature novelty certificate."
+        ],
+        "reasoning": "No inspected exact table covers the full all-N,alpha formula. Small finite census values do not establish the infinite-family theorem; the symbolic orbit barycenter and contact certificates do.",
+        "searches": [
+          "\"wheel graph\" \"stable set polytope\" graph polyhedron",
+          "\"circumradius\" \"0/1-polytopes\" stable set",
+          "\"minimum enclosing sphere\" \"independence number\" graph",
+          "Resultary records: large-part-screening, extreme-cardinality-layers, and current graph-cone record"
+        ]
+      },
+      "rationale": "A best-of-knowledge mathematical comparison of the exact (N,alpha(H)) center/radius/contact theorem against published stable-set-polytope primary papers, general 0/1 minimum-ball projection identity, and related published SCOPE results did not identify an earlier theorem already stating or explicitly evaluating the graph-cone screening formula for all vertex-transitive rims. The earlier complete-multipartite theorem covers proper subclasses and demonstrates the same kind of screening, while the all-Boolean projection characterization is a broad variational reduction whose evaluation on transitive graph cones requires a graph-specific invariant-slice calculation. These overlaps and plausible unlocated equivalent geometric formulations remain explicit priority risks; search absence alone is not novelty proof.",
+      "residual_risks": [
+        "The prior generic Boolean-polytope projection identity plus a two-variable invariant-slice optimization makes the theorem a short specialization; it might be viewed as an unstated corollary or elementary prior geometric folklore. This is specifically acknowledged rather than claiming generic ball theory absent.",
+        "A general Chebyshev-center/circumsphere theorem for graph joins, pyramids or transitive 0/1 orbits could imply the exact classification without graph-theoretic wording.",
+        "Dahl’s primary 1999 circulant-paper body could not be accessed; authorized institutional access returned vpn_disconnected; no whole-paper noncoverage claim.",
+        "An indexed Resultary match is the same finding under audit; not independent priority evidence. Other related published findings are primary comparisons, not endorsements.",
+        "No global exhaustion of unpublished mathematical literature or human historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its Hamilton paths/Gray codes and polytope vertex enumeration do not numerically or logically classify minimum Euclidean spheres of cone stable-set polytopes.",
+          "evidence": [
+            "https://arxiv.org/html/2304.08567v2#S1.SS6",
+            "https://arxiv.org/html/2304.08567v2#S6",
+            "arXiv date 2023-04-17; published HTML v2 2024-06-14"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.08567v2",
+          "material_read": "Accessible full-text HTML: abstract, introduction, §1.3, §1.6.3 and §6; searched the complete HTML for circumradius and stable sets; confirmed graph applications address traversal.",
+          "method": "arXiv full-HTML reading with in-document find (not PDF)",
+          "title": "Traversing combinatorial 0/1-polytopes via optimization",
+          "trigger": "Primary broad study of graph stable-set incidence polytopes and 0/1 vertex structure"
+        },
+        {
+          "assessment": "Ehrhart and lattice/reflexive conclusions; no radius or apex threshold.",
+          "evidence": [
+            "https://link.springer.com/article/10.1007/s00454-020-00236-6 §3.2",
+            "DOI 10.1007/s00454-020-00236-6"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-020-00236-6",
+          "material_read": "Open-access article full-text HTML: abstract, §1 main theorem, §3.1–3.3 including definition and Proposition 3.2; targeted entire-page find for circumradius.",
+          "method": "Publisher lawful open-access HTML full-text examination",
+          "title": "The h*-Polynomials of Locally Anti-Blocking Lattice Polytopes and Their gamma-Positivity",
+          "trigger": "Same stable-set 0/1 polytopes viewed in anti-blocking geometry"
+        },
+        {
+          "assessment": "Abstract states facet/rank-inequality findings, but unread text may contain relevant metric remark; NOT_COVERING is not claimed for the whole paper.",
+          "evidence": [
+            "https://doi.org/10.1137/S1052623497321973 abstract: minimal linear description for antiweb circulants",
+            "Oxford authorized job blocked by disconnected VPN"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S1052623497321973",
+          "material_read": "Bibliographic page and full abstract; author-supplied report indexed as OA preview but full body could not be opened. Not read in full.",
+          "method": "Publisher abstract; arXiv and legal OA searches; authorized Oxford request returned vpn_disconnected, no bypass/retry",
+          "title": "Stable Set Polytopes for a Class of Circulant Graphs",
+          "trigger": "Original 1999 paper for strongly overlapping circulant/antiweb rim classes"
+        },
+        {
+          "assessment": "Direct prior coverage for complete-multipartite graph-cone subfamilies; its part-size proof does not cover graph cones with nonmultipartite transitive rim.",
+          "evidence": [
+            "(2) threshold sum_i(1-h/a_i)_+=2, (4) radius, (5) contacts, screening principle",
+            "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md",
+          "material_read": "Complete published scientific RESULT.md: finding, active-set formula, proof of weighted-contact certificate, screening theorem and scope.",
+          "method": "Read published GitHub text through authorized GitHub connector",
+          "title": "Large-part screening in minimum spheres of complete multipartite stable-set polytopes",
+          "trigger": "Very close published exact stable-set minimum-sphere threshold and screening under added graph classes"
+        },
+        {
+          "assessment": "Its universal Boolean projection identity is applicable and establishes abstract optimality after computing projection. Matroid-specific conclusions do not directly apply to STAB(H) for arbitrary H. Explicit apex threshold not stated; this strong general-overlap risk recorded.",
+          "evidence": [
+            "Proof part 1 equations (12)-(16) unique center proj_P(1/2 1), contacts by max linear functional",
+            "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md",
+          "material_read": "Complete published RESULT.md: proof Part 1 generic Boolean sphere identity, matroid-specific rank equality conditions, contacts and limitations.",
+          "method": "Read published GitHub text via connector",
+          "title": "Sharp minimum-sphere bounds for matroid independence polytopes distinguish uniform density from arboricity two",
+          "trigger": "Potential dominant arbitrary-Boolean projection theorem for all graph stable-set polytopes"
+        },
+        {
+          "assessment": "Applies to a union of full Hamming layers, not graph-constrained independent sets plus hub; supplies related symmetry method but not this result.",
+          "evidence": [
+            "Hamming-layer q_s(t) and endpoints theorem in RESULT.md",
+            "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-extreme-cardinality-layers-determine-the-minimum-enclosing-spher--6b8d598a6173/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-extreme-cardinality-layers-determine-the-minimum-enclosing-spher--6b8d598a6173/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem equations (4)-(9), averaging proof (11)-(15), scope and references.",
+          "method": "Read published GitHub text via connector",
+          "title": "Extreme cardinality layers determine the minimum enclosing sphere of every S-hypersimplex",
+          "trigger": "Near-analogous Hamming-cardinality layer sphere and contact transition"
+        },
+        {
+          "assessment": "Describes a finite algorithm for any convex polyhedron; an algorithm is not the closed graph-invariant cone formula, but unread body not excluded.",
+          "evidence": [
+            "https://doi.org/10.1002/nav.3800210414",
+            "Elzinga–Hearn (1974), pp.715–718: minimum sphere via generated extreme points"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nav.3800210414",
+          "material_read": "Journal title, publication data and abstract only; did not access full text.",
+          "method": "Publisher bibliographic abstract and search-index inspection",
+          "title": "The minimum sphere covering a convex polyhedron",
+          "trigger": "Original generic minimum-covering-sphere algorithm could dominate geometric case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Universal transitive-rim parameter formula and complete all-vertex contact classification",
+        "Hub strictly screened for N>2a²/(a−1) when a>1; boundary δ=0 and quantitative slack",
+        "Complement C8 versus complement C9 are natural sharp adjacent graph examples; odd wheels and other non-multipartite rims also covered",
+        "Closest multipartite published special-case evidence: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md",
+        "Generic Boolean projection theorem honestly credited: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md"
+      ],
+      "rationale": "This is a motivated exact Euclidean invariant of the natural cone/join operation on graph stable-set polytopes. The formula gives center, radius, all support/contact classes and strict slack uniformly for infinitely many nonmultipartite vertex-transitive rims. The non-obvious feature is the exact apex price at which a newly added graph vertex ceases to alter the minimum ball, with a sharp a=2 boundary between complement cycles 8 and 9. Such exact graph-dependent data could be needed in metric graph-polytope classifications. The answer is not a known-table recomputation or arbitrary fixed-dimension slice; generic distance-variance formulas alone do not supply the graph threshold, although the independent orbit calculation is elementary.",
+      "residual_risks": [
+        "The formula may be derivable as a routine exercise from established Boolean projection and symmetry lemmas; this overlap reduces claims of conceptual novelty, despite the motivated explicit classification.",
+        "No hardness/computational improvement for finding alpha(H) is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2304.08567v2",
+    "https://link.springer.com/article/10.1007/s00454-020-00236-6",
+    "https://doi.org/10.1137/S1052623497321973",
+    "https://doi.org/10.1002/nav.3800210414",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-extreme-cardinality-layers-determine-the-minimum-enclosing-spher--6b8d598a6173/RESULT.md"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Finite simple vertex-transitive graph H with at least one edge; unweighted standard Euclidean indicator polytope, no arbitrary affine transformation.",
+    "Result conditional on alpha(H), which can be hard to compute; no asymmetric-rim or weighted norm formula.",
+    "General Boolean projection identity already known; explicit specialization is the assessed contribution and strongest priority risk.",
+    "Dahl full text unavailable; institutional VPN disconnected and no bypass attempted.",
+    "No exhaustive historical-priority certification or assertion that finite enumeration proves the infinite theorem."
+  ]
+}

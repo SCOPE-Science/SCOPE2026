@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument proves the uniform maximum-independent-set barycenter from vertex-transitivity, checks every candidate polytope vertex via a strict size-monotone squared-distance formula, and derives the sharp global radius lower bound from an explicit convex combination of squared-distance functions. The variance identity also forces uniqueness for every possible competing center. It handles all three signs of the parameter without relying on numerical evidence. Exact-rational enumeration of 41 parameterized test graphs (1,733 stable-set incidence vertices and 241 maximum stable-set contacts) corroborates the algebra, including the equality and strict-screening cases.
+PASS
 
-## Originality — PASS, with specific uncertainty
+The all-N proof follows from exact maximum-independent-set orbit marginals, strict rim-cardinality monotonicity and a convex weighted-contact barycenter/variance certificate, not a finite test. Each δ sign including δ=0 is verified; uniqueness follows by strict ||y−c||² increase for other centers. Independent rational checks corroborate 41 finite instances and sharp boundary.
 
-Merino–Mütze (arXiv:2304.08567, full text inspected) develop Hamilton paths and vertex enumeration for \(0/1\)-polytopes, not Euclidean circumradii. Ohsugi–Tsuchiya (DOI 10.1007/s00454-020-00236-6, full text inspected) study anti-blocking, stable-set and Ehrhart invariants, not Euclidean minimum enclosing balls. Dahl's circulant-graph paper could be compared only at the abstract level; it gives a linear inequality description rather than a stated circumradius formula, but inaccessible body text is a residual priority risk. General Euclidean enclosing-ball methods and a known complete-multipartite subcase are not claimed new. The present exact apex-screening threshold includes odd wheels and complementary-cycle cones outside that subcase. Alternative formulations in generic pyramid geometry might exist; priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The stable-set polytope of a graph cone is a canonical operation on \(0/1\)-polytopes. This exact classification gives the entire center, radius and all contact vertices for an infinite family including several non-multipartite classes, and reveals a genuine threshold where a newly added vertex is geometrically invisible to the minimum ball. The sharp \(\overline{C_8}\) versus \(\overline{C_9}\) example exhibits that transition concretely. This goes beyond an isolated computation or a renaming of an existing invariant; the required input \(\alpha(H)\) is naturally the central stable-set graph invariant.
+A best-of-knowledge mathematical comparison of the exact (N,alpha(H)) center/radius/contact theorem against published stable-set-polytope primary papers, general 0/1 minimum-ball projection identity, and related published SCOPE results did not identify an earlier theorem already stating or explicitly evaluating the graph-cone screening formula for all vertex-transitive rims. The earlier complete-multipartite theorem covers proper subclasses and demonstrates the same kind of screening, while the all-Boolean projection characterization is a broad variational reduction whose evaluation on transitive graph cones requires a graph-specific invariant-slice calculation. These overlaps and plausible unlocated equivalent geometric formulations remain explicit priority risks; search absence alone is not novelty proof.
 
-## Residual risks and scope
+## value
 
-The result uses the standard Euclidean vertex-coordinate embedding, not affine equivalence. It requires finite vertex-transitive rim graphs having an edge. Equivalent prior work under Euclidean pyramid/point-set language has not been ruled out exhaustively. Finite exact-rational tests support but do not establish the general theorem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This is a motivated exact Euclidean invariant of the natural cone/join operation on graph stable-set polytopes. The formula gives center, radius, all support/contact classes and strict slack uniformly for infinitely many nonmultipartite vertex-transitive rims. The non-obvious feature is the exact apex price at which a newly added graph vertex ceases to alter the minimum ball, with a sharp a=2 boundary between complement cycles 8 and 9. Such exact graph-dependent data could be needed in metric graph-polytope classifications. The answer is not a known-table recomputation or arbitrary fixed-dimension slice; generic distance-variance formulas alone do not supply the graph threshold, although the independent orbit calculation is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
