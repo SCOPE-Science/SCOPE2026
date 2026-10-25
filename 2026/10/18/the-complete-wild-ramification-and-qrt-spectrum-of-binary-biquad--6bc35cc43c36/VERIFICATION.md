@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run the two stand-alone programs in an environment with Python 3. The Gröbner program `check_qrt_sympy.py` requires SymPy, while `qrt_f2_verify_independent.py` requires only the standard library.
+## correctness
 
-`check_qrt_sympy.py` verifies the unit-Jacobian ideals on all four affine charts of all 511 nonzero masks and prints `GROEBNER_SMOOTH_COUNT 144` followed by `GROEBNER_OK`. This computes geometric smoothness, not rational-point smoothness.
+PASS
 
-`qrt_f2_verify_independent.py` separately enumerates the homogeneous coefficient-space orbit action by swap/shear and factor interchange, detects geometric singularities in an explicit \(\mathbf F_{16}\) point universe for cross-checking, constructs the two rational ruling involution permutations and checks the six signature rows. It prints `MINIMAL_SINGULAR_DEGREES [(1, 318), (2, 49)]`, `SMOOTH_FORMS 144`, `NUMBER_ORBITS 6`, and `VERIFIED_OK`. `TABLE.tsv` contains the same six rows.
+PASS: Exhausted all 511 coefficient masks by four-chart exact Groebner unit-ideal smoothness, independently reproducing exactly 144 smooth curves. Rebuilt full PGL2(F2)^2 semidirect swap action and its six disjoint orbits; computed 144 rational fibres and two deck involution permutations and recovered all six table rows (representatives 98,99,113,121,122,186; profile orders 3,5,2,2,4,2 respectively). On a genus-one curve with rational origin, each ruling involution is P↦Q_i−P, so their composite is translation by Q_y−Q_x, and its action on the rational origin detects global order; bounded point permutation alone was not used as a global proof. The two-ruling separability and characteristic-two branching are accounted for.
 
-The global-order proof is in `RESULT.md`: the deck involutions are elliptic reflections and their product a rational translation. Without that lemma, rational finite-point cycling alone would not establish global periodicity. Singular-point searches over a finite extension are auxiliary only; the algebraically closed smoothness criterion is supplied by the Gröbner calculations. No independent audit has been conducted.
+## originality
+
+PASS
+
+PASS best of knowledge: classical QRT double-involution construction and genus-one translation theory are prior art, but neither inspected material nor targeted published/Resultary search contains this exact full F2 smooth-equation, ambient-orbit, wild-branch and translation-order spectrum.
+
+## value
+
+PASS
+
+PASS: This is a complete, natural finite-field classification of embedded genus-one biquadratics with a structural dynamical invariant; six classes and distinguished order-five orbit constitute precise reference data beyond one-off examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review: binary biquadratic branch and QRT classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is restricted to the complete 511-element nonzero coefficient space, not to arbitrary fields. The four affine Jacobian ideals are checked exactly by Gröbner bases. The second independent characteristic-two arithmetic code reproduces 144 smooth forms, six complete ambient orbits, and each orbit's point/branch/period profile. Standard elliptic divisor theory proves the two involutions compose to a translation, so the rational permutation period is the *global* automorphism order. No finite experiment is treated as an unbounded-field theorem.
+## correctness
 
-**Originality — PASS, with recorded priority risks.** Joshi–Kassotakis (arXiv:1906.00501v1) already gives the QRT involution construction and earlier finite-order examples, including period five; neither is claimed anew. Asgarli–Ghioca (arXiv:2203.07169v1) treats smooth pencils rather than the full binary embedded classification. General two-marked genus-one geometry does not state the precise characteristic-two 144-equation, six-orbit joint signature. Closest published-record semantic hits concern a real Bogdanov map or quartic Cremona maps, different objects. Earlier odd-characteristic analogues neither imply these binary frequencies nor determine wild branch splitting. A missing/unindexed exhaustive table remains a genuine priority risk.
+PASS
 
-**Value — PASS.** Two ruling degrees, the fields of branch fibres, and the translation order are intrinsic to a marked genus-one embedding. A complete characteristic-two census can be valuable without being a paper-sized general theorem: in particular the rational point count four does not determine the QRT automorphism order, and the two maximal-period strata have single wild geometric branches rather than the four tame branch points of odd characteristic.
+PASS: Exhausted all 511 coefficient masks by four-chart exact Groebner unit-ideal smoothness, independently reproducing exactly 144 smooth curves. Rebuilt full PGL2(F2)^2 semidirect swap action and its six disjoint orbits; computed 144 rational fibres and two deck involution permutations and recovered all six table rows (representatives 98,99,113,121,122,186; profile orders 3,5,2,2,4,2 respectively). On a genus-one curve with rational origin, each ruling involution is P↦Q_i−P, so their composite is translation by Q_y−Q_x, and its action on the rational origin detects global order; bounded point permutation alone was not used as a global proof. The two-ruling separability and characteristic-two branching are accounted for.
 
-**Limits.** Classifies rationally embedded smooth bidegree-(2,2) forms, not abstract elliptic isomorphism classes, all finite fields, or every QRT family. Scientific and literature-priority judgments await independent human verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: classical QRT double-involution construction and genus-one translation theory are prior art, but neither inspected material nor targeted published/Resultary search contains this exact full F2 smooth-equation, ambient-orbit, wild-branch and translation-order spectrum.
+
+## value
+
+PASS
+
+PASS: This is a complete, natural finite-field classification of embedded genus-one biquadratics with a structural dynamical invariant; six classes and distinguished order-five orbit constitute precise reference data beyond one-off examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
