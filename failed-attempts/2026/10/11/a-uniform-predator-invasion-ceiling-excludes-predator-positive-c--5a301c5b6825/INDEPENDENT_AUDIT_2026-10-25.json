@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T09:49:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen assigned RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py",
+        "Cao–Wang–Liu publisher PDF system (1.7), local (4.8)",
+        "Independent symbolic Dulac and predator identity checks"
+      ],
+      "evidence": [
+        "Frozen source RESULT.md SHA 32832b73070dcf573a1253b5534951d195d551ba, full analytic max/negative-log-growth/Dulac/Poincare argument.",
+        "Publisher target paper DOI 10.3934/math.20241164, displayed system (1.7) on p.5 and local condition (4.8) on p.9, visually examined.",
+        "Independent SymPy derivative of competitive LV Dulac field: -(s1*x1+s2*x2)/(x1*x2); independent symbolic check Gamma-g=sum_i C_i(1-m_i)(M_i-x_i).",
+        "Assigned verify.py checked source, but its VERIFY_OK print is not taken as an infinite-time proof.",
+        "Figure 8 parameter arithmetic independently gives M1=47/5, M2=336/5, Gamma=4481/500>0, so the cited chaotic example is outside the exclusion domain."
+      ],
+      "rationale": "For each compact fully invariant K, complete two-sided orbits exist by smoothness and compactness. If X_i=max_K x_i>0, at a point maximizing x_i its time derivative is zero and the exact prey equation yields (growth_i-s_i X_i)/(1+k_i y) >= q_iE_i>=0; hence X_i <= M_i=max(growth_i-q_iE_i,0)/s_i, with X_i=0 if growth_i<=q_iE_i. Thus the exact predator logarithmic rate is <=Gamma<0 for every point of K. Along any y>0 complete orbit this forces y(t)>=y(0)exp[-Gamma(0-t)] for t<0, contradicting boundedness as t->-infinity. Therefore K lies in y=0. There, x1dot=x1(R1-s1*x1-A3*x2) and x2dot=x2(R2-B3*x1-s2*x2), and the Dulac divergence of B=(x1*x2)^-1 is -s1/x2-s2/x1<0 in the positive quadrant. Together with one-dimensional axis flows and planar Poincare–Bendixson recurrence, all recurrent points are equilibria. A compactly supported invariant probability measure is concentrated on recurrent points by Poincare recurrence. The universal claim concerns compact fully invariant sets, not merely forward-invariant trapping boxes.",
+      "residual_risks": [
+        "No claim about compact merely positively invariant trapping regions; negative full-orbit time is essential.",
+        "The strict hypothesis Gamma<0 is sufficient, not claimed necessary or sharp.",
+        "No numerical finite-time test is used to infer an infinite-time conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hou–Baigent 2015 p.3 Theorem 3.1: for a C1 Kolmogorov vector field and any permutation of species, strictly negative F_i above ordered coordinate ceilings imply the whole positive flow eventually enters an absorbing box.",
+          "The source model has F_1=(A_1-A_2x_1/K_1)/(1+k_1y)-A_3x_2-A_4(1-m_1)y-q_1E_1, analogous F_2, F_y=C_1(1-m_1)x_1+C_2(1-m_2)x_2-D.",
+          "Choose epsilon>0 with Gamma+epsilon(C_1(1-m_1)+C_2(1-m_2))<0. Order nonexceptional prey, predator, and then any m_i=1,q_iE_i=0 prey. Theorem 3.1 hypotheses all hold with ceilings (M_1+epsilon,M_2+epsilon,epsilon).",
+          "Bendixson–Dulac with B=1/(x_1x_2) yields -s_1/x_2-s_2/x_1<0 on y=0; Poincare recurrence yields invariant-measure support on equilibria."
+        ],
+        "reasoning": "The 2015 general theorem covers the full parameter-domain claim, not merely a restricted subcase, after an explicit coordinate permutation. In particular it covers k_i=0, m_i=1, q_iE_i=0, and R_i<=0. Strict bounds make convergence uniform for initial data in any fixed compact invariant set. This dominates the entire predator recurrence exclusion; the planar measure consequence is an elementary classical addition.",
+        "searches": [
+          "global predator extinction carrying capacity comparison threshold two prey competition model sufficient condition no periodic orbits",
+          "uniform negative per capita growth compact invariant set persistence extinction theorem Kolmogorov ODE",
+          "three species two prey one predator prey refuge predator extinction uniform harvest bound competitive Lotka Volterra",
+          "Hou–Baigent 2015 complete OA primary source, Theorem 3.1 p.3 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Cao, Wang & Liu, AIMS Mathematics 9 (2024), DOI 10.3934/math.20241164, publisher PDF, model (1.7) p.5, Section 2, local stability (4.8) p.9 and numerical Fig.8.",
+        "Hou & Baigent, Global stability and repulsion in autonomous Kolmogorov systems, CPAA 14 (2015) 1205-1238, DOI 10.3934/cpaa.2015.14.1205, full lawful UCL OA PDF, Theorem 3.1 p.3 and its proof.",
+        "Wang, Zhai, Liu & Liu, MBE 18 (2021), DOI 10.3934/mbe.2021448, publisher full article landing page/abstract; only abstract, methodology and two-species scope inspected.",
+        "Resultary semantic searches on global predator extinction/invasion bounds and Cao-Wang-Liu exact model: exact SCOPE target record hit (self, not independent); related two-prey and multi-prey predator extinction claims in structurally different models."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target paper (4.8): C_1(1-m_1)x_1^i+C_2(1-m_2)x_2^i < D is local at predator-free equilibrium P6; this alone does not exclude other invariant sets.",
+          "Hou–Baigent Theorem 3.1 gives eventual entry to every ordered coordinate ceiling box, and its proof treats species sequentially with strict negativity of per-capita growth.",
+          "For any epsilon>0, the audited Gamma bound supplies the negative predator condition of Theorem 3.1 after prey ceilings M_i+epsilon, including exceptional zero-harvest full-refuge species by delaying them in the order.",
+          "Uniform entry on compact K plus K=flow_T(K) gives y<=epsilon on K; letting epsilon tend to zero and applying standard planar recurrence proves all conclusions."
+        ],
+        "reasoning": "Cao–Wang–Liu local stability and bounding do not, by themselves, entail the full statement. Hou–Baigent general 2015 result does, as a direct hypothesis verification and standard invariant-set consequence. Its prior date and exact mathematical implication make the originality judgment decisively FAIL rather than unresolved.",
+        "searches": [
+          "two prey one predator uniform predator extinction invasion bound compact invariant set prey refuge fear effect",
+          "competitive two prey one predator extinction global asymptotic stability predator cannot invade carrying capacities theorem",
+          "Resultary: predator extinction two prey predator ecological ODE uniform upper bound prey carrying capacity negative predator growth invariant compact recurrence",
+          "Cao–Wang–Liu 2024 pp.5,9, target model (1.7) and (4.8)",
+          "Hou–Baigent 2015 Theorem 3.1 full proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2015 Hou–Baigent DOI 10.3934/cpaa.2015.14.1205, Theorem 3.1: ordered negative per-capita growth outside successive bounds yields an absorbing coordinate box for every positive solution.",
+          "Cao–Wang–Liu DOI 10.3934/math.20241164, system (1.7) is a three-dimensional Kolmogorov system with predator per-capita growth sum_i C_i(1-m_i)x_i-D."
+        ],
+        "reasoning": "The compact-invariant exclusion is the equivalent zero-cap limit of a family of absorbing rectangles supplied by the general 2015 theorem, with each rectangle ordered to handle zero-harvest/full-refuge boundary cases. A compact invariant set equals its own time-T image, so uniform absorption bounds it by every small predator cap.",
+        "searches": [
+          "Cao Wang Liu Hopf bifurcation predator prey model fuzzy parameters involving prey refuge fear effects 2024 full pdf equation 1.7",
+          "two prey one predator uniform predator extinction invasion bound compact invariant set prey refuge fear effect",
+          "uniform negative per capita growth compact invariant set persistence extinction theorem Kolmogorov ODE",
+          "Resultary: predator extinction two prey predator ecological ODE uniform upper bound prey carrying capacity negative predator growth invariant compact recurrence",
+          "Resultary: Cao Wang Liu 2024 fuzzy fear refuge predator invasion ceiling global exclusion compact invariant measures",
+          "Hou–Baigent 2015 Theorem 3.1 and its definition of Kolmogorov systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cao–Wang–Liu 2024 p.9 condition (4.8) is a local predator-eigenvalue inequality evaluated at P6, not an exact classification table of global recurrent sets.",
+          "This is a continuous-parameter sufficient inequality rather than an isolated finite value, so no discrete enumerative database or exact table is the natural prior-coverage vehicle."
+        ],
+        "reasoning": "There is no exact finite database/table issue to decide; the general absorbing-box theorem is the dominating source and provides the corollary for a continuum of parameter choices. No failed database search is treated as novelty evidence.",
+        "searches": [
+          "Cao Wang Liu Hopf bifurcation predator prey model fuzzy parameters involving prey refuge fear effects 2024 full pdf equation 1.7",
+          "Cao Wang Liu 2024 predator prey refuge fear predator extinction global stability condition C1 C2 C3",
+          "Resultary: Cao Wang Liu 2024 fuzzy fear refuge predator invasion ceiling global exclusion compact invariant measures"
+        ]
+      },
+      "rationale": "The audited theorem is a parameter substitution and direct dynamical corollary of Hou–Baigent 2015, Theorem 3.1, coupled only with classical planar Bendixson–Dulac and Poincare recurrence. This pre-existing Kolmogorov-system theorem supplies finite-time entry into any strictly inward coordinate rectangle when species are ordered appropriately. For arbitrary small epsilon>0, choose prey upper bounds M_i+epsilon and predator upper bound epsilon. First place all prey with q_iE_i>0 OR m_i<1; each has a uniformly negative per-capita rate at x_i>=M_i+epsilon independently of the unordered variables. Next place predator y: all remaining prey have m_i=1 and q_iE_i=0, so their predator conversion coefficients vanish, and its per-capita rate is at most Gamma+epsilon*sum_i C_i(1-m_i)<0. Place the exceptional prey last: when y<=epsilon and x_i>=M_i+epsilon, their per-capita growth is at most -(A_2/K_1 or B_2/K_2)*epsilon/(1+k_i*epsilon). Theorem 3.1 therefore gives absorbing rectangles with arbitrarily small predator cap; its strict uniform bounds make entry uniform over an arbitrary compact invariant set, forcing y=0 by invariance. On that plane, standard 2D competitive Lotka–Volterra Dulac and Poincare recurrence arguments put invariant measures on equilibria. The target Cao–Wang–Liu article itself states only local predator-free stability (4.8), which alone is insufficient; the decisive broader prior is Hou–Baigent Theorem 3.1. This is a statement-and-implication rejection, not a failed keyword search or inaccessible-paper inference.",
+      "residual_risks": [
+        "Although the original model statement prints a positive C2 predator contribution, the nonnegativity proof equation (2.1) in the 2024 article has a contradictory negative C2 sign; the audited equations are explicitly (1.7) and match its separate local-stability formula (4.8).",
+        "The related 2021 fuzzy-refuge article body was not read in full. This does not affect the decisive 2015 primary-source coverage.",
+        "Theorem 3.1 supplies the absorbing-box implication; the measure-support conclusion also uses classical Bendixson–Dulac and Poincare recurrence, not a separately stated 2015 formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "System (1.7) agrees with audited equations. (4.8) is local stability at P6, not a global exclusion theorem. Equation (2.1) prints a minus sign before C2 in one integrated proof line, inconsistent with system (1.7), which has plus; audit uses displayed (1.7).",
+          "evidence": "Equation (1.7) and C2 positive term p.5; equation (2.1) transcription p.5; theorem 2.2 pp.5-6; local condition (4.8) p.9; Fig.8 p.22.",
+          "identifier_or_url": "doi:10.3934/math.20241164 | https://www.aimspress.com/aimspress-data/math/2024/9/PDF/math-09-09-1164.pdf",
+          "material_read": "Publisher full-text PDF mathematical model pp.4-6, existence/boundedness theorem 2.2, local P6 inequality (4.8) p.9, and Figure 8 parameters and discussion; system and (4.8) also inspected as page images.",
+          "method": "Lawful open-access publisher PDF text and visual page screenshots",
+          "title": "Hopf bifurcation in a predator-prey model under fuzzy parameters involving prey refuge and fear effects",
+          "trigger": "Identical system (1.7), closest local stability and numerical recurrence context"
+        },
+        {
+          "assessment": "Theorem 3.1 is decisive prior coverage: its ordered per-capita growth conditions hold for the target under Gamma<0 and arbitrary small predator upper cap, with a permutation covering full-refuge zero-harvest edge cases.",
+          "evidence": "Theorem 3.1, p.3, inequalities defining sequential species ceilings and conclusion of finite-time entry/stay in coordinate rectangle; proof below theorem.",
+          "identifier_or_url": "doi:10.3934/cpaa.2015.14.1205 | https://discovery.ucl.ac.uk/id/eprint/1458420/4/GlobStabKolvFinal.pdf",
+          "material_read": "Lawfully accessible 34-page author manuscript, definitions in introductory sections, full theorem 3.1 statement and proof on p.3, and related dissipativity discussion; p.3 theorem read visually.",
+          "method": "UCL institutional open-access PDF text and visual page screenshots",
+          "title": "Global stability and repulsion in autonomous Kolmogorov systems",
+          "trigger": "Strong broader theorem on ordered strictly absorbing boxes for C1 Kolmogorov systems"
+        },
+        {
+          "assessment": "Describes a lower-dimensional prey-predator model; its accessible abstract is not decisive for full-domain 3-species theorem. Originality failure is based on independently read Hou–Baigent full theorem, not on this inaccessible body.",
+          "evidence": "2021 article abstract, DOI, authors, 18(6):9094–9120.",
+          "identifier_or_url": "doi:10.3934/mbe.2021448 | https://www.aimspress.com/article/doi/10.3934/mbe.2021448",
+          "material_read": "Publisher abstract and article landing page, keywords, described two-species equilibrium and optimal-harvesting scope, and publisher reference list. Complete mathematical body not read.",
+          "method": "Publisher open article page; no whole-text coverage conclusion from snippet",
+          "title": "Stability and optimal harvesting of a predator-prey system combining prey refuge with fuzzy biological parameters",
+          "trigger": "Closest earlier fuzzy-refuge paper in target model lineage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Cao, Wang & Liu, AIMS Mathematics 9 (2024), DOI 10.3934/math.20241164, publisher PDF, model (1.7) p.5, Section 2, local stability (4.8) p.9 and numerical Fig.8.",
+        "Hou & Baigent, Global stability and repulsion in autonomous Kolmogorov systems, CPAA 14 (2015) 1205-1238, DOI 10.3934/cpaa.2015.14.1205, full lawful UCL OA PDF, Theorem 3.1 p.3 and its proof.",
+        "Classical Bendixson–Dulac theorem and planar Poincare–Bendixson/Poincare recurrence"
+      ],
+      "evidence": [
+        "Hou–Baigent 2015 Theorem 3.1 contains the full ordered dissipative-box mechanism with arbitrary model inputs.",
+        "Cao–Wang–Liu 2024 p.9 gives the local P6 invasion threshold and pp.20-22 exhibit bifurcation/chaos, motivating exclusion but not supplying a new mathematical method.",
+        "The remaining statement that compact invariant measures on a 2D competitive Lotka–Volterra flow are equilibrium-supported follows from classical Bendixson–Dulac/Poincare recurrence; no novel homological or statistical invariant computed."
+      ],
+      "rationale": "The biological question is motivated, since the exact source paper studies Hopf bifurcation and chaos, and an explicit predator-exclusion parameter region can be useful for interpretation. Mathematically, however, the bound is a routine textbook comparison of carrying capacities with the predator per-capita growth rate, already supplied as a direct application of the published ordered Kolmogorov absorbing-box theorem. The invariant-measure corollary then uses the standard Dulac and Poincare recurrence theorems. No new sharp boundary, structural lemma, nontrivial classification, or new dynamical phenomenon is established; the sufficient condition is intentionally conservative. This is not rejection merely because the proof is short or because the subject is applied, but because the complete mathematical content is a textbook-level substitution into a covering prior result.",
+      "residual_risks": [
+        "Ecological readers may still value the explicit parameter inequality as an expository corollary; this does not establish independent mathematical research value under the specified standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Cao, Wang & Liu, AIMS Mathematics 9 (2024), DOI 10.3934/math.20241164, publisher PDF, model (1.7) p.5, Section 2, local stability (4.8) p.9 and numerical Fig.8.",
+    "Hou & Baigent, Global stability and repulsion in autonomous Kolmogorov systems, CPAA 14 (2015) 1205-1238, DOI 10.3934/cpaa.2015.14.1205, full lawful UCL OA PDF, Theorem 3.1 p.3 and its proof.",
+    "Wang, Zhai, Liu & Liu, MBE 18 (2021), DOI 10.3934/mbe.2021448, publisher full article landing page/abstract; only abstract, methodology and two-species scope inspected.",
+    "Resultary semantic searches on global predator extinction/invasion bounds and Cao-Wang-Liu exact model: exact SCOPE target record hit (self, not independent); related two-prey and multi-prey predator extinction claims in structurally different models."
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is correct for compact fully invariant sets with entire orbits, not an arbitrary merely forward-invariant box.",
+    "Gamma<0 is sufficient, not an optimal/necessary extinction criterion; the positive-predator forward transient may be nonempty.",
+    "The source 2024 paper contains a predator C2 sign discrepancy in its auxiliary integral display (2.1); model (1.7) used for audit has positive C2.",
+    "The key mathematical theorem-level implication already follows from Hou–Baigent 2015, Theorem 3.1; originality failure is decisive independent of unindexed literature.",
+    "The complete 2021 fuzzy-refuge article body was not read; its abstract cannot establish whole-document coverage or noncoverage."
+  ]
+}
