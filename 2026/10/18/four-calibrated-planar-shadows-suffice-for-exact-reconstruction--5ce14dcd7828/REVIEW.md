@@ -1,12 +1,21 @@
-# Scientific review: four calibrated planar shadows
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the class of full-dimensional three-dimensional convex bodies with all planar projections threefold rotationally symmetric up to independent planar translations, and measurements retain calibrated angular phase. The established harmonic-projection and forbidden-equatorial-mode machinery reduces every support function to a scalar, a spatial translation, and seven real degree-three harmonic coefficients. An independent direct trigonometric expansion and the complex null-frame formula agree on every entry of the explicit seven-by-seven measurement matrix. Exact symbolic evaluation gives determinant \(625/6912\), inverse infinity norm \(164/5\), and the printed inverse formulas. The lower bound uses a nonzero cubic in the kernel of any six scalar measurements, and small perturbations of the ball remain smooth strictly convex bodies. Genericity follows from nonvanishing of a real-analytic minor on connected oriented-frame space. Finite computation checks algebra; the analytically stated harmonic lemma, convexity argument, and analytic zero-set theorem justify the infinite quantifiers.
+## correctness
 
-## Originality — PASS, with historical limitations
-The complete source of Myroshnychenko–Ryabogin–Saroglou supplies cubic examples and the representation tools for vanishing equatorial Fourier coefficients, but not a minimal calibrated finite-view inverse. Published calculations for one nonaxial cubic and one axial cubic obtain curvature or brightness formulas for restricted one-dimensional families, not seven-dimensional cubic-shape recovery. The closest accessible pre-existing mathematical record on \(L^2\) third-mode great-circle coefficients supplies continuum averages, not a finite four-view rank certificate. General point-sampling schemes for bandlimited spherical harmonics do not themselves specify calibrated translated-shadow third-harmonic inversion. Current bibliographic checks did not identify a statement implying the exact four-view theorem; an equivalent older unindexed sampling construction is a residual risk. No independent literature-priority certification has occurred.
+PASS
 
-## Mathematical value — PASS
-The originating geometry paper identifies a genuinely nonspherical class that survives a strong all-projection symmetry constraint, creating a precise natural inverse problem: how few calibrated silhouettes are required to recover its shape? The answer four is sharp over the full resulting seven-dimensional shape class, not over an arbitrary unmotivated low-dimensional slice. An explicit small-integer/rational design reduces the infinite projection hypothesis to seven scalar observations and gives a quantitative Lipschitz inverse. The result is useful as a finite-view tomography benchmark, with clearly limited pose assumptions. It does not claim a generally sharp stability constant or reconstruction from area-only or unregistered data.
+All-projection 3-fold invariance removes all ambient harmonics except degrees 0,1,3 by SO(3)-invariant projection and nonzero allowed-parity circle Fourier coefficient (verified against source Lemmas 4.8 and 4.12). Direct independent SymPy calculation from RESULT.md checked seven harmonic Laplacians zero, orthonormal frame entries, exact 7×7 matrix determinant 625/6912 and inverse infinity norm 164/5. Rank<=6 for any three views produces nontrivial cubic perturbations with identical three translated shadows; I+ε(∇²H+HI)>0 provides actual strictly convex counterexamples. Nonzero real analytic minor yields genericity. 14 bound on sum of spherical harmonic suprema gives stated Lipschitz 2296/5. Finite matrix arithmetic is not a proof of universal harmonic reduction, which is supplied by the cited lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full 14-page structural primary source establishes the symmetry/harmonic foundation but not the proposed finite calibrated reconstruction or explicit four-view optimality. Related axial cubic brightness and general spherical sampling records do not dominate this precise map. Best-of-knowledge with finite-band tomography coverage risk.
+
+## value
+
+PASS
+
+Optimal information-theoretic number of translated calibrated planar shadows, an exact rational inverse and stability for a natural seven-parameter family are independent, reusable geometric tomography facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
