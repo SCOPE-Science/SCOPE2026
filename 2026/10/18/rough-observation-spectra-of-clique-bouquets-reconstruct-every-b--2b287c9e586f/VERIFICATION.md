@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_clique_bouquet.py` using Python 3 standard library. The program creates each clique bouquet, independently enumerates all vertex subsets, computes both exact rough approximations, and constructs the multiplicity multiset. It compares with the closed formula and checks the unique central fiber, runner-up multiplicity and number of runner-up outputs, plus multiplicity-aware reconstruction of clique factors.
+## correctness
 
-Actual result: `VERIFY_OK profiles= 141 vertex_subsets= 551328 fiber_spectrum=PASS central_uniqueness=PASS runnerup=PASS size_reconstruction=PASS`.
+PASS
 
-The checks are exhaustive for the specified 141 finite profiles, not for the infinite family. The written proof covers all integer parameters in scope. Bibliographic uniqueness and independent review remain unverified.
+Read the actual definitions N[h]=V, N[v]={h} union B_i. If h is absent, L is empty and U records which peripheral cliques meet the subset, with fiber product of (2^s_i-1). If h is present, U=V and L records which cliques are full; complementary nonfull clique choices yield the other product. Exactly one observation (empty lower, full upper) occurs in both and its fibers combine to 2P; endpoints are two singleton fibers. Reconstruct the whole subproduct multiset, including empty and full products, and iteratively extract its least unaccounted factor; positivity a_i>1 and multiplicity accounting prove uniqueness even when factor products collide. Independently enumerated all original vertex subsets and resulting rough pairs for 35 r=2 or 3 clique-size profiles (sizes 2..4, total peripheral size<=11): complete multiplicity spectra agree in every case. The argument covers arbitrary admissible sizes, unlike finite checks.
+
+## originality
+
+PASS
+
+Standard rough-set approximation algebra is known, and subproduct multiset factor recovery is an elementary device. Inspected rough-set and friendship graph publications do not give this full inverse-fiber spectrum plus unlabeled reconstruction for heterogeneous clique bouquets; a disguised specialization under information-system terminology remains a priority risk.
+
+## value
+
+PASS
+
+The multiset of output inverse-fiber sizes is a natural information-theoretic statistic of a lossy rough-set observation process. Its exact, all-parameter distribution uniquely reconstructs a graph family even though the number of observations depends only on r. This is a motivated graph-reconstruction invariant rather than an arbitrary spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

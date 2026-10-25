@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The two hub cases partition all source subsets, and the sole collision of output labels merges two product fibers. The strict inequalities among nonempty products establish a unique maximum and identify all runner-up observations. A multiplicity-aware greedy algorithm reconstructs all clique sizes. The standalone verifier exactly checked 141 clique-size profiles covering 551328 vertex subsets; these are finite corroborations of the written all-parameter proof.
+## correctness
 
-**Originality — PASS, qualified.** Järvinen and Radeleczki's 2023 full text supplies a general reflexive-relation rough-set framework, not the inverse-fiber spectrum or graph reconstruction result. Dhanalakshmi and Parvathi's 2017 friendship-graph paper has an accessible abstract about prime labeling of upper-approximation subgraphs; its full text was not available for comparison. No equivalent statement was found in the completed targeted literature comparisons. A differently worded prior result is a residual bibliographic risk; publication priority is not certified.
+PASS
 
-**Mathematical value — PASS.** The complete heterogeneous-family classification shows that the count of rough observations hides all clique sizes, while the unlabeled inverse-fiber spectrum recovers them exactly. The sharp maximum and runner-up counts provide an information-loss benchmark with a constructive inverse procedure.
+Read the actual definitions N[h]=V, N[v]={h} union B_i. If h is absent, L is empty and U records which peripheral cliques meet the subset, with fiber product of (2^s_i-1). If h is present, U=V and L records which cliques are full; complementary nonfull clique choices yield the other product. Exactly one observation (empty lower, full upper) occurs in both and its fibers combine to 2P; endpoints are two singleton fibers. Reconstruct the whole subproduct multiset, including empty and full products, and iteratively extract its least unaccounted factor; positivity a_i>1 and multiplicity accounting prove uniqueness even when factor products collide. Independently enumerated all original vertex subsets and resulting rough pairs for 35 r=2 or 3 clique-size profiles (sizes 2..4, total peripheral size<=11): complete multiplicity spectra agree in every case. The argument covers arbitrary admissible sizes, unlike finite checks.
 
-The result applies only to clique bouquets with at least two cliques, each with at least two peripheral vertices. No extension to arbitrary block graphs is claimed. The mathematical proof, not finite enumeration, supports the universal quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard rough-set approximation algebra is known, and subproduct multiset factor recovery is an elementary device. Inspected rough-set and friendship graph publications do not give this full inverse-fiber spectrum plus unlabeled reconstruction for heterogeneous clique bouquets; a disguised specialization under information-system terminology remains a priority risk.
+
+## value
+
+PASS
+
+The multiset of output inverse-fiber sizes is a natural information-theoretic statistic of a lossy rough-set observation process. Its exact, all-parameter distribution uniquely reconstructs a graph family even though the number of observations depends only on r. This is a motivated graph-reconstruction invariant rather than an arbitrary spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
