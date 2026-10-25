@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` with an ordinary Python 3 interpreter; no third-party packages are needed. The program executed successfully with the opening line:
+## correctness
 
-```text
-D4_CENTRAL_SECTIONS_OK root_vertices=24 edges=96 facets=24 chamber_strata=15 orbit_types=7 sample_normals=15
-```
+PASS
 
-It computes 24 integer root vertices, 96 incident edges, 24 octahedral facets and all fifteen nonempty masks of the fundamental chamber. Every intersection coordinate and rank calculation uses exact rational arithmetic. It checks the seven claimed polygon inventories, their chamber-mask invariance, 15 alternative positive-normal samples, multiple signed coordinate permutations and Euler's relation.
+The D4 root vertex set ±ei±ej has 24 distinct roots, 96 dot-product-one edges and 24 supporting octahedral facets (8 coordinate and 16 signed-diagonal). Under D4 Weyl reflections any nonzero normal enters the chamber u1≥u2≥u3≥|u4|, with unique nonnegative coefficients on four rays. Root-height sign depends only on which ray coefficients vanish; 15 nonempty support masks collapse via D4 triality permuting outer rays (1,3,4) into precisely 7 classes (b,k). An independent exact-Fraction four-dimensional section implementation enumerated all 15 masks, incident segment crossings, rational edge-section vertices, all rank-two cell intersections, polygon sizes and Euler relation. All 7 asserted inventories reproduced: (12,24,14), (18,30,14), (26,42,18), (14,24,12), (20,32,14), (26,40,16), (32,48,18), with claimed triangle/quad/pentagon/hexagon compositions and two distinct 26-vertex types. Finite checks exhaust 15 masks because chamber sign constancy was established analytically; they do not merely sample the continuum.
 
-The proof of exhaustiveness over uncountably many nonzero normals uses the classical root-system chamber reduction and root-sign constancy, not numerical sampling. The computation has not been independently validated and does not establish historical priority.
+## originality
+
+PASS
+
+Best-knowledge PASS. Classical F4/D4 reflection chamber/triality and famous isolated cuboctahedral/rhombic-dodecahedral sections are recognized prior facts. Koca–Koca–Al-Barwani 2011 and Dechant 2013 accessible PDFs were inspected for their actual root-system and triality constructions; inspected passages do not enumerate seven central-section face profiles. Resultary nearest same polytope records discuss projections or inscribed simplices, while 4-cube central section law is another body. No comparable complete 7-stratum inventory was found in these actual searches, though older geometric tables remain possible.
+
+## value
+
+PASS
+
+A complete, finite, symmetry-exhaustive classification of all central 3D sections of a natural exceptional regular 4-polytope is a motivated geometric invariant. It includes nongeneric normal-chamber faces, fixes exact attainable vertex counts and facet polygon spectra, and distinguishes different 26-vertex combinatorial types invisible to just a maximum count. These facts are not a mere isolated symmetric slice or routine theorem restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact root and facet descriptions produce a reproducible exhaustive incidence proof. Every nonzero normal lies in a reflected \(D_4\) fundamental chamber; all root-height signs are constant on the relative interior of each of its fifteen nonempty faces. Triality collapses these into exactly seven classes. The exact rational checker enumerates all masks and every vertex and polygonal face of each cut, with Euler and facet-side consistency. The independent analytic ingredient is the full chamber reduction; finite computation alone would not prove the continuum result. Boundary normals are explicitly included.
+PASS
 
-## Originality — PASS relative to inspected sources
+The D4 root vertex set ±ei±ej has 24 distinct roots, 96 dot-product-one edges and 24 supporting octahedral facets (8 coordinate and 16 signed-diagonal). Under D4 Weyl reflections any nonzero normal enters the chamber u1≥u2≥u3≥|u4|, with unique nonnegative coefficients on four rays. Root-height sign depends only on which ray coefficients vanish; 15 nonempty support masks collapse via D4 triality permuting outer rays (1,3,4) into precisely 7 classes (b,k). An independent exact-Fraction four-dimensional section implementation enumerated all 15 masks, incident segment crossings, rational edge-section vertices, all rank-two cell intersections, polygon sizes and Euler relation. All 7 asserted inventories reproduced: (12,24,14), (18,30,14), (26,42,18), (14,24,12), (20,32,14), (26,40,16), (32,48,18), with claimed triangle/quad/pentagon/hexagon compositions and two distinct 26-vertex types. Finite checks exhaust 15 masks because chamber sign constancy was established analytically; they do not merely sample the continuum.
 
-Inspected full-text arXiv:1106.3433 and arXiv:1307.6768 establish the root system and triality, not the stated exhaustive central-section inventory. Existing special cuboctahedral and rhombic-dodecahedral cuts are acknowledged. The closest available published comparison concerns a central-section face-vector law for the **four-cube**, not the \(24\)-cell, and another treats orthogonal **projection brightness**, not sections. The directly accessible historical records checked contain no equivalent seven-case theorem. Full historical completeness is not proved: older geometric handbooks or unpublished tabulations might contain this census, and one cannot infer priority from unsuccessful searches alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete classification for all central codimension-one cuts of a regular exceptional four-polytope, including symmetry-boundary degeneracies. It distinguishes two geometrically meaningful \(26\)-vertex combinatorial cases with different face numbers, gives the sharp vertex range and the unique generic inventory, and connects normal-chamber triality to three-dimensional section combinatorics. It is not merely a recomputation of a previously known single symmetric slice.
+Best-knowledge PASS. Classical F4/D4 reflection chamber/triality and famous isolated cuboctahedral/rhombic-dodecahedral sections are recognized prior facts. Koca–Koca–Al-Barwani 2011 and Dechant 2013 accessible PDFs were inspected for their actual root-system and triality constructions; inspected passages do not enumerate seven central-section face profiles. Resultary nearest same polytope records discuss projections or inscribed simplices, while 4-cube central section law is another body. No comparable complete 7-stratum inventory was found in these actual searches, though older geometric tables remain possible.
 
-## Limits
+## value
 
-Only regular \(D_4\) central sections are treated; metric volumes, off-center sections and historical priority beyond the inspected sources are not. The implementation is an exact finite check of a proved chamber reduction, not independent mathematical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete, finite, symmetry-exhaustive classification of all central 3D sections of a natural exceptional regular 4-polytope is a motivated geometric invariant. It includes nongeneric normal-chamber faces, fixes exact attainable vertex counts and facet polygon spectra, and distinguishes different 26-vertex combinatorial types invisible to just a maximum count. These facts are not a mere isolated symmetric slice or routine theorem restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
