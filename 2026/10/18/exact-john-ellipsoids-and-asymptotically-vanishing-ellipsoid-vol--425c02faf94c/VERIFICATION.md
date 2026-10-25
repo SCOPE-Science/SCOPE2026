@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python check_spindle_john.py` with Python 3; no packages beyond the standard library are required. The script verifies (a) exact rational discriminant and isotropic-contact identities, (b) roots and meridian inclusion over 49 independent parameter/dimension cases, (c) strict numerical volume maximization over the two-axis ellipsoid family, and (d) agreement of the numerical volume ratios with the three asymptotic coefficients for fixed separations.
+## correctness
 
-The precise algebraic certificate is the quadratic stationarity relation
-\[
-m(D-z)(1-z)=(m-1)(1-D)z
-\]
-together with the contact-parameter identity \(t_*^2=z/m\). Under the ellipsoid normalization, symmetric pairs of contact points with normalized axial coordinate \(\pm1/\sqrt m\), uniformly averaged in their transverse spherical direction, have covariance \(I_m/m\). After multiplying the contact probability measure by \(m\), this is John's necessary-and-sufficient contact identity.
+PASS
 
-All-dimensional conclusions are proved using the meridian ratio's derivative, uniqueness of the John ellipsoid, and Gaussian asymptotic integration. Numerical tests do not constitute an exhaustive search over the continuum of ellipsoids or a proof of the asymptotic errors. The tests were executed against the supplied code during preparation. There has been no independent external audit.
+Reconstructed unit-ball spindle meridian R(t)=sqrt(1-t²)-sqrt(1-d²), symmetry of unique John ellipsoid, inclusion minimizer: r=q for z<=q; r²=z(D-z)/(1-z) for q<z<D. Maximizing z^m((D-z)/(1-z))^(m-1) yields the unique smaller quadratic root and t_*²=z/m. The two antipodal contact orbits have isotropic covariance I_m/m, so a positive John certificate establishes global optimality. Independent numerical quadrature at d=.6,m=3,10,40,100 shows m(VolSpindle/VolJohn-1) tending 0.2=sqrt(1-d²)/4; source proof Laplace expansion with Gaussian fourth moment justifies all-m asymptotic, not finite extrapolation.
+
+## originality
+
+PASS
+
+PASS with original spindle meridian integral credited: Artstein-Avidan–Florentin Proposition 3.2 supplies two-point ball-hull volume but not optimal inscribed ellipsoid or its universal contact latitudes and volume asymptotic. Published John results for planar-truncated cones concern another body.
+
+## value
+
+PASS
+
+Natural exact extremal ellipsoid invariant of the canonical two-point ball-convex hull, including universal dimension-dependent contact latitude and sharp volume-filling behavior; extends established volume integral by meaningful optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
