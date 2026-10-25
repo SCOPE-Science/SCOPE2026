@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite statement is verified analytically in `RESULT.md`. For every integer \(d\ge3\), the squared diagonal entries of the two Kraus operators sum to one. The first branch has probability \(1/3\), becomes maximally entangled, and has raw top concurrence \(1/d^d\); the second branch has probability \(2/3\), becomes a product state, and has raw top concurrence zero. Thus the average is \(1/(3d^d)\), while the input value is \((2d+1)/(3d)^d\).
+# Independent mathematical audit
 
-The exact ratio is
-\[
-\frac{3^{d-1}}{2d+1}.
-\]
-It exceeds one at \(d=3\). If it exceeds one at \(d\), then \(3^d>6d+3>2d+3\), establishing the next case. This is the proof for all dimensions, not an extrapolation from samples.
+## correctness
 
-`verify_counterexample.py` uses only Python's standard library and exact rational arithmetic to replay the algebra for representative dimensions \(d\in\{3,4,5,8,16,32\}\). The captured output in `verification_output.txt` reports `VERIFY_OK` after checking completeness in squared Kraus amplitudes, the probabilities, the input and output products, and the exact gain ratio.
+PASS
 
-The checker is deliberately finite and is not an infinite certificate. No computation is required for the induction argument. The result does not assert failure of Gour's rooted \(G_d\), nor does it classify lower raw concurrence-hierarchy members.
+Schmidt probabilities λ1=(2d+1)/(3d), λ2..d=1/(3d) are positive and normalized. Kraus diagonals (1/√(2d+1),1,..,1) and (√(2d/(2d+1)),0,..,0) have squared sums I. Outcome one occurs with probability 1/3 and has all Schmidt probabilities 1/d; outcome two occurs with probability 2/3 and is product. Therefore average C_d=1/(3d^d) versus input (2d+1)/(3d)^d; exact factor 3^(d-1)/(2d+1)>1 for all d≥3 by induction, diverging exponentially. Independent exact-rational computations d=3,4,5,10,20 corroborate the algebra. This is strong average LOCC, not deterministic Nielsen majorization.
+
+## originality
+
+PASS
+
+The explicit same-functional local-filter counterfamily and exact dimension-dependent violation of a specific later published monotonicity assertion were not found stated in inspected literature. Vidal 1999 already supplies the necessary concavity test and substantially reduces the conceptual difficulty; this limits priority and breadth, but the quantified all-d witness and correction of the source statement are not identical to the abstract criterion.
+
+## value
+
+PASS
+
+The calculation isolates a real logical distinction in a published entanglement-measure assertion: Schur concavity protects deterministic conversions but not averaged postmeasurement branches. A single normalized two-outcome physical measurement disproves raw top concurrence strong monotonicity uniformly in all dimensions d≥3, with an unbounded violation factor; this is a meaningful correction despite its elementary algebra and Vidal framework.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
