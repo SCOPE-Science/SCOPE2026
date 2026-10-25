@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear model is specified with a compactly supported probability reset kernel, absorbing Dirichlet boundaries, constant birth and diffusion coefficients, and positive resetting rate. Its positive leading eigenvalue is characterized by an exact monotone resolvent equation, not by numerical root finding. For every admissible domain, the Dirichlet first-mode residue proves existence; strict monotonicity proves uniqueness; the nonnegative renewal kernel bounds all competing complex spectral roots. The Green resolvent is computed in three regimes, including the nonsingular zero-parameter case. Differentiating in squared reset displacement gives the strict convexity/concavity reversal required for the convex-order comparison. At the critical value of the resolvent parameter the Green function is exactly affine in squared displacement, yielding the law-independent crossing. The fourth-moment expansion follows from an explicitly checked Dirichlet perturbation series. The four concrete extinction/growth inequalities are certified by stand-alone rational Taylor intervals, reproduced by the included checker.
+PASS
 
-Potential limitation: all exponential-rate statements concern the linear positive operator on a lethal bounded habitat. They cannot be extrapolated to nonlinear regulation, stochastic individual extinction, higher dimension or finite exterior mortality. The exact Fourier series/rational checker is not an independent validation of the general functional-analytic argument.
+The linear Dirichlet interval diffusion+unit reproduction+rate-r independent reset-to-mu intensity has a principal growth rate characterized by r∫W_{q,L}(y)dmu(y)=1 with q=lambda+r-1 and W=(q-Delta_D)^-1 1. Dirichlet semigroup positivity makes the score strictly decreasing from infinity at the first pole -pi²/(4L²) to zero, hence a unique positive eigenmeasure and dominant eigenvalue; a Laplace-modulus comparison excludes higher complex spectral roots. For q>0, W(y)=[1-cosh(sqrt(q)y)/cosh(sqrt(q)L)]/q, at q=0 W=(L²-y²)/2, for q<0 W=[cos(sqrt(-q)y)/cos(sqrt(-q)L)-1]/(-q). As a function of z=y², its second derivative is strictly negative at q>0 and strictly positive at q<0 throughout the support, and zero at q=0. A strict convex-order spread of Y² at fixed mean m2 therefore shifts the root up for L<sqrt(m2+2/r) and down above, with exact common root lambda=1-r at equality. Expansion W=(L²-y²)/2-q(5L^4-6L²y²+y^4)/24+O(q²) and the implicit function theorem yield critical-width slope difference (m4_nu-m4_mu)/(24 sqrt(2+m2)) at r=1. Fresh independent high-precision evaluation of the spectral score at L=79/50, mu=±1/sqrt2 and nu=(1/2)delta0+(1/4)(delta±1), gave signs (-,+) at r=.8 and (+,-) at r=2; separate curvature finite differences checked q=±.5. Numerical cases establish only the witness; the resolvent proof is global.
 
-## Originality — PASS with residual risk
+## originality
 
-The closest motivation (Menon, de Castro and Anteneodo, arXiv:2505.03727v1, sections II–V and Appendix) assumes a *fixed reset site*, and explicitly names a reset-site distribution as a future research direction. Evans and Majumdar (arXiv:1107.4225) introduced random reset destinations with renewal methods for **one-target first passage**. The full texts of Julián-Salgado, Dagdug and Boyer (arXiv:2311.11897 and arXiv:2507.14483), and Méndez, Flaquer-Galmés and Campos (arXiv:2401.01125) were compared for resets to multiple or distributed points. Their stated results optimize first passage in half-line or one-target search setups; they do not establish this particular two-lethal-endpoint population-growth spectrum comparison, universal second-moment crossing and a strict same-habitat sign reversal. A later confined-ring resetting paper (arXiv:2605.08414) was compared at abstract level only. No matching implication was identified in the checked material, but an existing general resolvent or convex-order comparison could imply the theorem without matching its ecological formulation.
+PASS
 
-The principal unresolved originality risk is a more general theorem in operator, killed-diffusion or reset-renewal literature that implies the specific comparison. Absence of a matching record in searches is not mathematical evidence of global uniqueness. The finite extinction sign reversal is not attributed to the published source.
+Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.
 
-## Mathematical value — PASS
+## value
 
-The motivating work investigates whether relocation can rescue populations from small lethal habitats and explicitly suggests randomizing the return site. Distributional variation at fixed mean squared destination displacement is a natural control question: a second-moment summary alone does not determine whether relocation raises or lowers the viable population-growth exponent. The theorem gives an exact, all-distribution order classification and a universal crossing width, followed by an *exact biological-sign reversal* at one fixed habitat under two relocation rates. The fourth-moment correction identifies what distinguishes destinations to first order at the critical rate. This is a structural classification and a nontrivial concrete boundary, not a renaming of the fixed-site formula or an unsupported marginal numerical gain.
+PASS
 
-Scientific risks are interpretation outside the lethal Dirichlet linear model, and possible earlier mathematical coverage at a more abstract level. Nonlinear or empirical claims are not made.
+Reset-destination dispersion is a natural, practically relevant control in lethal bounded habitats. The universal exact crossover at a second-moment-only length, a same-habitat extinction/growth reversal, and an explicit fourth-moment correction to the critical habitat width are non-obvious, reusable spectral-statistical facts extending fixed-site reset population models. They give both a structural theorem and a rigorously certified counterintuitive parameter witness.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
