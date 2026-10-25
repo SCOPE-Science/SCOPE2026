@@ -1,0 +1,11 @@
+# Scientific review: surface quadrangulation three-cut theorem
+
+**Correctness (PASS).** The defining disconnected-triple cut complex has an Alexander dual with exactly the induced three-vertex paths and facial-square tetrahedra. Under the stated no-\(K_{2,3}\) and all-four-cycles-facial hypotheses, the explicit elementary-collapse pairs are free, and the leftover complex is the input triangulated surface together with \(q(G)\) isolated one-dimensional chords. Integral Alexander duality, surface cohomology and the universal coefficient theorem yield the exact orientability-dependent integral homology. All-parameter statements are proved structurally. A finite checker exhaustively validates four graph examples and their mod-two/odd-primary surface homology but is not treated as an infinite proof.
+
+**Originality (PASS against inspected literature).** The foundational cut-complex results, the sequel's path-grid calculations, the edge-disjoint-square classification and a full same-underlying-graph Rips collapse were compared by mathematical hypotheses and implication. The edge-disjoint hypothesis fails for closed surface quadrangulations, the path grids have boundary, and graph-metric Rips complexes are not ordinary cut complexes. A toroidal instance gives only a special orientable surface; it does not imply the nonorientable order-two class or general surface collapse. Full equivalence checks cannot exclude unindexed work.
+
+**Value (PASS).** The result identifies a natural topological obstruction—nonorientable fundamental-surface torsion—inside the next-to-top integral homology of an ordinary three-cut complex. It classifies an entire constrained closed-quadrangulation class and a concrete two-parameter nonorientable grid family, including pure nonshellability. Unlike Betti-only computations, it distinguishes orientability integrally.
+
+**Scientific limitations.** Graphs must be simple, connected, triangle-free, with a specified closed cellular quadrangulation, no nonfacial four-cycles and no \(K_{2,3}\), with at least eight vertices. Only the *dual* homotopy type is classified. No assertion about independent validation or an unbounded novelty search is made.
+
+Self-review: passed. Independent audit: not yet performed.
