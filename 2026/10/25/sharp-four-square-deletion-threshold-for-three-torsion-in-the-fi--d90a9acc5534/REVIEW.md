@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The central claim concerns all deletion sets of size at most four, with no unverified infinite extrapolation. Exact orbit completion has sizes \(1,1,2,4,10\) and direct orbit sizes sum to \(\binom{25}{k}\) at each cardinality; chain generators are all nonattacking rook configurations. Integral elementary operations with unit pivots preserve Smith factors. For both first and second boundary maps the residual is zero; for the third, every residual is either zero or rank one with gcd exactly three, certified by checking all two-by-two minors. Since the image of the second boundary is free, torsion in \(H_2\) agrees with that in the cokernel of the third boundary. Exact ranks calculate the two free-rank exceptions; all other free ranks vanish. The standalone script reproduces every statement.
+
+## Originality — PASS (with bibliographic risk)
+Shareshian–Wachs determines the undeleted five-by-five chessboard's \(H_2\), while its full-diagonal-deletion family is not any deletion set of size at most four. Jonsson's restricted-edge constructions and the special Ferrers shape calculations do not imply the complete arbitrary-four-cell deletion profile. Semantic research-record searches include both the full-board matching-complex topic and forbidden squares/deletion/torsion variants; the closest hits concern other graph complexes, an eleven-vertex graph threshold, or finite support carriers rather than the present classification. A sixteen-allowed-square torsion carrier would not by itself force torsion to persist in every 21–25-square superspace, since inclusions need not inject on homology. Equivalent independently tabulated chessboard homology remains possible, not established.
+
+## Mathematical value — PASS
+The five-by-five chessboard complex is the standard minimal square chessboard example exhibiting integral \(3\)-torsion in dimension two. Quantifying exactly how forbidden positions affect that torsion is a natural structural robustness question. The first four-deletion threshold and the two sharply different torsion-removal geometries classify all \(12650\) extremal labeled configurations and determine the contrasting free ranks. These distinctions are not recoverable from the previously known full-board \(H_2\) alone and bear directly on matching-complex topology for bipartite graphs with forbidden edges.
+
+## Literature, limits, and checks
+Primary sources: Shareshian–Wachs (arXiv:math/0409054v1, sections 1, 5, 8), Jonsson (arXiv:1203.5644, section 3), Clark–Zeckner (arXiv:1008.4525, introduction and relevant Ferrers-board theorem). Their mathematical hypotheses and conclusions were compared against the present low-deletion classification. The proof is an exhaustive exact finite integer certificate; no higher homology, homotopy equivalence or induced-map statement follows. Residual risk: an unindexed or differently named board-homology census might already contain the same eighteen orbit computations.
+
+Self-review: passed. Independent audit: not yet performed.
