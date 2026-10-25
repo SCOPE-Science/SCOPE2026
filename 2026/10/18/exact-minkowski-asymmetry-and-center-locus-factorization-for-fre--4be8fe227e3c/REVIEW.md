@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats a free join as a simplex of barycentric block weights carrying factor bodies. For any putative Minkowski center at reflection factor \(h\), reflection of the \(i\)-th generating face imposes the **independent factor constraint** \((h+1)t_i-1\ge s(A_i)\). These sum to the sharp global lower bound. Conversely, at weights proportional to \(s(A_i)+1\), the factorwise optimal-center containments put the reflection of every generating face inside the target scaled join. Convexity handles the whole join. Equality in the sum fixes all weights and forces exactly the product of the factor center sets. No approximation or computational enumeration enters the universal proof. Finite LP checks passed for six joins and five factors.
+PASS
 
-## Originality — PASS, qualified by historical terminology risk
+The actual pinned RESULT.md defines a free join of k>=2 compact full-dimensional factors A_i in pairwise independent affine blocks, with each d_i>=1, and uses the reflection definition (h+1)c-J subseteq hJ. Reflecting an arbitrary generating i-face forces (h+1)t_i-1>0 and the factor containment (h+1)t_i a_i-A_i subset ((h+1)t_i-1)A_i; hence that coefficient >=s(A_i). Summing yields h>=sum_i s(A_i)+k-1. Conversely choose t_i=(s(A_i)+1)/S, S=sum_i(s(A_i)+1): for a generator on face i, the reflected spatial block j has nonnegative join weight s(A_j)+1-delta_ij, and the i-block is in s(A_i)A_i by optimality of a_i. Convexity carries containment to all J. At equality each nonnegative lower-bound deficit vanishes separately, fixing barycentric weights and making every a_i an actual minimizing factor center. Injectivity at positive weights gives the full Cartesian-product center locus and affine dimension sum. This is a proof for all factors, not extrapolation from the LP examples; singleton factors and overlapping joins are outside the stated scope.
 
-The closest checked primary sources describe general asymmetry and symmetrization (Brandenberg–König, arXiv:1310.4368; Brandenberg–von Dichter–González Merino, arXiv:2306.11460) and robust optimization for Minkowski centers (den Hertog–Pauphilet–Soali, first posted 2022). Their examined definitions, main results, relevant polyhedral formulae and searched full texts do not identify an arbitrary-positive-dimensional free-join additivity theorem or its full center-locus factorization. The earlier pyramid case is the singleton-factor boundary and does not imply the independent multifactor assertion. Index and exact-phrase searches do not prove absence: an older equivalent theorem using different terminology remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a global composition law for a classical affine-invariant of arbitrary convex bodies, not an isolated calculation. It completely describes every optimal center rather than only the scalar asymmetry, preserves all nonuniqueness dimensions additively, and shows that free joins of centrally symmetric bodies of arbitrarily large dimensions nevertheless have asymmetry controlled solely by the number of factors. The motivating gap is behavior of Minkowski asymmetry under the natural free-join operation, complementary to known Cartesian-product and pyramid behavior.
+Mathematical comparison concerns an arbitrary-body free-join composition law and every optimal center, not mere equality of values for simplices, a pyramid point-factor boundary, or a computable generic convex-program prescription. The published special families and symmetrization papers inspected do not establish the universal positive-dimensional multifactor identity or product center locus. This is a qualified best-of-knowledge judgment; an older Cayley/free-join synonym could cover it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Free join is a canonical convex-body composition operation. The result gives a new structural all-arity rule for a classical affine invariant independent of factor dimensions and a complete description of nonunique optimal-center sets, including additive dimensions. The invariant is natural before any numerical computation; the theorem controls smooth, nonsymmetric, and polyhedral inputs alike. Knowing asymmetry of factors does not by itself determine behavior of their join without the proved reflection containment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

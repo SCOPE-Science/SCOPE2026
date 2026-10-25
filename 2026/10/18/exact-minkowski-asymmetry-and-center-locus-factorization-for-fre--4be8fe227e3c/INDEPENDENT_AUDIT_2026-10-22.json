@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:57:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 3572eba2d7f451fb43de7a75d87476af159a35f7; Steps 1-4",
+        "pinned checker.py blob 09bfccb9aa36da65bb5fa45c663f9a1edc305984 (inspected, not used as general proof)",
+        "Brandenberg–König arXiv:1310.4368 §3.1 for asymmetry definition"
+      ],
+      "rationale": "The actual pinned RESULT.md defines a free join of k>=2 compact full-dimensional factors A_i in pairwise independent affine blocks, with each d_i>=1, and uses the reflection definition (h+1)c-J subseteq hJ. Reflecting an arbitrary generating i-face forces (h+1)t_i-1>0 and the factor containment (h+1)t_i a_i-A_i subset ((h+1)t_i-1)A_i; hence that coefficient >=s(A_i). Summing yields h>=sum_i s(A_i)+k-1. Conversely choose t_i=(s(A_i)+1)/S, S=sum_i(s(A_i)+1): for a generator on face i, the reflected spatial block j has nonnegative join weight s(A_j)+1-delta_ij, and the i-block is in s(A_i)A_i by optimality of a_i. Convexity carries containment to all J. At equality each nonnegative lower-bound deficit vanishes separately, fixing barycentric weights and making every a_i an actual minimizing factor center. Injectivity at positive weights gives the full Cartesian-product center locus and affine dimension sum. This is a proof for all factors, not extrapolation from the LP examples; singleton factors and overlapping joins are outside the stated scope.",
+      "residual_risks": [
+        "No formal mechanized proof; the finite LP checker is only a sanity test and was inspected rather than executed during this audit.",
+        "The formula has not been tested for degenerate point factors by the claimed positive-dimensional proof; no such extension is accepted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic robust-optimization descriptions of Minkowski center containment apply to many polytopes but yield a computational program, not the closed universal free-join factorization.",
+          "The published SCOPE order-polytope center theorem concerns poset order bodies, not arbitrary join factors."
+        ],
+        "reasoning": "An algorithm for a broader class does not itself state this operation law; special-family formulas do not dominate bodies with arbitrary smooth nonsymmetric factor shapes.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of free joins convex bodies join product of Minkowski center sets",
+          "https://optimization-online.org/2022/01/8768/",
+          "arXiv:2306.11460",
+          "Resultary record 2026/10/11/SCOPE-minkowski-asymmetry-and-canonical-center-polytopes-of-finite-pos--2f48aab3ef81"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.4368",
+        "arXiv:2306.11460",
+        "https://optimization-online.org/2022/01/8768/ (bibliographic/secondary check)",
+        "Resultary b8893b14e6a9 and 2f48aab3ef81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known pyramid-asymmetry increment is the point-factor special case; it cannot directly force the general two positive-dimensional factor statement or its all-center equality structure.",
+          "General symmetrization inequality and minimax formulation require the separate optimal barycentric-weight argument used in the pinned proof."
+        ],
+        "reasoning": "Neither a point apex formula nor an abstract reflection optimization rule is a previously stated dominating positive-dimensional all-factor identity. Priority risk under another name remains.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of free joins convex bodies join product of Minkowski center sets",
+          "web: \"Minkowski asymmetry\" \"join\" convex bodies formula",
+          "arXiv:2306.11460",
+          "https://optimization-online.org/2022/01/8768/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The free join is a simplex-indexed affine Cayley embedding of independent factor bodies, not a Minkowski sum or Cartesian product.",
+          "Brandenberg–König §3.1 gives the general s(K) invariant and bounds but no join operation theorem in examined material."
+        ],
+        "reasoning": "Cayley embeddings, disjoint skew convex hulls, factor-wise reflection and affine join are the plausible aliases. No inspected explicit equivalence yields s(join)=sum s(A_i)+k-1 AND the exact product of all center loci.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of free joins convex bodies join product of Minkowski center sets",
+          "web: \"Minkowski asymmetry\" \"join\" convex bodies formula",
+          "arXiv:1310.4368",
+          "arXiv:2306.11460"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A simplex-sum stellohedron is formed by Minkowski addition, mathematically distinct from a free join.",
+          "The theorem varies over arbitrary convex bodies in arbitrary positive dimensions, so no finite polytope value table exhausts the domain."
+        ],
+        "reasoning": "No exact table or fixed-size record returned gives the complete center sets for unrestricted free joins; searches do not certify absence of unindexed work.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of free joins convex bodies join product of Minkowski center sets",
+          "arXiv:1310.4368",
+          "Resultary record 2026/10/11/SCOPE-exact-minkowski-asymmetry-and-unique-center-of-simplex-sum-stell--b8893b14e6a9"
+        ]
+      },
+      "rationale": "Mathematical comparison concerns an arbitrary-body free-join composition law and every optimal center, not mere equality of values for simplices, a pyramid point-factor boundary, or a computable generic convex-program prescription. The published special families and symmetrization papers inspected do not establish the universal positive-dimensional multifactor identity or product center locus. This is a qualified best-of-knowledge judgment; an older Cayley/free-join synonym could cover it.",
+      "residual_risks": [
+        "An older equivalent formula might use convex join, Cayley embedding, or affine *-sum terminology; negative semantic search is not a priority proof.",
+        "The den Hertog–Pauphilet–Soali article was not exhaustively re-read in this run; no whole-document noncoverage statement is based on a bibliographic excerpt."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No explicit general positive-dimensional free-join factorization found in examined text; no claim about unread sections",
+          "evidence": "Minkowski asymmetry definition and bounds, §3.1",
+          "identifier_or_url": "arXiv:1310.4368",
+          "material_read": "Accessible arXiv PDF, definition/bounds section (§3.1), examined theorem statements relevant to asymmetry",
+          "method": "opened PDF and visually inspected pages/section text",
+          "title": "Sharpening Geometric Inequalities using Computable Symmetry Measures",
+          "trigger": "Foundational s(K) definition and dimension bounds; possible general join rule"
+        },
+        {
+          "assessment": "Its stated quantitative results concern symmetrizations/width ratios rather than all free joins; remaining whole-paper risk retained",
+          "evidence": "Introduction and Theorems 1.1–1.3",
+          "identifier_or_url": "arXiv:2306.11460",
+          "material_read": "Accessible arXiv PDF, introduction and main theorem statements on symmetrizations",
+          "method": "opened PDF, inspected page images and relevant theorem statements",
+          "title": "From inequalities relating symmetrizations of convex bodies to the diameter-width ratio for complete and pseudo-complete convex sets",
+          "trigger": "Same affine asymmetry invariant, stronger geometric inequalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md §§Finding/Proof/Limitations",
+        "arXiv:1310.4368 for mathematical context"
+      ],
+      "rationale": "Free join is a canonical convex-body composition operation. The result gives a new structural all-arity rule for a classical affine invariant independent of factor dimensions and a complete description of nonunique optimal-center sets, including additive dimensions. The invariant is natural before any numerical computation; the theorem controls smooth, nonsymmetric, and polyhedral inputs alike. Knowing asymmetry of factors does not by itself determine behavior of their join without the proved reflection containment.",
+      "residual_risks": [
+        "This is a theorem about free joins, not arbitrary convex hulls; no downstream theorem or authorship/certification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "k>=2 and each affine factor dimension >=1; exact free joins only.",
+    "All-center locus is exact, not an independently measured empirical curve."
+  ],
+  "schema_version": 1
+}
