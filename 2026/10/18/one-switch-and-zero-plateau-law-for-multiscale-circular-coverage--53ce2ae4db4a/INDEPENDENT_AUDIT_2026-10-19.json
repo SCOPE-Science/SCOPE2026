@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T09:54:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/one-switch-and-zero-plateau-law-for-multiscale-circular-coverage--53ce2ae4db4a/RESULT.md",
+        "2026/10/18/one-switch-and-zero-plateau-law-for-multiscale-circular-coverage--53ce2ae4db4a/verify.py"
+      ],
+      "rationale": "Reconstructed the uniform simplex law (iid circular gaps Dirichlet(1,...,1)) and coordinate-shift identity P(S_i>t_i,i in I)=(1-sum t_i)_+^(n-1). Separating equal and unequal indices yields exactly n[(1-b)^(n-1)+(n-1)(1-a-b)_+^(n-1)-n(1-a)^(n-1)(1-b)^(n-1)]. Normalizing by n(1-b)^(n-1) gives 1-n(1-a)^(n-1)+(n-1)((1-a-b)_+/(1-b))^(n-1), strictly decreasing until b=1-a and constant thereafter; variance at b=a is positive for a<alpha_n. This proves the one-switch/plateau/all-positive trichotomy with the claimed explicit zero. Zero-covariance nonindependence follows from G_n(b)=1 implying G_n(a)=1 while G_n(a)=0 has positive probability. Expansion at a=x/n,b=y/n verifies e^(-y)-(1+xy)e^(-x-y); bracketing establishes the moving zero limit. Independently recomputed rational-grid sign and exact covariance identities for n=3..11 and checked finite grid/exponential diagnostics in inspected verify.py; bounded numerics support, not prove, infinite statements.",
+      "residual_risks": [
+        "Independent bounded checks do not replace the analytic proof; scope limited to stated assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirakhmedov 2024 supplies general asymptotic variance/CLT for spacing scores, and the limiting covariance kernel may follow by polarization.",
+          "Holst–Hüsler 1984 concerns joint limiting coverage statistics at a single radius."
+        ],
+        "reasoning": "Broad asymptotic results or single-radius distributional identities do not mathematically entail the finite all-(a,b) sign-region and equality-band determination without additional derivation; complete inaccessible Holst–Hüsler text remains a named risk.",
+        "searches": [
+          "circular spacings Dirichlet two thresholds gap counts covariance exact sign switch zero plateau",
+          "Mirakhmedov m-tuples of spacings 2024 asymptotic normal statistics",
+          "Holst Husler random coverage circle 1984"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py, assigned Git tree e9252d6078bf1c822cc1ace7e020bd0168386c75",
+        "Huillet (2003), doi:10.1239/aap/1059486818",
+        "Mirakhmedov (2024), arXiv:2404.09581",
+        "Holst–Hüsler (1984), doi:10.2307/3213617"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same circular model and existing one-radius distributions generate some moments; new sign test factors the cross-moment by (1-b)^(n-1).",
+          "The plateau occurs on a positive-length continuum exactly when E G_n(a)=1."
+        ],
+        "reasoning": "Prior statements were compared as mathematical implications, acknowledging the shared simplex identity and asymptotic kernel. The precise full finite sign-switch/zero-band implication was not found; inaccessible plausible text precludes a categorical full-document NOT_COVERING statement.",
+        "searches": [
+          "circular spacings Dirichlet two thresholds gap counts covariance exact sign switch zero plateau",
+          "Huillet 2003 proposition 4 equation 5",
+          "Mirakhmedov arxiv 2404.09581"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theorem is exactly a two-level Dirichlet-exceedance covariance and hence a two-scale random-circle coverage covariance.",
+          "Huillet (2003) one-radius random coverage statistics; Mirakhmedov arXiv:2404.09581 asymptotic m-spacing scores."
+        ],
+        "reasoning": "Equivalence of arcs/gaps/Dirichlet spacings was checked. Known common-simplex joint survival is an input; neither inspected accessible primary material states its unique finite two-threshold sign threshold or nonindependent zero plateau.",
+        "searches": [
+          "circular spacings Dirichlet two thresholds gap counts covariance exact sign switch zero plateau",
+          "Dirichlet uniform spacings nested exceedance counts joint factorial moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite formula holds for every integer n and continuum thresholds, not a finite tabulation.",
+          "Huillet (2003) one-radius gap-number distribution is prior art."
+        ],
+        "reasoning": "A stored table for a finite sample of thresholds cannot imply the all-parameter trichotomy. Searched published findings and indexed original literature; no exact two-threshold sign table covering the claim identified.",
+        "searches": [
+          "circular spacings Dirichlet two thresholds gap counts covariance exact sign switch zero plateau",
+          "circular coverage gaps distribution exact Huillet 2003"
+        ]
+      },
+      "rationale": "The exact two-threshold covariance sign diagram, sharp switch and dependent plateau are distinguishable from the classical one-radius coverage count and from asymptotic spacing-score fluctuation laws. General Dirichlet tail identities make the formula accessible but do not by themselves state or imply the nontrivial uniform parameterized sign classification without its monotonicity and boundary analysis; assessed best-of-knowledge, not as historically certified priority.",
+      "residual_risks": [
+        "Could be implicit in older joint-spacing factorial-moment literature, particularly inaccessible complete Huillet/Holst–Hüsler text.",
+        "Institutional download unavailable owing to disconnected VPN; no claim of reading those full articles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-object one-radius formula prior art; incomplete full comparison remains a priority risk.",
+          "evidence": [
+            "Huillet (2003), Advances in Applied Probability 35, 563–582; indexed abstract, identified one-radius distribution."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1059486818",
+          "material_read": "Accessible abstract/indexed description and the specific Proposition 4/formula (5) identified in research package; complete publisher text not retrieved.",
+          "method": "Bibliographic/abstract review; authorized institutional retrieval attempted, returned vpn_disconnected.",
+          "title": "Random covering of the circle: the size of the connected components",
+          "trigger": "Same circle points and exact connected gap counts"
+        },
+        {
+          "assessment": "General asymptotic coverage plausible for the limit, not a demonstrated finite exact sign diagram.",
+          "evidence": [
+            "Mirakhmedov (2024), Proposition 2.2 and CLT scope; no finite two-threshold implication identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.09581",
+          "material_read": "Primary arXiv abstract and theorem scope, plus stated m-spacing asymptotic formula context; no full line-by-line article inspection.",
+          "method": "Accessible arXiv/indexed primary material and source comparison.",
+          "title": "The central limit theorem for sum-functions of m-tuples of spacings",
+          "trigger": "Potential general theorem dominating spacing covariance"
+        },
+        {
+          "assessment": "Material access gap, not scientific failure; prior exact joint result could change originality.",
+          "evidence": [
+            "Holst and Hüsler (1984), Journal of Applied Probability 21, 558–566."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213617",
+          "material_read": "Bibliographic abstract/summary only; complete primary paper inaccessible.",
+          "method": "Bibliography and abstract material, no whole-text assertion.",
+          "title": "On the random coverage of the circle",
+          "trigger": "Potential exact two-radius same-model source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original finite-covariance formula, unique monotone transition proof, zero-but-dependent event argument."
+      ],
+      "rationale": "An exact, genuinely nonmonotone covariance sign law for two deterministically nested covering statistics is a natural finite-sample dependence question; the sharp threshold and dependent zero-covariance plateau provide an interpretable boundary of association that cannot be read off from monotone sample paths. The full all-n/all-two-radius classification is independently useful beyond textbook one-threshold expectation.",
+      "residual_risks": [
+        "Restricted to iid uniform circle points and common deterministic clockwise arc lengths; no joint law, positive association or nonuniform extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Could be implicit in older joint-spacing factorial-moment literature, particularly inaccessible complete Huillet/Holst–Hüsler text.",
+    "Institutional download unavailable owing to disconnected VPN; no claim of reading those full articles.",
+    "Restricted to iid uniform circle points and common deterministic clockwise arc lengths; no joint law, positive association or nonuniform extension.",
+    "Scientific pass does not imply publication, external certification, or stronger claims than the explicitly audited statement."
+  ],
+  "schema_version": 1
+}

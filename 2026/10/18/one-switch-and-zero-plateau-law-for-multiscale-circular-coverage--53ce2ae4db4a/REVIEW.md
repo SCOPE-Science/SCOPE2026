@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The iid uniform circular gaps have the uniform Dirichlet-simplex law. Shifting one or two specified spacing coordinates gives the exact joint-tail probabilities and the finite covariance formula. Dividing by its strictly positive scale reduces the complete sign problem to an elementary term monotone in the larger radius. The strict variance at coincident radii and the three possibilities for the boundary term prove the one-switch, zero-plateau, and always-positive cases, including endpoints. The dependence assertion in the zero band follows from a concrete pair of positive-probability but mutually incompatible events. Second-order exponential expansions prove the stated asymptotic kernel and the limiting root. Exact rational, grid-approximation, and normalized-exponential checks in `verify.py` passed 7,763 assertions. Computation is corroborative; the infinite statement is analytical.
+## correctness
 
-**Originality — PASS on inspected evidence, with historical-priority risk.** Huillet (2003), Proposition 4, states the one-radius gap-count law, while the present theorem gives a **two-radius**, full finite-parameter sign classification and a zero-covariance interval that is not a consequence of knowing one-radius marginals. Mirakhmedov (2024), Propositions 2.1–2.2 and Corollary 2.4, studies asymptotic variance and normal limits for spacing scores; this may already imply the **asymptotic** kernel via polarization, so that kernel is not independently claimed as novel. Older circle-coverage work of Holst and Hüsler (1984) concerns a joint limit for one radius and other observables; only its abstract was accessible. A general earlier finite joint-moment identity might imply the new sign diagram, and the historical comparison is not exhaustive. Searches of mathematical records for duality under the broken-stick/Dirichlet/arc-covering formulations did not return a matching complete sign theorem.
+PASS
 
-**Value — PASS.** Gap counts at two coverage radii measure the same spatial topology at different scales. Despite their pointwise ordering, their covariance reverses sign on a sharp explicit curve. Exactly at the unique mean-one radius, a nontrivial **interval** of zero covariances survives, even though the variables remain dependent. This provides a complete finite-sample dependence classification for natural multiscale coverage statistics rather than a routine isolated moment calculation.
+Reconstructed the uniform simplex law (iid circular gaps Dirichlet(1,...,1)) and coordinate-shift identity P(S_i>t_i,i in I)=(1-sum t_i)_+^(n-1). Separating equal and unequal indices yields exactly n[(1-b)^(n-1)+(n-1)(1-a-b)_+^(n-1)-n(1-a)^(n-1)(1-b)^(n-1)]. Normalizing by n(1-b)^(n-1) gives 1-n(1-a)^(n-1)+(n-1)((1-a-b)_+/(1-b))^(n-1), strictly decreasing until b=1-a and constant thereafter; variance at b=a is positive for a<alpha_n. This proves the one-switch/plateau/all-positive trichotomy with the claimed explicit zero. Zero-covariance nonindependence follows from G_n(b)=1 implying G_n(a)=1 while G_n(a)=0 has positive probability. Expansion at a=x/n,b=y/n verifies e^(-y)-(1+xy)e^(-x-y); bracketing establishes the moving zero limit. Independently recomputed rational-grid sign and exact covariance identities for n=3..11 and checked finite grid/exponential diagnostics in inspected verify.py; bounded numerics support, not prove, infinite statements.
 
-**Scope and limits.** The setting is iid uniform points, clockwise equal arcs, and integers \(n\ge3\). Zero covariance does not imply independence. General point processes, variable arc lengths, and stronger dependence orders are not covered. The published historical record has not been independently and exhaustively checked.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-threshold covariance sign diagram, sharp switch and dependent plateau are distinguishable from the classical one-radius coverage count and from asymptotic spacing-score fluctuation laws. General Dirichlet tail identities make the formula accessible but do not by themselves state or imply the nontrivial uniform parameterized sign classification without its monotonicity and boundary analysis; assessed best-of-knowledge, not as historically certified priority.
+
+## value
+
+PASS
+
+An exact, genuinely nonmonotone covariance sign law for two deterministically nested covering statistics is a natural finite-sample dependence question; the sharp threshold and dependent zero-covariance plateau provide an interpretable boundary of association that cannot be read off from monotone sample paths. The full all-n/all-two-radius classification is independently useful beyond textbook one-threshold expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
