@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` uses only Python's standard library and exact `fractions.Fraction` arithmetic. It evaluates the original independent-occupancy group sum separately for each ordered pair and site, enumerating subsets of all other possible occupants and applying the exact group-size factor `1/(k-1)`; it then independently evaluates the proposed polynomial in graph adjacency and common-neighbor counts.
+## correctness
 
-Execute `python verify.py` in the same directory as the extracted program. Its expected final marker is `EXACT_REPLAY_OK matrix_entries= 1044`. The six finite graphs checked are cycles of lengths five and six, complete bipartite graphs of degrees three and four, the three-dimensional cube, and the triangular prism. Four rational positive home-fidelity settings are checked per graph, together with the exact stochastic row sums. For the triangular prism at fidelity two, the checker obtains `A=244/1875`, `B=109/3750`, `S=272/625`, `triangle_edge=199/1250`, `other_edge=244/1875`, and `temperature=353/625`.
+PASS
 
-The proof of the infinitely many degree and graph cases does not rely on this finite test. Independently inspect the binomial integrating identity, the conditional occupant distribution at each type of meeting site, the derivative of the self-weight, the sign of the scalar root equation, and the Bernoulli strict bound. The limit is obtained from uniform convergence of the scalar root equations on a compact interval, not from finite degree sampling. Verification applies to the stated model only; actual fixation probabilities or evolutionary outcomes were neither computed nor asserted. Independent external validation has not been conducted.
+For home-vertex visits q=h/(h+d), neighbor visits p=1/(h+d), classify encounters at focal homes (2qp E[1/(1+Bin(d−1,p))]) and common neighbor sites (p² E[1/(1+Bern(q)+Bin(d−2,p))]). This gives W=sI+aA+b(A²−dI), with a=2h(1−(1−p)^d)/(d(h+d)), b the claimed one-dimensional integral and s=q(1−p)^d+d²p²(1−p)^(d−1). Conditional weights normalize to one in each realized group, so W is symmetric and row-stochastic. The exact derivative s′ has sign(h−1). For triangle-free edges a(x) has unique maximizer x∈(0,1/d), root (1−x)^(d−1)(2−(d+1)x)=1, strictly below 1/(2d); hence h*>d. Bare meeting probability 2h/(h+d)^2 maximizes at d. Lambert asymptotics follow from e^(−y)(2−y)=1. Independently checked s′ symbolic differentiation for all d=2,..,9 and d=2 root; full analytic arguments carry all degrees.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for all-regular-graph exact adjacency polynomial and sharp h_temperature=1<h_encounter=d<h_replacement. General territorial-raider replacement group-sum formula and individual temperature definitions are prior art. No inspected source derives the full structural reduction or full degree-dependent peak hierarchy.
+
+## value
+
+PASS
+
+The polynomial W=sI+aA+b(A²−dI) exposes common-neighbor effects invisible to identical per-vertex temperatures, while rigorously separating crowd-normalized replacement from raw meeting and total temperature; 1<d<h* holds for every triangle-free regular degree. This is an exact structural tool for multiplayer interactions rather than an arbitrary parameter optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
