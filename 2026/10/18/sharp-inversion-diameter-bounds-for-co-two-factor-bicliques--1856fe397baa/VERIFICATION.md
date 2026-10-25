@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-Execute the included standalone standard-library program using `python3 verify.py`. It builds inversion subsets independently of the parity-check construction and searches the full difference-state space for \(n=3,4,5\). It then verifies explicit constructive linear solutions for all differences at those orders, all binary fillings of missing entries in the prescribed lower-bound witness, and 32 reproducible random differences at each order from 6 through 32. It separately checks general 2-factor-deleted bicliques by enumerating derangements: all such permutations up to \(n=7\), 200 at \(n=8\), with three target patterns per case.
+## correctness
 
-Observed BFS results for cyclic deletions: \(n=3\), 3 remaining edges, diameter 1, distance counts \([1,7]\); \(n=4\), 8 remaining edges, diameter 2, counts \([1,89,166]\); \(n=5\), 15 remaining edges, diameter 3, counts \([1,591,21106,11070]\). Checks of the general two-factor family include 2 derangements at order 3, 9 at 4, 44 at 5, 265 at 6, 1854 at 7, and a 200-case sample at 8. The program exited successfully with `ALL_VERIFICATION_CHECKS_PASSED`.
+PASS
 
-The infinite-family correctness relies on the written proof, not extrapolation of these finite computations. The claim does not cover graphs whose missing-edge subgraph is not a spanning 2-factor, and does not assert exactness for every co-two-factor. Literature searches are not a universal proof of novelty; independent audit has not been performed.
+An inversion of a vertex subset toggles bipartite edge bits by one outer product over F2, so t inversions iff completed prescribed edge data factor through F2^t. Every deleted 2-factor gives a loopless 2-regular multigraph T of two missing row indices per right column (including 2-cycles with parallel edges); proper 3-colouring assigns distinct nonzero F2^2 vectors to every omitted pair. Kernel basis Q of 2-by-n parity-check matrix restricts invertibly to the n-2 surviving rows of every column, permitting n-2 binary factors for any orientation difference. In Hamiltonian case the n-2 prescribed bits at offsets +2 form a triangular all-diagonal-one rank lower bound for any completion.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. Neither earlier statement logically forces that every 2-factor complement admits the n-2 completion, or sharpness of Hamilton lower minor.
+
+## value
+
+PASS
+
+A sharp degree-matching inversion bound for an infinite regular bipartite graph family, constructive across disconnected deletion factors, is mathematically motivated by inversion diameter versus maximum degree. Hamiltonian lower-bound certificate makes a complete sharp result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
