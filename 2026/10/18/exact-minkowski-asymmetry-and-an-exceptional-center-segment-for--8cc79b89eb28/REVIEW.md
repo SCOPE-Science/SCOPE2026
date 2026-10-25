@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the zero-inclusive interval-incidence polytope in every integer dimension at least two. The positive-variation membership lemma is proved in both directions by a layer-cake interval decomposition, including nonnegative boundary cases and the zero vertex. Reflection containment is equivalent to explicit reflected-vertex inclusion. Alternating-triple inequalities and coordinate inequalities imply the lower bounds two in dimension at least four and three-halves in dimension three. The displayed centers attain them, while the repeated-quadruple equality analysis forces all centers, leaving precisely the four-dimensional segment. The second endpoint is checked on all eleven vertices with exact integer positive-variation values, and convexity fills the segment. Exact-rational independent replay checks 1,167 reflected-vertex inclusions in dimensions two through eighteen. Finite checks are not substituted for the algebraic proof.
+## correctness
 
-## Originality — PASS (qualified)
-The 2023 connected-block primary source establishes facets, edges, and unimodular root equivalence, but not Minkowski reflection asymmetry; the relevant theorem and proof sections of the accessible full text were checked. A published exact Euclidean inradius study concerns exactly the same path family but solves a different, metric optimization problem: its center locus dimension grows with dimension, whereas the present Minkowski center is unique beyond dimension four. The published positive-root one-skeleton classification concerns edges, not the affine reflection invariant. General results for poset order polytopes cannot simply be applied to this distinct convex body. Actual mathematical-record searches under connected-block, root-polytope, consecutive-ones, and Minkowski-center aliases identified no statement implying the complete asymmetry-plus-centers classification. A hidden equivalent older formulation remains a residual bibliographic risk; search noncoverage alone is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The connected-block path is a canonical, well-studied, infinite family of combinatorial lattice polytopes. Exact Minkowski asymmetry is a natural affine invariant that is different from the family’s already-studied Euclidean inradius, face structure, and Ehrhart data. The exceptional four-dimensional segment versus uniqueness elsewhere is a complete structural equality-case classification and explains a sharp dimension transition with a simple geometric certificate, rather than an arbitrary numerical instance or routine parameter substitution.
+For P_n=conv(0 and 0-1 consecutive interval indicators), n>=2, positive variation V+(w)=sum_i max(0,w_i-w_{i-1}) characterizes membership among nonnegative w exactly, by layer-cake decomposition into superlevel interval runs (zero vertex handles coefficient slack). Minkowski containment translates to ((s+1)c-v)/s in P_n for each vertex. Coordinate 0<=w_i<=1 and alternating triple w_i-w_j+w_k<=1 with minimum -1 enforce s>=3/2 for n3 and s>=2 for n>=4 using overlapping triple inequalities; square n2 has s1. c=1/3 1 attains s2 because complement of a single interval has <=2 runs; n3 c=(2/5,3/5,2/5) checked by exact 3D facet inequalities. Equality cases at s2 force nonnegative offsets d_i=c_i-1/3 with d_i-d_j+d_k<=0 and all overlapping quadruple extremes d_i=d_l=0; n4 leaves d2=d3 in [0,1/3], and n>=5 forces all zero. Both n4 segment endpoints meet reflection criterion: second verified exhaustively on 11 vertices. Independently checked exact reflected-vertex membership for proposed centers n2..16 via Fraction; universality is supplied by symbolic proof. Check proof uses s>=1 convention and the zero-inclusive body throughout.
 
-## Scope and residual risks
-The theorem treats all dimensions for the standard zero-inclusive body only. No independent external validation has occurred. An older independently discovered translation into a different polytope language could duplicate some statements and has not been ruled out exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Bruckamp–Chimani–Juhnke 2023/2025 connected-block polytope paper identifies the same zero-inclusive path family, facets and type-A connection, but does not address Minkowski reflection factors and full minimizing-center locus. Published Resultary full same-family result c3b8e999d5d4 computes EUCLIDEAN inradius and its (n−3)-dimensional incenter locus; this differs from affine Minkowski center, which is unique from n5. Full Resultary order-polytope Minkowski classification 2f48aab3ef81 studies finite poset order polytopes with height-determined asymmetry and different inequalities; cannot transfer without an unproved affine equivalence. No inspected earlier statement yields the exact exceptional n4 segment; hidden type-A root-polytope duality is a residual priority risk.
+
+## value
+
+PASS
+
+Complete classification of a fundamental affine invariant and ALL equality-case centers for a canonical interval/root-related lattice-polytope family, with a distinct dimension-four segment exceptional locus. It separates metric incenter geometry from affine reflection geometry and is not merely calculating an arbitrary low-dimensional example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
