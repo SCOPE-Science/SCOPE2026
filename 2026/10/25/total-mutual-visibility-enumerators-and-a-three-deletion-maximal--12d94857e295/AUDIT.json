@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For p,q>=3 and nonempty nonfull deleted matching, all same-side pairs have two-edge geodesics with opposite-part common neighbors missing at most two matched vertices. These conditions are necessary and sufficient, including for all missing-edge endpoint pairs of distance three via explicit internal vertices. This establishes exact independent partwise admissibility. Binomial disallowed omissions give the full polynomial; minimal allowable omitted sets are one unmatched singleton or three matched vertices, giving the complete maximal polynomial. The packaged standalone BFS verifier independently tests all graph shortest paths, all 2^(p+q) subsets, exact bivariate coefficients, and maximality on 41 small parameter instances; finite checks corroborate rather than prove the all-parameter theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.07835 studies strong products and introduces total mutual visibility.",
+        "arXiv:2307.02951 treats lower total mutual visibility and includes a result on Cartesian products of complete graphs, not a partial edge-matching deletion from a biclique.",
+        "arXiv:2412.03066 Proposition 3.2 explicitly treats undeleted balanced K_{n,n} visibility polynomials, while Theorem 5.2 is a general criterion for checking a proposed set."
+      ],
+      "reasoning": "No inspected broader classification includes the complete all-set and maximal-set enumerators on the nonzero, nonfull matching-deleted biclique family. The original parameter definitions and general test are credited; the stated family-specific census requires specialization and maximality analysis.",
+      "searches": [
+        "arXiv:2210.07835 Section 3 total mutual-visibility and subsequent strong product results",
+        "arXiv:2307.02951 conclusions and Proposition 17",
+        "arXiv:2412.03066 Proposition 3.2 and Theorem 5.2",
+        "published-finding corpus: total mutual-visibility sets common-neighbor condition complete bipartite graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.07835 first publication 2022-10-14; primary MSC 05C12, strong products and definition",
+      "arXiv:2307.02951 lower total visibility definition, general bounds and results",
+      "arXiv:2412.03066 Proposition 3.2 complete balanced undeleted biclique and Theorem 5.2 neighborhood criterion",
+      "OEIS:A390404 crown ordinary mutual visibility enumerator (Howroyd, 2026)",
+      "published-finding corpus: 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+      "published-finding corpus: 2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00",
+      "published-finding corpus: 2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+      "Accessible own ledger historical claim: a8a6d125-d085-4fbd-ab98-a328b3564a46 strong odd coloring same family; nonimplication checked",
+      "Accessible own ledger historical claim: 8ab9598e-4a2d-49a7-90ef-7162fcbd883f edge general position of defective biclique; nonimplication checked"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.2 in arXiv:2412.03066 gives the special case t=0 on balanced complete bipartite graphs; it does not state the t>=3 maximality transition.",
+        "Theorem 5.2 of the same work is general logical equivalence, not an evaluation of maximal-set cardinality distributions under partial matching deletions.",
+        "Own claim a8a6d125-d085-4fbd-ab98-a328b3564a46 counts strong odd vertex colorings of the exact same partial matching-deleted bipartite family; it does not count total mutual-visibility vertex subsets.",
+        "Own claim 8ab9598e-4a2d-49a7-90ef-7162fcbd883f counts edge-general-position subsets for one deleted edge; it does not imply vertex total mutual visibility."
+      ],
+      "reasoning": "The equal graph parameters in existing records are not by themselves overlap: the properties differ, with no implication transferring strong-odd-coloring/edge-geodesic counts to the new total-visibility set enumerators. Existing general visibility tests are explicitly credited; no source examined states or logically supplies the exact closed full and maximal polynomials without additional graph-specific derivation.",
+      "searches": [
+        "arXiv:2412.03066 Proposition 3.2 and Theorem 5.2",
+        "arXiv:2307.02951 Proposition 6 and conclusions",
+        "published-finding corpus: lower total mutual visibility number inclusion-maximal sets K_{n,n} minus perfect matching crown graphs",
+        "Own ledger: a8a6d125-d085-4fbd-ab98-a328b3564a46",
+        "Own ledger: 8ab9598e-4a2d-49a7-90ef-7162fcbd883f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2412.03066 Theorem 5.2 gives a general equivalent criterion via uncovered common neighbors of distance-two vertices, not a family-specific closed enumeration.",
+        "OEIS:A390404 counts *mutual*-visibility sets on a full perfect-matching crown, not *total* mutual-visibility sets on a proper partial deletion.",
+        "The exact exclusion test in the new theorem separately classifies all omitted vertices and yields a polynomial and maximal-set spectrum absent from those statements."
+      ],
+      "reasoning": "The universal common-neighbor characterization implies that the graph-specific omission criterion can be derived, but its general statement does not provide the exact complete product polynomial or inclusion-maximal enumeration. The nearest crown sequence changes both the quantifier (only selected vertex pairs) and deletion endpoint, so equivalence is not established.",
+      "searches": [
+        "published-finding corpus: total mutual-visibility polynomial matching-deleted complete bipartite graph K_{p,q} minus a matching",
+        "published-finding corpus: lower total mutual visibility number inclusion-maximal sets K_{n,n} minus perfect matching crown graphs",
+        "published-finding corpus: total visibility in bipartite graph with a deleted matching, number of maximal total visibility sets",
+        "arXiv:2412.03066 Theorem 5.2",
+        "OEIS:A390404 full entry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A390404 enumerates mutual-visibility sets for full-matching-balanced crowns and provides their ordinary visibility polynomial.",
+        "published-finding corpus 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f concerns a geodesic-subpath invariant, not total mutual visibility.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb concerns clique/stable-set disjointness."
+      ],
+      "reasoning": "The closest online table is an ordinary visibility count of crowns; it does not supply the present bivariate total visibility and inclusion-maximal-set spectrum on proper matching deletions. Indexed graphs and parameters were compared by implication, not title alone.",
+      "searches": [
+        "OEIS A390404 Number of mutual-visibility sets in the n-crown graph",
+        "OEIS A390404 visibility polynomial of the n-crown graph (Jan 2026)",
+        "published-finding corpus: total mutual-visibility polynomial matching-deleted complete bipartite graph K_{p,q} minus a matching",
+        "published-finding corpus: exact total mutual visibility polynomial p q t threshold omitted vertices triple matched"
+      ]
+    },
+    "rationale": "A family-specific complete total mutual-visibility polynomial and full inclusion-maximal spectrum for proper nonempty matching deletions is not stated in the checked published primary text, indexed mathematical findings, or accessible own historical claims. Known general distance-two tests, scalar lower parameter, undeleted K_nn polynomial, and ordinary mutual-visibility crown counts are all credited and their specific implications compared. Remaining unindexed overlap risk acknowledged.",
+    "residual_risks": [
+      "An unindexed or later exact result on partial matching-deleted bicliques may overlap despite published/indexed searches.",
+      "The prior general common-neighborhood criterion implies the feasibility test after graph-specific analysis; the precise originality claim rests on exact complete and maximal enumerators and the three-edge transition, not on a new graph-general criterion.",
+      "The excluded t=0 and full perfect-matching endpoints have known closely related results; no priority is claimed for them.",
+      "The self-contained proof is not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_PARAMETER_NOT_COVERING_ENUMERATION",
+        "evidence": "First public arXiv submission 2022-10-14; MSC 05C12; examines strong product problems and basic total visibility, not matching-deleted biclique censuses.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.07835",
+        "material_read": "Accessible full HTML text: title/date/authors, introduction, total-mutual-visibility section and strong-product research focus",
+        "method": "Read arXiv HTML and checked sections/objects",
+        "title": "Mutual-visibility in strong products of graphs via total mutual-visibility",
+        "trigger": "Earliest primary source defining total visibility; verified first-public date and primary MSC 05C12"
+      },
+      {
+        "assessment": "DEFINES_LOWER_PARAMETER_NOT_COVERING_MATCHING_DELETIONS",
+        "evidence": "Paper gives general bounds and lower total visibility of K_m square K_n (Proposition 17) but not the partial matching-deleted K_{p,q} enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+        "material_read": "Accessible full HTML introduction, related problems, parameter results, conclusions including Cartesian complete-graph products",
+        "method": "Read full accessible HTML with targeted searches",
+        "title": "Lower (total) mutual visibility in graphs",
+        "trigger": "Defines lower total visibility and analyzes maximality"
+      },
+      {
+        "assessment": "GENERAL_TEST_AND_UNDELETED_CASE_CREDITED; NO_EXACT_PARTIAL_DELETION_CENSUS",
+        "evidence": "Theorem 5.2 has distance-2/common-neighbor criterion; Proposition 3.2 treats K_{n,n} without deleted edges; matching deletion absent in inspected text.",
+        "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+        "material_read": "Accessible full HTML, especially Section 3 Proposition 3.2, Section 5 Theorem 5.2 and proof",
+        "method": "Read the public HTML and compare exact graph parameters and quantifiers",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Closest direct literature on all total-visible sets and polynomials"
+      },
+      {
+        "assessment": "DIFFERENT_QUANTIFIER_AND_EXCLUDED_ENDPOINT",
+        "evidence": "Counts mutual visibility for K_{n,n}-M_n; present new claim counts total visibility for 1<=t<min(p,q), and full matching endpoint explicitly excluded.",
+        "identifier_or_url": "https://oeis.org/A390404",
+        "material_read": "Entire short OEIS page, including 2026 polynomial and count formulas, distinction of ordinary visibility",
+        "method": "Read OEIS entries, commentary and linked article description",
+        "title": "OEIS A390404: Number of mutual-visibility sets in the n-crown graph",
+        "trigger": "Exact related combinatorial sequence for matching-deleted complete bipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12d94857-e295-41c2-9553-e2abe7a32409",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural one-parameter family interpolates from a complete biclique toward a crown under disjoint edge deletions. Its complete bivariate polynomial counts every total-visible placement, and its maximal polynomial reveals a genuine threshold at the third deleted edge: three distinct maximal-cardinality layers and a sharp lower-vs-upper gap of four, although the upper number stays fixed. The counted maximality spectrum is not determined by previously known scalar parameters; both structural classification and exact census are reusable finite and infinite-family data.",
+    "status": "PASS"
+  }
+}
