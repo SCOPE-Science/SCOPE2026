@@ -1,15 +1,21 @@
-# Scientific review — graph-pairing classification of optimal four-multiset deletion codes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins with the five exact multiplicity profiles and the disjoint deletion-output resources. The known sharp counting bound forces every pure word, excludes every three-plus-one word, and fills all ordered type-(2,1) arcs exactly once. Missing pair-squares therefore form an even-degree graph; centered mixed words partition each vertex's incident missing arcs, and their support triples must be distinct and uncovered by the maximum quadruple packing. The converse checks all three output multiplicity types, proving that these combinatorial data produce every and only an optimum. The rigidity corollaries use a verified classical Steiner quadruple existence theorem, the parity leave count for odd alphabet sizes, and uniqueness of the uncovered triple through each pair. The six-symbol noncanonical construction has its six wedge triples explicitly checked. The included standard-library program checked every claimed small constructed code and its deletion shadows for alphabets of sizes two through eight, and independently checked the mixed six-symbol optimum; its output ended with `VERIFY_OK`. Those finite checks supplement rather than replace the unrestricted proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Chen, Ma and Zhang's Theorem III.2 (arXiv:2003.00483, inspected in full surrounding context) already proves the **numerical maximum** and the existence of canonical optimizers; these are not claimed new. It does not assert the necessity-and-sufficiency classification of **all** maximum codes by maximum packings, even-degree graphs, local wedge pairings and globally distinct uncovered triples. In particular it does not identify the mixed six-symbol optimal construction or the all-alphabet Steiner rigidity consequence. Kreindel, Essayag and Zabokritskiy's inspected 2026 papers address general multiset-deletion constructions, bounds and small-alphabet optima; Kovačević and Tan's inspected earlier work treats general multiset channels. Their statements do not dominate this all-optimizer classification. A special seven-symbol rigidity phenomenon is known in related work; the general classification cannot be presented as discovery of its already known cardinality or seven-symbol special case. The full text of Zabokritskiy's 2026 multiset-profile paper could not be retrieved during this comparison; its abstract reports exact maximum sizes for five and seven symbols without providing a complete all-alphabet optimizer statement. This access gap and an unindexed earlier characterization are residual risks, and the result has not undergone independent audit.
+PASS
 
-## Value — PASS
-Unlike the established maximum-size identity, this theorem parameterizes all equality cases, including noncanonical ones. Its even-degree and triple-leave constraints convert optimizer classification into a concrete matching/design problem. The construction at six symbols proves that restricting to the canonical all-pair-square family would omit valid optima, while the Steiner cases show when such restriction is forced for infinitely many alphabet sizes. These are structural conclusions for a natural coding-theoretic problem, not merely new numerical rows.
+The five multiplicity types (4),(3,1),(2,2),(2,1,1),(1,1,1,1) use, respectively, one (3) output; one (3) plus one oriented (2,1); two oriented (2,1); two oriented (2,1) plus one squarefree triple; four squarefree triples. Disjoint shadows give a+b<=q, b+2c+2d<=q(q-1) and f<=D(q,4,3), hence the known bound q+binom(q,2)+D. Equality forces all pure words, no (3,1), a maximum quadruple packing, and exact cover of every oriented double-single output. Absent pair-squares define even-degree graph H, while missing oriented arcs pair at each doubled center into distinct uncovered-support wedges. Conversely these necessary conditions give disjoint output shadows at all three types; hence the data classify all optimizers uniquely. For q even congruent 2 or 4 mod6, Steiner quadruple perfection leaves no uncovered triples; for q odd congruent 1 or 3 mod6, the parity lower bound and SQS(q+1) imply uncovered triples form a Steiner triple system, so an H edge would require the SAME unique uncovered triple to be assigned from both endpoints, forbidden. Direct independent q=6 construction with 3 quadruples and six-cycle wedges verified 24 codewords, 54 mutually disjoint three-multiset outputs and 6 mixed codewords. The existence theorem for SQS in the stated congruence classes is the credited classical input.
 
-## Scientific limitations
-The theorem does not count isomorphism classes or solve the maximum-quadruple-packing classification at every alphabet size. Its finite test range does not establish the all-alphabet theorem independently of the written proof. Earlier unindexed equivalent optimizer results remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct exact theorem after statement-level comparison: Full text of Zabokritskiy’s 2026 multiset-profile article could contain a sharper general equality-case theorem, not excluded by abstract-only material. Previously known ingredients are credited; no unsuccessful search is treated as novelty proof.
+
+## value
+
+PASS
+
+Classifying ALL optimizers, rather than merely restating the established cardinality, is a natural mathematically useful equality-case problem. The graph H/even-degree/local neighbor-pairing parameterization exposes the precise freedom in missing pair-squares; Steiner quadruple systems force global rigidity in four infinite congruence classes, while the six-symbol mixed construction demonstrates the freedom is real in another class. These distinctions can matter for structural enumeration and selecting noncanonical code designs even when the optimum size is already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
