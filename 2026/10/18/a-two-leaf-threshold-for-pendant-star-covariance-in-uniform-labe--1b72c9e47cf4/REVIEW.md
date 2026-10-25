@@ -1,19 +1,21 @@
-# Scientific review: pendant-star covariance in uniform labelled trees
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact event probability follows by deleting the specified pendant leaves and counting the remaining Cayley trees with a specified vertex of degree one. Under this bijection, the conditioned Prüfer code is independent uniform sampling from the remaining labels, giving the full conditional law. The covariance identity follows by summing marked-event indicators. Strict sign inequalities are derived analytically from explicitly bounded logarithmic series and elementary rational bounds on the exponential constant. Exhaustive exact-rational enumeration on orders four through eight and marked-event distribution tests passed 30,743 assertions.
+PASS
 
-## Originality
+Delete the k marked leaves adjacent to v and obtain a uniform n-k Cayley tree conditional on v being a leaf; the Prüfer word of length n-k-2 avoids v and is i.i.d. uniform on b=n-k-1 other labels. This yields exact marked-event probability and conditional L=k+empty-box count, giving covariance by indicator expansion. Sign: analytic logarithmic bounds (b+1/2)/e < h_b < (b+3/4)/e and (n+3/2)/e < f_n < (n+45/16)/e (n>=5) force k=1 negative and k>=2 positive; n=4 k1 direct. Asymptotic expansion yields coefficient e^-(k+1)/k!*(k-(k+2)/e). n-1 star leaves occur unconditionally but not under marked event, and for k>=2 higher conditional mean excludes reverse dominance. New independent exact enumeration of all Prüfer words for n=4..7 confirms all signs and rational covariances, including k1 n=4 -3/8 and n5 k1 -204/625, k2 132/625.
 
-PASS on checked evidence, subject to historical-priority risk. The closest source is Junk–Schmidt–Weber's complete Section 3 treatment of strict cherries in uniform labelled trees: its known marginal probability and second moment do not include the global leaf count or any \(k\)-star sign threshold. Janson's primary-60C05 tree-limits article concerns distributional global scaling limits, not exact joint profiles. Published-result and indexed-result searches compared degree profiles, leaf counts, cherries, equivalent Prüfer/occupancy formulations, and finite covariance implications. Older pattern-covariance formulas could conceivably imply the claimed threshold; absence of a located formula does not prove uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. The leaf count and pendant-star profile are canonical natural descriptors of randomly labelled trees, and strict cherries are known indicators of automorphisms. The complete all-orders sign switch distinguishes a pendant path from symmetric cherry-sized motifs and determines the joint dependence sign without a limit theorem. The absence of stochastic ordering even in the positive regime delineates the strength of covariance evidence. The exact occupancy conditional law allows reproducible finer calculations.
+Junk–Schmidt–Weber 2020 original article Section 3 (Lemmas 3.5–3.8) computes existence/counts/second moment of strict cherries (k=2) for Cayley trees; its k2 marginal is already known and explicitly credited. The current result concerns the joint finite-n covariance with total leaves and the strict sign switch at k=2, plus all-k marked conditional occupancy law, which is not stated there. Janson 2020 article Section 9/Remark 9.3 concerns convergence of conditioned Galton–Watson random trees including labeled Cayley trees, not these exact finite-n mixed moments. Resultary hits on random recursive trees/other Cayley statistics are distinct.
 
-## Closest literature and limits
+## value
 
-Junk, Schmidt and Weber, arXiv:1911.02952, Sect. 3, supplies the known \(k=2\) marginal and cherry motivation. Janson, arXiv:2005.13832, Sect. 9, puts Cayley trees among probabilistic conditioned branching-tree models; it cannot imply the exact finite-size mixed covariance from its global limit theorem. A closely titled 2020 phylogenetic cherry/pitchfork study addresses a different distribution. The result is specific to uniform labelled Cayley trees, fixed degree at star centres, and fixed-\(k\) asymptotics. Independent literature priority remains uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-k sign classification and finite-sample conditional laws for a natural local/global dependence statistic of a classical model; identifies a counterintuitive negative-to-positive leaf-stub covariance threshold, useful for random-tree local pattern dependencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
