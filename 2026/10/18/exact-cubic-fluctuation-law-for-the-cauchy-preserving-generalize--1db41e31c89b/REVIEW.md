@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is for Cauchy-stationary \(T_{\alpha,\beta}(x)=\alpha x-\beta/x\) with \(0<\alpha<1\), \(\beta>0\), and the bounded rational Cayley observable. Direct Cayley algebra gives the finite Blaschke product \(B_t(z)=z(z+t)/(1+tz)\) with \(t=2\alpha-1\); since \(B_t(0)=0\), Haar invariance follows by analytic Fourier moments. Extracting the first two Taylor coefficients of iterates and using exact analytic quotient factorizations establishes the two- and three-time correlation identities, including repeated-index boundaries. Combinatorial multiplicities then give the exact finite-horizon cumulant. Absolute convergence at every fixed \(|t|<1\) justifies the asymptotic limit. The standalone verification script returned `VERIFY_OK`, but finite checks are not used as proofs.
+PASS
 
-## Originality
+The final claim fixes 0<alpha<1, beta>0, stationary Cauchy scale s=sqrt(beta/(1-alpha)), bounded centered phi=(x^2-s^2)/(x^2+s^2), and excludes endpoints from the limit. Cayley conjugacy maps T to B_t(z)=z(z+t)/(1+t z), t=2alpha-1, and phi=Re z; B_t(0)=0 proves Haar invariance. The analytic iterate coefficient c_m=(1+t)t^(m-1)(1-t^m), combined with analytic/anti-analytic orthogonality, proves E[Y_iY_j]=t^|i-j|/2 and E[Y_iY_jY_k]=t^(j-i)c_(k-j)/4 for i<=j<k; later-index repeated triples vanish. Counting repeated/strictly ordered triples gives the exact finite sums. Absolute geometric convergence yields Var(S_N)/N=(1+t)/(2(1-t)) and kappa3(S_N)/N=3(1+t)/(4(1-t)^2); skewness normalization is consistent. Independently calculated 131072-point Haar-grid quadrature for t=-0.4,0,0.3 and 8 iterates reproduced ALL pair and ordered triple correlations with maximum error below 2e-16, and the N=7 third cumulant within 2e-14. These numerical values only corroborate, while the analytic proof handles every parameter.
 
-**PASS within inspected evidence, with residual bibliographic risk.** Umeno and Okubo, arXiv:1510.08569, supply the Cauchy invariant state, mixing regime and mean Lyapunov law. Nicolau, arXiv:2103.07238, and Nicolau–Soler i Gibert, arXiv:2305.02042, supply general inner-function iterate theory, including the second-order variance and central limit theorem. Their inspected statements establish those antecedents but do not provide the exact parameterized third-cumulant rate \(3\alpha/[8(1-\alpha)^2]\) for this natural generalized Boole sensor or its opposing endpoint scalings. General correlation estimates are not equivalent to an explicit coefficient. An unlocated exact formula or specialization in broader analytic-dynamics literature remains possible; this review does not certify literature exhaustiveness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a motivated fluctuation invariant, not a sample integer or a routine renaming of the mean exponent. The probe \((x^2-s^2)/(x^2+s^2)\) is the real Cayley phase, is bounded under a heavy-tailed invariant state, and is canonical under the known rational-to-Blaschke conjugacy. The complete exact three-time function determines all finite third cumulants and a sharp asymptotic coefficient. In the two zero-Lyapunov limits, the cubic coefficient exhibits opposite vanishing and divergence, distinguishing alternating and persistent long-memory approaches to nonmixing. The variance and CLT are background, not a novelty claim. No assertion about generic observables or uniform critical-limit CLTs is made.
+Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.
 
-## Closest literature and limitations
+## value
 
-The nearest broad result is The Central Limit Theorem for inner functions II, especially the covariance normalization in equation (1.2) and the higher-order correlation estimates of Section 4. The nearest model-specific source is Exact Lyapunov exponents of the generalized Boole transformations. The novelty claim concerns a *closed third-order coefficient*, not mixing, Haar invariance, the Lyapunov formula, or the already known second-order covariance. Only a defined observable, interior parameters, and sequential parameter/horizon limits are covered. Literature coverage is qualified by the possibility of an equivalent calculation elsewhere.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Cauchy stationary coordinate has no finite conventional moments, so the bounded canonical Cayley observable is mathematically natural. An all-horizon third cumulant for a mixing dynamical system and its singular asymmetry alpha down to 0 versus up to 1 complement known variance and Gaussian-limit theory. The coefficient is a meaningful higher-order fluctuation invariant, not a random evaluation or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

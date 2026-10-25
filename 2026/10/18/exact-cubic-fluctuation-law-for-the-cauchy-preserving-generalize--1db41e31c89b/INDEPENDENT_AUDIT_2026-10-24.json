@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:59:22.043483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim fixes 0<alpha<1, beta>0, stationary Cauchy scale s=sqrt(beta/(1-alpha)), bounded centered phi=(x^2-s^2)/(x^2+s^2), and excludes endpoints from the limit. Cayley conjugacy maps T to B_t(z)=z(z+t)/(1+t z), t=2alpha-1, and phi=Re z; B_t(0)=0 proves Haar invariance. The analytic iterate coefficient c_m=(1+t)t^(m-1)(1-t^m), combined with analytic/anti-analytic orthogonality, proves E[Y_iY_j]=t^|i-j|/2 and E[Y_iY_jY_k]=t^(j-i)c_(k-j)/4 for i<=j<k; later-index repeated triples vanish. Counting repeated/strictly ordered triples gives the exact finite sums. Absolute geometric convergence yields Var(S_N)/N=(1+t)/(2(1-t)) and kappa3(S_N)/N=3(1+t)/(4(1-t)^2); skewness normalization is consistent. Independently calculated 131072-point Haar-grid quadrature for t=-0.4,0,0.3 and 8 iterates reproduced ALL pair and ordered triple correlations with maximum error below 2e-16, and the N=7 third cumulant within 2e-14. These numerical values only corroborate, while the analytic proof handles every parameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general CLT and covariance normalization cover the second-order law, which the submission explicitly credits.",
+          "Nicolau 2021 addresses convergence/function spaces of inner iterates, not a model-specific cubic rate in its inspected main statements."
+        ],
+        "reasoning": "A CLT is only leading weak convergence and its covariance formula cannot algebraically fix this third cumulant; not a corollary of those stated theorems.",
+        "searches": [
+          "arXiv:2305.02042 Theorem 1 Eq.(1.2) and correlation lemmas",
+          "arXiv:2103.07238 theorem/introduction"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md and verify.py",
+        "arXiv:1510.08569",
+        "arXiv:2305.02042",
+        "arXiv:2103.07238",
+        "Resultary semantic query: Cauchy preserving generalized Boole transformation exact third cumulant cubic moment observable mixing Blaschke"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known mixing/Cauchy data and all-parameter second moments do not mathematically imply a specific second-order iterate Taylor coefficient or exact three-time correlation.",
+          "The supplied formula uses c_m=(1+t)t^(m-1)(1-t^m), absent from accessible prior statements."
+        ],
+        "reasoning": "The new finite triple law and asymmetric alpha-endpoint rate are not deducible by direct substitution into identified prior Lyapunov or covariance formulas; a stronger unlocated Blaschke identity is a genuine residual risk.",
+        "searches": [
+          "arXiv:1510.08569",
+          "arXiv:2103.07238",
+          "arXiv:2305.02042",
+          "Resultary semantic query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Umeno and Okubo 2015/2016 have the identical rational map and Cauchy invariant law, but the accessible primary abstract states mixing and Lyapunov exponents, not the three-point coefficient.",
+          "Nicolau/Soler i Gibert 2023 Theorem 1 establishes a general variance/covariance framework for boundary inner iterates."
+        ],
+        "reasoning": "The inner-function parameter t=B_t prime(0) rephrases the problem exactly; covariance and Lyapunov exponents do not determine the second Taylor coefficient c_m or a third-order cumulant. A general unindexed third-moment formula could nonetheless cover it.",
+        "searches": [
+          "Resultary semantic: generalized Boole exact third cumulant Blaschke",
+          "arXiv:1510.08569",
+          "arXiv:2305.02042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-map original abstract highlights Lyapunov phase dependence, not a table of phi third cumulants.",
+          "Resultary semantic ranks returned general cumulant findings on unrelated objects, no exact Boole table."
+        ],
+        "reasoning": "No matching tabulated coefficient identified; failed searches are bounded evidence, not novelty proof.",
+        "searches": [
+          "Resultary semantic query above",
+          "Umeno–Okubo arXiv:1510.08569 original tables and abstract",
+          "web generalized Boole exact higher cumulant coefficient"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary-statement comparison plus actual Resultary query, checked exact and broader implications, and explicit residual source-access risk. The novelty is the substantive stated result, not a theorem inferred merely from negative search.",
+      "residual_risks": [
+        "An unlocated exact higher-cumulant theorem for general inner functions/finite Blaschke products could imply the same closed value.",
+        "Umeno–Okubo full original article not materially read during this run; its abstract alone is not a whole-document noncoverage certificate.",
+        "Numerical Haar integration does not prove the infinite-parameter statement; correctness rests on the reviewed algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers invariant Cauchy/mixing/exponents, cannot establish absence from unread full text",
+          "evidence": "arXiv:1510.08569 abstract and version history",
+          "identifier_or_url": "arXiv:1510.08569; https://arxiv.org/abs/1510.08569",
+          "material_read": "Full abstract, initial publication history, theorem/topic descriptions through arXiv abstract; complete paper not read in this run",
+          "method": "Compared stated Lyapunov/mixing scope and parameters to proposed cubic cumulant",
+          "title": "Exact Lyapunov exponents of the generalized Boole transformations",
+          "trigger": "Exact same dynamics"
+        },
+        {
+          "assessment": "Prior covariance covers the variance component, no stated explicit Boole cubic coefficient in inspected relevant material",
+          "evidence": "arXiv:2305.02042, Theorem 1, Eq. (1.2), higher-correlation discussion",
+          "identifier_or_url": "arXiv:2305.02042",
+          "material_read": "Accessible arXiv full HTML: introduction, Theorem 1 equation 1.2, related correlation lemmas and normalization",
+          "method": "Checked general covariance/CLT hypotheses against B_t and looked for a third-order exact rate",
+          "title": "The Central Limit Theorem for inner functions II",
+          "trigger": "General theorem on inner-function iterates fixing 0"
+        },
+        {
+          "assessment": "No corresponding explicit parameterized third cumulant in inspected principal results",
+          "evidence": "arXiv:2103.07238 main theorems",
+          "identifier_or_url": "arXiv:2103.07238",
+          "material_read": "Accessible full arXiv HTML introduction and principal theorem statements",
+          "method": "Compared convergence and function-space claims to third-moment coefficient",
+          "title": "Convergence of linear combinations of iterates of an inner function",
+          "trigger": "Broader inner-map iteration results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Cauchy stationary coordinate has no finite conventional moments, so the bounded canonical Cayley observable is mathematically natural. An all-horizon third cumulant for a mixing dynamical system and its singular asymmetry alpha down to 0 versus up to 1 complement known variance and Gaussian-limit theory. The coefficient is a meaningful higher-order fluctuation invariant, not a random evaluation or renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unlocated exact higher-cumulant theorem for general inner functions/finite Blaschke products could imply the same closed value.",
+    "Umeno–Okubo full original article not materially read during this run; its abstract alone is not a whole-document noncoverage certificate.",
+    "Numerical Haar integration does not prove the infinite-parameter statement; correctness rests on the reviewed algebra.",
+    "All passes are best-of-knowledge scientific assessments, not independent external attestation of worldwide priority.",
+    "Operational publication not_ready does not reverse the separate PASS C/O/V finding."
+  ],
+  "schema_version": 1
+}
