@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:01:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=a, B=ba+d and C=b^2a+(b+1)d, gcd(A,B)=1 from gcd(a,d)=1; direct expansion gives (b+1)B=bA+C and qC+rB=(b^2q+br+d)A when a=q(b+1)+r. In low range a<=b+1, reduce C to sB+K0A and eliminate Z, leaving Y^a-X^B. For high divisible case take Y^(b+1)-X^bZ and Z^q-X^(b^2q+d); for high nondivisible case add Y^r Z^q-X^M and Z^(q+1)-X^Mprime Y^(b+1-r). Forward reductions strictly lower lexicographic measure (T=y+(b+1)z, then y), terminate at exactly the a unique pairs 0<=T<a; equal weighted degrees force dT≡dTprime mod a and then T equal. Hence any toric relation reduces to zero. Deleted-relation monomial-fiber arguments ensure indispensability, and distinct relation degrees give Betti elements. Independently recomputed homogeneous relations and normal form uniqueness in eight nontrivial triples through weight100, including all three parameter regimes. Finite checks supplement the all-parameter normal form proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General monomial-curve complete-intersection criteria and 3-generator toric presentation algorithms exist.",
+          "The Branco/Colaço/Ojeda generalized repunit initial generator is constrained to a specific base-b repunit; it intersects but does not equal arbitrary a,b,d family."
+        ],
+        "reasoning": "Prior algorithmic theories can solve instances and may imply some corollaries; the claimed uniform explicit parameters and exact Betti list over all permitted triples are not directly given by the restricted repunit presentation theorems inspected.",
+        "searches": [
+          "Maloo Sengupta 2003 Criterion for Complete Intersection of certain Monomial Curves",
+          "Branco Colaço Ojeda arXiv:2112.01106",
+          "Colaço Ojeda arXiv:2312.06013 minimal free resolution"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md and verify.py; independent modular normal-form computations in all three regimes",
+        "affine repunit numerical semigroup <a,ba+d,b^2a+(b+1)d> toric ideal minimal Betti complete intersection",
+        "Liu et al arXiv:2306.10738 full primary PDF",
+        "Branco et al arXiv:2112.01106 full PDF",
+        "Colaço/Ojeda arXiv:2312.06013 full PDF",
+        "classical monomial curve CI criterion bibliographic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apéry information could permit derivation of normal-form ideal generators but does not explicitly state all three regimes/Betti degrees in the inspected primary paper.",
+          "Determinantal presentations for restricted repunit initial generator cover their subset of triples, which is acknowledged, not full arbitrary coprime a,d."
+        ],
+        "reasoning": "Special cases of the full classification are previously covered, but none of the cited primary statements yields its complete parameter-domain closed forms without additional specialization and case work. Implicit classical specializations remain residual risk.",
+        "searches": [
+          "arXiv:2306.10738 A Note on Generalized Repunit Numerical Semigroups",
+          "arXiv:2312.06013 Minimal free resolution of generalized repunit algebras",
+          "Maloo Sengupta complete intersection monomial curves"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Substitute c=(b-1)a+d: a+c=ba+d=B, a+(b+1)c=b^2a+(b+1)d=C.",
+          "The normal-form Apéry representatives are compatible with standard almost-arithmetic three-generator descriptions."
+        ],
+        "reasoning": "Direct affine-repunit and almost-arithmetic parametrizations are equivalent; the relevant novelty risk is whether prior general three-generator theorems already spell out the same minimal binomials after this substitution. A generic existence algorithm alone is not an explicit three-regime classification.",
+        "searches": [
+          "affine repunit numerical semigroup <a,ba+d,b^2a+(b+1)d> toric ideal minimal Betti complete intersection",
+          "almost arithmetic numerical semigroup <a,a+c,a+(b+1)c> c=(b-1)a+d toric binomial relations Betti"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Liu et al papers study exactly these generators, focusing on Frobenius number, genus, and Apéry normal forms, while source presents explicit defining toric ideal and Betti degrees.",
+          "Resultary top hits for this query were unrelated algebraic classes; not proof of absence."
+        ],
+        "reasoning": "Same object has known additive invariants and representations; comparison isolates the new explicit full-parameter ideal presentation rather than relabeling known Frobenius data.",
+        "searches": [
+          "affine repunit numerical semigroup <a,ba+d,b^2a+(b+1)d> toric ideal minimal Betti complete intersection",
+          "Liu Xin Ye Yin 2306.03459 2306.10738 Betti toric ideal a ba+d b²a+(b+1)d"
+        ]
+      },
+      "rationale": "Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.",
+      "residual_risks": [
+        "A classical almost-arithmetic semigroup theorem could imply the displayed exact binomials by straightforward substitution; general presentation literature is broad.",
+        "Some special parameter choices overlap earlier base-repunit resolutions; no blanket novelty claim for all instances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same family, no equivalent full toric presentation found in the inspected primary text",
+          "evidence": "Normal-form representatives closely related, but exact three-branch toric ideal formulas not stated.",
+          "identifier_or_url": "arXiv:2306.10738",
+          "material_read": "complete arXiv PDF text including formulas for Apéry, Frobenius and genus",
+          "method": "read primary paper and compare its displayed results with all proposed minimal generators/Betti cases",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "identical numerical-semigroup generators and Apéry representatives"
+        },
+        {
+          "assessment": "overlapping restricted family, not full arbitrary a,d",
+          "evidence": "Initial generator belongs to prescribed repunit sequence, not arbitrary positive a.",
+          "identifier_or_url": "arXiv:2112.01106",
+          "material_read": "arXiv PDF on base-b repunit initial generator and Frobenius invariants",
+          "method": "read main definitions, scope and results of primary PDF",
+          "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+          "trigger": "generalized-repunit naming collision and possible dominating theorem"
+        },
+        {
+          "assessment": "covered overlapping restricted examples, not full arbitrary family",
+          "evidence": "Restricted repunit initial generator yields determinantal ideal, relevant known subset explicitly credited.",
+          "identifier_or_url": "arXiv:2312.06013",
+          "material_read": "full arXiv PDF including generator hypotheses and determinantal presentation",
+          "method": "read primary mathematical statements and compared parameter domains",
+          "title": "Minimal free resolution of generalized repunit algebras",
+          "trigger": "potential toric ideal / syzygy coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same affine-repunit three-generator numerical semigroup already has studied Frobenius/genus/Apéry invariants; explicit minimal toric presentations and first Betti degrees are natural complementary factorization invariants. Uniform formulas locate a sharp arithmetic boundary at divisibility of a by b+1 between three-generator complete intersections and three-relation noncomplete intersections. Applicable for arbitrary coprime positive a,d and b>=2, not simply recomputation of a tiny table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Three-term sequence only, positive d and gcd(a,d)=1; no claim for longer sequences or other term orders.",
+    "No formal verification; classical general algorithm specialization may limit originality interpretation."
+  ],
+  "schema_version": 1
+}
