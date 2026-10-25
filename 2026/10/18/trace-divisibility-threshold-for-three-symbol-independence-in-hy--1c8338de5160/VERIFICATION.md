@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof integrates exact planar rational polygons and uses a root-of-unity criterion for the cyclic reduction of the strip law. It also proves pairwise independence through torus coverings and arbitrary-time binary triple independence through sign inversion.
+# Independent mathematical audit
 
-The standalone `check.py` (run directly with Python 3) returned `VERIFY_OK: rational polygon integration, arithmetic threshold, entropy, and pairwise ranks`. Exact polygon tests cover \(3\le t\le30\); modular tests cover \(2\le q\le40\); determinant tests cover the first nine indices for \(3\le t\le20\). The information formula's logarithms are checked numerically only; it is established for all parameters by a separate closed entropy calculation. None of the infinite claims relies on the finite testing range.
+## correctness
 
-There is no independent audit or external formal certification. The earliest dated supporting primary text is the 22 July 2010 preprint of Siemaszko and Wojtkowski, arXiv:1007.3984. The source is used for background in toral partition dynamics, not as an assertion of the new cylinder formula.
+PASS
+
+For integer trace t>=3 and q>=2 equal-width vertical coordinate bins, invertible toral dynamics preserve Haar. Every pair of observation coordinate row vectors has nonzero integer determinant via the recurrence a_(h+1)=t a_h-a_(h-1), so pair maps push Haar to independent Haar. Conditional on first two bins the fractional parts U,V are iid uniform, giving C2=t C1-C0+floor(tV-U) mod q; exact strip integration assigns endpoint probability 1/(2t), interior 1/t. The root-of-unity Laurent generating polynomial (1+z^-1)sum_{j=0}^{t-1}z^j/(2t) vanishes on all nontrivial qth roots precisely for q=2 or q|t. Haar central inversion kills the third signed moment of every distinct-time binary triple, and pairwise independence then implies all three-bit uniforms. CMI equals log q-H(w); for q>=t+1 all nonzero residues distinct, yielding log(q/t)-(log 2)/t. Independent rational polygon clipping checked 270 strips t3..22, and all 720 tested t,q pairs passed; unrestricted proof is Fourier/covering, not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
+
+## value
+
+PASS
+
+A sharp arithmetic threshold and exact conditional-information defect for coarse-grained deterministic hyperbolic dynamics makes a natural boundary between pairwise and triple independence. The striking unrestricted binary three-time property and exact high-resolution log information law provide useful examples for symbolic dynamics and sensor quantization without claiming Markov coding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

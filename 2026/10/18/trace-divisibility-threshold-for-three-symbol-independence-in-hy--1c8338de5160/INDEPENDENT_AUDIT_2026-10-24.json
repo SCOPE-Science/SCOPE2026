@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:05:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For integer trace t>=3 and q>=2 equal-width vertical coordinate bins, invertible toral dynamics preserve Haar. Every pair of observation coordinate row vectors has nonzero integer determinant via the recurrence a_(h+1)=t a_h-a_(h-1), so pair maps push Haar to independent Haar. Conditional on first two bins the fractional parts U,V are iid uniform, giving C2=t C1-C0+floor(tV-U) mod q; exact strip integration assigns endpoint probability 1/(2t), interior 1/t. The root-of-unity Laurent generating polynomial (1+z^-1)sum_{j=0}^{t-1}z^j/(2t) vanishes on all nontrivial qth roots precisely for q=2 or q|t. Haar central inversion kills the third signed moment of every distinct-time binary triple, and pairwise independence then implies all three-bit uniforms. CMI equals log q-H(w); for q>=t+1 all nonzero residues distinct, yielding log(q/t)-(log 2)/t. Independent rational polygon clipping checked 270 strips t3..22, and all 720 tested t,q pairs passed; unrestricted proof is Fourier/covering, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Siemaszko–Wojtkowski 2010 concerns two-rectangle Berg partitions and their counting.",
+          "Bakker–Rodrigues 2011 concerns profinite algebraic invariants from periodic points, not finite-resolution Haar symbol cylinders."
+        ],
+        "reasoning": "Neither framework directly states the joint law for floor(qx_n) at consecutive times, arbitrary-time binary triple independence, or exact CMI.",
+        "searches": [
+          "hyperbolic toral automorphism vertical q-ary coordinate bins three independent symbols trace divisibility; hyperbolic toral automorphism equal vertical strip symbolic cylinder q trace t"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md exact Haar covering / Fourier Laurent polynomial proof",
+        "Pinned check.py rational polygon method and independent fresh exact tests",
+        "Siemaszko–Wojtkowski arXiv:1007.3984 primary full PDF",
+        "Bakker–Rodrigues arXiv:1102.0839 abstract/bibliography",
+        "Resultary search for quantized hyperbolic toral map three-cylinder laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nonzero determinant of observation rows suffices only for pairwise independence.",
+          "The third coordinate is linearly dependent via Cayley-Hamilton and can have nonuniform q-ary residue law."
+        ],
+        "reasoning": "Neither Haar invariance nor classical pair surjectivity implies triple independence; the modular trapezoid residue distribution and its root-of-unity factorization are essential new steps.",
+        "searches": [
+          "Berg partitions arXiv:1007.3984 and classical Haar-pair toral covering facts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Siemaszko–Wojtkowski arXiv:1007.3984 studies Berg Markov rectangles aligned with eigendirections.",
+          "The source explicitly uses equal-width vertical strips, not Markov partition cylinders."
+        ],
+        "reasoning": "Classical Bernoulli properties of hyperbolic toral maps concern existence of measure-theoretic isomorphisms/Markov partitions and do not make these particular coordinate-strip labels iid. Pair independence is due to finite torus coverings, but the three-label criterion is more delicate.",
+        "searches": [
+          "hyperbolic toral automorphism vertical q-ary coordinate bins three independent symbols trace divisibility; cat maps Bernoulli Markov partitions torus symbolic partition independence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returns powers-of-two finite torus periods for coupled cat maps, a finite-discrete order problem rather than Haar cylinder probabilities.",
+          "Explicit w_(t,q) is a full q-residue histogram, uniform iff q=2 or q|t."
+        ],
+        "reasoning": "No checked exact q,t data table encodes this all-parameter Fourier criterion or information law. It is natural to distinguish exact continuum cylinder probabilities from finite torus orbit-count tables.",
+        "searches": [
+          "hyperbolic toral automorphism vertical q-ary coordinate bins three independent symbols trace divisibility; digit quantization cat-map three-cylinder counts q divides trace"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.",
+      "residual_risks": [
+        "Novelty of the exact coordinate-strip cylinder formula could be affected by an unindexed prior symbolic dynamics calculation.",
+        "The 3-block law is consecutive only; all-time triple independence is claimed only for q=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Berg partitions aligned with stable/unstable directions; no equal-width vertical strip three-bin distribution",
+          "evidence": "Siemaszko and Wojtkowski (2010), different observation geometry.",
+          "identifier_or_url": "arXiv:1007.3984",
+          "material_read": "Full accessible primary PDF, construction of Berg rectangles and counting arguments",
+          "method": "Full paper reading and page screenshot",
+          "title": "Counting Berg partitions",
+          "trigger": "Same hyperbolic toral automorphism symbolic partition framework"
+        },
+        {
+          "assessment": "Periodic/conjugacy invariants rather than coordinate-strip Haar joint laws; whole-document noncoverage not asserted",
+          "evidence": "Bakker and Martins Rodrigues (2011), algebraic/profinite context.",
+          "identifier_or_url": "arXiv:1102.0839",
+          "material_read": "Title, abstract and scope from bibliographic comparison; no complete original text read",
+          "method": "Search/abstract comparison",
+          "title": "A Profinite Group Invariant for Hyperbolic Toral Automorphisms",
+          "trigger": "Possible broad algebraic toral invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp arithmetic threshold and exact conditional-information defect for coarse-grained deterministic hyperbolic dynamics makes a natural boundary between pairwise and triple independence. The striking unrestricted binary three-time property and exact high-resolution log information law provide useful examples for symbolic dynamics and sensor quantization without claiming Markov coding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Novelty of the exact coordinate-strip cylinder formula could be affected by an unindexed prior symbolic dynamics calculation.",
+    "The 3-block law is consecutive only; all-time triple independence is claimed only for q=2.",
+    "Publication transport/privacy is not a scientific failure; original public metadata must be sanitized before any downstream import."
+  ],
+  "schema_version": 1
+}
