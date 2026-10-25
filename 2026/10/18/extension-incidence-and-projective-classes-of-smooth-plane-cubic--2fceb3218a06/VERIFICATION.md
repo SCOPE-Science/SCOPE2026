@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the finite proof
+# Independent mathematical audit
 
-The standalone `verify_pencils.py` program uses Python 3 and only its standard library. Run `python3 verify_pencils.py > new_census.json`, then compare the parsed JSON with `census.json`. It independently constructs the 15-by-18 Macaulay matrix over \(\mathbf F_2\), applies exact binary row elimination to all 1023 nonzero cubics, constructs all 5544 pencils, enumerates their extensions, evaluates the seven rational base points, and calculates all 168 projective transformations, 37 orbits, and a Burnside fixed-point table. The code asserts core totals and the incidence relation \(\sum e(P)=7\cdot864\).
+## correctness
 
-The alternate `check_groebner.py` requires Python 3 and `sympy>=1.12`. Run `python3 check_groebner.py > new_independent.json`, then compare with `independent.json`. This implementation tests the homogeneous Jacobian ideal by exact Gröbner bases on the three dehomogenized affine charts and independently deduplicates pencils and calculates the extension and rational base-point distributions. Its smooth-mask population is not imported from the primary verifier.
+PASS
 
-The two programs were run during this investigation. All 1023 individual cubic smoothness verdicts matched, with 336 smooth masks; the 12 joint strata, pencil total 5544 and net incidence total 864 agree exactly. The 37 orbit representatives and stabilizer orders are in `orbit_representatives.csv`. The primary verifier performs two distinct group checks: explicit orbit partition and Burnside fixed-point enumeration.
+The geometric-smoothness test is exact: Euler identity for binary degree 3 implies F lies in its partial-derivative ideal; absence of projective common zeros of three quadratics is equivalent to height-3 complete intersection and surjectivity (S2)^3 -> S4, 15 rows, verified by bit-linear rank. Independently enumerated all 1023 nonzero ternary binary cubic masks and found 336 geometrically smooth. Canonical XOR triple enumeration gives 5544 distinct all-smooth binary pencils; extending by h outside a given pencil requires h,h+F,h+G,h+F+G smooth, with exactly four valid h per containing net, yielding extension histogram 1680,1848,1848,168 for e=0,1,2,3 and total 6048/7=864 nets. Independently computed rational base-point incidences and obtained all 12 nonzero joint cells exactly as stated. Constructed action of 168 invertible 3x3 F2 matrices on the 10 cubics, obtaining 37 pencil orbits and stabilizer distribution 31,1,3,2 at orders 1,2,3,4. This is a finite complete enumeration certified by the exact regular-sequence smoothness equivalence, not untested geometric point sampling.
 
-The algebraic proof of the Macaulay criterion relies on the three quadratic partials being a homogeneous regular sequence exactly when they lack a common projective zero. The finite calculations are exhaustive over binary coefficient vectors. No computation claims to enumerate smoothness by testing only bounded-degree extension-field points, and no geometric base-scheme splitting or uniqueness of historical publication is certified.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full 5544-pencil extension-degree/rational-base joint distribution and the 37 projective pencil orbits. Known 336 smooth forms, 5544 pencils, 864 nets and prior eight net orbits are explicitly credited; no novelty is attached to broad smooth-family existence theorems.
+
+## value
+
+PASS
+
+A complete projective classification of which small-field smooth plane-cubic pencils extend to smooth nets resolves a concrete finite algebraic-geometric incidence problem. Nonextendible pencils (1680) and max-three extensions (168) are meaningful structural boundary cases, and orbit representatives make the classification reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
