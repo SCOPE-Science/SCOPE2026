@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone program `check_cyclic4_sections.py` requires Python 3 and only its standard library. Running it against the embedded source file gives:
+## correctness
 
-```text
-CYCLIC4_SECTION_FACETS_OK exact_Gale_vs_cycle_n=5..14 exhaustive_admissible_words=6894 moment_curve_determinants=2310 larger_direct_counts=478
-```
+PASS
 
-The checker tests combinatorial tetrahedral facets against Gale parity, supporting-determinant geometry, exhaustive admissible sign patterns in a bounded range, explicit polynomial realizations, and further reproducible larger-size checks. This is reproducibility evidence, not an independent audit or a proof for every size. The all-size result rests on the edge-pair count and optimization proved in `RESULT.md`.
+Gale evenness identifies tetrahedra as unordered pairs of vertex-disjoint cycle edges. A hyperplane sign word has at most four cyclic changes by a degree<=4 polynomial, and every such mixed word is realizable. Counting mixed tetrahedra gives F=pq+rn-r^2-5r+s; compare 2 versus 4 sign changes and control singleton runs. A polar stability argument bounds nongeneric sections. Euler and 2+2 colored tetrahedra determine f-vector and quadrilateral count. Independent own exact Gale-evenness/disjoint-cycle enumeration across n=5..12 gave sharp maxima (5,9,14,20,26,33,...) and matched F. This finite arithmetic checks the proof but is not extrapolated to all n.
 
-The theorem covers all distinct increasing real moment-curve vertex parameters. The complete generic equality classification is for \(n\ge7\); the finite base cases \(n=5,6\) are handled separately. Independent audit has not been performed.
+## originality
+
+PASS
+
+Known C(n,4) section vertex maximum floor(n^2/4), Gale facet structure, and general algorithms for optimum slice k-face counts are prior. The assessed claim is a distinct exact all-n polygonal facet maximum plus rigidity and triangle/quadrilateral profile; available related sources do not establish the same expression. Priority is best-of-knowledge; oriented-matroid enumeration could contain an equivalent result.
+
+## value
+
+PASS
+
+Cyclic 4-polytopes are canonical extremal polytopes. Maximizing section facets is a natural nontrivial face-number objective different from maximizing vertices; a sharp all-n bound, complete generic equality class, and polygon-type counts are directly useful combinatorial geometry data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Gale evenness independently identifies four-dimensional cyclic facets with two disjoint cyclic edges. Counting disjoint pairs by edge-color types yields the exact formula \(F=pq+rn-r^2-5r+s\) for all admissible two- or four-transition words; the run optimization proves the stated maxima for every integer \(n\ge5\). Every admissible sign word comes from a degree-at-most-four polynomial, so the extremizers exist for any distinct real moment-curve parameters. The transversal facet perturbation argument supplies the nongeneric upper bound. The included exact checker reconstructs supporting facets from determinants and independently tests the formulas and finite cases. The finite checks do not replace the analytic general proof.
+## correctness
 
-## Originality — PASS (bounded evidence, not global priority certification)
-The nearest published theorem found explicitly optimizes the number of **vertices** in cyclic-polytope hyperplane slices (De Loera–López-Campos–Torres, arXiv:2412.12419), which does not itself imply the sharp number of polygonal facets or the equality sign-run classification. The general algorithm of Brandenburg–De Loera–Meroni (arXiv:2304.14239) can determine face-optimal slices for each prescribed polytope, but its inspected theorem does not state this closed formula uniformly in \(n\). Bayer–Bisztriczky and Oppermann–Thomas supply the previously known Gale/facet structure used in the proof. The new combined facet-count formula and maximizer characterization were not found in the inspected full texts or checked published-result searches. The significant residual risk is historical equivalence in oriented matroid and face-enumeration literature; external priority review has not been done.
+PASS
 
-## Mathematical value — PASS
-A cyclic four-polytope is a canonical extremal object in face enumeration. Its section vertex extremum has been studied, but the polygonal facet extremum and rigidity of the maximizing cyclic sign pattern form a different natural geometric optimization problem. The exact all-size bound, genuine sharpness, generic equality classification, and triangle/quadrilateral profile explain precisely how four-dimensional Gale combinatorics governs three-dimensional sections.
+Gale evenness identifies tetrahedra as unordered pairs of vertex-disjoint cycle edges. A hyperplane sign word has at most four cyclic changes by a degree<=4 polynomial, and every such mixed word is realizable. Counting mixed tetrahedra gives F=pq+rn-r^2-5r+s; compare 2 versus 4 sign changes and control singleton runs. A polar stability argument bounds nongeneric sections. Euler and 2+2 colored tetrahedra determine f-vector and quadrilateral count. Independent own exact Gale-evenness/disjoint-cycle enumeration across n=5..12 gave sharp maxima (5,9,14,20,26,33,...) and matched F. This finite arithmetic checks the proof but is not extrapolated to all n.
 
-## Scope and limits
-The triangle and quadrilateral formulas are for generic maximizers, not an asserted classification of all singular equality cuts. The numerical upper bound covers all affine hyperplanes, including nongeneric cuts. Only dimension four is addressed. Full historical priority and independent proof review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known C(n,4) section vertex maximum floor(n^2/4), Gale facet structure, and general algorithms for optimum slice k-face counts are prior. The assessed claim is a distinct exact all-n polygonal facet maximum plus rigidity and triangle/quadrilateral profile; available related sources do not establish the same expression. Priority is best-of-knowledge; oriented-matroid enumeration could contain an equivalent result.
+
+## value
+
+PASS
+
+Cyclic 4-polytopes are canonical extremal polytopes. Maximizing section facets is a natural nontrivial face-number objective different from maximizing vertices; a sharp all-n bound, complete generic equality class, and polygon-type counts are directly useful combinatorial geometry data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
