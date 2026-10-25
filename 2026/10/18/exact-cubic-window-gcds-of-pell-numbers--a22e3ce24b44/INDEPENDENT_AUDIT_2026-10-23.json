@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T16:50:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. RESULT.md proves for all integers k>=1 that the infinite gcd of k-term Pell cube windows is 1 for odd k and T_r*3^[4|r]/7^[3|r] for k=2r, T_r=P_r (even r) or Q_r (odd r). The normalization Q_0=Q_1=1, initial n=0 window and all prime powers are explicit. The Pell matrix identity M^(2r)=I+2T_r B with primitive integer B, Cassini congruences, and two-parity argument confine common primes; cubic polynomial A=-16x^3-3x^2 y+9xy^2-2y^3 satisfies A(y,x+2y)-A(x,y)=14x^3; telescoping gives 7S_n=T_r Phi_n with integral Phi, Phi mod T_r=3w(15x^3-9x^2y-xy^2+y^3). The n=0 valuation is exact for all primes of T_r except 3; at 3 the global extra factor is exactly one when 4|r, using Phi(0,1)=3w+t(18w^2-12)+O(t^2). The period modulo 7 gives exactly 3|r. Separately reconstructed the polynomial congruences with symbolic algebra and exact gcds for the first four windows for all k=1..100. The monic fourth-order cube recurrence explains why four windows determine the infinite gcd; the finite 100-case test is corroboration and not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 2023 JIS paper §6 is Pell/associated Pell squares; 2024 consecutive Pell terms paper analyzes unpowered sums.",
+          "Cube-of-term and cube-of-sum are different nonlinear sequences."
+        ],
+        "reasoning": "Neither identified general identity subsumes the displayed all-k cubic gcd. Extending a first-power statement by formal substitution is invalid; an actual shared stronger generalized-Lucas-cube gcd theorem was not found.",
+        "searches": [
+          "gcd sliding sums cubic Pell numbers exact formula consecutive Pell cubes integer sequence",
+          "arXiv:2301.05758",
+          "arXiv:2407.12868"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 443f1e1cd369828ddde41f9e8628d4d882661443; inspect full proof",
+        "Frozen verify.py blob b9a5e26d070a4927d9052ea5a00fca0cf219477c; code read but not blindly trusted",
+        "Mbirika et al 2023 full primary paper PDF",
+        "Resultary targeted semantic queries gcd sliding sums cubic Pell numbers exact formula consecutive Pell cubes integer sequence ; Cubic Pell sliding-window gcd exact H3 2r T_r 3 7",
+        "Own independent arithmetic/symbolic validation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Pell square formula has different power, and arXiv:2407.12868 concerns first powers; neither directly implies cubic power window valuations."
+        ],
+        "reasoning": "Prior 2023 context motivates the question, while the cubic antidifference and simultaneous prime-power valuation analysis provide the necessary new implication.",
+        "searches": [
+          "arXiv:2301.05758 §6",
+          "gcd sliding sums cubic Pell numbers exact formula consecutive Pell cubes integer sequence",
+          "Cubic Pell sliding-window gcd exact H3 2r T_r 3 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mbirika–Schrader–Spilker 2023 studies gcds of sliding Pell windows and square-power Pell in its Partial Result 29; direct comparison of its theorem statements shows different exponent and formulas.",
+          "Pell RESULT.md gives cubic polynomial antidifference and exact exceptional primes 3 and 7."
+        ],
+        "reasoning": "First-power and square-power window GCDs cannot be identified with cubes by nomenclature; no theorem in the materially read source supplies an all-r cubic statement. Fibonacci cube analogues have recurrence coefficient 1 rather than Pell coefficient 2.",
+        "searches": [
+          "gcd sliding sums cubic Pell numbers exact formula consecutive Pell cubes integer sequence",
+          "Cubic Pell sliding-window gcd exact H3 2r T_r 3 7",
+          "arXiv:2301.05758 §6 Partial Result 29"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS provides Pell and associated Pell sequence terms, not an infinite classification of gcds of all cubic windows.",
+          "Bounded four-window GCD test covers k<=100, not database coverage of all k."
+        ],
+        "reasoning": "The invariant is a whole parameter family; known sequence tables furnish inputs, but do not imply the arithmetic formula or 3/7 exceptional valuations.",
+        "searches": [
+          "OEIS:A000129",
+          "OEIS:A001333",
+          "Cubic Pell sliding-window gcd exact H3 2r T_r 3 7"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.",
+      "residual_risks": [
+        "No full universal database search can establish novelty; an unindexed general Lucas cubic theorem may exist.",
+        "Finite gcd tests certify only k<=100; infinite proof rests on the algebra and modular periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the cubic all-window formula: includes first powers and partial results for squares",
+          "evidence": "Section 6 Partial Result 29 explicitly concerns squares of Pell terms; manuscript does not state cubic valuation switch.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+          "material_read": "Full accessible 24-page primary PDF including Theorems 15–19 and Section 6 Partial Result 29",
+          "method": "full-text reading/search and first-page screenshot",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Closest prior GCD invariant in the same Pell sequence"
+        },
+        {
+          "assessment": "DISTINCT unpowered Pell sums; residual review depth risk",
+          "evidence": "No cubic term-power gcd theorem identified from read material.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.12868",
+          "material_read": "Source theorem descriptions and reference context, not a claim of full direct document inspection",
+          "method": "identified mathematical statement comparison",
+          "title": "Sum of Consecutive Terms of Pell and Related Sequences",
+          "trigger": "Related Pell window-sum identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Gcds of fixed-length power-sum windows form a natural integer-sequence divisibility invariant; the classical Pell cases of first and second powers were known but the cubed-window classification has a genuinely new 3/7 valuation switch. Exact all-k formula distinguishes arithmetic phenomena, not a routine value substituted into known square-power results; a future investigator of Lucas power sums can use the exact local prime effects and the integer polynomial antidifference.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 443f1e1cd369828ddde41f9e8628d4d882661443; inspect full proof",
+    "Frozen verify.py blob b9a5e26d070a4927d9052ea5a00fca0cf219477c; code read but not blindly trusted",
+    "Mbirika et al 2023 full primary paper PDF",
+    "Resultary targeted semantic queries gcd sliding sums cubic Pell numbers exact formula consecutive Pell cubes integer sequence ; Cubic Pell sliding-window gcd exact H3 2r T_r 3 7",
+    "Own independent arithmetic/symbolic validation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Published claims remain unmodified in frozen source; review is best-of-knowledge with known published premises.",
+    "The mathematics is complete but public-source confidentiality precludes import of the unsanitized package."
+  ],
+  "residual_risks": [
+    "No full universal database search can establish novelty; an unindexed general Lucas cubic theorem may exist.",
+    "Finite gcd tests certify only k<=100; infinite proof rests on the algebra and modular periods."
+  ],
+  "schema_version": 1
+}

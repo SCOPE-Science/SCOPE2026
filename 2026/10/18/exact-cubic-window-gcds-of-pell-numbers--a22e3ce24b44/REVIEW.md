@@ -1,19 +1,21 @@
-# Scientific review: cubic Pell-window GCDs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is every positive window length and every nonnegative starting index for the standard Pell recurrence. The proof reconstructs the odd-length prime obstruction, the exact even-length Pell matrix difference, an integer cubic antidifference, and the valuations at the only exceptional primes \(3\) and \(7\). For any odd prime dividing every window sum, the shift differences and Cassini identity force the prime into the half-index factor. Polynomial congruences give the exact valuation of the first window, not merely a lower bound. The characteristic-four recurrence reduces the infinite gcd to its first four windows. The standalone exact-integer checker passes for all lengths through \(480\), but those finite tests are supplemental, not the justification for the universal quantifiers.
+PASS
 
-## Originality — PASS relative to inspected literature
+PASS. RESULT.md proves for all integers k>=1 that the infinite gcd of k-term Pell cube windows is 1 for odd k and T_r*3^[4|r]/7^[3|r] for k=2r, T_r=P_r (even r) or Q_r (odd r). The normalization Q_0=Q_1=1, initial n=0 window and all prime powers are explicit. The Pell matrix identity M^(2r)=I+2T_r B with primitive integer B, Cassini congruences, and two-parity argument confine common primes; cubic polynomial A=-16x^3-3x^2 y+9xy^2-2y^3 satisfies A(y,x+2y)-A(x,y)=14x^3; telescoping gives 7S_n=T_r Phi_n with integral Phi, Phi mod T_r=3w(15x^3-9x^2y-xy^2+y^3). The n=0 valuation is exact for all primes of T_r except 3; at 3 the global extra factor is exactly one when 4|r, using Phi(0,1)=3w+t(18w^2-12)+O(t^2). The period modulo 7 gives exactly 3|r. Separately reconstructed the polynomial congruences with symbolic algebra and exact gcds for the first four windows for all k=1..100. The monic fourth-order cube recurrence explains why four windows determine the infinite gcd; the finite 100-case test is corroboration and not the infinite proof.
 
-Mbirika–Schrader–Spilker (2023, arXiv:2301.05758, primary MSC 11B39), the closest exact-object paper, treats first powers and gives a square-power partial result. The relevant full-text sections and the paper's statements were inspected; no cubic Pell-window classification occurs there. Anand et al. (2024, arXiv:2407.12868) study unpowered Pell sums and fixed-multiple identities, not gcds of cubic windows. Mbirika–Spilker (2022, arXiv:2204.12626) addresses squares for a different recurrence. The corresponding Pell term tables in OEIS A000129 and A001333 do not, by themselves, imply a cubic-window gcd classification. Searches for aliases (window GCD, sums of third powers, Pell cubes), parameter-equivalent half-index formulas, and first/square-power implications found no covering statement. This is not a claim that searching proves global uniqueness: equivalent unindexed or independently derived literature remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result settles a natural exact invariant for every window length, not an arbitrary finite slice. It explains a non-obvious factor \(7\) arising from the cubic antidifference and a distinct factor \(3\) arising only at quarter-period indices; these are exact prime-adic phenomena invisible in the first-power and square-power Pell formulas. The classification distinguishes odd and even lengths and three independent congruence triggers. A usable infinite closed form and a self-contained valuation proof make the determination substantively more informative than a recurrence-specific numerical table.
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
 
-## Limits and evidence
+## value
 
-The result is restricted to classical Pell cubes and does not extend automatically to associated Pell cubes, higher powers, or arbitrary Lucas parameters. The verifier uses exact arithmetic and ordinary Python but is not a substitute for the proof. Relevant primary literature was inspected; the possibility of a prior equivalent theorem outside the indexed sources persists.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Gcds of fixed-length power-sum windows form a natural integer-sequence divisibility invariant; the classical Pell cases of first and second powers were known but the cubed-window classification has a genuinely new 3/7 valuation switch. Exact all-k formula distinguishes arithmetic phenomena, not a routine value substituted into known square-power results; a future investigator of Lucas power sums can use the exact local prime effects and the integer polynomial antidifference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
