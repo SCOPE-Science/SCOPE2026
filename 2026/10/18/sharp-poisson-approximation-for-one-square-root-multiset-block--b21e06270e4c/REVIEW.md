@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact mixed factorial moments follow from uniform arrangements and give the complete finite polynomial transform. Uniform expansion of falling factorials together with factorial-tail domination yields a complex-disk remainder of order \(n^{-1}\), and Cauchy's estimate upgrades it to a global \(\ell^1\) remainder. The sign pattern of the second difference of the Poisson mass at mean two evaluates the exact constant. A standalone exact rational checker validates finite formulas independently; it is not offered as an infinite proof.
+PASS
 
-## Originality
+Exact uniform arrangement counting gives the mixed falling-factorial expectation E C(U,r)C(K,s)=C(n-m,r)C(m,s)(m)_s/(n)_{r+s}, including r=0,s=0 conventions. Expanding E(1+z)^W from these finite moments gives coefficients relative to exp((mu+nu)z) with mu=(n-m)/n and nu=m²/n. For m in [a sqrt(n), b sqrt(n)] and r+s<=n^{1/8}, the two factors (m)_s/m^s contribute -s(s-1)/m, while other falling factors and second-order errors are O((r+s+1)^4/n). For the complementary high coefficients, factorial majorants plus a superfactorially small r>n/2 tail control the full entire generating polynomial uniformly on fixed complex disks; this justifies summing the local expansion, not merely pointwise moments. Thus F_n(z)=e^{lambda_n z}(1-m³ z²/n²)+O_R(n^-1). Substituting z=w-1 and applying Cauchy on |w|=2 gives an ℓ1 probability remainder O(n^-1), yielding Poisson second differences with sign from (w-1)². At lambda=2, Δ²q(j)=q_2(j)(j-1)(j-4)/4; its ℓ1 norm is 10e^-2/3, giving 5e^-2/3 after TV half-factor. Independent exact-rational factorial inversion for (n,m)=(6,2),(9,3),(16,4) verifies positivity, total mass, mean and signed correction trend, but these finite numbers do not prove uniform analytic error. Only one repeated symbol at m~c sqrt(n) with c in (0,infty) is proved; no result for general multiset profiles.
 
-PASS, with priority limitations. Stark (arXiv:2608.00710, Sections 2–4) proves general Poisson approximation bounds, identifies the square-root repeated-symbol example, and explicitly leaves a logarithmic gap between its upper and lower orders. The inspected paper does not give the signed correction or leading total-variation constant. Published mathematical-record searches on multiset permutations, Poisson–Charlier approximations, and sharp matching probabilities did not identify a dominating result. Classical Poisson–Charlier methods may imply the present statement when combined with additional computations; independent literature and priority review remains necessary. The new conclusion is not attributed to those classical methods alone.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The motivating paper isolates precisely this model to exhibit the limitations of its general upper and lower bounds. Determining the nonzero constant closes that quantitative gap for its principal critical example, and the stronger signed \(\ell^1\) expansion identifies the entire leading error profile in a natural one-parameter regime. This is neither a reparameterization of the known upper bound nor a finite isolated numerical evaluation.
+The full original Stark 2026 arXiv text was read, notably §2 factorial-indicator moments, §3 Theorem 2/Corollary 1 upper bound O(n^-1/2), and §4 Theorem 4/specific square-root example lower bound n^-1/2/log²n. It does not supply the signed total-distribution correction or constant 5e^-2/3; the present factorial transform plus complex-disk ℓ1 remainder closes that gap. Poisson–Charlier is established general technology, not claimed novel, and stronger general mod-Poisson expansions may furnish an alternate derivation.
 
-## Limitations
+## value
 
-The analysis is restricted to one repeated block with size of order \(\sqrt n\); no stronger claim for arbitrary multiset profiles is made. General mod-Poisson results may provide an alternative derivation. The package supplies a self-review, not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An existing primary paper explicitly singles out the one-heavy-symbol square-root example because its upper and lower Poisson errors fail to match. This result supplies a nonzero exact leading error and an entire signed ℓ1 asymptotic profile for a natural one-parameter critical family, closing a motivated quantitative gap. It uses a standard approximation framework but performs nonroutine exact mixed-moment summation with a uniform analytic remainder. The result is neither an arbitrary finite computation nor novelty based merely on applying the name Poisson–Charlier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

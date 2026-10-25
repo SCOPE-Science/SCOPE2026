@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:00:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md blob a77ea2d1e5338bc667a1c8669f4dda05c4ebb485",
+        "Git source verification script bbfe845410f7fb4155d8411ef06415d6488a72e6",
+        "independently executed /mnt/data/audit07_independent_checks.py bounded numeric/rational tests"
+      ],
+      "rationale": "Exact uniform arrangement counting gives the mixed falling-factorial expectation E C(U,r)C(K,s)=C(n-m,r)C(m,s)(m)_s/(n)_{r+s}, including r=0,s=0 conventions. Expanding E(1+z)^W from these finite moments gives coefficients relative to exp((mu+nu)z) with mu=(n-m)/n and nu=m²/n. For m in [a sqrt(n), b sqrt(n)] and r+s<=n^{1/8}, the two factors (m)_s/m^s contribute -s(s-1)/m, while other falling factors and second-order errors are O((r+s+1)^4/n). For the complementary high coefficients, factorial majorants plus a superfactorially small r>n/2 tail control the full entire generating polynomial uniformly on fixed complex disks; this justifies summing the local expansion, not merely pointwise moments. Thus F_n(z)=e^{lambda_n z}(1-m³ z²/n²)+O_R(n^-1). Substituting z=w-1 and applying Cauchy on |w|=2 gives an ℓ1 probability remainder O(n^-1), yielding Poisson second differences with sign from (w-1)². At lambda=2, Δ²q(j)=q_2(j)(j-1)(j-4)/4; its ℓ1 norm is 10e^-2/3, giving 5e^-2/3 after TV half-factor. Independent exact-rational factorial inversion for (n,m)=(6,2),(9,3),(16,4) verifies positivity, total mass, mean and signed correction trend, but these finite numbers do not prove uniform analytic error. Only one repeated symbol at m~c sqrt(n) with c in (0,infty) is proved; no result for general multiset profiles.",
+      "residual_risks": [
+        "General mod-Poisson or Poisson–Charlier theorems might subsume the model-specific analytic expansion once factorial cumulants are supplied.",
+        "No general multiple-block or other m-scaling result is claimed.",
+        "Finite inversion/enumeration supports counting identities but not the analytic tail bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stark §3 Corollary 1 and §4 Theorem 4",
+          "Barbour–Holst–Janson 1992 Poisson Approximation, general Stein bounds cited in Stark"
+        ],
+        "reasoning": "Stark covers all multiset profiles but only upper and lower inequalities, and its concrete sqrt(n) example leaves logarithmic gap; neither inequality implies this exact coefficient. General Poisson–Charlier expansions could imply it after object-specific analytic estimates; no observed quoted theorem removes those estimates.",
+        "searches": [
+          "multiset permutations fixed points Poisson approximation exact leading constant",
+          "Barbour Holst Janson Poisson Charlier multiset fixed points 1992"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.00710",
+        "Barbour-Holst-Janson-1992",
+        "https://arxiv.org/abs/2509.13979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2608.00710 §3 lines 145–157 and §4 lines 173–191, full accessible preprint",
+          "Stark explicitly obtains only lower order c n^-1/2/log²n and Stein upper O(n^-1/2) for the square-root profile."
+        ],
+        "reasoning": "The exact distributional signed O(n^-1/2) correction is strictly stronger than rate bounds: neither the order nor an unspecified Stein constant determines 5e^-2/3. The extension uniformly over compact c-intervals adds genuine quantitative information.",
+        "searches": [
+          "\"Poisson approximations of the number of fixed points in random multiset permutations\" Stark Section 4",
+          "random permutation multiset one repeated square root Stein lower bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dudley Stark arXiv:2608.00710 full §3–4",
+          "Classical Poisson–Charlier expansion via factorial-cumulant generating functions"
+        ],
+        "reasoning": "The signed ℓ1 correction is an all-probabilities Poisson–Charlier expansion equivalent to a leading second factorial cumulant. Generic cumulant formulas alone require uniform complex generating-function remainder to imply global TV asymptotics.",
+        "searches": [
+          "fixed points uniform multiset permutation one repeated sqrt n Poisson Charlier exact signed expansion total variation constant",
+          "Stark 2608.00710 square root block fixed points Poisson expansion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2 (different Hamming Fourier invariant); various permutation Fourier norm records (different statistics).",
+          "Full Stark text contains no 5e^-2/3 TV constant or signed ℓ1 table."
+        ],
+        "reasoning": "No checked database table supplies the precise one-heavy-block coefficient. Poisson-Charlier profiles in unrelated symmetric group/association scheme problems do not imply this multiset fixed-point correction.",
+        "searches": [
+          "Resultary: fixed points uniform multiset permutation one repeated sqrt n Poisson Charlier exact signed expansion total variation constant",
+          "\"5e^{-2}/3\" multiset permutations fixed points"
+        ]
+      },
+      "rationale": "The full original Stark 2026 arXiv text was read, notably §2 factorial-indicator moments, §3 Theorem 2/Corollary 1 upper bound O(n^-1/2), and §4 Theorem 4/specific square-root example lower bound n^-1/2/log²n. It does not supply the signed total-distribution correction or constant 5e^-2/3; the present factorial transform plus complex-disk ℓ1 remainder closes that gap. Poisson–Charlier is established general technology, not claimed novel, and stronger general mod-Poisson expansions may furnish an alternate derivation.",
+      "residual_risks": [
+        "General mod-Poisson or Poisson–Charlier theorems might subsume the model-specific analytic expansion once factorial cumulants are supplied.",
+        "No general multiple-block or other m-scaling result is claimed.",
+        "Finite inversion/enumeration supports counting identities but not the analytic tail bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly motivates sqrt(n) example, proves only upper n^-1/2 and logarithmically weaker lower; no signed ℓ1 expansion.",
+          "evidence": [
+            "§3 Theorem 2/Corollary 1",
+            "§4 Theorem 4 and final example"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.00710",
+          "material_read": "Full open arXiv text §§1–4: matching count model, Lemmas 1–3, Theorem 2, Corollary 1, Theorem 4, last paragraph of §4 and references.",
+          "method": "Read mathematical statements and formulas, compared rates and claimed coefficients.",
+          "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+          "trigger": "Identical model and explicit sqrt(n) block"
+        },
+        {
+          "assessment": "Known generic methods, not specifically this coefficient; whole-book coverage unresolved.",
+          "evidence": [
+            "Stark §3 Theorem 1 quotes Theorem 2.C, §4 Theorem 3 quotes Theorem 3.A"
+          ],
+          "identifier_or_url": "Barbour-Holst-Janson-1992",
+          "material_read": "Publisher/book bibliographic description and exact theorem as quoted with attribution in full Stark §3–4; not the entire 1992 monograph.",
+          "method": "Compared generic inequalities as quoted in primary arXiv source, no whole-book exclusion.",
+          "title": "Poisson Approximation",
+          "trigger": "General Poisson–Charlier and Stein prior machinery"
+        },
+        {
+          "assessment": "Cycle counts and Chinese restaurant construction are not the fixed-point Poisson–Charlier correction.",
+          "evidence": [
+            "Public arXiv abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.13979",
+          "material_read": "Abstract and thematic details on cycles, not fixed-position matches.",
+          "method": "Compared observables and limit law.",
+          "title": "A Chinese restaurant process for multiset permutations",
+          "trigger": "Potential general same-object combinatorial stochastic paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.00710",
+        "Barbour-Holst-Janson-1992"
+      ],
+      "rationale": "An existing primary paper explicitly singles out the one-heavy-symbol square-root example because its upper and lower Poisson errors fail to match. This result supplies a nonzero exact leading error and an entire signed ℓ1 asymptotic profile for a natural one-parameter critical family, closing a motivated quantitative gap. It uses a standard approximation framework but performs nonroutine exact mixed-moment summation with a uniform analytic remainder. The result is neither an arbitrary finite computation nor novelty based merely on applying the name Poisson–Charlier.",
+      "residual_risks": [
+        "General mod-Poisson or Poisson–Charlier theorems might subsume the model-specific analytic expansion once factorial cumulants are supplied.",
+        "No general multiple-block or other m-scaling result is claimed.",
+        "Finite inversion/enumeration supports counting identities but not the analytic tail bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General mod-Poisson or Poisson–Charlier theorems might subsume the model-specific analytic expansion once factorial cumulants are supplied.",
+    "No general multiple-block or other m-scaling result is claimed.",
+    "Finite inversion/enumeration supports counting identities but not the analytic tail bound."
+  ],
+  "schema_version": 1
+}
