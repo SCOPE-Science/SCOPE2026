@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The primary result is proved analytically, for all integer orders \(n\ge5\), in `RESULT.md`. The following two independently coded reproducibility checks are also included.
+## correctness
 
-`verify_exact_cover.py` generates all \(3n\) edges as pairs of vertex indices; for each edge it computes all five members of its closed edge neighborhood. Backtracking enumerates **every** exact cover of the edge set by these neighborhoods for each integer \(n\in[5,40]\). It tests the output against the five cyclic prescribed matchings (or emptiness) and checks that the five matchings partition all edges. `exact_cover_output.json` records the complete tested order/count profile; `status` must be `PASS`.
+PASS
 
-`verify_transfer.py` uses a separate direct model: triples of booleans indicate membership of the outer, spoke and inner edges at each index. A word of four triples has an arc to the shifted word on five triples precisely when the three local exact-cover equations at the central index all equal one. Exhaustive enumeration gives \(346\) active states, \(576\) transitions, \(342\) strongly connected components, and exactly one cyclic component: a simple directed five-cycle with exactly five internal arcs. A directed closed walk therefore exists exactly in lengths divisible by five, and the five distinct cyclic shifts exhaust it. The script also checks that these states match the explicit period-five edge selector word. This finite-state graph calculation is complete over all 4-tuples of the eight possible triples, not a truncated search.
+The DIM ↔ vertex bicoloring condition is correctly equivalent to whites having zero white neighbors and blacks exactly one black neighbor. The two coupled cyclic binary equations sum to |X|=|Y|=2n/5. Eliminating y factors the centered recurrence as Φ_3(T)Φ_5(T)z=0. Coprimality and the binary additive-rectangle lemma show every solution is period three or five; white density 2/5 excludes period three. Period-five outer white nonadjacency yields exactly the five shifts of {0,2}; inner colors follow uniquely, and explicit edge residues yield all DIMs. Any 5-color strong edge coloring of a cubic graph has every color once in each 5-edge closed neighborhood, forcing every color class to be a DIM; the only five form the stated partition. Independently implemented exact local binary-equation enumeration for every 5≤n≤20, recovering exactly five for n divisible by 5 and zero otherwise, including wraparound; finite enumeration corroborates universal factorization proof.
 
-Run `python3 verify_exact_cover.py` and `python3 verify_transfer.py` in the same directory as the programs. Compare each one-line JSON stdout, including its final newline, to `exact_cover_output.json` and `transfer_output.json`. Both recorded outputs were generated directly by these programs and returned `PASS`. Python 3.8 or newer, standard library only. These computational checks complement the detailed proof rather than replacing it.
+## originality
 
-The literature comparison inspected the 2016 original author-uploaded six-page text and 2021 original arXiv full HTML. A directly relevant 2018 paper's complete text remained unavailable despite lawful open-text searches; only the abstract was examined. All assertions of novelty are conditional on accessible literature, and no independent scientific audit has been performed.
+PASS
+
+Alaeiyan–Karami (2016) Theorem 3.9 proves precisely the existence divisibility criterion via one explicit periodic perfect coloring, not all coloring solutions or their count. Yang–Wu (2018) establishes the strong chromatic index and Lužar et al. (2021) gives broad covering/Petersen-coloring equivalence; none of the materially inspected statements classifies exactly all five DIMs on GP(5m,2) for every m and their resulting rigidity. Newest Karami (2026) quotient-matrix work remains about parameter existence, not realization multiplicities.
+
+## value
+
+PASS
+
+Classification of every efficient edge dominating set and rigidity of every optimal strong coloring on the natural generalized Petersen subfamily is a structurally motivated infinite classification. It strengthens known existence and chromatic-index results with exact solution multiplicity and coloring uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

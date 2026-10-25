@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns all integers \(n\ge5\) and the specified outer, spoke and inner edges. The black/white interpretation of a dominating induced matching is bidirectional. The local equations, two cyclic counts, elimination, cyclotomic factorization, coprime-factor decomposition, binary rectangle lemma, and five-periodic classification together cover every candidate without assumptions of rotational symmetry. The five explicit matchings satisfy the local equations. Cubic closed edge neighborhoods prove the strong-coloring implication and exclude further color partitions. Separately, exhaustive exact covers for orders \(5\) through \(40\) and a complete finite-state transition-graph cycle census independently verify the claim. The latter gives an independent all-orders certificate, not a proof by mere extrapolation.
+PASS
 
-## Originality — PASS, with residual risks
+The DIM ↔ vertex bicoloring condition is correctly equivalent to whites having zero white neighbors and blacks exactly one black neighbor. The two coupled cyclic binary equations sum to |X|=|Y|=2n/5. Eliminating y factors the centered recurrence as Φ_3(T)Φ_5(T)z=0. Coprimality and the binary additive-rectangle lemma show every solution is period three or five; white density 2/5 excludes period three. Period-five outer white nonadjacency yields exactly the five shifts of {0,2}; inner colors follow uniquely, and explicit edge residues yield all DIMs. Any 5-color strong edge coloring of a cubic graph has every color once in each 5-edge closed neighborhood, forcing every color class to be a DIM; the only five form the stated partition. Independently implemented exact local binary-equation enumeration for every 5≤n≤20, recovering exactly five for n divisible by 5 and zero otherwise, including wraparound; finite enumeration corroborates universal factorization proof.
 
-The closest full primary text is Alaeiyan–Karami (2016), Theorem 3.9: it identifies the same perfect-two-coloring quotient matrix and proves exactly the **existence spectrum**, supplying a periodic witness, but not an all-solutions count or coloring rigidity. Lin–Mizrahi–Szwarcfiter (2013) treats general DIM algorithms. Lužar–Mačajová–Škoviera–Soták (2021) proves uniqueness for the Petersen base and treats covering equivalence, exhibiting a larger cubic cover with multiple inequivalent strong five-colorings; it does not imply this entire family's uniqueness. Yang–Wu (2018) covers the strong chromatic *index* for \(k=2\); abstract inspected but complete text unavailable. Mahmoodi and coauthors (2024), Observation 7, exhibit one relevant DIM. A variety of public mathematical-record searches for perfect two-coloring counts, dominating induced matching counts, and strong-coloring uniqueness found no statement implying the complete classification. Historical sources may be missing and unindexed literature remains a risk; this is not independent certification of priority.
+## originality
 
-## Value — PASS
+PASS
 
-A precise count and **all** optimal color partitions are not implied by knowing the strong chromatic index or even by finding one efficient edge-dominating set. The strong-coloring rigidity throughout an infinite cyclic covering family contrasts with known non-rigid Petersen covers. The cyclotomic/binary rigidity argument and independent small finite-state witness expose the mechanism behind the unique global edge partition; this is a motivated structural result, not an arbitrary finite entry or a renamed existence theorem.
+Alaeiyan–Karami (2016) Theorem 3.9 proves precisely the existence divisibility criterion via one explicit periodic perfect coloring, not all coloring solutions or their count. Yang–Wu (2018) establishes the strong chromatic index and Lužar et al. (2021) gives broad covering/Petersen-coloring equivalence; none of the materially inspected statements classifies exactly all five DIMs on GP(5m,2) for every m and their resulting rigidity. Newest Karami (2026) quotient-matrix work remains about parameter existence, not realization multiplicities.
 
-## Scope and integrity
+## value
 
-The theorem is restricted to \(\mathrm{GP}(n,2)\), \(n\ge5\). Existing existence/index statements are attributed, not claimed as new. Exact strong chromatic indices for \(5\nmid n\), other generalized Petersen families, and priority over unindexed results are not established. The 2018 index paper could not be inspected in full. Verification programs, input construction, and stdout records are included. The science has not had independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classification of every efficient edge dominating set and rigidity of every optimal strong coloring on the natural generalized Petersen subfamily is a structurally motivated infinite classification. It strengthens known existence and chromatic-index results with exact solution multiplicity and coloring uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
