@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:11:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix 0<a<1. Exact independent symbolic matrix multiplication confirms tr(B³A³)-2=(ab−1)[(a²−2)b²−ab+4−2a²] and the endpoint reduction mod Q(b). Q strictly decreases in b>=0, has unique b_*(a)∈(1,sqrt2), with ab_*<1 and positive trace derivative d(a). At b_* the target continuant H_m=(A² C^m)12 equals −mc(a)−a with c>0; at trace t=2cos(pi/m) a lower b yields H_m=a>0, giving an elliptic root θ∈(0,pi/m). The sine interpolation of C^j v_0 between endpoints gives nonnegative coefficients multiplying two vectors whose six pre-step signs both implement a³b³ for 0<a<1<b; hence root is dynamically legal, and published Theorem 18 supplies uniqueness. The tan phase equation near θ=0 gives pi−mθ=κθ+O_a(θ³) and hence b_*−b_m=pi²/[d(m+κ)²]+O_a(m^−4). Independently evaluated a=0.5 for m=30,75,150,300: b_*-b_m decreases 0.0028520614,0.0006811872,0.0002017946,0.0000553710 and corrected residual drops from 1.57e−4 to 7.06e−9. Numerical examples corroborate, do not establish the fixed-a asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roberts et al. 2021 Theorem 18 constructs curves for words (a^(κ+1)b^ℓ)^m a^κ, and identifies endpoints and legal branches, but the inspected formula does not supply pointwise inverse-square asymptotic.",
+          "Garcia-Morato 2019 DOI 10.1007/s12346-018-0299-7 has plausible same map/lobe coverage but only bibliographic description accessible."
+        ],
+        "reasoning": "General lobe and rotation-number results are not known to dominate the explicit coefficient and κ; inaccessible same-map 2019 source remains an unresolved comparison risk rather than declared not covering.",
+        "searches": [
+          "Roberts Saito Vivaldi Critical curves of a piecewise linear map Theorem 18 ii 1 2021",
+          "Lagarias Rains piecewise linear area-preserving maps rational rotation numbers",
+          "Garcia-Morato Freire Ponce Torres Bifurcation Patterns in Homogeneous Area-Preserving Piecewise-Linear Maps 2019"
+        ]
+      },
+      "checked_sources": [
+        "Roberts–Saito–Vivaldi arXiv:2104.07197v1 Theorem 18(ii)(1), proof pp.30–32",
+        "Garcia-Morato et al. DOI 10.1007/s12346-018-0299-7 OA search; institutional full text unavailable",
+        "Lagarias–Rains arXiv:math/0301294 (rotation levels)",
+        "Resultary related planar map phase transition semantic searches",
+        "Source critical_pencil_check.py verified Git blob e7b29e4da6ebec6bb8ce0298c50a1ff83ead89dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing each legal pencil ordinate exists does not determine the inverse-square approach to its parabolic trace locus at interior a.",
+          "Cayley–Hamilton sine identities are standard but the sign interpolation proving root legality and nonzero coefficient κ require additional analysis."
+        ],
+        "reasoning": "The claimed fixed-a limit is not an immediate numerical corollary of endpoint formulas that fix a at a boundary; a separate parabolic expansion of the matrix endpoint condition is essential.",
+        "searches": [
+          "Roberts 2021 Theorem 18(ii)(1) endpoint at a=1",
+          "critical map transfer matrix Chebyshev phase shift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The critical pencil can be expressed as zeros of (A²(B³A³)^m)12 close to tr(B³A³)=2.",
+          "Asymptotic equivalent: m²(b_*−b_m)→pi²/d and a nonzero additive phase shift κ in the denominator."
+        ],
+        "reasoning": "Searched symbolic-dynamics and continuant/SL2 parabolic scaling formulations; inspected closely related primary critical-pencil theorem, no matching explicit rate found.",
+        "searches": [
+          "critical curves piecewise linear planar map a^3 b^3 first generation accumulation",
+          "elliptic SL2 transfer matrix trace approaches 2 phase shift arccos 1/m parabolic",
+          "Resultary first-generation critical curve pencil parabolic trace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 18 of Roberts–Saito–Vivaldi gives a table of four word-pencil families and endpoint rotation numbers, not the fixed-a asymptotic coefficient.",
+          "Independent examples from direct high-precision solves agree with the new asymptotic formula."
+        ],
+        "reasoning": "The available table determines curves, not their transverse accumulation at fixed a as m increases; no exact stronger asymptotic table identified.",
+        "searches": [
+          "phase shift pi squared d a kappa first-generation critical curves",
+          "critical-curve pencil (a3b3)^m a2 accumulation rate fixed a",
+          "arxiv 2104.07197 theorem 18 endpoint formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is the explicit pointwise parabolic inverse-square coefficient and first phase shift for this legal moving critical-pencil intersection, not the underlying family or Chebyshev transfer-matrix formalism. Roberts–Saito–Vivaldi Theorem 18(ii)(1) establishes the legal pencil and endpoints, but inspected theorem and proof do not state the fixed-interior-a asymptotic. Lagarias–Rains studies rotation number dynamics generally. Garcia-Morato et al. (2019) studies bifurcation lobes of essentially the same canonical map; no full OA article was located and authorized institutional access reported disconnected VPN. This remains a material priority risk rather than an automatic originality failure or definitive not-covering judgment.",
+      "residual_risks": [
+        "Garcia-Morato et al. (2019) remains a highly plausible same-map source with complete text inaccessible due institutional VPN; cannot exclude stronger coverage.",
+        "Uniformity as a→0 or 1 and rates for other word families are not established; only fixed interior-a."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes legal critical curves and endpoints; the inspected theorem does not present the fixed-a inverse-square formula",
+          "evidence": [
+            "Theorem 18(ii)(1) word (a^(κ+1)b^ℓ)^m a^κ includes κ=2, ℓ=3; the source proves legal uniqueness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.07197",
+          "material_read": "Primary 36-page arXiv PDF: inspected map definition, Section 5, Theorem 18(ii)(1), its word-pencil table, adjoining proof and page 32 screenshot",
+          "method": "arXiv PDF text, theorem-focused close reading, page screenshot",
+          "title": "Critical curves of a piecewise linear map",
+          "trigger": "Direct prior theorem defining the same (a³b³)^m a² critical pencil"
+        },
+        {
+          "assessment": "INDETERMINATE comparison; explicitly not classified as not covering",
+          "evidence": [
+            "Same homogeneous piecewise-linear map and bifurcation patterns could conceivably include limiting curve asymptotics; publication risk remains."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12346-018-0299-7",
+          "material_read": "Bibliographic identification and available abstract/description only; arXiv and OA full-text searches unsuccessful; authorized Oxford retrieval reported vpn_disconnected, job ID retained privately; complete article NOT read",
+          "method": "OA/preprint search followed by authorized institutional attempt; access unsuccessful",
+          "title": "Bifurcation Patterns in Homogeneous Area-Preserving Piecewise-Linear Maps",
+          "trigger": "Plausible broader coverage of same map bifurcation lobes; direct priority risk"
+        },
+        {
+          "assessment": "General rotation-number theory; no exact first-generation inverse-square rate in checked material",
+          "evidence": [
+            "Studies planar piecewise-linear family and rotation-number levels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0301294",
+          "material_read": "Accessible bibliographic abstract and source-described statement context; complete proof not re-read here",
+          "method": "Original arXiv landing page and statement comparison",
+          "title": "Dynamics of a family of piecewise-linear area-preserving plane maps I. Rational rotation numbers",
+          "trigger": "Potential earlier global rotation analysis of identical map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The accumulation of infinitely many dynamically legal critical curves near a parabolic discriminant is a natural quantitative bifurcation problem. The exact coefficient and first phase shift clarify the geometry beyond the earlier existence/endpoints theorem; legality along the entire long word is a motivated dynamical obstacle, not mere substitution into a textbook Taylor expansion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Roberts–Saito–Vivaldi arXiv:2104.07197v1 Theorem 18(ii)(1), proof pp.30–32",
+    "Garcia-Morato et al. DOI 10.1007/s12346-018-0299-7 OA search; institutional full text unavailable",
+    "Lagarias–Rains arXiv:math/0301294 (rotation levels)",
+    "Resultary related planar map phase transition semantic searches",
+    "Source critical_pencil_check.py verified Git blob e7b29e4da6ebec6bb8ce0298c50a1ff83ead89dd"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Garcia-Morato et al. (2019) remains a highly plausible same-map source with complete text inaccessible due institutional VPN; cannot exclude stronger coverage.",
+    "Uniformity as a→0 or 1 and rates for other word families are not established; only fixed interior-a."
+  ],
+  "schema_version": 1
+}

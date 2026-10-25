@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof is self-contained once the source theorem's legal-branch uniqueness is quoted. Symbolic checks in `critical_pencil_check.py` verify the trace factorization, continuant coefficient, polynomial identities used at the parabolic limit, and signs determining the positive root. It uses `sympy`, `mpmath`, and standard Python.
+## correctness
 
-With 65-digit arithmetic, the script brackets the small-angle algebraic root between the parabolic trace value and the first Chebyshev half-turn, then replays every branch sign and endpoint at the computed roots and reports observed deviations for multiple interior parameter values and word lengths. These finite tests are not offered as proof of asymptotic validity; the proof uses the exact sine-interpolation legality argument and a Taylor estimate.
+PASS
 
-The manuscript distinguishes transfer-matrix eigenangle from the dynamical circle rotation number and makes no claim of uniformity at the parameter endpoints. The related 2019 resonance-lobe paper was not accessible as full text, leaving an originality comparison risk. Independent audit has not been performed.
+Fix 0<a<1. Exact independent symbolic matrix multiplication confirms tr(B³A³)-2=(ab−1)[(a²−2)b²−ab+4−2a²] and the endpoint reduction mod Q(b). Q strictly decreases in b>=0, has unique b_*(a)∈(1,sqrt2), with ab_*<1 and positive trace derivative d(a). At b_* the target continuant H_m=(A² C^m)12 equals −mc(a)−a with c>0; at trace t=2cos(pi/m) a lower b yields H_m=a>0, giving an elliptic root θ∈(0,pi/m). The sine interpolation of C^j v_0 between endpoints gives nonnegative coefficients multiplying two vectors whose six pre-step signs both implement a³b³ for 0<a<1<b; hence root is dynamically legal, and published Theorem 18 supplies uniqueness. The tan phase equation near θ=0 gives pi−mθ=κθ+O_a(θ³) and hence b_*−b_m=pi²/[d(m+κ)²]+O_a(m^−4). Independently evaluated a=0.5 for m=30,75,150,300: b_*-b_m decreases 0.0028520614,0.0006811872,0.0002017946,0.0000553710 and corrected residual drops from 1.57e−4 to 7.06e−9. Numerical examples corroborate, do not establish the fixed-a asymptotic.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality is the explicit pointwise parabolic inverse-square coefficient and first phase shift for this legal moving critical-pencil intersection, not the underlying family or Chebyshev transfer-matrix formalism. Roberts–Saito–Vivaldi Theorem 18(ii)(1) establishes the legal pencil and endpoints, but inspected theorem and proof do not state the fixed-interior-a asymptotic. Lagarias–Rains studies rotation number dynamics generally. Garcia-Morato et al. (2019) studies bifurcation lobes of essentially the same canonical map; no full OA article was located and authorized institutional access reported disconnected VPN. This remains a material priority risk rather than an automatic originality failure or definitive not-covering judgment.
+
+## value
+
+PASS
+
+The accumulation of infinitely many dynamically legal critical curves near a parabolic discriminant is a natural quantitative bifurcation problem. The exact coefficient and first phase shift clarify the geometry beyond the earlier existence/endpoints theorem; legality along the entire long word is a motivated dynamical obstacle, not mere substitution into a textbook Taylor expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
