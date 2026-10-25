@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact formula follows from a unique run composition and proper partition of run indices, with each cycle contributing (size-1)!. Fixed-r factorial bounds isolate a unique dominant-cycle pattern; its count is k! * binom(n-k-1,k) * (n-k-1)! for even boundaries and 2(k+1)! * binom(n-k-2,k) * (n-k-2)! for odd boundaries. The remaining terms are respectively O(n^-2) and O(n^-3). All 52 package exact checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mansour--Shattuck (2016), DOI 10.1016/j.disc.2015.12.004, introduction and Theorems 2.3/3.2",
+        "Brualdi--Deutsch, arXiv:1005.0781, Sections 1–5"
+      ],
+      "reasoning": "Brualdi--Deutsch requires an entire cycle to consist of consecutive labels and counts such cycles; Mansour--Shattuck requires the two labels to be consecutive in the *cyclic order*. Neither predicate equals co-membership, so no stronger theorem in these inspected sources covers the proposed fixed-deficit tail. Other weighted partition methods could still be relevant.",
+      "searches": [
+        "weighted set partitions with block weight (size minus one) factorial succession count distribution, high-end asymptotic",
+        "permutations cycles same blocks consecutive integers successions asymptotic",
+        "\"Extended set partitions with successions\" Munagi 2008 pdf"
+      ]
+    },
+    "checked_sources": [
+      "10.1155/IJMMS.2005.451 (bibliography/abstract, limited)",
+      "10.1016/j.ejc.2007.06.003 (full text)",
+      "arXiv:1005.0781 (full preprint)",
+      "10.1016/j.disc.2015.12.004 (full author manuscript)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Munagi (2005), DOI 10.1155/IJMMS.2005.451 (bibliographic record only), unweighted successions/separations",
+        "Munagi (2008), DOI 10.1016/j.ejc.2007.06.003, full text",
+        "Brualdi--Deutsch (2010), arXiv:1005.0781, full preprint",
+        "Mansour--Shattuck (2016), DOI 10.1016/j.disc.2015.12.004, author-posted full-text manuscript"
+      ],
+      "reasoning": "Classical Ewens weights provide premises for the enumeration, not its limiting constants. Munagi counts partitions with a different probability weight; Brualdi--Deutsch and Mansour--Shattuck count different events. Nothing read states or immediately logically subsumes the parity-separated n^-1/n^-2 fixed-boundary asymptotic.",
+      "searches": [
+        "Fixed-deficit tail asymptotics for the number of consecutive labels in different cycles of a uniformly random permutation: n P(D=2k)->1 and n^2 P(D=2k+1)->2k+2.",
+        "random permutation cycle-color runs fixed small number transitions boundary parity",
+        "permutation \"consecutive elements\" \"same cycle\" enumeration random",
+        "\"Counting permutations by the number of successions within cycles\" arxiv PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ewens cycle partition probability weight is product of (size-1)! divided by n!",
+        "Munagi (2008), DOI 10.1016/j.ejc.2007.06.003, Theorem 6 counts unweighted set-partition successions"
+      ],
+      "reasoning": "A permutation cycle partition is factorial-weighted, not uniformly distributed among set partitions. The exact run sum is a weighted chromatic partition enumerator, and its parity asymptotic is not the unweighted Stirling/Bell formula.",
+      "searches": [
+        "Fixed-deficit tail asymptotics for the number of consecutive labels in different cycles of a uniformly random permutation: n P(D=2k)->1 and n^2 P(D=2k+1)->2k+2.",
+        "Ewens cycle partition of 1 through n: consecutive label co-membership runs; near maximum event one dominant cycle with isolated exceptional labels; parity-tail law.",
+        "weighted set partitions with block weight (size minus one) factorial succession count distribution, high-end asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact first counts for D=n-1 are 1,1,2,5,17,69,338,1907 at n=1,...,8, independently enumerated",
+        "Finite complete distribution in the packaged verifier"
+      ],
+      "reasoning": "Numerical tables alone cannot establish the fixed-d asymptotic with constants, and no identified table was found that contains the complete theorem. A failed table search is not novelty proof.",
+      "searches": [
+        "\"1, 2, 5, 17, 69, 338, 1907\" permutations",
+        "site:oeis.org \"1, 2, 5, 17, 69, 338\""
+      ]
+    },
+    "rationale": "Exact unweighted succession enumerations, counts of wholly consecutive-support cycles, and cyclic-order successions do not imply the weighted cycle-co-membership boundary statistic or its even/odd fixed-tail constants. No equivalent asymptotic surfaced in targeted research-record and literature comparisons; residual indexing and historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Unindexed literature or a generating function in a general factorial-weighted partition framework may implicitly or explicitly contain the same fixed-deficit parity law.",
+      "Munagi (2005) original full text was not inspected; later Munagi (2008) was inspected and covers a related but unweighted problem.",
+      "There is no independent priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different weight: each set partition counted once instead of factorial-weighted permutation cycles; no matching asymptotic",
+        "evidence": [
+          "Theorem 6 treats compositions and Stirling/Bell counts for ordinary partitions",
+          "Section on separations yields binomial-Stirling numbers rather than permutation cycle weights"
+        ],
+        "identifier_or_url": "10.1016/j.ejc.2007.06.003",
+        "material_read": "Full text including definitions, Proposition 1, Theorem 6, partition formulas and numerical table",
+        "method": "Author-posted full-text article inspected as text",
+        "title": "Extended set partitions with successions",
+        "trigger": "Closest unweighted same-block adjacency statistic"
+      },
+      {
+        "assessment": "Counts cycles consisting of a consecutive set of labels, not boundary co-membership of arbitrary labels in the same cycle",
+        "evidence": [
+          "Section 1 definition of adjacent q-cycle",
+          "Theorem 5.1 multi-length cycle count"
+        ],
+        "identifier_or_url": "arXiv:1005.0781",
+        "material_read": "Complete preprint available; abstract, definition and Sections 2–5 including Theorem 2.1 and 5.1, concluding discussion inspected",
+        "method": "Open preprint PDF, extracted text and page image",
+        "title": "Adjacent q-Cycles in Permutations",
+        "trigger": "Potential adjacent-label cycle enumerator"
+      },
+      {
+        "assessment": "Counts adjacent labels consecutive in their cycle order, which is strictly stronger than belonging to the same cycle",
+        "evidence": [
+          "Introduction defines a rising or falling cycle succession by consecutive labels adjacent in cyclic order",
+          "Theorems 2.3 and 3.2 count that statistic"
+        ],
+        "identifier_or_url": "10.1016/j.disc.2015.12.004",
+        "material_read": "Author-posted full-text manuscript, introduction and distribution theorems for rising/falling cyclic successions",
+        "method": "Full manuscript inspected in HTML text",
+        "title": "Counting permutations by the number of successions within cycles",
+        "trigger": "Closest permutation statistic involving adjacent integer labels and cycles"
+      },
+      {
+        "assessment": "Plausible predecessor on unweighted partitions; lack of full-text access recorded as historical risk, not as a whole-document noncoverage claim",
+        "evidence": [
+          "Bibliographic record identifies unweighted partition successions and separations, published 26 September 2005"
+        ],
+        "identifier_or_url": "10.1155/IJMMS.2005.451",
+        "material_read": "Bibliographic record, publication date and classification; complete primary paper not retrieved",
+        "method": "Bibliographic source and attempted OA document request",
+        "title": "Set partitions with successions and separations",
+        "trigger": "Earliest relevant unweighted set-partition statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1382410e-cf67-4e90-b06c-975df0522c4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of transitions between cycle memberships along consecutive labels is an intrinsic statistic of the uniformly weighted Ewens cycle partition. Sharp high-cohesion tails have different *orders* depending on parity, with explicit constants for every fixed deficit; a dominant-cycle and exceptional-endpoint mechanism explains this structural phenomenon. The claim is not a routine change of variables, a small arbitrary slice, or a reformulation of marginal cycle counts.",
+    "status": "PASS"
+  }
+}
