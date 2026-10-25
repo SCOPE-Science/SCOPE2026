@@ -1,125 +1,150 @@
 {
   "correctness": {
-    "rationale": "The exact distance-two adjacency lists are exhaustively obtained from length-at-most-two walks. The five index regimes comprise all v_i deletion stages for every n>=13; each displayed closed-neighborhood fold is checked by finite symbolic offset comparisons, leaving one link vertex. Dominated vertices collapse their flag complexes, and a vertex with collapsible link can itself be removed by simplicial collapse. The remaining C_n^2 has only consecutive-triple 2-faces, with each chord a free edge, and collapses to C_n. At n=12, exact F2 boundary ranks (1,23,85,72,12) from simplex counts (24,108,160,84,12) give reduced H2 rank 3 and all other reduced ranks zero. The standalone standard-library checker builds original edges and recomputes distances, 742 link fold checks over n=13..40, and exact full n=12 homology; these finite tests support but do not replace the parameter-uniform fold proof. The result concerns only inclusive scale two and integer n>=13, plus the finite n=12 F2 boundary.",
+    "rationale": "The inclusive radius-two Vietoris–Rips complex is Cl(GP(n,2)^2). Its square graph has U–U offsets ±1,±2; V–V offsets ±2,±4; U–V offsets 0,±1,±2. For n>=13, offsets in each v_i link lie between -4 and 4 and no modular alias can create an extra adjacency: the largest relative difference is 8, whereas n-4>=9. The five exact link-vertex cases therefore support a uniform symbolic closed-neighborhood fold certificate (8,7,6,5,4 folds respectively), leaving a single vertex in every link. A collapsible vertex link permits simplicial deletion of v_i; all n inner vertices can be removed sequentially. The remaining Cl(C_n^2) collapses to the outer C_n by pairing each triangle with its unique distance-two edge. At n=12, direct enumeration from original GP edges gives 24,108,160,84,12 simplices in degrees 0..4; exact F2 boundary ranks 1,23,85,72,12 yield reduced Betti vector 0,0,3,0,0. An independent NetworkX BFS/clique enumeration and bit-vector boundary-reduction implementation verified 13 sample parameters (13..101), 402 links, 2,412 fold pairs and n=12 boundary ranks. The five symbolic offset regimes, not the finite samples, establish the all-n collapse.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Only GP(n,2) for n>=13 and the GP(12,2) mod-two boundary are classified at inclusive scale two.",
+    "No assertion concerning the integral homology of the n=12 exceptional complex, all scales, or other GP(n,k) families.",
+    "Priority is best-of-knowledge, not a proof against unindexed prior sources.",
+    "Finite enumeration is corroboration of the n>=13 symbolic fold argument and an exact calculation only for n=12."
+  ],
+  "mathematical_finding": "For all integers n>=13, the inclusive graph-distance-two Vietoris–Rips complex of GP(n,2) simplicially collapses to the outer C_n; at n=12, reduced mod-two H2 has rank three and other reduced ranks vanish.",
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arXiv:1104.0433v3, Proposition 2.2: collapse Cl(G^2) to Cl(G) under girth >=7; GP(n,2) contains a five-cycle and fails this hypothesis.",
-        "arXiv:1104.0433v3, Theorem 3.1: requires every clique in G^2 to fit inside an original closed vertex neighborhood; GP(n,2) is cubic (closed neighborhoods have four vertices), while the five-cycle vertices form a clique of its square.",
-        "arXiv:1104.0433v3, Theorem 3.2: excludes induced C5, so also inapplicable."
+        "Adamaszek Prop 2.2 assumes girth >=7; GP(n,2) has length-five cycles. Thm 3.1 assumes every graph-square clique fits in original closed neighborhood; the five-cycle yields five vertices all distance <=2 although every original closed neighborhood has size four. Thm 3.2 excludes induced C5.",
+        "Circle results cover final C_n^2 but do not collapse from 2n GP square vertices.",
+        "Metric gluings requires short/common isometric gluing locus rather than n spokes; product-cylinder results require both cycle layers have step-one edges."
       ],
-      "reasoning": "The closest stronger-looking graph-power collapse statements lack the necessary hypotheses for this family. They do not imply even the homotopy S1 statement, much less the asserted collapse onto the specific outer cycle. A general result for arbitrary large-girth graph squares is not a dominating comparison because these graphs have girth five.",
+      "reasoning": "No inspected stronger theorem applies to the exact starting complex. The new local link-dismantling argument is not a re-labeling of known cycle-power or product-cylinder results.",
       "searches": [
-        "Clique complexes and graph powers Proposition 2.2 girth 3r+1 theorem",
-        "closed neighborhood folds deleting inner vertices generalized Petersen graph square clique complex",
-        "\"generalized Petersen\" \"graph powers\" clique complex"
+        "arXiv:1104.0433 Proposition 2.2 Theorem 3.1 Theorem 3.2 Sections 2–3,6",
+        "arXiv:1503.03669v2 cyclic graph and circle classification",
+        "arXiv:1712.06224v5 metric gluing theorems",
+        "Resultary: graph square flag complex generalized Petersen stability under graph-power graph folds"
       ]
     },
     "checked_sources": [
-      "arXiv:1104.0433v3 (primary full HTML, relevant propositions and theorem hypotheses)",
-      "arXiv:1503.03669v2 (primary full HTML, metric circle and cyclic graph classifications)",
-      "DOI:10.1002/jgt.3190190102 (definition only, abstract)",
-      "Published mathematical comparisons: projective-plane incidence graph Rips complexes; graph-square cactus chordality; independence/cut complexes of GP(10,2) and GP(5,2)"
+      "arXiv:1104.0433 (https://arxiv.org/abs/1104.0433)",
+      "arXiv:1503.03669v2 (https://arxiv.org/html/1503.03669v2)",
+      "arXiv:1712.06224v5 (https://arxiv.org/html/1712.06224v5)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-two-rips-complexes-of-circular-ladder-vertices-collapse-to--362deda596a4",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-two-rips-collapses-of-unbounded-width-cyclic-clique-cylind--d12ebec00d43",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-d-rer-grap--5ed9def16601",
+      "Resultary semantic retrieval: 3 focused query strings (self-match excluded)",
+      "Web targeted searches: generalized Petersen graph square clique/Rips, boundary n=12, graph powers"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arXiv:1104.0433v3, Proposition 2.2, Theorems 3.1–3.2, and Section 6 inspected directly.",
-        "arXiv:1503.03669v2, introduction, graph dismantling, and cyclic-classification sections inspected.",
-        "Nedela–Škoviera, J. Graph Theory 19 (1995), standard graph definition and structural properties; no Rips assertion in the accessible abstract."
+        "The cycle-power theorem yields Cl(C_n^2) collapse to C_n, but not Cl(GP(n,2)^2) collapse to Cl(C_n^2).",
+        "The n>=13 condition in this proof follows from the V-offset difference upper bound eight vs n-4>=9; n=12 has nonzero three-dimensional F2 second homology.",
+        "Product-cylinder collapse and metric-gluing methods require distinct edge/metric structure."
       ],
-      "reasoning": "Even granting the published cycle-power homotopy and collapse, the implication to the target requires collapsing the 2n-vertex GP square to the n-vertex outer square. The five-case step is the new essential implication. The n=12 non-circle obstruction is a separate exact boundary computation and is not derived from cycle-square results.",
+      "reasoning": "To derive the claim from prior theorems one would still need to establish the entire n-vertex orbit elimination, and the sharp finite boundary table. Neither follows from the inspected general statements. Failure to locate independent coverage is not a guarantee of global novelty.",
       "searches": [
-        "Vietoris Rips complexes generalized Petersen graph GP(n,k) graph metric scale 2 homotopy type",
-        "for every n at least 13 clique complex of square of generalized Petersen graph G(n,2) collapses onto outer cycle C_n",
-        "Clique complexes and graph powers 5-cycle conditions for collapse",
-        "graph square of pentagonal generalized Petersen graph stable homotopy type weak equivalence"
+        "arXiv:1104.0433 Propositions 2.2, Theorems 3.1–3.2 and Section 6",
+        "arXiv:1503.03669v2 §§3–4 and 7",
+        "arXiv:1712.06224v5 §§3–4",
+        "Resultary published cyclic ladder and clique cylinder records full RESULT.md"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arXiv:1104.0433v3, §§1–3 and 6: equates graph-square clique complexes with discrete-metric Rips complexes and treats cycle powers, but does not identify the generalized-Petersen family or the five-case inner-vertex fold.",
-        "arXiv:1503.03669v2, §§1–4 and 7: metric-circle and cyclic-graph classification, with no generalized-Petersen case."
+        "Cl(GP(n,2)^2) and VR_{<=}(GP(n,2);2) are identical by graph metric; arXiv:1104.0433 §1 explicitly gives this identification.",
+        "arXiv:1503.03669v2 §§3–4 gives cyclic graph/winding-fraction classification but does not identify the full square of GP(n,2) as such a graph.",
+        "Resultary self-match was excluded as independent evidence; nearest distinct records cover C_n □ K_m products or GP(6,2), not same n>=13 family."
       ],
-      "reasoning": "The exact target is Cl(GP(n,2)^2), alternatively the graph-distance inclusive Rips complex at scale 2. Neither the cyclic graph C_n^2 alone nor the original GP(n,2) graph represents the full starting complex. The proof deletes an entire inner vertex orbit, not just a renaming of a published cycle theorem.",
+      "reasoning": "The graph-power, shortest-path Rips, and flag-complex formulations are equivalent; inspected sources either require missing girth/clique-neighborhood hypotheses or use different graph families. Merely obtaining S1 for another two-ring graph or same object at n=6 does not imply this all-n explicit simplicial collapse.",
       "searches": [
-        "for every n at least 13 clique complex of square of generalized Petersen graph G(n,2) collapses onto outer cycle C_n",
-        "Vietoris Rips at scale two GP(n,2) circle homotopy type H1 rank 1 for n≥13 versus n=12 H2 rank 3",
-        "Vietoris Rips complexes generalized Petersen graph GP(n,k) graph metric scale 2 homotopy type",
-        "graph square of pentagonal generalized Petersen graph stable homotopy type weak equivalence",
-        "\"generalized Petersen\" \"Vietoris Rips\" graph metric",
-        "\"Petersen\" \"clique complex\" \"graph square\""
+        "Web: \"GP(n,2)\" \"clique complex\" graph square homotopy",
+        "Web: \"generalized Petersen\" \"Vietoris Rips\" \"n=12\"",
+        "Resultary: clique complex square generalized Petersen graph GP(n,2) homotopy collapse outer cycle 12 13",
+        "Resultary: generalized Petersen graphs powers clique complex homology GP(n,2) 12 13"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No numerically matching n=12 flag-complex homology table or exact n>=13 local-collapse theorem was identified in the inspected indexed scientific comparisons.",
-        "The complete n=12 face list and boundary ranks are independently regenerated by the included standalone verifier, not copied from a published table."
+        "No separately indexed radius-two GP(12,2) face-vector and mod-two Betti calculation found; the supplied boundary ranks were independently computed from the GP(12,2) shortest-path graph.",
+        "A published exact n=6 Dürer-filtration table concerns GP(6,2), and cyclic-ladder/cylinder tables concern different graphs and do not determine GP(12,2)."
       ],
-      "reasoning": "The reported ranks arise from exact enumeration of the graph-square clique complex at the specified graph, metric, and scale. Computations about independence, matching, total-cut, or Morse complexes of generalized Petersen graphs are different invariants and do not cover this table.",
+      "reasoning": "The claimed table is indexed by the graph GP(12,2), its radius-two graph metric, and its flag-complex boundary maps. Tables for other graph complexes, other orders, or Cartesian cylinder families cannot imply these dimensions.",
       "searches": [
-        "generalized Petersen G(n,2) graph powers homology exact table n=12 n=13 H2 S1 3 spheres",
-        "Vietoris Rips at scale two GP(n,2) circle homotopy type H1 rank 1 for n≥13 versus n=12 H2 rank 3",
-        "Vietoris Rips graph metric generalized Petersen G(12,2) reduced homology 3",
-        "square GP(n,2) flag complex betti n=12 n=13"
+        "Web: \"generalized Petersen\" \"Vietoris Rips\" \"n=12\"",
+        "Resultary: generalized Petersen graphs powers clique complex homology GP(n,2) 12 13 and H2 obstruction",
+        "Web: \"generalized Petersen graph\" homotopy \"power\" \"clique\""
       ]
     },
-    "rationale": "The explicit all-n inner-vertex simplicial collapse and the exact n=12 obstruction are not implied by the nearest full-text graph-square and circle-Rips papers. Adamaszek (arXiv:1104.0433) requires girth at least seven for Proposition 2.2 and has additional alternative hypotheses failing on the cubic graphs GP(n,2), which possess square-graph five-cliques. Its cycle classification covers only the final outer ring after the new reduction. Adamaszek–Adams (arXiv:1503.03669) treats metric circles and cyclic graphs rather than the two-ring metric. Scientific alias/fingerprint searches and examination of closest indexed titles identified no covering theorem, but undiscovered earlier treatments remain possible.",
+    "rationale": "The exact GP(n,2) family and universal inner-link folding transition are not covered by the full-text graph-square sufficient criteria, Rips circle/cyclic graph theorem, metric gluing results, or product-cylinder/lower-order published results. Girth-five and a square five-clique exclude Adamaszek’s principal sufficient conditions, and a new five-case elimination is needed even when the cycle-square conclusion is known. This is a best-of-knowledge priority assessment, not an absolute novelty certification.",
     "residual_risks": [
-      "The expression of the result as a generalized-Petersen graph-square collapse might occur in an unindexed dissertation or older graph-power paper under alternate language.",
-      "Only accessible abstract-level content was checked for the standard graph-family definition; it is not used for a claim of absent results in that full article.",
-      "Bibliographic comparison cannot prove novelty against private, unpublished, or wholly unindexed work."
+      "An unindexed thesis, appendix, earlier result under graph-square/simple-homotopy terminology could contain the same collapse or imply it by an unstated strong theorem.",
+      "The inspected circle-winding theorems may support a different proof after new nontrivial identification; no such identification was assumed or certified.",
+      "Exact mod-two Betti values do not determine integral torsion or the full homotopy type at n=12; no such stronger assertion is made."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING for the target n>=13, since three relevant sufficient conditions fail or concern only the final outer cycle.",
-        "evidence": [
-          "Proposition 2.2 girth >=7 condition; GP(n,2) has 5-cycles.",
-          "Theorem 3.1 original closed-neighborhood cover fails on a square five-clique in cubic GP(n,2).",
-          "Theorem 3.2 induced C5 exclusion fails.",
-          "Section 6 determines Cl(C_n^2), not the link-by-link collapse of Cl(GP(n,2)^2)."
-        ],
-        "identifier_or_url": "arXiv:1104.0433v3; https://arxiv.org/html/1104.0433v3",
-        "material_read": "The full accessible HTML mathematical text, particularly introduction and Section 2 Proposition 2.2, Section 3 Theorems 3.1–3.2, Section 5 graph constructions, Section 6 powers of cycles, and appendix table.",
-        "method": "Read primary arXiv full HTML and compare proof hypotheses and target graph family; searched the body for Petersen.",
+        "assessment": "PARTIAL_COVERAGE: square graph and cycle-square tools; no implication for the GP(n,2) inner-vertex elimination. Girth >=7 fails (pentagons); graph-square five-cliques violate original closed-neighborhood cover in the cubic graph; C5-free condition fails.",
+        "evidence": "Proposition 2.2 (girth >=3r+1); Theorems 3.1,3.2; Section 6 treats C_n powers; GP(n,2) has u_i,u_(i+1),u_(i+2),v_(i+2),v_i as a five-cycle.",
+        "identifier_or_url": "arXiv:1104.0433 (https://arxiv.org/abs/1104.0433)",
+        "material_read": "Accessible arXiv full-text rendering, introduction, Proposition 2.2 and its proof, Theorems 3.1–3.2 with hypotheses and proofs, Remark 3.3, cycle-power results and their scope.",
+        "method": "Direct comparison of primary mathematical statements and counter-hypotheses, not abstract-only reading.",
         "title": "Clique complexes and graph powers",
-        "trigger": "General theorem for flag complexes of graph squares potentially dominates the proposed collapse."
+        "trigger": "Closest potential general sufficient conditions for graph-square simplicial collapses."
       },
       {
-        "assessment": "NOT_COVERING: circle subsets and cyclic graphs do not include the full generalized-Petersen two-ring square complex.",
-        "evidence": [
-          "Sections 1, 3–4 and 7 concern metric-circle/cyclic graph Rips complexes and winding fractions.",
-          "The original graph has 2n vertices in two rings with cross-spoke metric, not the C_n metric whose Rips complex is the eventual collapse target."
-        ],
-        "identifier_or_url": "arXiv:1503.03669v2; https://arxiv.org/html/1503.03669v2",
-        "material_read": "Accessible complete HTML text, including Rips definitions, cyclic graph and dismantling machinery, main circle classification, and related concluding statements.",
-        "method": "Read original arXiv HTML and compare metric hypotheses with the two-ring shortest-path graph metric; searched the body for Petersen.",
+        "assessment": "PARTIAL_COVERAGE: cyclic circle C_n and suitable cyclic graphs; does not identify the two-ring GP(n,2) graph-power complex as a cyclic object, construct its vertex-link collapses, or compute the n=12 exceptional ranks.",
+        "evidence": "Definitions 2.1–2.2, main circle classification, cyclic graph hypotheses §§3–4, §7.",
+        "identifier_or_url": "arXiv:1503.03669v2 (https://arxiv.org/html/1503.03669v2)",
+        "material_read": "Full-text introduction, definitions of VR_{<=} and cyclic graphs, winding fraction classifications, circle-rips statement and applications.",
+        "method": "Direct primary HTML reading, with comparison of metric space and graph-power object.",
         "title": "The Vietoris–Rips complexes of a circle",
-        "trigger": "Archive-eligible primary topology reference and possible dominating cyclic-metric classification."
+        "trigger": "Winding-fraction and cyclic-graph results might dominate the claimed S1 type and n=12 sphere-wedge boundary."
       },
       {
-        "assessment": "DEFINITIONAL_CONTEXT_ONLY; no homotopy or Rips claim supported or ruled out by limited abstract access.",
-        "evidence": [
-          "The abstract specifies vertices and outer, spoke, and inner-step edge families; it addresses Cayley/vertex-transitive properties."
-        ],
-        "identifier_or_url": "https://doi.org/10.1002/jgt.3190190102",
-        "material_read": "Accessible journal landing page and abstract, including the definition and cited graph-family properties, not full article.",
-        "method": "Read bibliographic record and abstract only.",
-        "title": "Which generalized Petersen graphs are Cayley graphs?",
-        "trigger": "Independent definition and standard nomenclature for generalized Petersen graphs."
+        "assessment": "NOT_COVERING: the n spokes joining two cyclic layers at all indices are not a gluing along one common isometric subspace/short path, and the theorem focuses on metric graphs with all edge points, not this finite vertex set.",
+        "evidence": "Introduction and §§3–4; gluing requires common isometric identified set or short common path.",
+        "identifier_or_url": "arXiv:1712.06224v5 (https://arxiv.org/html/1712.06224v5)",
+        "material_read": "Full-text introductory theorem scope, metric-gluing construction hypotheses, classification for two graphs glued along a shared sufficiently short path, applicability discussion.",
+        "method": "Direct arXiv primary full text comparison of gluing geometry and finite vertex metric.",
+        "title": "On Homotopy Types of Vietoris–Rips Complexes of Metric Gluings",
+        "trigger": "Two-layered graph families might follow from wedge-sum/metric gluing decomposition."
+      },
+      {
+        "assessment": "NOT_COVERING: its graph C_n □ K_2 has both rims step-one cycles; GP(n,2) has the second rim step-two edges and different graph metric. Its n>=7 collapse therefore does not imply this n>=13 transition.",
+        "evidence": "Result uses distance d_C(i,j)+1_{layer mismatch}, not the GP spoke-plus-inner-step-two distance; its maximal tetrahedron families are different.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-two-rips-complexes-of-circular-ladder-vertices-collapse-to--362deda596a4",
+        "material_read": "Full published RESULT.md, including definition, maximal facets, nine-phase proof and scope limitations.",
+        "method": "Read complete published mathematical statement and compare original edge sets and graph distances.",
+        "title": "Scale-two Rips complexes of circular ladder vertices collapse to a rim",
+        "trigger": "Very closely related two-layer cubic cycle graph with the same radius and collapse target."
+      },
+      {
+        "assessment": "NOT_COVERING: family is C_n □ K_m, m>=3, with same-column clique fibers and common step-one cycle; GP(n,2) is not in that product family.",
+        "evidence": "Original graph has inner v_i v_(i+2); cylinder graph has (i,a)(i+1,a), a fixed, and within-fiber K_m edges.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-two-rips-collapses-of-unbounded-width-cyclic-clique-cylind--d12ebec00d43",
+        "material_read": "Complete published RESULT.md including graph definition, collapse and all-m counts.",
+        "method": "Direct reading and comparison of product factor and cross-layer edge distances.",
+        "title": "Scale-two Rips collapses of unbounded-width cyclic clique cylinders",
+        "trigger": "Possible broader cyclic-fiber graph theorem encompassing a two-layer case."
+      },
+      {
+        "assessment": "SPECIAL_CASE_NOT_DOMINATING: covers GP(6,2) and all scales on that single twelve-vertex graph, not n>=13 or the exceptional GP(12,2) radius-two ranks.",
+        "evidence": "Scope explicitly restricted to Dürer graph G(6,2); radius-two type S2 for n=6.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-d-rer-grap--5ed9def16601",
+        "material_read": "Complete published RESULT.md, including finite face tables and exact Morse proof.",
+        "method": "Direct full source text reading for n=6 and compare ranges and implications.",
+        "title": "Complete graph-metric Vietoris–Rips filtration of the Dürer graph",
+        "trigger": "Exact same generalized Petersen second parameter at smaller n=6."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "7ffdbeea-612d-4a51-93c5-e8c2f2bc6bba",
   "value": {
-    "rationale": "Generalized Petersen graphs form a canonical two-ring infinite cubic family, and the five-cycles force the failure of the natural girth-seven graph-square collapse criterion. Nonetheless explicit link dismantling yields a strong simplicial-collapse theorem for all n>=13. The exact three-dimensional F2 H2 at n=12 supplies a sharp homological obstruction to moving the stable collapse threshold one step earlier. This structural regime transition is motivated by an identified gap in graph-power topology, not a purely numerical extrapolation or an arbitrary finite example.",
+    "rationale": "Generalized Petersen GP(n,2) is a canonical infinite cubic two-ring graph family with persistent five-cycles, exactly where standard girth>=7 collapse criteria stop applying. Establishing an explicit simplicial collapse despite the short cycles fills a natural stability gap, and the exact n=12 mod-two H2 obstruction gives a sharp lower boundary. The all-n structural mechanism and finite threshold are mathematically motivated; no classification of unrelated graph parameters or scales is asserted.",
     "status": "PASS"
   }
 }

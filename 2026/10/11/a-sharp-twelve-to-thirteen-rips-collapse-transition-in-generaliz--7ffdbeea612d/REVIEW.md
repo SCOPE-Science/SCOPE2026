@@ -1,15 +1,13 @@
-# Scientific assessment
+# Mathematical assessment
 
 ## Correctness — PASS
-The claim has an all-parameter proof: exact graph-square adjacencies, a five-case table of closed-neighborhood folds for each deleted inner vertex, and free-triangle collapses from the surviving outer cycle square. The fold table covers all indices for \(n\ge13\), including cyclic wraparound. An independent standard-library verifier checks the square adjacency and all displayed domination relations for \(13\le n\le40\), and computes all mod-two boundary ranks at \(n=12\). The finite tests are checks of the symbolic proof, not an extrapolated infinite argument.
+The graph-square adjacency formulas follow from the three original edge families. For n>=13, no modular wraparound creates an extra adjacency among the five symbolic inner-link types: their relative differences are at most eight while n-4 is at least nine. Each link dismantles by the displayed 8, 7, 6, 5 or 4 valid closed-neighborhood folds. Deleting all inner vertices by simplicial collapses leaves the square of the outer cycle, whose consecutive triangles collapse along unique distance-two edges to the rim. At n=12, exact enumeration gives face vector (24,108,160,84,12), F2 boundary ranks (1,23,85,72,12), and reduced Betti vector (0,0,3,0,0). Independent graph-distance and linear-algebra computations verified 13 sampled graph orders and the exact boundary ranks. The universal proof is the symbolic offset classification, not numerical extrapolation.
 
-## Originality — PASS
-The closest primary source is Adamaszek's *Clique complexes and graph powers* (arXiv:1104.0433). Its girth-seven theorem is inapplicable because every target graph has five-cycles; its alternative closed-neighborhood condition is also violated by five-cliques in the square of a cubic graph. Its cycle-power calculation applies only after the new sequence of inner-vertex deletions. Adamaszek–Adams' circle-Rips classification does not classify this two-ring graph metric. Direct searches of the generalized-Petersen/flag/graph-square/Rips formulations and comparison with relevant indexed results did not reveal a dominating theorem. An obscure prior equivalent statement remains a genuine risk.
+## Originality — PASS (best-of-knowledge)
+Adamaszek's *Clique complexes and graph powers* (arXiv:1104.0433, Proposition 2.2 and Theorems 3.1–3.2) gives graph-square criteria requiring girth >=7, an original closed-neighborhood cover of square cliques, or no induced pentagons. Each hypothesis fails for GP(n,2). Its cycle-power result applies after inner-vertex removal, not before. Adamaszek–Adams' *The Vietoris–Rips complexes of a circle* (arXiv:1503.03669) concerns cyclic-graph and circle metrics, not this two-ring graph-square complex. The metric-gluing results of arXiv:1712.06224 concern short identified common subspaces, not all n spoke connections. Published circular-ladder and clique-cylinder collapses treat Cartesian products with step-one cycle edges on all layers; a published Dürer-graph calculation treats only GP(6,2). The complete n>=13 simplicial-collapse statement and the n=12 exceptional table were not found as separate consequences of these inspected sources. Unindexed prior work remains a genuine priority risk.
 
-## Value — PASS
-The family is a standard infinite family of cubic two-ring graphs with persistent five-cycles. A structural simplicial collapse despite those five-cycles extends beyond the scope of the natural girth-seven collapse theorem. The sharp obstruction at \(n=12\) makes \(13\) an exact stability threshold, rather than an unmotivated finite computation.
+## Mathematical value — PASS
+The canonical family has persistent length-five cycles that defeat the usual large-girth stability criterion. The uniform local dismantling provides a structural collapse theorem for all n>=13, and the exact n=12 homology gives a motivated sharp boundary rather than a standalone numerical observation.
 
-## Limitations
-No claim is made about other scales, other second parameters, integral homology of the exceptional case, or absolute novelty beyond the inspected literature and indexed comparison. Independently repeatable code certifies the finite boundary case; the all-parameter assertion depends on the displayed symbolic graph-fold proof.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Scope and limitations
+The theorem concerns shortest-path distances on graph vertices and the inclusive radius-two complex only. It gives mod-two homology at n=12, not integral torsion or a full homotopy classification there, and does not classify other GP(n,k), scales or continuous metric realizations.
