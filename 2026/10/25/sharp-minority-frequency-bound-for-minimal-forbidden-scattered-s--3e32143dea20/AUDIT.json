@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The full all-word induction treats empty, one-letter-absent, repeated-letter, singleton-opposite-run and longer-opposite-run cases; the 2004 append recurrence is inspected in full and specialized precisely. The witness recurrence establishes equality for every k. A separate enumeration checker rederives MFS via deletion tests for all 32767 words through length 14 and equality examples k=0..7. Finite checks corroborate rather than prove all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Petković et al. 2004 Theorem 5.2: at most F(r+2) for r constant-letter runs, tight when each run length at least two.",
+        "2022 survey Section 4.2: general minimal absent subsequence matching and DAG algorithms."
+      ],
+      "reasoning": "Run count can be as high as 2k+1 for k ones; F(2k+3) is strictly larger than the sharp 2^(k+1) for sufficiently large k, and equality of the older bound requires all run lengths >=2, inconsistent with k singleton one-runs in the witness. General algorithmic coverage does not give the new optimum.",
+      "searches": [
+        "Web: 2004 minimal forbidden subwords binary alphabet upper bound Fibonacci number of runs",
+        "Petkovic Ciric Bogdanovic minimal forbidden subwords Fibonacci number of runs versus occurrences ones",
+        "Web: Combinatorial Algorithms for Subsequence Matching survey absent subsequences"
+      ]
+    },
+    "checked_sources": [
+      "https://www.academia.edu/2579981/Minimal_forbidden_subwords",
+      "https://arxiv.org/html/2208.14722v2",
+      "https://dblp.org/rec/journals/ipl/PetkovicCB04",
+      "https://arxiv.org/abs/2108.13968"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 Theorem 4.1 directly yields the append identities, which are employed and cited in the proof.",
+        "2004 Theorem 5.2 gives Fibonacci run bound, not 2^(k+1) fixed-one-frequency optimum.",
+        "2022 survey reports algorithmic MAS characterization, not this extremal bound."
+      ],
+      "reasoning": "The new theorem uses the published recurrence with a frequency-aware two-ending-count induction and explicit saturating witnesses. It is not asserted to invent the recurrence. The known run theorem does not imply the stated best numerical constant at fixed number of ones.",
+      "searches": [
+        "Petković Ćirić Bogdanović 2004 Theorems 4.1 and 5.2 full text",
+        "Kosche Koß Manea Siemer 2022 survey Section 4.2 full HTML",
+        "binary word exactly k ones maximal number of minimal forbidden subwords 2^{k+1}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record with equivalent bound for source having k instances of a single letter.",
+        "Petković et al. (2004), Theorem 4.1, is a general recurrence, not this resulting parameterized extremum."
+      ],
+      "reasoning": "Synonyms minimal absent subsequences, minimal forbidden scattered subwords, and embedding-order antidictionary were included. A recurrence can underlie a new extremal consequence without explicitly implying the sharp value as a previously established theorem.",
+      "searches": [
+        "binary word exactly k ones maximal number of minimal forbidden subwords 2^{k+1}",
+        "minimal absent subsequences sparse words frequency minority symbol 2^k bound",
+        "Web: number of minimal absent subsequences binary word bounded frequency occurrences of letter binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest research-index entry 1a6556f14d28 concerns shortest, not all minimal, absent subsequences.",
+        "Previously recorded claim synopses were screened for the specific frequency-parameter statement; no covering statement appeared."
+      ],
+      "reasoning": "The closest found tables concern shortest absent subsequences or other string invariants, not the size of the entire minimal forbidden-subsequence basis under a minority frequency constraint.",
+      "searches": [
+        "minimal absent scattered subwords binary k ones exact extremal count",
+        "number of minimal absent subsequences bounded by frequency of rare symbol sharp extremal (010)^k",
+        "Web: minimal forbidden subwords 2004 2^{k+1}"
+      ]
+    },
+    "rationale": "Primary 2004 full text contains the general append recurrence and a run-count Fibonacci theorem, but no bound by occurrences of one fixed binary letter. The run bound does not imply this sharp fixed-minority law. The available 2022 subsequence-survey full HTML treats algorithms and representations, not this extremum. research-index searches for the exact power-of-two bound and aliases returned unrelated closest results; priority remains conditional on unindexed literature.",
+    "residual_risks": [
+      "The original 2021 Kosche–Koß–Manea–Siemer PDF was located but not read in full; the later comprehensive open HTML survey and the original 2004 paper were materially inspected.",
+      "Unindexed or informally circulated prior derivations of the 2004 recurrence could contain the same sharp bound.",
+      "The 2003 preliminary conference version is attested but does not have a verified exact day of earliest public circulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supports recurrence and wider run-count bound; not directly covering the sharp minority-frequency theorem",
+        "evidence": [
+          "Theorem 4.1 states complete append recurrence.",
+          "Theorem 5.2 bounds |MFS(w)| by F(r+2), with r constant-letter blocks.",
+          "Section 5 describes a binary automaton for MFS(w)."
+        ],
+        "identifier_or_url": "https://www.academia.edu/2579981/Minimal_forbidden_subwords",
+        "material_read": "Full readable article text, especially Theorem 4.1, Section 5, Theorems 5.1 and 5.2, proofs and references",
+        "method": "Author-uploaded text extraction rendered in the open-access article page",
+        "title": "Minimal forbidden subwords",
+        "trigger": "same minimal-forbidden scattered subword definition and binary alphabet"
+      },
+      {
+        "assessment": "Algorithms and characterization; no claimed sharp bound parameterized by count of one binary symbol",
+        "evidence": [
+          "Theorem 22 tests MAS membership, Theorem 24 builds MAS representations.",
+          "Section 4.2 explicitly defines minimal absent subsequences."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.14722v2",
+        "material_read": "HTML Section 4.2, definitions, Theorems 22–24 and supporting discussion",
+        "method": "Published online full HTML inspection",
+        "title": "Combinatorial Algorithms for Subsequence Matching: A Survey",
+        "trigger": "later overview may aggregate stronger results on minimal absent subsequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e32143d-ea20-4f26-b06b-ad3d3a772893",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The size of a minimal forbidden scattered-subword basis is a natural combinatorial and representation-complexity invariant. The previously established run-count Fibonacci estimate may grow with alternations, but frequency is an independent resource parameter. This theorem gives a length-independent, sharp exponential bound when one letter occurs k times, with explicit equality witnesses and direct implications for output-size bounds of sparse-sequence antidictionaries; neither a small finite table nor a cosmetic substitution.",
+    "status": "PASS"
+  }
+}
