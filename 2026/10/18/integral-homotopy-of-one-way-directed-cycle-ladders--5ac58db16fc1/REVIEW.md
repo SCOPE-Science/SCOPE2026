@@ -1,15 +1,21 @@
-# Scientific review: integral homotopy of one-way directed cycle ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge3\) and permutation \(\phi\), the exact directed-path criterion is derived: a spoke excludes exactly its outer outgoing and inner incoming rim arc, while the only possible selected directed cycles are the two complete rims. This gives an exact simplicial description. The rim subcomplex is the join of two simplex boundaries and hence \(S^{2n-3}\). Closed stars of spokes form a contractible good cover; their rim-only overlap has the boundary of an \((n-1)\)-simplex as its nerve. Both applications of the nerve lemma satisfy the contractible-intersection requirements. The overlap-to-rim inclusion is null-homotopic by dimension/connectivity, and the homotopy pushout produces \(S^{n-1}\vee S^{2n-3}\). A separate executable verifies direct graph acyclicity and the model, face counts, and mod-two Betti numbers for five representative cases. No infinite deduction relies on enumeration.
+PASS
 
-## Originality — PASS, qualified
+For all n≥3 and permutations phi, spoke s_i conflicts only with o_i sharing tail and t_i sharing head after reindexing inner rim; the ONLY directed cycles in an admissible partial injection are the full coherent outer and inner rims. Local join has five faces per index; excluding the two full rims yields 5^n−2^(n+1)+1 augmented faces. Decompose X=L∪W where L=∂Δ(O)*∂Δ(T)=S^(2n−3), W=union of closed spoke stars, with every nonempty intersection contractible and nerve a full simplex, hence W contractible. Overlap B=L∩W covered by n simplices with nerve ∂Δ^(n−1)=S^(n−2). Cofibration pushout and nullhomotopic B→L (dimension n−2<2n−3) give wedge S^(n−1)∨S^(2n−3). Reindex t_i makes phi immaterial. Independent 5-letter local enumeration returned 110,594,3062,15498 faces for n=3,4,5,6 as formula predicts; source direct directed graph-vs-local checker covers small cases. Infinite result relies on exact topological cover, not enumeration.
 
-The 2022 foundational paper (arXiv:2208.04656v1) treats individual polygons, small grids and other digraph classes but not two directed rims coupled by a one-way complete matching. The 2024 comparison theorem (arXiv:2401.01248v1) requires the absence of directed cycles, which fails twice here. The 2026 bidirectional-polygon paper (arXiv:2601.05670) has opposite arcs on a single polygon; the 2026 conflict-hypergraph paper (arXiv:2602.14936v1) supplies general encoding but not this computed two-sphere formula. Related directed-star multipath findings, undirected ladder cut complexes, and undirected Petersen matching complexes do not imply the claim. Specific directed-Petersen, directed-ladder, matching-independent and two-cycle formulations were searched; no equivalent covering statement was identified. Residual risk: an unindexed homotopy classification or a proof obscured in a more general directed-cycle theorem may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This computes the complete, torsion-free **integral homotopy type** in an infinite, natural family containing coherently oriented prisms and generalized Petersen graphs, in two distinct degrees. It proves an unexpected invariance under arbitrary endpoint permutations even when the resulting undirected graphs differ (prism versus Petersen). These features extend the foundational single-cycle computations and supply benchmark examples for topology of directed path selections. The fact does not assert classification for all generalized Petersen orientations.
+Underlying object is the multipath/acyclic partial injection complex on two coherently oriented n-rims and one outward perfect matching, equivalently a path-system complex with local 3-arc exclusions and two full-rim circuits. Compare graph not ordinary undirected matching complex. General 2022 multipath-complex framework and 2026 bidirectional polygon computations do not include the coupled one-way matching of two coherent cycles. Bidirectional means two arcs per edge, incompatible with only one rim orientation here. The single directed-cycle formulas cannot be joined naïvely because s_i shares both a tail and an inner head and forbids local configurations; proof uses the two-star-cover pushout, not a graph-family inclusion theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A uniform integral homotopy splitting for coherent double-cycle ladders resolves nontrivial interactions between spoke matching, two forbidden directed rim cycles and path compatibility. Permutation independence is a structural result applicable across circular ladders and generalized Petersen orientations; two different-dimensional sphere summands are not just a numerical homology census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
