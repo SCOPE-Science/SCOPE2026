@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "An exact 2x2 Taylor endpoint computation gives trace one, determinant (1-|P_p(2ih)|²)/4, and the four listed polynomials. The 2x2 rank-one residual identity reduces the tied Gaussian error to |detZ|/|uᵀZu| on a uniform circle. Four simple angular zeros for detZ<0 yield the positive inverse-linear tail constant 2√(-detZ)/π and the exact q<1 integrability threshold; positivity or rank-one gives bounded error. Independent left/right vectors give a conditional arcsine tail and positive averaged coefficient for every invertible endpoint. Differentiating |P_p(it)|² establishes the all-order leading parity. Standard-library verify.py checks 252 exact rational identities and tail diagnostics; no finite test is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The randomized integrator source assumes independent left/right sketches and oversampling for its moment bounds; the present result concerns one uncompressed endpoint and an unoversampled tied sketch.",
+        "The indefinite Nyström source acknowledges general instability but presents no exact probability-tail classification of the rotational one-step errors."
+      ],
+      "reasoning": "Classical imaginary-axis stability alone decides positive-definiteness of the endpoint but not Gaussian moment integrability. The sharp coefficient and comparison of coupled versus independent sketches require angular probability analysis, and p-modulo-four classification requires a nontrivial leading-coefficient computation.",
+      "searches": [
+        "arXiv:2409.06384v1 randomized integrator moment theorem p ell at least 4",
+        "arXiv:2212.01127v1 indefinite randomized Nyström stable algorithm",
+        "standard explicit RK imaginary axis stability interval Euler Heun Kutta classical RK4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.06384v1, Sections 1–4; generalized Nyström equation (8), moment Theorem 3, Algorithm 1, reused-stage-sketch discussion",
+      "arXiv:2212.01127v1, Introduction and indefinite Nyström example, equations (1.2)–(1.4), and main approximation results",
+      "Relevant published mathematical-research records on RK stability, Gaussian Nyström and low-rank numerical ODEs",
+      "Accessible prior scientific claims on generalized Nyström oversampling, rank-one Gaussian errors and RK methods"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lam–Ceruti–Kressner source theorem holds with p,l>=4 and controls a different stage-sketched algorithm, so it gives neither an infinite first moment nor its sharp coefficient for the tied one-column endpoint.",
+        "Nakatsukasa–Park source example establishes worst-case unbounded deterministic error; it does not specify a Gaussian measure on sketches and an exact positive tail constant.",
+        "The independent unoversampled heavy-tail phenomenon may be deducible from existing sketch moment results; it is explicitly used only as structural contrast."
+      ],
+      "reasoning": "The final claim is the combined exact integrability frontier on a rank-preserving linear ODE, together with its quantitative inverse-linear asymptotic and small-step order cycles; the already known ingredients are credited. No primary theorem inspected implied this full statement.",
+      "searches": [
+        "arXiv:2409.06384v1 Theorem 3 and Algorithm 1",
+        "arXiv:2212.01127v1 eqs (1.2)–(1.4)",
+        "unoversampled independent Gaussian Nyström moments versus tied symmetric sketch"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lam–Ceruti–Kressner (arXiv:2409.06384v1) studies generalized Nyström with independent oversampled sketches, including its formula (8) and moment theorem requiring sketch oversampling at least four.",
+        "Nakatsukasa–Park (arXiv:2212.01127v1) proves examples of unbounded *deterministic* indefinite Nyström error, but no rotational Taylor endpoint or sharp Gaussian tail coefficient in the inspected text."
+      ],
+      "reasoning": "The unoversampled tied-sketch moment threshold is not a corollary of the oversampled independent Gaussian estimate. Deterministic unbounded error and classical RK stability do not themselves imply the exact inverse-linear Gaussian tail and all-order phase connection. The general unoversampled independent-sketch q<1 obstruction is treated as a comparison, not the principal novelty.",
+      "searches": [
+        "randomized low-rank Runge-Kutta generalized Nyström one-column Gaussian moment bounds",
+        "symmetric indefinite Nyström Gaussian heavy tail Cauchy infinite expectation",
+        "arXiv:2409.06384v1 Sections 2.3 and 3",
+        "arXiv:2212.01127v1 Sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table or pre-existing exact identity with these phase boundaries was found in the inspected primary sources; finite numerical experiments in the source RK paper use oversampled Gaussian sketches."
+      ],
+      "reasoning": "Literature searching cannot certify unique discovery; the existence of unrelated exact Gaussian or RK tables does not determine the specific coupled-sketch tail coefficient. Residual overlap risk is retained.",
+      "searches": [
+        "two by two Gaussian Nyström 1/t error tail determinant coefficient",
+        "rank-one rotation Lyapunov Runge Kutta Nyström RK3 RK4 moment infinity",
+        "arXiv:2409.06384v1",
+        "arXiv:2212.01127v1"
+      ]
+    },
+    "rationale": "Primary text comparisons distinguish the new exact, endpoint-sketched rotational-flow Gaussian moment phase (including sharp tail constants and p mod 4 behavior) from previously known deterministic indefinite Nyström instability, classical imaginary-axis RK stability, independently sketched unoversampled moment obstructions, and the existing oversampled stagewise randomized-RK theory. Actual searches found no covering theorem; possible alternative probabilistic terminology remains a disclosed risk.",
+    "residual_risks": [
+      "An equivalent angular-density calculation may be present in earlier probabilistic numerical linear algebra not indexed under Nyström or Runge–Kutta terminology.",
+      "The ODE-stage-sketched implementation from the primary work is different: numerical consequences for that implementation are not claimed.",
+      "The comparison independent-sketch q<1 threshold is known in related unoversampled Gaussian settings; it is not presented as the principal original assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces and analyzes stage-sketched randomized RK with independent oversampled generalized Nyström; does not present the uncompressed-endpoint tied-sketch 2x2 moment phase.",
+        "evidence": [
+          "Generalized Nyström formula (8); Theorem 3 uses p,l>=4; Algorithm 1 is stage sketched and distinct from current endpoint experiment; Section 4 discusses Gaussian sketch reuse."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.06384v1",
+        "material_read": "Abstract, introduction, Sections 2.3–2.4, Section 3 equations (14), Algorithms 1 and discussion of moment bounds and oversampling; Section 4 numerical and reused-sketch discussion.",
+        "method": "arXiv HTML full text with section and term search",
+        "title": "Randomized low-rank Runge-Kutta methods",
+        "trigger": "Primary 2024 numerical-integration method and Gaussian low-rank sketch source"
+      },
+      {
+        "assessment": "Establishes the previously known possibility of unbounded deterministic Nyström error for indefinite input; inspected material does not supply the Gaussian-tail coefficient or Taylor/RK-specific integrability phase.",
+        "evidence": [
+          "Page 3 source equations (1.2)–(1.4) give a 2x2 deterministic indefinite counterexample; introduction summarizes robust alternatives."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.01127v1",
+        "material_read": "Full introductory construction and equations (1.2)–(1.4); discussion of randomized indefiniteness and robust approximation, method and conclusions across subsequent sections.",
+        "method": "Open-access arXiv PDF text and direct page-image inspection",
+        "title": "Randomized low-rank approximation for symmetric indefinite matrices",
+        "trigger": "Strong candidate for a broader result already showing instability of Nyström on indefinite matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c8b1dae-290d-44bb-91ff-49fba67dfc0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The specific numerical-method gap is that a perfectly rank-one PSD matrix flow can produce a compression error with no mean, for arbitrarily small RK steps, solely because full explicit RK endpoints leave the PSD cone. The theorem quantifies the entire integrability frontier and exact tail constant rather than merely detecting negative eigenvalues. It gives meaningful sharp RK3 and RK4 step cutoffs and non-obvious order-modulo-four behavior, while showing why tying sketches can fix an integrability obstruction in the stable phase. The comparison informs algorithm and sketch design without extrapolating to the original stage-sketched method.",
+    "status": "PASS"
+  }
+}
