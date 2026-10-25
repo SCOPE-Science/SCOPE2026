@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The uniform-simplex tail formula directly implies the inclusion–exclusion joint probability and integrated piecewise-polynomial covariance. The conditional expectation of the largest gap given a specified gap is convex because it is the expectation of a maximum of affine functions. Its crossings with the unconditional mean have exactly the signs required for one zero of covariance. The strict boundary comparison at \(t=1/m\) and the positive covariance of the maximum with its own \(t=1/2\) tail event exclude missing cases. Finite checks used exact rational arithmetic and independent numerical integration; the proof addresses all integers \(m\ge2\) and real thresholds.
+PASS
 
-## Originality — PASS, with residual risk
+For m>=2 uniform order-statistic spacings have the Dirichlet(1,...,1) simplex law. The exact joint tail formula P(X_i>a_i for selected indices)=(1-sum a_i)_+^(m-1), together with inclusion-exclusion over the other m-1 gaps, gives the displayed piecewise polynomial C_m(t). The key nonstandard sign step is an analytic regression: conditional on X1=x, g_m(x)=E[max(x,(1-x)Q_{m-1})] is convex as an expectation of maxima of affine functions. Its value exceeds mu=H_m/m at x=0 and x=1 but is strictly below mu at x=1/m. The two sign crossings of g_m-mu, and C'_m(t)=-m(g_m(t)-mu)(m-1)(1-t)^(m-2), force C to decrease/increase/decrease with endpoints C(0)=C(1)=0, hence one interior zero. The exact inequality C_m(1/m)<0 for m>=3 and positive covariance with 1_{M>1/2} at t=1/2 establish 1/m<tau_m<1/2; m=2 yields tau=1/2. Independently reconstructed finite rational formulas and 24 Monte-Carlo correlations using 250,000 fresh normalized exponential vectors per m showed maximum absolute error 0.000416, plus exact boundary checks m=3,...,19. Sampling corroborates only tested cases; the convexity proof covers all real t and integers m>=2.
 
-The closest complete primary papers inspected were Schlemm (2014, arXiv:1405.6114) on exact moments of the maximum of uniform spacings, and Bose–Dasgupta–Maulik (2008, arXiv:0803.3518) on Dirichlet maximum limit laws. Neither inspected theorem implies the mixed maximum–exceedance covariance formula or its one-crossing sign classification. Other related results concern covariances of nested exceedance counts and other functionals, which do not specialize to a maximum. Classical works by Pyke, Holst and Darling remain plausible prior-coverage risks because their full papers were not available. This review does not establish exhaustive priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a natural, continuous-parameter question about the joint behavior of the two most basic types of large-gap statistics. A single sign reversal is nonobvious under the simplex constraint: small-threshold count and maximum repel, while large-threshold count and maximum attract. The exact formula, full finite-dimensional sign theorem and explicit transition bounds are substantive structural information not provided by separate marginal formulas.
+Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.
 
-## Scope and evidence limitations
+## value
 
-The assumption is the symmetric \(\operatorname{Dirichlet}(1,\ldots,1)\) spacing law. The package supplies a self-contained proof and numerical corroboration, but no independent validation. Historical equivalence in uninspected classical references remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The longest fragment and count of fragments above a variable threshold are natural competing summaries of one random partition. A unique sign-reversal threshold sharply describes nonmonotone dependence, not a routine moment identity or parameter substitution. The theorem supplies an exact reusable finite-m relation for occupancy/spacing statistics, with meaningful onset bounds valid for every sample size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

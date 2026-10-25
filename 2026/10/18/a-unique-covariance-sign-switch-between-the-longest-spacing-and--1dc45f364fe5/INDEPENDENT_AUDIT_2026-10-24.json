@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:09:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, verify.py and complete nontruncated tree 93604eb1e6acdab07bfd2a61f16fee86ded3050a",
+        "https://arxiv.org/pdf/1405.6114",
+        "https://arxiv.org/abs/0803.3518",
+        "https://doi.org/10.2307/3212956",
+        "independent_checks.py: spacing; independent_checks_output.json"
+      ],
+      "rationale": "For m>=2 uniform order-statistic spacings have the Dirichlet(1,...,1) simplex law. The exact joint tail formula P(X_i>a_i for selected indices)=(1-sum a_i)_+^(m-1), together with inclusion-exclusion over the other m-1 gaps, gives the displayed piecewise polynomial C_m(t). The key nonstandard sign step is an analytic regression: conditional on X1=x, g_m(x)=E[max(x,(1-x)Q_{m-1})] is convex as an expectation of maxima of affine functions. Its value exceeds mu=H_m/m at x=0 and x=1 but is strictly below mu at x=1/m. The two sign crossings of g_m-mu, and C'_m(t)=-m(g_m(t)-mu)(m-1)(1-t)^(m-2), force C to decrease/increase/decrease with endpoints C(0)=C(1)=0, hence one interior zero. The exact inequality C_m(1/m)<0 for m>=3 and positive covariance with 1_{M>1/2} at t=1/2 establish 1/m<tau_m<1/2; m=2 yields tau=1/2. Independently reconstructed finite rational formulas and 24 Monte-Carlo correlations using 250,000 fresh normalized exponential vectors per m showed maximum absolute error 0.000416, plus exact boundary checks m=3,...,19. Sampling corroborates only tested cases; the convexity proof covers all real t and integers m>=2.",
+      "residual_risks": [
+        "Rigorous infinite quantifiers rest on the convex regression argument; finite independent samples are not proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical inclusion-exclusion yields joint simplex tails and can be used as an ingredient.",
+          "Moment or asymptotic maximum laws do not alone imply the finite-m mixed sign classification."
+        ],
+        "reasoning": "A general joint distribution of all spacings would determine the covariance in principle, but the significant additional conclusion is its unique root for every dimension; no inspected stronger sign/order theorem dominates it.",
+        "searches": [
+          "uniform spacings largest gap empirical number of exceedances joint distribution",
+          "Holst 1980 On lengths pieces stick broken at random",
+          "Schlemm 2014 maximal distance moments"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1405.6114",
+        "https://arxiv.org/abs/0803.3518",
+        "https://doi.org/10.2307/3212956",
+        "Resultary semantic search for exact maximal-spacing covariance sign theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schlemm proves marginal maximum results; Bose–Dasgupta–Maulik derives maximum laws.",
+          "The new monotonicity follows by conditional max-convexity, not by a displayed result of either inspected work."
+        ],
+        "reasoning": "The prior simplex tail distribution provides a derivation route, but its existence does not itself include the covariance sign theorem as a directly stated order principle. Unknown older explicit joint treatment is retained as a residual risk.",
+        "searches": [
+          "Schlemm arXiv:1405.6114 moment method maximal gap",
+          "Bose Dasgupta Maulik arXiv:0803.3518 maxima of Dirichlet",
+          "Darling Pyke Holst random uniform spacings mixed moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schlemm 2014 arXiv:1405.6114 treats the maximum-spacing distribution and moments; Bose–Dasgupta–Maulik arXiv:0803.3518 treats Dirichlet maxima.",
+          "Related published occupancy-richness covariance sign-switch result concerns discrete occupancy bins, not continuous Dirichlet spacings."
+        ],
+        "reasoning": "Equivalent wording may use maximal spacing versus large-spacing count or exceedance empirical distribution. The inspected material does not establish this exact joint covariance or unique-sign theorem. The inaccessible older Pyke/Holst material leaves a genuine alias risk.",
+        "searches": [
+          "joint maximum and threshold exceedance count Dirichlet uniform spacings covariance",
+          "Pyke Spacings 1965 joint maximum exceedance count",
+          "Resultary: Dirichlet spacings maximum largest gap covariance count gaps above threshold unique negative positive crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assessed output is a continuous-threshold finite-m formula and global all-m uniqueness, not a finite table.",
+          "No exact table or entry covering that continuous law was found in the relevant searches."
+        ],
+        "reasoning": "This category remains relevant as a search for prior small-m piecewise formulas, but a fixed table would not establish the all-m analytic sign theorem.",
+        "searches": [
+          "maximum uniform spacing exceedance covariance sign table numerical Dirichlet",
+          "published Resultary semantic same maximum spacing count threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.",
+      "residual_risks": [
+        "Holst 1980, Pyke 1965, and Darling 1953 may contain equivalent joint-spacing results not available in full.",
+        "Absence in initial semantic searches does not prove novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_BACKGROUND_NOT_EXACT_SIGN",
+          "evidence": "The inspected theorem describes marginal maximum distributions and their moments, not covariance with threshold counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.6114",
+          "material_read": "Introduction, maximum spacing law and moment discussion, including relevant displayed moment identities",
+          "method": "Accessible arXiv PDF, text and page-image inspection",
+          "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+          "trigger": "Same maximum-spacing observable"
+        },
+        {
+          "assessment": "BACKGROUND_PARTIAL_READ",
+          "evidence": "The inspected portions focus on maximum asymptotics; no whole-document absence claim.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.3518",
+          "material_read": "Public abstract and theorem descriptions of extreme-value regime",
+          "method": "Open preprint abstract/search material",
+          "title": "Maxima of Dirichlet and triangular arrays of gamma variables",
+          "trigger": "Same Dirichlet simplex maximum"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_RISK",
+          "evidence": "Potential earlier treatment of maximal gap against other spacing counts remains unexcluded.",
+          "identifier_or_url": "https://doi.org/10.2307/3212956",
+          "material_read": "Bibliographic identification and abstract-level metadata; complete body not obtained",
+          "method": "Available publication metadata",
+          "title": "On the lengths of the pieces of a stick broken at random",
+          "trigger": "Highly relevant older same-object primary article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, verify.py and complete nontruncated tree 93604eb1e6acdab07bfd2a61f16fee86ded3050a",
+        "https://arxiv.org/pdf/1405.6114",
+        "https://arxiv.org/abs/0803.3518",
+        "https://doi.org/10.2307/3212956",
+        "independent_checks.py: spacing; independent_checks_output.json"
+      ],
+      "rationale": "The longest fragment and count of fragments above a variable threshold are natural competing summaries of one random partition. A unique sign-reversal threshold sharply describes nonmonotone dependence, not a routine moment identity or parameter substitution. The theorem supplies an exact reusable finite-m relation for occupancy/spacing statistics, with meaningful onset bounds valid for every sample size.",
+      "residual_risks": [
+        "Uniform Dirichlet(1,...,1) spacings only; no general unequal concentration or nonuniform split law.",
+        "Potential older uninspected primary literature remains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, verify.py and complete nontruncated tree 93604eb1e6acdab07bfd2a61f16fee86ded3050a",
+    "https://arxiv.org/pdf/1405.6114",
+    "https://arxiv.org/abs/0803.3518",
+    "https://doi.org/10.2307/3212956",
+    "independent_checks.py: spacing; independent_checks_output.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform Dirichlet(1,...,1) spacings only; no general unequal concentration or nonuniform split law.",
+    "Potential older uninspected primary literature remains.",
+    "Holst 1980, Pyke 1965, and Darling 1953 may contain equivalent joint-spacing results not available in full.",
+    "Absence in initial semantic searches does not prove novelty."
+  ],
+  "schema_version": 1
+}
