@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T17:01:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite-difference argument applied to F(x)=binom((n-1)x,n-1) yields D(n-1)|n. At each prime p^a||n, the Kummer residue/carry count gives the uniform lower bound a-b, with b=floor(log_p(n/p^a)), by counting the first a carries and the extra a+h carries when v_p(q-1)>b; the explicit multiplier q=1+p^a(m-p^b), or q=2 for m=1, yields exactly a-b carries, with the published Guo et al. Lemma 9 handling zero valuation when m>p^a. Independently used Legendre factorial valuations over every q=2..n for n=3..349: 680 local prime checks, all exact; tested 313 nonzero-val minimizer witnesses. The theorem is exactly for n>=3 and q in this finite window.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu studies gcd of binomial(mn,mj) with varying entries, not D(n-1) where q is multiplier and lower entry fixed."
+        ],
+        "reasoning": "A result in a distinct varying-lower-index family does not formally dominate the present identity without an established reduction.",
+        "searches": [
+          "https://arxiv.org/abs/2606.20940",
+          "Resultary: binomial gcd exact p-adic values Guo"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2606.22997v1",
+        "https://oeis.org/A080170",
+        "https://arxiv.org/abs/2606.20940",
+        "Resultary semantic result: SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241 (different problem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guo Lemma 9 contributes the zero branch m>p^a; Kummer carry arguments supply the new lower and matching upper branches."
+        ],
+        "reasoning": "The new formula implies the published prime support test; the published test cannot determine the nonzero exponent without an additional carry analysis.",
+        "searches": [
+          "https://arxiv.org/html/2606.22997v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo et al. Theorem 1 and Lemma 9 determine p divides gcd and the gcd-one criterion, whereas the submitted theorem specifies v_p(D) for all p and all n.",
+          "OEIS A080170 concerns indices of gcd=1."
+        ],
+        "reasoning": "Divisibility positivity is strictly weaker than an exact valuation and minimizer; neither uniqueness of q nor maximal valuation follows merely by renaming the criterion.",
+        "searches": [
+          "Resultary: greatest common divisor binomial q(n-1) n-1 exact prime-power valuations",
+          "https://arxiv.org/html/2606.22997v1",
+          "https://oeis.org/A080170"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The publicly described A080170 criterion lists gcd-one indices, not the exact full gcd product."
+        ],
+        "reasoning": "Testing zero/nonzero does not encode the exact p-power exponent; no matching complete table identified.",
+        "searches": [
+          "https://oeis.org/A080170",
+          "Resultary: binomial gcd exact values valuation"
+        ]
+      },
+      "rationale": "The local Guo–Qiu–Cao–Feng–Gao criterion settles whether a prime divides the gcd and when the gcd is 1; it does not state the exact multiplicity p^(a-b) or explicit minimizer for every p||n. Kummer is a classical proof method, not a competing exact formula. Published theorem and its full HTML were inspected; no indexed exact-power formula was located, but unindexed older formulas remain a risk.",
+      "residual_risks": [
+        "Unindexed older exact-power formula for the identical gcd could exist; database search is not a novelty proof.",
+        "The zero-valued p-adic branch relies on the already-published Guo Lemma 9, properly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING local zero condition; not identified as covering nonzero exact power formula",
+          "evidence": [
+            "Theorem 1 states gcd-one criterion; Lemma 9 is invoked for prime divisibility."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+          "material_read": "Accessible full HTML theorem and proof with Theorem 1 and Lemma 9; focus on local zero criterion and missing power formula",
+          "method": "Read full HTML text and searched for p-adic multiplicity statements",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Identical binomial gcd and exact largest-prime-power criterion"
+        },
+        {
+          "assessment": "Relevant as exact-zero predicate; no exact general gcd powers in inspected entry",
+          "evidence": [
+            "A080170 describes indices at which gcd is one."
+          ],
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "Entry description and value-zero criteria",
+          "method": "Read accessible entry text",
+          "title": "OEIS A080170",
+          "trigger": "Database for same gcd-one predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gcd D(k) is an OEIS-motivated natural integer-valued binomial invariant, and its exact prime-power factorization distinguishes the previously unknown degree of shared divisibility even where the known gcd-one predicate gives no information. The explicit extremal multipliers are a structural local result, not a random finite slice or merely numeric new row.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2606.22997v1",
+    "https://oeis.org/A080170",
+    "https://arxiv.org/abs/2606.20940",
+    "Resultary semantic result: SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241 (different problem)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact only for n>=3 and original q-window; uses published Guo local zero-valuation theorem; finite testing not proof.",
+    "Unindexed older exact-power formula for the identical gcd could exist; database search is not a novelty proof.",
+    "The zero-valued p-adic branch relies on the already-published Guo Lemma 9, properly credited."
+  ],
+  "residual_risks": [
+    "Unindexed older exact-power formula for the identical gcd could exist; database search is not a novelty proof.",
+    "The zero-valued p-adic branch relies on the already-published Guo Lemma 9, properly credited."
+  ],
+  "schema_version": 1
+}

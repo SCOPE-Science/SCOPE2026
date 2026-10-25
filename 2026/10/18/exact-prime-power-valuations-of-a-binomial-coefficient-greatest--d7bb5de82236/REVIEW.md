@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives all quantifiers and carries: finite differences exclude primes outside \(n\); Guo et al. Lemma 9 supplies the established zero branch; Kummer's criterion gives a lower bound at every multiplier; and an explicit legal multiplier attains that lower bound. Independently computed Legendre valuations confirm bounded cases but are not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risks.** The exact-object paper arXiv:2606.22997v1 establishes a zero-versus-positive gcd criterion and a binary p-primary criterion, not its valuations. Exact formula searches and searches of published mathematical results returned no covering result. OEIS A080170 lists only zero cases. The closest accessible earlier result involving prime-power binomial gcds concerns a different set of lower indices. A still-unindexed earlier exact formula cannot be ruled out, and an adjacent full manuscript was inaccessible.
+PASS
 
-**Value — PASS.** The 2026 solution of a longstanding OEIS conjecture made the finite gcd itself a motivated arithmetic object. This result completely determines every integer value of that gcd, its prime-power factors, and indices achieving local minima; it strictly sharpens the existing binary criterion. As a structural corollary, the gcd equals \(n\) exactly when \(n\) is a prime power.
+The finite-difference argument applied to F(x)=binom((n-1)x,n-1) yields D(n-1)|n. At each prime p^a||n, the Kummer residue/carry count gives the uniform lower bound a-b, with b=floor(log_p(n/p^a)), by counting the first a carries and the extra a+h carries when v_p(q-1)>b; the explicit multiplier q=1+p^a(m-p^b), or q=2 for m=1, yields exactly a-b carries, with the published Guo et al. Lemma 9 handling zero valuation when m>p^a. Independently used Legendre factorial valuations over every q=2..n for n=3..349: 680 local prime checks, all exact; tested 313 nonzero-val minimizer witnesses. The theorem is exactly for n>=3 and q in this finite window.
 
-**Limits.** The formula concerns this exact finite multiplier window and no altered-window variant. The verification code confirms finite cases only. Historical access and bibliographic indexing are incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The local Guo–Qiu–Cao–Feng–Gao criterion settles whether a prime divides the gcd and when the gcd is 1; it does not state the exact multiplicity p^(a-b) or explicit minimizer for every p||n. Kummer is a classical proof method, not a competing exact formula. Published theorem and its full HTML were inspected; no indexed exact-power formula was located, but unindexed older formulas remain a risk.
+
+## value
+
+PASS
+
+The gcd D(k) is an OEIS-motivated natural integer-valued binomial invariant, and its exact prime-power factorization distinguishes the previously unknown degree of shared divisibility even where the known gcd-one predicate gives no information. The explicit extremal multipliers are a structural local result, not a random finite slice or merely numeric new row.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
