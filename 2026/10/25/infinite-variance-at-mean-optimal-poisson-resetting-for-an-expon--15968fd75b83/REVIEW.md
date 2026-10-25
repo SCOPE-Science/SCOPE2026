@@ -1,0 +1,11 @@
+# Scientific review: quenched exponential-target reset search
+
+**Correctness — PASS.** The proof derives a conditional Laplace transform by first-attempt renewal and differentiates it to obtain exact conditional first and second moments. Positive integration against the target-distance density establishes the finite/infinite boundaries without substituting finite observations for a proof. A uniform analytic transform limit in the scaled large-target regime gives every integer-moment threshold, including equality. Quadratic optimization proves two distinct unique minimizers. The independent high-precision numerical checker reproduces the differential and integral identities.
+
+**Originality — PASS, subject to literature risk.** Evans–Ray arXiv:2410.01941 proves the previously known mean-first-passage optimization for exponentially distributed fixed target distance; it does not claim these averaged second-moment and all-integer-moment thresholds or the coefficient-of-variation optimum. Evans–Majumdar arXiv:1107.4225 addresses mean resetting optimization for distributed targets. García-Valladares et al. arXiv:2305.14245 directly study passage-time variance for a different dichotomous fixed-distance target and heterogeneous spatial reset rates; their small-disorder-probability divergence does not imply the new fixed-exponential-law formulas. Closely related published general regeneration or mixture-moment results might still imply portions of this finding; novelty is not an independent priority certificate.
+
+**Mathematical value — PASS.** The same target distribution is used in published mean-optimal-protocol research. The theorem demonstrates the failure of second-moment integrability at its natural unique mean optimum and gives a complete integer-moment hierarchy. It identifies an exact, physically meaningful reliability alternative with quantified 4/3 mean cost, not an arbitrary finite numerical example.
+
+Limitations: one-sided exponentially distributed quenched target, Brownian diffusion, homogeneous Poisson instantaneous reset to the origin; integer-moment results, not a full target-averaged tail expansion. Mathematical derivations and reproducible checks are in RESULT.md and verification.py.
+
+Self-review: passed. Independent audit: not yet performed.

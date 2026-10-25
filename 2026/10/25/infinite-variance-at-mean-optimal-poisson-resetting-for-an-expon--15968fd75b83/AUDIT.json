@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "First-attempt renewal of the Brownian fixed-target Laplace transform gives a closed analytic expression. Two derivatives yield exact positive conditional moments. Exponential-distance integration establishes precise first- and second-moment domains and formulas via Tonelli. The scaled analytic-transform convergence on a uniform disk gives conditional mth moments asymptotic to m! exp(m sqrt(r/D) R)/r^m and hence the all-integer-moment threshold including equality. Quadratic maximization proves both unique rate minima and 4/3 mean-cost tradeoff. Independent high-precision transform differentiation, numerical integration and higher-order scaled-moment checks passed; finite checks do not replace the analytic divergence proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "García-Valladares et al., arXiv:2305.14245v2, sections 2-4 and appendix E: quenched target takes one of two opposite-sign positions with fixed magnitude, and reset rates differ across half-lines; variance diverges only in a singular target-probability limit of the optimized setting.",
+        "Evans and Majumdar, arXiv:1107.4225v2, examine the mean-first-passage objective for distributed target and resetting positions, not the target-averaged passage-time variance in this constant-reset system."
+      ],
+      "reasoning": "The dichotomous heterogeneous-rate problem is a substantial conceptual predecessor and warns that mean optimization can cause large fluctuations; it does not imply the exact nondegenerate exponential-target moment hierarchy, sharp q/lambda boundaries, or rate ratio. General regeneration/restart theory may furnish a shorter proof, which is acknowledged as a residual risk.",
+      "searches": [
+        "Poisson restarting Brownian search for a target drawn once from exponential distance distribution: average completion time finite but variance infinite at mean-optimal reset rate, moments phase boundary",
+        "exponential distributed quenched target Brownian stochastic resetting mth hitting-time moment threshold beta greater than m sqrt r over D",
+        "arXiv:2305.14245 section 4.3, appendix E; arXiv:1107.4225 sections 2, 4, 5",
+        "\"quenched\" \"exponential target\" resetting infinite variance optimal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.01941v2, main text and supplement",
+      "arXiv:1107.4225v2, sections 2 and 4-5",
+      "arXiv:2305.14245v2, sections 2-4 and Appendix E",
+      "Indexed published finding: Sharp variance envelope at fixed success probability under memoryless catastrophe (only short record summary available)",
+      "Accessible previously published claims with Brownian resetting-to-random-location objects (claims, not historical audits)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known fixed-target conditional renewal theory and conjugate exponential target distribution imply the conditional transform and mean objective, but the published paper only derives the mean-optimizing exponential target law.",
+        "The 2023 dichotomous target paper has a different finite mixture: for each strictly positive target sign probability its first two moments are finite; its singular divergence occurs as sign probability tends to zero with rates simultaneously optimized.",
+        "Earlier Brownian resetting-to-random-locations claims change the reset-point distribution rather than mixing one fixed random absorbing-target distance."
+      ],
+      "reasoning": "The new theorem is a genuinely additional integration and uniform-analytic moment-limit calculation in an established model. Its finite-mean/infinite-variance phase and the distinct CV optimum are not immediate implications of a mean-only conclusion. Possible general results covering arbitrary exponentially mixed conditional completion times remain the main unresolved implication risk.",
+      "searches": [
+        "Evans and Ray arXiv:2410.01941v2 main text equations (1)-(4) and supplementary derivation (S42)-(S49)",
+        "García-Valladares et al. arXiv:2305.14245v2 equations (27)-(30), (69)-(70), appendix E",
+        "published-claim comparison for Brownian resetting to random locations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evans and Ray, arXiv:2410.01941, Eq. (4): conjugate target distance density proportional to exp(-2 sqrt(r/D) R); Eq. (9) and surrounding discussion optimize target-averaged mean passage time, not its second or higher passage-time moments.",
+        "The explicit conditional transform is a renewal specialization but its averaging and moment-spectrum consequences are not stated in the inspected mean-only presentation."
+      ],
+      "reasoning": "Renaming the exponential tail rate to 2 sqrt(r/D) reproduces the previously known mean optimum and is explicitly excluded from the originality claim. It does not imply the all-moment threshold or optimal finite coefficient of variation without a separate conditional high-moment derivation and mixing argument.",
+      "searches": [
+        "Evans Ray 2024 stochastic resetting prevails sharp restart exponential target distribution conditional hitting time variance, moment threshold",
+        "arXiv:2410.01941 Evans Ray exponential target distance Poisson resetting averaged first passage time higher moments variance divergence at conjugate target optimal rate",
+        "\"exponentially distributed target\" \"variance\" \"resetting\" first passage Brownian",
+        "arXiv:2410.01941 equations (4), (7)-(10)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed variance-envelope summary concerns fixed per-attempt success probability under discrete memoryless catastrophe, with extremal two-point attempt durations; the exponential quenched-target mixing and diffusion geometry are not included.",
+        "Targeted searches for the exact parameter ratio, coefficient-of-variation minimum 7, and integer-moment threshold did not surface a matching documented table or theorem."
+      ],
+      "reasoning": "A missing result from a finite search is not evidence of uniqueness. The nearest retrieved tabulation has different random inputs and conditionings; it does not cover these exact continuum first-passage formulas. Unindexed or differently titled tables remain possible.",
+      "searches": [
+        "Brownian search quenched exponentially distributed target distance first-passage time higher moments Poisson restart",
+        "Poisson restart Brownian exponential target first passage coefficient of variation minimized at one fourth mean optimal resetting rate seven",
+        "\"random target\" \"exponential\" \"second moment\" \"resetting\"",
+        "indexed published research record: Sharp variance envelope at fixed success probability under memoryless catastrophe"
+      ]
+    },
+    "rationale": "The mean-optimal constant-reset result and conjugate exponential target distribution are expressly attributed to Evans and Ray. Closely relevant first-passage variance work for a discrete fixed-distance target and heterogeneous reset rate is distinguished by exact objects and implications. Six targeted record queries and primary mathematical comparisons did not identify the same all-moment threshold or separated mean/CV optima; publication priority nevertheless remains unverified.",
+    "residual_risks": [
+      "An as-yet-unidentified general regenerative-search theorem may imply the mixture high-moment asymptotics by an abstract argument.",
+      "The closest database records were compared using published summaries, not their full associated mathematical manuscripts.",
+      "No independent literature-priority examination or independent mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact exponential conjugate density and mean-optimal reset rate, not claimed all-integer moments, finite-mean/infinite-variance phase, or CV optimum.",
+        "evidence": "Eq. (4) target density 2 sqrt(r/D) exp(-2 sqrt(r/D) R), Eq. (9) mean, concluding Eq. (S49); the lone variance mention is variance of a target distribution in a different heavy-tail example.",
+        "identifier_or_url": "arXiv:2410.01941v2 https://arxiv.org/pdf/2410.01941",
+        "material_read": "Searchable 12-page full-text PDF, main equations (1)-(10), PDF pages 1-4, concluding discussion and supplemental endpoint derivation (S42)-(S49) on pages 10-12; searched all text for variance, second moment, coefficient of variation and higher moments.",
+        "method": "Direct full-text mathematical statement and parameter-implication comparison; page render inspected.",
+        "title": "Stochastic resetting prevails over sharp restart for broad target distributions",
+        "trigger": "Exact same quenched random target, exponential distance density, Poisson mean-optimal reset protocol."
+      },
+      {
+        "assessment": "Established mean search optimization, but not the claimed quenched-target passage-time moment spectrum or CV optimum.",
+        "evidence": "Abstract and section 5 discuss transitions in optimal spatial reset distribution; no first-passage variance theorem was located in inspected text.",
+        "identifier_or_url": "arXiv:1107.4225v2 https://arxiv.org/pdf/1107.4225",
+        "material_read": "Open-access full PDF abstract, sections 2 and 4-5 and their mathematical mean-first-passage formulas; searched searchable text for variance.",
+        "method": "Compared optimized decision variable (reset-location law versus homogeneous rate), target mixture and moment order.",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "Earlier exponentially distributed target and transition in reset-location optimization."
+      },
+      {
+        "assessment": "Important prior on reliability costs of optimization, but its p-to-zero singular limit does not give the new formulas or finite-parameter all-moment threshold.",
+        "evidence": "Eqs. (27)-(30) conditional two-point moments; section 4.3 and Appendix E p-to-zero divergence at optimal heterogeneous rates; conclusion explicitly proposes more complex target distributions.",
+        "identifier_or_url": "arXiv:2305.14245v2 https://arxiv.org/html/2305.14245v2",
+        "material_read": "Open-access article with model section 2, full first-passage transform and first two moments in section 3, sections 4.1-4.3, conclusions and appendix E.",
+        "method": "Compared fixed two-point sign mixture and piecewise spatial rates with one-sided continuously exponential distance and homogeneous reset.",
+        "title": "Optimal resetting strategies for search processes in heterogeneous environments",
+        "trigger": "Very close question: mean first-passage optimization versus variance for quenched target disorder."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15968fd7-5b83-424f-8fe9-5ebff0a8434d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exponential target family is natural enough to be the exact conjugate family in the initiating mean-optimal-protocol work. Within this physically motivated family, optimization of mean search time gives an infinite passage-time variance, while reducing reset frequency by exactly a factor four yields the optimal finite CV sqrt(7) for only 4/3 the minimal mean. The complete integer moment spectrum is a structural, nontrivial phase classification of quenched search-time reliability rather than routine enumeration or a minor numerical gain.",
+    "status": "PASS"
+  }
+}
