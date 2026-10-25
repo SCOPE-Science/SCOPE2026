@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Disjoint branch divisors give a smooth nonhyperelliptic genus-five generalized Howe curve. The separable \(2\)-primary decomposition of its Jacobian preserves \(3\)-divisible groups, and hence both \(3\)-rank and \(a\)-number. The genus-three Cartier coefficient matrix has constant rank two and a rank-two stable Frobenius block precisely when \(T\ne0\). Exact algebra shows that \(u=T=0\) cuts out the four simple roots of \(s^4+1\). The explicit inversion and swap maps identify all four geometric curves. The checker confirms the coefficient identities and all admissible ordered pairs over \(\mathbf F_9\), without replacing the all-parameters proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic limitations.** The quotient-isogeny structure is known from Katsura–Takashima (arXiv:2108.06936), including a different genus-five example. Moriya–Kudo I (arXiv:2310.15993, 2023-10-24) studies the other genus-five branch pattern; Kudo II (arXiv:2401.00760, 2024-01-01) treats this branch pattern in characteristic zero or at least five and constructs plane models. Kawakita (arXiv:2412.03071) concerns finite-field Serre-bound point counts. The inspected texts do not derive the characteristic-three \(3\)-rank/\(a\)-number formula or the four-point deepest locus. Search failure alone does not establish priority, and an unindexed equivalent calculation remains possible.
+PASS
 
-**Value — PASS.** This natural, symmetric, nonhyperelliptic genus-five family has a two-dimensional parameter surface, but all its Jacobians have \(a\)-number at least two; its four complete arithmetic strata are controlled by explicit equations. The deepest rank-zero locus is a finite transverse intersection with exactly one geometric isomorphism class. These constitute useful geometric and arithmetic information, not a routine change of characteristic or a count that merely restates an existing plane-model theorem.
+Reconstructed genus 5 via disjoint 4+4 branch sets and V4 cover RH; prime-to-three 2-power isogeny gives additive 3-divisible invariants. Hasse–Witt M=[[0,-v,0],[-(1+u),0,u+v],[0,1,0]] has rank2 for every admissible pair; semilinear threefold iterate rank2 iff T !=0, otherwise nilpotent. E1 supersingular, E2 has Cartier scalar -u. At u=T=0, s^4=-1 has four simple roots, transitive under parameter swap and inversion. Independently enumerated all 42 admissible ordered F9 parameters, with counts 4/8/2/28 as claimed; finite case is corroboration, not all-k proof.
 
-**Limitations.** No classification beyond this parameter surface, and no Newton-polygon or supersingularity theorem. The reduced intersection claim concerns the displayed equations defining the locus; no assertion about another chosen scheme structure of a \(p\)-rank stratum. Accessible primary texts were checked, but exhaustive priority certification is not possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prime-to-p quotient isogeny and generalized Howe structure previously known. The full primary quotient theorem gives neither the characteristic-three explicit stratification nor the four-point exceptional orbit; characteristic>=5 sextic paper is inapplicable to char3. No exact equivalent Resultary record was returned by semantic search; not proof of exhaustive novelty.
+
+## value
+
+PASS
+
+Exact rank/a-number stratification for a canonical natural symmetric genus-five Howe surface, with explicitly reduced rare p-rank-zero points and single isomorphism class, is a useful geometric characteristic-p invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
