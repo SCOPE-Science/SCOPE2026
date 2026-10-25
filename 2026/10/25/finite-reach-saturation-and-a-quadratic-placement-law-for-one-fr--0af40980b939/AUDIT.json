@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Direct solution of both ODE segments gives the stated two-exponential formula. The original sag is strictly unimodal. For candidate locations before its peak, the upstream worst deficit increases strictly while the downstream worst deficit decreases strictly, yielding a single global minimizer. The full-peak equality has exactly one solution and gives an exact reach-length saturation threshold. Differentiation of the finite-reach crossing equation proves monotonicity, first-order expansion proves the short-reach limit, and exact downstream-peak curvature -ab times its peak height proves the quadratic contact coefficient; endpoint and critical-length regimes are explicitly verified. CHECK.py uses finite numerical cross-checks without claiming they prove global optimality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rinaldi--Soncini-Sessa (1977) Property A: cost-minimizing aerators are placed where a lower oxygen standard is binding, with location and aeration amount jointly optimized.",
+        "Gourishankar--Lawson (1975) abstract: multi-cost optimal control of BOD/DO by aeration and industrial discharge."
+      ],
+      "reasoning": "Those published problems have broader device choices and environmental constraints, but the inspected results do not specify a single fixed multiplicative reset, optimize the finite-reach L-infinity deficit, or provide its unique cutoff and quadratic sensitivity. Their breadth in model variables is not an implication proof of this specialized exact theorem. Potential abstract control dominance is left as a risk.",
+      "searches": [
+        "Rinaldi Soncini-Sessa aerator oxygen concentration standard minimax equal peaks finite river reach length",
+        "Optimal control point reaeration water quality treatment stream sag profile location minimax",
+        "Streeter Phelps diffuser optimum position equal maximum oxygen sag artificial reaeration station minimax river reach"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "Streeter-Phelps-1925-USPHS-Bulletin-146",
+        "url": "https://udspace.udel.edu/server/api/core/bitstreams/6f57c427-5f4f-4435-9d8c-87e3c8c02a66/content"
+      },
+      {
+        "identifier": "US-GPO-Monthly-Catalog-1925-04-01-issue",
+        "url": "https://mocat.library.unt.edu/catalog/364-ch798"
+      },
+      {
+        "identifier": "Rinaldi-SonciniSessa-1977-RR-77-007",
+        "url": "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf"
+      },
+      {
+        "identifier": "Koivo-Phillips-1975-IFAC-6",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1474667017675906"
+      },
+      {
+        "identifier": "Gourishankar-Lawson-1975-IJSS-6-3",
+        "url": "https://doi.org/10.1080/00207727508941809"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rinaldi--Soncini-Sessa (1977), pp. 8–19: cost objective, prescribed dissolved-oxygen floor, general point aerators and dynamic programming, with Property A about cost-optimal placement.",
+        "Koivo--Phillips, 1975 IFAC paper: bibliographic record and related citations available, full text inaccessible.",
+        "Streeter--Phelps (1925) primary model and analytic two-rate deficit equation inspected."
+      ],
+      "reasoning": "The original balance equation implies the analytic formulas with work, not the specialized minimax classification as a stated result. The 1977 location insight overlaps qualitatively but a fixed-q optimizer with a reach-length saturation phase transition and quadratic boundary coefficient does not follow from its published Property A alone. Exact coverage in inaccessible 1975 work or broader optimal-control theory cannot be ruled out, and is a bounded residual originality risk.",
+      "searches": [
+        "Streeter Phelps dissolved oxygen sag optimal location single instant oxygenation station minimize maximal oxygen deficit equal upstream downstream peaks",
+        "Sharp finite-horizon location threshold and quadratic saturation of optimal fractional in-stream reaeration in Streeter Phelps oxygen sag model",
+        "Rinaldi Soncini-Sessa aerator oxygen concentration standard minimax equal peaks finite river reach length",
+        "Optimal control of water pollution in a river stream Gourishankar Lawson 1975"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The single impulse in Rinaldi--Soncini-Sessa RR-77-007 (1977), pp. 7–12, changes DO and preserves the unforced upstream dynamics.",
+        "The 1925 Bulletin 146 defines the two-rate oxygen sag; it does not analyze proportional-reset minimax placement."
+      ],
+      "reasoning": "Equalization of an upstream oxygen-sag value and downstream peak is an implicit minimax formulation, so originality is not claimed for balancing maxima in general. The specific fixed-q finite-T threshold and quadratic sharp contact are the units compared.",
+      "searches": [
+        "Streeter Phelps dissolved oxygen sag optimal location single instant oxygenation station minimize maximal oxygen deficit equal upstream downstream peaks",
+        "Streeter Phelps river oxygen injection fractional reset dissolved oxygen sag minimum oxygen optimal aeration location minimax",
+        "Streeter Phelps single aerator placement minimizing maximum oxygen deficit minimax closed form river station"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No explicit closed-form calibration table is involved; the claimed quantity is an analytic optimizer function of arbitrary positive rates, efficiency and finite horizon.",
+        "The 1925 Bulletin contains model calibration curves, not tables of this fixed-efficiency minimax optimizer."
+      ],
+      "reasoning": "Neither a known parameter table nor a single numerical value could subsume the all-parameter theorem; the explicit example is only a consistency check. Semantic database searches were negative but are not presented as proof of absence.",
+      "searches": [
+        "Sharp finite-horizon location threshold and quadratic saturation of optimal fractional in-stream reaeration in Streeter Phelps oxygen sag model",
+        "Streeter-Phelps aerator placement small river reach length ratio 1/(2-q) quadratic plateau for downstream minimum"
+      ]
+    },
+    "rationale": "The claim is confined to a single fixed-fraction deficit reset under a finite-reach maximum-deficit objective, including an explicit threshold and quadratic approach-to-plateau coefficient. The full inspected Rinaldi--Soncini-Sessa analysis instead minimizes aerator cost subject to oxygen-standard constraints and leaves device number/power as controls; its Property A supplies a relevant qualitative placement principle, but not this exact finite-horizon theorem or coefficient. The foundational Streeter--Phelps model is acknowledged. The Koivo--Phillips 1975 in-stream aeration paper could not be inspected in full, and broad minimax control results may cover the narrow result; those are recorded as genuine residual risk, not ruled out by search absence.",
+    "residual_risks": [
+      "Koivo--Phillips (1975) full text could not be read, despite title directly concerning oxygen optimization with in-stream aeration; it could contain an exactly equivalent specialized theorem.",
+      "A general L-infinity impulse-control result or minimax design principle might imply this finite-reach single-fixed-fraction classification and quadratic plateau; no exhaustive novelty proof is possible.",
+      "The precise first day of public release of the 1925 Bulletin is not established. The day-specific 1925-04-01 catalog record is conservative rather than asserted original release."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PRIOR",
+        "evidence": [
+          "Dissolved oxygen deficit balances deoxygenation proportional to remaining oxygen demand against reaeration proportional to the deficit; unforced two-exponential deficit follows. No fixed-fraction single-aerator minimax theorem was identified in inspected portions."
+        ],
+        "identifier_or_url": "https://udspace.udel.edu/server/api/core/bitstreams/6f57c427-5f4f-4435-9d8c-87e3c8c02a66/content",
+        "material_read": "Original scanned Bulletin 146: introductory model discussion, oxygen sag rate equations and related mathematical development in its middle sections. Issue labelled February 1925.",
+        "method": "Original public PDF scan; page images and extracted text checked",
+        "title": "A Study of the Pollution and Natural Purification of the Ohio River",
+        "trigger": "Primary source of oxygen-sag ODE and model assumptions"
+      },
+      {
+        "assessment": "RELATED_NOT_STATEMENT_COVERAGE_IN_INSPECTED_TEXT",
+        "evidence": [
+          "The optimum minimizes sum of aerator costs subject to lower oxygen standard, and allows number and oxygen increments as decision variables.",
+          "Property A places cost-optimal aerators where the upstream DO equals the quality standard; it is a relevant qualitative analogy but not the fixed-fraction single-site, worst-deficit reach-length threshold theorem."
+        ],
+        "identifier_or_url": "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+        "material_read": "Full report overview and pp. 7–19, including mathematical impulse formulation, cost objective, Property A, position restrictions and discrete dynamic programming.",
+        "method": "Open-access primary report PDF, complete extracted article text with focused inspection of equations and optimization proof",
+        "title": "Optimal Allocation of Artificial In-Stream Aeration",
+        "trigger": "Nearest directly relevant comprehensive publication on aerator positions"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_COVERAGE_RISK",
+        "evidence": [
+          "1977 RR-77-007 cites Koivo and Phillips 1975 among papers using discretization for aerator allocation; exact theorem content unverified."
+        ],
+        "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1474667017675906",
+        "material_read": "Bibliographic metadata and citations only; no verified scientific body pages.",
+        "method": "Search for lawful open versions and paper bibliographic descriptions; institutional source remained inaccessible",
+        "title": "Optimization of Dissolved Oxygen Concentration in Polluted Streams Using Instream Aeration",
+        "trigger": "Close title and direct older reference in the 1977 aeration report"
+      },
+      {
+        "assessment": "POSSIBLE_BROADER_METHOD_PRIOR",
+        "evidence": [
+          "Abstract specifically describes a multicost system with controlled effluent discharge and aeration, not the present exact fixed-device minimax law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00207727508941809",
+        "material_read": "Abstract, objectives and bibliographic record; not the full paper.",
+        "method": "Publisher-accessible abstract",
+        "title": "Optimal control of water pollution in a river stream",
+        "trigger": "Broader historical optimal-control model for DO and BOD"
+      },
+      {
+        "assessment": "DATE_EVIDENCE",
+        "evidence": [
+          "Issue date listed 1925-04-01; Bulletin itself marked February 1925 without a verified day of first public release."
+        ],
+        "identifier_or_url": "https://mocat.library.unt.edu/catalog/364-ch798",
+        "material_read": "Public federal catalog issue date and entry linking the original Bulletin 146.",
+        "method": "Public catalog listing/metadata",
+        "title": "Monthly Catalog of United States Public Documents, April 1925",
+        "trigger": "Day-specific public-record evidence for the 1925 foundational bulletin"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0af40980-b939-4652-a956-9f4f268f0433",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A finite downstream reach, one device, and an efficiency fixed by local deficit are motivated engineering constraints distinct from arbitrary device-placement slices. The solved quantity is the unique minimizer of worst oxygen deficit across an entire continuous reach, not a trivial endpoint check. The critical length separating endpoint-limited and interior-peak-limited design, the exact location equation and a sharp second-order placement saturation coefficient answer meaningful sensitivity questions with plausible future use in calibrated simplified aerator-placement studies. This is not claimed as a full water-quality engineering design or a new theory of minimizing maxima.",
+    "status": "PASS"
+  }
+}
