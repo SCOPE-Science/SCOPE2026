@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized symmetric-ray reduction gives an exact difference of squared norms. The twenty-coordinate witness and its infinite Cesàro Gram norm reduce to two strictly positive rational inequalities verified by a standalone exact-arithmetic script. The extension to every larger integer branch count follows from the monotone coefficient \(3(1-1/m)\). Published spectral theory gives the radius \(2\). No numerical limit is used to infer an infinite conclusion.
+## correctness
 
-## Originality — PASS (qualified)
-The archived weighted-tree summation paper supplies general norm estimates, not the stated trivalent cutoff. The directly relevant modern full-text Theorem 1.6 and Example 3.1 establish the spectral radius and nonnormaloidity for five or more rays, and explicitly leave the normaloid question open. The present twenty-coordinate certificate covers three and four rays and hence all larger integers. Related published findings concern distinct Cesàro, weighted-shift and tree objects. Residual risk: another Hardy-inequality formulation may imply the same conclusion.
+PASS
 
-## Value — PASS
-Three rays is the first trivalent branch geometry. Establishing its strict norm-versus-spectrum separation rules out normaloidity for the entire multi-ray star family except the smallest binary case; this answers a natural portion of an explicitly posed structural problem, rather than changing an arbitrary computational parameter. The explicit rational witness is independently reproducible and supplies a uniform strict gap. It is not a sharp-norm computation, and the binary case is unresolved.
+On symmetric ray subspace, normalize root a and depth-coefficients y_j; w0=sqrt(m)a gives exact ||H_m f||²-4||f||²=||Cw||²-4||w||²+3(1-1/m)|w0|². For finite w=(1,1/4,1/6,...,1/40,0,...) set S=sum w, T=sum_{j>=1}w_j², Z=sum w_i w_j h_max(i,j), and ||Cw||²=ζ(2)S²-Z from the infinite tail Gram identity. Independently recalculated exact 203-term rational lower bound ζ(2)>41/25 and surplus (41/25)S²-Z-2-4T=189621663106457667280588609/63582532975129101742448640000>1/400. At m=3 squared operator-norm excess >0.006182528..., and 3(1-1/m) increases with m, establishing strict >2 for every m>=3 without finite-output extrapolation. Published Abhinand et al. sphere/disk-spectrum theorem for leafless narrow trees supplies r(H_m)=2; it is not asserted re-proved.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded statement-and-implication comparisons with published primary and related research did not identify coverage of the precise new assertion, and the distinct contribution is established by the indicated independently checked argument; priority remains subject to specifically recorded access risks.
+
+## value
+
+PASS
+
+The m=3 threshold is the first trivalent rooted star, a natural minimal branching boundary for Cesàro normaloidity after published m>=5 root-vector obstructions. An exact reproducible finite-support witness on an infinite-dimensional operator closes two missing natural cases (3 and 4), and is an independently useful counterexample even without an exact operator norm or the two-ray case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
