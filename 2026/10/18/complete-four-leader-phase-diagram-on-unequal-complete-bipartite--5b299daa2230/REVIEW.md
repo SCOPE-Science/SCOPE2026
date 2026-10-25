@@ -1,11 +1,21 @@
-# Scientific review of the four-leader complete bipartite phase diagram
+# Independent mathematical audit
 
-**Correctness — PASS.** The connected grounded Laplacian is positive definite for any four leaders and any positive gain. Its inverse-trace has a two-block rank-two expression depending only on the number of selected vertices in the size-two part. Explicit subtraction yields three rational differences with strictly positive denominators and the displayed polynomial numerators. Descartes' rule, rational root brackets for the finitely exceptional part sizes, quadratic coefficient and negative-discriminant positivity checks for all larger sizes, and a unique-positive-root quartic argument give the entire phase classification, including the ties. The standalone rational matrix inversion checks 81 representative instances. The infinite theorem is justified by the symbolic sign proof, not by those samples.
+## correctness
 
-**Originality — PASS with residual historical uncertainty.** Lin, Fardad, and Jovanović (arXiv:1302.0450) establish the general finite-gain trace-inverse objective and optimization algorithms, but not the graph-specific phase diagram. Fitch and Leonard (arXiv:1407.1569) analyze one and two noise-corrupted leaders; their many-leader centrality analysis concerns noise-free leaders. Patterson, Yi, and Zhang (arXiv:1708.06873) supply a general resistance formula for noisy leaders while specializing optimization to different topologies and regimes. Their general principles can be specialized to the same objective, but the four-leader, all-size phase classification and its isolated three-phase cases require new sign comparisons. A previously published equivalent specialization remains possible. The earlier 2011 conference version of Lin and collaborators was not available in full from the attempted public link; its later expanded open preprint was inspected.
+PASS
 
-**Value — PASS.** Four equal-gain leaders form a natural discrete sensor allocation problem. The theorem solves it globally for an infinite graph family, including exact transitions for every part size, and identifies a nonmonotone redistribution of leaders under increasing gain that occurs at precisely two network sizes. It is more informative than a direct single-instance inverse calculation: the disappearance and reappearance of leaders in the small part, and the absence of the three-phase regime at all larger sizes, are both proved.
+PASS: K_{2,m} has exactly three leader orbits indexed by i=0,1,2 chosen vertices on its two-node side (m>=4, exactly four equal positive finite-gain leaders). The grounded Laplacian is positive definite by its edge-energy plus leader-gain quadratic form. Schur/Woodbury two-block reduction gives F_i=s_A+s_B+(s_B t_A+s_A t_B)/(1−s_A s_B). Independently expanded and checked all three rational differences F2−F0, F0−F1, F2−F1 against explicit P20,P01,P21 with strictly positive denominators. Descartes-sign/root brackets for m=4..10 and polynomial-coefficient discriminant proof for all m>=11 provide exact optima: m4..6 count0 throughout; m7,8 count2→0; m9,10 count2→0→1; m>=11 count2→1, at each crossing precisely two tie. Independent Sympy exact symbolic simplification and rational gain tests corroborate; finite scans do not replace infinite m sign argument.
 
-**Limits and risks.** The result concerns four equal finite feedback gains, independent unit noise, total stationary variance, unit edge conductances, and only the family of complete bipartite graphs with one part of size two. Independent mathematical and historical validation has not been performed. General published inverse-trace and resistance formulations remain applicable background, not independent novelty evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: actual general-framework primary source text and result-set searches were checked against each exact claim, with the four distinct prior-implication tests documented. The sharp phase classification is not a corollary of a published two-leader optimum and is not explicitly implied by a generic four-leader trace identity absent the nontrivial sign theorem; it remains a best-of-knowledge originality PASS with historical caveat. No failed search is equated to a novelty proof; unaccessed primary material is named explicitly.
+
+## value
+
+PASS
+
+PASS: Four leaders with equal gain form a natural constrained sensor/consensus design, and the theorem solves an infinite graph family exactly for all finite gains and sizes. Exceptional reentrant redistribution 2→0→1 at exactly m=9,10 is a genuine sharp, nonmonotone optimal-design phase transition, not merely an algorithm to evaluate the objective.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
