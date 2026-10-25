@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Derivative identity is obtained by integration by parts with vanishing boundaries; strictly increasing OU hazard has exactly one sign change, and the ratio of positive/negative Laplace contributions decreases strictly to zero. This proves exactly one or zero stationary minima of reciprocal response, including boundary equality. Monotone likelihood ratio in correlation time proves moment ratio strictly decreases, and dominated Gaussian scaling gives both endpoints. Scaled derivative has one limiting positive zero and explicit bracket convergence. 908 independently computed finite SciPy checks passed; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tönjes arXiv:1003.1549 analyzes conventional Kuramoto phase oscillators with colored noise, without the affine Glauber switching factor.",
+        "Maggi and Paoluzzi arXiv:1902.01247 analyze colored-noise correlation effects using a different model and approximate theory; only publicly accessible abstract was inspected for this run.",
+        "Zhang and Strogatz arXiv:2101.02721 optimize externally switched network coupling topology rather than endogenous Glauber flipping plus OU noise."
+      ],
+      "reasoning": "Broader Kuramoto/noise results could cover threshold dependence on memory, but the spin-flip-rate optimization is absent from inspected statements. Even general transfer-function monotonicity results would need a specialized analysis to imply the strict decrease from D to zero of the moment ratio and the unique tau phase boundary. No dominating parameter theorem verified.",
+      "searches": [
+        "memory-dependent Kuramoto synchronization threshold and unique finite optimum of spin flip rate",
+        "OU colored noise switching composite Kuramoto unique optimal threshold memory time phase transition",
+        "Web: Kuramoto colored noise switching correlation time threshold optimum phase susceptibility",
+        "arxiv:1003.1549",
+        "arxiv:1902.01247",
+        "arxiv:2101.02721"
+      ]
+    },
+    "checked_sources": [
+      "Hayashi 2026 arXiv:2609.35838v1",
+      "Tönjes 2010 arXiv:1003.1549",
+      "Zhang–Strogatz 2021 arXiv:2101.02721",
+      "Chen–Qiu–Huang 2009 DOI:10.1103/PhysRevE.79.045101 (abstract only)",
+      "Maggi–Paoluzzi 2019 arXiv:1902.01247 (abstract only)",
+      "Published mathematical findings under topical, formula and source searches",
+      "Previously documented mathematical claims and relevant source identifiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 primary source gives existence of a finite switching optimum under a sufficient criterion and numeric cases tau=0.75,1,1.5; it does not establish exclusivity of all minima, a necessary condition c<c*(tau), existence of one tau_c or the limit tau gamma_star.",
+        "The 2009 on–off coupling article deals with an intermittently coupled oscillator network; accessible abstract only gives a different switching mechanism."
+      ],
+      "reasoning": "A sufficient-criterion plus several numerical optimizers does not logically imply the all-parameter unique optimum classification or the disappearance of the optimum for sufficiently long memory. The full result is a strictly stronger mathematical implication than these accessible antecedents. A generic one-sign-change lemma would prove part of the argument if applied, but no inspected earlier paper makes this full model-specific conclusion.",
+      "searches": [
+        "Primary source arxiv:2609.35838v1, sections deriving susceptibility and sufficient criterion; appendix as inspected",
+        "exact rate phase diagram for switching with colored noise susceptibility monotone hazard",
+        "Web: Hayashi Memory-induced optimal switching unique finite rate memory duration critical threshold",
+        "doi:10.1103/PhysRevE.79.045101"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hayashi arXiv:2609.35838v1 establishes the linear first-harmonic susceptibility and sufficient interior-optimum criterion; the global necessity/uniqueness and critical-memory endpoint are not stated there.",
+        "Searches did not identify a statement combining globally unique spin-flip optimizer with a unique correlation-duration boundary for this Ising–Kuramoto OU susceptibility."
+      ],
+      "reasoning": "The equivalent formulation is unimodality of (gamma+c) times the Laplace transform of OU phase correlation, or a strictly single-crossing weighted hazard integral. Generic Laplace variation-diminishing and monotone likelihood-ratio lemmas are standard background; their existence alone does not establish that this particular physical susceptibility has an explicit critical memory duration or the small-memory divergent optimum. No equivalent model-specific statement identified.",
+      "searches": [
+        "Memory-induced optimal switching in a dynamic Ising Kuramoto model Reon Hayashi arxiv 2609.35838",
+        "Ising Kuramoto Ornstein Uhlenbeck noise mean-field susceptibility monotone correlation time",
+        "Web: Ising Kuramoto optimal switching disappearance correlation time theorem",
+        "arxiv:2609.35838v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published mathematical records closest by topic concern a discrete-time quadrature-lag Kuramoto locking interval, an OU-sensor autocorrelation reversal, and a four-oscillator Braess penalty; none states the OU Ising–Kuramoto susceptibility optimum.",
+        "The accessible previously documented mathematical claims were compared by source and implication; no matching claim was identified."
+      ],
+      "reasoning": "The object is a continuous rate and time parameter phase diagram, not a finite-dimensional enumeration or published known-value table. The numerical example (tau_c approximately 4.22146244) is a consequence of the general strict uniqueness theorem, not an externally tabulated invariant. Search absence is not a proof of novelty.",
+      "searches": [
+        "Reon Hayashi Memory-induced optimal switching in a dynamic Ising Kuramoto model arxiv 2609.35838",
+        "Unique interior minimum of synchronization threshold as a function of Glauber spin flip rate in Ornstein Uhlenbeck driven Ising Kuramoto model",
+        "Ising Kuramoto Ornstein Uhlenbeck noise mean-field susceptibility monotone correlation time",
+        "Comparison against previously documented relevant mathematical claims"
+      ]
+    },
+    "rationale": "Direct claim/implication comparison with Hayashi’s original linear-response analysis and earlier colored-noise/switching models finds sufficient existence and numerical cases but not the all-parameter necessary-and-sufficient unique minimizer, unique disappearing-memory boundary, or singular optimized-rate constant. Searches of the published mathematical record and accessible own findings found no equivalent coverage. Risk from broader positive-kernel/variation-diminishing results remains; priority is best-knowledge, not independently certified.",
+    "residual_risks": [
+      "A general variation-diminishing or completely monotone transform theorem may cover the auxiliary one-crossing mechanism, though an existing complete application to this OU Ising–Kuramoto threshold was not found.",
+      "The 2009 on–off coupling and the 2019 colored-noise approximation papers were not inspected in full, so their abstract-level mismatch does not certify absence.",
+      "Literature search and same-source reading do not prove priority; independent novelty review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the full original object and sufficient existence, but not the global necessity/uniqueness, monotone tau boundary or singular optimizer limit",
+        "evidence": [
+          "first submitted 2026-09-24",
+          "linear response K_c=[(mu+beta_s gamma)chi_gamma]^{-1}",
+          "sufficient optimum condition and short-tau numerical curves"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.35838",
+        "material_read": "Accessible primary full text including linear-response formulas, optimum condition and appendices",
+        "method": "Read first public arXiv/preprint material; compared exact first-harmonic formula and hypothesis/conclusions",
+        "title": "Memory-induced optimal switching in a dynamic Ising–Kuramoto model",
+        "trigger": "Identical susceptibility, spin-flip parameter and OU kernel"
+      },
+      {
+        "assessment": "Ordinary Kuramoto with colored noise; does not have independent Glauber spin flips or linear prefactor in susceptibility",
+        "evidence": [
+          "Different oscillator variables and onset problem",
+          "no same (gamma+c)OU-Laplace optimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.1549",
+        "material_read": "Accessible primary preprint exposition of model and threshold findings",
+        "method": "Read arXiv open-access full text and compared physical degrees of freedom and optimized parameter",
+        "title": "Synchronization Transition in the Kuramoto Model with Colored Noise",
+        "trigger": "Colored-noise Kuramoto threshold might dominate the OU analysis"
+      },
+      {
+        "assessment": "External temporal topology design rather than endogenous OU Ising response; no implication for this memory boundary",
+        "evidence": [
+          "Topology/resource optimization rather than analytic OU hazard moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.02721",
+        "material_read": "Accessible open-access primary prose covering formulation/results",
+        "method": "Read/compared network switching and objective; assessed control constraints",
+        "title": "Designing temporal networks that synchronize under resource constraints",
+        "trigger": "Published optimal switching of Kuramoto systems"
+      },
+      {
+        "assessment": "Distinct on–off coupling mechanism, but inaccessible full source leaves residual risk",
+        "evidence": [
+          "Abstract analyzes intermittent coupling timescales, not stated OU spin-flip susceptibility"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.79.045101",
+        "material_read": "Accessible abstract only; full primary text not obtained",
+        "method": "Compared available abstract and mathematical scope; not counted as full inspection",
+        "title": "Synchronization with on-off coupling: Role of time scales in network dynamics",
+        "trigger": "Switching time-scale optimum for oscillator synchronization"
+      },
+      {
+        "assessment": "Conventional colored-noise Kuramoto and approximate threshold versus memory, not a joint spin-flip-rate/memory optimum theorem",
+        "evidence": [
+          "Different optimization variable and no endogenous Glauber switching rate"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.01247",
+        "material_read": "Accessible abstract and high-level claims; not verified full text",
+        "method": "Compared abstract object, approximation method and measured dependence",
+        "title": "The effect of time-correlated noise on the Kuramoto model studied via the unified colored noise approximation",
+        "trigger": "OU memory dependence might give a broader general result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a4c8841-2ae7-4ad8-a017-b9e2ebed8dd9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question arises directly from a model reporting a finite optimal spin-flip rate for a few memory choices. Classifying the complete phase diagram identifies a nontrivial regime where increasing OU memory extinguishes the optimum, with a uniquely defined critical memory time and a physical example (tau_c about 4.22146). The sharp 1/tau blow-up of optimal switching resolves the singular white-noise boundary. These all-parameter structural conclusions inform timescale selection and cannot be inferred from a few numerical optima or a sufficient existence condition.",
+    "status": "PASS"
+  }
+}
