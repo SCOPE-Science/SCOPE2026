@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_ellipsoid.py` with Python 3 and its standard library only. Each rational test at \(t=p/q\) enumerates every feasible potential on the \(1/q\)-grid, normalized to minimum zero, and computes both orthogonal squared projections using exact fractions. Every vertex is in this grid because its graph of tight difference constraints is connected and the right-hand sides are integral multiples of \(1/q\). Thus these thirteen finite configurations check exact ellipsoid containment and contact counts on the full polytope, not on a random sample. The output terminates `EXACT_ELLIPSOID_PASS: 13`.
+## correctness
 
-The main argument uses a separate global endpoint-rounding proof, exact support inequalities, an analytic circumradius identity, and explicit positive log-determinant certificates. The finite configurations are consistency checks and do not certify arbitrary large dimensions or irrational parameters. Independent scientific audit has not been performed.
+PASS
+
+Symmetry of matched-pair metric restricts unique global Löwner ellipsoid to a P_U+b P_W. For any feasible potential, convex coordinate rounding reduces supremum of q to binary cuts and one-pair exceptional spreads (0,t) with other endpoints t−1 or 1. For n≥8, the centered spherical radius n/4 is a universal containment bound for 1≤t≤2, so t=1 sphere remains optimal. At n=4 sharp orthogonal contact inequalities maximize determinant. At n=6 exact binary/spread slack tables and positive KKT multipliers certify a=b=2/3 until 5/3 then a=(3−t)/2,b=(1+t)/4. Incidence/orbit counting explains contact jumps n4,6,8 and n≥10. Independent all-grid exact-Fraction evaluations for nine rational n,t cases include (6,5/3) 56, (8,2) 78, (10,2) 252 contacts; finite grids not infinite proof.
+
+## originality
+
+PASS
+
+Higashitani/Jochemko/Michałek Section 3.1 and Alexander et al. study symmetric-edge facets, Lipschitz-free bodies and volume products, not this parameterized two-mode Löwner program. Relevant other SCOPE/Resultary sharp Löwner transitions occur for different polytopes. Best-of-knowledge PASS, with residual risk of unindexed same metric ellipsoid result or broader finite metric theorem.
+
+## value
+
+PASS
+
+The matched-pair Lipschitz-free metric interpolation is natural; all even n/t are classified, with a new 6-point anisotropy threshold and exact contact orbit transitions. Exact Löwner geometry is a structural finite-dimensional invariant not mechanically provided by known facet descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

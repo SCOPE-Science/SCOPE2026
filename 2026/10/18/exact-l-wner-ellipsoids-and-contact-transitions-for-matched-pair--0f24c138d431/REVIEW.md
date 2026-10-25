@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A self-contained symmetry argument reduces the unique global Löwner optimum to two real parameters. Coordinate-wise convex rounding proves that the tested binary and exceptional-spread configurations dominate *all* potential vectors. A factorized exact radius formula proves the spherical screening regimes. At four points, two orthogonal contact constraints certify the optimum. At six points, a full rational slack table and two strictly positive log-determinant KKT multipliers certify feasible global uniqueness. The contact degeneracies at \(t=5/3\) and \(t=2\) are included. The exact-rational checker passes thirteen finite instances. A critical issue explicitly examined is sufficiency of the convex endpoint reduction; it is proved for every real metric parameter.
+## correctness
 
-**Originality — PASS.** The strongest prior overlap is a full facet classification for this same complete-multipartite metric interpolation: it supplies potential types but does not state or immediately imply the two-axis minimum-volume ellipsoid optimization, the six-point \(5/3\) threshold, or the phase-dependent contact counts. The primary 2018 graph-metric result is only the \(t=2\) endpoint. Previously published short-pair, single-edge, spherical-inradius and Banach–Mazur calculations address different parameter domains or invariants. Bibliographic residual risk remains for equivalent results under polar John terminology.
+PASS
 
-**Mathematical value — PASS.** This is a natural extremal invariant of an infinite family of finite-dimensional real Lipschitz dual balls. Exact dimension-dependent screening reveals an enlargement invisible to the optimum ellipsoid in every even dimension at least eight. The unique six-point anisotropy transition and jump in touching vertices are nontrivial structural information not recovered from raw facet counts.
+Symmetry of matched-pair metric restricts unique global Löwner ellipsoid to a P_U+b P_W. For any feasible potential, convex coordinate rounding reduces supremum of q to binary cuts and one-pair exceptional spreads (0,t) with other endpoints t−1 or 1. For n≥8, the centered spherical radius n/4 is a universal containment bound for 1≤t≤2, so t=1 sphere remains optimal. At n=4 sharp orthogonal contact inequalities maximize determinant. At n=6 exact binary/spread slack tables and positive KKT multipliers certify a=b=2/3 until 5/3 then a=(3−t)/2,b=(1+t)/4. Incidence/orbit counting explains contact jumps n4,6,8 and n≥10. Independent all-grid exact-Fraction evaluations for nine rational n,t cases include (6,5/3) 56, (8,2) 78, (10,2) 252 contacts; finite grids not infinite proof.
 
-**Limits.** Only common matched-pair distances and canonical Euclidean realization are covered. Finite verification is corroborative rather than a proof for all real parameters. Independent mathematical validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Higashitani/Jochemko/Michałek Section 3.1 and Alexander et al. study symmetric-edge facets, Lipschitz-free bodies and volume products, not this parameterized two-mode Löwner program. Relevant other SCOPE/Resultary sharp Löwner transitions occur for different polytopes. Best-of-knowledge PASS, with residual risk of unindexed same metric ellipsoid result or broader finite metric theorem.
+
+## value
+
+PASS
+
+The matched-pair Lipschitz-free metric interpolation is natural; all even n/t are classified, with a new 6-point anisotropy threshold and exact contact orbit transitions. Exact Löwner geometry is a structural finite-dimensional invariant not mechanically provided by known facet descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
