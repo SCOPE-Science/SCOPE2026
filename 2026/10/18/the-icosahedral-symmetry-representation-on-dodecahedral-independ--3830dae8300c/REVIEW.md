@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns exactly the 20-vertex graph \(GP(10,2)\), its rational fifth reduced independence-complex homology, and its full graph automorphisms. Exhaustive independent-set counts give 5,828 faces including the empty face, and independently eliminated simplicial boundaries have ranks \((19,141,519,991,921,315,5)\) over \(\mathbb F_2\). The reduced Euler characteristic forces four-dimensional rational homology in degree five and no other rational homology. The reduced equivariant Hopf trace equals the signed count of invariant faces, or equivalently the alternating number of compatible permutation cycles. The full automorphism group of size 120 and all conjugacy order/character values were checked independently by two different algorithms, including direct oriented-face signs. The table equals the augmentation character of the natural five-point action of \(A_5\), twisted by the central sign. The inner product is one, establishing absolute irreducibility. The two embedded programs were executed successfully from their actual source paths. No integral equivariant statement or extrapolation from finite samples is inferred.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-The most directly relevant prior public result, *The dodecahedral independence complex is a wedge of four 5-spheres* (full RESULT.md inspected), already establishes the nonequivariant homotopy type but does not establish the \(A_5\times C_2\) homology character. Thus the rank-four conclusion is covered and expressly excluded from novelty claims. The full-text introduction and relevant results/examples of Barmak (arXiv:1007.0418), Berghoff (arXiv:2008.06267), and Goyal–Shukla–Singh (arXiv:1905.06926) were materially examined. They discuss general or other graph families, not this exact equivariant module. Searches for graph aliases, dual/topological formulations, finite symmetry characters, stronger classifications, and mathematical record equivalents did not locate a covering theorem. The negative searches are supporting evidence, not a proof of priority. Unindexed or unpublished equivariant calculations remain a risk.
+PASS
 
-## Mathematical value — PASS
-The regular dodecahedron has an intrinsic full symmetry group of 120 elements. Its four-dimensional homology rank alone cannot decide whether symmetries act trivially, split into characters, or form an irreducible module. Identifying the natural four-dimensional absolutely irreducible \(A_5\) representation and the nontrivial antipodal sign determines the entire rational symmetry invariant rather than a single isolated trace. This is a substantive equivariant refinement of an established ordinary homotopy calculation, with complete reproducibility. It makes no unsupported generalization to other graphs.
+Independently rebuilt all 30 edges of GP(10,2), enumerated all 5,828 augmented independent faces, and recomputed seven mod2 boundary ranks (19,141,519,991,921,315,5). All reduced mod2 Betti groups vanish except rank 4 in degree 5; Euler characteristic forces the rational concentration and dimension. Independently enumerated all 120 automorphisms by full NetworkX GraphMatcher and recomputed invariant-vertex-cycle Lefschetz traces (identity 4; inversion -4; order2 zero×30; order3 1×20; order5 -1×24; order6 -1×20; order10 +1×24). Complex character norm exactly one and central order-two acts as -I, matching W4⊗epsilon.
 
-## Closest coverage and remaining limits
-The precise nonequivariant wedge decomposition is already known; the new statement is the rational equivariant character, not a new sphere-wedge result. The comparison cannot exclude obscure prior computations. No integral module classification or equivariant sphere splitting is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier published dodecahedral independence complex result only proves nonequivariant wedge of four S5 and does not determine any nonidentity automorphism trace. Earlier dodecahedral neighborhood or Rips equivariant modules involve different complexes; no exact/superior theorem covers the antipodal-odd A5 augmentation character in this object among inspected full primary results and semantic record searches. Priority is best-of-knowledge, not globally certified.
+
+## value
+
+PASS
+
+The full equivariant homology representation under the Platonic 120-element symmetry group is a natural exact geometric-topological invariant not implied by the known four-sphere homotopy type. Identifying the nontrivial antipodal orientation and irreducible A5 augmentation module distinguishes this canonical graph topologically in a way dimension alone cannot, with complete finite reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

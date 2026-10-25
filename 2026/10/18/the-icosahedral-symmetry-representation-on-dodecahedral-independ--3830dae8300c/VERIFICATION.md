@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and boundaries
 
-Execute both files in the same directory: `python3 verify_character_and_homology.py` and `python3 verify_signed_traces.py`. The second requires a locally installed NetworkX package. Successful execution of each prints `VERIFY_OK`.
+# Independent mathematical audit
 
-The first enumerates all independent sets by recursive include/exclude branching, builds the seven simplicial boundary matrices implicitly as bit vectors and eliminates over \(\mathbb F_2\). It constructs 120 automorphisms by three explicit checked graph automorphisms, and evaluates the exact equivariant Lefschetz traces via fixed permutation cycles. The second separately tests every bitmask, uses row-based boundary elimination, enumerates graph automorphisms by GraphMatcher, and evaluates oriented-sign traces on each invariant simplex. Both return 5,828 faces including the empty face, mod-two reduced homology dimension four in degree five, and the order/trace census \((1,4):1\), \((2,-4):1\), \((2,0):30\), \((3,1):20\), \((5,-1):24\), \((6,-1):20\), \((10,1):24\).
+## correctness
 
-The finite exact computations establish the stated rational representation for the fixed finite graph when combined with Euler characteristic, the Hopf trace formula and the classical identification of the dodecahedral automorphism group. They do not certify a general theorem for other generalized Petersen graphs, integral torsion-freeness, the integral equivariant lattice, or equivariant homotopy type.
+PASS
+
+Independently rebuilt all 30 edges of GP(10,2), enumerated all 5,828 augmented independent faces, and recomputed seven mod2 boundary ranks (19,141,519,991,921,315,5). All reduced mod2 Betti groups vanish except rank 4 in degree 5; Euler characteristic forces the rational concentration and dimension. Independently enumerated all 120 automorphisms by full NetworkX GraphMatcher and recomputed invariant-vertex-cycle Lefschetz traces (identity 4; inversion -4; order2 zero×30; order3 1×20; order5 -1×24; order6 -1×20; order10 +1×24). Complex character norm exactly one and central order-two acts as -I, matching W4⊗epsilon.
+
+## originality
+
+PASS
+
+The earlier published dodecahedral independence complex result only proves nonequivariant wedge of four S5 and does not determine any nonidentity automorphism trace. Earlier dodecahedral neighborhood or Rips equivariant modules involve different complexes; no exact/superior theorem covers the antipodal-odd A5 augmentation character in this object among inspected full primary results and semantic record searches. Priority is best-of-knowledge, not globally certified.
+
+## value
+
+PASS
+
+The full equivariant homology representation under the Platonic 120-element symmetry group is a natural exact geometric-topological invariant not implied by the known four-sphere homotopy type. Identifying the nontrivial antipodal orientation and irreducible A5 augmentation module distinguishes this canonical graph topologically in a way dimension alone cannot, with complete finite reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
