@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact normalized Gram computation is carried out with the data inner product factor \(1/N\); hence its nonzero eigenvalues are precisely the Poisson residue probabilities rather than \(N\) times those probabilities. Each equals a strictly positive series, so the sampling map is onto. The explicit Fourier-mode interpolants meet the data and attain squared norm \(1/p_{N,m}\). Stirling bounds together with geometric Poisson-tail estimates give lower and upper bounds of order \(N^{-1/2}e^{-NM}\) for the minimum residue probability, with potential zero-index masses handled separately. Strict convexity identifies the maximum of the rate-minimization envelope and proves unique worst-harmonic localization except at the stated boundary cases. The \(\rho\to\infty\) expansion follows from the logarithmic identric-mean integral. Remaining limitation: constants depend on fixed \(\rho\); no uniform critical-window estimate is claimed.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+For the normalized kernel Gram matrix with data inner product N^-1 sum, the Fourier eigenvalues are precisely the N Poisson-congruence masses. This gives Q=1/min p. A finite alias cutoff plus Stirling two-sided mass bounds yields p_min~N^-1/2 exp(-N max_t min_l J_rho(t+l)) up to constant factors for fixed rho. J(x+1)-J(x)=log(B(x)/rho), B strictly increasing, forces one transition at rho=e^-1 and the identric tie for rho>e^-1. The boundary alias k=0 is handled separately and the selected minimizer has strictly positive asymptotic arguments, sustaining the sqrt(N) prefactor. Independent Python log-sum-exp checks at N=400 and rho=.1,e^-1,.5,1,2,3 produced rates and residues consistent with the claimed branches, not a proof of all N.
 
-Horoshko and collaborators (arXiv:1602.07852, equation (9)) already provide the exact circular coherent-state Gram/Fourier/Poisson identity. Alpay, De Martino and Diki (arXiv:2604.22165v2) develop complex RKHS representer theory and Fock-space interpolation, but the inspected Fock applications do not classify the least singular value of expanding regular-polygon sampling. Seip's density theorems address infinite sampling/interpolation sets. Closest published research entries concern concentric Szegő-orbit conditioning, equispaced Bergman pole Hessians, and critical Gaussian Gabor biorthogonals; their operator/invariant/scaling hypotheses do not imply the present statement. The assessed contribution is specifically the sharp \(\sqrt N\) order, optimized identric-mean exponential rate, critical transition and worst-mode localization. A related *Optimal circular states* (2024) paper was accessible only through an abstract/first-page preview, leaving a disclosed residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The worst-case norm of an RKHS interpolation right inverse quantifies stability of all data at once. In the double-scaling regime of \(N\) points and squared radius \(\rho N\), exact cyclic diagonalization alone leaves a nontrivial discrete minimax problem involving infinitely many Poisson aliases. Its solution yields a nontrivial universal threshold \(e^{-1}\), a complete harmonic-location phase diagram, an exact exponential condition rate, and the sharp polynomial growth order. This is a motivated quantitative interpolation theorem, not merely a recomputation of the known Gram eigenvalues.
+The precise Poisson-congruence eigenvalues and circulant Gram diagonalization are preexisting, credited to Horoshko et al. (2016), Eq. (9). The final claim instead uniformly minimizes over growing Fourier residue classes as radius^2=rho N and identifies the sharp exponent, polynomial prefactor, identric phase boundary and worst-mode localization. The inspected full original gives the same spectral input but its main analysis is circular-state entanglement, not the stated asymptotic minimax optimization. Resultary search found related Gabor/Slepian/Fock spectral topics, no statement proved to dominate this claim. The 2024 Optimal circular states full text was inaccessible; priority risk remains.
 
-## Scientific limits and closest sources
+## value
 
-The full 2016 circular-state article and the full 2026 complex-RKHS article were inspected; the 2024 related circular-state paper could not be read in full. Finite checker diagnostics supplement, not establish, infinite-dimensional proofs. No independent verification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantifies the worst-case norm-amplification cost of exact interpolation at a natural regular-polygon family in a classical RKHS and identifies a nontrivial universal sharp transition and extremizing harmonic. An exact exponential rate and sqrt(N) prefactor, rather than only reusing the known Fourier eigenvalue identity, are mathematically useful for finite sampling stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

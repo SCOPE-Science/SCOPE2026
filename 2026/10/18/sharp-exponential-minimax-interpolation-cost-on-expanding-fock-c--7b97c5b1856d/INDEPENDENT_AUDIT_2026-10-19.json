@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T15:06:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the normalized kernel Gram matrix with data inner product N^-1 sum, the Fourier eigenvalues are precisely the N Poisson-congruence masses. This gives Q=1/min p. A finite alias cutoff plus Stirling two-sided mass bounds yields p_min~N^-1/2 exp(-N max_t min_l J_rho(t+l)) up to constant factors for fixed rho. J(x+1)-J(x)=log(B(x)/rho), B strictly increasing, forces one transition at rho=e^-1 and the identric tie for rho>e^-1. The boundary alias k=0 is handled separately and the selected minimizer has strictly positive asymptotic arguments, sustaining the sqrt(N) prefactor. Independent Python log-sum-exp checks at N=400 and rho=.1,e^-1,.5,1,2,3 produced rates and residues consistent with the claimed branches, not a proof of all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seip treats density and interpolation of infinite planar node sequences.",
+          "Horoshko et al. analyze entanglement using fixed finite coherent-state amplitudes."
+        ],
+        "reasoning": "Neither cited theorem bounds the least circulant eigenvalue with sharp sqrt N and identric rate under rho N scaling; a general large-deviation theorem could give some ingredients but not the optimized explicit phase statement automatically.",
+        "searches": [
+          "arXiv:math/9204238 Seip Fock density and interpolation",
+          "arXiv:1602.07852 full 10-page article"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Fock coherent states circular Gram Poisson residues minimax interpolation singular value identric mean asymptotic",
+        "Web: circular coherent states Poisson residue weights minimum eigenvalue asymptotic number states radius sqrt N optimal",
+        "arXiv:1602.07852 Eq.(9)",
+        "DOI:10.1088/1751-8121/ad8792"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing Eq. (9) supplies p_{N,m}, a necessary input but no extrema over m in the rho N asymptotic regime.",
+          "General RKHS representer theory reduces interpolation to Gram inversion but does not yield the asymptotic rate."
+        ],
+        "reasoning": "Neither known exact eigenvalues nor representer theorem by themselves imply the nontrivial lattice quantization/identric minimax phase optimization; present claim derives it with additional saddle and alias analysis.",
+        "searches": [
+          "Horoshko et al. 2016 Eq. (9), arXiv:1602.07852",
+          "Alpay–De Martino–Diki 2026 arXiv:2604.22165"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2016 circular coherent-state Fourier coefficients equal Poisson masses on residue classes, an exact equivalent spectrum.",
+          "The present minimax value is reciprocal of least such mass, with number of nodes and mean photon count both of order N."
+        ],
+        "reasoning": "Exact finite spectrum is covered; double-scaling worst-residue optimization and identric threshold are not supplied by the inspected theorem.",
+        "searches": [
+          "arXiv:1602.07852 Eq. (9)",
+          "Resultary Fock/circular spectrum search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related sharp Gaussian Gabor and circular Hilbert-space spectral findings, not an exact table for the minimax exponent.",
+          "The 2024 circular-state publication preview is insufficient to assess its full numerical/spectral tables."
+        ],
+        "reasoning": "No exact prior table located; this search failure does not establish priority and 2024 full text is a material residual risk.",
+        "searches": [
+          "Resultary Fock/circular spectral search",
+          "DOI:10.1088/1751-8121/ad8792 bibliographic and preview search"
+        ]
+      },
+      "rationale": "The precise Poisson-congruence eigenvalues and circulant Gram diagonalization are preexisting, credited to Horoshko et al. (2016), Eq. (9). The final claim instead uniformly minimizes over growing Fourier residue classes as radius^2=rho N and identifies the sharp exponent, polynomial prefactor, identric phase boundary and worst-mode localization. The inspected full original gives the same spectral input but its main analysis is circular-state entanglement, not the stated asymptotic minimax optimization. Resultary search found related Gabor/Slepian/Fock spectral topics, no statement proved to dominate this claim. The 2024 Optimal circular states full text was inaccessible; priority risk remains.",
+      "residual_risks": [
+        "2024 Optimal circular states DOI 10.1088/1751-8121/ad8792 original full text unavailable; arXiv/OA routes unsuccessful, Oxford status vpn_disconnected, no bypass; its deeper spectral tables may overlap.",
+        "Higher-order near-critical rho_N crossover and exact asymptotic multiplicative constant not claimed.",
+        "Numerical N=400 checks corroborate but cannot prove uniform-in-residue Stirling-tail arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Poisson residue diagonalization is known; explicit growing-N minimax phase diagram was not found in inspected mathematical statement",
+          "evidence": "Eq. (9), Fourier coherent-state weights",
+          "identifier_or_url": "arXiv:1602.07852 / Phys. Rev. A 93 (2016) 062323",
+          "material_read": "Full primary PDF, spectral discussion including Eq. (9) and surrounding sections (read via PDF text and screenshots)",
+          "method": "arXiv lawful OA full text",
+          "title": "Entanglement of quantum circular states of light",
+          "trigger": "Same equal-spaced coherent-state Gram matrix"
+        },
+        {
+          "assessment": "No whole-document negative coverage judgment; possible spectral priority overlap",
+          "evidence": "Abstract and preview describe optimization of circular coherent-state properties",
+          "identifier_or_url": "DOI:10.1088/1751-8121/ad8792",
+          "material_read": "Bibliographic information and opening preview only; original full article not read",
+          "method": "OA/preprint search then authorized Oxford returned vpn_disconnected",
+          "title": "Optimal circular states",
+          "trigger": "Same regular circular coherent-state system and optimization language"
+        },
+        {
+          "assessment": "Infinite-density framework is a different quantified regime; the full paper remains a broader comparison risk",
+          "evidence": "Abstract on density theorems",
+          "identifier_or_url": "arXiv:math/9204238",
+          "material_read": "Title, abstract and statement scope from indexed arXiv material; original complete text not read",
+          "method": "lawful OA abstract",
+          "title": "Density theorems for sampling and interpolation in the Bargmann–Fock space",
+          "trigger": "Broad Fock interpolation context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the worst-case norm-amplification cost of exact interpolation at a natural regular-polygon family in a classical RKHS and identifies a nontrivial universal sharp transition and extremizing harmonic. An exact exponential rate and sqrt(N) prefactor, rather than only reusing the known Fourier eigenvalue identity, are mathematically useful for finite sampling stability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: Fock coherent states circular Gram Poisson residues minimax interpolation singular value identric mean asymptotic",
+    "Web: circular coherent states Poisson residue weights minimum eigenvalue asymptotic number states radius sqrt N optimal",
+    "arXiv:1602.07852 Eq.(9)",
+    "DOI:10.1088/1751-8121/ad8792"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2024 Optimal circular states DOI 10.1088/1751-8121/ad8792 original full text unavailable; arXiv/OA routes unsuccessful, Oxford status vpn_disconnected, no bypass; its deeper spectral tables may overlap.",
+    "Higher-order near-critical rho_N crossover and exact asymptotic multiplicative constant not claimed.",
+    "Numerical N=400 checks corroborate but cannot prove uniform-in-residue Stirling-tail arguments."
+  ],
+  "residual_risks": [
+    "2024 Optimal circular states DOI 10.1088/1751-8121/ad8792 original full text unavailable; arXiv/OA routes unsuccessful, Oxford status vpn_disconnected, no bypass; its deeper spectral tables may overlap.",
+    "Higher-order near-critical rho_N crossover and exact asymptotic multiplicative constant not claimed.",
+    "Numerical N=400 checks corroborate but cannot prove uniform-in-residue Stirling-tail arguments."
+  ],
+  "schema_version": 1
+}
