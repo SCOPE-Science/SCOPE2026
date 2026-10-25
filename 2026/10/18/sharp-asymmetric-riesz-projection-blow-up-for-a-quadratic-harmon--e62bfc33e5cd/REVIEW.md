@@ -1,19 +1,21 @@
-# Review of the quadratic harmonic-Bergman spectral-projection formula
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The orthonormal harmonic monomial basis gives an exact rank-one perturbation of a polynomial in an invertible bilateral weighted shift. The shift has unit-circle spectrum, and the two inside/outside resolvent expansions converge in norm. The scalar rank-one denominator gives the unique simple outlier, and its derivative is nonzero. Two complete geometric/harmonic norm series compute the right and left eigenvectors and their pairing, giving the asserted projection norm. The asymptotic coefficients follow from explicit first-order expansions. Supplementary finite-section computations reproduce the formula and eigenvector identities for real and complex parameters; finite tests are not substitutes for the proof.
+PASS
 
-## Originality
+The harmonic Bergman basis yields T_{z²+bz}=U²+bU+(1/6)e_1 tensor e_-1, where U is invertible bilateral weighted shift with spectrum unit circle. Rank-one resolvent determinant m(lambda) gives the single mixed-root outlier alpha=-3b/7, beta=-4b/7 only for 7/4<|b|<7/3 and derivative m’=686/b², ensuring simplicity. Explicit bilateral resolvent expansions determine both rank-one projection vectors; their squared norm is 2/|alpha-beta|² times [1/(1-|alpha|²)²+(-log(1-q)-q)/q]. Divide by |m’| to yield norm formula. Endpoint expansions give log factor 1/7 and quadratic factor 7/36. Recomputed 1,000-term norm sums at three interior b values; no inference about outside or at collision endpoints.
 
-PASS with documented priority uncertainty. Huang–Wang–Zhao (arXiv:2610.09638v1, Theorem 3.1 and proof, examined in full) prove a finite-outlier spectral-set theorem, not an exact eigenprojection norm. Wang–Zhao (2021, DOI:10.1016/j.jmaa.2020.124770) provide an earlier quadratic disconnected-spectrum example; the accessible abstract, bibliographic information, and 2026 citation identify its scope but the full primary text was not available. Spectral-set or Weyl-theorem statements alone cannot imply an exact norm for a generally nonorthogonal Riesz projection. Targeted indexed searches for the projection formula, boundary scales, and equivalent weighted-shift descriptions revealed no covering statement. A hidden quantitative argument in the unavailable 2021 source or older nonnormal spectral-conditioning literature remains a genuine risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The object is the Riesz-projection condition number at a natural isolated-eigenvalue collision with the essential spectrum, a standard indicator of nonnormal spectral instability. The exact formula exhibits an unexpected asymmetry: the exterior-root collision produces logarithmic divergence while the interior-root collision produces quadratic divergence. Both sharp constants can serve as benchmarks for resolvent and perturbation analysis in harmonic-Bergman Toeplitz problems. This goes beyond the previously known fact that a quadratic analytic Toeplitz spectrum can disconnect.
+Best-of-knowledge PASS for exact nonorthogonal Riesz projection norm and asymmetric collision divergences. Earlier polynomial-symbol Toeplitz results determine spectral location/outlier finiteness, not the conditioning norm. Strong related 2021 quadratic source inaccessible in full, leaving explicit residual coverage risk.
 
-## Scope and limitations
+## value
 
-Only quadratic analytic symbols on the unweighted harmonic Bergman disk, and only the open outlier regime, are included. No independent verification or publication-priority certification has been performed. The full Wang–Zhao 2021 article remains a priority-risk source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nonorthogonal Riesz projection norm quantifies spectral instability of a canonical harmonic Bergman Toeplitz isolated eigenvalue. Sharp formula and distinct logarithmic versus inverse-square outlier collision rates, with constants, are natural spectral conditioning invariants not contained in spectral-location statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
