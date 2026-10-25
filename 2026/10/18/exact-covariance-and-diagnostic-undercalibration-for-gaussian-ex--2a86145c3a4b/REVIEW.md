@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-spectrum Nyström projection is \(\lambda P_\Omega\), so \(f(\lambda P_\Omega)=f(\lambda)P_\Omega\) when \(f(0)=0\). For \(k\le n\), deleting one column produces a rank-one projector difference and yields exactly \(X_i=c(k-1+R_i)\), with \(R_i\sim\chi^2_{n-k+1}\). The main nontrivial dependence calculation conditions on the other \(k-2\) columns and reduces two residual energies to Gaussian lengths multiplied by the common squared sine of a random angle in dimension \(n-k+2\). The beta second moment gives pair covariance \(2c^2d/(d+3)\), hence all reported variance, diagnostic, and edge formulas. For \(k=n+1\), each leave-one-out approximation is exactly full rank. Both the unit-probe boundary and all integer quantifiers are addressed. The independent reproduction code passed 3,240 exact-rational parameter checks, 528 direct Nyström matrix cases, and 750,000 Gaussian pair draws. The universal proof is analytical, not an inference from simulations.
+## correctness
 
-## Originality — PASS (subject to literature coverage)
-The closest prior source, Madhavan–Alexanderian–Saibaba (arXiv:2603.05721v1, Algorithm 3.1 and Theorems 3.3–3.5), constructs the same exchangeable estimator and gives general error bounds rather than this explicit flat-spectrum \(n,k\) covariance and sharp rank-edge calibration law. Epperly–Tropp–Webber (arXiv:2301.07825, Sections 2.2–2.3, 3.1 and 5.3–5.6) already supplies the XNysTrace construction, the sample-dispersion diagnostic, a general error-to-correlation relation, and recommended residual normalization. These are fully credited. The present calculation evaluates the previously unspecified spherical covariance and obtains a closed calibration factor. Targeted comparisons found no equivalent formula in the inspected sections or accessible record summaries. This is a best-knowledge novelty assessment, not a proof of worldwide uniqueness; overlapping unpublished or differently indexed work remains possible.
+PASS
 
-## Value — PASS
-Error estimation is part of practical adaptive exchangeable trace estimation. The exact factor \((n+3)/(n-k+3)\) proves that small *pairwise* correlations can accumulate into severe error-bar undercalibration near the sampling-rank boundary, even for the simplest possible positive-definite matrix. The full integer classification gives an exact test case for covariance-aware diagnostics, distinguishes proportional sketching from fixed-dimensional rank deficits, and shows the jump to zero error with one additional probe. The pre-existing normalized variant eliminates this issue on the same flat case; accordingly the claim evaluates the raw scheme and makes no broad performance assertion for recommended implementations.
+For A=lambda I_n and f(0)=0,c=f(lambda)>0 the Nyström matrix is lambda times projection; with 1≤k≤n, Xi=c[(k−1)+Ri] where Ri is squared Gaussian residual in dimension d=n−k+1, giving chi²_d mean d and var2d. Conditional on the other k−2 columns, two independent standard Gaussian vectors in m=d+1 dimensions share angle theta; E(sin⁴ theta)=(m²−1)/(m(m+2)), implying Cov(Ri,Rj)=2d/(d+3). Averaging yields VarH=2c²d(n+3)/(k(d+3)) and ES²=2c²d(d+2)/(k(d+3)), so ratio=(n+3)/(n−k+3); for k=n+1 all leave-one-out spans full R^n and H=nc exactly. Independently rederived beta-angle formulas algebraically and cross-checked 3 dimension pairs with 40,000 fresh Gaussian pair draws each (statistical corroboration only). Special k=1 no diagnostic; k=n leading absolute variance but shrinking relative variance. Universal proof is exact conditional rotational symmetry, not Monte Carlo.
 
-## Closest sources and limitations
-The proof reproduces the correct Gaussian distribution and angular fourth moment, but the claim is restricted to a scalar spectrum, real Gaussian samples, and exact arithmetic. The mean of the empirical squared diagnostic is not a guarantee for any realized diagnostic. The trace itself scales linearly with dimension, so nonvanishing absolute variance does not imply poor asymptotic relative accuracy. Relevant primary sources: arXiv:2603.05721v1 (5 March 2026), arXiv:2301.07825 (19 January 2023). The latter already recognizes that the leave-one-out error indicator can underestimate and introduces normalization; the new statement is the exact parameter-dependent quantitative law on this model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized leave-one-out estimator, exchangeability, dispersion diagnostic and correlation identity are established in FlexTrace and XTrace. The claim newly evaluates the actual nonzero off-diagonal covariance and sharp calibration factor for isotropic flat-spectrum unnormalized Gaussian FLEXTRACE, including near full-rank collapse and exact n+1 transition. The primary XTrace article is read, including the general correlation/diagnostic identity; this exact d-dependent angular covariance is not an evaluated theorem there. The March 2026 FlexTrace full text could not be retrieved from OA endpoints or authorized Oxford VPN, making possible unpublished/supplement exact specialization a material priority risk, but the specificity and derivation support best-of-knowledge O.
+
+## value
+
+PASS
+
+Even for the most elementary flat spectrum, correlated leave-one-out terms cause an exact failure of the naive dispersion diagnostic near the rank threshold. The dimension-and-sample-specific correction (n+3)/(n−k+3) and contrast with k=n+1 exactness provide a useful controlled benchmark for trace estimator uncertainty quantification, and explicitly separate absolute from relative risk and prior residual-normalization fixes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

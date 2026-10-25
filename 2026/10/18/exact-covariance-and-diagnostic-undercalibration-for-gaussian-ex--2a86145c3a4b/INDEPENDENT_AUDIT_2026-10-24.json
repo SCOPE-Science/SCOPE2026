@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:48:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=lambda I_n and f(0)=0,c=f(lambda)>0 the Nyström matrix is lambda times projection; with 1≤k≤n, Xi=c[(k−1)+Ri] where Ri is squared Gaussian residual in dimension d=n−k+1, giving chi²_d mean d and var2d. Conditional on the other k−2 columns, two independent standard Gaussian vectors in m=d+1 dimensions share angle theta; E(sin⁴ theta)=(m²−1)/(m(m+2)), implying Cov(Ri,Rj)=2d/(d+3). Averaging yields VarH=2c²d(n+3)/(k(d+3)) and ES²=2c²d(d+2)/(k(d+3)), so ratio=(n+3)/(n−k+3); for k=n+1 all leave-one-out spans full R^n and H=nc exactly. Independently rederived beta-angle formulas algebraically and cross-checked 3 dimension pairs with 40,000 fresh Gaussian pair draws each (statistical corroboration only). Special k=1 no diagnostic; k=n leading absolute variance but shrinking relative variance. Universal proof is exact conditional rotational symmetry, not Monte Carlo.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "XTrace general mean-square-error diagnostic identity covers arbitrary exchangeable contributions, but does not specify the flat spectrum value of covariance.",
+          "Residual-normalized XNysTrace/other estimators become exact on A=lambda I, so their error law is entirely different."
+        ],
+        "reasoning": "A general formal identity subsumes the algebraic transformation from pair correlation to diagnostic factor but not the new evaluated correlation itself; residual-normalized methods cannot be used to infer the unnormalized estimator numerical undercalibration.",
+        "searches": [
+          "Resultary: FLEXTRACE XNysTrace flat isotropic spectrum Gaussian leave one out covariance diagnostic variance correlation",
+          "XTrace Section 3.1 and 5.6"
+        ]
+      },
+      "checked_sources": [
+        "Epperly, Tropp, Webber arXiv:2301.07825, full primary PDF Sections 3.1 and 5.6",
+        "Madhavan, Alexanderian, Saibaba arXiv:2603.05721 accessible abstract only; licensed full text VPN disconnected",
+        "Resultary query FLEXTRACE XNysTrace isotropic Gaussian covariance, 25 ranked hits no direct match",
+        "Frozen package RESULT.md and verification program source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "XTrace gives relation E S² / VarH as a function of pairwise correlation; FLEXTRACE gives definition and general bounds.",
+          "Calculated Cov(Ri,Rj)=2d/(d+3) is not obtained from exchangeability alone."
+        ],
+        "reasoning": "Prior identity plus a new angular probability computation does imply the calibration expression; that added special covariance and sharp sampled-rank regime, not the identity itself, are assessed for originality. Complete FlexTrace manuscript could alter this comparison and is specifically flagged.",
+        "searches": [
+          "Resultary: FLEXTRACE XNysTrace flat isotropic spectrum Gaussian leave one out covariance diagnostic variance correlation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Epperly–Tropp–Webber XTrace expresses exchangeable estimator variance/dispersion in terms of inter-probe covariance/correlation; the current ratio is its exact flat-Gaussian specialization once rho=1/(d+3) is computed.",
+          "Madhavan–Alexanderian–Saibaba FLEXTRACE introduces the unnormalized f(N) function estimator."
+        ],
+        "reasoning": "General correlation identity is prior, not credited as new; the exact beta angular covariance evaluation for Gaussian flat A and resulting full n,k law requires an additional independent computation.",
+        "searches": [
+          "Resultary: FLEXTRACE XNysTrace flat isotropic spectrum Gaussian leave one out covariance diagnostic variance correlation",
+          "arxiv:2301.07825",
+          "arxiv:2603.05721"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent formulas include exact k=n transition, k=n+1 exactness, n=k=10 ratio 13/3, and asymptotic k/n→gamma."
+        ],
+        "reasoning": "No matching evaluated dimension-by-rank covariance table for raw Gaussian FLEXTRACE was located in searched material. Standard chi-square and beta moment tables provide inputs, not the full leave-one-out joint law as a documented trace estimator result.",
+        "searches": [
+          "Resultary: FLEXTRACE XNysTrace flat isotropic spectrum Gaussian leave one out covariance diagnostic variance correlation"
+        ]
+      },
+      "rationale": "The generalized leave-one-out estimator, exchangeability, dispersion diagnostic and correlation identity are established in FlexTrace and XTrace. The claim newly evaluates the actual nonzero off-diagonal covariance and sharp calibration factor for isotropic flat-spectrum unnormalized Gaussian FLEXTRACE, including near full-rank collapse and exact n+1 transition. The primary XTrace article is read, including the general correlation/diagnostic identity; this exact d-dependent angular covariance is not an evaluated theorem there. The March 2026 FlexTrace full text could not be retrieved from OA endpoints or authorized Oxford VPN, making possible unpublished/supplement exact specialization a material priority risk, but the specificity and derivation support best-of-knowledge O.",
+      "residual_risks": [
+        "Highly relevant 2026 FlexTrace full manuscript could contain exactly the same isotropic covariance/correction; OA retrieval failed and institutional Oxford VPN was disconnected.",
+        "Earlier universal exchangeability diagnostic and residual normalization are prior, limiting claim scope to unnormalized raw estimator.",
+        "Expected diagnostic bias does not assert realized confidence interval/tail behavior; target nc grows, so relative error can vanish."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General correlation diagnostic formula is prior; not located a raw FLEXTRACE isotropic n,k covariance evaluation",
+          "evidence": "Epperly, Tropp, Webber 2023/2024 Section 3.1, 5.6",
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "Read full author-hosted primary PDF including Sections 3.1 and 5.6 and numerical diagnostic formulas; inspected screenshots of corresponding pages",
+          "method": "Primary PDF extracted text and page screenshot",
+          "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+          "trigger": "Prior exchangeability relation and leave-one-out dispersion might cover formula"
+        },
+        {
+          "assessment": "Defines mathematical method; specific n,k formula remains unverified against full manuscript; explicit priority risk, no whole-document noncoverage assertion",
+          "evidence": "Madhavan, Alexanderian, Saibaba 2026 arXiv:2603.05721; Oxford job cdd267e09d7f500b5fb000927171761e",
+          "identifier_or_url": "https://arxiv.org/abs/2603.05721",
+          "material_read": "Accessible arXiv metadata/abstract and motivating package quotes; direct full arXiv/OA retrieval unavailable; Oxford licensed attempt returned vpn_disconnected, no full material read",
+          "method": "ArXiv metadata and open-access searches, then authorized Oxford institutional source request (VPN disconnected); no bypass or retry",
+          "title": "FlexTrace: Exchangeable Randomized Trace Estimation for Matrix Functions",
+          "trigger": "Same unnormalized estimator and potential exact flat-spectrum coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even for the most elementary flat spectrum, correlated leave-one-out terms cause an exact failure of the naive dispersion diagnostic near the rank threshold. The dimension-and-sample-specific correction (n+3)/(n−k+3) and contrast with k=n+1 exactness provide a useful controlled benchmark for trace estimator uncertainty quantification, and explicitly separate absolute from relative risk and prior residual-normalization fixes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Epperly, Tropp, Webber arXiv:2301.07825, full primary PDF Sections 3.1 and 5.6",
+    "Madhavan, Alexanderian, Saibaba arXiv:2603.05721 accessible abstract only; licensed full text VPN disconnected",
+    "Resultary query FLEXTRACE XNysTrace isotropic Gaussian covariance, 25 ranked hits no direct match",
+    "Frozen package RESULT.md and verification program source"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only A=lambda I_n, operator-monotone f with f(0)=0 and f(lambda)>0, Gaussian probes, exact arithmetic.",
+    "S² defined only k>=2; covariance 2≤k≤n and k=n+1 exact case treated separately."
+  ],
+  "residual_risks": [
+    "Highly relevant 2026 FlexTrace full manuscript could contain exactly the same isotropic covariance/correction; OA retrieval failed and institutional Oxford VPN was disconnected.",
+    "Earlier universal exchangeability diagnostic and residual normalization are prior, limiting claim scope to unnormalized raw estimator.",
+    "Expected diagnostic bias does not assert realized confidence interval/tail behavior; target nc grows, so relative error can vanish."
+  ],
+  "schema_version": 1
+}
