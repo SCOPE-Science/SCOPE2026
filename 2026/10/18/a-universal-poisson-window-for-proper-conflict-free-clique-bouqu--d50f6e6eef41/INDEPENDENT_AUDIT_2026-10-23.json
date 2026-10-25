@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T14:58:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/a-universal-poisson-window-for-proper-conflict-free-clique-bouqu--d50f6e6eef41/RESULT.md",
+        "2026/10/18/a-universal-poisson-window-for-proper-conflict-free-clique-bouqu--d50f6e6eef41/verify_pcf_bouquets.py"
+      ],
+      "rationale": "For uniformly bounded peripheral clique sizes s_i<=M and S=sum s_i->infinity with S/r-log S->c, fixing the hub color makes each clique a uniform injection from the r other colors and leaves the blocks independent. Every peripheral vertex has a clique for its open neighborhood, hence only the hub needs a singleton nonhub color. For fixed j target colors, the absent probability multiplies to exp(-jS/r+o(1)); distinct-block placements give (S/r)^j and same-block collisions are relatively O(1/S), since S/r^2->0. Thus E[(X)_j]->exp(-jc) for each fixed j and factorial-moment convergence proves Poisson(exp(-c)) and PCF success 1-exp(-exp(-c)). Inclusion-exclusion finite coefficient formula properly accounts for all named colors and disjoint block assignments. I independently checked exact proper-coloring counts in four small bouquet configurations; these finite tests do not prove the asymptotic assertion.",
+      "residual_risks": [
+        "Fixed uniform maximum block size M, S->infinity, critical scaling S/r-log S->c only.",
+        "Finite independent checks cover four examples, not all graphs/asymptotic cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pradhan–Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arXiv:2608.10874 (2026), chromatic thresholds on block graphs",
+          "Tom–Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arXiv:2503.19344 (2025/26)",
+          "Classical singleton occupancy Poisson approximation for independent draws (Barbour–Gnedin framework)"
+        ],
+        "reasoning": "Pradhan–Sharma covers minimum proper-conflict-free palette, not Poisson law for uniformly random proper colorings. Tom–Vailaya chromatic-symmetric machinery can encode exact finite color-frequency counts but does not, in the material retrieved, establish the bounded-block asymptotic. Classical one-per-block occupancy is a special case; it does not alone furnish the uniform group-injection error bound without an extension.",
+        "searches": [
+          "Resultary: proper conflict-free coloring clique bouquets bounded clique blocks singleton occupancy Poisson window growing palette",
+          "web: Poisson occupancy independent blocks clique proper conflict free chromatic symmetric functions",
+          "arXiv:2608.10874",
+          "arXiv:2503.19344"
+        ]
+      },
+      "checked_sources": [
+        "Pradhan–Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arXiv:2608.10874 (2026), chromatic thresholds on block graphs",
+        "Tom–Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arXiv:2503.19344 (2025/26)",
+        "Classical singleton occupancy Poisson approximation for independent draws (Barbour–Gnedin framework)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "proper conflict-free coloring hub condition equals at least one singleton nonhub color",
+          "independent injective sampling across labeled clique blocks",
+          "Pradhan–Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arXiv:2608.10874 (2026), chromatic thresholds on block graphs",
+          "Tom–Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arXiv:2503.19344 (2025/26)",
+          "Classical singleton occupancy Poisson approximation for independent draws (Barbour–Gnedin framework)"
+        ],
+        "reasoning": "Previous chromatic-threshold theorems do not determine the fraction of random proper colorings meeting PCF at growing q; generalized occupancy might cover this case, a priority risk expressly retained.",
+        "searches": [
+          "Resultary: proper conflict-free coloring clique bouquets bounded clique blocks singleton occupancy Poisson window growing palette",
+          "web: Poisson occupancy independent blocks clique proper conflict free chromatic symmetric functions",
+          "arXiv:2608.10874",
+          "arXiv:2503.19344"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "proper conflict-free coloring hub condition equals at least one singleton nonhub color",
+          "independent injective sampling across labeled clique blocks",
+          "Pradhan–Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arXiv:2608.10874 (2026), chromatic thresholds on block graphs",
+          "Tom–Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arXiv:2503.19344 (2025/26)",
+          "Classical singleton occupancy Poisson approximation for independent draws (Barbour–Gnedin framework)"
+        ],
+        "reasoning": "Exact equivalent mathematical restatements verified: proper conflict-free coloring hub condition equals at least one singleton nonhub color; independent injective sampling across labeled clique blocks. No matching earlier complete statement confirmed.",
+        "searches": [
+          "Resultary: proper conflict-free coloring clique bouquets bounded clique blocks singleton occupancy Poisson window growing palette",
+          "web: Poisson occupancy independent blocks clique proper conflict free chromatic symmetric functions",
+          "arXiv:2608.10874",
+          "arXiv:2503.19344"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pradhan–Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arXiv:2608.10874 (2026), chromatic thresholds on block graphs",
+          "Tom–Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arXiv:2503.19344 (2025/26)",
+          "Classical singleton occupancy Poisson approximation for independent draws (Barbour–Gnedin framework)"
+        ],
+        "reasoning": "No relevant exact database table found matching a universal bounded-heterogeneity critical window; finite fixed-palette counts have overlapping known chromatic-symmetric-function expressions. The new claim is the asymptotic limit, not arbitrary finite enumeration novelty.",
+        "searches": [
+          "Resultary: proper conflict-free coloring clique bouquets bounded clique blocks singleton occupancy Poisson window growing palette",
+          "web: Poisson occupancy independent blocks clique proper conflict free chromatic symmetric functions",
+          "arXiv:2608.10874",
+          "arXiv:2503.19344"
+        ]
+      },
+      "rationale": "Best-of-knowledge original combined claim, not merely its known premises: Previous chromatic-threshold theorems do not determine the fraction of random proper colorings meeting PCF at growing q; generalized occupancy might cover this case, a priority risk expressly retained. Broader works and residual risks below qualify priority.",
+      "residual_risks": [
+        "A general asymptotic theorem for singleton occupancy under bounded without-replacement groups may subsume this Poisson limit.",
+        "Full relevant coloring and occupancy primary texts were not all readable; bibliographic priority is best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known chromatic threshold does not itself imply random-coloring Poisson limit",
+          "evidence": "Minimum-color characterization; submitted theorem is a critical distributional asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.10874",
+          "material_read": "Accessible abstract and bibliographic metadata, compared to full submitted bouquet theorem; not complete primary paper",
+          "method": "web arXiv abstract",
+          "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+          "trigger": "Same coloring notion on block graphs"
+        },
+        {
+          "assessment": "Overlaps supporting finite enumeration; cannot exclude stronger implicit occupancy result",
+          "evidence": "Chromatic symmetric function encodes color multiplicities but critical uniform error for varying blocks is a distinct assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.19344",
+          "material_read": "Bibliographic metadata and stated scope of chromatic-symmetric machinery; full paper not available in run",
+          "method": "source reference and search",
+          "title": "The chromatic symmetric function of graphs glued at a single vertex",
+          "trigger": "Same bouquet glued at central vertex, may contain exact enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pradhan–Sharma, Complexity and algorithms for proper conflict-free coloring in graphs, arXiv:2608.10874 (2026), chromatic thresholds on block graphs",
+        "Tom–Vailaya, The chromatic symmetric function of graphs glued at a single vertex, arXiv:2503.19344 (2025/26)",
+        "Classical singleton occupancy Poisson approximation for independent draws (Barbour–Gnedin framework)"
+      ],
+      "rationale": "This proves a nondegenerate universal transition for a natural graph class across arbitrary bounded mixtures of clique sizes, not just the classical independent-leaf occupancy or a chromatic-number computation; it quantifies a probability of local singleton witness under uniform proper colorings and motivates a threshold used in randomized graph coloring.",
+      "residual_risks": [
+        "A general asymptotic theorem for singleton occupancy under bounded without-replacement groups may subsume this Poisson limit.",
+        "Full relevant coloring and occupancy primary texts were not all readable; bibliographic priority is best-of-knowledge only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed uniform maximum block size M, S->infinity, critical scaling S/r-log S->c only.",
+    "Finite independent checks cover four examples, not all graphs/asymptotic cases.",
+    "A general asymptotic theorem for singleton occupancy under bounded without-replacement groups may subsume this Poisson limit.",
+    "Full relevant coloring and occupancy primary texts were not all readable; bibliographic priority is best-of-knowledge only."
+  ],
+  "schema_version": 1
+}

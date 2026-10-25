@@ -1,19 +1,21 @@
-# Scientific review: a universal Poisson window for clique-bouquet colorings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In a proper coloring of a hub-joined family of cliques, every non-hub vertex has a clique as its open neighborhood, so it automatically has a singleton witness color. For the hub, the conflict-free property is exactly the existence of a non-hub color used once. Given the hub color, different clique blocks are independent uniformly injective draws from the other \(r=q-1\) colors. The finite inclusion-exclusion formula counts exactly these singleton events. For a fixed set of \(j\) target colors, the probability all are singleton is asymptotic to \((S/r)^j e^{-jS/r}\); collisions of designated target colors within a bounded-size block contribute a lower-order term. Therefore the \(j\)-th factorial moment tends to \(e^{-jc}\), for every fixed \(j\), proving Poisson convergence and the limiting PCF probability. The argument correctly uses the uniform block-size bound \(M\) and \(S/r^2\to0\). The standalone verifier enumerated 423,262 assignments, 21 further proper-coloring cases, 24 finite optimal-palette cases, and critical-window factorial moments; all comparisons passed. Finite tests are not taken as proof of the asymptotic theorem.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+For uniformly bounded peripheral clique sizes s_i<=M and S=sum s_i->infinity with S/r-log S->c, fixing the hub color makes each clique a uniform injection from the r other colors and leaves the blocks independent. Every peripheral vertex has a clique for its open neighborhood, hence only the hub needs a singleton nonhub color. For fixed j target colors, the absent probability multiplies to exp(-jS/r+o(1)); distinct-block placements give (S/r)^j and same-block collisions are relatively O(1/S), since S/r^2->0. Thus E[(X)_j]->exp(-jc) for each fixed j and factorial-moment convergence proves Poisson(exp(-c)) and PCF success 1-exp(-exp(-c)). Inclusion-exclusion finite coefficient formula properly accounts for all named colors and disjoint block assignments. I independently checked exact proper-coloring counts in four small bouquet configurations; these finite tests do not prove the asymptotic assertion.
 
-Pradhan–Sharma, arXiv:2608.10874v1 (2026-08-11), already establish the minimum proper conflict-free palette for the relevant block graphs; that number is not claimed. Tom–Vailaya, arXiv:2503.19344 (2025), give chromatic-symmetric-function machinery for graphs glued at one vertex, including clique bouquets. Their results encode proper-color frequency statistics, so no independent novelty is claimed for generic finite-palette singleton extraction or the supporting inclusion-exclusion formula. The classical all-singleton-block case is also excluded from the novelty assertion. The claimed contribution is precisely the heterogeneous, bounded-block, **growing-palette Poisson critical window**, proved uniformly without any limiting distribution of block sizes. A broader occupancy theorem might imply the result; priority is not certified. Public mathematical-research-record searches for proper conflict-free coloring, clique bouquets, chromatic symmetric functions and Poisson singleton occupancy revealed adjacent but not matching statements.
+## originality
 
-## Value — PASS
+PASS
 
-Proper conflict-free coloring can be understood structurally through singleton witness colors, but a numerical chromatic bound says little about the proportion of proper colorings that are conflict-free when palette size grows. The theorem gives a sharp transition with an explicit nondegenerate limiting probability for arbitrary mixtures of bounded-size peripheral cliques; the limit does not depend on how those clique sizes vary. It is a motivated universal graph-coloring threshold rather than a fixed graph instance or a repackaged color-number deduction. The finite formula and exact optimal-palette examples are supporting checks, not the principal value claim.
+Best-of-knowledge original combined claim, not merely its known premises: Previous chromatic-threshold theorems do not determine the fraction of random proper colorings meeting PCF at growing q; generalized occupancy might cover this case, a priority risk expressly retained. Broader works and residual risks below qualify priority.
 
-## Residual risks and scope
+## value
 
-The literature may contain a more general Poisson occupancy theorem that implies the mixed-block limit. The chromatic-symmetric-function of one-vertex clique sums was previously studied, so fixed-palette enumerations should not be treated as independent novelty. This theorem makes no claim for unbounded blocks or noncritical scalings. Independent mathematical and bibliographic checks have not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This proves a nondegenerate universal transition for a natural graph class across arbitrary bounded mixtures of clique sizes, not just the classical independent-leaf occupancy or a chromatic-number computation; it quantifies a probability of local singleton witness under uniform proper colorings and motivates a threshold used in randomized graph coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
