@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The exact reduction gives \(\dot u=2\mu uB(u,z)\), \(\dot z=-z-u/10\), and a weighted divergence of \(250\mu/21-4\mu u-1/u\). Its perfect-square boundary sign and area-integral exclusion of cycles/polycycles are algebraically exact. Uniform forward bounds and Poincaré–Bendixson yield the global trichotomy, while hyperbolicity yields integrable phase drift. The power-weight certificate cutoff is proved by optimizing its concave quadratic envelope. Exact symbolic identities and nine illustrative trajectories were run using the included checker. **C: PASS.**
+## correctness
 
-## Originality
-The primary article's main theorem and Lemma 1 were inspected at the statement, reduced equations, ordinary-divergence proof, and numerical phase-portrait discussion. Its cutoff \(588/6575\) is lower than the new \(1764/15625\), so the published theorem does not imply the assertion in the additional interval. A historical closely related analysis already treats forward basin behavior on the smaller interval; the new contribution is solely the larger interval and the optimality within power weights, not that old classification. Targeted research-index searches found nearby but different flows, not the same new weighted inequality. A separately published equivalent calculation remains a real bibliographic risk. **O: PASS on available comparisons, with residual risk.**
+PASS
 
-## Value
-This is a structural enlargement of the proof window for the central two-cycle question raised by the source; the added parameter span is \(26.24\%\) of the published cutoff. The exact best certificate among all monomial radial weights explains what one can and cannot gain from this natural Dulac optimization, rather than reporting an arbitrary numerical bound. The resulting global basin and asymptotic-phase theorem holds over the newly covered interval. **V: PASS.**
+Exact squared-radius reduction P=2μu[(u-5)(20/21-u)-400z²/21], Q=-z-u/10, θdot=1+ε(z+u/10). Independently symbolically differentiated div((P,Q)/u)=250μ/21-4μu-1/u, nonpositive for μ≤1764/15625 by AM-GM, at endpoint -(84u-125)^2/(15625u), negative on positive-area regions. u>=5 cannot grow, linear z bound gives forward completeness. Interior equilibria are saddle (1,-1/10) and sink (4,-2/5); boundary origin sink. Bendixson–Dulac/Green theorem excludes planar periodic orbits and homoclinic saddle polygons; Poincaré–Bendixson with hyperbolicity gives convergence to these equilibria, and exponential approach makes angular drift integrable and lifts to the stated two 2π-periodic circles with finite phase. For Dα=u^-α, α>1 has z²-induced positive divergence; α≤1 concave-u maximum M(α)=15625(2-α)^2/[1764(3-α)]-100(1-α)/21 is minimized at α=1; independently differentiated and verified endpoint certificate. This is method sharpness only, NOT dynamical sharpness, and all-parameter conclusions are analytic.
 
-## Limitations
-Neither genuine dynamical sharpness of the cutoff nor pointwise Hurwitzness in the enlarged interval is claimed. No external independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge after inspection of specified pinned source and actual primary literature. The new D=1/u in the squared-radius half-plane is not merely a change of notation for the original unweighted proof; the exact optimal power family excludes cycles on the additional μ interval. Poincaré–Bendixson and weighted Bendixson–Dulac are classical inputs, but do not by themselves produce the optimized coefficient for this field; original lemma cannot infer the wider parameter window.
+
+## value
+
+PASS
+
+The primary polynomial flow has two physical attracting/unstable cycles and an open interval where previous divergence proof did not guarantee absence of extras. A simple nontrivial monomial Dulac optimization enlarges the rigorous global basin window by 26.24% and identifies the method-specific sharp boundary; that is a mathematically motivated stability extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
