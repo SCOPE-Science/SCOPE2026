@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For the displayed edge-2sqrt(2) tetrahedron, the Cauchy face formula reduces projected area to max(4a,2(a+b+c)) for ordered absolute normal coordinates, and hull size is 3 iff a<b+c. Both cases of a>=1/sqrt(2) and a<1/sqrt(2) prove the minimum 2sqrt(2) and exactly twelve minimizers. Around each, an exact spherical chart gives s*sqrt(1-r^2)+b(phi)r with b>=2sqrt(2/3); uniform Taylor inversion and Jacobian integration produce two sector integrals. Elementary tan/cot integration proves b^-2 integrals equal 1/sqrt(2) and b^-4 integrals 7sqrt(2)/48 vs 5sqrt(2)/48. Normalizing by 12/(4pi) gives both claimed cubic coefficients and quotient slope sqrt(2)/24. Independently implemented convex hull and deterministic quadrature tests passed from the packaged checker. The computations alone are not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finch 2012 §§2.1,5; global moments, unconditional shape frequencies, and angular mapping.",
+        "Published tetrahedron silhouette-moment source 2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66 has arbitrary-tetrahedron scope but only moments, not full distributions."
+      ],
+      "reasoning": "The arbitrary-tetrahedron paper has broader object scope but weaker statistical information (only moments); Finch has the same object and piecewise area formula but not an all-threshold joint type CDF or explicit local coefficients. A published complete conditional CDF or stronger asymptotic would cover the claim; none was found in inspected material. The inaccessible older source remains a named priority risk.",
+      "searches": [
+        "regular tetrahedron Haar random orthogonal projection area near global minimum triangular quadrilateral silhouette conditional tail third order expansion",
+        "regular tetrahedron random orthogonal projection area exact distribution projected area maximum minimum 2 sqrt2 spherical polygons",
+        "tetrahedron projection brightness distribution random orientations projected area CDF",
+        "https://arxiv.org/pdf/1203.2464"
+      ]
+    },
+    "checked_sources": [
+      {
+        "material": "Complete four-page arXiv version; Theorem 1 and tetrahedral shadow probabilities, pp. 1–3.",
+        "source": "https://arxiv.org/pdf/0809.3459"
+      },
+      {
+        "material": "Complete 13-page arXiv PDF; §2.1 unconditional moments/type frequencies, §5 directional area formula, bibliography.",
+        "source": "https://arxiv.org/pdf/1203.2464"
+      },
+      {
+        "material": "Complete published RESULT.md, especially the conditional moment theorem, proof and limitations.",
+        "source": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66"
+      },
+      {
+        "material": "Public abstract and secondary bibliographic mention only, not full text; lawful OA attempt failed and institutional access returned VPN disconnected.",
+        "source": "https://doi.org/10.1098/rspa.2000.0667"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Feldman–Klain: global cone probability, independent of threshold.",
+        "Finch: directional brightness values and unconditional moments; no evaluated joint CDF.",
+        "Area-weighted silhouettes: conditional first and second moments for arbitrary tetrahedra."
+      ],
+      "reasoning": "A full silhouette-conditioned distribution would imply the theorem, but none of the inspected primary results asserts one. The closest angular pointwise formula motivates, rather than automatically evaluates, the two nonsmooth angular-sector integrals with uniform local radial expansion. Finite conditional moments fail to determine endpoint coefficients. The supplied proof derives this additional local statement, while absolute priority remains unverified given the inaccessible Vickers–Brown paper.",
+      "searches": [
+        "regular tetrahedron Haar random orthogonal projection area near global minimum triangular quadrilateral silhouette conditional tail third order expansion",
+        "triangular quadrilateral silhouette area threshold conditional probability tetrahedron vertex count asymptotics",
+        "https://arxiv.org/pdf/0809.3459",
+        "https://arxiv.org/pdf/1203.2464",
+        "2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feldman–Klain 2008 Theorem 1 determines P(N=3) but no threshold.",
+        "Finch 2012 §5 gives angular area formulas but not integrated type-specific endpoint expansions.",
+        "The public record 2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66 states only conditional first two moments."
+      ],
+      "reasoning": "Equivalent forms considered: a regular-tetrahedron brightness lower-tail split by triangular versus quadrilateral image, a joint CDF near the minimal brightness, and the first derivative of conditional silhouette probability. Neither the global frequency nor first two conditional moments determine the local expansion; Finch supplies an orientation-to-area parametrization but no evaluated joint tail or linear bias.",
+      "searches": [
+        "regular tetrahedron Haar random orthogonal projection area near global minimum triangular quadrilateral silhouette conditional tail third order expansion",
+        "projected area minimum regular tetrahedron small deviation triangle four vertices local brightness density topology",
+        "2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+        "https://arxiv.org/pdf/0809.3459"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search nearest hit 2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66 has exact conditional moments, not endpoint series.",
+        "Finch 2012 §2.1 lists 0.350959... and 0.649041... unconditional silhouette frequencies, not near-minimum frequencies."
+      ],
+      "reasoning": "Checked database records and published numeric tables for the pair of epsilon-cubic coefficients and the exact sqrt(2)/24 conditional slope. The visible records contain other types of values. The searches are evidence of no located match, not proof of global absence.",
+      "searches": [
+        "regular tetrahedron Haar random orthogonal projection area near global minimum triangular quadrilateral silhouette conditional tail third order expansion",
+        "triangular quadrilateral silhouette area threshold conditional probability tetrahedron vertex count asymptotics",
+        "random tetrahedron projected area density van Hove singularity near least brightness 2sqrt2",
+        "2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66"
+      ]
+    },
+    "rationale": "Relative to the actually inspected original mathematical sources, the new statement is a type-resolved joint endpoint expansion including a nonvanishing first conditional silhouette bias. Feldman and Klain determine unconditional type probability; Finch supplies unconditional area moments and a piecewise directional area formula; the closest published mathematical-record result gives conditional moments, not threshold probabilities. The explicit third-order local angular computation is additional, not a relabeling of one of those statements. The full text of Vickers–Brown 2001 was inaccessible and historical uniqueness cannot be certified.",
+    "residual_risks": [
+      "Vickers and Brown (2001), doi:10.1098/rspa.2000.0667, full text unavailable despite OA and authorized institutional attempt (VPN disconnected); its uninspected content might include relevant higher-order projection-area calculations.",
+      "Older unindexed stereological literature may contain type-resolved tail asymptotics.",
+      "The classification of related work and claims of priority have not received independent human verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The theorem evaluates global triangular-shadow probability from vertex solid angles; it neither conditions on projected area nor supplies any epsilon-dependent near-minimum probability.",
+        "evidence": [
+          "arXiv:0809.3459v1, Theorem 1, pp. 1–2; date printed 19 Sep 2008."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.3459",
+        "material_read": "Complete original four-page arXiv PDF, including Theorem 1, vertex-cone proof and references.",
+        "method": "Direct full-PDF text and page 2 visual inspection.",
+        "title": "Angles as probabilities",
+        "trigger": "Unconditional triangular-shadow incidence may dominate a claimed silhouette-type law."
+      },
+      {
+        "assessment": "Gives unconditional area moments, unconditional 3/4-vertex frequencies and directional formulas that provide background to the present calculation. Does not explicitly compute near-minimum area event segregated by silhouette type or the third-order probability imbalance. A directional area expression does not itself evaluate the induced joint endpoint probability coefficients.",
+        "evidence": [
+          "arXiv:1203.2464v1, §2.1 p. 4, §5 pp. 9–10, reference [17]."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1203.2464",
+        "material_read": "Complete 13-page PDF; §2.1, §5 pp. 9–10 and references, including projection moments and detailed piecewise area expressions.",
+        "method": "Direct arXiv full-PDF inspection and localized text extraction.",
+        "title": "Planar Projections and Second Intrinsic Volume",
+        "trigger": "The same regular tetrahedron, its area moments and angular directional formulas are directly relevant."
+      },
+      {
+        "assessment": "Evaluates exactly the first and second moments conditional on silhouette type, not a conditional endpoint distribution. Those finite moments neither equal nor determine the two epsilon-series.",
+        "evidence": [
+          "2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+          "RESULT.md, Finding and Limitations: first and second type-conditional moments, no conditional distribution."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+        "material_read": "Complete public RESULT.md including theorem, all moment formulas, proof and limitations.",
+        "method": "GitHub public content read via authorized read-only API.",
+        "title": "Area-weighted silhouette probabilities of arbitrary tetrahedra",
+        "trigger": "Closest mathematical research record on jointly considering silhouette type and projected area."
+      },
+      {
+        "assessment": "No valid whole-document negative-coverage conclusion is made. Its accessible abstract does not state the regular-tetrahedron type-conditioned near-minimum law, but inaccessible full material is retained as a priority risk.",
+        "evidence": [
+          "doi:10.1098/rspa.2000.0667, published abstract, Finch 2012 reference [17]."
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+        "material_read": "Public abstract (ellipsoidal, cylindrical and conical families) and citation in Finch; full paper could not be obtained.",
+        "method": "Publisher and lawful OA search; attempted institutional retrieval returned VPN disconnected; no bypass.",
+        "title": "The Distribution of Projected Area and Perimeter of Convex, Solid Particles",
+        "trigger": "Older primary work with projected-area/perimeter distribution in the title, cited by Finch as related."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac110ced-4659-473f-99ed-1f8e15569615",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the absolute minimum brightness the regular tetrahedron changes silhouette type. A geometric selection problem asks whether one type dominates an extremely area-efficient view. Despite global triangular-shadow frequency about 0.351, the near-minimum probability is 1/2 at leading order and has a sharp positive slope sqrt(2)/24 for triangular shadows. The effect is a natural joint geometric boundary law, not an arbitrary numerical cutoff or a trivial repeat of total frequencies, and the exact coefficients explain the transition.",
+    "status": "PASS"
+  }
+}
