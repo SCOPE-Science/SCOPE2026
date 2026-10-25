@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Polar integration proves the finite-sample threshold. The stationary Gaussian Laplace product and Mellin representation are exact; rescaling t=beta^{-k}u yields an integrable beta-function majorant for k/2<p<(k+1)/2 and the stated sharp coefficient. At p=k/2, a log-coordinate plateau and explicit three-piece integrable majorant yield a single logarithm and its sharp coefficient. All cases, including p<1/2 and the half-integer boundaries, are covered analytically; 25 numerical checks supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dereich–Jentzen Theorem 1.1 controls optimization error with parameter restrictions; Lemma 4.4 estimates reciprocal moments after a startup condition, not equality limits as beta tends to zero.",
+        "Liu et al. approximate the adaptive learning-rate variance with an effective inverse chi-square distribution.",
+        "Zhang–Zhou–Zou formulate complexity estimates under stochastic gradient assumptions."
+      ],
+      "reasoning": "A quantitative bound on a coupled finite-time algorithm, an approximation by an effective chi-square law, and an optimization-rate bound cannot be algebraically specialized to the exact stationary Gaussian Mellin limits without additional asymptotic analysis. No stronger inspected theorem was found that covers the claim.",
+      "searches": [
+        "RMSprop stationary second moment Gaussian gradients inverse powers beta memory parameter divergence exact asymptotic",
+        "arXiv:2608.30382v1 Sections 1.1, 1.2, 4, 6, 7",
+        "arXiv:1908.03265 Section 3.2",
+        "arXiv:2404.01436 main results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.30382v1",
+      "arXiv:1908.03265",
+      "arXiv:2404.01436",
+      "Sharp partial-adaptivity phase transition in scalar Padam",
+      "Exact automatic-warmup phase diagram for RAdam",
+      "Exact history-selected transverse spectrum of AMSGrad",
+      "Infinite-mean Adam conditioning under Gaussian initialization, with a sharp two-dimensional floor",
+      "Exact stationary covariance and stability factorization for constant-template STORM",
+      "Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current theorem covers all real moment orders p>0, explicit constants for every half-integer interval, and one logarithm at each critical half-integer.",
+        "Source bounds lack matching two-sided sharp constants for the exact Gaussian stationary invariant law.",
+        "Published numerical-optimizer results noted in published-finding corpus have distinct deterministic objects or norm bounds."
+      ],
+      "reasoning": "The new theorem neither follows from the cited inverse-moment upper bounds nor from effective degrees-of-freedom approximations. Finite-startup cutoff n>2p is elementary but is included as a boundary of the main nontrivial stationary staircase, not presented as the stand-alone novelty.",
+      "searches": [
+        "arXiv:2608.30382v1 eqs (3)-(4), Theorem 1.1, Lemma 4.4",
+        "sharp beta to zero asymptotics inverse moments of stationary exponentially weighted Gaussian chi square sum RMSprop, half-integer phase transitions",
+        "Inverse moment E[(sum beta^j Z_j squared)^-p] phase diagram p k/2 small beta stationary RMSprop",
+        "arXiv:1908.03265 Section 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target Mellin integral is an inverse moment of an infinite Gaussian quadratic form with eigenvalues beta^j; compare the exact beta-dependent invariant law, not optimizer labels.",
+        "arXiv:2608.30382v1, Section 4 discusses inverse-moment inequalities for finite-time RMSprop accumulators."
+      ],
+      "reasoning": "The stationary Gaussian quadratic-form reformulation and Gaussian Laplace product were expressly searched. Closest records concern startup rectification or Padam/AMSGrad stability, none imply exact small-beta exponents and logarithmic constants. This comparison does not rule out an older transform identity already containing the complete asymptotic.",
+      "searches": [
+        "sharp beta to zero asymptotics inverse moments of stationary exponentially weighted Gaussian chi square sum RMSprop, half-integer phase transitions",
+        "Geometrically weighted independent chi-square Gaussian squares infinite series reciprocal moments Mellin asymptotics as weight ratio zero",
+        "Inverse moment E[(sum beta^j Z_j squared)^-p] phase diagram p k/2 small beta stationary RMSprop",
+        "web: \"geometric\" \"weighted chi square\" \"negative moments\" asymptotic",
+        "web: \"inverse moments\" \"weighted chi-square\" \"geometric\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding: Sharp partial-adaptivity phase transition in scalar Padam",
+        "Published finding: Exact automatic-warmup phase diagram for RAdam",
+        "Published finding: Exact history-selected transverse spectrum of AMSGrad",
+        "Published finding: Infinite-mean Adam conditioning under Gaussian initialization, with a sharp two-dimensional floor",
+        "Published finding: Exact stationary covariance and stability factorization for constant-template STORM",
+        "Published finding: Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM"
+      ],
+      "reasoning": "Search results were checked by implied mathematical statements: deterministic Padam transition p=1/4, RAdam startup gates, AMSGrad linearization, STORM covariance and Gaussian Hessian conditioning are not a table or formula of the stationary Gaussian quadratic-form reciprocal moments.",
+      "searches": [
+        "Laplace integral weighted chi-square geometric weights inverse moments small beta staircase powers logarithmic",
+        "Stationary RMSprop scalar Gaussian second moment exponential average has negative moment p staircase powers beta approaching zero, logarithms at half integers",
+        "RMSprop initialization inverse moments finite only after n>2p Gaussian gradients, all moments stationary beta>0",
+        "published-finding corpus semantic searches of Gaussian squared-gradient geometric sum / negative inverse moments",
+        "web: \"geometric\" \"chi square distribution\" \"negative moments\""
+      ]
+    },
+    "rationale": "Targeted comparison of primary 2026 RMSprop inverse-moment bounds, earlier effective-chi-square approximation, and accessible related mathematical finding statements revealed no result implying the exact Gaussian stationary small-beta half-integer phase diagram. Historical priority against older generic Gaussian quadratic-form Mellin analysis is a stated risk.",
+    "residual_risks": [
+      "Historical coverage by an older specialized Mellin-transform analysis of geometrically weighted independent chi-square variables is possible; neither negative database searches nor inaccessible text prove novelty.",
+      "Independent external mathematical audit and independent priority confirmation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines model and controls inverse moments via bounds, but no sharp Gaussian stationary small-beta staircase located in relevant results",
+        "evidence": [
+          "Primary MSC 65K10 (page 1)",
+          "Equations (3)-(4), pp.3-4",
+          "Theorem 1.1, pp.4-5",
+          "Section 4 Lemma 4.4, p.13"
+        ],
+        "identifier_or_url": "arXiv:2608.30382v1; https://arxiv.org/pdf/2608.30382",
+        "material_read": "PDF pages 1-5 and 12-16 plus targeted contents, Theorem 1.1, Section 4 Lemmas 4.4-4.5, and later startup passages",
+        "method": "Open-access PDF read, targeted line/section comparison and page visual inspection",
+        "title": "Convergence rates for the RMSprop optimizer with full control of the hyperparameters",
+        "trigger": "Exact model match: bias-corrected exponential second-moment recursion and inverse moments"
+      },
+      {
+        "assessment": "Uses a scaled inverse-chi-square approximation in a different statistical setting, not the exact geometric stationary sum or sharp half-integer asymptotics",
+        "evidence": [
+          "arXiv:1908.03265, Sec.3.2"
+        ],
+        "identifier_or_url": "arXiv:1908.03265; https://arxiv.org/pdf/1908.03265",
+        "material_read": "Abstract, introduction and Section 3.2 relevant adaptive variance discussion",
+        "method": "Open-access PDF, inspected applicable approximation and assumptions",
+        "title": "On the Variance of the Adaptive Learning Rate and Beyond",
+        "trigger": "Potential inverse-chi-square coverage for adaptive learning rates"
+      },
+      {
+        "assessment": "Provides optimization convergence guarantees, not equality limits for stationary independent Gaussian accumulator inverse moments",
+        "evidence": [
+          "arXiv:2404.01436, main results"
+        ],
+        "identifier_or_url": "arXiv:2404.01436; https://arxiv.org/pdf/2404.01436",
+        "material_read": "Abstract, introduction and statements of main convergence results",
+        "method": "Open-access PDF and mathematical implication comparison",
+        "title": "Convergence Guarantees for RMSProp and Adam in Generalized-smooth Non-convex Optimization with Affine Noise Variance",
+        "trigger": "Potential broader convergence theorem subsuming small-denominator behavior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ab515bf-7bd8-4bba-ba81-a99d26b7f341",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "RMSprop/Adam learning-rate denominators require reciprocal-moment bounds. This result gives exact growth exponents, explicit coefficients and logarithmic phase boundaries in a natural Gaussian stationary benchmark, demonstrating singularity of the vanishing-memory limit despite complete stationary moment regularization, and an exact contrasting finite-startup cutoff. These are a motivated structural asymptotic classification rather than a routine finite sample computation.",
+    "status": "PASS"
+  }
+}
