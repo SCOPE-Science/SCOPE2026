@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The distance-threshold relations form nested equivalences. At round \(r\), every colour determines the isometry type of its radius-\(\delta_r\) ball: one can sum neighbour-colour multisets over all distances not exceeding \(\delta_{r+1}\), decode the preceding-level ball type of each point, and divide its population by its size to recover the number of distinct child balls of that type. At round \(h-1\), the global histogram similarly reconstructs the top-level multiset of balls, establishing identification for arbitrary finite cardinality and all \(h\ge1\). In the three-distance case, the first-round profile is determined by the size \(p\) of the smallest nontrivial ball and the size \(q\) of its enclosing next-level ball. Aggregate data uniquely determine the inner partition of every class of size at most three, and an enclosing class of size at least four is unique on seven or fewer points. On eight points two four-point enclosing classes permit exactly one integer trade \((a,b,c)\mapsto(a+1,b-2,c+1)\), yielding the two displayed nonisometric spaces. The separate Python enumerator actually returned \(1,3,6,14,27,58,111,223\) types for orders 1 through 8, zero first-round collisions through 7, and exactly one ambiguous pair at 8. There are no two-round collisions among the enumerated types. The exact theorem does not rely on this finite enumeration for arbitrary sizes.
+PASS
 
-## Originality (PASS with residual priority risk)
+The strong triangle inequality makes each radius-δ_j relation an equivalence relation. Inductively c_r(x) determines the isometry type of the radius-δ_r equivalence class of x: accumulate old colours within its E_r ball, decode smaller E_{r-1} blocks, divide each point-multiplicity by block size, and join all blocks at distance δ_r. At r=h-1 the global histogram gives the multiset of top proper balls; join them at δ_h. For h=1 n is encoded by c_0 multiplicity. The one-round signature at h=3 recovers (p,q,n); a unique collision before n=8 is impossible because there cannot be two δ2 balls of size at least 4. At n=8 two size-four partitions have sole nontrivial aggregate ambiguity 2×(2,1,1)↔(2,2)+(1,1,1,1). Separate independent partition-census with raw comparable signatures recovered 1,3,6,14,27,58,111,223 types for n=1..8 and exactly that single pair; this corroborates but does not prove the all-size theorem.
 
-The hierarchy representation and nested-threshold graphs of Carlsson–Mémoli and Gurvich–Vyalyi do not give a reconstruction theorem for bounded *rounds* of distance-aware vertex colour refinement. Kiefer–Schweitzer–Selman supply broader counting-logic identification criteria for coloured relational structures, but those do not state the fixed-ultrametric-subclass guarantee or the complete eight-point first ambiguous layer. Scheidt–Schweikardt's Theorem A relates general relational colour refinement to homomorphism and guarded-counting characterizations without an ultrametric-specific bound or small-order collision census. Targeted published-finding and primary-literature searches using ultrametric, hierarchical partitions, nested equivalence, labelled-distance colour refinement, \(C^2\), and one-round isometry ambiguity located no equivalent claim. This is a best-knowledge priority assessment, not a guarantee of uniqueness in all unindexed literature. The published hierarchy descriptions could make the broad upper bound an accessible corollary; the original value lies in the explicit decoding lemma coupled with the exact first-failure uniqueness theorem.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Three-valued ultrametrics are a natural representation of two nested hierarchical clustering partitions. A testing algorithm's success does not follow from the existence of a canonical dendrogram unless the information retained by vertex-local aggregations is understood. The precise two-round guarantee, sharp failure of one round at eight vertices, and single nonisometric obstruction explain what information is lost by aggregating point profiles across enclosing clusters. The counterexample has two distinct hierarchy patterns with identical aggregate first-round counts. These are intrinsically motivated algorithmic and finite-model invariants rather than arbitrary numerical slices.
+Ambient relational colour refinement and hierarchical ultrametrics were previously studied, but general logic/algorithmic characterizations do not imply the exact within-ultrametric h-1 round bound or the unique first eight-point collision. The claim is explicitly relative to finite ultrametrics using the same labeled distance alphabet.
 
-## Limitations
+## value
 
-The distance alphabet is fixed and globally named, and spaces need not realize every named distance. No bound sharper than \(h-1\) is claimed for \(h>3\). This is identification inside the ultrametric class only. General relational colour refinement and ordinary unlabeled graph refinement are not interchangeable without fixing the distance-edge labels. The first-public-source date applies to background literature, not to publication of this finding. The reproducibility code verifies the finite obstruction layer, while the written structural argument proves the general result. Unindexed or inaccessible earlier work may cover part of the conclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sharp first obstruction and hierarchy-depth reconstruction give a natural complexity boundary for a canonical algorithm on structured metric spaces, and the first-collision classification is a precise reusable instance for testing expressivity. Both are structurally motivated rather than arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

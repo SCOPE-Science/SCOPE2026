@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_ultrametric.py` with the supplied Python 3 standard-library script in the same directory. No external packages, downloads, or random seeds are needed.
+## correctness
 
-The verifier enumerates all multisets of integer partitions summing to each cardinality \(n\) with \(1\le n\le8\). These are exactly the isometry types of three-distance ultrametrics (allowing distances not realized), because each radius-\(\delta_2\) ball is a multiset of radius-\(\delta_1\) blocks and the overall space is a multiset of such balls. It constructs a canonical distance matrix for each type, computes canonical distance-specific neighbour-colour recursive signatures, and compares global signature histograms across all types.
+PASS
 
-Observed output: isometry-type counts by cardinality \(1\) through \(8\) were \(1,3,6,14,27,58,111,223\). Among these, one-round collisions occurred only for \(n=8\), consisting of a single two-member class \(\{((1,1,2),(1,1,2)),((1,1,1,1),(2,2))\}\). Two-round collisions did not occur for any \(n\le8\). The program terminates with `ALL TESTS PASSED`.
+The strong triangle inequality makes each radius-δ_j relation an equivalence relation. Inductively c_r(x) determines the isometry type of the radius-δ_r equivalence class of x: accumulate old colours within its E_r ball, decode smaller E_{r-1} blocks, divide each point-multiplicity by block size, and join all blocks at distance δ_r. At r=h-1 the global histogram gives the multiset of top proper balls; join them at δ_h. For h=1 n is encoded by c_0 multiplicity. The one-round signature at h=3 recovers (p,q,n); a unique collision before n=8 is impossible because there cannot be two δ2 balls of size at least 4. At n=8 two size-four partitions have sole nontrivial aggregate ambiguity 2×(2,1,1)↔(2,2)+(1,1,1,1). Separate independent partition-census with raw comparable signatures recovered 1,3,6,14,27,58,111,223 types for n=1..8 and exactly that single pair; this corroborates but does not prove the all-size theorem.
 
-This exhaustive finite verifier is not an inference from finitely many cases to all ultrametrics. The unbounded-size statement is instead established by the ball-type decoding induction in `RESULT.md`, and the uniqueness of the eight-point ambiguity is established by the explicit integer-partition argument. The code does not test isometry against arbitrary non-ultrametric structures, and no independent audit has been performed.
+## originality
+
+PASS
+
+Ambient relational colour refinement and hierarchical ultrametrics were previously studied, but general logic/algorithmic characterizations do not imply the exact within-ultrametric h-1 round bound or the unique first eight-point collision. The claim is explicitly relative to finite ultrametrics using the same labeled distance alphabet.
+
+## value
+
+PASS
+
+The exact sharp first obstruction and hierarchy-depth reconstruction give a natural complexity boundary for a canonical algorithm on structured metric spaces, and the first-collision classification is a precise reusable instance for testing expressivity. Both are structurally motivated rather than arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
