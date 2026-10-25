@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and proof boundary
+# Independent mathematical audit
 
-Running `python3 verify.py` reproduces `verification_output.txt` by exact integer arithmetic using only the Python standard library. The checker uses exhaustive recursively generated rooted-tree isomorphism codes and unrooted center codes, evaluates every subset of the \(k-1\) edges of each tree on \(4\le k\le10\), and cross-checks component profiles by disjoint-set union and independent graph traversal. It asserts the complete class totals \(2,3,6,11,23,47,106\) and computes the rank-prefix collision classes.
+## correctness
 
-At \(k=10\), one unordered pair collides at rank \(5\), none at rank \(6\); its members have diameters \(6\) and \(7\). Their six-edge forest coefficient for \((4,2,2,2)\) is respectively \(1\) and \(0\). The root-multiset recursion and center-isomorphism argument in `RESULT.md` establish why finite enumeration covers every unlabeled tree of these orders; checking selected examples alone would not establish this.
+PASS
 
-These checks prove the stated finite result only. They do not address larger orders or guarantee novelty against unavailable or unindexed literature. No independent external assessment is claimed.
+The invariant counts, for each k-vertex unrooted tree T, edge subsets by sorted component-order partition, so the rank k-l(mu) equals the edge-subset cardinality. The source constructs all rooted trees as multisets of child rooted codes and identifies all unrooted trees using their centers; these are exhaustive combinatorial bijections, not sampled graph lists. Independently enumerated every unlabelled tree with NetworkX nonisomorphic_trees(k), k=4..10, and counted all 2^(k-1) spanning forests per tree by connected components, obtaining tree counts 2,3,6,11,23,47,106 and exact tau values 2,2,3,3,4,4,6. At k=10 precisely one pair collides at rank five and none at six; its diameters are 6 and 7. Thus tau(10)=6 while all earlier 4..9 meet floor(k/2). The result is restricted to k<=10, not arbitrary orders or the full CSF tree conjecture.
+
+## originality
+
+PASS
+
+Awan proves the general lower bound floor(k/2) and introduces essentially the same truncation parameter, but neither the exact first strict order ten nor its full 106-tree collision census is found in the inspected theorem/Section 4. Zeng considers more complete symmetric-function reconstruction and diameter-restricted methods, which do not imply the rank-five/equal-rank-six distinction. Independently verified the exact k10 computation and searched related published findings. Best-of-knowledge priority, not a universal novelty certification.
+
+## value
+
+PASS
+
+The least number of retained connected-partition layers that reconstruct every unlabelled tree of a fixed order is a natural sharp inverse-invariant cutoff directly motivated by chromatic-symmetric reconstruction. The first strict departure from a published lower bound and explicit unique obstruction are mathematically informative finite boundary data, not an arbitrary graph example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:18:03.696021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant counts, for each k-vertex unrooted tree T, edge subsets by sorted component-order partition, so the rank k-l(mu) equals the edge-subset cardinality. The source constructs all rooted trees as multisets of child rooted codes and identifies all unrooted trees using their centers; these are exhaustive combinatorial bijections, not sampled graph lists. Independently enumerated every unlabelled tree with NetworkX nonisomorphic_trees(k), k=4..10, and counted all 2^(k-1) spanning forests per tree by connected components, obtaining tree counts 2,3,6,11,23,47,106 and exact tau values 2,2,3,3,4,4,6. At k=10 precisely one pair collides at rank five and none at six; its diameters are 6 and 7. Thus tau(10)=6 while all earlier 4..9 meet floor(k/2). The result is restricted to k<=10, not arbitrary orders or the full CSF tree conjecture.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Awan Theorem 3/Section 4 obtains tau(k)>=floor(k/2), no exact tau(10).",
+          "Full chromatic symmetric-function reconstruction and diameter-specific results, even if successful, need not determine the least rank-five/six cutoff."
+        ],
+        "reasoning": "A universal LOWER bound cannot cover a sharp higher value. A result that all layers distinguish trees does not supply the smallest distinguishing prefix or enumerate its collision classes.",
+        "searches": [
+          "Awan first derivative chromatic symmetric reconstruction proper trees arxiv:2609.13464",
+          "Zeng arxiv:2608.18179 multiplicity-isolated cores"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.13464",
+        "https://arxiv.org/abs/2608.18179",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/the-first-strict-connected-partition-truncation-gap-occurs-at-te--86111ac4a977/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "tau(k)>=floor(k/2) is compatible with tau10=5 or 6 and does not imply 6.",
+          "Total reconstruction using all forest layers permits sigma_5 collisions."
+        ],
+        "reasoning": "The precise first strict cutoff needs the separate full k<=10 exhaustion and a witness showing rank5 insufficiency; general injectivity/lower bounds alone cannot imply the claimed unique minimum.",
+        "searches": [
+          "Awan arxiv:2609.13464 Theorem 3 Section 4",
+          "Zeng arxiv:2608.18179"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Awan Section 4 defines truncated N_mu(T) and tau(k), with rank = selected forest edge count.",
+          "Git source theorem identifies unique k=10 equal sigma_5 pair and rank-6 (4,2,2,2) separator."
+        ],
+        "reasoning": "The connected-partition coefficients are exactly the power-sum terms of the chromatic symmetric function grouped by edge cardinality. This is the same invariant as Awan, not independent of his lower bound; the evaluated tau10 and unique pair are the candidate difference.",
+        "searches": [
+          "Resultary: connected partition truncated chromatic symmetric function tree reconstruction minimal edge rank ten vertices unique collision",
+          "Awan arXiv:2609.13464 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published 106-tree count is classical unlabeled tree enumeration; the full 106-object sigma_t table and one collision were recomputed independently from graph objects.",
+          "No matching exact truncation-rank table identified among targeted sources."
+        ],
+        "reasoning": "Known counts of trees or connected partitions individually are not the tested complete joint fingerprint table; absence from searches is residual priority uncertainty, not a proof of novelty.",
+        "searches": [
+          "Resultary search connected partition truncated chromatic symmetric function tree reconstruction minimal edge rank ten vertices unique collision",
+          "tree truncation tau(10) 106 trees unique collision"
+        ]
+      },
+      "rationale": "Awan proves the general lower bound floor(k/2) and introduces essentially the same truncation parameter, but neither the exact first strict order ten nor its full 106-tree collision census is found in the inspected theorem/Section 4. Zeng considers more complete symmetric-function reconstruction and diameter-restricted methods, which do not imply the rank-five/equal-rank-six distinction. Independently verified the exact k10 computation and searched related published findings. Best-of-knowledge priority, not a universal novelty certification.",
+      "residual_risks": [
+        "An unindexed older small-tree connected-partition table or appendix might already contain tau10 and the unique pair.",
+        "Independent enumeration relies on NetworkX generation being exhaustive, whose standard canonical graph enumeration was separately checked against classical tree counts; no assertion for k>=11."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying parameter and lower bound PREVIOUS; exact 10-vertex first strict gap not presented in inspected text.",
+          "evidence": [
+            "Section 4 introduces rank-truncated connected-partition reconstruction.",
+            "Theorem 3 yields universal floor(k/2) lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.13464",
+          "material_read": "Full accessible HTML of theorem statements and Section 4 defining tau and sigma; checked for tau(10) and 106-tree enumeration.",
+          "method": "Primary full-text theorem and Section 4 examination",
+          "title": "First-Derivative Chromatic Symmetric Reconstruction For Proper Trees",
+          "trigger": "Same truncation parameter and explicit lower bound"
+        },
+        {
+          "assessment": "No decisive dominating truncation theorem established from read material; retains residual risk.",
+          "evidence": [
+            "Source emphasizes core reconstruction and diameter-six families, different from exact complete rank-five ten-vertex census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.18179",
+          "material_read": "Abstract and source package description; did not verify entire original full text independently.",
+          "method": "Bibliographic comparison, no full-document noncoverage claim",
+          "title": "Multiplicity-Isolated Cores and Chromatic Symmetric Reconstruction of Trees",
+          "trigger": "Potential stronger complete tree reconstruction coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least number of retained connected-partition layers that reconstruct every unlabelled tree of a fixed order is a natural sharp inverse-invariant cutoff directly motivated by chromatic-symmetric reconstruction. The first strict departure from a published lower bound and explicit unique obstruction are mathematically informative finite boundary data, not an arbitrary graph example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2609.13464",
+    "https://arxiv.org/abs/2608.18179",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/the-first-strict-connected-partition-truncation-gap-occurs-at-te--86111ac4a977/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite orders 4..10; no conclusion about all tree sizes or the full chromatic symmetric function conjecture."
+  ],
+  "schema_version": 1
+}
