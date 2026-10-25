@@ -1,19 +1,21 @@
-# Review of the marked-distance conditional leaf maximum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, leaf definition, exact path-extension count, off-path and endpoint leaf-deletion probabilities, discrete difference factorization, maximizer/tie indices and asymptotic error term are reconstructed in `RESULT.md`. Exact Prüfer enumeration through seven labels checks the coupled distance/leaf statistics; rational arithmetic checks the optimizer through three hundred labels. Finite checks are supplementary, not proof for all sizes. The forest extension and analytic difference establish the universal claim.
+PASS
 
-## Originality — PASS on inspected evidence
+The Cayley forest-extension identity implies A_(n,k)=(n-2)_(k-1)(k+1)n^(n-k-2) trees with marked distance k. Deleting a nonmarked leaf gives P(w leaf|D=k)=(n-k-1)/(n-2) q^(n-k-2), k<=n-2. Deleting a marked endpoint leaf gives P(u leaf|D=k)=k/(k+1) q^(n-k-2), with k=1 separately handled and n=2 consistent. Summing yields µ_n(k)=(n-k+1-2/(k+1)) q^(n-k-2), q=1-1/n. Direct algebra gives µ(k+1)-µ(k)=[2(n-1)-k(k+1)^2]q^(n-k-3)/[n(k+1)(k+2)]. Its strict sign transition determines all maximizers and exact ties n=1+k(k+1)^2/2, with n=2 trivial case. Bounding adjacent cubic values gives k*~(2n)^(1/3), and uniform expansion µ(k)=e^-1[n+5/2-2/(k+1)]+O(n^-1/3) for k=O(n^(1/3)) shows maximum minus n q^(n-2)→e^-1.
 
-Compared against full open texts of Berzunza Ojeda–Janson (2020 arXiv first public version) and Addario-Berry–Donderwinkel–Maazoun–Martin (2021 arXiv first public version), and the full published finite endpoint degree-versus-distance result for Cayley trees. The last source implies only the contribution of the two marked leaves; it does not give the conditional expectation of total leaves or its optimizing distance. The two papers provide distance profiles, forest counting, and leaf marking, but do not state the sharp cubic optimizer. Older general joint generating functions may implicitly imply the result; failed retrieval cannot prove historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Leaf number and marked-pair distance are standard, intrinsic unrooted-tree statistics. The theorem precisely locates the conditional-mean maximum for all sizes, classifies infinitely many exact ties, and exposes a cube-root optimal distance against a square-root typical distance; this qualitative scale separation is not a generic statement of the marginal leaf asymptotic. The finite limiting excess is explicitly recorded, so it is not promoted as an extensive effect.
+Best-of-knowledge PASS. The published endpoint-degree/distance regression law uses the same conditional tree path but only directly implies marked endpoint leaf probability; it does not determine other vertex leaves or the total-leaf maximizer. Full distance-profile primary paper gives asymptotic profile laws, not this finite conditional total-leaf regression. Older bivariate tree generating functions are specific residual implication risks.
 
-## Limitations and closest literature
+## value
 
-The claim concerns only conditional expectations in uniform labeled trees. It does not establish full negative/positive association, a conditional distribution, universality, or absolute historical originality. Principal possible overlap: an uninspected historical bivariate tree degree/distance generating function. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Total unrooted leaves and distance between fixed vertices are canonical Cayley tree statistics. Locating every exact finite optimizer, including infinitely many ties, and showing a cube-root optimal separation despite square-root typical separation is a meaningful conditional structure classification, not a renamed marginal degree law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

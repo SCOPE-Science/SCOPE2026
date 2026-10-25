@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:51:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Source RESULT.md, REVIEW.md, VERIFICATION.md and the exact formula/forest-count proof read at frozen commit.",
+        "Independent complete Prüfer enumeration n=3,...,6 confirmed counts/conditional means against rational formula; finite checks do not replace counting proof."
+      ],
+      "limitations": [
+        "No conditional leaf-distribution stochastic ordering claimed; endpoint ties for n>=3 lie in range; n=2 handled."
+      ],
+      "rationale": "The Cayley forest-extension identity implies A_(n,k)=(n-2)_(k-1)(k+1)n^(n-k-2) trees with marked distance k. Deleting a nonmarked leaf gives P(w leaf|D=k)=(n-k-1)/(n-2) q^(n-k-2), k<=n-2. Deleting a marked endpoint leaf gives P(u leaf|D=k)=k/(k+1) q^(n-k-2), with k=1 separately handled and n=2 consistent. Summing yields µ_n(k)=(n-k+1-2/(k+1)) q^(n-k-2), q=1-1/n. Direct algebra gives µ(k+1)-µ(k)=[2(n-1)-k(k+1)^2]q^(n-k-3)/[n(k+1)(k+2)]. Its strict sign transition determines all maximizers and exact ties n=1+k(k+1)^2/2, with n=2 trivial case. Bounding adjacent cubic values gives k*~(2n)^(1/3), and uniform expansion µ(k)=e^-1[n+5/2-2/(k+1)]+O(n^-1/3) for k=O(n^(1/3)) shows maximum minus n q^(n-2)→e^-1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Resultary RESULT provides E deg(u)|D=k =2-(k+2)/n+1/(k+1), stochastic ordering for endpoint degree, no total number of leaves given.",
+          "Berzunza–Janson gives global distance profile convergence in n^1/2 scaling, not maximum of conditional total leaf mean."
+        ],
+        "reasoning": "Known endpoint stochastic regression and global distance profile do not imply the total-leaf conditional mean or its exact cubic optimizing index and infinite tie family.",
+        "searches": [
+          "Resultary Exact negative regression between endpoint degree and distance in a uniform Cayley tree 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae full RESULT",
+          "Berzunza Ojeda–Janson 2022 Theorem 1.4 and leaf-marking Section 8",
+          "Addario-Berry et al arxiv:2107.09726"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+        "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+        "https://arxiv.org/abs/2107.09726"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forest extension counts A_nk, but the entire expected total leaf number also requires conditioning on off-path leaf survival.",
+          "From endpoint-degree distribution only the 2 marked vertex indicators follow; off-path term (n-k-1)q^(n-k-2) is not obtained."
+        ],
+        "reasoning": "The new conditional total-leaf mean and optimizing distance require an independent summation of nonmarked leaf deletion probabilities plus a nontrivial cubic discrete derivative.",
+        "searches": [
+          "Full Resultary endpoint-degree conditioned tree law, formula (2)",
+          "Berzunza Ojeda–Janson full published article, Thm 1.4 and Sec 8",
+          "Pitman forest-extension identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The endpoint-degree law expresses deg(u)-1|D=k as Bin(n-k-2,1/n)+Bern(1/(k+1)); marked leaf chance k/(k+1) q^(n-k-2) follows.",
+          "The total leaf count includes all n-2 nonmarked vertices; endpoint law alone does not specify their probabilities or finite optimizer."
+        ],
+        "reasoning": "Compared conditioned leaf count, degree generating functions and distance profiles by observable and mathematical implication rather than titles; full count requires a separate deletion argument.",
+        "searches": [
+          "Resultary uniform labeled Cayley tree expected total leaves conditioned on two marked distance cube root optimizer",
+          "Berzunza Ojeda–Janson distance profile 2022 full HTML",
+          "Published Resultary exact endpoint degree regression full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small-n exact Prüfer enumerations are corroboration only; no finite table settles all n.",
+          "Claim is an all-n formula and exact sign law, not a recomputation of known tabulated values."
+        ],
+        "reasoning": "Checked related database for an exact invariant and explicit cubic sign threshold; no covering table found, with explicit possibility of hidden generating functions.",
+        "searches": [
+          "Resultary Cayley tree leaf distance conditional query",
+          "Exact Prüfer enumeration n<=6 independently",
+          "Forest-extension counting identity for all n"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The published endpoint-degree/distance regression law uses the same conditional tree path but only directly implies marked endpoint leaf probability; it does not determine other vertex leaves or the total-leaf maximizer. Full distance-profile primary paper gives asymptotic profile laws, not this finite conditional total-leaf regression. Older bivariate tree generating functions are specific residual implication risks.",
+      "residual_risks": [
+        "A historical joint leaf count and two-label distance generating function might yield an equivalent conditional mean; bounded searches cannot rule it out.",
+        "The conditional improvement over the ordinary mean is only asymptotically e^-1, so the mathematical value lies in exact optimization and scale separation, not a macroscopic effect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers marked endpoint degree, not full leaf population or exact total-leaf optimizer",
+          "evidence": [
+            "RESULT.md blob fbcc77603fd5a508d903e047cc6277e5e26ab8d1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "Full RESULT.md fetched read-only from repository, including equations (1)–(11), forest-extension proof and asymptotic behavior",
+          "method": "Compared all random variables and derived endpoint leaf contribution from their generating law",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Same model and marked distance, closest published exact conditional law"
+        },
+        {
+          "assessment": "Distance-profile limits and leaf-marking framework do not assert the finite total-leaf conditional means or cube-root optimizer",
+          "evidence": [
+            "Published paper Theorem 1.4 and Section 8"
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+          "material_read": "Full HTML primary paper, Theorem 1.4, convergence of scaled distance profile, Section 8 leaf-marking",
+          "method": "Compared profile vs fixed-marked distance conditional *total* leaf count",
+          "title": "The distance profile of rooted and unrooted simply generated trees",
+          "trigger": "Same uniform random Cayley tree case, distance and leaf-biased profiles"
+        },
+        {
+          "assessment": "Classical path counting related, cannot assert whole paper does not contain further conditional leaf formula",
+          "evidence": [
+            "arXiv:2107.09726"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.09726",
+          "material_read": "Abstract/bibliographic material only this run",
+          "method": "Compared forest-extension foundation vs refined conditional leaf statistics",
+          "title": "The Foata–Fuchs proof of Cayley’s formula, and its probabilistic uses",
+          "trigger": "Classical tree and forest counting and path combinatorics"
+        },
+        {
+          "assessment": "Foundational count prior, not rebranded",
+          "evidence": [
+            "n^(c-2) product component sizes"
+          ],
+          "identifier_or_url": "Pitman, Berkeley Technical Report 457 (1996); JCTA 85 (1999)",
+          "material_read": "Classical statement known from cited sources; no fresh full report text read",
+          "method": "Separated classical extension theorem from novel conditional optimization",
+          "title": "Coalescent Random Forests",
+          "trigger": "Exact Cayley forest-extension identity used as counting input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All n explicit finite formula and k* criterion; asymptotic height excess e^-1 honestly small."
+      ],
+      "rationale": "Total unrooted leaves and distance between fixed vertices are canonical Cayley tree statistics. Locating every exact finite optimizer, including infinitely many ties, and showing a cube-root optimal separation despite square-root typical separation is a meaningful conditional structure classification, not a renamed marginal degree law.",
+      "residual_risks": [
+        "Only conditional mean, not full distribution or stochastic order of L."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+    "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+    "https://arxiv.org/abs/2107.09726"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No conditional leaf-distribution stochastic ordering claimed; endpoint ties for n>=3 lie in range; n=2 handled."
+  ],
+  "residual_risks": [
+    "A historical joint leaf count and two-label distance generating function might yield an equivalent conditional mean; bounded searches cannot rule it out.",
+    "The conditional improvement over the ordinary mean is only asymptotically e^-1, so the mathematical value lies in exact optimization and scale separation, not a macroscopic effect."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers marked endpoint degree, not full leaf population or exact total-leaf optimizer",
+      "evidence": [
+        "RESULT.md blob fbcc77603fd5a508d903e047cc6277e5e26ab8d1"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+      "material_read": "Full RESULT.md fetched read-only from repository, including equations (1)–(11), forest-extension proof and asymptotic behavior",
+      "method": "Compared all random variables and derived endpoint leaf contribution from their generating law",
+      "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+      "trigger": "Same model and marked distance, closest published exact conditional law"
+    },
+    {
+      "assessment": "Distance-profile limits and leaf-marking framework do not assert the finite total-leaf conditional means or cube-root optimizer",
+      "evidence": [
+        "Published paper Theorem 1.4 and Section 8"
+      ],
+      "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+      "material_read": "Full HTML primary paper, Theorem 1.4, convergence of scaled distance profile, Section 8 leaf-marking",
+      "method": "Compared profile vs fixed-marked distance conditional *total* leaf count",
+      "title": "The distance profile of rooted and unrooted simply generated trees",
+      "trigger": "Same uniform random Cayley tree case, distance and leaf-biased profiles"
+    },
+    {
+      "assessment": "Classical path counting related, cannot assert whole paper does not contain further conditional leaf formula",
+      "evidence": [
+        "arXiv:2107.09726"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2107.09726",
+      "material_read": "Abstract/bibliographic material only this run",
+      "method": "Compared forest-extension foundation vs refined conditional leaf statistics",
+      "title": "The Foata–Fuchs proof of Cayley’s formula, and its probabilistic uses",
+      "trigger": "Classical tree and forest counting and path combinatorics"
+    },
+    {
+      "assessment": "Foundational count prior, not rebranded",
+      "evidence": [
+        "n^(c-2) product component sizes"
+      ],
+      "identifier_or_url": "Pitman, Berkeley Technical Report 457 (1996); JCTA 85 (1999)",
+      "material_read": "Classical statement known from cited sources; no fresh full report text read",
+      "method": "Separated classical extension theorem from novel conditional optimization",
+      "title": "Coalescent Random Forests",
+      "trigger": "Exact Cayley forest-extension identity used as counting input"
+    }
+  ]
+}
