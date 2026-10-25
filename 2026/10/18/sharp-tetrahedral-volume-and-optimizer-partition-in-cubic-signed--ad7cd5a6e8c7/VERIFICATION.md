@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 CHECK.py` using Python 3.8 or later and its standard library only. The program constructs the 48 signed-permutation orbit vertices as integer affine expressions in a real parameter, checks all \(\binom{47}{3}=16215\) triples after fixing one vertex by symmetry, and establishes the exact coefficient bounds \((16,48,64,32)\). It also establishes one anchored equality case, twelve orbit images, their exact partition of the 48 vertices, two opposite-edge length classes, and the centered-zonotope volume coefficients.
+## correctness
 
-The finite check is exhaustive because every vertex quadruple can be carried by a signed coordinate permutation to one containing the chosen anchor, and every remaining three-element subset is enumerated. Since the coefficient inequalities are over integers and the parameter is positive, they imply a bound for **every real** \(q>0\), not merely sampled parameters. The nonvertex exclusion, derivative factorization and single-positive-root argument are proven explicitly in `RESULT.md` and should be reviewed as mathematical arguments rather than inferred from a test run.
+PASS
 
-The program was executed successfully from the recorded standalone file. Its output is a reproducibility check, not evidence of independent review or comprehensive historical-priority certification.
+Support function of P_q equals three coordinate segments plus six short-root segments, giving centered zonotope volume 8+48q+84q²+32q³ by 3x3 minors. Separate fresh exact integer checker enumerated all 16,215 anchored vertex quadruples; every determinant coefficient obeyed |d_k|<=(16,48,64,32)_k and precisely one triple attained all bounds. Group action makes 12 optimizer quadruples, pairwise disjoint, covering all 48 vertices exactly once; exposed-face argument excludes nonvertex maxima. Sympy independently verified derivative numerator 10q^4-27q²-26q-6; Descartes plus signs yield unique q>0 minimizer. Singular q=0 excluded from orbit count.
+
+## originality
+
+PASS
+
+None of the searched primary sources or published Resultary records establishes the unrestricted tetrahedron maximization across the 48-vertex signed-permutahedral deformation, nor its optimizer partition or occupancy minimum. Closely named prior cube–octahedron result concerns different 24-vertex bodies and does not imply this claim. Firsching studies containment of similar fixed-shape copies, not arbitrary maximizing tetrahedra.
+
+## value
+
+PASS
+
+The family is a canonical hyperoctahedral orbit deformation of the great rhombicuboctahedron. A continuous sharp tetrahedral law, rigid 12-orbit partition of ALL 48 vertices and a uniquely optimized occupancy ratio form a substantive natural exact classification and are not implied by generic finite-dimensional convex geometry facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

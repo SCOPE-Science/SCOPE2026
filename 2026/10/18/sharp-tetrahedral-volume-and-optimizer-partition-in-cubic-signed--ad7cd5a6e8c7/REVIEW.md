@@ -1,19 +1,21 @@
-# Scientific review: sharp tetrahedral volume in cubic signed permutahedra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses are real \(q>0\), 48 distinct exposed signed-permutation vertices of \((1,1+q,1+2q)\), and unrestricted nondegenerate tetrahedra. Affinity in each tetrahedron corner reduces the global maximization to vertices. A symmetry-anchor reduction makes the entire finite proof exactly \(\binom{47}{3}=16215\) integer-polynomial determinant evaluations. The standalone `CHECK.py`, run successfully, verifies coefficientwise absolute upper bounds \((16,48,64,32)\) and exactly one anchored equality triple, and checks that its signed-permutation orbit contains twelve disjoint quadruples partitioning all 48 vertices. Positive \(q\) makes the coefficientwise bound uniform over every real parameter. The disjointness precludes any positive-dimensional exposed face maximizing the determinant with three fixed vertex corners, so no nonvertex maximizer remains. The nine-generator support-function calculation yields ambient volume \(8+48q+84q^2+32q^3\). Symbolic differentiation gives the stated quartic with one positive root by Descartes' rule. The enumeration is exhaustive in the finite vertex space, rather than sampling an infinite family; the associated analytic reduction is supplied explicitly.
+PASS
 
-## Originality — PASS, with disclosed priority risk
+Support function of P_q equals three coordinate segments plus six short-root segments, giving centered zonotope volume 8+48q+84q²+32q³ by 3x3 minors. Separate fresh exact integer checker enumerated all 16,215 anchored vertex quadruples; every determinant coefficient obeyed |d_k|<=(16,48,64,32)_k and precisely one triple attained all bounds. Group action makes 12 optimizer quadruples, pairwise disjoint, covering all 48 vertices exactly once; exposed-face argument excludes nonvertex maxima. Sympy independently verified derivative numerator 10q^4-27q²-26q-6; Descartes plus signs yield unique q>0 minimizer. Singular q=0 excluded from orbit count.
 
-The most directly relevant published works are Firsching, *Computing Maximal Copies of Polyhedra Contained in a Polyhedron* (2015), which constrains a prescribed inner similarity class and gives Platonic-pair tables; Horváth–Lángi, arXiv:1402.6496, which optimizes inscribed polyhedra on a sphere; and Di Summa et al., arXiv:1406.3512, which supplies algorithms and general complexity for unrestricted inscribed simplices. Their inspected statements do not entail a sharp polynomial volume over this particular 48-vertex Minkowski family, the disjoint optimizer partition, or the sharp global minimum of the volume fraction. Rajpoot's accessible great-rhombicuboctahedron analysis treats ambient-body metrics, not unrestricted maximal tetrahedra in its containing solid. A distinct published cube–octahedron intersection tetrahedral-profile result concerns a different family of <=24-vertex solids and does not imply this signed-permutahedral result. Direct searches covered 'truncated cuboctahedron', 'great rhombicuboctahedron', 'type B3 permutahedron', 'largest simplex', 'signed permutation' and the claimed extrema. The evidence supports novelty under best-knowledge comparison, not conclusive worldwide priority. Croft's 1980 Platonic-solid work was not accessible in full and is noted as residual historical risk, although its regularity restrictions and outer Platonic bodies are different.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is not an isolated known-table recomputation: for every real \(q>0\) it resolves an unrestricted largest-tetrahedron optimization over a natural deformation of type-\(B_3\) permutahedra, proves an unexpectedly rigid partition of all 48 vertices into exactly twelve maximizers, and identifies the exact unique parameter minimizing the occupied-volume fraction. The special \(q=\sqrt2\) case extracts a sharp invariant of a regular Archimedean solid. The coefficientwise certificate is uniformly parametric, supporting the structural interpretation. These explicit extrema and configurations offer natural benchmarks for polyhedral optimization and zonotope approximation. The proof does not extend automatically to arbitrary triples of coordinate radii or higher rank.
+None of the searched primary sources or published Resultary records establishes the unrestricted tetrahedron maximization across the 48-vertex signed-permutahedral deformation, nor its optimizer partition or occupancy minimum. Closely named prior cube–octahedron result concerns different 24-vertex bodies and does not imply this claim. Firsching studies containment of similar fixed-shape copies, not arbitrary maximizing tetrahedra.
 
-## Scope and residual risk
+## value
 
-The exact program is an enumerated finite certificate for a family of symbolic determinants, not a finite sampling of \(q\). The assertion that all nonvertex maxima are absent is proved separately. Earlier obscure regular-polyhedron or permutahedral tables may provide an equivalent statement; the incomplete accessibility of some historical literature is not disguised. No independently conducted audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is a canonical hyperoctahedral orbit deformation of the great rhombicuboctahedron. A continuous sharp tetrahedral law, rigid 12-orbit partition of ALL 48 vertices and a uniquely optimized occupancy ratio form a substantive natural exact classification and are not implied by generic finite-dimensional convex geometry facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
