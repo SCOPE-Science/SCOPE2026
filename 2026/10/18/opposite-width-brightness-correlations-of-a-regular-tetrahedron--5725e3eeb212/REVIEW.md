@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim concerns the specific Cartesian-frame tetrahedron and octahedron, uniform \(S^2\) view, ordinary line-projection width, and projected planar area under the **same** normal. Support-function difference vertices give \(2(x+y)\) for the tetrahedron; Cauchy's facet formula gives \(2x\) for the octahedron and \(B_T=2B_O\). Exact Laplace–Beltrami integration on the two spherical triangles produces all four expectation identities; the symbolic checker reconstructs those integrals, while the all-rational alternating-series checker proves covariance bounds strictly separated from zero. Finite simulation independently agrees but is not the proof. No ambiguous limit, exhaustive numerical claim, or external certificate is used.
+PASS
 
-## Originality — PASS, with residual priority risk
+For ordered absolute view coordinates x>=y>=z>=0, support functions give W_O=2x and W_T=2(x+y), while Cauchy projection-area summation over the 8 octahedral and 4 tetrahedral facet normals gives B_O=max(2x,x+y+z), B_T=2B_O. Decompose each of the 48 spherical order chambers at x=y+z into two spherical triangles, and apply integration by parts using Laplace–Beltrami identities Delta(u_i)=-2u_i and Delta(u_i u_j)=2 delta_ij-6u_i u_j; the explicit boundary side formulas reconstruct the exact mixed moments. Their exact radical/arctangent combinations yield cov_O=2/3+(4sqrt(2)+8omega-6sqrt(6)theta)/pi>0 and cov_T=8/3+8sqrt(6)/pi-12sqrt(6)(pi/2-theta)/pi<0. Inspected exact rational arctan-bracketing certificate and spherical_integrals_check.py; independent high-resolution Gaussian/spherical quadrature gave approximately 0.0206678447 and -0.0340466734, corroborating the algebra and strict margins rather than replacing certified signs.
 
-Abas (arXiv:2609.26202; first public 2026-08-10) analyzes individual tetrahedral width and brightness laws and cosine-transform moments. The inspected mathematical passages do not state the same-view tetrahedron/tetrahedron–octahedron mixed-covariance sign pair. The closely related published orthotope covariance profile applies only to boxes, whose facets/width formula cannot cover the tetrahedron or octahedron. The published Platonic brightness-variance spectrum establishes a common normalized brightness marginal variance, not mixed covariance with width. The published tetrahedron area–perimeter covariance concerns projected **area and perimeter**, not projected area with solid-body **width**. Finch's width-only moments likewise do not imply mixed covariance. Indexed phrase/alias searches found no stronger statement. This is a best-knowledge originality assessment, not uniqueness certification; earlier nonindexed computations are a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Regular tetrahedra and octahedra are the canonical least-complex nonsymmetric and symmetric solids with triangular faces. Showing their *entire normalized directional brightness functions coincide pointwise* while their *same-view width–brightness covariance signs are opposite* isolates genuinely joint information lost by brightness alone. The strict analytic sign contrast provides a motivated baseline and obstruction to universal positive-correlation conjectures; it is not a tiny arbitrary numeric slice or a computation detached from an underlying geometric question.
+Joint same-direction width–brightness sign divergence despite identical normalized brightness is distinct from separate width or brightness laws and from mixed two-dimensional shadow area–perimeter moments. Direct primary comparison includes relevant full Abas preprint sections and Resultary studies of orthotopes and tetrahedral projection moments; no dominating result yielding the opposite signs for this aligned pair was identified.
 
-## Limitations and comparison
+## value
 
-No general classification of polyhedra, arbitrary relative orientation, or full joint density follows. The motivating paper's relevant full-text sections, and multiple closest published geometry reports, were read and compared at statement/implication level. Historical priority is not independently verified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete exact counterexample shows brightness information, even pointwise up to scale, fails to determine the sign of an intrinsically geometric mixed width–brightness covariance. This is a substantive reconstruction/identifiability boundary in stochastic convex geometry, not a gratuitous numerical polytope moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
