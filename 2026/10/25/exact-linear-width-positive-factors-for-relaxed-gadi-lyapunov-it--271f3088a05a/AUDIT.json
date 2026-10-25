@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Eliminating the published dense recurrence gives cX+bTXT^T+EE^T; commuting I and conjugation map admit exact finite binomial expansion with strictly positive coefficients. The factor yields PSD and exact Krylov rank. Distinct-diagonal spectrum gives a Vandermonde rank witness. Standalone checker independently compares dense source equations and formulas on multiple stable systems.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang--Xun arXiv:2404.06034v1, equation (12) gives exact dense GADI iteration; equation (13) stores (2^k-1)p factor columns, Section 2.3 complexity uses the exponential width.",
+        "Zhang--Xun equation (7) has the standard k p one-shift ADI factor; neither it nor their equation (13) states the positive binomially weighted k p relaxed GADI factor.",
+        "Li--White 2002 CF-ADI establishes rational Krylov relationship for conventional ADI; matching the range alone does not imply new positive binomial weights for relaxed GADI."
+      ],
+      "reasoning": "Standard CF-ADI k p factors are a same-span precursor and cover omega=0; they do not directly state the exact nonzero-relaxation binomial weights. Scope excludes variable shifts and does not evade any stated stronger claim.",
+      "searches": [
+        "generalized alternating direction implicit omega Richardson relaxed ADI convex combination Lyapunov rational Krylov factorization",
+        "Li White 2002 Low rank solution Lyapunov equations",
+        "arXiv:2404.06034v1 Section 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.06034v1 (relevant accessible full-text sections)",
+      "Li and White 2002 bibliographic abstract",
+      "Targeted published-finding corpus searches recorded in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang--Xun arXiv:2404.06034v1, equation (12) gives exact dense GADI iteration; equation (13) stores (2^k-1)p factor columns, Section 2.3 complexity uses the exponential width.",
+        "Zhang--Xun equation (7) has the standard k p one-shift ADI factor; neither it nor their equation (13) states the positive binomially weighted k p relaxed GADI factor.",
+        "Li--White 2002 CF-ADI establishes rational Krylov relationship for conventional ADI; matching the range alone does not imply new positive binomial weights for relaxed GADI."
+      ],
+      "reasoning": "Existing dense GADI update is an ingredient from which the weighted factor is newly derived. Its published direct factor has exponentially many columns. The cited unrelaxed ADI is a special case, not a proof of the omega>0 formula. Related published-finding corpus hits do not assert this factor or its rank.",
+      "searches": [
+        "R-GADI Lyapunov factor exponential columns two power k binomial Krylov compression PSD factor exact rank",
+        "generalized alternating direction implicit omega Richardson relaxed ADI convex combination Lyapunov rational Krylov factorization",
+        "Zhang Xun 2024 R-GADI 2^k-1 p columns compression k p positive semidefinite",
+        "arXiv:2404.06034v1 equation (13) and complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang--Xun arXiv:2404.06034v1, equation (12) gives exact dense GADI iteration; equation (13) stores (2^k-1)p factor columns, Section 2.3 complexity uses the exponential width.",
+        "Zhang--Xun equation (7) has the standard k p one-shift ADI factor; neither it nor their equation (13) states the positive binomially weighted k p relaxed GADI factor."
+      ],
+      "reasoning": "A weighted geometric sum of a convex combination of ADI and identity is not the plain ADI power sum for omega>0, although its Krylov span agrees. Source formula expands exponentially and does not explicitly give the weights.",
+      "searches": [
+        "R-GADI Lyapunov factor exponential columns two power k binomial Krylov compression PSD factor exact rank",
+        "generalized alternating direction implicit omega Richardson relaxed ADI convex combination Lyapunov rational Krylov factorization",
+        "arXiv:2404.06034v1 equations (7),(12),(13)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus semantic results were inspected for the source algorithm and binomial factor claim; top returned entries concerned other algorithms and numerical problems."
+      ],
+      "reasoning": "This is an analytic matrix recurrence identity, not a tabulated finite invariant. Failed indexed search is only supportive, never proof of novelty.",
+      "searches": [
+        "R-GADI Lyapunov factor exponential columns two power k binomial Krylov compression PSD factor exact rank",
+        "Zhang Xun 2024 R-GADI 2^k-1 p columns compression k p positive semidefinite"
+      ]
+    },
+    "rationale": "The primary full-text source gives exponential (2^k-1)p columns for relaxed GADI, and its k p positive factor is stated only for ordinary ADI (omega=0). The exact relaxed binomial Krylov factor with linear column count and rank characterization is not expressed or implied directly by a cited source statement; classical CF-ADI has conceptual overlap. Targeted published-finding corpus search found no directly covering record. Residual risk of unlocated equivalent transformations is documented.",
+    "residual_risks": [
+      "An uncatalogued equivalent weighted Smith/ADI factorization for relaxed GADI could predate this analysis.",
+      "Li--White 2002 complete article was not inspected; its abstract describes the general Krylov connection, not the precise relaxed GADI weights.",
+      "The method is algebraically exact; no finite-precision or realized computational cost claim is validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_FOR_RECURRENCE_AND_EXPONENTIAL_FACTOR; NOT_DIRECTLY_STATING_WEIGHTED_LINEAR_FACTOR",
+        "evidence": "Equation (7) ordinary ADI has k p columns; equation (12) two-stage GADI; equation (13) V/W have (2^k-1)p; Section 2.3 explicitly counts exponential columns.",
+        "identifier_or_url": "https://arxiv.org/abs/2404.06034",
+        "material_read": "Sections 1, 2.1 (equations 6-13), Section 2.2, complexity Section 2.3, relevant statements of R-GADI factor sizes.",
+        "method": "Accessible arXiv full HTML mathematical text, checked equations and proof context",
+        "title": "Low-rank generalized alternating direction implicit iteration method for solving matrix equations",
+        "trigger": "Exact same numerical algorithm and factor formula"
+      },
+      {
+        "assessment": "POSSIBLE_BROADER_METHOD_CONTEXT; FULL_TEXT_NOT_READ",
+        "evidence": "CF-ADI generates low-rank Lyapunov solutions and relates its range to rational Krylov.",
+        "identifier_or_url": "https://researchportal.ip-paris.fr/en/publications/low-rank-solution-of-lyapunov-equations-2/",
+        "material_read": "Bibliographic abstract describing CF-ADI and Krylov-span link, not complete primary article.",
+        "method": "Public bibliographic abstract",
+        "title": "Low rank solution of Lyapunov equations",
+        "trigger": "Classical CF-ADI low-rank rational Krylov method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "271f3088-a05a-42da-9fc7-af0b3a5f5ae1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target published GADI algorithm explicitly incurs exponential factor-column count despite a fixed-rank right side. An exact kp positive factor removes that mathematical representation growth without changing any iterate and identifies precisely its active rational Krylov subspace. This enables a meaningful storage-design distinction; generic rational-Krylov identities alone are not the source-specific fixed-relaxation weight formula.",
+    "status": "PASS"
+  }
+}
