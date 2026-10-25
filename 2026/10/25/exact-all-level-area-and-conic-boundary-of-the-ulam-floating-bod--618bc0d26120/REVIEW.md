@@ -1,0 +1,15 @@
+# Scientific assessment: the triangle Ulam floating body's area profile
+
+## Correctness — PASS
+The cap-intercept products follow from the exact Euclidean area of a triangle. Both analytic cap-centroid parametrizations follow from elementary vertex averaging and conservation of the full first moment; they join at the exact cap-regime threshold. The two conic identities can be reconstructed by direct substitution. Their determinant integrals, with the correct monotone parameter orientations, yield the same logarithmic normalized-area formula, and affine equivariance transfers it to every nondegenerate triangle. The complement centroid identity proves the large-cap branch without an unjustified symmetry assumption. Numerical cap clipping, centroid evaluation, and shoelace area reconstruct the predicted area independently over the tested parameters. These finite tests are consistency checks, not universal proofs.
+
+## Originality — PASS, with residual historical priority risk
+The published general Ulam-body characterization determines support points but not the exact area of their triangle locus. The earlier metronoid and average-quantile papers provide more general theory but not this explicit specialization in the inspected material. A directly relevant published triangle area profile uses classical convex floating bodies, whose boundary consists of halfspace-depth level sets; these are not Ulam cap-centroid loci, and the claimed profiles are mathematically inequivalent. The published square Ulam result computes a different affine class and has an additional parabolic branch; it does not subsume this triangle formula. Searches using alternate names (metronoids, zonoid trimming, average quantiles, simplex caps) found no matching all-level triangle law. An older unindexed computation of the special case could still precede this result; absence from search results is not proof of global priority.
+
+## Mathematical value — PASS
+The area of a cap-centroid-generated convex body is a natural invariant of the Ulam floating-body construction. This result completely determines it for the simplest nonsymmetric planar polytopes, across *every* cap fraction, rather than only obtaining the known small-cap order. It supplies the explicit algebraic conic boundary, exact large-cap complement law, and the polygon-corner logarithmic coefficient, providing a reproducible benchmark for metronoid geometry and for comparison with a distinct classical convex floating body. These are meaningful, non-implied geometric data rather than an arbitrary parameter slice.
+
+## Limitations and closest literature
+The exact formula uses uniform area measure on triangles. It does not classify general polygon Ulam bodies, and it relies on the established cap-centroid support theorem. The most important distinct nearby results are the all-level *classical* floating-body area of a triangle and the all-level *Ulam* floating-body area of a square. The literature search is targeted rather than exhaustive; no third-party priority or independent proof assessment has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
