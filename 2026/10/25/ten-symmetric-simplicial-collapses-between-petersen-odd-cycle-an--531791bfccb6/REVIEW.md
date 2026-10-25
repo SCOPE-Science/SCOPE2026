@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The exact finite verification enumerates all 1,024 vertex masks with independent acyclic-graph predicates, confirms the ten unique free-face/cofacet pairs, and verifies the complete equivariant matching under all 120 ground-set permutations. A second complete discrete-Morse reduction of the forest complex leaves one critical vertex and six five-cells; topological sorting checks all 3,470 Hasse incidences. The Lefschetz calculation uses fixed face orientations rather than counts of invariant faces alone. Forman's theorem, plus the absence of intermediate critical cell dimensions, proves the integral sphere wedge. Critical limit: this is one finite graph and no family-wide conclusion follows.
+
+## Originality — PASS, with residual uncertainty
+The natural odd-cycle vertex-set condition appears in Grady et al., arXiv:1505.02268v1, Definitions 2.1 and 2.7, but its text does not contain a topological simple-homotopy statement for the Petersen graph. Carnero Bravo, arXiv:2307.13271, studies induced-forest complexes of other families; the inspected text/contents do not give this specific inclusion collapse. Prior recorded Petersen induced-forest homotopy and character are explicitly acknowledged as known. The precise new statement—that the odd-cycle complex collapses by ten symmetry-permuted elementary pairs onto that old forest complex—is neither entailed by the old homotopy type nor by the coincidence of symmetry representations. A Petersen three-cut complex carrying the same rational irreducible is another non-implication. The odd-cycle-transversal literature and inaccessible full signed-Petersen treatments retain an unindexed-source risk. Negative searches alone are not interpreted as proving universal novelty.
+
+## Value — PASS
+Cycle-independent and odd-cycle-independent sets were deliberately distinguished in the 2015 primary paper because they measure decycling versus bipartization. Simplicial complexes record the entire nested subset structure of these distinct graph parameters. A complete, automorphism-invariant elementary-collapse description shows the relaxation from all cycles to odd cycles introduces exactly twenty faces but no new simple-homotopy information in a canonical nonbipartite symmetric cubic graph. This is a structural topological relation between two established objects, not a face-count recomputation or renaming of the known forest homotopy type. Applicability beyond Petersen is open.
+
+Self-review: passed. Independent audit: not yet performed.
