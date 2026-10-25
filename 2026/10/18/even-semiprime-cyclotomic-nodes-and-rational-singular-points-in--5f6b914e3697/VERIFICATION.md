@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof uses the projective Jacobian criterion, the minimal polynomial of a primitive prime-order root of unity, the matrix determinant lemma, the explicit Galois action, and Burnside's lemma. No finite experiment is used to infer the all-parameter conclusion.
+# Independent mathematical audit
 
-To reproduce finite samples, run `python verify_nodes.py` in the same directory. It compares exact multinomial summation with a separate exhaustive enumeration normalized to first coordinate one. It checks six parameter pairs and verifies exact arithmetic of all reported examples, rational-node counts, Galois-orbit divisibility and permutation orbits, printing `VERIFY_OK` on success.
+## correctness
 
-The computations do not verify the infinite family or the complete search of published mathematics. The theorem is characteristic zero only, and the displayed finite etale scheme is not a model for extra singularities of characteristic-positive hypersurface reductions.
+PASS
+
+Jacobian rank on hyperplane sum xi=0 forces coordinates into a projectively normalized mu_(2p) root list. Cyclotomic polynomial Phi_p forces equal positive-minus-negative multiplicity at all p residues; free scaling gives N!/(2p) weighted coefficient. Nontrivial Galois projective stabilizer forces coordinate ratios +/-1 and p-1 degree otherwise; nonzero Hessian determinant makes singularities ordinary nodes and finite etale. Burnside rotates p-tuple multiplicities. Independently enumerated normalized root lists for (p,N)=(3,5),(3,6), reproducing (A,R,Q)=(60,0,30),(340,10,165). Proof applies to odd prime p, N>=5, char0; no positive-characteristic assertion.
+
+## originality
+
+PASS
+
+Statement-level best-of-knowledge check: Fermat hypersurface ED degree, diagonal hyperplane singularities, vanishing root sums, antipodal cancellation and necklace orbit counts searched as equivalent contexts. Lam-Leung 2-prime theorem covers vanishing-sum semigroup; Lee ED-degree theorem counts a different critical locus. Neither supplies scheme-theoretic singularity/Galois refinement of X_{p,N}. Even from Lam-Leung root-sum classification, the Jacobian/Hessian/projective Galois and Burnside deductions remain necessary; geometric theorem not stated as immediate established corollary in inspected sources.
+
+## value
+
+PASS
+
+The arithmetic-geometric singular scheme of a natural Fermat hyperplane family, including rational versus cyclotomic residue degrees and permutation orbits, is a natural exact invariant; these refinements are not implied by generic root-weight semigroup statements alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
