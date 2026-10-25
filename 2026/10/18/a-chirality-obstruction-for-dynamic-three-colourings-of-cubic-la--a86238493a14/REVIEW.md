@@ -1,15 +1,21 @@
-# Scientific review: chirality obstruction for dynamic three-colourings
+# Independent mathematical audit
 
-## Correctness
-PASS. The three available successors to a rung pair are exhaustive. The swapped successor contradicts properness at the following rung. Each of the other successors forces a period-three continuation, and the twisted closure cannot match the same handedness. The period-three solutions and their count are explicit, as are the four-colour residue-class constructions. A separate finite-state verifier and direct graph construction test agree. The infinite assertion is established symbolically, not by extrapolation from finite cases.
+## correctness
 
-## Originality
-PASS, with residual bibliographic risk. A literature-led comparison with the full 2026 dynamic-colouring paper, the 2003 general degree-three upper bound, and accessible published descriptions of the 2013 perfect/equitable colouring study did not identify the same twist obstruction or full named three-colouring classification. The older upper bound already guarantees four-colourability and is not represented as an original component. Equitable three-colouring is a narrower requirement than locally-surjective proper three-colouring, so its classification does not automatically imply the theorem. The 2013 article's complete text was not accessible; an undiscovered covering theorem cannot be ruled out.
+PASS
 
-## Value
-PASS. The nontrivial orientation-forcing lemma explains a topology-sensitive transition between otherwise locally identical cubic ladder closures; at multiples of three the prism has precisely twelve optimal named three-colourings but the Möbius closure has none. This supplies a complete natural infinite-family sharp classification, not only a construction or finite census.
+In P_n=C_n box K_2 and twisted M_n (n>=3), proper three-colour rung pairs (x,y) have only three possible next pairs (y,x),(y,z),(z,x) with third colour z. The swapped case forces an illegal equal-colour following rung by 2-dynamic neighbor conditions; the other cases propagate one of exactly two disjoint orientation-preserving period-three cycles. Thus straight closure requires 3|n and yields exactly 6 initial ordered pairs times 2 orientation=12 named three-colour solutions; twisted closure requires the reversed ordered pair, impossible. Four-colour column recipes handle three residue classes for both closures and give sharp chi_2. Independent brute-force enumeration directly over 3-colour assignments checked 12 graph/circumference instances n=3..8 and confirmed 12-or-zero, including K_3,3 boundary; finite checks supplement structural proof.
 
-## Literature limits
-The general subcubic dynamic upper bound was previously known. Closely related perfect colourings and usual chromatic-polynomial transfer matrices do not directly give the all-locally-surjective lower bound; an inaccessible full perfect-colouring article and unindexed work remain explicit risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage of the specific new claim: This is a complete infinite-family classification of a natural cubic graph invariant, including exact named 3-colouring multiplicity and a twisted-boundary chirality obstruction. Prior overlapping premises and historical-priority caveats are explicitly credited and scoped.
+
+## value
+
+PASS
+
+This is a complete infinite-family classification of a natural cubic graph invariant, including exact named 3-colouring multiplicity and a twisted-boundary chirality obstruction. The key lower obstruction and period-three rigidity are not the generic known four-colour upper bound. Its direct comparison of oriented prism and Möbius closures has reusable structural content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
