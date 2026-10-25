@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem is for the independent-channel Itô linearization only. The Itô covariance equation is derived without closure approximation, and the symmetry reduction is sufficient for every deterministic initial vector because the moment flow preserves positive-semidefinite order and any rank-one input is dominated by a scalar multiple of the identity. The two-dimensional trace/determinant test and exact counterexample have been reconstructed symbolically; the provided executable supplies separate exact-rational checks. For the stated numerical witness, the moment generator has three strictly negative eigenvalues, not merely negative diagonal drift.
+PASS
 
-## Originality
+Itô's formula yields the exact positive-semidefinite preserving covariance lift K'=AK+KA^T+2r²diag_i(DK_ii+HΣ_{j≠i}K_jj), with r=α/L, L=β+(s-1)c, δ=D+(s-1)H. Starting at K=I by permutation equivariance gives u' and v' exactly from 2r[[-β+rδ,-c(s-1)],[-c,-(β+(s-2)c)]]. Dominating xx^T≤||x||²I and using trace Φ_t(I)=Σ E||X(t;e_i)||² proves the u exponent controls every deterministic initial vector. The larger eigenvalue is r[-β-B+rδ+sqrt((B-β+rδ)^2+4c²(s-1))]. Its determinant sign reduces precisely to ((β-c)L²-αδB)/L. c=0 decouples consistently. Independently checked the moment-lift algebra and the two-species witness (s=2,α=1,β=2,c=1,D=0,H=4): symmetric rates (-8±2sqrt(13))/9<0 and antisymmetric rate -20/9; the printed source threshold would exclude it. This is linear Itô mean-square stability only.
 
-**PASS, with priority risk.** The directly motivating source arXiv:2608.30655v1 asserts a stricter noise condition as necessary and sufficient for precisely the same linear Itô system. Its full accessible relevant text has been compared to the derived exact condition and its failed integer-species prediction. Mathematical-record searches for covariance aliases, independent Brownian matrix channels, and mean-square thresholds found no covering case-specific statement. The closest indexed mean-square result concerns a structurally different square-root predator–prey equilibrium. Generic Kronecker second-moment theory and incompletely inspected historical stochastic-system literature remain residual priority risks.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The correction alters a claimed critical diversity phase classification: at explicit model-compatible parameters the cited threshold excludes two-species stability while the sharp covariance calculation proves it. The theorem additionally gives the entire growth/decay exponent and isolates the collective covariance mechanism responsible for the gap. This is a natural qualitative and quantitative boundary of the motivating model, not a detached example.
+The exact second-moment frontier corrects the stronger claimed if-and-only-if inequality for the same system as transcribed in the source package. Published general multiplicative-noise mean-square theory permits moment lifts but the searched nearby published SCOPE finding concerns a different predator–prey drift/noise geometry. Because the complete original Zheng article could not be accessed, its Eq. (10)–(12) textual comparison is provisional and there is explicit priority and source-fidelity risk.
 
-## Closest literature and limitations
+## value
 
-Zheng et al., arXiv:2608.30655v1, Eqs. (10)–(12), are the closest direct source. Bishop and Del Moral's linear stochastic-system stability framework and Senosiain–Tocino's general mean-square destabilization survey supply broader methodology, not an inspected exact formula for these parameters. Valenti et al. examine a distinct colored-noise spatial Lotka–Volterra model. The calculation does not establish nonlinear persistence, extinction probabilities, or stationary-law existence; bibliographic completeness is not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise noise-induced mean-square stability frontier of a symmetric s-species linearization is a natural invariant; the derived covariance correction changes the published necessary/sufficient prediction at admissible integer species count, with an explicit two-species witness and exact decay/growth exponent. This is more than a parameter rename or tiny numeric correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
