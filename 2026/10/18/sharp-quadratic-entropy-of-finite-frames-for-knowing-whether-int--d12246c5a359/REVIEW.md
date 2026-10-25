@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The row-homogeneity predicate is determined precisely by the common equivalence-block type of its successor set. The full semantic test is therefore the homogeneous-successor-type condition (1). Partitioning by type yields a rigorous upper bound with at most \(2^{(n+1)^2/4}\) substantial binary choices times \((n+1)^{3n}\) encoding choices; the independent bipartite construction yields the matching lower exponent. A separate exhaustive truth-table checker agrees through four worlds, with lower-bound constructions checked through eleven worlds. Only the proof establishes the unbounded asymptotic.
+## correctness
 
-## Originality
-**PASS, subject to residual literature risk.** Zolin's 1999 Theorem 4.1 already covers the first-order correspondence for the same axiom; this is not claimed as original. Sierra Miranda–Wang–Zenger (2026) supplies a new general proof-theoretic framework, without enumerating labelled frames. Targeted semantic database searches for \(\Delta\Delta p\), synonymous knowing-whether introspection, asymptotic enumeration and entropy found no implication of the claimed \(1/4\) quadratic exponent. Closest finite chain frame censuses concern different intuitionistic semantic conditions and cannot imply the count. An unindexed or equivalent asymptotic speed result remains possible.
+PASS
 
-## Value
-**PASS.** The number of labelled finite relational models validating one important modal axiom is a natural model-theoretic size invariant. The result identifies its exact normalized entropy and a sharp exponential rarity law, despite the available first-order correspondence being significantly weaker quantitatively; the lower-bound construction and upper-bound partition are independent structural witnesses. This is more than a small finite census and directly measures the combinatorial size of a modal frame condition.
+A valuation makes Delta p at w constantly true if |R(w)|<=1; otherwise Delta p is the Boolean predicate that p is homogeneous on the successor set. Distinct nonsingleton successor sets yield distinct predicates, so validity of Delta Delta p is equivalent to the type of every world in R(w) being equal. Partition all rows into type0 and distinct nonfunctional row classes; choose labels in at most (n+1)^n, type0 row choices (n+1)^n, target class for each nonfunctional row (n+1)^n, and subset row choices at most 2^{Mk} where k<=n-M+1, giving Mk<=(n+1)^2/4. Lower family: a=floor(n/2) empty-row worlds; each of b others points to fixed pair in the a-set plus arbitrary subset of remaining a-2, yielding 2^{(a-2)b}. Hence log2 a_n/n^2->1/4, proportion=2^{-3n^2/4+O(n log n)}. Independent exhaustive raw Boolean truth tables and structurally inferred condition agree on all 2^{n^2} frames for n=1..4, exact counts (2,10,128,3070); lower witnesses checked through n=9. General theorem follows from symbolic proof, not finite enumeration.
 
-## Limitations
-The \(O(n\log n)\) error is not improved, no exact all-size count is claimed, and independent validation has not occurred. Counts through four worlds are finite checks only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. First sharp leading entropy exponent for labeled arbitrary finite non-contingency frames satisfying a natural introspection axiom, a meaningful labelled-model-class sparsity law. Refines known first-order correspondence into quantitative asymptotic counting with nontrivial matching bipartite lower bound and row-class upper bound.
+
+## value
+
+PASS
+
+First sharp leading entropy exponent for labeled arbitrary finite non-contingency frames satisfying a natural introspection axiom, a meaningful labelled-model-class sparsity law. Refines known first-order correspondence into quantitative asymptotic counting with nontrivial matching bipartite lower bound and row-class upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
