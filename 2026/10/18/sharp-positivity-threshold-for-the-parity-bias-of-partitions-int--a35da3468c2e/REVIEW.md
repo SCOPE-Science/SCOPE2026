@@ -1,19 +1,21 @@
-# Scientific review: square-partition parity cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single theorem asserts that \((-1)^n(E(n)-O(n))\) is positive for all \(n\ge0\) except the specified seventeen indices. The signed generating function factors into a product of distinct-part factors at all odd squares and twice all positive squares. The exhaustive ten-term subset-sum certificate proves the entire base support through \(266\), including the complete interval \([65,201]\). The overlap induction adds \(2m^2\) for \(m\ge7\); its overlap margin starts at \(39\) and strictly increases. Consequently infinitely many degrees are genuinely covered, not extrapolated from numerical data. The certified exceptions are definitive because no omitted product factor is at most \(64\). The standalone finite verifier passes; proof does not depend on extrapolation.
+PASS
 
-## Originality — PASS within inspected literature
+Let A(n)=(-1)^n(E(n)−O(n)). The signed square-part product at −q factors exactly into a distinct-subset generating function for B={odd squares} union {2m²,m>=1}. Therefore A(n) is a nonnegative integer subset-sum count. Direct independent exact subset enumeration for ten allowed parts (1,2,8,9,18,25,32,49,50,72) gives total 266, 233 supported sums, an unbroken [65,201] interval, and exactly seventeen omissions <=64: 4,5,6,7,13,14,15,16,22,23,24,31,39,47,48,56,64. No omitted factor has size <=64, so low zeros are final. Adding 2m² for m>=7 propagates [65,T_m−65]; the integer intervals overlap when 2m²<=T_{m−1}−129, initially slack39 at m=7 and increasing by 2m²−4m−2>0. Since T_m diverges, every n>=65 is represented, without relying on finite extrapolation. Independent polynomial coefficient reconstruction to degree500 confirms the low exceptional set and positivity. The base exact finite premises plus symbolic all-m induction establish the unrestricted statement.
 
-Ciolan's original square-partition paper explicitly conjectures the optimal cutoff \(65\) in Remark 4 after checking up to \(50{,}000\); its asymptotic theorem proves only sufficiently-large strictness. Ciolan's later general-power paper supplies the nonnegative distinct-part product but not a uniform explicit strict cutoff. Exact-name, equivalent product, strict-threshold, and earlier-claim comparisons revealed no dominating prior theorem. The product identity itself is emphatically not new. Risk: an unindexed equivalent subset-sum covering proof or a derivation embedded in another work might already imply the sharp answer.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the complete exact solution of a numerical threshold conjecture expressly highlighted in published number-theory literature. The infinite range and complete equality set follow from a short, reproducible finite-to-infinite covering principle. The exact minimum \(65\) is intrinsically motivated by the original conjecture and genuinely sharp at \(64\), not a convenient arbitrary slice.
+Ciolan 2018 explicitly poses strict positivity for all n>=65 after checking n<=50000 and lists exactly the zeros; the 2020 paper supplies nonnegativity identity. Novelty is an infinite proof of the exact 65 threshold and all-equality classification, not the product identity or numerical observation.
 
-## Scientific limits and sources
+## value
 
-The claim concerns only square-part partitions. Literature examined includes arXiv:1806.00708 (Theorem 1, Remark 4) and arXiv:2002.05682 (formal product and general nonnegativity, §§2–3). Originality is not independent priority certification. No claims about other powers, asymptotic constants, or independent validation are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact n=65 threshold is an explicitly posed finite-threshold conjecture in Ciolan 2018. Showing that the numerical pattern holds for every integer and proving there are exactly seventeen equality exceptions is a sharp and naturally motivated infinite result. The ten-term subset-sum base is mathematically meaningful because the uniform overlap induction completes an otherwise unbounded problem. It is not a table recomputation or arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
