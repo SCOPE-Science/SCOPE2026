@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact face decomposition distinguishes zero, one, and two common endpoints. The inclusion of the connected complete-bipartite graph into a join of connected one-skeleta is nullhomotopic because the latter is simply connected. Two mapping-cone splittings and one path-connecting one-cell give the claimed wedge. The complete graphs' graph-cycle ranks determine the remaining sphere multiplicities. The universal integral homotopy proof does not infer wedge structure from finite Betti data. All boundary parameters are included. The independent adjacency-based enumeration and mod-two chain checker passed 25 cases, 4,875 total faces.
+
+**Originality — PASS under inspected-source coverage; residual bibliographic risk remains.** The motivating 2026 paper establishes shellability for diamond-free chordal graphs and a one-vertex clique-attachment criterion. A pair of cliques sharing an edge violates the former hypothesis and is not the latter construction; its full text supplies no equivalent integral homotopy classification. Searches of related recorded results and the wider literature under clique-free, triangle-avoidance, hypergraph-independence, and edge-clique-sum terminology found no statement entailing the three sphere multiplicities. A missing unindexed equivalent remains possible; failure to find one is not a proof of priority.
+
+**Mathematical value — PASS.** The result fills a motivated structural boundary: the smallest positive-dimensional overlap of maximal cliques outside the block-graph/diamond-free setting. It gives an all-parameter mixed-dimensional integral homotopy classification, a stable essential first-homology class, and two nontrivial higher-dimensional multiplicity families. This information is not determined by known shellability assertions or Euler characteristics, and does not require a speculative downstream application.
+
+Scientific limitations: only the fixed three-clique-free functor and a two-clique edge-sum are treated. The topological pushout identities are standard; the new object-specific full classification is the contribution. Independent auditing and exhaustive bibliographic priority determination remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
