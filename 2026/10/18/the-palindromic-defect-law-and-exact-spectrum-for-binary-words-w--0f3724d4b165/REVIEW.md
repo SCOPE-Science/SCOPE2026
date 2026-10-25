@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four zero-run parameters are unique and nonnegative. The proof explicitly enumerates all palindrome types by how many ones they contain, handles coincident and unequal interior gaps, and checks all three boundary cases in the unequal-gap identity (with reversal covering the remaining orientation). Formal geometric-series sums then prove the entire bivariate defect enumerator. Standalone centre-expansion enumeration corroborates all three-one words through length \(34\), and exact coefficient summations through length \(500\). Finite checks do not establish the unrestricted theorem by themselves.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Compared to the foundational rich-word criteria of Glen et al. (arXiv:0801.1656), Guo–Shallit–Shur's unrestricted growth bounds and run-length sufficient class (arXiv:1503.09112, Section 4), Rukavicka's general subexponential bound (arXiv:1701.07778), the Pelantová–Starosta qualitative binary zero-defect criterion (arXiv:1708.06911, Corollary 13), and Fici's known shortest non-rich example (arXiv:2412.21145, Section 2), no inspected statement provides the exact defect for every three-one word or the all-defect rational bivariate spectrum. Database and equivalent-form searches located no covering formula; this is not proof of uniqueness. A general qualitative richness criterion can imply zero-versus-nonzero by additional specialization but does not determine defect magnitude, exact stratum counts, or asymptotic density. Priority remains uncertain without an independent search.
+PASS
 
-**Value — PASS.** The first non-rich binary words have three ones, making this the least sparse nontrivial Hamming layer. A complete exact palindromic-defect classification resolves both the membership and magnitude questions for an infinite, naturally selected family, gives an explicit bivariate rational series, and determines a nontrivial limiting rich fraction of \(5/6\). This is not merely one more finite count or an isolated small-word counterexample.
+PASS: Counted distinct palindromic factors by exact number of 1s (zero, one, two, three) in 0^a 1 0^b 1 0^c 1 0^d. For b!=c the two two-one palindrome families are disjoint and no three-one palindrome exists, yielding D=max(0,min(a,d)-max(b,c)); for b=c the reflected three-one family restores richness. Positive defect r requires b=m>c=j (or reversed), a=m+r+s,d=m+r+t with min(s,t)=0; summing m,j,s,t gives H_r(z)=2z^(2r+6)(1+z)/[(1-z)(1-z^3)(1-z^4)]. Summing strata gives the displayed rational bivariate series and rich density 5/6. Independently generated all three-one strings n=3..20, enumerated distinct palindromic factors by brute substrings and checked each defect plus nonrich counts. All-n theorem comes from factor classification and formal identities, not the finite tests.
 
-**Limits.** Linear binary factors; exactly three ones. General palindromic defect in arbitrary weight, unrestricted rich-word enumeration, and absolute bibliographic priority are not resolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the precisely scoped new theorem, after direct mathematical implication comparisons with established results. No identified covering theorem after Resultary and primary-source review. The listed inaccessible/partial literature is a residual risk, not proof of priority.
+
+## value
+
+PASS
+
+PASS: Exactly three 1s is the first binary weight at which richness fails, so the layer has an intrinsic extremal motivation; the complete defect classification, all positive strata and rational generating function describe a natural first nontrivial layer and recover the 5/6 density. This is not arbitrary fixed-instance enumeration or merely the known shortest non-rich word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
