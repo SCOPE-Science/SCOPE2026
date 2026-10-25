@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise sampling law is independent planar-area uniformity. Dirichlet barycentric integrals produce exact rational polynomial moment identities through order six. Their third moment has a nonzero coefficient \(1/210\) on the squared-side product, giving an invertible triangular system for three elementary symmetric functions. Reconstruction from the monic cubic, the strict triangle inequalities, and the explicit two-moment counterexample complete the proof. The standalone exact-rational checker verifies all coefficients; reproducible Monte Carlo comparisons provide auxiliary evidence only.
+PASS
 
-## Originality — PASS (subject to historical priority)
+Represent the random points by independent Dirichlet(1,1,1) barycentric coordinates. For squared sides p,q,r, D²=pB²+(p+q−r)BC+qC². Exact moments E[U1^i U2^j]=2i!j!/(i+j+2)! give M1=e1/18, M2=(e1²−2e2)/60, M3=23e1³/4200−31e1e2/2100+e3/210. Independently expanded the Dirichlet double sums symbolically for k=1,2,3, all polynomial differences identically zero. The nonzero e3 coefficient gives unique inversion and side polynomial, with strict triangle inequalities necessary and sufficient. Squared sides {1,4,4} and {2,2,5} share e1=9,e2=24 and area √15/4 yet have distinct e3, proving two moments insufficient. Forward sampling and exact population moments are expressly distinguished.
 
-The full 2013 and 2016 forward-distribution preprints of Tong and collaborators were inspected, including their methodological results and conclusions. They determine distributions for known triangles or polygons, but no finite-moment inverse or minimal cutoff is presented. The first squared-distance moment and the general ability to integrate the forward law are prior art, not part of the novelty claim. The inverse recovers the squared-side polynomial using exactly three even moments; an explicit pair proves two fail. Some older inverse-probability or random-distance literature may contain an equivalent formulation, and definitive historical priority is not established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The measurement is natural in stochastic geometry: unlabeled distances between independent uniform points. Recovering the complete triangle congruence class from exactly three low moments is a motivated sharp inverse statement, with an explicit realizability criterion and a two-moment area invariant. The result replaces a full distributional inversion with a finite algebraic procedure; it is not merely an unrelated numerical identity.
+Best-of-knowledge PASS for a sharp low-even-moment inverse and realization test. The first squared-distance moment and full forward random-distance distributions are known, and thus not claimed as original. Having an integrable forward CDF implies moments in principle, but does not itself state an explicit three-moment inverse or minimality.
 
-## Limitations
+## value
 
-Exact population moments, Euclidean triangles, and area-uniform independent points are essential. No finite-sample stability theorem and no general polygon extension are claimed. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural unlabeled stochastic-geometry measurement: distance between two area-uniform points. Determining complete triangle shape from exactly three low population moments, with explicit feasibility polynomial and two-moment same-area counterexample, gives a sharp and reusable finite algebraic inverse rather than a mere calculation of another forward moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
