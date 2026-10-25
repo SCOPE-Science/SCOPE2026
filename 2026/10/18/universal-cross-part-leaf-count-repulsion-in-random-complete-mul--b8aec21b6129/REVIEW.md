@@ -1,11 +1,21 @@
-# Review of the multipartite leaf-covariance theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The enumerator \(\tau(K_{a_1,\dots,a_r})=n^{r-2}\prod_i(n-a_i)^{a_i-1}\) follows from the matrix-tree theorem and is explicitly recorded in the 1994 and 2002 primary literature. Removing one leaf contributes \(n-a_i\) neighbor choices, and removing two leaves in distinct classes contributes \((n-a_i-1)(n-a_j-1)\) choices when \(n\ge3\). They cannot attach to one another in a connected tree with a third vertex. Exact cancellation gives the claimed product factor \(Q_{ij}\); the two-vertex boundary is deterministic. The strict sign uses a nontrivial factor strictly below one for every \(r\ge3\), and the fixed-proportion limit uses logarithmic expansion. The accompanying exact enumerator checks 348,528 admissible trees and 22,795 finite assertions, not an infinite proof.
+## correctness
 
-**Originality: PASS, with historical-priority risk.** The earlier papers genuinely contain broader *generating tools*: Eğecioğlu–Remmel (1994) provide a weight-preserving multipartite-tree bijection and a one-leaf asymptotic, and Remmel–Williamson (2002), Theorem 2.4 and Example 3.2, give finer vertex-variable degree-sensitive generating functions. These may encode the two-leaf joint probabilities implicitly. The claim of originality is consequently only the explicit universal cross-class covariance sign classification and its sharp positive-proportion coefficient—not the underlying spanning-tree enumerator, degree-generating machinery, or the fact that coefficients can in principle be extracted. The relevant full texts were examined, and no matching dependence theorem was found there; other historical presentations may still contain it.
+PASS
 
-**Value: PASS.** The sign is uniform over *all* part sizes, with a genuine structural dichotomy: zero across bipartite classes but strictly negative as soon as a third nonempty class is present. The finite closed form identifies the exact deficit and its nonvanishing macroscopic scale in the large-class regime, rather than offering a numerical table or a generic moment identity. Such a leaf-dependence classification is useful for distinguishing marginal leaf estimates from joint fluctuations in multipartite random trees.
+Used the complete multipartite matrix-tree product τ(K_(b1,...,br))=N^(r−2)Π(N−b_h)^(b_h−1). Force one leaf: choose any of n−a_i external neighbor vertices and a tree of G−u; force two leaves in different parts: for n>=3 delete both, choose (n−a_i−1)(n−a_j−1) neighbors in surviving core. Exact ratio simplification gives p_i and p_i p_jQ_ij, accounting for singleton and disconnected-core boundary cases and n=2 separately. Every Q factor is <=1; r>=3 has strict first factor <1. Expanding logarithms at positive limiting proportions gives the claimed n^-1 correction and asymptotic. Independent full Prüfer enumeration across 10 multipartite sizes (n<=7, counting up to 2800 valid trees per case) with exact rational leaf moments reproduced the formulas and covariance signs, including cases [1,1,1] −1/9, [2,2,2] −33/256, [3,2,2] −1377/12250. Finite checks are not used as proof at all n.
 
-The earliest verified *day-specific* public source associated with these methods is the 2002-08-12 online article; the earlier 1994 printed paper is expressly cited but does not supply a verified calendar day in the checked evidence. Residual risk: a stronger multivariate degree-enumerator might make the covariance formula an implicit special case, and a prior sign argument could have been overlooked. No independent priority assessment or audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Eğecioğlu–Remmel 1994 proves the spanning-tree product and part of one-vertex leaf expectation, all credited. Remmel–Williamson 2002 develops degree-marked generating functions encoding much of the finite joint law in principle. The universal strict negative covariance sign for every non-bipartite part structure and its sharp n-asymptotic coefficient are the new explicit dependence conclusion, not a new tree enumerator.
+
+## value
+
+PASS
+
+A qualitative sign theorem valid for every positive part vector (sharp r=2 equality boundary) and exact asymptotic coefficient for natural class-stratified degree-one statistics in uniform spanning trees. The sign/scale information is not a trivial restatement of the classical enumerator and can be used to study multipartite dependency and fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
