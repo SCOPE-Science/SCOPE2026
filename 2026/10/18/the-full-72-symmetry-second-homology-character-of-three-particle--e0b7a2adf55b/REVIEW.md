@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact 15-vertex, 18-edge once-subdivided graph yields 455, 1404, 1386 and 432 cubical generators. The standalone verifier reconstructs the actual boundary columns, checks both consecutive compositions zero, and computes ranks 454 and 432 modulo two and 946 modulo three. These are **lower bounds** for rational ranks, not incorrectly interpreted as automatic equalities: augmentation and column counts force equality for the outer maps, and four explicitly parked-particle square loops surject to the rank-four cycle space of the original graph, forcing the middle upper bound 946. This proves rational Betti vector (1,4,8,0). The equivariant Lefschetz computation uses signed cube orientations for all 72 automorphisms and the independently justified first-homology identification, hence determines the exact nine-class second-homology character. Exact inner products with the full nine-character irreducible list prove the decomposition. Risk: no independent external computation has reviewed the implementation; inputs and mathematical rank arguments are included for independent reproduction.
+## correctness
 
-## Originality — PASS
-The closest same-object primary source, Maciążek–Sawicki (2019), Section 5.5, derives the rank eight from 12 product cycles but does not supply the 72-element graph-automorphism character or rational irreducible decomposition. Abrams/Prue–Scrimshaw give the general finite-model theorem. Ramos–He Yun (2026) studies complete-bipartite graph stable representations for two particles; the reported three-particle work concerns complete graphs. Searches of named objects, synonyms and equivalent character/decomposition statements found no same-claim result. The published product-cycle presentation could potentially facilitate a different derivation, but the specific signed quotient action and final decomposition require work absent from its stated results. Residual risk: unindexed or unpublished equivariant computations could coincide, and a complete independent bibliographic audit is not available.
+PASS
 
-## Mathematical value — PASS
-Graph configuration spaces and their symmetry representations are natural invariants in topological graph-braid research. This identifies the entire symmetry action on the first nontrivial higher homology for the minimal nonplanar complete bipartite graph. Two irreducible four-dimensional modules, nine exact class values, and vanishing invariant space distinguish information not inferable from the already known rank eight. The object and exact invariant are canonical, rather than an arbitrary computational slice; no infinite-family generalization is claimed or needed.
+Independently reconstructed a once-subdivided K3,3 with 15 vertices,18 edges and the unordered three-particle cubical complex with chain ranks (455,1404,1386,432); rebuilt every signed cubical differential and verified ∂²=0. Independently sparse-eliminated ranks 454 mod2 for ∂1, 946 mod3 for ∂2, 432 mod2 for ∂3. These yield only rational lower bounds; the augmentation bound on ∂1, full-domain bound on ∂3 and four independent square total-motion cycles of the original graph with two parked particles give rational upper bounds, forcing exact ranks and Betti (1,4,8,0). Independently enumerated all 72 oriented cubical symmetry actions: χ2(p,q,0)=v(p)v(q)+sgn(p)v(q)+v(p)sgn(q), χ2(p,q,1)=-v(pq), v(p)=fix(p)-1; nine conjugacy class sizes/traces (1,8),(6,-2),(4,-1),(9,0),(12,1),(4,-1),(6,-2),(18,0),(12,1). Standard S3≀C2 character inner products give irreducible 4D V_- plus induced 4D sign⊠V with no full-group invariants. Abrams sufficient-subdivision hypotheses hold (essential graph distances 2, essential loops length≥8), making cubical result topologically natural under automorphisms.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original full rational 72-element character and absolutely irreducible 4+4 decomposition of H2 of three unordered particles on K3,3. The complete nonequivariant rank 8 and product-cycle generators were already published and are not claimed as new. Natural cubical models likewise preexist.
+
+## value
+
+PASS
+
+Graph braid homology rank alone cannot recover a nontrivial symmetry representation. The complete module determines fixed classes under every subgroup and distinguishes the two absolutely irreducible 4D types, giving a natural exact topological symmetry invariant for a fundamental nonplanar graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
