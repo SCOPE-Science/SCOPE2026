@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:03:52.940292Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259/RESULT.md Git blob dd616bd7b14e6e1c2b6d5ed0b082ca0314fdf4ce",
+        "2026/10/18/spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259/VERIFY.py Git blob 4a2f9c89ccbb0bbbb9091c584bdc335e83dca487"
+      ],
+      "evidence": [
+        "Pinned RESULT.md blob dd616bd7b14e6e1c2b6d5ed0b082ca0314fdf4ce, posterior eigenbasis, Gaussian expansion, Euler–Maclaurin and binomial telescope; inspected VERIFY.py blob 4a2f9c89ccbb0bbbb9091c584bdc335e83dca487",
+        "Independent exact rational power trace s=1,2 for A=3 through n=23 and numerical d=2 asymptotics n=10000,40000,100000; residuals 1.8883e-5,4.7212e-6,1.8885e-6.",
+        "Known degree-j eigenvalues described by Berdysheva–Jetter §3.2.2 are explicitly treated as prior; analytic Gaussian summation supplies new trace step."
+      ],
+      "rationale": "Using Dirichlet posterior moments, the operator preserves polynomial degree, is selfadjoint for its actual weighted measure, and acts on top degree j by lambda_(n,j)=∏_{r=0}^{j-1}(n-r)/(n+A+r). Orthogonalized degree-j subspaces therefore carry this eigenvalue with dimension binom(j+d-1,d-1), yielding exact power trace over 0≤j≤n for every s>0, independent of individual shapes θ_i except A=Σθ_i. On j=t√n, a log-product expansion gives -t²-(A-1)t/√n+(A t²/2-t⁴/6)/n plus controlled remainder; Gaussian domination and exponentially small tails beyond j>n^(1/2+1/32) justify termwise summation, and polynomial multiplicities yield n^(d/2) and n^((d-1)/2) coefficients. Gaussian integrals give second coefficient (d+1-A)Γ((d-1)/2)/(4(d-2)!s^((d-1)/2)), cancelling iff A=d+1. For d=2, explicit h² correction plus two half-line Euler–Maclaurin endpoint terms yields (3A²-12A+14)/12 + A/(4s)-1/(6s²). At A=3, the λ product is a central binomial ratio and telescopes at s=1,2 to (n+2)/2 and (n+2)²/[4(n+1)]. Independently calculated exact rational traces for all n=1..23 and triangle asymptotic residuals at n=10k/40k/100k decreasing like O(1/n) in tested critical case, but analytic tail bounds establish the infinite limit.",
+      "residual_risks": [
+        "Theorem requires fixed d≥2, positive θ_i and s>0; no uniform d-growing or negative s conclusions.",
+        "A reproducibility wrinkle: the packaged VERIFY.py imports numpy, and its finite tests are corroboration, not the proof of asymptotic remainder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 2010 abstract advertises complete fixed-function operator asymptotics, not confirmed uniform in polynomial rank.",
+          "2025 composition-kernel theorem applies to finite composition powers but does not state arbitrary real spectral-power traces."
+        ],
+        "reasoning": "The fixed-function or finite composition results can coexist with this growing-rank result; no confirmed stronger coverage. Do not infer a missing full paper has no result.",
+        "searches": [
+          "Resultary searches: Dirichlet Bernstein Durrmeyer simplex spectral powers trace asymptotics eigenvalues Gaussian rank cancellation; Bernstein Durrmeyer spectral power trace heat trace Dirichlet simplex second asymptotic",
+          "Abel–Berdysheva DOI:10.1016/j.jat.2009.04.004",
+          "Abel et al. arXiv:2512.17297"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches: Dirichlet Bernstein Durrmeyer simplex spectral powers trace asymptotics eigenvalues Gaussian rank cancellation; Bernstein Durrmeyer spectral power trace heat trace Dirichlet simplex second asymptotic",
+        "Berdysheva–Jetter, DOI:10.1016/j.jat.2009.11.005",
+        "Abel–Berdysheva, DOI:10.1016/j.jat.2009.04.004",
+        "arXiv:2512.17297 (Abel/Acu/Heilmann/Raşa)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eigenspace formulas imply T_n(s) as a finite sum, but neither a two-term large-n asymptotic with controlled uniform remainder nor d=2 order-one coefficient as an immediate quoted prior consequence.",
+          "Abel–Berdysheva full text unavailable; no negative whole-document claim is made."
+        ],
+        "reasoning": "The asymptotics are derivable with a nontrivial Gaussian window and Euler–Maclaurin calculation, not just renaming a known eigenvalue; historical novelty remains qualified by full-text access limits.",
+        "searches": [
+          "Berdysheva–Jetter 2010 §3.2.2",
+          "Abel–Berdysheva 2010 abstract",
+          "Resultary searches: Dirichlet Bernstein Durrmeyer simplex spectral powers trace asymptotics eigenvalues Gaussian rank cancellation; Bernstein Durrmeyer spectral power trace heat trace Dirichlet simplex second asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quantity is a spectral power sum (trace of finite Bernstein–Durrmeyer kernel), i.e. a heat/zeta-type trace, not fixed-function approximation bias.",
+          "The known lambda_(n,j) formula alone permits computation of T_n(s), but its multi-term uniform growth coefficients require a global summation and are not a finite table."
+        ],
+        "reasoning": "Checked exact eigenvalue product, heat-like trace alias, and differential approximation expansion. No direct identical trace coefficient is established in accessed texts; inaccessible close primary remains risk.",
+        "searches": [
+          "Resultary searches: Dirichlet Bernstein Durrmeyer simplex spectral powers trace asymptotics eigenvalues Gaussian rank cancellation; Bernstein Durrmeyer spectral power trace heat trace Dirichlet simplex second asymptotic",
+          "Berdysheva–Jetter DOI:10.1016/j.jat.2009.11.005",
+          "Abel–Berdysheva DOI:10.1016/j.jat.2009.04.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full finite spectrum is known and acknowledged; the exact A=3 s=1,2 trace formulas are telescoping special cases, not the sole novelty."
+        ],
+        "reasoning": "Novel value lies in all-real-s family of asymptotic coefficients/cancellation beyond known finite spectrum or table of eigenvalues.",
+        "searches": [
+          "Resultary searches: Dirichlet Bernstein Durrmeyer simplex spectral powers trace asymptotics eigenvalues Gaussian rank cancellation; Bernstein Durrmeyer spectral power trace heat trace Dirichlet simplex second asymptotic",
+          "Berdysheva–Jetter 2010 §3.2.2"
+        ]
+      },
+      "rationale": "Finite Bernstein–Durrmeyer eigenvalues and multiplicities are established prior art; fixed-function multivariate operator asymptotics and finite composition kernel formulas do not automatically determine traces over a growing number of polynomial eigenspaces for arbitrary real positive s. Independent searches found no direct theorem giving the n^((d-1)/2) cancellation hyperplane and d=2 constant. Abel–Berdysheva (2010) is a highly plausible full-text inaccessible source (authorized Oxford VPN disconnected), so this is a best-of-knowledge PASS with explicit substantial historical priority risk rather than an assertion that the inaccessible whole paper is negative.",
+      "residual_risks": [
+        "Closely related Abel–Berdysheva (2010) full text unavailable via arXiv/lawful OA and authorized institutional access blocked by disconnected Oxford VPN (job 44c02e6e5c8011c6370a4c78de1d3704); potential equivalent trace result is unexcluded.",
+        "Other historical heat-trace/zeta-operator formulations may not be indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS finite eigenvalues/multiplicities used as known, not verified to cover spectral-power growing-rank trace expansion",
+          "evidence": "Established eigenvalues lambda_n,j and degree multiplicities; present claim uses them for a different asymptotic.",
+          "identifier_or_url": "Berdysheva–Jetter, DOI:10.1016/j.jat.2009.11.005",
+          "material_read": "Read abstract and bibliographic exposition including §3.2.2 spectral formula reported by paper; publisher full text not obtained",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions",
+          "trigger": "Same Dirichlet simplex eigenvalues"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE, not pronounced whole-document NOT_COVERING; explicit residual priority risk",
+          "evidence": "Publisher summary advertises complete fixed-function approximation expansion and eigenvalue identities, not identified trace-power coefficient. Oxford response vpn_disconnected, job 44c02e6e5c8011c6370a4c78de1d3704.",
+          "identifier_or_url": "Abel–Berdysheva, DOI:10.1016/j.jat.2009.04.004",
+          "material_read": "Read scholarly abstracts/search snippets describing fixed-function differential-operator asymptotics; no full text after lawful OA/arXiv attempt; authorized Oxford requested but VPN disconnected",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Complete asymptotic expansion for multivariate Bernstein–Durrmeyer operators and quasi-interpolants",
+          "trigger": "Plausibly overlapping title and operator; full text important"
+        },
+        {
+          "assessment": "NOT_COVERING claimed all-real-power two-term trace asymptotic or d=2 constant, though potentially useful for special powers",
+          "evidence": "Theorem 3 gives composition-kernel identity, not T_n(s) as n→∞",
+          "identifier_or_url": "arXiv:2512.17297 (Abel/Acu/Heilmann/Raşa)",
+          "material_read": "Read arXiv text and summary of Theorem 3; finite composition kernel, rather than asymptotic all-real spectral powers",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "A representation for the integral kernel of the composition of multivariate Bernstein–Durrmeyer operators",
+          "trigger": "Composition powers potentially imply integer trace formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259/RESULT.md Git blob dd616bd7b14e6e1c2b6d5ed0b082ca0314fdf4ce",
+        "2026/10/18/spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259/VERIFY.py Git blob 4a2f9c89ccbb0bbbb9091c584bdc335e83dca487",
+        "Resultary searches: Dirichlet Bernstein Durrmeyer simplex spectral powers trace asymptotics eigenvalues Gaussian rank cancellation; Bernstein Durrmeyer spectral power trace heat trace Dirichlet simplex second asymptotic"
+      ],
+      "evidence": [
+        "Critical shape hyperplane A=d+1 is the natural normalized Lebesgue case and cancels an entire growth order in all fixed dimensions.",
+        "The explicit d=2 constant and exact traces connect global asymptotics with finite binomial identities."
+      ],
+      "rationale": "Growing-rank spectral trace of a natural positive simplex averaging operator probes global spectral concentration, unlike fixed-function approximation estimates. The dimension-uniform cancellation precisely at total Dirichlet shape A=d+1 identifies a sharp structural critical surface, with an explicit all-real-power triangle order-one invariant and exact s=1,2 checks. The invariant is motivated by spectral statistics and critical Lebesgue shape rather than arbitrary coefficient bookkeeping.",
+      "residual_risks": [
+        "Known spectral decomposition makes leading-term estimation accessible; significance rests on accurately controlled second term and cancellation, not novelty of λ itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The explicit multinomial–Dirichlet posterior moment shows that the polynomial-degree quotient action is scalar, while symmetry of the integral kernel upgrades it to orthogonal eigenspaces with known multiplicities. The proof then controls all spectral degrees by a Gaussian majorant and applies Euler–Maclaurin at a fixed dimension; the dimension-two constant includes both required boundary terms. The critical exact first and second traces follow by separate telescoping binomial identities. The accompanying checker executed 148 independent checks, including genuinely separate Gram-matrix diagonalization. These finite tests verify formulas but are not used as infinite proofs.
+PASS
 
-## Originality
+Using Dirichlet posterior moments, the operator preserves polynomial degree, is selfadjoint for its actual weighted measure, and acts on top degree j by lambda_(n,j)=∏_{r=0}^{j-1}(n-r)/(n+A+r). Orthogonalized degree-j subspaces therefore carry this eigenvalue with dimension binom(j+d-1,d-1), yielding exact power trace over 0≤j≤n for every s>0, independent of individual shapes θ_i except A=Σθ_i. On j=t√n, a log-product expansion gives -t²-(A-1)t/√n+(A t²/2-t⁴/6)/n plus controlled remainder; Gaussian domination and exponentially small tails beyond j>n^(1/2+1/32) justify termwise summation, and polynomial multiplicities yield n^(d/2) and n^((d-1)/2) coefficients. Gaussian integrals give second coefficient (d+1-A)Γ((d-1)/2)/(4(d-2)!s^((d-1)/2)), cancelling iff A=d+1. For d=2, explicit h² correction plus two half-line Euler–Maclaurin endpoint terms yields (3A²-12A+14)/12 + A/(4s)-1/(6s²). At A=3, the λ product is a central binomial ratio and telescopes at s=1,2 to (n+2)/2 and (n+2)²/[4(n+1)]. Independently calculated exact rational traces for all n=1..23 and triangle asymptotic residuals at n=10k/40k/100k decreasing like O(1/n) in tested critical case, but analytic tail bounds establish the infinite limit.
 
-PASS, subject to acknowledged archival priority uncertainty. Berdysheva–Jetter's simplex spectral theorem gives exact eigenvalues and multiplicities, not the large-degree trace formula with critical cancellation. Wang–Yang–Duan (2011) proves approximation rates rather than spectral-power traces. Abel–Berdysheva (2010) develops fixed-function asymptotic expansions with eigenvalue identities, but its complete text was inaccessible and therefore remains a specific comparison risk. Abel–Acu–Heilmann–Raşa (2025) provides finite composition kernels, which may subsume elementary finite identities at integer powers but do not state or immediately imply the uniform all-real-power trace asymptotics without further summation analysis. None of the accessible compared statements dominates the primary asymptotic claim. An unindexed equivalent theorem remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. Traces of positive powers measure the effective spectral rank of a classical family of simplex approximation operators. The shape-blind dependence on total Dirichlet mass, the exact all-dimensional criterion for disappearance of the nominal second term, and the finite order-one triangular correction provide an interpretable spectral distinction from one-dimensional behavior. The exact low-power identities provide non-asymptotic benchmarks. The value attaches to the combined trace law and cancellation, not to re-deriving the classical eigenvalues or performing an arbitrary finite census.
+Finite Bernstein–Durrmeyer eigenvalues and multiplicities are established prior art; fixed-function multivariate operator asymptotics and finite composition kernel formulas do not automatically determine traces over a growing number of polynomial eigenspaces for arbitrary real positive s. Independent searches found no direct theorem giving the n^((d-1)/2) cancellation hyperplane and d=2 constant. Abel–Berdysheva (2010) is a highly plausible full-text inaccessible source (authorized Oxford VPN disconnected), so this is a best-of-knowledge PASS with explicit substantial historical priority risk rather than an assertion that the inaccessible whole paper is negative.
 
-## Limitations
+## value
 
-Fixed dimension, fixed strictly positive shape and power; no negative powers or non-Dirichlet measures. Inaccessible full text of the closest 2010 differential-asymptotic study and unindexed equivalent literature remain priority risks. Independent mathematical and literature audit are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Growing-rank spectral trace of a natural positive simplex averaging operator probes global spectral concentration, unlike fixed-function approximation estimates. The dimension-uniform cancellation precisely at total Dirichlet shape A=d+1 identifies a sharp structural critical surface, with an explicit all-real-power triangle order-one invariant and exact s=1,2 checks. The invariant is motivated by spectral statistics and critical Lebesgue shape rather than arbitrary coefficient bookkeeping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

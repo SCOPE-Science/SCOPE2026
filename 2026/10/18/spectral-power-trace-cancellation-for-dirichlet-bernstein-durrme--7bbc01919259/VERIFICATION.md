@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The packaged `VERIFY.py` is a standalone Python program using the standard library and NumPy. Execute it with `python VERIFY.py`. Its successful run prints `VERIFIED 148 independent checks: Gram spectra, rational traces, asymptotic refinements`.
+## correctness
 
-It builds finite Dirichlet-weighted Bernstein Gram matrices from gamma integrals, computes the eigenvalues numerically, and compares them to the closed-form polynomial-degree spectrum for dimensions two through four and several unequal Dirichlet shape vectors. It independently computes the power-one and power-two triangle traces with exact rational arithmetic and tests the asymptotic formulas for multiple real powers and triangle and higher-dimensional weights.
+PASS
 
-The checker is not an exhaustive certificate for arbitrary dimension, power, or shape. In particular, testing finitely many degrees cannot establish the asymptotic expansion. The proof in `RESULT.md` supplies the analytic Gaussian tail control, local product expansion, and boundary-correct Euler–Maclaurin calculation needed for the infinite statement. The novelty assessment is based on compared published statements and remains subject to historical full-text access limitations. No independent audit has been performed.
+Using Dirichlet posterior moments, the operator preserves polynomial degree, is selfadjoint for its actual weighted measure, and acts on top degree j by lambda_(n,j)=∏_{r=0}^{j-1}(n-r)/(n+A+r). Orthogonalized degree-j subspaces therefore carry this eigenvalue with dimension binom(j+d-1,d-1), yielding exact power trace over 0≤j≤n for every s>0, independent of individual shapes θ_i except A=Σθ_i. On j=t√n, a log-product expansion gives -t²-(A-1)t/√n+(A t²/2-t⁴/6)/n plus controlled remainder; Gaussian domination and exponentially small tails beyond j>n^(1/2+1/32) justify termwise summation, and polynomial multiplicities yield n^(d/2) and n^((d-1)/2) coefficients. Gaussian integrals give second coefficient (d+1-A)Γ((d-1)/2)/(4(d-2)!s^((d-1)/2)), cancelling iff A=d+1. For d=2, explicit h² correction plus two half-line Euler–Maclaurin endpoint terms yields (3A²-12A+14)/12 + A/(4s)-1/(6s²). At A=3, the λ product is a central binomial ratio and telescopes at s=1,2 to (n+2)/2 and (n+2)²/[4(n+1)]. Independently calculated exact rational traces for all n=1..23 and triangle asymptotic residuals at n=10k/40k/100k decreasing like O(1/n) in tested critical case, but analytic tail bounds establish the infinite limit.
+
+## originality
+
+PASS
+
+Finite Bernstein–Durrmeyer eigenvalues and multiplicities are established prior art; fixed-function multivariate operator asymptotics and finite composition kernel formulas do not automatically determine traces over a growing number of polynomial eigenspaces for arbitrary real positive s. Independent searches found no direct theorem giving the n^((d-1)/2) cancellation hyperplane and d=2 constant. Abel–Berdysheva (2010) is a highly plausible full-text inaccessible source (authorized Oxford VPN disconnected), so this is a best-of-knowledge PASS with explicit substantial historical priority risk rather than an assertion that the inaccessible whole paper is negative.
+
+## value
+
+PASS
+
+Growing-rank spectral trace of a natural positive simplex averaging operator probes global spectral concentration, unlike fixed-function approximation estimates. The dimension-uniform cancellation precisely at total Dirichlet shape A=d+1 identifies a sharp structural critical surface, with an explicit all-real-power triangle order-one invariant and exact s=1,2 checks. The invariant is motivated by spectral statistics and critical Lebesgue shape rather than arbitrary coefficient bookkeeping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
