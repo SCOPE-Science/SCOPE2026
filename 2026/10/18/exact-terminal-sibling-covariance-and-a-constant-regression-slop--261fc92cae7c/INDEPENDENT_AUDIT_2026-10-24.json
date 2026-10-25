@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:00:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rooted uniform recursive attachment P_t uniform in {1,...,t-1}, terminal means no children (root excluded). For an old nonroot terminal indicator I_v and parent terminal-child counts ell_v, the exact increments are Delta L=1-I_V and Delta C=ell_V-I_V(ell_{P_V}-1), giving conditional moments E Delta L=1-L/n, E Delta C=(L-2C)/n, and E(Delta L Delta C)=L/n. Expand L^2 and LC to obtain four triangular moment recurrences; n=2,3 bases produce E L=n/2, E C=n/6 (n>=3), Var L=n/12 (n>=3), E LC=n^2/12+n/8 and Cov(L,C)=n/8 (n>=4). The individual sibling-pair probability for 2<=i<j<=n is (i-1)/((n-1)(n-2)), from shared-parent choice, exclusion of later attachments to i, and exclusion of both children after j. Independent exhaustive enumeration of all rooted recursive parent vectors for n=2..7 recovered covariance 0,1/4,n/8 and the age-index probabilities; these finite tests corroborate, not prove, all n. The least-squares regression slope is n/8 divided by n/12 =3/2, not the conditional expectation slope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bryc–Minda–Sethuraman establish leaf-count large deviations and discuss Yule cherries, not the joint finite RRT covariance. Janson discusses asymptotic degree-count vectors; without adjacency statistics the displayed n/8 need not follow."
+        ],
+        "reasoning": "Marginal degree-count/leaf-process theorems do not mathematically imply covariance with the parent-grouped sibling-pair statistic; a general increasing-tree multivariate enumerator, if located, might.",
+        "searches": [
+          "random recursive tree number of leaves terminal siblings cherries sibling pairs covariance regression exact n",
+          "arXiv:0809.4741",
+          "Janson Asymptotic degree distribution in random recursive trees"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0809.4741 sections 1.2.2-1.2.3",
+        "Janson (2005) DOI:10.1002/rsa.20046 abstract",
+        "Resultary related root-degree/leaf covariance search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2008 primary distinguishes Section 1.2.2 recursive leaf Markov chain from Section 1.2.3 Yule cherry process. The 2004 Janson paper abstract refers to outdegree-classified statistics; full author PDF could not be retrieved."
+        ],
+        "reasoning": "These specific statements do not logically give exact all-n mixed leaf/sibling covariance, although unseen multivariate methods or earlier results could subsume it.",
+        "searches": [
+          "random recursive tree number of leaves terminal siblings cherries sibling pairs covariance regression exact n",
+          "https://arxiv.org/pdf/0809.4741",
+          "https://www2.math.uu.se/~svantejs/papers/sj155.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform recursive attachment leaf counts and Yule-splitting cherry counts are separate models; Janson uses vertices grouped by their OWN outdegree, whereas C groups terminal children by common parent."
+        ],
+        "reasoning": "Outdegree counts do not identify terminal-sibling pair multiplicities on a fixed tree. Yule binary cherries do not equal all unordered terminal sibling pairs in uniform recursive trees.",
+        "searches": [
+          "random recursive tree number of leaves terminal siblings cherries sibling pairs covariance regression exact n",
+          "arXiv:0809.4741",
+          "DOI:10.1002/rsa.20046"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published SCOPE related item calculates Cov(root degree, leaves)=(n-2)/(2(n-1)), a different random variable with different magnitude from Cov(leaves, terminal-sibling pairs)=n/8."
+        ],
+        "reasoning": "The exact same age-weighted terminal-sibling formula was not identified in the searched published-finding results; absence in a search is not evidence of global novelty.",
+        "searches": [
+          "random recursive tree number of leaves terminal siblings cherries sibling pairs covariance regression exact n",
+          "Resultary:SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the mixed terminal-sibling pair statistic on uniform recursive attachment is not supplied by the inspected leaf-count or degree-count results; this does not certify historical priority.",
+      "residual_risks": [
+        "Janson original full primary PDF could not be obtained; hidden multivariate recursive-tree counts may implicitly determine this statistic.",
+        "Earlier tree-cherry literature under nonbinary recursive-tree conventions may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not a derivation of all-pairs terminal-sibling covariance in uniform recursive attachment",
+          "evidence": "Sections 1.2.2 and 1.2.3 treat distinct recursive/Yule models.",
+          "identifier_or_url": "arXiv:0809.4741",
+          "material_read": "Primary PDF, introductory model definitions and relevant mathematical sections on recursive leaf process versus Yule cherries",
+          "method": "Viewed primary arXiv full PDF, including page images, inspected model definitions and arguments",
+          "title": "Large deviations for the leaves in some random trees",
+          "trigger": "Same uniform-recursive tree leaves and cherries"
+        },
+        {
+          "assessment": "No direct terminal-child adjacency theorem can be established from accessible material; no whole-document noncoverage claim",
+          "evidence": "Own-outdegree count process is coarser than parent-grouped terminal-child pairs.",
+          "identifier_or_url": "DOI:10.1002/rsa.20046",
+          "material_read": "Abstract/indexed summary only; original author PDF request failed",
+          "method": "Read bibliographic abstract and tried original primary PDF",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "Prior random-recursive tree degree-count covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-n mixed covariance measures dependence of global terminal abundance on sibling aggregation, a genuine local-versus-global random recursive tree question. The n-independent least-squares coefficient and birth-order-resolved probabilities give structural, reusable identities beyond the classical one-variable leaf-count mean/variance. Rooted terminal and unordered-pair conventions are essential; no full joint law or monotonic regression is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Every n>=4, with explicit n=2,3 exceptions, uniformly independent older-parent attachment; rooted outdegree-zero leaves, all sibling pairs; no Yule/Cayley extension.",
+    "Originality is qualified best-of-knowledge, with named primary source materials, limits and residual risks; search failure not novelty proof.",
+    "Independent experiments cover stated finite test cases only, not unrestricted theorem.",
+    "Pinned Git source tree SHA matches assignment and returned nontruncated tree, but raw Git tree serialization not independently SHA-1 rehashed.",
+    "No publication, independent Lean proof, external expert attestation, or global priority certification was asserted."
+  ],
+  "schema_version": 1
+}
