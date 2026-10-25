@@ -1,11 +1,21 @@
-# Review: Sharp angular zero-inclusion thresholds and inversion asymmetry
+# Independent mathematical audit
 
-**Correctness — PASS.** For the exact domain \(1<p<\infty\) and invertible complex two-dimensional triangular matrices, the uniquely normed dual pairing is reduced to cancellation of three complex scalar terms. The positive scalar minimization is coercive and has a single positive critical root. The inverse has exactly swapped diagonal-modulus powers. The proof explicitly checks the antipodal phase \(c=-1\), endpoint equality, zero off-diagonal, the Hilbert endpoint \(p=2\), and all phases. The \(p=4\) witness is algebraically exact. The standalone Python checker passes 1111 finite diagnostics; finite sampling does not prove the theorem.
+## correctness
 
-**Originality — PASS, with priority risk.** Bračič–Diogo introduced simultaneous zero inclusion and proved a triangular criterion on \(\ell_1^2\), not the smooth complex \(\ell_p^2\) scale. Ghosh's October 2026 stated characterization concerns dimension at least three; its full manuscript could not be accessed. The closest directly inspected public planar shear result already gives the aligned positive-real diagonal threshold and is explicitly credited; this special case is not asserted novel. A covering all-phase or two-dimensional theorem was not identified by semantic record comparisons, full reading of the planar real-shear result, or the accessible 2017 author text. Broader unpublished or unindexed implications remain possible; search nonmatches do not certify priority.
+PASS
 
-**Mathematical value — PASS.** The complete triangular complex-phase law and angle-independent inversion ratio yield a sharp parameter-by-parameter obstruction to simultaneous zero inclusion. In particular they settle the entire one-parameter \(\ell_p^2\) family: the property holds for every invertible operator exactly at the Hilbert exponent. A uniform explicit counterexample and a simple exact quartic witness make the sharp finite-dimensional boundary reproducible.
+For complex l_p² with 1<p<infinity the canonical norming functional reduces cancellation to |b|=|ar^p+d|/r^(p-1). This coercive function has range [min,infinity); after z normalization its squared minimum has derivative sign z²-(p-2)c z-(p-1) and one positive root. Applying the identical criterion to T^-1 interchanges the diagonal-modulus powers, yielding the ratio (A/D)^((p-2)/p) for c>-1. At c=-1 both thresholds vanish; all endpoint inclusions and b=0 are handled. Verified explicit p=4 complex witness and two unequal thresholds. Hilbert p=2 reciprocal-witness argument covers arbitrary invertible T. Quantitative formulas apply only to triangular T.
 
-**Limits and closest literature.** The result concerns zero membership only, not the full numerical range or arbitrary triangularization by a nonisometric similarity. Principal comparisons are Bračič–Diogo (2017), Ghosh (arXiv:2610.13378v1), and the public planar \(L^p\) triangular-shear phase diagram. Incomplete access to Ghosh's full text is a material remaining publication-priority risk. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the exact all-complex-phase triangular threshold formula, inversion-ratio law and explicit one-sided intervals. IMPORTANT: the global property l_p² S0I iff p=2 is ALREADY COVERED by E. Poon’s 2024 complex absolute symmetric plane theorem, corroborated in the full Ghosh 2026 primary preprint; this is not new and is explicitly excluded from originality credit. A special aligned-real angle is likewise previously covered. The main quantitative angular law is separately new to examined sources, though full Poon source inaccessible.
+
+## value
+
+PASS
+
+Exact two-dimensional complex triangular zero-membership thresholds and a phase-independent inversion ratio diagnose one-sided numerical-range inclusion parameter by parameter, a natural sharp S0I obstruction. The qualitative global Hilbert dichotomy is already known and excluded from novelty credit; precise angular quantitative classification remains mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
