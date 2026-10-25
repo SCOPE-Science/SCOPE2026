@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:54:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/AUDIT.json",
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/METADATA.json",
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/RESULT.md",
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/REVIEW.md",
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/SLOGAN.txt",
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/VERIFICATION.md",
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/verify.py"
+      ],
+      "rationale": "For any equal clique expansion G[K_q] and any partial deletion D, each surviving fiber remains nonempty clique; maximal independent sets project exactly to maximal independent sets of the induced base graph after deleting fully erased fibers S(D). Thus i(G[K_q]−D)=i(G−S(D)); if the base alteration threshold is t, every changing D deletes ≥q*t vertices, and equality means exactly t whole fibers, giving a bijective minimum alteration-set transfer. On a cycle C_n, i(C_n)=ceil(n/3) and deleting vertices with cyclic gap lengths a_j gives Σ ceil(a_j/3). For n=3k+1 one deletion changes i downward; n=3k+2 one deletion neutral and an altering pair requires both gaps 0 mod3; n=3k one/two deletions neutral, and altering triples must have all gaps 0 mod3 for decrease or all gaps 1 mod3 for increase. Stars-and-bars and cyclic-rotation counting yield n(k+1)/2 for n=3k+2 and k²(k+1)/2 plus k²(k−1)/2 when n=3k, sum k³. This includes k=1,C3 and q=1. Independent gap enumeration n=3..21 reproduced thresholds and all directional counts, with direct script inspected separately; universality is from fiber projection and path-gap identity.",
+      "residual_risks": [
+        "Counts are labeled vertex deletion sets, not automorphism-orbit counts.",
+        "The complete-fiber projection requires clique fibers with total bipartite adjacency according to base edges; arbitrary factors do not work.",
+        "A published general lexicographic-product stability corollary conflicts with the computed C5[K2] example; this discrepancy does not invalidate the directly proved projection but merits specialist follow-up."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 in arXiv:2311.01733 deals with i(G[H]); its Corollary 4.4 asserts a general stability formula conflicting with q-scaled exact fiber deletion.",
+          "For G=C5,H=K2, the frozen proof forces τ=4 while the published general corollary would predict 2."
+        ],
+        "reasoning": "A conflicting formula cannot logically serve as a valid stronger covering proof of the all-minimum-set census. The conflict is an explicit residual literature issue, not silent dismissal.",
+        "searches": [
+          "arXiv:2311.01733 whole preprint and Theorem 4.3/Corollary 4.4",
+          "arXiv:1808.07369 Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.01733",
+        "arXiv:1808.07369",
+        "doi:10.3390/math7090820",
+        "Resultary: independent domination stability alteration minimum deletion sets count cycle C_n and lexicographic clique expansion C_n[K_q]"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A formula for the independent-domination polynomial of G[H] at zero deletions does not determine its sensitivity to deletion of complete fibers.",
+          "A bound on minimum number of deletions does not determine exactly which triples of cycle vertices change i or the directional counts."
+        ],
+        "reasoning": "The direct core projection and exhaustive cycle-gap residue classification add specific statements not implied by the prior true scalar premises; the suspect broad product corollary is explicitly flagged as discrepant.",
+        "searches": [
+          "arXiv:1808.07369 Theorem 2.3",
+          "arXiv:2311.01733 Proposition 2.8",
+          "arXiv:2311.01733 Corollary 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independent-domination alteration threshold is vertex-deletion i-stability, and the equal clique expansion is lexicographic product C_n[K_q].",
+          "The base-cycle numerical thresholds τ(Cn)=1,2,3 by n mod3 are established in arXiv:2311.01733."
+        ],
+        "reasoning": "Identify nomenclature and known scalar values to avoid false novelty; the exact number and direction of smallest deletion witnesses are not equivalent to the scalar threshold.",
+        "searches": [
+          "arXiv:2311.01733 Proposition 2.8, Corollary 4.4",
+          "arXiv:1808.07369 Theorem 2.3",
+          "Resultary semantic query: independent domination stability alteration minimum deletion sets count cycle C_n and lexicographic clique expansion C_n[K_q]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior table supplies 1,2,3 cycle threshold numbers; it does not enumerate changing deletion sets.",
+          "No result on labeled exact k³ minimal sets with decreasing and increasing split appeared in the returned Resultary top results."
+        ],
+        "reasoning": "Known numeric thresholds are not the new enumeration; search absence is only bounded novelty evidence.",
+        "searches": [
+          "Resultary semantic query: independent domination stability alteration minimum deletion sets count cycle C_n and lexicographic clique expansion C_n[K_q]",
+          "arXiv:2311.01733 cycle table/proposition"
+        ]
+      },
+      "rationale": "The numerical thresholds 1,2,3 for base cycles are known. The new complete minimum-set classification, exact directional counts and q-independent k³ total for C_{3k}[K_q] are not provided by prior threshold statements or the base domination polynomial. The frozen self-contained proof also identifies a conflict with a published general product claim.",
+      "residual_risks": [
+        "A published general lexicographic-stability corollary appears mathematically inconsistent on C5[K2]; requires eventual specialist resolution, but its stated false implication does not establish coverage.",
+        "Unindexed cycle sensitivity counts may have been expressed as modular-gap compositions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_NUMERIC_THRESHOLD_WITH_CONFLICT",
+          "evidence": "Prop2.8 covers τ(Cn)=1,2,3. Cor4.4 general formula conflicts with frozen independently checked C5[K2] fiber-deletion example; it does not enumerate minimum sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.01733",
+          "material_read": "Full public PDF (10 pages), Proposition 2.8 cycle thresholds and Theorem 4.3 / Corollary 4.4 concerning lexicographic products, including exact wording.",
+          "method": "Read full primary arXiv text, including relevant numbered results.",
+          "title": "Independent domination stability in graphs",
+          "trigger": "Closest direct source for τ(C_n) and lexicographic products."
+        },
+        {
+          "assessment": "PRIOR_BASE_POLYNOMIAL",
+          "evidence": "An undeleted polynomial composition and minimum value do not encode minimum changing-deletion patterns.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+          "material_read": "Theorem 2.3 as reported in package and indexed bibliographic material; independently reading complete original text not established.",
+          "method": "Theorem statement/scope comparison, not whole-paper negative claim.",
+          "title": "On the independent domination polynomial of a graph",
+          "trigger": "The structure G[K_q] and independent domination polynomial might imply counts."
+        },
+        {
+          "assessment": "DIFFERENT_SINGLE_DELETION_SCOPE",
+          "evidence": "Single-vertex stability does not enumerate all t=2 or t=3 deletion patterns.",
+          "identifier_or_url": "https://doi.org/10.3390/math7090820",
+          "material_read": "Indexed theorem topics and relevant statements; full-text independent reading not established.",
+          "method": "Bibliographic/statement comparison.",
+          "title": "Independent Domination Stable Trees and Unicyclic Graphs",
+          "trigger": "Single-deletion stability of cycles/unicyclic graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58/RESULT.md",
+        "arXiv:2311.01733",
+        "arXiv:1808.07369",
+        "doi:10.3390/math7090820",
+        "Resultary: independent domination stability alteration minimum deletion sets count cycle C_n and lexicographic clique expansion C_n[K_q]"
+      ],
+      "rationale": "A complete exact robustness census for the well-known independent-domination invariant distinguishes downward and upward changes at the minimal perturbation size. The cubic count k³ and full-fiber rigidity for cyclic clique expansions answer a nontrivial natural refinement of known scalar stability, with a surprising directional split.",
+      "residual_risks": [
+        "Mathematical usefulness is limited to the specified natural family and invariant; no downstream theorem or exhaustive priority certificate is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Counts are labeled vertex deletion sets, not automorphism-orbit counts.",
+    "The complete-fiber projection requires clique fibers with total bipartite adjacency according to base edges; arbitrary factors do not work.",
+    "A published general lexicographic-product stability corollary conflicts with the computed C5[K2] example; this discrepancy does not invalidate the directly proved projection but merits specialist follow-up.",
+    "A published general lexicographic-stability corollary appears mathematically inconsistent on C5[K2]; requires eventual specialist resolution, but its stated false implication does not establish coverage.",
+    "Unindexed cycle sensitivity counts may have been expressed as modular-gap compositions.",
+    "No source edits or publication made. Finite checks corroborate, not establish infinite theorems."
+  ],
+  "schema_version": 1
+}
