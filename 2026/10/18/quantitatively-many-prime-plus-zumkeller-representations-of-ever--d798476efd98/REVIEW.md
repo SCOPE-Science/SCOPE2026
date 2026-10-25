@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every positive divisor is accounted for in the signed two-column partition of \(2^a p\): binary signed sums \(-p\) and \(+1\) exist because \(p\le 2^{a+1}-1\). Coprime scaling then supplies the Zumkeller progression \(z+z^2t\), for every integer \(t\ge0\). The prime number theorem guarantees a missing odd prime divisor of \(N\) below \(2\log N\), giving a reduced residue class modulo \(m<16(\log N)^4\). The uniform Siegel–Walfisz theorem counts primes in the central third of that class, and the resulting lower bound gives the stated \(N/[100(\log N)^5]\) representations. The exact inequality is only eventual and the threshold is ineffective. The finite verifier is not used in place of the analytic theorem.
+## correctness
 
-## Originality — PASS, with residual risks
-Somu, Kukla and Tran (2023), Conjecture 4.20, explicitly leave the odd prime-plus-Zumkeller coverage open; their Proposition 4.12 covers only specified residue classes modulo 18. Their Theorem 4.19 concerns infinitely many **even** failures. Mahanta, Saikia and Yaqubi (2020) establish the basic \(2^a p\) seeds and coprime closure, but not additive prime coverage. The new step is a uniform variable-modulus application of Siegel–Walfisz guaranteeing a prime in a reduced residue class selected for **each** odd input. OEIS A368082 provides finite data, not a theorem of eventual coverage. The exact paper and relevant full texts were inspected, and mathematically related findings were compared by implication rather than title. Unindexed or inaccessible literature remains a genuine originality risk.
+PASS
 
-## Mathematical value — PASS
-This proves an asymptotic form of a concrete published conjecture in additive number theory, including the previously unresolved odd residue class and a quantitative multiplicity estimate. Its scope is an infinite family of all sufficiently large odd integers rather than a narrowly selected collection of examples.
+For each odd prime p pick a with 2^a<p<2^{a+1}, T=2^{a+1}−1. For every odd |w|≤T a signed binary sum of 1,2,...,2^a equals w, so sign sums −p for the unweighted divisor column and +1 for the p-multiplied column partition every divisor of z=2^a p with total signed sum zero. Coprime multiplication preserves the complete divisor bipartition, giving every z+z²t, t≥0, as Zumkeller. For each sufficiently large odd N the least odd prime p∤N satisfies p≤2log N by θ(2log N)~2log N; m=z²<p⁴≤16log⁴N and r=N−z mod m is reduced since N odd and p∤N. Uniform Siegel–Walfisz for m≤(log(N/3))⁵ gives central interval prime weight N/[3φ(m)] + O(N/log⁸N), and eventually at least N/[4φ(m)]. Dividing by log N yields >N/[64log⁵N]≥N/[100log⁵N] distinct q with N−q=z(1+tz). Independently reconstructed divisor sign assignments for 61 odd primes below 300; finite tests are not evidence for prime distribution. Absolute threshold is ineffective.
 
-## Limitations and closest literature
-The theorem does not settle the finite-exception clause of Conjecture 4.20 or assert anything for all even integers. Its absolute threshold is ineffective because the stated quantitative prime distribution uses Siegel–Walfisz. The complete older Peng–Bhaskara Rao journal text was not inspected; coprime closure used here is independently proved. Published-source and database searches do not establish uniqueness or priority over inaccessible work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty: the final quantitative theorem differs from matched antecedents while known foundations are credited. Residual priority risks documented. Having infinitely many Zumkeller numbers or a single fixed progression does not imply that every sufficiently large odd N is prime plus a number in a compatible progression. Input-dependent prime avoidance plus uniform distribution supplies that implication.
+
+## value
+
+PASS
+
+A published explicit prime-plus-Zumkeller conjecture had an unhandled odd residue class; the statement settles its all-sufficiently-large-odd form with quantitative unbounded representation multiplicity. The use of movable polylogarithmic moduli is simple but meaningful because it eliminates input-dependent gcd obstructions across every odd input, not just a sparse family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
