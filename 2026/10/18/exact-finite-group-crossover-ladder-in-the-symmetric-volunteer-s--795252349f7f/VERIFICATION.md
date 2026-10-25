@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python standard-library interpreter. In the scientific verification session the script completed with
+## correctness
 
-```
-PASS: 660 exact rational identities; 825 numerical checks
-Thresholds: [(2, 1.38629436112), (3, 1.586982565894), (4, 1.686646511539), (5, 1.747037807507), (10, 1.870577951733), (100, 1.986710551422), (1000, 1.998667110548)]
-n=2..5 at lambda=1.5: [1.553739679703, 1.582900341777, 1.573877361149, 1.563553606045]
-```
+PASS
 
-The rational checks use `fractions.Fraction` to prove the finite computed instances of the majorization partial-sum identity and the factorization identity with rational test points. Other checks use floating-point evaluations of the exact formulas and high-precision bisection in bounded finite ranges. Numerical comparisons use explicitly stated tolerances, and the infinite theorem does **not** follow from these checks. The general proof is analytical in `RESULT.md`, including the strict convexity/majorization argument and the uniform asymptotic remainder bound. This package contains no formal proof-assistant certificate or independent external audit.
+For one required volunteer, b>c>0, each of n≥2 symmetric agents independently volunteers with q_n=1−e^(−lambda/(n−1)), lambda=log(b/c). V_n=nq_n is the expected total count (NOT success probability). Writing z=e^(−lambda/[n(n−1)]) factors V_(n+1)−V_n=(1−z)z^(n−1)(S_n(lambda)−1), S_n=Σ_{j=1}^{n−1}(e^(lambda j/[n(n−1)])−1). Each S_n strictly rises from 0, giving one root. The n-entry coefficient vector for S_n strictly majorizes that for S_(n+1); explicit first-r gap r(n−r)/[n(n²−1)]>0 and Karamata give S_n>S_(n+1), hence lambda_n<lambda_(n+1). Taylor S_n=lambda/2+lambda²/(6n)+O(n−2) gives lambda_n=2−4/(3n)+O(n−2) and bracketed optimizer scaling. Independently checked 1,176 rational majorization partial sums and numerical roots n≤149; finite tests do not establish global monotonicity.
+
+## originality
+
+PASS
+
+The game and equilibrium q_n, decreasing success probability and large-n limit were already known. Nöldeke–Peña (2020) Proposition 5 studies eventual sign of expected participation in a broader contributor-threshold game; their discussion distinguishes k>1 and does not in inspected passages give exact all-n strict ordering/unique peak and 4/3 shift in the k=1 game. Archetti 2009 basic model of volunteering compares probability the public good is provided or probability nobody volunteers; these are different than expected total contributor count. Another Archetti 2009 paper with group-size optimality was found by title/abstract only, where objective is production probability; residual risk of unexamined full text or textbook proof of exact V_n ladder. The new finite-size root ladder and exact maxima are modest but distinct from asymptotic sign statements.
+
+## value
+
+PASS
+
+The complete finite-group response of expected collective contributions under the canonical symmetric mixed Nash equilibrium gives exact optimal group size, tie boundaries, and critical drift for all cost/benefit ratios, disambiguating expected volunteer count from public-good success probability. This is an interpretable, intrinsic comparative-statics answer for a standard social dilemma, not an arbitrary parameter slice or mere rewriting of q_n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

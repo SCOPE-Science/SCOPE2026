@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The indifference equation of the symmetric mixed Nash equilibrium gives the exact expected volunteer count. Equation (7) factors every finite group-size increment without approximation. The strict majorization identity (8) and strict convexity prove that the crossover thresholds are strictly ordered. The exact asymptotic follows from a uniform exponential expansion. All endpoint cases, tie cases, and the distinction between finite maxima and a limiting supremum are explicitly treated. The verification script corroborates 660 rational identities and 825 floating-point computations; it is not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS with a bibliographic risk.** The canonical volunteering game, the mixed-strategy expression, decreasing success probability, and large-size volunteer-count limit are prior results, including those discussed by Diekmann (1985) and Nöldeke and Peña (2020). The latter source's accessible full text specifically identifies the one-volunteer case as simpler than its threshold-above-one focus, and gives the expected number of contributors in the one-volunteer case. It does not in the inspected analysis give the ordered all-size crossover roots, the exactly one-peaked group-size classification including every finite equality boundary, or the \(4/3\) finite-size asymptotic. Chen, Gross, and Dieckmann (2013) analyze evolutionary reward mechanisms rather than this symmetric one-shot finite-group ladder. Prior full-text and research-index comparisons did not identify a covering theorem, but an equivalent elementary group-size inequality in the game-theory textbooks or earlier volunteering literature remains possible. This assessment is not an independent priority determination.
+PASS
 
-**Mathematical value — PASS.** Expected aggregate participation counts paid-cost decisions that may duplicate the single contribution needed to provide the public good. A complete all-size response law, with exact group-size optimizer and a sharp quantitative divergence of the optimizing group size near a cost-benefit threshold, provides more information than known limit values or sufficiently-large-group comparative statics. The majorization argument supplies a structural reason why more than one peak cannot occur; a collection of finite numerical examples would not. The value is restricted to this canonical symmetric Nash model, not a prediction about empirically observed behavior.
+For one required volunteer, b>c>0, each of n≥2 symmetric agents independently volunteers with q_n=1−e^(−lambda/(n−1)), lambda=log(b/c). V_n=nq_n is the expected total count (NOT success probability). Writing z=e^(−lambda/[n(n−1)]) factors V_(n+1)−V_n=(1−z)z^(n−1)(S_n(lambda)−1), S_n=Σ_{j=1}^{n−1}(e^(lambda j/[n(n−1)])−1). Each S_n strictly rises from 0, giving one root. The n-entry coefficient vector for S_n strictly majorizes that for S_(n+1); explicit first-r gap r(n−r)/[n(n²−1)]>0 and Karamata give S_n>S_(n+1), hence lambda_n<lambda_(n+1). Taylor S_n=lambda/2+lambda²/(6n)+O(n−2) gives lambda_n=2−4/(3n)+O(n−2) and bracketed optimizer scaling. Independently checked 1,176 rational majorization partial sums and numerical roots n≤149; finite tests do not establish global monotonicity.
 
-**Closest literature and scope limits.** Nöldeke and Peña, *Group size and collective action in a binary contribution game*, Journal of Mathematical Economics 88 (2020), 42–51, especially its introduction, threshold-one comparison, and section on the expected number of contributors; accessible full text at https://publications.ut-capitole.fr/id/eprint/26531/1/wp_iast_1886.pdf. Diekmann, *Volunteer's Dilemma* (1985), is the originating game. Chen, Gross, and Dieckmann, arXiv:1306.4782 (2013), is a generalized evolutionary rewards comparison. No statement for multiple required volunteers, heterogeneous agents, or asymmetric equilibria is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The game and equilibrium q_n, decreasing success probability and large-n limit were already known. Nöldeke–Peña (2020) Proposition 5 studies eventual sign of expected participation in a broader contributor-threshold game; their discussion distinguishes k>1 and does not in inspected passages give exact all-n strict ordering/unique peak and 4/3 shift in the k=1 game. Archetti 2009 basic model of volunteering compares probability the public good is provided or probability nobody volunteers; these are different than expected total contributor count. Another Archetti 2009 paper with group-size optimality was found by title/abstract only, where objective is production probability; residual risk of unexamined full text or textbook proof of exact V_n ladder. The new finite-size root ladder and exact maxima are modest but distinct from asymptotic sign statements.
+
+## value
+
+PASS
+
+The complete finite-group response of expected collective contributions under the canonical symmetric mixed Nash equilibrium gives exact optimal group size, tie boundaries, and critical drift for all cost/benefit ratios, disambiguating expected volunteer count from public-good success probability. This is an interpretable, intrinsic comparative-statics answer for a standard social dilemma, not an arbitrary parameter slice or mere rewriting of q_n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

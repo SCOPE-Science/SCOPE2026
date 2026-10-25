@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:14:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one required volunteer, b>c>0, each of n≥2 symmetric agents independently volunteers with q_n=1−e^(−lambda/(n−1)), lambda=log(b/c). V_n=nq_n is the expected total count (NOT success probability). Writing z=e^(−lambda/[n(n−1)]) factors V_(n+1)−V_n=(1−z)z^(n−1)(S_n(lambda)−1), S_n=Σ_{j=1}^{n−1}(e^(lambda j/[n(n−1)])−1). Each S_n strictly rises from 0, giving one root. The n-entry coefficient vector for S_n strictly majorizes that for S_(n+1); explicit first-r gap r(n−r)/[n(n²−1)]>0 and Karamata give S_n>S_(n+1), hence lambda_n<lambda_(n+1). Taylor S_n=lambda/2+lambda²/(6n)+O(n−2) gives lambda_n=2−4/(3n)+O(n−2) and bracketed optimizer scaling. Independently checked 1,176 rational majorization partial sums and numerical roots n≤149; finite tests do not establish global monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nöldeke–Peña, J. Math. Econ. 88 (2020), Proposition 5 Section 3.5 and Section 4"
+        ],
+        "reasoning": "Nöldeke–Peña 2020 treats threshold-k participation games generally and proves eventual sign (Proposition 5) and limit, but the inspected Proposition 5 does not imply the strict finite lambda_n ladder for k=1. A broader game model does not automatically supply this stronger special-case all-n statement.",
+        "searches": [
+          "volunteer's dilemma expected number volunteers group size nonmonotone maximum thresholds crossover ladder",
+          "symmetrical volunteer dilemma group size contribution",
+          "https://jorgeapenas.github.io/assets/pdf/Noeldeke2020.pdf",
+          "https://onlinelibrary.wiley.com/doi/10.1111/j.1420-9101.2009.01835.x",
+          "https://doi.org/10.1016/j.jtbi.2009.08.018"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.py",
+        "Nöldeke–Peña 2020 accessible primary full-text PDF",
+        "Archetti 2009 J. Evolutionary Biology publisher full-text model material",
+        "Archetti 2009 J. Theoretical Biology abstract",
+        "Resultary semantic volunteer/game queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nöldeke–Peña 2020 Proposition 5; Archetti 2009 model and discussion; frozen RESULT.md strict majorization"
+        ],
+        "reasoning": "The known q_n formula plus elementary algebra allows derivation of S_n. But deriving a global classification for all n requires proving majorization ordering and the asymptotic drift. Earlier results focused on different objectives (success probability) or eventual signs; an unindexed textbook treatment may still anticipate this derivation.",
+        "searches": [
+          "volunteer's dilemma expected number volunteers group size nonmonotone maximum thresholds crossover ladder",
+          "symmetrical volunteer dilemma group size contribution",
+          "https://jorgeapenas.github.io/assets/pdf/Noeldeke2020.pdf",
+          "https://onlinelibrary.wiley.com/doi/10.1111/j.1420-9101.2009.01835.x",
+          "https://doi.org/10.1016/j.jtbi.2009.08.018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "frozen RESULT.md equations (1),(7),(8); Nöldeke–Peña 2020 group-size mixed equilibrium"
+        ],
+        "reasoning": "S_n(lambda)=1 is algebraically equivalent to V_(n+1)=V_n; majorization of the exponent weight arrays gives strict order for all n. This is a stronger exact finite comparison than just q_n or limiting V_n=lambda.",
+        "searches": [
+          "volunteer's dilemma expected number volunteers group size nonmonotone maximum thresholds crossover ladder",
+          "symmetrical volunteer dilemma group size contribution",
+          "https://jorgeapenas.github.io/assets/pdf/Noeldeke2020.pdf",
+          "https://onlinelibrary.wiley.com/doi/10.1111/j.1420-9101.2009.01835.x",
+          "https://doi.org/10.1016/j.jtbi.2009.08.018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "frozen RESULT.md exact forward difference and checker; Archetti 2009 Figure 1/2 discussions of success probability"
+        ],
+        "reasoning": "Exact threshold roots are defined for every n, not a finite data table; earlier numerical game-theory plots or welfare-optimal-size tables could illustrate small cases without giving strict order and lambda_n=2−4/(3n)+O(n−2). No covering exact count table identified in inspected material.",
+        "searches": [
+          "volunteer's dilemma expected number volunteers group size nonmonotone maximum thresholds crossover ladder",
+          "symmetrical volunteer dilemma group size contribution",
+          "https://jorgeapenas.github.io/assets/pdf/Noeldeke2020.pdf",
+          "https://onlinelibrary.wiley.com/doi/10.1111/j.1420-9101.2009.01835.x",
+          "https://doi.org/10.1016/j.jtbi.2009.08.018"
+        ]
+      },
+      "rationale": "The game and equilibrium q_n, decreasing success probability and large-n limit were already known. Nöldeke–Peña (2020) Proposition 5 studies eventual sign of expected participation in a broader contributor-threshold game; their discussion distinguishes k>1 and does not in inspected passages give exact all-n strict ordering/unique peak and 4/3 shift in the k=1 game. Archetti 2009 basic model of volunteering compares probability the public good is provided or probability nobody volunteers; these are different than expected total contributor count. Another Archetti 2009 paper with group-size optimality was found by title/abstract only, where objective is production probability; residual risk of unexamined full text or textbook proof of exact V_n ladder. The new finite-size root ladder and exact maxima are modest but distinct from asymptotic sign statements.",
+      "residual_risks": [
+        "Classic one-volunteer finite-size comparison may be in older textbooks (e.g. Dixit et al. Games of Strategy) or the inaccessible full Archetti JTB paper.",
+        "Archetti basic model has same underlying equilibrium; differentiation of objective alone does not rule out an unstated V_n result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general threshold game proves an eventual sign, not located exact all-n k=1 ordered root ladder in inspected relevant passages",
+          "evidence": [
+            "Proposition 5 states existence of N after which sign fixed",
+            "new claim determines every finite n and a single exact crossover per n"
+          ],
+          "identifier_or_url": "https://jorgeapenas.github.io/assets/pdf/Noeldeke2020.pdf",
+          "material_read": "introduction, model parameters, Section 3.5 Proposition 5, Section 4 discussion, Appendix A.5 relevant argument",
+          "method": "lawful complete primary PDF with page visualization",
+          "title": "Group size and collective action in a binary contribution game",
+          "trigger": "same equilibrium quantity n times participation probability and potentially stronger group-size theorem"
+        },
+        {
+          "assessment": "studies probability no one volunteers or public good provision, not the submitted expected number count V_n",
+          "evidence": [
+            "basic model describes γ probability of not volunteering, and Figure 1/2 production-failure probability γ^N"
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1420-9101.2009.01835.x",
+          "material_read": "open Wiley paper model section and objective described in publicly accessible text",
+          "method": "publisher open full-text search snippets and accessible basic-model text",
+          "title": "Cooperation as a volunteer’s dilemma and the strategy of conflict in public goods games",
+          "trigger": "same basic mixed equilibrium and group size"
+        },
+        {
+          "assessment": "abstract optimizes probability of producing the collective good, a different objective from V_n; full text may still discuss V_n",
+          "evidence": [
+            "PubMed abstract explicitly says optimal size maximizing probability to produce collective good"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2009.08.018",
+          "material_read": "bibliographic record and abstract only; full mathematical text not obtained",
+          "method": "PubMed and academic abstract search; no claim of full text inspection",
+          "title": "The volunteer's dilemma and the optimal size of a social group",
+          "trigger": "highly relevant title suggesting optimal group size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete finite-group response of expected collective contributions under the canonical symmetric mixed Nash equilibrium gives exact optimal group size, tie boundaries, and critical drift for all cost/benefit ratios, disambiguating expected volunteer count from public-good success probability. This is an interpretable, intrinsic comparative-statics answer for a standard social dilemma, not an arbitrary parameter slice or mere rewriting of q_n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md and verify.py",
+    "Nöldeke–Peña 2020 accessible primary full-text PDF",
+    "Archetti 2009 J. Evolutionary Biology publisher full-text model material",
+    "Archetti 2009 J. Theoretical Biology abstract",
+    "Resultary semantic volunteer/game queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classic one-volunteer finite-size comparison may be in older textbooks (e.g. Dixit et al. Games of Strategy) or the inaccessible full Archetti JTB paper.",
+    "Archetti basic model has same underlying equilibrium; differentiation of objective alone does not rule out an unstated V_n result."
+  ],
+  "schema_version": 1
+}
