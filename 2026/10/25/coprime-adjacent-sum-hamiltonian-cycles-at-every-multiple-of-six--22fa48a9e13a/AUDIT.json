@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Constructive proof with exact explicit cyclic two-or-three-step auxiliary lists, pairwise reflection, insertion of the unique missing center, and arithmetic gcd bounds. Small cases n=6,12,18 treated separately. Independent algorithmic checks across 1000 multiples of six support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun 2013/2020 publication reports an all-n conjecture, proves odd n, and states no even-n classification.",
+        "Hamiltonicity of a coprime graph defines edges by gcd(i,j)=1, unlike gcd(i+j,n-1)=gcd(i+j,n+1)=1."
+      ],
+      "reasoning": "The coprime-vertex graph theorem does not determine Hamiltonian cycles with sum-based adjacency and endpoint edge (0,n). No inspected source had a broader theorem implying the multiples-of-six case.",
+      "searches": [
+        "published-finding corpus: For all n divisible by 6 Hamiltonian cycle on labels 0 through n with sums coprime to n^2-1",
+        "web: \"Conjecture 3.9\" \"Sun\" \"coprime\" circular permutation",
+        "arXiv:2005.06308 Hamiltonicity of a coprime graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1309.1679 primary conjecture and odd-n constructions",
+      "OEIS A228886 exact problem definition, dated source and finite data",
+      "arXiv:2005.06308 abstract (different coprime graph edge predicate)",
+      "published-finding corpus semantic searches for conjecture, multiples of six, Hamiltonian implication and bounded-jump cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior paper odd-n constructions do not imply even n because parity reverses the allowed modular patterns.",
+        "The new safe-offset lemma and reflection lift are specific to n divisible by 6 and establish even solutions independently.",
+        "Searches returned results about other Hamiltonicity and group/graph problems rather than the coprimality assertion."
+      ],
+      "reasoning": "This is a nontrivial, proper infinite subclass of the conjecture and not a formally immediate corollary of the inspected primary work; keyword proximity alone is not considered evidence.",
+      "searches": [
+        "arXiv:1309.1679 proof of odd case and Conjecture 3.9",
+        "OEIS:A228886 prime-edge Hamiltonian cycle reformulation",
+        "published-finding corpus: Zhi-Wei Sun 2013 Conjecture 3.9 permutation 0 1 ... n adjacent pair sums coprime to both n-1 and n+1",
+        "published-finding corpus: Distance graph on integers with differences two and three Hamiltonian cycle explicit pattern"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A228886 identifies equivalent Hamiltonian cycles in the graph on 0..n with edge i--j if gcd(i+j,n^2-1)=1; counts finite examples.",
+        "arXiv:1309.1679 Conjecture 3.9 states the same adjacent-sum property and Remark 3.9 proves odd cases."
+      ],
+      "reasoning": "The proposed theorem proves the exact OEIS graph-Hamiltonicity condition for the infinite even subfamily n divisible by 6, not merely an alternative notation; numerical examples and odd-n constructions do not imply this class.",
+      "searches": [
+        "published-finding corpus: Sun Conjecture 3.9 cyclic permutation adjacent sums relatively prime to n-1 and n+1, n multiple of 6; Hamiltonian path 0..n",
+        "web: \"adjacent sums\" \"coprime\" \"n-1\" \"n+1\" Sun",
+        "arXiv:1309.1679, Conjecture 3.9, pp. 11-12",
+        "OEIS:A228886"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A228886 contains finite counts through n=26 and conjectures positivity for n not 2 or 4; it does not supply a symbolic infinite permutation for every multiple of six.",
+        "The new proof specifies a uniform family for arbitrary n=6k."
+      ],
+      "reasoning": "A finite table, even with many entries, cannot imply existence for all k. The constructed family provides infinite witness formulas.",
+      "searches": [
+        "OEIS:A228886 list of n,a(n) and OEIS comments",
+        "web: \"Some new problems in additive combinatorics\" \"Conjecture 3.9\" resolved"
+      ]
+    },
+    "rationale": "The same conjecture in Sun 2013/2020 treats odd n; OEIS A228886 has finite values but no uniform proof for all multiples of six. Sum-based gcd adjacency is distinct from later coprime vertex graph Hamiltonicity. Semantic record checks did not find an implication; unindexed proof risk remains.",
+    "residual_risks": [
+      "An unindexed or differently named existing constructive result for all even n would dominate the claimed restriction.",
+      "The later coprime-graph article was compared from abstract/definition only, not whole text; however its vertex-gcd predicate is distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States Conjecture 3.9; explicitly constructs odd cases, but has no all-multiples-of-six theorem in examined relevant section.",
+        "evidence": [
+          "PDF p.12 Conjecture 3.9, Remark 3.9; arXiv:1309.1679"
+        ],
+        "identifier_or_url": "arXiv:1309.1679 (v9 PDF)",
+        "material_read": "Abstract, primary classification and statements, section 3.9 and proof/discussion of odd cases, accompanying bibliographic context.",
+        "method": "Read actual accessible PDF text and visual page 12, compared mathematical statements and existing constructions.",
+        "title": "Some New Problems in Additive Combinatorics",
+        "trigger": "The original mathematical conjecture, hypotheses, claimed odd cases and related permutation results."
+      },
+      {
+        "assessment": "Reports conjecture and finite cases, not the unbounded construction.",
+        "evidence": [
+          "OEIS A228886, lines 12-31, 50-65, 87-95"
+        ],
+        "identifier_or_url": "https://oeis.org/A228886",
+        "material_read": "Full displayed entry: definition, counts, comments, Hamiltonian graph interpretation, examples and dated authorship.",
+        "method": "Read entry including dated original authorship and 2026 finite count updates.",
+        "title": "OEIS A228886",
+        "trigger": "Exact database for the same permutation-counting invariant."
+      },
+      {
+        "assessment": "No direct implication evident from the inspected abstract; full-text coverage not excluded.",
+        "evidence": [
+          "arXiv:2005.06308 abstract definition of k-coprime graphs"
+        ],
+        "identifier_or_url": "arXiv:2005.06308",
+        "material_read": "Abstract and definition via openly accessible arXiv record; full text not inspected.",
+        "method": "Compared abstract-defined gcd(i,j) edge relation to gcd(i+j,n^2-1).",
+        "title": "Hamiltonicity of a coprime graph",
+        "trigger": "Plausible title and Hamiltonicity relationship."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22fa48a9-e13a-489a-9d0b-96c7f44099ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves a natural infinite, positive-density congruence class within the unresolved even half of an explicitly published conjecture; a uniform reflection-lift and low-step Hamiltonian construction provide mathematically motivated structure beyond finite data.",
+    "status": "PASS"
+  }
+}
