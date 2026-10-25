@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducing the exact result
-Place `verify.py` and `INTERVALS.tsv` in the same directory and run `python3 verify.py`. The program uses only Python 3 standard-library integers and rational fractions. Its complete terminal output includes `VERIFY_OK`, `finite_tail_prime_tests=456`, `components=140`, `min_gap_lower_bound_gt_0=True`, and `interval_endpoint_table=VERIFIED`.
+# Independent mathematical audit
 
-The prime sieve checks all 456 primes from 17 through 3271 and the transition to the 463rd prime 3299. For larger primes, the analytic step uses the published Dusart prime-gap bound; the checker verifies the remaining rational inequality \((10/11)^4+(10/11)^8>1\), not the external prime-gap theorem itself. The Machin series rigorously bounds \(\pi\); there are no floating-point comparisons in the certificate. The endpoint file records exactly 140 rows, each \((a,b)\) meaning the real interval \([a,Tb]\), where \(T=105/(\pi^4\prod_{p\le13}(1+p^{-4}))\).
+## correctness
 
-A separate bounded floating-point enumeration of small-prime exponents reproduced counts 2, 4, 8, 16, 48 and 140. This was only a consistency check. The full infinite claim follows from the proof in `RESULT.md` plus the cited prime-gap theorem and the integer/rational certificate. Independent external audit is not performed.
+PASS
+
+For σ*_{−4}(n)=∏_{p^a||n}(1+p^{−4a}), the prime-log tail from p≥17 fills an interval: independently verified exactly 456 finite ten-successor prime-product integer inequalities up to p=3271 and the strict rational two-successor bound beyond p≥3299, using Sanna's quoted Dusart prime-gap theorem. Higher small-prime powers are exhausted by cutoffs (L13,L11,L7,L5,L3,L2)=(2,2,2,2,3,4). Independently implemented exact Fraction arithmetic with Machin arctan bounds on π, reconstructed T=105/(π^4K), all six merging stages (2,4,8,16,48,140) from candidate counts (2,4,8,16,48,192), and checked every one of the 139 final gaps strictly positive. Regenerated all 140 rational endpoint pairs; the exact UTF8 TSV Git blob identity matches actual assigned INTERVALS.tsv SHA-1 1ce417a52ec797fe3ec7c5ec2bb2e000244d4e64, establishing exact data match. Infinite tail depends on the published prime-gap bound, not a finite enumeration extrapolation.
+
+## originality
+
+PASS
+
+Defant's unitary connectedness criterion determines the connectedness transition but not fixed exponent −4 component counts. Sanna's interval machinery is for ordinary divisor sums and its prime-gap lemma is an analytic ingredient; neither source implies this exact unitary endpoint list. Theorems about N*(−2)=2 and earlier −3 counts do not determine overlap of −4 Euler-factor intervals; full six-prime rational merge/certification is required. Generic disconnectedness only shows more than one component. Priority is best-of-knowledge; accessible primary material and finite indexed Resultary results cannot establish exhaustive noncoverage.
+
+## value
+
+PASS
+
+The number of connected components of the closure of a unitary divisor-function range is a natural explicit question raised in Defant's theory. Resolving the fixed reciprocal-fourth case with exact endpoints and nontrivial final-stage merging supplies a reusable, precise arithmetic range invariant; earlier exponents do not mechanically yield the 140 count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

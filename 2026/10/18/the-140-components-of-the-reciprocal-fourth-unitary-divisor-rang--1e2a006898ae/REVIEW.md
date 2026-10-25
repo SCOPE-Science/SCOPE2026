@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition includes all prime powers and all positive integers. The proof obtains the exact prime-tail interval using an explicit prime-gap theorem from the cited primary source and 456 integer-arithmetic inequalities for the remaining primes. It then partitions each finite prime's exponent choices into disjointly exhaustive cases and uses rigorous rational enclosures of \(T\) for every interval-comparison decision. `verify.py` recreates the 140 endpoints and establishes all 139 strict separating gaps; the complete endpoint data are given in `INTERVALS.tsv`. The derivation does not extrapolate a finite numerical search to infinitely many primes.
+## correctness
 
-## Originality — PASS, with residual risk
-Defant's primary work proves a connectedness criterion for unitary divisor ranges and proposes studying the component count, but does not give this fixed-parameter 140-component list. Sanna's primary exact-component algorithm treats the ordinary divisor function, not the unitary prime-power factors. Published \(-2\) and prior \(-3\) unitary classifications are not stronger statements from which this \(-4\) count or its interval endpoints follow. Searches under the function definition, parameter, exact count, gap count and equivalent product formulations did not identify a covering published result. An unindexed equivalent computation or general theorem remains possible; search non-detection alone is not proof of novelty.
+PASS
 
-## Value — PASS
-This is an exact count and complete endpoint classification of the natural component invariant explicitly motivated by Defant's 2015 research directions. The fourth reciprocal exponent exhibits a substantial, mathematically informative merger pattern: the final prime produces 192 candidate bands but only 140 components, not a simple parameter substitution into lower-exponent counts. The proof gives a reproducible structural explanation of every gap and a finite exact certificate for a highly nontrivial natural invariant. It does not claim a general asymptotic or monotonicity theorem.
+For σ*_{−4}(n)=∏_{p^a||n}(1+p^{−4a}), the prime-log tail from p≥17 fills an interval: independently verified exactly 456 finite ten-successor prime-product integer inequalities up to p=3271 and the strict rational two-successor bound beyond p≥3299, using Sanna's quoted Dusart prime-gap theorem. Higher small-prime powers are exhausted by cutoffs (L13,L11,L7,L5,L3,L2)=(2,2,2,2,3,4). Independently implemented exact Fraction arithmetic with Machin arctan bounds on π, reconstructed T=105/(π^4K), all six merging stages (2,4,8,16,48,140) from candidate counts (2,4,8,16,48,192), and checked every one of the 139 final gaps strictly positive. Regenerated all 140 rational endpoint pairs; the exact UTF8 TSV Git blob identity matches actual assigned INTERVALS.tsv SHA-1 1ce417a52ec797fe3ec7c5ec2bb2e000244d4e64, establishing exact data match. Infinite tail depends on the published prime-gap bound, not a finite enumeration extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Defant's unitary connectedness criterion determines the connectedness transition but not fixed exponent −4 component counts. Sanna's interval machinery is for ordinary divisor sums and its prime-gap lemma is an analytic ingredient; neither source implies this exact unitary endpoint list. Theorems about N*(−2)=2 and earlier −3 counts do not determine overlap of −4 Euler-factor intervals; full six-prime rational merge/certification is required. Generic disconnectedness only shows more than one component. Priority is best-of-knowledge; accessible primary material and finite indexed Resultary results cannot establish exhaustive noncoverage.
+
+## value
+
+PASS
+
+The number of connected components of the closure of a unitary divisor-function range is a natural explicit question raised in Defant's theory. Resolving the fixed reciprocal-fourth case with exact endpoints and nontrivial final-stage merging supplies a reusable, precise arithmetic range invariant; earlier exponents do not mechanically yield the 140 count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
