@@ -1,19 +1,21 @@
-# Review of the joint commutativity-window claim
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The quantified sampling law, both limiting scales, middle regime and exact finite formula are internally consistent. The key logical reduction is equality of the two relation compositions, equivalent to absence of an induced four-vertex path in the occupied two-sided label graph. The finite counting recurrence partitions graphs by the complete biclique containing a distinguished vertex; onto Stirling counts account correctly for world multiplicities. Sparse labelled three-path counts have mean asymptotic to \(n^3/k^2\), and overlapping configurations vanish in factorial moments at \(n\asymp k^{2/3}\). In the intermediate regime, the variance bound and missing-corner estimate force an induced path. Near the second window, connectivity plus empty-cell factorial moments yield the Gumbel-type law. The packaged independent finite checker reports `VERIFY_OK` and `EXACT_COUNT_OK`.
+PASS
 
-## Originality
+Knowledge-box compositions commute on all world subsets iff the two equivalence-relations permute; the occupied label-pair incidence graph is then a disjoint union of complete bipartite components, equivalently induced-P4-free. I reconstructed the P4 obstruction from a missing rectangle corner, the class/onto-assignment recurrence and 3-edge-corner first moment E[X]=C(n,3)*6(k-1)^2/k^4. For n~t*k^(2/3) rare overlapping labelled path configurations have vanishing joint factorial-moment contribution, giving Poisson(t^3) and Q->exp(-t^3). For n= k^2(2log k+s+o(1)), the empty-cell factorial moments give Poisson(exp(-s)) and high-probability connectivity makes Q asymptotic to complete cell occupancy, yielding exp(-exp(-s)). Middle-regime second moments and connectivity plus missing cells yield Q->0, with small/large extremes Q->1. Independently enumerated the full Boolean powerset modal action against forbidden P4 for 1,049 labelled samples. Analytic limits depend on proved moment/bound arguments, not these finite checks.
 
-PASS, with residual uncertainty. The 2023 epistemic-planning paper establishes the commutation axiom and its logical consequences, but not the two probability windows or the weighted finite-label model. The known rectangular-cell equivalence and the class-refined generating function for commuting equivalence relations (recorded in an accessible earlier research claim and in the related primary literature) already imply the finite enumeration after weighting used class labels. This exact formula is not a novelty claim. Only the two threshold laws and their full intervening regime are proposed as new. Relevant published and earlier-result comparisons did not identify a covering probability theorem. Generic forbidden-subgraph and coupon-collector techniques explain the pieces but do not in inspected sources give the combined two-threshold result in this model. Priority remains uncertain relative to broader random-cograph literature.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The property is a natural logical interaction axiom with a real role in epistemic planning, not an arbitrary graph slice. It is unexpectedly nonmonotone with two separated critical scales, and the (previously implied, but useful) exact recurrence permits finite probabilities without enumerating all \(k^{2n}\) labelled-world instances. The results distinguish probabilistic validity of commutation from logical axiomatization.
+Permutability and rectangular incidence, finite enumeration, P4 rare-subgraph Poisson techniques, and coupon collector are prior material and explicitly not claimed new. The precise paired onset/loss/recovery windows for independent world-label sampling, together with the all-intermediate Q->0 regime, are not stated in inspected logical-planning or random-bipartite results. Classical generic threshold theorems may recover constituent limits, but their joint application to this exact distribution remains a bounded priority risk.
 
-## Closest literature and limits
+## value
 
-Burigana et al., arXiv:2307.15485, Sections 3–4; Do et al., arXiv:2105.14883; classical equivalence permutability and forbidden-\(P_4\) graph facts; the existing class-refined two-equivalence frame enumeration (an earlier, accessible class-refined enumeration), and Green's arXiv:1711.03056 for general composition theory, not for the finite enumeration. A more general published statement may imply a portion of the Poisson asymptotics; the claim does not assert entirely new subgraph-limit machinery or independent validation. The random model is independent uniform label pairs, not uniform partitions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Commuting knowledge is a substantive frame property; two distinct sharply quantified asymptotic phases in a natural random S5 sampling model reveal non-monotone/reentrant commutativity. The noncommuting interval and exact critical curves would matter to mathematical or probabilistic epistemic frame modelling, beyond finite counting already known. Not merely an arbitrary small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
