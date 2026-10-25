@@ -1,19 +1,21 @@
-# Scientific review: twin-block rigidity and the Poisson sharpness law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-incidence classification follows from the elementary structure of each principal interval: a chain for point degree zero or one, a Boolean diamond for degree two, and failure of the coatom pseudocomplement when degree is at least three. For degree at most two, nonsingleton implication requires two minimal common upper bounds. This happens precisely for distinct point arguments with the same pair of incident blocks, and pseudocomplementation interchanges the two block coatoms. This proves the exact ordered-input defect formula. The graph specialization uses the complete classification of connected loopless multigraphs of maximum degree two; a double-edge component and only such a component contributes two implication defects. The labelled exponential formula is derived from the exact path, ordinary-cycle, double-edge, and isolated-vertex component counts. The Poisson limit has a complete coefficient-ratio and factorial-moment proof, not an inference from finite experiments. The standalone verifier constructs all sectional pseudocomplements directly and tests the predicted values, plus coefficient identities.
+PASS
 
-## Originality — PASS, with residual risks
+Every section [v,1] in the point-block incidence poset consists of its bottom, |N(v)| coatoms, and a new top; its pseudocomplements exist iff the local degree <=2 (chains or Boolean diamond). A point of degree >=3 has a coatom with no greatest disjoint companion. For admissible sections, only incomparable distinct points can have two minimal common upper bounds, and degree<=2 forces equal two-block neighborhoods. In the diamond the two coatoms pseudocomplement to one another, giving exactly t_bc(t_bc-1) ordered nonsingleton entries. A loopless multigraph of maximum degree 2 has double-edge components as the only identical two-edge-neighborhood point pairs. The labelled exponential component formula counts isolated points, paths, ordinary cycles and double edges, giving EGF (1-z)^(-1/2) exp(z/(2(1-z))+(2t-1)z²/4). Monotonicity/shift ratios for its positive coefficients and factorial-moment inversion rigorously imply Poisson(1/2), not simply numerical convergence. Independently recomputed exact full distributions of D for vertex sizes 2..8, including n=5 {0:253,1:80,2:15} and n=8 {0:152219,1:52024,2:8610,3:840,4:105}, matching coefficients.
 
-The 2021 Chajda–Länger source defines this precise unsharp implication and its I-algebra semantics, and already includes two-element non-singleton values in its small Examples 2.7–2.8. These are acknowledged as known, not repackaged as a discovery. Its statement-and-implication comparison with the present theorem does not cover the general incidence-neighborhood classification, exact graph-incidence counting polynomial, or the Poisson sharpness law. The 2019 work on sectionally pseudocomplemented posets introduces a distinct global sectional pseudocomplement notion; the 2023 intuitionistic-like logic paper defines a different unsharp implication for bounded posets. The nearest identified published records on graph incidence concern finite-space homotopy, order dimension, or interval algebra homological dimensions rather than set-valued implication. Standard labelled degree-two graph enumeration and Poisson component limits are not novel by themselves; only their explicitly proved logical interpretation is advanced as a candidate contribution. A semantically equivalent classification in older algebraic-logic or graph-incidence literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification identifies, for every finite point–block incidence structure, a necessary-and-sufficient admissibility condition and the exact structural obstruction to single-valued implication. It turns a qualitative phenomenon previously illustrated only on small examples into a uniform theorem and an explicit natural invariant. For multigraph incidence posets, the theorem supplies an exact distribution of a logical property across all orders and a nontrivial limiting probability for global single-valuedness. The degree-two restriction is mathematically forced by sectional pseudocomplementation, not an arbitrary computational cutoff. Finite enumeration is ancillary to a self-contained unrestricted classification and asymptotic theorem.
+Chajda–Länger already define the exact pseudocomplemented-section unsharp implication and exhibit small nonsingleton values. Standard labelled path/cycle component enumeration and Poisson limits are also prior tools. The exact incidence twin-neighborhood criterion, complete multigraph incidence defect formula, and its stated logical Poisson interpretation are not located in inspected full-text primary work or mathematical records. Best-of-knowledge with explicit equivalent-logical-terminology risk.
 
-## Boundaries and evidence
+## value
 
-The claim covers only the explicitly defined incidence posets and the stated uniform labelled degree-two multigraph model; it does not settle the corresponding problem for general posets or for other implication definitions. Full proof and reproducibility instructions are in `RESULT.md` and `verify.py`. The literature comparison examined the 2021 primary full-text definitions, results, and examples, the 2019 related definition and structural results, and the 2023 alternative implication. The residual originality risk is a previously unnoticed statement under equivalent terminology, especially in the classical random-graph enumeration literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An admissibility and single-valuedness criterion for a natural incidence-poset family addresses a structural question in nonclassical implication, beyond isolated examples. The exact ordered defect statistic and asymptotic sharpness probability quantify how frequently that natural logical obstruction occurs in a canonical random graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
