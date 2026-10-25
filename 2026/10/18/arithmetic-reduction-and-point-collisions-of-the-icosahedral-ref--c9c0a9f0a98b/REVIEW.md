@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The characteristic-zero configuration and integral equations are explicit. An exhaustive exact calculation of all 455 three-line determinants establishes a norm spectrum supported only at powers of two, proving odd-characteristic intersection-lattice preservation for **all** odd primes. All 105 line pairs are evaluated, grouped into 31 old points, and each is reduced to \(\mathbb F_4\); the eight collision classes and nonreduced divisor are independently checked. This is an exhaustive finite certificate combined with an all-primes norm proof, not a claim inferred from finitely many prime experiments. The integral-model and non-scheme-theoretic section-collision qualifiers are essential.
+## correctness
 
-**Originality — PASS, with residual risk.** Calvo (2022) treats precisely the classical complex 15-line/31-point geometry and computes its Waldschmidt constant, but does not establish the arithmetic norm spectrum, complete good-reduction criterion or characteristic-two special-fiber classification. Hoge–Röhrle (2015) addresses niceness of reflection arrangements; Kamiya–Takemura–Terao (2007) studies general modular-arrangement periodicity, without the specific H3 table. Semantic-index comparisons and available prior-finding statements show no implication of the specific modular classification. Related known reductions of *other* line configurations, including the Klein arrangement, are not an implication for the H3 system. Unindexed arithmetic overlap and inaccessible portions of two background papers remain possible.
+PASS
 
-**Value — PASS.** The fifteen-line icosahedral arrangement is a distinguished, highly structured plane-curve configuration, and its 31 intersection points form a natural blowup base locus. The result supplies the complete exceptional-prime classification, an extreme scheme-theoretic degeneration to a twelve-fold component, and the arithmetic collision profile of every blowup center. In particular the golden-ratio ramification prime five does **not** alter the incidence lattice. No conjectural downstream birational or Waldschmidt claim is needed for the exact classification to be meaningful.
+For the specified 15 H3 normals in R=Z[φ], with φ²=φ+1 and N(a+bφ)=a²+ab−b², I independently enumerated all 455 triple determinants by exact algebraic-integer arithmetic. The complete absolute norm table is 70 zero,37 norm1,156 norm4,188 norm16,4 norm64. Every nonzero triple determinant is invertible in every odd-characteristic residue field, and every normal pair remains distinct by some nonzero triple; therefore the full rank-two incidence lattice persists for all odd residue primes (including over5). Independently group 105 pairwise intersection cross-products into 31 characteristic-zero points: 15 doubles,10 triples,6 quintuples. At inert prime2, F4 α²+α+1=0, 12 mixed normals coalesce projectively while three coordinate lines stay distinct; special divisor xyz(x+α y+α²z)^12. Dividing pair cross-products by maximal common 2-powers and reducing projectively produces eight collision classes: three coordinate singleton doubles, three fibers each 2 triples+2 quintuples, one of 4 triples and one of 12 doubles. These finite enumerations are genuinely exhaustive exact certificates; odd-char statement uses norm argument, not sample characteristic tests. Section fibers are not Hilbert–Samuel lengths.
 
-**Literature and limitations.** The 31 complex intersections and their multiplicities are known from Calvo; these are used as a check, not claimed new. The result applies to the stated integral coordinate model and counts reductions of sections rather than fat-point scheme multiplicities. No independent audit has yet been performed. See `RESULT.md` for references and `VERIFICATION.md` for reproducibility.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Calvo studies the identical complex H3 15-line/31-point arrangement and the characteristic-zero 15/10/6 incidence distribution, which is prior and not claimed new. The assessed contribution is arithmetic stability at every odd residue prime, uniquely bad p=2 and its nonreduced divisor plus complete eight-fiber section collision profile. Nice reflection arrangements and generic arithmetic arrangement periodicity do not directly deliver these exact model-specific reduction facts.
+
+## value
+
+PASS
+
+Exceptional-characteristic degeneration and collision of a canonical reflection arrangement are natural arithmetic arrangement invariants. Complete classification of the bad prime and its flat specialization fibers preserves exact integral-model dependence and supplies concrete input to characteristic-dependent intersection-lattice and algebraic-arrangement work; not a known-table recomputation since the complex 31-point count alone cannot determine F4 fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
