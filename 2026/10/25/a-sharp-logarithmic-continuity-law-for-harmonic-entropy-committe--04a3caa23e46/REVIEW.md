@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The result explicitly defines the water-filling potential, permits zero payment coordinates, and distinguishes total-variation share from \(\ell_1\) distance. For small new payment share, the new coordinate is last in the sorted vector and the maximizing water level has exactly two branches; the branch switch occurs at \(M=\lfloor1/e\rfloor\). The source's water-filling characterization establishes the finite rational evaluation lemma, and direct telescoping proves the restricted splitting law. Concavity and symmetry yield the exact binary modulus, while the largest-partial-sum total-variation estimate and uniform tail bound prove the matching general-dimensional asymptotics. The supplied exact-rational program checks 4,826 cases but is not used to infer infinity from testing.
+
+## Originality — PASS, residual risk
+The closest primary manuscript, Becker–Greger–Peters (arXiv:2609.11912v1), introduces harmonic entropy and establishes its water-level definition, concavity, and a different shift identity. Sections 4, 5, and 7 were inspected. The explicit optimal modulus, the conditional grouping identity, and the binary exact formula are not claimed there. Audenaert (arXiv:quant-ph/0610146v1) establishes sharp Shannon/von Neumann entropy continuity, not this different harmonic functional. Mathematical research record searches using source ID, water filling, Fannes analogues, and mass-splitting terminology did not identify an equivalent claim. Residual risk: an unindexed or independently named treatment of this new potential might already contain the identities; search absence is not mathematical priority proof.
+
+## Value — PASS
+The objective of the 2026 fairness rule depends on **continuous voter payments and reserves**, and its numerical stability matters for objective optimization. The theorem supplies the exact first non-Lipschitz modulus, including a sharp leading constant in every finite dimension and a complete formula for the two-option primitive. Its profile-independent conditional splitting identity is a structural feature of the voting potential not possessed in that form by generic concave objectives. It quantifies how a tiny newly funded destination changes potential and guards against unjustified linear-error assumptions. The statement does not assert new core-existence or better algorithmic complexity.
+
+Self-review: passed. Independent audit: not yet performed.
