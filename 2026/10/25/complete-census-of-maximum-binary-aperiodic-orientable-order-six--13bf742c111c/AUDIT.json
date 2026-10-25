@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "There are exactly 28 nonpalindromic binary length-6 reversal orbits. Each admissible word is a path in the 32-vertex length-5 suffix graph consuming each orbit at most once. The recurrence F(v,S)=max({0} union {1+F(new suffix,S+orbit)}) is exhaustive by induction on remaining orbits and proves globally 21 edges is optimal. A literal-word exhaustive implementation independently agrees with the 22 maximizers found by the recurrence; all endpoints and six orbit sizes checked by direct finite enumeration. No unbounded implication is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burns–Mitchell HPL-92-19 §5.2.2, Figure 7 tabulates optimum 26 and attributes it to an exhaustive search; only length is given.",
+        "Mitchell–Wild arXiv:2108.03069 §5.3 Definition 5.2 introduces ideal objects; Example 5.6 produces a length-26 order-6 ideal word, but no universal classification.",
+        "Gabrić–Sawada arXiv:2401.14341 and CPM 2024 focus on construction lengths, not this finite linear census."
+      ],
+      "reasoning": "A prior proof that the maximum length is 26 does not imply how many maximizers exist. An example of an ideal optimum does not establish that all optima have ideal endpoints. The new claim is therefore not a corollary of these published results.",
+      "searches": [
+        "position sensing sequences 6 orientation detecting 26 length count 22 classification ideal",
+        "maximum length acyclic orientable binary sequence of order 6 exact finite nonperiodic sequence 26",
+        "\"ideal\" \"orientable sequence\" \"all\" length 26",
+        "arXiv:2108.03069 §5.3 ideal AOS",
+        "HPL-92-19 §5.2.2 Figure 7"
+      ]
+    },
+    "checked_sources": [
+      "Burns and Mitchell, HPL-92-19 (1992), Sections 3.2, 5.1, 5.2.2 and Figure 7, https://www.chrismitchell.net/HPL-92-19.pdf",
+      "Mitchell and Wild, Constructing orientable sequences (arXiv:2108.03069; 2021/2022), full text https://arxiv.org/html/2108.03069v2",
+      "Gabrić and Sawada, Construction of orientable sequences in O(1)-amortized time per bit (arXiv:2401.14341; 2024)",
+      "Gabrić and Sawada, Efficient Construction of Long Orientable Sequences (CPM 2024), DOI:10.4230/LIPIcs.CPM.2024.15",
+      "debruijnsequence.org/db/orientable: public known-length table and examples"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 Definition 5.2 of ideal and Theorem 5.4 about extending ideal examples are sufficient for existence, not uniqueness/necessity.",
+        "1992 chapter states an exhaustive search for the longest length, but does not display a number of maximizers in Figure 7.",
+        "published-finding corpus targeted queries against the exact count/endpoints returned nearest unrelated codes and word profiles."
+      ],
+      "reasoning": "The conjunction of an optimum-length theorem and an ideal construction establishes at least one maximal ideal sequence, not exactly 22 distinct maxima, nor six reversal/complement classes, nor every maximum having ideal endpoints. The exact finite-state recurrence makes the stronger complete result independently checkable.",
+      "searches": [
+        "aperiodic orientable sequences order 6 all maxima ideal endpoints 00000 11111 enumeration reverse complement",
+        "noncyclic reversal-distinguishing de Bruijn sequence order 6 maximal paths number longest",
+        "Mitchell and Wild 2022 §§5.2–5.3",
+        "Burns and Mitchell 1992 §5.2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "1992 HPL-92-19 §3.2 calls the same objects binary aperiodic 2-orientable window sequences; 2022 arXiv:2108.03069 §5.1 calls them AOS(n).",
+        "published-finding corpus exact targeted search produced irrelevant nearest result 2026/10/4/SCOPE-complete-classification-of-optimal-binary-length-six-asymmetric--6b3b72dd21d8 (asymmetric-error codes, different channel)."
+      ],
+      "reasoning": "A word is a path in a directed order-5 de Bruijn graph using at most one directed edge from each reversal orbit. This exactly translates linear 2-orientable and reversal-distinguishing nomenclature. Identically named coding results concerning asymmetric errors or necklaces do not imply its extremal count.",
+      "searches": [
+        "exactly 22 longest acyclic binary 2-orientable order-6 window sequences 26 length six equivalence classes",
+        "aperiodic orientable sequences order 6 all maxima ideal endpoints 00000 11111 enumeration reverse complement",
+        "noncyclic reversal-distinguishing de Bruijn sequence order 6 maximal paths number longest",
+        "\"aperiodic orientable\" \"22\" \"26\" binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Burns–Mitchell HPL-92-19 Figure 7 and Mitchell–Wild 2022 Table 3 give length 26, not the count 22 or six orbits.",
+        "debruijnsequence.org/db/orientable lists maximum lengths and specific sample constructions; no complete listing of linear order-6 maximizers was found on the inspected page."
+      ],
+      "reasoning": "The known table has a single scalar optimum, whereas the result counts all solutions and gives a complete orbit list and forced endpoints. The exact six representatives and 22-word list do not follow by reading the scalar table.",
+      "searches": [
+        "exactly 22 longest acyclic binary 2-orientable order-6 window sequences 26 length six equivalence classes",
+        "position sensing sequences 6 orientation detecting 26 length count 22 classification ideal",
+        "\"aperiodic orientable\" \"22\" \"26\" binary",
+        "debruijnsequence.org/db/orientable order 6 length table"
+      ]
+    },
+    "rationale": "The 1992 original technical report and 2022 full paper explicitly establish optimum length 26 and the latter introduces ideal words, but the inspected relevant sections do not state the count 22, all six symmetry orbits, or necessity of the opposite constant endpoints for EVERY maximizer. The exhaustive classification is logically stronger than exhibiting one ideal optimum. 2024 sources focus on construction/length. Multiple actual published-result and literature searches found no equivalent statement; uncertainty from the uninspected printed 1993 expansion and unindexed enumeration is explicitly retained.",
+    "residual_risks": [
+      "The 1993 published chapter expanding Burns–Mitchell 1992 was not acquired in full; the available full-text technical report was inspected in the directly relevant sections. An unpublished list generated during original exhaustive searches could contain the same 22 words.",
+      "An unindexed publication or alternative terminology could disclose the complete six-orbit classification. Search failure is not an absolute proof of novelty.",
+      "The 2024 source relevant pages were inspected, not every appendix image; the finite census is nonetheless logically distinct from its stated construction theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports the optimum length 26 from a complete search for orders 4–7; no count 22, six classes or all-maximizer endpoint theorem is stated in relevant section",
+        "evidence": [
+          "§5.2.2 says for orders 4–7 exhaustive search completed; Figure 7 has row n=6, length=26; §3.2 defines 2-orientability."
+        ],
+        "identifier_or_url": "HPL-92-19 (January 1992), https://www.chrismitchell.net/HPL-92-19.pdf",
+        "material_read": "Scanned original PDF pages 7–10 and 22–25, especially §5.2.2 and Figure 7; other paper sections scoped by headings",
+        "method": "Direct inspection of original PDF page images",
+        "title": "Coding Schemes for Two-Dimensional Position Sensing",
+        "trigger": "Original source behind established length-26 bound; possibly contains a classification"
+      },
+      {
+        "assessment": "Exact length 26 and existence of an ideal length-26 word are prior results. Count and complete optimizer classification not stated.",
+        "evidence": [
+          "§5.1 Table 3 lists 26; §5.3 Definition 5.2 defines ideal; Example 5.6 builds an ideal order-6 word."
+        ],
+        "identifier_or_url": "arXiv:2108.03069v2, https://arxiv.org/html/2108.03069v2",
+        "material_read": "Full HTML main text, §§1–6, detailed §§5.1–5.3 and Tables 3–4",
+        "method": "Direct HTML text inspection and focused within-paper searches",
+        "title": "Constructing orientable sequences",
+        "trigger": "Closest paper studying aperiodic orientable words and their ideal endpoint construction"
+      },
+      {
+        "assessment": "Construction algorithms and known longest lengths; no enumerated linear 26-bit maxima or endpoint-rigidity theorem in inspected relevant material",
+        "evidence": [
+          "Known shortest-order table includes previously established values and presents constructions; no all-maximizer data."
+        ],
+        "identifier_or_url": "arXiv:2401.14341, https://arxiv.org/abs/2401.14341",
+        "material_read": "HTML full-text portions on known maximum order lengths and constructions, including the comparisons table",
+        "method": "Read source text and focused relevant sections",
+        "title": "Construction of orientable sequences in O(1)-amortized time per bit",
+        "trigger": "Recent efficient constructions and tabulations could dominate finite counts"
+      },
+      {
+        "assessment": "Discusses long cyclic orientable sequences, not complete aperiodic length-26 solution multiplicity",
+        "evidence": [
+          "Abstract specifically defines cyclic order-n sequences and emphasizes efficient construction."
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.CPM.2024.15, https://drops.dagstuhl.de/storage/00lipics/lipics-vol296-cpm2024/LIPIcs.CPM.2024.15/LIPIcs.CPM.2024.15.pdf",
+        "material_read": "Abstract, introductory context, relevant primary PDF page(s)",
+        "method": "Read OA PDF text and page image",
+        "title": "Efficient Construction of Long Orientable Sequences",
+        "trigger": "Potential stronger algorithms covering enumeration"
+      },
+      {
+        "assessment": "Shows known examples and optimal length context, but no complete 22-object linear census in inspected material",
+        "evidence": [
+          "Site presents cyclic orientable sequences and known maximum length tables."
+        ],
+        "identifier_or_url": "https://debruijnsequence.org/db/orientable",
+        "material_read": "Displayed explanatory text and known-length table context",
+        "method": "Direct website inspection",
+        "title": "Orientable Sequences",
+        "trigger": "Potential exact public lookup/table of optimum solutions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13bf742c-111c-439a-a166-095ad8752b66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number and six equivalence types of maximum-length orientation-distinguishing position sequences are natural missing finite invariants of an established optimum. All-maximizer endpoint rigidity is a stronger structural fact than constructing an ideal example; it specifies which maximizers occur and why their boundary form is unavoidable. Practical motivation is position sensing and exact finite design choice, without unsupported claims of algorithmic or asymptotic improvement.",
+    "status": "PASS"
+  }
+}
