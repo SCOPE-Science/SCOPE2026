@@ -1,23 +1,21 @@
-# Scientific review: priced pineapple resistance allocation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(k\ge2\), \(m\ge1\), and positive budget/price \(B,t\), the claim concerns all independent eligible edge conductances, not just symmetric candidates. Strict convexity of the all-pairs effective-resistance objective and graph automorphisms force a unique three-orbit optimum. On a weighted pineapple graph, the hub-to-core and core-to-core effective-resistance decomposition gives
-\[
-\mathcal K=\frac{m(N-1)}b+\frac{m+1}a+\frac{(k-1)N}{a+kc}.
-\]
-The Cauchy–Schwarz lower bound with transformed variable \(v=a+kc\) is feasible exactly below the stated chord-price threshold. Above and at the threshold, the star candidate passes the chord-boundary Karush–Kuhn–Tucker inequality; strict convexity gives uniqueness. The stated fixed-leaf asymptotic follows directly by retaining the leading \(k^{3/2}\) term in the exact normalization. A standalone checker confirms the resistance identity by independently constructed rational Laplacians and evaluates small unrestricted competitors. The analytical proof, not those finite checks, covers all integer sizes and real parameters.
+PASS
 
-## Originality — PASS, with bounded residual risk
+For every k>=2,m>=1,B,t>0 and N=k+m+1, effective-resistance objective is strictly convex over individually controlled connected simple-graph edge weights, so graph automorphisms force unique orbit values a on k hub/core spokes, b on m pendant bridges, c on nonhub clique chords. Core eigenmodes and pendant bridge series law yield exact Kirchhoff index K=m(N-1)/b+(m+1)/a+(k-1)N/(a+kc); independent rational grounded-Laplacian check for k=2,m=1,a=b=1/4,c=1/5 gives matrix K=340/13 matching formula. Budget B=ka+mb+[t k(k-1)/2]c. With v=a+kc>=a, alpha=k-t(k-1)/2, beta=t(k-1)/2, Cauchy–Schwarz lower bound is attained by positive c exactly when t<tau_N=2N/(N-1), yielding explicit b*=B sqrt(N-1)/Z,a*=B sqrt((m+1)/alpha)/Z,c*=B/kZ[ sqrt((k-1)N/beta)-sqrt((m+1)/alpha) ],K*=Z²/B. For t>=tau_N, chord-free star a=b=B/(N-1) satisfies every chord KKT inequality, unique by strict convexity, K*=(N-1)^3/B. Fixed m asymptotic ratio min(t/2,1) follows from dominant O(k^(3/2)) normalization. Independent small k,m optimization budgets and signs checked.
 
-Ghosh–Boyd–Saberi (SIAM Review 50, 2008, DOI:10.1137/050645452) supply the general convex design framework, strict uniqueness, a star solution, and worked examples for wheels and barbells. An existing general price-screening result for chords of a weighted tree already gives the chord-free price boundary in this star-backed instance; that boundary alone is **not** treated as original. The present claim adds a complete exact positive-chord allocation, its all-price closed optimal objective, and an explicit dimension-independent support regime for this natural pineapple family. Haritha–Chithra (arXiv:2309.02704, Proposition 3.2) calculate unweighted pineapple resistance distances but optimize no conductances. Tovar et al. (arXiv:2610.03627) study general cost-convexity and edge screening, but the inspected material supplies no exact pineapple-family optimizer. Searches found no identical formula. The unresolved risk is a differently indexed specialization, not a demonstrated stronger prior theorem; independent bibliographic review remains unperformed.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem answers an exact, natural network-design question rather than a single arbitrary parameter instance: how to allocate a costly set of redundant clique links versus essential spokes and bridges to minimize all-pairs electrical resistance. It simultaneously classifies every edge's optimal activity, provides explicit weights and optimal objective for an infinite two-parameter family, and shows that one sharp price threshold depends only on total network order. The fixed-leaf large-clique asymptotic gives an explicit quantitative benefit for purchasing optional links. Its usefulness does not depend on claiming a new general SDP or a larger downstream theorem.
+Ghosh–Boyd–Saberi SIAM Review 2008 already prove general minimizing effective resistance convexity, symmetry and KKT and give tree/wheel/barbell examples. General tree chord price screening already anticipates where star loses optimality; cutoff alone is not claimed original. Haritha–Chithra arxiv:2309.02704 gives unweighted pineapple resistance formulas, and Tovar et al. arxiv:2610.03627 broader cost-convex support ideas. The assessed contribution is the explicit complete all-price positive-chord allocation and optimum K* for this natural infinite pineapple family, not generic convexity. Tovar complete 2026 paper was inaccessible in this run; possible implicit coverage remains real.
 
-## Limits
+## value
 
-All costs are linear and two edge families have unit price; only clique-internal nonhub edges carry common relative price. Pendant edges remain bridges, and disconnected assignments are inadmissible. Statements do not extend to arbitrary graph attachments or nonlinear material laws. An equivalent published formula in unindexed sources cannot be excluded by searches alone. Finite verification neither exhausts parameter space nor constitutes independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Network designers must balance costly redundant clique connections against essential spokes and bridge conductances; the theorem completely solves a motivated all-pairs effective-resistance allocation over a natural infinite graph family. The simultaneous chord-on/off boundary, explicit optimal weights, and fixed-leaf asymptotic gain are exact reusable invariants not merely a restatement of convexity or KKT screening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

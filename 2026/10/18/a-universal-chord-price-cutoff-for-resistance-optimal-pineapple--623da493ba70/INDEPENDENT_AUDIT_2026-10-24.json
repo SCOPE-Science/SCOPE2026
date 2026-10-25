@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:54:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and verification.py (frozen tree 23a50e5ac3dd54671ae8bd66eb95caff2b49f3d7)",
+        "Independent exact grounded-Laplacian calculation giving K=340/13 for k=2,m=1"
+      ],
+      "rationale": "For every k>=2,m>=1,B,t>0 and N=k+m+1, effective-resistance objective is strictly convex over individually controlled connected simple-graph edge weights, so graph automorphisms force unique orbit values a on k hub/core spokes, b on m pendant bridges, c on nonhub clique chords. Core eigenmodes and pendant bridge series law yield exact Kirchhoff index K=m(N-1)/b+(m+1)/a+(k-1)N/(a+kc); independent rational grounded-Laplacian check for k=2,m=1,a=b=1/4,c=1/5 gives matrix K=340/13 matching formula. Budget B=ka+mb+[t k(k-1)/2]c. With v=a+kc>=a, alpha=k-t(k-1)/2, beta=t(k-1)/2, Cauchy–Schwarz lower bound is attained by positive c exactly when t<tau_N=2N/(N-1), yielding explicit b*=B sqrt(N-1)/Z,a*=B sqrt((m+1)/alpha)/Z,c*=B/kZ[ sqrt((k-1)N/beta)-sqrt((m+1)/alpha) ],K*=Z²/B. For t>=tau_N, chord-free star a=b=B/(N-1) satisfies every chord KKT inequality, unique by strict convexity, K*=(N-1)^3/B. Fixed m asymptotic ratio min(t/2,1) follows from dominant O(k^(3/2)) normalization. Independent small k,m optimization budgets and signs checked.",
+      "residual_risks": [
+        "Strictly linear costs and pineapple graph only; arbitrary nonuniform clique chord prices and other attachments not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi 2008 PDF sections 1,2,4,5 and appendices: general convex optimal design and explicit tree/wheel/barbell examples, not this priced pineapple c>0 family. Tovar 2026 arxiv abstract: broader convex architecture context, inaccessible complete PDF."
+        ],
+        "reasoning": "A general convex-program solution principle could compute these answers but does not by itself state the exact pineapple-specific Z, active-set threshold and weights without nontrivial orbit spectral reduction. Inaccessible Tovar text prevents definitive exclusion of coverage.",
+        "searches": [
+          "pineapple graph optimizing Kirchhoff index edge weights cost priced clique chords threshold 2N/(N-1)",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph 2008 PDF",
+          "Tovar cost convexity architecture resistance optimal networks arxiv:2610.03627"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verification.py (frozen tree 23a50e5ac3dd54671ae8bd66eb95caff2b49f3d7)",
+        "Independent exact grounded-Laplacian calculation giving K=340/13 for k=2,m=1",
+        "Ghosh–Boyd–Saberi 2008 full PDF",
+        "Haritha–Chithra arxiv:2309.02704 (abstract-level)",
+        "Tovar et al. arxiv:2610.03627 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-curvature-distortion-number-of-pineapple-graphs--de350c5f72a5 optimizes curvature-distortion, a different graph invariant. Ghosh general KKT does predict star-support sufficient condition but not closed form c>0 solution."
+        ],
+        "reasoning": "The theorem acknowledges KKT and existing star screening; the published nearby Resultary pineapple fact concerns Lin–Lu–Yau curvature rather than Kirchhoff index and is not dominating in this objective.",
+        "searches": [
+          "pineapple graph optimizing Kirchhoff index edge weights cost priced clique chords threshold 2N/(N-1)",
+          "Resultary exact curvature distortion number pineapple graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh Boyd Saberi 2008 effective resistance design objective is N tr(L+J/N)^-1-N, strictly convex; same objective as Kirchhoff index."
+        ],
+        "reasoning": "Equivalent graph-theoretic names Kirchhoff index/total effective resistance must be compared. General KKT stationarity and star screening cover the approach, not automatically the full positive chord allocation and K*(t).",
+        "searches": [
+          "pineapple graph optimizing Kirchhoff index edge weights cost priced clique chords threshold 2N/(N-1)",
+          "priced pineapple Kirchhoff index optimizer effective resistance conductances",
+          "star with chord optimality weighted graph edges price threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Haritha–Chithra 2023 Prop 3.2 computes resistances of unit-weight pineapple networks; does not optimize independent conductances. No exact t-dependent optimizer table in inspected Boyd examples."
+        ],
+        "reasoning": "Unit-conductance resistance entries do not determine continuous price-dependent optimum by substitution; solving Cauchy equality subject to v>=a is the additional result.",
+        "searches": [
+          "pineapple graph optimizing Kirchhoff index edge weights cost priced clique chords threshold 2N/(N-1)",
+          "Haritha Chithra arxiv:2309.02704 resistance distance pineapple",
+          "priced pineapple resistance optimum K* chord conductances exact formula"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi SIAM Review 2008 already prove general minimizing effective resistance convexity, symmetry and KKT and give tree/wheel/barbell examples. General tree chord price screening already anticipates where star loses optimality; cutoff alone is not claimed original. Haritha–Chithra arxiv:2309.02704 gives unweighted pineapple resistance formulas, and Tovar et al. arxiv:2610.03627 broader cost-convex support ideas. The assessed contribution is the explicit complete all-price positive-chord allocation and optimum K* for this natural infinite pineapple family, not generic convexity. Tovar complete 2026 paper was inaccessible in this run; possible implicit coverage remains real.",
+      "residual_risks": [
+        "Relevant Tovar et al 2026 full primary article inaccessible and could contain stronger explicit orbit-family formulas; abstract alone insufficient to decide noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_PRIOR; not all-price pineapple solution",
+          "evidence": "Authors establish objective convexity and symmetry; the sampled analytic worked examples are trees/wheels/barbells, not priced pineapple clique with leaves.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Full approximately 30-page SIAM Review PDF including convexity proof, KKT and analytical design examples (trees, wheels, barbells)",
+          "method": "Full primary PDF text and screenshot pages 1 and 19 inspected",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Strongest general effective-resistance optimization antecedent"
+        },
+        {
+          "assessment": "PLAUSIBLE_PRIOR_UNIT_WEIGHTS; not decisively noncovering",
+          "evidence": "Unit-weight resistance distances can corroborate topology but no independently verified priced optimizer in accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.02704",
+          "material_read": "Accessible abstract and cited Proposition 3.2 summary; full primary text not independently read",
+          "method": "Source abstract and original record references",
+          "title": "Resistance distance in k-coalescence of certain graphs",
+          "trigger": "Same pineapple topology, possible stronger table"
+        },
+        {
+          "assessment": "MATERIAL PRIORITY RISK; full text not read",
+          "evidence": "General priced-edge support theorems may cover a star boundary, and perhaps more; cannot rule out explicit c>0 pineapple formulas without primary full-text reading.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+          "material_read": "ArXiv abstract and search results, full arxiv PDF download inaccessible in this run",
+          "method": "Abstract-only access; direct PDF retrieval failed",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "Closest recent stronger general optimization support theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and verification.py (frozen tree 23a50e5ac3dd54671ae8bd66eb95caff2b49f3d7)",
+        "Independent exact grounded-Laplacian calculation giving K=340/13 for k=2,m=1",
+        "Ghosh–Boyd–Saberi 2008 full PDF",
+        "Haritha–Chithra arxiv:2309.02704 (abstract-level)",
+        "Tovar et al. arxiv:2610.03627 (abstract only)"
+      ],
+      "rationale": "Network designers must balance costly redundant clique connections against essential spokes and bridge conductances; the theorem completely solves a motivated all-pairs effective-resistance allocation over a natural infinite graph family. The simultaneous chord-on/off boundary, explicit optimal weights, and fixed-leaf asymptotic gain are exact reusable invariants not merely a restatement of convexity or KKT screening.",
+      "residual_risks": [
+        "Relevant Tovar et al 2026 full primary article inaccessible and could contain stronger explicit orbit-family formulas; abstract alone insufficient to decide noncoverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Relevant Tovar et al 2026 full primary article inaccessible and could contain stronger explicit orbit-family formulas; abstract alone insufficient to decide noncoverage.",
+    "Strictly linear costs and pineapple graph only; arbitrary nonuniform clique chord prices and other attachments not covered.",
+    "No source updates and no public publication. Original human/expert and formal-proof status untouched; independent scientific review is not an external certified proof."
+  ],
+  "schema_version": 1
+}
