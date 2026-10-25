@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:03:08.530092Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-facet-and-extreme-ray-spectra-of-planar-vertex-normal-c--55236d068472",
+        "RESULT.md Git blob e85f064565aad64b220743133cfbd96763798e5b",
+        "verify.py Git blob b3ea4859b68c2a2c93895c1b8f8138c0f690c354, source inspected but floating-point rank is supplementary",
+        "Independent exact integer triple-gap count n=3..12: ray counts 8,8,40,28,112,80,240,180,440,344."
+      ],
+      "evidence": [
+        "RESULT.md Git blob e85f064565aad64b220743133cfbd96763798e5b",
+        "verify.py Git blob b3ea4859b68c2a2c93895c1b8f8138c0f690c354, source inspected but floating-point rank is supplementary",
+        "Independent exact integer triple-gap count n=3..12: ray counts 8,8,40,28,112,80,240,180,440,344."
+      ],
+      "rationale": "For every n>=3 and cyclic unit normals with every angular gap in (0,pi), write edges e_i=x_(i+1)-x_i=λ_i Ja_i+μ_i Ja_(i+1) with λ_i,μ_i>=0. Rotating edge sectors cover one full turn; each support projection is monotone decreasing then increasing along a closed walk, so all nonadjacent inequalities follow from the two adjacent ones. Translation quotient is B=R_+^(2n)∩ker([t_0,t_1,t_1,t_2,...,t_(n-1),t_0]), with rank-two closure. Strict positive point x_i=a_i and transfer between duplicate tangent columns witness each of 2n distinct facets. Positive minimal dependencies of planar nonzero tangent directions have either an antipodal pair or an origin-surrounding triple; their 4/8 occurrence choices and sine-coefficient relation exhaust all extreme supports. For n regular, counting strict three-direction gaps yields T_odd=n(n²−1)/24 and T_even=n(n−2)(n−4)/24; 8T plus 2n rays in even case. Independent integer combinatorial enumeration for n=3..12 agrees with formula; arbitrary n follows from circuit proof and counting, not those samples.",
+      "residual_risks": [
+        "No facet/ray conclusion for normal gaps >=pi; quotient by translations is essential; regular-grid closed counts do not apply to arbitrary angles. Floating-point tests do not certify universal statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rieger 2026 Lemmas 22–23 identify selected redundant nonadjacent constraints, without simultaneous irredundancy of the complete remaining family.",
+          "Poullot 2024 classifies rays of deformation cones of graphical zonotopes with different constraints and object."
+        ],
+        "reasoning": "Neither stronger theorem identified covers the full facet and support-minimal circuit classification under the precise angular hypotheses; general positive-circuit theory supplies the method but not its specific direction multiplicities/counts.",
+        "searches": [
+          "https://arxiv.org/abs/2608.26615",
+          "https://arxiv.org/abs/2404.02669",
+          "Resultary: \"vertex normal\" cone \"facet\" \"extreme\" ray polygon planar all adjacent normal"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.26615",
+        "https://arxiv.org/abs/2404.02669",
+        "Resultary: planar convex polygons normal inequalities vertex normal cone adjacent supporting halfspaces facets extreme rays deformation cone support functions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rieger same-cone partial redundancy does not imply no further adjacent redundancy or enumerate primitive closing positive dependencies.",
+          "Fixed-fan deformation cone rank and rays use different ambient geometric identifications."
+        ],
+        "reasoning": "The proposed conclusion adds a complete extremal classification and all-n counts, rather than repackaging an earlier theorem with changed wording.",
+        "searches": [
+          "https://arxiv.org/abs/2608.26615",
+          "https://arxiv.org/abs/2404.02669"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rieger §5 uses the same vertex-normal support inequalities for polytopes and proves some nonadjacent redundancies.",
+          "Our claimed cone is an orthant section via duplicate edge-tangent coordinates, not the deformation cone of a fixed fan."
+        ],
+        "reasoning": "The aliases normal-vector support feasible configurations and edge-weight closure were compared as the same geometric object; Rieger is genuinely relevant, but its partial redundancy lemmas do not state a complete 2n-facet description or enumerate all extreme rays.",
+        "searches": [
+          "Resultary: planar convex polygons normal inequalities vertex normal cone adjacent supporting halfspaces facets extreme rays deformation cone support functions",
+          "https://arxiv.org/abs/2608.26615"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified published exact database/table of regular n ray numbers 8,8,40,28,112,80 for this vertex-normal cone.",
+          "The regular hexagon deformation cone cited in related work has a different number of facets/rays, so numerically matching normal grids alone cannot be used as equivalence."
+        ],
+        "reasoning": "Negative search alone does not establish novelty; classification was compared to object-level sources and no same invariant table was found.",
+        "searches": [
+          "Resultary: planar convex polygons normal inequalities vertex normal cone adjacent supporting halfspaces facets extreme rays deformation cone support functions",
+          "Resultary: \"vertex normal\" cone \"facet\" \"extreme\" ray polygon planar all adjacent normal"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncovered part: Complete facet and extreme-ray spectra of planar vertex-normal cones. A full irredundant facet system and support-minimal ray circuits identify the face structure of a geometrically natural labelled polygon normal cone; parity-sensitive closed regular-grid counts answer an exact family classification not mechanically determined by partial redundancy or generic kernel-circuit theory; The proposed conclusion adds a complete extremal classification and all-n counts, rather than repackaging an earlier theorem with changed wording.",
+      "residual_risks": [
+        "Older cone representations, normal-fan parameterizations or oriented-matroid positive-circuit tabulations could encode an equivalent extreme-ray result under another terminology; search is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_RELATED_NOT_COVERING_FULL_CLAIM",
+          "evidence": "Same inequalities, but partial redundancy results do not give all rays or exactly 2n facets.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26615",
+          "material_read": "Original preprint PDF read, particularly Section 5 and Lemmas 22–23, definitions of normal-vector feasibility and local redundancy",
+          "method": "arXiv PDF/full-text and page-image inspection",
+          "title": "Galerkin approximations to the space of convex bodies by polytopes in nondegenerate V-representation",
+          "trigger": "Same vertex-normal cone and redundant normal inequalities"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_WITH_RISK",
+          "evidence": "Fixed normal fan deformations, not arbitrary labelled vertex-normal feasible configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.02669",
+          "material_read": "Available arXiv metadata/abstract and contrast given in result; not a complete paper-wide inspection",
+          "method": "arXiv public metadata and scientific comparison",
+          "title": "Rays of the deformation cones of graphical zonotopes",
+          "trigger": "Possible dual/cone reduction via edge weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-facet-and-extreme-ray-spectra-of-planar-vertex-normal-c--55236d068472",
+        "https://arxiv.org/abs/2608.26615",
+        "https://arxiv.org/abs/2404.02669",
+        "Resultary: planar convex polygons normal inequalities vertex normal cone adjacent supporting halfspaces facets extreme rays deformation cone support functions"
+      ],
+      "rationale": "A full irredundant facet system and support-minimal ray circuits identify the face structure of a geometrically natural labelled polygon normal cone; parity-sensitive closed regular-grid counts answer an exact family classification not mechanically determined by partial redundancy or generic kernel-circuit theory.",
+      "residual_risks": [
+        "The circuit classification rests on standard positive-dependence machinery; value lies in the sharp specialization and complete geometry, not novelty of generic circuits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing the attached source. It uses only the Python 3 standard library. The program enumerates every proposed positive-circuit generator for the regular normal grid in each dimension from 3 through 12, checks the combinatorial formulas, reconstructs the closed polygonal chain, checks every defining nonlocal support inequality, verifies exact-coordinate facet transfer witnesses up to floating-point roundoff, and checks the active-constraint ranks needed for an extreme ray.
+## correctness
 
-The completed execution returned ten passing dimensional cases, 1,480 ray rank checks and 150 facet witness checks; no assertion failed. A checker's finite successful run does not prove a formula for arbitrary dimension. The separate mathematical proof establishes the unlimited result, and numerical rank thresholds can misbehave in substantially larger test instances.
+PASS
 
-# Verification state
+For every n>=3 and cyclic unit normals with every angular gap in (0,pi), write edges e_i=x_(i+1)-x_i=λ_i Ja_i+μ_i Ja_(i+1) with λ_i,μ_i>=0. Rotating edge sectors cover one full turn; each support projection is monotone decreasing then increasing along a closed walk, so all nonadjacent inequalities follow from the two adjacent ones. Translation quotient is B=R_+^(2n)∩ker([t_0,t_1,t_1,t_2,...,t_(n-1),t_0]), with rank-two closure. Strict positive point x_i=a_i and transfer between duplicate tangent columns witness each of 2n distinct facets. Positive minimal dependencies of planar nonzero tangent directions have either an antipodal pair or an origin-surrounding triple; their 4/8 occurrence choices and sine-coefficient relation exhaust all extreme supports. For n regular, counting strict three-direction gaps yields T_odd=n(n²−1)/24 and T_even=n(n−2)(n−4)/24; 8T plus 2n rays in even case. Independent integer combinatorial enumeration for n=3..12 agrees with formula; arbitrary n follows from circuit proof and counting, not those samples.
 
-The proof and its limitations received self-review. An independent audit has not been performed. No separate machine-checked proof, external certificate, or expert validation is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge noncovered part: Complete facet and extreme-ray spectra of planar vertex-normal cones. A full irredundant facet system and support-minimal ray circuits identify the face structure of a geometrically natural labelled polygon normal cone; parity-sensitive closed regular-grid counts answer an exact family classification not mechanically determined by partial redundancy or generic kernel-circuit theory; The proposed conclusion adds a complete extremal classification and all-n counts, rather than repackaging an earlier theorem with changed wording.
+
+## value
+
+PASS
+
+A full irredundant facet system and support-minimal ray circuits identify the face structure of a geometrically natural labelled polygon normal cone; parity-sensitive closed regular-grid counts answer an exact family classification not mechanically determined by partial redundancy or generic kernel-circuit theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
