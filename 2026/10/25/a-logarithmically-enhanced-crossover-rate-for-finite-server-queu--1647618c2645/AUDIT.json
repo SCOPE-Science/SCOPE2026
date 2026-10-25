@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Using the published exact mean T_r, the zero-reset site solves T_0=1/(c mu). The exact hyperbolic equation has a negative quartic coefficient for a>5/2 and a positive exponential tail, so a positive root exists. All roots must have epsilon*theta→infinity: bounded u forces bounded theta; then the strict inequality tanh(theta)<theta or the uniform near-zero quartic sign excludes a root. Equation e^u-1-(1-tanh(b theta))*sinh(u)=a(1+b)^2*u^2/4 yields u-2log u=log a+O(1/a). Inverting this increasing branch gives H+2log H+4log H/H+O((log H)^2/H^2), with the dimensional normalization exact. The accompanying independent hyperbolic evaluations and rescaling tests passed; numerical checks do not prove the asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giral-Barajas and Bressloff, arXiv:2503.21883v3, considers the queue without resetting.",
+        "Linn and Lawley, Physical Review E 108, 024114 (2023), treats broad frequent-reset first-passage laws; abstract examined only."
+      ],
+      "reasoning": "Generic high-rate first-passage theory is a plausible source of stronger underlying coverage, but the identified conclusions address different limits and do not explicitly state the finite-server stability crossover at an initial position depending on the server count. The unexamined complete 2023 text is a residual risk, not proof of novelty.",
+      "searches": [
+        "\"G/M/c\" \"resetting\" \"equalizing\" \"asymptotic\"",
+        "\"finite server\" \"resetting\" \"log squared\"",
+        "\"First-passage times under frequent stochastic resetting\" starting point limit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.05009v2 (full accessible HTML)",
+      "arXiv:2503.21883v3 (full PDF sections and conclusion)",
+      "PhysRevE.108.024114 (publisher abstract only)",
+      "Published mathematical research records searched for crossover aliases, large-server rates and logarithmic equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supplies the implicit crossing equation and qualitative/numerical server-count trends.",
+        "The new proof derives r_e=(c mu L)^2/D [log(c mu L^2/D)]^2(1+o(1)) and its iterated-log corrections for every positive root.",
+        "The earlier 2025 source addresses G/M/c queue stability without positive-rate resetting."
+      ],
+      "reasoning": "The general exact MFPT formula alone logically determines r_e implicitly, but its publication does not expressly imply the claimed sharp large-server asymptotic without a nontrivial uniform singular-limit analysis. A future/full broader source could nevertheless provide such an implication, which remains an acknowledged risk.",
+      "searches": [
+        "arxiv 2602.05009 \"power law\" \"exponential\" server resetting",
+        "arxiv 2503.21883 resetting following work",
+        "Giral-Barajas Bressloff resetting queue critical crossing scale c log c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.05009v2, Sec. IV: implicit equalization between critical sites x_r and x_0, and numerical scaling discussion.",
+        "The crossover is exactly T_r(x_c)=1/(c mu), equivalent to cosh(theta)/cosh(b theta)-1=theta^2/a."
+      ],
+      "reasoning": "The square-root normalized rate satisfies a moving-boundary inversion u-2 log u=log a+O(a^-1). Fixed-starting-site large-r asymptotics do not automatically give this uniform joint limit, although a sufficiently general uniform theorem could subsume it.",
+      "searches": [
+        "\"equalizing resetting rate\" \"large number of servers\" asymptotic",
+        "\"2602.05009\" \"log\" \"servers\"",
+        "\"first passage\" \"moving starting point\" \"Lambert W\" large reset rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Giral-Barajas and Bressloff (2026), figures show numerical r_eq versus finite c; inspected Sec. IV reports numerical growth fits, not the logarithmically enhanced asymptotic.",
+        "Searches of mathematical research records returned adjacent reset/renewal findings with other objects; no matching finite-server Brownian stability law was surfaced."
+      ],
+      "reasoning": "A finite numerical plot of crossover points does not give a sharp infinite-server asymptotic coefficient or next-order logarithms. Index coverage is not exhaustive and non-return of a record is not positive originality evidence.",
+      "searches": [
+        "\"2602.05009\" \"equalizing resetting rate\"",
+        "\"resetting\" \"G/M/c\" \"server count\" \"log logarithm\"",
+        "\"c^2\" \"log^2\" \"resetting\" \"queue\""
+      ]
+    },
+    "rationale": "The 2026 primary source explicitly provides the exact T_r formula, queue traffic boundary, crossover definition and numerical finite-server fits. The new claim is the rigorous all-positive-root large-server c^2 log^2 c growth law and two iterated-logarithm corrections, which are not stated in its inspected complete text. The 2025 preceding queue paper does not analyze reset-rate equalization. Related general frequent-reset results do not directly state the joint limit x_c→0 and r→infinity; possible broader implication is retained as a priority risk.",
+    "residual_risks": [
+      "A general theorem for the joint high-reset and moving-starting-position first-passage limit might subsume this result, even absent matching queue terminology.",
+      "The full text of the related 2023 frequent-reset study was not inspected; database coverage and bibliographic indexing are nonexhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Previously derived ingredients are fully acknowledged; no rigorous c^2 log^2 c scaling or displayed loglog correction found in inspected material.",
+        "evidence": [
+          "arXiv:2602.05009v1 first submitted 2026-02-04",
+          "arXiv:2602.05009v2 Sec. IV and formulas for x_0, T_r and r_eq"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.05009",
+        "material_read": "Full accessible arXiv HTML, including equations defining the diffusion MFPT, queue boundary, Sec. IV rate equalization and later asymptotic/numerical discussion.",
+        "method": "Direct reading of full OA text with equation and appendix comparisons; earliest submission checked at v1 metadata.",
+        "title": "Resetting-induced instability in queues fed by a search process in an interval",
+        "trigger": "Same stochastic search, resetting interval, finite-server queue and crossing parameter."
+      },
+      {
+        "assessment": "Underlying queue and zero-reset critical geometry already known; a positive reset crossover scaling is not included.",
+        "evidence": [
+          "arXiv:2503.21883v3 Sec. model/stability and concluding discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.21883",
+        "material_read": "Full lawful OA PDF, introduction, model and stability equations, concluding discussion and further-work passages concerning resetting.",
+        "method": "PDF reading and page inspection of relevant sections.",
+        "title": "Stochastic 1D search-and-capture as a G/M/c queueing model",
+        "trigger": "Direct predecessor by the same authors, addressing the same finite-server queue without resetting."
+      },
+      {
+        "assessment": "Potentially relevant high-reset estimates, but the exact joint finite-server boundary limit is unresolved from abstract alone.",
+        "evidence": [
+          "Linn and Lawley, Physical Review E 108, 024114 (2023)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.024114",
+        "material_read": "Publisher abstract describing distributional and moment limits under frequent resets; complete text was not inspected.",
+        "method": "Publisher abstract and bibliographic record.",
+        "title": "First-passage times under frequent stochastic resetting",
+        "trigger": "Potential general theorem dominating high-rate behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1647618c-2645-42c3-8ffa-152e4ec6725d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The scaling controls the crossover from destabilizing to stabilizing resetting as the number of queue servers increases. It replaces exploratory apparent power/exponential growth with a mathematically sharp c^2 log^2 c scale and explicit loglog finite-size corrections, enabling capacity design and quantifying why finite-c numerical fits can mislead. The moving critical initial position creates a nontrivial singular limit; this is not merely substitution into a fixed-parameter expansion.",
+    "status": "PASS"
+  }
+}
