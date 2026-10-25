@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact integration gives the full fast-state propagator and scalar squared-norm expression, including its normalization at the initial state and at the delayed spectral-balance point. The change of variables \(t=(1-y^2)/\varepsilon\) is bijective between the entire positive interior \(0<y<1\) and \(0<t<1/\varepsilon\). Strict convexity of the logarithmic threshold follows from the elementary strict inequality \(2\sinh(t/2)>t\), so the root counts are exhaustive and do not depend on numerical sampling. Nondegenerate quadratic tangency yields the fold, while the implicit-function argument yields the sharp singular limit. The standalone verifier replays exact rational identities and representative numerical calculations; its finite tests are corroborative only.
+PASS
 
-## Originality
+Direct integrating-factor solution gives v(y)=delta exp((y^2-1)/(2epsilon)) and u/v=kappa(y^3-y)/(3epsilon). For 0<y<1 set t=(1-y^2)/epsilon; equality of normalized squared norm 1 is equivalent to kappa=3sqrt((exp(t)-1)/((1-epsilon t)t^2)). Its log second derivative equals -1/(4sinh^2(t/2))+epsilon^2/(1-epsilon t)^2+2/t^2>0; endpoint divergence proves exactly zero, one double, or two interior roots, plus y=1. Positive nonzero second derivative and nonzero kappa derivative ensure a fold; implicit function theorem yields kappa_epsilon/kappa_0=1+t_0 epsilon/2+O(epsilon^2). Independent SciPy root solver checked 5 positive epsilon, all regimes, and the three-return numerical example. No claim about periodic full-state returns or arbitrary norms.
 
-**PASS (best-knowledge bibliographic assessment).** Borsotti (arXiv:2610.15670v1), equations (3)–(11) and Section 4, handles constant nilpotent coupling and a single delayed exit asymptotic, with remarks on additional crossings close to initial entry. It does not specify the mean-zero, variable-coefficient shear, the exact full positive-return count, or its saddle-node threshold. The closest earlier multidimensional work of Kaklamanos–Kuehn–Popović–Sensi assumes a unique eigenvalue crossing; here the fast spectrum is doubly equal for the entire passage. Published mathematical-record searches found no exact covering formula. Broader nonnormal transient theory and unindexed specialized articles remain residual priority risks; a failed search is not a uniqueness proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The polynomial \(y^2-1/3\) is the lowest-order even nonconstant zero-mean shear, so the example probes a natural cancellation boundary rather than an arbitrary parameter slice. It demonstrates a distinctive phase transition omitted by fixed-nilpotent entry-exit asymptotics: despite exactly zero accumulated shear and an unchanged spectral-balance return, the repelling-side Euclidean norm may cross its entry radius twice earlier. The exact finite-\(\varepsilon\) threshold, unique fold, and universal small-\(\varepsilon\) constant quantify the failure of a one-return description and offer a benchmark for variable nonnormal passage.
+Borsotti 2026 analyzes entry-exit for a fixed nonzero nilpotent Jordan block and notes possible extra returns near initial entry; the audited system has sign-changing polynomial shear, zero accumulated shear at balance and two additional positive exits near y=1. Kaklamanos et al. main theorem requires a unique intersection of distinct eigenvalue branches, but these eigenvalues agree identically for all y, so it does not imply this fold. Scalar entry-exit balance predicts only the baseline return.
 
-## Scope and risks
+## value
 
-The theorem is specific to the stated linear triangular system, Euclidean fast norm, and initial fast direction. It does not prove nonlinear robustness or extend the threshold to arbitrary time-dependent shear functions. A related formula may be present in literature not retrieved in the search; independent assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact bifurcation of observable norm-return multiplicity under a minimal zero-mean variable shear is a natural counterexample to scalar delayed-return uniqueness and quantifies when nonnormal dynamics generates extra crossings. The natural quadratic shear is the lowest nonconstant even zero-integral polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

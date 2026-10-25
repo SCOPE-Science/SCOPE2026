@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:56:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct integrating-factor solution gives v(y)=delta exp((y^2-1)/(2epsilon)) and u/v=kappa(y^3-y)/(3epsilon). For 0<y<1 set t=(1-y^2)/epsilon; equality of normalized squared norm 1 is equivalent to kappa=3sqrt((exp(t)-1)/((1-epsilon t)t^2)). Its log second derivative equals -1/(4sinh^2(t/2))+epsilon^2/(1-epsilon t)^2+2/t^2>0; endpoint divergence proves exactly zero, one double, or two interior roots, plus y=1. Positive nonzero second derivative and nonzero kappa derivative ensure a fold; implicit function theorem yields kappa_epsilon/kappa_0=1+t_0 epsilon/2+O(epsilon^2). Independent SciPy root solver checked 5 positive epsilon, all regimes, and the three-return numerical example. No claim about periodic full-state returns or arbitrary norms.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems: Fixed nilpotent off-diagonal coefficient and logarithmic entry-exit shift have different integral and root geometry.",
+          "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues: A unique eigenvalue intersection cannot be substituted for the everywhere-Jordan family."
+        ],
+        "reasoning": "A general triangular matrix propagator is available by quadrature, but the fixed-block Borsotti exit theorem and intersecting-eigenvalue theorem do not mathematically imply the exact variable-shear level-count without additional monotonicity.",
+        "searches": [
+          "slow fast entry exit variable nilpotent Jordan shear zero mean multiple norm returns three threshold fold",
+          "arXiv:2610.15670v1",
+          "arXiv:2208.11559 DOI:10.1007/s10884-023-10266-2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.15670v1",
+        "https://arxiv.org/abs/2208.11559",
+        "https://doi.org/10.1016/j.jde.2016.01.008",
+        "RESULT.md",
+        "verify.py",
+        "independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems: Fixed nilpotent off-diagonal coefficient and logarithmic entry-exit shift have different integral and root geometry.",
+          "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues: A unique eigenvalue intersection cannot be substituted for the everywhere-Jordan family."
+        ],
+        "reasoning": "Scalar balance gives y=1, while Borsotti predicts logarithmic displacement under persistent shear; zero-total-shear case has a different return geometry and yields two extra positive crossings not covered by those hypotheses.",
+        "searches": [
+          "slow fast entry exit variable nilpotent Jordan shear zero mean multiple norm returns three threshold fold",
+          "arXiv:2610.15670v1",
+          "arXiv:2208.11559 DOI:10.1007/s10884-023-10266-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems: Fixed nilpotent off-diagonal coefficient and logarithmic entry-exit shift have different integral and root geometry.",
+          "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues: A unique eigenvalue intersection cannot be substituted for the everywhere-Jordan family."
+        ],
+        "reasoning": "The positive y return count is equivalent to intersections of a scalar log-convex threshold K_e(t) with a horizontal kappa level; recrossing of the Euclidean fast norm, not slow-fast trajectory recurrence.",
+        "searches": [
+          "slow fast entry exit variable nilpotent Jordan shear zero mean multiple norm returns three threshold fold",
+          "alternate parametrizations, duality, aliases for The triangular slow-fast system with sign-changing mean-zero Jordan shear has exactly 1,2,"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems: Fixed nilpotent off-diagonal coefficient and logarithmic entry-exit shift have different integral and root geometry.",
+          "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues: A unique eigenvalue intersection cannot be substituted for the everywhere-Jordan family."
+        ],
+        "reasoning": "The source comparison yields no identical three-return threshold formula or limiting constant; the new one-variable minimizer and finite epsilon fold are provided explicitly.",
+        "searches": [
+          "slow fast entry exit variable nilpotent Jordan shear zero mean multiple norm returns three threshold fold",
+          "published tables and exact calculated invariant in The triangular slow-fast system with sign-changing mean-zero Jordan shear has exactly 1,2,3 distinct"
+        ]
+      },
+      "rationale": "Borsotti 2026 analyzes entry-exit for a fixed nonzero nilpotent Jordan block and notes possible extra returns near initial entry; the audited system has sign-changing polynomial shear, zero accumulated shear at balance and two additional positive exits near y=1. Kaklamanos et al. main theorem requires a unique intersection of distinct eigenvalue branches, but these eigenvalues agree identically for all y, so it does not imply this fold. Scalar entry-exit balance predicts only the baseline return.",
+      "residual_risks": [
+        "A specialized unindexed variable-shear entry-exit paper could give the same minimization/fold after parameter translation.",
+        "Counts are specific to Euclidean norm and initial u(-1)=0; no structural persistence under arbitrary norms is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known fixed-block delay and near-entry recrossings do not give sign-changing zero-integral three-positive-return fold",
+          "evidence": [
+            "Fixed nilpotent off-diagonal coefficient and logarithmic entry-exit shift have different integral and root geometry."
+          ],
+          "identifier_or_url": "arXiv:2610.15670v1",
+          "material_read": "Public full-text introduction, model hypotheses, main entry-exit formula and discussion of extra norm-return points",
+          "method": "Full HTML/author-shared text available, inspected main sections",
+          "title": "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems",
+          "trigger": "very close constant nilpotent framework and warning of multiple returns"
+        },
+        {
+          "assessment": "Assumption excludes the identically coincident eigenvalues of the audited system",
+          "evidence": [
+            "A unique eigenvalue intersection cannot be substituted for the everywhere-Jordan family."
+          ],
+          "identifier_or_url": "arXiv:2208.11559 DOI:10.1007/s10884-023-10266-2",
+          "material_read": "Main hypotheses including unique isolated eigenvalue intersection and leading result",
+          "method": "Publisher full HTML available, checked the stated unique-intersection assumption",
+          "title": "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues",
+          "trigger": "potential stronger general slow-fast passage theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact bifurcation of observable norm-return multiplicity under a minimal zero-mean variable shear is a natural counterexample to scalar delayed-return uniqueness and quantifies when nonnormal dynamics generates extra crossings. The natural quadratic shear is the lowest nonconstant even zero-integral polynomial.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.15670v1",
+    "https://arxiv.org/abs/2208.11559",
+    "https://doi.org/10.1016/j.jde.2016.01.008",
+    "RESULT.md",
+    "verify.py",
+    "independent_checks.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "The triangular slow-fast system with sign-changing mean-zero Jordan shear has exactly 1,2,3 distinct positive Euclidean norm returns as kappa lies below, at, or above an explicit unique kappa_epsilon threshold; the two additional roots form a nondegenerate fold, and the small-epsilon limit equals 3.72790126899 with a first-order correction.",
+  "limitations": [
+    "A specialized unindexed variable-shear entry-exit paper could give the same minimization/fold after parameter translation.",
+    "Counts are specific to Euclidean norm and initial u(-1)=0; no structural persistence under arbitrary norms is established."
+  ],
+  "residual_risks": [
+    "A specialized unindexed variable-shear entry-exit paper could give the same minimization/fold after parameter translation.",
+    "Counts are specific to Euclidean norm and initial u(-1)=0; no structural persistence under arbitrary norms is established."
+  ],
+  "schema_version": 1
+}
