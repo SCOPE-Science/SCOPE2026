@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For n>=3, conditioning on one vertex outdegree d leaves d(N-d) independent fair crossing orientations; T|D=d is exactly Bin(d(N-d),1/2), yielding the joint and posterior formulas. The ratio w(b,t+1)/w(b,t)=(q_b-t)/(t+1) rises strictly in b on support; q_b strictly increases for b<=floor(N/2), and support loses every b<m after t>q_{m-1}. This proves likelihood-ratio order, exact strictness and parity plateau. Global reversal provides D|T symmetry, variance is expectation of strictly decreasing (N/2-B)^2, and Bernoulli fourth moments yield Cov((D-N/2)^2,T)=-N(N-1)/16. Exact independent enumeration over all tournaments of n=3..7 passed 681 assertion groups; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sanchez and Kolesnik (2020), arXiv:2009.09322, Theorems 1, 3, 4 and 5: score/mean-score feasibility by zonotopes.",
+        "Andersson (1998), DOI 10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V: publisher abstract describes whole-tournament subgraph count asymptotics.",
+        "The complete 2020 paper proves mean-score polytope realizability rather than distributional conditioning. The 1998 paper is an unresolved possible stronger source because its full text was not accessible."
+      ],
+      "reasoning": "A general binomial likelihood-ratio theorem would apply once the random-tournament local conditional binomial structure is proved, but cannot supply tournament-specific scope or parity cutoff without q_b. Deterministic score classifications do not imply the conditional law. Full Andersson comparison remains a stated residual risk; the accessible description concerns asymptotics of total graph counts, materially different observables, not a decisive covering implication.",
+      "searches": [
+        "Exact Bayesian posterior root outdegree given cyclic triple count in random tournaments, stochastic order and central score",
+        "random tournament score of vertex number of cyclic triples involving vertex conditional distribution outdegree",
+        "web: \"random tournaments\" \"Primary\" \"60C05\" 2000"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1207.0237 full accessible HTML",
+      "arxiv:2009.09322 full accessible HTML",
+      "1998 Andersson publisher abstract and bibliographic records",
+      "1989 Nowicki bibliographic descriptions",
+      "2026/10/4/SCOPE-exact-five-candidate-majority-tournament-fibers-for-three-voters--2630f9051ce9",
+      "2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de",
+      "2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu (2012), arXiv:1207.0237, Section 4, Theorem 4.1: triangle connectivity in strongly connected prime tournaments.",
+        "Sanchez and Kolesnik (2020), arXiv:2009.09322, Theorems 1, 3, 4 and 5: score/mean-score feasibility by zonotopes.",
+        "Andersson (1998), DOI 10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V: publisher abstract describes whole-tournament subgraph count asymptotics.",
+        "Nowicki (1989) Stochastic Models, DOI 10.1080/15326348908807104, abstract describes asymptotic normality of triad counts in random digraphs."
+      ],
+      "reasoning": "Liu classifies connectivity in prime deterministic tournaments; it has no random edge orientations or conditional score distributions. Sanchez–Kolesnik constrain possible means, without cycle count conditioning. Whole-tournament asymptotic triad/subgraph laws alone do not imply an exact finite rooted posterior MLR order. The inaccessible Andersson full text remains the main specific unresolved coverage risk, explicitly retained.",
+      "searches": [
+        "On the asymptotic distributions of subgraph counts in a random tournament full pdf",
+        "Pontus Andersson random tournament subgraph counts 1998 pdf Uppsala",
+        "web: \"cyclic triangle\" \"score\" \"binomial\" tournament random",
+        "Exact Bayesian posterior root outdegree given cyclic triple count in random tournaments, stochastic order and central score"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu (2012), arXiv:1207.0237, Section 4, Theorem 4.1: triangle connectivity in strongly connected prime tournaments.",
+        "Sanchez and Kolesnik (2020), arXiv:2009.09322, Theorems 1, 3, 4 and 5: score/mean-score feasibility by zonotopes.",
+        "Exact binomial trial-count kernel: T|B=b ~ Bin(q_b,1/2), q_b=b(N-b), and conditional likelihood ratio (q_b-t)/(t+1)."
+      ],
+      "reasoning": "The theorem equivalently asserts total positivity of the finite joint (score-balance, local-cycle) mass table; the general binomial trial-count ratio is classical. The contribution is the identified random-tournament kernel, complete strictness support classification, and zero-linear/strict-quadratic dependence contrast. The inspected tournament sources do not state the resulting finite posterior theorem.",
+      "searches": [
+        "In a uniform random tournament, conditional distribution of vertex outdegree balance given number of cyclic triangles incident to vertex: monotone likelihood ratio, parity plateau",
+        "Random tournament triangles through fixed vertex conditioned score; binomial with trials outdegree times indegree and strict MLR score balancing",
+        "web: \"cyclic triangles containing vertex\" \"score\" tournament"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-exact-five-candidate-majority-tournament-fibers-for-three-voters--2630f9051ce9: five-candidate voting-majority tournament fiber census, not independent orientation posterior.",
+        "2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de: six-vertex neighborhood-complex homotopy census, not probability mass table.",
+        "No covering table was found in the actual targeted searches; this negative search is not uniqueness evidence."
+      ],
+      "reasoning": "Existing computed tournament censuses found by the semantic index classify voting-fiber weights or topological types and do not encode the (one-vertex score balance, rooted cyclic triangle count) bivariate law. New exhaustive n<=7 verification is a check, not a novelty certificate.",
+      "searches": [
+        "In a uniform random tournament, conditional distribution of vertex outdegree balance given number of cyclic triangles incident to vertex: monotone likelihood ratio, parity plateau",
+        "Random tournament triangles through fixed vertex conditioned score; binomial with trials outdegree times indegree and strict MLR score balancing",
+        "Exact Bayesian posterior root outdegree given cyclic triple count in random tournaments, stochastic order and central score",
+        "cyclic triangles containing vertex score tournament",
+        "published-record IDs: 2026/10/4/SCOPE-exact-five-candidate-majority-tournament-fibers-for-three-voters--2630f9051ce9",
+        "published-record IDs: 2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de"
+      ]
+    },
+    "rationale": "The targeted historical and published-record comparisons do not identify an exact one-vertex random tournament score-balance posterior MLR/variance classification. Existing exact classical score constraints, triangle-connectivity theorem, and whole-tournament asymptotic count problems are statements of different strength and objects. The universal binomial TP2 ratio is standard and expressly not claimed as a new lemma. Historical priority is provisional because full Andersson 1998 and Nowicki 1989 were inaccessible; no known decisive dominating result was found.",
+    "residual_risks": [
+      "Older exact local score/cycle joint probability formulas could be embedded in inaccessible 1998/1989 full texts or unindexed texts.",
+      "The binomial likelihood-ratio ordering is a standard generic mechanism; claim is limited to the natural tournament specialization, exact boundary and variance contrast.",
+      "Published-record and open-web negative searches do not prove worldwide publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: triangle connectivity in prime deterministic tournaments, not probability law for rooted random tournament.",
+        "evidence": [
+          "Liu (2012), arXiv:1207.0237, Section 4, Theorem 4.1: triangle connectivity in strongly connected prime tournaments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1207.0237",
+        "material_read": "Full accessible parsed thesis including introduction and Section 4 (theorem statements and proof context).",
+        "method": "Read complete accessible HTML text, with focused Section 4 extraction.",
+        "title": "Various Theorems on Tournaments",
+        "trigger": "Same cyclic-triangle motifs and outdegree terminology"
+      },
+      {
+        "assessment": "NOT_COVERING: score/mean-score feasibility via zonotopes, no rooted triangle-count posterior or LR order.",
+        "evidence": [
+          "Sanchez and Kolesnik (2020), arXiv:2009.09322, Theorems 1, 3, 4 and 5: score/mean-score feasibility by zonotopes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.09322",
+        "material_read": "Entire accessible HTML manuscript, sections 1–3 and Theorems 1–5.",
+        "method": "Read full accessible arXiv HTML.",
+        "title": "The geometry of random tournaments",
+        "trigger": "Score vector distribution and possible stronger characterization"
+      },
+      {
+        "assessment": "UNCERTAIN / residual priority risk: accessible abstract addresses whole-tournament normalized subgraph counts asymptotically, but the full document cannot be compared decisively.",
+        "evidence": [
+          "Andersson (1998), DOI 10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V: publisher abstract describes whole-tournament subgraph count asymptotics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+        "material_read": "Publisher abstract, publication data, references and external bibliographic descriptions; NOT complete full text.",
+        "method": "Attempted preprint/open access retrieval; no lawful readable full text located, institutional retrieval unavailable.",
+        "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+        "trigger": "Older random-tournament subgraph-count theory could dominate local counts"
+      },
+      {
+        "assessment": "UNCERTAIN / residual historical-priority risk; asymptotic joint triad counts are not evidently a finite exact rooted degree posterior.",
+        "evidence": [
+          "Nowicki (1989), Stochastic Models, DOI 10.1080/15326348908807104."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/15326348908807104",
+        "material_read": "Bibliographic record, keywords, abstract-level descriptions; full text unavailable.",
+        "method": "Inspected public bibliographic evidence.",
+        "title": "Asymptotic normality of triad counts in random digraphs",
+        "trigger": "Earlier triad statistics might imply cycle-count dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c8705c9-d612-45df-98ff-74a83b29cd5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies the full finite-sample conditional distribution and monotone likelihood-ratio (not merely expectation) ordering of the natural competitive balance score from a local cycle observation, with a complete strict/plateau parity classification for all tournament sizes. The raw outdegree has exactly constant conditional mean and zero covariance with cycle count, yet strictly contracting conditional variance: a substantive hidden-dependence phenomenon. It treats a natural unconditional random-tournament statistic, not an arbitrary parameter slice; although the kernel manipulation is elementary, the combined exact characterization and sharp boundaries add interpretive value.",
+    "status": "PASS"
+  }
+}
