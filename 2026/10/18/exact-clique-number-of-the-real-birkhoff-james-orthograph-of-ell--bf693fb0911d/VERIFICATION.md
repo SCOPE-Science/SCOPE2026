@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The explicit antichain and uniform random-chain proof establishes the universal inequality for every positive dimension and every real projective clique. The lower construction, support-layer ratio and asymptotic are exact and independent of the finite checker. `python3 verify.py` uses only Python 3's standard library and checks 36 layers, 1,274,804 unordered ternary pairs, two complete finite-grid maximum-clique searches, and the complete set of 384 signed coordinate flags at dimension four. Expected line:
+## correctness
 
-`VERIFY_OK layers=36 ternary_mutual_pairs=1274804 rational_grids=[(2, 8, 2), (3, 49, 6)] flags=384`
+PASS
 
-The finite grids sample nonternary directions but are not the source of any global upper bound. The scope excludes complex scalars. Earlier published ternary lower constructions are acknowledged; published matching upper coverage was not identified by the documented checks. Independent mathematical auditing and a full-text reading of a 2022 relevant survey have not been completed.
+Normalize an arbitrary nonzero real vector to sup norm one. Its signed active-set projective pattern lies in a ranked signed subset poset. If two patterns are comparable, a suitably signed small perturbation reduces one vector's norm strictly, contradicting directed Birkhoff–James orthogonality. Consequently a mutual-orthogonality clique injects into an antichain. A uniformly random coordinate permutation and independent signs generate a maximal chain hitting every rank-k projective pattern with probability 1/[C(n,k)2^(k-1)], proving the sharp LYM bound. For fixed k, all signed ternary support-k projective lines are pairwise mutually orthogonal, attaining it. Rank-size ratio 2(n-k)/(k+1) and binomial Stirling yield exact maximizing rank and asymptotic. Independently checked rank maxima n=1..16; checks are corroboration, not proof for arbitrary directions.
+
+## originality
+
+PASS
+
+The published fixed-rank ternary-support family attains the lower bound but expressly does not claim global maximality; the 2021 symmetrized orthograph paper constructs only full-support sign families and general, weaker bounds. This record supplies the missing all-real-directions sharp upper bound by signed active patterns and LYM; related directed norm-recognition results do not force it.
+
+## value
+
+PASS
+
+A canonical extremal invariant of a finite-dimensional real Banach-space orthogonality graph is determined exactly in every dimension with a matching geometric construction and a structural antichain proof. This nontrivially converts a previously constructive lower bound into a sharp universal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

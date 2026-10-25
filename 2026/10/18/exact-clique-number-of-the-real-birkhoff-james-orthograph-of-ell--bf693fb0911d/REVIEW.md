@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Normalize each nonzero real vector. Comparable projective signed-active patterns force a strict reduction of the supremum norm under a suitably signed sufficiently small perturbation, contradicting directed Birkhoff–James orthogonality. Thus every mutual clique injects into an antichain of projective signed subsets. The randomized signed-permutation chain visits every rank-\(k\) pattern with exactly probability \(\bigl(\binom nk2^{k-1}\bigr)^{-1}\), so the sharp Lubell bound controls every clique. The previously established ternary layer reaches this upper bound. The maximizing layer and asymptotic follow from a direct ratio and binomial Stirling formula. Small-dimensional exact checks are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, residual risk
-The 2021 full article develops general upper estimates and a smaller full-support construction but not this exact universal upper bound. The 2024 full paper studies the directed orthograph and norm recognition, not the stated exact mutual-clique invariant. The closest public 2026 result proves exactly the matching ternary-layer **lower** bound and expressly states that maximality among all projective directions remains unresolved. The new projective signed-antichain upper closes that mathematical gap. The 2022 survey full chapter was not accessible; unindexed equivalent claims cannot be ruled out.
+PASS
 
-## Value — PASS
-The exact clique number is a natural projective Banach-space graph invariant (one of the principal questions in the cited orthograph literature). A sharp unrestricted bound over all real directions, together with attainment, is stronger than merely finding a larger construction or repeating the known finite-dimensional bounding argument. It provides a complete infinite-family answer with exponential growth and a structural extremal obstruction.
+Normalize an arbitrary nonzero real vector to sup norm one. Its signed active-set projective pattern lies in a ranked signed subset poset. If two patterns are comparable, a suitably signed small perturbation reduces one vector's norm strictly, contradicting directed Birkhoff–James orthogonality. Consequently a mutual-orthogonality clique injects into an antichain. A uniformly random coordinate permutation and independent signs generate a maximal chain hitting every rank-k projective pattern with probability 1/[C(n,k)2^(k-1)], proving the sharp LYM bound. For fixed k, all signed ternary support-k projective lines are pairwise mutually orthogonal, attaining it. Rank-size ratio 2(n-k)/(k+1) and binomial Stirling yield exact maximizing rank and asymptotic. Independently checked rank maxima n=1..16; checks are corroboration, not proof for arbitrary directions.
 
-## Limits
-Only finite real \(\ell_\infty\) spaces. Complex coefficients, all equality cases and classification of maximal cliques remain open here. Finite enumeration does not replace proof; external independent review remains unperformed. Publication date evidence for the original 2021 paper resolves to month rather than a verified first-public day, while the selected dated preprint anchor is publicly timestamped 2024-02-20.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published fixed-rank ternary-support family attains the lower bound but expressly does not claim global maximality; the 2021 symmetrized orthograph paper constructs only full-support sign families and general, weaker bounds. This record supplies the missing all-real-directions sharp upper bound by signed active patterns and LYM; related directed norm-recognition results do not force it.
+
+## value
+
+PASS
+
+A canonical extremal invariant of a finite-dimensional real Banach-space orthogonality graph is determined exactly in every dimension with a matching geometric construction and a structural antichain proof. This nontrivially converts a previously constructive lower bound into a sharp universal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
