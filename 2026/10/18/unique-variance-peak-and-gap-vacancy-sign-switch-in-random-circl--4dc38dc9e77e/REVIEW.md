@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cyclic spacings follow the uniform Dirichlet law. Direct two-spacing survival integration gives the exact moments, and differentiating the coverage variance yields the gap-count covariance. The explicit monotone-turn ratio proves exactly one zero for each finite sample size; a uniform expansion at inverse-sample-size arc length and a simple positive limiting root prove the optimizing density and its correction. The standalone rational and numerical checks are supplementary; no finite grid is treated as a proof.
+PASS
 
-## Originality — PASS, with residual risks
+Dirichlet(1,...,1) circular spacings give exact first two vacant-length moments by tail integration. Explicit Var(U)=[2(1-s)^{n+1}+(n-1)(1-2s)_+^{n+1}]/(n+1)-(1-s)^{2n}, and Cov(B,U)=-(1/2)Var'(s). For s<1/2, define F_n=n(1-s)^{n-1}-(n-1)((1-2s)/(1-s))^n. F_n' has sign of R_n-1 where R_n=(1-2s)^{n-1}/(1-s)^{2n-1}; log R_n' has unique sign switch at s=1/(2n), so F_n increases then decreases and crosses 1 once for n>=3. n=2 crosses at 1/2. The root expansion from h(c)=e^-c-(1+c+c²)e^-2c, h'(c_*)≠0 and j(c) gives the claimed correction. Independent scalar root checks for n=2,3,4,8,20,100 confirmed uniqueness locally, not its all-n proof.
 
-The full marginal vacant-length distribution in Huillet (2003) covers the raw variance in principle. This finding does not claim the moment algebra is independent of that published distribution. The narrowly assessed contribution is strict finite-sample uniqueness of the variance maximum, equivalently a complete two-sided gap–vacancy covariance sign classification, and the sharp density correction. Huillet Sections 2–3 and Propositions 4–5 were inspected without locating that statement; dedicated database searches also did not return an equivalent. Holst–Hüsler (1984) treats the joint gap/area limiting law, but its full text was not accessible. Pitts (1981) and Huffer (1984) remain specific possible stronger prior-coverage risks. Thus priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Optimal length for maximal vacancy variability is a natural uncertainty-design question in random homogeneous circle covering. Strict uniqueness for every finite sample size, a sharp negative-to-positive dependence phase, and an explicit optimized asymptotic density supply structural information not encapsulated in marginal means. The proof does not claim distributional independence or results for random arc lengths.
+Huillet 2003 supplies gap and vacant-length marginal laws from which moments follow, so those algebraic moments are not claimed novel. The inspected relevant sections did not identify an all finite-n strict unique variance maximizer, its covariance sign classification or optimal-density correction. Holst–Hüsler 1984 and other early variability work remain genuine unread primary risk; qualified best-knowledge O pass.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a fundamental stochastic covering model, the precise finite-sample arc size maximizing vacant-length variability and the sign reversal connecting uncovered components to uncovered measure form an interpretable phase diagram, with an explicit nontrivial asymptotic optimal density correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
