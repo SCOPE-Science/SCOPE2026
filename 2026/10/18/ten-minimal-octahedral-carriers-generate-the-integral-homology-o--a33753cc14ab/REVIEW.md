@@ -1,15 +1,21 @@
-# Scientific assessment: ten minimal folded-cube homology carriers
+# Independent mathematical audit
 
-## Correctness
-PASS. The precise Cayley graph model is given in `RESULT.md`, and a flag-complex support lemma proves the sharp eight-vertex minimum. A quotient-by-one-direction argument proves there are precisely ten induced four-edge matchings. Their octahedral fundamental cycles are explicitly oriented. The enclosed verifier reconstructs the complete finite face set and integral simplicial matrices, checks the boundary equations and full-support integral relation, and computes 25 unit Smith factors for the combined boundary-and-sphere lattice. A separate bitset rank 95 for the third boundary forces this primitive lattice to equal all integral third cycles. The conclusion is confined to this finite complex.
+## correctness
 
-## Originality
-PASS, subject to bibliographic limits. Two same-object published results already prove the ambient homotopy type as nine three-spheres, so that is credited and not claimed anew. Their complete mathematical statements and proofs do not give the minimal induced sphere classes, unit relation or primitive spanning result. The archival suspension theorem of Barmak, the published Clebsch graph structural table, the independence-polynomial records and the strongly regular first-homology paper were compared at the claim/implication level and do not entail the asserted integral induced-carrier classification. See `AUDIT.json` for the distinct alias, stronger-coverage, table and implication comparisons, material actually read, and residual risks. An equivalent result in unindexed literature remains possible.
+PASS
 
-## Mathematical value
-PASS. The minimum vertex support of ambient integral homology, the complete symmetry-organized set of minimal carriers and its index in the ambient lattice are mathematically motivated invariants. The ten carriers generate the complete rank-nine integral group with a single unit relation, a stronger assertion than ambient sphere multiplicity or rational spanning. The structural classification and primitive lattice statement together provide usable local-to-global topology for a standard graph.
+For Clebsch/folded 5-cube graph on F2^4 with neighbor differences 1,2,4,8,15, reconstructed all independent simplices f=(16,80,160,120,16) and enumerated all 12870 eight-vertex subsets. There are exactly ten induced four-disjoint-edge subgraphs, two affine supports per Cayley direction; flag homology minimum support bound 2d+2 and equality to a cross-polytope sphere prove no smaller degree-three support. Independent signed B3 (160x120), B4 (120x16), ten sphere cycles Z (120x10) show B3 rank mod2 95 and [B4|Z] Smith rank 25 with every nonzero factor 1; the latter saturates ker B3 integrally. Exact B4*t+Z*q=0 for primitive q=(1,-1,1,-1,1,1,-1,1,-1,1) with unit coordinates, giving Z^9 and any nine sphere classes as an integral basis. Cross-checked actual source code, not merely its VERIFY_OK log.
 
-## Limits
-This is one folded cube, not a general formula for all dimensions. The claimed integral calculation is reproducible in the enclosed Python program, but no independent validation or independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two publicly published full RESULT documents already prove Ind(Clebsch)≃∨9S3, and these subsume ambient H3 rank but neither gives canonical ten affine hyperplane induced S3 carriers with primitive spanning inclusion classes. The stronger ambient homotopy equivalence determines H3 abstractly but not which vertex-induced 8-support cycles embed as primitive integral generators, so the claimed carrier relation is not implied.
+
+## value
+
+PASS
+
+The ambient wedge of nine spheres and face vector are already known; inclusion maps from the smallest induced spheres, their ten affine carriers, and a primitive integral ten-generator/one-relation description are independent natural integral/topological data not mechanically entailed by the Betti number or the wedge homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
