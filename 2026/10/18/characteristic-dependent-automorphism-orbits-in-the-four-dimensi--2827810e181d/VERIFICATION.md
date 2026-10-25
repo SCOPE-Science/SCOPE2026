@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_zinbiel.py` in a directory containing that standalone file. Python's standard library is sufficient.
+## correctness
 
-The program constructs the finite field from either a prime field or an explicit monic irreducible polynomial; constructs the four-dimensional Zinbiel multiplication using integer binomial coefficients reduced modulo the characteristic; obtains the images of \(e_2,e_3,e_4\) by actual iterated multiplication from each possible image of \(e_1\); checks the defining relations for all basis pairs; and enumerates orbits of \(\langle e_2,e_3,e_4\rangle\) under every possible restriction of an automorphism. It then adds the one orbit with nonzero \(e_1\)-coefficient, whose transitivity is proved in `RESULT.md`.
+PASS
 
-Verified field orders: \(2,3,4,5,7,8,9,11\). Verified orbit counts respectively: \(7,11,13,9,9,19,25,7\). The program prints `VERIFY_OK` on success. The exhaustive checks cover only these finite fields; the characteristic-uniform proof is symbolic and is contained in `RESULT.md`.
+One-generated Zinbiel products imply every algebra automorphism is substitution e1 -> a e1+b e2+c e3+d e4 (a≠0), with triangular diagonal a,a²,a³,a⁴. Restriction to W=<e2,e3,e4> is (x,y,z)->(a²x,3abx+a³y,(4ac+3b²)x+6a²by+a⁴z). Split x≠0, x=0 y≠0 and x=y=0 z≠0. When p>=5, elimination yields two square classes for x≠0, gcd(3,q−1) cube classes, gcd(4,q−1) fourth classes plus zero and outside W. In p=2, x≠0 invariant delta=(xz+y²)/x³ gives q orbits, and on x=0,yz≠0 eta=y⁴/z³ gives q−1. In p=3, x≠0 y≠0 theta=y²/x³ yields q−1 plus two y=0 square classes, and x=0 yz≠0 gives q−1. Independent orbit enumeration using distinct direct matrix actions matched totals p/q=2/2:7,3/3:11,5/5:9,7/7:9,11/11:7. Power-class counts use finite fields; not a statement about semilinear automorphisms.
 
-No independent external audit or machine-formal infinite-field proof has been conducted.
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing exact mathematical implications, not titles. The old product table and existing 2025 conference abstract explicitly give automorphism substitution forms in complex characteristic zero. That formula is prior work, not the new claim. Neither the earlier isomorphism classes nor an automorphism-matrix formula, by itself, counts characteristic-two/three rational vector orbits. The complete 2025 paper and preprint remain inaccessible; no whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The natural automorphism action on elements of the canonical four-dimensional null-filiform algebra has a sharp modular phase change: bounded orbit types in p>=5 versus linearly many rational invariant parameters in p=2,3. Complete normal forms across all finite fields supply structural data not provided by classifying the underlying algebra up to isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Assessment of the finite-field Zinbiel element-orbit classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The null-filiform product is integral and therefore remains defined in every characteristic. The universal Zinbiel identity determines the images of the basis under any generator substitution. The resulting triangular automorphism matrices are invertible exactly when their first coefficient is nonzero. The orbit proof uses the explicit three-coordinate action, separates invariant valuation strata, normalizes with nonzero coefficients only where justified, and proves completeness of the characteristic-two and characteristic-three rational invariants. All formula cases agree with direct finite-field orbit enumerations from the standalone program. Finite enumeration does not substitute for the general algebraic argument.
+## correctness
 
-**Originality (PASS, subject to identified literature risk).** The 2007 source classifies Zinbiel algebra structures and gives the multiplication model, but does not enumerate automorphism orbits of its elements over finite fields. Targeted searches for the object, orbit invariants, parameter formulas, equivalences and stronger coverage did not retrieve that result. Nearby mathematical-record results concern different algebras or different orbit actions. The later local-automorphism paper is directly relevant and its full text was inaccessible; it may contain information not visible in its title and bibliographic records. This is a residual risk rather than positive evidence of novelty.
+PASS
 
-**Value (PASS).** The orbit count is a natural invariant of a canonical one-generated nonassociative algebra, not an arbitrary coefficient census. The classification pinpoints two modular failures of orbit normalization: characteristic two preserves \((xz+y^2)/x^3\), while characteristic three preserves \(y^2/x^3\). This creates entire families of inequivalent elements over all finite fields of the affected characteristics, contrasting with the uniformly bounded orbit count in larger characteristics. Normal forms and the complete finite-field orbit count provide a concrete structural classification for subsequent study of automorphism actions and local symmetry.
+One-generated Zinbiel products imply every algebra automorphism is substitution e1 -> a e1+b e2+c e3+d e4 (a≠0), with triangular diagonal a,a²,a³,a⁴. Restriction to W=<e2,e3,e4> is (x,y,z)->(a²x,3abx+a³y,(4ac+3b²)x+6a²by+a⁴z). Split x≠0, x=0 y≠0 and x=y=0 z≠0. When p>=5, elimination yields two square classes for x≠0, gcd(3,q−1) cube classes, gcd(4,q−1) fourth classes plus zero and outside W. In p=2, x≠0 invariant delta=(xz+y²)/x³ gives q orbits, and on x=0,yz≠0 eta=y⁴/z³ gives q−1. In p=3, x≠0 y≠0 theta=y²/x³ yields q−1 plus two y=0 square classes, and x=0 yz≠0 gives q−1. Independent orbit enumeration using distinct direct matrix actions matched totals p/q=2/2:7,3/3:11,5/5:9,7/7:9,11/11:7. Power-class counts use finite fields; not a statement about semilinear automorphisms.
 
-**Scope and residual limitations.** The classification is for this four-dimensional null-filiform algebra and for field-linear automorphisms; it does not concern semilinear actions, arbitrary four-dimensional Zinbiel algebras, or higher nilpotency lengths. The 2025 related full text could not be inspected. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact mathematical implications, not titles. The old product table and existing 2025 conference abstract explicitly give automorphism substitution forms in complex characteristic zero. That formula is prior work, not the new claim. Neither the earlier isomorphism classes nor an automorphism-matrix formula, by itself, counts characteristic-two/three rational vector orbits. The complete 2025 paper and preprint remain inaccessible; no whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The natural automorphism action on elements of the canonical four-dimensional null-filiform algebra has a sharp modular phase change: bounded orbit types in p>=5 versus linearly many rational invariant parameters in p=2,3. Complete normal forms across all finite fields supply structural data not provided by classifying the underlying algebra up to isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
