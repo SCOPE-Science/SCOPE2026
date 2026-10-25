@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-Correctness: PASS. The explicitly labeled Pappus nine-point incidence structure has exactly 297 nonempty noncover simplices. A fully specified matching has one critical 0-cell and ten critical 3-cells; the full oriented Hasse diagram of 1071 covering relations is acyclic by exhaustive topological sorting. This proves the integral wedge homotopy type. The independently rebuilt mod-two boundaries agree with the Morse Betti vector. Every one of the 108 point-configuration automorphisms was independently recovered by brute-force permutations and affine maps, with exact agreement between two full Lefschetz computations.
+## correctness
 
-Originality: PASS, subject to unindexed-source risk. Kim–Kim provide general noncover bounds and classifications of tight hypergraph paths and cycles, not Pappus lines. Tsukuda's full-text incidence-graph result supplies a *suspension equivalence*, not the unsuspended homotopy classification. The known Pappus incidence-graph independence-complex wedge of ten 4-spheres is compatible with that suspension but does not force an unsuspended ten-3-sphere wedge nor determine the point-automorphism character on 108 group elements. Known Pappus graph Čech complexes, the projective nonincidence complex and the full affine Hesse configuration are different constructions, as checked by their defining simplices and claims.
+PASS
 
-Value: PASS. The complete integral desuspension establishes a natural finite incidence-geometry classification beyond its known suspended homology, and the full 108-element character determines symmetry information invisible to Betti numbers and the previously published cyclic restriction. The exact vanishing of invariant homology and multiplicity-free three-constituent complex decomposition are structural, not arbitrary numerical slices. The claim does not generalize to all finite configurations; unpublished equivalents remain possible.
+For the explicitly defined nine-point 9-line (9_3) Pappus hypergraph, the independent reconstruction enumerated all 297 nonempty faces with vector (9,36,81,108,54,9), reconstructed the 143 pairs on the ordinary nonempty face poset, verified all 1071 oriented Hasse covers are acyclic, and found one critical vertex plus ten critical 3-cells. Forman theory gives the UNSUSPENDED integral wedge of ten 3-spheres (no possible positive-dimensional attaching target). Independent enumeration of all 9! point permutations gave exactly 108 incidence automorphisms, agreeing with affine permutations preserving three directions; signed Lefschetz and selected-permutation-cycle counts agree for every group element, yielding trace histogram 10:1,-2:21,-1:36,1:32,2:18, invariant dimension 0 and character square sum 324/108=3. Reproduction: the deterministic independently constructed bitmask and poset checks; source RESULT.md and verify_pappus_noncover.py. No claim of equivariant wedge or point-line duality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known Pappus graph independence homology and incidence-graph suspension reductions supply the ten Betti rank, not the independent unsuspended Morse wedge certificate nor the complete 108-element point-group character. The main earlier Pappus calculation and Kim–Kim noncover theory were materially compared; best-of-knowledge originality pertains specifically to the unsuspended type and full symmetry character.
+
+## value
+
+PASS
+
+The Pappus configuration is a canonical (9_3) incidence design; its noncover complex and full configuration-automorphism module are natural invariants. The exact integral homotopy type and complete nonabelian character distinguish concrete combinatorial topology beyond a homology dimension and a cyclic-subgroup trace. These precise structural facts can be reused in incidence-design/Alexander-duality comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
