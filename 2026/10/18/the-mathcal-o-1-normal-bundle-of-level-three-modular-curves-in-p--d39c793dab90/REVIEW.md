@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The originating manuscript proves embeddedness of \(X(3)\simeq\mathbf P^1\), gives four explicit simple cusp intersections, identifies the level-three curve stabilizer as block-diagonal matrices, and calculates \(K\cdot C=n-3\). The projective transverse action is scalar \((c\tau+d)^{-1}\), and the toroidal coordinates show that the identical transverse-line splitting extends without cusp twisting. Adjunction then forces the line degree to be \(-1\). The cohomology and Hilbert-scheme claims follow exactly from the normal splitting. The argument is uniform in every stated \(p,n\), with no finite-to-infinite extrapolation. Geometric input from the originating paper is cited rather than re-proved.
+## correctness
 
-## Originality — PASS, with residual risk
-The full source manuscript arXiv:2610.12071v1, particularly §§2–5, constructs the modular curves and computes their canonical intersection but does not calculate their normal bundle or show that the corresponding Hilbert-scheme points are isolated and reduced. Bakker–Tsimerman arXiv:1503.05654, Lemma 4.8, proves a general *decomposition into rigid curves* for \(K\)-trivial rational curves on threefold compactifications, not the rigidity or exact splitting of the individual newly constructed curve. Di Cerbo–Di Cerbo arXiv:1502.06258 treats nefness and *boundary-divisor* normals, not this embedded modular curve. Actual database and public-literature searches for the specified objects, parameters, automorphy factor, and splitting found no equivalent instance. This supports a distinct exact statement, not an absolute uniqueness or priority claim. More general automorphic-bundle formulations might implicitly recover the calculation; that is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The normal bundle is an intrinsic deformation-theoretic invariant of the entire newly constructed family. Its complete balanced negative splitting resolves whether the exceptional interior-crossing rational curves deform, proving they are Hilbert-isolated and reduced for every dimension. The canonical degree alone supplies only the *sum* of the splitting degrees: e.g. in dimension three, both \(\mathcal O(-1)\oplus\mathcal O(-1)\) and \(\mathcal O\oplus\mathcal O(-2)\) have total degree \(-2\), but only the former has no infinitesimal deformations. The result distinguishes the surface \((-1)\)-curve and threefold \((-1,-1)\)-curve cases without claiming unsupported contraction singularities.
+PASS conditional on explicitly cited established geometric inputs from Memarinasorkhabi–Yeung (embedded X(3)=P1, block diagonal stabilizer Γ(3), four transverse toroidal cusp charts, K_Xbar.C=n-3). For diag(A,I_(n-1)), [τ:1:ξ] maps to [(aτ+b)/(cτ+d):1:ξ/(cτ+d)], so open transverse normal is scalar of multiplicity n-1. The cited toroidal chart ζ=ξ at each width-three cusp and trivial parabolic transverse factor identify an untwisted extension L^(n-1) over P1. Adjunction gives deg N=-2-(n-3)=-(n-1), forcing deg L=-1. H^0=H^1(O(-1))=0 and tangent-space Nakayama proves reduced isolated Hilbert point. The precise cusp-coordinate primary lemma was not independently read due access failure; thus the derivation is conditional on that published input, not a verification of the source theorem.
 
-## Closest literature and boundaries
-Primary: Memarinasorkhabi–Yeung, *Rational curves on toroidal compactifications of Picard modular varieties*, arXiv:2610.12071v1. Broader rigidity: Bakker–Tsimerman, *The Kodaira dimension of complex hyperbolic manifolds with cusps*, arXiv:1503.05654, Lemma 4.8. General geometry: Di Cerbo–Di Cerbo, *On the canonical divisor of smooth toroidal compactifications*, arXiv:1502.06258. The claim does not describe arbitrary rational curves or the global canonical contractions of these compactifications. General automorphic bundles may imply the special splitting by a different route; no stronger precise covering instance was located in the inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge with significant source-access risk. Original 2026 Picard modular construction proves the rational curves/cusps and K.C=n-3; the inspected public abstract does not assert balanced normal splitting. Bakker–Tsimerman 2018 concerns general K positivity, rigid rational curve arguments and nef dimension; its Lemma 4.8 actually states maximal nef dimension in n>=4, NOT the numerical decomposition into rigid curves claimed in the submitted literature note. This miscitation does not refute the new exact splitting. Di Cerbo–Di Cerbo 2017 treats canonical nefness, not this specific curve. Full source primary text unavailable, leaving a possible already-implicit exact normal bundle as a priority risk.
+
+## value
+
+PASS
+
+PASS. An exact vector-bundle splitting is a natural, deformation-theoretically decisive invariant: degree -(n-1) alone does not determine summands, and in dimension 3 O(-1)⊕O(-1) is rigid whereas O⊕O(-2) of the same degree moves infinitesimally. Uniform cusp-trivial scalar splitting upgrades canonical-degree information to Hilbert isolation across the entire family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
