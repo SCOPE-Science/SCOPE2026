@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The urn has exactly \(n+1\) balls at time \(n\); its right-step probability at a positive state is \((n+2-x)/(2(n+1))\). This yields the exact killed first-moment recurrence. Uniform-in-time domination by a killed symmetric random walk supplies a reflection-principle bound. The resulting survival inequality bootstraps from order \(n^{-1/2}\) to order \(n^{-1}\), then to a summable logarithmically corrected bound, and finally to order \(n^{-3/2}\). Endpoint initial conditions, event boundaries, and the integer parity issue are addressed. A standalone script passes 889 finite tests, chiefly exact rational identities plus deterministic numerical bound checks, which supplement but do not replace the proof.
+## correctness
 
-**Originality — PASS, subject to priority uncertainty.** Balaji and Mahmoud explicitly conjecture finite first-return mean for precisely this Friedman-urn process. Their one-time Eulerian recurrence argument does not imply summability of the first-return tail. Menshikov–Volkov analyzes drift criteria and Friedman-type outward-drift examples; Bercu–Bonnefont–Richou covers Eulerian marginal deviations. Source comparisons and mathematical searches identified no theorem covering this finite-mean and survival-tail claim. An unindexed general first-passage result remains possible.
+PASS
 
-**Value — PASS.** The result answers a named, naturally motivated first-passage question and improves it to a quantitative polynomial tail. It also implies all moments strictly below order \(3/2\), a feature not implied by mere recurrence. The cutoff is a proved sufficiency range, not claimed sharp.
+At time n the urn contains n+1 balls; while X_n=x>0 the white/right probability equals (n+2-x)/[2(n+1)] <= 1/2 and conditional mean equals (n x+1)/(n+1). With s_n=P(T>n), a_n=E[X_n 1_(T>n)], the exact killed identity (n+1)a_(n+1)=n a_n+s_n telescopes to n a_n=1+sum_(k<n)s_k, with s_1=a_1=1. A common-uniform path coupling bounds subsequent survival by a simple symmetric walk absorbed at zero. Reflection gives Q_m(x)=P(-x<S_m<=x)<=min(1,2x/sqrt(m)). Hence s_(2n)<=2 n^(-3/2)(1+sum_(k<n)s_k). Starting from s_n=O(n^-1/2), applying the inequality yields O(n^-1), then O(log(n)n^-3/2), a summable tail, then O(n^-3/2). Summation yields E T<infinity and E T^theta<infinity for 0<theta<3/2, not a matching lower bound or endpoint result. The accompanying source exact-fraction checker is finite corroboration.
 
-**Scientific limits and closest literature.** The theorem is for one white initial ball and the one-dimensional opposite-color urn; no lower tail bound, exact tail constant, endpoint \(3/2\)-moment classification, stationary law, or multidimensional generalization is proved. Relevant full-text comparisons are Balaji–Mahmoud, arXiv:2504.14813; Menshikov–Volkov, arXiv:0711.2373; and the Friedman/Eulerian marginal treatment of Bercu–Bonnefont–Richou.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Balaji and Mahmoud introduce the same one-dimensional opposite-reinforcement Friedman urn and explicitly conjecture finite expected first return, which the submitted stopped-moment/comparison proof establishes with a stronger n^-3/2 upper tail. Classical reflection bounds and existing Eulerian one-time laws alone do not imply stopped-path return moments.
+
+## value
+
+PASS
+
+This directly settles a named finite expected first-return conjecture for a natural one-dimensional Friedman urn model. The quantitative n^-3/2 upper survival law and entire subcritical moment range are much stronger than mere recurrence and matter for renewal quantities; no sharpness or endpoint claim is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

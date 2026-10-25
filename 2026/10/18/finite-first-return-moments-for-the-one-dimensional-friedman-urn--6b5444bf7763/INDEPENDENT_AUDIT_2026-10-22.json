@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:58:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 9192ec14110405e069b2c4fc54be4d070bd24850; explicit proof §§1-3",
+        "Pinned check_friedman.py blob 84343acbb686af06d9771862b76913342b18537d, code inspected",
+        "Balaji–Mahmoud arXiv:2504.14813 sections 4-5 primary article"
+      ],
+      "rationale": "At time n the urn contains n+1 balls; while X_n=x>0 the white/right probability equals (n+2-x)/[2(n+1)] <= 1/2 and conditional mean equals (n x+1)/(n+1). With s_n=P(T>n), a_n=E[X_n 1_(T>n)], the exact killed identity (n+1)a_(n+1)=n a_n+s_n telescopes to n a_n=1+sum_(k<n)s_k, with s_1=a_1=1. A common-uniform path coupling bounds subsequent survival by a simple symmetric walk absorbed at zero. Reflection gives Q_m(x)=P(-x<S_m<=x)<=min(1,2x/sqrt(m)). Hence s_(2n)<=2 n^(-3/2)(1+sum_(k<n)s_k). Starting from s_n=O(n^-1/2), applying the inequality yields O(n^-1), then O(log(n)n^-3/2), a summable tail, then O(n^-3/2). Summation yields E T<infinity and E T^theta<infinity for 0<theta<3/2, not a matching lower bound or endpoint result. The accompanying source exact-fraction checker is finite corroboration.",
+      "residual_risks": [
+        "The survival exponent 3/2 is a proven upper bound, not sharpness, no statement about E[T^(3/2)] or second/multidimensional return.",
+        "The time-inhomogeneous position chain has no claimed invariant stationary law; checker script was inspected rather than rerun here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Menshikov–Volkov addresses drift-dependent recurrence regimes, including an outward-reinforcement example; its checked statements do not supply finite-mean first return for this opposite-reinforcement walk.",
+          "Standard recurrence only establishes eventual return, not summability of survival."
+        ],
+        "reasoning": "General Lamperti-type criteria require care because time/space dependencies and exact coefficients differ; no inspected theorem directly gives the precise n^-3/2 survival upper bound.",
+        "searches": [
+          "Menshikov Volkov arXiv:0711.2373 urn-related random walk with drift",
+          "self correcting time-inhomogeneous random walk recurrence first-passage moments drift minus x/n",
+          "Balaji Mahmoud arXiv:2504.14813"
+        ]
+      },
+      "checked_sources": [
+        "Balaji–Mahmoud arXiv:2504.14813 primary article Sections 4-5",
+        "Menshikov–Volkov arXiv:0711.2373 accessible scope and cited model",
+        "Bercu–Bonnefont–Richou published Eulerian-marginal study bibliographic scope",
+        "Resultary record 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17 (different process)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balaji–Mahmoud explicitly leaves the mean return open despite recurrence from marginals.",
+          "Bercu–Bonnefont–Richou concentrates on descent count marginals and large deviations, not stopped first-passage distributions."
+        ],
+        "reasoning": "The submitted theorem answers a distinct stopped-path moment problem and adds quantitative tail; neither recurrence nor concentration of X_n alone implies it.",
+        "searches": [
+          "Balaji Mahmoud arXiv:2504.14813 first-return conjecture",
+          "Menshikov Volkov arXiv:0711.2373 Section 6",
+          "Bercu Bonnefont Richou sharp large deviations descents random permutation Friedman urn"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact opposing-color urn transition is (n+2-x)/(2(n+1)), equivalent to an Eulerian descent walk in one-time law.",
+          "Balaji–Mahmoud Section 5 explicitly asks whether E T is finite."
+        ],
+        "reasoning": "An equal one-time Eulerian distribution is not an equality of first-passage distributions without pathwise coupling; no such prior all-time tail solution was identified.",
+        "searches": [
+          "arXiv:2504.14813 Balaji Mahmoud Urn-driven random walks Sections 4-5",
+          "Friedman urn one-dimensional Eulerian descents walk first-return positive recurrence",
+          "Resultary query finite first return expected time Friedman urn recurrent walks finite mean Balaji Mahmoud"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balaji–Mahmoud's numerical return discussion and Eulerian marginal identities concern finite data, not return-tail moment bounds.",
+          "Resultary returned unrelated critical elephant walk and two-point renewal results."
+        ],
+        "reasoning": "A finite return-time table cannot establish E T finite; no exact table or published database formula was found that logically settles the infinite tail statement.",
+        "searches": [
+          "Resultary query finite first return expected time Friedman urn recurrent walks finite mean Balaji Mahmoud",
+          "arXiv:2504.14813 Section 5 Monte Carlo and return conjecture"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Balaji and Mahmoud introduce the same one-dimensional opposite-reinforcement Friedman urn and explicitly conjecture finite expected first return, which the submitted stopped-moment/comparison proof establishes with a stronger n^-3/2 upper tail. Classical reflection bounds and existing Eulerian one-time laws alone do not imply stopped-path return moments.",
+      "residual_risks": [
+        "Historical general time-inhomogeneous Lamperti or urn first-passage criterion may imply the result under an unstated reduction.",
+        "Menshikov–Volkov primary full text was not exhaustively inspected; originality remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture is genuinely posed and not solved in the inspected paper",
+          "evidence": "Section 5 finite expected first-return conjecture",
+          "identifier_or_url": "https://arxiv.org/abs/2504.14813",
+          "material_read": "Primary full arXiv HTML article, especially Sections 4 and 5, recurrence formula and the explicit finite-mean first-return conjecture",
+          "method": "Primary arXiv HTML full-text reading",
+          "title": "Urn-driven random walks",
+          "trigger": "Same original urn and explicit first-return conjecture"
+        },
+        {
+          "assessment": "Not confirmed covering this inward time-inhomogeneous first-return tail; access leaves a risk",
+          "evidence": "Model drift parameter differs from positive-state -(x-1)/(n+1) regime",
+          "identifier_or_url": "https://arxiv.org/abs/0711.2373",
+          "material_read": "Bibliographic abstract and relevant outward-reinforcement regime as available; primary full PDF could not be fully inspected",
+          "method": "arXiv metadata and available text/secondary mathematical comparison",
+          "title": "Urn-related random walk with drift",
+          "trigger": "Potential general drift-dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Balaji–Mahmoud Section 5 conjecture and the actual bound in RESULT.md"
+      ],
+      "rationale": "This directly settles a named finite expected first-return conjecture for a natural one-dimensional Friedman urn model. The quantitative n^-3/2 upper survival law and entire subcritical moment range are much stronger than mere recurrence and matter for renewal quantities; no sharpness or endpoint claim is asserted.",
+      "residual_risks": [
+        "One initial configuration and one dimension; stronger optimal tail and endpoint remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one initially white ball, zero blue, opposite reinforcement and the first post-step return to zero.",
+    "n^-3/2 is a one-sided upper bound; E[T^(3/2)], lower tail, repeated returns and higher dimension unproved."
+  ],
+  "schema_version": 1
+}
