@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For odd grid size, balance-plus-perimeter is a compact three-constraint nonnegative polytope; every vertex has exactly three supported normals. Planar Minkowski additivity and Brunn--Minkowski yield concavity of square-root area and strict equality rigidity. Every extreme triangle has odd-integer angle parameters, and strict convexity of cotangent forces the unique orbit (1,1,N-2). Triangle inradius gives the exact constant. The upper endpoint follows classical polygonal isoperimetry, and two antipodal pairs force the even-grid infimum zero. The complete intermediate intervals follow Minkowski interpolation. The package script independently checked 19,481 triangles and 1,260 mixtures, but the analytic proof covers all grid sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2309.05802 establishes the familiar upper-area endpoint, which is a reverse implication for the lower bound.",
+        "https://arxiv.org/abs/2402.05648 has a different containing-disk constraint.",
+        "https://arxiv.org/html/1805.07521v2 studies all edge directions without the discrete lattice assumption."
+      ],
+      "reasoning": "Checked the possibility that classical polygonal isoperimetry, critical-point classification, or other reverse inequalities dominate the result. The classical maximum inequality does not lower-bound areas, and the disk-constrained reverse statement does not furnish a bound for a fixed discrete normal set.",
+      "searches": [
+        "\"minimum area\" polygon with sides in fixed directions perimeter",
+        "\"reverse isoperimetric\" \"normals\" \"regular\" polygon",
+        "minimum area fixed perimeter convex polygon normals from regular n-gon odd directions triangle isosceles"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.11814",
+      "https://arxiv.org/html/2610.11814",
+      "https://arxiv.org/html/1805.07521v2",
+      "https://arxiv.org/abs/2309.05802",
+      "https://arxiv.org/abs/2402.05648"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Khimshiashvili--Panina--Siersma Theorem 1 describes all critical configurations but its parameter space admits free rotations of individual edges: https://arxiv.org/html/1805.07521v2.",
+        "An Proposition 4.1 identifies one regular-grid equal-mass polygon: https://arxiv.org/html/2610.11814.",
+        "The classical area maximum is recognized rather than treated as a new consequence: https://arxiv.org/abs/2309.05802."
+      ],
+      "reasoning": "An equal-mass reconstruction gives only the maximizer, not a lower bound over all balanced masses. A regular-star Morse classification neither fixes the normal fan nor excludes a thin triangle with fewer facets. The claimed new lower endpoint requires the polytope-extreme reduction and discrete cotangent majorization, with an additional even/odd distinction.",
+      "searches": [
+        "minimum area fixed perimeter convex polygon normals from regular n-gon odd directions triangle isosceles",
+        "\"reverse isoperimetric\" \"normals\" \"regular\" polygon",
+        "\"minimum area\" polygon with sides in fixed directions perimeter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1 of https://arxiv.org/html/1805.07521v2 classifies critical stars on unrestricted polygon spaces, not outward-normal-grid area minima.",
+        "https://arxiv.org/html/2610.11814 provides reconstruction and quadrature framework; the inspected theorem statements do not impose this fixed-perimeter minimization."
+      ],
+      "reasoning": "Equivalent formulations checked included facet-normal restriction, support of the surface-area measure on roots of unity, and minimizing a concave area functional over balanced length measures. No inspected assertion evaluates this optimization; absence of a hit alone is not proof of novelty.",
+      "searches": [
+        "minimum area fixed perimeter convex polygon normals from regular n-gon odd directions triangle isosceles",
+        "Convex polygons with outward normals in n-th roots of unity, area minimized at isosceles triangle with angles pi/n pi/n pi-2pi/n, fixed perimeter.",
+        "arxiv 2610.11814 section 4 polygon area mixed area Hausdorff surface measure An 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.11814 constructs the equal-normal regular polygon and controls circle approximation, not a published table of variable-mass minimum areas.",
+        "The finite symbolic formula in RESULT.md follows from the proved triangle-extreme classification, not from a cited tabulated value."
+      ],
+      "reasoning": "Searched for an exact database, sequence, numerical table or known formula with both odd-grid area floor and its triangle equality orbit. No matching table was found in inspected resources; unindexed sources remain possible.",
+      "searches": [
+        "\"minimal area\" \"equally spaced\" \"outer normals\" polygon perimeter",
+        "\"area\" \"polygon\" \"prescribed outward normals\" \"perimeter\" minimum",
+        "\"minimum area\" polygon with sides in fixed directions perimeter"
+      ]
+    },
+    "rationale": "Novelty assessed against retrieved arXiv mathematical statements, an inspected full-text critical-point theorem, an available section of the motivating 2026 reconstruction manuscript, and targeted semantic mathematical-record searches. None of the materially inspected claims implies the odd-grid fixed-perimeter minimum with its equality orbit and parity boundary. This is a best-knowledge assessment, not a universal priority certificate; inaccessible/unindexed literature remains a risk.",
+    "residual_risks": [
+      "The motivating 2026 source was not entirely readable in this session; only the available original HTML portion and indexed theorem statements were inspected.",
+      "Unindexed geometric inequality literature may contain the same special normal-grid optimum; search failure does not prove novelty.",
+      "Two secondary reverse-isoperimetric sources were assessed only from their abstracts; full manuscript absence must not be interpreted as excluding all overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected statements concern equal facet masses, exact quadrature and circle Hausdorff approximation rather than minimizing polygon area over all balanced nonnegative facet masses. Unread later sections remain a documented uncertainty.",
+        "evidence": [
+          "https://arxiv.org/html/2610.11814",
+          "https://arxiv.org/abs/2610.11814"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11814",
+        "material_read": "HTML abstract, introduction, circle design and quadrature theorems, Minkowski reconstruction definition and Proposition 4.1; contents and stated descriptions of later sections. Subsequent full section text was inaccessible.",
+        "method": "Read available public arXiv HTML mathematical text and cross-check submission date in the arXiv abstract record.",
+        "title": "Gauss--Chebyshev Quadrature, S1-Designs, and the Planar Minkowski Inverse Problem",
+        "trigger": "Motivating recent paper on equal-step facet normals and planar surface-area reconstruction."
+      },
+      {
+        "assessment": "Addresses signed area on the entire configuration space of polygons and critical regular stars; it does not fix an allowable outward-normal lattice, and the minimizing configurations here omit polygonal facets. Its result does not imply the sharp positive grid-constrained minimum.",
+        "evidence": [
+          "https://arxiv.org/html/1805.07521v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.07521v2",
+        "material_read": "HTML abstract, Theorem 1, proof through the main critical-point classification and area-moment computations, concluding discussion.",
+        "method": "Read public arXiv HTML mathematical statements and proof, focusing on domain and implications.",
+        "title": "Extremal areas of polygons with fixed perimeter",
+        "trigger": "Closest general perimeter-area variational study; possibility of a stronger general theorem."
+      },
+      {
+        "assessment": "The established result implies the upper endpoint and is explicitly credited; the novel part is instead the sharp normal-grid-constrained lower endpoint.",
+        "evidence": [
+          "https://arxiv.org/abs/2309.05802"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.05802",
+        "material_read": "Public arXiv abstract and indexed introductory description; not a full-manuscript exclusion.",
+        "method": "Compared the stated fixed-perimeter maximum-area result with the proved upper endpoint.",
+        "title": "A Geometric proof for the Polygonal Isoperimetric Inequality",
+        "trigger": "General upper endpoint is classical and must not be claimed original."
+      },
+      {
+        "assessment": "A prescribed containing disk and area/perimeter optimization is structurally distinct from a discrete support of the perimeter measure, so the accessed claim does not imply the odd-grid formula. Further full-text overlap is an unexcluded priority risk.",
+        "evidence": [
+          "https://arxiv.org/abs/2402.05648"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05648",
+        "material_read": "Public arXiv abstract and bibliographic statement of containing-disk geometry only; full text not read.",
+        "method": "Compared constraint types and theorem parameters.",
+        "title": "A reverse isoperimetric inequality for convex shapes with inclusion constraint",
+        "trigger": "Possible stronger reverse perimeter-area inequality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c614f5c8-2118-4c5a-aa02-20cbbe2b7336",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies a natural full extremal area spectrum for Minkowski reconstruction under discrete normal constraints, rather than a recomputation of the regular polygon. The positive-to-zero minimum transition at odd versus even normal-grid order, rigid sharp triangles, and attainable interval are new structural information that fixed-mass regular-grid approximation does not supply.",
+    "status": "PASS"
+  }
+}
