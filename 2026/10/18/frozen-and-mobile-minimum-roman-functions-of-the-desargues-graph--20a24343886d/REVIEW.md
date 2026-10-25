@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The minimum RDF encoding by the label-\(2\) set \(T\) is valid in both directions, because any vertex left with label \(1\) inside \(N[T]\) would contradict optimality. Exhausting all \(2^{20}\) masks proves minimum weight \(12\), exactly \(340\) optimum labelings, and their profile counts. An independently constructed set-incidence model and exhaustive enumeration through \(|T|\le6\), with the excluded sizes ruled out by the lower bound \(2|T|\ge14\), reproduces those values. Both programs rebuild the typed one-change adjacency graph and recover precisely \(540\) edges and its component and distance census. The complete state/edge certificate is included, and both standalone programs replay successfully using the actual packaged data. The theorem covers this one finite graph, so exact exhaustive enumerations (not sampling) are a valid proof method.
+## correctness
 
-## Originality — PASS, subject to acknowledged literature risk
-The original generalized-Petersen Roman-domination article gives \(\gamma_R(D)=12\), but not the number or transformation graph of minimum RDFs. The Roman-function reconfiguration paper defines moves and gives examples on different graph classes. The present finding concerns the stronger, exact signed-by-move state and edge classification, five-component symmetry, and complete eccentricity census; it is not a renaming of the existing Roman number result. Targeted searches under Desargues, middle-levels, \(P(10,3)\), minimum Roman functions, Roman gamma graphs and operation synonyms found no statement implying it. A separate publisher supplement or unindexed equivalent paper remains an originality risk, and this self-review does not independently establish first publication.
+PASS
 
-## Value — PASS
-The Desargues graph is a canonical cubic bipartite graph with two equivalent models and unusually high symmetry. Its Roman number was known, leaving the genuinely nontrivial operational question of whether optimal defending placements can be transformed at no cost. The finding separates \(100\) frozen optimum placements from five substantial mobile phases, gives exact transition routes and optimal worst-case transformation distances, and explains the inter-component symmetry via a graph automorphism. These are independently useful invariants for Roman optimal-function geometry; the claim does not rely on numerical novelty alone.
+For Desargues graph P(10,3), a minimum RDF is uniquely determined by T=f^(-1)(2): vertices outside N[T] are forced to label1, all others not in T label0, weight w(T)=2|T|+|V\N[T]|. This characterizes every minimum configuration through exact finite search over all 2^20 subsets. An independently written C++ enumerator constructed adjacency directly, found minimum weight12 and exactly340 optimum functions, and enumerated admissible optimum-preserving P1 2↔0, P2 2↔1, P3 adjacent(1,1)↔(2,0). It independently recovered 540 edges (180 P1, zero P2, 360 P3), 100 isolated vertices and five 48-vertex components, each with 108 edges, radius6 diameter8 and degree multiset 4^42 8^6; global degree multiplicities mobile4:210,mobile8:30 and eccentricity mobile6:30,7:180,8:30. Distinct profile counts (#1,#2) are (0,6):130,(2,5):180,(4,4):30. This finite exhaustive classification, unlike a timeout or sampled search, proves its own finite claim; the 5-cycle automorphism of the mobile components follows by rotating u_i and v_i indices as described.
 
-## Scope and closest literature
-Zhang–Shao–Xu, JCMCC **89** (2014), 311–320, Theorem 3, covers the weight only. Samodivkin, arXiv:1709.05052 (2017), Section 4, covers the permitted operation framework but not this Desargues classification. The theorem does not extend beyond this finite graph, nor establish independent priority or publication validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhang–Shao–Xu Theorem 3 already establishes gamma_R(P(10,3))=12. Samodivkin formalizes P1/P2/P3 transformations for Roman-function graphs but does not enumerate this 340-state Desargues graph. Priority claimed only for the complete state/edge/metric and symmetry census.
+
+## value
+
+PASS
+
+The Roman-reconfiguration graph tests mobility/frozen optima under a standard transformation system on the prominent Desargues graph, revealing a structured 100-isolate/5-component decomposition and exact graph-distance invariants. This is a natural exact finite structural benchmark, beyond the known minimum Roman weight 12.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

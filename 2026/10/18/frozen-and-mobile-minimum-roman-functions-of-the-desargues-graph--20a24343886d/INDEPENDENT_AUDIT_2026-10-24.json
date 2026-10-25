@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:53:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Desargues graph P(10,3), a minimum RDF is uniquely determined by T=f^(-1)(2): vertices outside N[T] are forced to label1, all others not in T label0, weight w(T)=2|T|+|V\\N[T]|. This characterizes every minimum configuration through exact finite search over all 2^20 subsets. An independently written C++ enumerator constructed adjacency directly, found minimum weight12 and exactly340 optimum functions, and enumerated admissible optimum-preserving P1 2↔0, P2 2↔1, P3 adjacent(1,1)↔(2,0). It independently recovered 540 edges (180 P1, zero P2, 360 P3), 100 isolated vertices and five 48-vertex components, each with 108 edges, radius6 diameter8 and degree multiset 4^42 8^6; global degree multiplicities mobile4:210,mobile8:30 and eccentricity mobile6:30,7:180,8:30. Distinct profile counts (#1,#2) are (0,6):130,(2,5):180,(4,4):30. This finite exhaustive classification, unlike a timeout or sampled search, proves its own finite claim; the 5-cycle automorphism of the mobile components follows by rotating u_i and v_i indices as described.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Petersen Roman number formula dominates the minimum-weight part of the claim; it does not count optimal assignments or reconfiguration edges.",
+          "Samodivkin P4 depends on triangles and vanishes for bipartite Desargues, leaving exactly the studied P1-P3 move system."
+        ],
+        "reasoning": "Broader-known Roman invariants do not imply the detailed connected components/radii/diameters of this specific reconfiguration graph.",
+        "searches": [
+          "Resultary query: Roman dominating functions Desargues graph P(10,3) gamma_R reconfiguration graph P1 P2 P3 components",
+          "Zhang–Shao–Xu 2014 full OA PDF",
+          "Samodivkin 2017 full arXiv PDF"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 1b46447fbe8ce53ff14ce8226bff6c714f87c735, checks/verify_cyclic.py 388e61a6455c80644485b4d3828cacdbc77f6f73",
+        "Independent exhaustive C++ code and exact output",
+        "Zhang–Shao–Xu, JCMCC 89 (2014), Theorem 3 publisher OA PDF",
+        "Samodivkin arXiv:1709.05052 full PDF",
+        "Resultary query: Roman dominating functions Desargues graph P(10,3) gamma_R reconfiguration graph P1 P2 P3 components"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definitions of allowed moves only define an adjacency relation, they do not force particular component cardinalities.",
+          "A minimum Roman number does not uniquely determine the number of optimizing functions or its reconfiguration connectivity."
+        ],
+        "reasoning": "Neither cited prior theorem logically forces the audited 5H48∪100K1 graph or its 540 typed edges; these require exhaustive classification.",
+        "searches": [
+          "Resultary query: Roman dominating functions Desargues graph P(10,3) gamma_R reconfiguration graph P1 P2 P3 components",
+          "Samodivkin 2017 Section 4 pp.13–15",
+          "Zhang–Shao–Xu 2014 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full Samodivkin Section 4 formulates Roman RDF transformations P1/P2/P3 and studies general families such as paths and cycles.",
+          "Zhang–Shao–Xu Theorem 3 gives gamma_R(P(n,3))=n+2 if n=2 mod4; thus for n=10 weight12 is known."
+        ],
+        "reasoning": "Standard gamma_R graph/reconfiguration language is equivalent to move graph under the stated P1/P2/P3, but existing inspected theorems supply neither complete 340 minimum labels nor 540 typed edges, not even via a simple formula.",
+        "searches": [
+          "Resultary query: Roman dominating functions Desargues graph P(10,3) gamma_R reconfiguration graph P1 P2 P3 components",
+          "Samodivkin arXiv:1709.05052",
+          "Zhang–Shao–Xu JCMCC 89 (2014) Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary polynomial counts complete-multipartite graphs, not P(10,3).",
+          "Zhang–Shao–Xu table/formula determines 12 only, not 340 functions, typed transitions or metric histogram."
+        ],
+        "reasoning": "Known exact value 12 is explicitly excluded from novelty; independent full graph enumeration supplies natural additional invariants absent from the checked tables.",
+        "searches": [
+          "Resultary query: Roman dominating functions Desargues graph P(10,3) gamma_R reconfiguration graph P1 P2 P3 components",
+          "Resultary:2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973",
+          "Zhang–Shao–Xu 2014"
+        ]
+      },
+      "rationale": "Zhang–Shao–Xu Theorem 3 already establishes gamma_R(P(10,3))=12. Samodivkin formalizes P1/P2/P3 transformations for Roman-function graphs but does not enumerate this 340-state Desargues graph. Priority claimed only for the complete state/edge/metric and symmetry census.",
+      "residual_risks": [
+        "A specialized later tabulation of Roman reconfiguration for P(10,3) could cover the exact 340/540 graph but was not indexed in searches.",
+        "The abstract H48 is defined by the packaged enumerated states, not identified with a classical named graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_BASELINE_ONLY_IN_READ_THEOREM",
+          "evidence": [
+            "Theorem 3 gamma_R(P(n,3)) n+2 for n=2 mod4, hence 12; no component/edge reconfiguration statement on inspected pages."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20089/vol-089-paper%2023.pdf",
+          "material_read": "Full 10-page OA publisher PDF opened; pages 3 and 5 visually inspected, especially Theorem 3 and dynamic programming proof; remainder not fully read",
+          "method": "Publisher OA PDF and rendered page screenshots",
+          "title": "On the Roman domination numbers of generalized Petersen graphs",
+          "trigger": "Same exact graph P(10,3), plausible covering Theorem 3"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_IN_READ_FULL_TEXT",
+          "evidence": [
+            "P1,P2,P3 move system and examples on paths/cycles, not Desargues optimal graph census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.05052",
+          "material_read": "Full 19-page arXiv PDF; introduction and Section 4 pp.13–15, move definitions, examples and absence of P(10,3) in text search",
+          "method": "Open full arXiv PDF and inspect section and screenshot",
+          "title": "Roman domination: changing, unchanging, gamma_R-graphs",
+          "trigger": "Directly defined adjacency framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Roman-reconfiguration graph tests mobility/frozen optima under a standard transformation system on the prominent Desargues graph, revealing a structured 100-isolate/5-component decomposition and exact graph-distance invariants. This is a natural exact finite structural benchmark, beyond the known minimum Roman weight 12.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 1b46447fbe8ce53ff14ce8226bff6c714f87c735, checks/verify_cyclic.py 388e61a6455c80644485b4d3828cacdbc77f6f73",
+    "Independent exhaustive C++ code and exact output",
+    "Zhang–Shao–Xu, JCMCC 89 (2014), Theorem 3 publisher OA PDF",
+    "Samodivkin arXiv:1709.05052 full PDF",
+    "Resultary query: Roman dominating functions Desargues graph P(10,3) gamma_R reconfiguration graph P1 P2 P3 components"
+  ],
+  "disposition": "passed",
+  "final_claim": "Complete minimum-Roman-function reconfiguration graph of the Desargues graph",
+  "limitations": [
+    "One 20-vertex graph under precise P1/P2/P3 moves, no generalization to other Petersen graphs.",
+    "Finite exhaustive 2^20 enumeration proves finite result; no broader recursive classification."
+  ],
+  "residual_risks": [
+    "A specialized later tabulation of Roman reconfiguration for P(10,3) could cover the exact 340/540 graph but was not indexed in searches.",
+    "The abstract H48 is defined by the packaged enumerated states, not identified with a classical named graph."
+  ],
+  "schema_version": 1
+}

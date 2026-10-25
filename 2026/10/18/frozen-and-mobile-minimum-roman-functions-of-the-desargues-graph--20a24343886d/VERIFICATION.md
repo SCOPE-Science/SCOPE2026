@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
-The two checks require Python 3 with its standard library only; no external data, dependencies, connectivity or random seeds. With the package files in their relative positions, execute `python3 checks/verify_cyclic.py` and `python3 checks/verify_incidence.py`. Exact recorded stdout is in `checks/verify_cyclic_output.txt` and `checks/verify_incidence_output.txt`. The complete canonical `data/states_edges.json` lists every optimum Roman labeling and every permissible typed edge. Its SHA-256 is `579663ada37b90a8335fc3aa8e3b14b950f4a9288ab25e2a886816a7d31bfa81`.
+# Independent mathematical audit
 
-The first program enumerates all \(2^{20}\) support masks for label \(2\), computes their forced one-labels, classifies minimum weight and all change operations, performs exhaustive breadth-first search, and checks a rotating automorphism permutes the five nontrivial components transitively. The second constructs the middle-level subset-incidence model independently, checks its explicit isomorphism to \(P(10,3)\), enumerates all relevant support sets with size at most six (all larger sets have weight at least fourteen), scans every unordered pair of optimal assignments for an allowed operation, and independently verifies graph distances and profiles. It also compares the complete resulting state and edge lists with the packaged certificate.
+## correctness
 
-From the delivered JSONL package, all five standalone files were extracted and both programs were executed again from the extracted package paths. Both produced `VERIFY_OK` with output matching the recorded stdout byte-for-byte. The verification is an exhaustive finite computation for this specific graph; it supplies no infinite-family generalization. Public literature comparisons and the documented scientific self-review do not constitute independent audit or priority certification.
+PASS
+
+For Desargues graph P(10,3), a minimum RDF is uniquely determined by T=f^(-1)(2): vertices outside N[T] are forced to label1, all others not in T label0, weight w(T)=2|T|+|V\N[T]|. This characterizes every minimum configuration through exact finite search over all 2^20 subsets. An independently written C++ enumerator constructed adjacency directly, found minimum weight12 and exactly340 optimum functions, and enumerated admissible optimum-preserving P1 2↔0, P2 2↔1, P3 adjacent(1,1)↔(2,0). It independently recovered 540 edges (180 P1, zero P2, 360 P3), 100 isolated vertices and five 48-vertex components, each with 108 edges, radius6 diameter8 and degree multiset 4^42 8^6; global degree multiplicities mobile4:210,mobile8:30 and eccentricity mobile6:30,7:180,8:30. Distinct profile counts (#1,#2) are (0,6):130,(2,5):180,(4,4):30. This finite exhaustive classification, unlike a timeout or sampled search, proves its own finite claim; the 5-cycle automorphism of the mobile components follows by rotating u_i and v_i indices as described.
+
+## originality
+
+PASS
+
+Zhang–Shao–Xu Theorem 3 already establishes gamma_R(P(10,3))=12. Samodivkin formalizes P1/P2/P3 transformations for Roman-function graphs but does not enumerate this 340-state Desargues graph. Priority claimed only for the complete state/edge/metric and symmetry census.
+
+## value
+
+PASS
+
+The Roman-reconfiguration graph tests mobility/frozen optima under a standard transformation system on the prominent Desargues graph, revealing a structured 100-isolate/5-component decomposition and exact graph-distance invariants. This is a natural exact finite structural benchmark, beyond the known minimum Roman weight 12.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
