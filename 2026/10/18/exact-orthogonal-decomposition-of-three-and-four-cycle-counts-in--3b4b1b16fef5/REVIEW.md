@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For every integer \(n\ge4\), define the random counts \(X_n\) and \(Y_n\) and local residuals \(Z_S=B_S-A_S/2+1/8\) as in `RESULT.md`. The complete four-vertex table is \((A_S,B_S)=(0,0),(1,0),(2,1)\) with respective frequencies \(24,16,24\) out of \(64\). Conditioning on any triple of the four vertices gives \(\mathbb E[B_S\mid T[U]]=1/4+I_U/2\) and \(\mathbb E[A_S\mid T[U]]=I_U+3/4\). Consequently \(\mathbb E[Z_S\mid T[U]]=0\). Independence of the disjoint *free edges*, given the overlap, proves orthogonality between every two distinct residual terms and between each residual and each triangle indicator. An exact counting identity then proves the regression slope, covariance, residual variance and correlation in `RESULT.md`. Separately computed complete-tournament enumerations of orders four through six and algebraic identities through order 100 agree. Finite checks are corroboration, not the universal proof.
+## correctness
 
-**Originality: PASS on inspected evidence, with residual risk.** Earlier deterministic tournament-profile identities include the four-vertex class table (Linial–Morgenstern 2014, Observation 1.2). Separate marginal means, variances and asymptotic Gaussian statements are classical (Moran 1947, as summarized in Iyer 2016 Section 2.4.1; see also Ribas 2017). None of these is claimed new. The assessed new claim is the exact **cross**-covariance and correlation, together with a stronger locally conditionally degenerate, pairwise orthogonal decomposition. Inspected primary full texts on deterministic three-/four-cycle densities (Linial–Morgenstern 2014; Chan–Grzesik–Král'–Noel 2019; Ma–Tang 2020) do not state or entail this stochastic covariance identity. The earlier 1998 random-tournament fluctuation paper of Andersson is closely related but was available only by abstract; it might contain an equivalent general orthogonal-projection formula. Moran's original paper could not be inspected. Historical priority remains unverified beyond the material actually read.
+PASS
 
-**Value: PASS.** This gives a natural exact joint-statistical law for the first two directed cycle-count observables. It identifies the explicit projection coefficient and measures the part of four-cycle variation unexplained by any linear function of the three-cycle count, with residual variance exactly \(3\binom n4/64\). It quantifies the approach to perfect correlation via \(1-\operatorname{Corr}^2=1/(4n-11)\) and traces the mechanism to a local conditional-mean-zero symmetry. This is more than the previously tabulated marginal variances or a relabeling of a deterministic extremal inequality.
+On each 4-vertex tournament the complete local (number of cyclic triples A, number of 4-cycles B) table has frequencies (0,0):24,(1,0):16,(2,1):24 of 64 orientations. For Z_S=B_S-A_S/2+1/8, conditioning on any specified triple U gives E[A_S|T[U]]=I_U+3/4 and E[B_S|T[U]]=1/4+I_U/2, hence E[Z_S|T[U]]=0, also for smaller intersections. Distinct 4-sets overlap in <=3 vertices, so conditional independence of their nonshared edge variables gives pairwise E[Z_SZ_T]=0, and likewise orthogonality to every triangle indicator. Sum over 4-sets: R_n=Y_n-(n-3)X_n/2+C(n,4)/8; each triangle appears n-3 times. Independent triple cyclic indicators are pairwise uncorrelated even when sharing one edge, giving VarX=3C(n,3)/16. Then Cov(X,Y)=3C(n,4)/8, VarR=3C(n,4)/64, VarY=3(4n-11)C(n,4)/64 and Corr=sqrt[4(n-3)/(4n-11)], for all n>=4. Our independent exact enumeration checked all 64 local tournaments, triple-conditioned zero residual and n=4,5 whole-tournament moments. Pairwise orthogonality is NOT independence.
 
-The principal remaining scientific risk is historical: general subgraph-count orthogonal projection methods might have been applied to precisely this pair, without being identified by the accessible searches. There is no independent historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
+
+## value
+
+PASS
+
+The exact finite-n joint relation between directed triangle and directed four-cycle statistics, together with a per-fourset degenerate residual orthogonal to EACH triangle event, is a structural statistic of uniform random tournament fluctuations. It cleanly explains the asymptotic perfect correlation while quantifying its finite defect and provides an explicit projection/regression primitive beyond known separate means or generic extremal cycle-density inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

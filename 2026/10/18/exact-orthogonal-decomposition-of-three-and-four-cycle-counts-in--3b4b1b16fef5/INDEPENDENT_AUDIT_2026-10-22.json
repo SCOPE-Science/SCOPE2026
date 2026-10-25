@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:11:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+        "2026/10/18/exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/verify.py"
+      ],
+      "rationale": "On each 4-vertex tournament the complete local (number of cyclic triples A, number of 4-cycles B) table has frequencies (0,0):24,(1,0):16,(2,1):24 of 64 orientations. For Z_S=B_S-A_S/2+1/8, conditioning on any specified triple U gives E[A_S|T[U]]=I_U+3/4 and E[B_S|T[U]]=1/4+I_U/2, hence E[Z_S|T[U]]=0, also for smaller intersections. Distinct 4-sets overlap in <=3 vertices, so conditional independence of their nonshared edge variables gives pairwise E[Z_SZ_T]=0, and likewise orthogonality to every triangle indicator. Sum over 4-sets: R_n=Y_n-(n-3)X_n/2+C(n,4)/8; each triangle appears n-3 times. Independent triple cyclic indicators are pairwise uncorrelated even when sharing one edge, giving VarX=3C(n,3)/16. Then Cov(X,Y)=3C(n,4)/8, VarR=3C(n,4)/64, VarY=3(4n-11)C(n,4)/64 and Corr=sqrt[4(n-3)/(4n-11)], for all n>=4. Our independent exact enumeration checked all 64 local tournaments, triple-conditioned zero residual and n=4,5 whole-tournament moments. Pairwise orthogonality is NOT independence.",
+      "residual_risks": [
+        "Finite exact computations diagnose bounded instances only; analytic derivation controls general quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andersson 1998 concerns broad asymptotic subgraph counts but only abstract accessible, authorized full-text access VPN disconnected. Linial–Morgenstern and Chan et al. treat deterministic density constraints for 3-/4-cycles."
+        ],
+        "reasoning": "Deterministic inequalities about densities do not imply the exact uniform-random covariance. A general stochastic subgraph-count projection result could imply local degeneracy, and Andersson's unread full text poses a concrete historical-priority risk; no decisive coverage was established.",
+        "searches": [
+          "Andersson 1998 asymptotic subgraph-counts abstract",
+          "arxiv:1902.00572",
+          "arxiv:1405.1576"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1405.1576",
+        "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V",
+        "https://openresearch-repository.anu.edu.au/bitstreams/13393794-51e8-4cb5-aa5b-aba6724769bc/download",
+        "Resultary query 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linial–Morgenstern supplies four-vertex isomorphism cases, a combinatorial ingredient; Iyer reports Var NC3/NC4, marginal laws."
+        ],
+        "reasoning": "Neither local type counts nor two marginal variances fixes the orthogonality of the residual to each triangle indicator or the regression slope; conditional 4-set calculation is the missing implication. The marginal formulas themselves are not claimed new.",
+        "searches": [
+          "Linial–Morgenstern arxiv:1405.1576 observation 1.2",
+          "Chan–Grzesik–Kral–Noel arxiv:1902.00572",
+          "Iyer 2016 random tournament moment review"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Z_S is a locally conditionally mean-zero Hoeffding/ANOVA residual of B_S against 3-vertex tournament data. The exact covariance equals projection coefficient (n-3)/2 times Var(X)."
+        ],
+        "reasoning": "General Hoeffding decompositions predict orthogonal components but do not by themselves supply these 64-case coefficients or their exact all-n correlation. The result should not be described as inventing the projection technique.",
+        "searches": [
+          "Resultary random tournament directed triangles four cycles joint covariance Hoeffding decomposition orthogonal",
+          "Moran 1947 marginal moments as summarized by Iyer 2016",
+          "Linial–Morgenstern arxiv:1405.1576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Iyer reproduces classical separate means and variances for NC3 and NC4; no joint moment shown in the retrieved relevant passage. Resultary tournament entries concern classifications and extremal or unrelated statistics."
+        ],
+        "reasoning": "Known tables of E[X], Var(X), E[Y], Var(Y) cannot determine Cov(X,Y); no directly matching pair table was verified. The Moran primary full text was inaccessible via authorized connection.",
+        "searches": [
+          "Resultary tournaments triangle/four-cycle covariance query",
+          "Iyer Random Tournaments §2.4.1 (2016)",
+          "Moran 1947"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.",
+      "residual_risks": [
+        "Andersson (1998) exact subgraph-count expansions could cover this orthogonal decomposition; only abstract available and Oxford reported VPN disconnected.",
+        "Moran (1947) full text unavailable because Oxford VPN disconnected; classical marginal moments are excluded from novelty claim.",
+        "General U-statistic/Hoeffding theory is standard and may yield an implicit projection; novelty is limited to the exact explicit joint statistic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of local four-vertex types, not joint stochastic cross-covariance for independent random orientations",
+          "evidence": "Observation 1.2 enumerates deterministic 4-vertex types; theorems concern extremal 4-cycle density.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.1576",
+          "material_read": "Full public PDF, introduction/Observation 1.2/four-vertex classification and density inequalities",
+          "method": "arXiv original PDF text plus screenshot",
+          "title": "On the number of 4-cycles in a tournament",
+          "trigger": "Original four-vertex taxonomy and stronger extremal statement"
+        },
+        {
+          "assessment": "Cannot exclude an implicit or explicit equivalent exact projection/covariance, but inaccessible source alone does not determine failed originality",
+          "evidence": "1998 title/abstract establishes broad relevant asymptotic distribution subject; NO full-text noncoverage claimed.",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V",
+          "material_read": "Publisher abstract only; arXiv/open-access full text not located; authorized institutional download returned vpn_disconnected",
+          "method": "Publisher abstract and authorized access request, without bypass",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Highly relevant general asymptotic random-tournament subgraph-count theory"
+        },
+        {
+          "assessment": "Supports classical marginal treatment; insufficient material to exclude further joint moment sections",
+          "evidence": "Excerpt gives probability cyclic triple=1/4 and E NC3=C(n,3)/4.",
+          "identifier_or_url": "https://openresearch-repository.anu.edu.au/bitstreams/13393794-51e8-4cb5-aa5b-aba6724769bc/download",
+          "material_read": "Search-displayed relevant §2.4.1 passage for separate 3-/4-cycle moments; full PDF fetch returned 403",
+          "method": "Open-index excerpt only, transparently limited",
+          "title": "Random Tournaments, Section 2.4.1",
+          "trigger": "Primary thesis exposition of classical random tournament moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+        "https://arxiv.org/pdf/1405.1576",
+        "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V"
+      ],
+      "rationale": "The exact finite-n joint relation between directed triangle and directed four-cycle statistics, together with a per-fourset degenerate residual orthogonal to EACH triangle event, is a structural statistic of uniform random tournament fluctuations. It cleanly explains the asymptotic perfect correlation while quantifying its finite defect and provides an explicit projection/regression primitive beyond known separate means or generic extremal cycle-density inequalities.",
+      "residual_risks": [
+        "Mathematical interest is bounded to the claimed statistic/model and is not an assertion of broad theory or independent historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Andersson (1998) exact subgraph-count expansions could cover this orthogonal decomposition; only abstract available and Oxford reported VPN disconnected.",
+    "Moran (1947) full text unavailable because Oxford VPN disconnected; classical marginal moments are excluded from novelty claim.",
+    "General U-statistic/Hoeffding theory is standard and may yield an implicit projection; novelty is limited to the exact explicit joint statistic."
+  ],
+  "schema_version": 1
+}
