@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The Gamma-Dirichlet disintegration yields independent transfer proportions Dirichlet(2,2,1) after first-choice conditioning. The Jacobian gives f(d)=1-3d²+2|d|³; integrating on (δ,1) is exactly (1-δ)^3(1+δ)/2. Posterior group shares Dirichlet(n_i+5) concentrate under large first-choice-only polling while transfer ratios do not, proving non-identifiability. Standalone exact-rational and independent Gamma Monte Carlo checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rosenman–Liang arXiv:2606.31022, Sections 2.1 and 4.2: 15 three-candidate ballots; flat Dirichlet(1,...,1) prior; posterior simulation, not conditional exact formula."
+      ],
+      "reasoning": "The published general conjugate Dirichlet framework permits this calculation in principle, but its stated conclusions/algorithms do not evaluate the conditional distribution analytically. A general framework allowing a derivation is not treated as exact explicit coverage; residual risk of unsearched broad formulas is reported.",
+      "searches": [
+        "Three-candidate ranked-choice plurality-only polling Dirichlet posterior ballot exhaustion conditional quartic runoff winner probability",
+        "Bayesian Uncertainty Quantification for Ranked Choice Voting Polls Rosenman Liang first choice only transfer",
+        "ranked choice voting plurality only polling Dirichlet conditional transfer probability analytic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.31022",
+      "https://www.rangevoting.org/IrvParadoxProbabilities.html",
+      "https://www.thestemprofessor.com/article/how-to-use-probability-to-analyze-voting-systems-and-election-outcomes/",
+      "published-finding corpus records 2026/10/4/SCOPE-complete-minimal-reinforcement-pair-census-for-three-candidate-i--ed9f14797f48",
+      "published-finding corpus records 2026/10/4/SCOPE-complete-minimal-no-show-classification-for-three-candidate-inst--5e1e36d2af57"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rosenman–Liang arXiv:2606.31022, Sections 2.1 and 4.2: 15 three-candidate ballots; flat Dirichlet(1,...,1) prior; posterior simulation, not conditional exact formula.",
+        "RangeVoting.org/IrvParadoxProbabilities.html: unconditional plurality/IRV mismatch incidence in full rankings, different conditioning and ballot space."
+      ],
+      "reasoning": "The motivating framework alone does not state the posterior residual limit or cubic explicit coefficient, and the published unconditional incidence cannot imply the conditional formula without disintegrating by first-choice shares and changing the ballot universe. Closest published-finding corpus hits concern reinforcement/no-show and do not imply the target claim.",
+      "searches": [
+        "Three-candidate ranked-choice plurality-only polling Dirichlet posterior ballot exhaustion conditional quartic runoff winner probability",
+        "Dirichlet 2 2 1 15 incomplete rankings first-choice-only exact transfer conditional risk ranked choice voting",
+        "conditional winner probabilities of instant runoff given first-place vote shares Dirichlet model incomplete ballots",
+        "Bayesian Uncertainty Quantification for Ranked Choice Voting Polls Rosenman Liang first choice only transfer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rosenman–Liang arXiv:2606.31022, Sections 2.1 and 4.2: 15 three-candidate ballots; flat Dirichlet(1,...,1) prior; posterior simulation, not conditional exact formula."
+      ],
+      "reasoning": "Equivalent descriptions involve conditional upset probability for the second-place first-choice candidate or the tail of the Dirichlet(2,2,1) transfer contrast. The relevant primary paper uses simulated winner probabilities given full ballot observations and does not state that conditional tail, its quartic factorization, or the infinite first-choice-only information limit. Standard Dirichlet aggregation is acknowledged as prior technique; no independent claim to it.",
+      "searches": [
+        "Three-candidate ranked-choice plurality-only polling Dirichlet posterior ballot exhaustion conditional quartic runoff winner probability",
+        "Dirichlet 2 2 1 15 incomplete rankings first-choice-only exact transfer conditional risk ranked choice voting",
+        "conditional winner probabilities of instant runoff given first-place vote shares Dirichlet model incomplete ballots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "RangeVoting.org/IrvParadoxProbabilities.html: unconditional plurality/IRV mismatch incidence in full rankings, different conditioning and ballot space."
+      ],
+      "reasoning": "Existing probability tables enumerate unconditional IRV-versus-plurality discrepancies under full-rank random culture or other models, not the conditional probability under fifteen partial-ballot types and a first-choice-only observation sigma field.",
+      "searches": [
+        "Dirichlet 2 2 1 15 incomplete rankings first-choice-only exact transfer conditional risk ranked choice voting",
+        "conditional winner probabilities of instant runoff given first-place vote shares Dirichlet model incomplete ballots",
+        "\"ranked choice\" \"Dirichlet(2,2,1)\""
+      ]
+    },
+    "rationale": "Examined the complete available online text of arXiv:2606.31022, particularly original modeling and simulation results, and the older unconditional IRV catalog. Compared explicit statements and their implications; neither states the fifteen-type first-choice-only posterior quartic, cubic boundary rate and infinite-poll residual uncertainty. The result uses classical Dirichlet neutrality and possible implicit or unindexed derivations remain real risks.",
+    "residual_risks": [
+      "No novelty assertion against inaccessible or unindexed mathematical writing; an unlocated general explicit Dirichlet ratio/difference formula may imply this result.",
+      "Flat typewise Dirichlet priors on truncated and complete ballots have different induced beliefs; the comparator is not controlled for prior changes.",
+      "Sources were inspected for the exact result, but originality is not an independent literature certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the model but not the presented conditional quartic or informational limit. It uses Monte Carlo winner probabilities on full ranked responses.",
+        "evidence": [
+          "arXiv:2606.31022 lines 42–49, 63–70, 212–235, 282–320"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.31022",
+        "material_read": "Sections 1, 2.1, 3, 4.1–4.6, 5 and discussion as online full text including original definitions, posterior procedure, ballot pruning and limitations",
+        "method": "Lawful openly readable original arXiv full-text web rendering inspected by section and searched for first-choice-only, prior, closed-form conditional results",
+        "title": "Bayesian Uncertainty Quantification for Ranked Choice Voting Polls",
+        "trigger": "Exact same ballot universe, prior and RCV rule"
+      },
+      {
+        "assessment": "A different unconditional probability under complete-ranking cultures, not the conditional posterior probability for incomplete rankings",
+        "evidence": [
+          "RangeVoting IRV paradox probability table: T=12.3263 percent under one Dirichlet culture"
+        ],
+        "identifier_or_url": "https://www.rangevoting.org/IrvParadoxProbabilities.html",
+        "material_read": "Published summary tables of probabilities by random-election culture, in particular row T for plurality and IRV winner difference",
+        "method": "Web page textual tables inspected",
+        "title": "IRV Paradox Probabilities in 3-candidate elections — Master List",
+        "trigger": "Unconditional three-candidate probability of plurality/IRV winner disagreement"
+      },
+      {
+        "assessment": "Provides an informal simulation example with externally imposed transfer shares, not the fifteen-ballot Dirichlet disintegration or closed conditional quartic",
+        "evidence": [
+          "The STEM Professor, 2025, example of three-way first-choice support and runoff transfer uncertainty"
+        ],
+        "identifier_or_url": "https://www.thestemprofessor.com/article/how-to-use-probability-to-analyze-voting-systems-and-election-outcomes/",
+        "material_read": "Section explaining first-choice percentages, unspecified second-choice transfers, and simulation-based forecast",
+        "method": "Web readable article text reviewed",
+        "title": "How to Use Probability to Analyze Voting Systems and Election Outcomes",
+        "trigger": "Illustrative three-way Dirichlet first-choice polling plus transfer uncertainty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "297e6906-5897-4298-8029-83d3913cc467",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact conditional probability is a natural quantitative identifiable/non-identifiable boundary for using cheaper first-choice-only polls under a recently proposed RCV Bayesian model. It gives a strictly positive residual winner error at infinite sample sizes without first-choice majority, an explicit quartic formula, a sharp cubic threshold exponent, and an explicit comparison of two ballot universes. These are decision-relevant structural features beyond generic conjugacy or an arbitrarily chosen numeric example.",
+    "status": "PASS"
+  }
+}
