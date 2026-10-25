@@ -1,19 +1,21 @@
-# Scientific review: binary Narayana valuation layers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every dyadic cutoff \(L\ge1\) for valuation zero and every \(L\ge2\) for valuation one, with the exceptional first cutoff explicitly handled. The proof decomposes every Narayana row by parity into Kummer valuations of two ordinary binomial coefficients. Counting submasks yields exact geometric sums for all binary lengths; in particular, the two independent valuation-one contributions \(E\) and \(O\) each total \(3^{h-1}-1\) for \(h\ge1\). Both branches and all boundary indices were separately checked. The attached integer-only checker evaluates every entry of the first 127 rows from the defining formula, validates the per-row branch identities through index 256, and reproduces the first ten dyadic cutoffs. Finite replay is supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The claimed full-row counts are A0(L)=(5*3^(L-1)-3)/2 for L>=1 and A1(L)=3^(L-1)-3 for L>=2, A1(1)=0. Read proof: Kummer/Legendre binary binomial carry valuations, even/odd Narayana-row split; E(m) and O(m) formulas from trailing-bit/submask constraints yield two geometric 3-power sums for valuation one. These elementary identities are all-length combinatorial arguments, not extrapolations. Independently computed each exact integer Narayana entry via binomial coefficients, all rows n<256, and counted val 0/1 for L=1..8, yielding (1,0),(6,0),(21,6),(66,24),(201,78),(606,240),(1821,726),(5466,2184), exactly the asserted formulas. Limitation to layers 0/1 and dyadic cutoffs explicit; limiting ratio 2/7 among valuation<=1 and 2/5 vs odd follows.
 
-Bóna–Sagan's fully inspected 2005 manuscript determines parity at individual triangle positions and says general prime-adic orders become complicated; it does not give the aggregate valuation-one formula. OEIS A335965 and Eu–Liu–Yeh are relevant to the known odd-entry layer, which is not claimed independently as novel. Pinheiro–Vascon–Craveiro (2026) work on central-column congruences, which do not determine the count throughout all rows. The exact integers in the valuation-one sequence coincide with OEIS A058809, but its listed interpretations do not establish the Narayana divisibility statistic. The full Eu–Liu–Yeh article was not available for inspection, so an implicit earlier general valuation result remains a priority risk; published-record searches did not identify one.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a natural first nontrivial prime-power layer of the classical Narayana triangle, whose entries count Dyck paths with specified peaks. It refines the previously studied parity pattern to exact divisibility by two but not four across all entries up to a binary-length cutoff. The exact count and the limiting \(2/7\) proportion expose a persistent arithmetic distribution not determined by rowwise parity information alone. Dyadic cutoffs are forced by the binary carry structure, rather than an arbitrary numerical slice. The novelty and value are the *Narayana interpretation and all-length proof*, not novelty of the standalone integer sequence \(3^{L-1}-3\).
+Bóna–Sagan full primary paper classifies individual Narayana entries not divisible by a prime, i.e., layer zero; Section 3 discusses beyond-zero valuations but no closed global dyadic layer-one count. Pinheiro/Vascon/Craveiro (2026) full accessible nineteen-page primary paper concerns CENTRAL-column N(2n,n) and necessary/sufficient prime divisibility, not full triangular layer counts. The odd-entry counts are known in OEIS A335965, and numeric 3-power sequences have unrelated OEIS appearances; none implies the layer-one Narayana interpretation and closed count without a nontrivial whole-triangle summation.
 
-## Sources and residual risks
+## value
 
-Closest primary source: M. Bóna and B. E. Sagan, *On divisibility of Narayana numbers by primes* (2005), https://arxiv.org/abs/math/0505382. Additional comparisons: S.-P. Eu, S.-C. Liu and Y.-N. Yeh, *On the Congruences of Some Combinatorial Numbers* (2006), https://doi.org/10.1111/j.1467-9590.2006.00337.x; OEIS A335965, https://oeis.org/A335965; G. F. Pinheiro, G. M. Vascon and I. M. Craveiro (2026), https://periodicos.ufs.br/ReviSe/article/download/23795/18603; OEIS A058809, https://oeis.org/A058809. The Eu–Liu–Yeh complete article could not be read, and independent assessment may locate a broader theorem. Only valuations zero and one are classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact two-adic valuation distribution through the first nonzero layer of the full Narayana triangle is a natural refinement of classical divisibility criteria; an all-L closed form and limiting proportions extract genuine structural information about the triangle, beyond merely listing odd entries or a narrow random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:18:03.696077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed full-row counts are A0(L)=(5*3^(L-1)-3)/2 for L>=1 and A1(L)=3^(L-1)-3 for L>=2, A1(1)=0. Read proof: Kummer/Legendre binary binomial carry valuations, even/odd Narayana-row split; E(m) and O(m) formulas from trailing-bit/submask constraints yield two geometric 3-power sums for valuation one. These elementary identities are all-length combinatorial arguments, not extrapolations. Independently computed each exact integer Narayana entry via binomial coefficients, all rows n<256, and counted val 0/1 for L=1..8, yielding (1,0),(6,0),(21,6),(66,24),(201,78),(606,240),(1821,726),(5466,2184), exactly the asserted formulas. Limitation to layers 0/1 and dyadic cutoffs explicit; limiting ratio 2/7 among valuation<=1 and 2/5 vs odd follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bóna–Sagan Theorem 1.2 gives p-nondivisibility of general N(n,k).",
+          "Pinheiro–Vascon–Craveiro 2026 pp.246-264 Section3 explicitly studies N(2n,n), not whole triangle."
+        ],
+        "reasoning": "An exact individual valuation algorithm could mechanically enumerate a finite layer but does not imply a closed uniform dyadic count; no broader published uniform valuation distribution covering it identified.",
+        "searches": [
+          "Bóna Sagan 2005 On divisibility of Narayana numbers by primes Section 3",
+          "Pinheiro Vascon Craveiro 2026 Theorems 3.6-3.8"
+        ]
+      },
+      "checked_sources": [
+        "https://users.math.msu.edu/users/bsagan/Papers/Old/dnn.pdf",
+        "https://periodicos.ufs.br/ReviSe/article/download/23795/18603/86030",
+        "https://oeis.org/A335965"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing prime-nondivisibility theorem recovers A0 after extra summation but not A1.",
+          "Pinheiro et al. develops central-column mod-prime-power tests; it cannot aggregate noncentral k without additional arguments."
+        ],
+        "reasoning": "Specialising the central-column theorem gives a vanishing fraction of each full row and does not yield A1(L). The new E(m)/O(m) binary construction is the needed step.",
+        "searches": [
+          "math/0505382 Theorem 1.2 and Section 3",
+          "https://periodicos.ufs.br/ReviSe/article/download/23795/18603/86030"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every N(n,k) valuation is a pair of binomial carries minus nu2(n).",
+          "OEIS A335965 enumerates parity rows but not the dyadic valuation-one counts."
+        ],
+        "reasoning": "Equivalent formulation counts (n,k) whose two binomial factors carry exactly one excess factor after division by n; the aggregate closed form is not the individual Kummer criterion.",
+        "searches": [
+          "Narayana number 2 adic Kummer carries valuation all entries binary triangle",
+          "Bóna Sagan arxiv:math/0505382",
+          "OEIS A335965"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A335965 concerns odd values by n, not full n<2^L valuation one.",
+          "A058809 shares unrelated numerical values with a 3-power expression."
+        ],
+        "reasoning": "A numerical coincidence or a zero-valuation sequence is not prior knowledge of the exact Narayana layer-one interpretation or theorem. Search not exhaustive.",
+        "searches": [
+          "Narayana triangle A0 A1 dyadic two valuation counts OEIS A335965 A058809",
+          "Resultary Narayana triangle 2-adic valuation distribution number entries divisible by two but not four binary dyadic cutoff"
+        ]
+      },
+      "rationale": "Bóna–Sagan full primary paper classifies individual Narayana entries not divisible by a prime, i.e., layer zero; Section 3 discusses beyond-zero valuations but no closed global dyadic layer-one count. Pinheiro/Vascon/Craveiro (2026) full accessible nineteen-page primary paper concerns CENTRAL-column N(2n,n) and necessary/sufficient prime divisibility, not full triangular layer counts. The odd-entry counts are known in OEIS A335965, and numeric 3-power sequences have unrelated OEIS appearances; none implies the layer-one Narayana interpretation and closed count without a nontrivial whole-triangle summation.",
+      "residual_risks": [
+        "Unindexed older general Narayana 2-adic layer-distribution formula could yield the count as a corollary.",
+        "Only L-power-of-two cutoffs treated; higher valuations not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers valuation-zero divisibility criterion; does not state exact full-triangle layer-one dyadic counts.",
+          "evidence": [
+            "Theorem 1.2 on p-not-divisibility.",
+            "Section 3 addresses extension to p-adic valuation as more complicated."
+          ],
+          "identifier_or_url": "https://users.math.msu.edu/users/bsagan/Papers/Old/dnn.pdf",
+          "material_read": "Accessible complete PDF, main Theorem 1.2 and Section 3 proof/discussion, plus PDF page screenshots.",
+          "method": "Primary PDF theorem/section reading",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "Exact same Narayana numbers and Kummer valuation methods"
+        },
+        {
+          "assessment": "Explicitly studies central N(2n,n), including prime-power divisibility; not equivalent to global full-triangle dyadic layer counts.",
+          "evidence": [
+            "Introduction states new congruences for N(2n,n).",
+            "Theorem 3.7 and 3.8 are central-number congruences."
+          ],
+          "identifier_or_url": "https://periodicos.ufs.br/ReviSe/article/download/23795/18603/86030",
+          "material_read": "Full OA nineteen-page PDF accessible; inspected abstract, Introduction, Section 3 theorem statements through 3.8 and pages 1,2,11 as images.",
+          "method": "Primary full-text targeted theorem/section inspection",
+          "title": "Congruences of Narayana Numbers Modulo Primes and Powers of Primes",
+          "trigger": "2026 later paper with matching Narayana divisibility terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact two-adic valuation distribution through the first nonzero layer of the full Narayana triangle is a natural refinement of classical divisibility criteria; an all-L closed form and limiting proportions extract genuine structural information about the triangle, beyond merely listing odd entries or a narrow random slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://users.math.msu.edu/users/bsagan/Papers/Old/dnn.pdf",
+    "https://periodicos.ufs.br/ReviSe/article/download/23795/18603/86030",
+    "https://oeis.org/A335965"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No conclusions about valuation>=2, odd primes, general non-dyadic upper row cutoffs."
+  ],
+  "schema_version": 1
+}
