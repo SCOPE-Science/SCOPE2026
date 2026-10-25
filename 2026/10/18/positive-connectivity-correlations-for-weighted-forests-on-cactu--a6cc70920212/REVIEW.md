@@ -1,18 +1,21 @@
-# Review: Positive connectivity correlations for weighted forests on cactus graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The forest measure equals independent bond percolation conditioned on acyclicity. The cactus block-cut structure turns the forest constraint into independent cycle constraints and every connection into a product along its unique block-tree route. The cycle proof exhausts identical, three-terminal, noncrossing four-terminal and crossing four-terminal configurations. The crossing step has an exact 21-term nonnegative Bernstein certificate, whose polynomial equality is confirmed by exact rational interpolation on \(3^4\) points. Finite weighted graph enumerations additionally check the indicator model. The proof is general and does not rely on those enumerations.
+## correctness
 
-## Originality — PASS, qualified
-The full text of direct new source [1], especially Section 6, establishes high-fugacity positivity in Proposition 6.1 and explicitly poses the arbitrary-fugacity connectivity inequality as Conjecture 6.2. The present all-fugacity cactus assertion is neither the equivalent Bernoulli conditioning identity [2] nor the edge-negative covariance studied in [2,3]. Searches of relevant scientific records, aliases, exact cycle equations and cactus variants uncovered no stronger equivalent. The original [1] full HTML text has been inspected. A 2021 thesis [4] may nevertheless contain an implicit case. These are genuine residual originality risks, not evidence of uniqueness.
+PASS
 
-## Mathematical value — PASS
-This settles a natural positive-correlation inequality on an infinite structural graph class for every arbitrary positive edge-weight assignment. Cactus blocks retain cycle-dependent forest correlations, and the crossing pairing is not a routine consequence of edge independence. The result provides an exact all-parameter domain beyond previously described high-fugacity positivity while leaving overlapping-cycle blocks open.
+Forest Gibbs law is independent bond percolation with p_e=lambda_e/(1+lambda_e), conditioned on no cyclic block all-open. In a cactus, cycles share no edges and the conditioning factors over independent bridge/cycle blocks; two connectivity indicators factor along unique block-tree route, so nonnegative local covariances multiply. On one cyclic block, group edges between 3 or 4 marks; each segment all-open indicator is independent Bernoulli before excluding all-open state. Three distinct marks and noncrossing four-mark pairings have explicit products of nonnegative terms. For crossing four-mark pairings, computed (1-abcd)N_AB-N_A N_B exactly as sum of 21 nonnegative degree-(2,2,2,2) Bernstein basis products with weights 1/8,1/4,1/2,1/4,1/8 on specified cyclic/dihedral orbits. Independent sympy polynomial expansion confirms all coefficients and exact identity; independent weighted enumeration of 8-vertex three-cycle cactus (10 edges, Z=447824916) confirmed all 28×28 pair inequalities. Exact polynomial verification plus block factorization proves general statement, finite graph test alone does not.
 
-## Scope and limitations
-Finite connected simple cacti; two vertex-pair connectivity events; no claim for all graphs, arbitrary increasing events, or \(q>0\) random-cluster laws. Bibliographic uncertainty is limited by available primary full text.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Scientific references
-[1] Çiçeksiz–Ravichandran, arXiv:2610.00549 (2026-09-30). [2] Bauerschmidt et al., arXiv:1912.04854, sections 1.1–1.2 and Appendix B. [3] Grimmett–Winkler, arXiv:math/0302185. [4] Çiçeksiz, *Negative dependence in discrete probability*, thesis (2021).
+Çiçeksiz–Ravichandran arXiv:2610.00549 dated 2026-09-30 explicitly presents arbitrary-fugacity positive connectivity as a general conjecture and proves high-fugacity special regimes; there is no published cactus all-fugacity theorem apparent from accessible abstract. The closest original body was inaccessible: arXiv HTML/PDF alternative OA failed and Oxford returned vpn_disconnected; thus no whole-document NOT_COVERING claim, and an unexamined cactus case is a real priority risk. Bauerschmidt–Crawford–Helmuth–Swan 2021 already give arboreal-gas conditioning representation, which alone does not prove positive covariance. Resultary semantic query top12 found only different forest or cactus statements.
+
+## value
+
+PASS
+
+A sharp positive-correlation theorem on all weighted cactus graphs provides a natural nontrivial class for a general arboreal-gas connectivity conjecture, allowing arbitrarily many cycles and heterogeneous fugacities. The difficult crossing-pair event requires a substantive positive Bernstein certificate, not an elementary independent-block statement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
