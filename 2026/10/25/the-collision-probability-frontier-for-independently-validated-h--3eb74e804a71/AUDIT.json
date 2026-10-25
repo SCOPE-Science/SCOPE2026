@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For each independent sampled index pair the normalized scalar hypergradient is exactly -alpha+h alpha^2/(2p_i) on a matching pair and zero otherwise. Its expected convex polynomial is -c alpha+h alpha^2/2. At alpha=c/h, coordinate i is multiplied by 1-c/p_i. The matched-pair events of probability p_i^2 recur almost surely and force contraction under all tie choices whenever c<2p_i. If c>=2p_i, pathwise absolute value cannot decrease from nonzero initial coordinate under any allowed tie choice. The exact raw mean-square factor and simplex maximum yield the d2 and d-dimensional exact phase boundaries. The independent standard-library Fraction checker passed 375 seeded model cases and 429 simplex-floor cases plus 4 exact finite-horizon state enumerations. No finite checks were used as substitutes for the proof. Each claim is limited to frozen population-target scalar steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang et al. 2026, Section 3.1 equation (4), Algorithm 2 and Theorem 3.3: normalized independent hypergradient feedback, evaluation null step, and convergence subject to additional relative-noise and batch conditions. Full original PDF sections 2-3 and appendix were materially read.",
+        "Qu and Richtárik 2015 arXiv:1412.8060, Sections 1 and 6 and Appendix A: arbitrary sampling, coordinate updates and convergence analysis, but not independent normalized validation; the full text sections were inspected.",
+        "Dereziński and Dong 2026 address greedy SGD/Kaczmarz steps with a different selection rule; inspected publication abstract and metadata only."
+      ],
+      "reasoning": "The new statement fixes a population optimal scalar feedback step and classifies its almost-sure success for all tie policies, including a sharp probability-floor threshold. It is not a direct special case of the source conditional high-probability convergence: the source relies on sufficiently small relative-gradient noise and analyzes an evolving optimizer. The coordinate-sampling literature uses designed coordinatewise updates; its conclusions do not imply an independently validated scalar step success boundary.",
+      "searches": [
+        "https://optimization-online.org/2026/05/stochastic-gradient-methods-with-online-scaling/",
+        "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+        "https://arxiv.org/pdf/1412.8060",
+        "https://proceedings.mlr.press/v336/derezinski26b.html",
+        "online learned scalar stepsize rare coordinate sampling quadratic unstable stochastic gradient despite unbiased out of sample feedback",
+        "hypergradient online learning stochastic sparse coordinate descent projection step size stability two dimensional imbalance"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2026/05/stochastic-gradient-methods-with-online-scaling/",
+      "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+      "https://arxiv.org/pdf/1412.8060",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "https://doi.org/10.1137/19M125532X",
+      "https://proceedings.mlr.press/v336/derezinski26b.html",
+      "Current-week accessible own-claim ledger, including ff255021-2677-49ad-a84f-8bc43ecef001 and 28e88f14-5876-46c7-b8a4-39bc4a89850c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Zhang et al. source specifies the exact hypergradient normalization and null step but does not state the collision minimizer or the if-and-only-if all-states threshold.",
+        "The full published scalar published-finding corpus result proves its null step rejects all expansive scalar updates when both independent curvatures are positive, rather than admitting the disjoint-support tie phenomenon.",
+        "Qu–Richtárik discuss probability-dependent coefficient rates, not the normalized feedback minimizer or validation collision probability.",
+        "The accessible own record ff255021-2677-49ad-a84f-8bc43ecef001 proves a different validation escape law with non-common component minimizers and scheduled batch sizes."
+      ],
+      "reasoning": "The motivating source supplies definitions used here but no statement strong enough to imply the new frozen-step distributional classification. The nearest scalar result gives a different sign-control implication, which is *not* transferable to zero validation curvature along an updated coordinate. General coordinate-descent rates can coexist with this counterexample, since they choose sampling-calibrated steps rather than minimizing this feedback. Priority risk persists for undiscovered specialized analyses.",
+      "searches": [
+        "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "ff255021-2677-49ad-a84f-8bc43ecef001",
+        "https://arxiv.org/pdf/1412.8060",
+        "out of sample hypergradient feedback stochastic online scaled gradient coordinate-sampled separable quadratic importance sampling mean square instability",
+        "out of sample SOSGM hypergradient on coordinate separable isotropic quadratic mean-square convergence p_min sum p_i squared sharp phase diagram"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the positive-curvature scalar published result https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6, the independent evaluation curvature is strictly positive, hence the null gate rejects every expansive proposal. Its full RESULT.md was read.",
+        "In the new rank-one disjoint-support model the evaluation loss is unchanged if the independently chosen index misses the updated coordinate, allowing expansive proposals on validation ties."
+      ],
+      "reasoning": "Scalar-curvature reciprocal-moment and coefficient-of-variation thresholds are not equivalent to the vector collision-mass criterion c<2 p_min. The former null-step mechanism enforces contraction; the present one is blind to an update on a disjoint support. No duality or scalar reduction preserves that validation property.",
+      "searches": [
+        "out of sample hypergradient feedback stochastic online scaled gradient coordinate-sampled separable quadratic importance sampling mean square instability",
+        "normalized out-of-sample hypergradient two independent coordinate samples collision probability sum p_i squared rare coordinate divergence null-step validation tie",
+        "unbiased importance sampling separable quadratic online scalar hypergradient α=sum p_i^2/h stochastic coordinate sampling stability",
+        "out of sample SOSGM hypergradient on coordinate separable isotropic quadratic mean-square convergence p_min sum p_i squared sharp phase diagram",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus search returned 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 as nearest same-source population-feedback study; its primary RESULT.md was read directly, including the null-step paragraph.",
+        "Current accessible own ledger was searched by claim strings, including independently validated sampled losses ff255021-2677-49ad-a84f-8bc43ecef001 and independently row/coordinate-sampled least-squares 28e88f14-5876-46c7-b8a4-39bc4a89850c; these concern different stochastic mechanisms.",
+        "Rodomanov and Kropotov 2020 volume sampling paper DOI 10.1137/19M125532X concerns curvature-based sampling, not normalized feedback or independent validation. Abstract and metadata inspected."
+      ],
+      "reasoning": "No checked available mathematical database result or exact table specified c=sum p_i^2 versus 2 p_min with the all-tie-policy obstruction. The own-ledger record ff255021-2677-49ad-a84f-8bc43ecef001 has noninterpolating scalar shifted quadratics and a batch-schedule escape-at-optimum law; the present objective interpolates and the failure occurs for a frozen feedback target in orthogonal coordinates. Absence in search is supporting evidence, not uniqueness proof.",
+      "searches": [
+        "normalized out-of-sample hypergradient two independent coordinate samples collision probability sum p_i squared rare coordinate divergence null-step validation tie",
+        "unbiased importance sampling separable quadratic online scalar hypergradient α=sum p_i^2/h stochastic coordinate sampling stability",
+        "population online scaling two-dimensional coordinate-sparse functions independent validation null step probability threshold 1-1/sqrt(2)",
+        "out of sample SOSGM hypergradient on coordinate separable isotropic quadratic mean-square convergence p_min sum p_i squared sharp phase diagram",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "ff255021-2677-49ad-a84f-8bc43ecef001",
+        "28e88f14-5876-46c7-b8a4-39bc4a89850c"
+      ]
+    },
+    "rationale": "Original May 2026 primary full text specifies the feedback and gate, but its theorem proves conditional stochastic convergence, not the sharp fixed population optimum and tie-policy obstruction. The published closest scalar-curvature published-finding corpus full text has an always-positive validation curvature and a genuinely protective null step; its claims do not imply the independent disjoint-coordinate null-step failure. Arbitrary-sampling coordinate descent has a different step-design mechanism; available own results concern different dynamics. Residual priority risk is expressly recorded; a negative search alone is not presented as novelty proof.",
+    "residual_risks": [
+      "Other stochastic hypergradient and sampled-coordinate literature could implicitly contain the exact collision-mass threshold under different terminology.",
+      "The 2020 volume-sampling and 2026 greedy-step publications were compared from abstracts, not exhaustively from full text.",
+      "Independent scientific/priority audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the feedback/gate, not the frozen population collision threshold; source theorem assumes extra relative-noise controls.",
+        "evidence": [
+          "Section 3.1 formula (4) and Algorithm 2 p.6; Theorem 3.3 pp.7-8; Optimization Online posting dated 2026-05-28."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+        "material_read": "Original May 2026 35-page PDF: Sections 1-3, equations (3)-(4), Algorithm 2, Assumptions 2.1-3.2, Theorem 3.3, Appendix A and practical-variant discussion; paper entry published date 2026-05-28 verified.",
+        "method": "Read text with page-indexed cross-check of PDF visual equations.",
+        "title": "Stochastic Gradient Methods with Online Scaling",
+        "trigger": "Direct source for normalized out-of-sample feedback and independent validation gate"
+      },
+      {
+        "assessment": "Arbitrary-sampling ALPHA method is not the normalized two-independent-sample hypergradient gate.",
+        "evidence": [
+          "Source Section 1.3 explicitly describes ALPHA updates and complexity; Section 6 studies sampling and coefficient rates; no hypergradient match."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.8060",
+        "material_read": "Full open-access 32-page PDF Sections 1.1-1.3, 6 and Appendix A as relevant to sampling/step choice.",
+        "method": "Direct full-text read and inspection of representative PDF page.",
+        "title": "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity",
+        "trigger": "Plausible stronger coverage through arbitrary sampling probabilities"
+      },
+      {
+        "assessment": "Scalar positive-curvature model explicitly has a protective null step; not covering disjoint-support all-tie-policy obstruction.",
+        "evidence": [
+          "Scalar evaluation factor B>0 cancels in the gate and accept iff absolute scalar multiplier at most one; here missed-coordinate evaluation returns a tie for arbitrary multiplier."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "material_read": "Published complete RESULT.md, including Statement, Exact mean-square consequences, Sharp support-only phase diagrams, and null-step scalar case.",
+        "method": "Read published repository file via authenticated read-only file tool.",
+        "title": "Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM",
+        "trigger": "Closest indexed same-source result from published mathematical-record search"
+      },
+      {
+        "assessment": "Sampling by determinant/curvature, not the independent validation feedback; full-text equivalence not excluded.",
+        "evidence": [
+          "Abstract discusses volume sampling and convergence rates, without normalized out-of-sample feedback."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/19M125532X",
+        "material_read": "Accessible journal abstract and metadata, not full text.",
+        "method": "Journal abstract and bibliographic examination.",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "Plausible sampling-based step-size or condition number coverage"
+      },
+      {
+        "assessment": "Different greedy step-size algorithm, no apparent domination of the independent validation collision law; residual full-text risk.",
+        "evidence": [
+          "The abstract studies stochastic contraction processes and rates for greedy steps in interpolated quadratic problems."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v336/derezinski26b.html",
+        "material_read": "Complete publication landing-page abstract and bibliographic summary only, not full PDF.",
+        "method": "Publication-page reading.",
+        "title": "Last-Iterate Convergence of Randomized Kaczmarz and SGD with Greedy Step Size",
+        "trigger": "Greedy stochastic step-size theory near interpolation quadratics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3eb74e80-4a71-4ec1-a617-750df904332e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Orthogonal data supports and unequal sampling occur naturally in sparse stochastic optimization. The exact c versus 2p_min threshold shows independent validation can be blind to a destructive proposal, even on an isotropic strongly convex objective with all sampled losses sharing its minimizer. The sharp universal minimum-sampling-mass frontier gives an actionable probability-design criterion, and the finite uniform four-component example demonstrates the issue without an exotic oracle. This is a structural phase classification, not simply numerical recomputation or a routine normalization check.",
+    "status": "PASS"
+  }
+}
