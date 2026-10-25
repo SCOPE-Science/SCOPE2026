@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:55:03.426802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact recurrence, proof and game definition",
+        "verify_game.py, verify_dual.py, optimal_starts.csv and their .out logs",
+        "independent exact bitset solver /mnt/data/private_tutte_1041.py",
+        "canonical optimal_starts.csv SHA256 verified independently"
+      ],
+      "rationale": "The incidence graph of W(2,2) has 15 points plus 15 totally isotropic lines from nondegenerate alternating F2^4, 30 vertices/45 edges, valency 3, diameter 4 and girth 8. In the precise visible-robber alternating game with stationary moves, the recurrence F_{t+1}(C)=support(C) union over simultaneous cop moves C′ of (support(C′) union {r:N[r] subset F_t(C′)}) follows from the existential cop and universal robber move quantifiers. The source package implements both this winning recurrence and its complementary robber-survival recurrence. An independent newly coded Python exact bitset exhaustive solver checked all k=1,2,3 cop multisets and 30 robber positions, obtaining k1 counts [30,120,120,120], k2 [900,3420,3420,3420], k3 [13950,50520,55080,75360] and exactly 70 three-turn-optimal placements. The independently computed 70-line canonical list SHA256 matches 422e6ea22043c57643838985dc011c76221708a837c123f32282bb65c4d9353d; geometric classification 35 F2 projective point-lines, 15 line pencils, 20 reguli holds exactly. Radius-two balls of size ten overlap pairwise by diameter four, so any three cannot cover 30 starting sites in two moves, giving a separate lower bound. Stabilized losing sets for 1 and 2 cops establish cop number 3. This is an exhaustive finite proof for the 30-vertex graph, not an extrapolation.",
+      "residual_risks": [
+        "Precise game moves matter: visible robber, cops move first, pass allowed, 30-vertex incidence graph not 15-vertex GQ point graph. No theorem for general cages or generalized quadrangles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonato–Golovach–Hahn–Kratochvíl framework computes capture time for graphs algorithmically, and Bonato–Burgess treats design-derived cop numbers. Neither accessible material gives the specific 70-placement classification or the 35+15+20 decomposition."
+        ],
+        "reasoning": "General decidability of the game does not mathematically entail these finite constants without full state-space computation. The 2012 article full text was unavailable, so its possible stronger special-case coverage is an explicit risk.",
+        "searches": [
+          "doi:10.1002/jcd.21331 abstract designs cops",
+          "doi:10.1016/j.disc.2008.04.004 general cop capture time",
+          "Tutte Coxeter graph cops and robbers capture time three cops optimal starting positions 70 generalized quadrangle"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/jcd.21331",
+        "doi:10.1016/j.disc.2008.04.004",
+        "arxiv:1308.3354",
+        "Resultary query for Tutte Coxeter 70 optimal placements",
+        "Resultary 2026/10/11/SCOPE-scale-three-vietoris-rips-complexes-of-finite-generalized-quadra--6174aafa5f94 (homotopy, not pursuit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hypercube capture-time formulas concern Hamming cubes, not the girth-eight 30-vertex cage. Even knowing c(T)=3 gives neither capture time three nor the geometry of every fastest initial multiset."
+        ],
+        "reasoning": "The exact adversarial DP and classification supply a nontrivial invariant not covered by general capture-time methods; potential direct theorem in inaccessible Bonato–Burgess remains an explicit caveat.",
+        "searches": [
+          "arxiv:1308.3354 hypercube capture time",
+          "doi:10.1002/jcd.21331 generalized quadrangles cop number",
+          "doi:10.1016/j.disc.2008.04.004 graph capture time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Design-derived graph work often analyzes GQ point/collinearity graph, not necessarily the 30-vertex incidence graph. Capture time and every optimal starting cop multiset are stronger than cop number alone."
+        ],
+        "reasoning": "Checked aliases Tutte–Coxeter, generalized quadrangle W(2,2), doily, 8-cage, tactical configuration incidence and capture-time optimal placements.",
+        "searches": [
+          "Tutte Coxeter graph cops and robbers capture time three cops optimal starting positions 70 generalized quadrangle",
+          "doi:10.1002/jcd.21331 cops robbers graphs based on designs Tutte Coxeter generalized quadrangle incidence graph",
+          "doi:10.1016/j.disc.2008.04.004 capture time of a graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted canonical 70-row census is independently hash-reproduced and organized into the exact three finite-geometric families, whereas accessible literature does not contain this placement table."
+        ],
+        "reasoning": "Searched for exact Tutte–Coxeter tactical placements and fastest cop deployment, not only graph cop number; unindexed tables cannot be excluded.",
+        "searches": [
+          "Tutte Coxeter cop number 3 capture time 3 optimal 70 starts",
+          "Tutte Coxeter graph cops and robbers capture time three cops optimal starting positions 70 generalized quadrangle"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.",
+      "residual_risks": [
+        "Bonato–Burgess publisher full text remained inaccessible through lawful OA/arXiv attempts and Oxford authorization returned vpn_disconnected. An exact Tutte–Coxeter cop or capture-time result in that article may affect priority, although none appears in the material actually read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine unresolved prior-art overlap risk; cannot declare whole-document NOT_COVERING.",
+          "evidence": "Publisher abstract on cops in design-derived graphs; full-text unavailable",
+          "identifier_or_url": "doi:10.1002/jcd.21331",
+          "material_read": "Publisher abstract and searchable selected indexed passages only; full 2012 article not obtained. Lawful open-access/preprint searches failed and institutional Oxford access returned vpn_disconnected; no bypass or claim of reading full text.",
+          "method": "Publisher page abstract/search plus authorized institutional access attempt",
+          "title": "Cops and Robbers on Graphs Based on Designs",
+          "trigger": "Very plausible direct prior result on the exact same generalized quadrangle"
+        },
+        {
+          "assessment": "Provides general computation framework, but does not supply exact 70 placements for T in inspected text.",
+          "evidence": "Capture-time invariant, fixed-k algorithmic methods",
+          "identifier_or_url": "doi:10.1016/j.disc.2008.04.004",
+          "material_read": "Abstract and accessible core definition of capture time; not complete article.",
+          "method": "Journal bibliographic text/abstract",
+          "title": "The capture time of a graph",
+          "trigger": "General finite graph capture-time theorem may dominate finite game classification"
+        },
+        {
+          "assessment": "Different graph family; formulas do not imply Tutte–Coxeter starting-configuration geometry.",
+          "evidence": "Main capture-time theorem on hypercube H_n",
+          "identifier_or_url": "arxiv:1308.3354",
+          "material_read": "Accessible preprint introduction and hypercube-specific main statements.",
+          "method": "arXiv open-access source sections",
+          "title": "The capture time of the hypercube",
+          "trigger": "Closest explicit exact capture-time study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Natural cubic 8-cage / W(2,2) incidence graph",
+        "Exact 70 optimal deployments separated into geometrically intrinsic families"
+      ],
+      "rationale": "The Tutte–Coxeter graph is a natural incidence-geometric 30-vertex 8-cage, and cop number plus minimax capture time are established graph-search invariants. The exact first-turn optimum classification of 70 placements and their 35 projective point triples, 15 pencils and 20 reguli is a complete, geometrically motivated answer; an exhaustive calculation of a finite natural graph can be worthwhile without a general theorem for other cages.",
+      "residual_risks": [
+        "Specialized single finite graph; possible older enumeration inaccessible and different pursuit rules alter capture time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Precise game moves matter: visible robber, cops move first, pass allowed, 30-vertex incidence graph not 15-vertex GQ point graph. No theorem for general cages or generalized quadrangles.",
+    "Bonato–Burgess publisher full text remained inaccessible through lawful OA/arXiv attempts and Oxford authorization returned vpn_disconnected. An exact Tutte–Coxeter cop or capture-time result in that article may affect priority, although none appears in the material actually read.",
+    "Specialized single finite graph; possible older enumeration inaccessible and different pursuit rules alter capture time."
+  ],
+  "schema_version": 1
+}

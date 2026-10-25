@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Finite-state verification
+# Independent mathematical audit
 
-Run from the directory containing this file:
+## correctness
 
-```
-python3 verify_game.py
-python3 verify_dual.py
-```
+PASS
 
-Both programs use Python 3 standard-library modules only. They construct all 15 nonzero binary four-vectors and 15 isotropic two-dimensional subspaces, generate the 30-vertex incidence graph, and independently evaluate the game dynamic programming on cop multisets and robber positions. The first implements the cops' winning recurrence; the second implements the complementary robber's evasion recurrence. Both enumerate all 4,960 three-cop placements with repeats allowed and classify exactly 70 optimal placements, including all 35 point triples and all 35 line triples. `optimal_starts.csv` records the lexicographically sorted winning configurations, one three-label tuple per line, with the label convention defined in `RESULT.md`.
+The incidence graph of W(2,2) has 15 points plus 15 totally isotropic lines from nondegenerate alternating F2^4, 30 vertices/45 edges, valency 3, diameter 4 and girth 8. In the precise visible-robber alternating game with stationary moves, the recurrence F_{t+1}(C)=support(C) union over simultaneous cop moves C′ of (support(C′) union {r:N[r] subset F_t(C′)}) follows from the existential cop and universal robber move quantifiers. The source package implements both this winning recurrence and its complementary robber-survival recurrence. An independent newly coded Python exact bitset exhaustive solver checked all k=1,2,3 cop multisets and 30 robber positions, obtaining k1 counts [30,120,120,120], k2 [900,3420,3420,3420], k3 [13950,50520,55080,75360] and exactly 70 three-turn-optimal placements. The independently computed 70-line canonical list SHA256 matches 422e6ea22043c57643838985dc011c76221708a837c123f32282bb65c4d9353d; geometric classification 35 F2 projective point-lines, 15 line pencils, 20 reguli holds exactly. Radius-two balls of size ten overlap pairwise by diameter four, so any three cannot cover 30 starting sites in two moves, giving a separate lower bound. Stabilized losing sets for 1 and 2 cops establish cop number 3. This is an exhaustive finite proof for the 30-vertex graph, not an extrapolation.
 
-`verify_game.out` and `verify_dual.out` are outputs of actual local runs of the respective packaged source files. An ordered-list checksum is printed and checked: `422e6ea22043c57643838985dc011c76221708a837c123f32282bb65c4d9353d`. `verify_game.py` independently checks all graph distances, girth eight, degree three, and all two-ball coverage obstructions needed for the short lower-bound argument.
+## originality
 
-The computational proof is finite and exhaustive for the specified graph. It does not claim formal verification in another theorem prover, a noncomputational classification of all optimal starts, or validation by any external reviewer. The source-comparison caveats are described in `REVIEW.md` and `RESULT.md`.
+PASS
+
+Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.
+
+## value
+
+PASS
+
+The Tutte–Coxeter graph is a natural incidence-geometric 30-vertex 8-cage, and cop number plus minimax capture time are established graph-search invariants. The exact first-turn optimum classification of 70 placements and their 35 projective point triples, 15 pencils and 20 reguli is a complete, geometrically motivated answer; an exhaustive calculation of a finite natural graph can be worthwhile without a general theorem for other cages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

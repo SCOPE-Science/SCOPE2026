@@ -1,11 +1,21 @@
-# Scientific review: three-round pursuit on the Tutte–Coxeter graph
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a finite exact classification. The graph is constructed from the symplectic form on \(\mathbb F_2^4\) and checked to be a 30-vertex cubic incidence graph of girth eight and diameter four. The cop-winning recurrence is exact by induction on the allowed number of rounds. All 30 robber positions and all 4,960 unordered three-cop multisets are included, with repetition and pass moves permitted. The winning-state counts for horizons zero to three are \(13950,50520,55080,75360\); exactly 70 starts win against every robber in three rounds, none in two. The one- and two-cop winning sets reach proper fixed points, proving that fewer than three cops cannot guarantee capture. A second direct robber-survival recursion reproduces all complements and confirms the \(35+15+20\) classification. The radius-two-ball argument independently shows that two rounds never suffice.
+## correctness
 
-**Originality — PASS, with an explicit prior-art caveat.** A 2012 article on cops and robbers for design-derived graphs treats general cop-number questions and generalized quadrangle point graphs; its accessible material does not give the timed optimum-start classification for the Tutte–Coxeter incidence graph. The foundational capture-time paper and an accessible 2013 full paper on hypercubes establish general definitions and unrelated families but not this seventy-placement theorem. Five specific research-record searches and targeted literature searches for Tutte–Coxeter, Cremona–Richmond, the doily, incidence graphs, capture rounds, and optimal placements found no equivalent implication. The Bonato–Burgess complete article was not accessible for line-by-line checking, so an undiscovered equivalent computation there or elsewhere remains a residual risk. Absence from a search index is not proof of novelty.
+PASS
 
-**Value — PASS.** The Tutte–Coxeter graph is the unique 30-vertex cubic girth-eight cage. Exact capture time is a natural network pursuit invariant. Beyond the number of cops, a complete characterization of every fastest initial deployment separates 35 projective point triples, 15 incidence pencils, and 20 three-line reguli. This unexpectedly geometric classification directly answers which smallest teams achieve the fastest possible guaranteed capture and distinguishes the two bipartition classes. It is not a renaming of a known upper bound, a routine single example of an elementary theorem, or an arbitrary ad hoc parameter slice.
+The incidence graph of W(2,2) has 15 points plus 15 totally isotropic lines from nondegenerate alternating F2^4, 30 vertices/45 edges, valency 3, diameter 4 and girth 8. In the precise visible-robber alternating game with stationary moves, the recurrence F_{t+1}(C)=support(C) union over simultaneous cop moves C′ of (support(C′) union {r:N[r] subset F_t(C′)}) follows from the existential cop and universal robber move quantifiers. The source package implements both this winning recurrence and its complementary robber-survival recurrence. An independent newly coded Python exact bitset exhaustive solver checked all k=1,2,3 cop multisets and 30 robber positions, obtaining k1 counts [30,120,120,120], k2 [900,3420,3420,3420], k3 [13950,50520,55080,75360] and exactly 70 three-turn-optimal placements. The independently computed 70-line canonical list SHA256 matches 422e6ea22043c57643838985dc011c76221708a837c123f32282bb65c4d9353d; geometric classification 35 F2 projective point-lines, 15 line pencils, 20 reguli holds exactly. Radius-two balls of size ten overlap pairwise by diameter four, so any three cannot cover 30 starting sites in two moves, giving a separate lower bound. Stabilized losing sets for 1 and 2 cops establish cop number 3. This is an exhaustive finite proof for the 30-vertex graph, not an extrapolation.
 
-**Limitations and literature comparison.** The finite computational certificate is exhaustive for this graph but does not cover other cages or robber variants. In particular, the 2012 design-derived graph study's complete publisher text was unavailable; only its abstract and indexed selected passages were examined. The full accessible introduction and methods of Bonato et al. (arXiv:1308.3354) concern Cartesian graph products and are not stronger statements about these optimal starts. The 2009 capture-time framework ensures decidability for fixed cop count, not this explicit value and geometric orbit classification. No independent human or external scientific validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.
+
+## value
+
+PASS
+
+The Tutte–Coxeter graph is a natural incidence-geometric 30-vertex 8-cage, and cop number plus minimax capture time are established graph-search invariants. The exact first-turn optimum classification of 70 placements and their 35 projective point triples, 15 pencils and 20 reguli is a complete, geometrically motivated answer; an exhaustive calculation of a finite natural graph can be worthwhile without a general theorem for other cages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
