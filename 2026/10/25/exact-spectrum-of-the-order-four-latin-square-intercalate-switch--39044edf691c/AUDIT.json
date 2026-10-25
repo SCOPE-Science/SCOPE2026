@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive \\(24^4\\) row-permutation generation captures every labeled \\(4\\times4\\) Latin square. Trade legality and entire adjacency list are independently reconstructed by backtracking and symbol transpositions, with identical SHA-256 digest. Exactly computed \\(BB^{\\mathsf T}\\) entries are diagonal 12 and off-diagonal 0 or 2, allowing integral symmetric H. The included standard-library verifier checks \\(p(H)=0\\) on all 144 basis vectors (not by numerical eigensolver), and the five power traces fix all eigenspace dimensions by Vandermonde uniqueness. Bipartite singular-value transfer yields the exact 576-dimensional characteristic polynomial. Normalized adjacency is \\(A/\\sqrt{48}\\), giving the lazy-walk gap; independent all-pairs BFS verifies diameter 6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wanless studies switching graphs up to order eight but only on equivalence classes, not the 576-state labeled characteristic polynomial.",
+        "Davis 2026 records a 576-vertex, 1728-edge labeled graph and analyzes graph-Laplacian top eigenspace localization; these graph census facts are explicitly treated as prior work."
+      ],
+      "reasoning": "A broad all-order quotient-switch study does not determine every labeled order-four adjacency eigenvalue. The Davis record is more relevant, but its disclosed extremal Laplacian data do not alone imply the complete list of adjacency eigenvalues and multiplicities. Its attached full PDF was not inspected.",
+      "searches": [
+        "Cycle Switches in Latin Squares Wanless 2004 576 configurations quotient isotopy graph order 4",
+        "intercalate flip Markov chain spectral gap order 4 Latin square 576 states bipartite biregular",
+        "intercalate switch graph of labelled Latin squares of order four exact adjacency eigenvalues and lazy random walk spectral gap"
+      ]
+    },
+    "checked_sources": [
+      "Wanless (2004), doi:10.1007/s00373-004-0567-7, accessible 26-page author-hosted primary paper",
+      "Wanless (2004-09-08) author abstract, https://users.monash.edu.au/~iwanless/abstracts/cycleswitch.html",
+      "Davis (2026), doi:10.5281/zenodo.18528388, accessible public description only",
+      "Bailey et al. (2019), doi:10.1002/jcd.21634, repository abstract for different object",
+      "Public mathematical-record comparisons: order-eight transversal packing; spectra of 64 Schur lines; graph Laplacian of bipartite symmetric edge polytopes (distinct objects, no implication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wanless order-four quotient adjacency is a two-vertex fact, whereas the theorem determines 576 adjacency eigenvalues including 318 zeros.",
+        "Davis degree bipartition identifies the two regular sides but does not specify intersections of their neighborhoods; different bipartite biregular graphs with these degrees can have different singular spectra."
+      ],
+      "reasoning": "Neither the two-class switch quotient nor the 144:432 biregular degree sequence implies BB^T=12I+2H, the five exact power traces, or the full characteristic polynomial. An independent top Laplacian eigenmode is not enough to recover all adjacency singular values. An unknown statement in the unavailable complete Davis PDF could still imply the result.",
+      "searches": [
+        "intercalate flip Markov chain spectral gap order 4 Latin square 576 states bipartite biregular",
+        "Latin square order four 2x2 subsquare trades graph spectrum eigenvalues graph connectivity",
+        "intercalate switch graph of labelled Latin squares of order four exact adjacency eigenvalues and lazy random walk spectral gap",
+        "intercalate 576 spectrum Latin squares",
+        "spectral_branch.pdf intercalate eigenvalues spectrum 576 latin squares"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wanless (2004), Graphs Combin. 20, pp. 545-570, Section 3, explicitly defines quotient vertices as isotopy or main classes; the order-four quotient has two vertices.",
+        "Davis (2026), Zenodo record 18528388, identifies the same labeled 576-state graph, but its accessible description only lists degree classes, top-Laplacian eigenmode, and curvature, not the full adjacency polynomial."
+      ],
+      "reasoning": "Isotopy-quotient adjacency does not preserve the labeled 576-vertex spectrum. Standard Latin-square graphs on 16 cells are also non-equivalent. Davis is materially closer on the exact object; accessible description does not supply the complete polynomial, but PDF inaccessibility leaves a priority risk.",
+      "searches": [
+        "intercalate switch graph Latin squares order four components flip graph",
+        "exact adjacency spectrum or characteristic polynomial intercalate switch graph on 576 labeled Latin squares of order four; 144 Klein and 432 cyclic group isotopes",
+        "Latin square order four 2x2 subsquare trades graph spectrum eigenvalues graph connectivity",
+        "full characteristic polynomial adjacency spectrum 576 Latin squares order 4 intercalate graph zero multiplicity 318 eigenvalues sqrt 8 sqrt 12 sqrt 24 sqrt 48"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical order-four Latin-square count is 576, and the two main classes are described by Wanless.",
+        "No accessible searched record displayed the exact polynomial \\(x^{318}(x^2-8)^{81}(x^2-12)^8(x^2-24)^{39}(x^2-48)\\).",
+        "The Zenodo 2026 record discloses 432:144 class sizes and degrees 4:12, not the full characteristic polynomial in its displayed material."
+      ],
+      "reasoning": "Previously catalogued numbers of squares and intercalates do not determine spectral multiplicities; the exact matrix identity and traces constitute a new finite calculation on the graph rather than a transcription of the accessible older tables.",
+      "searches": [
+        "exact adjacency spectrum or characteristic polynomial intercalate switch graph on 576 labeled Latin squares of order four; 144 Klein and 432 cyclic group isotopes",
+        "full characteristic polynomial adjacency spectrum 576 Latin squares order 4 intercalate graph zero multiplicity 318 eigenvalues sqrt 8 sqrt 12 sqrt 24 sqrt 48",
+        "Wanless cycle-switch graph on isotopy classes versus fully labelled 576 Latin squares four symbols",
+        "order 4 Latin squares flip graph eigenvalues characteristic polynomial"
+      ]
+    },
+    "rationale": "Primary comparison separates Wanless 2004 two-vertex isotopy/main-class quotient from this 576-vertex labeled adjacency polynomial. Direct mathematical-record and literature queries found no full spectral equivalent. Davis 2026 already records the identical labeled graph, its 144:432 bipartition and Laplacian top-mode; these are openly credited, not newly claimed. Neither count nor top eigenspace determines the full spectrum. However Davis full PDF could not be examined; original-priority confidence is necessarily qualified.",
+    "residual_risks": [
+      "Davis 2026 spectral_branch.pdf is plausibly directly relevant and was not readable, so it could conceal an equivalent or stronger full spectral classification. The priority result is conditional on the accessible evidence.",
+      "Other unindexed or unpublished computations on 576-state Latin intercalate graphs may predate this result.",
+      "Software error remains possible, despite two independent adjacency generators and exact integer checks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies graphs on isotopy/main classes; its two-vertex order-four result cannot yield the full labeled adjacency polynomial.",
+        "evidence": [
+          "Wanless (2004), Section 3: order-four isotopy/main class graph consists of two connected vertices; his three graph parameters distinguish classes from individual squares.",
+          "No occurrence of the term spectrum in searchable text."
+        ],
+        "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+        "material_read": "Full PDF accessible (26 pages). Inspected title, abstract, terminology and definitions, switching-graph Sections 2–3, pp. 550–551 order-four result and graph parameter convention, and targeted text search for spectral terminology.",
+        "method": "Public author-hosted PDF parsed text, searches within document and visual first page.",
+        "title": "Cycle Switches in Latin Squares",
+        "trigger": "Foundational primary treatment of precisely intercalate switches and low-order switching graphs"
+      },
+      {
+        "assessment": "Confirms classical switch-graph motivation and pre-2016 source date; explicitly says vertices are equivalence classes.",
+        "evidence": [
+          "Author summary: vertices are classes, edges switch cycles; last modified Wed Sep 8 2004."
+        ],
+        "identifier_or_url": "https://users.monash.edu.au/~iwanless/abstracts/cycleswitch.html",
+        "material_read": "Full author abstract and last-modified stamp: 2004-09-08.",
+        "method": "Direct author website textual read.",
+        "title": "Cycle switches in Latin squares (author abstract)",
+        "trigger": "Identify earliest verified public-source date and author-described scope"
+      },
+      {
+        "assessment": "Prior coverage explicitly includes sizes 432:144, degrees 4:12, 1728 edges, Laplacian top-mode localization and an eigenvalue-related framework. Public description does not state the complete adjacency polynomial. The inaccessible PDF is material residual uncertainty.",
+        "evidence": [
+          "Zenodo record dated 2026-02-08, Theorems 7.10–7.11 in publisher description; Section 7.5, vertices=576, partition 432:144, degrees 4:12.",
+          "Section 7–8 description refers to graph Laplacian and top-eigenspace; no full adjacency eigenvalue multiplicity list is disclosed in accessible record."
+        ],
+        "identifier_or_url": "https://zenodo.org/records/18528388",
+        "material_read": "Complete publicly rendered Zenodo record description, Sections 7.5 and 7–8 description and listed file names; the attached spectral_branch.pdf was NOT READ (PDF download and preview were inaccessible in this environment).",
+        "method": "Publisher landing-page text and PDF preview page inspected; binary PDF could not be obtained for full-text analysis.",
+        "title": "The Field Equations of Semantic Coherence: spectral branch",
+        "trigger": "Highly relevant 2026 disclosure about the identical 576-vertex Latin-square intercalate-switch graph and graph spectral invariants"
+      },
+      {
+        "assessment": "Concerns Latin-square graphs and equitable partitions, not the 576-state graph of all Latin squares joined by intercalate moves.",
+        "evidence": [
+          "Bailey, Cameron, Gavrilyuk and Goryainov (2019), abstract: equitable partitions of Latin-square graphs and quotient eigenvalues."
+        ],
+        "identifier_or_url": "https://research-repository.st-andrews.ac.uk/handle/10023/19043",
+        "material_read": "Repository abstract and bibliographic metadata, not full paper.",
+        "method": "Public repository text.",
+        "title": "Equitable partitions of Latin-square graphs",
+        "trigger": "Potential alias collision: Latin-square graph spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39044edf-691c-457a-b92c-9ae8aa0ee082",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial order with two Latin-square isotopy types yields a natural 576-state local-trade graph, important for understanding generation and sampling by small interchanges. Its exact full spectrum, nullity 318 and degree-adjusted random-walk relaxation constant give meaningful global structure that the two-vertex quotient and 144:432 degree partition cannot provide. The complete answer concerns a motivated natural finite object with no arbitrary slicing; no general-order theorem is claimed.",
+    "status": "PASS"
+  }
+}
