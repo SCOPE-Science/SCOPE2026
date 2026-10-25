@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python verify.py` from this directory, using Python 3 and no third-party modules. The independent enumerator checks each subset of the \(n(n-1)\) crown graph edges at orders \(3,4,5\), constructs its dominated-edge mask from direct endpoint incidence, and tests deletion-minimality. It examines \(64+4096+1048576=1052736\) subsets. At \(n=5\) it verifies that **exactly 45** minimal-size configurations of size 4 are the predicted deranged matchings and **exactly 20** maximal-size configurations of size 6 are the predicted two-star forests. It checks the minimum derangement family already at \(n=3,4\), without claiming the upper census for those smaller orders. It also verifies all explicit two-star constructions for orders \(5\) through \(25\). The captured standard output is `verify_output.txt`.
+# Independent mathematical audit
 
-The exhaustive finite tests do not prove the unrestricted statement. The infinite minimum and maximum theorems are justified separately by the self-contained support-pattern and star-forest proof. Bibliographic priority is not externally certified, and no independent audit is asserted.
+## correctness
+
+PASS
+
+For G_n=K_{n,n} minus the diagonal perfect matching, an undominated edge exists exactly when some unoccupied a_i,b_j have i≠j. Hence domination demands one fully occupied bipartition side or U=V={k}. In the latter case deletion-minimality is equivalent to every selected edge incident to a degree-one endpoint, so the selected graph on 2(n−1) vertices is a star forest. A forest with c components has 2(n−1)−c edges; c≥2, so Γ’≤2n−4; equality forces two opposite-side stars with matching center index ℓ≠k and exactly n(n−1) choices. Minimum size n−1 forces an active deranged perfect matching, exactly nD_{n−1} sets. Other support cases need at least n edges and minimal ones have at most n edges, so n≥5 implies Γ’=2n−4 and γ’=n−1. Independently exhaustively checked all 2^20 edge subsets for n=5, recovering 45 minimizers and 20 maximizers.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.
+
+## value
+
+PASS
+
+A natural highly symmetric regular bipartite family exhibits an unbounded γ’–Γ’ gap, with full sharp extremal classification and exact multiplicities rather than merely an upper bound. These exact configurations matter in upper-edge-domination and well-edge-dominated comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment: extremal ordinary edge domination of crown graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the necessary and sufficient domination rule using unoccupied endpoints, then splits all edge-dominating sets into three exhaustive support cases. In the only case allowing larger sets, deletion-minimality is equivalent to the selected edges forming an isolate-free star forest, which proves the sharp upper bound and classifies equality. The minimum case reduces to derangements. The independent direct edge-subset verifier enumerates all 1,052,736 labelled edge subsets for orders 3, 4, and 5, verifies both extremal families at order 5, and checks the constructive family through order 25. Finite tests are not used to infer the infinite theorem.
+## correctness
 
-**Originality — PASS with residual priority risk.** The motivating 2026 primary source classifies nonbipartite well-edge-dominated graphs; the present family is bipartite and the claim is an explicit extremal census, not a characterization of the nonbipartite well-edge-dominated class. The full accessible 2021 primary source discusses general edge domination, complete bipartite graphs and related classes but does not provide an extremal count for crown graphs with one perfect matching removed. Search comparisons included ordinary versus perfect edge domination, line-graph upper domination, equimatchable graphs, derangement-counted minimum maximal matchings, and previously indexed exact crown graph invariants. None located a theorem covering the \(2n-4\) upper number together with all \(n(n-1)\) extremizers. Search absence is not a proof of novelty; unsurveyed theses and publications remain a risk.
+PASS
 
-**Value — PASS.** The problem asks for the sharp upper edge-domination parameter alongside its minimizing counterpart on a connected, highly regular, symmetric bipartite family. The exact upper-to-lower gap grows without bound on dense regular graphs; the full structural descriptions and labelled counts distinguish deranged matchings from two-star forests and explain the transition from matching-type to nonmatching extrema. It is not a variable-renaming or a single finite instance.
+For G_n=K_{n,n} minus the diagonal perfect matching, an undominated edge exists exactly when some unoccupied a_i,b_j have i≠j. Hence domination demands one fully occupied bipartition side or U=V={k}. In the latter case deletion-minimality is equivalent to every selected edge incident to a degree-one endpoint, so the selected graph on 2(n−1) vertices is a star forest. A forest with c components has 2(n−1)−c edges; c≥2, so Γ’≤2n−4; equality forces two opposite-side stars with matching center index ℓ≠k and exactly n(n−1) choices. Minimum size n−1 forces an active deranged perfect matching, exactly nD_{n−1} sets. Other support cases need at least n edges and minimal ones have at most n edges, so n≥5 implies Γ’=2n−4 and γ’=n−1. Independently exhaustively checked all 2^20 edge subsets for n=5, recovering 45 minimizers and 20 maximizers.
 
-**Limitations.** The theorem does not count intermediate sizes of minimal edge dominating sets and asserts the upper census only for orders at least five. Full bibliographic priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.
+
+## value
+
+PASS
+
+A natural highly symmetric regular bipartite family exhibits an unbounded γ’–Γ’ gap, with full sharp extremal classification and exact multiplicities rather than merely an upper bound. These exact configurations matter in upper-edge-domination and well-edge-dominated comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T01:55:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G_n=K_{n,n} minus the diagonal perfect matching, an undominated edge exists exactly when some unoccupied a_i,b_j have i≠j. Hence domination demands one fully occupied bipartition side or U=V={k}. In the latter case deletion-minimality is equivalent to every selected edge incident to a degree-one endpoint, so the selected graph on 2(n−1) vertices is a star forest. A forest with c components has 2(n−1)−c edges; c≥2, so Γ’≤2n−4; equality forces two opposite-side stars with matching center index ℓ≠k and exactly n(n−1) choices. Minimum size n−1 forces an active deranged perfect matching, exactly nD_{n−1} sets. Other support cases need at least n edges and minimal ones have at most n edges, so n≥5 implies Γ’=2n−4 and γ’=n−1. Independently exhaustively checked all 2^20 edge subsets for n=5, recovering 45 minimizers and 20 maximizers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 cited classification concerns nonbipartite well-edge-dominated graphs; crown graphs are bipartite.",
+          "2021 work treats other well-edge-dominated families and generic relations, not exact crown upper edge-domination sets in inspected sections."
+        ],
+        "reasoning": "Generic matching bounds and crown-graph vertex domination do not logically imply the enumeration of maximum inclusion-minimal edge-dominating sets here. Nonetheless older line-graph domination classifications could be stronger and require care.",
+        "searches": [
+          "Resultary semantic query: crown graph upper edge domination number maximum minimal edge dominating sets enumeration stars derangements",
+          "Anderson–Kuenzel–Rall 2021 full paper",
+          "Anderson–Kuenzel 2026 full paper",
+          "Resultary crown graph domination variants"
+        ]
+      },
+      "checked_sources": [
+        "Sarah E. Anderson, Kirsti Kuenzel and Douglas F. Rall, On well-edge-dominated graphs, arXiv:2110.07133 (2021)",
+        "Sarah E. Anderson and Kirsti Kuenzel, Characterizing all nonbipartite well-edge-dominated graphs, arXiv:2606.00802 (2026)",
+        "Resultary 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa1 [read summary only]",
+        "Resultary search Resultary semantic query: crown graph upper edge domination number maximum minimal edge dominating sets enumeration stars derangements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Claim: γ’=n−1 and Γ’=2n−4; all min deranged matchings on active pairs and all maximum sets exactly n(n−1) two-star forests.",
+          "Prior results motivate comparing minimal edge dominating set sizes, but do not classify crown maximizers among bipartite graphs in inspected statements."
+        ],
+        "reasoning": "The new element is the exact structural support decomposition that gives both extrema **and** multiplicities; source proves more than a corollary of the standard matching inequality.",
+        "searches": [
+          "Resultary semantic query: crown graph upper edge domination number maximum minimal edge dominating sets enumeration stars derangements",
+          "arXiv:2110.07133 well-edge-dominated families",
+          "arXiv:2606.00802 nonbipartite graph classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge-dominating F iff no unselected edge connects two vertices unoccupied by F; for crown graph, uncovered support U,V must obey U=empty or V=empty or U=V={k}.",
+          "A minimal edge-dominating set is an independent dominating set in the line graph, but inclusion-minimal edge domination is not simply maximal matching."
+        ],
+        "reasoning": "Line-graph language and lower/upper edge-domination invariants yield equivalent formulations, but the crown-specific support/star-forest classification and exact enumerators are not the same as general domination bounds.",
+        "searches": [
+          "Resultary semantic query: crown graph upper edge domination number maximum minimal edge dominating sets enumeration stars derangements",
+          "arXiv:2110.07133 well-edge domination and minimal maximal matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=5 exhaustive independent 1,048,576 subsets give 45 minimum sets of size 4, and 20 maximum minimal sets of size 6.",
+          "Closed all-n enumerators nD_{n−1} and n(n−1) follow from derangements/two-star arguments, not from an n=5 table."
+        ],
+        "reasoning": "These are natural cardinality enumerators of the graph family; related Resultary crown tables count entirely different invariants and cannot reproduce them by renaming.",
+        "searches": [
+          "Resultary semantic query: crown graph upper edge domination number maximum minimal edge dominating sets enumeration stars derangements",
+          "source verify.py exhaustive 2^20 n=5 edge subsets",
+          "Resultary: crown graph edge metric bases and restrained domination summaries"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after mathematical implication comparison; specific prior deductions and source-access limitations are recorded in the four named checks.",
+      "residual_risks": [
+        "A classical line-graph or upper edge-domination paper might already include the crown family under another name.",
+        "No complete count of middle-sized minimal edge-dominating sets is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NO_DIRECT_CROWN_CENSUS",
+          "evidence": "Does not enumerate the n(n−1) crown-graph maximum two-star minimal edge dominators in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.07133",
+          "material_read": "Primary PDF introductory definitions, graph-family classifications and relevant conclusions",
+          "method": "Read relevant accessible primary PDF pages",
+          "title": "On well-edge-dominated graphs",
+          "trigger": "Directly related minimal edge-dominating set cardinalities"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_DOMAIN",
+          "evidence": "Crown graph is bipartite and has unbounded upper-lower domination gap; not covered by nonbipartite scope.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.00802",
+          "material_read": "Primary PDF abstract, problem setup and nonbipartite classification scope",
+          "method": "Read relevant accessible primary PDF pages",
+          "title": "Characterizing all nonbipartite well-edge-dominated graphs",
+          "trigger": "Closest recent structural edge domination classification"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Counts vertex restrained dominating sets rather than inclusion-minimal edge-dominating sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+          "material_read": "Resultary title and abstract summary",
+          "method": "Semantic index result only, not used to exclude complete paper",
+          "title": "Restrained-dominating-set profile of crown graphs",
+          "trigger": "Same crown family but different domination invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural highly symmetric regular bipartite family exhibits an unbounded γ’–Γ’ gap, with full sharp extremal classification and exact multiplicities rather than merely an upper bound. These exact configurations matter in upper-edge-domination and well-edge-dominated comparisons.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sarah E. Anderson, Kirsti Kuenzel and Douglas F. Rall, On well-edge-dominated graphs, arXiv:2110.07133 (2021)",
+    "Sarah E. Anderson and Kirsti Kuenzel, Characterizing all nonbipartite well-edge-dominated graphs, arXiv:2606.00802 (2026)",
+    "Resultary 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa1 [read summary only]"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥5 for upper-extremal two-star classification; smaller n need separate statements.",
+    "Does not enumerate all intermediate-size inclusion-minimal dominating edge sets."
+  ],
+  "residual_risks": [
+    "A classical line-graph or upper edge-domination paper might already include the crown family under another name.",
+    "No complete count of middle-sized minimal edge-dominating sets is asserted."
+  ],
+  "schema_version": 1
+}
