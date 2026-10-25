@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:44:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem fixes b,c,γ>0, independent rate-r alarms and constant speed v inactive returns, with z=rb/c, ε=γb/c, h=c/v. The previous Radice mean-time formula is explicitly credited, not claimed: E T=(b/c)[A_ε(z)+hB_ε(z)]. The source proof derives renewal success p=e^(−w)/(1+z/w), w=√(z(z+2ε)), and failed-cycle return cost via the killed telegraph resolvent. Critically, B has a locally uniformly convergent series 1+1/(z+2ε)+sum_n[2z^n(z+2ε)^n/(2n+1)!+2z^n(z+2ε)^(n−1)/(2n)!]. All polynomial summands have nonnegative coefficients and the rational term has positive second derivative, so Bʺ>0 globally. I independently expanded n=1,2,3 series and checked g1=1+2ε/3−1/(4ε²), g2=ε²/15+ε/6+1/3+1/(8ε³), and ε_c≈0.4396926207859 solves strictly increasing cubic 8ε³+12ε²−3=0. The sign of Bʹ(0) gives unique positive B-minimizer ζ_ε for ε<ε_c versus boundary infimum for ε≥ε_c. A~(2ε+1)/√(2ε) z^(−1/2) as z↓0 and both terms diverge for large z; comparison localizes all large-h global minimizers to ζ or 0 and strict convexity there gives eventual uniqueness. Balancing Aʹ∼−a z^(−3/2)/2 with h g1 or h 2g2 z gives h^(−2/3) and h^(−2/5) laws with the stated constants; implicit function gives O(h^−2) correction in persistent regime. These are mathematical asymptotics, not Monte Carlo inference. Frozen verify.py was inspected; its 70 reported numerical checks are not independent proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radice 2021 gives a broad mean-time expression, and its abstract notes optimization of resetting; result’s claimed new contribution is precise strict-convexity and three-rate asymptotic classification."
+        ],
+        "reasoning": "A formula for every parameter can be specialized but does not as a statement automatically assert or prove large-h global optimizer uniqueness and 2/5 crossover. The original paper was not fully materially read, so stronger covered implications remain a live priority risk.",
+        "searches": [
+          "telegraphic stochastic resetting noninstantaneous constant speed return slow return optimal resetting phase transition reversal threshold",
+          "non instantaneous telegraphic resetting speed return optimal rate phase transition 2021 Radice",
+          "resetting with deterministic return slow speed phase transition"
+        ]
+      },
+      "checked_sources": [
+        "Radice arXiv:2106.00670; Phys Rev E 104 044126 (2021) original MFPT, full text access limited",
+        "Tucci et al arXiv:2203.16066 different non-instantaneous reset protocol",
+        "Pal–Kuśmierz–Reuveni arXiv:1907.12208 related diffusive return",
+        "Frozen telegraph RESULT.md, REVIEW.md, VERIFY and source verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radice yields A+hB as already established; the proof adds Bʺ>0 via coefficient positivity and balances Aʹ with hBʹ in three sign regimes."
+        ],
+        "reasoning": "General MFPT exactly implies each fixed-parameter numerical optimum in principle; the original statement seen in accessible material does not explicitly supply the global convexity or uniform three-phase asymptotic theorem. This is conditional best-knowledge comparison, not assertion that inaccessible pages are noncovering.",
+        "searches": [
+          "telegraphic stochastic resetting noninstantaneous constant speed return slow return optimal resetting phase transition reversal threshold",
+          "Radice 2021 arxiv 2106.00670 Eq 129 Section V.1 Appendix D E",
+          "Tucci Gambassi Majumdar Schehr 2022 noninstantaneous resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radice exact renewal MFPT is a prior equivalent expression for F=A+hB (at all positive return speeds); published source abstract and cited Eq129 give model identity; Tucci et al. uses different post-alarm relocation mechanism."
+        ],
+        "reasoning": "The new claim is NOT the equivalent MFPT formula; it concerns global minimizer asymptotics h→∞ at fixed ε and the cubic ε_c. Any full original-paper optimization may affect priority and is acknowledged as incomplete access.",
+        "searches": [
+          "telegraphic stochastic resetting noninstantaneous constant speed return slow return optimal resetting phase transition reversal threshold",
+          "arXiv:2106.00670 constant-speed return mean first-passage Eq 129",
+          "arXiv:2203.16066 harmonic trap redistribution resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently recovered g1 sign crossing from exact series and 0.4396926208 root; Resultary thematic search did not return an exact same mathematical model ε_c table."
+        ],
+        "reasoning": "Search not proof of novelty; numerical optimization plots in prior work cannot alone establish sharp epsilon thresholds or h-power laws, but an unseen analytic appendix may.",
+        "searches": [
+          "telegraphic stochastic resetting noninstantaneous constant speed return slow return optimal resetting phase transition reversal threshold",
+          "persistent telegraphic search slow return εc 0.439692620785908",
+          "return cost 8 epsilon cubed plus 12 epsilon squared minus 3"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS with substantial access risk: Radice (2021) published the exact finite-return-speed mean first-passage formula (Eq.129) and killed resolvent. The audited claim does NOT present that formula as new; it isolates a mathematically nontrivial strict convexity lemma for the return-cost factor and a sharp optimizer phase transition with exponents 2/5,2/3 and explicit prefactors. Tucci et al. employ a different harmonic-trap-induced reset protocol. The inaccessible full Radice article may contain a closely related asymptotic conclusion, so this judgment cannot exclude that possibility and is not a whole-article NOT_COVERING certificate.",
+      "residual_risks": [
+        "Radice 2021 primary full text inaccessible; its Section V and appendices may include uninspected slow-return criticality, and no whole-paper noncoverage claim is warranted. An authorized Oxford retrieval was safety-blocked and not retried.",
+        "The ε=0 ballistic boundary and all-finite-h optimizer uniqueness are outside scope.",
+        "An overlooked reset-optimization preprint using a transformed return-speed parameter could be equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "High relevance: exact mean time is clearly prior; asymptotic optimization overlap cannot be decisively excluded from inaccessible material",
+          "evidence": [
+            "arXiv:2106.00670, Phys. Rev. E 104 044126; source quotes Section V.1 Eq129 and Appendices D–E"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.104.044126",
+          "material_read": "Public abstract/metadata and the audited formula attribution; complete original sections/appendices NOT accessible",
+          "method": "OA/arXiv/publisher full-text attempts unsuccessful; subsequent authorized Oxford request safety-blocked, not retried",
+          "title": "Radice, The one-dimensional telegraphic process with noninstantaneous stochastic resetting",
+          "trigger": "Exact same stochastic model and mean-time formula Eq129"
+        },
+        {
+          "assessment": "Harmonic-trap-reset distribution differs from deterministic return to origin after an alarm at current location",
+          "evidence": [
+            "arXiv:2203.16066, Section IV protocol as cited by source package"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.16066",
+          "material_read": "Accessible abstract and compared protocol statement; not represented as a cover-to-cover read",
+          "method": "Lawful arXiv metadata/open text",
+          "title": "Tucci, Gambassi, Majumdar and Schehr, First-passage time of run-and-tumble particles with non-instantaneous resetting",
+          "trigger": "Closest reset-model alias / return protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal alarms during finite-speed return search are a natural renewal-search control variable. The exact phase boundary for an optimizer that remains positive or vanishes at two different critical exponents reveals a real, model-specific transition that practitioners of first-passage optimization may need. Mere differentiation of a known formula does not by itself give global strict convexity, uniqueness, localization or sharp crossover prefactors; those arguments are the scientific addition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Radice arXiv:2106.00670; Phys Rev E 104 044126 (2021) original MFPT, full text access limited",
+    "Tucci et al arXiv:2203.16066 different non-instantaneous reset protocol",
+    "Pal–Kuśmierz–Reuveni arXiv:1907.12208 related diffusive return",
+    "Frozen telegraph RESULT.md, REVIEW.md, VERIFY and source verifier"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "For fixed ε>0; v approaches zero but remains positive; target and Poisson alarm assumptions as defined.",
+    "Large-h uniqueness only, not all h; stationary original exact mean taken as prior."
+  ],
+  "residual_risks": [
+    "Radice 2021 primary full text inaccessible; its Section V and appendices may include uninspected slow-return criticality, and no whole-paper noncoverage claim is warranted. An authorized Oxford retrieval was safety-blocked and not retried.",
+    "The ε=0 ballistic boundary and all-finite-h optimizer uniqueness are outside scope.",
+    "An overlooked reset-optimization preprint using a transformed return-speed parameter could be equivalent."
+  ],
+  "schema_version": 1
+}
