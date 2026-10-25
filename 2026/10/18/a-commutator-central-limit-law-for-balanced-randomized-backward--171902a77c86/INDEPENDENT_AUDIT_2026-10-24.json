@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:55:42.435803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed finite-dimensional symmetric positive semidefinite H1,H2, T>0, h=T/(2N), M=(R2R1+R1R2)/2 and D=(R1R2−R2R1)/2, the exact expansion is M−exp(−2hA)=h²Q/2+O(h³), D=h²[H1,H2]/2+O(h³). Telescoping the mean gives (EX_N−u(T))/h→(1/4)∫exp(−(T−s)A)Q u(s)ds. The centered recursion is an orthogonal martingale array whose replacement error has L² order h^(5/2); its scaled covariance is a 2h-mesh Riemann sum converging to K=(1/8)∫exp(−(T−s)A)J u(s)u(s)^T J^T exp(−(T−s)A)ds. The bounded normalized summands establish multivariate Lindeberg; the independent-with-replacement control uses h-sized half-difference and yields h^(−1/2) with coefficient 1/4. A nonzero 2×2 skew J is invertible, ensuring positive trace K for u0≠0; commuting H1,H2 give exactly identical block products. The total uncentered error remains O(h), not O(h^(3/2)). Independent NumPy/SciPy recreation for source positive-definite H1,H2 gave trace K=0.023058504869619058, trace Kiid=0.06185138964147487, mean-bias vector [0.31950664,0.58462062]; paired covariance trace ratios at N=10,80,400 were 0.82465,0.97552,0.99506. These finite values corroborate, not prove, the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Huang–Kueng–Tropp work concerns concentration for unitary product formulas rather than a matrix resolvent h^(−3/2) CLT.",
+          "Veldman–Zuazua randomized continuous-time component subsets give mean-error bounds, not a balanced implicit paired-order Gaussian law."
+        ],
+        "reasoning": "A general random-product theory might imply a specialized CLT with supplementary expansion, but checked stated results do not supply this exact covariance and same-cost control as a corollary.",
+        "searches": [
+          "randomized order paired backward Euler resolvent splitting commutator central limit covariance h to 3/2 without replacement",
+          "arXiv:2008.11751 concentration random product formulas",
+          "arXiv:2109.13798 randomized time splitting control"
+        ]
+      },
+      "checked_sources": [
+        "Eisenmann–Stillfjord arXiv:2210.05375, theorem 5.2 and algorithm",
+        "Childs–Ostrander–Su arXiv:1805.08385, randomized unitary product formula",
+        "Chen–Huang–Kueng–Tropp arXiv:2008.11751, unitary concentration",
+        "Veldman–Zuazua arXiv:2109.13798, randomized splitting",
+        "Resultary targeted search randomized order paired backward Euler resolvent splitting commutator central limit covariance h to 3/2 without replacement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their Theorem 5.2 proves temporal approximation-rate estimates for independently sampled operators, rather than a balanced-pair h^(−3/2) centered Gaussian limit.",
+          "At the same resolvent-solve budget the iid law has h^(−1/2) fluctuations; without-replacement order has h^(−3/2) fluctuations, so the schemes have different fluctuation generators."
+        ],
+        "reasoning": "Existing convergence-rate estimates do not imply the precise distributional and covariance limits. The result does not claim randomized splitting itself is new.",
+        "searches": [
+          "Eisenmann Stillfjord A randomized operator splitting scheme inspired by stochastic optimization methods Theorem 5.2",
+          "randomized order paired backward Euler resolvent splitting commutator central limit covariance h to 3/2 without replacement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eisenmann–Stillfjord implicit random splitting samples component operators rather than each component once in a fixed pair; their error estimates do not state the centered J-covariance CLT.",
+          "Childs–Ostrander–Su random permutation formulas are unitary exponential products with distinct generators/metrics."
+        ],
+        "reasoning": "Randomizing product order is related conceptually, but fair block permutations have zero first-order sampling imbalance, and the claimed stochastic generator is the commutator at order h². Direct general-equivalence was not established by any searched source.",
+        "searches": [
+          "randomized order paired backward Euler resolvent splitting commutator central limit covariance h to 3/2 without replacement",
+          "arXiv:2210.05375 randomized operator splitting",
+          "arXiv:1805.08385 random product order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest records concerned unrelated Gaussian sampling covariance, random order probabilities and random-product phenomena; no same resolvent statistic or covariance formula."
+        ],
+        "reasoning": "This is a continuous operator-family theorem; no relevant fixed-parameter exact database/table was identified. An unsuccessful semantic search is only residual priority evidence, never novelty proof.",
+        "searches": [
+          "randomized order paired backward Euler resolvent splitting commutator central limit covariance h to 3/2 without replacement",
+          "Resultary semantic research search randomized resolvent commutator covariance"
+        ]
+      },
+      "rationale": "The explicit centered commutator Gaussian law for randomized *order* of a two-resolvent balanced macrostep and its same-cost covariance comparison are more specific than known randomized splitting convergence bounds or random unitary product concentration; no directly implying theorem was found in the materially read sources. This is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "An uncatalogued balanced-without-replacement resolvent CLT could predate this derivation.",
+        "Linear finite-dimensional constant-coefficient and fair pair assumptions are essential; no nonlinear/unbounded-operator claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact balanced pair-order commutator CLT; relevant general predecessor",
+          "evidence": [
+            "The theorem concerns independently sampled splitting factors and convergence orders, not balanced R2R1/R1R2 order and an explicit Gaussian covariance."
+          ],
+          "identifier_or_url": "arXiv:2210.05375; https://link.springer.com/article/10.1007/s00211-024-01396-w",
+          "material_read": "Full-text HTML: introduction, algorithm, convergence statements and Theorem 5.2",
+          "method": "Publisher full-text HTML inspection",
+          "title": "M. Eisenmann, T. Stillfjord, A randomized operator splitting scheme inspired by stochastic optimization methods",
+          "trigger": "Closest implicit randomized-splitting prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pairwise without-replacement balancing is a natural variance-reduction mechanism in numerical operator splitting. The exact h^(3/2) commutator noise, sharp 2D criterion, and contrasting iid h^(1/2) noise provide a quantitative diagnostic and clean benchmark beyond an arbitrary small-dimensional calculation; deterministic bias is carefully separated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An uncatalogued balanced-without-replacement resolvent CLT could predate this derivation.",
+    "Linear finite-dimensional constant-coefficient and fair pair assumptions are essential; no nonlinear/unbounded-operator claim.",
+    "Best-of-knowledge scientific originality, not an independent Lean/expert formal certification.",
+    "No public edit, no data publication and no status synchronization are being asserted."
+  ],
+  "schema_version": 1
+}

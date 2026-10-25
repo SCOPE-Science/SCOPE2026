@@ -1,19 +1,21 @@
-# Review of the commutator splitting limit
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every fixed real symmetric positive-semidefinite pair and time horizon, two resolvent expansions yield an exact macro-step mean defect of \(h^2Q/2\) and a Rademacher commutator increment of \(h^2J/2\). A deterministic \(O(h)\) pathwise bound, an orthogonal martingale decomposition, and a Lindeberg triangular-array argument establish the limiting mean, the exact Gaussian covariance, and covariance convergence. At equal cost, an independent-with-replacement scheme has increments of order \(h\), which yield the stated larger covariance. Exact rational matrix identities and exhaustive finite-horizon order enumeration were reproduced by the accompanying script. The proof requires fixed dimension and exact resolvent steps.
+PASS
 
-## Originality
+For fixed finite-dimensional symmetric positive semidefinite H1,H2, T>0, h=T/(2N), M=(R2R1+R1R2)/2 and D=(R1R2−R2R1)/2, the exact expansion is M−exp(−2hA)=h²Q/2+O(h³), D=h²[H1,H2]/2+O(h³). Telescoping the mean gives (EX_N−u(T))/h→(1/4)∫exp(−(T−s)A)Q u(s)ds. The centered recursion is an orthogonal martingale array whose replacement error has L² order h^(5/2); its scaled covariance is a 2h-mesh Riemann sum converging to K=(1/8)∫exp(−(T−s)A)J u(s)u(s)^T J^T exp(−(T−s)A)ds. The bounded normalized summands establish multivariate Lindeberg; the independent-with-replacement control uses h-sized half-difference and yields h^(−1/2) with coefficient 1/4. A nonzero 2×2 skew J is invertible, ensuring positive trace K for u0≠0; commuting H1,H2 give exactly identical block products. The total uncentered error remains O(h), not O(h^(3/2)). Independent NumPy/SciPy recreation for source positive-definite H1,H2 gave trace K=0.023058504869619058, trace Kiid=0.06185138964147487, mean-bias vector [0.31950664,0.58462062]; paired covariance trace ratios at N=10,80,400 were 0.82465,0.97552,0.99506. These finite values corroborate, not prove, the CLT.
 
-PASS on the accessible evidence, with residual bibliographic risk. Eisenmann–Stillfjord [1] prove expected-error bounds for independently randomized implicit operators, including general order one-half and some order-one cases, but not the paired-without-replacement commutator CLT. Veldman–Zuazua [4] prove mean convergence for randomized continuous-time LQ dynamics with randomly selected matrix subsets; neither their dynamical definition nor conclusions establish this implicit-resolvent ordering covariance. Childs–Ostrander–Su [2] and Chen–Huang–Kueng–Tropp [3] treat randomized unitary product formula error/concentration, not this exact Gaussian limit for dissipative resolvents. Their expectation and concentration bounds are not the same statement as the explicit limiting covariance. Algebraic commutator expansions and triangular-array CLTs are classical ingredients, not asserted as new. Search incompleteness remains a scientific risk.
+## originality
 
-## Value
+PASS
 
-PASS. Pairwise balancing is a motivated alternative to ordinary independent randomized splitting when the same two component solves are available. The result demonstrates a strict two-exponent reduction in covariance order (from \(h\) to \(h^3\)) at fixed solve count and identifies the precise residual commutator-dependent stochastic mechanism. It distinguishes stochastic variability from deterministic first-order discretization error and supplies an explicit two-dimensional positive-definite sharpness witness. No improvement in total order beyond one is claimed.
+The explicit centered commutator Gaussian law for randomized *order* of a two-resolvent balanced macrostep and its same-cost covariance comparison are more specific than known randomized splitting convergence bounds or random unitary product concentration; no directly implying theorem was found in the materially read sources. This is a best-of-knowledge assessment.
 
-## Closest literature and limitations
+## value
 
-[1] arXiv:2210.05375; [2] arXiv:1805.08385; [3] arXiv:2008.11751; [4] arXiv:2109.13798. See the theorem for the exact model and the limits of transfer to nonlinear/non-self-adjoint settings. No independent specialist or external certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pairwise without-replacement balancing is a natural variance-reduction mechanism in numerical operator splitting. The exact h^(3/2) commutator noise, sharp 2D criterion, and contrasting iid h^(1/2) noise provide a quantitative diagnostic and clean benchmark beyond an arbitrary small-dimensional calculation; deterministic bias is carefully separated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
