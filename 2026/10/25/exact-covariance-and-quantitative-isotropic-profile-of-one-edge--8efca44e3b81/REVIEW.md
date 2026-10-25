@@ -1,0 +1,11 @@
+# Review of exact one-parameter covariance and isotropic profile
+
+**Correctness — PASS.** The all-dimensional argument converts the cube-plus-diagonal-segment body to permutation-symmetric projected-coordinate intervals. Its simple Dirichlet gap integrals establish volume, both covariance eigenvalues, the rational determinant profile and positive local logarithmic curvature. An independent convex-hull integration tests nine parameter/dimension instances; exact symbolic factorization tests the derivative and curvature. These finite computations do not certify all dimensions; the analytical integral derivation does.
+
+**Originality — PASS, specifically for the explicit profile.** Kipp's Proposition 6.5 proves a stronger qualitative minimizer/equality statement for all zonotopes with at most one more generator than the dimension; the present minimum/equality statement is acknowledged as previously known and not counted toward originality. His full Section 6 proof does not give the covariance eigenvalues, the all-weight determinant profile, the parameterwise anisotropy, or the sharp curvature. Conway--Sloane's old type-A quantizer second moments concern the symmetric parameter, not the complete varying-weight family. Search for equivalent names including diagonal-segment cubes, weighted cycle graphical zonotopes and root-lattice Voronoi quantizers found no covering formula, but an unindexed box-spline identity remains a risk.
+
+**Value — PASS.** Exact finite-parameter inertia of the minimal nontrivial zonotopal deformation family is a natural requested invariant not supplied by qualitative extremizer rigidity. The two eigenspaces reveal how anisotropy responds to a single edge-weight defect, and the dimension-dependent positive curvature gives quantitative, locally sharp stability at the known symmetric optimum. The answer is nontrivial even though qualitative extremality is known.
+
+**Closest source and limits.** C. Kipp, arXiv:2407.01353, Proposition 6.5 is the decisive overlapping prior theorem; see also A. Padrol et al., arXiv:2111.12422, and Conway--Sloane (1982). The formulas are for the coordinate model, not Euclidean eigenvalues after arbitrary affine changes. Independent mathematical assessment has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
