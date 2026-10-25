@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The arrow-function bijection is exhaustive and bidirectional. A missing image head gives an explicit compatible extension, so inclusion-maximal matchings correspond exactly to surjective functions from distinct tails to unused heads. The even parity branch follows from oriented perfect matchings; the odd branch follows from one centered triple, pair flips, and transfers. Explicit swap paths at five labels, together with a lifted transposition argument, prove connectedness at every larger odd order. Direct graph-level enumeration through order nine reproduces the entire polynomial and the reconfiguration degree/component formulas. Computation is finite and not substituted for the infinite proof.
+PASS
 
-## Originality — PASS, with bibliographic risk
+Every host edge has a unique u→v encoding; compatibility requires distinct tails and heads outside the tail set. Saturation is exactly surjectivity f:U→[n]\U, giving I_n and M_n Stirling formulas and minimum ceil(n/2). Even optimum configurations are oriented perfect matchings, and swaps only flip one orientation, yielding (2m-1)!! disjoint Q_m. Odd optimum is a centered 3-block plus m−1 oriented pairs; its degree is 3(m−1), and the explicit R5 paths plus relabeling/transposition generation yield connectivity for every odd n≥5; n=3 is 3 isolated. An independently constructed surjection-enumeration reconfiguration census for n=3..8 reproduced degrees and component sizes; finite data are corroboration only.
 
-The closest published foundations treat universal triangle-free upper bounds on numbers of maximal induced matchings (Basavaraju and coauthors, 2013), a C4-free induced-matching listing algorithm (Kurita and coauthors, 2017), maximal induced vertex-subgraph enumeration (Cao, 2020), and global connected-graph extremal counts (Yuan and coauthors, 2024). Their checked statements do not imply the exact surjection enumerators and minimum-swap parity component theorem. Searches also tested squared-line-graph independence, strong matching and edge domination aliases. Equivalent unindexed results remain possible and independent priority verification remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem classifies an infinite graph family at both the solution-counting and solution-navigation levels. The parity-disconnected/connected transition is relevant to the feasibility of changing an optimal locally maximal induced matching by one edge at a time without losing the constraint. It is not determined by minimum size or total counts alone.
+Best-of-knowledge originality survives same-object, terminology and stronger-class comparisons; the exact family-wide optimal reconfiguration theorem and complete Stirling enumerator have not been found stated or implied by accessed primary results.
 
-## Scientific boundaries
+## value
 
-The classification applies to one-subdivided complete graphs and minimum-cardinality inclusion-maximal induced matchings under one-edge replacement. It makes no claims for other hosts, matching properties or swap rules. Independent scientific assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifies the whole natural family of optimally small inclusion-maximal strong matchings, not just the count: parity changes ability to navigate among optimum solutions while preserving maximality in each atomic one-edge replacement. This is a motivated reconfiguration phenomenon not implied by the minimum size or ordinary matching count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

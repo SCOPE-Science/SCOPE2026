@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T12:57:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Source RESULT.md frozen Git blob 3a6530dcc102b45cdcbd4122c633c1d14f25bd74",
+        "Independent enumeration script n=3..8, exact counts n6: 15 Q3 components, n7: connected 1260 vertices"
+      ],
+      "rationale": "Every host edge has a unique u→v encoding; compatibility requires distinct tails and heads outside the tail set. Saturation is exactly surjectivity f:U→[n]\\U, giving I_n and M_n Stirling formulas and minimum ceil(n/2). Even optimum configurations are oriented perfect matchings, and swaps only flip one orientation, yielding (2m-1)!! disjoint Q_m. Odd optimum is a centered 3-block plus m−1 oriented pairs; its degree is 3(m−1), and the explicit R5 paths plus relabeling/transposition generation yield connectivity for every odd n≥5; n=3 is 3 isolated. An independently constructed surjection-enumeration reconfiguration census for n=3..8 reproduced degrees and component sizes; finite data are corroboration only.",
+      "residual_risks": [
+        "The odd connectivity relies on realizing every transposition via local five-label moves; explicitly inspected rather than inferred from finite n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kurita arXiv:1707.02740 C4-free enumeration; Basavaraju arXiv:1312.5180 triangle-free counting bounds; Yuan arXiv:2410.11288 global extremizers."
+        ],
+        "reasoning": "Kurita et al. solve enumeration on C4-free graphs, Basavaraju et al. study triangle-free extremal bounds, and Yuan et al. class-wide extremality; none of these inspected stated results implies both exact surjection coefficients and allowed optimum one-edge exchanges for S(K_n).",
+        "searches": [
+          "subdivision of complete graph induced matching maximum maximal minimum induced edge domination single-edge swap reconfiguration parity hypercube components",
+          "single edge exchange graph minimal maximal induced matchings one subdivision clique oriented perfect matching cube parity",
+          "arXiv:1707.02740",
+          "arXiv:1312.5180",
+          "arXiv:2410.11288"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1707.02740",
+        "https://arxiv.org/abs/1312.5180",
+        "Resultary: subdivision of complete graph induced matching maximum maximal minimum induced edge domination single-edge swap reconfiguration parity hypercube components",
+        "Resultary: single edge exchange graph minimal maximal induced matchings one subdivision clique oriented perfect matching cube parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source RESULT.md formulas M_n(z), R_even and R_odd; Kurita 2017 generic algorithm."
+        ],
+        "reasoning": "Algorithmically enumerating C4-free induced matchings does not logically determine exact cardinality generating functions or connectivity of the optimum swap graph; the proof requires an additional onto-map and local-five-label transposition analysis.",
+        "searches": [
+          "subdivision of complete graph induced matching maximum maximal minimum induced edge domination single-edge swap reconfiguration parity hypercube components",
+          "single edge exchange graph minimal maximal induced matchings one subdivision clique oriented perfect matching cube parity",
+          "arXiv:1707.02740",
+          "arXiv:1312.5180",
+          "arXiv:2410.11288"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Induced matching of a clique subdivision is a surjective tail-to-head function; squared-line-graph independent set reconfiguration is an equivalent ambient problem."
+        ],
+        "reasoning": "Induced matchings are independent sets in the square of the line graph, so optimum maximal induced matchings are minimum maximal independent sets in L(S(K_n))^2; induced edge domination, strong matching and token jumping are other names. These aliases do not by themselves give the (2m-1)!! hypercube decomposition or odd connected regularity.",
+        "searches": [
+          "subdivision of complete graph induced matching maximum maximal minimum induced edge domination single-edge swap reconfiguration parity hypercube components",
+          "single edge exchange graph minimal maximal induced matchings one subdivision clique oriented perfect matching cube parity",
+          "arXiv:1707.02740",
+          "arXiv:1312.5180",
+          "arXiv:2410.11288"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on matching complexes, e.g. Q3 matching complex, are not induced-matching swap graphs."
+        ],
+        "reasoning": "Two separately phrased published-result searches returned matching-complex homotopy classifications and domination results, not the precise optimal induced-match parity components or full cardinality enumerator. Database absence cannot certify novelty.",
+        "searches": [
+          "subdivision of complete graph induced matching maximum maximal minimum induced edge domination single-edge swap reconfiguration parity hypercube components",
+          "single edge exchange graph minimal maximal induced matchings one subdivision clique oriented perfect matching cube parity",
+          "arXiv:1707.02740",
+          "arXiv:1312.5180",
+          "arXiv:2410.11288"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives same-object, terminology and stronger-class comparisons; the exact family-wide optimal reconfiguration theorem and complete Stirling enumerator have not been found stated or implied by accessed primary results.",
+      "residual_risks": [
+        "Unindexed strong-edge-domination/square-line-graph work may contain an equivalent parity theorem; primary literature search incomplete, and no novelty certificate is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic enumeration on C4-free graphs, not the asserted Stirling polynomial or exact parity reconfiguration classification.",
+          "evidence": [
+            "arXiv:1707.02740, C4-free enumeration theorem and definitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.02740",
+          "material_read": "ArXiv PDF, 17 pages available; algorithm/theorem and problem definitions inspected, first page visually checked.",
+          "method": "Primary PDF text inspection and screenshot; compared algorithm statement against exact minimum-swap component formula.",
+          "title": "Efficient Enumeration of Induced Matchings in a Graph without Cycles with Length Four",
+          "trigger": "The clique subdivisions are C4-free, so general induced-matching enumeration could dominate the claim."
+        },
+        {
+          "assessment": "A class-wide upper bound does not itself determine exact coefficients or one-edge optimal exchanges.",
+          "evidence": [
+            "arXiv:1312.5180, original source bibliography and theorem statement"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.5180",
+          "material_read": "Definitions and claimed extremal-counting theorem as referenced in the frozen result; complete primary paper not separately read on this run.",
+          "method": "Compared available theorem description with family-specific exact counts; no whole-document noncoverage asserted.",
+          "title": "Maximal induced matchings in triangle-free graphs",
+          "trigger": "Covers the same maximal induced-matching concept over a broader triangle-free graph class."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finite-family optimal swap geometry, even hypercube components vs odd connected regular graph."
+      ],
+      "rationale": "Classifies the whole natural family of optimally small inclusion-maximal strong matchings, not just the count: parity changes ability to navigate among optimum solutions while preserving maximality in each atomic one-edge replacement. This is a motivated reconfiguration phenomenon not implied by the minimum size or ordinary matching count.",
+      "residual_risks": [
+        "No assertion for token slides, nonminimum layers or other hosts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The odd connectivity relies on realizing every transposition via local five-label moves; explicitly inspected rather than inferred from finite n.",
+    "Unindexed strong-edge-domination/square-line-graph work may contain an equivalent parity theorem; primary literature search incomplete, and no novelty certificate is inferred.",
+    "No assertion for token slides, nonminimum layers or other hosts."
+  ],
+  "schema_version": 1
+}
