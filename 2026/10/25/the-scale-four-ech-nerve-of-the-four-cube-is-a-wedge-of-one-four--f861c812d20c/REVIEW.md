@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The radius-two vertex neighborhoods generate exactly the required scale-four Čech nerve, with 11-vertex facets and full two-skeleton. The 2022 primary literature establishes free integral homology only in degrees four (rank one) and six (rank ten). The actual packaged checker independently regenerates all faces, exact mod-two boundary ranks, a nonzero degree-four cycle-cocycle pairing, the normalized cup-two cochain, and an explicit degree-five coboundary primitive on all 4,640 six-simplices. The standard low-dimensional Whitehead exact sequence identifies this vanishing square with the only degree-six spherical-lifting obstruction. The resulting wedge-to-complex integral homology isomorphism is a homotopy equivalence. Limit: integral group calculation is cited, not reconstructed by a new integer Smith computation.
+
+**Originality — PASS against inspected evidence.** Adams–Shukla–Singh (arXiv:2212.05871, Sections 3 and 7) explicitly tabulate only the integral homology of the same object and list its homotopy type as unknown; their Question 7.1 asks for sphere-wedge behavior. Other indexed cube Čech homotopy and symmetry results concern scales two or three, not four. Published cup-two methods are used without novelty claims. Targeted searches also covered Alexander-dual, graph-power, radius-two-ball, and cubical-theta terminology. Residual risk: equivalent work may be unindexed or published after the inspected source.
+
+**Value — PASS.** This settles a concrete explicitly open homotopy-type case and distinguishes a genuine Hopf attaching ambiguity that the pre-existing integral Betti numbers cannot settle. The fully exhibited Steenrod-square primitive provides reproducible operation-level evidence and a method applicable to related graph nerves; no unsupported general theorem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
