@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result has a mathematically complete reduction. For every prime at least \(11\), the squarefree factors fill \([T,1]\) in closure because the associated absolutely summable logarithmic terms satisfy the tail-dominance inequality. This is established by five finite rational prime certificates and Nagura's unconditional prime-interval theorem for all remaining primes. For the four smaller primes, overlapping local-factor intervals reduce arbitrary prime-power exponents to exactly \(5\times3^3=135\) rational scales. A reproducible standard-library rational checker bounds \(T\) on both sides and resolves every exact overlap and gap, finding nineteen pairwise separated intervals. Nonstandard boundary comparisons use strict exact inequalities; finite computations are never substituted for the infinite prime-tail proof. The strongest residual mathematical dependency is the stated Nagura theorem, not a hidden computation.
+## correctness
 
-## Originality — PASS
-Defant's 2015 full article defines the same function and proves a global one-interval density criterion, then explicitly poses the finite-component classification problem; it does not determine the nineteen-component case at \(r=3\). The complete published result for \(r=2\) was also read: it restricts itself to the two-component closure \([6/\pi^2,73/81]\cup[9/\pi^2,1]\), making no claim for \(r=3\). The previously examined unitary reciprocal-cube sum and the squarefree reciprocal-square sum use different local factors, and therefore neither theorem implies this result. Actual mathematical-record and literature searches for exponent three, exact 19, and Liouville-weighted divisor aliases found no dominating theorem. Searches are not proof of novelty: unindexed results and possible independent similar computations remain a residual risk.
+PASS
 
-## Value — PASS
-The theorem supplies the exact value \(19\) of an explicitly motivated component-count invariant from Defant's open problem. It identifies all eighteen genuine gaps and exact endpoints at the next natural integer parameter after the known \(r=2\) value. An unconditional infinite tail-filling result and a complete rational finite-core certificate make the answer independently reusable. The 135-core reduction is needed to distinguish several extremely close components, so the work is not a mere parameter renaming or a routine textbook bound.
+For all positive n, multiplicativity reduces s_{-3}(n) to local factors f_p(e)=sum_{j=0}^e(-p^{-3})^j. For p>=11, an exact five-prime exceptional certificate and Nagura’s prime interval theorem for p>=29 prove u_p=-log(1-p^-3)<=sum_{q>p}u_q; the subsum interval lemma therefore fills the closure [T,1]. Exact inequalities T f_p(2)<=f_p(1) for p=3,5,7 and T f_2(4)<=f_2(3) reduce arbitrary prime powers to 135 rational scales. Independently computed all 135, merged them using rigorous rational two-sided bounds from floor(10^18/k^3) through k=100000 and an analytic tail, and verified ALL 19 submitted rational endpoint pairs, all 18 strict gaps and every overlap. Closest certified separation >0.0000326 and overlap >0.0002716. This proves 19 components given the stated standard prime-gap and subsum lemmas; the finite rational certificate alone is not the infinite tail proof.
 
-## Closest primary literature and limitations
-Colin Defant, *On Ranges of Variants of the Divisor Functions that are Dense*, arXiv:1507.01128 (2015), fully inspected; published exact two-component case at \(r=2\) (2026), full result read; Nagura (1952), unconditional prime-gap theorem used as a standard cited premise. No general component-count formula in variable \(r\) is claimed. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on the exact r=3 component classification, not on multiplicativity, Defant’s interval/density framework, or the general subsum lemma. Defant’s 2015 paper states a connectedness/density criterion and separately raises exact component counts as a problem. The published 2026 exact two-component result treats r=2, which neither implies nor gives the nineteen disjoint intervals for r=3. Complete independent r=3 endpoint enumeration adds a concrete solution to a naturally posed parameter case. Unindexed exact tables remain a priority risk.
+
+## value
+
+PASS
+
+A natural arithmetic function has a documented open component-count question at specific exponents; the precise r=3 closure topology, with rational coefficients and 18 certified gaps, supplies an otherwise unknown exact answer to that question. The prime-tail reduction plus a rigorous 135-factor certificate creates reusable arithmetic structure; this is not an arbitrary digit slice or just a simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
