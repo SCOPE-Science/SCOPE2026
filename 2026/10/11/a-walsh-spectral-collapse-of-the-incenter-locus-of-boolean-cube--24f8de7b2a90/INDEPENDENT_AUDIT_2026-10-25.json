@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T12:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=1, the centered zonotope in H={sum x_v=0} has support h(u)=1/2 Σ_edges |u_v−u_w|. The discrete layer-cake/coarea identity for nested upper-level sets gives radius min_S |∂S|/(2||1_S−(|S|/N)1||), and, by both support inequalities, all ball centers satisfy |Σ_{v∈S}c_v|+r sqrt(s(N−s)/N)<=|∂S|/2. Induction with binary entropy H_2(t)>=2t for t in [0,1/2] yields e(S)<=s log_2(s)/2, with equality at power-of-two sizes only for subcubes. For s<=N/2, t=ln(N/s) yields lower bound (sqrt N/(2 ln2))*t/sqrt(e^t−1). Its derivative has sign 2(1−e^(−t))−t, with one positive zero, so interior sizes are strictly worse than the minimum of halfcube s=N/2 and singleton s=1. The two squared radius candidates are N/4 and d² N/[4(N−1)], respectively; compare d² with 2^d−1. For 2<=d<=4 all minimizing cuts are exactly the 2d coordinate halfcubes (d=1 gives the same two singletons); for d>=5 all minimizing cuts are exactly 2N singletons/complements. These are genuine facets by connectedness of S and its complement. In d<=4, d independent degree-one Walsh normals plus the H sum constraint force exactly the span of degree>=2 Walsh characters; every other inequality strict at zero gives a relative neighborhood, so dim N−d−1. For d>=5, singleton opposites force every center coordinate zero. Independent new Python bitset cut enumeration (not the bundled verifier) checked every nontrivial cut for d=1..4, yielding 2,4,6,8 minimizing cuts and squared radii 1/2,1,2,4; checked 2375,2761,3194 deterministic cuts for d=5,6,7 with no violations and only singleton equalities. Finite checks corroborate, while analytic inequalities prove all d. The theorem does not determine vertices/volumes of the small-d center polytope and excludes weighted variants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rashtchian–Raynaud 2022 paper p.2 cites Harper/Bernstein/Lindsey/Hart: binary initial segments minimize edge boundary at fixed size; e(S)<=|S|log_2|S|/2 and power-of-two extremal subcubes. This says nothing about zonotope metrics.",
+          "The separate published Resultary weighted graphical-zonotope theorem covers the radius reduction for all graphs, hence this substep is established prior mathematics and not credited as novel.",
+          "The Resultary vertex-transitive-zonotope theorem has a Weyl-chamber radius/contact classification only under vertex-transitive zonotope hypothesis, not for generic graphical zonotopes; it also expressly leaves all incenter centers unclassified.",
+          "Padrol–Pilaud–Poullot Theorem 2.6 gives deformation-cone equations/facets, not an incenter locus in the intrinsic Euclidean metric."
+        ],
+        "reasoning": "Strong general prior results cover the coarea radius reduction and hypercube edge-boundary bounds separately. The joint normalized-cardinality optimization, sharp all-minimizer equality classification, and active-normal rank/center-polytope structure still need additional arguments and are not consequences explicitly established by those broader statements. Vertex-transitive zonotope radius theory does not dominate the complete claim (and does not describe all optimal centers).",
+        "searches": [
+          "Resultary semantic: graphical zonotope permutohedron incenter locus Euclidean radius normalized cut hypercube isoperimetric equality",
+          "Rashtchian–Raynaud, Edge Isoperimetric Inequalities for Powers of the Hypercube, arXiv:1909.10435, Theorem 1 and Eq. (1)",
+          "Padrol–Pilaud–Poullot 2111.12422, Proposition 1.4",
+          "Resultary 2026/10/11/...-cb1eceb082ab",
+          "Resultary 2026/10/11/...-48d97980d8be"
+        ]
+      },
+      "checked_sources": [
+        "Padrol–Pilaud–Poullot, Deformed Graphical Zonotopes, DOI 10.1007/s00454-023-00586-x (publisher full HTML relevant sections).",
+        "Rashtchian–Raynaud, Edge Isoperimetric Inequalities for Powers of the Hypercube, EJC 2022 #P1.47 (journal PDF pages 1–2 and Theorem 1).",
+        "Pešović–Stojadinović, Between graphical zonotope and graph-associahedron, arXiv:2209.12053 (primary PDF, relevant sections).",
+        "Resultary published record: Euclidean inradius of weighted graphical zonotopes is a cut expansion constant; inspected full RESULT.md.",
+        "Resultary published record: Exact Euclidean radii and tangent facets of vertex-transitive zonotopes; inspected full RESULT.md.",
+        "Three focused Resultary semantic queries plus targeted fast/slow web searches for hypercube graphical-zonotope inradius/Chebyshev centers."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md Steps 1–4 compare b(S)/(2sqrt(s(N-s)/N)). The universal isoperimetric bound yields f(t)=t/sqrt(exp(t)-1), unimodal with only endpoint minima; comparing d^2 with 2^d-1 yields halfcube minima d<=4 and singleton minima d>=5.",
+          "The equality case forces coordinate halfcubes or singleton cuts; active opposite cuts annihilate Walsh characters of degree>=2 in small d, leaving affine dimension N-d-1, while all singleton directions force c=0 in d>=5.",
+          "Published general radius formula determines the VALUE as an optimization but has no all-center classification. Hypercube fixed-cardinality isoperimetry determines minimum boundaries separately but not their normalized across-cardinality ranking and incenter freedoms."
+        ],
+        "reasoning": "The radius identity alone is a special case of broader published work and receives no novelty credit. The submitted whole claim adds the exact minimizer equality families AND classification of all maximal-ball centers via independent active normals. Combining known ingredients with the explicitly reconstructed nontrivial endpoint and rank analysis yields this result; no inspected source asserts the full conjunction. Risk of an unlocated general Chebyshev-center theorem remains.",
+        "searches": [
+          "Resultary semantic: graphical zonotope permutohedron incenter locus Euclidean radius normalized cut hypercube isoperimetric equality",
+          "Web: polyhedral Chebyshev center graphical zonotope hypercube graph halfcube singleton",
+          "Padrol–Pilaud–Poullot Prop. 1.4 and Thm. 2.6",
+          "Rashtchian–Raynaud Eq. (1), Thm. 1",
+          "Resultary weighted graphical zonotope RESULT.md and vertex-transitive zonotope RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same zonotope is, up to translation, the graphical zonotope from Minkowski edge segments [e_v,e_w]. The cut indicator w_S has norm sqrt(|S|(N-|S|)/N) and support |∂S|/2 (frozen RESULT.md Step 1).",
+          "Resultary/2026 weighted-graphical-zonotope inradius RESULT.md gives r=1/2 min w(∂S)*sqrt(n/(|S|(n-|S|))) for any connected weighted graph; says explicitly it does not characterize every Chebyshev center.",
+          "Padrol–Pilaud–Poullot Proposition 1.4 identifies facet-normal rays with cuts having connected induced sides, not Euclidean inball-center loci."
+        ],
+        "reasoning": "The coarea/graph-total-variation and Chebyshev-center formulations yield a general radius formula and centered maximizer. They do not give all centers, equality facet families, Walsh-degree affine hull, or the singleton-induced uniqueness transition. The identical Resultary hit is the assigned finding itself and supplies no independent priority.",
+        "searches": [
+          "Resultary semantic: Boolean cube hypercube graphical zonotope Euclidean inradius Chebyshev center all centers uniqueness Walsh Fourier singleton coordinate cut",
+          "Resultary semantic: graphical zonotope permutohedron incenter locus Euclidean radius normalized cut hypercube isoperimetric equality",
+          "Web: graphical zonotope chebyshev centers cube hypercube radius graph total variation normalized cut",
+          "Springer Open Access Padrol–Pilaud–Poullot DOI 10.1007/s00454-023-00586-x Proposition 1.4",
+          "Resultary 2026/10/11/...-cb1eceb082ab/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the identical SCOPE-a-walsh...--24f8de7b2a90 record (the target itself); it must not count as independent priority. Other hits are distinct objects, including the weighted-graph generic radius formula and a hypercube symmetric EDGE polytope (the polar-type construction, not this graphical zonotope).",
+          "Pešović–Stojadinović Def. 2.1 and Proposition 4.6 concern graph polytopes and weighted quasisymmetric/face enumerators, not Euclidean incenter values or their affine dimensions.",
+          "Web searches did not surface an independent table listing radius, tangent cuts and all-center dimensions (d=1..4: 0,1,4,11; d>=5: 0)."
+        ],
+        "reasoning": "No independent exact table found in these actual checks; the identical Resultary record is excluded from novelty evidence. This is a bounded negative search and not a proof that no historic table exists.",
+        "searches": [
+          "Resultary semantic: Boolean cube hypercube graphical zonotope Euclidean inradius Chebyshev center all centers uniqueness Walsh Fourier singleton coordinate cut",
+          "Resultary semantic: center polytope of hypercube graphical zonotope nearest facets radius phase transition d 5",
+          "Web: hypercube graphical zonotope inradius incenter euclidean ball cut Walsh",
+          "Web: exact inradius of graph cube zonotope Chebyshev centers incenter locus hypercube Q_d",
+          "Resultary/2026 2026-10-11 relevant incenter and cut-expansion semantic results",
+          "Pešović–Stojadinović arXiv:2209.12053 PDF Sections 2–4"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS applies ONLY to the all-dimensional exact optimal-cut equality/contact structure and classification of the entire incenter locus (Walsh affine span for d<=4; uniqueness for d>=5). The radius-as-normalized-cut formula is already explicitly present in a published Resultary general weighted-graph theorem; Harper/Bernstein/Lindsey/Hart edge isoperimetry and Padrol–Pilaud–Poullot facet combinatorics are prior premises. Their available statements and full-text relevant theorems do not provide all centers or the dimension-five transition. The other relevant vertex-transitive-zonotope radius theorem has a narrower hypothesis and expressly does not classify all centers. The identical Resultary record for the assigned finding is not independent evidence. Extensive qualified scope and residual risks are recorded; no search-failure-based novelty proof is claimed.",
+      "residual_risks": [
+        "A general but unlocated Chebyshev-center locus or cut-support theorem may make the complete result a corollary. Search cannot rule out archival or differently named work.",
+        "The normalized-cut radius formula is explicitly already covered by separate published Resultary general weighted graphical-zonotope theorem; count only the new equality/center classification as potentially original.",
+        "The Harper fixed-cardinality hypercube edge isoperimetric theorem and its equality cases are entirely prior mathematics; the computation of the minimum is relatively short once these are supplied.",
+        "The structural center dimension is elementary Walsh linear algebra after identifying tight cuts, which limits potential significance. No claim of external certification or exhaustive priority.",
+        "Sampled d>=5..7 random cuts are not an exhaustive all-d argument; validity rests on the analytic endpoint proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides facet-normal combinatorics and a different deformation-cone geometry, not a metric inball or all-Chebyshev-center classification.",
+          "evidence": [
+            "Proposition 1.4: normal fan rays are biconnected subsets (connected S and complement).",
+            "Theorem 2.6: irredundant description of deformation cones, not Euclidean nearest facet distances."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-023-00586-x",
+          "material_read": "Open-access complete HTML including introduction, Proposition 1.4 normal fan/biconnected cuts and Sections 2.5–2.6 on deformation-cone facets, proof excerpts; searched within article for inradius/Euclidean.",
+          "method": "Read publisher HTML theorem statements, explanations and relevant proof portions via web page; used within-page searches.",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Same graphical zonotope and facet normal fan; possible domination by general structural result."
+        },
+        {
+          "assessment": "Prior edge isoperimetry and size-power-of-two subcube examples directly supply an important proof premise, but have no zonotope metric or center-locus result.",
+          "evidence": [
+            "Theorem 1 gives Harper/Bernstein/Lindsey/Hart initial binary segment extremality at fixed cardinality.",
+            "p.2 explicitly states 2e(A)+|∂A|=d|A| and e(A)<=|A|log_2|A|/2."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i1p47/pdf/",
+          "material_read": "Full primary PDF available; inspected introduction and p.2 image with Theorem 1, the edge count identity and induced-edge inequality; reviewed abstract and scope of remaining Q^r results.",
+          "method": "Read original journal PDF text and rendered page 2 image (zero-index page 1) for mathematical symbols.",
+          "title": "Edge Isoperimetric Inequalities for Powers of the Hypercube",
+          "trigger": "Exact same Q_d cuts; prior classical bound may dominate minimizer comparison."
+        },
+        {
+          "assessment": "Supplies graph-polytope and combinatorial enumeration structure, not a Euclidean incenter radius, tangent-facet threshold or Walsh affine center classification.",
+          "evidence": [
+            "Def. 2.1 identifies Q_{G,1} as graphical zonotope (up to translation).",
+            "Theorem 3.12 addresses normal equivalence, Prop. 4.6 quasisymmetric enumerators, not metric inball centers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.12053",
+          "material_read": "Original 16-page arXiv PDF: introduction, Definition 2.1 (page 3), graph-polytope/weighted enumerator material, main theorems in Sections 3–4 (including Prop. 3.11, Theorem 3.12, Prop. 4.6); rendered page 3 and searched full text for inradius/metric.",
+          "method": "Read PDF text by pages and screenshot on page 3; searched key metric words over full document.",
+          "title": "Between graphical zonotope and graph-associahedron",
+          "trigger": "Same graphical zonotope family as first m-graph polytope, potential exact table or dominating enumerator."
+        },
+        {
+          "assessment": "Entire radius-to-normalized-cut reduction covered by prior public finding, but result explicitly does not determine all maximum-ball centers or hypercube equality contacts.",
+          "evidence": [
+            "Finding: r=1/2 min_{S} w(∂S) sqrt(n/(|S|(n-|S|))).",
+            "Limitations: does not characterize every Chebyshev center when center is nonunique."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+          "material_read": "Full published RESULT.md including assumptions, centered coarea proof, normalization examples, limitations.",
+          "method": "Retrieved public GitHub Resultary source from its actual repository path via read-only file API.",
+          "title": "Euclidean inradius of weighted graphical zonotopes is a cut expansion constant",
+          "trigger": "Semantically dominant published Resultary finding on exactly the same graph-zonotope radius optimization."
+        },
+        {
+          "assessment": "Distinct class requiring vertex-transitive zonotope, not known to hold for Q_d graphical zonotopes; moreover does not classify every incenter. No domination of submitted full theorem.",
+          "evidence": [
+            "Finding assumes vertex-transitivity and root-system generators.",
+            "Limitations explicitly state it does not classify all possible incenters when nonunique."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-radii-and-tangent-facets-of-vertex-transitive-zo--48d97980d8be",
+          "material_read": "Full public RESULT.md, hypotheses (vertex transitivity, reflection-root system), Weyl-chamber support proof and limitations.",
+          "method": "Retrieved published finding via read-only public GitHub API.",
+          "title": "Exact Euclidean radii and tangent facets of vertex-transitive zonotopes",
+          "trigger": "Possible stronger general zonotope radius and contact classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximum inscribed Euclidean balls and their complete center sets are intrinsic, natural invariants of the unweighted Boolean-cube graphical zonotope family, not an arbitrary slice. The result exhibits a sharp geometric uniqueness transition: 11-dimensional optimal-center freedom at d=4 (ambient dimension 15) collapses to a unique center at d=5 (ambient dimension 31), with tangible changes from 2d coordinate-halfcube contacts to 2^(d+1) singleton contacts. Walsh degree decomposition fully describes the affine freedom in low dimensions, which is distinct from merely obtaining an already-known radius formula. It is a motivated self-contained all-d geometric classification, without claiming a general theory for other zonotopes or a paper-sized follow-on.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Padrol–Pilaud–Poullot, Deformed Graphical Zonotopes, DOI 10.1007/s00454-023-00586-x (publisher full HTML relevant sections).",
+    "Rashtchian–Raynaud, Edge Isoperimetric Inequalities for Powers of the Hypercube, EJC 2022 #P1.47 (journal PDF pages 1–2 and Theorem 1).",
+    "Pešović–Stojadinović, Between graphical zonotope and graph-associahedron, arXiv:2209.12053 (primary PDF, relevant sections).",
+    "Resultary published record: Euclidean inradius of weighted graphical zonotopes is a cut expansion constant; inspected full RESULT.md.",
+    "Resultary published record: Exact Euclidean radii and tangent facets of vertex-transitive zonotopes; inspected full RESULT.md.",
+    "Three focused Resultary semantic queries plus targeted fast/slow web searches for hypercube graphical-zonotope inradius/Chebyshev centers."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes d>=1, unweighted centered Q_d graphical zonotope in intrinsic H with Euclidean norm; no general weighted, changed-norm, or other graph family assertions.",
+    "C relies on analytic cut coarea, tight edge-isoperimetric equality classification and derivative comparison, not on finite checker output.",
+    "Generic normalized-cut radius theorem and classical isoperimetry are older; originality pertains only to added full center/contact classification, subject to stated residual risks.",
+    "Publication not_ready is transport/privacy status and does not reverse completed C/O/V PASS.",
+    "Preserve existing Lean and expert attestation statuses; no external formal or expert certification was performed."
+  ],
+  "residual_risks": [
+    "A general but unlocated Chebyshev-center locus or cut-support theorem may make the complete result a corollary. Search cannot rule out archival or differently named work.",
+    "The normalized-cut radius formula is explicitly already covered by separate published Resultary general weighted graphical-zonotope theorem; count only the new equality/center classification as potentially original.",
+    "The Harper fixed-cardinality hypercube edge isoperimetric theorem and its equality cases are entirely prior mathematics; the computation of the minimum is relatively short once these are supplied.",
+    "The structural center dimension is elementary Walsh linear algebra after identifying tight cuts, which limits potential significance. No claim of external certification or exhaustive priority.",
+    "Sampled d>=5..7 random cuts are not an exhaustive all-d argument; validity rests on the analytic endpoint proof."
+  ],
+  "schema_version": 1
+}
