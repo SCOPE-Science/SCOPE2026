@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T01:53:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Fourier kernel k_n,t(j)=(1/n) sum_m cos(2pi*m*j/n)/(1+16t sin^4(pi m/n)), with row sum 1. For n>=5 L_n^2 has distance-two positive coefficient so kernel initially negative, while t->infty kernel is positive mean projector. Scale t=c*n^4; continuum periodic Green G_c has critical c*=1/(64rho^4), rho in (pi/2,pi) solving tan rho+tanh rho=0; at c* unique quadratic zero at antipode, G_c>0 for c>c*. Expand discrete fourth symbol to order n^-2 uniformly by summable O(m^-2) difference and show F_n(c,j)=G_c(j/n)+n^-2 H_c(j/n)+o(n^-2). At c=c*+tau/n² antipodal local minimum is Gamma*tau+H+K*(j-n/2)^2/2+o(1); allowed nearest offsets are 0 for even n and 1/2 for odd n. Thus beta_even=tanh(rho)*(3-rho*tanh(rho))/(48rho³)>0 and beta_odd=-tanh(rho)^2/(48rho²)<0. Away from the antipode strict continuum positivity and for sufficiently large c Fourier tail bound control the entire EVENTUAL threshold. Independently numerically inverted Fourier circulants at n=40,41,80,81,150,151,300,301 and estimated (threshold-c*n^4)/n², converging to the two opposite-sign coefficients; finite support only. Did not assume finite window proves global monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabada–Saavedra arXiv:1704.00644 studies constant-sign Green functions in fourth-order boundary problems, distinct finite cycles.",
+          "Ulm biharmonic resolvent interval and Grunau–Robert–Sweers biharmonic Green estimates provide broad analytic context without the finite periodic symbol correction."
+        ],
+        "reasoning": "The general resolvent framework can be specialized to periodic continuum but the n-dependent high-frequency dispersion and parity lattice nearest-antipode effect require additional finite Fourier asymptotics not stated in the inspected related results.",
+        "searches": [
+          "periodic biharmonic smoothing inverse nonnegative discrete cycle Green function positivity threshold n^4 parity corrections",
+          "Whittaker Henderson smoother periodic cyclic second difference inverse entrywise nonnegative biharmonic resolvent antiperiodic cutoff Green positivity",
+          "arXiv:1704.00644",
+          "Resultary/2026:2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+        ]
+      },
+      "checked_sources": [
+        "Cabada–Saavedra arXiv:1704.00644 (primary metadata/limited text)",
+        "Lu–Ma–Chen 2019 periodic 4th-order theorem (abstract/quoted lemma)",
+        "Grunau–Robert–Sweers arXiv:1103.0651 background",
+        "Resultary open-end Whittaker–Henderson RESULT.md full"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical c*=1/(64rho^4) appears in periodic fourth-order ODE Green positivity; finite-cycle operator uses 16sin^4(pi m/n) not continuum (2pi m)^4.",
+          "Period dependence j-n/2 has integer vs half-integer nearest point, producing distinct H versus H+K/8 terms."
+        ],
+        "reasoning": "Source covering the leading continuum threshold is only partial; complete asserted theorem requires uniform n^-2 symbol analysis and global eventual positivity tail control. No inspected prior result implies the correction.",
+        "searches": [
+          "periodic biharmonic smoothing inverse nonnegative discrete cycle Green function positivity threshold n^4 parity corrections",
+          "Whittaker Henderson smoother periodic cyclic second difference inverse entrywise nonnegative biharmonic resolvent antiperiodic cutoff Green positivity",
+          "arXiv:1704.00644",
+          "Resultary/2026:2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cabada periodic fourth-order Green positivity condition has the same continuum transcendental root tan(rho)+tanh(rho)=0 (classical leading c*), explicitly credited.",
+          "Resultary published Whittaker–Henderson all-order failure is for open-ended D_p^TD_p with free boundaries; finite-circulant periodic closure has different Green kernel."
+        ],
+        "reasoning": "Reparameterizing classical periodic continuum inverse-positivity gives only leading c*. Neither continuous condition nor open-end negative witness supplies the discrete even/odd n² corrections.",
+        "searches": [
+          "periodic biharmonic smoothing inverse nonnegative discrete cycle Green function positivity threshold n^4 parity corrections",
+          "Whittaker Henderson smoother periodic cyclic second difference inverse entrywise nonnegative biharmonic resolvent antiperiodic cutoff Green positivity",
+          "arXiv:1704.00644",
+          "Resultary/2026:2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Whittaker-Henderson finite n negative-weight witnesses and Savitzky-Golay smoothing results concern nonperiodic filters.",
+          "Discrete Fourier inversion gives finite-cycle values, but no published database of all-n eventual positivity with n² parity expansions appeared in searches."
+        ],
+        "reasoning": "No exact database/table of finite n samples logically determines an all-n eventual threshold or asymptotic coefficients; a finite numeric table is not a substitute.",
+        "searches": [
+          "periodic biharmonic smoothing inverse nonnegative discrete cycle Green function positivity threshold n^4 parity corrections",
+          "Whittaker Henderson smoother periodic cyclic second difference inverse entrywise nonnegative biharmonic resolvent antiperiodic cutoff Green positivity",
+          "arXiv:1704.00644",
+          "Resultary/2026:2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+        ]
+      },
+      "rationale": "Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Source covering the leading continuum threshold is only partial; complete asserted theorem requires uniform n^-2 symbol analysis and global eventual positivity tail control. No inspected prior result implies the correction.",
+      "residual_risks": [
+        "Older discrete fourth-order periodic Green/resolvent research, especially high-order n^-2 corrections, not exhaustively read; priority is best-of-knowledge.",
+        "Closest periodic fourth-order journal full text unavailable; no inference that all of its contents omit the correction.",
+        "Independent numerical estimates verify finite n only; all-n eventual positivity relies on uniform Fourier estimates and antipodal minimum proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant framework and classical positivity root; unable to exclude prior variants of discrete parity correction solely from this material",
+          "evidence": [
+            "Cabada–Saavedra 2017 fourth-order spectral positivity topic"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.00644",
+          "material_read": "Accessible scholarly abstract and primary bibliographic material plus analytic kernel comparison; the entire article was not read this run",
+          "method": "arXiv catalogue and targeted scholarly search",
+          "title": "Characterization of constant sign Green functions of a two point boundary value problem by means of spectral theory",
+          "trigger": "Closest general continuous fourth-order spectral Green positivity result"
+        },
+        {
+          "assessment": "Its reported Lemma 2 documents continuous positivity interval; no full-document NOT_COVERING asserted",
+          "evidence": [
+            "Lu–Ma–Chen 2019, Lemma 2 quoting Cabada inverse-positivity interval"
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S0001434619070289",
+          "material_read": "Journal abstract/available cited Lemma 2 formulation; full publisher text unavailable in this run",
+          "method": "Publisher scholarly page and cited theorem check",
+          "title": "Global Bifurcation for Fourth-Order Differential Equations with Periodic Boundary-Value Conditions",
+          "trigger": "Periodic fourth-order boundary exactly matches continuum limit"
+        },
+        {
+          "assessment": "Uses open-end D_p^T D_p, nonperiodic, rather than cycle L_n²; does not refute or cover periodic eventual-positive kernel",
+          "evidence": [
+            "Explicit minimal n=p+1 open-boundary rank-one negative entry at every smoothing strength"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+          "material_read": "Full RESULT.md read from exact published Git blob, including complete theorem and proof",
+          "method": "GitHub primary paper-level mathematical record",
+          "title": "Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+          "trigger": "Strong apparently conflicting prior all-strength nonpositivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Periodic biharmonic smoothing loses positivity at moderate regularization but eventually regains the convex-hull/range-preserving property; the exact n^4 scaling and oppositely signed n² lattice-parity correction are important for finite-cycle kernel design. Separates periodic from open-end Whittaker–Henderson boundary conditions and is a sharp natural asymptotic rather than a routine constant replacement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older discrete fourth-order periodic Green/resolvent research, especially high-order n^-2 corrections, not exhaustively read; priority is best-of-knowledge.",
+    "Closest periodic fourth-order journal full text unavailable; no inference that all of its contents omit the correction.",
+    "Independent numerical estimates verify finite n only; all-n eventual positivity relies on uniform Fourier estimates and antipodal minimum proof.",
+    "No repository writes, dispatcher closeout or publication undertaken; not_ready is a confidentiality/transport status, not a negative scientific verdict."
+  ],
+  "schema_version": 1
+}

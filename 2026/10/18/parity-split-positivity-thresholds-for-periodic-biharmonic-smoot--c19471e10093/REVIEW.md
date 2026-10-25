@@ -1,19 +1,21 @@
-# Scientific review: periodic biharmonic smoothing positivity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS within the stated hypotheses. Direct Fourier diagonalization supplies the finite circulant inverse and its exact row-sum normalization. The periodic fourth-order Green expression gives a nondegenerate antipodal zero at the known critical parameter. A dominated Fourier-symbol expansion, valid uniformly over both grid position and compact positive parameters, produces the leading finite-grid correction; the nearest antipodal lattice point differs by parity. The proof also treats positivity outside the critical parameter window, which is essential for interpreting the last crossing as the eventual threshold. The checker independently compares Fourier and inverse matrix entries and numerically tests the derived constant coefficients; computational checks alone are not used as universal evidence.
+PASS
 
-## Originality
+Reconstructed Fourier kernel k_n,t(j)=(1/n) sum_m cos(2pi*m*j/n)/(1+16t sin^4(pi m/n)), with row sum 1. For n>=5 L_n^2 has distance-two positive coefficient so kernel initially negative, while t->infty kernel is positive mean projector. Scale t=c*n^4; continuum periodic Green G_c has critical c*=1/(64rho^4), rho in (pi/2,pi) solving tan rho+tanh rho=0; at c* unique quadratic zero at antipode, G_c>0 for c>c*. Expand discrete fourth symbol to order n^-2 uniformly by summable O(m^-2) difference and show F_n(c,j)=G_c(j/n)+n^-2 H_c(j/n)+o(n^-2). At c=c*+tau/n² antipodal local minimum is Gamma*tau+H+K*(j-n/2)^2/2+o(1); allowed nearest offsets are 0 for even n and 1/2 for odd n. Thus beta_even=tanh(rho)*(3-rho*tanh(rho))/(48rho³)>0 and beta_odd=-tanh(rho)^2/(48rho²)<0. Away from the antipode strict continuum positivity and for sufficiently large c Fourier tail bound control the entire EVENTUAL threshold. Independently numerically inverted Fourier circulants at n=40,41,80,81,150,151,300,301 and estimated (threshold-c*n^4)/n², converging to the two opposite-sign coefficients; finite support only. Did not assume finite window proves global monotonicity.
 
-PASS relative to examined sources, with explicit historical risk. The continuous root and continuous periodic inverse-positivity cutoff are already established in the fourth-order literature and expressly excluded from the novelty claim. The genuinely distinct assertion is the finite *cyclic* squared-Laplacian smoothing threshold and its opposite-sign even/odd \(n^2\) corrections. The inspected full text of Lu–Ma–Chen (2019) concerns continuum periodic fourth-order operators, and the inspected Cabada–Saavedra (2017) full HTML treats fourth-order continuous boundary problems; neither supplies discrete finite-grid asymptotics. Grunau–Robert–Sweers addresses continuous biharmonic lower Green bounds. The older Ulm paper was confirmed bibliographically, but full text was not accessible. In the record search, the closest open-boundary Whittaker–Henderson finding cannot imply a periodic threshold. Other equivalent finite discrete biharmonic results may be missed; independent priority review remains necessary.
+## originality
 
-## Value
+PASS
 
-PASS. The precise control parameter needed to ensure range preservation in periodic second-difference regularization is a natural stability invariant. The sharp \(n^4\) scale and measurable \(n^2\) boundary-grid parity splitting are not obtained by a generic positive-definite argument or by continuous inversion alone. In particular the finite correction can be negative on odd rings and positive on even rings, so a single parity-blind continuum estimate is insufficient to choose a sharp smoothing strength. This gives a practically interpretable, nontrivial boundary effect rather than an arbitrary finite computation.
+Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Source covering the leading continuum threshold is only partial; complete asserted theorem requires uniform n^-2 symbol analysis and global eventual positivity tail control. No inspected prior result implies the correction.
 
-## Scope and risks
+## value
 
-No classification is asserted for variable weights, open ends, all individual positivity intervals at fixed \(n\), or higher orders. The leading continuum constant is known. The Ulm (1998) full text was unavailable; a 2019 continuum full text was read. All numerical tests are finite, and independent mathematical and literature priority assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Periodic biharmonic smoothing loses positivity at moderate regularization but eventually regains the convex-hull/range-preserving property; the exact n^4 scaling and oppositely signed n² lattice-parity correction are important for finite-cycle kernel design. Separates periodic from open-end Whittaker–Henderson boundary conditions and is a sharp natural asymptotic rather than a routine constant replacement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
