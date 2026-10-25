@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof establishes all dimensions, nonnegative edge amplitudes, and both sides of the transition. For independent computational corroboration run `python verify_split.py` with Python, NumPy and SciPy. This constructs incidence matrices in the full vertex coordinate space; it does not use the closed-form eigenvalues as its numerical objective. A reproducible checker execution reported:
+## correctness
 
-```
-PASS 35 spectral-formula and orbit-optimizer comparisons
-PASS 8 unrestricted simplex-weight optimizations and first-order certificates
-PASS 6 heterogeneous clique-edge screening checks
-PASS 9 high-imbalance asymptotic checks
-ALL VERIFIED 58 configurations
-```
+PASS
 
-The code is a numerical corroboration, not an infinite-range certificate. The proof's essential exact steps are (i) the finite-dimensional domination/minimax formula, (ii) the three Laplacian eigenvalues, (iii) the sharp initial derivative and interior Cauchy equality, and (iv) the concavity-supported probability-simplex optimality conditions for all extra clique edges. There is no independent external audit.
+For real FBL^(2)[ell_2^(a+b)], a>=3, b>=2, the norm of the supremum of cross-edge evaluation magnitudes and clique amplitudes is the absolutely 2-summing norm of the row operator into ell_infty. Finite-dimensional Pietsch domination and covariance minimax yield max over edge probabilities of tr sqrt(C_w). Operator concavity and averaging over S_a x S_b reduce without restriction to total clique mass u. The Laplacian eigenvalues are (1-u)/a+2t^2u/(a-1) of multiplicity a-1, (1-u)/b of multiplicity b-1, and (a+b)(1-u)/(ab) of multiplicity 1. Strictly concave objective (a-1)*sqrt(1/a+du)+K*sqrt(1-u) has u=0 optimum precisely t<=tau; for t>tau an interior exact Cauchy-Schwarz optimizer gives the claimed radical branch. A supporting hyperplane at cross-only covariance proves the simultaneous iff s_e<=tau for any collection of nonuniform clique edges: every inactive derivative <=B/2 exactly under this bound and any superthreshold edge permits a strictly profitable mass shift. Pointwise growth for s>1/2, fixed-a fourth-root imbalance, and curvature jump follow algebraically. An independent full-coordinate incidence-matrix eigensolver with an 3001-point orbit-mass grid verified 20 parameter/weight cases. These tests corroborate rather than establish general Pietsch minimax or all-weight screening.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel exact two-parameter 2-summing norm deformation and sharp simultaneous nonuniform clique-edge screening; Pietsch representation and the complete-bipartite baseline are expressly prior facts.
+
+## value
+
+PASS
+
+An explicit operator-ideal norm for a natural graph deformation, with the nonobvious fact that arbitrarily many individually weighted internal edges can be jointly invisible and with an unbounded fourth-root threshold under part imbalance, is meaningful structural information about FBL norms. The second-derivative transition distinguishes strict regimes; result is not merely evaluation of a fixed finite matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
