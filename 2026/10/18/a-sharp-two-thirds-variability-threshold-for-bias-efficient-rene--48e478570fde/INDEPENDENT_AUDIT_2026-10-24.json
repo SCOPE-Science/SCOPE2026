@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:56:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The renewal reward martingale variance rate is v=[(1-m^2)A+m^2B]/E N with A=E R^2 and B=E(R-rho N)^2; this handles correlated R,N within each iid cycle. Direction-sign reversal KL per cycle is 2m atanh(m), hence Q proportional m/[(1-(1-b)m^2)atanh(m)]. Differentiating reduces sign to 1-b-g(m), where g=(1-t)/(m^2(1+t)), t=(1-m^2)atanh(m)/m. Positive integral representations prove g strictly increases from 1/3 to 1, yielding exactly the global three-regime classification and endpoints, no finite-grid inference. New independent numerical grid tests checked 300 derivative signs, 999 monotonicity pairs and the unique root/gain at b=.2. Efficiency is mathematical KL information cost only, not necessarily physical entropy production.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk: The new conclusion needs strictly monotone g and 2/3 threshold, not merely exact v or local expansion.",
+          "Thermodynamic uncertainty for run-and-tumble type processes: Its observables and cost assumptions differ from the audited scalar objective.",
+          "Thermodynamic cost for precision of general counting observables: Different controlled mechanisms and observables prevent direct inference."
+        ],
+        "reasoning": "General renewal reward TUR and counting-observable bounds apply to broader stochastic models but do not yield this exact fixed-law bias optimum in their inspected formulations. If a stronger bound happens to be saturated, this comparison should be rechecked.",
+        "searches": [
+          "renewal reward precision entropy bias optimum two thirds relative variance KL reversal information transport",
+          "arXiv:2606.16339v2",
+          "arXiv:1903.01972",
+          "arXiv:2305.15392"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.16339",
+        "https://arxiv.org/abs/1903.01972",
+        "https://arxiv.org/abs/2305.15392",
+        "RESULT.md",
+        "verify.py",
+        "independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk: The new conclusion needs strictly monotone g and 2/3 threshold, not merely exact v or local expansion.",
+          "Thermodynamic uncertainty for run-and-tumble type processes: Its observables and cost assumptions differ from the audited scalar objective.",
+          "Thermodynamic cost for precision of general counting observables: Different controlled mechanisms and observables prevent direct inference."
+        ],
+        "reasoning": "The known exact variance+KL formulas imply the unoptimized Q(m) immediately, but not the strict global unimodality/trichotomy without proving g increasing. That monotonicity is the additional finite-bias mathematical step.",
+        "searches": [
+          "renewal reward precision entropy bias optimum two thirds relative variance KL reversal information transport",
+          "arXiv:2606.16339v2",
+          "arXiv:1903.01972",
+          "arXiv:2305.15392"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk: The new conclusion needs strictly monotone g and 2/3 threshold, not merely exact v or local expansion.",
+          "Thermodynamic uncertainty for run-and-tumble type processes: Its observables and cost assumptions differ from the audited scalar objective."
+        ],
+        "reasoning": "Bias m=2p-1 and affinity 2atanh m are equivalent controls; variability b=B/A and coefficient c=1-b parameterize the same precision function.",
+        "searches": [
+          "renewal reward precision entropy bias optimum two thirds relative variance KL reversal information transport",
+          "alternate parametrizations, duality, aliases for For bounded iid renewal cycle rewards R>=0 and integer durations N>=1, with independent Be"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk: The new conclusion needs strictly monotone g and 2/3 threshold, not merely exact v or local expansion.",
+          "Thermodynamic uncertainty for run-and-tumble type processes: Its observables and cost assumptions differ from the audited scalar objective."
+        ],
+        "reasoning": "Prior primary paper tabulates the variance decomposition and response; the derived exact 2/3 g-endpoint threshold and unique m* are absent from the sections actually examined. Indexed Resultary Bernoulli entropy hits concern different Renyi fixed-sum objectives.",
+        "searches": [
+          "renewal reward precision entropy bias optimum two thirds relative variance KL reversal information transport",
+          "published tables and exact calculated invariant in For bounded iid renewal cycle rewards R>=0 and integer durations N>=1, with independent Bernoulli di"
+        ]
+      },
+      "rationale": "Karimi–Jafarpour 2026 derive the exact renewal current variance and sign-information cost, and inspect small-bias response; Shreshtha–Harris cover renewal reward TUR and Pietzonka–Coghi broader counting tradeoffs. The audited new content is strict global optimization in m at fixed correlated cycle law and its exact 2/3 critical mismatch ratio, which is not stated in inspected prior material. The objective itself is constructed from known ingredients; any unlocated optimization of this exact scalar objective is a remaining risk.",
+      "residual_risks": [
+        "An analytic optimization of the same known scalar objective could have appeared under affinity p/(1-p) parametrization without explicit 2/3 keyword.",
+        "Information-theoretic sign KL cannot be promoted to universal physical entropy production; underlying reward law is fixed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides known variance decomposition and weak-bias ingredients, not an identified all-bias optimizer phase diagram",
+          "evidence": [
+            "The new conclusion needs strictly monotone g and 2/3 threshold, not merely exact v or local expansion."
+          ],
+          "identifier_or_url": "arXiv:2606.16339v2",
+          "material_read": "Public full-text model equations for renewal mean/variance and sign entropy, plus sections on small-bias expansion",
+          "method": "Public arXiv full text read including Eq.4, relevant sections and Appendix A descriptions",
+          "title": "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk",
+          "trigger": "same renewal reward model and explicit Bernoulli entropy cost"
+        },
+        {
+          "assessment": "Relevant renewal TUR but no identified global fixed-cycle-law KL bias optimizer",
+          "evidence": [
+            "Its observables and cost assumptions differ from the audited scalar objective."
+          ],
+          "identifier_or_url": "arXiv:1903.01972",
+          "material_read": "Accessible abstract and relevant high-level method description",
+          "method": "Public arXiv paper summary examined",
+          "title": "Thermodynamic uncertainty for run-and-tumble type processes",
+          "trigger": "renewal-reward thermodynamic uncertainty framework"
+        },
+        {
+          "assessment": "Broader Markov counting network optimizations, not an established implication for this fixed iid renewal objective",
+          "evidence": [
+            "Different controlled mechanisms and observables prevent direct inference."
+          ],
+          "identifier_or_url": "arXiv:2305.15392",
+          "material_read": "Accessible abstract and selected theorem descriptions; complete appendices not independently read",
+          "method": "Public arXiv work summary examined",
+          "title": "Thermodynamic cost for precision of general counting observables",
+          "trigger": "potential broader precision-vs-cost theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Whether finite directional drive improves precision per binary selection-information cost is a natural bias-control question. A universal b=B/A condition separating interior optimum from weak-bias operation is a precise nontrivial operationally meaningful boundary, while avoiding unsupported device-independent thermodynamic claims.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.16339",
+    "https://arxiv.org/abs/1903.01972",
+    "https://arxiv.org/abs/2305.15392",
+    "RESULT.md",
+    "verify.py",
+    "independent_checks.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For bounded iid renewal cycle rewards R>=0 and integer durations N>=1, with independent Bernoulli direction bias m and fixed cycle law, the defined KL-reversal-cost current efficiency has a unique nonzero-bias optimum iff 0<B/A<2/3, a weak-bias supremum if B/A>=2/3, and a strong-bias divergence if B=0.",
+  "limitations": [
+    "An analytic optimization of the same known scalar objective could have appeared under affinity p/(1-p) parametrization without explicit 2/3 keyword.",
+    "Information-theoretic sign KL cannot be promoted to universal physical entropy production; underlying reward law is fixed."
+  ],
+  "residual_risks": [
+    "An analytic optimization of the same known scalar objective could have appeared under affinity p/(1-p) parametrization without explicit 2/3 keyword.",
+    "Information-theoretic sign KL cannot be promoted to universal physical entropy production; underlying reward law is fixed."
+  ],
+  "schema_version": 1
+}

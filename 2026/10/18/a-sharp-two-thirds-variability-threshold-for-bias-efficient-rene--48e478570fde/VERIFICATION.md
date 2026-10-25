@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof's necessary steps are the stopped-martingale renewal-variance identity, the orthogonal reward–duration variance decomposition, the explicit Bernoulli reversal divergence, and strict monotonicity of the integral quotient \(g(m)\). Those steps appear in RESULT.md and require no computed certificate. The global threshold cannot be inferred from checking a finite grid.
+## correctness
 
-Run `python3 verify.py` using a Python 3 standard-library installation. The script checks direct finite-support second moments against the asserted decomposition, derives cost-adjusted precision by independently assembled components, searches maxima by both the proved implicit stationary equation and numerical golden-section optimization, tests regimes around the \(2/3\) boundary, and checks a separately seeded finite-cycle simulation. At preparation it returned:
+PASS
 
-```
-PASS: 424 deterministic assertions; simulated ratio=1.0054558
-Representative b=0.2: m*= 0.9637617920163861 gain= 1.8790513868798364
-Representative b=0.5: m*= 0.7637340003082846 gain= 1.0726925403424359
-```
+The renewal reward martingale variance rate is v=[(1-m^2)A+m^2B]/E N with A=E R^2 and B=E(R-rho N)^2; this handles correlated R,N within each iid cycle. Direction-sign reversal KL per cycle is 2m atanh(m), hence Q proportional m/[(1-(1-b)m^2)atanh(m)]. Differentiating reduces sign to 1-b-g(m), where g=(1-t)/(m^2(1+t)), t=(1-m^2)atanh(m)/m. Positive integral representations prove g strictly increases from 1/3 to 1, yielding exactly the global three-regime classification and endpoints, no finite-grid inference. New independent numerical grid tests checked 300 derivative signs, 999 monotonicity pairs and the unique root/gain at b=.2. Efficiency is mathematical KL information cost only, not necessarily physical entropy production.
 
-The sample-based numerical test has finite statistical variability. No computer experiment proves the all-bias derivative sign; the integral representation and endpoint argument prove that claim. The efficiency concerns exact asymptotic completed-cycle current and the defined Bernoulli sign-reversal information. No physical heat-dissipation identity, correlated-cycle extension, or independent validation is asserted.
+## originality
+
+PASS
+
+Karimi–Jafarpour 2026 derive the exact renewal current variance and sign-information cost, and inspect small-bias response; Shreshtha–Harris cover renewal reward TUR and Pietzonka–Coghi broader counting tradeoffs. The audited new content is strict global optimization in m at fixed correlated cycle law and its exact 2/3 critical mismatch ratio, which is not stated in inspected prior material. The objective itself is constructed from known ingredients; any unlocated optimization of this exact scalar objective is a remaining risk.
+
+## value
+
+PASS
+
+Whether finite directional drive improves precision per binary selection-information cost is a natural bias-control question. A universal b=B/A condition separating interior optimum from weak-bias operation is a precise nontrivial operationally meaningful boundary, while avoiding unsupported device-independent thermodynamic claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
