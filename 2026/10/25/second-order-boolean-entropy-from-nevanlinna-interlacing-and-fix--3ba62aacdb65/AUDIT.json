@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The finite star matrix has a Schur-complement resolvent exactly equal to the normalized Boolean Cauchy transform and centered unit variance. Strict monotonicity of its secular equation yields r+1 simple roots and positive weights. Implicit-function expansions at ±1 give the outer entropy contribution (2s2-3m²)/(4n); expansion at every Nevanlinna zero q_j gives mass c_j/n and log-position -log(n)/2+log|q_j|. Normalization proves sum c_j=v, yielding the stated full coefficient. An exact q_j=0 gives a positive spectral atom at zero and infinite relative entropy. The symmetric three-Nevanlinna-atom family has fixed first four moments yet all-real second coefficient; the monotonic logarithmic formula proves this. The standalone numerical checker independently recomputes finite spectra and passes 116 assertions, including a published special case. Its finite tests are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pan 2026, Theorem 1.3: the leading coefficient is Var(Nevanlinna law)/2 times log(n)/n plus o(log(n)/n).",
+        "Pan 2026, Example 4.1: one symmetric four-point law has a fully explicit resolvent and O(1/n) remainder but no asserted general 1/n coefficient.",
+        "Cébron and Pan 2026: Fisher-information inequalities and Berry–Esseen bounds for Boolean convolution; no finite-atomic logarithmic second coefficient in the inspected relevant sections."
+      ],
+      "reasoning": "The leading asymptotic is strictly weaker than identifying the next constant, because an unspecified o(log(n)/n) term can be any multiple of 1/n; the published explicit example does imply the coefficient for its own single-parameter subfamily, which is correctly treated as old coverage. Neither includes arbitrary finite supports or nonuniversality at fixed first four moments.",
+      "searches": [
+        "Boolean additive convolution of finitely supported measures exact entropy expansion all atomic laws order 1/n constant",
+        "Kewei Pan Boolean entropy first order logarithm n over n next constant fourth moment same many distributions",
+        "arXiv:2610.20178v1 Theorem 1.3 and Section 4.2",
+        "arXiv:2602.23527 introduction and section on entropic CLT"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.20178v1, full text, Theorem 1.3, Section 4.2, Example 4.1",
+      "arXiv:2505.07907, full text, introduction and Theorem 1.4",
+      "arXiv:2602.23527, full text, introduction and entropic central-limit discussion",
+      "MSC2020 official code 60F05, central limit and other weak theorems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pan 2026, Thm 1.3, arXiv:2610.20178v1: Gamma(mu_n|b)=v log(n)/(2n)+o(log(n)/n); no exact general next coefficient.",
+        "Pan 2026, Example 4.1, arXiv:2610.20178v1: its published two-pair atom positions and weights imply the constant for a special Nevanlinna law with support {-1,0,1}.",
+        "Pan 2025, arXiv:2505.07907: foundational Boolean logarithmic entropy and monotonicity, not a second-order rate.",
+        "Cébron–Pan 2026, arXiv:2602.23527: Boolean Fisher-information inequalities and bounds, not this all-atomic second asymptotic."
+      ],
+      "reasoning": "The new all-finite-atomic formula strictly extends the leading coefficient and subsumes a previously calculable special case; novelty is not claimed for the latter. The fixed-v parameter p varies the Nevanlinna support radius while holding m3 and m4 fixed and makes the 1/n term range across R. No inspected prior statement mathematically implies that classification. Older general analytic perturbation theory could conceivably express the same coefficient, a documented residual risk.",
+      "searches": [
+        "arXiv:2610.20178v1 Theorem 1.3",
+        "arXiv:2610.20178v1 Example 4.1",
+        "arXiv:2505.07907 Theorem 1.4",
+        "arXiv:2602.23527 Introduction and Boolean limit discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.20178v1 Section 2.2, equation (2.3) gives self-energy as a Nevanlinna Cauchy transform; Section 4.2 derives only a leading entropic rate.",
+        "The same theorem has an equivalent formulation as a logarithmic spectral measure of a finite real symmetric star matrix, whose perturbing internal diagonal is the rescaled Nevanlinna support.",
+        "Search hits on finite spectral logarithms and Boolean Fourier analysis did not assert this Boolean additive-convolution entropy statement."
+      ],
+      "reasoning": "Equivalent terms were Boolean convolution, Boolean entropy, logarithmic spectral measure, Cauchy-transform poles/zeros and finite star Jacobi matrices. Generic matrix perturbation theorems give local eigenvalue Taylor series, but do not supply the documented full closed coefficient plus fixed-moment range without the particular interlacing/mass derivation. No directly equivalent published theorem was identified.",
+      "searches": [
+        "Boolean central limit entropy second order asymptotics constant finite atomic Nevanlinna zeroes spectral weights logarithmic correction",
+        "Boolean convolution entropic CLT logarithmic entropy correction finite support Nevanlinna interlacing poles zeros spectral star matrix",
+        "Boolean central limit theorem log integral entropy higher order expansion finitely supported Nevanlinna atom"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary sources discuss entropy inequalities and continuous transforms, not a tabulated all-support second-order coefficient.",
+        "Mathematical searches on finite spectral measures, weighted interlacing zeros and moment-constrained entropy constants returned no table or directly matching quantitative Boolean entropy law."
+      ],
+      "reasoning": "The second coefficient is a continuous function of arbitrarily many support positions and weights, so a finite lookup table is structurally not a replacement for the general theorem. The negative search alone is not a proof that an equivalent closed expression does not exist elsewhere.",
+      "searches": [
+        "finite rank star matrix spectral measure logarithmic potential perturbation eigenvalue zeros Stieltjes transform entropy",
+        "Boolean independent entropy nonuniform subleading coefficient fixed fourth moment",
+        "Boolean CLT entropy expansion constant order 1/n two point Bernoulli asymptotics"
+      ]
+    },
+    "rationale": "The evaluated new claim is a complete finite-Nevanlinna-atom second-order entropy coefficient and an all-real fixed-four-moment coefficient range. Pan 2026 Theorem 1.3 proves only the leading logarithmic term; its Example 4.1 specifies one four-atom spectral formula which does imply the second coefficient for that already-covered special case. The new general formula uses every zero/residue pair of an arbitrary finite Nevanlinna law, and its fixed-four-moment varying-scale family is not implied by the single example. The 2025/early-2026 papers supply definition, monotonicity and inequalities, not this expansion. The supporting numerical/spectral computations cannot establish literature uniqueness; residual old-perturbation-formula risk remains.",
+    "residual_risks": [
+      "The 2026 primary paper contains exact roots in one four-point special case; the exact 1/n coefficient in that special case is already algebraically implied and is not independently novel.",
+      "Some equivalent general finite-rank logarithmic-spectral perturbation formula might occur in older matrix/Boolean-probability literature not located by title, abstract or semantic search.",
+      "The remaining o(1/n) estimate is pointwise for fixed input law, with no uniformity near colliding atoms, vanishing weights or zero crossing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior leading term and one special-case exact spectral law are acknowledged; not a general all-atomic 1/n coefficient or fixed-moment unboundedness.",
+        "evidence": [
+          "arXiv:2610.20178v1, 2026-10-14, Theorem 1.3 and Example 4.1",
+          "https://arxiv.org/html/2610.20178v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.20178v1",
+        "material_read": "Full HTML, introduction, Section 2.1 Cauchy and Boolean transforms, Section 2.2 Nevanlinna representation, Section 4.2 proof and Example 4.1 through its explicit atom formulas.",
+        "method": "Read and compared the exact equation (2.3), Theorem 1.3, equations (4.1), (4.14)–(4.15) and Example 4.1 eigenvalues/weights to the new coefficient.",
+        "title": "Entropic Inequalities and Limit Theorems in Boolean Probability",
+        "trigger": "Precisely the same Boolean logarithmic entropy and normalized central-limit laws; strongest directly relevant work."
+      },
+      {
+        "assessment": "Establishes the functional and monotonicity; does not fix a second-order central-limit coefficient.",
+        "evidence": [
+          "arXiv:2505.07907, first posted 2025-05-12, Theorem 1.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.07907",
+        "material_read": "Full HTML accessible through arXiv abstract view; introduction, central-limit context, Theorem 1.4 and discussion of maximality/monotonicity.",
+        "method": "Checked the stated scope of the entropy and its central-limit monotonicity and compared implications.",
+        "title": "An entropy for Boolean independence",
+        "trigger": "Original definition and monotonicity could conceivably dominate entropic asymptotic claims."
+      },
+      {
+        "assessment": "Related quantitative framework, but not a general second-order Boolean logarithmic entropy formula for finite Nevanlinna supports.",
+        "evidence": [
+          "arXiv:2602.23527, first posted 2026-02-26, introduction and Berry–Esseen context"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.23527",
+        "material_read": "Full HTML accessible via arXiv abstract view; introduction, functional inequality program, Berry–Esseen and entropic CLT descriptions.",
+        "method": "Compared the quantity estimated (Fisher information/transport distance) and scope against the logarithmic entropy second constant.",
+        "title": "Functional inequalities for Boolean entropy",
+        "trigger": "Nearest earlier quantitative Boolean Fisher-information/central-limit work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ba62aac-db65-4746-96cc-e4dd8d5a28c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating general theorem identifies only v log(n)/(2n); its first omitted 1/n coefficient is a mathematically natural next-order invariant relevant to interpreting quantitative Boolean central-limit rates. The new interlacing spectral-residue formula classifies it for every fixed finite Nevanlinna support and locates the exact infinite-entropy boundary. More substantially, a fixed-four-moment family realizes every real second coefficient. This is a structural obstruction to extending leading-moment universality to the next order, not an arbitrary finite computation or an isolated routine Taylor substitution.",
+    "status": "PASS"
+  }
+}
