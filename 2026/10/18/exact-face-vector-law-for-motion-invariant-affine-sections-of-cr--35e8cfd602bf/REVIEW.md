@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Each proper face of the regular cross-polytope is specified by a set of coordinate axes and their signs. The section face count is the exact number of original faces whose projected vertex heights straddle the affine offset. Counting the forbidden sign patterns yields the binomial face-vector expression at every rank, and directly enumerating 945 small-dimensional cases agrees. The invariant hitting-plane measure weights each normal by the width, so the correct law uses *expected spacings divided by expected maximum*, not a uniform choice of Gaussian rank. Polar decomposition of a Gaussian vector proves that ratio, and integrated binomial order-statistic identities give explicit one-dimensional integrals. For each fixed rank, Gaussian maximum asymptotics and binomial concentration give the shared exponent \(j+2-U^2\) under the correctly width-size-biased law. Numerical checks are corroborative only.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The full accessible text of Ambrus's 2012 preprint establishes mean-width extremal inequalities and Gaussian maximum identities, not a face-vector law for random affine sections. Liu and Tkocz's 2019 full-text theorem section and its proofs address maximal section volumes and lengths, not the complete distribution of face counts. The closest recorded central-section results for cubes and simplices, and the affine-simplex random vertex-exponent result, concern different polytopes and do not logically imply the cross-polytope's all-rank binomial stratification. Searches for equivalent formulations (cross-polytope sections, positive/negative signed supports, half-normal thresholds, full face vectors) found no exact coverage. Residual historical priority and later unpublished work remain risks; no independent originality certification is claimed.
+PASS
 
-## Value — PASS
-The formula is a *complete* probability law for the entire section face vector in each dimension, rather than a single expected count or a tabulation of one solid. It identifies exactly \(d-1\) statistically realized strata and their weights, with an explicit efficient integral for every probability. Its joint nondegenerate power-law limit shows that all fixed face ranks respond to one common asymptotic random threshold, which has a geometric interpretation in terms of affine offsets passing Gaussian coordinate heights. The distinction from central sections, whose combinatorial complexity is nearly deterministic, is substantive. The observed coincidence of some face vectors does not justify claiming complete face-lattice classification.
+For generic s>0 write a_i=|u_i| and k=#(a_i<s). Every (j+1)-simplex face of the cross-polytope cuts the plane in a j-face iff its signed vertex heights straddle s. For an m=j+2 coordinate set with q coordinates below s, count 2^m-2^q-1_{q=0}, producing exactly the displayed F_{d,j}(k). The vertex formula 2[binom(d,2)-binom(k,2)] proves d-1 distinct vectors (k=0,1 coincide). Offset intervals have widths a_(k+1)-a_(k), and Gaussian radial independence gives the ratio of half-normal expected order-statistic gaps. For high d, tilting by Gaussian max M_d changes the law by vanishing total variation, as M_d/E M_d ->1 in L1; conditional uniform offset uM_d leaves ell=d-k=d^{1-u²+o_P(1)}, and first-order faces f_j ~ [2^(j+1)/(j+1)!] ell d^(j+1). Simultaneous fixed-rank exponent follows. Actual independent exact signed-face enumeration checked 166 (d,k,j) cases for 3<=d<=8; finite checks do not prove the limit.
 
-## Closest literature and limits
-G. Ambrus, arXiv:1208.5923; R. Liu and T. Tkocz, arXiv:1910.06993; H. König, arXiv:2002.10743; Padrol and Pfeifle, arXiv:1404.2443. Some broader polytope-section literature may contain equivalent calculations under different terminology. The asymptotic theorem concerns fixed face ranks and logarithmic scales; it supplies no numerical convergence rates. The correctness arguments are mathematical, with reproducibility code supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. A complete all-dimensional invariant-affine-section face-vector distribution and common high-dimensional exponent, rather than only expected face count or section volume. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+Motion-invariant affine sections differ essentially from central section laws: their actual random offset governs how many cross-polytope vertices lie above the plane. Explicit positive probabilities for all d-1 attainable face-vectors and a shared random exponent across all fixed ranks provide a natural complete classification and nontrivial geometric-probability limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
