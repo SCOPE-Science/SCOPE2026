@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Complete exact finite proof: enumerate all 2^21 tournament orientations and exactly 2640 regular ones, build all directed-cycle moves, certify degree 14 and group orbits of sizes 240/720/1680, and BFS each orbit representative. Independent adjacency-row recursion enumerates all configurations and BFS checks every one of the 2640 roots. Both standalone program executions passed; the detailed loop invariants and assumptions appear in RESULT.md. No asymptotic inference from finite tests is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guiduli, Gyárfás, Thomassé and Weidl (1998), Section 5, discuss general diameter upper bounds and lower-bound constructions for tournament interchange graphs, without an exact 7-regular metric table.",
+        "Kolesnik, Mitchell and Przybyłowski (2025), Section 1.1, summarize the classical degree/connectivity results before a different Coxeter generalization."
+      ],
+      "reasoning": "The general upper bound (n-1)(n-2)/2 gives 15 at n=7, not the sharp diameter 9 or its antipode characterization. A broader interchange graph family alone does not subsume its exact particular metric, and no stronger exact general theorem was found in inspected texts.",
+      "searches": [
+        "Brualdi Li tournament interchange graph exact distance radius 8 diameter 9 7 vertices",
+        "regular tournaments cyclic triangle reversals shortest distance 7 vertices"
+      ]
+    },
+    "checked_sources": [
+      "Guiduli et al. (1998), doi:10.1006/jctb.1997.1806, full primary text",
+      "Brualdi–Li (1984), bibliographic/citation evidence only",
+      "Kannan–Tetali–Vempala (1999), dated bibliographic/abstract evidence",
+      "Chen–Chang–Wang (2009), public abstract",
+      "Kolesnik–Mitchell–Przybyłowski (2025), open full article",
+      "Public seven-vertex tournament census, three unlabeled regular classes",
+      "Available published mathematical findings concerning tournament interchange and reconfiguration",
+      "Four directly executed query strings against published mathematical-record search and multiple primary-literature queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brualdi and Li (1984) is cited as establishing structural interchange results for fixed tournament score vector; original chapter unavailable for full comparison.",
+        "Chen, Chang and Wang (2009) concern minimum score vectors and hypercube interchange graphs, whose degree and score assumptions do not hold here.",
+        "Kannan, Tetali and Vempala (1999) concern Markov-chain generation/mixing, not an exact shortest-path classification in their accessible abstract."
+      ],
+      "reasoning": "General connectivity, regularity, asymptotic mixing, and minimum-score hypercube classification have strictly weaker or inapplicable conclusions. No inspected theorem implies the 8/9 eccentricity split and the 360 converse antipodes; an inaccessible original might contain an unreported exact computation, which is explicitly retained as a risk.",
+      "searches": [
+        "Brualdi Li tournament interchange graph exact distance radius 8 diameter 9 7 vertices",
+        "The interchange graph of tournaments with same score vector pdf Brualdi Li 1984"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The traditional name is a tournament interchange graph on a fixed score vector; directed-three-cycle reversal is also called triangle reversal.",
+        "The 1998 article states and uses the classical triangle-reversal relation for tournaments with equal score sequences."
+      ],
+      "reasoning": "The proposed metric is invariant under relabeling, but is not the underlying isomorphism graph: it is the labeled score-fiber graph. General interchange connectivity does not imply the three complete distance shells or the unique converse antipodes.",
+      "searches": [
+        "regular tournaments cyclic triangle reversal graph exact diameter eccentricity seven vertices",
+        "triangle reversal reconfiguration regular tournaments distance distributions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "McKay tournament census includes exactly three nonisomorphic regular tournaments of order seven; this is the number of isomorphism types, not the present 2640-state distance-shell classification.",
+        "The 1998 Section 5 and 2025 accessible introduction did not present a 7-regular distance distribution or antipodal table."
+      ],
+      "reasoning": "Enumeration of unlabeled types or the score-fiber size does not yield pairwise shortest paths; the three shell sequences and converse pairs were checked against the accessible statements. An unindexed table remains a risk.",
+      "searches": [
+        "seven vertex regular tournaments 2640 labeled triangular reversal interchange graph 14 regular 18480 edges 9 diameter opposite tournament",
+        "tournaments score sequence triangle reversal graph diameter regular 7"
+      ]
+    },
+    "rationale": "Prior work establishes connectivity, regular degree and general upper bounds, while the exact three-class distance shells, the unique converse-antipodal class and its intrinsic four-subset characterization were not found in inspected primary literature or accessible historical claims; see named implication checks and explicitly recorded access risks.",
+    "residual_risks": [
+      "The 1984 Brualdi–Li chapter was not available in full; an exact small-order distance table could be missed.",
+      "The 2009 minimum-score chapter and 1999 generation article were compared through accessible abstracts, not complete texts.",
+      "Unindexed or differently named exact finite tournament-interchange computations remain possible.",
+      "Unindexed exact finite classifications outside the accessible literature search cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general bounds and context but no exact 2640-vertex metric classification in inspected material",
+        "evidence": [
+          "Section 5 gives general diameter considerations and cites Ryser and Brualdi–Li; general seven-vertex upper bound is 15 rather than exact 9."
+        ],
+        "identifier_or_url": "https://users.renyi.hu/~gyarfas/Cikkek/85_2partitiontranstourn.pdf",
+        "material_read": "Accessible 16-page primary PDF, including introduction, Section 5 on tournament interchange graphs, and references",
+        "method": "Full-text mathematical comparison of triangle reversal, diameter bounds and the n=7 regular score restriction",
+        "title": "2-Partition-Transitive Tournaments",
+        "trigger": "Discussion of reversals and exact interchange-graph diameters"
+      },
+      {
+        "assessment": "Recites score-fiber connectivity and degree and develops Coxeter versions; no claim of exact seven-regular distance shells",
+        "evidence": [
+          "The article distinguishes its Coxeter constructions from the classical tournament triangle-reversal graph and does not present the stated antipodal classification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00026-025-00768-9",
+        "material_read": "Open full-text article, notably Section 1.1 introductory definitions and main claims",
+        "method": "Compare classical type-A interchange definitions with the specialized Coxeter claims",
+        "title": "Coxeter Interchange Graphs",
+        "trigger": "Potential stronger interchange graph theorem"
+      },
+      {
+        "assessment": "The abstract characterizes a different class; the current graph is degree 14, not a hypercube",
+        "evidence": [
+          "The 2009 title and abstract explicitly require minimum score vectors."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-008-0818-4",
+        "material_read": "Bibliographic record and accessible abstract; full article not available",
+        "method": "Compare theorem hypothesis minimum score vector with the regular vector (3,3,3,3,3,3,3)",
+        "title": "The Interchange Graphs of Tournaments with Minimum Score Vectors Are Exactly Hypercubes",
+        "trigger": "Possible exact score-fiber interchange graph classification"
+      },
+      {
+        "assessment": "Classical connectivity/degree credit; cannot exclude exact seven-vertex tables absent full text",
+        "evidence": [
+          "Referenced as a foundational tournament interchange-graph source by 1998 and 2025 articles; full text unavailable."
+        ],
+        "identifier_or_url": "Brualdi and Li, Progress in Graph Theory (1984), 129–151",
+        "material_read": "Bibliography and later quotations only; full chapter not retrieved",
+        "method": "Targeted lawful open-access lookup and compare 1998/2025 quotations of its results",
+        "title": "The interchange graph of tournaments with the same score vector",
+        "trigger": "Original foundational source could contain seven-regular exact table"
+      },
+      {
+        "assessment": "Relevant transition framework but no exact distance-profile statement in accessible material",
+        "evidence": [
+          "Public-source date resolved to 1999-06-11; article focuses on generation and mixing rather than all shortest paths."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199907)14:4<293::AID-RSA1>3.0.CO;2-G",
+        "material_read": "Dated public bibliographic record and accessible abstract; full article not inspected",
+        "method": "Compare score-preserving moves and Markov-chain mixing statements with the precise seven-vertex metric claim",
+        "title": "Simple Markov-chain algorithms for generating bipartite graphs and tournaments",
+        "trigger": "Historical archive date and closely related tournament score-fiber transitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06eedf9c-bad8-4fc2-aec8-16e599d4d96e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shortest score-preserving transformation distances are a natural metric invariant of a classical finite interchange graph. The sharp distinction between two eccentricity regimes, 360 unique converse antipodes and a local four-vertex orbit test yield substantive classification beyond known connectivity, regularity or isomorphism-type count. Exact finite classifications require no general theorem to be meaningful.",
+    "status": "PASS"
+  }
+}
