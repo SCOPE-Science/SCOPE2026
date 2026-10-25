@@ -1,0 +1,15 @@
+# Scientific review: illumination of right regular bipyramids
+
+## Correctness — PASS
+The explicit \(2n\) supporting facets and strict normal inequalities determine illumination at each apex and each equatorial vertex. The normal-net and averaged-adjacent inequalities show that, at equal heights, no direction can illuminate an apex and an equatorial vertex. Every equatorial direction illuminates at most \(m=\lfloor(n-1)/2\rfloor\) vertices, and all maximal consecutive blocks occur; dual counting plus constructive cyclic covers proves the two exact invariants. The tightness recurrence \(x_k=x_{k-m}\) gives exactly one mass value or one alternating degree of freedom, depending on \(n\pmod4\). For unequal heights 1 and 3, the pentagonal tilted vectors are strict facet witnesses, certified by \(19\sqrt5>41\); the lower-pole separation and capacity-two inequality certify both lower bounds. The Python checker independently exercises many finite sign cells, covers and facets but does not replace the proof for all parameters.
+
+## Originality — PASS under inspected evidence
+The closest foundational work is Naszódi (2009), the planar regular-polygon multiple-illumination theorem of Sriamorn (2023), and Gorodzha's general fractional bound (2026). Full public mathematical proofs for equiangular-polygon fractional illumination and antipodal-normal-fan polygon multiple illumination were read. These establish the planar incidence ingredients, not the three-dimensional apex/equator rigidity or the unequal-height counterexample. Norm-ball \(\ell_1\)-sum illumination additivity covers the **even**-order base case, a known subcase acknowledged in the result. The odd-order family and the asymmetric witness lie outside that symmetric hypothesis. Searches by bipyramid, double cone, suspended polygon and free-sum synonyms did not return the same theorem. This is a bounded priority assessment rather than uniqueness certification; equivalent unindexed formulations are an outstanding risk.
+
+## Mathematical value — PASS
+The all-height exact classification, optimal fractional rigidity and mod-four mass-face transition give a useful structural result about illumination under geometric free sums. The explicit unequal-height pentagonal example demonstrates that preserving the face lattice does not preserve illumination invariants, and identifies the symmetric-height assumption as essential. The statement is not offered as an arbitrary numerical census.
+
+## Limits and checked literature
+The asymmetric statement is proved only for the specific fivefold example, not for every unequal-height parameter. The classification of optimal weighted directions is aggregate by incidence cell, not by individual atom location. The full proof and the reproducible checks appear in `RESULT.md` and `verify.py`. Relevant sources: Naszódi (2009), DOI 10.55016/ojs/cdm.v4i2.62022; Sriamorn (2023), arXiv:2306.13517; Gorodzha (2026), arXiv:2609.23913; and the published equiangular-polygon and antipodal-normal-fan published-finding corpus findings, 2026-10-11.
+
+Self-review: passed. Independent audit: not yet performed.
