@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:05:08Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md e4e19f06eef0d852b98409eca0d6483c206750d0; verify_integral.py 436f8923b08c2110d903b7130bd452ac8fe0ed87 and verify_dual.py 97dfca096ea860c39412a25d695767368113da33 inspected as source, not blindly executed.",
+        "Independent combinatorial generator produced [1,16,80,144,72], no 5-face, F2 ranks [1,15,65,71]; independent sparse chain matrices computed exact Smith factors [{1:15},{1:65},{1:71,2:1}].",
+        "Caputi et al arXiv:2208.04656v1, Introduction and Definitions 4.1,4.2,4.4, specify precisely the dynamical-module torsion conjecture being contradicted."
+      ],
+      "limitations": [
+        "Finite exactly specified instance only, not minimality across all digraphs or classification. Code and integrality establish homology but not historical novelty."
+      ],
+      "rationale": "For D the bidirected K_{2,4}, cycle closure of any nonempty dynamical region consumes all 16 arcs, while each vertex has positive indegree and outdegree, so D is an unstable single module under cited definitions. Multipath faces are precisely directed acyclic arc sets with distinct source and target. Rebuilt all legal faces (sizes 1,16,80,144,72, none with 5 arcs) directly from those rules. Independently rebuilt all augmented chain matrices and ran SymPy integer Smith normal forms: d1 has 15 unit factors, d2 65 unit factors, d3 71 units and one factor 2; augmentation rank 1; d3 injective. Thus H~2=Z^7+Z/2 and other reduced groups zero. Independently computed F2 boundary ranks (1,15,65,71) and the repo verifies a connected nonorientable top-facet adjacency, giving a separate 2-torsion witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published alternating oriented K_{m,n} computation takes edges in one alternating direction; D here uses both directions.",
+          "General cycle-free chessboard results supply connectivity bounds, not the exact integral Smith factors and unstable-module contradiction here."
+        ],
+        "reasoning": "No inspected broader result implies the precise torsion/module combination. In particular matching comparisons for acyclic digraphs cannot specialize to a digraph containing a directed 2-cycle.",
+        "searches": [
+          "arXiv:2208.04656v1 §3, §4",
+          "arXiv:0710.5252 results on cycle-free chessboard complexes",
+          "arXiv:2401.01248 abstract/known quiver-minor scope"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.04656",
+        "https://arxiv.org/pdf/0710.5252",
+        "https://arxiv.org/pdf/2401.01248",
+        "Resultary records named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior conjecture asserts torsion in X(M) implies stable M; audited six-vertex M is unstable with verified torsion, so is a counterexample rather than a corollary.",
+          "Connectivity bounds for different directed matching complexes do not determine these integral groups."
+        ],
+        "reasoning": "Original strict implication is falsified at M itself, not via a renaming of an existing known torsion calculation.",
+        "searches": [
+          "arXiv:2208.04656v1 Introduction conjecture and Definition 4.4",
+          "arXiv:0710.5252"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bidirected bipartite multipaths can be represented as cycle-free rook placements but allow directed 2-cycles and require directed-cycle avoidance.",
+          "Caputi conjecture is a statement about an individual dynamical module with integral torsion, not all connected digraphs."
+        ],
+        "reasoning": "Tracked bidirected K2,4, cycle-free chessboard restrictions, multipath homology, and dynamical-region aliases; generic matching complexes and path homology are inequivalent to the claimed complex.",
+        "searches": [
+          "Resultary semantic search: bidirected complete bipartite digraph K2,4 multipath complex integral homology Z/2 torsion unstable dynamical module conjecture",
+          "Caputi–Collari–Di Trani–Smith arXiv:2208.04656v1 Introduction and Def.4",
+          "Vrećica–Živaljević arXiv:0710.5252"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary K2,4 row concerns ordinary discrete Morse matching homology representation rather than directed multipath homology.",
+          "Bidirectional polygons record computes rational homology of polygons, not the bidirected proper bipartite digraph or its integral 2-torsion."
+        ],
+        "reasoning": "No exact matching published table found in actual search; this absence is a residual priority risk, not a novelty proof.",
+        "searches": [
+          "Resultary: bidirected complete bipartite digraph K2,4 multipath complex integral homology Z/2 torsion unstable dynamical module conjecture",
+          "Resultary 2026/10/11/SCOPE-full-s-2-times-s-4-homology-representation-of-the-k-2-4-morse-co--36f4259fda88",
+          "Resultary 2026/10/11/SCOPE-dihedral-rational-homology-of-bidirectional-polygon-multipath-co--627013477864"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the actual bidirected module torsion counterexample, not for generic multipath-complex topology. The original conjecture is an explicit contradictory implication; compared distinct homology theories, orientations and quantifiers, not merely K_{2,4} labels.",
+      "residual_risks": [
+        "An unindexed finite Smith computation of the same 16-arc complex may exist.",
+        "Later versions of the 2022 conjecture may revise its scope; this claim specifically targets v1 wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering exact bidirected K2,4 torsion, and conjecture directly contradicted.",
+          "evidence": [
+            "Original Introduction conjecture about X(M) integral torsion forces stable module; its bipartite example uses one-way alternating orientation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "Full-text Introduction, Definitions 2.2 and 4.1–4.4, alternating bipartite examples in §3 and conjecture discussion",
+          "method": "ArXiv PDF text with page screenshot and targeted section reading",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Defines object, stability conjecture and module"
+        },
+        {
+          "assessment": "General cycle-free complete directed model, no seen exact integral torsion for bidirected K2,4 dynamical module.",
+          "evidence": [
+            "Its ambient matching and cycle-free constraints differ in directed bipartite specificity; no resulting implication to module stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0710.5252",
+          "material_read": "Abstract and graph-definition/results sections of accessible arXiv PDF; checked relevant cycle-free setting",
+          "method": "ArXiv PDF text and screenshot, targeted mathematical reading",
+          "title": "Cycle-free chessboard complexes and symmetric homology of algebras",
+          "trigger": "Plausible broader cycle-free rook-matching theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact SNF Z/2 plus nonorientable top-facet obstruction",
+        "Caputi et al conjecture quoted in primary source"
+      ],
+      "limitations": [
+        "Finite witness, no claim to globally smallest digraph."
+      ],
+      "rationale": "A concrete smallest-in-family-style small counterexample targets a named published structural conjecture about dynamical modules: torsion does not force stability. Exact integral Z/2 is not supplied by field-rank enumeration alone, and its orientation obstruction provides mechanism, giving a reusable boundary example. No family theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

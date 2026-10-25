@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-All sixteen arcs, the face conditions and integral chain signs are explicit. Exact enumeration gives \(1,16,80,144,72\) augmented face counts and Smith factors \((1), (1^{15}), (1^{65}), (1^{71},2)\). A separately implemented recursive enumerator reproduces the face counts and proves a nonorientability sign obstruction, while field ranks corroborate integral torsion. Directed-cycle overlap connectivity ensures this entire bidirected graph is one unstable dynamical module. Limitation: machine-checked finite Smith reductions are used for the invariant factors; executable full source and outputs are embedded.
+## correctness
 
-## Originality — PASS
-The earliest source [1] publicly appeared in 2022 and states the stability conjecture. Its complete-bipartite Euler calculation assumes a single arc orientation and therefore does not imply the present bidirected integral homology. The cycle-free chessboard literature [2] studies encompassing complete-digraph constructions without this subgraph's exact group; the quiver-minor paper [3] does not assert this calculation, and its matching comparison assumes an acyclic orientation. The bidirectional polygon classification [4] concerns another graph family. Targeted mathematical-index searches for equivalent terminology, graph parameters, published tables, and stronger coverage did not identify a covering result. The remaining risk is an unindexed equivalent calculation or a later reformulation of the conjecture.
+PASS
 
-## Mathematical value — PASS
-A direct counterexample to an explicit published structural conjecture has substantive mathematical motivation. The graph is natural (the two-way complete bipartite digraph with parts of size two and four), and the order-two class has an independent explanation through a connected nonorientable simplicial pseudomanifold. The result does not claim a smallest possible order among all digraphs.
+For D the bidirected K_{2,4}, cycle closure of any nonempty dynamical region consumes all 16 arcs, while each vertex has positive indegree and outdegree, so D is an unstable single module under cited definitions. Multipath faces are precisely directed acyclic arc sets with distinct source and target. Rebuilt all legal faces (sizes 1,16,80,144,72, none with 5 arcs) directly from those rules. Independently rebuilt all augmented chain matrices and ran SymPy integer Smith normal forms: d1 has 15 unit factors, d2 65 unit factors, d3 71 units and one factor 2; augmentation rank 1; d3 injective. Thus H~2=Z^7+Z/2 and other reduced groups zero. Independently computed F2 boundary ranks (1,15,65,71) and the repo verifies a connected nonorientable top-facet adjacency, giving a separate 2-torsion witness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the actual bidirected module torsion counterexample, not for generic multipath-complex topology. The original conjecture is an explicit contradictory implication; compared distinct homology theories, orientations and quantifiers, not merely K_{2,4} labels.
+
+## value
+
+PASS
+
+A concrete smallest-in-family-style small counterexample targets a named published structural conjecture about dynamical modules: torsion does not force stability. Exact integral Z/2 is not supplied by field-rank enumeration alone, and its orientation obstruction provides mechanism, giving a reusable boundary example. No family theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
