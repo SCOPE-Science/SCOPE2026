@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Read `RESULT.md` for the exact definitions and the analytical all-dimensional argument. Run `python3 check_spherical_sector.py` with Python 3, NumPy and SciPy installed. The checker uses rational arithmetic for the cone and ball identities at ten selected rational values of \(\sin^2\theta\), validates weighted John first/second moments numerically, and compares against SLSQP maximization of \(\log a+(d-1)\log b\) for the full three-parameter axial ansatz. It prints `All checks passed.` on success; this output was observed for the embedded file. None of these numerical checks are offered as proof outside the tested cases.
+## correctness
 
-For the universal proof, independently verify that \(c^2=a^2+\cot^2\theta\,b^2\), maximize the displayed quadratic \(q(u)\) on \([-1,1]\), and check the four scalar John-moment identities for each branch. A valid certificate needs only the displayed finitely many contacts, and yields global optimality for ellipsoids of arbitrary center and orientation. The derivative statement follows from direct differentiation of the exact volume formula. No external audit or additional certification has been performed.
+PASS
+
+Independently rederived cone containment c²>=a²+cot²(theta)b² and ball norm quadratic q(u)=c²+b²+2cau+(a²-b²)u². Both proposed branches saturate cone/ball; for theta<=asin(1/sqrt d) ball contact is tip, above it latitude u=gamma/d. Source explicit positive John-contact weights on ± coordinate transverse directions obey sum lambda z=0 and sum lambda zz^T=I, yielding global volume optimality among all ellipsoids, not mere axial candidates. Independently checked all moment and containment equalities in d=2,3,5,9 and two regimes. The log-volume branches agree through first derivative and have second derivative jump -2d.
+
+## originality
+
+PASS
+
+PASS: original Güler–Gürtuna flat truncated cone and slab formulas and published Khachiyan half-cone concern flat facets, not a sphere-cone intersection; current spherical contact-latitude bifurcation and exact formula are not parameter substitutions. General John ellipsoid-of-revolution criteria are not the evaluated full-profile conclusion.
+
+## value
+
+PASS
+
+Complete exact John ellipsoid classification of a natural conic spherical body, certified by contact geometry and a nontrivial sharp aperture bifurcation; reusable benchmark for convex optimization and extremal ellipsoid studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
