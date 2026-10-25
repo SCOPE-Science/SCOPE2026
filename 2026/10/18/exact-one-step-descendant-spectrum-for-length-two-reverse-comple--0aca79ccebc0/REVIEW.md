@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact equality of two duplication outputs reduces to a finite word equation; equality forces and is forced by a complement-alternating intervening segment, with overlapping and nonoverlapping cases treated separately. The classes of duplication positions are intervals, so their count is determined by adjacent triple occurrences. The two-state weighted transition matrix is derived directly from the complete alphabet and inverted algebraically; exact probabilistic moments follow from indicator covariances. A standalone exhaustive checker confirms all word classes for several alphabets and lengths and checks the coefficient recurrence. Boundary cases \(n=2\) and \(n=3\) are addressed explicitly. The proof, not finite testing, supplies the infinite result.
+## correctness
 
-**Originality — PASS with documented residual risk.** The closest full primary papers are Ben-Tolila–Schwartz, arXiv:2112.11811, which studies long-run expressiveness, capacity and entropy, and Yohananov–Schwartz, arXiv:2312.00394, which treats arbitrary-error coding capacity. Neither inspected statement gives the complete one-step sphere histogram. Zabokritskiy, arXiv:2609.00779, reports a maximum over exactly two errors and a channel conjugacy, which does not by itself imply this one-step full distribution. Only its abstract was accessible, so its uninspected lemmas pose genuine residual risk. Literature and research-record searches for sphere distributions, length-two reverse-complement insertion collisions and palindromic equivalences did not reveal a stronger applicable result. Absence from search is not proof of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** The result resolves the full forward-branching distribution for an established DNA-inspired duplication channel, uniformly in word length and alphabet size, rather than giving an isolated small-case census. The collision classification exposes the exact mechanism by which insertion positions become observationally redundant; the rational generating function gives all sphere-size probabilities and sharp finite-length moments needed to calibrate counting and sphere-packing arguments. It does not purport to solve code optimality or multiple-error coding questions.
+PASS. The channel duplicates a consecutive pair ab as ab complement(b) complement(a), with no symbol fixed by the complement involution. Equating outputs at two starts reduces by cancellation to xz=zy; the length-one overlap and longer period-two word equations force the intervening original factor to alternate in complementary pairs, and conversely give equality. Consequently equivalence classes of start positions are maximal alternating runs, so B(w)=n-1-C(w), with C the count of length-three complementary alternating factors. The two suffix states (complementary pair or not) carry transitions [[q-1,1],[q-1,z]], yielding the asserted rational generating function with initial vector q(q-1),q. Indicator expectations 1/q² and adjacent joint 1/q³, while distance-two indicators are independent, give the stated variance. The n=2 boundary and all even q are handled; independent direct daughter-set and histogram enumeration confirmed small q,n without extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, LIMITED TO THE COMPLETE ALL-q FORWARD ONE-ERROR SIZE DISTRIBUTION AND MOMENTS, NOT THE INDIVIDUAL-SPHERE COLLISION LAW. Critical newly inspected source: Lenz–Wachter-Zeh–Yaakobi (2018 Lemma 3 / 2019 Lemma 12) already proves the exact per-word PAL2 one-error sphere and same-run collisions; Zabokritskiy (2026) proves the even-length PAL/RC conjugacy, so the RC2 per-word collision and size law are already implied by prior work and have no independent priority. Their inspected full texts did not report the submitted all-q bivariate degree enumerator, moment formulas and exact histogram. This surviving natural quantitative distribution requires additional all-words enumeration, even though it follows by applying a two-state transfer count to the known local law. Thus the main complete spectrum is assessed as an original quantitative refinement; the original source's relationship-to-prior-work section materially undercredits this coverage and must be corrected BEFORE any public use. If the original item were claimed only as a sphere law it would be rejected as covered.
+
+## value
+
+PASS
+
+PASS for the complete q-ary one-step channel degree distribution, a natural spectrum of forward branching multiplicities and a quantitative input to finite-error sphere/packing analysis. An exact rational two-parameter enumerator, mean, variance and extremal multiplicities add information beyond the individual per-source size criterion. The credited collision identity alone is not novel or sufficient to establish value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
