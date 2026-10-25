@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T13:52:56.664645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniform perfect matching on 2n cyclic labels, candidate edge indicators have inclusion probabilities 1/(2n−1) and 1/[(2n−1)(2n−3)] for disjoint pairs, giving finite span means/variances. Conditioning the chord at vertex 0 on its shorter-arc span k gives crossing-partner expectation k(2n−2−k)/(2n−3), hence mixed covariance n³(n−1)²/[6(2n−3)(2n−1)]; crossing variance n(n−1)(n+3)/45 is properly credited to Flajolet–Noy. Rank iid uniform random endpoint pairs to represent a uniform matching. A pairwise sum L* of short-arc endpoint occupancies exceeds actual L by mean n(n−1)/[2(2n−1)] = O(n), so its centered n^(−3/2) error vanishes in probability. Crossings are exactly another iid-pair U-statistic. Hoeffding first projections ψ_L(q)=2q−1/2 and ψ_X(q)=2q(1−q)−1/3 for q uniform (0,1/2), yielding covariance [[1/12,1/24],[1/24,1/45]], degenerate remainder O(n²), multivariate iid CLT, determinant 1/8640 and residual variance 1/720. Independent complete matching enumeration n=2..5 (3,15,105,945 cases) verified all 5 finite moment formulas; source checker runs n≤7. Finite checks are not CLT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General multivariate U-statistic CLT permits the joint limit once the random matching is represented by iid endpoint pairs and first projections computed."
+        ],
+        "reasoning": "Generic methods provide a proof mechanism but not the specific joint statistic, rank-to-occupancy error estimate and explicit covariance and regression constants; no inspected stronger evaluated result covers them.",
+        "searches": [
+          "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+          "Flajolet Noy 2000 Section 2",
+          "arXiv:1501.01489",
+          "multivariate bounded U-statistic Hoeffding CLT"
+        ]
+      },
+      "checked_sources": [
+        "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+        "arXiv:1501.01489",
+        "Flajolet Noy Analytic Combinatorics of Chord Diagrams March 2000",
+        "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+        "Frozen repository at f30f943587282d59c837419db4b41647621abfdb; RESULT.md and source checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal asymptotic normality of X and one-chord length-crossing conditional expectation do not imply L_n has CLT jointly with X_n."
+        ],
+        "reasoning": "The L* approximation and two-component first-order Hoeffding projection are substantive additional steps; finite covariance does not itself imply Gaussian joint limit.",
+        "searches": [
+          "Flajolet–Noy 2000",
+          "arXiv:1501.01489",
+          "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chord span defined as number of cyclic endpoints in shorter open arc (not Euclidean length); crossing statistic is exactly same random-matching crossing count as Flajolet–Noy."
+        ],
+        "reasoning": "The definition agrees with single-chord length studied previously. Neither marginal crossing law nor chordwise conditional crossing degree states covariance of total lengths with total crossings.",
+        "searches": [
+          "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+          "arXiv:1501.01489",
+          "Flajolet–Noy 2000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Crossing marginal moment table and chord length distribution are known separately; exact covariance n³(n−1)²/[6(2n−3)(2n−1)] and Σ entries were not found in inspected material."
+        ],
+        "reasoning": "An exact precomputed crossing variance alone cannot supply nonzero mixed moment or joint fluctuations, so database/table coverage was not established.",
+        "searches": [
+          "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+          "arXiv:1501.01489",
+          "Flajolet Noy 2000"
+        ]
+      },
+      "rationale": "Best-of-knowledge original relative to the named same-object, general-method and neighboring-formulation publications inspected. Exact statement/implication comparisons do not establish prior coverage; limitations on partially read related records remain recorded explicitly. The definition agrees with single-chord length studied previously. Neither marginal crossing law nor chordwise conditional crossing degree states covariance of total lengths with total crossings. Generic methods provide a proof mechanism but not the specific joint statistic, rank-to-occupancy error estimate and explicit covariance and regression constants; no inspected stronger evaluated result covers them.",
+      "residual_risks": [
+        "Acan 2013 thesis full text was not accessed; a previously published multivariate diagram-statistics theorem might specialize to this pair.",
+        "The iid-endpoint representation and O(n) expectation error are essential; finite n exact checks do not certify weak convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CROSSING_MARGINAL_PREEXISTS_JOINT_SPAN_NOT_FOUND",
+          "evidence": "The report studies components, largest components and crossings and proves marginal crossing asymptotic normality; no total-shorter-arc-span joint covariance or bivariate limit stated.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Full 14-page research report including crossing section, statements and references; visible PDF page and text inspected",
+          "method": "full PDF text and visual screenshot",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Known crossing-count variance and marginal Gaussian theorem in same ensemble"
+        },
+        {
+          "assessment": "SINGLE_CHORD_LENGTH_AND_CROSSING_DEGREE_PRIOR",
+          "evidence": "Single chord length/degree distribution and conditional crossing relationships are prior results; the global sum of spans and its joint n^3/2 limit with total crossings are not found.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "Full primary PDF, span/length and degree conditional results inspected and relevant page viewed",
+          "method": "full PDF text and screenshot",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same random object and shorter-arc span/degree statistics"
+        },
+        {
+          "assessment": "NOT_EXCLUDED_PRIORITY_RISK",
+          "evidence": "A comprehensive thesis plausibly contains additional global-statistic calculations; no whole-document noncoverage claim made.",
+          "identifier_or_url": "OhioLINK PhD thesis of Hüseyin Acan (2013)",
+          "material_read": "Only bibliographic reference available, full thesis not retrieved/read in this execution",
+          "method": "bibliographic pointer only",
+          "title": "An Enumerative-Probabilistic Study of Chord Diagrams",
+          "trigger": "Plausible broader thesis covering same chord diagram model and extensive statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint fluctuation and 15/16 explained-variance law reveal a nontrivial dependence between two natural global chord-diagram observables. It supplies an explicit residual Gaussian statistic beyond known marginal crossing asymptotics, with a rigorous U-statistic approximation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+    "arXiv:1501.01489",
+    "Flajolet Noy Analytic Combinatorics of Chord Diagrams March 2000",
+    "uniform random chord diagram matching total shorter arc span crossing pairs joint central limit covariance",
+    "Frozen repository at f30f943587282d59c837419db4b41647621abfdb; RESULT.md and source checker"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Acan 2013 thesis full text was not accessed; a previously published multivariate diagram-statistics theorem might specialize to this pair.",
+    "The iid-endpoint representation and O(n) expectation error are essential; finite n exact checks do not certify weak convergence."
+  ],
+  "residual_risks": [
+    "Acan 2013 thesis full text was not accessed; a previously published multivariate diagram-statistics theorem might specialize to this pair.",
+    "The iid-endpoint representation and O(n) expectation error are essential; finite n exact checks do not certify weak convergence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "CROSSING_MARGINAL_PREEXISTS_JOINT_SPAN_NOT_FOUND",
+      "evidence": "The report studies components, largest components and crossings and proves marginal crossing asymptotic normality; no total-shorter-arc-span joint covariance or bivariate limit stated.",
+      "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "material_read": "Full 14-page research report including crossing section, statements and references; visible PDF page and text inspected",
+      "method": "full PDF text and visual screenshot",
+      "title": "Analytic Combinatorics of Chord Diagrams",
+      "trigger": "Known crossing-count variance and marginal Gaussian theorem in same ensemble"
+    },
+    {
+      "assessment": "SINGLE_CHORD_LENGTH_AND_CROSSING_DEGREE_PRIOR",
+      "evidence": "Single chord length/degree distribution and conditional crossing relationships are prior results; the global sum of spans and its joint n^3/2 limit with total crossings are not found.",
+      "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+      "material_read": "Full primary PDF, span/length and degree conditional results inspected and relevant page viewed",
+      "method": "full PDF text and screenshot",
+      "title": "On a uniformly random chord diagram and its intersection graph",
+      "trigger": "Same random object and shorter-arc span/degree statistics"
+    },
+    {
+      "assessment": "NOT_EXCLUDED_PRIORITY_RISK",
+      "evidence": "A comprehensive thesis plausibly contains additional global-statistic calculations; no whole-document noncoverage claim made.",
+      "identifier_or_url": "OhioLINK PhD thesis of Hüseyin Acan (2013)",
+      "material_read": "Only bibliographic reference available, full thesis not retrieved/read in this execution",
+      "method": "bibliographic pointer only",
+      "title": "An Enumerative-Probabilistic Study of Chord Diagrams",
+      "trigger": "Plausible broader thesis covering same chord diagram model and extensive statistics"
+    }
+  ]
+}

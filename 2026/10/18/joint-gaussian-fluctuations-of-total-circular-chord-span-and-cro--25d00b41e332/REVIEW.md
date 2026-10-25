@@ -1,19 +1,21 @@
-# Review of joint span–crossing fluctuation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite formulas follow from edge-indicator probabilities on uniform matchings and the conditional number of crossing partners of a prescribed chord. The external scalar crossing-variance identity is explicitly attributed to Flajolet and Noy. Crucially, the iid-endpoint representation converts crossings to an exact bounded order-two U-statistic and total span to another such U-statistic with expected absolute approximation error exactly \(n(n-1)/(2(2n-1))\). Hoeffding projection and the ordinary bivariate iid central limit theorem prove the limiting covariance matrix. Both projection integrals and all five stated finite moments were checked independently with exact rational computations for \(2\le n\le7\). The numerical check is finite evidence only; the general theorem follows from the proof.
+PASS
 
-## Originality — PASS (historical priority not independently established)
+For a uniform perfect matching on 2n cyclic labels, candidate edge indicators have inclusion probabilities 1/(2n−1) and 1/[(2n−1)(2n−3)] for disjoint pairs, giving finite span means/variances. Conditioning the chord at vertex 0 on its shorter-arc span k gives crossing-partner expectation k(2n−2−k)/(2n−3), hence mixed covariance n³(n−1)²/[6(2n−3)(2n−1)]; crossing variance n(n−1)(n+3)/45 is properly credited to Flajolet–Noy. Rank iid uniform random endpoint pairs to represent a uniform matching. A pairwise sum L* of short-arc endpoint occupancies exceeds actual L by mean n(n−1)/[2(2n−1)] = O(n), so its centered n^(−3/2) error vanishes in probability. Crossings are exactly another iid-pair U-statistic. Hoeffding first projections ψ_L(q)=2q−1/2 and ψ_X(q)=2q(1−q)−1/3 for q uniform (0,1/2), yielding covariance [[1/12,1/24],[1/24,1/45]], degenerate remainder O(n²), multivariate iid CLT, determinant 1/8640 and residual variance 1/720. Independent complete matching enumeration n=2..5 (3,15,105,945 cases) verified all 5 finite moment formulas; source checker runs n≤7. Finite checks are not CLT proof.
 
-The closest primary study is Acan, arXiv:1501.01489v1, on the **same** chord diagrams, with **single-chord** span and crossing-degree information. The exact local conditional mean can already be deduced there; the present claim instead includes a full joint central limit theorem for sums over all chords and all crossing pairs, together with a positive-definite covariance and explicit residual Gaussian law. Flajolet and Noy provide the **scalar** crossing-count variance and Gaussian limit. No directly covering joint global span–crossing theorem was identified in the material inspected or in the searches recorded in the accompanying structured review. An unlocated specialization of a more general result remains a material historical risk; a failure to find it is not evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The total shorter-arc span is a natural geometric aggregate, and crossing count is the edge count of the intersection graph. Their joint uncertainty cannot be inferred from their marginals. The exact asymptotic correlation \(\sqrt{15}/4\) and residual variance \(1/720\) reveal quantitatively that geometric spans explain \(15/16\) of intersection-count variance, while an independent noise direction remains. This is an informative structural fluctuation law, not just an isolated finite moment or an arbitrary slice.
+Best-of-knowledge original relative to the named same-object, general-method and neighboring-formulation publications inspected. Exact statement/implication comparisons do not establish prior coverage; limitations on partially read related records remain recorded explicitly. The definition agrees with single-chord length studied previously. Neither marginal crossing law nor chordwise conditional crossing degree states covariance of total lengths with total crossings. Generic methods provide a proof mechanism but not the specific joint statistic, rank-to-occupancy error estimate and explicit covariance and regression constants; no inspected stronger evaluated result covers them.
 
-## Scope and limits
+## value
 
-The model is a uniform labeled cyclic perfect matching; no claim is made for conditioned or geometric-length-weighted matchings. Historical overlap checks are bounded and not an assertion of priority. The theorem is an asymptotic weak limit, with no claimed convergence rate. Independent verification of mathematical novelty and correctness remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Joint fluctuation and 15/16 explained-variance law reveal a nontrivial dependence between two natural global chord-diagram observables. It supplies an explicit residual Gaussian statistic beyond known marginal crossing asymptotics, with a rigorous U-statistic approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
