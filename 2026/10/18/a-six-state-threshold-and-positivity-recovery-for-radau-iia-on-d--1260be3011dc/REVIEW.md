@@ -1,11 +1,21 @@
-# Review: six-state Radau positivity recovery
+# Independent mathematical audit
 
-**Correctness — PASS.** The result supplies complete polynomial quotient-ring identities for every order \(2\le n\le6\), an explicit positive denominator factorization for the critical order, and proofs for every numerator sign, including the one polynomial with negative coefficients. The critical quintic is strictly increasing on nonnegative timesteps. A direct stability-function series gives the negative fifth-jump coefficient for all larger orders; Fourier diagonalization gives eventual recovery. The bundled exact-integer and rational checker independently verifies every finite polynomial identity and sample matrix inversions. Finite tests are evidence for the computations, not the arbitrary-order proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The classical Radau-method source gives the rational stability function, not its sharp nonnegativity region on directed cycles. The 2010 positive-systems Padé study and its expanded 2012 analysis establish positivity difficulties and examples for different Padé maps; the latter's eight-state diagonal-Padé counterexample does not imply the six-state subdiagonal-Padé transition. Previously catalogued star and complete-bipartite Radau results concern undirected symmetric generators, and an eight-state directed Gauss--Legendre example uses another stability function. Searches for cyclic positive Radau, the exact quintic, [1/2]-Padé cyclic Markov steps and alternative sign-formulations did not identify a covering statement. A specialized unpublished, unindexed, or inaccessible treatment remains a real novelty risk; absence from search is not a proof of novelty.
+PASS
 
-**Value — PASS.** The natural invariant is the complete set of timesteps for which the actual numerical Markov update preserves the probability cone. The sharp six-state cycle shows an initially negative completed step after arbitrarily small positive steps, followed by permanent positivity restoration at an exact algebraic threshold. It identifies the smallest dimension of this failure **within the uniform directed-cycle family** and simultaneously explains why it occurs in every larger cycle. This is a meaningful boundary for positivity of a classical high-order implicit integrator, not merely a finite table entry.
+For Q=P−I and two-stage Radau IIA R(z)=(1+z/3)/(1−2z/3+z²/6), eigenvalues of hQ have Re≤0, whereas poles of R lie at 2±i√2, proving a unique well-defined endpoint matrix at every h≥0. R(0)=1 ensures row/column conservation. Modulo P^n−1, the complete certificate arrays in pinned verify.py give exact numerator-polynomial rational expressions for n=2..6, all numerators nonnegative and strictly positive for n≤5 at h>0. For n=6 the displacement-5 numerator is h^5 f(h), f=h^5+15h^4+60h³+90h²+36h−12, f′>0; other numerators positive, including the sign-indefinite p_{6,0} via h≤1 and h=1+t coefficient bounds. Thus positivity holds precisely {0}∪[tau,infty), tau unique positive root ≈0.208608859735; the exact h=1/10 coefficient is −743849/19268401151106. Independently recomputed rational endpoint inverses in 63 cycle-step instances n=2..8; also independently checked the z^5 Taylor coefficient −1/108 of R, proving negativity at distance five for every n≥6 at small h. Fourier diagonalization Q gives limit 11^T/n as h→∞ for each fixed n, hence eventual strict positivity. No complete intermediate region for n≥7 is claimed. All-n statements follow exact Taylor/Fourier arguments, not finite samples.
 
-Scientific limits: the complete range of intermediate positivity windows for orders greater than six remains unclassified, and no unrestricted all-generators dimension statement is made. The exact polynomial signs are proved only for orders at most six; the later general conclusions have separate analytical proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hairer–Wanner 1999 and Ketcheson Numipedia give the classical Radau IIA stability function; the positivity threshold is not a claim about a new RK method. Zappavigna–Colaneri–Kirkland–Shorten discuss Padé schemes and positive systems, including a different [2/2] Gauss-type eight-state obstruction; [1/2] Radau on uniform directed cycles is not that diagonal [2/2] map. A published Resultary record on an eight-state [2/2] Padé Markov positivity barrier and another SSP-SDIRK dimension threshold were located, but these are mathematically different methods and graph domains. Accessible primary results did not establish the six-state exact fifth-degree positivity recovery boundary, leaving unindexed overlap risk.
+
+## value
+
+PASS
+
+Entrywise stochastic positivity is essential when RK steps approximate CTMC transitions. An exact minimal dimension WITHIN a canonical uniform one-way cycle family and its surprising nonmonotone timestep positivity recovery are meaningful intrinsic sharp invariants and a practical non-SSP numerical-analysis benchmark. The qualified higher-n eventual recovery statement is useful without asserting an unfinished global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

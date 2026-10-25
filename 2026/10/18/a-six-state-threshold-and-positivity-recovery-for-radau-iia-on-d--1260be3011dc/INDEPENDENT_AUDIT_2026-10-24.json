@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:53:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 47c5ca746137b179a12c39f2ba9829625e1758d7 and verify.py blob 13de4a5aea2ddc7c59b16bb7cc15df3bdded0537",
+        "independent_checks.json radau block: 63 independent exact rational matrix inverses plus symbolically checked displacement-5 Taylor coefficient"
+      ],
+      "rationale": "For Q=P−I and two-stage Radau IIA R(z)=(1+z/3)/(1−2z/3+z²/6), eigenvalues of hQ have Re≤0, whereas poles of R lie at 2±i√2, proving a unique well-defined endpoint matrix at every h≥0. R(0)=1 ensures row/column conservation. Modulo P^n−1, the complete certificate arrays in pinned verify.py give exact numerator-polynomial rational expressions for n=2..6, all numerators nonnegative and strictly positive for n≤5 at h>0. For n=6 the displacement-5 numerator is h^5 f(h), f=h^5+15h^4+60h³+90h²+36h−12, f′>0; other numerators positive, including the sign-indefinite p_{6,0} via h≤1 and h=1+t coefficient bounds. Thus positivity holds precisely {0}∪[tau,infty), tau unique positive root ≈0.208608859735; the exact h=1/10 coefficient is −743849/19268401151106. Independently recomputed rational endpoint inverses in 63 cycle-step instances n=2..8; also independently checked the z^5 Taylor coefficient −1/108 of R, proving negativity at distance five for every n≥6 at small h. Fourier diagonalization Q gives limit 11^T/n as h→∞ for each fixed n, hence eventual strict positivity. No complete intermediate region for n≥7 is claimed. All-n statements follow exact Taylor/Fourier arguments, not finite samples.",
+      "residual_risks": [
+        "n>=2 equal-rate directed cycles, h≥0; complete positivity classification n≤6, small- and large-h only for n≥7."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General positivity barriers apply to families of positive generators but do not necessarily fix the exact n=6 directed cyclic subfamily.",
+          "Radau numerator coefficient at displacement five −h^5/108 is a method-specific local obstruction; the exact first recovery root requires full cycle-resolvent algebra."
+        ],
+        "reasoning": "A general lack of absolute monotonicity does not imply this exact minimal dimension or positive-for-large-h recovery; uninspected full papers remain an explicit risk.",
+        "searches": [
+          "Resultary semantic query: two stage Radau IIA positivity Markov generator directed cycle six states step threshold positivity recovery",
+          "Zappavigna et al. 2010",
+          "Zappavigna et al. 2012"
+        ]
+      },
+      "checked_sources": [
+        "E. Hairer, G. Wanner, Stiff differential equations solved by Radau methods, JCAM 111 (1999) 93–111, DOI 10.1016/S0377-0427(99)00134-X; open author PDF read",
+        "A. Zappavigna, P. Colaneri, S. Kirkland, R. Shorten, On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems, MTNS 2010, institutional open repository deposit",
+        "A. Zappavigna et al., Essentially negative news about positive systems, LAA (2012), OA author version",
+        "D. I. Ketcheson, Numipedia Radau IIA2, https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "Published Resultary: Eight-state barrier for Markov positivity of the [2/2] Padé map, https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Original independent_checks.py 63 rational endpoint instances plus symbolic fifth derivative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An eight-state threshold for [2/2] Gauss on a pure-birth chain does not order Radau on directed n-cycles.",
+          "A positive-system Padé theorem might provide a universal restriction, but deriving exact six-state h cutoff requires parameters and signs specific to audited rational function."
+        ],
+        "reasoning": "The claimed precise threshold and recovery are not a straightforward corollary of the comparator statements verified; full text risk documented.",
+        "searches": [
+          "Resultary semantic query: two stage Radau IIA positivity Markov generator directed cycle six states step threshold positivity recovery",
+          "Zappavigna et al. 2012",
+          "Resultary eight-state [2/2] Padé barrier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar rational stability function is published background; Markov entrywise positivity requires individual matrix coefficients, not merely A- or L-stability."
+        ],
+        "reasoning": "Equating all Padé positivity counterexamples would conflate distinct [1/2] and [2/2] rational maps; neither directly states f_6(h).",
+        "searches": [
+          "Resultary semantic query: two stage Radau IIA positivity Markov generator directed cycle six states step threshold positivity recovery",
+          "Hairer–Wanner Radau IIA 1999",
+          "Resultary eight-state [2/2] Padé barrier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f(h) for displacement five is strictly increasing and has one positive zero; all other six entries have certified positive polynomial expressions."
+        ],
+        "reasoning": "No published exact same [1/2] directed-cycle table was located; code-derived table not established as historically first solely by search.",
+        "searches": [
+          "Resultary semantic query: two stage Radau IIA positivity Markov generator directed cycle six states step threshold positivity recovery",
+          "Resultary eight-state [2/2] Padé barrier",
+          "Hairer–Wanner 1999"
+        ]
+      },
+      "rationale": "Hairer–Wanner 1999 and Ketcheson Numipedia give the classical Radau IIA stability function; the positivity threshold is not a claim about a new RK method. Zappavigna–Colaneri–Kirkland–Shorten discuss Padé schemes and positive systems, including a different [2/2] Gauss-type eight-state obstruction; [1/2] Radau on uniform directed cycles is not that diagonal [2/2] map. A published Resultary record on an eight-state [2/2] Padé Markov positivity barrier and another SSP-SDIRK dimension threshold were located, but these are mathematically different methods and graph domains. Accessible primary results did not establish the six-state exact fifth-degree positivity recovery boundary, leaving unindexed overlap risk.",
+      "residual_risks": [
+        "Potential unindexed Radau positivity analyses could already contain the same cyclic rational polynomial identities; full 2010/2012 articles not exhaustively read in this run.",
+        "Minimal dimension is asserted ONLY in uniform one-way directed-cycle family, not arbitrary finite-state Markov generators.",
+        "Entrywise positivity concerns the full RK endpoint map, not stage positivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_METHOD_NOT_EXACT_CYCLE_POSITIVITY",
+          "evidence": "Classical Radau IIA A/L-stability and its stability function precede this exact cyclic Markov positivity classification.",
+          "identifier_or_url": "https://www.unige.ch/~hairer/preprints/coimbra.pdf",
+          "material_read": "Author PDF primary paper, method/stability sections and visual screenshot page",
+          "method": "full-text PDF reading and page screenshot",
+          "title": "Stiff differential equations solved by Radau methods",
+          "trigger": "Same RK tableau and stability function"
+        },
+        {
+          "assessment": "RELATED_GENERAL_PRIOR_ACCESS_RISK",
+          "evidence": "Positivity losses under Padé approximants are known; the accessible summary does not give [1/2] Radau exact six-cycle polynomial threshold.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+          "material_read": "Repository bibliographic entry and available synopsis; full document not read",
+          "method": "abstract and model comparison",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "General Padé positivity barriers may dominate"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_PADE_BARRIER",
+          "evidence": "The cited eight-state [2/2] Gauss obstruction differs in rational stability function, dimension and chain topology. This abstract comparison does not establish exclusion of all implicit lemmas.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Accessible bibliographic description and related mathematical context; full author PDF not examined in this run",
+          "method": "abstract-level and scheme comparison",
+          "title": "Essentially negative news about positive systems",
+          "trigger": "Prior negative Padé Markov examples potentially stronger"
+        },
+        {
+          "assessment": "DIFFERENT_METHOD_AND_FAMILY",
+          "evidence": "Its stability function is [2/2] diagonal Padé/two-stage Gauss on pure-birth chain, whereas audited theorem is [1/2] Radau on one-way cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Published Resultary title and detailed abstract from semantic record search",
+          "method": "published summary and implication comparison",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Published research exact dimension barrier for positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 47c5ca746137b179a12c39f2ba9829625e1758d7 and verify.py blob 13de4a5aea2ddc7c59b16bb7cc15df3bdded0537",
+        "E. Hairer, G. Wanner, Stiff differential equations solved by Radau methods, JCAM 111 (1999) 93–111, DOI 10.1016/S0377-0427(99)00134-X; open author PDF read",
+        "A. Zappavigna, P. Colaneri, S. Kirkland, R. Shorten, On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems, MTNS 2010, institutional open repository deposit"
+      ],
+      "rationale": "Entrywise stochastic positivity is essential when RK steps approximate CTMC transitions. An exact minimal dimension WITHIN a canonical uniform one-way cycle family and its surprising nonmonotone timestep positivity recovery are meaningful intrinsic sharp invariants and a practical non-SSP numerical-analysis benchmark. The qualified higher-n eventual recovery statement is useful without asserting an unfinished global classification.",
+      "residual_risks": [
+        "Value is specific to the natural stated model/invariant and is not asserted as a general theorem across all dynamics or algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 47c5ca746137b179a12c39f2ba9829625e1758d7 and verify.py blob 13de4a5aea2ddc7c59b16bb7cc15df3bdded0537",
+    "E. Hairer, G. Wanner, Stiff differential equations solved by Radau methods, JCAM 111 (1999) 93–111, DOI 10.1016/S0377-0427(99)00134-X; open author PDF read",
+    "A. Zappavigna, P. Colaneri, S. Kirkland, R. Shorten, On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems, MTNS 2010, institutional open repository deposit",
+    "A. Zappavigna et al., Essentially negative news about positive systems, LAA (2012), OA author version",
+    "D. I. Ketcheson, Numipedia Radau IIA2, https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+    "Published Resultary: Eight-state barrier for Markov positivity of the [2/2] Padé map, https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+    "Original independent_checks.py 63 rational endpoint instances plus symbolic fifth derivative"
+  ],
+  "disposition": "passed",
+  "final_claim": "A six-state threshold and positivity recovery for Radau IIA on directed cycles",
+  "limitations": [
+    "n>=2 equal-rate directed cycles, h≥0; complete positivity classification n≤6, small- and large-h only for n≥7.",
+    "Potential unindexed Radau positivity analyses could already contain the same cyclic rational polynomial identities; full 2010/2012 articles not exhaustively read in this run.",
+    "Minimal dimension is asserted ONLY in uniform one-way directed-cycle family, not arbitrary finite-state Markov generators.",
+    "Entrywise positivity concerns the full RK endpoint map, not stage positivity."
+  ],
+  "residual_risks": [
+    "Potential unindexed Radau positivity analyses could already contain the same cyclic rational polynomial identities; full 2010/2012 articles not exhaustively read in this run.",
+    "Minimal dimension is asserted ONLY in uniform one-way directed-cycle family, not arbitrary finite-state Markov generators.",
+    "Entrywise positivity concerns the full RK endpoint map, not stage positivity."
+  ],
+  "schema_version": 1
+}
