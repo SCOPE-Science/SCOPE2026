@@ -1,14 +1,21 @@
-# Scientific review: dyadic parabolic exponential spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integer exponents \(k\ge1\), the proof gives an exact Fourier-zero criterion. At the base level it is the sum-parity test. At higher levels, shifting by half the modulus proves vanishing for odd horizontal frequency, an exact squared-Gauss-sum identity proves nonvanishing for even horizontal/odd vertical frequency, and halving both even coefficients gives the lower-level recurrence. Each orthogonal basis has exactly half of its frequencies in each horizontal-parity eigenspace, the vertical parity is uniform within each half, and the two halves reduce bijectively to arbitrary smaller spectra. The base count is four and the recurrence is \(4\mathcal N_{k-1}^2\). The extension argument is an induction on arbitrary partial orthogonal families, including empty/singleton blocks. The exact cyclotomic checker supports all 21,844 zero cases through level seven and an exhaustive maximal-clique classification through level three. Neither limited enumeration nor a numerical approximation supplies the infinite-family proof.
+## correctness
 
-## Originality — PASS, best knowledge
-The closest published exact-spectrum theorem concerns odd prime-power quadratic graphs and **explicitly excludes characteristic two**; its strict valuation-contracting frequency-graph form fails already modulo four, where spectra with repeated horizontal coordinates occur. The dyadic fourth-moment theorem controls a different norm invariant, not a classification of orthogonal bases. Hickman and Wright's Fourier restriction estimates over modular rings, Frederick and Mayeli's frame spectral-pair constructions, and Gabardo–Lai–Oussa's nonlinear-phase frame theory do not imply the claimed dyadic recursive classification, the exact count, or extension of partial families. Semantic searches checked dyadic/parabola/spectral basis, chirp/Hadamard aliases, cyclotomic orthogonality, and parameter/count variants; no covering statement was found. This does not prove universal historical priority. A possible older equivalent theorem expressed in Butson–Hadamard or dyadic character terminology remains a genuine bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The object is the natural dyadic analogue of the finite parabola spectrum problem, for which odd-characteristic spectral classifications differ sharply. The theorem provides the complete basis-partner family and an exact doubly-exponential enumeration at every dyadic scale, as well as a basis-completion property for **all** orthogonal subfamilies. The exceptional parity-block geometry permits spectra that are not graphs of the horizontal frequency, a structural difference from odd prime powers. This is a full infinite-family classification rather than a routine single-Gauss-sum computation or an arbitrary finite census.
+For q=2^k, the exact quadratic Fourier sum G_k(U,V) is 0 when U is odd (translate x by q/2); for U even and V odd its squared magnitude is 2q (direct difference h=x-y); for U,V both even G_k=2G_(k-1). At k=1 the zero condition is U+V odd. Orthogonal restricted characters split into q/2 u-even and q/2 u-odd translation eigenspaces, and within each block v-parity is fixed by the nonzero-even-U/odd-V case. Dividing block coordinates by two gives two arbitrary smaller spectra, and conversely the lift gives a full orthogonal basis. This proves the exact bijective recursion N_k=4 N_(k-1)^2 and N_k=2^(2^(k+1)-2), and inductively extends EVERY partial orthogonal set; not extrapolated from finite cliques. k=1 and q=2 are handled.
 
-The hypotheses concern only the unperturbed dyadic quadratic parabola. The proof is self-contained; finite tests are supportive, and potential historical equivalence remains the key scientific risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. None of the compared statements formally implies every characteristic-two basis set, N_k and extension. Standard Gauss arithmetic is prior mathematics, while the recursive full classification is the assessed addition.
+
+## value
+
+PASS
+
+Complete classification of every Fourier-orthogonal basis and extension theorem for a canonical nonlinear spectral set over all powers of 2, with an exact doubly exponential count. The dyadic case exhibits parity branching absent in the odd-prime contraction result, so a harmonic analyst can directly use the precise basis partner criterion and count. This is more than routine evaluation of one Gauss sum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
