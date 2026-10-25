@@ -1,11 +1,21 @@
-# Three-axis scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The five generating implications are derivable, and the explicit 17 distinct frame-feature profiles provide a separation countermodel for each omitted primitive of each of 30 closure-fixed sets. The executable enumerates the 64 sets and their 30 closures, and independently checks three-world neighborhood features. The proof of each one-world infinite formula family is syntactic and does not rely on finite test depth.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The six schemes, their exact frame semantics, and normal-modal identifications are due to existing literature. The available motivating primary text does not state the 30-class quotient or the complete five-rule order classification. Actual related-literature and semantic research searches identified no equivalent table. An older unpublished or differently named hierarchy could subsume it; the Chellas monograph was not fully inspected.
+PASS
 
-**Value — PASS.** A natural 64-choice hierarchy defined by recent closure semantics collapses to exactly 30 theorem sets. The exact quotient and inclusion decision procedure resolve the axiom-dependency problem and explain each strict distinction with concrete frames.
+Checked the five provable closure implications by theorem-level derivations: G=>N, E+N=>G, G+K=>normal E,M,C,N, E+M+C=>K, E+M+K=>C (monotonicity and syntactic-conjunction K rule). Read full RESULT.md and weak_modal_hierarchy_verify.py. Independently enumerated all 64 optional-principle subsets and 256 three-world constant-neighborhood families: 30 closure-fixed sets, nine extensional feature profiles, and the stated 17 combined witness profiles with all omitted-coordinate separations. The remaining nine one-world syntax-sensitive profiles are not inferred from finite testing: checked generator/leaf definitions and all-formula top-level splitting/implicative-head reasoning, including explicit failures of omitted principles; the source identifies the nonreplacement distinction between classically equivalent boxed strings. Soundness of the published closure semantics turns distinguishing frame profiles into nonderivability. The result concerns only 64 presentations, not all modal systems.
 
-The checker is a certificate for the finite hierarchy and uses analytically proved syntactic witness profiles as inputs. It is not an exhaustive modal-formula search. No claim is made for independent historical priority or independent mathematical verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nishimura provides the six rule/scheme framework, closure frames, and soundness/completeness but does not state the 30-class cross-presentation implication classification in the full relevant primary text inspected. Classical neighborhood E/M/C/N cube and ordinary normal-modal equivalences are explicitly prior. Resultary modal work did not match the exact six-coordinate closure lattice. Older Chellas implicational tables could coincide under another terminology, and its full book was not examined.
+
+## value
+
+PASS
+
+The exact implication order and 30 genuine presentations classify redundancy and expressive distinctions among a natural finite lattice of weak modal systems. Syntax-sensitive nonextensional witnesses resolve dependencies not captured by standard extensional neighborhood semantics; this is a complete parameter-family classification rather than an arbitrary finite number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
