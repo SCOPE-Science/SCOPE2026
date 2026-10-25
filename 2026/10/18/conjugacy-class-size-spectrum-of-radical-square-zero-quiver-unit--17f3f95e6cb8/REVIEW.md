@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The associative multiplication in the square-zero quotient gives a diagonal-by-additive-radical unit group. For any fixed diagonal, nonmonochromatic arrow coordinates are freely eliminated by radical conjugation; monochromatic arrow-bundle supports are invariant. A nonzero bundle imposes a single equality of diagonal stabilizer labels, so the stabilizer order is determined by the component count of its support graph, and free centralizer coordinates give the explicit class-size formula. These steps establish the formula in every characteristic, without relying on computer enumeration. The bridge coefficient follows from the coprimality of the factors \(q\) and \(q-1\), with \(q>2\) stated explicitly. Exact finite-group multiplication checks for eleven small inputs test the proof's boundary cases; the general argument remains the proof.
+## correctness
 
-## Originality — PASS within investigated coverage
-The closest published class-size formula by Rossmann concerns graphical class-two nilpotent groups, not unit groups of radical-square-zero basic algebras. André–Dias give the related basic-algebra semidirect framework, but study smooth representations over non-Archimedean local fields rather than this size-stratified finite-field conjugacy enumeration. Existing class-number and restricted torsion-orbit formulas for the present quiver-unit family are prior mathematics and do not by themselves determine the full class-size spectrum; the explicit six-vertex pair has equal group order and class count, but different class-size spectra. A general orbit-stabilizer theorem could make this refinement readily derivable, and unlocated older equivalences remain the principal priority risk. No exhaustive global novelty assertion is made.
+PASS
 
-## Value — PASS
-The class-size distribution is a natural strictly finer conjugacy invariant than the class number. The general formula works uniformly for all finite quivers and finite fields, records weighted edge multiplicities, and yields a structural bridge-count identity. The six-vertex example shows why the finer invariant matters: it separates groups that have the same order and total conjugacy-class count. This is a complete infinite-family theorem, not an arbitrary finite tabulation or a minor correction.
+For arbitrary finite quiver with loops and parallel/opposite arrows, the algebra is D⊕J with J²=0 and units (t,x) with (t,x)(s,y)=(ts,ty+xs). Radical conjugation uniquely kills arrow coordinates on nonmonochromatic edges (t_u≠t_v), while monochromatic blocks survive. A support F of nonzero monochromatic bundles forces diagonal stabilizer equality along F, so its torus orbit size is (q−1)^(n−c(F)) and orbit count is (q−1)^beta(F) times product (q^mu_e−1)/(q−1). The full centralizer equation also yields the class size q^mu(E\B(t)) (q−1)^(n−c(F)), with q^h central loop factor; summing over t and F proves the exact stated class-size polynomial. For q>2 coprime q,(q−1) give singleton and size-q coefficients, with the size-q coefficient measuring multiplicity-one bridges. For q=2 the group is abelian and the bridge conclusion is correctly excluded. Arbitrary disconnected graphs and oppositely directed bundles are covered.
 
-## Sources and limitations
-C. A. M. André and J. Dias, arXiv:1910.14639 (2019); T. Rossmann, arXiv:2107.05564 (2021). Related class-number and torsion-class enumerations are explicitly excluded from the new claim. Independent historical priority and external mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. Same adjective 'graphical' is not equivalent groups. Exact centralizer and orbit-support data are necessary to derive the present coefficientwise refinement. We nevertheless retain older semidirect-product conjugacy-enumeration priority risk.
+
+## value
+
+PASS
+
+Determines EVERY conjugacy-class size coefficient for an arbitrary finite quiver unit group, significantly refining previously known total class numbers. The multiplicity-one bridge invariant is recovered from the lowest coefficients, and a concrete equal-order/equal-class-number pair is separated by sizes. Such group invariants are natural for representation-theoretic and combinatorial classification, not an arbitrary small parameter count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

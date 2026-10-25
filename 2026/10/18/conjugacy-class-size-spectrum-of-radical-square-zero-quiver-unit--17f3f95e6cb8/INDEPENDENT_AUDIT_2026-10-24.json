@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:50:46Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent implementation of quiver unit multiplication, direct centralizer counting and graph support formula for three distinct small quivers at q=2,3 gives identical conjugacy-class size distributions. Independently summed the exact support formula for the two six-vertex examples, recovering the SAME class number 2340 and size-three class counts 2 versus 0. This checks the claimed distinction, not just group order. Source checker.py inspected, not executed as proof; all-quiver theorem follows from explicitly checked orbit-stabilizer/centralizer algebra.",
+      "rationale": "For arbitrary finite quiver with loops and parallel/opposite arrows, the algebra is D⊕J with J²=0 and units (t,x) with (t,x)(s,y)=(ts,ty+xs). Radical conjugation uniquely kills arrow coordinates on nonmonochromatic edges (t_u≠t_v), while monochromatic blocks survive. A support F of nonzero monochromatic bundles forces diagonal stabilizer equality along F, so its torus orbit size is (q−1)^(n−c(F)) and orbit count is (q−1)^beta(F) times product (q^mu_e−1)/(q−1). The full centralizer equation also yields the class size q^mu(E\\B(t)) (q−1)^(n−c(F)), with q^h central loop factor; summing over t and F proves the exact stated class-size polynomial. For q>2 coprime q,(q−1) give singleton and size-q coefficients, with the size-q coefficient measuring multiplicity-one bridges. For q=2 the group is abelian and the bridge conclusion is correctly excluded. Arbitrary disconnected graphs and oppositely directed bundles are covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "André–Dias covers broader algebra families but uses non-Archimedean representation theory, not this per-class-size finite-field enumeration.",
+          "Rossmann class-two nilpotent group theory is not a specialization to nontrivial diagonal-torus-by-radical groups for q>2."
+        ],
+        "reasoning": "A structurally general setup is not a numerical universal class-size theorem. No implication furnishing coefficients of the Z polynomial was observed; the group invariants differ.",
+        "searches": [
+          "André–Dias arXiv:1910.14639 unit groups of split basic algebras",
+          "Rossmann 2107.05564 full paper Theorem A graphical class-two groups"
+        ]
+      },
+      "checked_sources": [
+        "Rossmann, Bull. London Math. Soc., DOI 10.1112/blms.12665, primary full HTML theorem/group definitions",
+        "André–Dias arXiv:1910.14639 abstract",
+        "Frozen quiver RESULT.md and checker.py",
+        "Independent group multiplication and explicit six-vertex supports"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rossmann theorem concerns nilpotent graphical groups and does not directly imply split-basic torus-by-radical class-size counts.",
+          "The graph partition polynomial at Z=1 forgets conjugacy-class size distribution.",
+          "Bridge coefficient q^h(q−1)^c(q−2)b1 is not forced by total class count."
+        ],
+        "reasoning": "Same adjective 'graphical' is not equivalent groups. Exact centralizer and orbit-support data are necessary to derive the present coefficientwise refinement. We nevertheless retain older semidirect-product conjugacy-enumeration priority risk.",
+        "searches": [
+          "Rossmann full journal HTML: 10.1112/blms.12665",
+          "André–Dias 1910.14639 split basic unit group",
+          "Prior graph partition polynomial for total quiver algebra unit group class number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quiver group has normal abelian radical and diagonal multiplicative torus; Rossmann graphical groups arise from class-two central commutators.",
+          "A known graph partition polynomial gives only the TOTAL class number, whereas present variable Z separates class sizes with bridge coefficient."
+        ],
+        "reasoning": "Searched aliases triangular matrix groups, split basic algebra units, graph semidirect torus action and exact conjugacy distributions; no inspected direct equivalence with class-two graphical groups was established. Possible semidirect-product orbit literature remains unindexed risk.",
+        "searches": [
+          "Resultary query radical square zero quiver algebra unit groups conjugacy class sizes spectrum graph edge bridge semidirect",
+          "Rossmann arXiv:2107.05564 graphical groups finite fields conjugacy classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected published database provides the size-stratified quiver-unit polynomial or the two distinguished 2340-class examples.",
+          "The earlier total conjugacy class count is insufficient: two groups with same order/class count have different [Z^3]."
+        ],
+        "reasoning": "An explicit family-wide polynomial is not mere recomputation of a known class-number table; the bridge-detection coefficient makes that mathematically explicit.",
+        "searches": [
+          "Resultary group conjugacy class size spectrum radical square zero",
+          "Quiver unit group conjugacy class polynomials support F bridge detection",
+          "Rossmann graphical groups character degree tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. Same adjective 'graphical' is not equivalent groups. Exact centralizer and orbit-support data are necessary to derive the present coefficientwise refinement. We nevertheless retain older semidirect-product conjugacy-enumeration priority risk.",
+      "residual_risks": [
+        "Quiver-unit conjugacy spectra may have appeared as semidirect-product orbit polynomials under different terminology; comparison is best-of-knowledge.",
+        "Prior published total class numbers and special torsion classes are explicitly credited; do not present them as first discoveries.",
+        "Small centralizer examples do not exhaust arbitrary finite fields, multigraphs and directed loop patterns; proof handles those algebraically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: group defined by central class-two commutators, not unit group of radical-square-zero quiver algebra with diagonal torus",
+          "evidence": [
+            "Different group presentations and centralizers; same word graphical alone does not entail inclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.12665",
+          "material_read": "Accessible publisher full HTML: abstract, group construction, theorem and enumerative comparisons",
+          "method": "Read primary journal HTML substantially (sections with class-two nilpotent graphical group definition and enumerators)",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Close topic: graph-based finite-field conjugacy enumeration"
+        },
+        {
+          "assessment": "PRIOR_METHOD: semidirect basic algebra setting broader, exact finite-field class-size spectrum not established from abstract",
+          "evidence": [
+            "Focus is smooth representations of local-field unit groups, not finite-field class sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.14639",
+          "material_read": "Source abstract and cited scope of local-field smooth representation results, not its full text",
+          "method": "Primary abstract/source reference only",
+          "title": "Smooth representations of unit groups of split basic algebras over non-Archimedean local fields",
+          "trigger": "Unit-group structural alias and potential general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines EVERY conjugacy-class size coefficient for an arbitrary finite quiver unit group, significantly refining previously known total class numbers. The multiplicity-one bridge invariant is recovered from the lowest coefficients, and a concrete equal-order/equal-class-number pair is separated by sizes. Such group invariants are natural for representation-theoretic and combinatorial classification, not an arbitrary small parameter count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rossmann, Bull. London Math. Soc., DOI 10.1112/blms.12665, primary full HTML theorem/group definitions",
+    "André–Dias arXiv:1910.14639 abstract",
+    "Frozen quiver RESULT.md and checker.py",
+    "Independent group multiplication and explicit six-vertex supports"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly the hypotheses and normalization of frozen RESULT.md, no extrapolation to other objects or parameter regimes.",
+    "Finite independent checks corroborate bounded parameters only, not infinite-family theorems; proof reconstruction is the actual support for unrestricted claims.",
+    "Quiver-unit conjugacy spectra may have appeared as semidirect-product orbit polynomials under different terminology; comparison is best-of-knowledge.",
+    "Prior published total class numbers and special torsion classes are explicitly credited; do not present them as first discoveries.",
+    "Small centralizer examples do not exhaust arbitrary finite fields, multigraphs and directed loop patterns; proof handles those algebraically."
+  ],
+  "residual_risks": [
+    "Quiver-unit conjugacy spectra may have appeared as semidirect-product orbit polynomials under different terminology; comparison is best-of-knowledge.",
+    "Prior published total class numbers and special torsion classes are explicitly credited; do not present them as first discoveries.",
+    "Small centralizer examples do not exhaust arbitrary finite fields, multigraphs and directed loop patterns; proof handles those algebraically."
+  ],
+  "schema_version": 1
+}
