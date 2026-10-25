@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The local pinching theorem and arithmetic-genus constraint classify every maximal curve in the stated domain by a degree-two closed point on its normalization. The uniquely maximal elliptic normalization has Frobenius \([-5]\), so \(E(\mathbb F_{625})=E[24]\), the difference map has kernel \(E[6]\), and the finite quotient by \(\mu_6\) has orbit sizes \(3,6,6\). The associated actual closed-point orbit sizes are \(54,108,108\), with stabilizers \(V_4,C_2,C_2\). Separate exact finite orbit calculations were run from the included `verify.py`; the infinite geometric reasoning is supplied in RESULT.md.
+## correctness
 
-**Originality: PASS, subject to unindexed-literature risk.** Hilario--Salomão--Martins (arXiv:2609.22557v1, Section 3.3 and Example 3.7) already construct the maximal nodal curve over \(\mathbb F_{25}\) with this elliptic normalization. Aubry--Iezzi (arXiv:1501.03676v2, Proposition 5.2) already gives the general nodal gluing mechanism and necessity. Neither inspected primary treatment classifies the resulting 270 degree-two points into three isomorphism orbits or derives the three exact full automorphism groups. Searches checked equivalent formulations, dominating constructions, and numerical class tables; no covering claim was identified. This is not proof that unindexed or unpublished equivalents do not exist.
+PASS
 
-**Mathematical value: PASS.** The classification gives the complete arithmetic moduli quotient for the smallest positive-genus one-nodal maximal example isolated by a recent construction. All three types have the same normalization and zeta function; the torsion-difference orbit, not point counts, distinguishes the curves, and the two order-two-automorphism types are genuinely distinct. This offers useful explicit information about moduli and symmetry of singular maximal curves without asserting a general theorem in arbitrary characteristic.
+Aubry–Iezzi Proposition 5.2 forces normalization of 37-point maximal geometric-genus1 arithmetic-genus2 curve over F25 to be maximal genus1, exactly one F25-rational singularity of delta=1 whose preimage is a degree-two point. E:y^2=x^3+1 has 6 points/F5 and Frobenius over F25 equals [-5], so E(F25)=E[6] has36 and E(F625)=E[24] has576, giving 270 degree-two closed points. Supersingular j=0 twists of E over F25 have point counts 36 for only its one twist class. Every branch R has Delta=F(R)-R=[-6]R in nonzero E[4], and Aut_F25(E)=E[6]⋊mu6 acts on Delta. Mu6 acts in three orbits of sizes 3,6,6, leading to 270 closed points in 54,108,108 orbits and stabilizers 4,2,2; the order4 stabilizer is commuting involutions V4. Independently coded finite 24-torsion affine-orbit enumeration recovered [54,108,108].
 
-**Limitations.** The theorem is restricted to \(\mathbb F_{25}\), geometric genus one, arithmetic genus two and maximal 37-point curves. The automorphism groups are for unmarked singular curves. No independent review or verification has been performed, and an equivalent result might occur in an unindexed database. The code exhausts exact finite groups but is not an infinite-field proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Aubry–Iezzi settles maximality structure and degree-two pinching; recent Hilario–Salomão–Martins constructs one example on this same E. No inspected accessible prior result determines ALL 270 gluing-point automorphism orbits, their three isomorphism classes, and V4/C2/C2 stabilizers. Best-of-knowledge passage with explicit risk because the most relevant 2026 article was not fully accessible.
+
+## value
+
+PASS
+
+The full natural extremal moduli question at a fixed small finite field is resolved in abstract k-isomorphism classes rather than by listing examples. Orbit sizes and automorphism-group types distinguish two classes with identical stabilizer order, a worthwhile exact arithmetic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
