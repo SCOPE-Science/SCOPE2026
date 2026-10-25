@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:11:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-norm-profile-and-maximizers-of-a-fractional-translation-gr--781b12932eab/RESULT.md",
+        "2026/10/18/exact-norm-profile-and-maximizers-of-a-fractional-translation-gr--781b12932eab/verify.py"
+      ],
+      "rationale": "The prescribed nonintegral Cauchy kernel is exactly the Fourier coefficient of m_t(theta)=exp(i t(pi-theta)) for 0<theta<2pi, including the correct signed integer translations. Since a,b>0 the checkerboard l2 norm is equivalent to ordinary l2 and the Fourier extension is bounded. Parity-folding pairs theta and theta+pi, with metric W=[[u,v],[v,u]], u=(a+b)/2,v=(a-b)/2; the operator is a unimodular scalar times B_t=W^{1/2} diag(1,e^{-i pi t}) W^{-1/2}. Its |det|=1 and trace(B_t*B_t)=2+4 beta^2 sin^2(pi t/2), beta=|a-b|/(2 sqrt(ab)). Singular values s,s^-1 solve s-s^-1=2 beta |sin|, yielding the boxed exact norm for all real t. Because this matrix is constant over the entire Fourier fiber, an L2 function supported on its top singular vector yields actual nonzero maximizers; equality is fiberwise necessary. Equal weights/even integer t give isometries and all vectors extremize. Six independently recomputed fiber trace/singular-value identities passed; no finite Fourier quadrature was treated as an infinite proof.",
+      "residual_risks": [
+        "Finite exact computations diagnose bounded instances only; analytic derivation controls general quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Carli–Samad prove unweighted l2 isometry of T_t. Andersen proves weighted norm inequalities for non-fractional discrete Hilbert transform and parity variants; general discrete Laplacian harmonic-analysis results are boundedness statements."
+        ],
+        "reasoning": "Unweighted isometry does not imply a sharp norm after changing the Hilbert metric; qualitative weighted boundedness does not supply its continuous t profile and attainment. The broader Floquet calculus is classical and a possible priority risk for the exact two-band specialization.",
+        "searches": [
+          "arxiv:1506.03362",
+          "doi:10.4153/CMB-1977-002-2",
+          "arxiv:1401.2091"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1506.03362",
+        "https://doi.org/10.4153/CMB-1977-002-2",
+        "Resultary query 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted multiplier is unimodular, but conjugating D_t by nontrivial W^1/2 changes singular values: |det|=1, trace=2+4 beta^2 sin^2."
+        ],
+        "reasoning": "Prior unweighted isometry plus a weight-comparison bound only yields 1<=||T_t||_w<=sqrt(max(a,b)/min(a,b)); it cannot determine strict t-dependence, exact singular values or top-eigenspace maximizers.",
+        "searches": [
+          "De Carli–Samad Theorems 1.1, 4.1/4.5",
+          "Andersen 1977 pp.9–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Checkerboard weighted Hilbert space is a two-band Fourier metric. The claimed sharp norm is the top singular value of a constant matrix W^{1/2}D_tW^{-1/2}."
+        ],
+        "reasoning": "A general periodic-symbol theorem would yield a finite matrix calculation but, without executing the exact t-dependent singular-value evaluation and equality characterization, would not by itself state this explicit norm; uniqueness/novelty of the method is not claimed.",
+        "searches": [
+          "Resultary: fractional discrete translation group checkerboard periodic weights sharp operator norm singular values Floquet",
+          "De Carli–Samad arxiv:1506.03362 Theorem 1.1",
+          "Andersen 1977 weighted discrete Hilbert transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published Resultary entry; related periodic weighted shift spectra concern different operators. Andersen §2 tables equivalence to A_p-type inequalities but no two-parameter fractional group norm table."
+        ],
+        "reasoning": "No exact norm value table for this operator/weight pair was found. Search absence is not proof and implicit specialization of known matrix operator theory remains possible.",
+        "searches": [
+          "Resultary periodic weighted shift search",
+          "web checkerboard weights fractional discrete translation norm",
+          "Andersen article Theorem 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.",
+      "residual_risks": [
+        "General matrix-Floquet norm theory can imply the calculation as a special case without stating it in this exact form; best-of-knowledge novelty is about the explicit profile, not the framework.",
+        "Andersen accessible introductory theorems were read; not every later application theorem was exhaustively compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers group law/isometry on ordinary l2 but not sharp checkerboard-weighted norms",
+          "evidence": "Theorem 1.1 and group/isometry statements are for unweighted l2, whereas this adds W-fiber singular values.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.03362",
+          "material_read": "Full open preprint introduction, multiplier construction and identified unweighted group/isometry theorems",
+          "method": "arXiv primary PDF text and screenshot",
+          "title": "One-parameter groups of operators and discrete Hilbert transforms",
+          "trigger": "Original exact T_t kernel/group"
+        },
+        {
+          "assessment": "Weighted l^p boundedness and parity transforms, not all-t sharp norms for this fractional family",
+          "evidence": "p.9 classical discrete Hilbert T and weighted strong/weak estimates; p.10 Theorem 1 parity-weight conditions.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1977-002-2",
+          "material_read": "Actual accessible Cambridge full PDF, pp.9–10 definitions, inequalities (1.1),(1.2), A_p-type weight conditions and Theorem 1 opening",
+          "method": "Cambridge OA PDF text and page screenshots",
+          "title": "Inequalities with Weights for Discrete Hilbert Transforms",
+          "trigger": "Historical plausible dominating weighted Hilbert-transform results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-norm-profile-and-maximizers-of-a-fractional-translation-gr--781b12932eab/RESULT.md",
+        "https://arxiv.org/pdf/1506.03362",
+        "https://doi.org/10.4153/CMB-1977-002-2"
+      ],
+      "rationale": "Periodic two-weight metrics are the first genuinely non-isometric example for a unitary fractional discrete-translation group. The exact all-real-parameter norm, sharp amplifying contrast, and attained equality subspaces quantify nonnormality/condition amplification, rather than merely repeating a known weighted boundedness estimate. The two-by-two folding reduction is elementary but gives a fully sharp, directly usable operator-norm profile and extremizers.",
+      "residual_risks": [
+        "Mathematical interest is bounded to the claimed statistic/model and is not an assertion of broad theory or independent historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General matrix-Floquet norm theory can imply the calculation as a special case without stating it in this exact form; best-of-knowledge novelty is about the explicit profile, not the framework.",
+    "Andersen accessible introductory theorems were read; not every later application theorem was exhaustively compared."
+  ],
+  "schema_version": 1
+}

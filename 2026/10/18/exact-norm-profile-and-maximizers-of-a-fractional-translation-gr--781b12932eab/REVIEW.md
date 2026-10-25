@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The inverse Fourier coefficient of \(m_t(\theta)=e^{it(\pi-\theta)}\) reconstructs the original fractional-translation kernel, including the integer shift convention. Fourier folding is an exact unitary equivalence for the checkerboard metric; the transformed operator has scalar phase times a constant two-by-two matrix. Its determinant and computed squared-singular-value trace give the displayed norm identically for every real parameter. Constant top singular directions in Fourier fibers give actual nonzero extremizers; continuity and all endpoint cases follow without compactness or numerical extrapolation. The standalone verifier reproduces matrix and multiplier calculations; the proof of the infinite-dimensional result is analytic.
+## correctness
 
-**Originality — PASS, subject to identified bibliographic risk.** The foundational full text of De Carli–Samad (arXiv:1506.03362v1), especially Theorems 1.1, 4.1 and 4.5, supplies the original unweighted isometric group, not checkerboard sharp norms. The open text of Ciaurri–Gillespie–Roncal–Torrea–Varona (arXiv:1401.2091) gives weighted bounds for related discrete harmonic transforms, not the all-parameter sharp profile. Andersen's 1977 paper is germane, but the full text could not be inspected. The literature comparison therefore supports distinctness from inspected specific statements; it cannot certify universal priority or rule out an old general fiber-multiplier corollary.
+PASS
 
-**Value — PASS.** Checkerboard weights are the minimal nonconstant periodic Hilbert metric. Their exact norm profile captures quantitatively how an entire unweighted unitary interpolation group ceases to be isometric under periodic weighting. It determines maximum amplification, the complete set of isometry parameters, actual extremizers and a sharp nonnormal-versus-unit-spectral-radius separation. Those structural facts are not obtained from the elementary uniform equivalence bound alone and are naturally relevant to weighted discrete transform stability. The scope is deliberately limited to period two and the Hilbert exponent.
+The prescribed nonintegral Cauchy kernel is exactly the Fourier coefficient of m_t(theta)=exp(i t(pi-theta)) for 0<theta<2pi, including the correct signed integer translations. Since a,b>0 the checkerboard l2 norm is equivalent to ordinary l2 and the Fourier extension is bounded. Parity-folding pairs theta and theta+pi, with metric W=[[u,v],[v,u]], u=(a+b)/2,v=(a-b)/2; the operator is a unimodular scalar times B_t=W^{1/2} diag(1,e^{-i pi t}) W^{-1/2}. Its |det|=1 and trace(B_t*B_t)=2+4 beta^2 sin^2(pi t/2), beta=|a-b|/(2 sqrt(ab)). Singular values s,s^-1 solve s-s^-1=2 beta |sin|, yielding the boxed exact norm for all real t. Because this matrix is constant over the entire Fourier fiber, an L2 function supported on its top singular vector yields actual nonzero maximizers; equality is fiberwise necessary. Equal weights/even integer t give isometries and all vectors extremize. Six independently recomputed fiber trace/singular-value identities passed; no finite Fourier quadrature was treated as an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
+
+## value
+
+PASS
+
+Periodic two-weight metrics are the first genuinely non-isometric example for a unitary fractional discrete-translation group. The exact all-real-parameter norm, sharp amplifying contrast, and attained equality subspaces quantify nonnormality/condition amplification, rather than merely repeating a known weighted boundedness estimate. The two-by-two folding reduction is elementary but gives a fully sharp, directly usable operator-norm profile and extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

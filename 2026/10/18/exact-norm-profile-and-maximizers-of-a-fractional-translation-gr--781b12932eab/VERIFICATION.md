@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof derives the multiplier coefficient and weighted Fourier-folding isometry, computes the trace and determinant of the resulting two-by-two fiber, and constructs actual equality cases for every parameter. These statements are quantified over all positive weights and all real parameters.
+# Independent mathematical audit
 
-`verify.py` is a stand-alone Python 3 standard-library finite checker. Its deterministic tests compare the closed norm expression against singular values of the independently constructed two-by-two matrix for 368 parameter triples, verify determinant and trace relations and period-two invariance, compare odd and even integer cases, and numerically integrate 25 Fourier coefficients. It prints `VERIFY_OK finite_checks 1880` on success. Finite checks do not certify the infinite-dimensional result or the literature priority; both the analytic proof and an independent future audit remain conceptually separate from numerical corroboration.
+## correctness
 
-No independent mathematical audit has been performed, and weighted \(\ell^p\) extensions outside the Hilbert case are not claimed.
+PASS
+
+The prescribed nonintegral Cauchy kernel is exactly the Fourier coefficient of m_t(theta)=exp(i t(pi-theta)) for 0<theta<2pi, including the correct signed integer translations. Since a,b>0 the checkerboard l2 norm is equivalent to ordinary l2 and the Fourier extension is bounded. Parity-folding pairs theta and theta+pi, with metric W=[[u,v],[v,u]], u=(a+b)/2,v=(a-b)/2; the operator is a unimodular scalar times B_t=W^{1/2} diag(1,e^{-i pi t}) W^{-1/2}. Its |det|=1 and trace(B_t*B_t)=2+4 beta^2 sin^2(pi t/2), beta=|a-b|/(2 sqrt(ab)). Singular values s,s^-1 solve s-s^-1=2 beta |sin|, yielding the boxed exact norm for all real t. Because this matrix is constant over the entire Fourier fiber, an L2 function supported on its top singular vector yields actual nonzero maximizers; equality is fiberwise necessary. Equal weights/even integer t give isometries and all vectors extremize. Six independently recomputed fiber trace/singular-value identities passed; no finite Fourier quadrature was treated as an infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
+
+## value
+
+PASS
+
+Periodic two-weight metrics are the first genuinely non-isometric example for a unitary fractional discrete-translation group. The exact all-real-parameter norm, sharp amplifying contrast, and attained equality subspaces quantify nonnormality/condition amplification, rather than merely repeating a known weighted boundedness estimate. The two-by-two folding reduction is elementary but gives a fully sharp, directly usable operator-norm profile and extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
