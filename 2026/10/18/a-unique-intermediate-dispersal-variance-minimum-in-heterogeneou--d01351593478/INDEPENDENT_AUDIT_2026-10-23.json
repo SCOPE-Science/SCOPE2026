@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T11:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed SPD drift Q=[[a+d,-d],[-d,b+d]] for positive a,b and d>=0; its stationary Gaussian covariance exists, is unique, and solves QC+CQ=diag(A,B). Eliminating three covariance entries gives V(d)=(a+b+4d)[A(b+d)+B(a+d)]/[2(a+b+2d)(ab+(a+b)d)], with V(0)=A/(2a)+B/(2b) and V(infinity)=(A+B)/(a+b). For 0<a<b, derivative sign is BU(d)-AW(d), where U and W are the stated positive quadratics. Independent symbolic polynomial differentiation confirmed both the exact V derivative denominator and R=U/W derivative 4(b-a)(a+b)(a+b+2d)[ab+(a+b)d]/W^2>0 for all finite d>=0. R endpoints are (a/b)^2 and (3a+b)/(a+3b). These imply increasing/decreasing/single-global-minimum cases exactly according to A/B and endpoint equality, including strict monotonicity on finite d and no false finite boundary optimum. a=b decouples the sum. Exact witness a=1,b=2,A=1/2,B=1,d*=1 gives 49/100 against 1/2 endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kendall two-patch synchrony model uses identical local regulation, where the sum decouples and is flat in dispersal, not distinct positive a<b.",
+          "Loreau et al. spatial insurance is nonlinear/multispecies with a different variance objective.",
+          "O’Regan studies leading indicators and spectra with noise and heterogeneity, but no accessed theorem yields the displayed rational noise-ratio interval."
+        ],
+        "reasoning": "A general solution formula for Lyapunov covariance can in principle specialize to V(d) but does not by itself assert or mechanically dominate the monotonic-ratio and endpoint-uniform three-case theorem. Broader ecological models are not automatically stronger in identical observables.",
+        "searches": [
+          "Kendall et al. 2000 doi:10.1086/303350",
+          "Loreau, Mouquet, Gonzalez 2003 doi:10.1073/pnas.2235465100",
+          "O’Regan et al. 2017 doi:10.1080/17513758.2017.1339834"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 65ed80e4b42307153a56649d98d0ac959ce92b0f and check.py SHA 93bd2d0efd153de466094aa14ae5f34dcd113c6f, read completely",
+        "Independent symbolic derivation of V derivative and R derivative, both differences zero",
+        "O’Regan et al. DOI 10.1080/17513758.2017.1339834 indexed HTML",
+        "Kendall et al. 2000 DOI 10.1086/303350",
+        "Loreau et al. 2003 DOI 10.1073/pnas.2235465100",
+        "Resultary two targeted searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-rate drift a=b makes the region sum independent of d by cancellation, excluding the heterogeneous optimum rather than implying it.",
+          "Broad observations that intermediate dispersal may optimize community stability do not prove precise two-patch OU necessary-and-sufficient noise-ratio boundaries."
+        ],
+        "reasoning": "Mathematical implication from the cited analyses to the exact U/W monotonic derivative has not been demonstrated; the claim isolates a distinct, fully specified stationary sum variance. Full O’Regan technical-section comparison remains a risk.",
+        "searches": [
+          "Kendall et al. 2000 identical local coefficients",
+          "Loreau et al. 2003 spatial insurance",
+          "O’Regan et al. 2017 OU near-extinction indicators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-patch OU system solves a Lyapunov matrix equation; the actual claim concerns V(d)=Var(X1+X2) not individual Var(Xi), covariance, autocorrelation or extinction statistics.",
+          "The full rational derivative sign threshold is a noise-variance ratio interval ((a/b)^2,(3a+b)/(a+3b))."
+        ],
+        "reasoning": "Recast as variance minimization under a symmetric M-matrix Lyapunov equation and ecological spatial insurance; nearby papers address patch-specific statistics and persistence rather than this exact global ratio classification, so no established equivalence was verified.",
+        "searches": [
+          "Resultary: two patch Ornstein Uhlenbeck stationary regional variance optimal dispersal independent environmental noise unequal return rates",
+          "Resultary: symmetric dispersal two patch OU Lyapunov stochastic spatial insurance regional total variance unique minimum noise ratio",
+          "O’Regan et al. 2017 doi:10.1080/17513758.2017.1339834"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem is a symbolic continuum-parametric classification, not a particular simulation table.",
+          "The exact witness is an illustration; key inequalities quantify every A/B in the open threshold interval."
+        ],
+        "reasoning": "No known finite table or data compilation entails the analytic all-positive-parameters sign classification; absence from retrieved catalogues does not constitute novelty proof.",
+        "searches": [
+          "Resultary OU dispersal queries both",
+          "O’Regan 2017 two-patch numerical heterogeneity figures",
+          "Kendall 2000 two-patch theory"
+        ]
+      },
+      "rationale": "The exact one-valley necessary/sufficient *noise-intensity ratio* phase diagram for stationary regional-sum fluctuations in a heterogeneous symmetric-coupling two-patch OU model was not located in compared ecological/OU prior work. The Lyapunov method and qualitative nonmonotone spatial insurance are standard, credited; the original aspect is the monotone rational threshold and global no-other-extrema classification. O’Regan et al. 2017 studies additive/multiplicative noise and heterogeneity in two-patch ecological systems, a significant plausible comparison; its full mathematical sections were not exhaustively read.",
+      "residual_risks": [
+        "Accessible O’Regan sections did not amount to a full theorem-by-theorem comparison of all technical equations",
+        "Earlier OU systems/linear control literature may contain an equivalent special two-node formula",
+        "Stationary regional variance of a linear Gaussian deviation model cannot be equated to extinction/persistence of a nonnegative population."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary potential broader source; available sections emphasize patch-specific early-warning indicators rather than global regional-sum variance phase diagram",
+          "evidence": [
+            "Cannot assert categorical noncoverage of inaccessible technical sections."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2017.1339834",
+          "material_read": "Substantial HTML-indexed abstract, introduction and section descriptions, including heterogeneous-patch leading indicator discussion; no complete line-by-line mathematical proof",
+          "method": "Lawful indexed full-article HTML search content; direct page open restricted",
+          "title": "How noise and coupling influence leading indicators of population extinction in a spatially extended ecological system",
+          "trigger": "Two patches, spatial coupling, additive and multiplicative noise, heterogeneity"
+        },
+        {
+          "assessment": "Equal return coefficients imply flat total sum, no heterogeneous threshold",
+          "evidence": [
+            "Heterogeneous extensions elsewhere not ruled out."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/303350",
+          "material_read": "Study model and equal-local-regulation assumption from supplied reference descriptions and indexed record; not independently read complete article",
+          "method": "Primary bibliographic/abstract comparisons",
+          "title": "Dispersal, Environmental Correlation, and Spatial Synchrony in Population Dynamics",
+          "trigger": "Classical two-patch stochastic dispersal and covariance theory"
+        },
+        {
+          "assessment": "Different nonlinear multispecies observable; motivating context, not direct mathematical coverage",
+          "evidence": [
+            "Broader model does not subsume stated OU closed-form theorem automatically."
+          ],
+          "identifier_or_url": "https://doi.org/10.1073/pnas.2235465100",
+          "material_read": "Known published conclusion and nonlinear multispecies model descriptors; not re-read full derivations in this run",
+          "method": "Bibliographic and accessible open-article summary",
+          "title": "Biodiversity as spatial insurance in heterogeneous landscapes",
+          "trigger": "Ecological variance minimization by spatial dispersal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Regional fluctuation variance is a natural ecological spatial-insurance observable. The result separates exact noise/return-rate heterogeneity regimes in which dispersal helps or hurts and exhibits a mathematically unique interior optimum, rather than merely a numerical optimal d. The independent Gaussian-input, linearized domain is narrow but a standard calibration model; no broader extinction or nonlinear persistence claim is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 65ed80e4b42307153a56649d98d0ac959ce92b0f and check.py SHA 93bd2d0efd153de466094aa14ae5f34dcd113c6f, read completely",
+    "Independent symbolic derivation of V derivative and R derivative, both differences zero",
+    "O’Regan et al. DOI 10.1080/17513758.2017.1339834 indexed HTML",
+    "Kendall et al. 2000 DOI 10.1086/303350",
+    "Loreau et al. 2003 DOI 10.1073/pnas.2235465100",
+    "Resultary two targeted searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite and symbolic checks are distinguished from all-parameter or infinite-state proofs; see the mathematical proof reconstruction.",
+    "Frozen METADATA.json contains scope_run_id and research AUDIT.json contains operational provenance; full sanitized source package and status replacements not independently prepared, hence cannot safely hand an import-ready publication plan."
+  ],
+  "residual_risks": [
+    "Accessible O’Regan sections did not amount to a full theorem-by-theorem comparison of all technical equations",
+    "Earlier OU systems/linear control literature may contain an equivalent special two-node formula",
+    "Stationary regional variance of a linear Gaussian deviation model cannot be equated to extinction/persistence of a nonnegative population."
+  ],
+  "schema_version": 1
+}

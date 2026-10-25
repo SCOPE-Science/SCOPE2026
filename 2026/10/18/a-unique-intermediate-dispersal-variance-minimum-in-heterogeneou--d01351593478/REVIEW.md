@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The drift matrix is positive definite for positive return rates and nonnegative coupling; the stationary covariance uniquely solves the stated Lyapunov system. Direct elimination gives the displayed rational variance. Differentiation factors its derivative into a positive denominator and the sign of \(R(d)-A/B\). The exact strictly positive derivative of \(R\) and its two boundary limits establish every quantified case. The equality-rate case follows by summing the SDEs. The independently implemented rational solver passed 480 configurations and verified an interior witness exactly. Finite tests supplement the analytic proof and are not extrapolated to infinitely many parameters.
+## correctness
 
-**Originality (PASS, provisional).** The closest verified comparison is Kendall et al. (2000), whose two-patch noise model fixes identical local return coefficients, making the total population independent of dispersal. Keeling (2000) employs ecological moment closures and a different persistence objective. Loreau et al. (2003) exhibits nonlinear spatial-insurance effects in a multispecies system rather than this exact one-valley regional variance phase diagram. A 2017 spatial-extinction-indicator model treats additive noise analytically for homogeneous patches and heterogeneous cases numerically according to accessible sections. Research-index searches, including the alias of additive-noise covariance, and accessible prior claims did not identify the sharp noise-ratio classification. A literature gap is not a uniqueness proof; other stochastic network papers may still cover a specialization.
+PASS
 
-**Value (PASS).** This is a complete parameter classification of a natural regional stability measure, not a single numerical anomaly. It distinguishes the variance consequences of ecological dispersal from synchronization and local fluctuation measures, locates the only possible finite optimum using physically interpretable return and noise ratios, and gives an exact minimal two-patch benchmark without adding nonlinear species interactions. It establishes no optimality claim for extinction probability, nonnegative demographic dynamics, correlated shocks, or larger spatial networks.
+Reconstructed SPD drift Q=[[a+d,-d],[-d,b+d]] for positive a,b and d>=0; its stationary Gaussian covariance exists, is unique, and solves QC+CQ=diag(A,B). Eliminating three covariance entries gives V(d)=(a+b+4d)[A(b+d)+B(a+d)]/[2(a+b+2d)(ab+(a+b)d)], with V(0)=A/(2a)+B/(2b) and V(infinity)=(A+B)/(a+b). For 0<a<b, derivative sign is BU(d)-AW(d), where U and W are the stated positive quadratics. Independent symbolic polynomial differentiation confirmed both the exact V derivative denominator and R=U/W derivative 4(b-a)(a+b)(a+b+2d)[ab+(a+b)d]/W^2>0 for all finite d>=0. R endpoints are (a/b)^2 and (3a+b)/(a+3b). These imply increasing/decreasing/single-global-minimum cases exactly according to A/B and endpoint equality, including strict monotonicity on finite d and no false finite boundary optimum. a=b decouples the sum. Exact witness a=1,b=2,A=1/2,B=1,d*=1 gives 49/100 against 1/2 endpoints.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact one-valley necessary/sufficient *noise-intensity ratio* phase diagram for stationary regional-sum fluctuations in a heterogeneous symmetric-coupling two-patch OU model was not located in compared ecological/OU prior work. The Lyapunov method and qualitative nonmonotone spatial insurance are standard, credited; the original aspect is the monotone rational threshold and global no-other-extrema classification. O’Regan et al. 2017 studies additive/multiplicative noise and heterogeneity in two-patch ecological systems, a significant plausible comparison; its full mathematical sections were not exhaustively read.
+
+## value
+
+PASS
+
+Regional fluctuation variance is a natural ecological spatial-insurance observable. The result separates exact noise/return-rate heterogeneity regimes in which dispersal helps or hurts and exhibits a mathematically unique interior optimum, rather than merely a numerical optimal d. The independent Gaussian-input, linearized domain is narrow but a standard calibration model; no broader extinction or nonlinear persistence claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
