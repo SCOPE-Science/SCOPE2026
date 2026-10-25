@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all \\(D,\\kappa>0\\) and \\(|\\theta_0|<\\pi/2\\), independently derive the backward transform \\(F=\\cosh(uz)/\\cosh z\\). Conditional-time identities give the exact difference \\(H/[\\kappa(1-F)]\\), whose denominator is positive. The comparison function has positive value at \\(u=0\\), negative values near \\(u=1\\), and derivative sign controlled by a strictly decreasing function \\(Q(w)\\), hence exactly one interior zero. Taylor expansion and endpoint scaling give \\(u_c(0+)=1/\\sqrt5\\), correction \\(8\\sqrt5 z^2/1875\\), and \\(z[1-u_c(z)]\\to w_*\\), with a uniquely positive convex-equation root. Independent exit-time moment recursion reproduces the low-rate threshold. The actual checker.py file was executed and passed; finite checks are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2302.09105 section 4 treats non-Markovian generalized absorption but does not give a stronger theorem for the specified conditional-mean sign in the inspected equations.",
+        "arxiv:2302.13986 section III covers occupation-time absorption and sticky BM, a distinct bound-state geometry.",
+        "Phys. Rev. E 99 (2019) 052401 concerns finite-velocity cytoneme search with sticky-boundary returns."
+      ],
+      "reasoning": "Broader first-passage frameworks cover splitting probabilities and mean passage times, but inspected sources do not imply a globally unique angular crossover with both scaling constants. The existing general FPT identities are premises, not the asserted classification.",
+      "searches": [
+        "\"Brownian\" \"conditional absorption time\" \"escape time\" smaller larger interval killing",
+        "\"killed Brownian\" \"conditional mean\" \"escape\" \"absorption\" crossing",
+        "active Brownian particle partially absorbing wall Bressloff 2023 follow up conditional trapping time orientation 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.09105 (2023-02-17 v1 OA PDF, relevant sections and appendices sampled)",
+      "arxiv:2302.13986 (2023-02-27 OA PDF, abstract/introduction and section III premises)",
+      "doi:10.1103/PhysRevE.99.052401 (2019 indexed OA PDF, intro and conditional FPT sections sampled)",
+      "Semantic mathematical-literature search by competing killing/escape, aliases, conditional-time ranking, and both endpoint constants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source arxiv:2302.09105, PDF pp. 9–12, gives Green function, fluxes, Laplace survival transform and each conditional MFPT; p. 12 narrative describes their separate monotonicities, not comparison.",
+        "arxiv:2302.13986, PDF pp. 1–3, defines boundary occupation-time model rather than the angular diffusion with killing.",
+        "Bressloff–Kim (2019), PDF pp. 1–3 and passage-time discussion, uses finite-state velocity-jump model and renewal approach."
+      ],
+      "reasoning": "The source identities entail the explicit \\(H\\)-sign criterion by differentiation, but not the unique interior zero, its two asymptotic laws, or the shape argument; the latter are separately proved. The general two-state search and sticky BM works do not dominate the claim, because their dynamics/observable differ.",
+      "searches": [
+        "arxiv:2302.09105 Eq 3.18 3.19 3.20 3.24 3.25 Figure 4",
+        "arxiv:2302.13986 sticky Brownian motion occupation time",
+        "Bressloff Kim Search-and-capture 2019 conditional MFPTs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2302.09105 §3.2 eqs. (3.18)–(3.25): the same angular diffusion with killing; individual conditional MFPTs but no ordering theorem in material read.",
+        "arxiv:2302.13986 §§I,III: sticky BM formulated through occupation/local times, not conditioned angular Brownian competition."
+      ],
+      "reasoning": "The event-ordering statement is equivalent to the sign of \\(-\\kappa F^\\prime-F(1-F)\\), or the sign of \\(H(z,u)\\). The cited paper supplies F and individual means, but the new threshold and strict uniqueness require the monotonic Q(w) factorization. A generic competing-exit theorem could be phrased without wall vocabulary; search does not rule that out.",
+      "searches": [
+        "Partial absorption versus escape conditional mean first passage times in angular Brownian motion with uniform exponential killing; unique starting-angle crossover and critical central fraction 1/sqrt(5)",
+        "Exponential killing competing Brownian exit from an interval comparison of conditional event times unique reversal 1/sqrt5 boundary layer",
+        "\"Brownian\" \"conditional absorption time\" \"escape time\" smaller larger interval killing",
+        "Brownian first exit time coefficient variation one threshold initial position 1 sqrt 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic literature-index searches returned superficially related results about first-exit events in unrelated dynamical systems; neither studies angular Brownian motion with competing uniform killing nor implies the stated conditional-time ordering.",
+        "Bressloff, arxiv:2302.09105, Figure 4 plots separate conditional mean times for selected rates, not a table classifying the crossing angle at every rate."
+      ],
+      "reasoning": "No matching exact table or database claim was found in performed searches. Nonmatching returned titles are not novelty proof. The distinguishing exact object is the unique zero \\(u_c(z)\\) and its universal two-limit law, not a tabulated one-off number.",
+      "searches": [
+        "Trapping of an active Brownian particle at a partially absorbing wall Bressloff 2023 exact mean absorption time wall reactivity switching orientation spectral boundary",
+        "Partial absorption versus escape conditional mean first passage times in angular Brownian motion with uniform exponential killing; unique starting-angle crossover and critical central fraction 1/sqrt(5)",
+        "Trapping of an active Brownian particle at a partially absorbing wall Paul Bressloff 2023 conditional times crossing critical angle escape absorption",
+        "Exponential killing competing Brownian exit from an interval comparison of conditional event times unique reversal 1/sqrt5 boundary layer",
+        "\"1/sqrt(5)\" \"conditional\" \"Brownian\" \"killing\" escape",
+        "\"1.593624260\" brownian absorption"
+      ]
+    },
+    "rationale": "The main 2023 source derives angular conditional times but the inspected sections 3.2–3.3, figure 4, conclusion and appendix-level outline do not state the globally unique escape-versus-killing ordering boundary, its \\(1/\\sqrt5\\) threshold, first small-rate correction, or universal high-rate layer. The claim is a nontrivial new implication established by a strict shape theorem, not a renamed conditional-time formula. Relevant comparable works concern sticky BM occupation time or velocity-jump search. Semantic-index and primary-literature queries did not reveal a dominating theorem. Residual unindexed generic exit-time literature risk remains.",
+    "residual_risks": [
+      "An unindexed generic theorem about Brownian motion with independent exponential killing and interval exit times may imply the same unique crossing under different terminology.",
+      "The published version of the Bressloff 2023 paper was not separately read in full; the OA arXiv v1 is the principal scientific comparison.",
+      "Broad first-passage literature may contain related conditional-time ordering arguments not surfaced by ranked searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact premise formulas present; no all-rate unique comparison theorem or sharp crossover asymptotics identified in examined material. Residual risk from uninspected details acknowledged.",
+        "evidence": [
+          "arxiv:2302.09105 PDF p. 9 eq. (3.14)",
+          "pp. 10–12 eqs. (3.18)–(3.25) and figure 4",
+          "p. 18 conclusion and p. 22 appendix B"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.09105",
+        "material_read": "PDF abstract/introduction, §§2–3.3 including equations (3.14)–(3.27) and Figure 4, §4 generalized absorption, §5 conclusion, appendix A/B topics and representative equations",
+        "method": "Open primary OA PDF; read text sections and inspect page screenshots (title and p. 12).",
+        "title": "Trapping of an active Brownian particle at a partially absorbing wall",
+        "trigger": "Exact same angular bound-state model, conditional MFPT and probable direct source coverage"
+      },
+      {
+        "assessment": "Uses sticky Brownian contact-time and bulk-occupation models, rather than comparison of competing angular termination means. Inspected portions do not directly cover H(z,u) theorem.",
+        "evidence": [
+          "arxiv:2302.13986 PDF p. 1 abstract and pp. 2–3",
+          "arxiv:2302.13986 introduction on local time/occupation thresholds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.13986",
+        "material_read": "PDF abstract, §§I and introduction to III, encounter-based occupation-time representation",
+        "method": "Open OA PDF; read text and inspect first-page screenshot.",
+        "title": "Close encounters of the sticky kind: Brownian motion at absorbing boundaries",
+        "trigger": "Same author and sticky absorbing boundaries, plausible broader coverage"
+      },
+      {
+        "assessment": "Finite-state velocity-jump search/renewal problem, not the same killed angular Brownian exit process. Does not decisively bound originality.",
+        "evidence": [
+          "Phys. Rev. E 99 (2019) 052401 abstract/introduction",
+          "equations (2.7)–(2.11) on conditional exit and renewal times"
+        ],
+        "identifier_or_url": "https://www.math.utah.edu/~bresslof/publications/19-b.pdf",
+        "material_read": "Indexed OA PDF introduction and section II conditional FPT discussion; full document not inspected.",
+        "method": "Read indexed PDF text; image retrieval unsuccessful.",
+        "title": "Search-and-capture model of cytoneme-mediated morphogen gradient formation",
+        "trigger": "Older cited work on conditional first-passage means and sticky walls"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29b1d6cd-bfba-458f-bf22-04d89d511ba2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The conditional time ordering resolves whether reactive loss or re-entry is temporally faster among trajectories realizing each terminal event. It is a complete, sharp phase boundary for the natural single-wall episode for every rate and starting orientation, with a nontrivial single-crossing proof, a universal \\(\\mathrm{CV}=1\\) weak-killing point and high-rate angular boundary-layer constant. This structural classification advances beyond plots or mere evaluation of the source MFPT formulas; it does not claim whole-channel or generalized hazard results.",
+    "status": "PASS"
+  }
+}
