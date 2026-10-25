@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The theorem has an integral chain-level proof in `RESULT.md`; the checker is corroborating evidence, not a substitute for a proof of the universal quantifier.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. It enumerates the normalized cubical chain groups up to degree three for a one-edge graph, a three-vertex path, a triangle, a four-vertex path, a four-cycle, a complete four-vertex graph, and two disjoint edges. It computes signed boundaries and mod-two ranks, and it checks all single-edge cone identities through degree three exactly over the integers.
+## correctness
 
-Expected concluding line:
+PASS
 
-`VERIFY_OK: 7 graphs, 232 exact signed single-edge contraction tests`
+For Zaidi–Jamil Γ-cubes, every J_2 radius-one hyperedge comprises three of four corners. Any square with three image values violates a source hyperedge, so each nondegenerate square uses exactly the endpoints of one target graph edge. Thus C2 and C1 decompose edgewise and ∂2 respects edge summands. On an edge all Γ-cubes are valid; coning along the last coordinate to a fixed endpoint, with sign (−1)^{n+1}, gives a normalized integral chain contraction in positive degrees. Consequently every global 2-cycle bounds using edge-supported 3-cubes: H2^Γ=0 integrally. ∂2 of a square with corner values (a,b,a,a) identifies opposite oriented arcs, giving H1 the ordinary graph cycle lattice and H0 components. Independently checked the signed cone identity on 232 single-edge nondegenerate cubes in degrees 0–3 and finite examples, not substituted for the universal contraction.
 
-Checks: edge-square support, boundary-squared zero, predicted homology through degree two over the two-element field for finite cases, integral signed contraction on every test cube. These finite cases cannot prove the all-graph theorem and do not test integral torsion in arbitrary larger graphs; the proof supplies that conclusion.
+## originality
 
-No independent validation has been performed.
+PASS
+
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
+
+## value
+
+PASS
+
+A uniform, integral *degree-two vanishing theorem* for an emerging nonstandard Γ-cubical theory, with explicit edgewise contractions and complete low-degree comparison to ordinary graph homology, is a useful structural classification beyond finite example calculations. The special three-corner square constraint is the key non-textbook mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

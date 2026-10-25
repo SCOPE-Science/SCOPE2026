@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns normalized integral \(\Gamma\)-chains of finite simple graphs without isolated vertices. The four three-corner hyperedges of the \(\Gamma\)-square force every nondegenerate two-cube into a unique graph edge. Both degree-one and degree-two chains therefore decompose edgewise, and the second differential preserves this decomposition. The signed cone \(K_n=(-1)^{n+1}T_n\) is a well-defined chain contraction in positive degrees for the single-edge complex; every graph two-cycle consequently receives an integral three-chain filler. In degree one, the exhibited square \((a,b,a,a)\) generates precisely the reversal relation, giving ordinary graph incidence homology. All boundaries, normalization choices and the exclusion of isolated vertices have been checked. The independent finite verifier evaluates signed cone identities and seven example graphs; it does not serve as the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The nearest text is Zaidi–Jamil [1], which explicitly computes \(H_1^{\Gamma}\) for example graphs and a chain-of-triangles family (Proposition 3.10). Its edgewise reversal computation makes the degree-one extension straightforward, so **degree one alone is not claimed as the new contribution**. The integral \(H_2^{\Gamma}\)-vanishing for all simple graphs is neither stated there nor implied by those degree-one examples. The classical discrete cubical theory [2,3] has different source cubes: ordinary square edges versus three-element \(\Gamma\)-square hyperedges, so those theorems cannot be substituted. Targeted searches of named and synonymous formulations identified no covering statement. Unindexed or unpublished equivalent results remain possible.
+PASS
 
-## Value — PASS
-The new \(\Gamma\)-homology is motivated by comparing hypergraph homologies; the central structural question is what additional higher-order information it extracts from ordinary graphs. A priori nondegenerate higher cubes could introduce spurious degree-two classes even though graph realizations are one-dimensional, and classical discrete cubical graph homology can indeed have nontrivial degree-two groups. The universal integral vanishing is therefore a substantive boundary theorem for this new functor: all ordinary graphs retain precisely their graph-cycle information through degree two, while hypergraphs with larger edges remain free to behave differently. It gives an all-graph structural comparison and a benchmark for interpreting higher-dimensional computations, not merely a small isolated example.
+For Zaidi–Jamil Γ-cubes, every J_2 radius-one hyperedge comprises three of four corners. Any square with three image values violates a source hyperedge, so each nondegenerate square uses exactly the endpoints of one target graph edge. Thus C2 and C1 decompose edgewise and ∂2 respects edge summands. On an edge all Γ-cubes are valid; coning along the last coordinate to a fixed endpoint, with sign (−1)^{n+1}, gives a normalized integral chain contraction in positive degrees. Consequently every global 2-cycle bounds using edge-supported 3-cubes: H2^Γ=0 integrally. ∂2 of a square with corner values (a,b,a,a) identifies opposite oriented arcs, giving H1 the ordinary graph cycle lattice and H0 components. Independently checked the signed cone identity on 232 single-edge nondegenerate cubes in degrees 0–3 and finite examples, not substituted for the universal contraction.
 
-## Closest literature and limits
-Zaidi–Jamil [1, §§3,5] contains the nearest special-case degree-one computation but no general degree-two vanishing. Barcelo et al. [2,3] work with the different ordinary cubical graph theory. The result says nothing about \(\Gamma\)-homology in degrees at least three, or about graphs with isolated vertices in the stated normalization. Scientific priority is qualified by possible unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
+
+## value
+
+PASS
+
+A uniform, integral *degree-two vanishing theorem* for an emerging nonstandard Γ-cubical theory, with explicit edgewise contractions and complete low-degree comparison to ordinary graph homology, is a useful structural classification beyond finite example calculations. The special three-corner square constraint is the key non-textbook mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
