@@ -1,0 +1,206 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T07:43:55Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned package: https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd/RESULT.md and verify.py; all seven source blobs inventoried with the actual record tree 9bdca9d3fda1090c3f158ea5f4d5f990398e0f9f.",
+        "Independent symbolic proof check: sympy factor(1-L_k - (m+1)(A_k(m-T)+B_k)/(S²m(mQ-S²))) equals zero identically in n,m,k; endpoints L0=Ln=1.",
+        "Independent symbolic probability-moment identities for center t, transverse covariance a/m and axial covariance b/m equal zero residual.",
+        "35 independent exact-rational layer/gauge cases with n=3..9 and m in {n,T-1,T,T+1,2T}; for (n,m)=(3,10), L2=18841/18720>1; at (3,11), L2=1; at (3,12), L2=2579/2592<1.",
+        "Proof of positive denominator: mQ-S²=n(n+1)[2m(2n+1)-3n(n+1)]/12>0 for m>=n,n>=3. B factor r-1 nonnegative since r=n-k>=1; exactly zero for k=n-1.",
+        "Primary vertex-orbit source: https://arxiv.org/html/2207.14253v3 Proposition 2.7."
+      ],
+      "rationale": "For n>=3,m>=n, the rank-k vertices are all permutations of (n,...,n-k+1,0,...). The candidate comes from a contact probability measure with weight 1/(m+1) at 0 and m/(m+1) uniformly on V_n, giving mean t1 and covariance [a(I-H)+bH]/m. Direct independent symbolic simplification verifies exactly the claimed all-symbolic gauge deficit factorization. Since mQ-S²>0, A_k>0, and B_k>=0 with B_k=0 only for k=n-1, all vertices are enclosed at/above T=n(n+1)-1, while V_{n-1} is outside for m<T. At m=T only V_{n-1} adds as an intermediate contact; above T all intermediate layers are strict interior. Averaging an arbitrary enclosing ellipsoid against the contact measure and applying eigenvalue AM-GM forces detR>=det(mC)=b a^(m-1), equality only at the displayed center and shape. This proves the claimed unique global MVEE without a symmetry assumption on a competitor. The lower-dimensional true optimum is not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2403.06975 Thm 1 addresses n>=m-1 and the Ehrhart polynomial, not ellipsoid shape.",
+          "https://link.springer.com/article/10.1007/s12532-023-00242-8 §1.2 states generic contact-feasibility conditions but no family-specific evaluation.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circumball-and-contact-rank-transitions-of-partial-permuto--5aee45e4fbff/RESULT.md computes the smallest ball for all m,n but no anisotropic MVEE.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md treats n=2 alone."
+        ],
+        "reasoning": "The Ehrhart-domain restriction n>=m-1 is incompatible with the submitted higher-m regime n>=3,m>=n(n+1)-1. A universal formula for the smallest round ball does not determine a minimum-volume ellipsoid. General dual optimality conditions are methods and would cover the new statement only after solving the new all-n feasibility polynomial, which the cited work does not supply. The n=2 family is a special case, not a more general statement.",
+        "searches": [
+          "minimum volume ellipsoid convex hull zero permutations of vector permutahedron Löwner D optimal contact condition",
+          "minimum volume ellipsoid anti blocking permutahedra D-optimal design",
+          "partial permutohedron optimal experimental design covariance ellipsoid vertex orbit contact transition",
+          "Resultary all-m,n same-family metric search: minimum volume Löwner enclosing ellipsoid partial permutohedron anti-blocking permutahedra contact point threshold dimension n(n+1)-1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2207.14253v3",
+        "https://arxiv.org/pdf/2012.09901",
+        "https://arxiv.org/pdf/2403.06975",
+        "https://link.springer.com/article/10.1007/s12532-023-00242-8",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circumball-and-contact-rank-transitions-of-partial-permuto--5aee45e4fbff/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary same-object literature: https://arxiv.org/html/2207.14253v3 Prop 2.7 and Cor 5.8; https://arxiv.org/pdf/2012.09901 Prop 5.7 and Thm 5.10.",
+          "Complete n=2 published special case: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md.",
+          "Published all-m,n circumball: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circumball-and-contact-rank-transitions-of-partial-permuto--5aee45e4fbff/RESULT.md.",
+          "Generic MVEE dual optimality: https://link.springer.com/article/10.1007/s12532-023-00242-8 §1.2."
+        ],
+        "reasoning": "The vertex theorem permits writing gauges for every orbit; generic Löwner duality then reduces the problem to a family-specific finite inequality. Proving exactly 1-L_k=(m+1)[A_k(m-n(n+1)+1)+B_k]/[S²m(mQ-S²)] with A_k>0 and B_k>=0, B_k=0 iff k=n-1, is an additional all-n calculation absent from cited priors. The earlier n=2 formula verifies the special case but cannot imply the n>=3 all-k signs. The circumball has a distinct center and m=n(n+1) transition and does not imply the ellipsoid claim.",
+        "searches": [
+          "minimum volume Löwner enclosing ellipsoid partial permutohedron anti-blocking permutahedra contact point threshold dimension n(n+1)-1",
+          "John Löwner ellipsoid anti-blocking permutohedron symmetric group orbit origin truncated permutation polytope",
+          "partial permutohedron optimal experimental design covariance ellipsoid vertex orbit contact transition",
+          "minimum volume ellipsoid convex hull zero permutations of vector permutahedron Löwner D optimal contact condition",
+          "partial permutohedron Loewner ellipsoid minimum volume enclosing ellipsoid partial permutohedra n(n+1)-1 contact vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2207.14253v3 Corollary 5.8 identifies the same polytope with anti-blocking permutohedron of weights (n,n-1,...,1,0,...,0).",
+          "https://arxiv.org/pdf/2012.09901 §5.3 identifies a projection from partial permutation/partial ASM polytopes.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md gives an exact alternate lower-n expression but restricts n to 2."
+        ],
+        "reasoning": "Compared the same Cartesian vertex set under anti-blocking, partial permutation, projected matching/assignment and D-optimal design formulations. These aliases leave the Euclidean metric fixed only under orthogonal maps; the cited combinatorial projections and general optimality principles do not themselves give the sharp all-n gauge/contact transition. The n=2 formula specializes correctly but its rank-1 interior computation cannot establish the all-n polynomial factor.",
+        "searches": [
+          "minimum volume Löwner enclosing ellipsoid partial permutohedron anti-blocking permutahedra contact point threshold dimension n(n+1)-1",
+          "John Löwner ellipsoid anti-blocking permutohedron symmetric group orbit origin truncated permutation polytope",
+          "partial permutohedron optimal experimental design covariance ellipsoid vertex orbit contact transition",
+          "anti blocking permutahedron Löwner ellipsoid minimum volume enclosing ellipsoid exact",
+          "Resultary semantic searches: minimum volume Löwner enclosing ellipsoid partial permutohedron anti-blocking permutahedra contact point threshold dimension n(n+1)-1; John Löwner ellipsoid anti-blocking permutohedron symmetric group orbit origin truncated permutation polytope; partial permutohedron optimal experimental design covariance ellipsoid vertex orbit contact transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2207.14253v3 presents vertex/facet/Ehrhart and ordinary-volume formulas, not a Löwner table.",
+          "https://arxiv.org/pdf/2403.06975 gives an Ehrhart table/formula; its enumerative values are not sufficient to determine the MVEE.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd is the same assessed finding, not independent prior evidence.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md is an n=2-only exact table."
+        ],
+        "reasoning": "No independently prior exact table of the all-n>=3 Löwner semiaxes and contact transition was located in the searched scholarly and mathematical-record collections. The self-indexed current record is not independent priority; the n=2 table and ordinary lattice polytope volume tables do not mechanically evaluate n>=3. Nonappearance is not a universal novelty proof.",
+        "searches": [
+          "partial permutohedron Loewner ellipsoid minimum volume enclosing ellipsoid partial permutohedra n(n+1)-1 contact vertices",
+          "minimum volume Löwner enclosing ellipsoid partial permutohedron anti-blocking permutahedra contact point threshold dimension n(n+1)-1",
+          "partial permutohedra Behrend Castillo Chavez Diaz Lopez Escobar Harris Insko original article arxiv HTML 2207.14253",
+          "partial permutohedron ellipsoid Loewner Löwner",
+          "partial permutohedron optimal design contact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge independent comparison found no source that supplies or mathematically subsumes the all-n>=3 explicit covariance ellipsoid, sharp m=n(n+1)-1 feasibility onset, and three contact strata at equality. The defining papers give necessary orbit structure; general MVEE duality gives a certificate method but not its nontrivial all-n gauge factorization. A published n=2 special case and an all-parameter circumball theorem were inspected in full: neither entails the new family result. This is a qualified priority judgment, not proof of absence of prior work.",
+      "residual_risks": [
+        "A mathematically equivalent pre-existing result under anti-blocking permutahedron, optimal design or generalized permutation-orbit terminology could be unindexed; the search is not a proof of absence.",
+        "One closely related indexed n=2 formula and an all-m,n circumball classification are not evidence for unqualified originality; their exact coverage was compared above.",
+        "The current result computes the canonical candidate and proves its optimum only for m>=n(n+1)-1, not the true Löwner ellipsoid for n<=m<n(n+1)-1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves same vertex-orbit classification and anti-blocking alias, supplying indispensable input. The material read develops face, volume, and Ehrhart theory, not the orbitwise Löwner gauge/threshold. A negative term search is not an exhaustive priority proof.",
+          "evidence": [
+            "Proposition 2.7: orbit of k positive values n,n-1,...,n-k+1 for k<=min(m,n); Corollary 5.8: anti-blocking permutohedron realization.",
+            "Introduction enumerates its main theorems on face lattice/h-polynomial, Euclidean polytope volume, and Ehrhart polynomials; not enclosing-ellipsoid contact conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.14253v3 (arXiv:2207.14253v3; 2025 update)",
+          "material_read": "Open-access full HTML: introduction and theorem survey, §2.5 Proposition 2.7 (all vertex orbits and dimension), §5 around Corollary 5.8 (anti-blocking permutohedron), §5.3 (fixed small n Ehrhart/volume); searched entire indexed text for ellipsoid and minimum-volume.",
+          "method": "Direct primary-source HTML reading with section-level checks and document term search.",
+          "title": "Partial Permutohedra",
+          "trigger": "Defining same two-parameter polytopes; potentially general anti-blocking and metric results."
+        },
+        {
+          "assessment": "Establishes the family, vertex orbits, facets, face lattices, and volume questions. No source statement of the anisotropic minimum-volume enclosing ellipsoid or m=n(n+1)-1 transition was identified in inspected material.",
+          "evidence": [
+            "Proposition 5.7 counts the partial-permutohedron vertices with ranks k=0,...,min(m,n).",
+            "Introduction states Theorems 5.10, 5.11, 5.24, 5.28 and ordinary-volume Theorem 5.29; these do not evaluate a Löwner ellipsoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09901 (arXiv:2012.09901v3)",
+          "material_read": "Primary 24-page open PDF: introduction/main theorem outline (pp. 1-3) and §5.1 vertices and facets (pp. 15-18, especially Proposition 5.7 and Theorem 5.10), §5.4 topic and volume theorem; page-image inspection of title/abstract and §5.1 start.",
+          "method": "PDF text and screenshot inspection, mathematical comparison of listed vertices, facets, projections and ordinary volume with enclosing-ellipsoid claim.",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Original construction; relevant projection and general polytope geometry."
+        },
+        {
+          "assessment": "Theorem 1 is an Ehrhart-polynomial result for n>=m-1, essentially disjoint from the new m>=n(n+1)-1,n>=3 regime. It does not give metric Löwner semiaxes, contact orbits, or the threshold.",
+          "evidence": [
+            "Theorem 1: Ehrhart polynomial formula under n>=m-1.",
+            "Section 2 recapitulates vertex/facet classification and ordinary volume; these are not enclosing-ellipsoid values."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.06975 (arXiv:2403.06975v1)",
+          "material_read": "Open 13-page PDF: abstract, introduction, Theorem 1 and proof outline, §2 properties/vertex and facets; screenshot inspection of first two pages; document term search for ellipsoid.",
+          "method": "Direct paper inspection and comparison of parameter domain and invariant.",
+          "title": "Ehrhart polynomials of partial permutohedra",
+          "trigger": "Later primary work on exactly the same polytopes, possible dominating parameter theorem."
+        },
+        {
+          "assessment": "General dual-contact optimality criteria justify the certificate method, but no evaluated orbit weights or closed threshold for partial permutohedra. The new claim is not a direct numerical specialization stated there.",
+          "evidence": [
+            "§1.2 eqs. (10): feasible primal ellipsoid and contact equality for positive dual weights.",
+            "§1.1 general logdet duality, not a solved family of anti-blocking permutahedra."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12532-023-00242-8 (Bowman–Heath, 2023, DOI 10.1007/s12532-023-00242-8)",
+          "material_read": "Open-access full journal HTML: §1 MVEE definitions and volume, §1.1 primal/dual log-determinant program, §1.2 necessary/sufficient primal feasibility and contact optimality, §1.3 core sets, overview of algorithms.",
+          "method": "Direct full-text HTML mathematical reading.",
+          "title": "Computing minimum-volume enclosing ellipsoids",
+          "trigger": "Potential broad theorem on MVEE primal/dual contact distributions and covariance design."
+        },
+        {
+          "assessment": "For n=2 it obtains the same large-m candidate formula (m>=6) and critical boundary m=5, but only for the second partial permutohedron. It cannot by itself imply the all-n (n>=3) factor A_k(m-T)+B_k or the general quadratic threshold. The established n=2 case is not claimed as new.",
+          "evidence": [
+            "Piecewise optimal ellipsoid of P(m,2), boundary contact of the one-support orbit at m=5 and strict interior for m>=6.",
+            "For n=2, the high-m center is 3/(m+1), radial squared semiaxis 9m/(m+1)^2 and transverse squared semiaxis m(5m-9)/((m-1)(m+1))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md",
+          "material_read": "Entire RESULT.md: statement, three-orbit gauge, two-regime covariance weights, determinant certificate, parameter formulas and proof.",
+          "method": "GitHub primary mathematical record read via public repository, comparison of precise range, formulas and logical implication.",
+          "title": "A sharp Löwner contact-orbit transition for second partial permutohedra",
+          "trigger": "Extremely close published mathematical record: same family and metric problem at n=2."
+        },
+        {
+          "assessment": "This all-parameter result concerns the smallest enclosing BALL, constrained to isotropic shape. Its m=n(n+1) sphere-contact change does not imply the distinct m=n(n+1)-1 anisotropic Löwner ellipsoid onset or volume.",
+          "evidence": [
+            "Large-m circumball center S/m and squared radius Q-S²/m; threshold m=n(n+1).",
+            "Candidate ellipsoid has independent radial and transverse axes a,b; minimizing the maximum distance in a round ball is a different optimization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circumball-and-contact-rank-transitions-of-partial-permuto--5aee45e4fbff/RESULT.md",
+          "material_read": "Entire RESULT.md including exact candidate minimax, one/two consecutive contact rank theorem, global sphere certificate and large-m m=n(n+1) transition.",
+          "method": "Direct primary record mathematical comparison: smallest spherical radius vs volume-minimizing anisotropic ellipsoid.",
+          "title": "Exact circumball and contact-rank transitions of partial permutohedra",
+          "trigger": "Same P(m,n) at all parameters, with sharp metric contact-rank transitions that could dominate."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "https://arxiv.org/html/2207.14253v3 establishes the natural family and existing metric/combinatorial motivation.",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md supplies only n=2 special-case behavior and shows exact ellipsoid contacts are a natural object of study.",
+        "One exact formula for all n>=3 and m>=T, including semiaxes a,b, contact counts 1+m!/(m-n)! and boundary addition m!/(m-n+1)!, and volume κ_m sqrt(b a^(m-1)).",
+        "The boundary T grows quadratically with n and is mathematically sharp for the specific two-orbit moment design, rather than a sampled or arbitrary finite cutoff."
+      ],
+      "rationale": "The problem asks for the global minimum-volume enclosing ellipsoid of an established two-parameter polytope, rather than a contrived norm computation. The theorem obtains explicit axis lengths and Euclidean volume for infinitely many pairs (m,n), and a sharp contact-support phase boundary at m=n(n+1)-1. The critical penultimate-support orbit is singled out by an exact sign change, a structural classification missing from the source vertex/Ehrhart theory and from the earlier n=2 result. The covariance construction also offers a reusable certificate mechanism for permutation orbit polytopes. The true MVEE below threshold remains open in this report; this limitation does not remove the utility of the exact high-dimensional classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2207.14253v3",
+    "https://arxiv.org/pdf/2012.09901",
+    "https://arxiv.org/pdf/2403.06975",
+    "https://link.springer.com/article/10.1007/s12532-023-00242-8",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-l-wner-contact-orbit-transition-for-second-partial-permu--dc2610ed29db/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circumball-and-contact-rank-transitions-of-partial-permuto--5aee45e4fbff/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-quadratic-contact-threshold-for-the-l-wner-ellipsoid-of-partia--e37a5d64aafd"
+  ],
+  "disposition": "passed",
+  "final_claim": "For integers n>=3 and m>=n, the explicit two-eigenspace covariance ellipsoid centered at S/(m+1) times 1, transverse squared semiaxis a=m(mQ-S²)/((m+1)(m-1)) and axial squared semiaxis b=mS²/(m+1)², is the unique minimum-volume Euclidean ellipsoid of P(m,n) exactly for m>=n(n+1)-1. At strict inequality its polytope-vertex contacts are 0 and all V_n; at equality V_{n-1} also contacts. Below it the candidate fails containment, without determining the true optimum.",
+  "limitations": [
+    "Only the canonical candidate and actual optimum for m>=n(n+1)-1, n>=3, are established. For n<=m<T the true optimum is not evaluated.",
+    "The n=2 exact solution is already published separately; it is not treated as new here.",
+    "Best-of-knowledge originality is not global priority certification; residual equivalent-formulation risks remain.",
+    "Source scientific content was read at pinned commit; no GitHub write or external audit attestation was performed.",
+    "Public source files contain operational metadata requiring privacy sanitization before safe publication."
+  ],
+  "residual_risks": [
+    "A mathematically equivalent pre-existing result under anti-blocking permutahedron, optimal design or generalized permutation-orbit terminology could be unindexed; the search is not a proof of absence.",
+    "One closely related indexed n=2 formula and an all-m,n circumball classification are not evidence for unqualified originality; their exact coverage was compared above.",
+    "The current result computes the canonical candidate and proves its optimum only for m>=n(n+1)-1, not the true Löwner ellipsoid for n<=m<n(n+1)-1."
+  ],
+  "schema_version": 1
+}

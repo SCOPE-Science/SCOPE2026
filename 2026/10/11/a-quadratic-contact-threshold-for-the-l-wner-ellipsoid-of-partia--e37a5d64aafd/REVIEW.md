@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The vertex classification follows independently from maximizing arbitrary linear functionals and agrees with the full primary vertex description in Behrend et al. The explicit moment/covariance calculation yields a positive-definite candidate. The exact deficit factorization has a positive denominator and a nonnegative numerator precisely in the stated regime; at the boundary its only extra zero is the penultimate support orbit. The determinant–trace certificate controls every enclosing ellipsoid, including those lacking symmetry, and gives a unique equality case. The proof does not infer the infinite statement from finite computations. `verify.py` reproduces 2,070 exact rational factor checks and coordinate-gauge calculations.
+## correctness
 
-**Originality: PASS with limited residual risk.** Behrend et al., arXiv:2207.14253, and Heuer–Striker, arXiv:2012.09901, were inspected in substantial full-text sections establishing vertex/facet theory, faces, volumes, and anti-blocking representations; neither inspected paper derives the sharp quadratic Löwner-contact threshold. General ellipsoid certificates alone do not supply the orbit-specific factorization or threshold. Searches for partial-permutohedron enclosing ellipsoids and anti-blocking permutahedra found no more specific established formula. A result under optimal experimental-design language remains possible; absolute novelty is not certified by search alone.
+PASS
 
-**Value: PASS.** The parameter \(m=n(n+1)-1\) is the exact onset of a simple, globally optimal two-orbit enclosing-ellipsoid certificate for every fixed \(n\ge3\), with a changed contact face at the boundary. This is a natural structural classification of an existing two-parameter polytope family, furnishing explicit Euclidean semiaxes and volume in a previously unresolved large-dimension regime rather than a single numerical example. The lower-dimensional optimum remains open within this report.
+For n>=3,m>=n, the rank-k vertices are all permutations of (n,...,n-k+1,0,...). The candidate comes from a contact probability measure with weight 1/(m+1) at 0 and m/(m+1) uniformly on V_n, giving mean t1 and covariance [a(I-H)+bH]/m. Direct independent symbolic simplification verifies exactly the claimed all-symbolic gauge deficit factorization. Since mQ-S²>0, A_k>0, and B_k>=0 with B_k=0 only for k=n-1, all vertices are enclosed at/above T=n(n+1)-1, while V_{n-1} is outside for m<T. At m=T only V_{n-1} adds as an intermediate contact; above T all intermediate layers are strict interior. Averaging an arbitrary enclosing ellipsoid against the contact measure and applying eigenvalue AM-GM forces detR>=det(mC)=b a^(m-1), equality only at the displayed center and shape. This proves the claimed unique global MVEE without a symmetry assumption on a competitor. The lower-dimensional true optimum is not claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge independent comparison found no source that supplies or mathematically subsumes the all-n>=3 explicit covariance ellipsoid, sharp m=n(n+1)-1 feasibility onset, and three contact strata at equality. The defining papers give necessary orbit structure; general MVEE duality gives a certificate method but not its nontrivial all-n gauge factorization. A published n=2 special case and an all-parameter circumball theorem were inspected in full: neither entails the new family result. This is a qualified priority judgment, not proof of absence of prior work.
+
+## value
+
+PASS
+
+The problem asks for the global minimum-volume enclosing ellipsoid of an established two-parameter polytope, rather than a contrived norm computation. The theorem obtains explicit axis lengths and Euclidean volume for infinitely many pairs (m,n), and a sharp contact-support phase boundary at m=n(n+1)-1. The critical penultimate-support orbit is singled out by an exact sign change, a structural classification missing from the source vertex/Ehrhart theory and from the earlier n=2 result. The covariance construction also offers a reusable certificate mechanism for permutation orbit polytopes. The true MVEE below threshold remains open in this report; this limitation does not remove the utility of the exact high-dimensional classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
