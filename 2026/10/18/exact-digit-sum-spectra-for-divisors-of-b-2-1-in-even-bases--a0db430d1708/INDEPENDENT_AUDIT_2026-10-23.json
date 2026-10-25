@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:57:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/AUDIT.json",
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/METADATA.json",
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/RESULT.md",
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/REVIEW.md",
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/SLOGAN.txt",
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/VERIFICATION.md",
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/VERIFY.py"
+      ],
+      "rationale": "For even b≥2 and positive d|b−1, n=d(b+1), N divisible by n forces d|s_b(N) from b≡1 mod d and E−O≡0 mod(b+1) from b≡−1 mod(b+1). Since an odd u≤b−1 has nonzero odd E−O of absolute size <b+1, it is impossible. For sufficiency, A=∑_{j=0}^{2d−1}b^j has digit sum 2d and is divisible by d(b+1); B=b⁴+db²+(d−1)b+(b−1) has sum b−1+2d and is likewise divisible by coprime factors d,b+1. Concatenating the representations gives all even multiples of d and all odd multiples above b−1. There are ((b−1)/d+1)/2 gaps, largest b−1, density 1/d. Independent finite-state arbitrary-length search compared 364 target sums for tested small even bases/divisors; unbounded parameters follow only from proof.",
+      "residual_risks": [
+        "Even-base restriction essential to odd parity of d and b−1.",
+        "The result counts attainable digit-sum values, not multiplicities or least positive multipliers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Theorem 2 (2023) already proves all 2d,4d,... are attained, because s_b(n)=2d.",
+          "The 2020 existence and b−1-upward closure apply to more general moduli."
+        ],
+        "reasoning": "The broader results do not settle which odd multiples of d are excluded. The new alternating-congruence obstruction plus B witness exactly resolves that remaining branch, a clear incremental but substantive classification.",
+        "searches": [
+          "digit sums positive multiples n=d(b+1) even bases missing odd multiples d below b-1",
+          "https://arxiv.org/pdf/2303.13017",
+          "https://arxiv.org/pdf/2002.02731"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.13017",
+        "https://arxiv.org/pdf/2002.02731",
+        "Resultary actual query: digit sums positive multiples n=d(b+1) even bases missing odd multiples d below b-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In decimal modulus 33, the 2023 example establishes 3 is absent; the present result also excludes 9 and explicitly realizes every other positive multiple of 3.",
+          "The 2023 Theorem 2 provides the entire even-d branch."
+        ],
+        "reasoning": "A full classification is strictly stronger than the earlier partial constraints; the additional odd branch is not an immediate instance of Theorem 2.",
+        "searches": [
+          "digit sums positive multiples n=d(b+1) even bases missing odd multiples d below b-1",
+          "https://arxiv.org/pdf/2303.13017",
+          "https://arxiv.org/pdf/2002.02731"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper defines Out(s_b,n), an exactly equivalent digit-sum image, and explicitly treats n=33."
+        ],
+        "reasoning": "The theorem is an evaluated family-wide image/out-neighborhood, not a new definition. The examined 2023 source provides the necessary congruences and one obstruction but not the complete missing set.",
+        "searches": [
+          "digit sums positive multiples n=d(b+1) even bases missing odd multiples d below b-1",
+          "https://arxiv.org/pdf/2303.13017",
+          "https://arxiv.org/pdf/2002.02731"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A283742 lists decimal integers with digit sum 11 divisible by 11; it does not purport to tabulate all output sums for every even b and d|b−1.",
+          "Resultary semantic search for this particular family returned no exact covering record."
+        ],
+        "reasoning": "No queried exact table contained the claimed universal hole progression. Existing isolated lists neither prove nor refute global novelty.",
+        "searches": [
+          "digit sums positive multiples n=d(b+1) even bases missing odd multiples d below b-1",
+          "https://arxiv.org/pdf/2303.13017",
+          "https://arxiv.org/pdf/2002.02731"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. A full classification is strictly stronger than the earlier partial constraints; the additional odd branch is not an immediate instance of Theorem 2. Unread primary documents are not treated as not covering.",
+      "residual_risks": [
+        "The result-index search is semantic and incomplete; the lack of a matching returned title is not proof of novelty. Unindexed papers, appendices and equivalent aliases remain possible.",
+        "Elementary constructions of this family could have appeared in earlier digit-puzzle literature under base-alternating-sum language.",
+        "Related sequence pages are not a comprehensive historical prior-art database."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its Theorem 2 covers even 2d branch; its Example 4 excludes digit sum 3 for decimal 33, but the examined main text does not give the missing odd threshold, exclude 9, or show all larger odd sums.",
+          "evidence": [
+            "Theorem 2: all multiples of s_b(n)=2d occur",
+            "Example 4: base-ten n=33 excludes 3",
+            "Question 2: seek full output sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13017",
+          "material_read": "Full 13-page arXiv primary PDF main theorems, Example 4 and complete-out-set questions",
+          "method": "Primary PDF read, theorem and question search and page screenshot",
+          "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+          "trigger": "Same digit-sum image and explicit decimal modulus 33 example"
+        },
+        {
+          "assessment": "Theorem 4 supplies upward closure from each attainable sum but does not identify the sharp b−1 missing-odd boundary without a new witness and alternating-sum obstruction.",
+          "evidence": [
+            "Theorem 3: distinct-powers criterion",
+            "Theorem 4: add multiples of b−1 to realized weights"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.02731",
+          "material_read": "Primary 33-page arXiv PDF Theorems 3–4 and proofs inspected",
+          "method": "PDF main theorem text and page screenshot",
+          "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+          "trigger": "Potential all-modulus powerful attainable-sum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708/RESULT.md",
+        "https://arxiv.org/pdf/2303.13017",
+        "https://arxiv.org/pdf/2002.02731"
+      ],
+      "rationale": "The infinite natural family of divisors of b²−1 that contain b+1 answers a previously posed complete output-set question; the motivating decimal n=33 example is fully settled rather than supplied with only one missing value. An exact sharp finite hole set and b-independent last gap are useful number-theoretic invariants despite the elementary proof.",
+      "residual_risks": [
+        "The result does not address odd b, divisors not divisible by b+1, or multiplicities of representations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Even-base restriction essential to odd parity of d and b−1.",
+    "The result counts attainable digit-sum values, not multiplicities or least positive multipliers.",
+    "Elementary constructions of this family could have appeared in earlier digit-puzzle literature under base-alternating-sum language.",
+    "Related sequence pages are not a comprehensive historical prior-art database.",
+    "The result does not address odd b, divisors not divisible by b+1, or multiplicities of representations."
+  ],
+  "schema_version": 1
+}
