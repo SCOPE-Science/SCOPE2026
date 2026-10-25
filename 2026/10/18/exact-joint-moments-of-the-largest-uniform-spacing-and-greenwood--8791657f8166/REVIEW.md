@@ -1,15 +1,21 @@
-# Assessment: Exact joint moments of the largest uniform spacing and Greenwood's statistic
+# Independent mathematical audit
 
-## Correctness — PASS
-The uniform-simplex affine exceedance law, inclusion–exclusion and beta integrals prove the full weighted threshold profile, not merely the covariance. Binomial–harmonic identities and Dirichlet fourth moments give the exact covariance and the asymptotic Pearson correlation. Two small-dimensional independent exact integrations and rational tests support the analytical argument. No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS on inspected scientific evidence
-The 2020 ordered-spacings analysis establishes marginal and linear ordered-gap distributions, the 2021 study defines Greenwood while examining different goodness-of-fit statistics, and the 2023 study treats the maximum gap and sorted-gap sums. Their inspected claims do not entail the full threshold-dependent quadratic cross moment. Search comparisons addressed Dirichlet equivalence, exponential normalization, broader ordered-spacing coverage and potential known-table entries; no dominating theorem for the whole mixed-tail profile was located.
+PASS
 
-## Value — PASS
-The exact weighted-tail profile makes the expected Greenwood score computable conditional on any selected largest-gap threshold, which is directly relevant when two natural gap diagnostics are combined or one is used to screen. Positivity at every finite size and the sharp asymptotic decorrelation reconcile two different notions of dependence.
+Condition on specified k spacings exceeding x; normalized shifted vector is Dirichlet(1)^n and event probability (1−kx)_+^{n−1}. Expanding quadratic score using EΣT_i²=2/(n+1), inclusion–exclusion yields full displayed mixed tail law, including boundaries 0≤x≤1; conditional formula restricted x>1/n. Integrating three beta terms and alternating binomial/harmonic identities gives Cov(M,G)=[H_n²+H_n^(2)−2H_n]/[n(n+1)(n+2)] >0 via harmonic recurrence. Independent rational beta/harmonic sums for n=2..39 agree. Dirichlet fourth moments and maximal spacing variance yield Corr~√6/(2π)(log n)²/√n; zero asymptotic correlation does not imply independence.
 
-## Closest literature and risks
-Eller–Shtembari (arXiv:2111.02252), Shtembari–Caldwell (arXiv:2008.02048), and Shtembari–Caldwell (arXiv:2303.09520) provide the closest inspected methods. An older multivariate Dirichlet or spacing identity might conceal an equivalent formula; historical priority is not independently established. This result does not give a full bivariate law, a combined-test power analysis, or a theorem for nonuniform alternatives.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shtembari/Caldwell full ordered-spacings text yields maximum-gap marginal laws, while Greenwood quadratic-score tests are known separately. Neither alone determines the threshold-dependent mixed tail expectation or harmonic positive covariance. Resultary searches for Dirichlet maximum/Greenwood co-moment found no clear covering claim; an earlier general Dirichlet ordered-statistic mixed theorem may exist. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Largest gap and Greenwood's sum of squared gaps are standard goodness-of-fit spacing scores. Full mixed tail moment and sharp positive-to-asymptotically-zero correlation describe concrete joint behavior needed when using both scores, not an arbitrary moment or one-off table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
