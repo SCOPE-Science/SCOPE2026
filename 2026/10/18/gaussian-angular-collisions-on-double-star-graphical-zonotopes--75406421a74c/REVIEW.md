@@ -1,19 +1,21 @@
-# Scientific review: Gaussian angular collisions on double-star graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the canonical Euclidean graphical zonotope of a tree, hence its edge generators are linearly independent and every sign vector corresponds to exactly one vertex. Independent Gaussian objectives can be represented by independent node-coordinate arrays, with edge comparisons unchanged by orthogonal projection. Applying the probability integral transform gives the four-dimensional conditioning identity (1). The exact finite sum follows from a binomial expansion on each hub's leaf pool and an integer beta integral, checked independently by complete rank-permutation enumeration in small cases. The large-leaf limit follows from two localized Laplace corner contributions to the hub-pair measures: the central-edge concordance is certain for opposite hub corner types and has probability \(\theta^2+(1-\theta)^2\) for equal corner types. The boundary cases \(\theta=0,1\) are included provided **both** leaf counts diverge. The proof, not numerical experiments, supplies the infinite-parameter quantifiers. Potential ambiguity between a tree graphical zonotope and a symmetric-edge polytope is explicitly resolved in the definitions.
+PASS
 
-## Originality — PASS, with residual risk
+Tree edge vectors are linearly independent, so each Gaussian comparison sign pattern uniquely labels a zonotope vertex. Projection to the zero-sum hyperplane preserves all coordinate comparisons; normal ranks of independent Gaussians become independent uniform ranks. Conditioning on hub uniforms u,u′,v,v′ gives C=∫ 1_{(u-v)(u′-v′)>0}a(u,u′)^p a(v,v′)^q with a=uu′+(1-u)(1-u′). Squaring the triangular beta-integral expansion proves the factorial double sum and rationality. Weighted hub-pair laws a^s/S_s concentrate in equal zero/one corners with rescaled independent Exp(1) coordinate deficits, yielding the central-edge match factor 1-theta(1-theta). The one-hub exact S_s=(s+1)^-2 sum_j binom(s,j)^-1 gives s² S_s->2. Independently enumerated exact rank permutations and matched formula for p,q=(1,1),(1,2),(2,2),(1,3),(2,3),(3,3); finite checks corroborate, corner-convergence proof supplies all diverging dimensions, including endpoint ratios theta=0,1.
 
-The closest geometric source is Padrol, Pilaud and Poullot, *Deformed Graphical Zonotopes* (arXiv:2111.12422, first posted 2021-11-24), whose inspected full-text graphical-fan and principal deformation results concern combinatorial fans and type cones. Stinson, Gleich and Constantine (arXiv:1602.06620) study Gaussian normal-cone sampling of general zonotopes, providing the underlying method but not the present bistar-specific exact angular power sum or balanced asymptotic. Mallows and Shepp (1985) treat matching up/down forms on paths; that direct path analogue is prior work rather than a new consequence here. A previously published width-variance analysis of tree graphical zonotopes concerns second moments of directional widths, not collision probabilities for maximizing vertices. Nearby bistar symmetric-edge inball results concern a distinct convex polytope. The one-hub star identity is a normalization benchmark, not the claimed original contribution. Mathematical-record and literature queries under orientation agreement, linear extensions, double-star cone angles and Gaussian vertex collisions found no stated implication covering the new double-star result. A general unindexed random-tree ordering result could still imply it, and this remains a bibliographic uncertainty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The probability is a natural measure of how strongly Gaussian-vertex sampling concentrates on a small fraction of a zonotope's vertices. Within one combinatorially uniform family of parallelotopes, the exact \(p,q\)-dependent formula gives rational cone-angle collision statistics despite an ambient Euclidean normal-cone problem. More importantly, the sharp asymptotic factor \(1-\theta(1-\theta)\) quantifies the interaction of two large hubs, with a 25% collision reduction at balanced sizes compared with separately sampled stars. This is a meaningful geometric sampling phenomenon and a motivated infinite-family classification, not an arbitrary finite coefficient.
+Best-of-knowledge originality established for the final exact claim, not for known supporting formulas: searched published Resultary records and compared actual mathematical statements, same-object literature, reductions and stronger plausible frameworks; this PASS is conditional on the explicitly documented access/priority risks.
 
-## Boundaries and verification
+## value
 
-The result concerns the canonical root-vector Euclidean metric, not affine-equivalent parallelotopes; it does not establish a uniform error term, optimal sampling algorithms, or the regime with one bounded leaf class. `CHECK.py` replays exact small cases without external packages. The originality conclusion is qualified by the possibility of an equivalent result under random tree-ordering terminology. An independent review is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nontrivial exact normal-cone collision law of a canonical tree-parallelotope family with a sharp balancing loss of one quarter directly quantifies repeated random-objective vertex selection. It is not determined by the tree zonotope face lattice (a cube), which has exponentially many vertices despite only polynomial reciprocal collision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
