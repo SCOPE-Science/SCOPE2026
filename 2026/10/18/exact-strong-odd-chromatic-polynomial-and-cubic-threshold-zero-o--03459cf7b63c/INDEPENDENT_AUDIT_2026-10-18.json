@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T21:56:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 423e64c5adbb0ec9f2c81900a5c65069df14630b",
+        "Frozen verify.py blob 3fec613b02bd5c72f982c62d07f2abe456518753",
+        "Independent proper-cycle leaf-weight enumeration n=3..8"
+      ],
+      "rationale": "For each properly colored cycle, the 3-neighbor strong-odd condition forces the leaf to equal the repeated pair of neighbor colors (one option), or if the two cycle neighbors differ, to avoid all three colors (k−3 options). The weighted cycle trace on directed color arcs counts ∑_proper (k−3)^d exactly. On k(k−1) arcs T f(a,b)=q∑_{c≠b} f(b,c)+(4−k)f(b,a); its constant eigenspace, 2(k−1)-dimensional standard block with characteristic X²+qX−(4−k)L, and symmetric/antisymmetric zero-row blocks of respective dimensions k(k−3)/2 and (k−1)(k−2)/2 exhaust the space. Their traces give displayed P_n(k) and annihilating recurrence, then polynomial identity extends from all k≥3 to 0,1,2. For odd n, at least three distance-two inequality defects are needed; cyclic signed-step count gives n(n²−1)/4 exact cubic leading coefficient at k=3. Evaluating transfer at k=2,3,4 gives χ_so=2 even, 4 odd and 3^n−3 four-colorings for odd n. Independently enumerated direct proper-cycle colorings for n=3..8 and k=3..5, matching formula; not an infinite proof.",
+      "residual_risks": [
+        "The label convention is k distinguishable colors with unused allowed, not orbit counts up to color relabeling.",
+        "The k=3 polynomial zero order is in the indeterminate k, not a count of 3-colorings at k=3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caro et al. establish χ_so≤4 for a broad unicyclic class excluding a bare exceptional cycle; Kwon–Park define strong odd colors and generic bounds."
+        ],
+        "reasoning": "A bound on the minimum does not imply all k-coloring counts, recurrence roots/multiplicities, or sharp order-three vanishing at k=3. The exact even/odd sunlet scalar is a special refinement.",
+        "searches": [
+          "Caro et al. arXiv:2410.02336 Proposition 2.2",
+          "Kwon–Park arXiv:2401.11653"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.02336 Proposition 2.2",
+        "arXiv:2401.11653",
+        "Resultary: strong odd chromatic polynomial sunlet C_n corona K_1 coloring counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous unicyclic theorems constrain χ_so≤4 but do not count labeled k-colorings for all palettes."
+        ],
+        "reasoning": "The full transfer trace and cubic-zero leading coefficient need distinct counting and decomposition arguments, so the exact claimed new invariant is not implied by statements actually inspected.",
+        "searches": [
+          "Caro et al. arXiv:2410.02336 Proposition 2.2",
+          "Kwon–Park arXiv:2401.11653"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sunlet is an n-cycle corona by one leaf, and the state sum can be expressed as the trace of a weighted arc transition matrix."
+        ],
+        "reasoning": "Same graph/invariant aliases were examined. Earlier strong-odd bounds and wheel scalar results do not provide the entire weighted arc trace, its spectral decomposition or cubic chromatic zero.",
+        "searches": [
+          "Resultary: strong odd chromatic polynomial sunlet C_n corona K_1 coloring counts",
+          "Caro et al. arXiv:2410.02336 Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed odd colorings of crown graphs address another graph; complete-graph corona general-position polynomial uses a different invariant."
+        ],
+        "reasoning": "No matching sunlet strong-odd chromatic polynomial/table appeared. This is limited search evidence, not proof that no equivalent enumerator exists.",
+        "searches": [
+          "Resultary: strong odd chromatic polynomial sunlet C_n corona K_1 coloring counts",
+          "Resultary crown strong-odd and complete-graph-corona general-position records"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for full labeled-palette polynomial, order-five-annihilating recurrence and exact odd cubic vanishing. The already-known notion, generic unicyclic four-color upper bound and bare-cycle results are explicitly excluded from originality.",
+      "residual_risks": [
+        "Unindexed transfer-matrix or chromatic polynomial literature might compute the same sunlet strong-odd generating function.",
+        "The known unicyclic four-color upper bound is not newly claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial scalar coverage via χ_so≤4, not the enumerator or cubic zero",
+          "evidence": "Proposition 2.2 on unicyclic graphs excluding a bare 5-cycle.",
+          "identifier_or_url": "arXiv:2410.02336v1",
+          "material_read": "Complete arXiv HTML including Section 2 and Proposition 2.2",
+          "method": "Read primary full-text HTML",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Unicyclic strong-odd upper bounds include sunlets"
+        },
+        {
+          "assessment": "No full sunlet colored-palette polynomial identified",
+          "evidence": "Strong odd coloring definition and sparse bounds.",
+          "identifier_or_url": "arXiv:2401.11653v2",
+          "material_read": "Complete arXiv HTML and relevant definition/results",
+          "method": "Read primary full-text HTML",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Foundational definition, possible general sparse graph classification"
+        },
+        {
+          "assessment": "Different crown graph and scalar minimum, not same labeled sunlet enumerator",
+          "evidence": "Resultary summary concerns χ_so(Cr_n)=n for odd n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248",
+          "material_read": "Resultary indexed scientific abstract only",
+          "method": "Resultary semantic index",
+          "title": "Published Resultary strong-odd crown graph findings",
+          "trigger": "Possible related strong-odd graph enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md spectral trace decomposition",
+        "Caro et al. known generic unicyclic bound"
+      ],
+      "rationale": "The all-palette coloring polynomial is a canonical exact enumerative invariant of sunlets, a natural infinite unicyclic family. Its constant-order length recurrence and order-three chromatic zero measure an exact obstruction beyond scalar chromatic bounds, and the parity-dependent optimal counts give concrete reusable benchmarks for strong-odd enumerations.",
+      "residual_risks": [
+        "No general corona/unicyclic classification or other odd-coloring convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n≥3 one-pendant sunlets with labeled colors; finite checks are corroborative.",
+    "Potential earlier same enumerator under a different polynomial name."
+  ],
+  "schema_version": 1
+}
