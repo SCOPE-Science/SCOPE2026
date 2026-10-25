@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility of the cyclic-gap theorem
+# Independent mathematical audit
 
-The proof is given in `RESULT.md`. The dependency-free `verify.py` implements an independent finite oracle: it checks every disjoint placement of the critical correction values \(0,-1\) through period \(10\), compares directed cycle existence against the proposed cyclic-gap threshold for every cap up to \(h+1\), and tests 13,000 seeded periodic integer correction examples (bases \(2,3,7,10\)). These checks also compare actual integer digit appending with the correction-only condition at indices above the explicit rigidity threshold.
+## correctness
 
-Run `python3 verify.py` from the extracted package directory. The observed output was:
+PASS
 
-```
-VERIFY_OK subset_graph_comparisons=930021 sampled_recurrence_and_graph_checks=825308
-```
+Given a_n=b^n+u_(n mod h), b≥2, finite U=max|u_r|, select M with b^M>4(U+1). For a digit-append step from m≥M with index jump k and append length t, the inequality 0≤a_(m+k)−b^t a_m<b^t forces k=t: for k>t the normalized digit difference exceeds 1, and for k<t it is negative, uniformly even if t grows. For k=t an edge is legal exactly when 0≤u_(r+t)−b^t u_r<b^t. On any finite residue-state directed cycle positive correction values would strictly increase and values≤−2 strictly decrease, while zero cannot lead to negative and −1 cannot lead to nonnegative. Hence cycles lie wholly in correction 0 or −1 states; all positive increments connecting two states of the same one of these levels are allowed. Such a subset supports a bounded-increment residue cycle iff the maximum circular gap is ≤N (lift a hypothetical cycle past its largest missing interval). Thus N*=min(g(S0),g(S−1)); both sets empty excludes infinite walks even for unbounded digit lengths. When N<N*, the eventual graph is acyclic with at most h−1 edges after index M, and at most M earlier edges, so all walks have ≤M+h−1 steps. Independent finite graph tests evaluated 22,500 base/period/cap parameter triples under exact digit inequalities; every cycle existence matched N*. These do not prove the unrestricted theorem.
 
-The enumeration is exhaustive only for the explicitly stated finite graph patterns; random recurrence tests are finite consistency checks. The all-period result, unbounded-digit assertion, and global walk length bound follow from the analytic argument, not from this finite test. No independent external scientific audit has occurred.
+## originality
+
+PASS
+
+Digit-appending walk papers primarily treat Fibonacci and Lucas dominant roots that are nonintegral and unrelated to the appended base. The present resonant dominant root exactly b with arbitrary periodic integer corrections admits infinite walks and a zero/minus-one cyclic-gap classification; no matching prior implication appeared in searched primary literature.
+
+## value
+
+PASS
+
+Classifies all infinite walks and sharp bounded-digit thresholds for a natural full class of integer-base exponential recurrences with periodic corrections, including cycles invisible to the usual Fibonacci termination arguments. The simple circular-gap invariant precisely answers the natural existence decision for each recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

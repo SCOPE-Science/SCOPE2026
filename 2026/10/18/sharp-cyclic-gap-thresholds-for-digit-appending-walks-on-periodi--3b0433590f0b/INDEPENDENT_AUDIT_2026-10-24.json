@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:06:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given a_n=b^n+u_(n mod h), b≥2, finite U=max|u_r|, select M with b^M>4(U+1). For a digit-append step from m≥M with index jump k and append length t, the inequality 0≤a_(m+k)−b^t a_m<b^t forces k=t: for k>t the normalized digit difference exceeds 1, and for k<t it is negative, uniformly even if t grows. For k=t an edge is legal exactly when 0≤u_(r+t)−b^t u_r<b^t. On any finite residue-state directed cycle positive correction values would strictly increase and values≤−2 strictly decrease, while zero cannot lead to negative and −1 cannot lead to nonnegative. Hence cycles lie wholly in correction 0 or −1 states; all positive increments connecting two states of the same one of these levels are allowed. Such a subset supports a bounded-increment residue cycle iff the maximum circular gap is ≤N (lift a hypothetical cycle past its largest missing interval). Thus N*=min(g(S0),g(S−1)); both sets empty excludes infinite walks even for unbounded digit lengths. When N<N*, the eventual graph is acyclic with at most h−1 edges after index M, and at most M earlier edges, so all walks have ≤M+h−1 steps. Independent finite graph tests evaluated 22,500 base/period/cap parameter triples under exact digit inequalities; every cycle existence matched N*. These do not prove the unrestricted theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier papers analyze Fibonacci/Lucas number-theory walks, with no theorem classifying all bounded periodic corrections of integer-base powers."
+        ],
+        "reasoning": "Though a general digit-appending framework is broader, its sufficient termination theorems do not dominate the exact iff criterion, especially since the resonant family can exhibit infinite walks.",
+        "searches": [
+          "digit appending walks periodic perturbations of powers base b largest circular gaps zero minus one corrections",
+          "arXiv:2512.06446 Theorems 3.1,4.2",
+          "arXiv:2010.14932"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.06446",
+        "arXiv:2204.08138",
+        "Resultary published research index: digit appending walks periodic perturbations of powers base b largest circular gaps zero minus one corrections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kominers proof uses Fibonacci growth and an odd-gap Fibonacci identity; neither yields eventual k=t at integral base resonance."
+        ],
+        "reasoning": "No published claim logically implies the full two-level residue-cycle characterization without a new eventual rigidity and finite-state cycle argument.",
+        "searches": [
+          "digit appending walks periodic perturbations of powers base b largest circular gaps zero minus one corrections",
+          "arXiv:2512.06446 Lemma 3.3 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kominers derives finite termination for bounded-digit Fibonacci walks via noninteger-root recurrence constraints; it does not parametrize walks for b^n+periodic u."
+        ],
+        "reasoning": "A resonant expanding factor equal to the digit base breaks the Fibonacci obstruction; the recurrence class and its invariant g(S) have no equivalent formulation in those results.",
+        "searches": [
+          "digit appending walks periodic perturbations of powers base b largest circular gaps zero minus one corrections",
+          "arXiv:2512.06446 Lemma 3.3",
+          "arXiv:2204.08138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed periodic-shift records concern unrelated operator and dynamical invariants."
+        ],
+        "reasoning": "An exact table is not the relevant form for arbitrary period h; the theorem computes thresholds from two distinguished residue subsets in any finite period.",
+        "searches": [
+          "digit appending walks periodic perturbations of powers base b largest circular gaps zero minus one corrections",
+          "Resultary published search: digit appending periodic perturbations base b zero minus one circular gaps"
+        ]
+      },
+      "rationale": "Digit-appending walk papers primarily treat Fibonacci and Lucas dominant roots that are nonintegral and unrelated to the appended base. The present resonant dominant root exactly b with arbitrary periodic integer corrections admits infinite walks and a zero/minus-one cyclic-gap classification; no matching prior implication appeared in searched primary literature.",
+      "residual_risks": [
+        "An unpublished general finite-state digit-appending criterion might specialize to this elementary resonant family.",
+        "The uniform length bound is sufficient and not claimed optimal; arbitrary bounded aperiodic errors are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The proof forces Fibonacci index gaps and terminates under irrational growth, not base powers with periodic integer error",
+          "evidence": "Lemma 3.3 uses F_(k+2)−F_(k−2)=b^t, which is absent here.",
+          "identifier_or_url": "arXiv:2512.06446",
+          "material_read": "Primary six-page PDF, definitions and Lemmas 3.2–3.3 with proof on pp2–4, theorem bounds",
+          "method": "Full relevant sections read; page 3 visually inspected",
+          "title": "Uniform Bounds for Digit-Appending Fibonacci Walks",
+          "trigger": "Closest primary result on bounded appended digits and recurrence rigidity"
+        },
+        {
+          "assessment": "Studies Fibonacci walks, not a resonant periodic perturbation classification",
+          "evidence": "No zero/minus-one circular-gap threshold in material reviewed.",
+          "identifier_or_url": "arXiv:2204.08138",
+          "material_read": "Published abstract/summary and author definitions",
+          "method": "Abstract reading",
+          "title": "Walking to Infinity on the Fibonacci Sequence",
+          "trigger": "Same digit-walk model on integer sequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifies all infinite walks and sharp bounded-digit thresholds for a natural full class of integer-base exponential recurrences with periodic corrections, including cycles invisible to the usual Fibonacci termination arguments. The simple circular-gap invariant precisely answers the natural existence decision for each recurrence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

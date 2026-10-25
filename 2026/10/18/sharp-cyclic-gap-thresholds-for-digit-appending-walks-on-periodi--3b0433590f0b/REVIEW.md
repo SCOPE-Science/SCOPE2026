@@ -1,19 +1,21 @@
-# Review: sharp cyclic-gap thresholds for digit-appending walks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact normalized digit discrepancy, with a uniform threshold that does not depend on the appended digit count, forces every late step to have index increment equal to the appended digit length. An exact inequality on the periodic corrections reduces the question to a finite directed residue graph. Correction values outside \(\{0,-1\}\) move strictly and hence cannot lie on directed cycles; a cyclic-gap lemma completely characterizes cycles in either stable correction class. Finite-graph acyclicity yields the uniform \(M+h-1\) bound, and repeating the circular tour supplies the infinite walks. The proof addresses singleton correction classes, missing classes, and unbounded append counts. A dependency-free checker independently tests graph and arithmetic cases. Checks establish consistency but not proof of the all-parameter theorem.
+PASS
 
-## Originality — PASS, with residual risk
+Given a_n=b^n+u_(n mod h), b≥2, finite U=max|u_r|, select M with b^M>4(U+1). For a digit-append step from m≥M with index jump k and append length t, the inequality 0≤a_(m+k)−b^t a_m<b^t forces k=t: for k>t the normalized digit difference exceeds 1, and for k<t it is negative, uniformly even if t grows. For k=t an edge is legal exactly when 0≤u_(r+t)−b^t u_r<b^t. On any finite residue-state directed cycle positive correction values would strictly increase and values≤−2 strictly decrease, while zero cannot lead to negative and −1 cannot lead to nonnegative. Hence cycles lie wholly in correction 0 or −1 states; all positive increments connecting two states of the same one of these levels are allowed. Such a subset supports a bounded-increment residue cycle iff the maximum circular gap is ≤N (lift a hypothetical cycle past its largest missing interval). Thus N*=min(g(S0),g(S−1)); both sets empty excludes infinite walks even for unbounded digit lengths. When N<N*, the eventual graph is acyclic with at most h−1 edges after index M, and at most M earlier edges, so all walks have ≤M+h−1 steps. Independent finite graph tests evaluated 22,500 base/period/cap parameter triples under exact digit inequalities; every cycle existence matched N*. These do not prove the unrestricted theorem.
 
-The first-public primary source is Kominers, *Uniform Bounds for Digit-Appending Fibonacci Walks* (arXiv:2512.06446v1, 2025-12-06), sections 1–4. The closest theorems establish termination for Fibonacci/Lucas families and do not impose or cover the resonance condition with characteristic root equal to the appending base and arbitrary root-of-unity corrections. The earlier Miller et al. works arXiv:2204.08138 and arXiv:2010.14932 likewise address distinct sequences. Targeted exact-language, parameter, equivalence, and stronger-coverage searches found no same-family classification in the accessible research index or published sources. A hidden implicit observation about periodic corrections remains a genuine risk; search absence alone cannot establish uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a natural sharp boundary left by the termination-versus-infinite-walk distinction for exponentially growing number-theory sequences. An infinite parameter family of integer recurrences with characteristic polynomial dividing \((X-b)(X^h-1)\) has a complete classification by an explicit combinatorial invariant. It identifies both the only two correction values capable of sustaining infinite walks and their optimal cyclic spacing, and strengthens negative cases to a finite length bound uniform in digit budget when no critical values occur. The result is a natural complete resonant-family classification rather than a numerical increment or a reformulation of a known result.
+Digit-appending walk papers primarily treat Fibonacci and Lucas dominant roots that are nonintegral and unrelated to the appended base. The present resonant dominant root exactly b with arbitrary periodic integer corrections admits infinite walks and a zero/minus-one cyclic-gap classification; no matching prior implication appeared in searched primary literature.
 
-## Scope and risk
+## value
 
-Generality is limited to bounded periodic integer corrections; arbitrary bounded nonperiodic corrections and other dominant roots remain open for this argument. The upper bound is not claimed optimal. Literature access cannot eliminate earlier equivalent statements under different terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifies all infinite walks and sharp bounded-digit thresholds for a natural full class of integer-base exponential recurrences with periodic corrections, including cycles invisible to the usual Fibonacci termination arguments. The simple circular-gap invariant precisely answers the natural existence decision for each recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
