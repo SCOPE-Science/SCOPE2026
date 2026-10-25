@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For a tree with one uniformly random unvaccinated seed, the expected outbreak is \(1+2F_v(p)/(n-1)\), with \(F_v\) the exact count-weighted pair-distance polynomial after deleting vaccinee \(v\). The path event has probability \(p^k\) by independence on the unique path. Prüfer sequences enumerate every labelled tree of each order. A standalone complete enumeration of \(18,248\) labelled trees of orders \(2\) through \(7\) finds, for each, a vaccinee whose coefficient partial sums dominate all competitors in the correct direction. Abel summation turns this finite integer certificate into universal dominance over all \(p\in[0,1]\). The eight-vertex witness has two candidate objective polynomials; all other vertices are analytically dominated, and the sole crossover follows from strict monotonicity of \(p^2+p^3\). Direct percolation-state enumeration and a separate nonisomorphic-tree enumeration cross-check the calculations. The finite part is exhaustively proved by complete, small computation, not inferred from empirical samples.
+## correctness
 
-**Originality — PASS, with residual risk.** The full 2011 Schneider et al. and 2013 Altarelli et al. primary preprints were inspected; both motivate targeted immunization but neither presents the stated minimal tree-order or exact switching parameter. The full 2017 Holme preprint, particularly its model, method and small-graph results, concerns a different continuous-time SIR model, and examines graphs through seven nodes, not the specified eight-vertex independent-edge tree. Published-index semantic searches on vaccine targets, Reed–Frost bond transmission, tree susceptibility, aliases and minimal-order crossovers identified no directly covering theorem. Other nearby mathematical observations concern fixed-seed vaccination and directed acquaintance vaccination, neither of which implies the uniform-seed tree classification. The 2004 Holme local-strategy paper was identified but its complete preprint could not be inspected; only the abstract was read, so this remains a stated risk. A search failure is not a uniqueness guarantee.
+PASS
 
-**Value — PASS.** The theorem gives the sharp first tree size at which a single-dose intervention decision depends on pathogen transmissibility when the source is initially unknown. It isolates the mechanistic switch between suppressing low-transmission local contacts (degree) and breaking large high-transmission components. Both the minimum size and the algebraic threshold are natural, interpretable design benchmarks rather than arbitrary graph statistics. No downstream epidemiological effectiveness or empirical model fit is claimed.
+For any unvaccinated x,y in a tree the unique path survives if v is deleted and its transmission probability is p^distance; sum over uniformly selected seeds yields E_v(p)=1+2F_v(p)/(n-1). If a candidate F_v coefficient vector has no larger partial sums than every competitor, summation by parts proves F_v(p)<=F_w(p) on [0,1]. Inspected original finite verifier enumerates all n^(n-2) labelled Prüfer trees for n=2..7 (18,248 total) and tests this sufficient exact prefix condition; an independently coded nonisomorphic-tree census found the corresponding common minimizer in all 24 unlabelled types. For edges (0,5),(0,1),(1,2),(2,3),(2,4),(5,6),(6,7), verified all eight deletion-polynomial coefficient vectors; among them only vertices 1 and 2 can minimize, with F2-F1=p(p^2+p^3-1), giving a unique switch at p≈0.754877666. Exhaustiveness is genuinely finite and the analytic inequalities cover all real p in (0,1).
 
-Scientific limitations: perfect vaccination; one random remaining seed; independent homogeneous bond-transmission SIR on unweighted finite trees; expected final outbreak size; finite exhaustive lower bound only for at most seven vertices. No extension to arbitrary graph, correlated edges or unequal seed risks. Full comparative literature coverage remains independently unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: prior exact small-graph epidemic analyses and immunization heuristics do not establish this precise all-trees-through-seven sharp eight-vertex crossover. Important subtlety: on a tree with a single seed, a continuous-time Markov SIR model with rate β and recovery ν has expected seed-target reachability p^distance at p=β/(β+ν); therefore the difference in dynamics alone cannot dismiss Holme’s n<=7 work, and that older census may already imply portions of the small-order case. The new eight-vertex witness and exact universal crossover remain not covered by the inspected sources.
+
+## value
+
+PASS
+
+A sharp minimal tree-order threshold at which the optimal prophylactic vertex changes with transmissibility is a natural structural question for exact outbreak minimization; the finite lower-bound certificate and explicit analytic witness reveal where simple centrality targeting ceases to be robust. It is more than a parameter renaming or numerical heuristic: both necessity to order seven and a sharp order-eight counterexample are specified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
