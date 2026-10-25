@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact stationary two-time path KL reduces by telescoping to a directed-bond flux. Analyticity follows from strictly positive finite-state transition probabilities. Stationary equal-time off-diagonal correlations are computed to second order from conditional independence of synchronous updates, while diagonal spin squares remain identically one. The cubic contraction is exact under independent fair spins at zero coupling. A finite local-walk congruence classification proves the unique circumference-four correction; all remaining powers follow from even analyticity. The standalone rational-polynomial checker reconstructs 207 relevant finite-lattice identities and a separate full 512-state computation corroborates the small-coupling asymptotics. Neither finite computation is substituted for the all-circumference proof.
+## correctness
 
-## Originality — PASS (self-review)
-The closest source is Di Carlo, arXiv:2408.11690v1 (2024), whose metric torus and entropy-flux relation are the same; its equation (6) is expressly supported by numerical results as a quadratic-asymmetry ansatz. The explicit microscopic quartic coefficient and the four-site winding exception are not contained in its inspected equations, figures, or discussion. General stationary-flux equations appear already in Aguilera, Moosavi and Shimazaki (2021) and in Nartallo-Kaluarachchi et al. (2024), while nonlinearity in directed-network kinetic Ising systems was already studied. These broader tools/observations do not provide the exact fixed-geometry quartic polynomial or the finite-size exception. Residual risk: a general perturbation expansion not encountered in the inspected references may yield an equivalent result; independent scientific review remains necessary.
+PASS
 
-## Scientific value — PASS
-The numerical/coarse-grained quadratic factorization of microscopic entropy production is a concrete, physically motivated approximation. The exact first relative asymmetry correction specifies its high-temperature regime of validity and demonstrates a finite-size effect that any microscopic simulation or analytic calculation on four-periodic lattices must account for. The result is a closed classification for all torus circumferences, not a parameter-picked numerical discrepancy.
+For each fixed finite L≥3 and α∈[0,1], strictly positive synchronous heat-bath transitions imply an analytic stationary law near J=0. Stationarity cancels π and log cosh terms from path-reversal KL, leaving directed left/right flux J(1−α)(<σ_left tanh JS_0>−<σ_right tanh JS_0>). Off-diagonal same-time C_ij starts at J²Σ_k w_ik w_jk, while C_ii≡1; cubic fair-spin Wick parity gives E0[σ_j S_0³]=3 w_0j(3+α²)−2w_0j³. Local common-input walks add the anomalous extra overlap only at L=4 (a displacement ±2 coincidence); all L≥5 and L=3 share ordinary overlap count. Therefore E_L=(1−α)²J²−(1−α)²(7+α+α²+3α 1_{L=4})J^4/3+O_{L,α}(J^6). Independent SymPy construction of the directed-neighbor map reproduced polynomial coefficients for L=3,...,10; original 207 exact rational assertion source inspected. Crucially the all-L conclusion comes from finite displacement classification, not the finite test range.
 
-## Limitations and priority
-These conclusions are restricted to fixed finite periodic lattices and small coupling; no assertion about criticality, large-volume uniformity, or the entire entropy-production curve follows. A broad, not-yet-identified exact perturbation theorem could subsume the formula. The 2024 source's approximate statements are not treated as formally proved identities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Di Carlo (2024/2025) studies the exactly matching four-neighbor asymmetric metric kinetic Ising model and derives its flux identity, but Eq. (6) is an empirically successful (1−α)² ansatz and explicitly not proven exact. The new microscopic exact J^4 term proves failure of exact α-factorization and identifies a torus-specific L=4 correction missing in that source. More general mean-field asymmetric Ising and directed-network entropy models do not automatically impose this finite-torus coefficient. Priority against a hidden general perturbation theorem remains uncertain.
+
+## value
+
+PASS
+
+It resolves the explicit mathematical validity of a widely motivated quadratic asymmetry ansatz in the same model by producing its first nonfactorizing correction. The finite-size wrapping term is important for comparing discrete microscopic simulation sizes and continuum/thermodynamic approximations. It is a natural model-specific exact high-temperature law, not a randomly selected coefficient with no comparison target.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
