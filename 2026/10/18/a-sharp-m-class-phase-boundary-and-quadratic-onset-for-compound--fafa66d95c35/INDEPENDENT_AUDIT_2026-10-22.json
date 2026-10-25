@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T23:50:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 9699e9533c0be3da4bb6d73c9e45a7a648bb89e4",
+        "VERIFICATION.md Git blob c6ef643a607b70ad035ffd147f81a82c41b953f2",
+        "verify_beta_subgamma.py Git blob a5da06ed5cafaa855f9d5b346691d4ca6cd71af1",
+        "Independent regenerated bounded algebra/volume checks: /mnt/data/scope_worker07_independent_checks.py, run 2026-10-22 UTC. This private local path is NOT a published artifact."
+      ],
+      "rationale": "Re-derived Poisson K_X(t)=lambda(Ee^(tJ)-1-tEJ), V=lambda EJ^2. Exact second-order remainder factorization K_X=Vt²/2 Ee^(tR) uses independent U~Beta(1,2), size-biased Y/L~Beta(alpha+2,beta), R=UY. The coefficients A_n=2(a)_n/((n+2)!(b)_n), a=alpha+2,b=a+beta, have A_{n+1}/A_n=(a+n)/((b+n)(n+3)) and difference from m0=a/(3b) equal n[b(3-a)-a(n+3)]/[3b(b+n)(n+3)]. Thus A_n<=m0^n all n iff b(3-a)<=4a, equivalent to alpha>=1 or beta<=a(a+1)/(1-alpha) when alpha<1; coefficientwise geometric majorant proves c*=Lm0. Otherwise A2>A1², local positive derivative of Psi=(1-1/F)/s implies c*>Lm0 with finite positive maximizer since Psi(s)->0 at infinity. Independently symbolically verified at b0=4a/(3-a): u=0,u_prime=(3-a)^4/[1728a(a+1)],v=-(3-a)^4/[8640(a+3)]<0, giving unique near-critical optimizer and exact stated quadratic gain via IFT and uniform-away-from-zero global gap. The local checks of rational coefficients are diagnostic, not a substitute for the entire coefficientwise proof.",
+      "residual_risks": [
+        "The theorem asserts uniqueness of positive optimizer only near the critical boundary; no global uniqueness away from it and no elementary global interior value.",
+        "The right-sided scale is fixed to the TRUE variance V; allowing larger proxy or signed jumps changes the question."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen 2026 Sections 6–7",
+          "Chen--Wang 2026 signed framework"
+        ],
+        "reasoning": "The general spectral-positive and directional infinitely-divisible transform theorems imply the starting variational identity for every bounded jump law; they do not evaluate Beta moments or their all-index sign. Skellam and Gamma exact formulas are for different distributions, not stronger parameter coverage.",
+        "searches": [
+          "compound Poisson beta positive jumps optimal sub-gamma Bernstein M-class scale beta phase threshold onset",
+          "\"Beta jumps\" \"M-class\" \"optimal subgamma\" boundary"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "arXiv:2610.00032v1; https://arxiv.org/html/2610.00032v1",
+          "material_read": "Original publicly accessible full HTML Sections 2–7, theorem and equations for transform, Section 7 Gamma and two-point examples",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws"
+        },
+        {
+          "identifier_or_url": "arXiv:2609.02590v1; https://arxiv.org/html/2609.02590v1",
+          "material_read": "Original accessible mathematical theorem/formula statements and relevant signed/Skellam examples",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws"
+        },
+        {
+          "identifier_or_url": "DOI:10.1239/jap/1044476825",
+          "material_read": "Mathematical statement of M-class condition and Theorems 3.4–3.5, including the order-criterion argument",
+          "title": "Characterizations of classes of lifetime distributions generalizing the NBUE class"
+        },
+        {
+          "resultary_record_id": "2026/10/4/SCOPE-sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904",
+          "search_query": "compound Poisson beta positive jumps optimal sub-gamma Bernstein M-class scale beta phase threshold onset"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen 2026 Theorems on optimal scale",
+          "Klar--Müller MGF-order condition"
+        ],
+        "reasoning": "Generic c*=sup transform cannot infer whether optimizer is at origin or interior, much less critical-onset constants, without the new Beta-shape coefficient ratio. The known Gamma/two-point cases have different moment recurrences; the Beta(1,2) factor in the general transform is not a Beta jump law.",
+        "searches": [
+          "compound Poisson beta positive jumps optimal sub-gamma Bernstein M-class scale beta phase threshold onset",
+          "\"Beta jumps\" \"M-class\" \"optimal subgamma\" boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen arXiv:2610.00032 Sections 2–4",
+          "Klar--Müller 2003 Theorem 3.5"
+        ],
+        "reasoning": "The optimal scale is also an M-class test for a Beta(1,2)-weighted squared-size-biased Beta law and a positive Beta-jump compound Poisson concentration inequality. The M-class criterion and remainder transform are pre-existing, but the explicit two-parameter shape classification is not a restatement of the generic variational formula.",
+        "searches": [
+          "compound Poisson beta positive jumps optimal sub-gamma Bernstein M-class scale beta phase threshold onset",
+          "\"Beta jumps\" \"M-class\" \"optimal subgamma\" boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:2026/10/4/SCOPE-sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904",
+          "Chen 2026 examples"
+        ],
+        "reasoning": "The published direct Beta(1,b) sharp variance-tail threshold is for a single Beta random variable, whereas this law is an atom-at-zero compound Poisson sum with different cumulant series. No matching exact beta_crit table in targeted search, a bounded observation.",
+        "searches": [
+          "compound Poisson beta positive jumps optimal sub-gamma Bernstein M-class scale beta phase threshold onset",
+          "\"Beta jumps\" \"M-class\" \"optimal subgamma\" boundary"
+        ]
+      },
+      "rationale": "Chen 2026 establishes the **general** compound Poisson canonical transform and c* variational formula, Klar--Müller earlier M-class MGF criterion, and Chen--Wang its signed extension, all fully credited. None of the inspected Gamma/two-point/Skellam examples evaluates the two-shape continuous Beta-jump coefficient ratio, the iff alpha/beta boundary, or quadratic onset. Querying Beta concentration records shows a direct Beta tail threshold for a single Beta random variable, not Beta-jump compound sum. Best-of-knowledge PASS with an unlocated general stochastic-order theorem possible.",
+      "residual_risks": [
+        "A general MGF-order/stochastic-order result may specialize nontrivially to the same Beta-size-biased moment ratio without being indexed by Beta-jump terminology.",
+        "General canonical remainder and variational scale were already established and explicitly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general variational framework but not explicit Beta jump shape-phase boundary/onset coefficients.",
+          "evidence": "General squared-size-bias Beta(1,2) multiplier and scale formula, examples Gamma jumps and two-point jumps; not Beta(alpha,beta) amplitude calculation.",
+          "identifier_or_url": "arXiv:2610.00032v1; https://arxiv.org/html/2610.00032v1",
+          "material_read": "Original publicly accessible full HTML Sections 2–7, theorem and equations for transform, Section 7 Gamma and two-point examples",
+          "method": "Section-level primary source reading and implication comparison",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "Exact same canonical remainder and M-class classification framework"
+        },
+        {
+          "assessment": "A general signed transform includes model formally but worked Skellam/bilateral-Gamma phases do not state the Beta amplitude boundary.",
+          "evidence": "Directional variational formula and signed-jump examples involve different jump law parameterizations.",
+          "identifier_or_url": "arXiv:2609.02590v1; https://arxiv.org/html/2609.02590v1",
+          "material_read": "Original accessible mathematical theorem/formula statements and relevant signed/Skellam examples",
+          "method": "Direct arXiv mathematical text and claim/object comparison",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws",
+          "trigger": "Potential generalization of same variational machinery to signed compound Poisson"
+        },
+        {
+          "assessment": "Covers M-class definition and general criterion, not coefficient sign/classification for Beta(alpha,beta) jumps.",
+          "evidence": "General exponential MGF comparison criterion is pre-existing methodology.",
+          "identifier_or_url": "DOI:10.1239/jap/1044476825",
+          "material_read": "Mathematical statement of M-class condition and Theorems 3.4–3.5, including the order-criterion argument",
+          "method": "Original 2003 theorem text and mathematical implication comparison",
+          "title": "Characterizations of classes of lifetime distributions generalizing the NBUE class",
+          "trigger": "Original M-class MGF order criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        {
+          "identifier_or_url": "arXiv:2610.00032v1; https://arxiv.org/html/2610.00032v1",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws"
+        },
+        {
+          "identifier_or_url": "arXiv:2609.02590v1; https://arxiv.org/html/2609.02590v1",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws"
+        }
+      ],
+      "rationale": "The phase diagram decides when the best variance-matched Bernstein pole is already determined locally by the third cumulant versus forced by a global transform obstruction. The explicit smooth codimension-one threshold and quadratic onset for naturally parameterized bounded Beta jumps and L/4 uniform-jump benchmark are useful sharp concentration invariants, not merely application of an existing formula without new work.",
+      "residual_risks": [
+        "Value rests on the specific natural mathematical invariant and nontrivial sharp classification; no general theorem beyond stated scope is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "lambda,L,alpha,beta>0, jumps L Beta(alpha,beta), right-sided true-variance concentration; expansion for fixed alpha in (0,1) near beta_crit only."
+  ],
+  "schema_version": 1
+}
