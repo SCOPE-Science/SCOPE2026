@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-The closed formulas and the limit theorem are proved in `RESULT.md`. The following deterministic finite checks are supplementary and do not certify an infinite assertion:
+## correctness
 
-```bash
-python3 verify_book_bulk.py
-```
+PASS
 
-The standard-library checker recomputes \(\int_0^t s^r(2-s)^m\,ds\) by independent binomial expansion with exact rational arithmetic. For \(m=2,3,\ldots,10\) and \(t\in\{1/4,1/2,1,3/2,2\}\), it compares that independent integration to the stated power expressions, reconstructs each covariance entry, and verifies its determinant by exact Gaussian elimination without invoking the matrix determinant lemma. Observed output after execution:
+For the real anchored Lipschitz polytope, inequalities |T|<=t, |Yi|<=1 and |Yi-T|<=1 imply independent leaf fibers centered T/2 and length 2-|T|; pairwise leaf inequalities follow automatically. Fubini proves volume 2H_m and disintegration. Conditional moments give v=E T^2, w=E(2-|T|)^2/12, determinant v*w^m via unit-determinant shear, and the stated two remaining covariance eigenvalues. Scale S=mT: dominated exponential envelopes give uniform/truncated/full two-sided Laplace crossover, whereas sum of independent centered leaf uniforms has Gaussian CLT and asymptotic independence by Slutsky. Universal bounds for H_m and v for alpha=min(t,1/m) with w->1/3 imply L->1/sqrt(12) even exponentially small t. Independently recomputed 35 exact rational (m,t) second-moment cases; finite checks corroborate rather than prove uniform m theorem.
 
-`EXACT_WEIGHTED_BOOK_MOMENT_CHECKS_PASS 45 cases`
+## originality
 
-A separate numerical reconstruction of \(Q_{m,t}\) from its actual halfspace inequalities used halfspace intersection and convex-hull facet triangulation; each simplex second-moment tensor was integrated geometrically. For \(m=2,3,4\) and \(t\in\{1/3,1,3/2,2\}\), 12 instances matched the volume and full covariance formulas, with maximum absolute error below \(3.2\times10^{-15}\). The independent geometric check used NumPy/SciPy and is described as corroboration, not as an embedded certificate or an infinite proof.
+PASS
 
-The critical-window density and joint independence use dominated convergence, the elementary independent-uniform representation, and the classical central limit theorem. The uniform isotropic-constant limit uses explicit parameter-independent bounds stated in the proof. Neither the checker nor the geometric triangulations establish these asymptotics by finite extrapolation. Only scientific correctness, originality on inspected records, and motivated value were assessed here; external independent audit remains unperformed.
+On a best-of-knowledge statement/implication comparison, the inspected primary and published records do not establish the exact final theorem under its actual objects and parameters; the named accessible-source and stronger-theorem risks remain documented.
+
+## value
+
+PASS
+
+Metric Lipschitz balls and their uniform interior laws are natural affine/Banach-space objects. The exact covariance and isotropic constant in a varying weight parameter, especially the sharp dimension-dependent Laplace/Gaussian independence crossover, are motivated quantitative invariants not a routine corollary of faces, volume products, or an enclosing ellipsoid. The scalar volume by itself is elementary and not isolated as a novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

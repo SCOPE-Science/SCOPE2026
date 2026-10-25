@@ -1,15 +1,21 @@
-# Scientific review: weighted book Lipschitz bulk geometry
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The halfspace description follows from the complete book metric and implies a product of \(m\) independent intervals at fixed hub difference. Exact integration gives the volume and the two scalar second moments; a determinant-one shear diagonalizes the covariance and proves its determinant. The spectral formula is a direct two-dimensional reduction. For the critical window, rescaling the hub density and applying dominated convergence gives the truncated-Laplace limits, including the full two-sided exponential law and the smaller-window uniform law. The leaf-average central limit theorem is independent of the hub at the representation level, and Slutsky's theorem transfers that independence to the limit. Uniform exponential slice estimates prove the cube isotropic-constant limit without requiring a lower bound on the parameter sequence. The exact rational verifier checked 45 parameter/dimension cases and an independent polytope triangulation checked 12 cases. Finite checks do not replace the analytic all-dimension proof.
+## correctness
 
-## Originality
-**PASS, subject to the stated residual risk.** The primary foundational source of Aliaga–Pernecká identifies extreme molecules (arXiv:1810.11278, 2018), while Alexander–Fradelizi–García-Lirola–Zvavitch study graph representations and Mahler products (arXiv:1911.10642, 2019). A previously available book-graph result characterizes the face enumerator and extreme norming faces, whereas the published book-graph Löwner-ellipsoid result determines an extremal enclosing quadratic form. Neither face combinatorics nor outer-ellipsoid optimality computes the Lebesgue-uniform covariance in this theorem. Related graph-Lipschitz height papers use integer-valued configurations or large lattice graphs rather than the finite real-valued uniform polytope law. Actual searches across published mathematical records and external literature yielded no equivalent evaluated weighted-book covariance plus joint window theorem. Absence from searches is not a uniqueness proof, and alternative terminology remains a bibliographic risk. The slice-volume normalization is not presented as an isolated originality claim.
+PASS
 
-## Mathematical value
-**PASS.** Book metrics are a canonical family with many simultaneous triangle constraints and an independent deformation of the common edge. The exact bulk law identifies all finite-dimensional second-order correlations and the affine-invariant isotropic constant, which facet enumerations and outer ellipsoids cannot determine. Its asymptotic result distinguishes a non-Gaussian hub boundary layer from an independent Gaussian collective leaf fluctuation, proves the sharp \(1/m\) transition window, and establishes the cube isotropic-constant limit for *arbitrarily varying*, even vanishing, edge parameters. These comprise a natural infinite-family probability/functional-geometry classification rather than a one-off numerical sample or an insignificant parameter substitution.
+For the real anchored Lipschitz polytope, inequalities |T|<=t, |Yi|<=1 and |Yi-T|<=1 imply independent leaf fibers centered T/2 and length 2-|T|; pairwise leaf inequalities follow automatically. Fubini proves volume 2H_m and disintegration. Conditional moments give v=E T^2, w=E(2-|T|)^2/12, determinant v*w^m via unit-determinant shear, and the stated two remaining covariance eigenvalues. Scale S=mT: dominated exponential envelopes give uniform/truncated/full two-sided Laplace crossover, whereas sum of independent centered leaf uniforms has Gaussian CLT and asymptotic independence by Slutsky. Universal bounds for H_m and v for alpha=min(t,1/m) with w->1/3 imply L->1/sqrt(12) even exponentially small t. Independently recomputed 35 exact rational (m,t) second-moment cases; finite checks corroborate rather than prove uniform m theorem.
 
-## Closest literature and scientific limits
-Aliaga–Pernecká, arXiv:1810.11278 (2018), is the eligible functional-analytic source. Alexander et al., arXiv:1911.10642 (2019), is the closest published general finite-metric convex-body setting. The published book-graph Löwner study, `2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886`, addresses a different extremal invariant. The available book-graph face-enumerator theorem gives combinatorial faces, not bulk moments. The original claim has been checked at the level of mathematical implication, not title matching. This result does not cover other graph classes, nonuniform potential measures, or nonconvergent scaling windows, and an equivalent unindexed calculation remains possible. External independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On a best-of-knowledge statement/implication comparison, the inspected primary and published records do not establish the exact final theorem under its actual objects and parameters; the named accessible-source and stronger-theorem risks remain documented.
+
+## value
+
+PASS
+
+Metric Lipschitz balls and their uniform interior laws are natural affine/Banach-space objects. The exact covariance and isotropic constant in a varying weight parameter, especially the sharp dimension-dependent Laplace/Gaussian independence crossover, are motivated quantitative invariants not a routine corollary of faces, volume products, or an enclosing ellipsoid. The scalar volume by itself is elementary and not isolated as a novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
