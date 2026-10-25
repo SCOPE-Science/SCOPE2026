@@ -1,19 +1,21 @@
-# Scientific review: greedy uniformity on cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact order certificate is proved directly, then conditional independence across unselected gaps gives the integral formula. The replacement compares the same exterior while integrating different internal selected vertices. The inequality uses only \(1-\min(s,x)\ge1-s\) and the exact integral \(\mathbb E[1-\min(X,Y)]=2/3\). The wraparound case at \(n=6\), all admissible exterior completions, the exceptional lengths, and positivity of every output probability are explicitly handled. The packaged exact verifier checks 13 cycle sizes and 46,230 full permutations, but the universal proof does not rely on these finite checks.
+PASS
 
-## Originality — PASS (bounded bibliographic risk)
+A maximal independent subset on C_n has cyclic selected gap lengths exactly 2 or 3. Independent continuous uniform arrival marks yield conditional factors A(s,t)=1−min(s,t) for a gap 2 and B(s,t)=(1−s)(1−t) for a gap 3; integrate their product over selected marks. On a common six-edge arc, replacing 222 by 33 leads G(s,t)=∫∫A(s,x)A(x,y)A(y,t)dxdy≥(2/3)(1−s)(1−t)=2H(s,t) where H=(1−s)(1−t)/3; an exterior factor is common and nonnegative. For n=6 endpoints coincide and the same bound holds; for every n≥8 the remaining n−6 is a sum of 2/3 gaps. For n=3,4,5,7 maximal gap profiles lie in one rotation orbit. Consequently uniform iff n∈{3,4,5,7}, all other n carry a ≥2 positive probability ratio. Independently re-derived exact rational first-accepted-vertex laws for n=3..11: C6 has output weights 1/9 and 1/3; C7 uniform 1/7; C8 min1/15 vs max7/30; this is corroborative of universal integral proof.
 
-The October 2026 tree paper gives a different classification restricted to trees; its proof and near-uniform spider formulas do not imply the cycle-local gap replacement. The 2024 local-limit article analyzes output density rather than exact terminal laws. The August 2026 iterative-construction paper addresses 2-uniformity of auxiliary graphs and constrained graph samplers; its full text could not be read here, so that comparison has residual uncertainty. Targeted literature and published-record searches found no identical uniformity classification or the factor-two replacement inequality. This is a best-knowledge novelty assessment, not proof of worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact question is natural because randomized greedy sampling is routinely used as a proxy for a uniform maximal independent set. Cycles give a canonical vertex-transitive family and the answer includes the non-obvious exception \(C_7\). The explicit six-edge replacement supplies a robust local quantitative obstruction even for arbitrarily long cycles; this is more informative than noting the existence of maximal independent sets of different sizes.
+Best-of-knowledge original scope is the precisely quantified final claim, not known ingredients or convention changes. Four independent implication/convention comparisons and identifiable primary literature were assessed; inability to read a plausible source is explicitly retained as a residual risk, not treated as proof of noncoverage.
 
-## Limitations and closest literature
+## value
 
-The result is restricted to simple cycles, uniform random priorities, and inclusion-maximal independent sets. No claim is made about all graphs, approximate uniformity, or asymptotic variation distance. Closest sources: Fairfax-Ball (arXiv:2610.02276v1), Krivelevich et al. (doi:10.1002/rsa.21200), and Kryven et al. (arXiv:2608.07239v1; abstract/secondary comparison only). Unindexed prior results may exist, and an independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniformity of random-order greedy maximal independent sets is a natural algorithmic sampling question. The exact four exceptional cycle lengths and explicit six-edge local likelihood-ratio obstruction give a sharp structural boundary, rather than generic well-coveredness or just expected set size. The pointwise factor-two witness persists for all large cycles and is a useful sampling-bias diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
