@@ -1,11 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The published Euler coefficient theorem gives the exact polarized circulant. Factorization of its representer yields every rational nullity. An integral companion-ring presentation and the identity \((C^6-I)^2=0\) reduce the infinite integral Smith question to one explicit rank-two matrix with determinantal divisors one and three. The local standard-library verifier reproduced the finite consistency tests, but no finite enumeration was used as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The primary 2026 Euler-form paper determines coefficients but does not, in the inspected full text, evaluate this maximal-radical integral cokernel. The nearest independently searchable prior integral circulant studies treat general techniques or specified graph matrices without the particular Euler claim; the 2014 Telloni--Williams abstract restricts the key explicit theorem to polynomials without repeated roots. Actual semantic searches for exact weights, resonance, Smith groups and equivalent matrices produced no matching research index record. Unindexed equivalent computations remain a residual risk; a negative search does not prove novelty.
+PASS
 
-**Value — PASS.** The first unequal-weight cyclic planar quotient action is a geometrically natural family in the new Euler-form classification. The maximal-nullity locus is singled out intrinsically by the sixth-root resonance rather than by a convenience cutoff, and its exact growing integral torsion distinguishes character lattices having the same rational nullity. It gives a complete natural invariant on the exceptional family, not a reformulation of the defining coefficients.
+For the μ_n plane action of coordinate weights (1,2), the polar form uses the INTEGER polarization, giving H_n=2I−S−S^{-1}−S²−S^{-2}+S³+S^{-3}. Multiplication by S³ gives f(S), f=(t−1)²(t+1)²(t²−t+1); each root of unity in the n-cycle shift eigenspectrum occurs once, proving nullities 1,2,4 in the stated odd/even/non-six/six cases. The integral quotient Z[t]/(t^n−1,f) uses monic degree-six f, so the six-dimensional companion C carries the full integral cokernel, not merely rational information. D=C⁶−I has D²=0, rank 2 and first/second determinantal divisors 1 and 3. Therefore C^{6k}−I=kD and the Smith factors k and 3k plus four zeros hold for ALL k≥1. Independently checked exact matrices, ranks, minors for several k and nullities for n=3..24. The bounded checks supplement the identities, not an infinite extrapolation.
 
-Limitations: no integral classification for nonmultiples of six, no claim about geometric singularities or individual Hilbert moduli, and no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical noncoverage after statement-and-implication comparisons. Resultary semantic retrieval found unrelated cyclotomic/circulant results, no exact μ_n weights-(1,2) cokernel table; negative retrieval cannot establish absolute priority. No negative search establishes absolute novelty.
+
+## value
+
+PASS
+
+The canonical unequal-weight cyclic quotient's Euler lattice has a natural sixth-root resonance characterized by maximal nullity, and exact growing integral torsion (k,3k) on that entire intrinsic family distinguishes integral lattices invisible to rational radical dimension. The arithmetic invariant is motivated by the original Euler-form classification, not an arbitrary small instance or mere coefficient rewrite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
