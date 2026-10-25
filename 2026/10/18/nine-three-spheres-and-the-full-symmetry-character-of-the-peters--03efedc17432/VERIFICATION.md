@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python -S verify_nm3_petersen.py` using Python 3 without external modules. The checker reads no data files and constructs the fifteen Petersen edges as five outer-cycle edges, five spokes, and five inner-star edges. It explicitly finds all 145 three-edge matchings and all 1073 augmented faces, so the finite face enumeration is exhaustive.
+## correctness
 
-The deterministic edge-toggle matching yields 530 disjoint pairs. Orient every nonempty-face Hasse cover downward except selected matched covers, which are upward; a complete topological sort visits all 1072 nonempty faces. The unmatched faces comprise one vertex, ten 3-cells, and one 4-cell. The exact integer recursive elimination of matched 3/4 pairs yields the critical attaching vector `(0,0,1,0,1,1,1,1,1,1)` in a specified ordered basis, including a unit coefficient. Since no 1- or 2-cells remain, this proves a nine-sphere wedge at the homotopy level.
+PASS
 
-For symmetry, the checker explicitly constructs a graph isomorphism to the two-subset Kneser realization, then enumerates all 120 permutations in the induced `S5` action, using the orientation signs of each fixed simplex. It verifies character equality with the ten-vertex permutation character minus the constant character on every group element. The output lists the seven conjugacy-class traces. The resulting module decomposition is over rational coefficients; the checker does not establish an integral equivariant lattice isomorphism.
+Petersen P is Kneser KG(5,2): graph vertices are ten 2-subsets of five letters, with fifteen graph edges. NM_3(P) has simplicial vertices equal to graph *edges* and includes exactly those edge sets containing no three pairwise-disjoint graph edges. There are 145 forbidden triples and exactly 1073 augmented faces, with face vector (1,15,105,310,405,207,30); an independently implemented full 2^15 mask scan reproduced these counts. The inspected exact discrete-Morse code finds 530 matched pairs, acyclic Hasse orientation on all 1072 nonempty faces, and one critical vertex, ten critical 3-cells, one critical 4-cell. Signed Morse attaching differential (0,0,1,0,1,1,1,1,1,1) is primitive; a homotopy-invertible unimodular basis change removes one 3-sphere with the 4-cell, yielding wedge^9 S3. The S5 action induced on graph edge subsets has third-homology trace equal to the number of fixed two-subsets minus one for each conjugacy class; an independently written full 120-permutation signed Lefschetz face computation verified the entire character and hence rational S^(4,1) plus S^(3,2). The independent mask/character check supplements, and does not alone substitute for, the inspected exact Morse attaching code.
 
-All computations are exact finite enumerations. No external infinite proof obligation or extrapolation remains for the stated finite graph. The computation has not been independently audited.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact claim against named closely related published results, semantic Resultary search and inspected primary scientific material; unsuccessful retrieval is not treated as evidence of absence.
+
+## value
+
+PASS
+
+Natural nonbipartite graph and canonical matching threshold yield a complete exact integral homotopy invariant and full nontrivial S5 rational representation; both the homotopy and character are substantive exact small-object classification questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
