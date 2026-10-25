@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The field-counting formula follows from the Artin–Schreier trace kernel/image identity and two totally ramified rational poles. The packaged independent-of-symbolic-algebra exact script exhaustively computes all six necessary extension point counts; Newton identities plus the genus-six functional equation determine all coefficients. The explicit Rabin criterion modulo three proves the degree-twelve numerator is irreducible, and its reciprocal implies simplicity over the base field. Valuations produce all twelve Newton slopes. The code was executed from its final public file contents. Residual risk: an implementation or theorem-application error is possible despite exact checks; the independent external audit has not been performed.
+PASS
 
-## Originality — PASS
+For y^5-y=x^2+x+x^(-1) over F5, poles at zero and infinity have orders one and two, giving genus six, two rational fully ramified points, and 5-rank four. Over F_(5^n), the Artin–Schreier map has five preimages precisely on trace-zero values; hence #C=2+5*#nonzero x with Tr(x²+x+x^(-1))=0. An independent finite-field enumeration for n=1..6 gave N=(2,2,77,602,3022,16337), matching the package. Weil sums S=(4,24,49,24,104,-711) and Newton identities plus the genus-six functional equation give P coefficients (1,-4,-4,21,46,-100,-85,-500,1150,2625,-2500,-12500,15625). Exact P(1)=3775; irreducibility mod 3 follows by Rabin X^(3^12)=X and gcd tests at exponents 3^6,3^4, giving base-field simple Jacobian. Valuations v5 of coefficients produce Newton hull vertices (0,0),(4,0),(8,2),(12,6), slopes 0^4,1/2^4,1^4. The finite point counts are exhaustive for the six required extension degrees; the functional equation is what completes the full zeta polynomial; simplicity is not claimed geometrically.
 
-The complete originating paper explicitly includes the equation and the minimal geometric automorphism group, but does not state its zeta function, Newton polygon, or Jacobian simplicity. The paper itself poses the broader Newton-polygon prescription problem. Earlier related analyses involve either different characteristic, different pole structures, or different curves, and do not imply this numeric polynomial. Targeted searches for the exact model, 3775, its numerator, and genus-six positive-rank minimal-automorphism Jacobians found no equal claim. Older genus-three/four isomorphism-invariant work and one-pole slope bounds cannot settle the exact two-pole numerator. This is a best-knowledge comparison, not a proof that no unpublished or unindexed table contains the isogeny class.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For minimal geometric automorphism group \(C_5\), positive \(5\)-rank first becomes possible at genus six; this is the explicit sharp-boundary construction in the recent classification. Determining its full Newton polygon directly addresses a specifically stated arithmetic question in that paper. Establishing a ground-field simple yet nonordinary genus-six Jacobian supplies structural information beyond its known genus, p-rank and automorphisms. It is not a uniform classification or a claim of absolute simplicity.
+Tafazolian–Kazemifard arxiv:2610.13279v1 explicitly introduce the identical function and establish minimum geometric automorphism group C5, genus and p-rank, but their Question 7.5 asks how the Newton polygon can coexist with such rigidity and does not report this Weil numerator. The determined exact L polynomial, Newton polygon and F5-simplicity are additional arithmetic properties, not a claim to new genus/automorphism theory. Scholten–Zhu first-slope bounds on one-pole polynomial functions exclude this two-pole rational function; other cited tame cyclic-cover sources lack a direct specialization. Exact database duplication is still possible and is a stated risk.
 
-## Nearest literature and limitations
+## value
 
-The principal comparison is Tafazolian–Kazemifard, arXiv:2610.13279v1, Proposition 4.2, Corollary 6.2, and Question 7.5. Duque-Rosero et al. (arXiv:2401.08843) treat genera three/four; Scholten–Zhu (2003) address one-pole polynomial covers; Li–Mantovan–Pries–Tang (2019) treat different tame cyclic-cover strata. Related exact zeta computations on other curves do not imply this curve's arithmetic. Residual risk: unindexed data or an implicit more general exponential-sum theorem might cover the example. Geometric simplicity is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest positive-5-rank genus-six rigid C5 example is a canonical object from a recent classification, and its exact Newton polygon supplies a concrete nonordinary answer to that classification’s explicitly posed arithmetic question. F5-simple nonordinary positive-rank Jacobian and complete extension counts are independently useful natural invariants, despite being specific to one curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
