@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's domain is a fully occupied, three-vertex continuous-time occupancy process, with baseline local death rate \(1\), a single distinguished rate \(q>0\), recolonization rate \(\lambda\) per occupied-neighbor edge, and discount \(z\ge0\). The proof reconstructs the seven-state transient generator, its resolvent and two Cramer determinants. The independent integer-polynomial determinant certificate proves the cross-numerator identity, verifies exact factor divisibility, and establishes positivity of all \(159\) quotient coefficients. Determinants in the denominator are positive nonsingular \(M\)-matrix determinants. It separately handles \(q=1\) and \(\lambda=0\). The four independent rational-elimination examples corroborate but are not used as an infinite proof. There is no claim of usual deterministic-time stochastic dominance.
+PASS
 
-## Originality — PASS, with specified residual risk
+On 7 nonempty occupancy masks of the path 1–2–3, death rates 1 except one distinguished q>0 and directed recolonization intensity λ per occupied neighbor define a transient Q_v. Starting from 111, F_v(z)=e_7^T(zI−Q_v)^{-1}1=N_v/D_v. All nonempty states can reach 000 by deaths, so for z≥0 each zI−Q_v is a nonsingular M-matrix with positive determinant. Independently built the exact 7×7 matrices and calculated 4 determinants with a direct finite signed-permutation expansion, distinct from the saved subset-DP checker. The cross numerator factors exactly λq(1−q)H(λ,q,z), with 159 positive integer terms, min=2, max=19670, total degree ≤8; the exact coefficient identity, not an experiment at points, proves the continuum sign. Independently solved scalar rational instances λ=1,q=1/2,z=0 yielding 851/182 vs 1599/370; z=1 yielding 1307/1480 vs 48135/54809; plus λ=2/3,q=3/4,z=3/5. For q=1 symmetry and λ=0 independent lifetimes give equality. z=0 is mean survival time and positive z Laplace ordering. No deterministic-time stochastic dominance is implied.
 
-Chadès et al. (2011), full primary article, optimize sequential active management of line/star motifs in a discrete-time Markov decision problem; their extremity-first eradication rule is not a fixed, permanent central protection intervention and does not imply the strict continuum of Laplace-resolvent inequalities. Etienne and Heesterbeek (2001) articulate a qualitative preference for well-connected patches, particularly at nearly equal local extinction hazards; a mean-time comparison is not claimed as new, and the full source remained inaccessible, so an equivalent distributional theorem is a concrete residual risk. Ross and Pollett (2010) treat an expected-time Levins metapopulation objective; Eriksson et al. (2014) treat many-patch stochastic recruitment and a rescue effect. The inspected material did not furnish the same seven-state all-discount polynomial sign law. Direct searches for central-versus-terminal recovery, protection, Laplace ordering, duality, and exact moment/phase-type comparisons produced no dominating statement. This does not prove uniqueness in all literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A conservation manager may have to assess persistence using an exponentially distributed assessment horizon or a continuum of intertemporal discount rates rather than a single infinite-horizon mean. The theorem shows one site placement wins at *every* such rate despite network reinfection loops and gives complete sharp equality/reversal cases. This is a structural exact ordering, not a mere numerical example or an unmotivated special constant. Its scope is necessarily small and the result does not establish an ordering at every fixed time or for arbitrary landscapes.
+A permanent single-patch heterogeneous extinction-hazard placement comparison with one strict sign for ALL discounts z≥0 is more specific than existing mean-extinction management recommendations. The full Chadès et al PNAS article investigates sequential controlled network management, not the fixed no-control placement of q in a 7-state CTMC. Etienne–Heesterbeek (2001) explicitly recommend connected patches when baseline hazards nearly coincide, so center-favors-mean is NOT novel and its full article could conceal a stronger result; it was not retrieved even through authorized access (vpn_disconnected). Neither the inspected abstracts nor the accessible full paper establish a general all-z Laplace-transform order. Best of knowledge qualified, not absence-of-search proof.
 
-## Closest literature and unresolved limitations
+## value
 
-The closest qualitative conservation advice is Etienne and Heesterbeek (2001); its uninspected full text is the principal originality limitation. Chadès et al. (2011) is a directly relevant full-text study of management on network motifs with a different control objective and dynamic protocol. The current proof and certificate support no claims about larger networks, stochastic interventions, or deterministic survival horizons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-discount ordering is a substantive structural comparison for stochastic persistence, as distinct planning horizons lead to different integrated/discounted objectives. It sharpens a qualitative mean-persistence rule into an exact theorem with strictness, equality and reversal regimes on a natural minimal recolonizing path, not a numerical example. Limitation: it is only three patches initially all occupied, not fixed-time stochastic dominance or landscape-wide management policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
