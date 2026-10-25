@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:48:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On f(x)=||x||^2/2 the central difference is z^Tx independent of h; inverse-covariance correction is unbiased for z~N(0,Sigma). Wick gives E[zz^TQzz^T]=2Sigma Q Sigma+tr(Sigma Q)Sigma, so Q_(k+1)=c Q_k+eta^2 tr(Sigma Q_k)Sigma^-1 and tr(Sigma Q_k)=L^k tr(Sigma Q_0). Solving yields the exact stated all-k norm moment for all SPD Sigma. Convex F(B)=sup_{||x||=1,||Px||^2 in [a,b]} x^TB^-1x for B=Sigma^-1/tr(Sigma^-1) permits Haar averaging over O(r)xO(s), giving a GLOBAL block-optimum (not assumed diagonal). Endpoint maximization and positive linear-plus-inverse minimization give the exact three-phase t*, Phi*. For every nonzero x0 the L^k coefficient is positive and L>c>0, proving the covariance-independent asymptotic threshold 0<eta<2/(d+2). Fresh independent code checked 140 SPD symmetrization/moment identities and d=10,r=2,[.8,.9] optimum t=.25, Phi=6.4. Bounded numerical checks corroborate, not prove arbitrary SPD/infinite horizons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma/Huang minimum-variance theorem applies under an isotropic perturbation constraint and does not optimize arbitrary SPD designs using an adversarial alignment band.",
+          "Starnes et al study Gaussian smoothing and gradients, rather than the exact all-step Wick moment recursion."
+        ],
+        "reasoning": "Neither inspected broader source yields the same all-SPD finite-horizon prefactor together with covariance-independent exponent as a direct consequence.",
+        "searches": [
+          "Resultary: all-positive-definite minimax Gaussian covariance inverse-covariance corrected two-point gradient estimator uncertain alignment band exact finite-horizon mean-square rate",
+          "https://arxiv.org/pdf/2510.19975",
+          "https://arxiv.org/pdf/2411.11747"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2510.19975",
+        "https://arxiv.org/pdf/2609.08277",
+        "https://arxiv.org/pdf/2411.11747",
+        "Resultary 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior optimization does not evaluate tr(Sigma^-1)(x^TSigma x) simultaneously for all initial directions in the band.",
+          "The present leading exponent L is strictly independent of Sigma despite finite-horizon anisotropic improvement."
+        ],
+        "reasoning": "Sharing anisotropy language or a quadratic test function does not imply the claimed exact minimax moment dynamics.",
+        "searches": [
+          "Resultary: all-positive-definite minimax Gaussian covariance inverse-covariance corrected two-point gradient estimator uncertain alignment band exact finite-horizon mean-square rate",
+          "https://arxiv.org/abs/2510.19975",
+          "https://arxiv.org/abs/2609.08277"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma/Huang optimize isotropic second-moment-constrained two-point perturbations; the audited estimator contains Sigma^-1 and no isotropic-moment constraint.",
+          "The exact risk factors through tr(Sigma^-1)(x^TSigma x), not the comparator variance criterion."
+        ],
+        "reasoning": "Compared importance-weighted Gaussian stochastic gradient and directional-control-variate formulations; the estimator and uncertainty-band worst-case quantifiers differ.",
+        "searches": [
+          "Resultary: all-positive-definite minimax Gaussian covariance inverse-covariance corrected two-point gradient estimator uncertain alignment band exact finite-horizon mean-square rate",
+          "https://arxiv.org/pdf/2510.19975",
+          "https://arxiv.org/pdf/2609.08277"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table or external exact database is needed for this all-real-parameter minimax theorem.",
+          "The related published Haar SSD result uses Haar sparse subspace distributions rather than inverse-covariance Gaussian correction."
+        ],
+        "reasoning": "This is a continuous minimax theorem not a finite catalogue entry; checked a strongly related published mathematical record for hidden corollary coverage.",
+        "searches": [
+          "Resultary: all-positive-definite minimax Gaussian covariance inverse-covariance corrected two-point gradient estimator uncertain alignment band exact finite-horizon mean-square rate",
+          "Resultary hit 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the all-SPD, inverse-covariance-corrected, band-adversarial moment criterion is not implied by Ma/Huang isotropically constrained probe variance, Ryabchenko/Qian/Mou control-variate directional hints, or Starnes anisotropic smoothing; same normalized quadratic geometry alone is insufficient. Resultary semantic query finds only different Haar SSD/relaxation objectives. Priority may remain under alternative importance-sampled gradient estimator names; the recent directional-hints manuscript was substantially inspected beyond abstract here, not declared globally noncovering.",
+      "residual_risks": [
+        "Search failure is not novelty proof; an importance-sampling or stochastic-gradient formulation might imply the same SPD minimax under renormalization.",
+        "Only centered isotropic noiseless quadratic, fresh Gaussian probes, fixed covariance and worst aligned initial point; no distributional convergence-rate improvement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING as to the inspected stated theorem; different isotropic perturbation constraint",
+          "evidence": "Theorem 2.2 uses constrained isotropic moments, unlike all-SPD inverse-precision estimator and uncertain alignment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.19975",
+          "material_read": "Full PDF accessed, theorem 2.2 and surrounding estimator/normalization definitions and hypotheses inspected",
+          "method": "Open arXiv PDF text and visual PDF-page inspection",
+          "title": "Revisiting Zeroth-Order Optimization: Minimum-Variance Two-Point Estimators and Directionally Aligned Perturbations",
+          "trigger": "Closest estimator and covariance variance theorem"
+        },
+        {
+          "assessment": "Not a demonstrated implication of the all-SPD exact all-horizon minimax law",
+          "evidence": "Directional hints enter control variates, not an unrestricted SPD minimax under adversarial band; unexamined equivalences remain a risk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08277",
+          "material_read": "Original PDF and relevant control-variate estimator/convergence sections inspected",
+          "method": "Open arXiv PDF and visual-page inspection",
+          "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+          "trigger": "Recent same directional-hint setting"
+        },
+        {
+          "assessment": "Different optimization target from covariance-corrected exact moment recursion",
+          "evidence": "Smoothing changes objective approximation, whereas tested estimator is exactly unbiased for the centered quadratic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.11747",
+          "material_read": "Original PDF methodology and opening theorem setup inspected",
+          "method": "Open arXiv PDF and visual-page inspection",
+          "title": "Anisotropic Gaussian Smoothing for Gradient-based Optimization",
+          "trigger": "Anisotropic Gaussian gradients source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp three-regime minimax threshold and exact all-positive-horizon risk quantify when directional prior alignment can improve an unbiased stochastic gradient estimate. It also establishes a substantive impossibility distinction: no SPD probe shaping changes the leading mean-square exponent. This is a naturally motivated uncertainty-band optimization rather than an arbitrary covariance recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2510.19975",
+    "https://arxiv.org/pdf/2609.08277",
+    "https://arxiv.org/pdf/2411.11747",
+    "Resultary 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "160+? no: independently reimplemented 140 targeted finite checks, not complete exhaustive verification over all SPD matrices.",
+    "Source VERIFICATION.md records neither expert nor Lean attestation."
+  ],
+  "residual_risks": [
+    "Search failure is not novelty proof; an importance-sampling or stochastic-gradient formulation might imply the same SPD minimax under renormalization.",
+    "Only centered isotropic noiseless quadratic, fresh Gaussian probes, fixed covariance and worst aligned initial point; no distributional convergence-rate improvement."
+  ],
+  "schema_version": 1
+}
