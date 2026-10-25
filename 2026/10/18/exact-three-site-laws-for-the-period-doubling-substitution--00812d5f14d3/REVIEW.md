@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The substitution identity gives \(s_n=(-1)^{\nu_2(n+1)}\), which is represented by a Haar-distributed \(2\)-adic sign observable. Exact residue proportions justify passage from frequencies to Haar expectation. The proof derives the first and second moments and partitions the three-site integral into one common low-valuation region and two high-valuation residue branches; the case decomposition is disjoint and exhaustive. The resulting rational formula, all eight sign-word probabilities, and equality cases follow without extrapolating finite enumeration. Standalone exact checks cover 638 moment comparisons and 7,936 explicit joint sign probabilities; they are corroboration, not proof.
+PASS
 
-## Originality
+The substitution yields s_n=(-1)^nu2(n+1). Periodic truncation modulo 2^K differs only on at most three exceptional residue classes, so ordinary-time limits equal Haar averages on Z2. For three positions the ultrametric valuations are necessarily (m,m,t); splitting Haar U by nu2(U)<m and the two residue classes mod 2^(m+1) reduces the triple to a mean 1/3 and a pair moment at valuation t-m-1, giving 1/3-4(-1)^m/(3*2^t). Walsh expansion gives all probabilities, while t>=m+1 yields exact zero/min/max classes. Independently generated 2^15 substitution signs from recursion and checked ten triple averages against analytic values with strict finite-modulus error ≤6/32768; the infinite claim is supported by the Haar case proof.
 
-PASS under accessible evidence, not an assertion of exhaustive priority. Baake–Grimm compute the same object's pair correlations, not the evaluated three-site formula. Deng–Moody give general and weighted model-set intersection formulas, Poláková gives all contiguous cylinders, and Mazáč gives general patch-frequency machinery, although his symbolic Theorem 10 has an irreducibility assumption not met by the period-doubling matrix. These are strong implicit coverage pathways: any fixed sparse frequency can be obtained by a potentially large computation. The distinct contribution evaluated here is the simultaneous closed expression for **every** pair of lags through only the minimum and maximum dyadic valuations, together with the exact zero and extremizer geometry and all eight sparse-cylinder probabilities. Targeted published-record and primary-literature searches did not find the same evaluation. The residual historical-priority risk is significant because the underlying \(2\)-adic windows and exact cylinder measure are known.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Triple correlations are an established structural statistic in diffraction and dynamical observation theory. The result collapses infinitely many sparse three-site laws to a two-integer valuation classification; the exact zero, negative and positive extremal families quantify dependencies invisible to the ordinary pair-correlation formula alone. It is a natural uniform symbolic invariant rather than an arbitrary finite sample or a mere restatement of existence of invariant frequencies. Its scope and potential derivability from broader cylinder methods are disclosed.
+Baake-Grimm derive the same substitution, 2-adic internal space and exact two-point autocorrelations; those are credited, not claimed new. Deng-Moody general model-set Haar-intersection theory and Polakova exact arbitrary contiguous-cylinder probabilities can in principle evaluate every fixed sparse triple; the statement here is the explicitly uniform two-valuation formula for arbitrary unbounded lags and sharp global classifications, not existence of computable frequencies. The earlier broad results are genuine coverage of existence and fixed-lag computability, and an equivalent uniform specialization remains a substantive originality risk.
 
-## Closest work and limits
+## value
 
-Deng–Moody, arXiv:0901.4381, Proposition 1, and arXiv:0904.4552, equation (2); Baake–Grimm, arXiv:1007.0707, §3; Poláková, arXiv:1902.08387, Theorem 1.2; Mazáč, arXiv:2507.07753, general renormalisation. Results are for one substitution, three distinct sites, and fixed lags; no higher-site generalization or independence-of-prior-literature certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact closed all-lag third-order invariant of a classical substitution system, its complete three-site word law and sharp attainable range can distinguish higher-order structure not supplied by two-point diffraction, and serves as a reusable concise sparse-cylinder benchmark rather than arbitrary one-off arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
