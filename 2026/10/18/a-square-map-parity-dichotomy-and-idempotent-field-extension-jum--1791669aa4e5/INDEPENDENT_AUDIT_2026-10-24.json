@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:53:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob faebc5e2bc064497c8356d842af738a0acb23aa8 and verify.py blob c161b1593c6dfc2c6ec95af3a763e0535a4cf164",
+        "independent_checks.json evolution_algebra block: 15 direct GF2/GF4/GF8 enumerations and rank checks of hypercubes"
+      ],
+      "rationale": "For any char-two field K and nonempty generating S⊂(F2)^d\\{0}, translate matrices P_s commute and satisfy P_s²=I, so binary adjacency A=∑P_s obeys A²=(|S| mod2)I by vanishing cross terms. Evolution square Q(x)=A x^{[2]}, whence Q(Q(x))=(|S| mod2)x^{[4]}. Even valency implies Q²=0, hence no nonzero idempotent. For odd valency, A²=I and B=A+I is square-zero. An idempotent satisfies coordinatewise x^4=x, so its coordinates must lie in K∩F4 (F2 if F4 absent, F4 otherwise). In F2 its condition is Bu=0, yielding 2^{N−rank B}; in F4 writing x=u+omega v gives v=Bu and Bv=0 automatically, yielding exactly all 2^N binary parameters u+omega Bu. This includes infinite char-two coefficient fields and is independent of F4 root choice. Hypercube odd d rank B=N/2 by a square-zero truncated group-ring variable change; for complete cubelike S=G\\{0}, B=J rank1. Independent GF2/GF4/GF8 direct square-product/idempotent enumeration covered 15 small cases with ranks and formulas; proof is algebraic for all fields, not an experimental extrapolation.",
+      "residual_risks": [
+        "Nonempty generating loopless S⊂(F2)^d, d≥1, all characteristic-two coefficient fields; no claims over odd characteristic or arbitrary weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaygorodov et al. discuss average idempotent counts and small-dimension existence; García-Martínez et al. concern complex characteristic and complete algebras.",
+          "The current family is generally singular in char2 (A²=(t mod2)I) and requires exact F4-descent parametrization for all d and all K."
+        ],
+        "reasoning": "No inspected theorem dominates this exact finite characteristic-two fixed-point count; latest survey full text inaccessible and remains genuine non-exclusion risk.",
+        "searches": [
+          "Resultary semantic query: Cayley evolution algebra cubelike characteristic two idempotents F4 square map parity Frobenius",
+          "arXiv:2610.22248",
+          "doi:10.1007/s00013-026-02251-0"
+        ]
+      },
+      "checked_sources": [
+        "P. Giacomelli, Expander Evolution Algebras, arXiv:2605.12672v1, full HTML §4.1–4.2 (Thms 4.3/4.5) and §9.1",
+        "C. Costoya, V. Muñoz, A. Tocino, A. Viruel, Automorphism groups of Cayley evolution algebras, arXiv:2207.01335; primary full PDF inspected",
+        "X. García-Martínez, A. Pérez-Rodríguez, A note on complete evolution algebras, Archiv der Mathematik 126 (2026), doi:10.1007/s00013-026-02251-0",
+        "I. Kaygorodov, C. Martín González, A. Viruel, Evolution algebras: a survey of results and a list of open problems, arXiv:2610.22248 (Oct 15 2026), accessible detailed abstract only",
+        "Original independent_checks.py 15 actual idempotent enumerations with finite-field arithmetic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Giacomelli Theorem 4.5 asserts algebraic persistence from graph connectivity; finite-char2 Q²(e_g)=0 is a counterexample within the unweighted Cayley class when |S| is even.",
+          "The Cayley construction and prior perfect-algebra binary subcase are acknowledged; they do not imply the complete field jump formula."
+        ],
+        "reasoning": "A substantive precisely identified erroneous implication boundary survives as additional motivation, without declaring all Giacomelli results false.",
+        "searches": [
+          "Resultary semantic query: Cayley evolution algebra cubelike characteristic two idempotents F4 square map parity Frobenius",
+          "arXiv:2605.12672v1",
+          "arXiv:2207.01335"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S⊂(F2)^d produces a Cayley graph in both contexts; the special char-two algebra square includes cancellations invisible to Boolean support union.",
+          "Costoya et al. classify automorphisms, distinct from cardinality and coordinates of idempotent elements."
+        ],
+        "reasoning": "Equivalent graph construction is prior, but the Frobenius-semilinear fixed-point theorem and Q² parity law are not implied by graph expansion or group automorphism classification alone.",
+        "searches": [
+          "Resultary semantic query: Cayley evolution algebra cubelike characteristic two idempotents F4 square map parity Frobenius",
+          "arXiv:2605.12672v1",
+          "arXiv:2207.01335"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For odd valency fixed points number 2^{N−r} unless F4⊂K, then 2^N.",
+          "A generic average count over all evolution algebras does not determine a specific cubelike family; a known F2 perfect-algebra count is explicitly credited."
+        ],
+        "reasoning": "No identical graph-specific exact table verified. Accessible survey synopsis cannot justify a whole-text NOT_COVERING claim.",
+        "searches": [
+          "Resultary semantic query: Cayley evolution algebra cubelike characteristic two idempotents F4 square map parity Frobenius",
+          "arXiv:2605.12672v1",
+          "arXiv:2610.22248"
+        ]
+      },
+      "rationale": "Inspected Giacomelli’s full Expander Evolution Algebras (arXiv:2605.12672v1) including its Cayley construction §9.1 and growth/persistence Theorems 4.3/4.5; these use graph-neighborhood support but do not account for char-two coefficient cancellation. The square-map parity identity provides a concrete boundary/counterexample to unrestricted support persistence; it is not presented as novelty of the Cayley construction itself. Costoya–Muñoz–Tocino–Viruel 2023 primary full PDF concerns automorphism groups, not this explicit idempotent-element count. García-Martínez–Pérez-Rodríguez 2026 discuss existence of idempotents over complex fields in a different algebraic regime. A 2026 survey by Kaygorodov–Martín González–Viruel reports average idempotent numbers over finite fields, a potentially relevant stronger result whose full arXiv text was inaccessible this run; available synopsis gives no same cubelike all-characteristic-two theorem. The F2 perfect-algebra subcase has prior census and is excluded from independent novelty.",
+      "residual_risks": [
+        "Latest relevant survey arXiv:2610.22248 (October 15, 2026) full text inaccessible; a broader idempotent-count theorem could in principle imply this family, though accessible synopsis is average not pointwise.",
+        "General group-algebra Frobenius-semilinear fixed-point theory may yield an unindexed equivalent formula.",
+        "The claim concerns idempotent elements and plenary squares, not ideal structure or uniformly expanding graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_CAYLEY_FAMILY_BUT_CHAR_TWO_SUPPORT_CANCELLATION_OMITTED",
+          "evidence": "Support of sums in characteristic two is NOT always union of individual supports; A²=(t mod2)I yields Q²(e_g)=0 for all generators when t even, a substantive field-characteristic boundary to unrestricted persistence.",
+          "identifier_or_url": "https://arxiv.org/html/2605.12672v1",
+          "material_read": "Complete 872-line arXiv HTML, including §2 definitions, §4 Theorems 4.3 and 4.5, and §9.1 Cayley construction",
+          "method": "full primary HTML reading and theorem-by-theorem implication comparison",
+          "title": "Expander Evolution Algebras",
+          "trigger": "The precise Cayley construction and seemingly conflicting universal persistence statements"
+        },
+        {
+          "assessment": "DISTINCT_INVARIANT",
+          "evidence": "Automorphism classification of Cayley evolution algebras is not the exact idempotent-element set as a function of char-two field extension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.01335",
+          "material_read": "Full primary PDF, title/intro/main automorphism-group statements; page screenshot",
+          "method": "full-text PDF and page visualization",
+          "title": "Automorphism groups of Cayley evolution algebras",
+          "trigger": "Same named Cayley evolution algebras"
+        },
+        {
+          "assessment": "NO_DIRECT_CHAR_TWO_CUBELIKE_COUNT",
+          "evidence": "Idempotent existence in complete algebras over complex fields does not fix the 2^{N−r} versus 2^N field-extension jump for singular char-two cubelike adjacency.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-026-02251-0",
+          "material_read": "Accessible full Springer HTML including §3.3 and characteristic-field setting",
+          "method": "full primary HTML reading",
+          "title": "A note on complete evolution algebras",
+          "trigger": "Related idempotent existence polynomial conditions"
+        },
+        {
+          "assessment": "PLAUSIBLE_PRIORITY_RISK_NOT_EXCLUDED",
+          "evidence": "Survey reports average idempotent counts across finite fields and 2D existence criteria; accessible account does not state or imply this exact Cayley-field-jump classification, but text not fully inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+          "material_read": "Detailed accessible abstract/synopsis and mathematical outcomes, but full arXiv HTML/PDF and ar5iv unavailable",
+          "method": "abstract only; full-text retrieval attempted and unavailable",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Recent stronger idempotent counting results over finite fields"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob faebc5e2bc064497c8356d842af738a0acb23aa8 and verify.py blob c161b1593c6dfc2c6ec95af3a763e0535a4cf164",
+        "P. Giacomelli, Expander Evolution Algebras, arXiv:2605.12672v1, full HTML §4.1–4.2 (Thms 4.3/4.5) and §9.1",
+        "C. Costoya, V. Muñoz, A. Tocino, A. Viruel, Automorphism groups of Cayley evolution algebras, arXiv:2207.01335; primary full PDF inspected"
+      ],
+      "rationale": "A natural, connected cubelike Cayley family exhibits a sharp dynamical parity distinction and a genuinely discrete extension-of-scalars jump in finite idempotent-element counts, an intrinsically useful invariant not implied by graph expansion alone. The construction supplies an explicit structural obstruction to a proposed graph-support persistence principle and field-uniform parametrization; this goes beyond restating a standard quadratic identity.",
+      "residual_risks": [
+        "Value is specific to the natural stated model/invariant and is not asserted as a general theorem across all dynamics or algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob faebc5e2bc064497c8356d842af738a0acb23aa8 and verify.py blob c161b1593c6dfc2c6ec95af3a763e0535a4cf164",
+    "P. Giacomelli, Expander Evolution Algebras, arXiv:2605.12672v1, full HTML §4.1–4.2 (Thms 4.3/4.5) and §9.1",
+    "C. Costoya, V. Muñoz, A. Tocino, A. Viruel, Automorphism groups of Cayley evolution algebras, arXiv:2207.01335; primary full PDF inspected",
+    "X. García-Martínez, A. Pérez-Rodríguez, A note on complete evolution algebras, Archiv der Mathematik 126 (2026), doi:10.1007/s00013-026-02251-0",
+    "I. Kaygorodov, C. Martín González, A. Viruel, Evolution algebras: a survey of results and a list of open problems, arXiv:2610.22248 (Oct 15 2026), accessible detailed abstract only",
+    "Original independent_checks.py 15 actual idempotent enumerations with finite-field arithmetic"
+  ],
+  "disposition": "passed",
+  "final_claim": "A square-map parity dichotomy and idempotent field-extension jump for cubelike evolution algebras",
+  "limitations": [
+    "Nonempty generating loopless S⊂(F2)^d, d≥1, all characteristic-two coefficient fields; no claims over odd characteristic or arbitrary weights.",
+    "Latest relevant survey arXiv:2610.22248 (October 15, 2026) full text inaccessible; a broader idempotent-count theorem could in principle imply this family, though accessible synopsis is average not pointwise.",
+    "General group-algebra Frobenius-semilinear fixed-point theory may yield an unindexed equivalent formula.",
+    "The claim concerns idempotent elements and plenary squares, not ideal structure or uniformly expanding graph families."
+  ],
+  "residual_risks": [
+    "Latest relevant survey arXiv:2610.22248 (October 15, 2026) full text inaccessible; a broader idempotent-count theorem could in principle imply this family, though accessible synopsis is average not pointwise.",
+    "General group-algebra Frobenius-semilinear fixed-point theory may yield an unindexed equivalent formula.",
+    "The claim concerns idempotent elements and plenary squares, not ideal structure or uniformly expanding graph families."
+  ],
+  "schema_version": 1
+}
