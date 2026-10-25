@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:54:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384/RESULT.md",
+        "2026/10/18/descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384/check.py"
+      ],
+      "rationale": "Unrolling e_{k+1}=(I−αH)e_k−αξ gives deterministic mean P(H)e0 independent of order and terminal covariance Σ_k α_k² T_k Q T_k. Neighboring α,β have identical earlier/later contributions because all updates commute; exact expansion produces covariance difference αβ(β−α)T(HQ+QH)T. Since spectral W,H,T commute, trace difference =2αβ(β−α)tr(WHT²Q), a nonnegative PSD-product trace multiplied by the swap sign. Adjacent inversion removal sorts all steps, proving simultaneous terminal-risk minimization with no stable-step restriction; strictness follows if Q,W≻0 and suffix T≠0. A complete distinct reciprocal-eigenvalue step set leaves a nonannihilated eigenspace in any inversion suffix. Loewner fails for H=diag(1,9) and Q=[[1,.8],[.8,1]], whose HQ+QH determinant −28; isotropic Q gives Loewner. Independent simulation generated 75 random SPD H,Q pairs of dimensions 2–4 and all 24 step permutations each, and verified all terminal risk inequalities and precise adjacent exchange matrices. The proof is algebraic, not from simulation.",
+      "residual_risks": [
+        "The finite computations do not establish the unrestricted theorem; the argument in the pinned RESULT.md supplies the universal quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebyshev algorithms tune transient amplification, and accelerated Gibbs sampling chooses different noise laws to preserve equilibrium covariance."
+        ],
+        "reasoning": "Those broader numeric/stochastic settings do not automatically imply a universal terminal-risk inequality under a fixed arbitrary noise covariance, though unread full texts may contain a reusable special case.",
+        "searches": [
+          "Resultary semantic search: stochastic quadratic gradient descent permutation fixed step sizes descending order minimizes terminal covariance spectral weighted",
+          "Lebedev Finogenov Chebyshev parameter ordering 1973",
+          "Fox Parker convergence variance Chebyshev accelerated Gibbs samplers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.25311",
+        "https://www.physics.otago.ac.nz/data/fox/publications/SIAM_CS_2012-11-30.pdf",
+        "https://www.sam.math.ethz.ch/~mhg/pub/Cheby-02ParComp.pdf",
+        "Resultary semantic search: stochastic quadratic gradient descent permutation fixed step sizes descending order minimizes terminal covariance spectral weighted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For H=diag(1,κ), reciprocal-step ordering has the same deterministic terminal zero bias; descending (1,1/κ) and ascending (1/κ,1) have objective-noise coefficients 1−1/κ+2/κ² versus 2κ−1+1/κ."
+        ],
+        "reasoning": "A high-frequency-first principle optimizing intermediate deterministic suppression cannot imply the reverse stochastic terminal optimizer for this model. Published assumptions matter: temporally independent common Q versus deterministic or step-dependent noise.",
+        "searches": [
+          "arxiv:2606.25311",
+          "Zhou Gu Hanoi ordering high frequency first deterministic rebound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou–Gu target deterministic spectral rebound via high-frequency-first recursive Hanoi ordering; the submitted comparison is finite-horizon terminal covariance under independent additive gradient noise."
+        ],
+        "reasoning": "Ordering roots in a noise-free polynomial iteration or for finite-precision roundoff is not equivalent to minimizing Σ α_k² T_k Q T_k with the same Q at every step.",
+        "searches": [
+          "Resultary semantic search: stochastic quadratic gradient descent permutation fixed step sizes descending order minimizes terminal covariance spectral weighted",
+          "arxiv:2606.25311",
+          "Chebyshev iteration parameter ordering noise covariance gradient final risk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table or explicit permutation-optimality enumeration for arbitrary prescribed step multisets and common Q identified; published SCOPE STORM result is stationary covariance of a distinct estimator-memory recursion."
+        ],
+        "reasoning": "The record index proximity is topic-only and cannot certify novelty; no matching exact exchange equation was located in read material.",
+        "searches": [
+          "Resultary semantic search: stochastic quadratic gradient descent permutation fixed step sizes descending order minimizes terminal covariance spectral weighted",
+          "\"terminal covariance\" ordering \"gradient\" \"step size\" noise",
+          "Resultary 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Zhou–Gu’s Hanoi ordering is a deterministic high-frequency-rebound strategy, not the constant-additive-oracle-noise risk optimization problem in its accessible abstract. Classical Chebyshev step-ordering studies transient numerical error or deterministically stable iteration; Fox–Parker stochastic solvers use step-dependent noise covariances to maintain a target distribution. These different objectives/hypotheses do not imply the common-covariance terminal trace exchange law from the material read. However full Zhou–Gu, Lebedev–Finogenov and Fox–Parker primary text was not read; overlapping stochastic step permutation results remain plausible.",
+      "residual_risks": [
+        "Complete relevant Zhou–Gu and historical Chebyshev-ordering texts not inspected; priority risk for a common-noise terminal error lemma.",
+        "Exact-arithmetic model may be numerically unstable at intermediate steps and is not a finite-precision recommendation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible claim is deterministic Huang/Hanoi rebound ordering; no full-document exclusion, especially of any stochastic appendix.",
+          "evidence": "Original abstract describes recursive suppression of high-frequency components, adaptive step sizes and global R-linear convergence on quadratics.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.25311",
+          "material_read": "Original arXiv abstract; an independent secondary detailed review read. arXiv HTML/PDF and ar5iv did not deliver primary full text; Oxford fallback vpn_disconnected.",
+          "method": "primary abstract plus clearly labeled secondary exposition",
+          "title": "Structured Spectral Step-Sizes and a Hanoi Ordering Principle for Gradient Methods",
+          "trigger": "Closest explicit published spectral-step order principle"
+        },
+        {
+          "assessment": "Potential relation via covariance recursions retained as residual risk; no full text NONCOVERAGE conclusion.",
+          "evidence": "The cited title places the setting in accelerated Gibbs sampling, a different noise-injection model from iid gradient errors.",
+          "identifier_or_url": "https://www.physics.otago.ac.nz/data/fox/publications/SIAM_CS_2012-11-30.pdf",
+          "material_read": "Bibliographic identification from pinned reference; original PDF not successfully obtained or read in this execution",
+          "method": "source bibliography plus model comparison",
+          "title": "Convergence in Variance of First-Order and Second-Order Chebyshev Accelerated Gibbs Samplers",
+          "trigger": "Closest algorithm with stochastic noise and Chebyshev steps"
+        },
+        {
+          "assessment": "Could contain adjacent-swap identities for an error model; contribution comparison remains conditional on uninspected primary details.",
+          "evidence": "Known topic is numerical Chebyshev iterations and roundoff propagation.",
+          "identifier_or_url": "https://www.sam.math.ethz.ch/~mhg/pub/Cheby-02ParComp.pdf",
+          "material_read": "Bibliographic identification from pinned reference; complete text not read",
+          "method": "reference identification",
+          "title": "The Chebyshev iteration revisited",
+          "trigger": "Historic step ordering and roundoff error analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.25311",
+        "https://www.physics.otago.ac.nz/data/fox/publications/SIAM_CS_2012-11-30.pdf",
+        "https://www.sam.math.ethz.ch/~mhg/pub/Cheby-02ParComp.pdf",
+        "Resultary semantic search: stochastic quadratic gradient descent permutation fixed step sizes descending order minimizes terminal covariance spectral weighted"
+      ],
+      "rationale": "Which ordering of the SAME fixed steps gives the best terminal stochastic accuracy is a natural optimization question distinct from deterministic robustness. Uniform improvement for every Hessian-spectral quadratic risk, anisotropic noncommuting Q, and an unbounded Θ(κ) reverse-order objective penalty are meaningful rather than routine learning-rate folklore.",
+      "residual_risks": [
+        "Complete relevant Zhou–Gu and historical Chebyshev-ordering texts not inspected; priority risk for a common-noise terminal error lemma.",
+        "Exact-arithmetic model may be numerically unstable at intermediate steps and is not a finite-precision recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Time-independent Q and temporal independence required; no state-dependent, correlated-across-time, or adaptive noisy gradients.",
+    "No guarantee about intermediate iterate magnitude, finite precision or general Loewner minimization.",
+    "Important primary ordering papers partly inaccessible or only abstract inspected.",
+    "No external independent formal/Lean verification or expert attestation asserted; scientific PASS does not imply mechanical import, confidentiality clearance or historical-priority certification."
+  ],
+  "schema_version": 1
+}
