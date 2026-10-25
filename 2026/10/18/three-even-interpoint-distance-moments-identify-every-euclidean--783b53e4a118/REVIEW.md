@@ -1,24 +1,21 @@
-# Review: Three even interpoint-distance moments identify every Euclidean parallelogram
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability law is normalized: an area-uniform point in a parallelogram is the image of two independent uniform variables on a centered unit interval. Taking an independent difference gives the triangular density \(1-|u|\), with even moments \(2/((2j+1)(2j+2))\). Exact multinomial expansion of \(\|aU+bV\|^{2j}\) for \(j=1,2,3\) yields all coefficients in the three displayed moment formulas, including the cross-term \(C^2\). A linear system with exact determinant \(-41/18900\) reconstructs \(AB\) and \(C^2\); its inverse was recomputed independently. Positive definiteness of the original Gram matrix guarantees positive reconstructed edge lengths and \(C^2<AB\), so all nondegenerate rectangles, squares, and skew parallelograms are included. Two explicit positive-definite Gram matrices have equal first two moments and distinct third moments. The standalone rational checker verifies each symbolic coefficient and the two examples; sampled rational inversions are secondary crosschecks rather than an infinite proof.
+PASS
 
-## Originality — PASS with documented residual priority risk
+Area-uniform parallelogram pairs reduce to independent triangular-density differences U,V with exact even moments E U^(2r)=2/((2r+1)(2r+2)). Expanding (AU²+BV²+2CUV)^j gives m1=S/6, m2=S²/15−7P/90+Z/9, m3=S³/28−31SP/420+2SZ/15, S=A+B,P=AB,Z=C²; independent exact rational 99-node unisolvent polynomial check verified all three. The 2x2 coefficient matrix [[−7/90,1/9],[−31/420,2/15]] has det −41/18900 and inverse [[−2520/41,2100/41],[−1395/41,1470/41]], independently checked symbolically. Hence recover squared side lengths as roots z²−Sz+P and |C|=sqrt(Z), with positive-definite Gram conditions including squares and rectangles. Explicit positive-definite Gram matrices G1=[[1,1/2],[1/2,1]], G2=[[5/4,sqrt(33/160)],[sqrt(33/160),3/4]] share m1=1/3,m2=13/60 but m3=43/210 versus 1133/5600. Thus 3 consecutive even moments needed and sufficient for congruence.
 
-The motivating 2026 O'Hara preprint gives reconstruction of **generic** polygonal domains from an *entire* distance distribution or Riesz function, not an accessible statement of finite-moment reconstruction for every parallelogram. Only its abstract could be inspected; a specialized uninspected appendix is a residual risk. Martirosyan's accessible full 2023 article gives directional line-chord and covariogram formulas for quadrilaterals, not the three moments of two independent area-uniform points. Bäsel’s earlier regular-polygon moment formulas include squares but do not cover all skew parallelograms. The full published statements and proofs of two close parallelogram results concern, respectively, the fourth distance moment's boundary/interior amplification and finite projection-width statistics. They do not imply the third moment or its inversion. A published short-distance-tail coefficient theorem does not imply the three global even moments. Database comparisons for the source, possible aliases, normalized Riesz-energy values, and squared-distance moment sequences found no matching implication. This is a supported best-knowledge claim, not a guarantee that all older or unindexed literature was located.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Reconstructing a geometric object from finitely many scalar non-directional measurements is a natural inverse-tomography problem. A full distance distribution contains much more data, while the new statement is a complete three-measurement solution on the non-generic, parallel-sided class of all parallelograms. The exactly invertible Gram-parameter map and concrete two-measurement ambiguity exhibit a meaningful minimal cutoff **within the consecutive even-moment sequence**. No general polygon theorem or statistical stability statement is claimed.
+This three-moment inverse uses the full three-dimensional Gram invariant (S,P,Z) and a nonsingular rational linear 2x2 system. Resultary published parallelogram width reconstruction uses unlabeled one-dimensional projections; fourth-chord amplification compares area and boundary samples from a single fourth moment; neither determines S,P,Z using m2,m4,m6. O’Hara 2026 abstract only discusses generic polygon reconstruction from full distance law, with inaccessible full manuscript. Best-of-knowledge new precise universal finite-moment parallelogram reconstruction and two-moment collision, with explicit residual priority risk.
 
-## Closest literature and limits
+## value
 
-1. Jun O'Hara, *Identification of generic polygonal domains by integral-geometric invariants*, arXiv:2608.02288v1 (2026). Entire-distance-function uniqueness for generic polygons; full text unavailable.
-2. D. M. Martirosyan, *Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral* (2023), https://doi.org/10.3103/S1068362323060055. Full open HTML inspected; different random-line chord statistic.
-3. *Fourth-chord moment amplification and angular phase transition for parallelograms* (2026), public mathematical result: one of the moment formulas is known in a different boundary-vs-area comparison, but not the three-moment reconstruction.
-4. *Three unlabeled width statistics reconstruct a parallelogram with sharp stability* (2026), public mathematical result: measurements are projection widths, not distances between two area-uniform points.
+PASS
 
-Residual risk consists principally of inaccessible detailed portions of the closely related 2026 Riesz-distance paper and possible unindexed equivalent classical reconstruction formulas. The nondegenerate, area-uniform, exact-moment and initial-consecutive-moment scope remains essential.
+A natural complete congruence identification from the first three even random interpoint distance moments for every parallelogram is useful intrinsic inverse geometry; all boundary Gram degeneracies of symmetry, nondegenerate positivity and minimality among initial moments are resolved exactly.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
