@@ -1,11 +1,21 @@
-# Review: exact independent-Roman corona enumerators
+# Independent mathematical audit
 
-**Correctness — PASS.** Every private block is classified directly. When a private clique has at least two vertices, precisely one block vertex carries label two; for a private leaf, every core-two selection gives all and only the permissible leaf choices. These bijections prove the full polynomial. The cyclic three-state transfer and optimal gap classifications establish the sunlet formulas; independently enumerating labelings on thirteen small graphs found no exceptions. Finite enumeration does not replace the infinite proof.
+## correctness
 
-**Originality — PASS, with a stated source-access limitation.** A 2017 cycle–clique corona study already discusses minimal independent Roman functions and scalar \(2n\) behavior. A 2023 rooted-product paper supplies general scalar minima. Their conclusions are not claimed as new. The contribution is the all-weight enumerator for every base graph, the private-clique threshold, and exact cycle minimum multiplicity. The 2024 full algorithmic preprint and the 2017 PDF were examined against these precise statements. The 2023 full text was inaccessible despite checks for lawful OA and an unsuccessful authorization-dependent retrieval attempt; the remaining possibility of an uninspected enumerative corollary is disclosed.
+PASS
 
-**Value — PASS.** The private-clique threshold changes the spectrum from a possibly broad polynomial to one monomial. For sunlets, the transfer polynomial and mod-three exact optimizer count provide a complete answer to a natural configuration-counting question beyond the known scalar extremum.
+Each private clique Q_v forms a complete block with core vertex v. Under independent Roman domination with m>=2, exactly one positive label, necessarily 2, occupies each block; independent core 2-positions form S and m private choices remain per v not in S. With m=1, core 1 is impossible because its private zero leaf would lack a 2-neighbor. Core 2s form independent S, and each remaining leaf is forced 2 outside N_H(S) or has 1/2 choice inside N_H(S). These bijections directly yield both generating functions and the scalar minimum n+i(H). A closed-walk encoding of adjacent core bits gives the explicit 3×3 polynomial transition and full cyclic enumerator. In a cyclic independent S, gap lengths g_j contribute min(2,g_j) to |N(S)|; maximizing gives floor(2n/3) and counts by n mod 3. Independent brute enumeration of all {0,1,2} assignments for 20 small base/clique cases (n<=5, m<=2 within 10 total vertices) agreed with both formulas; separate exact independent-set enumeration confirmed min weight and multiplicity for C_n up to n=12. Infinite correctness follows from bijections/gap counting, not finite checks.
 
-No claim is made of computational efficiency for arbitrary-base counting, publication priority certified by an external referee, or independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier 2017 corona paper and 2023/2024 rooted-product research give scalar independent-Roman domination numbers or selected functions, not the inspected complete clique-corona polynomial and labeled optimum multiplicity for all sunlet orders. A related published Resultary multipartite weight enumerator has a different graph class. The closest 2023 rooted-product full text could not be accessed through the authorized institutional route, so priority remains explicitly qualified; no whole-article noncoverage assertion is made.
+
+## value
+
+PASS
+
+The all-base-graph polynomial is a universal structural enumerator incorporating arbitrary independence polynomials; the m=1 vs m>=2 boundary is substantive rather than a reparameterized domination-number identity. The sunlet three-state transfer identity and exact mod-three minimum labeling counts give reusable enumerative information not recoverable from the scalar minimum alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
