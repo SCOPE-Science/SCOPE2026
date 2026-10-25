@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:45:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write z/o/t for numbers of labels 0/1/2 and w=o+2t. For max-degree-two paths/cycles, each zero needs two units of neighbor weight, giving 2z<=2w and t<=2w-n. For n odd this bounds twos by <=1 at minimum; for n even paths by <=2. For zero twos the zeros form an independent set (avoiding path endpoints), whose maximum independent subsets yield unique long odd-path minimizers, m binary even-path minima, two alternating even-cycle minima and n odd-cycle minima. For one 2, its support is forced next to the unique zero endpoint of an even path giving two reflected patterns; P3 adds 020, C3 adds three rotations of 200; on longer odd paths/Cycles one 2 cannot cover two required zero endpoints or adjacent zero pair. For two 2s equality forces the special P6 word 020020, no other even path. Hence exact leading coefficients: paths odd 1 except P3=2, paths even n/2+2 except P6=n/2+3; cycles C3=6, even >=4 gives 2, odd>=5 gives n. Independently enumerated every 3-state labeling for paths 1..9 and cycles 3..9, including P6 optimum=4,count=6 and C3 optimum=2,count=6. Finite tests corroborate this general proof, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shao–Zhao DP computes ALL coefficients for any path/cycle in polynomial time and tables small orders, thus broad computational coverage; no all-n structural classification of their minimizers appears in inspected theorem/contribution list and relevant sections."
+        ],
+        "reasoning": "Broader algorithmic capability and exact closed-form theorem are distinguished: no denial of derivability by executing the algorithm, but the separate structural result is not an immediate named corollary or formula of prior work.",
+        "searches": [
+          "Italian domination polynomial paths cycles minimum coefficient count minimizers",
+          "https://arxiv.org/html/2610.00108v1 Sections 4-8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.00108v1",
+        "https://arxiv.org/abs/2610.00108",
+        "https://doi.org/10.1016/j.dam.2015.11.013"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known gamma_I(P_n)=floor(n/2)+1, gamma_I(C_n)=ceil(n/2); Shao–Zhao DP guarantees computations of d_I and incorporates an algorithmic proof, but not bottom-coefficient closed expressions or P6 classification."
+        ],
+        "reasoning": "The value/number of minimum weight alone does not entail number of minimizers; a generic DP yields it only after extra sequence analysis, and has no named all-order path/cycle optimizer characterization in the material read.",
+        "searches": [
+          "arXiv:2610.00108v1 Sec.7.3",
+          "DOI:10.1016/j.dam.2015.11.013"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Italian and Roman {2} are the same label constraint; Shao–Zhao define exactly d_I(G,k) and give DP for entire Italian domination polynomials, but closed forms in section 7 concern k near 2n, not lowest k."
+        ],
+        "reasoning": "Prior algorithms can evaluate leading coefficients individually; the claimed all-n symbolic formulas and complete optimizer patterns require additional extremal equality analysis.",
+        "searches": [
+          "Italian domination polynomial paths cycles minimum coefficient count minimizers",
+          "arXiv:2610.00108v1",
+          "Roman {2} domination Chellali et al. 2016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shao–Zhao show small n coefficient tables, including numerical instances of path/cycle leading terms. Their closed forms are for high weight, j=0..5 below 2n."
+        ],
+        "reasoning": "Known small-instance numerical coefficients are credited and not represented as new; the parameterized formula and minimizer patterns go beyond finite tables.",
+        "searches": [
+          "Italian domination polynomial paths cycles minimum coefficient count minimizers",
+          "arXiv:2610.00108v1 Section 8 tables",
+          "Resultary Italian domination polynomial paths cycles minimum coefficient count minimizers"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (Italian domination polynomial paths cycles minimum coefficient count minimizers). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.",
+      "residual_risks": [
+        "An algebraic simplification of the published DP or an unindexed Roman {2} enumeration could already yield the same all-order leading-coefficient formula.",
+        "The full original Chellali et al. 2016 paper was not inspected; exact optimizer characterizations in that source could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ALGORITHMIC_POLYNOMIAL_BUT_NOT_EXPLICIT_MINIMIZER_THEOREM",
+          "evidence": "Explicit analytic closed expressions in paper are for coefficients at 2n-j (0<=j<=5); lower coefficients are computable by DP. Precise new formula is a refinement, not claimed general algorithm.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00108v1",
+          "material_read": "Primary full-text HTML (1140 lines) inspected across abstract, definitions, path/cycle DPs, closed-form Section 7.3, numerical Section 8, and conclusion; paper admits all-coefficient DP and small tables.",
+          "method": "Full available primary HTML and theorem/algorithm section comparisons",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "closest source: exact same polynomial and families, potential stronger theorem"
+        },
+        {
+          "assessment": "KNOWN_GAMMA_BACKGROUND_NOT_FULL_MINIMIZER_CLAIM",
+          "evidence": "Gamma values are expressly credited and excluded from novelty. Full earlier text not inspected.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2015.11.013",
+          "material_read": "Bibliographic statement and cited basic definitions/minimum results; full 2016 paper not obtained.",
+          "method": "Source bibliography and references inside current primary article",
+          "title": "Roman {2}-domination",
+          "trigger": "source of known Italian minimum numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bottom coefficient of a natural domination polynomial directly quantifies optimum-label diversity, and the full structural classification explains a nontrivial parity pattern and an isolated P6 two-twos exception. Although the full coefficients are algorithmically computable from prior dynamic programs, a closed all-order edge coefficient and classification is a reusable exact mathematical fact rather than a tiny arbitrary table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.00108v1",
+    "https://arxiv.org/abs/2610.00108",
+    "https://doi.org/10.1016/j.dam.2015.11.013",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/minimum-weight-italian-domination-profiles-of-paths-and-cycles--a73dfe71a106/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only actual finite cases listed under correctness were re-enumerated; infinite claims rely on the independently reconstructed package proof, not the finite checks.",
+    "No publication changes have been made; operational fields must be removed before publication.",
+    "Originality assessment is best-of-knowledge, with genuine prior-literature risks separately retained."
+  ],
+  "residual_risks": [
+    "An algebraic simplification of the published DP or an unindexed Roman {2} enumeration could already yield the same all-order leading-coefficient formula.",
+    "The full original Chellali et al. 2016 paper was not inspected; exact optimizer characterizations in that source could affect priority."
+  ],
+  "schema_version": 1
+}

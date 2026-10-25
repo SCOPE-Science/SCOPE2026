@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the zero-neighbour inequality \(t\le2w-n\) from the original definition, independently proves the path/cycle minimum weights, splits all minimizers by count of two-labels, and treats the exceptional \(P_3\), \(P_6\), \(C_3\), and \(P_1\) boundaries. The exact path/cycle independent-set counting formulas have no asymptotic assumptions. The standalone verifier cross-checks through order 120 and independently enumerates up to order 11.
+## correctness
 
-## Originality
-PASS, subject to bibliography risk. Shao–Zhao (arXiv:2610.00108v1) already give the full counting algorithm and numeric coefficient tables through orders 10/12; thus this is *not* a new algorithm or a first calculation of small coefficients. Their primary text does not state the all-order closed form for the lowest coefficient or this complete optimal-word classification. Established minimum weight values are also explicitly prior. The 2016 Roman \(\{2\}\) minimum-value paper is close background; a full exhaustive historical priority determination remains outstanding. Relevant research-record searches concerned exact minimum coefficients, equivalent Roman \(\{2\}\) terminology and stronger whole-polynomial formulations.
+PASS
 
-## Value
-PASS. The lowest nonzero coefficient is a natural enumerative invariant, measuring degeneracy of minimum-cost Italian defenses, and was a direct endpoint of the 2026 coefficient-counting program. The uniform all-order minimizer classification explains the qualitative difference between paths and cycles, odd/even regimes, and the solitary \(P_6\) double-two anomaly. It refines, rather than merely recomputes, the algorithmic coefficient tables. Its scope is intentionally narrow; no general tree theorem is asserted.
+Write z/o/t for numbers of labels 0/1/2 and w=o+2t. For max-degree-two paths/cycles, each zero needs two units of neighbor weight, giving 2z<=2w and t<=2w-n. For n odd this bounds twos by <=1 at minimum; for n even paths by <=2. For zero twos the zeros form an independent set (avoiding path endpoints), whose maximum independent subsets yield unique long odd-path minimizers, m binary even-path minima, two alternating even-cycle minima and n odd-cycle minima. For one 2, its support is forced next to the unique zero endpoint of an even path giving two reflected patterns; P3 adds 020, C3 adds three rotations of 200; on longer odd paths/Cycles one 2 cannot cover two required zero endpoints or adjacent zero pair. For two 2s equality forces the special P6 word 020020, no other even path. Hence exact leading coefficients: paths odd 1 except P3=2, paths even n/2+2 except P6=n/2+3; cycles C3=6, even >=4 gives 2, odd>=5 gives n. Independently enumerated every 3-state labeling for paths 1..9 and cycles 3..9, including P6 optimum=4,count=6 and C3 optimum=2,count=6. Finite tests corroborate this general proof, not replace it.
 
-## Closest sources and residual risks
-The full publicly available 2026 preprint was inspected in its sections describing contributions, high-weight formulas, tables and open directions. Earlier Chellali et al. minimum-weight results and related different domination parameters are acknowledged. An equivalent classification under Roman \(\{2\}\) notation might exist outside the searched literature; this prevents definitive priority certification, not the documented best-knowledge comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (Italian domination polynomial paths cycles minimum coefficient count minimizers). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.
+
+## value
+
+PASS
+
+The bottom coefficient of a natural domination polynomial directly quantifies optimum-label diversity, and the full structural classification explains a nontrivial parity pattern and an isolated P6 two-twos exception. Although the full coefficients are algorithmically computable from prior dynamic programs, a closed all-order edge coefficient and classification is a reusable exact mathematical fact rather than a tiny arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
