@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The integral exterior Chevalley–Eilenberg complex breaks into independent two-term complexes \(\mathbb Z\xrightarrow{w(S)}\mathbb Z\), with positive subset sums. The proof identifies their injectivity, cokernels, all cohomological degrees, the complete ring product, and the exact reduction mechanism. The standalone checker independently constructs the differentials and compares Smith factors and modular ranks for seven representative multisets. Finite tests are secondary to the direct proof.
+
+**Originality — PASS, with residual risk.** Heib establishes the positive-weight complex family, Avetisyan the broad almost-abelian structural theory, and Coll–Gerstenhaber the semidirect cohomology theorem **over fields**. Their known statements cover the characteristic-\(p\) cohomological formula or the underlying family, which are therefore credited. They do not state the graded integral torsion groups or the positive-degree cup-product structure for the specified normalized integral family, and the field theorem does not logically determine exact prime-power torsion exponents. published-finding corpus searches for integral CE torsion, subset sums, aliases and related algebra families found no equivalent exact integral claim. Heib's full text was inaccessible, so unseen implicit coverage remains a specific risk, not a proof of originality.
+
+**Value — PASS.** The result computes a complete natural integral structural invariant across arbitrary positive multiplicities and normalized weight tuples. The infinitely many two-weight examples have unbounded torsion already in dimension three, while all their complex cohomology looks identical; the exact prime set and degrees of modular jumps explain precisely what characteristic-zero information loses. These are motivated cohomological distinctions, not isolated parameter substitutions.
+
+**Scope and limitations.** The result concerns a specified integral Lie ring with positive diagonal weights and trivial coefficients. It is not a claim about an arbitrary lattice, Lie-group cohomology or modular embeddings into a characteristic-zero enveloping algebra. The field case is not claimed as independently new. No external mathematical certification was conducted.
+
+Self-review: passed. Independent audit: not yet performed.
