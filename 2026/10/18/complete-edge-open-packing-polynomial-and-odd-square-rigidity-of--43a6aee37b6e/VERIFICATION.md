@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Extract `verify.py` and `verification_output.txt` into one directory and execute `python3 verify.py`. The script uses only the Python 3 standard library. It reconstructs the rook graphs on labeled boards and, independently of the proposed classification, tests each edge pair for the existence of a third edge connecting their endpoints. It counts all compatible edge subsets (including the empty set) by exact backtracking through an explicit compatibility graph.
+## correctness
 
-The direct method checks the complete coefficient vectors of \(13\) boards, namely \((2,2),(2,3),(2,4),(2,5),(2,6),(3,3),(3,4),(3,5),(3,6),(4,4),(4,5),(4,6),(5,5)\), comprising \(46{,}476\) feasible subsets. For \(190\) pairs \(2\le m\le n\le20\), separately implemented formulas compute every polynomial coefficient and compare the top coefficient and exponent with the closed extremal expressions. The expected last line of the saved output is `VERIFICATION_OK`. The program was executed successfully from these exact package components.
+PASS
 
-Finite computations do not verify the theorem for infinitely many boards. The general result follows from the row/column-disjoint tile bijection and the proof of its exact parameter constraints. A literature search, even one including several full texts, cannot establish absolute novelty or independent certification.
+For rook graph K_m□K_n, m,n>=2, selected edge endpoints cannot have a third crossing edge. Within a connected chosen-edge component, row/column neighborhoods are cliques and force only isolated horizontal edge H, isolated vertical edge V, or perpendicular induced 2-edge elbow E. Distinct components must use disjoint occupied row and column labels. The row/column occupancies (h+2v+2e, 2h+v+2e), selected edges h+v+2e and orientation factors yield the exact falling-factorial polynomial and two-label EGF. Occupancy bounds prove maximum m except odd square m=n where maximum m-1, with all equality compositions and top coefficients. Independent third-edge enumeration for (m,n)=(2,2),(2,3),(3,3),(3,4) matched full coefficients, with packing totals 9,22,64,229, maxima 2,2,2,3 and counts of maxima 4,12,45,72. Bounded tests are corroboration; component bijection is universal proof.
+
+## originality
+
+PASS
+
+The 2022 article supplies edge-open-packing definition/induced-star fact. Later papers provide broad graph-product inequalities, not a located polynomial of all rook-graph packings. Restricting the general structural induced-star observation to rook neighborhoods and deriving exact weighted tile enumeration, odd-square obstruction and all extremizer multiplicities are further results.
+
+## value
+
+PASS
+
+An exact distribution and complete optimizer classification for labeled rook graphs, natural product and line graphs, includes a sharp parity obstruction on odd squares and an explicit multivariate labeled exponential structure. The count of all packings and their optimizers is not determined by general bound or computational ease alone, and has plausible use in combinatorial enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
