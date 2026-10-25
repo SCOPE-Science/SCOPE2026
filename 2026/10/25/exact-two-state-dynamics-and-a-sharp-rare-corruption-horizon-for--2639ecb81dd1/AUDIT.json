@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The row-normalized scalar projection is exactly the selected right-hand side. Conditioning on an integer hypergeometric corruption count gives both Markov transitions, eigenvalue and covariance identity; exact partition/overlap of tail events proves sign changes. At median, the majority label is sample-only, hence independent outputs, geometric hitting law, sharp finite sample cutoff and a.s. recurrence by iid Borel–Cantelli. Falling-factorial uniform approximation, Stirling and dominated geometric tail summation independently reconstruct the sharp prefactor and horizon. An exhaustive finite-size standard-library verifier checks 431,104 exact-combinatorial and numerical assertions, without substituting experiments for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2507.15185, Algorithm 1.1, Theorem 3 and discussion (full accessible PDF examined)",
+        "arxiv:2009.08089, Sec. 4.2 (full accessible text)",
+        "arxiv:2505.00258, Theorems 4–6 and proofs (full HTML and PDF examined)"
+      ],
+      "reasoning": "Broad geometric convergence and sample-size theorems do not imply iid independence or the sign of lagged covariance for the special equality-at-order-statistic update. The newer subsample-size paper selects an update row from the entire set after subsample-based thresholding. The 2025 error-horizon article addresses qRK/dqRK expected-error bounds with dense noise and sparse corruption, not sampled-row equality and exact Markov laws.",
+      "searches": [
+        "finite-population quantile Kaczmarz median two-atom residual exact iid jumps rare-event waiting time logarithmic sample",
+        "Haddock Ma Rebrova subsampled quantile randomized Kaczmarz 2023 small samples Markov chain two level row corruption",
+        "small sample robust Kaczmarz geometric first corrupted projection exact hypergeometric tail horizon"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.07987v1",
+      "arxiv:2009.08089v1",
+      "arxiv:2507.15185v1",
+      "arxiv:2505.00258v2",
+      "Published mathematical-record search responses to exact small-sample / Markov / hypergeometric searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Haddock–Ma–Rebrova 2023 Sec. V-D: qualitative rare sample-corruption spikes and open small-sample analysis",
+        "Haddock et al. 2020: quantile-based corrupted linear systems, not this exact two-level time law",
+        "Cai et al. 2025: sample size for a different quantile-selected update",
+        "Battaglia–Ma 2025: upper bounds on expected error horizon, not the joint state process"
+      ],
+      "reasoning": "The 2023 source motivates and qualitatively anticipates rare failures; it neither states the exact hypergeometric mass nor its sharp prefactor, iid median property, rank-controlled anticorrelation, or zero-event cutoff. Generic binomial tail bounds yield order-of-growth but not this finite-population formula and exact time correlation classification. Results with different row-selection rules cannot dominate the equality-at-quantile projection theorem.",
+      "searches": [
+        "small-sample median quantile randomized Kaczmarz identical rows binary corruption exact independent Bernoulli stationary law hypergeometric tail",
+        "Haddock Ma Rebrova subsampled quantile randomized Kaczmarz 2023 small samples Markov chain two level row corruption",
+        "subsampled quantile Kaczmarz exact rank-dependent two-state transition matrix autocorrelation threshold below above median",
+        "small sample robust Kaczmarz geometric first corrupted projection exact hypergeometric tail horizon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2308.07987, Algorithm 2 and Sec. V-D (full accessible text)",
+        "arxiv:2505.00258, Sec. 1.2 and Sec. 4.2 (full accessible text)"
+      ],
+      "reasoning": "Alternative phrasings include order-statistic projection, sample majority vote, iid Bernoulli output, hypergeometric corruption tail, and Markov residual-rank dynamics. The original small-sample discussion recognizes rare spikes but does not derive this exact equivalence; Battaglia–Ma estimates noise error horizons for different qRK selection rules.",
+      "searches": [
+        "small-sample median quantile randomized Kaczmarz identical rows binary corruption exact independent Bernoulli stationary law hypergeometric tail",
+        "finite-population quantile Kaczmarz median two-atom residual exact iid jumps rare-event waiting time logarithmic sample",
+        "subsampled quantile Kaczmarz exact rank-dependent two-state transition matrix autocorrelation threshold below above median",
+        "quantile-selected Kaczmarz scalar duplicated rows corrupt measurement majority median independent iterates exact finite population Markov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching record appeared in ranked mathematical-record searches. Closest returned titles concerned four-cell rank-martingale calibration, two-state sliding-count bounds, critical dyadic quantiles, and reversible-chain variance; none analyzes sampled-row Kaczmarz."
+      ],
+      "reasoning": "Searches included exact transition, stationary covariance, majority quantile, Bernoulli horizon, and hypergeometric terms. Returned records concern unrelated finite-sample calibrations, Markov inequalities, or quantile laws. Search nonhits are not uniqueness proof, and no purported universal table of these iterations was identified.",
+      "searches": [
+        "small-sample median quantile randomized Kaczmarz identical rows binary corruption exact independent Bernoulli stationary law hypergeometric tail",
+        "subsampled quantile Kaczmarz exact rank-dependent two-state transition matrix autocorrelation threshold below above median",
+        "quantile-selected Kaczmarz scalar duplicated rows corrupt measurement majority median independent iterates exact finite population Markov"
+      ]
+    },
+    "rationale": "Algorithm 2 and small-sample spiking heuristic are prior (Haddock–Ma–Rebrova, 2023, Sec. V-D), as are broader corrupted-Kaczmarz theory and general finite-horizon sample results. The checked full text does not give the exact two-state transition matrix, odd-rank serial-correlation sign reversal, independent median output process with finite-population one-step cutoff, and sharp constant-level binomial/hypergeometric horizon for this same sampled-row equality update. Related later sources use different update-selection mechanisms or general expected-error bounds. Search limitations and remaining priority risk are explicit; this is only a model-specific novelty assessment.",
+    "residual_risks": [
+      "A separate specialist paper may have derived the same binary-row hypergeometric chain or majority-vote limit under alternative terminology.",
+      "Finite text search and ranked record retrieval cannot prove global novelty.",
+      "Original source uses a slightly ambiguous tie selection notation, but both measurement values give unique updated scalar states within each quantile-tied class.",
+      "The original 2023 paper already anticipates rare corruption spikes and quantile/sample-size importance; those qualitative observations alone are not claimed as new.",
+      "The 2023 Swartworth dissertation on QuantileRK has potentially relevant sample-size and quantile-selection sections; only an indexed table of contents was accessible due to repository browser gating. Exact priority comparison remains uncompleted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: source has qualitative small-sample spikes and calls for theory; it does not prove stated exact two-state distribution/correlation/asymptotic horizon. Algorithm 2 equality rule is matched.",
+        "evidence": "Algorithm 2 equality-row rule; Section V-D states event-probability difficulty and empirically observes spikes; conclusion asks for small-sample theory.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.07987",
+        "material_read": "Full accessible HTML, especially Algorithms 1 and 2, Sec. IV, Sec. V-D lines 225-274",
+        "method": "Compared update selection, hypotheses, explicit small-sample heuristic, future directions, and quantified mathematical statements",
+        "title": "On Subsampled Quantile Randomized Kaczmarz",
+        "trigger": "Defining sampled-quantile method and natural open small-sample problem"
+      },
+      {
+        "assessment": "NOT_COVERING: related quantile theory and sampling, no equality-selected scalar Markov/covariance classification.",
+        "evidence": "Original quantile Kaczmarz analyses focus on convergence under conditioning and corruption; alternate row acceptance.",
+        "identifier_or_url": "https://arxiv.org/abs/2009.08089",
+        "material_read": "Accessible full HTML including Section 4.2 and primary MSC metadata",
+        "method": "Compared accepted-row threshold rule and published convergence scope against equality-row two-state dynamics",
+        "title": "Quantile-based Iterative Methods for Corrupted Systems of Linear Equations",
+        "trigger": "Original foundational quantile randomized Kaczmarz formulation and sample variant"
+      },
+      {
+        "assessment": "NOT_COVERING for same statement: analyzes a different row choice, sample complexity and logarithmic-horizon bounds.",
+        "evidence": "Selection step draws update row outside (not necessarily inside) quantile-estimation subset; bounds are not this two-level Markov chain.",
+        "identifier_or_url": "https://arxiv.org/abs/2507.15185",
+        "material_read": "Full accessible PDF: introduction, Algorithm 1.1, Theorem 3, lower bounds and conclusion",
+        "method": "Checked defining row selection and exact scope; distinguished full-pool update choice from small-sample equality-row selection",
+        "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+        "trigger": "Possible stronger 2025 results on subsample-size horizon"
+      },
+      {
+        "assessment": "NOT_COVERING for this exact law: it develops expected-error bounds for qRK/dqRK in noisy settings, not the sampled rank-equality two-state chain.",
+        "evidence": "Sections 1.2 and 4.2 use threshold-admissible full residual row sets and noise error horizons, with no matching Markov transition or median iid property.",
+        "identifier_or_url": "https://arxiv.org/html/2505.00258v2",
+        "material_read": "Full HTML: abstract, Sec. 1.2, Sec. 4 main results including 4.2, Sec. 6 proofs, references; PDF first page inspected",
+        "method": "Searched source for subsample, Markov, stationary; compared qRK and dqRK accepted-row threshold sets and mean-error horizon inequalities to sampled equality-row finite-population transition law",
+        "title": "Quantile-RK and Double Quantile-RK Error Horizon Analysis",
+        "trigger": "Plausible exact error-horizon prior result on quantitative QRK fluctuations"
+      },
+      {
+        "assessment": "INACCESSIBLE PLAUSIBLE SOURCE, NOT RULED OUT: the thesis may discuss special sampled quantile formulas. No whole-document noncoverage claim is made.",
+        "evidence": "Indexed table of contents includes Section 2.4.2 Analysis of the QuantileRK method, 2.5.2 Sample size, 2.5.3 Quantile selection. No theorem text recovered.",
+        "identifier_or_url": "https://escholarship.org/uc/item/3j7494h8",
+        "material_read": "Bibliographic search excerpt and table of contents only; full repository page inaccessible.",
+        "method": "Search-index excerpt inspection, followed by a direct repository page attempt that was blocked by JavaScript verification.",
+        "title": "Efficient Algorithms for Linear Regression and Spectrum Estimation (2023 dissertation)",
+        "trigger": "Dissertation table of contents names chapters on QuantileRK, sample size and quantile selection."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2639ecb8-1dd1-41db-8e28-88903e2cfa6c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2023 source explicitly leaves theoretical analysis of very small samples and choice of quantile / size for future work. This theorem supplies a nontrivial structural benchmark rather than simply recomputing a table: exact Markov dynamics, unique decorrelation rank, reversal to negative correlations at high ranks, a finite-population absolute safe cutoff, and a sharp tail prefactor identifying when successful short runs are misleading. Its precise limitations to a scalar repeated-row toy example are essential and stated; generic convergence for real matrices is not asserted.",
+    "status": "PASS"
+  }
+}
