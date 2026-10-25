@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-Execute `python3 VERIFY.py` in a directory containing the accompanying `CERTIFICATE.json`. The checker reconstructs the graph, all three filtration stages, the integer algebraic reductions and the acyclic matching certificates from standard-library operations. The stored certificate is compared for exact equality with the newly reconstructed proof data. The final success marker is `VERIFIED_ICOSAHEDRAL_FOREST_FILTRATION`.
+# Independent mathematical audit
 
-The exhaustive computations include 4096 vertex subsets per degree, each checked for acyclicity using union–find and independent DFS algorithms; all 12 five-cycle open neighborhoods; all degree-zero surface links; and the full directed Hasse graph for the 68, 323 and 983 nonempty simplices at degrees 0, 1 and 2. The acyclic matchings contain 29, 147 and 471 pairs. Degree-one has a four-by-four minor of determinant one in its exact integral Morse differential; degree-two has no Morse differential. Direct mod-two homology calculations independently give reduced Betti numbers \((6,1)\) in dimensions \((1,2)\), twenty in dimension three, and forty in dimension four.
+## correctness
 
-The finite proof applies to a fixed twelve-vertex graph; the stabilization for all degree bounds follows separately from the five-cycle-neighborhood argument. Independent external audit has not been performed.
+PASS
+
+With the explicitly listed 12-vertex, 30-edge icosahedral graph, F_d consists of induced forests of maximum internal degree <=d. A vertex neighborhood is a 5-cycle, so a forest cannot contain three neighbors of a vertex, proving saturation F_d=F_2 for d>=2. Independent enumeration of all 4096 masks per level found nonempty face totals 68,323,983 and mod-two Betti ranks beta_1=6,beta_2=1 at d0; beta_3=20 at d1; beta_4=40 at d2. At d0, 20 triangles with 30 shared edges and links cycles give sphere surface, with six extra 1-cell attachments. Separately parsed pinned CERTIFICATE.json and reconstructed every degree-0/1/2 face, all 29/147/471 matching pairs, 132/972/3972 Hasse covers, and complete acyclic topological sorts; critical counts are d1 one 0-cell, four 2-cells, 24 3-cells and d2 one 0-cell, forty 4-cells. Fresh signed Morse reduction for d1 matched all 24 stored columns and recovered exact 4x4 minor determinant +1, cancelling four 2-cells integrally and leaving 20 three-spheres. Zero degree overlaps across stages establish precise integer persistence bars. These are exhaustive checks of fixed finite graph, not general forests.
+
+## originality
+
+PASS
+
+Carnero Bravo defines forest filtration and determines homotopy for paths, cycles, double stars, cacti and graph-operation classes, not this icosahedron. Neighbor, cut, Rips, Čech and independence complexes on the same icosahedron are different simplicial functors. General discrete Morse theorem supplies a proof method but not the precise pairings/20/40 sphere counts.
+
+## value
+
+PASS
+
+Complete integral homotopy and persistent barcode of a canonical highly symmetric 12-vertex graph is a natural sharp test case for induced-forest filtration. It isolates nontrivial middle/terminal stages by unimodular Morse boundary, not a routine Euler characteristic table, and gives exact jump thresholds and torsion-free persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
