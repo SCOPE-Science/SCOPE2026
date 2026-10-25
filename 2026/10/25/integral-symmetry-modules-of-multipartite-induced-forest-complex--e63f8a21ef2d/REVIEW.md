@@ -1,0 +1,15 @@
+# Scientific review: integral symmetry modules of multipartite induced-forest complexes
+
+## Correctness — PASS
+The proof separates three exact steps: an exhaustive structural characterization of all allowed vertex sets; an integral Mayer--Vietoris isomorphism on each two-part piece with explicit oriented tetrahedron-boundary generators; and a natural cover spectral sequence. The nerve is homology-equivalent, compatibly with part permutations, to the complete graph on parts, so its only positive homology is the integral cycle lattice. No higher differentials or integral extensions survive. The proof explicitly checks the sign under interchanging entire parts, and the integral trace formulas follow from tensor flips and exterior squares. The standalone finite checker independently uses union--find graph cycle detection and mod-two simplicial boundary matrices; all 2,238 tested automorphism traces agree with signed Lefschetz sums. The finite tests are supporting evidence, not the all-parameter argument.
+
+## Originality — PASS with residual risk
+Carnero Bravo's inspected forest-filtration paper already proves the entire nonequivariant multipartite sphere-wedge classification, so it is expressly prior coverage for Betti numbers and homotopy type. Its inspected theorems and proof do not state a full integral automorphism-module identification or the character formula under swaps of equally sized parts. Taylan's older, inspected general devoid-complex theory likewise supplies definitions/methods, not these modules. Search comparisons with complete multipartite graph Čech and Rips persistence concern different complexes and do not imply the present homology action. The new claim is the integral equivariant refinement only. A related unindexed representation theorem could still exist.
+
+## Value — PASS
+The action of graph symmetries on homology is additional topological structure not encoded by the known wedge multiplicities. The result solves that equivariant invariant uniformly for arbitrary part sizes, at integral-lattice rather than merely rational-character level, and specifies a subtle positive tensor flip under part interchange. It gives closed characters for every automorphism, including nontrivial wreath-group elements, and shows vanishing of full-symmetry invariant rational homology for equal-size parts. It is a natural structural refinement of a published classification, not a recomputation of a numerical table.
+
+## Limits and closest sources
+Only the natural integral homology representation is determined; no equivariant homotopy or fixed-point classification is asserted. The main prior mathematical source is A. Carnero Bravo, *The Forest Filtration of a Graph*, arXiv:2307.13271, Theorem 33 and Corollary 35 (PDF numbering). D. Taylan, arXiv:1501.06754, supplied the earlier forbidden-subgraph framework. A multipartite graph-metric Čech persistence classification concerns different simplices. Finite verification does not prove all parameters; the proof is the cover spectral-sequence argument. Unindexed coverage remains a limited originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
