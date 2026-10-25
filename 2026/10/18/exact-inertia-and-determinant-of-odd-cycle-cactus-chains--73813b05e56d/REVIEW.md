@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The incidence-matrix identity transfers inertia and determinant of the line graph to the shifted signless Laplacian plus known \(-2\) eigenvalues. The base cycle inverse diagonal and each Schur complement are computed explicitly. A one-scalar boundary resolvent proves that every matrix is nonsingular, tracks the unique possible rank-one sign change, and telescopes determinants. The independently implemented exact rational and integer verifier checked 1,254 cases. Finite checks supplement, rather than replace, the proof; the boundary case with branching was independently calculated.
+## correctness
 
-**Originality — PASS, with acknowledged residual risk.** Francis–Uptain's 2026 results concern a bridge-connected cactus gadget and positive-signature constructions; Paone–Paone completely analyze roses/theta graphs but present only partial bridgeless-cactus bounds. This formula applies to arbitrarily long non-rose block paths with distinct articulations; its exact determinants and nonsingularity are not consequences of a signature upper bound. Prior single- and two-cycle cases are excluded from novelty. No semantically equivalent record appeared in targeted indexed searches; unindexed or inaccessible work could still coincide.
+PASS
 
-**Value — PASS.** The theorem computes every inertia component and the determinant for a natural infinite family, with unexpectedly small dependence on all cycle lengths and articulation positions. The change at the first \(1\pmod4\) block identifies the exact structural spectral transition, while a computed branching counterexample locates the family boundary. This goes beyond a routine value for a single small graph and complements general cactus bounds.
+For unsigned incidence N, NN^T=Q(G), N^TN=A(LG)+2I. G is connected nonbipartite (contains an odd cycle), so N has full row rank; m-n=t-1 gives exactly t-1 additional eigenvalues -2. For adjoining a length (2h+1) cycle at one cut vertex, the 2h fresh vertices form even path matrix B with inertia (h,0,h), determinant (-1)^h and b^TB^-1b=2(-1)^(h-1). Its Schur complement in M=Q-2I is M if li≡3 mod4, or M+4ee^T if li≡1 mod4. The inverse terminal diagonal g remains -1/2 until first 1(mod4) block then g=1/(4q-2), giving nonzero Schur multipliers and at most one sign flip. The consequent inertias and determinant telescoping yield the two exact formulas independent of attachment position. Independently built 10 odd-cycle chains of lengths 3,5,7 with up to four blocks and varied attachments; exact SymPy integer determinants matched and independently evaluated real symmetric eigenvalue signs matched with no near-zero eigenvalues. Finite examples corroborate but do not prove the unbounded induction.
 
-Closest literature: Francis–Uptain arXiv:2607.22874, Paone–Paone DOI:10.5281/zenodo.21744051, and Wang–Fan arXiv:1310.1003. The proof covers odd block paths only, not branched cacti or bridges. Some historical literature may be unindexed; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Paone–Paone 2026 gives full line-graph inertia for roses and generalized theta graphs and a general one-sided bridgeless-cactus bound with leaf elimination, but the inspected Section 10 does not provide the complete odd-cycle block-PATH inertia/determinant two-case law for t>=3 with distinct cut vertices. Francis–Uptain 2026 concerns bridge-connected gadgets and unbounded positive signature, not vertex-glued blocks. New exact boundary-resolvent telescoping extends this known method to a naturally different infinite topology; t<=2 cases are credited.
+
+## value
+
+PASS
+
+A complete signless-Laplacian/line-graph inertia and determinant classification across unbounded cycle lengths, residue classes, attachments and block number is a natural spectral graph invariant result. Explicit branching counterexample (four pentagons) demonstrates the path hypothesis and helps delimit its mathematical utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
