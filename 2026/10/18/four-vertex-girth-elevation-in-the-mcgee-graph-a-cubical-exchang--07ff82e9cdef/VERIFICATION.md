@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction instructions
 
-Execute the bundled `verify_cycles.py` and `verify_deletion.py` using Python 3, without third-party packages. Both files independently construct the same twenty-four-vertex LCF graph and compute the required finite statistics. Their complete expected output appears in `verify_cycles.out` and `verify_deletion.out`. Both scripts were executed, finished normally and printed `VERIFY_OK`.
+# Independent mathematical audit
 
-The first enumerator roots each simple cycle at its least vertex, removes reversal duplicates by comparing the second and last vertices, checks no cycles of length three through six, and records exactly thirty-two cycles of length seven. The incidence bound of at most ten cycles per vertex proves the lower bound without an experimental extrapolation. It then checks all \(\binom{24}{4}=10626\) candidate transversals against every cycle using exact integer bitmasks. Complete agreement with the stated family is asserted by the code. The exchange is checked directly.
+## correctness
 
-The independent verifier computes girths of all induced vertex-deletion graphs by breadth-first search, without importing or using the cycle list of the first program. It checks all \(\binom{24}{3}=2024\) triple deletions, all \(10626\) quadruple deletions, the explicit twenty-set classification, residual girth eight, the exchange edge count and component sizes.
+PASS
 
-The two source programs themselves are the verifiable finite certificates; the text outputs are replay comparisons, not substitutes for algorithms. The result does not establish any asymptotic assertion, infinite-case theorem, global publication priority or external certification.
+The 24-vertex LCF graph was reconstructed independently. It has 36 edges, exactly 32 distinct seven-cycles (a complete cyclic-order-normalized enumeration), vertex incidence at most 10, hence no triple can hit all 32. Exhaustive 10,626 four-subset tests return precisely the 16 four-pair choices plus four specified exceptional sets. Exactly 32 one-exchange edges form a four-cube and four isolates. Independent BFS verifies girth exactly 8 after each of these 20 deletions and girth 7 after all 2,024 triple deletions. Finite exhaustive enumeration is a complete proof for this fixed graph, not sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the newly checked finite vertex-transversal optimum and Q4 plus four isolated exchange structure are absent from the specifically inspected relevant portions of the cage survey and edge-cycle-approximation paper; the latter optimizes EDGE deletions on arbitrary graphs rather than exact VERTEX deletions on the McGee cage. The original 1960 construction and unindexed exact computations remain priority risks. Negative searching is not a novelty proof.
+
+## value
+
+PASS
+
+The minimal deletion of shortest cycles in the canonical smallest cubic girth-seven cage is a natural exact optimization invariant. Beyond the minimum 4, the enumeration and reconfiguration graph identify the nontrivial coexistence of 16 mutually mobile optimal solutions and four frozen optima, directly useful for combinatorial reconfiguration of finite cage transversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

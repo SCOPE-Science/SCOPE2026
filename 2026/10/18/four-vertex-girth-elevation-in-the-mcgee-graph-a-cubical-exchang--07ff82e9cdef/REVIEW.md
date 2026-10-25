@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every input edge follows the standard Hamiltonian LCF presentation, and the graph's degree, girth and cycle incidence counts are recomputed directly. There are thirty-two distinct seven-cycles with maximum vertex multiplicity ten; hence no three-vertex transversal exists. Exhaustively testing all 10,626 four-subsets yields exactly twenty, separated into sixteen four-independent-pair choices and four exceptional sets. The exchange graph follows by one-coordinate differences. A second independently structured breadth-first verifier tests all 2,024 three-vertex deletions and all 10,626 four-vertex deletions, recovers the same family, and checks residual girth eight.
+## correctness
 
-**Originality — PASS, residual risk.** The graph's construction and cage invariants are prior knowledge. The inspected full cage survey gives order, girth and automorphism data; the relevant original research on prescribed-length cycle transversals is about removing **edges** and provides approximation bounds, not this exact vertex classification. published-finding corpus comparisons, accessible related published abstracts, and online searches for the number twenty, thirty-two seven-cycles, the four-cube and girth-elevating deletions did not reveal equivalent or dominating published claims. The publisher extract of McGee's original 1960 article was available but the complete paper was not; older tables or unindexed literature might duplicate the result. Absence from searches alone does not establish novelty.
+PASS
 
-**Value — PASS.** The McGee graph is the first cubic cage with non-Moore structure and nontransitive vertex action. A minimum four-vertex perturbation raises girth exactly one, and the complete optimal family has two sharply different mobility phases: a sixteen-configuration hypercube and four isolated configurations. This answers a natural optimization-and-reconfiguration question, not a generic small-number computation.
+The 24-vertex LCF graph was reconstructed independently. It has 36 edges, exactly 32 distinct seven-cycles (a complete cyclic-order-normalized enumeration), vertex incidence at most 10, hence no triple can hit all 32. Exhaustive 10,626 four-subset tests return precisely the 16 four-pair choices plus four specified exceptional sets. Exactly 32 one-exchange edges form a four-cube and four isolates. Independent BFS verifies girth exactly 8 after each of these 20 deletions and girth 7 after all 2,024 triple deletions. Finite exhaustive enumeration is a complete proof for this fixed graph, not sampling.
 
-**Limits.** The result pertains only to this finite graph and the stated replacement rule. Enumerators cover the entire explicitly delimited finite domain; neither extrapolates to other cages. An external independent scientific audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the newly checked finite vertex-transversal optimum and Q4 plus four isolated exchange structure are absent from the specifically inspected relevant portions of the cage survey and edge-cycle-approximation paper; the latter optimizes EDGE deletions on arbitrary graphs rather than exact VERTEX deletions on the McGee cage. The original 1960 construction and unindexed exact computations remain priority risks. Negative searching is not a novelty proof.
+
+## value
+
+PASS
+
+The minimal deletion of shortest cycles in the canonical smallest cubic girth-seven cage is a natural exact optimization invariant. Beyond the minimum 4, the enumeration and reconfiguration graph identify the nontrivial coexistence of 16 mutually mobile optimal solutions and four frozen optima, directly useful for combinatorial reconfiguration of finite cage transversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
