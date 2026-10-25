@@ -1,19 +1,21 @@
-# Scientific review: Dimension-sharp mixing slowdown in a trace-preserving exponential Lindblad step
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The primary integrator has the exact reduced map \(q\mathcal I+(1-q)\mathcal J\). Orthogonal Fourier and coherence decomposition gives the complete induced Hilbert--Schmidt contractions, including off-diagonal eigenmodes that cannot be omitted when assessing the full density-matrix problem. A strict scalar derivative inequality settles every dimension \(n\ge4\), while exact factorizations settle the two- and three-dimensional equality windows. The large-step spectral and trace-norm conclusions follow by limits of finite-dimensional operators. The standalone checker reproduced 341 symbolic and numerical assertions; this is supporting verification, not a proof by enumeration.
+PASS
 
-## Originality
+With L_j=|j+1><j| and L=gamma(J-I), the exact-integral FREE step of Chen et al. is Phi=q I+(1-q) J, q=e^(-gamma tau), whereas the exact channel is e^(x(J-I)). The superoperator J is normal: it cyclically permutes diagonal populations and kills all off-diagonal coherences. Its only fixed matrix is scalar identity. The full Hilbert–Schmidt contraction thus has alpha_n=max(q,sqrt(1-2a_n q(1-q))) and beta_n=e^(-x min(1,a_n)) with a_n=1-cos(2pi/n). Exact n=2,3 factorizations show equality only x<=ln3 or x<=ln2 respectively; for n>=4 the displayed scalar derivative inequality gives strict alpha>beta for all x>0. As q->0, alpha=1-a_n q+O(q^2) and e^(x(J-I))->depolarizing Pi while Phi->J; the maximal density-state trace-norm distance tends 2(1-1/n). Independent finite-dimensional full-superoperator singular-value checks for n=2,3,4,6 corroborate. They do not prove universal dimensions or steps.
 
-**PASS, subject to publication-priority uncertainty.** Chen et al.'s original FREE integrator and its positivity, trace and error results are not new here. The compared Cao--Lu Kraus construction and classical directed-graph mixing literature provide important context, but no material inspected yielded the full specified dimension-sharp comparison or its trace limit. The nearest related published mathematical findings concern Padé positivity on Markov chains, not the Lindblad FREE map. Equivalence through other formulations or inaccessible random-walk literature remains a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** It is mathematically and computationally significant that a positivity- and trace-preserving numerical channel can have exponentially poor relaxation relative to a primitive Lindblad semigroup even while sharing the unique stationary density. The full-matrix equality thresholds in dimensions two and three isolate exactly when coherence modes hide population slowdown; this is a structural rather than merely a single-parameter numeric example.
+The full-rank FREE update and its positivity/consistency are already in Chen et al.; Fourier modes of cycles and lazy Markov chains are classical. The submitted result isolates their exact full density-matrix spectral norm comparison, sharp dimension-two and -three equality windows, and strong-step trace-distance limit. No inspected primary theorem makes this full-matrix quantitative classification. There is genuine risk of an equivalent earlier Poissonized/lazy-walk computation.
 
-## Limits
+## value
 
-Only common jump rates, zero Hamiltonian, a directed cyclic family, an exact full-rank step, and induced Hilbert--Schmidt norms are covered. The method remains first-order convergent for a shrinking timestep at fixed final time. The displayed trace-norm limit does not imply the same error at any fixed finite step. Full-text publication-priority verification beyond inspected papers remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A numerical Lindblad integrator can be completely positive, trace preserving and stationary-state exact yet nearly cease mixing in the stiff regime while the true dynamics relaxes rapidly. The exact dimension-dependent thresholds identify when coherence modes conceal population failure, giving a mathematically sharp warning rather than simply a tiny numerical error demonstration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

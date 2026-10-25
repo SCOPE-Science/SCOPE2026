@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:02:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With L_j=|j+1><j| and L=gamma(J-I), the exact-integral FREE step of Chen et al. is Phi=q I+(1-q) J, q=e^(-gamma tau), whereas the exact channel is e^(x(J-I)). The superoperator J is normal: it cyclically permutes diagonal populations and kills all off-diagonal coherences. Its only fixed matrix is scalar identity. The full Hilbert–Schmidt contraction thus has alpha_n=max(q,sqrt(1-2a_n q(1-q))) and beta_n=e^(-x min(1,a_n)) with a_n=1-cos(2pi/n). Exact n=2,3 factorizations show equality only x<=ln3 or x<=ln2 respectively; for n>=4 the displayed scalar derivative inequality gives strict alpha>beta for all x>0. As q->0, alpha=1-a_n q+O(q^2) and e^(x(J-I))->depolarizing Pi while Phi->J; the maximal density-state trace-norm distance tends 2(1-1/n). Independent finite-dimensional full-superoperator singular-value checks for n=2,3,4,6 corroborate. They do not prove universal dimensions or steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. establish CPTP and convergence/error of the FREE integrator, not a strong-step mixing dominance claim.",
+          "Cao–Lu study a different Kraus-type structure-preserving integrator with stated numerical stiffness scope."
+        ],
+        "reasoning": "Methodological coverage of Lindblad schemes does not entail this all-x norm classification; a general spectral-mapping theorem gives eigenvalue formulas but does not explicitly settle equality thresholds without further Fourier and scalar inequalities.",
+        "searches": [
+          "arxiv:2408.13601 full low rank exponential Euler Lindblad numerical mixing",
+          "arxiv:2103.01194 structure preserving Lindblad schemes",
+          "exponential Euler Lindblad directed cyclic jumps Hilbert Schmidt mixing contraction threshold stiffness spectral gap"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md blob 734b256037d9bfe9a10adabc5029a0ecc6470a33",
+        "Inspected checker.py blob e7f4070452e55377cb9fb0df4ef1deb72432825e",
+        "arXiv:2408.13601",
+        "arXiv:2103.01194",
+        "Resultary ell4 four-state cyclic convolution 4bb94785b883"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source establishes positivity/trace conservation and consistency for tau->0, not optimal contraction after tau grows.",
+          "The exact classical lazy-cycle spectrum accounts for diagonal modes but not, by itself, the comparison with decohering off-diagonal modes in the full matrix norm."
+        ],
+        "reasoning": "Correct implication would need to establish both max(q,diagonal mode) and all dimensional equality windows, plus sharp limiting state distance; these conclusions were not supplied by checked source theorems.",
+        "searches": [
+          "arxiv:2408.13601 Theorem 3.3 equation 2.6 error",
+          "Cao Lu arxiv:2103.01194 numerical Lindblad schemes cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. arXiv:2408.13601, Eq. 2.6 defines FREE update; exact reduction on the present directed cycle is a lazy Markov channel.",
+          "Resultary 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883 concerns real ell4 cyclic convolutions, not full Hilbert–Schmidt Lindblad superoperator contraction."
+        ],
+        "reasoning": "The lazy-walk spectral map is an equivalent mathematical tool and is credited; the question is whether an earlier full-matrix mixed coherence/population threshold and trace-distance theorem follows from a known single result. None was identified in inspected literature, although the Fourier derivation is accessible.",
+        "searches": [
+          "exponential Euler Lindblad directed cyclic jumps Hilbert Schmidt mixing contraction threshold stiffness spectral gap",
+          "full rank exponential Euler Lindblad directed cycle contraction factor mixing trace norm",
+          "lazy directed cycle Poissonized continuous time chain norm q+(1-q)lambda"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No equivalent exact alpha_n/beta_n threshold table arose in the executed Resultary semantic queries; nearest four-state ell4 cyclic-convolution result has a different norm and no Lindblad coherence sectors."
+        ],
+        "reasoning": "An exact full-space Hilbert–Schmidt dimension table is not interchangeable with a real ell4 contraction or population-only lazy-chain mixing table. A missed unindexed table remains possible.",
+        "searches": [
+          "full rank exponential Euler Lindblad directed cycle contraction factor mixing trace norm",
+          "Lindblad directed jump cycle dimension two log3 dimension three log2 mixing"
+        ]
+      },
+      "rationale": "The full-rank FREE update and its positivity/consistency are already in Chen et al.; Fourier modes of cycles and lazy Markov chains are classical. The submitted result isolates their exact full density-matrix spectral norm comparison, sharp dimension-two and -three equality windows, and strong-step trace-distance limit. No inspected primary theorem makes this full-matrix quantitative classification. There is genuine risk of an equivalent earlier Poissonized/lazy-walk computation.",
+      "residual_risks": [
+        "The formulas may be implicit in old Fourier/Poissonized Markov-chain theory; a full historical priority proof is unavailable.",
+        "All claims are for exact full-rank integral FREE, not low-rank truncation or fixed-final-time errors.",
+        "Cao–Lu full theorem body was not inspected in this execution; bibliographic comparison only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FREE step and small-step behavior are antecedents; inspected sections do not evaluate strong-step full-space cycle mixing.",
+          "evidence": "arXiv:2408.13601 Eq. 2.6, Thm 3.3, §4",
+          "identifier_or_url": "https://arxiv.org/abs/2408.13601",
+          "material_read": "Accessible primary open-access PDF: Eq. (2.6), proof of preservation in Section 3, error theorem in Section 4",
+          "method": "Open-access full paper available; inspected specified PDF passages and first-page screenshot",
+          "title": "Full- and low-rank exponential Euler integrators for the Lindblad equation",
+          "trigger": "Defines exactly the audited numerical integrator"
+        },
+        {
+          "assessment": "Different numerical scheme family; a broad result implicitly covering present FREE contraction remains possible.",
+          "evidence": "arXiv:2103.01194 §§2–3",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01194",
+          "material_read": "Bibliographic abstract and publicly described Kraus-type structure-preserving numerical schemes; the detailed full-text proof sections were not independently read this execution.",
+          "method": "Open-access abstract and bibliographic evidence; full-document inspection not claimed",
+          "title": "Structure-preserving numerical schemes for Lindblad equations",
+          "trigger": "Potentially dominating general structure-preserving method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A numerical Lindblad integrator can be completely positive, trace preserving and stationary-state exact yet nearly cease mixing in the stiff regime while the true dynamics relaxes rapidly. The exact dimension-dependent thresholds identify when coherence modes conceal population failure, giving a mathematically sharp warning rather than simply a tiny numerical error demonstration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md blob 734b256037d9bfe9a10adabc5029a0ecc6470a33",
+    "Inspected checker.py blob e7f4070452e55377cb9fb0df4ef1deb72432825e",
+    "arXiv:2408.13601",
+    "arXiv:2103.01194",
+    "Resultary ell4 four-state cyclic convolution 4bb94785b883"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim about nonuniform rates, different Hamiltonians, low-rank implementations, or fixed-time convergence contradiction.",
+    "No Lean/expert formal attestation."
+  ],
+  "residual_risks": [
+    "The formulas may be implicit in old Fourier/Poissonized Markov-chain theory; a full historical priority proof is unavailable.",
+    "All claims are for exact full-rank integral FREE, not low-rank truncation or fixed-final-time errors.",
+    "Cao–Lu full theorem body was not inspected in this execution; bibliographic comparison only."
+  ],
+  "schema_version": 1
+}
