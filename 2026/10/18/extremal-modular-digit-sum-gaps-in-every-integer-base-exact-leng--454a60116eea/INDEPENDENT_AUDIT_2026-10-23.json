@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:50:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md ea561984aee381b9b8bca456712f264d856d5c2c",
+        "Exact verifier code and associated sources at frozen Git tree b3144126c6b3745e1f40366170cf6d994170a801",
+        "Independent bounded local mathematical checks (paths in private working audit environment)"
+      ],
+      "rationale": "For each base b>=2 and modulus m=b+1, the digit sum on the length-b block I_q=[bq,bq+b-1] equals s_b(q)+r, r=0,...,b-1, so precisely one residue class mod m is missing and a full block is zero-free iff s_b(q)=1 mod m. The consecutive-block carry difference is 1-(b-1)t=1+2t mod m where t counts trailing maximal digits. When b is odd (m even) this cannot be zero, so no adjacent good blocks; when b is even three good blocks would force an ordinary +1 transition and are impossible. Interval containment of complete blocks gives L<=3b-2 or 4b-2, and the explicit base-one interval or q=b^(b/2)-1 construction meets each bound. Extremal equality forces start congruent 1 mod b and outside partial blocks residues 0 and 2, yielding the exactly three disjoint odd-base valuation cases and the one even-base carry congruence t=b/2 mod m. For densities, nontrivial Fourier characters of unrestricted high base-b digits decay, even after fixing the last digit, giving s_b(h) mod m uniform on the relevant higher-digit sets; summing the geometric exact-valuation tails yields the displayed closed formulas. An independent program checked all starting positions 1<=a<50000 and length-(L+1) failures for b=2,...,8, and the condition at every tested a; the b=2,3,4,... maximum lengths were 6,7,14,13,22,19,30. This bounded test does not prove any all-base statement or limiting density.",
+      "residual_risks": [
+        "The modulus is specifically b+1, not arbitrary m.",
+        "Natural density proof requires the conditional digit-sum Fourier argument and tail truncation; finite frequencies are not the limiting proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical digit-sum residue equidistribution supplies an ingredient used in the density, not the carry-based classification of maximal intervals.",
+          "2026/10/4/SCOPE-sharp-coordinate-wise-extraction-bases-for-pell-solutions--d6de3d70a94f concerns different Pell digit-extraction thresholds, not run-avoidance."
+        ],
+        "reasoning": "Neither a digit-residue mixing theorem nor unrelated extraction constraints implies the exact extremal start set, much less both parity-specific constants.",
+        "searches": [
+          "digit sum avoiding divisible b+1 maximal gaps consecutive integers all bases parity",
+          "base b consecutive digit sums avoiding zero modulo b+1",
+          "digital sum equidistribution Fourier base b character"
+        ]
+      },
+      "checked_sources": [
+        "Waterloo official October 2023 Problem 1 and complete solution URL",
+        "Mathematics Stack Exchange question 4494103 July 2022 full answer",
+        "Resultary search for b+1 digit-sum-avoidance runs and densities",
+        "Published SCOPE record 2026/10/4/SCOPE-sharp-coordinate-wise-extraction-bases-for-pell-solutions--d6de3d70a94f (different problem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Waterloo uses decimal carries to prove the modulus-11 38 ceiling and earliest witness; it does not specify the density or all-base odd/even threshold.",
+          "MSE 2022 fixes decimal 8 as modulus, which is not b+1 for base ten."
+        ],
+        "reasoning": "A base-ten maximum or uniform distribution of digit sums alone does not logically imply necessity/sufficiency of the base-dependent carry valuation classes or density constants for arbitrary b.",
+        "searches": [
+          "Waterloo POTM October 2023 complete solution",
+          "Math StackExchange 4494103 July 2022 answer",
+          "digit sum residue equidistribution base b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Waterloo 2023 Problem 1 solution proves decimal modulus-11 longest list 38, first starts 999981.",
+          "2022 MSE proof gives decimal modulus-8 maximum 14, a distinct modulus from base+1."
+        ],
+        "reasoning": "The previous natural wording digit-sum-free consecutive run is identical in base ten, and those base-ten instances must be treated as prior. The proposed result covers all b, complete starts and asymptotic densities.",
+        "searches": [
+          "consecutive integer digit sums avoiding multiples base plus one exact maximum length even odd base asymptotic density",
+          "University of Waterloo October 2023 Problem of the Month digit sums m=11",
+          "Math StackExchange 4494103 2022 digit sum 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited Waterloo solution is a known exact decimal special case.",
+          "No matched exact all-base run table or asymptotic density source appeared in the web/Resultary research queries."
+        ],
+        "reasoning": "An existing decimal example is already covered; a search-negative global statement is a best-of-knowledge result, not a proof no older general-base treatment exists.",
+        "searches": [
+          "digit sum consecutive run b+1 3b-2 4b-2 maximal density",
+          "Waterloo 2023 digit sum multiple 11 maximum 38 starting 999981"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority after direct comparison of the precise final mathematical statement, known stronger results, equivalent formulations, special cases and searched databases. Prior common premises/corollaries are explicitly excluded from the asserted original contribution; literature completeness is not claimed.",
+      "residual_risks": [
+        "An unindexed recreational number-theory treatment could have generalized the Waterloo example to all bases.",
+        "Existing general digit-sum-run results may use automata terminology missed by the queries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SPECIAL_CASE",
+          "evidence": "Proves L_10=38 at m=11, first start 999981. Does not state all-base parity formula, complete starts or density.",
+          "identifier_or_url": "https://cemc.uwaterloo.ca/sites/default/files/documents/2024/Combined-POTM-2023-24.html",
+          "material_read": "Entire October 2023 problem and solution through lines specifying 38 and 999981",
+          "method": "Official Waterloo HTML full solution",
+          "title": "University of Waterloo Problem of the Month, October 2023 Problem 1 and solution",
+          "trigger": "Exact decimal modulus-11 special case and earliest starting point"
+        },
+        {
+          "assessment": "DIFFERENT_MODULUS",
+          "evidence": "Obtains 14 for decimal m=8; not the all-base m=b+1 theorem.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/4494103/what-is-the-length-of-the-longest-sequence-of-consecutive-natural-numbers-none",
+          "material_read": "Full question, one complete answer and mathematical examples, lines 102-128",
+          "method": "Original 2022 Mathematics Stack Exchange discussion",
+          "title": "What is the length of the longest sequence of consecutive natural numbers, none of which has a digit sum divisible by 8?",
+          "trigger": "Other modulus and possible generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md proof and scope",
+        "The named primary literature / prior source comparisons in originality check"
+      ],
+      "rationale": "The modulus b+1 is natural because each full base-b digit block misses exactly one residue class. The theorem resolves the associated sharp interval avoidance problem in every integer base, identifies a genuine parity transition, classifies all extremal starting integers by their carry valuations and determines exact positive natural densities of those rare starts. This is not a substituted version of the decimal 38 result: the odd/even-base mechanisms and frequency constants require additional reasoning and quantify scarcity beyond an isolated maximum.",
+      "residual_risks": [
+        "No claim for general moduli independent of b, or for exact finite-cutoff enumeration of starts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only modulus m=b+1; the values in decimal b10 were in part known and are not claimed new.",
+    "Limit densities exist but no exact finite-N count formula is asserted.",
+    "Public-facing frozen AUDIT.json and METADATA.json include scope_run_id (private operational identifier), and no complete neutral UTF-8 sanitized replacement bytes with exact guards and hashes have been prepared. Withhold all public publication; scientific verdict does not override transport/privacy."
+  ],
+  "schema_version": 1
+}
