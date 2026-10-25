@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite-cycle sharp cutoff follows from the explicit Radau IIA rational function, its exactly reconstructed coefficients through order five, and shortest-path support of powers of the symmetric nearest-neighbor generator. The infinite-lattice claim follows from an exact conjugate-resolvent decomposition, the unique decaying Green root \(q\) with \(0<|q|<1\) and nonzero imaginary part, and a periodic/dense rotation argument producing infinitely many negative kernel entries for each \(h>0\). Absolute convergence justifies periodization and transfer to arbitrarily large cycles. The limit of the spectral multiplier on a fixed cycle proves eventual positivity. Exact-rational matrix tests and floating-point kernel diagnostics supplement, but do not replace, these proofs. The theorem does not state a complete positivity-interval classification for finite cycles.
+PASS
 
-## Originality: PASS, with residual historical risk
+Expand R(z)=sum c_m z^m, c0=c1=1,c2=1/2,c3=1/6,c4=1/36,c5=-1/108. For graph distance d, first nonzero off-diagonal Taylor term is c_d(Q^d)_ij h^d; n<=9 diameter <=4 gives positivity, n>=10 offset-five gives -h^5/54 when n=10 and -h^5/108 when n>10. Partial fractions in complex-conjugate lattice resolvents give k_m=2 Re(C q^|m|) with 0<|q|<1 and q nonreal for every h>0. Irrational angular orbit is dense; rational angular orbit averages cos to zero and necessarily has negative terms; so infinitely many negatives. Absolute summability supports periodization and large-cycle transfer. Spectral decomposition on fixed C_n gives T_n(h)->11^T/n as h->infinity. Independent exact-rational matrix inversions at h=1/1000 for n=9,10,11 matched positive, negative, negative signs, respectively, with row sums one.
 
-The closest primary source is Horváth's 2004-online/2005 paper on strict Runge–Kutta positivity thresholds (DOI: 10.1016/j.apnum.2004.08.026): its Table 1 explicitly finds a zero universal positivity threshold for two-stage Radau IIA on Dirichlet heat problems, but it gives neither the sharp periodic cycle threshold of ten vertices nor the all-positive-timestep infinite-lattice alternating-sign Green kernel. Horváth's 1998 general positivity theory (DOI: 10.1016/S0168-9274(98)00050-6) likewise does not provide these cycle- and kernel-specific statements. A published eight-state Gauss–Legendre Padé Markov barrier concerns a different rational function and directed generator; a backward-Euler-filtered Crank–Nicolson result has a different, strictly positive lattice kernel. Zappavigna et al.'s 2012 Padé examples do not imply these Radau-on-cycle conclusions. Full or substantial relevant source texts were inspected; unlocated equivalent specialized literature remains possible. Search nonappearance is not a proof of novelty.
+## originality
 
-## Value: PASS
+PASS
 
-This is not only a formal Taylor sign check: it identifies the exact finite periodic lattice size where arbitrarily-small-step positive-semigroup consistency ceases to preserve the nonnegative cone and proves, through a complex-pole Green-function mechanism, that *every* positive step has negative influence at infinitely many infinite-grid distances. The transfer theorem rules out every mesh-independent positive timestep, while L-stability produces eventual positivity on each fixed finite cycle. This quantitative topology and finite/infinite distinction is motivated by mass/positivity requirements in numerical heat diffusion and has a complete analytic proof. The exact small-step threshold and the all-step infinite obstruction are meaningful as a combined statement, even though extremely distant negative coefficients may be small.
+Horvath 2005 full primary article proves zero universal RK positivity threshold for broad classes and discusses Dirichlet heat discretizations, including Table 1 for 2-stage Radau IIA; its Theorem 17 treats invariant cones for certain smooth initial data. It does not contain the sharp symmetric periodic 10-vertex barrier, complex-resolvent lattice kernel all-h sign oscillations, or eventual fixed-n positivity classification. Resultary related lattice backward-Euler-filtered CN and directed 2/2 Pade maps are mathematically distinct.
 
-## Scientific scope and limitations
+## value
 
-The theorem is for symmetric unit-rate nearest-neighbor cycles and the infinite line, the standard two-stage order-three Radau IIA end-step, and exact arithmetic. It does not classify every finite-step positivity window or extend to nonlinear PDEs, nonnormal matrices, boundaries, or internal stages. The stronger historical-specialization priority question is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp minimum graph-size positivity failure and a universal no-common-timestep lattice obstruction distinguish analytic stability from discrete maximum-principle preservation. Fixed finite-size eventual positivity at large h provides an instructive exact size/step phase contrast.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
