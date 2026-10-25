@@ -1,11 +1,21 @@
-# Scientific review: three-component weak-edge transfer timing
+# Independent mathematical audit
 
-**Correctness — PASS.** The endpoint wave probability is reconstructed by the three spectral projectors of the path Laplacian, not inferred from a numerical fit. A bounded scaled infidelity forces both cosine phases into the required integer parity classes; their quadratic phase errors obey an exact sharp Cauchy inequality. The integer norm \(|p^2-3q^2|\geq1\) gives the global asymptotic lower bound, and the explicit odd-exponent Pell family gives equality. Exact quantifiers and error terms are supplied in RESULT.md and symbolically tested by verify.py.
+## correctness
 
-**Originality — PASS, with specific residual risk.** The 2026 Hosaka–Segawa paper already proves the limiting wave reduction and the explicit three-cosine transfer expression. Neither is asserted new. The new statement is the sharp second-order liminf waiting-time invariant and its parity-preserving Pell realization. Comparisons with classical graph state-transfer criteria, discrete-time pretty-good transfer theory and general three-mode wave transfer characterization did not reveal the same sharp liminf. It remains possible that a general quantitative Diophantine transfer theorem already implies this specialization, or that a longer derivation in the source implicitly provides the coefficient; independent review is outstanding.
+PASS
 
-**Value — PASS.** The source identifies pronounced oscillatory transfer between weakly coupled components, but near-unit transport is nonperiodic because the active frequencies are incommensurate. The exact lower-envelope coefficient quantifies how high-fidelity readout time scales with the final fidelity error. This distinguishes qualitative near-transfer from a sharp physical timing resource while exposing Pell resonance as the mechanism. It is a model-specific statement, not a first-hit-time guarantee for all tolerances.
+Diagonalizing path Laplacian gives spectral eigenvalues 0,1,3 and endpoint projector entries (1/3,-1/2,1/6), confirming F. Since amplitude >=-1/3 and equals +1 only at incompatible s=odd*pi and sqrt3*s=even*pi, there is no finite perfect transfer. A bounded s²(1-F) sequence must concentrate at those phases, with errors u,v=O(1/s). Expand loss D=1-A=u²/4+v²/12+O(s^-4); exact identity u²/4+v²/12-(v-sqrt3 u)²/24=(sqrt3 u+v)²/24 yields 1-F >=Delta²/12+O(s^-4). For odd q even p, Delta=pi(sqrt3 q-p), |p²-3q²|>=1 gives liminf s²Delta²>=pi^4/12 and target pi^4/144. Pell p+q sqrt3=(2+sqrt3)^(2n+1) has p even, q odd, norm1; choose u=-Delta/(2sqrt3), v=Delta/2 to saturate quadratic bound. Nine independently generated Pell samples converge to target. The source wave-envelope approximation is not uniformly verified at growing physical times.
 
-**Closest literature and limits.** Hosaka–Segawa (arXiv:2610.07768v1) establishes the transfer envelope; Godsil's *State transfer on graphs* (arXiv:1102.4898) and Chan–Zhan's work on discrete-time pretty-good state transfer cover broader qualitative spectral themes. None of the inspected relevant material establishes the exact \(\pi^4/144\) lower-envelope coefficient for this reduced model. The conclusions apply to the limiting envelope, not uniformly to the original weak-edge discrete-time walk for unbounded scaled times.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source derives the three-component weak-coupling spectral envelope and standard quantum-transfer work studies qualitative pretty-good transfer. The precise best near-perfect time-weighted infidelity coefficient and an attaining parity-constrained Pell sequence are an exact additional quantitative invariant; classical Diophantine inequalities supply ingredients, not a known cited complete coefficient.
+
+## value
+
+PASS
+
+Sharp achievable transfer infidelity versus long observation time is a motivated exact performance invariant of an explicit physically derived three-cluster wave envelope. The result distinguishes possible arbitrarily good transport from its best asymptotic rate, without claiming a joint weak-coupling physical theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:54:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalizing path Laplacian gives spectral eigenvalues 0,1,3 and endpoint projector entries (1/3,-1/2,1/6), confirming F. Since amplitude >=-1/3 and equals +1 only at incompatible s=odd*pi and sqrt3*s=even*pi, there is no finite perfect transfer. A bounded s²(1-F) sequence must concentrate at those phases, with errors u,v=O(1/s). Expand loss D=1-A=u²/4+v²/12+O(s^-4); exact identity u²/4+v²/12-(v-sqrt3 u)²/24=(sqrt3 u+v)²/24 yields 1-F >=Delta²/12+O(s^-4). For odd q even p, Delta=pi(sqrt3 q-p), |p²-3q²|>=1 gives liminf s²Delta²>=pi^4/12 and target pi^4/144. Pell p+q sqrt3=(2+sqrt3)^(2n+1) has p even, q odd, norm1; choose u=-Delta/(2sqrt3), v=Delta/2 to saturate quadratic bound. Nine independently generated Pell samples converge to target. The source wave-envelope approximation is not uniformly verified at growing physical times.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weak-edge limiting theorem fixes rescaled time before the coupling parameter tends to zero.",
+          "General state-transfer criteria assert transfer possibility/approximation but not this sharp model-specific asymptotic penalty."
+        ],
+        "reasoning": "Broader discrete-time quantum-walk spectral theorems do not imply the stated large-time constant at its exact normalization. Classical continued-fraction approximation can imply elements; such components are credited.",
+        "searches": [
+          "Resultary semantic query: Pell three vertex path weak edge quantum walk transfer liminf one minus fidelity square root three",
+          "arXiv:2610.07768 §4.1",
+          "arXiv:1102.4898 survey"
+        ]
+      },
+      "checked_sources": [
+        "Pinned 2026/10/18/sharp-pell-waiting-time-constant-for-three-component-weak-edge-q--21a1afc56634/RESULT.md @ a7b2ab2e93da5f5bc66c91c221c3f220c6cf3801",
+        "Pinned 2026/10/18/sharp-pell-waiting-time-constant-for-three-component-weak-edge-q--21a1afc56634/verify.py @ 3abd507c58bae5b1d6ed25f52fb314b73e3e6f32",
+        "https://arxiv.org/abs/2610.07768",
+        "https://arxiv.org/abs/1102.4898",
+        "Resultary semantic query: Pell three vertex path weak edge quantum walk transfer liminf one minus fidelity square root three"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source formula identifies cos s and cos(sqrt3 s) competing phases, without a sharp Diophantine minimization constant.",
+          "The norm inequality |p²-3q²|>=1 and exact minimizing displacement determine the pi^4/144 constant."
+        ],
+        "reasoning": "Existing formula and standard pretty-good transfer do not directly yield the sharp coefficient unless one additionally solves an inhomogeneous constrained Diophantine optimization.",
+        "searches": [
+          "Resultary semantic query: Pell three vertex path weak edge quantum walk transfer liminf one minus fidelity square root three",
+          "Hosaka–Segawa arXiv:2610.07768 §4.1 pp.6–7",
+          "Chan–Zhan arXiv:2105.03762"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hosaka–Segawa provide the path-three wave envelope from a weak-edge reduction.",
+          "Godsil and Chan–Zhan classify exact/pretty-good transfer using spectral rational phase relations."
+        ],
+        "reasoning": "The envelope is already known and acknowledged; qualitative pretty-good transfer does not give the sharp liminf of s²(1-F), nor the parity-restricted Pell optimum.",
+        "searches": [
+          "Resultary semantic query: Pell three vertex path weak edge quantum walk transfer liminf one minus fidelity square root three",
+          "arXiv:2610.07768 §4.1",
+          "arXiv:1102.4898",
+          "arXiv:2105.03762"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary hits concern unrelated plastic walks, detuned transfer, P8 mixing and quantum graphs.",
+          "No exact table of s² infidelity liminf for this 3x3 wave envelope was seen."
+        ],
+        "reasoning": "Not a conventional database entry; no checked matching exact numerical coefficient, but search silence does not prove global priority.",
+        "searches": [
+          "Resultary semantic query: Pell three vertex path weak edge quantum walk transfer liminf one minus fidelity square root three",
+          "Resultary top-12 semantic hits Pell path quantum transfer",
+          "arXiv:2105.03762"
+        ]
+      },
+      "rationale": "The source derives the three-component weak-coupling spectral envelope and standard quantum-transfer work studies qualitative pretty-good transfer. The precise best near-perfect time-weighted infidelity coefficient and an attaining parity-constrained Pell sequence are an exact additional quantitative invariant; classical Diophantine inequalities supply ingredients, not a known cited complete coefficient.",
+      "residual_risks": [
+        "General simultaneous Diophantine approximation or quantum revivals literature might imply the normalized coefficient under a different formulation.",
+        "No uniform statement for actual discrete-time dynamics when both scaled time and weak-coupling parameter vary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECTRAL_FORMULA_ALREADY_KNOWN",
+          "evidence": [
+            "Formula for leading F(s) already exists; audited liminf coefficient is distinct; no uniform joint time/coupling control."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.07768",
+          "material_read": "Accessible 25-page arXiv PDF, theorem and detailed three-cluster example in section 4.1, especially p.6 with endpoint cosine formula",
+          "method": "Read relevant primary theorem and example; inspect PDF screenshot page 6",
+          "title": "Pulsation of quantum walk on finite graph",
+          "trigger": "Same three-component weak-link envelope"
+        },
+        {
+          "assessment": "QUALITATIVE_NOT_FULLY_READ",
+          "evidence": [
+            "General graph state-transfer spectral theory; priority overlap for near-perfect approximability, not established for exact coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.4898",
+          "material_read": "Accessible bibliographic abstract and selected spectral context; not entire manuscript in this run",
+          "method": "ArXiv bibliographic and theorem-scope comparison",
+          "title": "State transfer on graphs",
+          "trigger": "Possible equivalence via pretty-good state transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp achievable transfer infidelity versus long observation time is a motivated exact performance invariant of an explicit physically derived three-cluster wave envelope. The result distinguishes possible arbitrarily good transport from its best asymptotic rate, without claiming a joint weak-coupling physical theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned 2026/10/18/sharp-pell-waiting-time-constant-for-three-component-weak-edge-q--21a1afc56634/RESULT.md @ a7b2ab2e93da5f5bc66c91c221c3f220c6cf3801",
+    "Pinned 2026/10/18/sharp-pell-waiting-time-constant-for-three-component-weak-edge-q--21a1afc56634/verify.py @ 3abd507c58bae5b1d6ed25f52fb314b73e3e6f32",
+    "https://arxiv.org/abs/2610.07768",
+    "https://arxiv.org/abs/1102.4898",
+    "Resultary semantic query: Pell three vertex path weak edge quantum walk transfer liminf one minus fidelity square root three"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the symmetric 3-vertex weak-edge quantum-walk wave envelope F(s)=(1/3-1/2 cos s+1/6 cos(sqrt(3)s))², no finite perfect transfer occurs and liminf_{s->infty} s²(1-F(s))=pi^4/144, sharply attained by parity-constrained norm-one Pell approximants.",
+  "limitations": [
+    "Symmetric equal-mass equal-edge three-component limiting envelope, not arbitrary clusters or actual physical first-arrival times.",
+    "Nine high-precision Pell samples are corroboration, not a proof of the universal liminf."
+  ],
+  "residual_risks": [
+    "General simultaneous Diophantine approximation or quantum revivals literature might imply the normalized coefficient under a different formulation.",
+    "No uniform statement for actual discrete-time dynamics when both scaled time and weak-coupling parameter vary."
+  ],
+  "schema_version": 1
+}
