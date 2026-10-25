@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:52:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT blob 66ebd024f8ec92156694c6d20efb15804db25baf",
+        "Git C++ verifier 7766a6abf40ad6bde7fbfba8bdcaaba1913807c2 and fvector.py 03f510f02d74a04f44531ad18489ff81991f8288",
+        "Independent full face/matching/Kahn DAG check of 1,910,200 faces and 15,768,064 covers"
+      ],
+      "rationale": "For Q5 with Hamming metric and Čech scale 4, closed radius-2 balls contain 16 vertices each and the nerve is the union of all nonempty ball subsets. Independently rebuilt all 1,910,200 distinct nonempty face masks of the 32 balls, the deterministic increasing-vertex then increasing-face one-bit matching, yielding 955,064 distinct face pairs and 72 unmatched faces (one vertex, eleven 4-faces, sixty 6-faces). Built and traversed all 15,768,064 oriented Hasse cover edges under matching reversal: Kahn topological sorting visited every 1,910,200 faces, proving acyclicity, not merely matching Betti counts. Forman gives a CW complex with critical cells; absent adjacent positive-dimensional cells force zero cellular differentials, so H4=Z^11,H6=Z^60 and no other reduced homology. Rank lower bounds force any CW model at least 72 cells; this is attained. The 6-cell attaching maps live in π5(∨11S4)≅(Z/2)^11, and Smith-style mod-2 row/column simplification via integral unimodular maps yields a wedge of t Σ²CP², 11−t S4, 60−t S6 with 0≤t≤11, t=rank(Sq²:H4→H6). t remains *unknown*; no wedge-of-spheres conclusion. C++17 source matches independently reconstructed result; stored output alone was not used as proof.",
+      "residual_risks": [
+        "No computed Sq² rank; no claim X is a wedge solely of spheres, PL collapsible or the source stronger 7-collapsibility conjecture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adams–Shukla–Singh arxiv:2212.05871 Section 7 explicitly presents open homotopy questions.",
+          "Biswas arxiv:2609.32786 abstract describes new radius-one constructions and higher-radius conjectural work; full paper inaccessible.",
+          "Resultary Q4/scale3 and Q6/scale3 results have different dimension/scale."
+        ],
+        "reasoning": "No fully inspected stronger all-scale theorem implies the exact Q5 scale-four vertex-toggle matching. The Biswas abstract alone cannot establish full-text NOT_COVERING, so overlap remains recorded as a risk.",
+        "searches": [
+          "Cech complexes of hypercube graphs homotopy wedge higher radius 2022 Adams Shukla Singh",
+          "Biswas Cech complexes for finite sets 2609.32786 five cube scale four"
+        ]
+      },
+      "checked_sources": [
+        "Adams–Shukla–Singh arxiv:2212.05871 primary Table 1 and Section 7",
+        "Biswas arxiv:2609.32786 abstract, full text inaccessible",
+        "Resultary Q4 scale3 2191472bb52e",
+        "Resultary Q6 scale3 6a192e252576",
+        "Forman 1998 discrete Morse theorem",
+        "Hilton–Milnor low-dimensional wedge homotopy",
+        "Git source verify.cpp and full independent C++ certificate reconstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published H4=Z11,H6=Z60 does not constrain possible different attaching maps or exhibit 72 critical cells.",
+          "The constructed finite acyclic matching has critical vector (1,0,0,0,11,0,60), fixing a cellular model; residual attaching maps reduce to one F2 rank."
+        ],
+        "reasoning": "Homology ranks alone are insufficient to infer a perfect discrete Morse model or that all attaching maps lie in π5(∨S4). The new matching fills that missing structural premise while leaving Sq² rank unresolved.",
+        "searches": [
+          "arxiv:2212.05871 Table 1 Question 7.1 7.4 homotopy type",
+          "Q5 Cech scale4 Sq2 suspended CP2 perfect discrete Morse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adams–Shukla–Singh arxiv:2212.05871 Lemma 2.2 identifies the scale-four graph Čech nerve as radius-two closed-ball nerve.",
+          "Their exact Table 1 records H4 rank 11 and H6 rank 60."
+        ],
+        "reasoning": "Exact Boolean-ball nerve/Hamming cubical formulations were matched; published ranks do not imply an explicit acyclic perfect matching or the reduced attaching-map classification.",
+        "searches": [
+          "five dimensional cube Cech complex scale four discrete Morse matching 72 cells Betti 11 60",
+          "Hamming cube Q5 radius 2 closed ball nerve vertex-toggle acyclic matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Adams–Shukla–Singh arxiv:2212.05871 Table 1 covers the two integral Betti ranks, publicly before this result.",
+          "Current exact face/matching counts and all-cover Kahn certificate are 1,910,200/955,064/15,768,064."
+        ],
+        "reasoning": "The known Betti table is not claimed new. It supplies a lower bound but no matching or reduced CW model, so the extra structural assertion is not a table recomputation.",
+        "searches": [
+          "Q5 scale4 Cech homology 11 60 Adams Shukla Singh Table 1",
+          "five cube Cech 1910200 955064 matching critical cells 1 11 60"
+        ]
+      },
+      "rationale": "A best-of-knowledge comparison of specific mathematical implications and exact model/normalization found no identified earlier theorem proving this new claimed part. Previously published overlapping objects, numerical invariants and limitations are credited. The four explicit checks, primary-source inspections and risk list below bound this assessment. Homology ranks alone are insufficient to infer a perfect discrete Morse model or that all attaching maps lie in π5(∨S4). The new matching fills that missing structural premise while leaving Sq² rank unresolved.",
+      "residual_risks": [
+        "The recent Biswas arxiv:2609.32786 full text was inaccessible and could contain more than its abstract.",
+        "The known integral homology ranks were explicitly published in 2022 and are excluded from the originality claim.",
+        "The exact Steenrod Sq² rank t remains undetermined, so no complete wedge/sphere classification is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS H4=11,H6=60, NOT the explicit full face-poset matching or 72-cell model",
+          "evidence": [
+            "Lemma 2.2, Table 1 (Q5 scale4), Section 7 open homotopy questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.05871",
+          "material_read": "Full accessible primary PDF: Lemma 2.2, Table 1 and adjacent discussion, Section 7 Questions 7.1 and 7.4; direct PDF page image of Table 1 inspected",
+          "method": "Compared same (n,r) against homotopy question and known homology rank",
+          "title": "Čech complexes of hypercube graphs",
+          "trigger": "Same exact Q5 nerve at same scale with strongest known numerical table"
+        },
+        {
+          "assessment": "Cannot assert full-paper NOT_COVERING. Abstract not known to give the target perfect matching",
+          "evidence": [
+            "Abstract concerns related radius-one Boolean configurations and higher-radius questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32786",
+          "material_read": "Public abstract and bibliographic data only; full text not available by lawful access this execution",
+          "method": "Parameter and abstract comparison; access risk preserved",
+          "title": "Čech complexes for finite sets",
+          "trigger": "Recent potentially stronger source on hypercube Čech complexes"
+        },
+        {
+          "assessment": "Q4 scale3, not Q5 scale4; insufficient to imply this matching",
+          "evidence": [
+            "Resultary claim Q4 scale3 ≃ S3∨24S4."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-homotopy-type-of-the-scale-three-ech-complex-of-the-four-c--2191472bb52e",
+          "material_read": "Detailed Resultary result title and mathematical summary, not full source proof",
+          "method": "Parameter/mathematical implication comparison",
+          "title": "Exact homotopy type of the scale-three Čech complex of the four-cube",
+          "trigger": "Nearby published cube Čech homotopy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Adams–Shukla–Singh arxiv:2212.05871 Table 1 and Section 7",
+        "Independent exhaustive verified finite face-poset DAG"
+      ],
+      "rationale": "The primary hypercube Čech paper singles out larger scales as homotopy-unknown; this canonical first mixed-dimension Q5 scale-four case has 1.91 million simplices yet an explicit acyclic matching meets every degreewise CW cell lower bound at 72 cells. This finite exact structural certificate isolates the remaining Hopf-attachment obstacle to the natural invariant rank Sq², rather than restating the known 11/60 Betti numbers. An optimal CW reduction is mathematically worthwhile even before computing t.",
+      "residual_risks": [
+        "The invariant t and stronger collapsibility remain open in the present claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No computed Sq² rank; no claim X is a wedge solely of spheres, PL collapsible or the source stronger 7-collapsibility conjecture.",
+    "The recent Biswas arxiv:2609.32786 full text was inaccessible and could contain more than its abstract.",
+    "The known integral homology ranks were explicitly published in 2022 and are excluded from the originality claim.",
+    "The exact Steenrod Sq² rank t remains undetermined, so no complete wedge/sphere classification is justified.",
+    "The invariant t and stronger collapsibility remain open in the present claim."
+  ],
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The object is the clique union of the 32 closed radius-two Hamming balls in the five-cube, as identified by the cited primary paper. A fully specified vertex-toggle matching pairs faces differing by exactly one vertex without reuse. The packaged independent enumeration obtains 1,910,200 faces; the exact matching contains 955,064 pairs and 72 unmatched cells. Exhaustive topological sorting of all 15,768,064 oriented face covers visits every face, proving the discrete matching acyclic. Forman's theorem yields the critical-cell CW model. The cellular differential is zero for degree reasons, giving those integral Betti ranks independently and proving minimality; the earlier published table is a consistency check. The low-dimensional Hilton–Milnor calculation and integral row/column lifts reduce all possible 6-cell attaching maps to one mod-two matrix rank, equivalent to the stated Steenrod-square rank.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Adams–Shukla–Singh's full paper was checked, including its explicit 11/60 homology table and its open homotopy and collapsibility questions. Those **published Betti numbers are not new** and do not imply the claimed perfect discrete Morse matching or the associated constrained homotopy model. Recorded targeted semantic searches yielded no claim of the same 1,910,200-face complex's perfect matching or dominating all-scale result. The recent Biswas full text could not be accessed: only its abstract was inspected, which describes partial hypercube sublevel Čech complexes and proposes conjectures. Undiscovered or inaccessible complete text remains a nonzero novelty risk.
+PASS
 
-**Mathematical value — PASS.** The finite case is not selected by an arbitrary numerical slice: the authors explicitly leave higher-scale hypercube Čech homotopy and collapsibility open, and the five-cube scale-four case has two nonzero homology degrees. The construction simultaneously achieves all homological lower bounds for Morse critical cells, drastically reduces an approximately two-million-simplex model to 72 cells, and isolates the exact **remaining** homotopy obstruction as a single Steenrod-square rank. This is a structural reduction of the unresolved homotopy problem, not a numerical Betti-table recomputation. The work does not compute that rank or prove the full wedge conjecture.
+For Q5 with Hamming metric and Čech scale 4, closed radius-2 balls contain 16 vertices each and the nerve is the union of all nonempty ball subsets. Independently rebuilt all 1,910,200 distinct nonempty face masks of the 32 balls, the deterministic increasing-vertex then increasing-face one-bit matching, yielding 955,064 distinct face pairs and 72 unmatched faces (one vertex, eleven 4-faces, sixty 6-faces). Built and traversed all 15,768,064 oriented Hasse cover edges under matching reversal: Kahn topological sorting visited every 1,910,200 faces, proving acyclicity, not merely matching Betti counts. Forman gives a CW complex with critical cells; absent adjacent positive-dimensional cells force zero cellular differentials, so H4=Z^11,H6=Z^60 and no other reduced homology. Rank lower bounds force any CW model at least 72 cells; this is attained. The 6-cell attaching maps live in π5(∨11S4)≅(Z/2)^11, and Smith-style mod-2 row/column simplification via integral unimodular maps yields a wedge of t Σ²CP², 11−t S4, 60−t S6 with 0≤t≤11, t=rank(Sq²:H4→H6). t remains *unknown*; no wedge-of-spheres conclusion. C++17 source matches independently reconstructed result; stored output alone was not used as proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A best-of-knowledge comparison of specific mathematical implications and exact model/normalization found no identified earlier theorem proving this new claimed part. Previously published overlapping objects, numerical invariants and limitations are credited. The four explicit checks, primary-source inspections and risk list below bound this assessment. Homology ranks alone are insufficient to infer a perfect discrete Morse model or that all attaching maps lie in π5(∨S4). The new matching fills that missing structural premise while leaving Sq² rank unresolved.
+
+## value
+
+PASS
+
+The primary hypercube Čech paper singles out larger scales as homotopy-unknown; this canonical first mixed-dimension Q5 scale-four case has 1.91 million simplices yet an explicit acyclic matching meets every degreewise CW cell lower bound at 72 cells. This finite exact structural certificate isolates the remaining Hopf-attachment obstacle to the natural invariant rank Sq², rather than restating the known 11/60 Betti numbers. An optimal CW reduction is mathematically worthwhile even before computing t.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
