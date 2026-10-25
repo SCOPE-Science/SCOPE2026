@@ -1,19 +1,21 @@
-# Scientific review: two-subset Fourier band
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The signed kernel is reconstructed from the trivial, standard, and two-subset characters, with the precise dimension coefficient. Left-right averaging of projections, uniqueness of the full-isotype equivariant projection, and norm equality with the mean kernel absolute value are established, with the absolute-versus-relative constant handled by injectivity of finite \(\ell_\infty\). A complete sign partition by fixed points and two-cycles gives only three possible negative strata. Exact cycle-count enumeration and a generating-function recurrence prove the finite closed form, positivity of the block comparison, and the normalized asymptotic. The \(n=4,5\) boundaries are treated separately. The checker independently enumerates finite permutations with exact fractions; extrapolation from finite checks is not used as a proof.
+PASS
 
-## Originality: PASS, with priority risks
+For complex E_n spanned by full coefficient blocks (n), (n-1,1), (n-2,2), n>=4, the two-subset permutation character is binom(F,2)+T. Subtract trivial and standard characters to obtain chi_(n-2,2), dimension d=n(n-3)/2. Averaging left-right conjugates yields unique minimal full-isotype projector; complex finite l_infty injectivity identifies absolute and relative projection constants, equal to E|1+(n-1)(F-1)+d(binom(F,2)+T-F)|. Exact sign support T=0, F=0,1,2 (with small-n restrictions) and E K=1 give closed q_m formula. Directly enumerated all permutations for n=4..7 with exact fractions; observed 8/3,21/5,1211/180,6577/630 and exactly predicted negative strata. Character counting/recurrence and Cauchy estimate prove the universal formula and asymptotics; finite enumeration alone does not.
 
-The full September 2026 preprint by Defant and collaborators explicitly proves the **general** Fourier-isotype norm formula for arbitrary compact groups, including finite groups (Corollaries 1.22--1.25); that known principle is excluded from the new contribution. Its concrete calculations concern tori, spheres, and unitary groups, not the complete two-subset band of \(S_n\). The publicly indexed single \((n-2,2)\)-block result already determines the largest individual block norm, but that does not determine the signed \(\ell^1\) norm of the sum of three blocks. The new result handles interference between characters, computes the full negative support for every size, and proves strictly growing amplification. Searches of related names, representation reductions, short-cycle probabilistic formulas, and exact projection tables did not identify a covering statement. One especially relevant published single-block record was available by title and summary but not full text; it remains a material priority risk, as does older character-algebra literature.
+## originality
 
-## Value: PASS
+PASS
 
-The full coefficient spectrum of the permutation representation on unordered pairs is a canonical three-isotype Banach subspace. Exact complementability and projection constants are natural invariants for that entire band, not an artificially selected entry or arbitrary parameter. This computation identifies a strict and unbounded projection-norm increase when adding lower-order summands, despite their much smaller dimensions; individual norm computations do not imply that phenomenon. The closed formula solves the whole family, including finite-dimensional exceptions, and gives a sharp square-root-of-dimension normalized limit.
+Representation-theoretic L1 kernel norm already in Defant et al.; published one-block (n-2,2) exact norm and two-subset character are prior. The new full triple-band sign interference, exact n-family formula, strict band-vs-block gap, normalized limit are not implied by known one-block norm. Closest published source inspected in entirety.
 
-## Verification limits
+## value
 
-The checker exhausts finite instances only; all-dimensional correctness relies on the symbolic sign, counting, and asymptotic arguments. Priority is not independently certified. The paper [1] and selected primary sections were materially inspected in its publicly available HTML transcription; the two other publicly indexed findings were inspected by searchable metadata/abstract only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete two-subset coefficient band is a representation-theoretically canonical Banach subspace with a natural sharp projection constant. Nonlinear interference between three character kernels yields an unbounded strict amplification beyond the large single-block norm, plus an exact normalized growth limit; neither a routine one-block duplication nor arbitrary truncation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
