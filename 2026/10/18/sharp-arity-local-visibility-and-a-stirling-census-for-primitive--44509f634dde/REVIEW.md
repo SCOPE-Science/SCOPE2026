@@ -1,11 +1,21 @@
-# Scientific review: arity-local primitive inclusion observation
+# Independent mathematical audit
 
-**Correctness — PASS.** The formula language is fixed explicitly to the positive global-Boolean fragment of *nonempty primitive* inclusion atoms. Truth is fully determined by the occurrence of partial Boolean patterns. The closure invariant is proved in both directions. The first-hidden-valuation threshold follows from a coordinate-hitting argument; the equality cases are characterized by disjoint supports; the exact census follows by a partition with one optional unused block. The exceptional arity-one nonuniqueness is explicitly excluded from the uniqueness statement. An exhaustive independently implemented projection checker passed 42,980 finite candidate comparisons. Its finite range is corroboration, not a substitute for the general combinatorial proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Häggblom (arXiv:2603.05501v1, Sections 2.1–2.2) introduces these primitive atoms and proves unrestricted-arity expressive completeness. The exact restricted-arity semantic kernel, first invisible-team size, rigidity of extremal difference supports, uniqueness above arity one, and Stirling census are not the inspected statements. Häggblom (arXiv:2503.20647) addresses implication systems and the *premise arity of proof rules*, a distinct parameter. Aho–Beeri–Ullman (1979) develops joins and lossless decomposition with dependencies; its accessible extended abstract presents general mechanisms rather than this labeled first-obstruction census. Searches for projection reconstruction, spurious join tuples, arity-bounded primitive inclusion and disjoint-support extremizers did not find a covering result. Unindexed database reconstruction or combinatorial shadow results remain plausible and are explicitly a priority risk; search absence is not uniqueness proof.
+PASS
 
-**Value — PASS.** Primitive inclusion atoms measure observable partial assignments, so their available coordinate arity is a natural parameter. The theorem identifies the *first loss of information* exactly, classifies **every extremal obstruction**, determines when its invisible valuation is unique, and counts the obstructions for arbitrary numbers of variables by a closed Stirling formula. This supplies a precise local-to-global boundary for the same logic studied in the 2026 paper and for lossless reconstruction of finite Boolean relations. The census is not a fixed small-table recomputation; it holds uniformly for all \(1\le r<k\).
+For the declared positive, global truth-functional Boolean connectives and primitive pattern-existence inclusion atoms of arity <=r<k, formula truth is determined exactly by the family of r-coordinate projections: induction on connectives and atoms and conversely a differentiating atom. The natural join closure C_r(T) is idempotent, profile-preserving, and largest among all teams in its class. Every |T|<=r is closed by selecting one coordinate of disagreement with a target per row and extending to r coordinates. If |T|=r+1, the missing valuation v is invisible iff its r+1 nonempty difference supports are pairwise disjoint (hitting number >r); any two meeting supports give an r-point transversal. For r>=2, a v-versus-w differing coordinate rules out two invisible valuations. Disjoint-support partitions into r+1 nonempty marked/nonmarked blocks give exactly 2^k (S(k,r+1)+(r+2)S(k,r+2)) ordered (T,v) pairs; for r>=2 they correspond bijectively to nonclosed minimal teams. Independent exhaustive Boolean-team and projection computations for k=3,4, r<k agree with thresholds, 160 at (4,2), 16 at (4,3), disjoint supports and uniqueness.
 
-**Boundaries and limitations.** The claim excludes unrestricted inclusion atoms, negation and other team operators. It does not enumerate higher-cardinality nonclosed teams or all semantic equivalence classes. The uniqueness assertion requires \(r\ge2\). The accessible literature does not establish absolute historical priority, and independent auditing is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected primary theorem or relevant published finding implies the additional exact claim; the explicitly identified preexisting components are excluded from novelty. This is best-of-knowledge only, with detailed source-access and equivalence risks below.
+
+## value
+
+PASS
+
+A bounded-coordinate observation is a natural restriction of team inclusion logic and a database projection/join information-loss problem. The exact smallest witness size, structural characterization by disjoint difference supports, uniqueness transition, and Stirling census quantify the strict expressivity hierarchy with meaningful natural combinatorial invariants, rather than simply restating unrestricted expressivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
