@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The hypotheses force a nondegenerate binary symmetric socle pairing. The proof partitions the product-equation matrix into \(q-1\) disjoint unit–socle stars, an isolated zero vertex, and a bilinear incidence block. Its two-step walk matrix is calculated entrywise; the perpendicular-line involution and the quadratic-value trace determine every sign multiplicity. The zero-multiplicity and rank follow by degree counting. Full-matrix computations for both forms over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) agree. No finite test substitutes for the general proof.
+
+**Originality — PASS, qualified.** Dolžan (arXiv:2601.19301, 2026-01-27) defines product matrices and treats different nilpotency regimes. The complete accessible arXiv preprint (12 pages), including Theorems 3.1, 4.1, 4.4, 4.7, and 5.1, was inspected. Its hypotheses are respectively unit targets, maximal radical nilpotency, or square-zero radical, never the intermediate \((1,2,1)\) nonzero-socle-target setting. Direct searches for bilinear-incidence eigenvalues, equivalent ring descriptions, and published research records did not identify a theorem covering the same ring class and target. Highly relevant older ring theory and graph-spectral work were considered as possible ingredient-level antecedents. Remaining residual risks concern older finite-field bilinear-incidence formulations and unindexed historical equivalents, not the inspected Dolžan theorem statements.
+
+**Mathematical value — PASS.** The result fills a natural intermediate-nilpotence case between the radical regimes in the motivating paper, uniformly for every finite field and both isometry classes. Besides the complete characteristic polynomial, it shows a ring multiplication spectrum retains a classifying invariant of the underlying socle pairing. This is a structural all-parameter classification, rather than a small isolated numerical experiment.
+
+**Boundaries.** Only equicharacteristic split local Gorenstein algebras of Hilbert function \((1,2,1)\), at nonzero socle targets, are covered. The full 12-page primary preprint was inspected; broader historical priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
