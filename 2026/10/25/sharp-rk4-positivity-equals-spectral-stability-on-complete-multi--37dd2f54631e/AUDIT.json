@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal projector decomposition is exact for all r>=2 and all positive integer part sizes. Every cross-part RK4 entry is h phi(Nh)/24, every within-part off-diagonal equals h^2 q/24 times a quadratic with negative discriminant, and the diagonal is its same-part term plus strictly positive R(-qh). phi is strictly decreasing to minus infinity and has a unique positive root rho, establishing the sharp sign cutoff without reentry. The attained Laplacian eigenvalue N and R(-x)>0 show Euclidean contractivity has precisely the same cutoff. The standalone verification code confirms 512 exact direct matrices and critical symbolic identities; finite testing is not used as a universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor (2001), Proposition 3.1: a generic SSP CFL restriction for certain explicit linear Runge–Kutta schemes; its forward-Euler restriction is not sharp for the present graphs.",
+        "Hadjimichael et al. (2013) investigate effective-order Runge–Kutta construction and generic SSP coefficients, whereas the present criterion concerns one fixed method on a specific graph family.",
+        "Blanes–Iserles–Macnamara (2022), doi:10.1051/m2an/2022042, reviews universal positivity order barriers and develops other positive integrators; accessible abstract only."
+      ],
+      "reasoning": "The exact graph-specific threshold strictly exceeds the Euler guarantee; hence an Euler-based sufficient SSP theorem does not imply it. The general scalar spectral stability limit supplies a necessary spectral condition, not an entrywise sufficient one, as an explicitly calculated four-vertex path refutes that implication. Other generic universal positivity results do not establish this exact fixed-family endpoint conclusion.",
+      "searches": [
+        "Runge Kutta positivity-preserving graph Laplacian polynomial absolute monotonicity SSP 2005",
+        "classical explicit Runge Kutta fourth order positivity timestep entrywise nonnegative diffusion complete bipartite graph K_{m,n} sharp threshold",
+        "RK4 positivity complete graph graph Laplacian eigenvalue 2.785 diffusion",
+        "matrix polynomial RK4 exact positivity complete multipartite graph"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S003614450036757X (full PDF; general SSP and RK4)",
+      "arxiv:1207.2902v1 ; doi:10.1137/120884201 (full author-hosted PDF; SSP method construction)",
+      "doi:10.1137/S0036142903427068 (abstract; general RK representations; full inaccessible)",
+      "doi:10.1051/m2an/2022042 (abstract; general graph-Laplacian positivity and order barriers)",
+      "Public indexed numerical-method findings on Padé, Crank–Nicolson, SDIRK2(2), and RK4(5), compared by exact method and graph-domain implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For a four-vertex path the RK4 endpoint entry between endpoints at h=3/4 is -9/1024 while its scalar spectral stability criterion holds. Thus scalar RK4 stability does not imply positivity without the multipartite-specific algebra.",
+        "On complete multipartite graphs the direct identity for within-part transitions is an everywhere-positive quadratic; the cross-part entry is h phi(Nh)/24. These additional identities are absent from the inspected general SSP sources.",
+        "The graph-specific forward-Euler threshold 1/(N-min n_i) is strictly below rho/N for at least two nonempty parts."
+      ],
+      "reasoning": "A general SSP sufficient step bound, a scalar RK4 stability radius, and a complete-multipartite Laplacian spectrum are known ingredients. None by itself establishes that every remaining transition entry stays strictly positive for all positive h while every cross-part entry changes sign simultaneously. The new quadratic discriminant argument proves the needed implication. A specialized stronger result might still subsume it.",
+      "searches": [
+        "Gottlieb Shu Tadmor 2001 SSP RK4 linear CFL step and absolute stability graph diffusion",
+        "Higueras Representations of Runge-Kutta methods and strong stability preserving methods pdf 2005 Inmaculada",
+        "Blanes Iserles Macnamara positivity-preserving methods ordinary differential equations graph Laplacian arxiv",
+        "Runge Kutta 4 positivity complete bipartite graph heat equation transition matrix exact timestep"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor, SIAM Review 43 (2001), doi:10.1137/S003614450036757X, especially Sections 2–3 on SSP and polynomial schemes.",
+        "Hadjimichael et al., SIAM J. Numer. Anal. 51 (2013), doi:10.1137/120884201, full text Sections 2 and 5–6 on method coefficients, not graph spectra.",
+        "Exact direct projector proof separates eigenvalue stability, same-part positivity and common cross-part sign; the equivalence is not just the formula for the classical scalar stability radius."
+      ],
+      "reasoning": "Plausible synonyms include positivity of the fourth Taylor exponential polynomial, numerical Markov-transition nonnegativity, SSP, absolute monotonicity and spectral contractivity on complete multipartite Laplacians. The accessible primary works derive general SSP or method-design conditions, not a theorem asserting the claimed entrywise equivalence for arbitrary multipartite part sizes. A missed equivalence remains possible.",
+      "searches": [
+        "classical RK4 complete multipartite graph positivity if and only if Euclidean spectral contractivity sharp timestep rho divided by N",
+        "fourth order Runge Kutta exponential Taylor complete multipartite Laplacian block cross transitions vanish at stability boundary",
+        "\"complete multipartite\" \"Runge-Kutta\" \"positivity\" graph",
+        "\"RK4\" \"complete graph\" \"positivity\" diffusion timestep"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest publicly indexed numerical findings concern different integrators: Gauss–Legendre [2/2] Padé positivity, SSP-SDIRK2(2), backward-Euler-filtered Crank–Nicolson and scalar Richardson acceleration.",
+        "Related graph-family analyses involve other operators or invariants rather than the present RK4 transition polynomial.",
+        "No exact parameter table of RK4 positivity cutoffs on all complete multipartite graphs was identified in the searched corpus."
+      ],
+      "reasoning": "The database and keyword scans returned close themes but no entry comparing the same complete-multipartite RK4 endpoint matrices. This is a bounded negative search result, not a proof of absent prior coverage.",
+      "searches": [
+        "complete multipartite graph Laplacian fourth Taylor polynomial exponential matrix positivity threshold 2.785293563",
+        "RK4 positivity time step complete graphs unweighted star bipartite graph quartic stability polynomial",
+        "Runge Kutta positivity complete bipartite graph heat equation transition matrix exact timestep",
+        "\"complete multipartite\" \"fourth order\" \"diffusion\" \"step size\""
+      ]
+    },
+    "rationale": "The classical RK4 scalar absolute-stability endpoint, generic SSP bounds, and complete-multipartite spectral structure are not asserted new. The claim is the strict all-partition exact endpoint positivity/stability equivalence and simultaneous cross-part sign transition. Compared proof implications against archival primary full texts, modern abstract-level related work, and public mathematical research records. A four-vertex path demonstrates why scalar spectral stability cannot alone imply entrywise positivity. Residual specialized-coverage and inaccessible full-text risks remain.",
+    "residual_risks": [
+      "Exact equivalent results may appear in unindexed specialized literature about exponential-polynomial transition kernels on complete multipartite graphs.",
+      "Full text of Higueras (2005) was not accessible through attempted routes, and is not asserted noncovering.",
+      "2022 general graph-Laplacian positivity survey compared only through accessible abstract and bibliography; complete coverage not excluded on partial material.",
+      "Search nonreturn is evidence of a bounded search, not uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general RK4/SSP linear monotonicity and CFL background; inspected material does not state all-partition complete-multipartite endpoint classification.",
+        "evidence": "PDF pp. 89–99, including Prop. 3.1 and classical RK4 formulas in Section 3; publication line first electronically public 2001-02-02.",
+        "identifier_or_url": "doi:10.1137/S003614450036757X ; https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "material_read": "Accessible 24-page PDF; relevant Sections 2–3, Proposition 3.1 and fourth-order RK4 discussion near Section 3, later sections screened for family-specific results.",
+        "method": "Primary full-PDF inspection with extracted text and page-image examination; searched graph, Laplacian and bipartite terminology.",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Canonical archival high-order SSP/RK4 framework and linear stability restrictions."
+      },
+      {
+        "assessment": "A result about RK schemes, effective order and SSP coefficients, not exact RK4 graph-family endpoint positivity or simultaneous cross-part sign loss.",
+        "evidence": "Full PDF introductory and definition passages, Sections 2, 5–6; first arXiv version published 2012-07-12.",
+        "identifier_or_url": "arxiv:1207.2902v1 ; doi:10.1137/120884201 ; https://www.davidketcheson.info/assets/papers/2013_effective_order_ssp.pdf",
+        "material_read": "Accessible 17-page author-hosted full PDF; Sections 1–2 on SSP/absolute monotonicity, results for method construction, Sections 5–6 and conclusions screened.",
+        "method": "Full-PDF text and page images; searched for graph, positivity and specific method/class keywords.",
+        "title": "Strong Stability Preserving Explicit Runge–Kutta Methods of Maximal Effective Order",
+        "trigger": "Plausibly strongest general method-design and SSP implication."
+      },
+      {
+        "assessment": "Not classified as noncovering on partial material. The abstract concerns general RK representations and sufficient monotonicity restrictions; remaining original-coverage uncertainty is retained.",
+        "evidence": "Publisher abstract; MSC first code 65L06; publisher recorded online-publication date 2006-07-25.",
+        "identifier_or_url": "doi:10.1137/S0036142903427068 ; https://epubs.siam.org/doi/10.1137/S0036142903427068",
+        "material_read": "Publisher bibliographic abstract and MSC classification, not full text.",
+        "method": "Open-access and preprint searches were checked; complete full text was not available to inspect.",
+        "title": "Representations of Runge–Kutta Methods and Strong Stability Preserving Methods",
+        "trigger": "General absolute monotonicity representation theory might dominate numerical monotonicity claims."
+      },
+      {
+        "assessment": "General positivity barriers and construction of alternative integrators; cannot certify complete noncoverage from accessible abstract. Not an archival primary source for this finding.",
+        "evidence": "2022 abstract expressly discusses graph-Laplacian classes and general positivity barrier, not a verified multipartite RK4 endpoint statement.",
+        "identifier_or_url": "doi:10.1051/m2an/2022042 ; https://www.numdam.org/articles/10.1051/m2an/2022042/",
+        "material_read": "Publisher/Numdam abstract and bibliography only; the complete text was not obtained from the checked open-access routes.",
+        "method": "Read scientific abstract and relevant bibliographic comparisons; neither downloaded PDF nor full text was claimed as inspected.",
+        "title": "Positivity-Preserving Methods for Ordinary Differential Equations",
+        "trigger": "Modern graph-Laplacian positivity methods could contain a general dominating theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37dd2f54-631e-4637-939b-2289cbf9e3c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem completely classifies endpoint positivity on the infinite family of all unweighted complete multipartite diffusion systems, a natural model of cross-community mixing. The universal rho/N cutoff is independent of partition sizes, exactly coincides with Euclidean RK4 spectral stability even though this equivalence fails on other graphs, strictly improves on forward Euler for every member, and identifies a precise artificial decoupling at the stability frontier. These structural phenomena supply robust benchmarks for high-order diffusion integrators and are not arbitrary finite recomputations.",
+    "status": "PASS"
+  }
+}

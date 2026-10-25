@@ -1,0 +1,19 @@
+# Scientific review of the complete-multipartite RK4 endpoint positivity theorem
+
+## Correctness — PASS
+
+The statement specifies all integer partitions with at least two nonempty parts, nonnegative real timesteps, unit cross-part conductances, the completed classical RK4 endpoint and the Euclidean norm. The orthogonal projector decomposition gives exact eigenvalues \(0\), \(N\), and \(N-n_i\); it is valid without assuming equal parts. Every cross-part entry is exactly \(h\phi(Nh)/24\). Every same-part off-diagonal entry has a factor \(h^2(N-n_i)/24\) times a quadratic with a strictly negative discriminant; all diagonal entries are additionally protected by a positive sum-of-squares expression for the scalar fourth Taylor polynomial. The cubic \(\phi\) is strictly decreasing and has one positive root. The same root controls Euclidean contractivity because \(N\) is always an attained Laplacian eigenvalue. Symbolic identities and direct exact rational matrix calculations replay successfully. Finite tests only corroborate, rather than establish, the quantifiers.
+
+## Originality — PASS with acknowledged coverage risk
+
+Relevant primary full texts are Gottlieb–Shu–Tadmor (2001), *Strong Stability-Preserving High-Order Time Discretization Methods*, doi:10.1137/S003614450036757X, and Hadjimichael–Macdonald–Ketcheson–Verner (2013), *Strong Stability Preserving Explicit Runge–Kutta Methods of Maximal Effective Order*, doi:10.1137/120884201. Their SSP/CFL and method-construction conclusions do not state the claimed universal complete-multipartite endpoint criterion. The classical scalar spectral-stability radius is acknowledged as prior knowledge; merely knowing spectral contractivity does not imply nonnegative matrix entries for arbitrary graphs, as the exact four-vertex path comparison demonstrates. The new statement is the graph-family equality of those properties, all-partition threshold and exact entrywise sign mechanism. The published review by Blanes–Iserles–Macnamara (2022), doi:10.1051/m2an/2022042, concerns general positivity and other integrators, not an established version of this exact classification. Higueras (2005), doi:10.1137/S0036142903427068, is thematically close but its full text was not accessible; its abstract covers general representations and monotonicity. Specialized uncatalogued results or a stronger theorem could still subsume the present statement. Searches alone are not treated as proofs of novelty.
+
+## Value — PASS
+
+This supplies a natural infinite-family **complete classification** of which positive heat states classical RK4 preserves at the endpoint, across arbitrarily many heterogeneous multipartite communities. The sharp threshold is unexpectedly independent of all community sizes, equals the spectral norm stability boundary, exceeds the graph-specific Euler positivity limit by a strict factor at least \(\rho/2>1\), and identifies an unusual numerical artifact: at the largest nonnegative timestep, a connected diffusion network acquires an exactly block-diagonal transition. These properties are not generic consequences of spectral stability; the theorem therefore gives a useful exact benchmark for numerical positivity diagnostics on network diffusion systems, without requiring a downstream paper-sized claim.
+
+## Restrictions and residual scientific risks
+
+The theorem says nothing about RK4 internal stages, variable step schemes with state-dependent generators, nonlinear positivity, arbitrary graph classes or heterogeneous conductances. The numerical \(\rho\) is previously known and is not itself a novelty claim. An independent assessment of historical priority has not been performed; complete Higueras text was not accessible, and broader specialized literature may remain unindexed.
+
+Self-review: passed. Independent audit: not yet performed.
