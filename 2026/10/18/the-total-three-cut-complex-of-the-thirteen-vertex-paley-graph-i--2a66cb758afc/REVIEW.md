@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The total three-cut definition agrees with the twenty-six explicitly generated complements of independent triples in the Paley graph. A fixed seven-stage element matching pairs 3,275 disjoint nonempty face incidences and leaves only one critical vertex and one critical five-simplex; all 39,156 augmented face-poset covers are checked for acyclicity by a complete directed topological sort. Ordinary discrete Morse theory then proves the integral sphere homotopy type. Separately, exact oriented Lefschetz sums on every one of the 78 affine maps establish the integral rank-one character. A mod-two boundary-rank calculation provides an independent finite corroboration, without being mistaken for an integral proof.
+PASS
 
-## Originality — PASS, with residual risk
+Define the total 3-cut complex by complements containing a 3-element independent set in the quadratic-residue Paley graph on F13, residues Q={1,3,4,9,10,12}. Independent enumeration found exactly 26 independent triples, 26 dimension-9 facets and 6,553 augmented faces with augmented vector (1,13,78,286,715,1287,1677,1469,780,221,26). Applying the provided stage pivots [0,2,4,12,6,3,7] reproduced 3,276 augmented matched pairs (one involving empty), one remaining critical dimension-5 simplex mask 4316, and full orientation of 39,156 Hasse incidences topologically sorted all 6,553 masks. Removing the empty match gives one critical vertex and a single critical five-cell; Forman yields the integral S5. Because this complex is pure dimension 9 yet has reduced H5=Z, a pure shellable complex would have top-dimensional wedge homology only, so it is not shellable. Independently reconstructed all 78 affine-symmetry reduced Lefschetz traces on faces: χ(a,b)=+1 for a in {1,3,9}, −1 for {4,10,12}, independent of b; a^3 mod13 equals ±1 accordingly. The complex is total, not ordinary, and the character statement concerns this order-78 affine subgroup only.
 
-The closest source, *Total Cut Complexes of Graphs* (arXiv:2209.13503), defines the same functor but classifies chordal, cycle, bipartite, clique-prism, and grid situations rather than the Paley graph of order thirteen. *Topology of Cut Complexes of Graphs* (arXiv:2304.13675) concerns the distinct ordinary complex defined by disconnected triples. Indexed results on the Paley graph's neighborhood complex concern a different vertex-set condition and do not imply the result. Indexed total-cut classifications of the Petersen, dodecahedral, and grid graphs likewise cover different underlying graphs, and available general high-girth results do not apply to this six-regular graph containing triangles. Direct searches for equivalent statements and aliases found no covering result. Unindexed equivalent work remains possible; absence from an index is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves the integral homotopy type of a canonical self-complementary, highly symmetric strongly regular graph under the total three-cut construction, including the integral affine homology character. A pure nine-dimensional complex with spherical homotopy in dimension five is a substantive non-shellability example. The symmetry sign is additional structural information not implied by the Betti number, and the total/ordinary distinction is mathematically essential. The result is intentionally a natural finite classification rather than a claim about every Paley order.
+Best-of-knowledge originality after reconstructed proof and actual published/literature search; an inaccessible or not-fully-inspected primary source is not a proof of noncoverage and remains a recorded risk. The checked earlier statements do not imply the exact final claim.
 
-## Scope and limitations
+## value
 
-No claim is made about other Paley graph orders, the full automorphism group, or equivariant homotopy type. Verification is reproducible from the embedded standalone program; independent external review is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+P13 is a canonical strongly regular Paley graph outside the familiar chordal/cycle/complete-multipartite total-cut classification. The unexpected S5 homotopy for a pure 9-complex plus a nontrivial integral homology sign action supplies a natural exact benchmark and non-shellability witness, not a routine general-theorem substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
