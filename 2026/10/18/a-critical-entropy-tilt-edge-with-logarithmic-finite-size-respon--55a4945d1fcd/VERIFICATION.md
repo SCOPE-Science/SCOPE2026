@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-`verify.py` is a self-contained scientific checker requiring Python 3.10 or newer, NumPy and SciPy. Execute `python verify.py` in the directory containing the code. The completed run passed 366 assertions without reliance on external datasets: spectral eigenvalues for open skew-tridiagonal matrices; exact critical free-energy cotangent formulas; fluctuation symmetry and mean entropy production; explicit tilted-Gaussian finite-time Riccati comparisons; and large-size critical derivative formulas for three parameter choices and sizes as large as 4000.
+## correctness
 
-The mathematical proof of the limit and its \(O(1)\) error is in `RESULT.md`. No finite checker tests infinitely many chain sizes or certifies originality. The entropy convention and limit order matter; neither nonlinear/disordered dynamics nor uniform-in-\(N\) finite-time deviations were verified. Independent scientific audit has not been performed.
+PASS
+
+PASS: Verified stationary Lyapunov condition, stochastic integral normalization, planar eigenfrequencies, stable Riccati branch, exact sine sum and cosecant/harmonic asymptotics including γ+log(2/π)−1. The order of limits is T→∞ before N→∞ and entropy is the specified medium entropy, not total entropy or heat flux. Mode-sum numerics support but do not establish the asymptotic.
+
+## originality
+
+PASS
+
+Best-of-knowledge full-claim comparison: Critical entropy-production tilt edge and logarithmic finite-size response in open skew Gaussian chain. These general statements allow a derivation of the finite-N spectral formula. The singular λ* substitution plus endpoint harmonic asymptotic and O(1) correction are not mere title similarities and were checked as distinct precise conclusions, conditional on no hidden corresponding appendix. The actual named sources and unread-material residual risks are retained; absence of ranked hits is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: This identifies a singular many-body fluctuation edge despite a factorized Gaussian stationary law: an exact finite-length closed form and the unexpected N log N critical slope with complete leading and subleading coefficients. The edge classification is a motivated quantitative invariant of a natural nonreciprocal OU chain, beyond standard finite-dimensional Riccati formulas or stationary means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

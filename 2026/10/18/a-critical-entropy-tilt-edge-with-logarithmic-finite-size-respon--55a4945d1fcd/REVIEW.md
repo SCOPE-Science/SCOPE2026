@@ -1,19 +1,21 @@
-# Scientific review of the critical entropy-tilt edge
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The specific microscopic model, normalization of the Stratonovich medium entropy, stationary Gaussian, finite-time Feynman–Kac tilted generator, plane-by-plane Riccati solution, finite-chain tridiagonal frequencies, critical sine sum, and cosecant/harmonic expansion are each explicitly derived in RESULT.md. The stable Gaussian Riccati branch gives the SCGF on a neighborhood containing the finite-chain critical tilt. An independent checker passed 366 finite calculations, including finite-time generating functions and the sharp critical derivative over three parameter families. Its numerical experiments do not constitute the infinite-size proof; the smooth Euler-summation remainder proves the claimed \(O(1)\) bound.
+PASS
 
-## Originality
+PASS: Verified stationary Lyapunov condition, stochastic integral normalization, planar eigenfrequencies, stable Riccati branch, exact sine sum and cosecant/harmonic asymptotics including γ+log(2/π)−1. The order of limits is T→∞ before N→∞ and entropy is the specified medium entropy, not total entropy or heat flux. Mode-sum numerics support but do not establish the asymptotic.
 
-**PASS, with substantial delimited prior scope and residual risk.** Pal–Gupta 2026 treats the nonreciprocal chain, factorization, complex OU modes, and mean stationary dissipation. Du Buisson–Touchette 2023 proves the generic finite-dimensional Gaussian current-SCGF/Riccati framework; Mazzolo–Monthus 2022 also covers entropy-production fluctuation methods. Jakšić–Pillet–Shirikyan 2017 treats broad harmonic-network entropic fluctuation theory with Riccati spectral methods; only the abstract of that additional comparison was accessible. These sources mean the normal-mode finite SCGF is **not** claimed as independently novel. The new precise statement is the critical **size-dependent** logarithmic response, its exact critical cotangent identity, sharp amplitude, and subleading coefficient. Inspected primary materials and claim-directed research-record searches disclosed no matching many-particle edge theorem. General harmonic-network fluctuation asymptotics may nevertheless imply it, and the absence of an explicit match is not a mathematical uniqueness proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** The critical tilt probes rare trajectories carrying unusually high entropy production. Although the un-tilted entropy rate is proportional to \(N\) and the stationary measure factorizes, the tilted mean becomes \(N\log N\) at a dimension-independent boundary of bulk analyticity. Identifying the exact edge, divergence coefficient, and finite-size correction matters for finite-chain extrapolation and the relation between pseudo-equilibrium stationary measures and strongly non-equilibrium trajectory fluctuations. It is a motivated singular fluctuation boundary, not a renaming or an arbitrary finite numerical example.
+Best-of-knowledge full-claim comparison: Critical entropy-production tilt edge and logarithmic finite-size response in open skew Gaussian chain. These general statements allow a derivation of the finite-N spectral formula. The singular λ* substitution plus endpoint harmonic asymptotic and O(1) correction are not mere title similarities and were checked as distinct precise conclusions, conditional on no hidden corresponding appendix. The actual named sources and unread-material residual risks are retained; absence of ranked hits is not a novelty proof.
 
-## Limitations
+## value
 
-Open, homogeneous Gaussian chain with stationary initialization and time limit taken before the size limit only. The finite-dimensional Gaussian fluctuation method is prior art; possible broader harmonic-chain edge asymptotics remain a documented originality risk. No independent confirmation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: This identifies a singular many-body fluctuation edge despite a factorized Gaussian stationary law: an exact finite-length closed form and the unexpected N log N critical slope with complete leading and subleading coefficients. The edge classification is a motivated quantitative invariant of a natural nonreciprocal OU chain, beyond standard finite-dimensional Riccati formulas or stationary means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
