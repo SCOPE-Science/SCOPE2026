@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T00:05:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 836cff71477c2f10eea002a354f26d01fa4ca34d",
+        "Pinned verify.py blob 5f1f48cdc939af92bdec49816f4ebe782a3c0cda",
+        "Independent code: smoothness_independent.py, orbit_crosscheck.py, geometry_arithmetic_checks.py, independent_checks.py and their checked outputs"
+      ],
+      "rationale": "For bidegree (4,3) over F2 the 9 independent rational evaluation constraints on 20 monomials give 2^11-1=2047 nonzero filling forms. Independent differentiation at all nine rational points gave 364 candidates, then independently generated four dehomogenized ideals (f, fx, fy) and checked each Groebner basis over F2 for unit ideal; exactly 66 were geometrically smooth, so geometric genus=(4-1)(3-1)=6. An independently constructed GL2(F2)^2 action partitioned the entire smooth set into four disjoint orbits, representative masks and sizes (396246,6),(399606,18),(404886,36),(420790,6). Independent GF(2^n) arithmetic counted all P1xP1 points for n=1,...,6 on each representative and yielded N-vectors (9,9,9,9,69,51), (9,9,9,21,39,39), (9,9,12,17,24,78), (9,11,9,23,9,53). Newton recurrence and genus-six functional equation determine distinct length-13 Weil coefficient vectors, starting (1,6,20,48,90),(1,6,20,48,93),(1,6,20,49,98),(1,6,21,54,114). Independently encoded Cartier entries as binary coefficient extractions and computed first/stable sixth ranks 6,6,5,6; resulting a-numbers 0,0,1,0, with exactly 36 nonordinary forms and rank floor 5. Unit-ideal test is geometric, not sampling finitely many extensions; zeta polynomial determination uses the proved genus/functional equation, not a purported bound from finite observations.",
+      "residual_risks": [
+        "Counts identify embedded polynomial equations and factor-preserving PGL2(F2)^2 orbits; no classification of abstract isomorphism classes is asserted.",
+        "Exact symbolic Gröbner arithmetic assumes standard SymPy algorithm correctness; source checker and independent tests use fully reproducible finite algorithms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2203.11595, Homma and Kim, Filling curves for P1 x P1 (2022), Theorem 4.1 establishes that (4,3) is the minimal smooth binary filling bidegree, so the extremality and an example are prior.",
+          "arXiv:2512.02796, Ahammed, Campbell, Moon, Minimal algebraic space filling curves on the product of projective lines (2025), Sections 2 and 4 tabulates explicit small-field examples, especially F3 and F5, which are not a theorem classifying all binary p-ranks/Weil polynomials."
+        ],
+        "reasoning": "Known general Weil functional equation and Tate/Honda–Tate isogeny classification convert correctly computed L-polynomials into isogeny types; they do not give these L-polynomials or the sharp rank bound without the exhaustive enumeration.",
+        "searches": [
+          "Resultary semantic search: smooth F2 bidegree (4,3) space-filling curves P1xP1 genus-six Jacobian 2-rank Weil isogeny classification",
+          "arXiv:2203.11595 theorem 4.1; arXiv:2512.02796 section 4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2203.11595",
+        "https://arxiv.org/pdf/2512.02796"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2203.11595, Homma and Kim, Filling curves for P1 x P1 (2022), Theorem 4.1 Theorem 4.1 yields existence at bidegree (4,3), not classification of every smooth divisor by L-polynomial.",
+          "General isogeny theorem equates F2-isogeny classes iff L-polynomials coincide, only after their actual computation."
+        ],
+        "reasoning": "The asserted four-way arithmetic stratification and sharp rank floor require the 2047-form enumeration and Cartier/point-count arguments beyond prior existence and degree bounds.",
+        "searches": [
+          "Resultary semantic search: smooth F2 bidegree (4,3) space-filling curves P1xP1 genus-six Jacobian 2-rank Weil isogeny classification",
+          "arXiv:2203.11595, Homma and Kim, Filling curves for P1 x P1 (2022), Theorem 4.1",
+          "arXiv:2512.02796, Ahammed, Campbell, Moon, Minimal algebraic space filling curves on the product of projective lines (2025), Sections 2 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2203.11595, Homma and Kim, Filling curves for P1 x P1 (2022), Theorem 4.1 proves minimal bidegree and example; neither that statement nor terminology \"filling\" implies the four Jacobian zeta numerators.",
+          "arXiv:2512.02796, Ahammed, Campbell, Moon, Minimal algebraic space filling curves on the product of projective lines (2025), Sections 2 and 4 specializes to different characteristics and curve constructions."
+        ],
+        "reasoning": "Equivalently the same Jacobian isogeny result could be phrased via Frobenius characteristic polynomials, Hasse–Witt stable ranks or zeta numerators. These equivalences are included in this audit; the source theorems inspected do not state the full F2 arithmetic list.",
+        "searches": [
+          "Resultary semantic search: smooth F2 bidegree (4,3) space-filling curves P1xP1 genus-six Jacobian 2-rank Weil isogeny classification",
+          "Homma Kim filling curves P1xP1 arXiv:2203.11595 Weil polynomial genus 6 p-rank 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The baseline 66 smooth equations and four ambient orbits are not counted as new.",
+          "The four concrete Weil rows, 2-rank counts 36/30 and nonordinary orbit were independently computed from the pinned equations and are not in the inspected earlier enumerations."
+        ],
+        "reasoning": "An exact published zeta database could cover the claim even without matching its wording; no matching table was located. This negative result is not a proof of global novelty.",
+        "searches": [
+          "Resultary semantic search: smooth F2 bidegree (4,3) space-filling curves P1xP1 genus-six Jacobian 2-rank Weil isogeny classification",
+          "F2 genus-six filling (4,3) curve zeta table 66 36 30 4 orbits"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact four isogeny types, four complete Weil numerators and sharp p-rank-5 nonordinary orbit, not for previously known extremal bidegree/existence or existing 66-equation orbit baseline. Inspected primary work concerns degree/existence or q=3,5 constructions. No stronger covering source located; unindexed zeta tables remain possible.",
+      "residual_risks": [
+        "Potential unindexed arithmetic table of the same 66 curves or a prior theorem under Hasse–Witt/isogeny terminology.",
+        "The result does not claim all abstract isomorphism classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimal bidegree and existence; no four Weil-numerator arithmetic classification in the inspected paper",
+          "evidence": [
+            "Theorem 4.1 concerns existence and minimality of a smooth filling divisor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.11595",
+          "material_read": "Available full primary manuscript, including theorem 4.1 and neighboring constructions",
+          "method": "Open-access arXiv PDF, extracted full text plus direct PDF page inspection",
+          "title": "Filling curves for P1 x P1",
+          "trigger": "Same F2 ambient surface and minimal (4,3) degree"
+        },
+        {
+          "assessment": "Related degree and characteristic-specific examples; no theorem giving the F2 Weil numerators and rank strata",
+          "evidence": [
+            "The accessible Section 4 gives examples in characteristics three and five."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.02796",
+          "material_read": "Available full primary text, especially Sections 2 and 4 for q=3,5 examples",
+          "method": "Lawful arXiv PDF, text and inspected page images",
+          "title": "Minimal algebraic space filling curves on the product of projective lines",
+          "trigger": "Near-exact title and same filling notion, potentially dominating finite-field census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 836cff71477c2f10eea002a354f26d01fa4ca34d",
+        "Pinned verify.py blob 5f1f48cdc939af92bdec49816f4ebe782a3c0cda",
+        "Independent code: smoothness_independent.py, orbit_crosscheck.py, geometry_arithmetic_checks.py, independent_checks.py and their checked outputs"
+      ],
+      "rationale": "A complete arithmetic genus-six classification at an extremal geometric bidegree, with four explicit rational Jacobian isogeny types and sharp p-rank floor, is a natural unknown geometric invariant. It is neither a mere confirmation of the minimal degree nor a trivial restatement of the known finite embedding orbit count, since point counts and Cartier stability are additional nontrivial computations.",
+      "residual_risks": [
+        "Potential unindexed arithmetic table of the same 66 curves or a prior theorem under Hasse–Witt/isogeny terminology.",
+        "The result does not claim all abstract isomorphism classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
