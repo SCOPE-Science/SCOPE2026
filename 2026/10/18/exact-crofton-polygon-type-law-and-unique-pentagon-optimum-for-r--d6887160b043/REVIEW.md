@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The generic prism section has three, four, or five vertices. For each fixed plane normal, the pentagon-offset interval is the intersection of the ranges of the two triangular faces and three rectangles. The proof integrates that interval over height-coordinate and azimuth, divides by the explicitly normalized Crofton mean width, and recovers the other probabilities from an independently derived crossed-edge expectation. The displayed derivative identities and the strict monotonicity of one comparison function prove that the pentagon probability has exactly one global maximum; the numerical optimizer is supplemental. The accompanying independent checker confirms the closed expression at six aspect ratios and performs three weighted random-cut experiments.
+## correctness
 
-**Originality — PASS on the checked record, with stated priority uncertainty.** Searches of indexed research records using triangular-prism, Crofton, random-affine-section, pentagon, height optimization, and equivalent-product phrasing found no law with these objects, sampling convention, complete probabilities, and unique optimum. The closest indexed finding concerns *orthogonal planar shadows of rectangular pyramids*: its five-vertex statistic is not the same as five-sided *affine plane sections of triangular prisms*. Published general polytope-slicing works discuss possible combinatorial types, reconstruction or algorithms, without reporting the explicit formula in accessible material. Their mere generality is not an implication of this exact formula. The full 2026 slicing manuscript was not accessible; specialized older integral-geometry tables remain a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete exact probability law for the canonical five-facet prism in a natural invariant slicing experiment, not a preselected sample or arbitrary parameter slice. It identifies a new shape dependence: thin prisms give nearly all quadrilateral sections, tall ones nearly all triangular sections, and a **unique finite nontrivial aspect ratio** maximizes pentagons. The exact law and strict uniqueness give a baseline for wider questions on random sections of prismatoids and distinguish the Crofton experiment from uniform-orientation sampling. Neither correctness nor computational reproducibility alone underwrites this value judgment; the motivated complete classification and sharp geometric extremum do.
+A generic section crosses between 3 and 5 of the nine edges. Direct integration of the intersection of the two triangular-facet and three lateral-face offset constraints gives the pentagon measure; equilateral dihedral azimuth symmetry reduces it to a 1D elementary primitive Psi(x), yielding p5=12Psi/[pi(3+2x)]. Expected number of crossed edges determines p3, p4. The derivative Psi'(x)=pi/6-xB(x)/sqrt(1+x^2) and Psi''(x)=[T(x)-B(x)]/(1+x^2)^(3/2) with increasing T and decreasing B imply exactly one sign transition of D(x)=(3+2x)Psi'-2Psi, hence unique pentagon maximum. Analytically bracketed optimizer near .47287604788115; independently integrated the arbitrary-prism angle-gap representation at six heights including small and large values and compared the elementary closed formula to <4e-10, not an all-heights numerical proof.
 
-**Residual limitations.** Restricted to right equilateral bases; historical priority cannot be guaranteed from searched indexed literature. The available 2026 abstract is not a substitute for reading the unavailable full text. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The simultaneously assigned arbitrary-triangle prism result yields a general quadrature that specializes to equilateral T but DOES NOT establish an evaluated elementary antiderivative or uniqueness of the maximizing aspect ratio. Its complementary all-triangle law and this equilateral optimization have overlapping probability setup but distinct exact claims. Prior Voss/Ohser–Mücklich stereological tables might contain regular-prism distributions; full works inaccessible, so special-case priority is a substantial residual risk. No identified accessible source gives both the closed form and strict global optimum.
+
+## value
+
+PASS
+
+A canonical one-parameter regular triangular prism family has a complete elementary polygon section law and a sharply optimized nontrivial section-type probability. The unique aspect ratio is an intrinsic reproducible stereological extremum, not merely a numerical toy computation; the strict analytic uniqueness proof is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
