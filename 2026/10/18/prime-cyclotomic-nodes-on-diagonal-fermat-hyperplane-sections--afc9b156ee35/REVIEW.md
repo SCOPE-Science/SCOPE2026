@@ -1,15 +1,21 @@
-# Review of prime-cyclotomic Fermat hyperplane sections
+# Independent mathematical audit
 
-## Correctness — PASS
-The Jacobian condition forces all coordinates to be nonzero and to be common-scale \(p\)-th roots of unity. The elementary minimal-polynomial relation enforces exactly \(m\) of each root. The restricted affine Hessian is an invertible diagonal-plus-rank-one matrix with determinant \(-[p(p+1)]^{N-2}w^{-1}\prod y_i^{-1}\). This establishes ordinary double points, reduced scheme structure, and, by Serre's criterion and intersection dimension, geometric integrality and normality. The cyclotomic residue field follows from coordinate ratios. The exact checker reproduces the first two nontrivial families and tests the Hessian determinant in the cyclotomic quotient; these examples are not substituted for the universal proof.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The strongest overlap is Lam–Leung's prime cyclotomic relation, which already implies the balanced root-multiplicity step. That arithmetic prerequisite is not presented as novel. The newly asserted full projective geometric and arithmetic package comprises a scheme-theoretic nodal classification, exact residue fields, and two natural permutation/Galois homogeneous spaces for every odd prime. Cafure–Matera–Privitelli treat different code-derived symmetric hypersurfaces over finite fields, while Catanese–Tonoli treat even sets on sextic surfaces; neither inspected statement gives these all-parameter objects and equalities. Targeted equivalence, broader-coverage, and exact-count searches did not identify an equivalent theorem. This is evidence for originality, not proof of literature-wide uniqueness; an unnoticed corollary in the extensive symmetric-hypersurface literature remains possible.
+PASS
 
-## Value — PASS
-The theorem gives an exact finite étale singular scheme, not only a node tally, for a natural doubly homogeneous family of projective hypersurfaces. The prime-order balance phenomenon produces a sharp smooth-versus-nodal divisibility boundary, a uniform cyclotomic field of definition, and explicit \(\mathfrak S_N\)-equivariant orbit geometry. These are natural data for studying arithmetic descent and reductions of nodal symmetric hypersurfaces; no claim about the entire positive-characteristic singular scheme is made.
+For odd prime p, N>=5 in characteristic zero, gradient dependence of F=sum x_i^(p+1) on the hyperplane sum x_i=0 forces all x_i^p equal to a nonzero scalar. Projective rescaling gives a p-th-root word. Vanishing sum of its coordinates means the integer polynomial sum n_j T^j (deg<p) is a multiple of irreducible Phi_p, hence all n_j=m and N=pm. Projective scaling by a common root acts freely, yielding (pm)!/[p(m!)^p] geometric singular points and none otherwise. On x_N=1 eliminating x_{N-1}, the Hessian is c*(diag(y_i^-1)+w^-1 11^T) with determinant -c^(N-2) w^-1 prod y_i^-1 !=0, hence ordinary double points and reduced Jacobian scheme. Isolated singularities for a hypersurface of dimension N-3>=2 imply geometric integrality and Serre S2,R1 normality. Every balanced word uses all p roots and coordinate ratios generate Q(zeta_p); Galois acts freely with degree p-1, so the finite etale scheme splits into B=A/(p-1) copies. Coordinate permutations give stabilizers (S_m)^p semidirect C_p for geometric points and AGL1(Fp) for closed orbits; standard cyclotomic Frobenius residue degree ord_p(ell) yields the finite-etale spread point count. Independent exact balanced-word counts p=3,m=2 => 30 nodes,15 closed; p=5,m=1 =>24 nodes,6 closed. Not a test of every p,N.
 
-## Scope and risk
-Characteristic zero, odd primes and at least five coordinates are essential to the stated argument. Reduction mod primes needs separate analysis. Other literature may implicitly derive the scheme from standard theorems; the novelty comparison is best-knowledge, not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+Singular schemes of natural diagonal Fermat hyperplane sections link cyclotomic vanishing sums, ordinary-double-point geometry, field of definition, Galois orbit types and Frobenius splitting. A uniform all-prime classification of these geometric/arithmetic invariants is a motivated complete natural-family computation, beyond the classical root-sum lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
