@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The stationary causal Itô representation exists for a,b>0. Direct generator identities fix C(0)=D(s+2κ)/(2ab+κs), C′(0+)=-D. Feynman–Kac yields the exact second-order ODE and its exponential test factors as (ab-κ²)(4ab-(a+b)²). Excluding the equal-stiffness branch proves iff κ²=ab, and ODE uniqueness yields all-lag OU covariance. Exact fourth-moment matrix inversion gives the displayed cumulant, while established EPR formula from arxiv:2202.02630 §4.2.2 gives κ(a-b)²/[4ab+2κ(a+b)]. Their exact restriction establishes K=9Σ/(Σ+3κ), strict range and unbounded Σ. Executed symbolic+matrix-exponential checker reproduces proof-critical identities and example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behme–Sideris arxiv:2012.10712 provides a general Markov-modulated OU mathematical framework, but inspected principal results do not state the fixed covariance with unbounded entropy along the geometric-mean manifold.",
+        "Cocconi–Alston–Romano–Bertrand (2024) arxiv:2405.09460 analyzes a continuous OU-valued stiffness, not a two-state telegraph stiffness, and does not derive the finite-switch cancellation.",
+        "Frydel (2026) arxiv:2607.05173 has arbitrary sojourn laws and stationary second moments, not the asserted exact two-time covariance threshold or matching kurtosis diagnostic."
+      ],
+      "reasoning": "More general dynamics do not imply that every special observable identity has already been stated. The inspected broader results give methods/partial ingredients but not the specific necessary-and-sufficient scalar covariance equality, positive joint entropy and exact invertible excess-kurtosis relation. The possibility of an implicit specialization of an uninspected general theorem remains a residual risk.",
+      "searches": [
+        "published-finding corpus: Brownian particle harmonic potential switching between two positive stiffnesses; switching rate geometric mean gives exactly Ornstein Uhlenbeck stationary two-time covariance though fourth cumulant and entropy production remain nonzero",
+        "published-finding corpus: fluctuating two-state harmonic potential Alston Cocconi Bertrand full autocorrelation equality ordinary OU from eigenmode cancellation",
+        "arxiv:2012.10712 Markov-modulated generalized Ornstein–Uhlenbeck processes, introduction and general results",
+        "arxiv:2405.09460 full PDF, especially model Eq.(2), §§4,8, conclusion; arxiv:2607.05173 full text, §§I–III and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "Alston–Cocconi–Bertrand arxiv:2202.02630 §§4.1–4.2.2",
+      "Zhang–Wang doi:10.1080/03610918.2015.1132321",
+      "Santra–Das–Nath arxiv:2104.00609",
+      "Behme–Sideris arxiv:2012.10712",
+      "Cocconi–Alston–Romano–Bertrand arxiv:2405.09460",
+      "Frydel arxiv:2407.12213",
+      "Frydel arxiv:2607.05173",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4",
+      "published-finding corpus 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+      "published-finding corpus 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf",
+      "published-finding corpus 2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 base paper supplies stationary moments and entropy for this very process; its time-independent second-moment equations alone do not contain time-lag information. Conditional propagator analysis plus a factored polynomial gives the new iff criterion.",
+        "The 2021 intermittent paper fixes one stiffness equal to zero and so cannot realize ab=κ²>0; its finite-time variance is not stationary lag autocovariance.",
+        "The 2024 OU² paper changes the law of stiffness to continuous Gaussian OU; its fast-noise coarse-graining limit is a limit, unlike this exact finite-speed identity.",
+        "The 2026 general semi-Markovian paper gives stationary moment/work formulas but its inspected sections do not derive the time-lag correlation criterion."
+      ],
+      "reasoning": "This is a nontrivial combination and specialization of prior generator methods, not a repetition of a same-paper displayed result or of any directly implied published corollary found in inspected sources. The exact threshold, covariance equality for every lag, and quartic recovery of entropy must all hold jointly. The 2022 stationary entropy formula is explicitly cited as established, not claimed novel.",
+      "searches": [
+        "arxiv:2202.02630 §4, Eqs.(37),(38),(41), conclusion",
+        "arxiv:2104.00609 §3 and summary",
+        "doi:10.1080/03610918.2015.1132321 stationary distribution paper",
+        "arxiv:2405.09460 full PDF §§2,4,8,9, references",
+        "arxiv:2607.05173 §§I–III, VI",
+        "published-finding corpus: exact full two-time covariance of Markov switching Ornstein-Uhlenbeck process coincides with equilibrium OU despite positive entropy production"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alston–Cocconi–Bertrand (2022) arxiv:2202.02630, Eq. (38) gives stationary state-resolved second moments and Eq. (41) gives entropy production, but §4 does not evaluate the full stationary time-lag covariance or its spectral cancellation.",
+        "Frydel (2026), arxiv:2607.05173 §§I–III, studies more general semi-Markovian stiffness switching and second moments/work, without the all-lag OU autocovariance equivalence and fourth-cumulant calibration.",
+        "published-finding corpus 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54 concerns pair-law indistinguishability for renewal sojourn processes, not state-dependent OU drift."
+      ],
+      "reasoning": "The claim is invariant under permutation of the two stiffness labels and is expressible as cancellation of one of two Feynman–Kac exponential modes. Those equivalent formulations were compared by implications; none of the inspected source results singles out the finite positive product condition or supplies the entropy/kurtosis calibration. A generic Feynman–Kac formula alone leaves the nontrivial cancellation unevaluated.",
+      "searches": [
+        "published-finding corpus: two state Markov switching Ornstein Uhlenbeck harmonic stiffness exact stationary autocorrelation nonidentifiability inverse problem two exponential sum stiffness switching rate",
+        "published-finding corpus: two-state Markov modulated Ornstein-Uhlenbeck diffusion stationary autocovariance single exponential equal OU, despite different harmonic restoring coefficients, positive kurtosis and dissipative hidden entropy",
+        "Web: Markov switching Ornstein Uhlenbeck random stiffness autocorrelation single exponential when geometric mean switching rate",
+        "arxiv:2202.02630 §§4.1–4.2.2; arxiv:2607.05173 §§I–III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alston–Cocconi–Bertrand (2022) Fig.5 tabulates/numerically illustrates steady-state entropy as a function of switching rate, but not a geometric-mean exact time-covariance identity.",
+        "Frydel (2024) arxiv:2407.12213 concentrates on on/off stationary distributions and energy, not a table of finite positive–positive switching covariance camouflage.",
+        "The closest published-finding corpus hits concern distinct random-sensor OU effects and general correlation information loss, not the current four-parameter trap model."
+      ],
+      "reasoning": "The quantities are continuous-parameter exact equations, not an enumerated finite database invariant. Relevant plots/tables in the same model and nearby exact statements were checked for the special parameter equality and not found; no known exact table covers it. Negative searches alone do not prove absence elsewhere.",
+      "searches": [
+        "published-finding corpus: two-state Ornstein Uhlenbeck switching stiffness fourth cumulant entropy production rate recoverable kurtosis on exact covariance degeneracy geometric mean",
+        "published-finding corpus: diffusion in two state fluctuating harmonic potentials Gaussian OU covariance mimicry switch rate geometric mean stiffness fourth cumulant",
+        "Web: random telegraph switching harmonic trap diffusivity entropy production correlation kurtosis spring constant Brownian 2022 2023",
+        "arxiv:2202.02630 Eq.(41), Fig.5 and §4.2.2; arxiv:2407.12213 stationary distribution results"
+      ]
+    },
+    "rationale": "Full primary 2022 model source establishes stationary second moments and entropy but not complete all-lag covariance equivalence and quartic EPR calibration. Additional 2021 on/off, 2017 two-state density, 2024 continuous-stiffness and 2026 semi-Markovian primary sources do not directly contain this evaluated combination. published-finding corpus targeted searches did not find covering claims; negative search is not a novelty proof. Exact implication comparisons are documented.",
+    "residual_risks": [
+      "A generic semigroup/spectral theorem or a less-indexed regime-switching publication might already contain an equivalent geometric-mean cancellation specialization.",
+      "2017 Zhang–Wang publisher final PDF not read in full; accessible text focuses on marginal stationary law.",
+      "2024 Frydel original manuscript not read completely; its on/off specialization is different but uninspected annexes could discuss positive-positive rates.",
+      "Originality is a self-review, not independent scholarly priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT BACKGROUND, NOT_COVERING_NEW_COMBINATION",
+        "evidence": "Published state-resolved second moments and EPR Eq.(41) are acknowledged. No all-lag C(t) single-mode iff threshold or kurtosis-to-EPR equation in inspected full text.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.02630",
+        "material_read": "Full arXiv text including §§2–4, Eqs. (37)–(43), Fig. 5, concluding discussion and appendix pointers",
+        "method": "Read source text and compared every displayed moment and entropy formula to the new all-lag and fourth-cumulant claim",
+        "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+        "trigger": "Exact same two-state harmonic switching process and dissipation law"
+      },
+      {
+        "assessment": "STATIONARY_LAW, UNRESOLVED_FULL_PRIORITY",
+        "evidence": "Source focus is stationary density/Fourier transform of Markov-switching OU; no exact all-lag single exponential equality identified in available material. Publisher full PDF not independently checked.",
+        "identifier_or_url": "https://doi.org/10.1080/03610918.2015.1132321",
+        "material_read": "Accessible full-text display/abstract and stationary-law theorem context; sections describing density and Fourier representation, not independent publication PDF",
+        "method": "Read accessible publisher/research-copy text and searched within source for autocorrelation, covariance and moments",
+        "title": "The stationary distribution of Ornstein–Uhlenbeck process with a two-state Markov switching",
+        "trigger": "Two-state OU stationary density theory might dominate special fourth-moment calculations"
+      },
+      {
+        "assessment": "DIFFERENT_PARAMETER_DOMAIN",
+        "evidence": "One state has zero stiffness, so positive product ab=κ² is impossible for finite positive κ; transient variance is not C(t).",
+        "identifier_or_url": "https://arxiv.org/abs/2104.00609",
+        "material_read": "Full arXiv text, in particular introductory summary, §§2–3 transient variance and §§4–6 focus",
+        "method": "Read source directly; compare parameter domain and meaning of time-dependent variance versus stationary two-time covariance",
+        "title": "Brownian motion under intermittent harmonic potentials",
+        "trigger": "Same two-state switching mechanism with one stiffness zero"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND, NO_EVALUATED_COROLLARY_FOUND",
+        "evidence": "General Markov-modulated OU framework is related but does not display this exact finite-rate scalar OU-covariance mimicry with EPR/kurtosis calibration.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.10712",
+        "material_read": "Accessible arXiv full text introductory theory and general Markov-modulated OU stochastic integral results; risk-theory section",
+        "method": "Read source and compare general stochastic-integral existence/propagator framework with the specific covariance cancellation and thermodynamic quantity",
+        "title": "Markov-modulated generalized Ornstein-Uhlenbeck processes and an application in risk theory",
+        "trigger": "Broader general stationary regime-switching OU theory may imply spectral degeneracy"
+      },
+      {
+        "assessment": "DIFFERENT_STIFFNESS_DYNAMICS",
+        "evidence": "Stiffness in Eq.(2b) solves an OU stochastic differential equation; it is not a two-state chain. Finite-rate product cancellation for switching stiffness not stated.",
+        "identifier_or_url": "https://thibaultbertrand.com/assets/pdf/2024_njp.pdf",
+        "material_read": "Full 24-page OA PDF inspected, specifically physical stochastic model and earlier telegraph citations on pp. 2–3, §§4,8,9 and references",
+        "method": "Read PDF text and relevant page images; compare Eq.(2) continuously fluctuating Gaussian OU stiffness with a two-valued Markov chain",
+        "title": "The OU² process: characterising dissipative confinement in noisy traps",
+        "trigger": "Same authors, fluctuating stiffness, OU-like correlations and stationary fourth moments"
+      },
+      {
+        "assessment": "DIFFERENT_PARAMETER_DOMAIN, FULL_TEXT_RESIDUAL_RISK",
+        "evidence": "Explicitly on/off stiffness; the article is not evidence for finite-κ geometric-mean equality with a,b both strictly positive.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+        "material_read": "ArXiv abstract, introduction/published accessible overview and early stationary-distribution exposition; not a line-by-line full-text inspection",
+        "method": "Compared exact on/off scope to positive-positive stiffness constraint",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Related nonequilibrium harmonic on/off switch and Gaussian-mixture stationary marginals"
+      },
+      {
+        "assessment": "BROADER_STATIONARY_MOMENT_METHOD, NO_EXACT_TWO_TIME_RESULT",
+        "evidence": "General stationary moments and injected power; no time-lag position autocorrelation or quartic entropy calibration theorem in inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+        "material_read": "Full arXiv text, especially introduction, model §I, stationary equations §II, second-moment and work formulas §III, conclusion §VI",
+        "method": "Read actual preprint sections and searched for correlation/autocorrelation and special exponential equality",
+        "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+        "trigger": "Potentially dominating 2026 two-stiffness process with arbitrary waiting-time law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b230669-7c41-4283-a15f-07ca58afa59c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full stationary autocovariance and its spectrum are natural observables in optical-trap and equilibrium inference. The theorem identifies a nontrivial exactly hidden nonequilibrium manifold rather than a limiting approximation, and proves entropy production unbounded while those second-order observables remain fixed. The distinct fourth cumulant supplies an exact, invertible dissipation gauge, addressing the practical insufficiency of equilibrium-like second-order data.",
+    "status": "PASS"
+  }
+}
