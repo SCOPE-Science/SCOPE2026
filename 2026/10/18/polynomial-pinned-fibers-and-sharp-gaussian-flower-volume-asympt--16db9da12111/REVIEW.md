@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The spectral decomposition of the Brownian minimum kernel, the disjoint odd-cycle excluded-simplex integration, and the Bernoulli-polynomial cancellation supply analytic proof for all integer cycle lengths \(\ell\ge3\). The positive Hessians imply a standard Laplace law and Gaussian fluctuation limit for fixed \(\ell\). The packaged symbolic checker verifies exact polynomials through twelve-cycles and numerically checks several petal counts; it is corroboration, not a replacement for the proofs.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The closest source (Lee, arXiv:2610.00734) gives the centered fiber, the complete triangle case, and coarse flower bounds. Lee--Skipper (arXiv:1703.02444) studies sparse total volumes; Jha--Nechita (arXiv:2406.14153) studies a different all-vertex-fixed marginal conditioning. published-finding corpus searches included graph-volume, correlation-polytope, conditional-fiber, aliases and Gaussian flower asymptotics. No inspected statement gives the general polynomial cancellation, sharp prefactor and Gaussian limit. Equivalent older terminology cannot be ruled out.
+PASS
 
-**Mathematical value — PASS.** This result identifies an exact all-parameter polynomiality phenomenon and fixes the asymptotic multiplicative constant hidden by existing volume-ratio bounds. Its Gaussian limit describes the dominant geometry of the same natural families; the precise polynomial and constant have direct relevance to sharp high-dimensional polytope volume estimates.
+For fixed ell>=3, integrating McCormick edge intervals after a_i=1-2|x_i-1/2| gives q_ell(u)=2^-ell K^ell(a,a), K=min(s,t), hence Dirichlet-Neumann eigenseries. The disjoint odd-cycle inequality simplex slices yield d_ell(u)=2^-ell/((ell-1)!)^2∫_(2|u|)^1(s²-4u²)^(ell-1)ds. Bernoulli cosine polynomial conversion shows the lone odd |u|^(2ell-1) terms in q and d cancel, giving exact even p_ell=q-d with degree <=2ell-2. Differentiating central fibers gives b_Q,b_D,b_P and strict b_P<b_Q; central strict maxima and one-dimensional Laplace asymptotics yield ratio rho_ell^k sqrt(bQ/bP)(1+O_ell(1/k)) with Gaussian pinned fluctuations. Independent exact symbolic checks ell=3..7 reconstruct p_3,p_4 and verify cancellations; arbitrary ell follows from cosine series and integration, not finite experiments.
 
-**Limits.** The cycle length is fixed while the number of petals grows. The standard coordinate volume and the McCormick relaxation are essential. No independent literature-priority certification or independent mathematical audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Important overlap: Jon Lee arXiv:2610.00734 §7.2 already states a broader even-polynomial pinned-fiber property for all series-parallel blocks, so parity/polynomiality alone is NOT NEW. Its Theorem 8.8 provides exponential flower ratio with only bounded polynomial prefactor; explicit all-u missing-fiber formula, sharp constant sqrt(b_Q/b_P), O(1/k) correction and pinned Gaussian limit are not implied. Scientific PASS rests on these surviving refinements, not on prior polynomiality.
+
+## value
+
+PASS
+
+The exact all-u cycle volume fibers and especially the sharp order-one prefactor and Gaussian fluctuation law resolve a quantitatively natural gap between known exponential central ratios and bounds with polynomial-in-petal losses. Explicit b_P,b_Q distinguish concentration under relaxation and true polytope, a motivated geometric question rather than a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

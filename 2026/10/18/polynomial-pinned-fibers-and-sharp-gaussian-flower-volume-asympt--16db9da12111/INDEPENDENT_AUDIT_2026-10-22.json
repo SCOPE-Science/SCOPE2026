@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:14:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/polynomial-pinned-fibers-and-sharp-gaussian-flower-volume-asympt--16db9da12111/RESULT.md",
+        "/mnt/data/scope_worker_08_independent_checks_1554.py",
+        "/mnt/data/scope_worker_08_independent_checks_1554_output.txt"
+      ],
+      "rationale": "For fixed ell>=3, integrating McCormick edge intervals after a_i=1-2|x_i-1/2| gives q_ell(u)=2^-ell K^ell(a,a), K=min(s,t), hence Dirichlet-Neumann eigenseries. The disjoint odd-cycle inequality simplex slices yield d_ell(u)=2^-ell/((ell-1)!)^2∫_(2|u|)^1(s²-4u²)^(ell-1)ds. Bernoulli cosine polynomial conversion shows the lone odd |u|^(2ell-1) terms in q and d cancel, giving exact even p_ell=q-d with degree <=2ell-2. Differentiating central fibers gives b_Q,b_D,b_P and strict b_P<b_Q; central strict maxima and one-dimensional Laplace asymptotics yield ratio rho_ell^k sqrt(bQ/bP)(1+O_ell(1/k)) with Gaussian pinned fluctuations. Independent exact symbolic checks ell=3..7 reconstruct p_3,p_4 and verify cancellations; arbitrary ell follows from cosine series and integration, not finite experiments.",
+      "residual_risks": [
+        "Polynomial parity headline is covered by a stronger Lee (2026) series-parallel statement, not novel; remaining distinct exact formula/prefactor is the O basis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader published polynomial theorem dominates the parity subclaim.",
+          "Lee flower bounds have rho_ell^k times a factor bounded above by O(k), lacking sharp O(1) coefficient."
+        ],
+        "reasoning": "Strong coverage acknowledged for polynomiality but not the new sharp asymptotic. None of inspected older sparse-volume statements gives Gaussian pinned fluctuation.",
+        "searches": [
+          "arXiv:2610.00734 sections 7,8, Thm8.8",
+          "Lee and Skipper arXiv:1703.02444"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00734",
+        "https://arxiv.org/abs/1703.02444",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/polynomial-pinned-fibers-and-sharp-gaussian-flower-volume-asympt--16db9da12111/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known rho_ell^k lower and O(k) upper flower bounds permit a range of prefactors; Laplace estimates require second pinned derivatives."
+        ],
+        "reasoning": "The sharp sqrt(b_Q/b_P) limit cannot be inferred from a logarithmic asymptotic or central ratio alone; distinct fixed-all-marginal fibers in Jha-Nechita do not supply this one-coordinate volume theorem.",
+        "searches": [
+          "arXiv:2610.00734 Thm 8.8 Prop8.9",
+          "arXiv:2406.14153 fixed-all-marginals correlation polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee §7.2: pinned fiber of a series-parallel block is an even polynomial; contains cycle parity assertion.",
+          "Current central pinning is identical x_v=1/2+u; same P and Q McCormick coordinates."
+        ],
+        "reasoning": "Do not count even polynomiality as original. Full explicit u-integral, sharp k→∞ prefactor and central-limit law are distinct statements not deduced by identifying names.",
+        "searches": [
+          "Jon Lee arXiv:2610.00734 §7.2 Theorem6.2 and §8.5",
+          "Resultary: Boolean quadric cycle pinned fiber polynomial flower volume Laplace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier cycle central-ratio rho_ell and triangle full-fiber formula are known; current p_ell general formula gives more than those entries."
+        ],
+        "reasoning": "Exact known central values and triangle are covered. This infinite family of exact pinned fibers and k→∞ prefactors is not a preexisting table entry.",
+        "searches": [
+          "arXiv:2610.00734 central-cycle ratios",
+          "arXiv:1703.02444 exact volume tables"
+        ]
+      },
+      "rationale": "Important overlap: Jon Lee arXiv:2610.00734 §7.2 already states a broader even-polynomial pinned-fiber property for all series-parallel blocks, so parity/polynomiality alone is NOT NEW. Its Theorem 8.8 provides exponential flower ratio with only bounded polynomial prefactor; explicit all-u missing-fiber formula, sharp constant sqrt(b_Q/b_P), O(1/k) correction and pinned Gaussian limit are not implied. Scientific PASS rests on these surviving refinements, not on prior polynomiality.",
+      "residual_risks": [
+        "Polynomial parity headline is covered by a stronger Lee (2026) series-parallel statement, not novel; remaining distinct exact formula/prefactor is the O basis.",
+        "Generality holds for fixed ell only; central unimodality imported from published Lee, and uniform variable-ell Laplace asymptotic is unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS parity polynomiality generally and central ratios; does NOT provide this exact flower prefactor or Gaussian conditional limit",
+          "evidence": "§7.2 stronger even polynomial statement; Thm8.8 lower/upper ratio bounds, including k factor, not a tight constant",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00734",
+          "material_read": "Full accessible arXiv manuscript text; especially §6 Theorem6.2, §7.2 pinned even polynomial, §8.5 Theorem8.8 and Proposition8.9",
+          "method": "Primary full text inspected in arXiv HTML",
+          "title": "Exact volume computation for Boolean quadric polytopes of series-parallel graphs",
+          "trigger": "Closest same P(C_ell), Q(C_ell) and flower construction"
+        },
+        {
+          "assessment": "Potential context on volume computation, no verified sharp pinned Gaussian prefactor",
+          "evidence": "No whole-document noncoverage conclusion based on abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1703.02444",
+          "material_read": "Abstract, title, cited scope; not full text this run",
+          "method": "Bibliographic/source-paper comparison",
+          "title": "Volume computation for sparse Boolean quadric relaxations",
+          "trigger": "Earlier exact volume computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/polynomial-pinned-fibers-and-sharp-gaussian-flower-volume-asympt--16db9da12111/RESULT.md",
+        "https://arxiv.org/abs/2610.00734",
+        "https://arxiv.org/abs/1703.02444"
+      ],
+      "rationale": "The exact all-u cycle volume fibers and especially the sharp order-one prefactor and Gaussian fluctuation law resolve a quantitatively natural gap between known exponential central ratios and bounds with polynomial-in-petal losses. Explicit b_P,b_Q distinguish concentration under relaxation and true polytope, a motivated geometric question rather than a table recomputation.",
+      "residual_risks": [
+        "Generality holds for fixed ell only; central unimodality imported from published Lee, and uniform variable-ell Laplace asymptotic is unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Polynomial parity headline is covered by a stronger Lee (2026) series-parallel statement, not novel; remaining distinct exact formula/prefactor is the O basis.",
+    "Generality holds for fixed ell only; central unimodality imported from published Lee, and uniform variable-ell Laplace asymptotic is unproved.",
+    "This assessment is not a formal proof certificate, external attestation, or publication authorization; finite checks support limited lemmas only."
+  ],
+  "schema_version": 1
+}
