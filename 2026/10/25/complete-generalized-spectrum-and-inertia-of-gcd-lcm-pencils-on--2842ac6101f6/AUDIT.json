@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every n≥1 and complex t, explicitly derive the local identity G+L=uv^T+vu^T, local spectral decomposition of T=G^-1L, product factorization G_n=⊗G_i and L_n=⊗L_i, and Smith totient determinant detG=∏φ(d). Tensor eigenvalues and multiplicities imply the exact full determinant; positivity and Sylvester inertia yield exact signs and nullity. Covers a_i=1 and n=1. Independently checked 241 exact t=1 determinants, 272 other integer pencil cases and 14 symbolic polynomials using a replayed standalone script; finite checks not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merikoski et al. (2025), Theorem 1 and §4.2, gives the local MAX/MIN/prime-power spectrum; their §3 treats initial intervals (not products of prime-power chains).",
+        "Ovall (2004), §3/4, works for general GCD-closed sets but studies individual matrices, not their generalized pencil spectrum.",
+        "2014 meet/join paper abstract describes eigenvalue bounds, not exact pairwise generalized spectrum."
+      ],
+      "reasoning": "A broad matrix theorem could subsume the claim only if it also controls the generalized pair on the entire product divisor lattice. The primary JIS work does not cover that index set; applying its known local result requires an independent Kronecker-product reduction and multiplicity aggregation. This elementary extension is the central residual novelty/value risk, not misidentified as a new local theorem.",
+      "searches": [
+        "gcd lcm sum arithmetic matrix spectrum tensor on divisor lattices determinant product over subsets of prime factors",
+        "generalized eigenvalue spectrum of least common multiple matrix relative to greatest common divisor matrix on complete divisor lattice D(n), tensor prime power spectral factorization",
+        "determinant of (gcd(d,e) + t lcm(d,e)) d and e range over all divisors of n, factorization and singularity parity criterion",
+        "\"divisors of n\" \"LCM\" \"GCD\" \"eigenvalues\" matrix",
+        "\"factor-closed\" \"generalized eigenvalues\" \"LCM\" \"GCD\"",
+        "\"factor closed\" \"spectrum\" \"lcm\" \"gcd\" matrices"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.13001/1081-3810.1121",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL28/Tossavainen/tossa12.pdf",
+      "https://doi.org/10.1016/j.laa.2021.02.020",
+      "https://doi.org/10.1016/j.disc.2014.02.018",
+      "https://oeis.org/A367064"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Merikoski et al. (2025), §4.2, explicitly proves local eigenvalues; their §5 concludes by discussing selected sets and initial intervals, not full product divisor lattices.",
+        "Classical multiplicativity of gcd and lcm permits Kronecker factorization for complete divisor lattices, from which global exact multiplicities and inertia are derived."
+      ],
+      "reasoning": "The r=1 restriction is completely covered by prior work and is not counted as original. For r>=2, the previously stated theorem alone is not a generalized-eigen result on the entire nonchain divisor lattice; the tensor identification and global ±sqrt(m_S) multiplicity partition yield the claimed full classification. Nonetheless, since it is a natural tensor consequence of known local spectra, unlocated published corollaries and an assessment of routine derivability are explicit residual risks.",
+      "searches": [
+        "determinant and singularity of matrix indexed by all divisors d,e of n with entry gcd(d,e)+lcm(d,e), exact product formula, depends on odd number of prime factors all exponents at least two",
+        "gcd lcm sum arithmetic matrix spectrum tensor on divisor lattices determinant product over subsets of prime factors",
+        "generalized eigenvalue spectrum of least common multiple matrix relative to greatest common divisor matrix on complete divisor lattice D(n), tensor prime power spectral factorization",
+        "determinant of (gcd(d,e) + t lcm(d,e)) d and e range over all divisors of n, factorization and singularity parity criterion",
+        "GCD LCM matrices pencil full divisor set eigenvalues prime powers tensor determinant",
+        "\"factor-closed\" \"generalized eigenvalues\" \"LCM\" \"GCD\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full primary JIS PDF explicitly computes only prime-power chains in §4.2, a proper subclass when the number of prime factors is at least two.",
+        "Ovall (2004) analyzes determinants and inertia of separate gcd/lcm matrices on gcd-closed sets; no full pencil polynomial."
+      ],
+      "reasoning": "The exact equivalent problem is the generalized spectrum of (L_n,G_n) indexed by all divisors, or the determinant of G_n+tL_n. These are equivalent because G_n is positive definite. Neither exact full-lattice version was identified among inspected sources; single-prime local version is expressly known.",
+      "searches": [
+        "determinant and singularity of matrix indexed by all divisors d,e of n with entry gcd(d,e)+lcm(d,e), exact product formula, depends on odd number of prime factors all exponents at least two",
+        "gcd lcm sum arithmetic matrix spectrum tensor on divisor lattices determinant product over subsets of prime factors",
+        "generalized eigenvalue spectrum of least common multiple matrix relative to greatest common divisor matrix on complete divisor lattice D(n), tensor prime power spectral factorization",
+        "determinant of (gcd(d,e) + t lcm(d,e)) d and e range over all divisors of n, factorization and singularity parity criterion",
+        "arithmetic GCD LCM matrix pencil generalized eigenvalues ± square root of unitary divisor, -1 on divisor lattice",
+        "determinant of gcd plus lcm matrix indexed by divisors of n singular matrix",
+        "gcd lcm sum matrix divisors n singular det",
+        "GCD LCM matrices pencil full divisor set eigenvalues prime powers tensor determinant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A367064 evaluates a different matrix on unitary divisors, with entries d*e/gcd(d,e)^2, not the full-divisor G+tL pencil.",
+        "Indexed mathematical research records nearest to the query concern Fourier minors, arithmetic gcd-map densities, and a distinct LCM indicator; none states the all-divisor generalized gcd/lcm spectrum."
+      ],
+      "reasoning": "No exact table or database statement matching this matrix pencil and indexing domain was found in these targeted searches. The absence of a hit is only negative search evidence, not a novelty proof.",
+      "searches": [
+        "Smith gcd plus lcm matrix factor closed divisor set singularity arithmetic determinant",
+        "gcd lcm sum determinant matrix number theory",
+        "sum of gcd and lcm matrices indexed by divisors all prime powers at least square odd prime count determinant zero",
+        "determinant of gcd plus lcm matrix indexed by divisors of n singular matrix",
+        "gcd lcm sum matrix divisors n singular det"
+      ]
+    },
+    "rationale": "The claim is strictly confined to the complete multi-prime divisor lattice and its full tensor-multiplicity spectrum, determinant pencil, exact singularity and inertia. The prime-power local generalized spectrum in Merikoski et al. 2025 §4.2, classical totient determinant, and matrix divisibility are unambiguously prior work. Inspected primary full texts do not state the global product-lattice classification. A natural tensor consequence of the known local theorem could have circulated elsewhere, hence publication priority is not guaranteed.",
+    "residual_risks": [
+      "The complete divisor-lattice theorem is a tensor-product extension of the known 2025 prime-power theorem and might be considered a routine corollary; significance resides in the natural complete multi-prime signature classification.",
+      "An equivalent tensor factorization may appear in unindexed literature.",
+      "The 2014 meet/join source and 2021 matrix divisibility source were accessible only in excerpts, not fully inspected, but their stated theorem scope is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves positivity and separate GCD/LCM matrix facts; no determinant of G+tL, complete generalized spectrum, or sum inertia for a full multi-prime divisor lattice.",
+        "evidence": [
+          "https://journals.uwyo.edu/index.php/ela/article/download/243/243/243",
+          "https://journals.uwyo.edu/index.php/ela/article/view/243"
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.1121",
+        "material_read": "Published journal full-text PDF; opening, determinant/inertia §§1–3, factor-closed case and examples in §4, concluding pages; issue PDF identifies February 2004, publisher metadata lists 2004-01-01.",
+        "method": "Read searchable PDF by page ranges, inspected displayed PDF pages and exact statements.",
+        "title": "An analysis of GCD and LCM matrices via the LDL^T-factorization",
+        "trigger": "Primary 2004 GCD/LCM determinant and positivity literature and factor-closed divisor sets"
+      },
+      {
+        "assessment": "Section 4.2 already determines prime-power chain eigenvalues ±p^(a/2), -1; explicitly NOT new here. The paper does not state a Kronecker decomposition, all prime-subset multiplicities, the full arbitrary n complete divisor lattice pencil, or the exact nullity/inertia of the sum.",
+        "evidence": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL28/Tossavainen/tossa12.pdf",
+          "Section 4.2, paper page 8; §5 discussion, paper page 9"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Tossavainen/tossa12.pdf",
+        "material_read": "Primary open-access 11-page PDF: theorem on MAX/MIN, §3 initial intervals, §4.1 examples, full §4.2 prime-power chain theorem, §4.3, §5 discussion, appendix and references.",
+        "method": "Read primary full-text PDF with paper page/section alignment and inspect original PDF images (pp.1,5).",
+        "title": "On Generalized Eigenvalues of MAX Matrices to MIN Matrices and LCM Matrices to GCD Matrices",
+        "trigger": "Identical generalized-eigenvalue problem for LCM relative to GCD matrices"
+      },
+      {
+        "assessment": "Establishes matrix divisibility under hypotheses, not a specified general-eigenvalue spectrum or full all-divisors pencil determinant. Residual risk because complete original body not read.",
+        "evidence": [
+          "https://doi.org/10.1016/j.laa.2021.02.020"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2021.02.020",
+        "material_read": "Publisher open article abstract and detailed introduction including factor-closed GCD-divides-LCM theorem.",
+        "method": "Read accessible article landing/open text; did not claim a complete PDF review.",
+        "title": "Divisibility of LCM matrices by totally nonnegative GCD matrices",
+        "trigger": "Strong earlier divisibility and GCD/LCM pair relation might subsume part of spectrum."
+      },
+      {
+        "assessment": "The inspected description concerns eigenvalue bounds for separate meet/join matrices, not exact generalized eigenvalues of the LCM/GCD pair on product divisor lattices. Full-text access risk remains.",
+        "evidence": [
+          "https://doi.org/10.1016/j.disc.2014.02.018"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2014.02.018",
+        "material_read": "Publisher abstract and introduction: positive definiteness and eigenvalue bounds for meet/join matrices.",
+        "method": "Read searchable publisher landing excerpts; full text not obtained.",
+        "title": "On the positive definiteness and eigenvalues of meet and join matrices",
+        "trigger": "Potentially stronger meet/join spectral theory dominating the special gcd/lcm setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2842ac61-01f6-45c8-9067-f01344c665fb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete divisor set is the canonical factor-closed arithmetic index domain. Determining every generalized eigenvalue with multiplicity, the whole parameter-dependent characteristic determinant, and the exact positivity/negativity/nullity of G+L for every integer is a natural finite-dimensional classification, rather than a cherry-picked numerical slice. The odd number of prime factors with each exponent≥2 is the exact singularity boundary, and its nullity is the product of (a_i−1). The previously known local calculation alone does not state this global classification; no larger downstream theorem is required.",
+    "status": "PASS"
+  }
+}

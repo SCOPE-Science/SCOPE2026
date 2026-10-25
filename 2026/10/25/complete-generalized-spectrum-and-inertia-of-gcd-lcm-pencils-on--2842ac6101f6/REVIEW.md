@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The prime-power identity \(G+L=uv^{\mathsf T}+vu^{\mathsf T}\) explicitly diagonalizes the local generalized pencil. The multiplicative gcd and lcm laws furnish Kronecker tensor identities over the complete divisor lattice; the full tensor basis gives every eigenvalue and multiplicity. Totient incidence factorization verifies the determinant normalization and positivity needed for inertia, including \(n=1\) and zero-dimensional local \((-1)\)-eigenspaces. The exact independent verifier confirms 241 determinant values at \(t=1\), 272 additional integer-parameter values, and 14 symbolic determinant polynomials. The proof, not these finite checks, establishes the universal result.
+
+**Originality — PASS, with a specific boundary.** Ovall's 2004 paper handles GCD and LCM matrices individually. Merikoski–Haukkanen–Sasaki–Tossavainen (2025), Section 4.2, already proves the **prime-power local generalized spectrum** used here. It does not give the full multi-prime divisor-lattice spectrum, the subset multiplicity formula, or the exact sum-matrix inertia and singularity criterion. Those follow after a distinct divisor-lattice tensor-product argument rather than by restriction of their initial-interval theorem. The remaining risk is that the tensor generalization may already appear as a corollary in less discoverable literature; publication priority is not certified.
+
+**Value — PASS.** The complete multi-prime divisor lattice is a canonical arithmetic index set. A unified closed polynomial and full signature, including the odd-support/all-exponents-at-least-two singularity boundary and the exact nullity, answer natural spectral questions for every integer and expose a structural distinction between individual GCD and LCM matrices and their sum. The new value is the global product classification, not the known local chain computation.
+
+**Scope and limits.** The results do not apply to arbitrary subsets of divisors. The closest local lemma is previously published; the novelty claim is carefully limited to the whole divisor lattice. No independent validation or exhaustive publication-priority search is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
