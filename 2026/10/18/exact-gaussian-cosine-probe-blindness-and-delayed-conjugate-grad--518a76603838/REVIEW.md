@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The beta law follows from independent orthogonal Gaussian chi-square energies, including both inverse-CDF branches. The sparse-rank phase statement follows from beta concentration and a rationalized cosine expression, with separate finite/large probe-degree regimes. The universal Gaussian expectation bound is independent of the number of probes. For the Chebyshev nodes, positive inverse-eigenvalue-weighted Lobatto masses make the Chebyshev error polynomial energy-orthogonal to every allowed CG variation, proving the exact finite-step ratio. Direct high-precision orthogonality and CG checks (938 total verification checks) support the analytic proof. Scope is exact arithmetic and specially chosen SPD diagonal matrices/RHS.
+PASS
 
-## Originality — PASS
+For rank-r orthogonal projector P and independent standard Gaussian n×s probe Z, projected and perpendicular squared Frobenius norms are independent χ²_(rs) and χ²_((n−r)s), giving T~Beta(rs/2,(n−r)s/2). Substitution yields exact global cosine loss, support maximum 1−2√K/(K+1), two CDF roots t± and proper tails. The sparse crossover is controlled by K√(r/n) and W=(n/r)T→χ²_q/q for finite rs=q or 1 for growing rs; weak normalization rationalizes the exact loss; high crossover bound on cosine tends zero. On diagonal A with Chebyshev–Lobatto k+1 eigenvalues and remaining 1, E probe loss≤tr(A−I)²/n≤k(K−1)²/n independently of s. Explicit spectral weights c_j/λ_j yield CG energy-polynomial orthogonality up to k−1 by barycentric identities, so after k CG steps energy error exactly 1/T_k((K+1)/(K−1))=sech(k arcosh((K+1)/(K−1))). Taking K=k^4,n=k^10 yields bound 1/k and error→1; two diagonal 0.6-Jacobi smoothing sweeps multiply probes by 0.16, leaving cosine unchanged. Independent Monte Carlo checked Beta CDF on three n,r,s,K settings; polynomial moment orthogonality and exact residual magnitude checked for k=3,5,8. Delayed CG is a separate k+1-eigenvalue construction, NOT claimed on the rank-r two-eigenvalue diagnostic example.
 
-The closest source, Osborne et al. (2026, arXiv:2605.13343v1), defines the same flattened cosine objective, analyzes its geometric scale invariance, and specifies Gaussian probes with two Jacobi sweeps; its full inspected manuscript does not state this exact beta CDF, the sparse-spectrum visibility transition or the uniform-in-batch CG counterexample. Yang et al. (2025, arXiv:2510.27517v1) address SAI losses rather than this full quantitative conjunction. Classical Kantorovich angular maxima, beta ratios, and Chebyshev CG extremality are prior work; combining them with the actual Gaussian training objective, probe count, and smoothing to obtain the specified separation is the assessed claim. Closely indexed CG, Gaussian-section, and preconditioning findings had distinct objectives. Remaining risk: equivalent results could exist under other terminology; uniqueness cannot be certified by database partition or negative searches.
+## originality
 
-## Value — PASS
+PASS
 
-The global probe loss is presented as a numerical preconditioner-quality indicator; identifying its exact blindness scale and proving that its apparent alignment can coexist with arbitrarily many ineffective CG steps addresses a material diagnostic-design gap. The failure persists even if arbitrary additional Gaussian probes are flattened into the same cosine, and the stated Jacobi smoothing does not alter the example. The beta CDF also gives finite-size quantitative interpretation of probe scores.
+Osborne–Guo–Owens–Matusik (2026) defines exactly this flattened cosine training loss and Gaussian probe smoothing, but reports engineering performance and does not establish the full rank-r Beta law, crossover or a k-step worst-case CG obstruction with uniformly vanishing diagnostic. Classical Kantorovich cosine extrema and CG Chebyshev polynomial constructions separately predate this result; their mathematical combination with an explicit uniform-in-s probe expectation bound is the assessed increment. Published SCOPE CG and solver records found in Resultary concern other algorithms and spectral models.
 
-## Closest literature and limitations
+## value
 
-Osborne et al., arXiv:2605.13343v1, §6 and supplementary §3; Yang et al., arXiv:2510.27517v1, objective comparison; classical Gaussian-beta/Kantorovich and Chebyshev-CG theory. Limits: real Gaussian probes, fixed diagonal SPD operators, the one-global-cosine functional, identity preconditioning, exact arithmetic, and adversarial RHS. This is **not** a finding that any learned model produces a bad preconditioner or that typical physical solves are slow. Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The targeted Gaussian cosine probe objective is used to assess preconditioners; the exact law determines sample-to-sample variability, the sparse outlier detectability threshold, and the limit of increasing probe count. The constructed growing-step CG failure at vanishing diagnostic directly establishes the diagnostic’s worst-case blind spot and prevents an unjustified guarantee from a small training loss. This is a motivated, quantitative failure boundary, not an arbitrary diagonal counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

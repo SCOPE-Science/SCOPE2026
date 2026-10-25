@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:03:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rank-r orthogonal projector P and independent standard Gaussian n×s probe Z, projected and perpendicular squared Frobenius norms are independent χ²_(rs) and χ²_((n−r)s), giving T~Beta(rs/2,(n−r)s/2). Substitution yields exact global cosine loss, support maximum 1−2√K/(K+1), two CDF roots t± and proper tails. The sparse crossover is controlled by K√(r/n) and W=(n/r)T→χ²_q/q for finite rs=q or 1 for growing rs; weak normalization rationalizes the exact loss; high crossover bound on cosine tends zero. On diagonal A with Chebyshev–Lobatto k+1 eigenvalues and remaining 1, E probe loss≤tr(A−I)²/n≤k(K−1)²/n independently of s. Explicit spectral weights c_j/λ_j yield CG energy-polynomial orthogonality up to k−1 by barycentric identities, so after k CG steps energy error exactly 1/T_k((K+1)/(K−1))=sech(k arcosh((K+1)/(K−1))). Taking K=k^4,n=k^10 yields bound 1/k and error→1; two diagonal 0.6-Jacobi smoothing sweeps multiply probes by 0.16, leaving cosine unchanged. Independent Monte Carlo checked Beta CDF on three n,r,s,K settings; polynomial moment orthogonality and exact residual magnitude checked for k=3,5,8. Delayed CG is a separate k+1-eigenvalue construction, NOT claimed on the rank-r two-eigenvalue diagnostic example.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kantorovich gives a worst-angle formula; Chebyshev-Lobatto nodes give classical worst-case CG energy polynomials"
+        ],
+        "reasoning": "Either broad theorem covers a component only; neither determines the Gaussian probe distribution, the K~sqrt(n/r) transition and uniform-in-s loss simultaneously with k-step energy stagnation.",
+        "searches": [
+          "cosine-Hutchinson loss of Gaussian probes SPD diagonal spectral outliers bad CG convergence worst case",
+          "Saad CG Chebyshev extremal theory",
+          "classical Kantorovich inequality"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.13343v2",
+        "https://arxiv.org/html/2510.27517v1",
+        "Saad (2003), Iterative Methods for Sparse Linear Systems, CG polynomial theory",
+        "Resultary query: Gaussian cosine probe loss learned preconditioner sparse spectrum conjugate gradient Chebyshev slow convergence",
+        "Resultary query: cosine-Hutchinson loss of Gaussian probes SPD diagonal spectral outliers bad CG convergence worst case"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Osborne §6.1 introduces cosine objective and §6.2 probe variants; textbook Chebyshev CG gives extremal polynomial but not simultaneously sparse probe blindness"
+        ],
+        "reasoning": "The source’s empirical usefulness does not logically imply a worst-case guarantee, and a Chebyshev worst-case bound alone cannot make the Gaussian global cosine vanish for every s without the new dimension/rank scaling and beta analysis.",
+        "searches": [
+          "Osborne–Guo–Owens–Matusik 2026 arxiv:2605.13343v2 §6.1, §6.2 and supplement",
+          "Yang et al arxiv:2510.27517v1 §3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same flattened Frobenius single cosine L_s=1−<Z,BZ>/(||Z|| ||BZ||) and two damped-Jacobi probe steps"
+        ],
+        "reasoning": "This is the identical source diagnostic rather than a similar title. The source defines it, but does not provide its exact statistical CDF for spectral outliers nor delayed-CG guarantee failure.",
+        "searches": [
+          "Gaussian cosine probe loss learned preconditioner sparse spectrum conjugate gradient Chebyshev slow convergence",
+          "Osborne et al. arxiv:2605.13343v2 §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Haar power-law CG threshold model differs from diagonal designed-b probes and training diagnostic; no matching tabular scalar PDF/CDF among checked results"
+        ],
+        "reasoning": "The object is a law for all positive integers n,r,s and K plus a k→∞ family, not a lookup value. No database hit is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search Gaussian cosine probe loss learned preconditioner sparse spectrum conjugate gradient Chebyshev slow convergence",
+          "Resultary 2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03"
+        ]
+      },
+      "rationale": "Osborne–Guo–Owens–Matusik (2026) defines exactly this flattened cosine training loss and Gaussian probe smoothing, but reports engineering performance and does not establish the full rank-r Beta law, crossover or a k-step worst-case CG obstruction with uniformly vanishing diagnostic. Classical Kantorovich cosine extrema and CG Chebyshev polynomial constructions separately predate this result; their mathematical combination with an explicit uniform-in-s probe expectation bound is the assessed increment. Published SCOPE CG and solver records found in Resultary concern other algorithms and spectral models.",
+      "residual_risks": [
+        "The standalone Beta distribution and Kantorovich maximum may be known in older random cosine literature; priority claim is about their specified joint diagnostic/CG limitation.",
+        "Diagonal identity-preconditioned adversarial b is not representative of typical learned-preconditioner outcomes or average-case CG.",
+        "All statements assume real standard Gaussian probes, exact arithmetic, positive diagonal SPD and flattened rather than per-column cosine."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_DIAGNOSTIC_ORIGIN_BUT_NO_BETA_OR_CG_OBSTRUCTION",
+          "evidence": "Osborne–Guo–Owens–Matusik (2026), §6.1 defines 1−<Z,BZ>_F/(||Z||_F||BZ||_F); §6.2 and supplement describe biasing/smoothing, not the exact rank-r Beta CDF nor a k-step arbitrarily-bad CG witness at vanishing probe loss.",
+          "identifier_or_url": "https://arxiv.org/html/2605.13343v2",
+          "material_read": "Primary OA HTML training §§6.1–6.2, cited supplementary probe details and main performance claims; not every section of full article read",
+          "method": "ArXiv HTML full text sections and formula comparison",
+          "title": "Hierarchical Transformer Preconditioning for Interactive Physics Simulation",
+          "trigger": "Defines the exact flattened Gaussian cosine probe objective and two damped-Jacobi probe smoothing sweeps"
+        },
+        {
+          "assessment": "DIFFERENT_SPARSE_INVERSE_OBJECTIVE",
+          "evidence": "Yang et al. compare learned sparse approximate inverse objectives but do not yield the flattened loss Beta law or uniformly blind Chebyshev spectral witness.",
+          "identifier_or_url": "https://arxiv.org/html/2510.27517v1",
+          "material_read": "Methods §3.3 and reported comparison of cosine-based losses; not a claim to whole-document exclusion",
+          "method": "OA original article selected passages with model and objective comparison",
+          "title": "Learning Sparse Approximate Inverse Preconditioners for Conjugate Gradient Solvers on GPUs",
+          "trigger": "Different learned inverse and cosine similarity motivation"
+        },
+        {
+          "assessment": "CLASSICAL_CG_EXTREMALITY_INDEPENDENT_OF_PROBE_METRIC",
+          "evidence": "Chebyshev-Lobatto extremal polynomial mechanism is standard; it does not determine the same matrix family’s Gaussian cosine distribution or uniform-in-s probe blindness.",
+          "identifier_or_url": "Saad, 2nd ed., 2003, classical CG minimax polynomial theory",
+          "material_read": "Classical CG polynomial minimization and Chebyshev bounds, not an independent full-text read this run",
+          "method": "Standard mathematical theorem and implication check against newly specified cosine diagnostic",
+          "title": "Iterative Methods for Sparse Linear Systems",
+          "trigger": "Potential stronger Chebyshev worst-case implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The targeted Gaussian cosine probe objective is used to assess preconditioners; the exact law determines sample-to-sample variability, the sparse outlier detectability threshold, and the limit of increasing probe count. The constructed growing-step CG failure at vanishing diagnostic directly establishes the diagnostic’s worst-case blind spot and prevents an unjustified guarantee from a small training loss. This is a motivated, quantitative failure boundary, not an arbitrary diagonal counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2605.13343v2",
+    "https://arxiv.org/html/2510.27517v1",
+    "Saad (2003), Iterative Methods for Sparse Linear Systems, CG polynomial theory",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-gaussian-cosine-probe-blindness-and-delayed-conjugate-grad--518a76603838",
+    "Git RESULT.md blob: 70c459bc038ecc1987b4616484b1af44650c979b",
+    "Resultary semantic search: Gaussian cosine probe loss learned preconditioner sparse spectrum conjugate gradient Chebyshev slow convergence",
+    "Resultary semantic search: cosine-Hutchinson loss of Gaussian probes SPD diagonal spectral outliers bad CG convergence worst case"
+  ],
+  "disposition": "passed",
+  "limitations": "Gaussian flattened cosine diagnostic, rank-r two-point spectrum for exact distribution, separate k+1-point diagonal CG witness and selected b; no claim about learned model outputs.",
+  "residual_risks": [
+    "The standalone Beta distribution and Kantorovich maximum may be known in older random cosine literature; priority claim is about their specified joint diagnostic/CG limitation.",
+    "Diagonal identity-preconditioned adversarial b is not representative of typical learned-preconditioner outcomes or average-case CG.",
+    "All statements assume real standard Gaussian probes, exact arithmetic, positive diagonal SPD and flattened rather than per-column cosine."
+  ],
+  "schema_version": 1
+}
