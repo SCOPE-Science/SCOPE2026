@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the exact defining domain and both complete facet types given by Erickson–Kretschmann, arXiv:2311.07522, Proposition 5.1 and Theorem 5.3. For each adjacent-cut facet, the maximum normalized slack is precisely the inverse minimum corner-rectangle area. The displayed optimal center takes one unit of total vertex weight at each cut and one at each whole-column vertex. The delicate coordinate-facet case is proved using \(r(p-r)\ge p-1\), including half contributions at tied corner areas. The lower bound is a separately derived nonnegative-coefficient identity, with no appeal to finite experiments. Exact-rational verification passed for 60 dimension pairs, but finite tests are explicitly not the proof.
+## correctness
 
-## Originality — PASS
-The closest primary source is Erickson–Kretschmann (2023), which supplies the vertex and facet classification, not a Minkowski asymmetry formula or minimizing-center certificate. Erickson–Jones (2026) studies a different invariant, volume and Ehrhart series, for the same normalized polytope. Targeted searches for Minkowski asymmetry, normalized Monge matrices, and equivalent submodular-array terminology did not identify a result whose statement implies the new formula. The closest published-result comparisons on other symmetry invariants concern different convex bodies. Searches cannot certify priority; the residual risk is an unlocated equivalent general theorem in polyhedral asymmetry.
+PASS
 
-## Value — PASS
-This is a complete, nontrivial affine-invariant calculation for an infinite two-parameter family of normalized cost-matrix polytopes. It identifies a uniform formula \(\min(p,q)(\max(p,q)-1)\), gives an explicit optimal center without solving a linear program, and supplies a matching finite positive dual certificate with integer geometric weights. The source treats volume, faces, and edges, making this a distinct natural geometric invariant rather than a restatement of a table. The defect from the simplex asymmetry bound is exactly the smaller matrix dimension minus one.
+The source treats real nonnegative p×q arrays (p,q>=2) of total mass 1 satisfying the adjacent Monge (submodular) inequality, explicitly excluding transportation polytopes and inverse Monge. For p<=q, source vertex/facet classification (Erickson–Kretschmann Proposition 5.1, Theorem 5.3) gives all coordinate and adjacent-cut facets; corner-rectangle normalized vertices maximize each cut slack at 1/w_ij with w_ij=min(i(q-j),(p-i)j). The proposed unnormalized Y=J/p+sum_{cuts}V_ij has total mass T=q+(p-1)(q-1)=p(q-1)+1 and exactly max cut slack at each cut. For a coordinate requiring a larger bound than 1/p, the rectangle at a corresponding cut appears with appropriate full or half coefficient; the tie argument uses r(p-r)>=p-1 and area >=p/2 to show J/p plus the half term suffices. Thus Y/T meets each primal facet reflection bound with h=T-1. Dual grid coefficients lambda_rs=1+w_rs-w_r,s-1-w_r-1,s+w_r-1,s-1 are >=0, because w_ij=i(q-j)-(iq-pj)_+ and the rectangular mixed second difference of the positive part is nonpositive. The exact mass decomposition ΣZ=Σlambda Z+Σ w_ij h_ij(Z) makes any center satisfy h+1>=q+(p-1)(q-1); transpose yields s=min(p,q)(max(p,q)-1). Independently reconstructed exact-rational primal center values, all coordinates and cut slacks, and dual positivity for all p=2..5 and p<=q<=6, beyond merely trusting the supplied verifier. This finite test is supplementary, not an infinite proof.
 
-## Limitations
-No exhaustive classification of minimizing centers or independent priority validation is claimed. The published 2023 vertex/facet theorem is a premise. The 2026 study was inspected for relevance to volume/Ehrhart claims, not independently checked line by line; an unidentified broader asymmetry theorem remains a possible priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two highly relevant papers on the identical normalized Monge polytope were compared at the level of their theorems. The earlier supplies the complete extremal geometry, while the later computes volume/Ehrhart. Neither examined statement gives a Minkowski asymmetry formula, matching optimal center and dual certificate. General symmetry results for other 0/1 or transportation polytopes are not automatically applicable to Monge inequalities and different mass constraints. This is qualified by a possible earlier submodular-grid dual formula.
+
+## value
+
+PASS
+
+The normalized Monge cost-matrix polytope is a mathematically natural convex body arising from transportation/assignment inequalities; its exact Minkowski asymmetry is a separate affine invariant from its already-studied volume and face lattice. The result solves an unrestricted two-integer-parameter classification, supplies an explicit optimal center and a nonnegative dual mass-slack identity, and quantifies the exact defect from the simplex bound. The cut-area formulas and tied-cut constraints give substantive geometric content beyond a routine determinant computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

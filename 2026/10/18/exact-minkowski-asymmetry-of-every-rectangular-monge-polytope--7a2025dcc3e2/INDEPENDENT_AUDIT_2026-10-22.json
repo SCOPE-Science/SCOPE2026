@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:57:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 0bb97b9c327f09edc6c962e66201065dbd3ae896",
+        "Erickson–Kretschmann arXiv:2311.07522v2 Proposition 5.1 and Theorem 5.3; PDF visually inspected",
+        "independent Fraction computations 2026-10-22 for p=2..5, p<=q<=6",
+        "pinned exact verifier verify_monge_asymmetry.py dd8ae0c5ffde17f91a61616cff9d9a018f5f81b9 source inspected"
+      ],
+      "rationale": "The source treats real nonnegative p×q arrays (p,q>=2) of total mass 1 satisfying the adjacent Monge (submodular) inequality, explicitly excluding transportation polytopes and inverse Monge. For p<=q, source vertex/facet classification (Erickson–Kretschmann Proposition 5.1, Theorem 5.3) gives all coordinate and adjacent-cut facets; corner-rectangle normalized vertices maximize each cut slack at 1/w_ij with w_ij=min(i(q-j),(p-i)j). The proposed unnormalized Y=J/p+sum_{cuts}V_ij has total mass T=q+(p-1)(q-1)=p(q-1)+1 and exactly max cut slack at each cut. For a coordinate requiring a larger bound than 1/p, the rectangle at a corresponding cut appears with appropriate full or half coefficient; the tie argument uses r(p-r)>=p-1 and area >=p/2 to show J/p plus the half term suffices. Thus Y/T meets each primal facet reflection bound with h=T-1. Dual grid coefficients lambda_rs=1+w_rs-w_r,s-1-w_r-1,s+w_r-1,s-1 are >=0, because w_ij=i(q-j)-(iq-pj)_+ and the rectangular mixed second difference of the positive part is nonpositive. The exact mass decomposition ΣZ=Σlambda Z+Σ w_ij h_ij(Z) makes any center satisfy h+1>=q+(p-1)(q-1); transpose yields s=min(p,q)(max(p,q)-1). Independently reconstructed exact-rational primal center values, all coordinates and cut slacks, and dual positivity for all p=2..5 and p<=q<=6, beyond merely trusting the supplied verifier. This finite test is supplementary, not an infinite proof.",
+      "residual_risks": [
+        "The all-dimensional proof assumes the cited source full facet/vertex description; independent finite testing does not establish that premise for all dimensions.",
+        "No uniqueness or complete classification of all Minkowski centers is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erickson–Kretschmann classify vertices/facets (necessary input) but do not claim reflection minimum s(P) from them.",
+          "The published transportation polytope theorem imposes fixed row/column sums, unlike the normalized Monge inequality cone slice."
+        ],
+        "reasoning": "Vertex/facet classification is broad input information but does not mechanically imply the optimal asymmetry number without the positive primal-dual certificate, and a different polytope family is inapplicable.",
+        "searches": [
+          "Resultary: Minkowski asymmetry normalized Monge polytope rectangle matrix",
+          "arXiv:2311.07522",
+          "arXiv:2609.09508",
+          "Resultary 2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.07522v2",
+        "arXiv:2609.09508",
+        "Resultary 97466e887773 and other Monge/transport searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalized corner-rectangle vertices determine the maxima 1/w_ij, but without the simultaneous coordinate-facet center and nonnegative grid dual there is no sharp global asymmetry identity.",
+          "Volume/Ehrhart formulas count lattice points and measure volume, neither an implication of s(P)."
+        ],
+        "reasoning": "The supplied proof performs a nontrivial additional optimization over centers and supplies dual lower and primal upper bounds; source facet descriptions alone do not already solve it.",
+        "searches": [
+          "arXiv:2311.07522 §5",
+          "arXiv:2609.09508",
+          "Resultary: Minkowski asymmetry normalized Monge polytope rectangle matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper defines the nonnegative mass-one Monge polytope via adjacent inequalities; it is not the Birkhoff transportation polytope or the inverse-Monge convention.",
+          "Under transposition p and q exchange, explaining the symmetric formula."
+        ],
+        "reasoning": "Searched the same normalized Monge object, submodular array inequalities, corner-ray facet descriptions and affine symmetry. Neither different measure (volume/Ehrhart) nor a transportation-polytope rename yields the claimed invariant.",
+        "searches": [
+          "Resultary: Minkowski asymmetry normalized Monge polytope rectangle matrix",
+          "arXiv:2311.07522",
+          "arXiv:2609.09508"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Erickson–Jones study volume/Ehrhart of the same family, not a table of Minkowski asymmetries.",
+          "The theorem applies to all positive integers p,q>=2; a finite table cannot establish its universal exact two-parameter formula."
+        ],
+        "reasoning": "No examined exact database/table contains the invariant and all required parameters. Same-object numerical Ehrhart information does not determine this reflection invariant.",
+        "searches": [
+          "Resultary: Minkowski asymmetry normalized Monge polytope rectangle matrix",
+          "arXiv:2609.09508",
+          "Resultary: Minkowski asymmetry normalized Monge polytope rectangle matrix"
+        ]
+      },
+      "rationale": "Two highly relevant papers on the identical normalized Monge polytope were compared at the level of their theorems. The earlier supplies the complete extremal geometry, while the later computes volume/Ehrhart. Neither examined statement gives a Minkowski asymmetry formula, matching optimal center and dual certificate. General symmetry results for other 0/1 or transportation polytopes are not automatically applicable to Monge inequalities and different mass constraints. This is qualified by a possible earlier submodular-grid dual formula.",
+      "residual_risks": [
+        "An unidentified general theorem on Minkowski asymmetry of normalized submodular cones or polyhedral slacks might imply this family result.",
+        "The cited external vertex/facet classification was read as a premise, not independently reproved for all dimensions; its correctness is supported by primary proof and bounded direct checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports premises used by the proof; examined statements treat combinatorial/volume structure, not a closed Minkowski asymmetry optimum",
+          "evidence": "Proposition 5.1, Theorem 5.3 (pp. 10–12)",
+          "identifier_or_url": "arXiv:2311.07522v2",
+          "material_read": "Accessible primary PDF, Sections 1 and 5; especially Proposition 5.1 vertex/ray list and Theorem 5.3 facet inequalities and their supporting argument",
+          "method": "opened PDF, viewed relevant pages/screenshots and read theorem statements",
+          "title": "The structure and normalized volume of Monge polytopes",
+          "trigger": "Same matrix polytope and exact necessary facet/vertex premise"
+        },
+        {
+          "assessment": "Its main result addresses volume and Ehrhart generating functions; cannot directly give minimum reflection scaling and optimizing center",
+          "evidence": "Introduction; Theorem A",
+          "identifier_or_url": "arXiv:2609.09508",
+          "material_read": "Accessible primary PDF, introduction and Theorem A volume/Ehrhart statements",
+          "method": "opened PDF, visually inspected opening result pages",
+          "title": "A lattice path model for the volume of the Monge polytope",
+          "trigger": "Same exact matrix object with later potentially stronger treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2311.07522 §5 (natural family)",
+        "pinned RESULT.md primal/dual exact construction",
+        "arXiv:2609.09508 separate volume/Ehrhart problem"
+      ],
+      "rationale": "The normalized Monge cost-matrix polytope is a mathematically natural convex body arising from transportation/assignment inequalities; its exact Minkowski asymmetry is a separate affine invariant from its already-studied volume and face lattice. The result solves an unrestricted two-integer-parameter classification, supplies an explicit optimal center and a nonnegative dual mass-slack identity, and quantifies the exact defect from the simplex bound. The cut-area formulas and tied-cut constraints give substantive geometric content beyond a routine determinant computation.",
+      "residual_risks": [
+        "Mathematical-value assessment is independent of code or novelty search; no broader unproved claim about all center sets is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nonnegative normalized Monge convention, p,q>=2; not inverse Monge or transportation polytope.",
+    "Some optimal center exists explicitly; uniqueness of all centers is not claimed."
+  ],
+  "schema_version": 1
+}
