@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete graded decomposition is obtained from the explicit Jacobian generators and is valid in every degree, with an injective map by a nonzero minor. The maximal-minor locus of its rescaled two-column matrix is the standard prime rational-normal-curve ideal of height at least two for every \(m\ge3\). Local depth and associated-prime arguments then prove torsion-freeness, primaryness, saturation, and the precise non-Cohen--Macaulay locus. The Hilbert series, nilpotent filtration, multiplicity and arithmetic depth follow algebraically. Independently enumerated homogeneous Jacobian ranks at twelve \((m,d)\) pairs and two primes corroborate (but do not prove) the infinite assertions. The boundary case \(m=2\) is expressly excluded.
+PASS
 
-## Originality — PASS, qualified
+For all m>=3 char0, the X_j derivatives are the complete degree-m monomial basis in U,V, producing (U,V)^m. The U,V derivatives each have U,V-degree m-1, so they affect only the top summand of T/(U,V)^m and give an injective 2-column S-matrix Phi of size m, with nonzero 2x2 minor. Thus R as S-module splits into free lower U,V-degree layers plus E=coker Phi. Binomial-rescaled maximal minors of Phi are the Hankel rational-normal-curve ideal of height m-1>=2. E is free in height one and has projective dimension <=1 over S; depth at primes of height>=2 is >=1, excluding nonzero associated primes and proving S-torsion-freeness and T-(U,V)-primaryness/saturation. Off the rank-drop C, Phi splits so R is locally free CM; on C, E has projective dimension one and depth deficit one, giving non-CM exactly there. Hilbert via two-term presentation has numerator sum_{r=0}^{m-1}(r+1)t^r-2t^m, and depth m and generic multiplicity m(m+1)/2-2 follow. Independent Jacobian ideal linear-rank computations confirm Hilbert (m,d)=(3,3):50, (3,4):97, (4,4):203; no infinite-parameter claim is deduced from these samples.
 
-Ciliberto--Russo--Simis provide earlier Perazzo-type geometric classes, not the displayed scheme structure. Gondim--Russo concentrate on cubics. The full Perazzo works by Mezzetti--Miró-Roig study a different Artinian **apolar annihilator quotient**, not this ordinary Jacobian quotient. Dimca--Gondim--Ilardi give general Milnor/Jacobian theory, not this family-specific module presentation. Prior mathematical findings on the classical cubic do not imply primaryness in higher degrees; the codimension of the Hankel-minor locus changes from one to at least two, reversing the associated-prime pattern. Targeted searches for the ordinary Jacobian ideal, rational-normal-curve Fitting locus, gradient quotient and full binary forms found no dominating statement; this is evidence of comparison, not a uniqueness proof. Residual risk: a less-visible paper could have worked out this elementary-looking free presentation or an equivalent gradient scheme.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete all-degree scheme-theoretic classification for a geometrically natural infinite family: it identifies the primary versus embedded transition, full nilpotent structure, natural rational-normal-curve Cohen--Macaulay failure locus, and exact Hilbert series/depth/multiplicity. Those are deformation-relevant invariants of the *singular scheme* rather than routine properties of the known reduced plane or Hessian vanishing. The rational-normal-curve link explains the structural boundary from the classical cubic, rather than merely extending its parameter by substitution.
+Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.
 
-## Limitations and independent verification
+## value
 
-No characteristic-positive statement; no local analytic normal form for the hypersurface, minimal free resolution over the entire ambient ring, or coverage of other Perazzo forms. Published exact coverage beyond inspected sources remains possible. The scripted checks are finite only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Perazzo family and rational normal curve are classical, but the ordinary nonreduced Jacobian singular scheme is a natural geometric object distinct from the better-studied apolar Artinian Gorenstein algebra. Its explicit primary nilpotent layers, depth defect locus, and uniform Hilbert series answer a concrete exact-scheme question and distinguish generic CM behavior from a precisely located rational curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
