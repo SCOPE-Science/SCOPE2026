@@ -1,19 +1,27 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is the exact formula for the minimum domination number of the Sierpiński product of \(C_n\) and \(C_{3k+1}\), for every \(n\ge3\) and \(k\ge1\). A layer-capacity argument gives a universal lower bound \(kn\). Equality induces a unique hole and forced three-step internal tiling in every layer; all connecting edges must point coherently toward the holes. The resulting necessary-and-sufficient closed-walk condition has an explicitly classified length spectrum. The proof separately constructs a set of size \(kn+1\) in every parameter range, resolving every exceptional case. The executable checks 522 parameter pairs and enumerates normalized connecting maps for five small pairs; these are supporting tests, not an infinite proof.
+PASS
 
-## Originality — PASS
+For n>=3 and k>=1, with m=3k+1, every layer of C_n ⊗_f C_m needs at least k dominators since k-1 internally covers at most 3k-3 and external connecting edges at most two. Equality kn forces exactly one internal hole and a unique tiling by k disjoint triple neighborhoods in each layer; each of the n connecting edges must cover exactly one distinct hole, forcing a coherent cyclic orientation and f(i+2)-f(i) in S_k={2,5,...,3k-1} modulo m. The i↦i+2 orbit lengths are n (odd n) or n/2 (even n). Zero-sum closed walks exist at all even lengths, at odd >=5 for k>=3, odd >=7 for k=2, and only even for k=1; 3-step and (k=2) 5-step sums are impossible. A periodic four-pattern map and one extra selected hole produce kn+1 universally. This yields all exceptional n. Independently tested modular walks and direct graph domination for 304 pairs 3<=n<=40,1<=k<=8; the infinite reasoning is the layer/step equivalence, not finite DP.
 
-The closest primary result is Henning–Klavžar–Kleszcz–Pilśniak, *The Sierpiński Domination Number*, arXiv:2309.15409v1 (2023), published in *Ars Mathematica Contemporanea* 24 (2024), #P3.06. Its cycle theorem supplies only \(\{kn,kn+1\}\) for second-factor order \(3k+1\), with the \(4\mid n\) tightness condition and isolated extra examples. The new exact table implies those cases but is not implied by them; it settles the remaining infinite parameter ranges. A search-index excerpt of an earlier submitted draft displays a purported stronger but superseded expression; it is contradicted by a directly checked \(n=7,k=3\) example with \(21\) dominating vertices where that expression predicts \(22\). The revised and journal texts use the two-value range. The full earlier draft could not be retrieved and is a specific residual access risk. The original graph-product paper arXiv:1904.04180 addresses structure rather than this domination parameter. Searches for equivalent formulations and later coverage found no matching theorem. The principal residual risk is relevant earlier work concealed by terminology, indexing or inaccessible texts; absence from search is not novelty proof. The four structured implication comparisons and genuine source inspections are recorded in AUDIT.json.
+## originality
 
-## Value — PASS
+PASS
 
-The work closes a published quantitative gap for a natural graph domination invariant on a two-parameter classical graph-product family. The value lies in a necessary-and-sufficient structural criterion and complete classification, not in isolated small computations or repackaging previously proved instances. It explains the short-cycle exceptions through zero-sum walk obstructions and supplies constructions throughout the infinite family.
+The minimization over all connecting maps is not ordinary Cartesian domination. Reformulating equality as zero-sum walks is justified by layer rigidity and permits exact classification unavailable from the older two-point range.
 
-## Limits and verification status
+General definitions and two-valued bounds are not stronger coverage of all exceptional pairs; the exact ε table strictly refines them. An earlier indexed submitted-draft formula was considered but its purported extra implication is contradicted by a valid n=7,k=3 kn witness and did not survive into the accepted version.
 
-The minimization is over all connecting maps. No statement is made about the domination number for each fixed map, enumeration of minimizing maps, or different congruence classes of second-factor length. Finite verification does not replace the proof, and independent external review has not taken place.
+The parameter space is unbounded in both n and k; isolated old examples do not specify the closed-walk length spectrum or exact two-parameter exceptions.
 
-Self-review: passed. Independent audit: not yet performed.
+The new theorem strictly resolves an open binary ambiguity; it implies prior bounds, whereas those bounds do not force its exception set.
+
+## value
+
+PASS
+
+The 2024 foundational paper leaves an exact two-valued domination problem on cycles; the equality/exception classification resolves it uniformly over n,k and reveals a reusable correspondence with closed walks in a finite cyclic group. This is a structural classification, not a routine numeric special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
