@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,8 @@
 }
 ---
 
-# Reproducibility and proof obligations
+# Reproducibility and exact scope
 
-Run `python3 verify.py` with Python 3 standard library, no network and no input files. Observed output:
+`verify.py` uses the Python 3 standard library to check both the classical shifted-composite seeds (Mills's earlier result) and the corrected theorem's progression k=41+21t for 0≤t≤300. It evaluates the recurrence, Vieta conic, reciprocal divisibility, strict growth, and coprimality for bounded initial iterates. Its classical shifted-composite checks and k=10 parabolic check are retained as contextual regression tests, *not* as newly claimed mathematics.
 
-`VERIFY_OK composite_steps=103350 prime_progression_steps=7224 seeds=3445+301`
-
-For each integer \(10\le k\le4000\) with composite \(k+2\), the code reconstructs the least-prime-divisor seed, checks trace \(H\ge2\) and the unique claimed equality, and checks thirty steps of exact recurrence, conic invariant, strict positivity, reciprocal divisibility and gcd equal to one. It separately checks twenty-four steps for each of the 301 parameters \(k=41+21t\), \(0\le t\le300\). It tests the exact polynomial closed form at the parabolic boundary.
-
-The proof of universal solvability is independent of these finite checks: it follows from the conic identity, Vieta map and inequalities established in `RESULT.md`. The density count invokes the standard prime number theorem for arithmetic progressions, which is not proved by the verifier. Neither finite tests nor self-review constitute independent scientific auditing.
+The progression's universal correctness follows from the explicit proof for arbitrary t and n in `RESULT.md`; its infinitely many prime-shift parameters rely on Dirichlet's theorem. Finite execution of `verify.py` would not prove those quantifiers. The existing script reports `VERIFY_OK composite_steps=103350 prime_progression_steps=7224 seeds=3445+301` on success. Formal and expert-verification channels remain not performed.
