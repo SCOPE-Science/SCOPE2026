@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:57:36.870279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/verify_run_pause_reverse.py"
+      ],
+      "rationale": "The four-state R+/R-/T+/T- chain with mandatory T± -> R∓ at rate β, run to same-sign pause at α, and trap damping κ yields antisymmetric orientation generator B=[[-α,α],[-β,-β]], D(s)=(s+α)(s+β)+αβ. Stationary forcing covariance G(t)=A(e^{Bt})11, A=v²β/(α+β). Exponential position filtering produces C(t)= A Re[c e^{zt}/(κ²-z²)] +A α(2β²-κ²)e^{-κt}/[κD(κ)D(-κ)], z=-(α+β)/2+i sqrt(-χ)/2 and χ=(α-β)²-4αβ. The complex sinusoidal coefficient cannot vanish, while the trap residue cancels iff κ=sqrt(2)β. If χ>=0, real exponential polynomial has finitely many zeros. If χ<0, asymptotic sign crossings follow from which decay rate is slower, with κ>λ always infinite, κ<λ infinite exactly at cancellation, and κ=λ decided by oscillatory amplitude L against real H. Independent Sympy exact factorization gives (r+1)²(3r²+14r+3)-r[8-(r+1)²]²=-(r+3)(r²-6r+1)(r²+4r-1), forcing infinite strict crossings iff r=α/β>sqrt5-2 within the complex regime. At r=sqrt5-2 equality merely tangential zeros and no sign changes. Sample α3 β1 κsqrt2 yields exact e^{-2t} sinusoid. Independently derived covariance ODE and symbolic algebra corroborate; infinity comes from analytically nonzero oscillatory tail, not simulated long-time sampling.",
+      "residual_risks": [
+        "Independent checks are bounded corroboration; the proof or complete enumeration supplies unrestricted/exhaustive scope, not a saved PASS log."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general linear-filter/resolvent decomposition predicts possible poles, but a general harmonic-trap treatment with independent direction redraw cannot imply this model-specific cancellation surface κ=sqrt2 β and equal decay ratio sqrt5-2. These are evaluated residues and amplitudes for a different generator."
+        ],
+        "reasoning": "Higher-general-theory possible coverage evaluated by specialization: The general linear-filter/resolvent decomposition predicts possible poles, but a general harmonic-trap treatment with independent direction redraw cannot imply this model-specific cancellation surface κ=sqrt2 β and equal decay ratio sqrt5-2. These are evaluated residues and amplitudes for a different generator.",
+        "searches": [
+          "Active particle run pause mandatory direction reversal harmonic trap sign-changing stationary position autocovariance spectral pole cancellation",
+          "https://arxiv.org/abs/2409.00578; https://arxiv.org/abs/1909.05033"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify_run_pause_reverse.py symbolic formulas",
+        "independent Sympy equal-rate sign factorization and ODE/covariance evaluation",
+        "Resultary semantic query: Active particle run pause mandatory direction reversal harmonic trap sign-changing stationary position autocovariance spectral pole cancellation",
+        "Sun–Ye–Podgornik arxiv:2409.00578 primary material",
+        "Sadjadi–Shaebani arxiv:1909.05033 primary material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sadjadi–Shaebani describe orientation autocorrelation of multistate particles, whereas Sun–Ye–Podgornik obtain harmonic-trap stationary moments for a tumble mechanism with independently sampled heading. Neither implies the sign-change trichotomy for compulsory opposite sign on return without rebuilding the transition generator, residue cancellation, and equal-exponent amplitude condition."
+        ],
+        "reasoning": "The exact theorem and its needed premises were distinguished: Sadjadi–Shaebani describe orientation autocorrelation of multistate particles, whereas Sun–Ye–Podgornik obtain harmonic-trap stationary moments for a tumble mechanism with independently sampled heading. Neither implies the sign-change trichotomy for compulsory opposite sign on return without rebuilding the transition generator, residue cancellation, and equal-exponent amplitude condition.",
+        "searches": [
+          "Active particle run pause mandatory direction reversal harmonic trap sign-changing stationary position autocovariance spectral pole cancellation",
+          "arxiv:1909.05033; arxiv:2409.00578"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model differs mathematically from standard run-and-tumble direction redraws: its orientation sector includes sign memory during pauses and compulsory reversal. Existing orientation-memory formulas do not immediately determine the harmonic-filtered POSITION covariance zero-crossing classification."
+        ],
+        "reasoning": "Same-object or terminology-equivalent statements were compared by mathematical implications; The model differs mathematically from standard run-and-tumble direction redraws: its orientation sector includes sign memory during pauses and compulsory reversal. Existing orientation-memory formulas do not immediately determine the harmonic-filtered POSITION covariance zero-crossing classification.",
+        "searches": [
+          "Active particle run pause mandatory direction reversal harmonic trap sign-changing stationary position autocovariance spectral pole cancellation",
+          "Sadjadi–Shaebani arxiv:1909.05033; Sun–Ye–Podgornik arxiv:2409.00578"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem classifies a continuous four-positive-parameter region and strict versus tangential lag zero behavior, not an existing numerical table. Explicit transcendental parameter intervals derive from exact spectral pole arithmetic, not finite sampled time-series."
+        ],
+        "reasoning": "Exact natural invariant/databases considered: The theorem classifies a continuous four-positive-parameter region and strict versus tangential lag zero behavior, not an existing numerical table. Explicit transcendental parameter intervals derive from exact spectral pole arithmetic, not finite sampled time-series.",
+        "searches": [
+          "Active particle run pause mandatory direction reversal harmonic trap sign-changing stationary position autocovariance spectral pole cancellation",
+          "frozen RESULT.md exact harmonic-filter covariance and χ,λ thresholds"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality assessment of this EXACT final statement against published mathematical results and the source model, not certification of historical priority. General mathematical machinery and prior model definitions are attributed; claim-specific evaluated classification is not found among inspected primaries. A failed search is not novelty proof. Sadjadi–Shaebani describe orientation autocorrelation of multistate particles, whereas Sun–Ye–Podgornik obtain harmonic-trap stationary moments for a tumble mechanism with independently sampled heading. Neither implies the sign-change trichotomy for compulsory opposite sign on return without rebuilding the transition generator, residue cancellation, and equal-exponent amplitude condition.",
+      "residual_risks": [
+        "A specialized harmonic-filter spectral classification might imply this exact trichotomy under a different active-matter terminology.",
+        "The theorem excludes Brownian translational noise, nonlinear traps, nonexponential pauses and stationary initialization outside the canonical internal-chain equilibrium."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model uses independently redrawn post-pause run direction, not compulsory reversal; no exact current-position sign-change threshold for this four-state generator.",
+          "evidence": "Source finite-tumble process does not carry the antisymmetric mandatory-reversal B=[[-α,α],[-β,-β]] generator.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.00578",
+          "material_read": "Full accessible arxiv source sections describing transition rules, stationary moments and tumble direction redraw",
+          "method": "arxiv lawful full text",
+          "title": "Exact moments for a run and tumble particle with a finite tumble time in a harmonic trap",
+          "trigger": "Same confinement with finite tumble durations and potentially dominating general trap results"
+        },
+        {
+          "assessment": "Orientation-memory mechanisms motivate this sector; inspected results do not supply harmonic trap filtered-position pole-cancellation classification.",
+          "evidence": "Distinguishes arbitrary reorientation memory and independent orientation correlation from exact confined position autocovariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.05033",
+          "material_read": "Available original full-text model definitions and orientation-correlation results",
+          "method": "lawful arxiv full text",
+          "title": "Orientational Memory of Active Particles in Multistate Non-Markovian Processes",
+          "trigger": "Prior multistate run/pause directional memory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/RESULT.md",
+        "https://arxiv.org/abs/2409.00578",
+        "https://arxiv.org/abs/1909.05033"
+      ],
+      "rationale": "For a physically motivated active particle with finite pauses, mandatory reversals and confinement, the exact infinite-anticorrelation phase diagram reveals a non-obvious pole cancellation when the trap decay is nominally slower than orientation decay. It delineates when confinement hides versus preserves oscillatory persistence, including a sharp equal-rate tangency boundary; this is more than computing a routine covariance.",
+      "residual_risks": [
+        "A specialized harmonic-filter spectral classification might imply this exact trichotomy under a different active-matter terminology.",
+        "The theorem excludes Brownian translational noise, nonlinear traps, nonexponential pauses and stationary initialization outside the canonical internal-chain equilibrium."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized harmonic-filter spectral classification might imply this exact trichotomy under a different active-matter terminology.",
+    "The theorem excludes Brownian translational noise, nonlinear traps, nonexponential pauses and stationary initialization outside the canonical internal-chain equilibrium.",
+    "Publication not_ready is a privacy/transport limitation, not a scientific C/O/V failure. The originality finding remains best of knowledge and does not assert exhaustive priority."
+  ],
+  "schema_version": 1
+}
