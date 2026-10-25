@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The graph, leader budget, normalization and empty-part boundary cases are explicit. The positive grounded matrix has trace (1) obtained via a rank-one block inverse. Exact rational identity (3) makes every mixed allocation for k<=m strictly worse than a pure endpoint, and identity (2) compares the endpoints by sign of k^2-(2m+1), including every tie. For k>=m+1, identity (4) is strictly positive when any vertex of the larger part remains a follower. These statements prove all infinite parameter cases and counts, not merely finite enumeration. The exact-rational standard-library verification replayed 353496 allocation cases, 166650 strict-chord cases, 220 independently assembled grounded inverses and 666 labeled subset inverses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1302.0450 derives general convex/SDP relaxations and bounds for leader selection, but not a closed universal optimum for K_{m,m+1}.",
+        "arxiv:1407.1569 gives general joint centrality and path/cycle exact solutions; its general equation computes costs, rather than stating the all-budget global optimizer allocation.",
+        "An earlier exact complete-bipartite three-leader result covers only k=3; its formulas do not establish an infinite-budget threshold."
+      ],
+      "reasoning": "Generic formulas and algorithms apply to this family in principle but require the new strict chord/endpoint optimization to give these exact values and optimizer counts. No broader theorem with an explicitly applicable conclusion was found.",
+      "searches": [
+        "optimal leader selection complete bipartite graph k leaders phase transition all leaders in one part",
+        "grounded Laplacian trace optimal k leaders full family bipartite matrix Schur complement",
+        "\"complete bipartite\" \"optimal\" \"leaders\" \"noise-free\" networks"
+      ]
+    },
+    "checked_sources": [
+      "Lin–Fardad–Jovanović 2013, arxiv:1302.0450, Secs I–IV",
+      "Fitch–Leonard 2014, arxiv:1407.1569, Secs I, IV–V, conclusions and Appendix B",
+      "Patterson–McGlohon–Dyagilev 2014, arxiv:1412.6595, Secs I–III",
+      "Published record: Exact discounted hitting domination of complete bipartite graphs, 2026/10/4/...f5f86f5d861d",
+      "Earlier exact three-leader complete-bipartite coherence classification (claim-level comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fitch and Leonard (arxiv:1407.1569, pp. 2–3 and Sec. VII) explicitly note that global nestedness may fail and present path/cycle examples, but not the exact K_{m,m+1} pure-part switch.",
+        "Lin et al. (arxiv:1302.0450) provide general numerical optimization formulations but no theorem asserting the endpoint chord inequality for near-balanced bicliques.",
+        "Patterson et al. (arxiv:1412.6595) restrict their exact algorithms to paths and rings.",
+        "The three-leader special case K_{4,5} tying two pure allocations is acknowledged as already covered."
+      ],
+      "reasoning": "General non-nestedness and the three-leader tie are not new. The fresh implication is a sharp square-root threshold for every budget, strict exclusion of mixed allocations, and the complete optimizer counts, which do not follow from those narrower stated conclusions without the new algebraic optimization.",
+      "searches": [
+        "complete bipartite K_{m,n} noise-free leader selection all budgets exact minimizing trace grounded Laplacian arbitrary leaders",
+        "sharp all-budget noise-free leader set allocation on K_{m,m+1} complete bipartite square root threshold and nesting failure",
+        "\"optimal leaders\" \"bipartite\" \"coherence\" 2013 2014 2015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grounded Dirichlet Green trace and H2 noise-free leader coherence agree up to a constant positive factor in the inspected paper formulations; the theorem expressly fixes trace normalization.",
+        "The known three-leader biclique claim uses the same exact objective but fixes budget three."
+      ],
+      "reasoning": "Alternative terminology searches covered Dirichlet Green matrix trace, coherence, noise-free H2 leader placement, and complete bipartite K_{m,m+1}. No inspected stronger equivalent formula or all-budget threshold was found; the exact cost normalization prevents conflating other H2 conventions.",
+      "searches": [
+        "complete bipartite K_{m,n} noise-free leader selection all budgets exact minimizing trace grounded Laplacian arbitrary leaders",
+        "sharp all-budget noise-free leader set allocation on K_{m,m+1} complete bipartite square root threshold and nesting failure",
+        "noise-free leader selection bipartite nearly balanced K m m+1 exact threshold k squared 2m+1",
+        "\"K_{m,m+1}\" \"leader\" \"coherence\" \"Laplacian\"",
+        "\"complete bipartite\" \"leader selection\" \"grounded\" \"trace\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed public record \"Exact discounted hitting domination of complete bipartite graphs\" concerns a different discounted hitting objective and is not a trace-of-grounded-inverse optimum table.",
+        "The earlier exact three-leader biclique case is a strict one-budget slice; all-budget optimizer counts and square-root thresholds were not recovered elsewhere."
+      ],
+      "reasoning": "No exact mathematical database/table entry stating k^2=2m+1 or the full budget-dependent grounded-trace allocation appeared in the actual searches; this is search evidence only, not proof of absence.",
+      "searches": [
+        "non-nested optimal leader sets complete bipartite graph coherence counterexample",
+        "three leader coherence complete bipartite graphs K_{p,q} 93E03 grounded Laplacian",
+        "\"K_{m,n}\" \"leaders\" \"trace\" graph Laplacian inverse",
+        "\"noise-free leader\" \"complete bipartite\" \"optimal\""
+      ]
+    },
+    "rationale": "Known generic leader-selection and joint-centrality formulas do not supply the sharp all-budget threshold, the strict pure-part classification for K_{m,m+1}, or all optimizer counts. The closest earlier fixed-budget result is the complete-bipartite classification for exactly three leaders, which contains the K_{4,5} three-leader tie but cannot imply the classification for arbitrary budgets. A relevant published mathematical record concerns discounted hitting domination, a distinct objective. Actual semantic mathematical-record and targeted source searches did not identify an equivalent or stronger statement; this absence is not a uniqueness certificate and specialized literature remains a residual risk.",
+    "residual_risks": [
+      "A specialized or incompletely indexed exact leader-selection paper could state the same square-root switching theorem or a dominating arbitrary-budget biclique result.",
+      "Published record \"Exact discounted hitting domination of complete bipartite graphs\" was inspected only at summary level; its different stated objective makes direct coverage unlikely, but full paper implications were not exhaustively checked.",
+      "Framework statements can be specialized algebraically; the asserted contribution is the actual all-budget maximization classification rather than a general new inverse formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_FRAMEWORK_NOT_EXACT_CLASSIFICATION",
+        "evidence": "Explicit convex/SDP relaxation and greedy/swap bounds for general networks, but no explicit biclique budget transition in the inspected stated results.",
+        "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+        "material_read": "Abstract, introduction, problem formulation, stated Section IV scope; text searched for complete and bipartite",
+        "method": "Accessible primary paper PDF, full-text navigation plus visual examination of page 2",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "Foundational archive-period noise-free leader optimization source"
+      },
+      {
+        "assessment": "KNOWN_GENERAL_NONNESTEDNESS_BUT_NOT_STATED_EXACT_BICLIQUE_THRESHOLD",
+        "evidence": "The authors discuss nonnested optima generally and explicitly identify path/cycle exact solutions. That observation alone does not imply any near-balanced biclique equality k^2=2m+1.",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "Introduction pp. 1–3, problem statement, authors’ summary of contributions and concluding results pp. 16–17; PDF text searched for bipartite",
+        "method": "Accessible primary paper PDF with visual examination of page 3 and full-text search",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "General exact formula and potential stronger arbitrary-leader coverage"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_FAMILIES",
+        "evidence": "Algorithms specialize to weighted paths and rings, not bicliques.",
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Abstract, full introduction, model/objective Section II and statement of restricted graph families Section III",
+        "method": "Accessible primary PDF, text and visual examination of page 2",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Same grounded inverse trace, general arbitrary-budget leader context"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_SUMMARY_ONLY",
+        "evidence": "Discounted hitting domination differs from the grounded-Laplacian inverse trace; the summary cannot establish equivalence or claim full-text noncoverage.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+        "material_read": "Published title and indexed finding summary, not full text",
+        "method": "Mathematical record summary comparison",
+        "title": "Exact discounted hitting domination of complete bipartite graphs",
+        "trigger": "Nearest published semantic mathematical-record hit on graph and selection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16f6de62-3c22-44df-9346-96947409d5c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A practically motivated fixed-budget H2 leader-placement problem on the canonical minimally imbalanced biclique family is solved for every budget, with all minimizers and counts. The exact square-root threshold k^2=2m+1 forces discontinuous relocation of the entire optimal leader set and forbids any nested optimal budget sequence, a precise obstruction to sequential expansion in an elementary network class. The key strict chord inequality excludes all mixed candidates. This is stronger than routine endpoint evaluation or a fixed-three-leader exercise: the arbitrary-budget transition and optimizer census have independent precise use when planning the leader budget.",
+    "status": "PASS"
+  }
+}
