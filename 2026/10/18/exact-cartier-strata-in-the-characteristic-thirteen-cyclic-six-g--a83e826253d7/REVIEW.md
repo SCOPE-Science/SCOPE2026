@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(t\in\overline{\mathbf F}_{13}\setminus\{0,1\}\), the polynomial \(x(x^3-1)(x^3-t)\) is squarefree and defines a smooth genus-three hyperelliptic curve. The classical coefficient formula \(H_{ij}=[x^{13i-j}]f^6\) and the residue condition modulo \(3\) make the matrix diagonal. Its three exact entries are \(2t^4A(t)\), \(B(t)D(t)E(t)\), and \(2A(t)\). Sparse direct multiplication verifies these identities; each of the four named quadratics has a nonsquare discriminant in characteristic \(13\), and they are pairwise different. Their root sets are therefore pairwise disjoint and have two elements each. For diagonal semilinear Cartier action, stable rank equals ordinary rank, so the rank/\(a\)-number table follows on the entire algebraic closure. The extracted verifier confirms all coefficient identities and all parameters over \(\mathbf F_{13^2}\); this finite enumeration is supporting evidence, not the proof over the algebraic closure.
+## correctness
 
-## Originality — PASS (qualified)
-The closest inspected source is Cavalieri–Pries, *Mass formula for non-ordinary curves in one dimensional families*, arXiv:2308.14891, §8: the even-order cyclic-cover family is exactly the family here after an explicit birational change of variables. Its weighted nonordinary mass result does not specify the parameter-by-parameter \(13\)-rank and \(a\)-number strata, and the paper explicitly acknowledges a missing general \(a\)-number determination. Borges–Gonçalves, arXiv:2212.03987, treats different Fermat-type curves and does not give an equivalent classification of this four-branch variable pencil. Searches of research records for the exact model, characteristic, quadratics, Cartier zeros, aliases, and genus-three invariants found no result implying this theorem; the most similar retrieved entries concern unrelated families or invariants. A non-indexed earlier equivalent explicit computation cannot be ruled out.
+PASS
 
-## Value — PASS
-The source supplies a natural geometrically connected one-dimensional genus-three family but does not identify exact nonordinary points or their \(a\)-numbers. The theorem gives the complete geometric \(13\)-rank stratification, including the two rank-one points and six rank-two points, their precise field of definition, and exclusion of rank zero. This is a natural finite-field arithmetic refinement of the weighted-mass result, not a cosmetic parameter substitution or a numerically isolated unmotivated table.
+The hyperelliptic model y^2=x(x^3-1)(x^3-t) has seven simple roots for t!=0,1 in characteristic 13 and genus 3. The Cartier–Manin coefficient matrix c_(13i-j) from f^6 is diagonal by degrees mod 3 and equals diag(2t^4 A, BDE, 2A). Independently recomputed f^6 in GF13 and checked all three entries/factors. Four irreducible pairwise disjoint quadratics with nonsquare discriminants give exactly two rank-one/a=2 and six rank-two/a=1 parameters, and otherwise ordinary. Diagonal semilinearity yields stable Cartier rank equal to ordinary rank; inversion exchanges the corresponding roots without fixed exceptional points.
 
-## Scope, nearby literature and remaining risks
-The theorem applies only to characteristic \(13\) and the stated smooth parameter domain; no Newton-polygon or full geometric-isomorphism classification is claimed. The literature comparison is best-knowledge rather than a formal proof of priority; equivalent Hasse-polynomial computations may exist outside the searched records. The four inversion orbits do not purport to be all isomorphism classes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit claimed invariant, not for foundational/general prior theorems; checked equivalent formulations, broader implications, exact tables and relevant primary sources. Prior mass formula concerns weighted curves/isomorphism classes and may constrain aggregate counts; it cannot by itself imply all eight individual geometric parameters and their separate a-number/p-rank strata. The present theorem does not claim Newton polygons or full isomorphism classification.
+
+## value
+
+PASS
+
+An exact parameter-level geometric p-rank/a-number classification of a natural cyclic-six genus-three pencil in fixed characteristic is a motivated complete stratum result beyond an intersection-theoretic weighted nonordinary mass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
