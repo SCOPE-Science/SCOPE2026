@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "FROZEN RESULT.md d7d85b264f6660f924e7f66a11a50f7373a1c39d",
+        "FROZEN verify_cycle_powers.py e45661ea35c25cb5e160222ff6fd348fcd3b34ca",
+        "Fresh independent 2026-10-24 graph enumeration /mnt/data/scope07_independent_check_results_20261024.json"
+      ],
+      "rationale": "The minimum-degree first-force bound Z>=delta is sharp on each graph and equality determines any first-force seed B=N[v]\\{w}; closed neighborhoods in the regular regime are length 2k+1 circular intervals. Explicit forcing grows such an interval to all n vertices. The 2k-subsets from adjacent neighborhoods account for exactly n duplicate two-presentations and no more, giving n(2k-1). Complete and K_n minus an antipodal perfect matching give n and nk respectively. A single token jump from any nonblock seed to a consecutive 2k-block, and a connected block backbone, prove full TJ connectivity. Independently recomputed all 65 pairs n=3..12, 4382 optimum-size candidate subsets, including actual color-change and full token-jump BFS; every predicted family and count matched.",
+      "residual_risks": [
+        "The independent search exhausts only n<=12, while the infinite classification uses the neighborhood first-force and interval proof.",
+        "Only ordinary zero forcing and token-jump exchange, not skew/threshold forcing or token sliding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad et al Proposition 8 covers the scalar Z(C_n^k)=2k.",
+          "The reconfiguration paper notes disconnected examples, so connectivity is not a general zero-forcing consequence."
+        ],
+        "reasoning": "Known scalar forcing bounds and unrestricted reconfiguration definitions do not imply how many minimum seeds exist or their connectedness in C_n^k.",
+        "searches": [
+          "arXiv:2610.03892v1 Proposition 8",
+          "arXiv:2009.00220v1 Sections 2-3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.03892v1 (primary Proposition 8)",
+        "https://arxiv.org/html/2009.00220v1 (primary Sections 2,3)",
+        "Resultary semantic: minimum zero forcing sets cycle power circulant C_n^k count neighborhood minus neighbor token jumping reconfiguration connectivity",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b (other family)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known scalar 2k is a proper consequence, not sufficient for minimizer family counts.",
+          "Known k=1 and complete-graph reconfiguration are included proper special cases."
+        ],
+        "reasoning": "First-force equality + duplicate cyclic blocks provide substantive deduction absent from the checked prior theorems; do not claim the known scalar or base cases as novel.",
+        "searches": [
+          "arXiv:2610.03892v1 Proposition 8",
+          "arXiv:2009.00220v1 Propositions 2.2-2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson-Haas-Hogben explicitly uses the same minimum-set, one-token-jump zero forcing graph.",
+          "Its Section 2.1 treats C_n, complete graphs; not an all-k optimum census."
+        ],
+        "reasoning": "Same reconfiguration notion, different quantified graph powers; no exact-parameter/classification implication from the inspected special cases.",
+        "searches": [
+          "Resultary semantic: minimum zero forcing sets cycle power circulant C_n^k count neighborhood minus neighbor token jumping reconfiguration connectivity",
+          "arXiv:2009.00220v1 Section 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concerned fan, friendship and chain zero-forcing polynomials, not cycle powers.",
+          "The claimed census is n, nk and n(2k-1) across three boundaries."
+        ],
+        "reasoning": "No exact cycle-power table located among checked published records; negative search is not proof no prior table exists.",
+        "searches": [
+          "Resultary semantic: minimum zero forcing sets cycle power circulant C_n^k count neighborhood minus neighbor token jumping reconfiguration connectivity",
+          "minimum zero forcing sets powers of cycles exact n(2k-1) census"
+        ]
+      },
+      "rationale": "The full minimum-zero-forcing seed classification, n(2k-1) multiplicity and global token-jump connectivity for cycle powers are distinct from known scalar Z(C_n^k)=2k and k=1/complete reconfiguration cases. Primary current arXiv paper and original reconfiguration article were read; Resultary exact-alias query returned zero-forcing polynomials of *other* graph families. Priority remains best-of-knowledge, not guaranteed exhaustive.",
+      "residual_risks": [
+        "An unindexed circulant optimal-seed reconfiguration theorem may already state the same all-k count or connectivity.",
+        "Prior scalar and k=1/complete cases are correctly treated as covered and not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 8 establishes scalar Z(C_n^k)=2k for n>=2k+1, but gives neither classification/multiplicity of every optimizer nor all-power reconfiguration connectivity.",
+          "evidence": [
+            "Prop 8 precisely states the zero forcing number equals 2k under n>=2k+1.",
+            "Its displayed forcing construction uses a particular consecutive 2k-set only."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03892v1",
+          "material_read": "Abstract, power section including Proposition 8 and its constructive first-force proof, adjacent propositions and section context",
+          "method": "Read primary open-access HTML, searched its full displayed theorem and surrounding proof text",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Direct same-graph powers and sharp zero-forcing number"
+        },
+        {
+          "assessment": "Definition coincides exactly. Results for ordinary cycles and complete graphs and broader forest results do not supply power-cycle count and connectedness.",
+          "evidence": [
+            "Section 2 treats ordinary cycles/complete graphs and the paper notes many disconnected zero forcing graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.00220v1",
+          "material_read": "Abstract, introduction, Section 2.1 special graph families, and section 3 disconnectedness context",
+          "method": "Read primary open-access HTML, searched its full displayed theorem and surrounding proof text",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same token-jump minimum-zero-forcing reconfiguration definition"
+        },
+        {
+          "assessment": "Secondary contextual comparator only, not claimed fully reread this run.",
+          "evidence": [
+            "The frozen original RESULT and AUDIT refer to Proposition 27 as a scalar connected-forcing result."
+          ],
+          "identifier_or_url": "https://scik.org/index.php/jmcs/article/download/4446/2155",
+          "material_read": "Prior published proposition and bibliography as described in inspected frozen source; current run did not independently obtain full PDF",
+          "method": "Inspected bibliographic/proposition description in frozen repository; no new direct full-text reading",
+          "title": "Counting and connected k-forcing in cycle squares",
+          "trigger": "Related square-of-cycle zero forcing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2009.00220v1 documents connected and disconnected zero-forcing reconfiguration examples."
+      ],
+      "rationale": "For a standard finite circulant family, complete classification and exact number of all optimal initial forcing seeds are natural stronger invariants than the already-known single scalar Z. A constructive connected reconfiguration of *all* minima can matter whenever optimal seeds must be exchanged; TJ graphs are not always connected generally. The sharp complete/matching/regular regime transitions reflect graph structure, not arbitrary parameters.",
+      "residual_risks": [
+        "No claim about practical applications proved; motivation is exact solution space and reconfiguration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The independent search exhausts only n<=12, while the infinite classification uses the neighborhood first-force and interval proof.",
+    "Only ordinary zero forcing and token-jump exchange, not skew/threshold forcing or token sliding.",
+    "An unindexed circulant optimal-seed reconfiguration theorem may already state the same all-k count or connectivity.",
+    "Prior scalar and k=1/complete cases are correctly treated as covered and not claimed new.",
+    "No claim about practical applications proved; motivation is exact solution space and reconfiguration.",
+    "The frozen public AUDIT.json and METADATA.json each contain scope_run_id internal operational identifiers. Exact complete sanitized replacement file bytes with original Git blob guards, UTF-8 SHA-256 and same-claim verification were not prepared. Withhold publication of the completed scientific assessment."
+  ],
+  "schema_version": 1
+}

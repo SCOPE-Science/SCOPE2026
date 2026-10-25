@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification follows from equality in the minimum-degree first-force bound. In the regular regime the first force determines the entire initial set as one closed-neighborhood interval with a neighbor deleted; every such set fills the interval at the first step and extends it to the full cycle. Cyclic-interval overlap arguments account for exactly one duplicate per cyclic 2k-block. Complete and deleted-perfect-matching cases are treated explicitly. A separate definition-based verifier checks finite instances exhaustively, but the arbitrary-case proof is independent of enumeration.
+PASS
 
-## Originality — PASS (qualified)
+The minimum-degree first-force bound Z>=delta is sharp on each graph and equality determines any first-force seed B=N[v]\{w}; closed neighborhoods in the regular regime are length 2k+1 circular intervals. Explicit forcing grows such an interval to all n vertices. The 2k-subsets from adjacent neighborhoods account for exactly n duplicate two-presentations and no more, giving n(2k-1). Complete and K_n minus an antipodal perfect matching give n and nk respectively. A single token jump from any nonblock seed to a consecutive 2k-block, and a connected block backbone, prove full TJ connectivity. Independently recomputed all 65 pairs n=3..12, 4382 optimum-size candidate subsets, including actual color-change and full token-jump BFS; every predicted family and count matched.
 
-The scalar value of ordinary zero forcing for cycle powers is known (Abiad–Flagg–Ghasemi Nezhad–Zeijlemaker, arXiv:2610.03892, Proposition 8). The ordinary-cycle and complete-graph zero-forcing reconfiguration graphs are also known (Geneson–Haas–Hogben, arXiv:2009.00220v1, Propositions 2.2–2.3). Premodkmuar–Dominic–Chacko, doi:10.28919/jmcs/4446, Proposition 27, treats a related connected minimum on squares of cycles. The independently assessed result is the complete optimal-set family, its three-regime multiplicity, and global token-jumping connectivity beyond those covered special cases. Searches using cycle powers, circulants, neighborhood-minus-neighbor sets and reconfiguration terminology found no source establishing the combined statement; equivalent unindexed work is a real residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact classification of every optimum in a natural graph family, rather than a routine improvement of a known extremal value. The sharp count transitions \(n\), \(nk\), and \(n(2k-1)\) and constructive connectedness of the optimum reconfiguration graph describe how many minimal seed configurations exist and how to move between them while preserving optimality.
+The full minimum-zero-forcing seed classification, n(2k-1) multiplicity and global token-jump connectivity for cycle powers are distinct from known scalar Z(C_n^k)=2k and k=1/complete reconfiguration cases. Primary current arXiv paper and original reconfiguration article were read; Resultary exact-alias query returned zero-forcing polynomials of *other* graph families. Priority remains best-of-knowledge, not guaranteed exhaustive.
 
-## Limits
+## value
 
-The theorem concerns ordinary zero forcing and token jumping; other forcing rules and token slides are outside scope. The cited known scalar and boundary results are not claimed as novel. Independent priority checking may discover additional equivalent literature. The finite verifier tests only the stated parameter ranges.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard finite circulant family, complete classification and exact number of all optimal initial forcing seeds are natural stronger invariants than the already-known single scalar Z. A constructive connected reconfiguration of *all* minima can matter whenever optimal seeds must be exchanged; TJ graphs are not always connected generally. The sharp complete/matching/regular regime transitions reflect graph structure, not arbitrary parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
