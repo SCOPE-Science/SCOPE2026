@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Both two-point structures satisfy the five Routley–Meyer frame axioms. Every base-language connective maps the three-element truth-set family \(\{\varnothing,\{b\},X\}\) into itself identically across the topologies; structural induction covers all formula depths. Interior-of-complement and dense-open support give opposing values, and singleton structures make both operations definable, establishing sharpness. `check.py` independently verifies each concrete operation and boundary case.
+## correctness
 
-**Originality (PASS, with residual uncertainty).** Sedlár (2026), Proposition 4.6, gives separate four-point constructions for the two *known* nondefinability facts. The present statement identifies a common two-point pair and the sharp minimal size; neither is the paper's four-point witness nor follows merely by relabeling it. Searches of relevant primary work, broader web literature, research records and existing claims did not identify equivalent simultaneous two-point sharpness. Search failure is not proof of priority; an older small model remains a risk.
+PASS
 
-**Value (PASS).** Cardinality of a countermodel is a natural resource for a language-extension nondefinability theorem. The same minimum carrier simultaneously exhibits *two distinct* obstructions, local (interior of complement) and global (dense-open justification), eliminating any need for larger exotic frames and establishing an exact qualitative transition between one and two worlds. This is a completed sharp small-model result, not a request for future work; it does not claim broader generalization or complexity implications.
+For X={a,b}, equality preorder, N=X, Routley star a<->b, Rxyz iff y=z, the five RM clauses hold (including designated-world reflexive implication and involution). With p={b} and all other atoms empty, F={empty,{b},X} is closed identically under ∧,∨,negation, implication (X iff antecedent subset consequent), interior in both T1={empty,{b},X} and T2=power set(X), and global A. Structural induction proves identical truth sets for all formulas, not just sampled depth. Yet Int(X\{b}) differs empty versus {a}, and a dense open subset of p exists only in T1. On a singleton both are expressible (neg p and p). Independently checked the three-set truth algebra and both topologies. Minimal two-point simultaneous pair follows.
 
-The comparison is specifically with Sedlár's four-world models and his expressibility theorems, not a claim that the underlying nondefinability facts are new. Stronger results about additional frame conditions have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sedlar (2026) Proposition 4.6 already establishes each separate failure using two four-point examples. The submitted claim is solely the sharp simultaneous two-point pair with fixed frame/valuation and singleton lower bound; a four-point nondefinability statement does not imply its minimal size or common two-point witness. Accessible original Proposition 4.6 material checked; possible unindexed two-point examples remain.
+
+## value
+
+PASS
+
+A countermodel carrier size and ability to combine two distinct expressibility obstructions in one frame are motivated exact finite semantic invariants. Reducing separate four-world witnesses to a shared sharp two-world witness with a one-world lower bound isolates which topology/negation interaction causes failure, without claiming a new nondefinability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
