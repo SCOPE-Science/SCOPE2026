@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The local three-input rule is explicit. Equal adjacent ordinary pairs are permanently frozen; an entirely alternating ordinary path creates a frozen pair within two steps. Iterative propagation shows ordinary sites eventually stop moving. The exceptional bit then follows either a constant or complement map. Recurrent ordinary strings consist precisely of homogeneous runs of length at least two, and odd/even run counts yield the exact coefficient formulas. The simple dominant pole gives the asymptotic two-thirds oscillating-state share. The packaged checker exhaustively cross-checks all initial configurations for \(3\le n\le16\). These are corroborating computations, not the proof.
+
+**Originality — PASS, qualified.** The closest inspected text is Nakar–Ron, arXiv:2205.08972, on spatially uniform majority CA. The earlier Benjamini et al. 2014 and Kaaser et al. 2015 works assume ordinary majority networks. Their conclusions do not imply an asymmetrical sitewise complemented update, its localization of recurrent flipping, or these exact run-composition series. Queries to published-finding corpus and accessible prior claims found no equivalent, but historical absence is not certified. The older two sources were inspected at abstract level, not full text.
+
+**Mathematical value — PASS.** A single adversarial response rule breaks the assumptions behind the standard period-two energy theory yet provably permits only fixed points and a localized oscillator. The periodic-orbit census is exact for every size, with asymptotically two-thirds of recurrent *configurations* genuinely oscillating; ordinary uniform radius-one majority instead has at most one primitive two-cycle. This is a substantive structural boundary for robustness to one nonmonotone site.
+
+Self-review: passed. Independent audit: not yet performed.
