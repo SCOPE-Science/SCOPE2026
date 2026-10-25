@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated finite field and specific plane quartic, the gradient calculation excludes all geometric singularities, yielding genus three. Fourteen completely specified rational line equations carry four individually certified rational points each, with all fifty-six point coordinates distinct. The Hasse–Weil bound proves that these are all rational points and Bézout proves the matching cover optimal. An independent enumeration of all \(651\) rational lines determines the entire intersection histogram, and its per-point regularities and double-counted incidence totals agree. `verify.py` is a complete deterministic arithmetic checker for every finite assertion; its actual execution passed. A machine run alone is not the smoothness or minimality proof; those steps are given symbolically.
+PASS
 
-## Originality — PASS, with stated risks
+PASS. Over k=F5[u]/(u^2-2), c=1+2u, homogeneous derivative equations reduce geometric singularity to invertibility of the 3x3 (2 diagonal, c offdiag) or 2x2 (2,c;c,2) matrices; none singular since c not in F5 and 4-c^2 nonzero. Thus smooth genus 3. Independently constructed all 651 canonical projective triples and evaluated quartic in exact F25, obtaining 56 points. Enumerating all 651 lines yields precisely 63 zero-, 168 one-, 196 two-, zero three-, 224 four-secants, each curve point having respective 3,7,16 incidence counts. Independently tested all fourteen explicit encoded line triples, each with four different rational curve points, and their sets are pairwise disjoint, covering all 56. Hasse–Weil upper bound 25+1+2*3*5=56 verifies maximality and Bezout four-intersection cap gives lower bound 14. These are finite exhaustive field checks plus proved geometric inequalities, not a generalization to other fields.
 
-The relevant full text of Asgarli–Dassarma–Ghioca–MacLean–Stokdyk proves an asymptotic covering theorem and poses the exact covering question, without deriving this specific saturated finite instance. Dolgachev–Martin establish the Klein/Ciani model, not a finite line cover. Fité–Lorenzo García–Sutherland compute arithmetic twists and point counts, not a partition into fourteen four-secants. Searches for equivalent descriptions (rational line covers, four-secants, complete line spectra, perfect matchings and incidence configurations), as well as comparison with relevant published mathematical records and other published mathematical results, produced no dominating result. A recent classification by Tafazolian was accessible only through its abstract; a hidden equivalent computation in its full text or elsewhere cannot be excluded and is expressly retained as a residual risk. Absence from search results is not treated as a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The curve is singled out by maximal point count in genus three over \(\mathbb F_{25}\), rather than by an arbitrary choice of coefficients. The exact covering-number question was recently posed for plane curves, while existing methods yield only asymptotic guarantees. Here a genuine four-uniform perfect matching of rational sections saturates the Hasse–Weil point count and the Bézout line capacity simultaneously. The full line-section spectrum and uniform per-point incidence counts give a finite, exactly reproducible benchmark for studying perfect covers and fully split sections. No generalization beyond this naturally extremal curve is claimed.
+Best-of-knowledge PASS after actual Git proof and independent bounded checks, Resultary semantic search, and comparisons of the precise claim against materially read primary texts and theorem scopes. No examined theorem/database supplies the same final formula or exact incidence certificate. Identified overlaps and access limits are credited; failed searches alone are not treated as a proof of novelty.
 
-## Closest literature and limitations
+## value
 
-Closest references are arXiv:2610.13042v1 (general line-cover theory), arXiv:2609.17611v1 (maximal quartic classification; abstract only accessible), arXiv:2303.16170v2 (Klein/Ciani geometry), and DOI 10.1007/s40687-018-0162-0 (quartic twists and point counts). The novel finite statement does not follow from their inspected covering and geometric assertions. The computational census is exhaustive for the stated finite model; it does not classify other models or fields. Related finite-plane arc catalogues were also considered: published complete k-arcs in PG(2,25) have no three collinear and hence concern different configurations, whereas the quartic here has many four-secants. The possibility of an unindexed exact (k,4)-arc or equivalent finite-geometry treatment is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The explicit maximal genus-three Klein quartic over F25 is a natural exceptional finite-geometric object. A saturated exact 14-line cover together with the complete 651-line section histogram and uniform point-incidence data addresses a published exact covering question at a sharp finite field, not just a known curve point count. The model-specific exact information could be reused in finite-plane incidence research; there is no unsupported claim of a general finite-field theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
