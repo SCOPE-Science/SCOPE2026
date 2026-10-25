@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quotient by squares for a product of \(r\) odd primes is exactly \((\mathbb F_2)^r\). Prime bases give Legendre-bit columns, and composite bases cannot add a new column-space direction. The combined conductor modulus \(M_t\) has precisely uniform Legendre sign patterns by quadratic reciprocity and the Chinese remainder theorem. In the range \(r\log(r+2)\le C\log\log X\), its size is at most a fixed power of \(\log X\), so Siegel--Walfisz controls the entire sign-vector law in total variation even after sampling \(r\) rows. The standard full-rank count then proves the stated formula and growing-rank limit. The proof does not infer an infinite result from the finite tests.
+PASS
 
-## Originality — PASS, subject to the stated risk
+The CRT identifies the unit-group quotient by squares with F_2^r; Legendre symbols give its generator columns. Quadratic reciprocity plus CRT makes the t sign characters independent modulo 8 times the initial odd primes. Under r log(r+2)<=C loglog X, this modulus is bounded by a fixed power of log X; Siegel--Walfisz equidistribution, union over residue classes and conditioning on distinct sampled primes give o(1) total-variation error for the entire r x (r+s) matrix. The exact binary full-row-rank product and its limiting infinite product then follow. Independently checked small exact binary rank probabilities. The limiting mean is for the limiting matrix-law variable only; it does not establish convergence of arithmetic E[J].
 
-Bellotti (arXiv:2610.10177v1, full accessible HTML) studies the full least-generator cutoff and bounds its mean and almost-all size, not the explicit quadratic-quotient cutoff law across prime products. Fulman--Goldstein (arXiv:1211.0504, full readable preprint text) already supplies finite-field random-matrix rank distributions; that input is credited rather than reclaimed. Separate quadratic reciprocity and Siegel--Walfisz statements control characters in progressions, but no inspected source states the resulting growing-rank arithmetic coupling or this cutoff distribution. Searches for Legendre-symbol rank matrices, small-prime generators modulo squares, and squarefree-product character generation revealed no decisive covering theorem. **Residual risk:** the result may be implicit in an earlier unlocated synthesis of classical tools; absence from a search is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first positive-prime cutoff removing all quadratic characters is a necessary and computable component of Bellotti's least-generator problem, not an arbitrary invariant. A complete law, including a sharp nontrivial \(0.288788\ldots\) minimum-rank fraction, a geometric-overshoot tail, and uniform validity while the number of prime factors grows, provides a precise benchmark for later study of higher-order character obstructions. No claim is made about the final \(G(n)\) distribution.
+Best-of-knowledge new quantitative arithmetic-to-random-binary-matrix coupling uniformly for a growing number of prime factors and the resulting natural quadratic-generator cutoff excess distribution. The iid matrix rank formula and quadratic reciprocity/Siegel--Walfisz are classical and explicitly excluded as new. Prior generator-cutoff estimates concern the full group G(n) and do not directly determine this quadratic obstruction law.
 
-## Checks and limitations
+## value
 
-The package contains `verify.py`, which completes 130 exact/finite checks and four prime-sample illustrations. Direct source inspection and published-record searches did not identify a stronger result that implies the complete arithmetic statement. The proof relies on classical prime number theory for the uniform arithmetic step. Independent expert validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full generator cutoff for products of many primes has a natural necessary obstruction from the elementary-two quotient. An explicit growing-rank distribution isolates its information-theoretic threshold and shows a nontrivial limiting excess; the precise law is a reusable quantitative input to generator problems rather than an arbitrary finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

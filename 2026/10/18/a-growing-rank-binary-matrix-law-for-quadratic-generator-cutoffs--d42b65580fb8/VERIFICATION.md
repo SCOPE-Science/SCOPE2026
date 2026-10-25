@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-Unpack `verify.py` beside the manuscript and run `python3 verify.py`. The code uses only exact standard-library integer/fraction arithmetic for its recurrence, binary-matrix counts, character calculations, and small finite unit groups. It checks the exact finite-field matrix rank identity, complete independence of the first five quadratic sign-coordinate maps on their reduced residue rings, and the inequality between the quadratic obstruction cutoff and the full-generator cutoff on eight small squarefree moduli. The last four sample-frequency comparisons use a fixed deterministic pseudorandom seed and are illustrations, not proofs.
+## correctness
 
-Observed execution: `EXACT_CHECKS 130` and final marker `VERIFY_OK`. Four finite sample rates were \(0.36500,0.65820,0.33460,0.62400\), compared against the exact matrix-model rates \(0.37500,0.65625,0.328125,0.615234375\).
+PASS
 
-The analytic step is the standard Siegel--Walfisz theorem uniformly up to a fixed power of \(\log X\). The proof explicitly ensures this conductor bound by the stated restriction on the growth of \(r\). The code does not attempt to certify that theorem or the asymptotic limits by enumeration. No independent review has been performed.
+The CRT identifies the unit-group quotient by squares with F_2^r; Legendre symbols give its generator columns. Quadratic reciprocity plus CRT makes the t sign characters independent modulo 8 times the initial odd primes. Under r log(r+2)<=C loglog X, this modulus is bounded by a fixed power of log X; Siegel--Walfisz equidistribution, union over residue classes and conditioning on distinct sampled primes give o(1) total-variation error for the entire r x (r+s) matrix. The exact binary full-row-rank product and its limiting infinite product then follow. Independently checked small exact binary rank probabilities. The limiting mean is for the limiting matrix-law variable only; it does not establish convergence of arithmetic E[J].
+
+## originality
+
+PASS
+
+Best-of-knowledge new quantitative arithmetic-to-random-binary-matrix coupling uniformly for a growing number of prime factors and the resulting natural quadratic-generator cutoff excess distribution. The iid matrix rank formula and quadratic reciprocity/Siegel--Walfisz are classical and explicitly excluded as new. Prior generator-cutoff estimates concern the full group G(n) and do not directly determine this quadratic obstruction law.
+
+## value
+
+PASS
+
+Full generator cutoff for products of many primes has a natural necessary obstruction from the elementary-two quotient. An explicit growing-rank distribution isolates its information-theoretic threshold and shows a nontrivial limiting excess; the precise law is a reusable quantitative input to generator problems rather than an arbitrary finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
