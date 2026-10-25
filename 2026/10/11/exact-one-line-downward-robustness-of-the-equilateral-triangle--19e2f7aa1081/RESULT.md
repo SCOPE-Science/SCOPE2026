@@ -10,7 +10,7 @@ where \(H\) ranges over closed half-planes for which \(T\cap H\) is two-dimensio
 \[
 \rho_{\mathrm{line}}(T)=\frac{3-\sqrt5}{2}.
 \]
-More precisely, a symmetric cut parallel to one side gives the sharp transition. If its two intersection points lie at the same fraction \(s\) of the adjacent sides, measured from the opposite vertex, then the retained trapezoid has three stable side equilibria for
+More precisely, a symmetric cut parallel to one side gives the sharp transition. If its two intersection points lie at the same fraction \(s\) of the adjacent sides, measured from the opposite vertex, then the retained trapezoid has four nondegenerate stable side equilibria for
 \[
 0<s<\frac{\sqrt5-1}{2},
 \]
@@ -124,18 +124,18 @@ s\ge\frac{\sqrt5-1}{2}.
 Consequently
 \[
 p\ge\left(\frac{\sqrt5-1}{2}\right)^2
-=rac{3-\sqrt5}{2}.
+=\frac{3-\sqrt5}{2}.
 \]
-Equality forces \(t=u=(\sqrt5-1)/2\). At this limiting cut, the base and cut-side projection parameters are \(1/2\), while the two slanted-side parameters are \(1\) and \(0\); hence those two equilibria are degenerate. Taking \(t=u\) slightly larger produces exactly two nondegenerate stable side equilibria and removed fraction tending down to the displayed threshold.
+Equality forces \(t=u=(\sqrt5-1)/2\). At this limiting cut, the base and cut-side projection parameters are \(1/2\), while the two slanted-side parameters are \(1\) and \(0\); hence those two equilibria are degenerate. For \(0<t=u<s\), where \(s=(\sqrt5-1)/2\), the base and cut-side projections stay at their midpoints and both slanted-side projections lie in their relative interiors; hence there are four nondegenerate stable equilibria. Taking \(t=u\) slightly larger than \(s\) produces exactly two nondegenerate stable side equilibria and removed fraction tending down to the displayed threshold.
 
 For completeness, consider retaining the cap triangle \(APQ\). Its three side projection parameters are
 \[
 \lambda_{PQ}=
 \frac{4t^2-3tu+2u^2}{6(t^2-tu+u^2)},
 \qquad
-\lambda_{QA}=rac{4u-t}{6u},
+\lambda_{QA}=\frac{4u-t}{6u},
 \qquad
-\lambda_{AP}=rac{2t+u}{6t}.
+\lambda_{AP}=\frac{2t+u}{6t}.
 \]
 The first always lies in \((0,1)\). A second side fails only if \(t\ge4u\) or \(u\ge4t\). In either case \(tu<1/4\), so the discarded complementary area fraction \(1-tu\) exceeds \(3/4\), which is larger than \((3-\sqrt5)/2\). Thus no triangle-retaining cut improves the quadrilateral threshold, completing the proof.
 
