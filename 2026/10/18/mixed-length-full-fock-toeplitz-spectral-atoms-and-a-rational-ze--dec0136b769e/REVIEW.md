@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Unique prefix-free stripping of the codewords \(1\) and \(22\) partitions every finite compression exactly into finite rooted trees, including the short residual-word boundary terms. Exact counts, a rational generating function, and summable geometric tails prove total-variation convergence and normalization. Matching recursions identify the periodic nullity, giving the exact zero atom. Direct finite matrices confirmed the block spectra for \(d=2,3\); finite tests were not used in place of the proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Jury–Memana (arXiv:2608.17859v1), §3, obtain general weak convergence and compute pure-point laws for powers of one creation operator and equal-length homogeneous-word sums. Their reduction preserves word length; it does not determine the mixed-length \(\{1,22\}\) components or zero atom. The same source expressly leaves more complicated multi-word symbols for future investigation. DeFord–Rockmore concern finite homogeneous rooted trees; Salez concerns spectra of unimodular random trees, neither specifies Fock letter-length compression with mixed codewords. Current research-record comparisons returned no covering formula; aliases, possible reductions and general graph results remain residual literature risks.
+PASS
 
-**Mathematical value — PASS.** The motivating general convergence theorem does not calculate this natural first mixed-length symbol. The complete finite-section spectral law, convergence stronger than weak convergence, and exact nontrivial rational zero atom resolve a structural finite-volume problem, not a numerical experiment or a reparametrization. The incomplete prefix-code condition makes the finite-component mechanism explicit and furnishes a model for longer heterogeneous code sets.
+For code {1,22}, prefix-freeness gives unique residual suffix under stripping leading codewords. Each compression graph decomposes EXACTLY into finite rooted branching trees T_h with remaining letter-length budget h; residual-word counts are 1,d−1,c d^{ell−2} (c=d²−d−1>0), giving A_N⊕(d−1)A_{N−1}⊕Σ_{h≤N−2}c d^{N−h−2} A_h. Tree sizes obey a_h=1+a_{h−1}+a_{h−2} with growth φ<d; thus unnormalized eigenvalue-counting component measures are absolutely summable with weights d^{-h}, and normalized limit converges in total variation to c(d−1)d^{-3}Σ d^{-h}η_h. Independently checked exact dimensions for N=2..7, d=2,3,4, tree sizes and maximum matching nullity h=0..12. Root-matching recurrence has period three and z_h=1 iff 3|h, giving exact zero mass (d−1)c/(d³−1), 1/7 at d=2. Trace(A_h²)=2(a_h−1) gives second moment 2/d+2/d². No extrapolation to generic multi-Toeplitz symbols.
 
-The theorem does not classify nonzero atoms or all mixed-length symbols. Independent external mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after new searches and claim-vs-prior comparisons, subject to explicitly listed source access and priority risks. The specific mixed-prefix total-variation law and zero atom are not consequences of a weak-limit theorem; full precursor unavailable, so this is explicitly provisional best-of-knowledge.
+
+## value
+
+PASS
+
+The mixed one-letter/two-letter prefix-code symbol is a natural first nonhomogeneous Fock Toeplitz example. The full TV-atomic law, rational zero atom and second moment answer a mathematically motivated spectral question beyond general weak-existence and homogeneous-chain examples; a researcher can use these exact values as a test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
