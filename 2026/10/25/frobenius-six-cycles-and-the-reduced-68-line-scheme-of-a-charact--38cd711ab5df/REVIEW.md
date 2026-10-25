@@ -1,0 +1,15 @@
+# Scientific review of the 68-line Frobenius splitting theorem
+
+## Correctness — PASS
+
+The theorem's exact domain is the displayed characteristic-two quartic over \(\mathbb F_2\). The published family classification and sharp \(68\)-line upper bound are supplied by Rams–Schütt (arXiv:1512.01358, Remark 2.3) and Veniani (arXiv:1606.02135, Theorem 1.1 and Section 6). A projective Jacobian calculation independently identifies the unique surface singularity's support; Veniani supplies its \(A_3\) type. The included `lines.txt` gives \(68\) distinct reduced-row-echelon lines over \(\mathbb F_{64}\). The standalone exact checker confirms all five quartic-restriction coefficients for each line and the full-rank Grassmannian Jacobian at each line. Combined with Veniani's geometric upper bound, the \(68\) points are exhaustive over an algebraic closure and the scheme is finite étale. Squaring the coefficients yields cycles \(1^4 2^2 3^2 6^9\), and direct factorization of the plane section verifies the cuspidal-line subaction. An independent C++ Grassmannian census yields the same ordered list of \(68\). Main mathematical dependency: the published geometric bound, not finite enumeration alone.
+
+## Originality — PASS, qualified
+
+Rams–Schütt first exhibited the high-line family and Veniani determined the geometric sharp upper bound and the four cuspidal plane lines. The assessed theorem does **not** claim those discoveries. Inspection of their relevant full-text sections, targeted bibliographic searches, and semantic mathematical-record comparisons did not yield the model-specific prime-field Frobenius cycle decomposition or a proof of reducedness of the entire line scheme. Their results imply only the geometric count, not the lengths of Frobenius orbits or infinitesimal rigidity without additional work. In particular the genus-one fibration geometry cannot itself be substituted for a field-of-definition computation. A recent study of triangular configurations explicitly concerns complex quartics and does not cover this characteristic-two arithmetic problem. Risks: specialized computational archives, historical notes and unindexed machine output may have recorded the same splitting; the search is not a uniqueness proof.
+
+## Mathematical value — PASS
+
+The exceptional \(68\)-line singular K3 quartic is extremal in characteristic two; the arithmetic field of definition and scheme structure of its entire line configuration are natural intrinsic invariants, not arbitrary samples. The finding shows that every geometric line descends already to \(\mathbb F_{64}\), that nine six-cycles genuinely require a degree-six extension, and that the Fano scheme is reduced even though the ambient quartic has an \(A_3\) singularity. The complete cycle data determine rational-line counts over all extensions and the exact line-scheme zeta function. This is a meaningful arithmetic refinement of the classical geometric theorem, with direct reproducibility and clear boundaries, although it does not imply a theorem about the entire K3 surface's zeta function.
+
+Self-review: passed. Independent audit: not yet performed.
