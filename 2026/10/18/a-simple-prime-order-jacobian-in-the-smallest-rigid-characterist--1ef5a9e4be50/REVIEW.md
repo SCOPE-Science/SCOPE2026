@@ -1,19 +1,21 @@
-# Review: arithmetic of a rigid characteristic-five Artin–Schreier curve
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The curve \(y^5-y=x^4+x^2+x\) has a unique pole of order \(4\), giving genus \(6\) and exactly one rational place at infinity. Exhaustive arithmetic in explicit irreducible polynomial models of the fields \(\mathbb F_{5^n}\), for \(1\le n\le6\), independently counts fibres of the Artin–Schreier map and trace-zero inputs; their agreement yields point counts \(6,6,156,646,3501,15576\). Newton's identities and the genus-six functional equation uniquely yield the stated degree-twelve zeta numerator. The supplied program proves its reduction modulo \(2\) irreducible by a full finite-field polynomial criterion, and verifies that its value at \(1\) is the prime \(11731\). Simplicity is claimed only over \(\mathbb F_5\). The package's full executable was checked, not merely its recorded output.
+PASS
 
-## Originality — PASS, with residual risk
+For y^5-y=x^4+x²+x over F5 the sole pole at infinity has order 4, so Riemann–Hurwitz gives genus six, Deuring–Shafarevich gives 5-rank zero, and there is exactly one rational point above infinity. Counting trace-zero values independently over F_(5^n), n=1..6, yields N=(6,6,156,646,3501,15576), matching package values; for n=2 N2=N1=6, hence no degree-two closed places. Newton power sums S=(0,20,-30,-20,-375,50), Newton identities and Weil functional equation yield full L=(1,0,-10,10,55,-25,-175,-125,1375,1250,-6250,0,15625). Reduction mod 2 is T^12+T^8+T^7+T^6+T^5+T^4+1; Rabin tests at 2^12, 2^6 and 2^4 certify irreducibility, so Frobenius char polynomial is irreducible and Jacobian is simple over F5. L(1)=11731 and trial division to sqrt(11731) proves this prime, hence J(F5) cyclic of prime order. Direct finite counts are enough for all coefficients only because genus six and functional equation, not by extrapolation; geometric simplicity is not asserted.
 
-Tafazolian–Kazemifard, arXiv:2610.13279, supply the model and prove genus, rank and geometric automorphism-group rigidity; the inspected manuscript does not report a zeta polynomial, Jacobian order, or simplicity. The zeta-function theorems of Bouw–Ho–Malmskog–Scheidler–Srinivasan–Vincent (arXiv:1410.7031) and McGuire–Yılmaz (DOI:10.1016/j.jpaa.2018.11.005) cover different Artin–Schreier equations of degree \(5^h+1\), not this quartic equation; the general theory does not imply the exact numerator without arithmetic computation. Published mathematical searches and comparisons with preexisting mathematical claims identified no equivalent calculation. The precise isogeny-class-table search could not be inspected completely, and unindexed arithmetic computations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The curve is not an arbitrary small-field example: it is the smallest characteristic-five genus in the newly identified zero-rank, no-extra-automorphism stratum. Its complete Weil polynomial determines all extension-field point counts; its irreducibility and prime order give concrete Jacobian arithmetic unavailable from the published geometric classification. The result makes no general-family claim, no claim of geometric simplicity, and no claim to determine the endomorphism ring.
+The identical curve appears in Tafazolian–Kazemifard Lemma 3.3 as a first possible 5-rank-zero genus with no extra geometric automorphisms; that paper supplies the model but not its complete zeta polynomial, simple Frobenius polynomial or prime-order rational Jacobian. Bouw et al and McGuire–Yılmaz study additive-polynomial covers y^p-y=xR(x) or x^(p^k+1)+ax, which over p=5 have degrees 2,6,26,..., unlike x^4+x²+x. No direct exact model match was identified in Resultary. Unread fine-grained abelian-isogeny database coverage remains a caveat.
 
-## Closest sources and limitations
+## value
 
-The principal comparison is arXiv:2610.13279, Lemma 3.3 and Theorem 1.1. Adjacent general zeta formulas from arXiv:1410.7031 and DOI:10.1016/j.jpaa.2018.11.005 do not specialize to degree four in characteristic five. A database query remained inaccessible, so overlap risk is not asserted to be zero. The executable certifies the exact finite computations; it is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A naturally singled-out smallest rigid characteristic-five rank-zero Artin–Schreier example has concrete complete arithmetic: all extension counts from a degree-twelve Weil polynomial, base-field simplicity and a prime-order rational Jacobian. This answers a motivated exact-invariant question arising from the new geometric classification, not an arbitrary small numerical instance, even without a general-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

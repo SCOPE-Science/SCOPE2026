@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The executable `verify.py` uses only the Python 3 standard library. It first verifies that the five degree-\(2\) through degree-\(6\) polynomial moduli are irreducible over \(\mathbb F_5\), by trial division against every monic polynomial of degree at most half the target degree.
+# Independent mathematical audit
 
-For each extension degree \(1\le n\le6\), the code enumerates all \(5^n\) field elements, both as possible \(y\)-coordinates of \(y^5-y\) and as possible \(x\)-coordinates of \(x^4+x^2+x\). Separately, it computes the absolute trace on basis elements and the trace-zero histogram. Both methods reproduce the same six rational-point counts; the unique point at infinity is included.
+## correctness
 
-Newton's identities and the genus-six functional equation reconstruct the complete zeta numerator. Independent binary polynomial arithmetic performs the degree-\(12\) irreducibility criterion modulo \(2\), and integer trial division establishes that the Jacobian point count \(11731\) is prime. The final output is `VERIFY_OK`; the actual output is preserved in `certificate.txt`.
+PASS
 
-This is an exact finite certificate for a specified genus-six curve, not an asymptotic test, nor a proof of a family-wide statement. It does not certify geometric simplicity or any independent external audit.
+For y^5-y=x^4+x²+x over F5 the sole pole at infinity has order 4, so Riemann–Hurwitz gives genus six, Deuring–Shafarevich gives 5-rank zero, and there is exactly one rational point above infinity. Counting trace-zero values independently over F_(5^n), n=1..6, yields N=(6,6,156,646,3501,15576), matching package values; for n=2 N2=N1=6, hence no degree-two closed places. Newton power sums S=(0,20,-30,-20,-375,50), Newton identities and Weil functional equation yield full L=(1,0,-10,10,55,-25,-175,-125,1375,1250,-6250,0,15625). Reduction mod 2 is T^12+T^8+T^7+T^6+T^5+T^4+1; Rabin tests at 2^12, 2^6 and 2^4 certify irreducibility, so Frobenius char polynomial is irreducible and Jacobian is simple over F5. L(1)=11731 and trial division to sqrt(11731) proves this prime, hence J(F5) cyclic of prime order. Direct finite counts are enough for all coefficients only because genus six and functional equation, not by extrapolation; geometric simplicity is not asserted.
+
+## originality
+
+PASS
+
+The identical curve appears in Tafazolian–Kazemifard Lemma 3.3 as a first possible 5-rank-zero genus with no extra geometric automorphisms; that paper supplies the model but not its complete zeta polynomial, simple Frobenius polynomial or prime-order rational Jacobian. Bouw et al and McGuire–Yılmaz study additive-polynomial covers y^p-y=xR(x) or x^(p^k+1)+ax, which over p=5 have degrees 2,6,26,..., unlike x^4+x²+x. No direct exact model match was identified in Resultary. Unread fine-grained abelian-isogeny database coverage remains a caveat.
+
+## value
+
+PASS
+
+A naturally singled-out smallest rigid characteristic-five rank-zero Artin–Schreier example has concrete complete arithmetic: all extension counts from a degree-twelve Weil polynomial, base-field simplicity and a prime-order rational Jacobian. This answers a motivated exact-invariant question arising from the new geometric classification, not an arbitrary small numerical instance, even without a general-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

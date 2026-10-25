@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:12:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/a-simple-prime-order-jacobian-in-the-smallest-rigid-characterist--1ef5a9e4be50/RESULT.md (blob f658fda6a06b9b22de4e3e04c889a5c4c477d0bc)",
+        "2026/10/18/a-simple-prime-order-jacobian-in-the-smallest-rigid-characterist--1ef5a9e4be50/verify.py (or dedicated verification source)",
+        "/mnt/data/scope_worker_08_20261023T1254_delivery/independent_checks_output.txt"
+      ],
+      "rationale": "For y^5-y=x^4+x²+x over F5 the sole pole at infinity has order 4, so Riemann–Hurwitz gives genus six, Deuring–Shafarevich gives 5-rank zero, and there is exactly one rational point above infinity. Counting trace-zero values independently over F_(5^n), n=1..6, yields N=(6,6,156,646,3501,15576), matching package values; for n=2 N2=N1=6, hence no degree-two closed places. Newton power sums S=(0,20,-30,-20,-375,50), Newton identities and Weil functional equation yield full L=(1,0,-10,10,55,-25,-175,-125,1375,1250,-6250,0,15625). Reduction mod 2 is T^12+T^8+T^7+T^6+T^5+T^4+1; Rabin tests at 2^12, 2^6 and 2^4 certify irreducibility, so Frobenius char polynomial is irreducible and Jacobian is simple over F5. L(1)=11731 and trial division to sqrt(11731) proves this prime, hence J(F5) cyclic of prime order. Direct finite counts are enough for all coefficients only because genus six and functional equation, not by extrapolation; geometric simplicity is not asserted.",
+      "residual_risks": [
+        "Finite independent tests corroborate only tested parameters; universal argument is from source proof and standard theorem applications."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Additive polynomial R(x) requires degrees of xR(x) equal to 5^h+1 over F5, i.e., 2,6,26,..., not 4.",
+          "McGuire–Yılmaz explicitly takes exponent p^k+1, not quartic degree four at p=5."
+        ],
+        "reasoning": "The previously proved general-family L-polynomial results require exponent structures not satisfied by this polynomial, so they cannot be specialized mechanically to produce the asserted coefficients.",
+        "searches": [
+          "Bouw et al arxiv:1410.7031",
+          "McGuire–Yılmaz DOI:10.1016/j.jpaa.2018.11.005",
+          "Artin Schreier curve y^5-y=x^4+x^2+x over F5 zeta Jacobian 11731 prime order"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md, verify.py blob 4875a7d58990a8fee05de4c2859ebe2d84131ed0, certificate.txt blob d7082551fc26a629293422d4dd946f757612fab4",
+        "Tafazolian–Kazemifard arxiv:2610.13279v1 full HTML Lemma 3.3 and Theorem 1.1",
+        "Bouw et al arxiv:1410.7031 abstract/curve family",
+        "McGuire–Yılmaz DOI:10.1016/j.jpaa.2018.11.005 abstract/exponent family",
+        "Resultary search: Artin Schreier curve y^5-y=x^4+x^2+x over F5 zeta Jacobian 11731 prime order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Automorphism rigidity and genus/5-rank in source do not determine its Frobenius polynomial.",
+          "Two general zeta calculations impose additive exponents inconsistent with degree 4 in char 5."
+        ],
+        "reasoning": "The proposed exact numerator and prime order need genuinely new point counting on this chosen curve; they are not restatements or direct corollaries of available antecedents.",
+        "searches": [
+          "arxiv:2610.13279 Lemma 3.3 and Theorem 1.1",
+          "arxiv:1410.7031",
+          "DOI:10.1016/j.jpaa.2018.11.005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weil numerator and reciprocal characteristic polynomial determine the same Frobenius isogeny class.",
+          "Originating paper explicitly selects identical curve as rigid minimal example, but supplies neither its zeta function nor prime #J."
+        ],
+        "reasoning": "The exact equation plus Frobenius/Jacobian order aliases were searched, separating already-known model from newly computed invariants.",
+        "searches": [
+          "Artin Schreier curve y^5-y=x^4+x^2+x over F5 zeta Jacobian 11731 prime order",
+          "arxiv:2610.13279 Lemma 3.3 curve x^4+x^2+x",
+          "F5 genus6 p-rank zero Jacobian Frobenius 11731 prime number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact Weil numerator was located in queried semantic mathematical records or inspected primary paper.",
+          "The fine-grained relevant isogeny database could not be inspected exhaustively."
+        ],
+        "reasoning": "A tabulated F5-isogeny class might contain the polynomial even without the curve equation; this comparison remains a specific residual risk, not proof of novelty.",
+        "searches": [
+          "Artin Schreier curve y^5-y=x^4+x^2+x over F5 zeta Jacobian 11731 prime order",
+          "LMFDB F5 abelian variety isogeny class dimension 6 order 11731",
+          "Artin Schreier quartic F5 Jacobian 11731",
+          "Resultary exact zeta Artin Schreier F5 11731"
+        ]
+      },
+      "rationale": "The identical curve appears in Tafazolian–Kazemifard Lemma 3.3 as a first possible 5-rank-zero genus with no extra geometric automorphisms; that paper supplies the model but not its complete zeta polynomial, simple Frobenius polynomial or prime-order rational Jacobian. Bouw et al and McGuire–Yılmaz study additive-polynomial covers y^p-y=xR(x) or x^(p^k+1)+ax, which over p=5 have degrees 2,6,26,..., unlike x^4+x²+x. No direct exact model match was identified in Resultary. Unread fine-grained abelian-isogeny database coverage remains a caveat.",
+      "residual_risks": [
+        "A detailed F5 abelian-variety isogeny-class table could already tabulate this polynomial, but complete data were unavailable.",
+        "Simplicity over F5 does not establish absolute/geometric simplicity.",
+        "Primality of J(F5) order is a consequence of the exact computed numerator, not a new method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes genus/rank/automorphism group and selects curve, but not its L-polynomial, rational Jacobian cardinality or simplicity",
+          "evidence": "arxiv:2610.13279v1 Lemma 3.3, Theorem 1.1, Section 7",
+          "identifier_or_url": "https://arxiv.org/html/2610.13279v1",
+          "material_read": "Full primary HTML, Lemma 3.3, Theorem 1.1 and concluding arithmetic questions",
+          "method": "read source and checked equation/claimed invariants",
+          "title": "Artin–Schreier Curves of Prescribed p-Rank Without Extra Automorphisms",
+          "trigger": "same exact quartic source curve"
+        },
+        {
+          "assessment": "The degree-four polynomial is not xR(x) for additive R in char5; no direct inclusion established",
+          "evidence": "arxiv:1410.7031 stated curve family",
+          "identifier_or_url": "https://arxiv.org/abs/1410.7031",
+          "material_read": "Abstract and family description y^p-y=xR(x), R additive",
+          "method": "arxiv abstract and family hypothesis",
+          "title": "Zeta functions of a class of Artin–Schreier curves with many automorphisms",
+          "trigger": "possible general exact-zeta formula"
+        },
+        {
+          "assessment": "Its exponent restriction excludes degree four in characteristic five",
+          "evidence": "McGuire–Yılmaz 2019, DOI:10.1016/j.jpaa.2018.11.005",
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2018.11.005",
+          "material_read": "Abstract and exponent family y^p-y=x^(p^k+1)+ax",
+          "method": "publisher/DOI abstract",
+          "title": "Divisibility of L-polynomials for a family of Artin–Schreier curves",
+          "trigger": "possible Frobenius formula covering quartic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md, verify.py blob 4875a7d58990a8fee05de4c2859ebe2d84131ed0, certificate.txt blob d7082551fc26a629293422d4dd946f757612fab4",
+        "Tafazolian–Kazemifard arxiv:2610.13279v1 full HTML Lemma 3.3 and Theorem 1.1",
+        "Bouw et al arxiv:1410.7031 abstract/curve family",
+        "McGuire–Yılmaz DOI:10.1016/j.jpaa.2018.11.005 abstract/exponent family",
+        "Resultary search: Artin Schreier curve y^5-y=x^4+x^2+x over F5 zeta Jacobian 11731 prime order"
+      ],
+      "rationale": "A naturally singled-out smallest rigid characteristic-five rank-zero Artin–Schreier example has concrete complete arithmetic: all extension counts from a degree-twelve Weil polynomial, base-field simplicity and a prime-order rational Jacobian. This answers a motivated exact-invariant question arising from the new geometric classification, not an arbitrary small numerical instance, even without a general-family theorem.",
+      "residual_risks": [
+        "A detailed F5 abelian-variety isogeny-class table could already tabulate this polynomial, but complete data were unavailable."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
