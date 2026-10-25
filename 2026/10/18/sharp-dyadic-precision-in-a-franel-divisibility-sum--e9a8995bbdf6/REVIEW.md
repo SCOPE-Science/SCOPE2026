@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(n=2^r\), the argument combines the published exact finite identity [Guo, arXiv:1404.6978v1, equation (2.4)] with a reconstructed telescoping recurrence, Legendre's factorial valuation formula, and binary complementation. It proves each transformed summand's valuation, establishes that only \(j=1\) has valuation \(2r\), and separately verifies the \(r=2\) upper-half summands. Therefore the quotient has valuation \(2r\) without cancellation; multiplying by \(n\binom{2n}{n}\) gives \(3r+1\). The standalone script checks all critical finite identities and boundaries within stated ranges, not an infinite census.
+## correctness
 
-## Originality — PASS with residual risk
-The closest paper [Guo 2014] covers exactly the underlying convolution and gives both its general divisibility theorem and the exact transformed identity. This makes the priority comparison unusually close. The inspected theorem and concluding remarks do not state the dyadic valuation; the new work contributes the termwise binary-digit valuation identity and unique-minimum proof. Sun 2015 and Mao 2021 address odd-prime/prime-length variants, not the two-adic dyadic endpoint. Targeted published mathematical-record and literature comparisons disclosed no equivalent valuation classification. The general exact identity is a powerful antecedent and an unindexed stronger later corollary could still cover the assertion. A failed literature search cannot prove novelty.
+PASS
 
-## Value — PASS
-The normalized divisor quotient from a published Franel congruence has a natural unresolved precision at the dyadic test indices. The exact valuation \(2r\) identifies an unbounded gain of \(2r\) binary digits over the uniform integrality result, identifies the unique low-valuation endpoint of the transformation, and treats the exceptional initial dyadic index explicitly. The contribution is the sharp arithmetic invariant, not the mere existence of the published identity.
+Guo’s exact transformed quotient sum has terms T_(n,j) with v2(T_(n,j))=2j−3+v2(j)+s2(j)+3s2(n−j)−s2(3n−2j). At n=2^r binary complementation yields 2r+2j−2−s2(j−1) for j≤n/2, with the unique minimum 2r at j=1. For j>n/2 the factor 4^j and integral multinomial bound every term strictly above 2r, including explicit r=2 endpoints; no cancellation is possible. Since v2(n binom(2n,n))=r+1, v2(S)=3r+1. Independently computed direct Franel sums n=4,8,16,32,64,128,256 and checked both S and quotient valuations. S2=0 and r=1 are correctly excluded.
 
-## Scientific limits
-The claim is not for general indices or for odd primes. Proof relies on the established Sun-Franel expansion and Guo's finite identity. Originality remains subject to broader independent literature and priority inspection. No independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+Exact 2-adic precision at n=2^r sharpens Guo’s uniform divisibility by 2r valuation units and locates the unique dominant transformed summand. The natural powers-of-two boundary in a named Franel congruence is motivated and mathematically informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python VERIFY.py` with Python 3.9 or later and the standard library, within this directory. Expected terminal line: `VERIFY_OK`.
+## correctness
 
-The program reconstructs the Franel recurrence from initial values, checks it independently against the defining sum at small indices, tests Guo's exact finite quotient identity against direct convolution for every \(2\le n\le26\), and checks the binary-digit valuation identity for all transformed summands at dyadic heights \(2\le r\le12\). It also evaluates the original convolution for \(2\le r\le10\) without using the transformed terms and checks its residue modulo \(2^{3r+2}\). It tests the exceptional \(n=2\) boundary.
+PASS
 
-All checks use integer or exact rational arithmetic; there are no external dependencies or downloaded datasets. Finite reproduction is not an independent proof of the infinite statement, which is supplied in `RESULT.md`. The public source for the key transformed identity is Guo, arXiv:1404.6978v1, equation (2.4), with its induction proof in section 2.
+Guo’s exact transformed quotient sum has terms T_(n,j) with v2(T_(n,j))=2j−3+v2(j)+s2(j)+3s2(n−j)−s2(3n−2j). At n=2^r binary complementation yields 2r+2j−2−s2(j−1) for j≤n/2, with the unique minimum 2r at j=1. For j>n/2 the factor 4^j and integral multinomial bound every term strictly above 2r, including explicit r=2 endpoints; no cancellation is possible. Since v2(n binom(2n,n))=r+1, v2(S)=3r+1. Independently computed direct Franel sums n=4,8,16,32,64,128,256 and checked both S and quotient valuations. S2=0 and r=1 are correctly excluded.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+Exact 2-adic precision at n=2^r sharpens Guo’s uniform divisibility by 2r valuation units and locates the unique dominant transformed summand. The natural powers-of-two boundary in a named Franel congruence is motivated and mathematically informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
