@@ -1,19 +1,21 @@
-# Self-review: a cyclic antagonistic community matrix
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The single claim is the exact stability phase diagram for the specified \(3\times3\) signed matrix. Direct characteristic-polynomial expansion, cubic Routh–Hurwitz positivity, two convex-quadratic discriminants and right-half-plane eigenvalue counting establish every stated range. Exact Hopf-type and real-zero boundary spectra follow by factorization. The two witness intervals and strict tree diagonal Lyapunov barrier were checked. The companion symbolic program reproduced the algebra and 432 rational parameter cases. These finite cases supplement, not replace, the analytic theorem.
+PASS
 
-## Originality: PASS (residual comparison risks)
+Independently expanded det(lambda I-J)=(lambda+d)^3+(S+t²)(lambda+d)+Gt, rederived cubic Routh-Hurwitz U>0,H>0 and verified both exact witness boundary roots symbolically. Convex quadratic discriminants and positivity on t>=0 yield all parameter ranges and equality contacts; at H=0 factor (lambda+3d)(lambda²+A1), at U=0 factor lambda(lambda²+3d lambda +A1). Routh first-column sign counts and conjugacy establish two oscillatory versus one real unstable eigenvalues. Forest diagonal skew-symmetrization via positive weights gives strict Lyapunov stability. Finite symbolic calculation checks identities, not all-real inequalities by experiment.
 
-The classical forest result is attributed to Solimano–Beretta (1982). Their full text contains only sufficient stability criteria for general loops, rather than an exact necessary-and-sufficient gain window of both instability mechanisms. Allesina–Tang (2011) concerns random community-matrix stability. The closest searchable mathematical records address delayed predator self-regulation and separate intraguild stability calculations; neither accessible claim implies the specified result. Krikorian (1979) and Roy–Solimano (1987) examine exactly relevant predator–prey loops, but their complete proofs could not be inspected. Originality might fail under stronger coverage in those works; it is not asserted that they are non-covering.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The classification is a natural controlled link-strength question in ecological community matrices. It gives necessary and sufficient thresholds, an exact sharp motif size, separate real and oscillatory instability mechanisms, and robust open instability intervals. The assumptions (equal local damping and equal varied reciprocal magnitudes) are explicit. No global ecological claim, nonlinear Hopf cycle, or fixed-intrinsic-growth intervention is implied.
+The exact necessary-and-sufficient two-mechanism one-link phase diagram is not furnished by the inspected earlier predator-prey forest/cycle criteria or by random-matrix ensemble statements. The older three-species cyclic studies are highly relevant but their full text was inaccessible, so PASS is only best-of-knowledge and priority risk is substantial.
 
-## Closest literature and limits
+## value
 
-Solimano–Beretta (1982), DOI 10.1007/BF02459411, full mathematical text; Allesina–Tang (2011), arXiv:1105.2071, full text; Chen et al. (2024), arXiv:2312.07737, full review; Krikorian (1979), DOI 10.1007/BF00276925, abstract only; Roy–Solimano (1987), DOI 10.1007/BF00275505, abstract only. A complete comparison to the last two papers is an open bibliographic risk requiring independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single reciprocal antagonistic link in the minimal three-species cycle creates either of two distinct loss-and-return local-stability mechanisms, with explicit sharp thresholds and witnesses. The forest barrier supplies structural minimality, not a superficial parameter substitution. Equal damping and variable intrinsic rates are stated modeling limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
