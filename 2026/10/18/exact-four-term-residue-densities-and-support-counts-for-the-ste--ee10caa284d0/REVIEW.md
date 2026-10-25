@@ -1,13 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditional on a fixed trailing-binary-run valuation, the Stern pair is the unimodular image of a uniformly distributed primitive pair, and the geometric tail is uniformly negligible. The even/odd four-term identities give both congruence branches exactly. Their intersection is a single attainable quadruple for each primitive initial pair; the local prime-power support sum is a finite valuation partition. Exact arithmetic checks verify finite boundary cases and mass normalization. Infinite scope follows analytically from published pair equidistribution and elementary congruences.
+## correctness
 
-## Originality
-PASS, with stated uncertainty. Reznick's 2006 Theorem 4.7 and Deshouillers–Schinzel's 2019 Theorem 1.1 provide uniform primitive pair distribution, not the explicit four-term conditional mass or complete support enumeration. Existing exact three-term laws are shorter marginals, which do not determine the four-term coupling. Relevant textual, mathematical-results, and own-claim checks uncovered no identical four-coordinate formula or multiplicative support count. The broad dyadic identities in Reznick supply useful machinery but not this full arithmetic classification. A prior unindexed derivation remains possible.
+PASS
 
-## Value
-PASS. The result gives the first nontrivial two-extra-coordinate joint law beyond primitive pairs, including arithmetic conditions for positivity and the exact number of admissible four-term residue patterns for every modulus. The branch-intersection correction and CRT-local census explain why longer Stern blocks have constrained residue support. The count is a natural invariant of modular block complexity rather than an arbitrary numerical slice.
+Starting from Stern recurrence and the published uniform distribution of primitive pairs modulo m, conditioning on h=v2(t+1) gives a unimodular transform and geometric frequency 2^{-(h+1)}; the tail mass <=2^{-H} justifies natural density, not merely dyadic density. Direct even/odd four-term formulas imply the two congruence K_m branches. The branch overlap is one primitive quadruple (a,b,b-a,-a). A(m)=sum over primitive (a,b) of m/gcd(2b,m), multiplicative by CRT; splitting v_p(b) proves the odd and 2-power formulas, including 0 and m=2. Independent exact residue enumeration for m=2..12 matched S=2A-J2, giving 3,32,28,184,96,256 at 2,3,4,5,6,8. Tests finite; proof relies on Reznick/Deshouillers-Schinzel pair equidistribution for all m.
 
-## Independent status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge for complete four-term joint density and full-support arithmetic. Reznick Theorem 4.7 and Deshouillers–Schinzel Theorem 1.1 determine primitive PAIR frequencies, not the two additional overlapping terms, their geometric correlations and branch-intersection correction. Automaton frameworks could in principle compute four-state laws, but no inspected theorem directly supplies exact K_m or S(m).
+
+## value
+
+PASS
+
+Four-block support/density is a natural finer modular-complexity invariant of the Stern diatomic sequence: it goes beyond a pair marginal, yields positive probability support for every m and a multiplicative closed arithmetic count, and is useful for longer-block automata comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

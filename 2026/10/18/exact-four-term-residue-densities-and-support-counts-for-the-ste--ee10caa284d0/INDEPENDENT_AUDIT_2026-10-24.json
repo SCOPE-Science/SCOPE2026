@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T11:53:41.058132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from Stern recurrence and the published uniform distribution of primitive pairs modulo m, conditioning on h=v2(t+1) gives a unimodular transform and geometric frequency 2^{-(h+1)}; the tail mass <=2^{-H} justifies natural density, not merely dyadic density. Direct even/odd four-term formulas imply the two congruence K_m branches. The branch overlap is one primitive quadruple (a,b,b-a,-a). A(m)=sum over primitive (a,b) of m/gcd(2b,m), multiplicative by CRT; splitting v_p(b) proves the odd and 2-power formulas, including 0 and m=2. Independent exact residue enumeration for m=2..12 matched S=2A-J2, giving 3,32,28,184,96,256 at 2,3,4,5,6,8. Tests finite; proof relies on Reznick/Deshouillers-Schinzel pair equidistribution for all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General modular automata framework may derive any fixed block distribution in principle."
+        ],
+        "reasoning": "The specific four-term densities and multiplicative support arithmetic are not explicit corollaries of the pair theorem without the new derivation.",
+        "searches": [
+          "DOI:10.4064/bc118-3 Theorem 1.1",
+          "arXiv:math/0610601v1 Theorem 4.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0610601v1",
+        "DOI:10.4064/bc118-3",
+        "Resultary semantic query: Resultary: Stern diatomic sequence four consecutive terms modulo m residue distribution natural density primitive pairs block frequency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each prior theorem fixes the distribution of (s(n),s(n+1)); there is no conditional h mod m law in their theorem statements."
+        ],
+        "reasoning": "The new theorem uses pair uniformity as a premise and proves an additional conditional distribution, branch intersection and CRT support count.",
+        "searches": [
+          "Reznick 2006 Theorem 4.7",
+          "Deshouillers–Schinzel 2019 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published pair equidistribution and unimodular transforms, not a four-term law."
+        ],
+        "reasoning": "Conditioning on the trailing-one length adds geometric correlation between the next two coordinates; pair uniformity alone is insufficient.",
+        "searches": [
+          "Resultary: Stern diatomic sequence four consecutive terms modulo m residue distribution natural density primitive pairs block frequency",
+          "arXiv:math/0610601v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Computed S(2..12) exactly from direct primitive-pair branch sets; no matching published support table returned."
+        ],
+        "reasoning": "Any prior automata census for length four could cover these counts but was not located.",
+        "searches": [
+          "Resultary Stern four consecutive terms density",
+          "Web Stern four consecutive terms density modulo m"
+        ]
+      },
+      "rationale": "PASS best of knowledge for complete four-term joint density and full-support arithmetic. Reznick Theorem 4.7 and Deshouillers–Schinzel Theorem 1.1 determine primitive PAIR frequencies, not the two additional overlapping terms, their geometric correlations and branch-intersection correction. Automaton frameworks could in principle compute four-state laws, but no inspected theorem directly supplies exact K_m or S(m).",
+      "residual_risks": [
+        "An older unindexed sequence-automata computation might give equivalent four-term frequencies.",
+        "Relies on published primitive-pair density theorem for arbitrary composite modulus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pair-state uniformity with power-saving error; no four-consecutive residue density or support formula.",
+          "evidence": "Theorem 4.7 lines 379–394 establishes natural density over all N.",
+          "identifier_or_url": "arXiv:math/0610601v1",
+          "material_read": "Full arXiv HTML Sections 2–5, especially Theorems 4.6, 4.7 and Cor. 4.8",
+          "method": "https://arxiv.org/html/math/0610601v1",
+          "title": "Bruce Reznick, Regularity properties of the Stern enumeration of the rationals",
+          "trigger": "Primitive Stern-pair distribution and dyadic identities"
+        },
+        {
+          "assessment": "Theorem 1.1 uniform primitive pairs only; four-term branching not stated.",
+          "evidence": "Theorem 1.1 p. 38 states J2(m)^{-1} per primitive pair.",
+          "identifier_or_url": "DOI:10.4064/bc118-3",
+          "material_read": "Official open-access eight-page PDF, theorem 1.1 and automata approach, screenshot p. 2",
+          "method": "https://impan.pl/shop/en/publication/transaction/download/product/113097",
+          "title": "Deshouillers and Schinzel, The modular distribution of Stern’s sequence",
+          "trigger": "Exact primitive-pair theorem required as input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four-block support/density is a natural finer modular-complexity invariant of the Stern diatomic sequence: it goes beyond a pair marginal, yields positive probability support for every m and a multiplicative closed arithmetic count, and is useful for longer-block automata comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older unindexed sequence-automata computation might give equivalent four-term frequencies.",
+    "Relies on published primitive-pair density theorem for arbitrary composite modulus.",
+    "Independent bounded checks supplement but do not replace the mathematical proofs; literature priority remains best of knowledge.",
+    "Lean and independent external expert attestation neither conducted nor asserted."
+  ],
+  "schema_version": 1
+}
