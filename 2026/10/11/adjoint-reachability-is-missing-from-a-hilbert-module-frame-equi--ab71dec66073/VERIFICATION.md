@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,97 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-\mathcal A=\mathbb C\oplus\mathbb C,\qquad
-p=(1,0),\qquad
-q=(0,1),
-\]
-and let
-\[
-\mathcal H=\mathcal A,\qquad
-\mathcal K=\mathcal A p.
-\]
-With the source's left-module convention,
-\[
-\langle x,y\rangle_{\mathcal A}=xy^*.
-\]
+# Independent mathematical audit
 
-Define
-\[
-P(a)=pa.
-\]
-For \(k\in\mathcal K\),
-\[
-\langle Ph,k\rangle_{\mathcal A}
-=
-(ph)k^*
-=
-hk^*
-=
-\langle h,k\rangle_{\mathcal A},
-\]
-so \(P^*\) is the inclusion and
-\[
-P^*P=Q,\qquad Qh=ph.
-\]
+## correctness
 
-For every adjointable \(\mathcal A\)-linear
-\[
-T:\mathcal H\to\mathcal K,
-\]
-\[
-TQh=T(ph)=pT(h)=T(h).
-\]
-Hence
-\[
-\langle T,P\rangle\langle P,T\rangle
-=
-TP^*PT^*
-=
-TQT^*
-=
-TT^*
-=
-\langle T,T\rangle.
-\]
-This verifies the Parseval operator-module frame identity exactly.
+PASS
 
-At
-\[
-q=(0,1)
-\]
-one has
-\[
-Pq=0,\qquad
-\langle q,q\rangle_{\mathcal A}=q\ne0,
-\]
-so no positive scalar lower \(g\)-frame bound can hold.
+Over A=C⊕C with p=(1,0), q=(0,1), H=A and K=Ap, P(h)=ph has adjoint the inclusion. For every adjointable A-linear T:H→K, T(P*P)=T, yielding T P*P T*=TT* exactly: {P} is an operator-module Parseval frame. But Pq=0 and <q,q>=q>0 violate every positive lower g-frame bound. The nonzero operator module contains P. For any coefficient module with <e,e>=1, the rank-one map R_y(h)=<h,y>e is adjointable and satisfies R_y*e=y, giving a sufficient reachability repair.
 
-Moreover, for \(k\in\mathcal K\),
-\[
-qT^*k=T^*(qk)=0,
-\]
-and therefore every \(R(T^*)\) lies in \(\mathcal A p\). This verifies the failure of the reachability step used in the source proof.
+## originality
 
-If \(e\in\mathcal K\) satisfies
-\[
-\langle e,e\rangle_{\mathcal A}=1_{\mathcal A},
-\]
-then for each \(y\in\mathcal H\),
-\[
-R_y(h)=\langle h,y\rangle_{\mathcal A}e
-\]
-has adjoint
-\[
-R_y^*k=\langle k,e\rangle_{\mathcal A}y
-\]
-and
-\[
-R_y^*e=y.
-\]
-Thus the additional unit-vector hypothesis supplies the missing representations required by the converse proof.
+PASS
 
-The preprint theorem and the published theorem were inspected in the actual source texts. No numerical approximation, finite search, or computational certificate is used.
+The counterexample targets the unqualified converse in Rossafi–Kabbaj Theorem 3.4 (published Theorem 2). The previously established equivalence of Askarizadeh–Dehghan concerns B(H,K) for ordinary Hilbert spaces and does not entail the arbitrary Hilbert-module generalization. No separately published correction was identified in the inspected literature; originality is qualified by the possibility of an unindexed correction.
+
+## value
+
+PASS
+
+The 2018/2021 paper presents the frame/g-frame equivalence as a main structural generalization. A nonzero Parseval operator-module frame over the smallest split unital C*-algebra disproves its converse, and the rank-one sufficient hypothesis isolates the lost reachability mechanism. This is a motivated correction of a substantive published theorem rather than a routine isolated normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

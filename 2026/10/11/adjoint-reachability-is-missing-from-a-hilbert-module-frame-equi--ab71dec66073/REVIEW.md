@@ -1,19 +1,13 @@
 # Review
 
 ## Correctness
-PASS. The example uses \(\mathcal A=\mathbb C\oplus\mathbb C\), \(\mathcal H=\mathcal A\), and \(\mathcal K=\mathcal A p\), all within the source's Hilbert-module definition. The projection \(P\) is adjointable, every \(T:\mathcal H\to\mathcal K\) satisfies \(T(P^*P)=T\), and therefore \(\{P\}\) is a Parseval frame for the operator module. The nonzero vector \(q\) is annihilated by \(P\), so the lower \(g\)-frame bound fails exactly.
-
-The repair is also checked directly: if \(\mathcal K\) has a unit vector \(e\), the rank-one map \(R_y(h)=\langle h,y\rangle e\) is adjointable and satisfies \(R_y^*e=y\).
+The example over the unital algebra \(\mathbb C\oplus\mathbb C\) has a nonzero operator module and an exact Parseval frame \(\{P\}\). For every adjointable map \(T\) into the first central summand, \(TP^*PT^*=TT^*\). The second-summand vector \(q\) has \(Pq=0\) although \(\langle q,q\rangle=q\ne0\), contradicting every positive lower \(g\)-frame bound. The unit-vector hypothesis on the coefficient module yields the adjointable rank-one maps \(R_y(h)=\langle h,y\rangle e\) and \(R_y^*e=y\).
 
 ## Originality
-PASS for the source-specific theorem correction. Exact source/title searches, the operator-module and adjoint-range formulations, and the direct Hilbert-space precursor were compared with the owned ledger and indexed scientific records. No checked result supplies this central-summand counterexample or the reachability repair.
-
-The target preprint and published full text were materially inspected. The precursor's publisher abstract was inspected; its full PDF was inaccessible from the journal endpoint and is not used for a whole-document negative conclusion.
+Rossafi–Kabbaj's arXiv:1805.11655 Theorem 3.4 and published DOI 10.1155/2021/5522671 Theorem 2 contain the unqualified equivalence and its unsupported adjoint-range step. Askarizadeh–Dehghan's 2013 Theorem 3.2 concerns only \(B(H,K)\) for ordinary Hilbert spaces, where rank-one operators provide reachability. Later reviewed results on operator frames for \(End_A^*(H)\) address different claims. No independent published correction covering this explicit central-summand example was identified in the sources checked. An unindexed antecedent remains possible.
 
 ## Value
-PASS. The theorem is a main equivalence in a paper devoted to frames of adjointable-operator modules. The counterexample does not exploit a zero module or numerical edge case: a nonzero Parseval operator frame fails to be a \(g\)-frame because the coefficient module cannot reach an entire central summand. The repair explains exactly why the ordinary Hilbert-space precursor works.
+The counterexample corrects a principal published generalization and exhibits the exact obstruction without a zero operator module. The sufficient unit-vector criterion explains why the Hilbert-space precursor's converse survives. The repair is not claimed necessary, and no classification of all module pairs is asserted.
 
-## Limitations
-The unit-vector condition is sufficient but not necessary. The result does not classify all Hilbert-module pairs for which the equivalence holds, and it does not assess the paper's other generalized equivalence theorems. An unindexed correction remains a literature risk.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Sources and scope
+Primary statements: arXiv:1805.11655, Theorem 3.4; DOI 10.1155/2021/5522671, Theorem 2. Precursor: DOI 10.3906/mat-1011-533, Lemma 2.5 and Theorem 3.2. Related comparison: DOI 10.30495/JLTA.2023.1979703.1536, §§4,10.
