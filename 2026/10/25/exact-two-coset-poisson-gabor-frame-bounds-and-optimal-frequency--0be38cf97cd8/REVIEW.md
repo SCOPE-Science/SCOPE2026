@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The Zak transform is unitary for the chosen integer lattice, so the two-coset frame operator is the sum of two critical multipliers. The displayed rational Zak fiber follows from the Fourier transform of the Lorentzian window. Its squared modulus has a strictly positive derivative in the cosine of the translation phase, reducing the global extremal problem to two explicit one-variable pairs. Strict convexity gives exact, attainable extrema on both frequency arcs. The limits and optimal staggering follow algebraically. The standard-library checker verified the formula against independent bilateral Zak sums, sampled the full domain, and checked the regular half-frequency case. These are supporting finite tests, not proofs of the continuum assertion.
+
+## Originality — PASS (best-knowledge, with residual risks)
+The motivating 2026 total-positivity theorem treats a class of exponentially decaying windows and regular time-frequency lattices; the present polynomially decaying rational window and two-coset nonlattice modulation pattern are outside its hypotheses, and its frame-existence statement supplies no sharp constants. The full 2021/2022 rational-window paper focuses on rectangular lattice frame sets; its primary theorems are not statements about optimal nonlattice two-coset bounds. The 2026 even-rational-window article studies a different window and lattice regions; its full text was not accessible. The closest previously recorded Poisson-window calculation treats integer-factor regular frequency lattices and implies the balanced phase only; algebraic agreement at the balanced phase is checked. The new conclusions are the complete continuum of nonlattice offsets and unique best conditioning with a sharp coalescence law. No exact published-table or broader covering statement was identified in actual literature and indexed semantic searches. Unindexed older Zak frame-bound calculations may still contain an equivalent result.
+
+## Value — PASS
+Two interlaced modulation cosets form a natural smallest nonlattice oversampling geometry at fixed density two. Frame stability can degenerate even though density remains two as the cosets coalesce; the exact quadratic exponent and prefactor quantify that loss. The unique balanced optimizer solves the natural deterministic spacing problem for both sharp spectral endpoints, not just a perturbative inequality. The result is an explicit nonlattice reconstruction benchmark not inferred from the regular-lattice density theorems.
+
+## Limits and related literature
+The result does not treat arbitrary irregular index sets, arbitrary windows, or arbitrary time-lattice spacing. The source by de Dios Pont and collaborators first appeared 2026-08-05; the Belov–Kulikov–Lyubarskii rational-window work first appeared 2021-03-16; Ghosh's distinct rational-window preprint first appeared 2026-09-16. Independent historical-priority verification remains necessary.
+
+Self-review: passed. Independent audit: not yet performed.
