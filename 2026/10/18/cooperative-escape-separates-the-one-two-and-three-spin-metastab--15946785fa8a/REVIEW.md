@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Over \(\mathbf F_2\), \((I+X+Y)^L=I\) at dyadic \(L\); the defect mapping is bijective. A one-spin local minimum is exactly a triangular hard-core configuration. The two-spin symmetric-difference support is either six sites consisting of two elementary triangles or four sites consisting of two adjacent pairs, so an independent set cannot produce an energy decrease. The specified pair of separated defects within a protected \(5\times5\) block is compatible with arbitrary independent exterior data, but creates an explicit decreasing three-spin move. Under the uniform hard-core measure the witness has conditional probability at least \(2^{-25}\) for each block, giving the claimed exponential deficit by iteration. The full \(4\times4\) physical-configuration enumeration and further independent geometry checks pass. Numerical tests support but do not replace the infinite-size proof.
+## correctness
 
-**Originality — PASS with residual bibliographic uncertainty.** Newman–Moore (1997) established the dyadic mapping and isolated-defect metastability; this is properly credited rather than claimed as novel. Baxter's hard-hexagon pressure and the basic local rule in Franz–Gradenigo–Spigler are likewise prior results. The full texts inspected for Newman–Moore, Turner–Jack–Garrahan, and Franz–Gradenigo–Spigler do not state the simultaneous two-flip robustness combined with an exponential three-flip entropy deficit. Relevant indexed mathematical-research records and historical claims show different finite-width or different kinetic results. The inaccessible full Baxter paper and potential specialized metastability articles pose residual bibliographic risk, but neither is known to imply the new cooperative-move counting assertion.
+PASS
 
-**Value — PASS.** The result answers a kinetic-theory question that ordinary equilibrium hard-hexagon pressure does not: how much of the metastable ensemble is eliminated by permitting small collective moves? It proves a sharp *first cooperative move size* (two flips change no states, three flips eliminate an extensive-complexity fraction) and a strictly positive entropy separation. The explicit constant is coarse; its contribution is the qualitative extensive separation, not numerical precision. The theorem does not determine quench probabilities or the exact third-order entropy.
+For dyadic torus L=2^k>=8, in characteristic two the spin-defect linear operator I+X+Y satisfies (I+X+Y)^L=I, so the correspondence is bijective. One-spin non-lowering condition is at most one defect in each triangular three-plaquette flip support, equivalent to independence in the six-neighbor triangular graph. For two distinct spin flips supports have either 0 or 1 shared plaquette; the toggled symmetric difference contains at most two defects, so no two-spin move lowers energy. For the three flips (1,2),(2,2),(1,3), the symmetric difference is the three defects at (1,2),(3,2),(1,4). Setting the first two defects and forbidding other defects in a 5×5 block is compatible with ANY independent exterior, and lowers energy by J. Conditional uniform independent-set probability of the exact witness is at least 2^-25 per one of floor(L/5)^2 disjoint blocks; iteration bounds A3/A1 <= exp(−L²/(100*2^25)). Hard-hexagon pressure converts this into the stated limsup entropy gap; no sharp 3-spin pressure or quench rate is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. There is a rigorous implication gap between prior one-spin metastability and the proposed three-spin count. Exact provided witness closes it; none of the inspected statements subsumes it as a corollary.
+
+## value
+
+PASS
+
+Identifies a sharp qualitative threshold in allowed cooperative spin moves: all single-flip minima persist under any simultaneous two-spin flip yet an exponentially vanishing fraction persist when three flips are allowed. A uniform extensive entropy gap in a canonical glass model is a motivated structural result, not a reinterpretation of hard-hexagon pressure alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

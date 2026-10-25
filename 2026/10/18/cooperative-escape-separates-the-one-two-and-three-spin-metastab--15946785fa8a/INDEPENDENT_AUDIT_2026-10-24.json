@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:50:46Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independently enumerated all 2^16 defect masks at L=4 under the triangular independent-set condition, recovering exact polynomial 1+16z+72z²+96z³+16z⁴ and count 201. Verified all one-/two-spin stability conditions via physical flip supports on those stable masks and explicit 8×8 three-flip defect support {(1,2),(3,2),(1,4)}. L=4 is supplementary boundary outside theorem; all L>=8 and exponential bound rest on conditional block argument. Package verify.py inspected and not taken as proof.",
+      "rationale": "For dyadic torus L=2^k>=8, in characteristic two the spin-defect linear operator I+X+Y satisfies (I+X+Y)^L=I, so the correspondence is bijective. One-spin non-lowering condition is at most one defect in each triangular three-plaquette flip support, equivalent to independence in the six-neighbor triangular graph. For two distinct spin flips supports have either 0 or 1 shared plaquette; the toggled symmetric difference contains at most two defects, so no two-spin move lowers energy. For the three flips (1,2),(2,2),(1,3), the symmetric difference is the three defects at (1,2),(3,2),(1,4). Setting the first two defects and forbidding other defects in a 5×5 block is compatible with ANY independent exterior, and lowers energy by J. Conditional uniform independent-set probability of the exact witness is at least 2^-25 per one of floor(L/5)^2 disjoint blocks; iteration bounds A3/A1 <= exp(−L²/(100*2^25)). Hard-hexagon pressure converts this into the stated limsup entropy gap; no sharp 3-spin pressure or quench rate is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newman–Moore investigates one-spin-flip kinetics and energetic barriers, not all simultaneous 3-spin metastable configurations as counted here.",
+          "Diluted/quantum/activity-bias variations do not imply this exact dyadic torus counting inequality."
+        ],
+        "reasoning": "Broader dynamical model families do not automatically dominate a rigorous bound on one specific finite torus ensemble; the relevant implication requires a locally compatible three-spin lowering witness and conditional counting absent from the inspected primary material.",
+        "searches": [
+          "Newman and Moore 1999 Phys. Rev. E 60 5068 original",
+          "Franz–Gradenigo–Spigler arXiv:1507.05072 random-diluted triangular plaquette",
+          "Turner–Jack–Garrahan arXiv:1504.05076 overlap/activity transitions"
+        ]
+      },
+      "checked_sources": [
+        "Newman–Moore cond-mat/9707273 primary selected PDF pages and screenshot",
+        "Baxter hard-hexagon 1980 DOI 10.1088/0305-4470/13/3/007, bibliographic pressure",
+        "Turner–Jack–Garrahan arXiv:1504.05076; Franz–Gradenigo–Spigler arXiv:1507.05072, abstracts",
+        "Frozen RESULT.md, verify.py and independent 4×4/8×8 enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defect-spin bijection and single-flip rule are explicitly credited to Newman–Moore.",
+          "Baxter establishes hard-hexagon thermodynamic pressure; knowing entropy of all independent defect sets alone does not bound those surviving triple flips.",
+          "The two-spin equality requires support-intersection geometry, and the triple-spin exponential deficit requires an independent conditional block probability."
+        ],
+        "reasoning": "There is a rigorous implication gap between prior one-spin metastability and the proposed three-spin count. Exact provided witness closes it; none of the inspected statements subsumes it as a corollary.",
+        "searches": [
+          "Newman–Moore primary cond-mat/9707273",
+          "Baxter 1980 hard hexagon DOI 10.1088/0305-4470/13/3/007",
+          "Turner–Jack–Garrahan 1504.05076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical triangular plaquette one-spin stable states correspond to hard-hexagon independent sets (known defect mapping and model); new comparison is stability against ALL simultaneous moves of 2 or 3 spins.",
+          "Glassy barrier/dynamical relaxation statements are not the static exponential fraction A3/A1."
+        ],
+        "reasoning": "An exact single-flip ground/metastability rule does not itself prove two-flip robustness or the three-flip forbidden-pattern entropy bound. Searched cooperative escape, r-flip stable, multi-spin simultaneous, hard-hexagon aliases.",
+        "searches": [
+          "Resultary semantic query triangular plaquette Newman Moore model simultaneous 2 spin 3 spin flip metastability entropy hard hexagon",
+          "Newman–Moore cond-mat/9707273 primary defects and single-spin dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hard-hexagon pressure and P_L(z) were known, but they provide the one-spin count only; no exact three-spin stability density bound located.",
+          "The inequality ratio <=exp(−L²/(100*2^25)) is an all-size structural bound, not a finite numerical table."
+        ],
+        "reasoning": "The new entropy separation is motivated by minimal cooperative destabilization of a familiar glassy model, not arbitrary numerical experimentation. Failed index searches do not prove novelty.",
+        "searches": [
+          "Resultary index simultaneous three spin metastable state count triangular plaquette",
+          "Hard hexagon exact partition polynomial finite dyadic torus",
+          "Newman Moore defect independent set entropy P_L(1)"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. There is a rigorous implication gap between prior one-spin metastability and the proposed three-spin count. Exact provided witness closes it; none of the inspected statements subsumes it as a corollary.",
+      "residual_risks": [
+        "Hard-hexagon pressure is prior; entropy-gap coefficient is deliberately coarse, and exact three-spin stable entropy limit is not established.",
+        "Full original Baxter paper was inaccessible; it is only used for established thermodynamic pressure.",
+        "Possible specialized unindexed cooperative-move metastability enumeration; literature comparison not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DEFECT_BIJECTION and SINGLE_FLIP_DYNAMICS as prior, NOT seen to cover uniform three-spin-count inequality; unexamined later sections remain risk",
+          "evidence": [
+            "Discusses single-spin-flip dynamics, defect variables, excitations and energetic barriers rather than r=3 simultaneous metastable entropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9707273",
+          "material_read": "Original research PDF title, definitions, introduction and dynamics discussion on pp. 2–7 with displayed lattice geometry (p. 3 screenshot)",
+          "method": "Read selected substantial primary PDF passages and inspected page image",
+          "title": "Glassy dynamics and aging in an exactly solvable spin model",
+          "trigger": "Original exact triangular plaquette spin-defect setting"
+        },
+        {
+          "assessment": "PRIOR_PRESSURE; no whole-text noncoverage assertion",
+          "evidence": [
+            "Pressure limit for independent sets is established, used as one component of claimed entropy inequality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/13/3/007",
+          "material_read": "Bibliographic statement and cited result about hard-hexagon pressure; original full 1980 text inaccessible",
+          "method": "Published abstract/reference only",
+          "title": "Hard hexagons: exact solution",
+          "trigger": "Thermodynamic pressure used to identify one-spin entropy"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY; cannot assert whole-document noncoverage",
+          "evidence": [
+            "Diluted model, not same full dyadic torus three-spin metastable enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.05072",
+          "material_read": "Title, abstract/scope from source references; not full primary paper",
+          "method": "Search result/abstract",
+          "title": "The Random-Diluted Triangular Plaquette Model",
+          "trigger": "Similar many-spin/diluted plaquette setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a sharp qualitative threshold in allowed cooperative spin moves: all single-flip minima persist under any simultaneous two-spin flip yet an exponentially vanishing fraction persist when three flips are allowed. A uniform extensive entropy gap in a canonical glass model is a motivated structural result, not a reinterpretation of hard-hexagon pressure alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Newman–Moore cond-mat/9707273 primary selected PDF pages and screenshot",
+    "Baxter hard-hexagon 1980 DOI 10.1088/0305-4470/13/3/007, bibliographic pressure",
+    "Turner–Jack–Garrahan arXiv:1504.05076; Franz–Gradenigo–Spigler arXiv:1507.05072, abstracts",
+    "Frozen RESULT.md, verify.py and independent 4×4/8×8 enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly the hypotheses and normalization of frozen RESULT.md, no extrapolation to other objects or parameter regimes.",
+    "Finite independent checks corroborate bounded parameters only, not infinite-family theorems; proof reconstruction is the actual support for unrestricted claims.",
+    "Hard-hexagon pressure is prior; entropy-gap coefficient is deliberately coarse, and exact three-spin stable entropy limit is not established.",
+    "Full original Baxter paper was inaccessible; it is only used for established thermodynamic pressure.",
+    "Possible specialized unindexed cooperative-move metastability enumeration; literature comparison not exhaustive."
+  ],
+  "residual_risks": [
+    "Hard-hexagon pressure is prior; entropy-gap coefficient is deliberately coarse, and exact three-spin stable entropy limit is not established.",
+    "Full original Baxter paper was inaccessible; it is only used for established thermodynamic pressure.",
+    "Possible specialized unindexed cooperative-move metastability enumeration; literature comparison not exhaustive."
+  ],
+  "schema_version": 1
+}
