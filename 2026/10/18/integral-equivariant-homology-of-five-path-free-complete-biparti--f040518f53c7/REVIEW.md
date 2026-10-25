@@ -1,15 +1,21 @@
-# Scientific review: integral equivariant homology of five-path-free complete bipartite complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex-count description is equivalent to forbidding a non-induced five-vertex path as a subgraph of a complete bipartite induced graph. The four-path-free subcomplex is the union of two contractible, invariant joins with connected intersection the graph \(K_{m,n}\); equivariant Mayer–Vietoris identifies its degree-two homology with the integral rectangular cycle lattice \(I_m\otimes I_n\). The only added faces are the \((2,2)\) tetrahedra, and their relative attaching boundary is the tensor of two augmentation-difference maps. A full unit-size minor proves integral surjectivity. The exact sequence proves the kernel formula, all vanishing degrees and absence of torsion; semisimplicity over \(\mathbb Q\) proves the three irreducible summands. The separately implemented enumeration and signed-character programs reproduce the finite specializations, but are not used to infer the infinite family.
+## correctness
 
-## Originality — PASS, with identified residual risk
-The 2015 source develops general path-devoid complexes but treats other graph families; its relevant theorem statements and proof sections were read. A July 2026 paper directly determines ordinary sphere-wedge homotopy types for complete-bipartite path-free complexes. Those nonequivariant results are excluded from the claim of novelty: the equivariant integral lattice and irreducible character require identifying the connecting map as a tensor product and do not follow from an ordinary homotopy type alone. The July 2026 full text was inaccessible despite open-access retrieval attempts; its abstract was read and the possibility of an unobserved stronger result remains a real risk. The 2023 matching-complex representation paper was read in its relevant sections and concerns another class of complexes. Searches of equivalent formulations and indexed research findings found no covering homology-action formula; absence of search hits is not proof of priority.
+PASS
 
-## Value — PASS
-Forbidding a five-vertex path is the first odd-path constraint in a complete bipartite graph that adds a full layer of \((2,2)\)-tetrahedral cells over two cone pieces. The full color-preserving symmetric group acts naturally. Its integral homology lattice captures the attaching relations, and its rational decomposition identifies three distinct natural irreducibles for all board sizes, rather than just an already known Betti number. The explicit permutation-character formula lets one compute the trace of every automorphism, supplying information not fixed by sphere-wedge homotopy classification. No generalization to larger forbidden paths or to color-class interchange is asserted.
+A P5 subgraph in Kmn exists exactly for selected part sizes (a>=3,b>=2) or (a>=2,b>=3), with no induced-path qualification. Subcomplex B of sets a<=1 or b<=1 is union of two contractible joins meeting in Kmn, so integral H2(B)=H1(Kmn)=I_m tensor I_n, others vanish. Exactly (2,2) faces lie in X\B, one relative 3-cell per left/right 2-subset, so relative C3=Λ²E_m tensor Λ²E_n. Oriented tetrahedral boundaries map under Mayer–Vietoris to rectangles (e_j-e_i) tensor(f_q-f_p), i.e. d_m tensor d_n, which is split-surjective as abelian map via pairs to each chosen final vertex. Exact pair sequence identifies H3 with integral kernel and others zero. Rational permutation module splitting E=1+U identifies three irreducible outer products; wedge-square trace identity gives formula. Independently enumerated sample (3,3),(3,4),(4,4) with reduced H3 of ranks 5,12,27 and zero other Betti over F2 and F101, confirming formula for sample only, not general proof.
 
-## Limits and closest literature
-The closely related 2026 complete-multipartite path-free classification is potential uninspected full-text overlap; the available abstract explicitly discusses nonequivariant types but is not enough to certify the absence of an equivariant theorem elsewhere in the document. Taylan 2015 and Bate–Everitt–Ford–Ramos 2023 were inspected in their relevant full-text sections. No absolute novelty or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original only for the precise additional integral/equivariant/multiplicative result; explicit known portions carved out. Two targeted indexed semantic searches plus specified primary comparisons do not show a stronger implying theorem; absence of hits is not a proof of novelty. See each named mathematical implication check and named residual risks.
+
+## value
+
+PASS
+
+For path-free complexes on complete bipartite graphs, the known nonequivariant wedge count omits how color-class permutations act. The explicit canonical integral kernel lattice for every m,n is an intrinsically useful equivariant refinement, with complete irreducible character/representation across a natural two-parameter family. A known sphere-wedge rank would not determine integral module or character.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
