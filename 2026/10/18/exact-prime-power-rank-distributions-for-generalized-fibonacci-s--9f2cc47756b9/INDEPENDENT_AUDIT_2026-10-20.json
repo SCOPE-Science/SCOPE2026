@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T15:53:53.219942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-prime-power-rank-distributions-for-generalized-fibonacci-s--9f2cc47756b9/RESULT.md",
+        "GitHub tree SHA 10ec8dd0e044184ef84913ef1a2e1b87f2d99bb1",
+        "GitHub RESULT.md blob 2a56e517c08e8d3ceb4a4f3707a965360707e98a",
+        "Independent bounded checks: /mnt/data/scope_worker03_delivery_20261020T1538Z/independent_checks.py"
+      ],
+      "rationale": "For every odd p, k>=1, and each s modulo p^k, the first n>=1 with U_n(s)=0 exists and is counted. The Laurent identity for roots z,z^-1 with trace s yields U_ab(s)=U_a(s)U_b(V_a(s)). For nonzero discriminant mod p, Hensel roots lie in either a split unit or unramified norm-one cyclic group of order (p∓1)p^(k−1); the rank equals order(z²). Dividing the root counts by inversion gives phi(d) for d with nontrivial p-free part dividing m±=(p±1)p^(k−1)/2, with p-prime-part multiplicity correctly included. Singular traces s≡±2 mod p require ramified analysis: for p>=5 the exact formula ν_p(U_n(s))=ν_p(n) yields rank p^k for 2p^(k−1) residues; at p=3, U3(s)=s²−1 and V3 iteration give rank 3^max(1,k−ν3(s²−1)+1), yielding a tower with weights 2 at rank3 and 4*3^(a−2) for rank3^a, 2<=a<=k. These disjoint split/nonsplit/singular cases exhaust every trace, and the sums equal p^k. Independently recomputed exact first-zero histograms p=3 through k3; p=5,7 through k2; p=11 k1; all matched formulas. The valuation proof—not bounded enumeration—justifies all odd prime powers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Park Theorem 19 treats rank over prime fields via eigenvalue order, followed by a prime-power question near Theorem 21. Panraksa–Tangboonduangjit analyze first-kind Chebyshev periodic points mod odd prime powers."
+        ],
+        "reasoning": "Underlying unit-group decomposition and root valuation facts are known tools, but Park prime-field ranks do not provide all p^k trace multiplicities and exceptional p3 tower. First-kind iterative fixed-point counts do not directly imply first-zero second-kind counts.",
+        "searches": [
+          "https://arxiv.org/pdf/1407.8086",
+          "https://arxiv.org/pdf/2605.04417",
+          "https://arxiv.org/abs/1306.6511"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-prime-power-rank-distributions-for-generalized-fibonacci-s--9f2cc47756b9",
+        "https://arxiv.org/pdf/1407.8086",
+        "https://arxiv.org/pdf/2605.04417",
+        "https://arxiv.org/abs/1306.6511",
+        "GitHub fixed-commit RESULT.md blob 2a56e517c08e8d3ceb4a4f3707a965360707e98a",
+        "GitHub fixed-commit AUDIT.json blob 959cbf7fff4776613c68a318d6185ec5a42d99c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Park primes: first-zero rank tied to root order mod p; recurrence generalization to prime powers is discussed as a question. Panraksa–Tangboonduangjit treat T_n map dynamics."
+        ],
+        "reasoning": "The new p^k formula specializes to Park p1 order cases and uses the same groups, but Park/panraksa theorems do not logically determine singular trace counts across all lifts or exact odd-prime-power rank frequencies.",
+        "searches": [
+          "https://arxiv.org/pdf/1407.8086#page=14",
+          "https://arxiv.org/pdf/2605.04417"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "U_n(s) is the second-kind Chebyshev polynomial U_{n−1}(s/2), so rho_{p^k}(s) is its first zero-index; nonsingular ranks are ord(z²)."
+        ],
+        "reasoning": "The Chebyshev alias was checked explicitly. First-kind Chebyshev maps T_n and their iteration periods are a different object; equality of the eigenvalue parametrization does not identify their dynamical periods with the second-kind first-zero ranks.",
+        "searches": [
+          "Resultary query: prime power rank distributions generalized Fibonacci sequences Lucas congruences (limit 12)",
+          "GitHub published Resultary code query: generalized Fibonacci apparition rank",
+          "https://arxiv.org/pdf/1407.8086",
+          "https://arxiv.org/pdf/2605.04417"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Park tabulates/constrains ranks modulo primes, not the stated closed histogram over every s mod p^k. The inspected Resultary-ranked sources concerned other Lucas entry-point or sequence statistics."
+        ],
+        "reasoning": "A finite prime-power table would provide examples, not the uniform distribution. No equivalent complete p^k formula was found; the risk of an unindexed stronger Chebyshev root-count theorem is explicitly retained.",
+        "searches": [
+          "https://arxiv.org/pdf/1407.8086",
+          "Resultary query: prime power rank distributions generalized Fibonacci sequences Lucas congruences (limit 12)"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact theorem and implications, not title matching. The Chebyshev alias was checked explicitly. First-kind Chebyshev maps T_n and their iteration periods are a different object; equality of the eigenvalue parametrization does not identify their dynamical periods with the second-kind first-zero ranks. Underlying unit-group decomposition and root valuation facts are known tools, but Park prime-field ranks do not provide all p^k trace multiplicities and exceptional p3 tower. First-kind iterative fixed-point counts do not directly imply first-zero second-kind counts. A finite prime-power table would provide examples, not the uniform distribution. No equivalent complete p^k formula was found; the risk of an unindexed stronger Chebyshev root-count theorem is explicitly retained. The new p^k formula specializes to Park p1 order cases and uses the same groups, but Park/panraksa theorems do not logically determine singular trace counts across all lifts or exact odd-prime-power rank frequencies.",
+      "residual_risks": [
+        "An older general root-count theorem for second-kind Chebyshev polynomials over residue rings could imply the histogram via factorization and p-adic lifting.",
+        "The nonsingular cyclic-group count is a standard technique; originality rests on the all-class closed formula and ramified exceptional distribution, not the group structure itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prime-modulus criterion and question are prior work; no inspected general p^k trace-rank distribution.",
+          "evidence": "Theorem 19 and the text near Theorem 21.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.8086",
+          "material_read": "Theorem 19 eigenvalue-order criterion for prime moduli, discussion after Theorem 21 about prime powers, definitions of generalized Fibonacci rank.",
+          "method": "Full lawful OA arXiv PDF opened with extracted relevant pages and original-page screenshot around p. 14.",
+          "title": "Arithmetic properties of generalized Fibonacci sequences",
+          "trigger": "Earlier direct study of first-zero rank for generalized Fibonacci recurrences, prime case and proposed prime-power lift."
+        },
+        {
+          "assessment": "Dynamical iteration period of T_n differs from the first vanishing index of second-kind U_n(s); common group facts do not automatically give multiplicity distribution.",
+          "evidence": "Main fixed-point and periodic-point statements on p^k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.04417",
+          "material_read": "Original paper abstract/introduction, problem definitions and main results about first-kind Chebyshev fixed and periodic points, group lifting in related sections.",
+          "method": "Lawful arXiv full PDF opened and relevant sections inspected.",
+          "title": "Fixed-point lifting and ghost periodic points for Chebyshev polynomials modulo odd prime powers",
+          "trigger": "Most plausible stronger contemporary result on similar split/nonsplit p-adic eigenvalue groups."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1407.8086",
+        "https://arxiv.org/pdf/2605.04417",
+        "https://arxiv.org/abs/1306.6511"
+      ],
+      "rationale": "The full first-zero rank distribution as the trace parameter s ranges across a prime-power ring is a natural invariant not supplied by first-kind Chebyshev orbit-period results. The p=3 singular tower shows genuinely delicate exceptional behavior; this precise classification answers the kind of prime-power extension Park raised and can be used for counting polynomial recurrence zero sets.",
+      "residual_risks": [
+        "An older general root-count theorem for second-kind Chebyshev polynomials over residue rings could imply the histogram via factorization and p-adic lifting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only odd prime powers and second recurrence parameter -1; not characteristic two or companion matrix orbit periods.",
+    "Residual priority risk of unindexed stronger p-adic Chebyshev root-count theorem.",
+    "Access and transport limitations are recorded separately from mathematical correctness, originality and value."
+  ],
+  "schema_version": 1
+}
