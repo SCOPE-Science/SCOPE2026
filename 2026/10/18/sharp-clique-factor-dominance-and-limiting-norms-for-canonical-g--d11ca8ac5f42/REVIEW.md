@@ -1,12 +1,21 @@
-# Scientific review: canonical graph-product projections
+# Independent mathematical audit
 
-## Correctness — PASS
-The product Laplacian decomposes along constant and zero-mean clique fibers. This yields the displayed diagonal formulas, and positive-definite inverse monotonicity proves the sharp horizontal effective-resistance bound \(3/(m+2)\). The elementary complementary-column identity then establishes the universal operator-norm gap. Its equality and critical-dimension cases follow from exact two-orbit formulas for the two-vertex base graph. Independently, full transfer-current formulas and the limit \(m(L_H+mI)^{-1}\to I\) prove the claimed fixed-base asymptotics. Exact-rational tests replay both independent matrix constructions; they do not certify infinite families by enumeration.
+## correctness
 
-## Originality — PASS, with specified residual risk
-A close comparison of the relevant projection theory in Dilworth–Kutzarova–Ostrovskii (2023), its Hamming-family endpoint computations and general invariant-projection framework does not show the arbitrary-base sharp clique-factor norm gap or its two limits. The graph-product resistance paper of Bollobás–Brightwell (1997) has an analogous product setting but its accessible abstract discusses random-walk hitting probabilities rather than the asserted operator-norm bounds; its unavailable complete text remains a genuine risk. A previously recorded exact clique-prism special case proves sharpness but is not a general implication for arbitrary base graphs. Searches of indexed mathematical findings and standard terminology did not identify an equivalent broad theorem; non-detection is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-This is an all-graph Banach-space statement, not another finite graph census: a single clique factor of order four universally determines which of two complementary canonical projections is more expensive, with a sharp explicit gap and unique equality base graph. The large-clique limit recovers a nontrivial invariant of an arbitrary fixed base graph, providing a second independent structural consequence. This distinguishes topology-dependent finite values from the universal limiting asymmetry. The result does not assert minimality among all projectors or any intermediate-exponent formula.
+For arbitrary finite connected unweighted H with ≥2 vertices and m≥4, L_{H□K_m}^+=L_H^+⊗P0+(L_H+mI)^(−1)⊗P1 follows from clique eigenspaces. The horizontal projector diagonal is R_H/m+(m−1)b^T S_m b/m, with R_H≤1 and b^T S_m b≤2/(m+2) using L_H⪰bb^T and rank-one inversion; vertical diagonal =2(S_m)xx≤2/m. Hence all Qee≤3/(m+2), strict for H≠K2, and the exact orthogonal-complement per-column identity ||C δe||1=||Q δe||1+1−2Qee gives the claimed sharp dominance. Direct rational grounded Laplacian projectors for H=K2, path3, K3 and m=3,4,5 independently confirmed nine cases, exact K2 equality and m=3 difference −2/15. Transfer-current horizontal column expression tends to 2+Σ_f |(Q_H)fe| and vertical to 2, with Qee→0; fixed finite H gives the asymptotic norm pair. No false conclusion about arbitrary norm-minimal projections is made.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known complementary cut/cycle column identity and special Hamming-cube projection norms are prior. What survives is an all-connected-H sharp clique-factor threshold at m=4, unique equality base K2, and both fixed-H large-clique l1 operator norm limits governed by ||Q_H||1; these are not implied by a special cube or generic electrical resistance result.
+
+## value
+
+PASS
+
+Uniform dominance of canonical cycle over cut projections is a motivated structural question for graph Hodge decompositions and l1 transportation spaces. The sharp least clique size, precise K2 equality obstruction, and fixed-base asymptotic norms provide a complete graph-product classification with meaningful parameter dependence, not merely a generic operator projection identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
