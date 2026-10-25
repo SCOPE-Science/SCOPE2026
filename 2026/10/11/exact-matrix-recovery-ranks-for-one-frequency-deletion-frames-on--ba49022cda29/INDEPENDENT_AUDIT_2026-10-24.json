@@ -1,0 +1,197 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:48:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the map X -> (v_{ell,x}^*Xv_{ell,x}) by Fourier inversion of the site x: difference bands delta decouple, with T_delta^ell the sum of X_{a,b} over a-b=delta surviving deletion ell. On delta=0, sum_ell T=(N-2)sum_diag, uniquely recovering all diagonal entries for N>=4. On delta!=0, each entry survives N-3 deletions, so S_delta=sum_ell T/(N-3). Defining x_j=X_{j,j-delta} for j not 0,delta and x_0=x_delta=0 gives measured x_ell+x_{ell+delta}, with b_0=0. The homogeneous recurrence alternates around cosets of <delta>: odd length gives no kernel; even length gives one free alternating scalar per coset except the forced-zero coset <delta>; those alternating cycles have zero sum. Summation over disjoint delta bands yields R=(N-1)^2-sum_even_order(N/ord(delta)-1). Because each projector is Hermitian, complex span rank equals real span dimension among Hermitian matrices. Odd N gives full Gram recovery and global phase; even N>=4 has an explicit order-two two-frequency pair (1,i)/(1,-i); N=2,3 handled separately. Independently constructed exact integer incidence band matrices and computed rational ranks for group types Z4,V4,Z5,Z6,Z7,Z8,Z4xZ2,Z2^3,Z9,Z3^2,Z10; all agreed, including 44/36/28. These finite checks only corroborate the all-order cycle proof; bundled verify.py was inspected, not executed in the container.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Führ--Oussa Theorem 13 is existential for phase-retrieving vectors in irreducible representations of nonabelian class-two groups.",
+          "Goldberger--Kang--Okoudjou Theorem 1 determines the rank of a complete Weyl orbit of one window, not this fixed family.",
+          "Two-sparse multiwindow Gabor optimizes Weyl-orbit span for support-size-two windows, whereas the assigned deletion frame is dense in Fourier coordinates."
+        ],
+        "reasoning": "A theorem on some group orbit being phase retrievable, or a rank theorem for a full Weyl orbit of a different window, does not determine the prescribed character-deletion observables. No parameter regime or projection/conjugacy was found that transports those results to the exact abelian-order rank sum.",
+        "searches": [
+          "Resultary query: Fourier subsampling one missing frequency pointwise magnitudes group shifts autocorrelation rank measurement span",
+          "web search: phase retrieval for affine groups prime fields matrix recovery nilpotent projective representation frames",
+          "https://arxiv.org/pdf/2201.08654",
+          "https://arxiv.org/pdf/2106.01509",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-operator-span-capacity-of-two-sparse-multi-window-gabor-sy--b553eeb756ed/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2109.07123",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-frequency-deletion-phase-retrieval-on-cyclic-groups-exact-odd-or--36702d91730c/RESULT.md",
+        "https://arxiv.org/pdf/2201.08654",
+        "https://arxiv.org/pdf/2106.01509",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-operator-span-capacity-of-two-sparse-multi-window-gabor-sy--b553eeb756ed/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-matrix-recovery-ranks-for-one-frequency-deletion-frames-on--ba49022cda29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd primes p>=5, BFO Corollary 6.10 plus Remark 6.12 implies that the projectors span all (p-1)^2 matrices. This special case is not novel.",
+          "The earlier cyclic proof writes T=d_l+d_{l-r} for a general rank-one Gram difference; the same linear band recurrence implies odd-cyclic matrix recovery, even though no rank claim is stated.",
+          "Its even-case proof only constructs a non-phase-retrievable pair; it does not enumerate every invisible operator band or generalize to noncyclic groups.",
+          "Gabor rank theorem counts nonzero ambiguity values of Weyl translates, not the present deletion-observation map."
+        ],
+        "reasoning": "Prior existence and cyclic uniqueness do not imply a structure-sensitive nullity law for all abelian groups; the cycles on cosets of each subgroup <delta> must be resolved and counted. The assigned conclusion is therefore narrower in claimed novelty than its phase-retrieval corollary: credit only the universal exact ranks, nullspace basis and noncyclic/even examples.",
+        "searches": [
+          "https://arxiv.org/pdf/2109.07123",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-frequency-deletion-phase-retrieval-on-cyclic-groups-exact-odd-or--36702d91730c/RESULT.md",
+          "https://arxiv.org/pdf/2106.01509",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-operator-span-capacity-of-two-sparse-multi-window-gabor-sy--b553eeb756ed/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0/RESULT.md",
+          "Resultary query: exact matrix tomography rank of Fourier character deletion intensity projectors finite abelian groups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-frequency deletion projectors on mean-zero functions are equivalent in Fourier coordinates to Gram observables of vectors having one zero at frequency ell.",
+          "Bartusel--Führ--Oussa Remark 6.12 identifies precisely the prime cyclic measurement family.",
+          "Full cyclic published proof writes the identical deletion autocorrelation recurrence and proves the odd-cyclic phase-retrieval criterion; its linear computation additionally implies odd-cyclic full rank."
+        ],
+        "reasoning": "The familiar names are punctured Fourier frames, intensity masks, autocorrelation differences, phase retrieval, linear operator-span tomography and deletion projector Gram matrices. They identify genuine prior cyclic coverage, but no inspected statement or proof yields the complete all-abelian even-order nullspace multiplicities and group-structure-dependent ranks without additional analysis.",
+        "searches": [
+          "Resultary query: exact matrix tomography rank of Fourier character deletion intensity projectors on arbitrary finite abelian groups, order alternating null cycles",
+          "Resultary query: frequency deletion phase retrieval on cyclic groups exact odd order classification Fourier rank nullity",
+          "web search: finite abelian group Fourier masks deletion frame phase retrieval operator span",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-frequency-deletion-phase-retrieval-on-cyclic-groups-exact-odd-or--36702d91730c/RESULT.md",
+          "https://arxiv.org/pdf/2109.07123"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranks the assigned finding itself as the closest exact match; this self-hit was excluded as independent prior art.",
+          "The earlier published cyclic result has no rank-deficiency table for even groups and no noncyclic values.",
+          "The separate two-hole cyclic Gabor result has a rank table/formula for different Weyl-orbit observables, not the assigned measurements."
+        ],
+        "reasoning": "No matching independently published element-order deficiency table was found by actual searches. Lack of a search hit is not proof of priority; the positive scientific distinction is the fixed family and its group-structure dependence.",
+        "searches": [
+          "Resultary semantic query: exact matrix tomography rank of Fourier character deletion intensity projectors on arbitrary finite abelian groups order of elements",
+          "Resultary semantic query: frequency deletion phase retrieval on cyclic groups exact odd order Fourier rank nullity",
+          "web search: “frequency deletion” “phase retrieval” rank span",
+          "web search: “frequency deletion” “matrix recovery” “abelian” projectors",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-frequency-deletion-phase-retrieval-on-cyclic-groups-exact-odd-or--36702d91730c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0/RESULT.md"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the complete finite-abelian matrix-tomography rank/nullity classification, not for prime matrix recovery or the known odd-cyclic phase-retrieval corollary. The all-abelian element-order sum and explicit nonidentity-coset nullspace basis give nonisomorphic order-eight groups different ranks (44,36,28). The published cyclic proof already yields linear full matrix recovery for odd cyclic groups by its recurrence and supplies the main method; thus novelty is limited to exact even-group deficiency and extension across noncyclic structures. The inspected fixed-family and larger Gabor/representation results do not assert or imply the complete formula without a new computation. Historical equivalence risk remains.",
+      "residual_risks": [
+        "The earlier cyclic autocorrelation proof already contains the essential recurrence, so some cyclic even-rank formulas may be viewed as routine unstated consequences and receive limited novelty credit.",
+        "Unindexed frame-complement, quantum-tomography or finite Fourier-deletion literature could state an equivalent general abelian rank law.",
+        "The same exact finding appears in the indexed results as the current submission and is not counted as independent evidence of originality.",
+        "No claim is made of independent historical priority or external certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corollary 6.10 gives a matrix-recovering orbit for primes >=5 and Remark 6.12 identifies it with the deletion data. Thus full rank for odd prime sizes is prior-covered. It asks whether deletion phase retrieval holds for general cyclic groups; no composite or noncyclic all-parameter rank formula follows from its stated group-orbit theorem.",
+          "evidence": [
+            "Corollary 6.10 (PDF p27): for p>=5 specified affine orbit does matrix recovery; p=3 uses a DIFFERENT vector, so no contradiction with the proposed N=3 exception.",
+            "Remark 6.12 (PDF p28): frequency deletion projectors P_l reproduce that orbit and authors explicitly leave general cyclic validity unclear.",
+            "Theorem 6.5 and Remark 6.8 are prime-affine representation criteria, not the fixed abelian-deletion operator for arbitrary character groups."
+          ],
+          "identifier_or_url": "Bartusel--Führ--Oussa, arXiv:2109.07123v3, https://arxiv.org/pdf/2109.07123",
+          "material_read": "Full primary preprint Introduction and definitions of matrix recovery, Section 6 representation-recovery mechanism, Corollary 6.10 and Remarks 6.11--6.12 on PDF pages 18--28; original theorem and limitations checked in context.",
+          "method": "Open scholarly 31-page PDF, extracted text and visual inspection of pages 18 and 27--28.",
+          "title": "Phase retrieval for affine groups over prime fields",
+          "trigger": "Direct historical origin of the identical Fourier single-deletion family for odd prime groups; potential all-matrix coverage"
+        },
+        {
+          "assessment": "Already establishes phase retrieval iff odd cyclic n>=5 and the order-two ambiguity at even n. Its odd-cycle proof, framed in terms of differences of rank-one Gram matrices, also proves injectivity of the linear matrix data for odd cyclic n>=5; that prior implication is credited. It does not compute the even-order matrix nullities, an all-abelian rank formula, or ranks distinguishing nonisomorphic groups of one order.",
+          "evidence": [
+            "Published proof equation T=d_l+d_{l-r} and d_0=d_{-r}=0 for every cyclic shift r; odd-cycle argument forces every band to vanish at odd n>=5.",
+            "Even-order portion exhibits a two-frequency phase ambiguity; no exhaustive matrix-kernel basis or group-structure enumeration is stated.",
+            "Limitations section expressly excludes noncyclic finite abelian groups."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-frequency-deletion-phase-retrieval-on-cyclic-groups-exact-odd-or--36702d91730c/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, assumptions, full autocorrelation proof, both parity boundary arguments, verification and limitations.",
+          "method": "Fetched complete readable GitHub source file from Resultary/2026, SHA e5dd838ab13708b9c8fd8e6fc5f57cefa38423e0.",
+          "title": "Frequency-deletion phase retrieval on cyclic groups: exact odd-order classification",
+          "trigger": "Identical deletion data and direct earlier all-cyclic theorem; determines whether the new rank formula is already implied."
+        },
+        {
+          "assessment": "Theorem 13 treats existence of phase-retrieving vectors for irreducible representations of nonabelian class-two nilpotent groups. It does not concern this deterministic family of nonzero-character deletions on the zero-mean subspace or calculate its complex operator span.",
+          "evidence": [
+            "Theorem 13 on PDF p11 explicitly assumes a nonabelian nilpotent group of class 2 and concludes every irreducible representation does phase retrieval.",
+            "The introduction contrasts representation-orbit constructions with fixed Fourier-deletion observations."
+          ],
+          "identifier_or_url": "Führ--Oussa, arXiv:2201.08654v2, https://arxiv.org/pdf/2201.08654",
+          "material_read": "Introduction, finite Heisenberg-frame examples, Section 3 beginning and Theorem 13 (PDF pp1--3, 11--12), including comparison with irreducible projective representations.",
+          "method": "Opened 25-page arXiv primary PDF, inspected text and first-page image.",
+          "title": "Phase retrieval for nilpotent groups",
+          "trigger": "Potential dominating group-representation theorem for phase retrieval over finite abelian and nilpotent groups."
+        },
+        {
+          "assessment": "Theorem 1 counts nonzero Weyl ambiguity coefficients for the full time-frequency orbit of a single Gabor window. The assigned measurements are a different multi-deletion family on dimension N-1 and are not a single full Weyl orbit; that rank formula does not yield the element-order nullity sum without new identification and calculation.",
+          "evidence": [
+            "Theorem 1 (PDF p4): Gabor POVM rank equals the number of nonzero inner products <g,M^kT^l g>.",
+            "Theorem 2 diagonalizes the Gramian of d^2 Weyl translates of one fixed vector; here the deletion label is one of N-1 nonzero frequencies in an (N-1)-dimensional signal space."
+          ],
+          "identifier_or_url": "Goldberger--Kang--Okoudjou, arXiv:2106.01509v1, https://arxiv.org/pdf/2106.01509",
+          "material_read": "Abstract, introduction, Section 2 setup, Theorem 1 and Theorem 2 on PDF pages 1--4.",
+          "method": "Opened 21-page primary PDF and visually inspected Theorems 1--2 on page 4.",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Possible stronger exact rank theorem for quantum-information POVM/operator-span measurements."
+        },
+        {
+          "assessment": "Its rank counts Weyl orbits of exactly two-sparse windows over cyclic Z_N; the present frame omits one of many dense nonzero Fourier characters and its normalizer uses the zero-mean Fourier space. There is no direct implication of the new rank formula.",
+          "evidence": [
+            "The theorem is an OPTIMAL span-capacity bound over the choice of s two-sparse windows, rather than the rank of one fixed family of N-1 frequency deletions.",
+            "Its Weyl ambiguity support decomposes by translation rows, in contrast to bandwise deletion equations x_j+x_{j+delta}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-operator-span-capacity-of-two-sparse-multi-window-gabor-sy--b553eeb756ed/RESULT.md",
+          "material_read": "Complete published RESULT.md, including proof of N min(N,1+2s), assumptions, examples and limits.",
+          "method": "Read full public Resultary GitHub source file, blob SHA c368ed5ad35d4946ec0ba2dc10e346708dfbc873.",
+          "title": "Sharp operator-span capacity of two-sparse multi-window Gabor systems",
+          "trigger": "Exact operator span for several structured cyclic measurement windows could dominate the submission."
+        },
+        {
+          "assessment": "It counts full Weyl orbits of a vector with two zero sites and N-2 flat surviving sites in dimension N, including spacing-sensitive torsion. The assigned observations are N-1 deletion masks in dimension N-1, each sampled at all G sites; same word “hole” does not identify these operators. No formal reduction yielding the submitted arbitrary-abelian band rank was found.",
+          "evidence": [
+            "The two-hole formula depends on d=gcd(N,a), q=N/d and terms from two- and three-torsion of one mask spacing.",
+            "The assigned formula sums N/ord(delta)-1 over ALL nonzero characters of even order, including noncyclic groups."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0/RESULT.md",
+          "material_read": "Complete published RESULT.md including all-parameter rank defect formula, Weyl-orbit proof, coprimality cases and limits.",
+          "method": "Read full public Resultary GitHub source file, blob SHA e02e1f4ca2834e7f2e4e79d5f3beef8c5da0e3c1.",
+          "title": "Exact arithmetic rank of two-hole cyclic Gabor measurements",
+          "trigger": "Potential precise coincident hole-mask rank formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complex span of prescribed rank-one intensity operators is a natural matrix-tomography capacity invariant, stronger than the known yes/no pure-state phase retrieval property. The exact all-abelian formula supplies an explicit basis for every missing operator direction and reveals that isomorphic order alone does not determine measurement rank (order-eight ranks 44,36,28). A researcher studying informational completeness, deterministic masks, or noise sensitivity would need the exact defect and its coset mechanism. The result is limited to noiseless rank and does not assert stability or minimal mask subsystems; the covered odd-prime and cyclic phase-retrieval consequences are not used as novelty evidence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2109.07123",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-frequency-deletion-phase-retrieval-on-cyclic-groups-exact-odd-or--36702d91730c/RESULT.md",
+    "https://arxiv.org/pdf/2201.08654",
+    "https://arxiv.org/pdf/2106.01509",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-operator-span-capacity-of-two-sparse-multi-window-gabor-sy--b553eeb756ed/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-matrix-recovery-ranks-for-one-frequency-deletion-frames-on--ba49022cda29"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The published cyclic theorem and its proof already cover linear full rank for odd cyclic orders; do not count the phase-retrieval criterion or prime result as new.",
+    "Earlier cyclic cycle recurrence is the main algebraic precursor; contribution is precise all-abelian/nullspace count.",
+    "No claim of independent historical priority; searching cannot exclude unindexed equivalent tomography work.",
+    "No source-package Python script was executed directly; bounded independent exact matrices were checked.",
+    "Public metadata/review source files retain process-origin fields and require confidentiality-safe treatment before any public importer operation."
+  ],
+  "residual_risks": [
+    "The earlier cyclic autocorrelation proof already contains the essential recurrence, so some cyclic even-rank formulas may be viewed as routine unstated consequences and receive limited novelty credit.",
+    "Unindexed frame-complement, quantum-tomography or finite Fourier-deletion literature could state an equivalent general abelian rank law.",
+    "The same exact finding appears in the indexed results as the current submission and is not counted as independent evidence of originality.",
+    "No claim is made of independent historical priority or external certification."
+  ],
+  "schema_version": 1
+}

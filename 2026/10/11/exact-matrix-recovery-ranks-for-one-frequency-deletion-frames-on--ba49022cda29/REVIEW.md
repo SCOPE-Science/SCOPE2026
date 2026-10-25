@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted rank is that of the complex span of exactly the one-character-deletion intensity projectors, not an unrelated frame. Character orthogonality reduces the measurement map to independent matrix bands indexed by frequency differences. The deletion sum recovers each band's total for \(N\ge4\); the kernel equation on each band is the translation recurrence \(x_{j+\delta}=-x_j\), with the two zero-index constraints. Its cycle decomposition gives precisely one complex null direction for each nonzero even-order coset. The real Hermitian rank agrees with the complex span rank because the projectors are Hermitian. Small orders and the phase-ambiguity construction are treated separately. The rational-arithmetic verifier tests twenty group structures and constructs actual kernel vectors; this is supporting finite verification, not a substitute for the all-order proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Bartusel–Führ–Oussa treat the prime-order frequency-deletion phenomenon, and the published cyclic classification already settles its qualitative phase-retrieval criterion for cyclic groups. Neither source's stated theorem gives the complete complex operator-span rank, noncyclic-group extension, or invisible-band multiplicities. The closest indexed two-sparse Gabor matrix-tomography result uses a different family of Weyl-orbit projectors. Full and relevant sections of the primary source and the complete published cyclic result were compared against the final statement. Search cannot rule out an equivalent formula in unindexed frame/tomography literature.
+PASS
 
-## Value — PASS
-Matrix tomography asks how many independent Hermitian parameters are measured, a quantitatively stronger invariant than ordinary rank-one phase-retrieval injectivity. The exact formula identifies all lost degrees of freedom, supplies explicit null directions, and distinguishes groups of the same order: for the three abelian order-eight groups the ranks are \(44,36,28\). These are natural and fully classified failure modes rather than a small numerical sample or a relabeling of the prior odd-cyclic yes/no result.
+Reconstructed the map X -> (v_{ell,x}^*Xv_{ell,x}) by Fourier inversion of the site x: difference bands delta decouple, with T_delta^ell the sum of X_{a,b} over a-b=delta surviving deletion ell. On delta=0, sum_ell T=(N-2)sum_diag, uniquely recovering all diagonal entries for N>=4. On delta!=0, each entry survives N-3 deletions, so S_delta=sum_ell T/(N-3). Defining x_j=X_{j,j-delta} for j not 0,delta and x_0=x_delta=0 gives measured x_ell+x_{ell+delta}, with b_0=0. The homogeneous recurrence alternates around cosets of <delta>: odd length gives no kernel; even length gives one free alternating scalar per coset except the forced-zero coset <delta>; those alternating cycles have zero sum. Summation over disjoint delta bands yields R=(N-1)^2-sum_even_order(N/ord(delta)-1). Because each projector is Hermitian, complex span rank equals real span dimension among Hermitian matrices. Odd N gives full Gram recovery and global phase; even N>=4 has an explicit order-two two-frequency pair (1,i)/(1,-i); N=2,3 handled separately. Independently constructed exact integer incidence band matrices and computed rational ranks for group types Z4,V4,Z5,Z6,Z7,Z8,Z4xZ2,Z2^3,Z9,Z3^2,Z10; all agreed, including 44/36/28. These finite checks only corroborate the all-order cycle proof; bundled verify.py was inspected, not executed in the container.
 
-## Scientific limits and closest sources
-The result does not claim noise stability, deletion-subfamily minimality, or novel odd-cyclic phase-retrieval uniqueness. The closest sources are arXiv:2109.07123v1, the published cyclic frequency-deletion classification cited in `RESULT.md`, arXiv:2201.08654v1, and the published two-sparse multi-window Gabor operator-span result. Any unindexed equivalent requires outside checking.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the complete finite-abelian matrix-tomography rank/nullity classification, not for prime matrix recovery or the known odd-cyclic phase-retrieval corollary. The all-abelian element-order sum and explicit nonidentity-coset nullspace basis give nonisomorphic order-eight groups different ranks (44,36,28). The published cyclic proof already yields linear full matrix recovery for odd cyclic groups by its recurrence and supplies the main method; thus novelty is limited to exact even-group deficiency and extension across noncyclic structures. The inspected fixed-family and larger Gabor/representation results do not assert or imply the complete formula without a new computation. Historical equivalence risk remains.
+
+## value
+
+PASS
+
+The complex span of prescribed rank-one intensity operators is a natural matrix-tomography capacity invariant, stronger than the known yes/no pure-state phase retrieval property. The exact all-abelian formula supplies an explicit basis for every missing operator direction and reveals that isomorphic order alone does not determine measurement rank (order-eight ranks 44,36,28). A researcher studying informational completeness, deterministic masks, or noise sensitivity would need the exact defect and its coset mechanism. The result is limited to noiseless rank and does not assert stability or minimal mask subsystems; the covered odd-prime and cyclic phase-retrieval consequences are not used as novelty evidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
