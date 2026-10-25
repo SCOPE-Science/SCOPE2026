@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every m>=3 and positive real spoke weight, hub best response is z<=m/2. Direct comparison of two rim actions shows zeros need two opposite rim neighbors if and only if lambda<=2, and ones cannot have two equal rim neighbors if lambda<2. Thus the complete equilibrium configurations are cyclic gap lengths 2 or 3 below threshold, isolated zeros including empty at threshold, and all-one rim above. Starting-zero double counting yields the refined binomial formulas. A three-state transfer trace proves the Perrin recurrence and the cycle independent-set trace proves Lucas. Strictness is settled by equality cases. All welfare levels follow from exactly 2z rim-cut edges and m-z spoke-cut edges. A direct one-zero flip argument proves the exact global optimum, and the minimum PNE value is realized at ceil(m/3). The exact-rational checker reproduced 72 full cases and 393120 profiles and independently checked sequence counts to 299; these checks support the infinite proof rather than replacing it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2311.03195 §§2–3 proves general complexity and potential assertions rather than classifying all local weighted cuts of each wheel.",
+        "arXiv:2301.02889 §§3–4 proves equilibrium-finding and convergence theorems for graph threshold dynamics; no weighted-wheel exact enumeration appears.",
+        "arXiv:2101.09103 Fig. 4 and §3.2 specify a regular circular ladder, not a wheel with a universal hub."
+      ],
+      "reasoning": "General graph results implying existence, potential improvement, or worst-case computational hardness do not logically determine counts, tie-sensitive changes, exact welfare spectra or price-of-anarchy formula on all wheel sizes. An arbitrary-graph closed enumeration including weighted wheels would dominate, but none was located in inspected material.",
+      "searches": [
+        "\"wheel graph\" \"max cut\" \"Nash equilibrium\" best response",
+        "\"wheel graph\" \"local maximum cuts\" exact enumeration",
+        "arXiv:2311.03195",
+        "arXiv:2301.02889"
+      ]
+    },
+    "checked_sources": [
+      "Sánchez Muñoz–Mc Gettrick, arXiv:2101.09103 §§2–4, 2021-01-22 initial arXiv date",
+      "Qiu et al., arXiv:2301.02889 §§3–4, 2023-01-07 initial arXiv date",
+      "Deligkas et al., arXiv:2311.03195 §§2–3, 2023-11-06 initial arXiv date"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2101.09103 §3.2 establishes a golden-ratio equilibrium count on a different regular circular-ladder game, without a spoke-weight bifurcation.",
+        "arXiv:2301.02889 Theorem 4.5 establishes computational accessibility of some equilibrium-finding problems, not a refined enumeration or Nash welfare extrema.",
+        "arXiv:2311.03195 §2.2 acknowledges potential maxima are equilibria; this explains price of stability one here but not the equilibrium multiplicity, minimum Nash welfare or exact inefficiency."
+      ],
+      "reasoning": "Explicitly separated what prior work already implies (general best-response definitions and potential maxima being Nash equilibria) from what it does not imply (the three-branch exact census with binomial coefficients, strictness, entropy and worst-equilibrium welfare). No title or parameter mismatch alone was used to infer noncoverage.",
+      "searches": [
+        "arXiv:2101.09103",
+        "arXiv:2301.02889",
+        "arXiv:2311.03195",
+        "Binary graphical network anti coordination on wheel hub rim welfare-optimal Nash equilibrium counts",
+        "For a wheel K1 joined cycle Cm with rim weight 1 and spoke weight lambda, number of pure Nash anti-coordination equilibria equals 2 Perrin Pm for lambda<2, 2 Lucas Lm at lambda=2 and 2 for lambda>2; price of anarchy exact ceiling m/3 floor m/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.03195 §§2.1–2.2 defines edge-sum binary polymatrix anti-coordination payoffs and local potential maxima.",
+        "The weighted cut is the exact potential here; a spin representation maps opposing actions to antiferromagnetic interactions.",
+        "arXiv:2101.09103 §§2–4 computes equilibrium sequences on ladder and circular-ladder graphs, not wheels."
+      ],
+      "reasoning": "Checked the cut-local-optimum and antiferromagnetic Ising one-spin-flip formulations, not merely game-theory phrasing. These are equivalent formulations of the new theorem, but identified mathematical sources do not supply the weighted wheel transition or formulas. The existing ladder recurrence is not a reduction: ladder/circular-ladder graphs are different from a cone over a cycle.",
+      "searches": [
+        "Spoke-weighted wheel graph anti-coordination binary network game equilibrium phase transition at lambda=2, Perrin and Lucas enumeration and exact price of anarchy",
+        "Antiferromagnetic Ising metastable zero-temperature one-spin-flip stable states wheel rim spoke coupling, ground states and entropy",
+        "\"wheel graph\" \"anti-coordination\" \"Nash\" equilibria count",
+        "arXiv:2101.09103"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2101.09103 Tables 3 and §3.2 tabulate ladder/circular-ladder equilibria at selected sizes; their source graph is not the wheel.",
+        "The Perrin/Lucas integer sequences are pre-existing; the present binomial refinement and price formula concern a distinct graph-game interpretation."
+      ],
+      "reasoning": "Searches included wheel, local Max-Cut, metastable Ising states, cyclic tilings, Perrin and Lucas aliases. No exact weighted-wheel PNE/strictness/welfare table was found. Sequence matching alone is not a covering mathematical implication.",
+      "searches": [
+        "Exact number of local maximal cuts on weighted wheels with spoke weight less than two or equal two, gap sequences two and three, Perrin recurrence",
+        "Wheel networks binary anti-coordination equilibrium configurations enumeration circular tilings two and three and welfare spectrum",
+        "\"wheel graph\" \"equilibria\" \"Fibonacci\" \"anti-coordination\"",
+        "\"wheel graph\" \"Nash\" \"Perrin\" anti"
+      ]
+    },
+    "rationale": "The complete parametric wheel census is not obtained by renaming the known Perrin or Lucas sequences: the fresh conclusion is that a single natural spoke-to-rim weight threshold separates Perrin, Lucas, and two-equilibrium phases, with exact refined counts, strictness, all welfare levels and sharp inefficiency. Full primary text on ladder/circular-ladder anti-coordination (arXiv:2101.09103), graphical anti-coordination equilibrium existence and dynamics (arXiv:2301.02889), and binary polymatrix welfare complexity (arXiv:2311.03195) supplies related definitions and motivation but not this full theorem; unlike the wheel, a circular ladder has no universal hub. Multiple directed searches of weighted local-max cuts, zero-temperature spin-flip stable configurations, wheel Nash counts and exact tables found no stronger covering result. This is a best-knowledge originality assessment, not proof of publication uniqueness.",
+    "residual_risks": [
+      "A less discoverable result in zero-temperature anti-ferromagnetic Ising metastability or local-optimal-cut enumeration might give the same weighted-wheel result under different language.",
+      "Searches cannot establish absolute uniqueness; an unindexed exact transfer-matrix enumeration with a wheel hub might dominate some components."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partial thematic precedent but NOT_COVERING the spoke-weighted wheel theorem.",
+        "evidence": "MSC 91A43 is stated; §3.2 concerns a 3-regular circular ladder with 2n players; its formula does not count cone-over-cycle equilibria or optimize wheel cut welfare.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.09103",
+        "material_read": "Full accessible HTML exposition, in particular game definition §2, recurrence in §3.1, circular-ladder derivation §3.2, parameter regime §4, and enumerated examples.",
+        "method": "Read primary text and exact recurrence formulas; checked topology and absence of wheel statements.",
+        "title": "Nash Equilibria in certain two-choice multi-player games played on the ladder graph",
+        "trigger": "Closest explicit Nash equilibrium enumerator for structured two-choice graphical anti-coordination; similar Fibonacci growth."
+      },
+      {
+        "assessment": "General existence/convergence framework but NOT_COVERING the exact weighted-wheel census.",
+        "evidence": "§3 defines threshold best responses; §4 proves existence/algorithmic convergence, not a Perrin/Lucas parameter-dependent count or Nash welfare formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.02889",
+        "material_read": "Primary arXiv HTML §§2–4 including threshold-game definition §3 and potential/convergence proof around Lemmas 4.3–4.4 and Theorem 4.5.",
+        "method": "Compared payoff/update objects, theorem quantifiers and conclusions directly.",
+        "title": "Networked Anti-Coordination Games Meet Graphical Dynamical Systems: Equilibria and Convergence",
+        "trigger": "General network anti-coordination with local thresholds and convergence claims potentially covering the dynamics."
+      },
+      {
+        "assessment": "General anti-coordination potential/welfare framework, NOT_COVERING graph-specific wheel counts and welfare minima.",
+        "evidence": "Definitions 2, 4, 5, 6 match strategic best-response and potential notions; §§2–3 do not report spoke-weighted wheel counts or price of anarchy.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.03195",
+        "material_read": "Primary arXiv HTML abstract, introduction, §2.1–2.2 and §3 complexity/potential results, with bibliography and relevant theorem statements.",
+        "method": "Checked exact payoff definitions and implication of potential maximization; searched full HTML for wheel.",
+        "title": "Some coordination problems are harder than others",
+        "trigger": "Binary-action polymatrix coordination/anti-coordination and optimal equilibrium welfare."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "299262a7-1d16-48c9-8884-00f692c00e47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The wheel is a natural hub-and-ring network with heterogeneous degree and uniform tunable hub influence. The full infinite-family phase diagram answers a motivated quantitative question for strategic substitutes: how the strength of hub ties changes equilibrium abundance, robustness to tie-breaking, and welfare loss. The coexistence of exponentially many equilibria below lambda=2, an even larger Lucas-number tie phase at lambda=2, and only two strict equilibria above provides a sharp structural phenomenon, not an arbitrary finite census. The exact price-of-anarchy formula shows a nontrivial worst-equilibrium welfare penalty (unweighted limit 9/8), while all equilibria at lambda>=2 are efficient. It does not claim a general-network theorem or more than the specified network game.",
+    "status": "PASS"
+  }
+}
