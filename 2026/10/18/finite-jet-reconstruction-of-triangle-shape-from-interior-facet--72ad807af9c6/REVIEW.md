@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact simplex barycentric-to-altitude identity reduces ordered distances to independent exponential clocks. Conditioning on the first arrival gives the rational survival law; right derivatives recover consecutive power sums and Newton identities recover facet areas. In the plane, SSS and strict triangle inequalities give inverse uniqueness and feasibility. Strict convexity of the reciprocal survival summands plus majorization proves the sharp universal triangle bounds. Four independent exact-rational jet tests, four geometric Monte Carlo cases with 920000 samples in total, and 1500 triangle-profile bound checks passed. These computations do not replace the analytic proof.
+## correctness
 
-**Originality — PASS on presently inspected evidence, with residual priority risk.** Anderson–Goyal–Rademacher's complete relevant probabilistic section already proves the normalized-exponential simplex representation; the Plackett–Luce ranking mechanism is classical. Neither is asserted as original. The resulting full *unlabeled two-smallest supporting-facet distance ratio* law, finite-derivative inversion, and sharp triangle feasibility and stochastic bounds were not found in inspected primary research and published mathematical records. Closest triangle reconstruction based on random projection widths has a different statistic and does not imply the stated finite-jet result. The 1975 ranking article was not available in full; priority under alternate 'trilinear-coordinate' terminology remains a genuine risk.
+PASS
 
-**Mathematical value — PASS.** Unlabeled scalar random-point data yield complete metric triangle shape recovery from just two endpoint derivatives, together with exact realizability and a sharp two-sided distributional inequality. The facet-area version is all-dimensional. This is a natural and independently motivated inverse-geometric statistic rather than a numerical special case; its use of classical probability is fully acknowledged.
+For a d-simplex, barycentric facet coordinate λ_i and its opposite altitude give the supporting-hyperplane distance D_i=(d Vol(S)/A_i) λ_i. A volume-uniform point has Dirichlet(1,...,1) barycentrics E_i/sum E with independent Exp(1) E_i; ordered facet distances/ratios are therefore those of independent exponential clocks E_i/A_i of rates A_i. Competing-clock conditioning yields P(D_(2)/D_(1)>1+y)=H(y)=sum_i p_i/[1+(1-p_i)y], p_i=A_i/sum A. M_k=(-1)^k H^(k)(0+)/k!=sum_i p_i(1-p_i)^k recursively recovers power sums s_2..s_(d+1) from k=1..d, then Newton identities recover the unordered area profile including repeats. For triangles e2=M1/2, e3=(M2-M1/2)/3 gives the side-length cubic; SSS plus max p_i<1/2 characterizes nondegenerate triangle similarity/reflection. f_y(p)=p/[1+(1-p)y] has f_y''>0, so Jensen and strict Karamata on triangle profiles prove 3/(3+2y)<=H(y)<2/(2+y), sharp equilateral/degenerate limit. Exact rational p=(3,4,5)/12 gives e2=47/144 and e3=5/144, a local independent consistency check; source checker also uses finite Monte Carlo, not as proof.
 
-**Scope and limitations.** Distances are to supporting hyperplanes, not finite facet segments. In higher dimensions the result recovers areas but not full simplex shape; exact population derivatives are not stable finite-sample estimates. Bibliographic priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the unlabeled two-smallest supporting-hyperplane margin ratio distribution, finite-jet recovery of normalized facet areas, complete triangle realizability and sharp stochastic bounds. The uniform simplex exponential-barycentric representation and Plackett–Luce ranking themselves are classical and expressly not accepted as new. Existing Resultary triangle reconstruction from random directional projection widths observes a different distribution and does not logically imply this scalar interior-margin law.
+
+## value
+
+PASS
+
+A very coarse unlabeled ratio observed at a random interior point carries the complete relative facet-area spectrum of every simplex, with finitely many endpoint derivatives. For triangles, just two derivatives determine metric shape up to similarity/reflection; complete feasibility and sharp two-sided stochastic bounds give a natural structural inverse characterization, not a routine reuse of the exponential ranking formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

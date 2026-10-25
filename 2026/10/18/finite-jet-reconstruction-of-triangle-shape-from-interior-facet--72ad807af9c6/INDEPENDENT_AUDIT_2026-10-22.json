@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:58:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md fafca4be22c6b47437dc3a4af55b6b8509ee8401, proofs §§1-5",
+        "Pinned check_facet_ratio.py fc9f0403acae13bf8555bc8c8c3c9453930d411a, source inspected",
+        "Anderson–Goyal–Rademacher arXiv:1211.2227 full relevant simplex exponential sampling section",
+        "Classical competing-exponentials/Plackett–Luce and Newton identities"
+      ],
+      "rationale": "For a d-simplex, barycentric facet coordinate λ_i and its opposite altitude give the supporting-hyperplane distance D_i=(d Vol(S)/A_i) λ_i. A volume-uniform point has Dirichlet(1,...,1) barycentrics E_i/sum E with independent Exp(1) E_i; ordered facet distances/ratios are therefore those of independent exponential clocks E_i/A_i of rates A_i. Competing-clock conditioning yields P(D_(2)/D_(1)>1+y)=H(y)=sum_i p_i/[1+(1-p_i)y], p_i=A_i/sum A. M_k=(-1)^k H^(k)(0+)/k!=sum_i p_i(1-p_i)^k recursively recovers power sums s_2..s_(d+1) from k=1..d, then Newton identities recover the unordered area profile including repeats. For triangles e2=M1/2, e3=(M2-M1/2)/3 gives the side-length cubic; SSS plus max p_i<1/2 characterizes nondegenerate triangle similarity/reflection. f_y(p)=p/[1+(1-p)y] has f_y''>0, so Jensen and strict Karamata on triangle profiles prove 3/(3+2y)<=H(y)<2/(2+y), sharp equilateral/degenerate limit. Exact rational p=(3,4,5)/12 gives e2=47/144 and e3=5/144, a local independent consistency check; source checker also uses finite Monte Carlo, not as proof.",
+      "residual_risks": [
+        "Facet distance means supporting hyperplane, not finite facet; d>=3 only area spectrum, not shape.",
+        "Exact derivatives, not stable finite-sample recovery. Source Monte Carlo code inspected, not rerun in this execution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anderson et al. reconstruct simplex parameters from rich full-dimensional sample data, not from two derivatives of a scalar facet-distance-ratio law.",
+          "Published SCOPE projection-width distribution determines triangle shape using random directions, a different observation operator."
+        ],
+        "reasoning": "Coverage by an inverse theorem using more informative/different data does not entail identifiability from this particular interior ratio or the sharp stochastic envelope.",
+        "searches": [
+          "Anderson Goyal Rademacher efficient learning simplices arXiv:1211.2227",
+          "Resultary unlabeled projection-width laws determine every Euclidean triangle 2026/10/11/SCOPE-unlabeled-projection-width-laws-determine-every-euclidean-triang--09aadba5d278",
+          "Tong Ahmadi Pan random distances associated with arbitrary triangles arXiv:1312.2498"
+        ]
+      },
+      "checked_sources": [
+        "Anderson–Goyal–Rademacher arXiv:1211.2227 full relevant primary PDF",
+        "Plackett 1975 model bibliographic reference (full text not read)",
+        "Tong–Ahmadi–Pan arXiv:1312.2498 two-point random distances scope",
+        "Resultary record 2026/10/11/SCOPE-unlabeled-projection-width-laws-determine-every-euclidean-triang--09aadba5d278"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exp representation is a necessary premise and prior; competing risk ranking yields p_i=Pr(first=i), but from unlabeled ratio H the finite-derivative inversion is an additional specific result.",
+          "Projection-width theorem does not identify the random interior two-nearest facet distances law."
+        ],
+        "reasoning": "The assessed theorem is a motivated new consequence of known ingredients, not a claim that those ingredients were novel; hidden historical equivalent formulations remain possible.",
+        "searches": [
+          "arXiv:1211.2227 probabilistic simplex section",
+          "Plackett 1975 permutations ranking",
+          "Resultary projection widths triangle 09aadba5d278"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent Exp clocks E_i/A_i and Dirichlet barycentrics are known and precisely equivalent representations of supporting-plane margins up to a common scale.",
+          "Plackett–Luce law identifies ranking labels, but the submitted scalar R is unlabeled and includes times, not merely order."
+        ],
+        "reasoning": "A clock-ratio law may exist under trilinear coordinates or competing risk terminology, but known ranking probabilities alone do not determine the entire continuous R distribution and its triangle-shape finite jet in the inspected references.",
+        "searches": [
+          "simplex facet distances uniform random point exponential clocks rank ratio triangle shape recovery",
+          "arXiv:1211.2227 efficient learning of simplices exponential representation",
+          "trilinear coordinates triangle nearest side supporting line ratios"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest triangle width paper identifies side lengths via singularities of a different width law.",
+          "A table of Plackett–Luce ranking probabilities specifies only ordering events; it lacks the continuous clock time-ratio transform."
+        ],
+        "reasoning": "No exact table found that outputs first two right derivatives of the present H(y) and determines arbitrary triangle similarity class; negative search alone is not proof of novelty.",
+        "searches": [
+          "Resultary query triangle shape unlabeled random facet supporting plane distance ratio law",
+          "Resultary 2026/10/11/SCOPE-unlabeled-projection-width-laws-determine-every-euclidean-triang--09aadba5d278",
+          "classical triangle trilinear coordinates exponential random point facet distance tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the unlabeled two-smallest supporting-hyperplane margin ratio distribution, finite-jet recovery of normalized facet areas, complete triangle realizability and sharp stochastic bounds. The uniform simplex exponential-barycentric representation and Plackett–Luce ranking themselves are classical and expressly not accepted as new. Existing Resultary triangle reconstruction from random directional projection widths observes a different distribution and does not logically imply this scalar interior-margin law.",
+      "residual_risks": [
+        "Old trilinear-coordinate and competing-risk studies may contain an equivalent unlabeled clock-ratio law not indexed by facet distance.",
+        "The 1975 ranking primary full text and the full published Resultary width proof were not read; no whole-document noncoverage claim made.",
+        "This is best-of-knowledge originality, not a historical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes normalized exponential representation as prior, but inspected results concern learning simplex from higher-dimensional data, not the ratio inverse law",
+          "evidence": "Uniform simplex sampling representation and learning setting",
+          "identifier_or_url": "https://arxiv.org/abs/1211.2227",
+          "material_read": "Full accessible primary PDF relevant probabilistic representation section, especially theorem/lemma for independent Exp(1) normalized barycentric coordinates; PDF page 19 visually inspected",
+          "method": "Primary PDF/text plus rendered page",
+          "title": "Efficient Learning of Simplices",
+          "trigger": "Same uniform simplex sampling and exponential barycentrics"
+        },
+        {
+          "assessment": "Ranking mechanism is old; exact unlabeled time-ratio inversion not certified absent from the full source",
+          "evidence": "Plackett–Luce ranking probabilities",
+          "identifier_or_url": "https://doi.org/10.2307/2346567",
+          "material_read": "Bibliographic material and model context only; original 1975 full article not inspected",
+          "method": "Bibliographic and known model comparison",
+          "title": "The Analysis of Permutations",
+          "trigger": "Classical exponential ranking/Plackett–Luce mechanism"
+        },
+        {
+          "assessment": "Different data: angular width versus volume-random interior facet margin ratio; cannot claim full-document exclusion",
+          "evidence": "Published summary describing width-density singularities",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unlabeled-projection-width-laws-determine-every-euclidean-triang--09aadba5d278",
+          "material_read": "Published Resultary summary with random-direction projection length and density singularities; complete supporting package not inspected",
+          "method": "Resultary semantic result summary",
+          "title": "Unlabeled projection-width laws determine every Euclidean triangle",
+          "trigger": "Published nearby exact triangle-identifiability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact inverse Newton identities, side-length cubic, strict triangle inequalities and stochastic envelope in pinned RESULT.md",
+        "Comparison with other inverse triangle observables via Resultary width reconstruction"
+      ],
+      "rationale": "A very coarse unlabeled ratio observed at a random interior point carries the complete relative facet-area spectrum of every simplex, with finitely many endpoint derivatives. For triangles, just two derivatives determine metric shape up to similarity/reflection; complete feasibility and sharp two-sided stochastic bounds give a natural structural inverse characterization, not a routine reuse of the exponential ranking formula.",
+      "residual_risks": [
+        "Higher-dimensional facet areas do not recover the full simplex; exact population derivative measurement can be unstable."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Supporting affine hyperplanes only, uniform interior point, full-dimensional simplex.",
+    "In d>=3 only facet-area multiset, not metric shape; no finite-sample algorithm or noise bounds."
+  ],
+  "schema_version": 1
+}
