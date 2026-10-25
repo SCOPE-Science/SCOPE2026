@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "proof_evidence": [
+      "RESULT.md: per-block sharp lower bound and equality classification",
+      "RESULT.md: independent-set bijection and complexity reduction",
+      "verify.py: exhaustive definition-level small cases and clone identities"
+    ],
+    "rationale": "Blockwise minimum \\(2\\) is attained exactly by two states at leaf multiplicity two, and by one state at multiplicity at least three. Independence of empty core vertices plus the rainbow condition gives four ordered leaf choices for each nonisolated empty core and two for each isolated empty core; this proves \\((1+2t)^iI_{G^\\circ}(4t)\\). The clone-blowup identity \\(I_{G^{(r)}}(4)=I_G(5^r-1)\\) and polynomial interpolation provide a complete Turing reduction from known \\(\\#\\mathrm P\\)-hard bipartite independent-set counting. The original-definition exhaustive verifier passed 30 base-graph cases and three separate clone-identity tests. Finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Samadi–Soltankhah, arXiv:2208.02340v2, pp. 10–12: the broad scalar theorem yields the value \\(2n\\) when the second factor has two isolated vertices, for base graphs without isolated vertices.",
+        "Cabrera-Martínez, Mathematics 10 (2022), 2287: the stated corona formula assumes both factors have no isolated vertices, excluding \\(\\overline{K_2}\\).",
+        "The two-leaf and three-leaf cases have the same known minimum value but respectively nontrivial and unique optimizer profiles."
+      ],
+      "reasoning": "The known general scalar formula has broader graph-product scope in its own domain, and its special case \\(\\gamma=2n\\) is explicitly conceded. A minimum weight by itself cannot imply the optimizer census: on equally sized bases, a three-vertex path has 29 optima while a triangle has 13, though each has weight six. The inspected prior theorem and proof do not present a complete equality-case census or restricted exact-counting theorem.",
+      "searches": [
+        "minimum outer-independent two rainbow dominating functions of two-leaf corona G ⊙ 2K1 in bijection with independent vertex sets independence polynomial I_G(4)",
+        "optimum outer-independent rainbow 2-domination in G corona 2 isolated vertices; min count 4 weighted independent sets; k>=3 unique",
+        "\"outer-independent 2-rainbow\" \"corona\" \"independent set\"",
+        "\"outer-independent 2-rainbow\" \"corona\" 2022 formula Cabrera"
+      ]
+    },
+    "checked_sources": [
+      "Samadi and Soltankhah, arXiv:2208.02340v1 (first 2022-08-03), v2 full text Section 3.2 Theorem 3.4.",
+      "Cabrera-Martínez, Mathematics 10 (2022), 2287, DOI 10.3390/math10132287 (abstract, indexed product statements, conclusions).",
+      "Kang et al. (2019), original outer-independent rainbow domination definitions and bounds (abstract/excerpts).",
+      "Provan and Ball, SIAM J. Comput. 12 (1983), DOI 10.1137/0212053 (counting complexity premise).",
+      "Searches of public mathematical-result records for outer-independent rainbow minima, independence polynomials, two-leaf coronas, and analogous invariants.",
+      "Accessible previously recorded scientific claims, compared for overlapping objects and implication (not treated as independent novelty certification)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2208.02340v2, Theorem 3.4 and pp. 10–12 proof: establishes the minimum via block lower bounds and a construction, but does not enumerate all equality cases.",
+        "Provan–Ball, SIAM Journal on Computing 12 (1983), 777–788, establishes hardness for counting bipartite vertex covers; complements correspond to independent sets.",
+        "The polynomial-time clone-blowup interpolation here proves the additional specialized hardness conclusion without assuming it from a title or scalar parameter."
+      ],
+      "reasoning": "The prior scalar minimum is a theorem strictly weaker than the current polynomial identity, which includes exact coefficients for every independent-set cardinality. The known hardness of independent-set counting does not alone establish hardness for corona optima until the label-to-independent-set bijection and interpolation reduction are proved; both are provided. For leaf multiplicity at least three, uniqueness is an equality-condition argument not entailed by the minimum value alone.",
+      "searches": [
+        "optimum outer-independent rainbow 2-domination in G corona 2 isolated vertices; min count 4 weighted independent sets; k>=3 unique",
+        "star corona OI2RD minimum function enumerator unique three leaves full combinatorial classification",
+        "\"outer-independent\" \"2-rainbow\" \"independent-set polynomial\"",
+        "\"outer independent 2 rainbow\" \"number of optimal functions\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For nonisolated bases, the polynomial is exactly the hard-core independence polynomial of the base after replacing its activity by four; for isolates, its local activity is two.",
+        "The 2023 revision of arXiv:2208.02340, Section 3.2, Theorem 3.4, gives minimum weights of coronas, not a polynomial of optimizer multiplicities.",
+        "Distinction checked against ordinary two-rainbow domination and independent (positive-support) rainbow domination: neither definition is the empty-support-independent condition here."
+      ],
+      "reasoning": "The hard-core equivalence here is a new map from minimum outer-independent two-rainbow functions on two-leaf coronas to independent sets with four decorations per selected nonisolated vertex. The equivalence is proved by a complete block-state argument; ordinary and independent rainbow formulations are not the same constraint.",
+      "searches": [
+        "minimum outer-independent two rainbow dominating functions of two-leaf corona G ⊙ 2K1 in bijection with independent vertex sets independence polynomial I_G(4)",
+        "count all minimum outer-independent 2-rainbow dominating functions in coronas with two pendant leaves per base vertex",
+        "optimum outer-independent rainbow 2-domination in G corona 2 isolated vertices; min count 4 weighted independent sets; k>=3 unique",
+        "\"outer independent 2 rainbow\" \"independence polynomial\" corona",
+        "\"outer independent 2 rainbow\" \"minimum functions\" pendant leaves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record search closest title: “All 2-rainbow dominating functions of complete multipartite graphs” (record ending 7f7bcd9e9b58), concerning the unrestricted rainbow function, not these star-corona minima.",
+        "Another closest record: “Minimum super dominating sets of one-leaf coronas” (record ending 304999ba8c77), for a distinct invariant and distinct attachment.",
+        "Accessible prior claim titles and abstracts did not yield an explicit table of minimum outer-independent two-rainbow functions on two-leaf coronas."
+      ],
+      "reasoning": "No exact matching published census or database table was found among the queried records and indexed literature. This is a bounded-search statement, not a mathematical proof of priority. The known scalar theorem cannot supply coefficient distributions without additional equality-case reasoning.",
+      "searches": [
+        "minimum outer-independent two rainbow dominating functions of two-leaf corona G ⊙ 2K1 in bijection with independent vertex sets independence polynomial I_G(4)",
+        "count all minimum outer-independent 2-rainbow dominating functions in coronas with two pendant leaves per base vertex",
+        "star corona OI2RD minimum function enumerator unique three leaves full combinatorial classification",
+        "\"outer independent 2 rainbow\" \"minimum functions\" \"corona\""
+      ]
+    },
+    "rationale": "The publicly available 2022 preprint (revised 2023) establishes the scalar two-leaf corona minimum for nonisolated bases, but not a full minimum-labeling independence-polynomial census or the exact-counting reduction. The 2022 prior publisher formula assumes a second factor without isolates, inapplicable to two isolated leaves. A bounded set of indexed literature, analogous formulations, and published claims disclosed no covering statement. The remaining inaccessible-publisher-text and unindexed-priority risks are recorded, not claimed eliminated.",
+    "residual_risks": [
+      "The Cabrera-Martínez full article was not accessible after direct open-access attempts; its indexed formula excludes the attachment used here, but hidden related enumeration cannot be ruled out.",
+      "No mathematical database or text search can exclude all unindexed statements, thesis appendices, or future-discovered prior claims.",
+      "This is a self-review; independent validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The scalar minimum \\(2n\\) for the nonisolated-base two-leaf corona is covered prior work; the exact minimum-function independence polynomial and exact counting-complexity connection are not stated in the inspected section.",
+        "evidence": [
+          "Theorem 3.4: for attachment \\(H\\) with isolated vertices and at least two vertices, \\(\\gamma_{oir2}(G\\odot H)=n(\beta(H)+2)\\).",
+          "The subsequent proof partitions labels by center-state but does not provide an exhaustive optimizer enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.02340",
+        "material_read": "The open full-text revised preprint, specifically introductory definitions and pp. 10–12 (Section 3.2, Theorem 3.4, construction, lower bound, and conclusion), including rendered page images.",
+        "method": "Author-posted open-access PDF, searchable text and rendered page inspection.",
+        "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+        "trigger": "The most directly relevant theorem gives the corona-product minimum including edgeless attachment factors."
+      },
+      {
+        "assessment": "The stated product formula concerns factors without isolated vertices, whereas the attached \\(\\overline{K_2}\\) consists entirely of isolates. Full-document priority uncertainty is retained.",
+        "evidence": [
+          "Published 2022-06-30; studies minimum values of join, lexicographic, and corona products.",
+          "Samadi–Soltankhah explicitly attributes to this paper a formula for products where both factors have no isolates."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10132287",
+        "material_read": "Publisher-indexed abstract, search-indexed statements of product formulas and concluding overview; not the complete article, which was not retrievable in this session.",
+        "method": "Open web bibliographic and indexed full-page extracts; direct publisher page and open-access PDF attempts did not succeed.",
+        "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+        "trigger": "Earlier general bounds and product formulas might cover the present corona family."
+      },
+      {
+        "assessment": "Defines and studies general bounds for outer-independent rainbow domination; no corona minimum-function census identified in accessible excerpts.",
+        "evidence": [
+          "Empty-labeled vertices must be independent; all empty vertices must see every color."
+        ],
+        "identifier_or_url": "Kang et al., Journal of Taibah University for Science 13 (2019), 883–891",
+        "material_read": "Accessible abstract and definition/bounds excerpts, not the whole journal text.",
+        "method": "Publisher/bibliographic web searches with abstract and excerpt inspection.",
+        "title": "Outer-independent k-rainbow domination",
+        "trigger": "Foundational definition and possible broad general theorem."
+      },
+      {
+        "assessment": "Established \\(\\#\\mathrm P\\)-completeness of counting vertex covers in bipartite graphs, equivalent by complementation to counting bipartite independent sets. Used as a cited premise, not an originality claim.",
+        "evidence": [
+          "SIAM Journal on Computing 12 (1983), 777–788, explicit abstract enumerates counting bipartite vertex covers among its \\(\\#\\mathrm P\\)-complete problems."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0212053",
+        "material_read": "Publisher title, abstract and bibliographic metadata; not publisher full text.",
+        "method": "Primary publisher abstract inspection.",
+        "title": "The Complexity of Counting Cuts and of Computing the Probability that a Graph is Connected",
+        "trigger": "Counting-complexity input to the independent-set interpolation reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c8a9f4e-8a4a-4ed0-910d-577a1e1a4d25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies all coefficients of the optimizer-distribution polynomial of a natural arbitrary-base corona family, recovers the base independence polynomial, and exhibits a sharp optimizer-multiplicity threshold at two versus three private leaves. The counting problem is hard on bipartite coronas although finding the minimum weight is immediate. This structural and algorithmic bridge is motivated by an existing corona minimum-weight theorem, not a random parameter slice.",
+    "status": "PASS"
+  }
+}
