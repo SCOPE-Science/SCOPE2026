@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:47:10Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent supplementary finite and symbolic checks, not substituted for proofs in RESULT.md.",
+      "rationale": "For even n>=2, eta>0 the proper energy E=v²/2+x^(2n+2)/(2n+2) has E_dot=-eta*x^n*v²<=0, excluding finite positive-time blow-up and forcing convergence to the origin. Projective z=v/x^(n+1) obeys z_dot=-x^n[(n+1)z²+eta*z+1]; its quadratic has no real root precisely 0<eta<2sqrt(n+1), giving no fixed angular direction, while real invariant rays stop infinite full rotations above threshold. On the oscillatory side, d log |x|/dz=-z/P(z) yields the exact contraction of crossing speeds q=exp(-pi*eta/sqrt(4(n+1)-eta²)). Physical time dt/dtheta is a positive integrable (cos theta)^(-n/(n+1)) quadrature and gives C_{n,eta} V^-alpha. Geometric backward flight durations sum to C V^-alpha q^alpha/(1-q^alpha); quasi-homogeneous flow self-similarity forces exact logarithmic antiperiodicity and minimal period 2pi*n*eta/[(n+1)*sqrt(4(n+1)-eta²)]. Independently integrated full ODE via high-accuracy adaptive solver for (n,eta)=(2,1),(4,0.8): crossing-speed errors <4e-12 against predicted q. Numerical runs cannot establish global all-n winding/boundary claims, which follow from the projective monotonicity and energy/global time argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsue 2018 §5 provides a related angular integral and qualitative oscillatory blow-up for eta=1; parameter expansion requires a new computation",
+          "Dumortier–Herssens 1999 same broad polynomial Liénard class; full text unavailable, cannot assert NOT_COVERING",
+          "Matsue 2026 general result observes numerical n=2 unit-damping invariants"
+        ],
+        "reasoning": "The broad near-infinity literature can dominate qualitative existence and topology; exact eta-dependent physical return, geometric lifetime and sharp log-clock not observed in read portions. Inaccessible primary creates explicitly material O risk.",
+        "searches": [
+          "Matsue arXiv:1611.06346v3 near infinity Liénard angular return integral",
+          "Dumortier Herssens 1999 polynomial Liénard near infinity DOI:10.1006/jdeq.1998.3543",
+          "Zhang 2026 Liénard near origin and infinity classification DOI:10.3934/dcdsb.2026055"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05354v1 §5 original full HTML relevant mathematical text",
+        "arXiv:1611.06346v3 relevant original PDF passages",
+        "Dumortier–Herssens DOI:10.1006/jdeq.1998.3543 bibliographic only, Oxford vpn_disconnected",
+        "Resultary 12 hits exact Liénard oscillatory clock query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate exact crossing speed factor q=exp(-pi eta/sqrt D) yields critical essential singularity from actual quadrature",
+          "Prior 2018 unit-eta return integral is special case and does not by its printed scope assert eta-dependent critical law"
+        ],
+        "reasoning": "The closed periods imply prior numerical invariants (special case), but the numeric sample and abstract correspondence do not imply the parameterized theorem. Stronger unread broad source remains priority risk.",
+        "searches": [
+          "Matsue 2026 Theorem 4.13 and §5 numerical Example1",
+          "Matsue 2018 quasi-polar compactification §5",
+          "Dumortier Herssens 1999 polynomial Lienard infinity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matsue 2026 §5.2 states ODE with eta=1 and numerical period table; generic correspondence establishes why logarithmic profiles correspond to periodic orbits",
+          "Candidate parameter-dependent formula T_log=2pi*n*eta/((n+1)*sqrt(4(n+1)-eta²))"
+        ],
+        "reasoning": "A general balance-law periodic-orbit correspondence is not an evaluated period formula for arbitrary real damping parameter and all even n. It is explicitly credited, not relabeled.",
+        "searches": [
+          "Resultary: Polynomial Lienard oscillatory reverse-time blow up x double prime plus eta x even n x prime plus x power 2n+1, logarithmic profile period damping critical",
+          "Matsue arXiv:2610.05354v1 §5.2 Example 1 and Theorem 4.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matsue reports period about 1.2629677668 for n=2, eta=1; the closed formula 4pi/(3sqrt11) reproduces it",
+          "Related Resultary record treats local degenerate damping five-jet relaxation, not this global reverse-time homogeneous blow-up"
+        ],
+        "reasoning": "A numerical table at one parameter does not entail exact all-eta formulas; no directly matching exact period table retrieved.",
+        "searches": [
+          "Resultary exact Liénard reverse blowup log-clock period critical damping",
+          "Matsue arXiv:2610.05354v1 Table 3 Example 1 numeric period/multiplier",
+          "Resultary 2026/10/11/SCOPE-five-jet-logarithmic-relaxation-and-exact-cancellation-in-degene--598d0c3b4b57"
+        ]
+      },
+      "rationale": "Matsue 2026 establishes the general periodic blow-up balance-law correspondence and computes n=2, eta=1 period and multipliers NUMERICALLY; Matsue 2018 examines an even-n, eta=1 near-infinity Liénard system with angular Poincare return integral and qualitative oscillation, credited. The candidate supplies the all-continuous-damping exact crossing ratio, physical-time flight and lifetime, parameter-dependent minimal log period and sharp inverse-square-root divergence. The earlier 1999 Dumortier–Herssens primary paper plausibly treats global near-infinity returns and may contain implicit quantitative coverage but complete text remained inaccessible; Oxford authorized attempt returned vpn_disconnected. This residual risk does not alone disprove best-knowledge O. The qualitative threshold alone is not claimed as wholly novel.",
+      "residual_risks": [
+        "The Dumortier–Herssens 1999 full text remains inaccessible; near-infinity return-map formulas could contain stronger implicit quantitative coverage.",
+        "Nonhomogeneous perturbations, eta=0, and quantitative behavior at eta=eta_c outside proven winding obstruction remain unaddressed.",
+        "Minimal log period follows from exactly two zero crossings per full signed profile cycle; orientation and time-reversal conventions are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERIC_SPECIAL_CASE_AND_GENERAL_CORRESPONDENCE_PRIOR",
+          "evidence": [
+            "Matsue 2026 §5.2 Example1 treats xddot+x^n xdot+x^(2n+1) and n=2 eta=1 numerical profile period"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.05354v1",
+          "material_read": "Full online HTML inspected; Theorem 4.13, §5.1, §5.2 and numerical Example1/Table3 read",
+          "method": "Compare same dynamical system at eta=1 and source numerical invariants to exact analytic formulas",
+          "title": "On Algebraic-Dynamical Correspondence of Oscillatory Blow-Up Solutions for ODEs",
+          "trigger": "Identical family at unit damping and the logarithmic profile observable"
+        },
+        {
+          "assessment": "QUALITATIVE_OSCILLATION_AND_FIXED_DAMPING_PRIOR",
+          "evidence": [
+            "Matsue 2018 identifies type-I oscillatory blow-up by quasi-homogeneous compactification; unit-damping return integral is relevant prior"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.06346",
+          "material_read": "40-page PDF available; inspected abstract, compactification and relevant example context; did not verify every appendix",
+          "method": "Read PDF text and first-page screenshot, follow cited §5 reasoning",
+          "title": "On blow-up solutions of differential equations with Poincaré-type compactifications",
+          "trigger": "Original qualitative Liénard oscillatory blowup and angular Poincaré integral"
+        },
+        {
+          "assessment": "INACCESSIBLE_MATERIAL_PRIORITY_RISK",
+          "evidence": [
+            "Dumortier & Herssens JDE 153 (1999) 1-29; authorized retrieval blocked by disconnected VPN, not evidence of noncoverage"
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jdeq.1998.3543",
+          "material_read": "Bibliographic metadata/abstract only; complete original article not retrieved",
+          "method": "Tried arXiv and lawful OA alternatives first; authorized Oxford document retrieval subsequently returned vpn_disconnected, job 9fd02fd77aff7886dc63ad15bece7a6d",
+          "title": "Polynomial Liénard equations near infinity",
+          "trigger": "1999 primary broad near-infinity system may imply stronger all-damping return law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact time-resolved blow-up clock of a natural quasi-homogeneous Liénard family is a structural dynamical quantity: it replaces previously numerical profile periods with closed all-degree/all-damping laws, identifies a sharp oscillation-to-nonoscillation boundary and a nontrivial essential singularity in flight-time ratios near it. Scaling alone does not determine the damping-dependent half-turn factor; the Riccati quadrature is substantive. No robustness or critical equality rate beyond winding absence is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.05354v1 §5 original full HTML relevant mathematical text",
+    "arXiv:1611.06346v3 relevant original PDF passages",
+    "Dumortier–Herssens DOI:10.1006/jdeq.1998.3543 bibliographic only, Oxford vpn_disconnected",
+    "Resultary 12 hits exact Liénard oscillatory clock query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n even >=2; eta>0; log-period/time-flight formulas strictly 0<eta<2sqrt(n+1).",
+    "Finite ODE numerical integrations do not establish infinite orbit or all-parameter assertions."
+  ],
+  "residual_risks": [
+    "The Dumortier–Herssens 1999 full text remains inaccessible; near-infinity return-map formulas could contain stronger implicit quantitative coverage.",
+    "Nonhomogeneous perturbations, eta=0, and quantitative behavior at eta=eta_c outside proven winding obstruction remain unaddressed.",
+    "Minimal log period follows from exactly two zero crossings per full signed profile cycle; orientation and time-reversal conventions are essential."
+  ],
+  "schema_version": 1
+}
