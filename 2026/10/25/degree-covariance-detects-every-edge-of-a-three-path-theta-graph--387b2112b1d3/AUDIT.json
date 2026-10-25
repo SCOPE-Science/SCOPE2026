@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For theta lengths a,b,c≥2, every spanning tree deletes one edge from each of two different paths, giving W=ab+ac+bc equiprobable trees. Explicit deleted-edge marginals and joint probabilities give a strictly negative kernel for every pair of distinct deleted edges. Covariance of vertex degrees sums that kernel over incident-edge pairs, yielding strict negativity on all nonedges and two rational adjacent-edge expressions. Expanding the pole-adjacent numerator at r=2 into x²y+xy²+8xy+4x+4y establishes its only zero at (2,2,2); the internal-adjacent numerator has its only zero at (3,2,2). Independent exact enumeration checked 216 path triples and 35865 assertions, including covariance row sums. The proof covers all integer lengths, not only finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2409.13472v1 §4, equation (19), gives covariance for arbitrary weighted graphs by reduced-Laplacian traces.",
+        "doi:10.1007/s10955-025-03510-0, Theorems 3.7 and 4.2, provides general joint degree-field machinery.",
+        "arXiv:2209.04413 Theorem 1 treats a separate stability property."
+      ],
+      "reasoning": "The broad formulas cover numerical/symbolic evaluation of any fixed theta covariance and are explicitly credited. They do not themselves state or imply the universal covariance sign pattern without proving nontrivial inequalities uniformly in three path lengths; the present theorem supplies these inequalities and exceptional equality cases. The 2022 stability classification does not imply adjacent-versus-nonadjacent covariance signs.",
+      "searches": [
+        "\"Expectation and Variance of the Degree of a Node in Random Spanning Trees\" theorem 4 covariance",
+        "\"Correlations in Uniform Spanning Trees: a Fermionic Approach\" degree field",
+        "\"On stability of spanning tree degree enumerators\" real stable"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.04413, first posted 2022-09-09",
+      "arXiv:2409.13472v1, first posted 2024-09-20",
+      "doi:10.1007/s10955-025-03510-0, published 2025-10-18"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The reduced-Laplacian trace formula (2024) algebraically encompasses individual covariance values on fixed graphs, but gives no uniform sign or exact zero classification for theta graphs.",
+        "The stability theorem (2022) distinguishes real stable and nonstable degree enumerators but does not determine covariance supports."
+      ],
+      "reasoning": "The new sign equivalence is neither a direct numerical restatement nor a stability corollary: its proof requires the deletion-pair law, the negative edge-deletion kernel, the two adjacent-edge rational formulas, and inequalities with sharp equality conditions. Ordinary generic covariance formulas remain stronger in domain but not in explicit sign classification.",
+      "searches": [
+        "arXiv:2409.13472 covariance graph Laplacian theorem 4 appendix A",
+        "arXiv:2209.04413 stability theta covariance",
+        "random spanning tree theta graph vertex degree correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected 2022 stability paper states real stability iff distance-hereditary, not signed pairwise degree covariances (arXiv:2209.04413, §§1–4).",
+        "Direct all-triple enumeration corroborates the theta sign theorem but does not establish novelty."
+      ],
+      "reasoning": "Equivalent forms include nonnegative off-diagonal covariance support, covariance-based host adjacency recovery, and a sign test on the Hessian of the log spanning-tree degree polynomial. None was found as an all-parameter theta theorem in inspected material; search failure by itself does not establish priority.",
+      "searches": [
+        "\"theta graph\" \"spanning tree\" \"degree\" \"covariance\"",
+        "\"uniform spanning tree\" \"degree covariance\" theta graph",
+        "degree covariance adjacency recovery theta graphs uniform spanning trees sign pattern"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact theta degree-covariance table appeared among the inspected papers or topical published record-search results.",
+        "The 2022 paper explicitly gives cycle non-stability, whereas the 2024 paper gives a graphwise matrix recipe rather than a theta sign table."
+      ],
+      "reasoning": "The claim is a whole infinite graph family, not recomputation of a finite table; any undiscovered earlier explicit theta covariance table would be a priority risk.",
+      "searches": [
+        "\"theta graph\" \"spanning tree\" \"degree covariance\"",
+        "three internally disjoint paths spanning tree degree covariance positive adjacent negative nonadjacent",
+        "uniform spanning tree vertex degrees covariance negative correlation adjacent vertices counterexample positive"
+      ]
+    },
+    "rationale": "The evaluated claim is the uniform sign equivalence between labeled host adjacency and degree covariance across every theta-path length triple, with an exact exceptional-zero classification. Cherkashin–Petrov–Prozorov (2022) classify real stability rather than signed covariances. Fita Sanmartín–Schnörr–Hamprecht (2024) obtain general graphwise covariance formulas, but do not derive the global theta sign inequalities or adjacency reconstruction. Rapoport (2025) gives a general degree-field law without the evaluated theta specialization. Searches of related literature and mathematical result records did not locate a dominating qualitative sign theorem; implicit older specialization remains a risk.",
+    "residual_risks": [
+      "Earlier unpublished or obscure theta-graph covariance calculations could prove the same sign characterization.",
+      "Broad matrix-tree and transfer-current identities yield individual covariance entries for any graph; if a published specialization already evaluates the needed inequalities, historical originality would fail.",
+      "The exact population-covariance reconstruction does not include stability under empirical estimation at its zero entries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the explicit signed pairwise covariance support or the theta reconstruction theorem.",
+        "evidence": "Theorem 1 states real stability iff distance-hereditary; §§3–4 analyze polynomial stability and saturation, not degree covariance signs.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.04413",
+        "material_read": "Sections 1–4: definition of vertex-degree polynomial, Theorem 1, proofs for cycles and forbidden induced graphs, discussion and combinatorial consequences.",
+        "method": "Accessible full arXiv-rendered mathematical text, including theorem and proofs.",
+        "title": "On stability of spanning tree degree enumerators",
+        "trigger": "Closest qualitative degree-enumerator dependence classification and an applicable 2022 motivating source"
+      },
+      {
+        "assessment": "BROAD_GENERAL_COVERAGE of computing covariance, but no explicit all-theta sign equivalence or exceptional equality pattern.",
+        "evidence": "Equation (19) is a general Laplacian-trace covariance expression. The main discussion and appendix do not state a theta-graph sign theorem.",
+        "identifier_or_url": "https://arxiv.org/html/2409.13472v1",
+        "material_read": "Introduction, notation, Section 4 including Theorem 4 equation (19), and Appendix A covariance construction.",
+        "method": "Primary open arXiv HTML, reading specific formulas and derivation and checking theta-graph terminology.",
+        "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+        "trigger": "Plausibly dominating general covariance formula for precisely the same random spanning-tree degree objects"
+      },
+      {
+        "assessment": "BROAD_GENERAL_COVERAGE of degree laws, but the paper does not assert the all-theta adjacency/covariance sign identity.",
+        "evidence": "Theorems concern fermionic joint-degree expressions and limits for lattices; no specialized theta result appears in the inspected content.",
+        "identifier_or_url": "https://doi.org/10.1007/s10955-025-03510-0",
+        "material_read": "Abstract; degree fields in §3.2; Theorems 3.7 and 4.2, and relevant surrounding discussion and proofs.",
+        "method": "Accessible complete open-access article HTML, section and term inspection.",
+        "title": "Correlations in Uniform Spanning Trees: a Fermionic Approach",
+        "trigger": "Plausibly dominating exact joint distribution for degrees of a uniform spanning tree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "387b2112-b1d3-4814-8e0a-814f21d46156",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three-path theta family is the canonical simple two-terminal bicyclic graph. Its full labeled adjacency can be recovered from the second-order fluctuations of one natural stochastic object—uniform spanning-tree vertex degrees—without higher moments or a matrix inverse. The universal sign test, unexpected nonnegative adjacent versus strictly negative nonadjacent dichotomy, and exactly classified small zero boundaries are natural structural facts relevant to graph identification and dependence measures. This property holds even for longer theta graphs whose degree-enumerator polynomial is not real stable, distinguishing pairwise sign structure from polynomial stability. The theorem is not merely a numerical covariance computation.",
+    "status": "PASS"
+  }
+}
