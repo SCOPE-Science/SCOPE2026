@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_multicolor_voter.py` using Python 3's standard library. The script constructs every connected simple graph on at most five vertices by enumerating labeled edge masks, forms isomorphism orbits under all vertex permutations, and checks every missing edge. Its opinion-equivalence partition Markov chains use `fractions.Fraction` for exact Gaussian elimination, not floating-point approximations. It also recomputes and checks the opposite-sign six-vertex differences.
+## correctness
 
-The observed output reports 92 exhaustive small-graph nonedge cases, 2 connected graph isomorphism classes on three vertices, 6 on four, and 21 on five, and exact signed witness fractions. The finite census covers *all* relevant connected graphs of orders up to five by construction; it is not claimed exhaustive at order six or above. The original article retrieval comparison is bounded by source availability; independent scientific audit has not been performed.
+PASS
+
+Connected simple unweighted graphs with asynchronous node-update copying, counted attempts and iid uniform initial q labels. Canonical opinion partitions (at most q blocks), with exactly (q)_k labelings for k-block partition, are a valid absorbing Markov-chain quotient: (I−Q)t=1 because any connected graph admits a finite path to unanimity. The six-agent G edges 02,03,04,05,12,13 and H=G+14 yield exact rational Δ2>0 and Δ3<0. Complete canonical labeled graph-mask/orbit enumeration through n=5 covers every connected unlabeled G and nonedge, 1+11+80=92 cases; no strict opposite signs occur. Thus n=6 is the first possible order only for this precisely fixed pair q=2,3 and update convention.
+
+## originality
+
+PASS
+
+Best-of-knowledge new sharp *opinion-alphabet-dependent reversal of one fixed edge insertion*. Prior established binary slowdown, optimization or evolving-network results neither supply the paired q comparison nor its minimal graph size. No prior exact-voter dual tables found for this matching model; searched graph insertion and opinion count aliases.
+
+## value
+
+PASS
+
+This is a meaningful qualitative boundary: increasing available iid opinion diversity reverses whether an added contact speeds consensus, demonstrating that a fixed graph modification lacks a q-invariant monotonic sign. Exact smallest witness with exhaustive exclusion is useful beyond the pre-existing binary results without making speculative sociological claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
