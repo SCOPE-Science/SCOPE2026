@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has precise nontriviality, domain and single-premise restrictions. Direct implication through a matching is elementary. The converse is established by the two exhaustive ways a two-by-two bipartite graph can violate Hall's marriage condition. The grid constructions force respective maximal FD-subteam densities of at most \(1/3+1/3\) or \(1/2+1/3\), which cannot cover the source-satisfying team. The source cases and boundary determinants have been checked, and 131 deterministic finite instances passed a standalone witness check. Experiments do not substitute for the general proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest inspected primary work is Fröhlich, Kolaitis and Meier, *Disjunctions of Two Dependence Atoms*, arXiv:2508.16146 (2025; CSL 2026). Its section on future work expressly asks for the implication problem; its principal theorems concern model checking and coherence rather than a single-premise logical-entailment characterization. Targeted published-finding corpus searches found no claim implying this matching theorem. Standard Armstrong rules concern individual FDs only. A hidden older equivalent result remains possible; a negative research-record search cannot establish absolute priority.
+PASS
 
-## Value — PASS
-The theorem gives a complete decision criterion for a natural single-premise case of a published open question and a structural explanation of why no unexpected implications arise from two-way splitting. Its proof is a genuine density-based finite counterteam construction, not merely applying individual FD closure rules.
+Split disjunction entailment sufficiency follows directly from a perfect matching of individual FD implications. Necessity uses Hall obstruction for a 2x2 bipartite graph. If one source implies no target, an F3 pair-coordinate grid team satisfying that source has each target maximum FD-subteam size <=|T|/3. Otherwise both sources only imply the same target: disjoint tagged grids give target maxima <=|T|/2 and <=|T|/3, so no two-target cover exists. This handles nontrivial FD consequents outside determinants including empty determinants. Independent exact density calculations validated 97 sampled nonmatching cases on three attributes. Infinite-domain equivalence follows from the general finite witness construction, not the random tests.
 
-## Limits
-This does not decide multiple disjunctive premises, allow tautological consequent-in-determinant atoms, classify fixed tiny domains or settle general team-logic implication. One related coherence abstract was not read as full text, and equivalent unindexed prior art cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncovering after explicit comparison to the strongest identified literature and indexed records, with residual priority risks retained.
+
+## value
+
+PASS
+
+A complete natural single-premise fragment of the previously posed disjunctive functional-dependency implication problem admits a surprisingly simple polynomial matching criterion. The Hall obstruction is converted into finite counterteams with quantitative density margins, a nonroutine logical structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
