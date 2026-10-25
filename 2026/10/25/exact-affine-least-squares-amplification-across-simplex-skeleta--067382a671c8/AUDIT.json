@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The exchangeable face-mixture Dirichlet moments give a strictly positive scalar contrast covariance; the resulting symmetric reproducing kernel is explicitly 1+Gamma(sum t_i u_i-1/n). Convexity of its absolute row mass localizes the sharp essential supremum at vertices. A one-coordinate atom/Beta(1,s-1) mixture yields exactly 2B(1-nu)^s-1; the s=1 identity case is separate, and L1 equals Linfinity by symmetry/duality. Fixed-s and proportional-s limits follow by elementary expansions. The standalone standard-library checker passed 4563 assertions, including independent exact rational Gram inversions and beta polynomial integrals for all 3<=n<=11,1<=s<=n. Finite tests support but do not establish the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen–Davenport–Leviatan addresses stability of finite random sampled least squares via the empirical Gram matrix, not the operator norm of a specified continuous skeletal probability measure.",
+        "Chernov title and accessible abstract treat trace convergence of the volume-defined polynomial L2 projector on a simplex, with Sobolev-regularity estimates rather than L1/Linfinity sharp constants."
+      ],
+      "reasoning": "General least-squares stability theorems or trace estimates might bound such norms but do not imply the exact formula, the full intermediate family or the proportional-s dimension law from their inspected statements. Chernov full proof is uninspected and retained as a residual bibliographic risk.",
+      "searches": [
+        "Sharp L infinity norm affine least squares orthogonal projection on boundary of crosspolytope l1 sphere and comparison with volume",
+        "Affine least squares sharp operator norm Lebesgue constant uniformly distributed all faces simplex face-balanced k skeleton beta mixture",
+        "Projection onto degree-one polynomials on boundaries and lower dimensional faces of simplex exact L-infinity Lebesgue norm",
+        "arXiv:1111.4422",
+        "DOI:10.1090/S0025-5718-2011-02513-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.2994 (full text; sections 2.4 and 3.7)",
+      "arXiv:1111.4422 (full text; introduction and Theorem 1)",
+      "Chernov 2012 DOI:10.1090/S0025-5718-2011-02513-5 (abstract only)",
+      "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 (record summary only)",
+      "2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722 (record summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The filled-simplex L2 projector uses a full-dimensional Dirichlet law; for interior s<n the measure is supported on a singular lower-dimensional skeleton, with an atom at each missing barycentric coordinate.",
+        "Aktaş–Xu has derivative-containing Sobolev products; the present plain skeletal L2 product is not one of those principal theorems.",
+        "The convexification paper gives the number of skeleton Minkowski averages required to fill the simplex; it does not compute the least-squares kernel."
+      ],
+      "reasoning": "The prior full-simplex statement supplies only s=n, and vertex interpolation supplies s=1; neither determines the norms or asymptotics for the genuine interior strata. Broader abstract-level stability and geometric convexification statements lack a deduction of the sharp constants. No negative novelty statement is inferred solely from search failure.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722",
+        "arXiv:1111.2994",
+        "arXiv:1111.4422",
+        "All skeletons of simplex uniformly chosen faces Dirichlet barycentric orthogonal projection Lebesgue constant exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The face-balanced measure is a uniform mixture of Dirichlet(1,...,1) laws on all s-vertex faces, and the projector kernel is a singular-measure affine reproducing kernel.",
+        "Aktaş–Xu constructs face polynomial restrictions and singular-weight Sobolev inner products with derivative terms, not the stated L2 face-mixture endpoint norms."
+      ],
+      "reasoning": "The equivalent descriptions (balanced Hausdorff skeleton on a regular simplex; face-Dirichlet mixture; barycentric covariance projector; beta-mixture row norm) were compared. Neither inspected primary statement identifies the exact intermediate-skeleton beta power formula.",
+      "searches": [
+        "Sharp L infinity norm of affine least squares projection on uniform k-skeleton of regular simplex Hausdorff face measure",
+        "All skeletons of simplex uniformly chosen faces Dirichlet barycentric orthogonal projection Lebesgue constant exact",
+        "Convex combination Dirichlet laws over faces subset support size k sharp projection kernel infinity norm",
+        "arXiv:1111.2994, section 2.4; Theorem 3.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known full-simplex case is 2(n+1)(n/(n+1))^n-1, recovered only at s=n.",
+        "The nearest same-object published research record treats that volume endpoint, while the skeleton-convexification record concerns Minkowski sums, not projection operator norms."
+      ],
+      "reasoning": "Checks included the exact formula, tetrahedron edge and facet benchmarks 83/45 and 89/36, and beta-mixture aliases. No matching table, closed exact norm or stronger recorded classification for 2<=s<n was found; absence from searched records is not a uniqueness proof.",
+      "searches": [
+        "Sharp L infinity norm of affine least squares projection on uniform k-skeleton of regular simplex Hausdorff face measure",
+        "m-face barycentric measure of simplex sharp polynomial projection constants and asymptotic degree profile 2 alpha exp(-alpha)/(2-alpha)",
+        "Affine least squares sharp operator norm Lebesgue constant uniformly distributed all faces simplex face-balanced k skeleton beta mixture",
+        "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722"
+      ]
+    },
+    "rationale": "The intermediate face-balanced singular measures s=2,...,n-1 are not the known full-volume Dirichlet/simplex projection case, nor a point-layer projector. The full inspected Aktaş–Xu paper concerns Jacobi/singular Sobolev inner products with derivative terms and restrictions of polynomial bases to faces, not the sharp L1/Linfinity norm of the uniform-mixture skeletal projector. Inspected Cohen–Davenport–Leviatan treats random least-squares Gram concentration, not exact deterministic endpoint norms. Chernov discusses traces of volume-defined projections per accessible abstract; complete proof was inaccessible. Matching or stronger published published-finding corpus work was not found via semantic aliases and implication comparisons; literature coverage is nonexhaustive.",
+    "residual_risks": [
+      "An equivalent calculation of beta-mixture projection norms could exist in unindexed approximation or finite-element literature; semantic retrieval is not a uniqueness proof.",
+      "Chernov 2012 full text was unavailable; its accessible statement concerns a volume-defined projector and does not provide a decisive collision.",
+      "Published research-record summaries were available but some corresponding full published-finding corpus papers were not retrieved; priority remains contingent on fuller bibliographic review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact skeletal plain L2 affine endpoint norms in inspected article; Sobolev derivative terms are a different inner product.",
+        "evidence": [
+          "arXiv:1111.2994v1 (2011-11-13), section 2.4 and Theorem 3.7."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.2994",
+        "material_read": "Full text, with section 2.4 face restriction definitions and section 3.7 orthogonality theorem examined closely; first-page PDF visually inspected.",
+        "method": "Full PDF text and page visual inspection; compared inner products, measures, projector norms and theorem conclusions.",
+        "title": "Sobolev orthogonal polynomials on a simplex",
+        "trigger": "Detailed face decomposition and singular-boundary orthogonal polynomial theory might subsume the face-balanced L2 projection."
+      },
+      {
+        "assessment": "NOT_COVERING: probabilistic empirical least squares stability, not sharp continuous L1/Linfinity skeletal norms.",
+        "evidence": [
+          "arXiv:1111.4422, introduction and Theorem 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.4422",
+        "material_read": "Full-text document accessed, with abstract, introduction, principal Gram-concentration theorem and its stability conditions read; first-page PDF visually inspected.",
+        "method": "Compared the sampled versus population projector, norms and sampling assumptions.",
+        "title": "On the stability and accuracy of least squares approximations",
+        "trigger": "General least squares stability might dominate an exact skeletal-projector bound."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_RISK: accessible statement concerns tracing a volume-defined projector, not using a face-balanced skeletal measure to define it. Full text not assessed.",
+        "evidence": [
+          "A. Chernov, Mathematics of Computation 81 (2012), DOI:10.1090/S0025-5718-2011-02513-5, accessible abstract."
+        ],
+        "identifier_or_url": "https://centaur.reading.ac.uk/33215/",
+        "material_read": "Abstract and bibliographic metadata only; the available full-text PDF was access-blocked.",
+        "method": "Compared named volume-based L2 projection, Sobolev trace errors and higher-degree scope to proposed skeletal source-measure projector.",
+        "title": "Optimal convergence estimates for the trace of the polynomial L2-projection operator on a simplex",
+        "trigger": "A simplex boundary trace study is a plausible source of broader coverage."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: exact s=n special case only; no intermediate measures established in available summary.",
+        "evidence": [
+          "Published record 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 gives volume case C=(n)((n)/(n+1))^(n-1)-1 after matching n vs dimension, consistent with formula at s=n."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "material_read": "Published finding summary; complete repository paper not available in current read access.",
+        "method": "Compared the recorded full-volume measure and exact formula to the singular face-Dirichlet mixture, using implications rather than title alone.",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Published full-volume sharp affine-simplex norm could imply a skeleton formula."
+      },
+      {
+        "assessment": "NOT_IMPLICATING: exact finite Minkowski convexification has no stated implication for the projector norm.",
+        "evidence": [
+          "Published record 2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722 concerns the threshold ceil(d/r) for filling a simplex."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722",
+        "material_read": "Published finding summary only.",
+        "method": "Compared operator: equal-weight Minkowski sums versus L2 orthogonal projection and endpoint norms.",
+        "title": "Sharp finite convexification thresholds for every skeleton of a simplex",
+        "trigger": "Same geometrical object, plausible dominating exact classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "067382a6-71c8-4b74-982b-7e0987bc6d8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform sampling of simplicial lower-dimensional faces is a natural approximation design between vertex interpolation and full-volume least squares. The exact sharp norms for every genuine intermediate skeleton, their extremizing signs and two distinct dimension-asymptotic regimes are structurally informative and not implied by the two known endpoints. The face-balanced sampling model is explicit and reproducible, while the restriction to degree-one approximation is stated.",
+    "status": "PASS"
+  }
+}
