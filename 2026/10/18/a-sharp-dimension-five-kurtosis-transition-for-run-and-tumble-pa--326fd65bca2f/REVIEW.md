@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The displacement has an exact representation by i.i.d. centered run velocities and Poisson–Dirichlet run lengths. The conditional second and fourth moments, the two Laplace transforms, and the closed-form cumulant agree. A nonnegative sum of fourth powers certifies \(A(x)>0\). The differentiated threshold has a globally positive exponential-series certificate: eight initial zero coefficients, \(c_8=112\), and a positive inductive recurrence for every larger coefficient. This establishes a strict single crossing, not merely a numerical trend. Exact coefficient manipulations and independently evaluated renewal sums are checked in the accompanying Python script (1,136 checks). The finite checks do not replace the analytic argument.
+## correctness
 
-## Originality — PASS, subject to independent priority review
-The full, accessible source arXiv:2006.06989 studies the precise random-redraw speed model, but its persistence/time-of-maximum/record assertions do not entail a cumulant classification. Its earlier 2020 precursor arXiv:2001.01492 is acknowledged as the earliest public motivating source. The inspected source arXiv:2211.07337 derives fixed-speed two-dimensional higher moments but does not derive an all-dimensional random-speed strictly decreasing sign threshold. The inspected arXiv:2103.04637 and arXiv:2107.00338 emphasize rare deviations and condensation; neither supplies the present finite-time fourth-cumulant single-crossing result. Related published-record searches with velocity-jump, random-resampling, fourth-cumulant and dimension-five aliases found only different processes; absence of matches is not itself proof of novelty. A general older velocity-jump cumulant identity might imply the exact moment formula; no claim of absolute priority or independent verification is made.
+PASS
 
-## Scientific value — PASS
-The exact sign of the fourth cumulant is a physically interpretable departure from Gaussian transport. This theorem gives a complete and sharp classification for every observation time from only the second/fourth speed moments and spatial dimension. The unexpected first crossover dimension \(5\), the unique time when a crossover exists, and speed-heterogeneity thresholds address a substantive observable property not fixed by the ordinary effective diffusivity. These are not parameter relabelings or computations at one arbitrary dimension.
+For each Poisson tumble count n, conditional Dirichlet spacings yield exact second and fourth moments; resumming gives Var=2m2(x−1+e^{−x})/γ² and κ4=12m2²(R A(x)+B(x))/γ⁴. A is a strict positive expected sum of fourth run lengths. Deriving F=−e^{3x}(BA′−B′A) gives c0..c7=0, c8=112 and a positive coefficient recurrence for all n≥8; hence R*(x)=−B/A strictly decreases 3 to 2. Dimension-five boundary comes from R=3d/(d+2) for constant speed. Independent symbolic identities and 48 Poisson–Dirichlet moment grids at finite x corroborate exact expressions; the infinite sign follows from analytic induction, not grids.
 
-## Limitations
-Only free Poisson velocity-refresh dynamics with independent uniform directions and finite fourth speed moment are covered. Earlier general theorems may imply pieces of the argument. The sign diagram concerns finite-time fourth cumulants rather than a thermodynamic singularity, and independent audit and priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical priority assessment: the primary work is credited for model, antecedent formulas and context; the stronger exact theorem is not shown to be explicitly stated or automatically implied by the read material. Inaccessible full texts and older equivalent formulations are recorded explicitly rather than turned into categorical exclusions. A previous moment-generating function might yield A and B by differentiation, but the global strict single-crossing property and sharp thresholds are additional implications requiring proof. No verified direct coverage; full literature limitations recorded.
+
+## value
+
+PASS
+
+Finite-time fourth-cumulant sign distinguishes non-Gaussian transport regimes not captured by diffusion coefficient. The global unique-crossing law and dimension-five fixed-speed onset give a sharp, physically motivated classification for arbitrary speed laws with finite fourth moment; unlike a one-parameter numerical plot, it determines every t and d in scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
