@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T21:56:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 9fb18266617bb705ad61aa1b30ac8045838b8a69",
+        "Git verifier verify_chord_joint.py blob ec3d8845c2bd7c286e54b48c3fec589128c56b92",
+        "Independent exact factorial distribution enumeration n=2..5",
+        "Flajolet–Noy original crossing marginal CLT"
+      ],
+      "rationale": "For n≥2 the simple chords correspond to edges of the endpoint boundary cycle C_{2n}. The count of disjoint marked k-edge sets is (2n/(2n-k))*binomial(2n-k,k); conditional on all marked short chords, their crossings are zero and the residual matching is uniform on 2(n-k) endpoints. Summing ordered marked k-tuples gives E[(S_n)_k z^{X_n}]=a_{n,k}F_{n-k}(z) as a polynomial identity. Expanding u^{S_n} gives all fixed-S strata. The explicit bound 0≤a_{n,k}≤2 permits dominated convergence for characteristic functions; fixed-k variance normalization and known crossing CLT prove independent Pois(1) and Gaussian limits. Reconstructed exact boundary edge counts and exhaustively re-enumerated all perfect matchings for n=2,3,4,5 (3,15,105,945) to check every factorial transfer; enumeration is corroborative only.",
+      "residual_risks": [
+        "Asymptotic independence relies on established marginal crossing CLT and is not finite independence.",
+        "Boundary C_2 is explicitly excluded; F_0,F_1 only residual bases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy give crossing Gaussian marginal and moments; Paguyo gives quantitative separate crossing and simple-chord approximations."
+        ],
+        "reasoning": "Two marginal CLTs, vanishing correlation and known covariance do not imply asymptotic independence, nor coefficientwise bivariate identities.",
+        "searches": [
+          "Flajolet–Noy (2000), Theorem 3",
+          "Paguyo, arXiv:2104.01134 Theorems 1.1–1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1501.01489 §3",
+        "arXiv:2104.01134 Theorems 1.1–1.3",
+        "Flajolet–Noy (2000) Theorem 3",
+        "Resultary: random chord diagram joint distribution short chords crossings bivariate generating function Poisson Gaussian independent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published conditional boundary-chord counting ingredient does allow the new short deletion lemma to be developed, while the cited marginal results do not state the joint generating polynomial."
+        ],
+        "reasoning": "The new polynomial identity requires retaining crossing invariance under deletion and all factorial coefficients. The joint weak limit is then a derived but meaningful consequence; not all ingredients are novel.",
+        "searches": [
+          "Acan arXiv:1501.01489 Lemma 3.3",
+          "Paguyo arXiv:2104.01134",
+          "Flajolet–Noy 2000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan sums joint occurrences of disjoint short boundary chords for factorial moments but without marking crossing counts."
+        ],
+        "reasoning": "Factorial marking becomes distributional when the crossing variable is retained after deletion; the previous marginal lemma supplies a counting ingredient, but its published statement alone does not specify all joint crossing strata.",
+        "searches": [
+          "Resultary: random chord diagram joint distribution short chords crossings bivariate generating function Poisson Gaussian independent",
+          "Acan, arXiv:1501.01489 §3 Lemma 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Univariate F_n(z) is known; the new finite transform supplies every fixed-simple-chord crossing generating polynomial from F_{n-k}."
+        ],
+        "reasoning": "The exact joint polynomial is not a recomputation of a known univariate crossing table; a historical multivariate enumerator could still be equivalent.",
+        "searches": [
+          "Resultary: random chord diagram joint distribution short chords crossings bivariate generating function Poisson Gaussian independent",
+          "Touchard–Riordan crossing generating polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact joint bivariate probability-generating transfer and the joint independent mixed-scale limit, not for known marginal Poisson/normal laws or known covariance.",
+      "residual_risks": [
+        "Earlier bivariate marked chord-diagram generating functions may contain this exact transfer without modern terminology.",
+        "The covariance formula is prior known and explicitly excluded from the surviving novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same boundary matching count but not joint X_n-marking",
+          "evidence": "Section 3 factorial moment calculations and marginal Poisson behavior.",
+          "identifier_or_url": "arXiv:1501.01489",
+          "material_read": "Accessible primary full text, especially Section 3 and Lemma 3.3 on short-chord factorial moments",
+          "method": "Read full primary PDF relevant sections",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same short chords in uniform random chord diagrams"
+        },
+        {
+          "assessment": "Marginal approximation rates, not exact bivariate transfer",
+          "evidence": "Distinct marginal quantitative statements in Theorems 1.1–1.3.",
+          "identifier_or_url": "arXiv:2104.01134",
+          "material_read": "Accessible primary full PDF, introduction and Theorems 1.1–1.3",
+          "method": "Read relevant primary theorem/proof statements",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Exactly S_n and X_n but known separate asymptotics"
+        },
+        {
+          "assessment": "Classical crossing marginal; not joint marked-short-chord transfer",
+          "evidence": "Theorem 3 crossing asymptotics.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Relevant primary crossing theorem and enumerative setup",
+          "method": "Read relevant primary PDF sections",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Source of crossing central limit and variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact finite polynomial identities from assigned RESULT.md",
+        "Known marginal limit results in arXiv:1501.01489 and arXiv:2104.01134"
+      ],
+      "rationale": "Short boundary chords are local isolated structures and crossing number is a natural global statistic of uniform chord diagrams. Exact conditional crossing distributions for every short-chord count, especially zero-short-chord diagrams, and proof of local/global asymptotic independence are useful natural joint invariants not supplied by separate marginals or covariance.",
+      "residual_risks": [
+        "No result on arbitrary longer chords or finite-size independence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact deletion transfer is specific to cyclically consecutive endpoints.",
+    "Joint independence is only asymptotic."
+  ],
+  "schema_version": 1
+}
