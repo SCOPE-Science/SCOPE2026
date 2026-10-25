@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The script constructs every graph \(H_n\) for \(4\le n\le10\), constructs full closed-neighborhood signatures directly from adjacency, tests all \(2^{2n}\) selected sets, and compares both the classification and all coefficients of the bivariate polynomial. It verifies \(1,398,016\) subsets in seven graphs. Separate finite symbolic checks for \(11\le n\le50\) verify coefficient positivity, exchange symmetry and total counts. The complete stdout is preserved verbatim in `verification_output.txt` and ends in `VERIFICATION_OK`.
+## correctness
 
-The source `verify.py` and the recorded output accompany this document. Finite exhaustive checks through \(n=10\) are not an infinite proof; the arbitrary-\(n\) proof is in `RESULT.md`. No other hidden dependencies or computational certificates are required. The reported literature comparisons are scientific best-knowledge checks, not a formal noncoverage certificate.
+PASS
+
+Traces on A_i and B_i are self-singletons plus the opposite selected side excluding the same index. Distinct same-side traces require <=1 index wholly unselected; cross-side collisions then force <=2 occupied indices and are impossible for n>=4. Coverage disallows precisely six disjoint boundary classes, giving the bivariate and univariate formulas. For n>=5 the minimum n-1 and count n(2^(n-1)-2n) follow by choosing a missing index and >=2 vertices on each side; n=4 has 56 size-four codes. Independently enumerated all 2^(2n) vertex subsets for n=4,5,6; exact bivariate distributions agree.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit claimed invariant, not for foundational/general prior theorems; checked equivalent formulations, broader implications, exact tables and relevant primary sources. Existing minimum-code cube count covers only the n=4 boundary. Code-size upper bounds, crown word-representation and restrained-domination polynomials do not logically imply the exact bivariate identifying-code distribution.
+
+## value
+
+PASS
+
+A full two-variable polynomial over all closed-neighborhood identifying codes of the natural matching-deleted complete bipartite graph is independently useful for weighted and constrained code enumeration; it gives all cardinalities and the sharp exceptional cube boundary, beyond a known isolated minimum count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

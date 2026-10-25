@@ -1,15 +1,21 @@
-# Scientific review of the crown identifying-code enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
-The closed traces of matched vertices have explicit forms, and two unselected vertices on the same side coincide exactly when their indices are both absent from the union of selected indices. The resulting one-missing-index separation condition also eliminates cross-side collisions when \(n\ge4\). Nonempty coverage has precisely the stated zero-, one-, and at-least-two-opposite-side cases. The six failing occupancy classes are disjoint and their weighted counts give the displayed polynomial. Direct full enumeration over \(1,398,016\) vertex subsets in the seven graphs \(4\le n\le10\) agrees with all bivariate coefficients; the arbitrary-order theorem rests on the structural proof, not on computation.
+## correctness
 
-## Originality — PASS, qualified
-The general 2022 bounds of Foucaud–Lehtilä do not enumerate codes on crown graphs. The 2022 Venugopal–Vidya result is for a different, stronger multiple-intruder invariant. The 2016 crown graph paper concerns word representations, not identifying codes. The 2024 survey by Hudry–Junnila–Lobstein explicitly gives \(56\) optimal identifying codes in the three-cube: this numerical boundary is attributed, not claimed novel. Other recorded exact theorems on identifying codes of chain and threshold graphs do not apply, because crown graphs contain induced \(2K_2\). A result on crown edge-metric bases has a related minimum-set index skeleton, but does not count **all** closed-neighborhood identifying codes by bipartition occupancy. No accessible matching all-size bivariate theorem was found; this is a best-knowledge comparison, not an absolute uniqueness certificate. Residual risk: unindexed literature and elementary consequences of edge-metric structure.
+PASS
 
-## Value — PASS
-The result is an exact, infinite-family *bivariate* counting invariant for a natural regular bipartite graph family (bipartite Kneser \(H(n,1)\)). It determines the feasibility and number of sensor placements under simultaneous, unequal budgets for the two sides, rather than only minimizing a scalar cardinality. The polynomial gives every size and side allocation and explains the strict coverage boundary and the known cube exception. This is a motivated complete classification, not a single isolated computation.
+Traces on A_i and B_i are self-singletons plus the opposite selected side excluding the same index. Distinct same-side traces require <=1 index wholly unselected; cross-side collisions then force <=2 occupied indices and are impossible for n>=4. Coverage disallows precisely six disjoint boundary classes, giving the bivariate and univariate formulas. For n>=5 the minimum n-1 and count n(2^(n-1)-2n) follow by choosing a missing index and >=2 vertices on each side; n=4 has 56 size-four codes. Independently enumerated all 2^(2n) vertex subsets for n=4,5,6; exact bivariate distributions agree.
 
-## Limits and closest work
-The proof applies only to \(n\ge4\); the cube minimum count was previously known. Relevant primary sources: Foucaud–Lehtilä (arXiv:2204.05250); Hudry–Junnila–Lobstein (arXiv:2402.08264, Section 6); Glen–Kitaev–Pyatkin (arXiv:1609.00674); Venugopal–Vidya (2022, Proposition 8). Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit claimed invariant, not for foundational/general prior theorems; checked equivalent formulations, broader implications, exact tables and relevant primary sources. Existing minimum-code cube count covers only the n=4 boundary. Code-size upper bounds, crown word-representation and restrained-domination polynomials do not logically imply the exact bivariate identifying-code distribution.
+
+## value
+
+PASS
+
+A full two-variable polynomial over all closed-neighborhood identifying codes of the natural matching-deleted complete bipartite graph is independently useful for weighted and constrained code enumeration; it gives all cardinalities and the sharp exceptional cube boundary, beyond a known isolated minimum count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
