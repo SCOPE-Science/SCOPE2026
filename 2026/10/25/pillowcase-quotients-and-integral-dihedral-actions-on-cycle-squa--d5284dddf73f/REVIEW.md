@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The two local faces of each open-neighborhood tetrahedron define a dihedrally invariant torus core; a barycentric \(\min\)-transfer supplies a continuous, glued, equivariant strong deformation retraction. The six-cycle links and primitive oriented two-cycle identify the torus. The finite stabilizer census gives exactly four fixed points per reflection and no rotation fixed points; Riemann–Hurwitz gives the orbifold branching. Signed Lefschetz traces imply the complete integral first-homology module. The provided checker verifies the combinatorial identities for sixteen successive sizes but is not substituted for the infinite proof.
+
+**Originality: PASS against inspected primary evidence.** Shukla's arXiv:1802.04526, Theorem 2.5(C) and Section 4, already proves the underlying nonequivariant homotopy class; it is not novel here. Its inspected theorem and construction do not give an equivariant strong deformation retraction, dihedral fixed-point census, orbifold branching, or integral homology representation. Other inspected published summaries on cycle third powers, grid neighborhood complexes, and directed multipath constructions concern nonidentical objects and provide no implications for this claim. Remaining risk: an unindexed classical equivariant treatment could establish equivalent conclusions.
+
+**Value: PASS.** This is an exact, infinite-family geometric quotient classification for a natural graph-complex construction, including its four branch orbits and entire integral homology symmetry. The fact that base-graph reflections induce orientation-preserving torus involutions with four fixed points, unlike the customary reflection-across-a-circle model, distinguishes a meaningful topological phenomenon not visible in Betti numbers or nonequivariant homotopy type.
+
+Self-review: passed. Independent audit: not yet performed.
