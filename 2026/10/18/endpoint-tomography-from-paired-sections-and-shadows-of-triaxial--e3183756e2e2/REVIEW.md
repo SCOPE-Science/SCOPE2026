@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The central-section and orthogonal-projection formulas follow from standard linear Jacobians and a cofactor identity. Their quotient is the product of opposite quadratic forms. The sharp maximum is proved by a spectral endpoint inequality with an equality classification of four directions. A direct local chart gives the positive-definite deficit \(B s^2+D y^2\) with \(D=(B-A-C)/2>0\); the spherical area form is exactly \(d\theta\,dy\), so four elliptical caps prove the claimed coefficient with the correct Haar normalization. The inverse calculation gives exactly the roots \(t\) and \(k/t\); direct polar substitution proves this ambiguity cannot be removed. Symbolic/rational identities and independently integrated finite examples were checked by `checker.py`; these finite tests are not substitutes for the proof. The theorem excludes repeated eigenvalues and nonellipsoids.
+## correctness
 
-## Originality: PASS, with residual priority risk
-The closest inspected geometric-tomography papers treat full parallel section functions (Fish–Ryabogin–Sun–Yaskin), or the separate one-dimensional distributions of sections and projections (Kim–Yaskin–Zvavitch). Neither establishes a same-direction ratio upper-tail coefficient or its two-statistic shape inverse. Hillier's source was accessible only through the abstract and bibliographic information: it treats the density of a **single** spherical quadratic form; coverage by an unpublished equivalent or a broader joint-form theorem cannot be excluded. Two nearby published geometric findings reconstruct axes from negative section moments or describe one-spike random radii; those measurements do not imply this ratio's two-statistic recovery. Classical Kantorovich theory supplies the maximum, not the sharp random cap mass and its inverse. Complete historical uniqueness cannot be certified from literature searches.
+PASS
 
-## Mathematical value: PASS
-This is a motivated, scale-invariant inverse problem for correlated section and projection measurements in the same direction. Instead of requiring entire direction-labeled functions or complete marginal laws, it shows how two precise features of **one scalar random quotient** recover a triaxial shape, and proves a necessary polarity obstruction. The explicit sharp near-extremal mass quantifies the geometric scarcity of almost-extremal viewing directions and is a natural benchmark for geometric tomography; it is not merely a restatement of the deterministic Kantorovich bound.
+The cofactor formula gives S(u)=pi sqrt(abc)/sqrt(u^T Q u), P(u)=pi sqrt(abc)sqrt(u^T Q^-1u), so Z=(u^T Q u)(u^T Q^-1u)=1+A w1w2+B w1w3+C w2w3, w_i=u_i^2. Kantorovich AM-GM gives K=(a+c)^2/(4ac), attained at exactly four directions with u2=0 and |u1|=|u3|=1/sqrt2. Local spherical coordinates have Haar density dtheta dy/(4pi), deficit B s^2+D y^2+O((|s|+|y|)^3), D=(B-A-C)/2=(b-a)(a+c)(c-b)/(2abc)>0; summing four ellipse-cap areas gives gamma=1/sqrt(BD). The endpoint k=c/a recovered from K; gamma fixes t+k/t, giving precisely t and k/t, the unavoidable polar alternatives. Independently verified all algebra by symbolic factorization and the exact gamma values at (1,2,3),(2,3,7),(1,4,25), including example K=4/3,gamma=3/2.
 
-## Limitations
-The inverse is at the ideal population level, requires three simple positive eigenvalues, and is not statistically conditioned near axis collisions. Only identified accessible primary material was inspected; Hillier's full text could not be accessed. The polar pair has the same complete quotient law pointwise, so a stronger inverse result without extra data would be false.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Kantorovich gives the max K but not two-dimensional Hessian coefficient or inversion from it. Kim-Yaskin-Zvavitch examine marginal area distributions for sections or projections, not the paired same-direction quotient. Resultary inverse-square section moments determine ellipsoid axes via a different measurement, and Fish et al study parallel section functions. No read source subsumes the paired upper-tail slope and polar-ambiguous inversion. An older general product-quadratic-form density might, so best-knowledge risk remains.
+
+## value
+
+PASS
+
+Two observable scalar features of the joint same-direction section/projection law recover the complete generic triaxial shape up to the unavoidable polar duality; this is an identifiability theorem with a sharp geometric obstruction, not merely evaluating the known Kantorovich maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

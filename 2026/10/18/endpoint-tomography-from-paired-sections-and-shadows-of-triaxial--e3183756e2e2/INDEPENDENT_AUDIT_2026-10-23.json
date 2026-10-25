@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:16:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cofactor formula gives S(u)=pi sqrt(abc)/sqrt(u^T Q u), P(u)=pi sqrt(abc)sqrt(u^T Q^-1u), so Z=(u^T Q u)(u^T Q^-1u)=1+A w1w2+B w1w3+C w2w3, w_i=u_i^2. Kantorovich AM-GM gives K=(a+c)^2/(4ac), attained at exactly four directions with u2=0 and |u1|=|u3|=1/sqrt2. Local spherical coordinates have Haar density dtheta dy/(4pi), deficit B s^2+D y^2+O((|s|+|y|)^3), D=(B-A-C)/2=(b-a)(a+c)(c-b)/(2abc)>0; summing four ellipse-cap areas gives gamma=1/sqrt(BD). The endpoint k=c/a recovered from K; gamma fixes t+k/t, giving precisely t and k/t, the unavoidable polar alternatives. Independently verified all algebra by symbolic factorization and the exact gamma values at (1,2,3),(2,3,7),(1,4,25), including example K=4/3,gamma=3/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fish-Ryabogin-Sun-Yaskin arXiv:2610.10229 Problem 1.1 and §1 concerns parallel section functions or equality of sections in all hyperplanes.",
+          "Resultary published finite-moment ellipsoid reconstruction uses section-area reciprocal-square moments rather than P/S joint ratio."
+        ],
+        "reasoning": "General determination from all directional section functions is stronger input but does not assert two scalar endpoint quotient statistics suffice. Earlier finite-moment inverse shape method uses other observable and cannot directly imply the present two-parameter polar ambiguity.",
+        "searches": [
+          "triaxial ellipsoid projection section same direction ratio Kantorovich tail shape reconstruction",
+          "triaxial ellipsoid paired random central section projection quotient same direction shape recovery reciprocal",
+          "ellipsoid quadratic form reciprocal pair product sphere distribution tail inversion",
+          "arxiv:1512.07289 distribution functions sections projections convex bodies"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/endpoint-tomography-from-paired-sections-and-shadows-of-triaxial--e3183756e2e2/RESULT.md",
+        "https://arxiv.org/pdf/1512.07289",
+        "https://arxiv.org/pdf/2610.10229",
+        "https://doi.org/10.1017/S026646660117101X",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1512.07289 abstract and §1 explicitly says only distribution of sizes without corresponding directions.",
+          "Kantorovich inequality yields only extremal numerical K; local curvature D depends on middle eigenvalue b."
+        ],
+        "reasoning": "Known extremal ratio determines a/c but leaves b free; measuring small-tail slope gamma supplies the new equation t+k/t=H, proving residual twofold duality.",
+        "searches": [
+          "triaxial ellipsoid projection section same direction ratio Kantorovich tail shape reconstruction",
+          "triaxial ellipsoid paired random central section projection quotient same direction shape recovery reciprocal",
+          "ellipsoid quadratic form reciprocal pair product sphere distribution tail inversion",
+          "arxiv:1512.07289 distribution functions sections projections convex bodies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim-Yaskin-Zvavitch arXiv:1512.07289 definitions S_K(t),Pi_K(t) from separate one-dimensional Haar marginal CDFs.",
+          "Kantorovich upper bound for (u^TQu)(u^TQ^-1u) yields K only."
+        ],
+        "reasoning": "The statistic is joint under the SAME direction U. Separate marginals discard the coupling, and a generic single quadratic-form distribution lacks the nonlinear reciprocal product.",
+        "searches": [
+          "triaxial ellipsoid projection section same direction ratio Kantorovich tail shape reconstruction",
+          "triaxial ellipsoid paired random central section projection quotient same direction shape recovery reciprocal",
+          "ellipsoid quadratic form reciprocal pair product sphere distribution tail inversion",
+          "arxiv:1512.07289 distribution functions sections projections convex bodies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed solves d reciprocal-square marginal moments.",
+          "Resultary 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae is two-eigenvalue one-spike family only."
+        ],
+        "reasoning": "Neither published exact database finding tabulates gamma for three distinct semiaxes of the paired area ratio. Search absence is merely supporting, not conclusive priority proof.",
+        "searches": [
+          "triaxial ellipsoid projection section same direction ratio Kantorovich tail shape reconstruction",
+          "triaxial ellipsoid paired random central section projection quotient same direction shape recovery reciprocal",
+          "ellipsoid quadratic form reciprocal pair product sphere distribution tail inversion",
+          "arxiv:1512.07289 distribution functions sections projections convex bodies"
+        ]
+      },
+      "rationale": "Classical Kantorovich gives the max K but not two-dimensional Hessian coefficient or inversion from it. Kim-Yaskin-Zvavitch examine marginal area distributions for sections or projections, not the paired same-direction quotient. Resultary inverse-square section moments determine ellipsoid axes via a different measurement, and Fish et al study parallel section functions. No read source subsumes the paired upper-tail slope and polar-ambiguous inversion. An older general product-quadratic-form density might, so best-knowledge risk remains.",
+      "residual_risks": [
+        "The Hillier 1999/2001 exact spherical quadratic-form density was only identified bibliographically; a general joint reciprocal quadratic-form density may contain the tail calculation.",
+        "Strict triaxiality is essential; near repeated eigenvalues the nondegenerate Hessian fails and finite-sample stability is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SEPARATE_MARGINALS",
+          "evidence": "They explicitly discard direction and study section OR projection size distributions, not a same-direction ratio.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.07289",
+          "material_read": "Full arXiv PDF accessed; read abstract, §1 definitions of S_K and Pi_K, rendered first page",
+          "method": "PDF text and page screenshot",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Closest probabilistic geometric tomography paper"
+        },
+        {
+          "assessment": "DISTINCT_DIRECTIONAL_DATA",
+          "evidence": "Uses full parallel section functions A_{K,theta}(t) and their equality, not the two scalar quotient-law endpoints.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10229",
+          "material_read": "Full preprint accessed; inspected introduction Problem 1.1, hypotheses and early theorem contexts, rendered PDF p2",
+          "method": "PDF text and screenshot",
+          "title": "On determination of convex bodies by their section functions",
+          "trigger": "Recent convex-body tomography and ellipsoid classification result"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Recovery via d inverse-square section moments, rather than 2 observables K and gamma of a paired quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed",
+          "material_read": "Resultary title and detailed published summary (not full source)",
+          "method": "Resultary semantic search",
+          "title": "Sharp finite-moment reconstruction of ellipsoid axes from unoriented central sections",
+          "trigger": "Published ellipsoid shape reconstruction using random sections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two observable scalar features of the joint same-direction section/projection law recover the complete generic triaxial shape up to the unavoidable polar duality; this is an identifiability theorem with a sharp geometric obstruction, not merely evaluating the known Kantorovich maximum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@016411cb13578016bdc0d92a558ad8c934d73ff3:2026/10/18/endpoint-tomography-from-paired-sections-and-shadows-of-triaxial--e3183756e2e2/RESULT.md",
+    "https://arxiv.org/pdf/1512.07289",
+    "https://arxiv.org/pdf/2610.10229",
+    "https://doi.org/10.1017/S026646660117101X",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Hillier 1999/2001 exact spherical quadratic-form density was only identified bibliographically; a general joint reciprocal quadratic-form density may contain the tail calculation.",
+    "No GitHub publication, third-party attestation or formal mechanized proof is represented; finite checks are corroboration only."
+  ],
+  "residual_risks": [
+    "The Hillier 1999/2001 exact spherical quadratic-form density was only identified bibliographically; a general joint reciprocal quadratic-form density may contain the tail calculation.",
+    "Strict triaxiality is essential; near repeated eigenvalues the nondegenerate Hessian fails and finite-sample stability is not asserted."
+  ],
+  "schema_version": 1
+}
