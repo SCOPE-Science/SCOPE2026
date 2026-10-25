@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The classification has a self-contained C++17 enumerator and an independent Python 3 certificate checker. Execute the following commands in one directory containing the bundled files:
+# Independent mathematical audit
 
-```sh
-g++ -O2 -std=c++17 exhaustive.cpp -o exhaustive
-./exhaustive representatives.tsv > reproduced_summary.txt
-cmp summary.txt reproduced_summary.txt
-python3 check_certificate.py representatives.tsv > reproduced_check_output.txt
-cmp check_output.txt reproduced_check_output.txt
-```
+## correctness
 
-The C++ enumerator covers every \(a\)-by-\(b\) Boolean incidence matrix for \(a+b\le9\), checks connectivity, computes a complete canonical key under within-side permutations and swapping equally sized sides, and applies globally synchronized colour refinement. The resulting connected bipartite isomorphism counts for orders one through nine are \(1,1,1,3,5,17,44,182,730\); logical equivalence counts are \(1,1,1,3,5,17,44,182,728\). Two doubletons occur at nine vertices.
+PASS
 
-The Python checker separately verifies that the supplied canonical representatives are pairwise nonisomorphic and connected, redoes the stable-colour grouping, and verifies that the two pairs have four-cycle counts \((2,0)\) and \((6,4)\). The C++ sweep, rather than the Python checker, supplies completeness of the representative list. All comparisons are exact. This is reproducible computational evidence plus the mathematical coverage argument in `RESULT.md`, not an independently conducted audit or external certification.
+Complete class-of-graphs reduction via unique connected-bipartite bipartition, exhaustive 0/1 a-by-b incidence matrices for a+b<=9, and exact canonicalization by row/column permutations and transposition at equal shores. Read the C++ matrix sweep, canonical key, connectivity and synchronized global 1-WL implementations, and the separate Python certificate validator. The independent certificate checks the retained representatives but does NOT independently prove sweep completeness. Direct bit-mask decoding and common-neighbor four-cycle formula separate the two exact doubletons (106268,111290) with counts (2,0) and (237369,241337) with counts (6,4). Graph-type totals 1,1,1,3,5,17,44,182,730 and 1-WL classes 1,1,1,3,5,17,44,182,728 agree with recorded exact outputs and known OEIS graph count. Immerman–Lander equivalence of synchronized 1-WL and C^2 establishes the logical interpretation. Scope is relative connected bipartite class only; neither global identifiability nor classification beyond nine is proved.
+
+## originality
+
+PASS
+
+Best-of-knowledge original finite quotient census and threshold; the 730 raw isomorphism-type count is already tabulated and is explicitly NOT claimed original. Arvind et al and Kiefer et al supply generic equitable refinement and structure but do not present 728 or the two doubletons in inspected material. Resultary semantically nearby bipartite graph records concern other invariants. Historical unindexed small-graph 1-WL tables remain a concrete priority risk.
+
+## value
+
+PASS
+
+The first C^2 indistinguishability threshold for the natural class of connected bipartite graphs is an expressivity boundary. Classifying the entire first ambiguity layer, with witnesses distinguished even by girth/four-cycles, is a motivated finite classification and a useful benchmark; not a routine restatement of the known 730 count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
