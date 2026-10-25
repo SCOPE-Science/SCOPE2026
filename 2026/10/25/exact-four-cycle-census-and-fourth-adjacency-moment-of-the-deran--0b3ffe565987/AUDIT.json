@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary n>=4, each square lies uniquely in a three-position S3 K3,3 coset or a commuting four-position disjoint-transposition square; inclusion-exclusion counts all permissible derangements exactly. The forbidden board rook polynomial is an exact product and the 4-to-1 division counts each corner once. Degree two-cycle counting and closed-four-walk decomposition derive the trace. Two fully independent finite programs (formula and graph-exhaustion) agree for n=4..7, with no finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Jerrum–Müller, arxiv:1501.07725v1 studies general switch chains and mixing, not a square-count formula for crown graphs.",
+        "Baril–Vajnovszki 2004 concerns selected Gray-code paths rather than the full local square census."
+      ],
+      "reasoning": "General chain construction and mixing facts do not determine the exact 4-cycle count on the excluded-diagonal crown graph. No broader covering theorem was identified.",
+      "searches": [
+        "perfect matching switch chain graph crown graph fixed point free permutations local square count",
+        "On the switch Markov chain for perfect matchings arxiv:1501.07725",
+        "four-cycles graph of derangements transposition switch exact number"
+      ]
+    },
+    "checked_sources": [
+      "Jain 2021 DOI 10.13140/RG.2.2.35817.42088 full public text",
+      "Baril–Vajnovszki 2004 DOI 10.1016/j.dam.2003.06.002 full open-access text",
+      "Dyer–Jerrum–Müller arxiv:1501.07725v1 full open-access text",
+      "Published mathematical-record semantic searches from five semantic searches and two web literature searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jain 2021 implies connectivity, degree extrema and local four-cycle existence; none of these determine Q3/Q4.",
+        "New proof includes rook polynomial (1+4x+2x^2)^2(1+x)^(n-4) and 3-position K3,3 decomposition, absent from inspected prior arguments."
+      ],
+      "reasoning": "Prior graph definitions, local bypass construction and degree identities are credited. The exact two distinct four-cycle enumerations and 4th trace do not follow from the cited prior conclusions without additional global counting.",
+      "searches": [
+        "derangement permutations single transposition swap positions preserving no fixed points; exact degree sequence connected components exchange graph",
+        "Pranjal Jain Transpositions in Derangements 4-cycle squares count cycle distribution α(n) return walks adjacency fourth moment",
+        "Transpositions in Derangements Theorems 5–7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jain Definition 7 identifies exactly the same graph alpha(n); crown-graph perfect-matching switch language is bijective.",
+        "Jain Theorem 6 constructs bypasses in support three/four, but does not state or imply totals for their two classes."
+      ],
+      "reasoning": "Graph identity and local existence are covered, but formulas for the number of all squares are not logical corollaries of existence/connectivity. Commuting and three-support squares are exhaustively separated by products of transpositions.",
+      "searches": [
+        "derangement permutations single transposition swap positions preserving no fixed points; exact degree sequence connected components exchange graph",
+        "number of 4 cycles squares in switch graph of derangements / perfect matchings in crown graph K_n,n minus a fixed matching; two local cycle types",
+        "Pranjal Jain Transpositions in Derangements 4-cycle squares count cycle distribution α(n) return walks adjacency fourth moment",
+        "Jain 2021 alpha(n) switchable graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full Q3/Q4 small-n values independently generated and checked.",
+        "Closest indexed records relate to other matching, four-cycle or derangement invariants, not this exact support-resolved table."
+      ],
+      "reasoning": "Finite values produced here are not a reprint of an identified established OEIS or graph table. No matching exact database record was identified, but an unindexed table could exist.",
+      "searches": [
+        "rook polynomial formula for transposition swap graph restricted to derangements, 4-cycle census",
+        "number of four cycles derangement graph transpositions graph alpha(n) exact count",
+        "Published research-index queries on graph-like neighborhood complexes and perfect matching trichotomies"
+      ]
+    },
+    "rationale": "The exact same graph is prior (Jain 2021), as are its basic degree/connectivity facts and some bypass squares; the all-orders enumerations Q3 and Q4 and the derived tr(A^4) require complete K3,3-coset and rook-board counts not stated or implied in inspected primary texts. Semantic literature-index comparison found no covering statement; undetected equivalence remains a named residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible papers, tables or dissertations may record equivalent quadrilateral counts under matching switch, derangement interchange, transposition Cayley induced subgraph or Markov return-walk terminology.",
+      "Semantic research indexing is incomplete: a failed query is not proof of novelty.",
+      "No independent literature audit or priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS graph identity, connectivity, degree bounds and existence of some local four-cycles; NOT IDENTIFIED as covering complete Q3/Q4 count or fourth adjacency moment.",
+        "evidence": [
+          "Definition 7 and main results; Theorem 6 Case I and Case IIa explicitly construct bypass squares; no global quadrilateral-count statement found."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "material_read": "Full public text: definitions, graph construction, main theorem statements, degree/connectivity proofs and bypass cases including the 3- and 4-position local alternative routes in Theorem 6.",
+        "method": "Section-level and term search against full text; direct mathematical comparison with formulas.",
+        "title": "Transpositions in Derangements",
+        "trigger": "Exactly identical permutation-transposition graph; likely strongest overlapping source."
+      },
+      {
+        "assessment": "Constructs Gray-code generation; does not identify the full graph four-cycle census or trace formula.",
+        "evidence": [
+          "Combinatorial generation paths are not a count of all unoriented local squares."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2003.06.002",
+        "material_read": "Public paper full-text sections on algorithms, generation restrictions, and final discussion.",
+        "method": "Open-access PDF textual reading and structure comparison.",
+        "title": "Gray code for derangements",
+        "trigger": "Transposition-based exhaustive generation might imply counts or contain square classes."
+      },
+      {
+        "assessment": "Analyzes rapid mixing and obstructions for general bipartite matching-switch chains, but no exact census for this restricted derangement graph or fourth spectral moment.",
+        "evidence": [
+          "The 2015-01-30 arXiv v1 studies chain mixing rather than support-stratified return-walk counts."
+        ],
+        "identifier_or_url": "arxiv:1501.07725v1",
+        "material_read": "Public arXiv paper introduction, graph classes, main results and conclusions.",
+        "method": "Read open-access PDF/HTML with checks of applicability to crown graphs and local cycle counts.",
+        "title": "On the switch Markov chain for perfect matchings",
+        "trigger": "Crown graph derangement switches are a special case of the perfect-matching switch chain."
+      },
+      {
+        "assessment": "No retrieved matching or dominating theorem; broad matches include graph-like neighborhood complexes with edge-disjoint four-cycles, which are different objects.",
+        "evidence": [
+          "Closest published titles concerned graph-like neighborhood complexes, perfect grid states and prescribed-difference matchings, each a different object and invariant."
+        ],
+        "identifier_or_url": "Published mathematical findings index",
+        "material_read": "Titles, identifiers and summaries of ranked results from five semantic-index queries and two web literature searches.",
+        "method": "Semantic query comparison of graphs, support classes, spectral moment and implications.",
+        "title": "Indexed published mathematical research records",
+        "trigger": "Check equivalent statements or dominating theorems in indexed mathematical findings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b3ffe56-5987-4ed1-bb5a-661a23cf6aa7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quadrilateral census counts all two-step switch ambiguities in a natural bipartite perfect-matching reconfiguration chain, resolves fundamentally different braid and commuting mechanisms, and determines the first nontrivial closed-walk adjacency moment. These exact all-orders invariants are not routine consequences of the already-known connectedness/degree range and provide a structural statistic for local switch-chain and spectral studies.",
+    "status": "PASS"
+  }
+}
