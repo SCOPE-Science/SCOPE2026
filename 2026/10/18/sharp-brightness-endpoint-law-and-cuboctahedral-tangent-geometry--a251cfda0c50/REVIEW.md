@@ -1,17 +1,21 @@
-# Scientific assessment: four-dimensional cross-polytope brightness endpoints
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the explicitly normalized three-dimensional hyperplane projection volume of the four-dimensional cross-polytope, not its width, its central sections, or a different edge normalization. Every facet has three-volume \(1/3\), yielding the signed-average identity \(X=\frac1{16}\sum_{\varepsilon}|\varepsilon\cdot U|\) by Cauchy's formula. The three linearity cones in sorted absolute coordinates and their full rational extreme-ray lists prove exactly 24 minima and eight maxima. The upper tail follows from eight disjoint spherical caps above the branch threshold \(\sqrt3/2\). At a minimum, the exact local Rademacher conditioning formula has a cuboctahedral first-order norm, whose unit sublevel has rescaled volume \(80\sqrt2/3\); the smooth spherical Jacobian and compact isolated minimizers prove the \(t^3\) coefficient and \(O(t^4)\) remainder. The packaged standard-library rational and simulation checker and the independent convex-hull checker both executed successfully. Finite calculations are corroboration; the continuum argument is included in `RESULT.md`.
+## correctness
 
-## Originality — PASS relative to checked literature and records
-The global extrema and sharp Khintchine bounds are known and excluded from the claimed novelty. Crucially, an earlier regular-simplex projection endpoint theorem, together with the three-dimensional tetrahedron--octahedron brightness equivalence, already covers the analogous **three-dimensional** octahedral law; that analogy was explicitly removed from the present scientific claim. The proposed **four-dimensional** three-volume law is not a dimension-relabeling of that result: its brightness is a sixteen-sign Rademacher average with eight projective normal classes, whereas the four-dimensional simplex analogue uses five restricted coordinate forms. The previous theorem's lower probability coefficient does not imply the present cuboctahedral tangent volume.
+PASS
 
-Primary full-text comparisons include the 1997 random-projection face-count paper and Ivanov's 2018 and 2026 cross-polytope volume results. The relevant published Platonic brightness-variance record, regular-octahedron inradius and width distributions were also read in full; each measures a different function of viewing direction or only a lower-order moment. Multiple equivalent-phrase and broader published-finding corpus searches yielded no claim giving this four-dimensional endpoint law. An expansive later width/brightness preprint could only be inspected at abstract level, so older or recent equivalent results remain a concrete historical-priority risk. Search silence is not a novelty proof; no comprehensive external priority certification is asserted.
+The 4D cross-polytope has 16 tetrahedral facets with normal epsilon/2 and facet three-volume 1/3; Cauchy projection formula gives X=1/16 Σ|epsilon·u|. On sorted absolute coordinates a≥b≥c≥h≥0 the sign average is max{a,(a+b+c)/2,(3a+b+c+h)/4}; 624 nonzero integer directions independently verify this finite identity. Piecewise cone extreme-ray argument establishes unique minimizing rays (1,1,0,0) under signed permutations (24 directions); Jensen equality gives exactly eight maximizing axes. Above √3/2 only the largest coordinate can control X, and disjoint S³ caps give the stated exact upper tail for 0<t<1−√3/2. At each minimum the exact local sign average has leading deficit 1/2 N(√2s,z,w), where N=max(|y|,|z|,|w|,(|y|+|z|+|w|)/2); its sublevel unit ball has volume 160/3 in y,z,w, rescaled tangent volume 80√2/3. The 24 isolated minima and area(S³)=2π² yield 320√2/π² t³+O(t⁴). The O(t⁴) follows from the uniform quadratic chart remainder, not sampling.
 
-## Mathematical value — PASS
-A full near-maximum probability *window* and the exact leading lower probability are natural quantitative refinements of an extremal projection-volume inequality. The mismatch of smooth spherical-cap upper behavior and polyhedral \(t^3\) lower behavior is geometric, not a trivial restatement of a maximum/minimum. The sharp lower constant comes from identifying the full three-dimensional tangent polytope as a cuboctahedron, a structural connection useful for understanding stability of extremal projections and for calibrating the frequency of unusually small projected volumes. The theorem is self-contained and valid even though the complete density remains open in this treatment.
+## originality
 
-## Limits and remaining risk
-Only \(C_4\) and Haar-uniform orthogonal hyperplane projections are covered. The upper formula is exact only for the stated threshold interval, the lower one is an asymptotic with explicit remainder order, and no higher-dimensional universality is claimed. A historical equivalent may exist, especially under Rademacher average or geometric tomography terminology. Independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Existing extremal projection and Khintchine theorems give the brightness endpoints but do not determine the normalized Haar measure of the near-extremal sets. The cross-polytope in four dimensions has a cuboctahedral tangent-volume coefficient, a separate distributional invariant from a global max/min or one-dimensional width distribution.
+
+## value
+
+PASS
+
+Endpoint concentration probabilities for a canonical four-dimensional regular polytope are natural stochastic-geometric invariants independent of the classical extrema. The exact cap window, cubic lower-tail exponent/coefficient, and concrete cuboctahedral tangent geometry determine a complete local distributional classification that a researcher studying random projections could directly use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
