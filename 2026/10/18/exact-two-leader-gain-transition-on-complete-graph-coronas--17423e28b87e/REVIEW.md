@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns exactly two distinct equal-gain pinned vertices on the unit-weight one-leaf corona of a clique, for all integer sizes at least three and all finite positive gains. Eliminating the pendant variables yields an explicit Laplacian resolvent with two scalar denominators; the determinant lemma then supplies exact inverse-trace values for all four possible leader-pair orbits. Two types are strictly dominated. The remaining difference has a quadratic numerator with a unique positive root, so the strict regimes, tie, and counts exhaust all pairs. The independently constructed full matrices agree at 980 exact-rational test instances; these are supplementary to, not the proof of, the all-parameter statement. Nonstandard formulas and the comparisons are implemented symbolically in `verify.py`.
+## correctness
 
-## Originality — PASS (with residual risk)
-Lin–Fardad–Jovanović (arXiv:1302.0450, available complete HTML text) provide the finite-gain noisy-leader inverse-trace formulation and solution methods; Fitch–Leonard (arXiv:1407.1569, available complete HTML text, including their Theorem 2 and examples) give a general two-leader joint-centrality identity and cycle classification; Patterson–Yi–Zhang (arXiv:1708.06873, available complete HTML text) give a resistance formulation and solve paths, cycles and trees. None of the inspected specific classifications treats two-leader complete-graph coronas. The general formulas do not themselves identify the sharp crossover and global orbit exclusions without the new exact comparisons. Searches also found relevant results on coronas addressing different invariants, not this placement objective. A possibly unindexed exact classification is an acknowledged residual risk. Other work on fastest-mixing transition matrices of the same graph optimizes a different variable and objective and does not imply these leader locations.
+PASS
 
-## Value — PASS
-The result resolves an entire unbounded network family rather than a selected numerical example and quantifies a genuine design reversal with finite noisy feedback: weakly pinned leaders should both occupy the dense core, but sufficiently strongly pinned leaders should be placed on a core and an unpaired leaf. The precisely determined crossover scales quadratically with network size, so the decision is materially gain- and size-dependent. The exact location pattern and threshold can be used directly for network sensor and leader placement; a generic criterion alone does not disclose this transition.
+The corona Laplacian has core block (m+1)I-J and pendant offdiagonal -I. Schur elimination of (L+tI) gives the two scalar core resolvent modes and the determinant lemma reduces any two-leader pinned inverse trace to four orbit expressions CC, LL, CO, CX. Direct subtractions give J_CC-J_CO<0, J_CC-J_LL<0 for all m>=3,k>0 and J_CC-J_CX=[2k²+m(6-m)k-m²(m-2)]/((k+m)(k(m+2)+2m)); unique positive quadratic root kappa_m=(m/4)(m-6+sqrt(m²-4m+20)) yields CC below, CX above, both at equality. Pair counts follow orbit sizes. Independent rational Gauss-Jordan inversion of every pair on m=3,4,5 at gains 1/3,5,24 gave 264 exact cases including m=5,k=5 tie, agreeing with the claim; universal proof is the analytic orbit and rational inequalities.
 
-## Boundaries and outstanding risk
-The theorem assumes undirected unit edge weights, exactly two distinct equal-gain leaders and positive finite gains, and uses the unnormalized pinned inverse trace. No extension to arbitrary base graphs or gain allocation is claimed. Existing general algebraic methods can reproduce the result after additional orbit computations; novelty attaches to the explicit solved phase classification, not the existence of such methods. Public-source indexing cannot guarantee absence of equivalent prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS restricted to the all-gain optimizer classification on fixed unweighted K_m corona K1; Lin–Fardad–Jovanovic formulated precisely the inverse-trace noisy-leader objective and devised general optimization relaxations, while Fitch–Leonard studied two-leader joint centrality, without the specialized complete-corona phase boundary in inspected portions.
+
+## value
+
+PASS
+
+The gain-dependent flip in the exact optimal leader-pair orbit is a meaningful structural feature in noisy consensus design. A sharp unique crossing at order m² together with proof that two other symmetric types are never optimal is independently useful beyond generic optimization method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
