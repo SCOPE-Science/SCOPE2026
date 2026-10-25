@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is defined unambiguously as the 12-vertex truncation of the tetrahedron. An exhaustive face-poset matching produces 428 pairs on all 863 nonempty simplices; 3432 directed covers are topologically sorted, proving acyclicity. Its only critical cells are one vertex, three 3-cells and three 4-cells. The exact integral Morse differential is zero, so the 4-cell attaching homotopy classes vanish by the 3-dimensional Hurewicz isomorphism for a wedge of 3-spheres. The 24 tetrahedral symmetry matrices pass all 1152 multiplication tests and independent Lefschetz checks. The independent mod-two Betti ranks agree. The attached verifier and output give fully reproducible finite proof data; no infinite claim is made.
+PASS
 
-## Originality — PASS (best-knowledge, with limitations)
+Graph vertices are the twelve ordered pairs (u,v), u≠v, with same-first-coordinate triangle or reversed-pair adjacency. Ind_2 is exactly vertex subsets of induced max degree≤1. Independent exhaustive 4096-mask computation gave 863 nonempty faces and f=(12,66,192,303,228,62), 428 Morse pairs and a fully acyclic Hasse graph of 3432 incidences, leaving 1 critical vertex, 3 three-cells, 3 four-cells. Reconstructed signed integral Morse differential ∂4=0; 3-skeleton wedge of 3 S3, π3≅Z3, so 4-cells attach nullhomotopically, proving integral wedge 3 S3 and 3 S4. Exact mod2 boundary ranks (1,11,55,137,163,62) corroborate reduced Betti (0,0,0,3,3,0). Independently reconstructed critical integral cycle lifts and all 24 signed S4 actions, obtaining characters χ3=(3,−1,3,0,−1), χ4=(3,−1,−1,0,1), which split over Q as sgn ⊕ S^(2,2) and S^(2,1,1). S4 automorphisms follow from its four intrinsic triangles and reversal connections. No integral lattice splitting is claimed.
 
-The relevant primary full texts establish tree vertex decomposability and exact higher-independence classifications for other graph families, not the truncated tetrahedron. Public records for edge-matching, three-cut, Rips and Čech constructions on this same graph have different face definitions and do not mathematically supply this homotopy and the split degree-3/4 symmetry characters. Alternative names (dissociation, three-path-free, induced degree at most one, the line graph of the Pasch graph) were searched. Previously recorded mathematical claims and indexed public mathematical findings were compared by object and implication. Accessible search did not identify the exact classification; this is not a uniqueness proof. The similarly titled public edge-matching source could only be assessed from its indexed summary because its complete text was inaccessible, and unindexed overlaps remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This computes two different integral homotopy dimensions for the first tetrahedral Archimedean truncation, a natural vertex-transitive cubic graph outside the tree and complete-multipartite classes. The full \(S_4\)-character distinguishes a sign-plus-two-dimensional module from a sign-twisted standard module; these are additional natural topological invariants not determined by Betti ranks alone. The classification is an exact fact about a canonical symmetric graph, not a parameter chosen merely to produce a number.
+Best-of-knowledge statement-level comparison of the precise functor, object and parameter with relevant full-text primary sources and published mathematical results. Induced maximum degree≤1, 2-independence, dissociation and three-path-free vertex-set complexes agree for this simple graph. Distinguish from the edge-based ordinary matching complex of the same truncated tetrahedron and ordinary r=1 independence. Deshpande–Singh higher independence theorems cover complete multipartite, leafy/whiskered families, cycles and trees under hypotheses not met by cubic triangular truncated-tetrahedron graph; Sawant’s r-independence vertex decomposability explicitly assumes trees. No symmetry-character formula for this vertex complex follows. A published exact 22-S3 wedge for the ordinary edge-matching complex uses 18 graph-edge vertices, not the 12 graph vertices selected here. Published ordinary independence on truncated larger simplices is another complex/graph. Neither is a table entry for Ind2(T). An edge matching in T does not biject with induced degree≤1 vertex subsets of T. Thus the matching-complex Morse decomposition cannot imply this Ind2 homotopy or its S4 representation; the current signed action needs its own verification. Any remaining bibliography uncertainty is retained as residual risk, not presented as novelty proof.
 
-## Scientific limitations
+## value
 
-Only the displayed graph and complex are classified. The symmetry splitting is rational, not an integral Specht-lattice decomposition. Full inspection of an indexed edge-matching finding was unavailable, and unindexed prior work is possible. Independent scientific review is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact integral mixed-dimensional homotopy classification plus full rational symmetry decomposition for the canonical 12-vertex Archimedean truncated-tetrahedral graph and natural three-path-free/dissociation functor. Symmetry characters give information not implied by nonequivariant ranks and provide a graph-topology test case beyond trees/complete multipartite families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
