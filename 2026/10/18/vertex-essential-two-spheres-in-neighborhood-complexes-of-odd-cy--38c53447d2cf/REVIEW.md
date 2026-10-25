@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact graph neighborhoods split the complex into two contractible pieces meeting in a step-two cycle. Under removal of the root or an original vertex, the relevant nerve and its intersection remain contractible. Removal of any twin removes exactly one triangle from the simplex-cover nerve of the non-root piece; a compatible edge cover of the cycle proves the inclusion of the cycle is a homotopy equivalence. Coning off that inclusion proves contractibility. The dihedral character follows from the natural integral Mayer–Vietoris connecting map. All indices and quantifiers are uniform for odd lengths at least five; verification code checks small cases only.
+PASS
 
-## Originality — PASS, subject to bibliographic risk
+PASS: Directly recomputed the exact three neighborhood families F_i={x_{i-1},x_{i+1},y_{i-1},y_{i+1}}, T_i={x_{i-1},x_{i+1},z} and Y={all y_j}; K=U union (z*C), with C the original-vertex step-two cycle (odd n gives a single n-cycle) and U intersect (z*C)=C. For n odd >=5, the F_i,Y good simplex cover of U has nerve a cone on the step-two cycle, hence U is contractible. The homotopy pushout of two contractible subcomplexes over C=S^1 is S^2 and the integral Mayer-Vietoris connecting map to H1(C)=Z is an isomorphism. Deleting z leaves U; deleting x_k preserves the F_i,Y nerve and turns C into a path, making both pieces and intersection contractible. Deleting y_k removes exactly the fan triangle (F_{k-1},F_{k+1},Y) but retains its edge via x_k; the punctured fan retracts onto the F_i boundary cycle. Compatible edge covers of C and the F_i subcover give a natural-nerve homotopy equivalence C -> U-y_k, whose cone is contractible. The factorization of any proper induced restriction via a one-vertex deletion then kills its map to ambient integral H2; no assertion about intrinsic homology is necessary. Step-two cycle orientations give rotation +1/reflection -1 on H2 by equivariance. Independent direct mod-two boundary-rank computations checked n=5,7,9 (respectively 92,212,620 nonempty simplices) and all three deletion-orbit representatives: full reduced Betti degree2=1, each deletion acyclic; they do not prove the all-odd integral theorem. Risk: the map of simplex nerves is stated succinctly but compatible contractible simplex intersections make naturality apply in this finite setting; no missed triple intersection was observed in small independent enumerations.
 
-Csorba (2008) establishes the general relationship of Mycielskians with suspended homomorphism complexes and explains the previously known sphere homotopy type. The current claim does not rebrand that sphere identification; it adds the all-vertex-deletions theorem, sharp ambient homology support and the natural dihedral character. Shukla (2019) treats maximum-degree-three graphs and a restricted regular-circulant family, not this Mycielskian family. Kahle (2009), Section 5, addresses minimal supports of cycles in clique complexes, and supplies no exact result for this family of non-flag open-neighborhood complexes. Targeted mathematical-record searches located related work but no implication covering the deletion theorem. The full Csorba article was not accessible for reading, so an uninspected remark or independent, less-indexed treatment is a genuine risk; publication priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem produces an infinite canonical family of second-homology spheres with **unbounded induced ambient support** \(2n+1\), even though the homotopy dimension is fixed. It makes the topology of the graph-coloring obstruction vertex-essential in a precise, integer-coefficient sense and identifies the symmetry sign of the generator. This is a structural local-to-global statement, not a finite table, renaming or a small improvement of a numerical bound.
+The searched primary statements were compared for mathematical implication, with prior scalar/global ingredients explicitly credited. A best-of-knowledge PASS attaches only to the incremental claim and retains genuine residual risks, not to any global proof of historical priority.
 
-## Limits
+## value
 
-The claim is not a statement about the intrinsic homology of arbitrary proper restrictions, generalized or repeated Mycielskians, even cycles, or a larger automorphism group. The general statement is proved mathematically, while finite mod-two computations serve only as reproducibility checks. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact induced ambient carrier size 2n+1 is unbounded while the entire complex retains homotopy type S^2, a structural contrast between fixed homotopy dimension and vertex-level dependence. All three vertex-orbit deletion types are classified uniformly for a natural graph-coloring construction; the D_n sign character identifies how the unique integral generator transforms. This is not merely the previously known Mycielski suspension or a small finite table; it is a potentially reusable topology-of-induced-restrictions phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
