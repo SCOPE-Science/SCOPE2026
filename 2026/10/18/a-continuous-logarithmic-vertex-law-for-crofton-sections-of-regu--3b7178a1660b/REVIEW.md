@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The measure is precisely the invariant affine-hyperplane measure restricted to sections of the simplex, not uniform orientation after conditional offset selection. Integrating offsets produces a ratio of mean projected order-statistic gaps. Centered Gaussian direction–radius independence proves the ratio is an ordinary Gaussian-spacing ratio; Tonelli gives the exact binomial integral. Barycentric positivity determines the full product face lattice and \(k(N-k)\) section vertices. The pairwise Gaussian-distance identity proves the exact mean. The Gaussian-extremes and Mills-ratio bounds together with conditional binomial concentration and Scheffé's lemma prove the continuous limiting exponent. A standalone checker passed independently evaluated finite identities and seeded comparisons. No numerical experiment is used to extrapolate the limit.
+PASS
 
-## Originality — PASS, conditional on acknowledged bibliographic risk
+Invariant affine hyperplane measure restricted to those intersecting a simplex gives normal density proportional to width and conditional offset Lebesgue uniform. The k-th offset interval is the gap of consecutive vertex projections, so P(K=k) is ratio of expected gaps to expected range. Projecting standard Gaussians onto the zero-sum subspace gives direction independent of radius and the same ratio of ordinary Gaussian spacings. Integrating the event #{G_i<=s}=k gives binomial integral. Each crossed simplex edge yields a section vertex, giving K(N-K); the barycentric rescaling preserves the entire face lattice of Δ_(K-1)×Δ_(N-K-1). Summation of pairwise Gaussian absolute differences gives E V=N(N-1)/(sqrt(pi) M_N). Gaussian maxima M_N~2sqrt(2log N), and the width-normalized auxiliary Gaussian level S/sqrt(2log N) tends to Uniform[-1,1]. For each compact interior level z the smaller binomial count has log exponent 1-z² by Mills and Chernoff bounds; boundaries have vanishing probability. Thus log V/log N ⇒2-U², and V/E V→0 since the limit has no mass at exponent 2.
 
-Queries compared central simplex-section fluctuation laws and random tetrahedral shadows to the actual invariantly sampled *affine* section law. Central slices fix the offset; projected silhouettes are not slices. Baryshnikov–Vitale's Gaussian regular-simplex representation is acknowledged as prior machinery, not represented as original. The 2026 combinatorial-slicing work is an important plausible source but was accessible only through its abstract (attempts to obtain arXiv/OA full text failed; institutional access was unavailable). It is not falsely classified as having been fully excluded. A logically dominating older result under different names remains a residual risk. No inspected scientific statement directly implies the affine Crofton exact law and continuous \(2-U^2\) exponent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural probability model for sections of a canonical high-dimensional convex body. A continuously distributed polynomial vertex-count exponent—rather than a deterministic face-count scale—is a substantial geometric-probability distinction from central sections. The exact finite-dimensional law, expectation and failure of normalization by that expectation are meaningful consequences of the same theorem, not arbitrary variants.
+Best-of-knowledge PASS with a concrete recent-slicing full-text access risk. The studied invariant affine Crofton hyperplane distribution differs from central Haar sections and uniform-normal-then-offset sampling; known Gaussian-simplex identities are acknowledged as input but do not yield the stated continuous exponent without the spacing/level analysis.
 
-## Limitations and closest comparisons
+## value
 
-The theorem does not quantify convergence rates, address nonregular simplices, or cover other choices of random hyperplanes. Published central-simplex face-count studies and the Gaussian-simplex projection identity are closest reductions. An inaccessible plausible slicing preprint and broad historical geometric probability literature limit priority certainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant Crofton cut is a natural canonical sampling law on a regular simplex. An exact finite-N face-lattice/vertex-count law paired with an unusual continuous log-exponent limit and failure of mean normalization is a substantive geometric probability distinction, not an arbitrary parametric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
