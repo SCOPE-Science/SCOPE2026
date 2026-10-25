@@ -1,15 +1,21 @@
-# Scientific review: A sharp two-outlier window for odd cubic harmonic-Bergman Toeplitz operators
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(p_a(z)=z^3+az\), rotation reduces the spectral calculation to a positive real parameter. The analytic/coanalytic reproducing-kernel equation produces \(h(z,w)=z^2+3zw/2+3w^2/2+t\). A single interior root yields precisely the two candidate eigenvalues and the two exact root-modulus thresholds. The two-root determinant identity and Vieta relation exclude spurious candidates; a nonzero confluent determinant excludes double-root candidates, and polynomial-degree/Hermite normalization handles all-three-interior cases, including \(\lambda=0\). The known essential-spectrum Fredholm theorem closes the argument. The standalone checker verified eleven algebraic/inequality groups and six exact parameter cases. It does not replace the infinite-dimensional argument.
+## correctness
 
-## Originality — PASS, with source-access limitations
-The 2026 general spectral theorem of Huang–Wang–Zhao (arXiv:2610.09638) supplies the Fredholm/matching framework and a cubic upper bound of eight possible isolated points, but its accessible full text does not state the exact odd-cubic zero/two outlier phase law. published-finding corpus searches for cubic spectral windows, equivalent polynomial operators, exact tables and general harmonic-Bergman Toeplitz coverage returned closest records about different mathematical objects. The 2021 Wang–Zhao article (DOI: 10.1016/j.jmaa.2020.124770) was available only at title/abstract level, and could contain stronger coverage. This risk is recorded rather than silently ruled out. The 2023 Guo–Zhao–Zheng paper uses the distinct analytic Bergman operator setting. Publication priority remains subject to human review.
+PASS
 
-## Mathematical value — PASS
-The natural one-parameter odd-cubic family furnishes a complete exact spectrum, including two explicit exceptional eigenvalues and two sharp parameter transitions between connected and disconnected spectra. This sharpens a general finite-eigenvalue bound to a full classification and addresses the structural source of isolated outliers; it is more than a routine pointwise bound or relabeling.
+Reduced complex parameter to t=|a| by disk rotation, and used known Fredholm zero-index plus explicit harmonic-Bergman kernel equation h(z,w)=z²+3zw/2+3w²/2+t. One-root h(α,α)=4α²+t=0 gives α=±i sqrt(t)/2 and λ=(3t/4)α, with other root moduli ((sqrt(13)±1)/4)sqrt(t); exactly one inside iff (14+2sqrt13)/9<t<4. Independent SymPy algebra reproduced one-root numerator factorization and quadratic 2-root determinant factor −3/4(u−v)²(−2t+2u²+9uv+2v²); with Vieta this forces 7s²+3t=0, incompatible with exactly two interior roots. Confluent determinant for double root independently reproduces 19t/4≠0; 0 and 3 interior roots excluded by coefficient rank. Both boundary collisions belong to essential curve, not isolated points. Geometric multiplicity of each outlier is one. Infinite-dimensional Fredholm premise comes from primary literature, not symbolic code.
 
-## Limitations
-The result is restricted to standard complex harmonic Bergman space and analytic odd cubics. Geometric simplicity is proved, but algebraic multiplicity is not computed; other cubic coefficients and boundary-embedded spectral multiplicities remain outside scope. The 2021 full text was inaccessible and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact mathematical claim against published Resultary records and named primary literature finds no stronger statement implying its new sharp result. Distinguishes known general ingredients and specific overlapping endpoints; access limitations and unindexed priority risks retained rather than treated as absence proof.
+
+## value
+
+PASS
+
+Exact zero-or-two spectral outlier phase diagram and sharp thresholds in the natural sparse odd-cubic subfamily materially refine the known degree-three finiteness bound eight. Determines topology of the spectrum and genuine boundary collisions, not a cosmetic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
