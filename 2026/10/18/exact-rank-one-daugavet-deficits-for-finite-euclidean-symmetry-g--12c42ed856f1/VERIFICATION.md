@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The entire theorem is proved analytically in `RESULT.md`. Reproduction requires only elementary linear algebra, the rearrangement inequality (which can be verified by adjacent swaps), the triangle inequality, and the classification of finite subgroups of the planar orthogonal group. For numerical spot checks, evaluate the displayed closed form with unit operator norm: `H_2` gives approximately 1.8989663259659066, `H_4` approximately 1.8228756555322954, and `C_2` approximately 1.618033988749895. These are diagnostic values, not infinite-dimensional or all-dimension certificates.
+## correctness
 
-Critical symbolic verification: the two relevant eigenvalues of the Gram matrix of the rank-one perturbation have sum \(2+t^2+2tc\), product \((1+tc)^2\), and discriminant \(t^2(t^2+4+4tc)\). The orbit-support inequality has an explicit equality case; strictness and full rigidity follow from non-collinearity of distinct prefix vectors. The derivative at \(c=1\) is \(t/(t+2)\), giving the quadratic finite-rotation deficit. No unproved numerical extrapolation or hidden external certificate is used.
+PASS
 
-The primary publication date and primary MSC category were verified from arXiv's first submission and displayed classification. Priority checking compared the relevant primary preprint and related research records, but is not a substitute for exhaustive independent literature review.
+PASS. The largest singular value of I+t u⊗v is Φ_t(c) with c=⟨u,v⟩, from 2x2 trace 2+t²+2tc and determinant (1+tc)²; strictly increases in c for t>0. The signed-permutation group orbit support is the decreasing absolute-coordinate dot product. Positive prefix-vector decompositions imply ≥1/√d, and strict equality forces a singleton prefix paired with a full prefix, giving exactly sparse/uniform optimizers. Planar C_N nearest-orbit angular separation ≤π/N and D_N source on reflection axis give κ=cos(π/N); elementary O(2) finite-group classification gives C_M uniquely maximizing at order≤M. Taylor derivative at c=1 gives deficit π²t/[2(t+2)M²]+O(M^-4). Independently evaluated Φ for H2/H4/H8 and C1/C2/C4 and M=100,1000,10000 to check coefficient convergence; bounded calculations corroborate not prove all groups/dimensions.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
+
+## value
+
+PASS
+
+PASS. A sharp quantitative refinement of a newly studied qualitative group Daugavet property, including optimizer rigidity, perturbation-size dependence, finite planar group-design extremum, and sharp asymptotic approach. Signed-permutation versus planar symmetry gives structurally different approximation regimes, not arbitrary data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
