@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:04:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For k=2m the target set is exactly 2^m complement-reversal-fixed edges of the binary order-(k−1) de Bruijn graph. Every cyclic host can be rotated to start at P_m=0^m1^m. BFS states (suffix-of-length k−1, bitmask of witnessed target edges) with its forced first edge have a bijection with such rooted indexed cycles; BFS distance and layerwise shortest-path counts give C_m,R_m. The distinct Held–Karp shortest overlap-route recurrence gives matching minimum cyclic cover lengths: distinct required occurrences along any cycle have gaps ≥k−longest proper suffix-prefix overlap, while an overlap tour spells a cycle with those factors. I independently compiled a different C++ BFS and checked exhaustive values m=1: (2,1), m=2:(9,2), m=3:(26,14), m=4:(67,1232); m=4 first optimum discovered after 4,190,096 BFS states. A separate Python subset-DP returned minima 2,9,26,67 and directly tested the 67-symbol witness contains all 16 targets. Enumerative result is finite m≤4, not an infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allowing a collection of cycles and optional orientations cannot certify shortest ONE cycle with all fixed-point words.",
+          "Constrained Eulerian cycles use every admissible edge exactly once, whereas here non-target transitions and target repetitions are permitted."
+        ],
+        "reasoning": "General set-cover formulations encompass the finite problem algorithmically but do not directly give the specific numerical sharp rooted table.",
+        "searches": [
+          "shortest cyclic binary superstring covering all reverse complement fixed palindromes length 8 exact 67 1232",
+          "Cazaux Canovas Rivals 2016 shortest DNA cyclic cover",
+          "Moreno Matamala 2007 de Bruijn with forbidden factors"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1093/bioinformatics/btt230",
+        "https://arxiv.org/abs/0711.1695",
+        "https://doi.org/10.1109/DCC.2016.79",
+        "https://arxiv.org/abs/1511.08431",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-shortest-cyclic-covers-of-binary-reverse-complement-palind--4d85b3092272",
+        "Resultary:shortest cyclic binary superstring covering all reverse complement fixed palindromes length 8 exact 67 1232"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orenstein/Shamir cover representatives of all k-mers, not solely RC-fixed words; their numbers cannot imply the unrestricted antipalindrome-only optimum and multiplicities.",
+          "The presented exhaustive enumeration genuinely establishes its numbers rather than quoting or recomputing a located known table."
+        ],
+        "reasoning": "Both task objectives and counted units are distinct; any unseen case study directly tabulating RC fixed-word-only hosts remains a risk.",
+        "searches": [
+          "shortest cyclic binary superstring covering all reverse complement fixed palindromes length 8 exact 67 1232",
+          "Orenstein Shamir 2013 Bioinformatics btt230 sections 2–3",
+          "Moreno Matamala arxiv:0711.1695",
+          "Cazaux et al DCC 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every reverse-complement palindrome is self RC, hence compulsory inside an RC-complete covering of all k-mers.",
+          "Those problems impose thousands of other windows for larger k; their full-cover optima are not the same as the antipalindrome-only optimum."
+        ],
+        "reasoning": "The shared RC symmetry does not equate the target languages, nor does a universal supersequence length determine a subset-only optimum.",
+        "searches": [
+          "shortest cyclic binary superstring covering all reverse complement fixed palindromes length 8 exact 67 1232",
+          "Orenstein Shamir 2013 reverse complement complete sequence",
+          "Moreno Matamala 2007 constrained de Bruijn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary yielded separate palindrome-duplication code sizes and string attractor values, not this cyclic-cover table.",
+          "Independent reproducible BFS and Held–Karp enumeration gave m=4 optimum 67, rooted count 1232."
+        ],
+        "reasoning": "No exact table source located; prior art search is limited and cannot prove global novelty.",
+        "searches": [
+          "shortest cyclic binary superstring covering all reverse complement fixed palindromes length 8 exact 67 1232",
+          "Resultary exact binary reverse-complement palindrome cyclic cover 67 1232",
+          "shortest reverse-complement palindromic DNA superstring table"
+        ]
+      },
+      "rationale": "PASS best of knowledge: earlier RC-complete sequence constructions require covering one representative for EACH reverse-complement pair of ALL k-mers; the RC-fixed-point antipalindromes are compulsory but are only a tiny target subset, so the optimum and the number of rooted optimal cycles are not determined by those designs. Constrained-language de Bruijn Euler circuits aim at once-each admissible-edge coverage; general cyclic cover and reversal-superstring problems use different target sets/allowed orientations. No exact finite table (2,9,26,67) or rooted multiplicities located in inspected sources; a directly related publisher study could not be examined completely and remains a residual risk.",
+      "residual_risks": [
+        "The 2013 RC-complete paper was read in lawfully accessible full HTML, but a closely related 2016 publisher item was not inspected in full; overlapping fixed-palindrome examples are possible.",
+        "These finite numbers certify m≤4 only; the longest-match TSP is an independent minimum check, while BFS counts rooted indexed words rather than necklaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RC-complete covers every k-mer up to RC equivalence rather than just fixed words; numerical table not a direct implication",
+          "evidence": [
+            "Definition of RC-complete and section 3.1"
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt230",
+          "material_read": "Full lawfully accessible journal HTML, including statements and section 3.1 on RC-palindromes",
+          "method": "read journal HTML",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+          "trigger": "Same RC palindromes within a broader k-mer sequence cover"
+        },
+        {
+          "assessment": "Different constraint language, Eulerian once-each paradigm, no antipalindrome-only cyclic cover table read",
+          "evidence": [
+            "Abstract and introduction; de Bruijn language optimization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+          "material_read": "arXiv PDF introduction and theorem/context visible in screenshot of page 1",
+          "method": "read PDF first page and web text sections",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Overlap-graph cycles in constrained word languages"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the fixed-point antipalindrome family is a natural reverse-complement invariant DNA-word subset with nontrivial overlap constraints; a certified exact length-eight optimum and counted rooted optima are concrete reproducible combinatorial invariants beyond trivial tiny cases, even though no uniform formula for all m is claimed. Both independent finite-state methods certify minimum, and rooted counts distinguish genuine solution multiplicity from just one witness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1093/bioinformatics/btt230",
+    "https://arxiv.org/abs/0711.1695",
+    "https://doi.org/10.1109/DCC.2016.79",
+    "https://arxiv.org/abs/1511.08431",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-shortest-cyclic-covers-of-binary-reverse-complement-palind--4d85b3092272",
+    "Resultary:shortest cyclic binary superstring covering all reverse complement fixed palindromes length 8 exact 67 1232"
+  ],
+  "disposition": "passed",
+  "limitations": "No assertions for m≥5, no modulo-rotation multiplicities, no four-letter DNA or all-k-mer optimality.",
+  "residual_risks": [
+    "The 2013 RC-complete paper was read in lawfully accessible full HTML, but a closely related 2016 publisher item was not inspected in full; overlapping fixed-palindrome examples are possible.",
+    "These finite numbers certify m≤4 only; the longest-match TSP is an independent minimum check, while BFS counts rooted indexed words rather than necklaces."
+  ],
+  "schema_version": 1
+}

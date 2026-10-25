@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Compile with `c++ -std=c++17 -O2 -Wall -Wextra verify.cpp -o verify_antipal` and execute `./verify_antipal`. The code implements complete augmented de Bruijn BFS and an independently formulated maximal-overlap Held–Karp subset optimization, with explicit cyclic-window checks.
+# Independent mathematical audit
 
-Expected exact output values: lengths `2,9,26,67`; rooted counts `1,2,14,1232`; number of required words `2,4,8,16`. The terminal output includes `VERIFY_OK antipal_cover_k=2,4,6,8 independent_overlap_TSP_and_rooted_BFS`.
+## correctness
 
-The finite exhaustive algorithms prove only the four stated orders. The state search explores 4,190,096 distinct states before the final eight-bit goal, of 8,388,608 possible augmented states. The tour DP computes only optimum lengths, whereas the BFS also counts rooted optima. No independent audit has been performed.
+PASS
+
+PASS: For k=2m the target set is exactly 2^m complement-reversal-fixed edges of the binary order-(k−1) de Bruijn graph. Every cyclic host can be rotated to start at P_m=0^m1^m. BFS states (suffix-of-length k−1, bitmask of witnessed target edges) with its forced first edge have a bijection with such rooted indexed cycles; BFS distance and layerwise shortest-path counts give C_m,R_m. The distinct Held–Karp shortest overlap-route recurrence gives matching minimum cyclic cover lengths: distinct required occurrences along any cycle have gaps ≥k−longest proper suffix-prefix overlap, while an overlap tour spells a cycle with those factors. I independently compiled a different C++ BFS and checked exhaustive values m=1: (2,1), m=2:(9,2), m=3:(26,14), m=4:(67,1232); m=4 first optimum discovered after 4,190,096 BFS states. A separate Python subset-DP returned minima 2,9,26,67 and directly tested the 67-symbol witness contains all 16 targets. Enumerative result is finite m≤4, not an infinite theorem.
+
+## originality
+
+PASS
+
+PASS best of knowledge: earlier RC-complete sequence constructions require covering one representative for EACH reverse-complement pair of ALL k-mers; the RC-fixed-point antipalindromes are compulsory but are only a tiny target subset, so the optimum and the number of rooted optimal cycles are not determined by those designs. Constrained-language de Bruijn Euler circuits aim at once-each admissible-edge coverage; general cyclic cover and reversal-superstring problems use different target sets/allowed orientations. No exact finite table (2,9,26,67) or rooted multiplicities located in inspected sources; a directly related publisher study could not be examined completely and remains a residual risk.
+
+## value
+
+PASS
+
+PASS: the fixed-point antipalindrome family is a natural reverse-complement invariant DNA-word subset with nontrivial overlap constraints; a certified exact length-eight optimum and counted rooted optima are concrete reproducible combinatorial invariants beyond trivial tiny cases, even though no uniform formula for all m is claimed. Both independent finite-state methods certify minimum, and rooted counts distinguish genuine solution multiplicity from just one witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

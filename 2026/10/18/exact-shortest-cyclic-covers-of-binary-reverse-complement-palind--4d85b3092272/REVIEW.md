@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete finite-state de Bruijn subset-search is a bijective model of rooted indexed cyclic hosts. The shortest-terminal BFS distance proves the minimum length, and shortest-path integer accumulation counts every optimum. An independent overlap-tour subset dynamic program gives the same minima. The supplied source recompiles, checks a concrete cyclic witness at each order, and prints `VERIFY_OK`. The finite scope is exactly \(m=1,2,3,4\); no claim about an infinite pattern is made.
+## correctness
 
-**Originality — PASS against inspected evidence, with residual risk.** The closest work on RC-complete probe sequences (Orenstein–Shamir, 2013) covers all reverse-complement classes of all DNA \(k\)-mers, not only the compulsory fixed-point subset on one binary cycle. Cazaux–Cánovas–Rivals (2016) permit a collection of cycles and either orientation. Moreno–Matamala (2007) use Eulerian cycles of complete restricted languages. Fici and collaborators (2015) study linear superstrings with reversal options. Ordinary palindromes satisfy a different defining relation from reverse-complement palindromes. Searches located no numerical duplicate; continuous full text of the 2013 publisher paper remained inaccessible, and unindexed coverage is possible. These limits are preserved in the originality record.
+PASS
 
-**Mathematical value — PASS.** Every RC-fixed factor is unavoidable when a double-stranded design must represent all orientation classes. The exact one-cycle optimum for the fixed-point subset is a natural lower-bound benchmark independent of whole-language and multi-cycle designs. Its rooted optimum multiplicity, especially \(1232\) at the first 16-pattern order, is a nontrivial additional invariant useful for studying non-unique optimal periodic probes.
+PASS: For k=2m the target set is exactly 2^m complement-reversal-fixed edges of the binary order-(k−1) de Bruijn graph. Every cyclic host can be rotated to start at P_m=0^m1^m. BFS states (suffix-of-length k−1, bitmask of witnessed target edges) with its forced first edge have a bijection with such rooted indexed cycles; BFS distance and layerwise shortest-path counts give C_m,R_m. The distinct Held–Karp shortest overlap-route recurrence gives matching minimum cyclic cover lengths: distinct required occurrences along any cycle have gaps ≥k−longest proper suffix-prefix overlap, while an overlap tour spells a cycle with those factors. I independently compiled a different C++ BFS and checked exhaustive values m=1: (2,1), m=2:(9,2), m=3:(26,14), m=4:(67,1232); m=4 first optimum discovered after 4,190,096 BFS states. A separate Python subset-DP returned minima 2,9,26,67 and directly tested the 67-symbol witness contains all 16 targets. Enumerative result is finite m≤4, not an infinite theorem.
 
-The exact finite computations are reproducible from `verify.cpp`. Independent scientific validation was not carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: earlier RC-complete sequence constructions require covering one representative for EACH reverse-complement pair of ALL k-mers; the RC-fixed-point antipalindromes are compulsory but are only a tiny target subset, so the optimum and the number of rooted optimal cycles are not determined by those designs. Constrained-language de Bruijn Euler circuits aim at once-each admissible-edge coverage; general cyclic cover and reversal-superstring problems use different target sets/allowed orientations. No exact finite table (2,9,26,67) or rooted multiplicities located in inspected sources; a directly related publisher study could not be examined completely and remains a residual risk.
+
+## value
+
+PASS
+
+PASS: the fixed-point antipalindrome family is a natural reverse-complement invariant DNA-word subset with nontrivial overlap constraints; a certified exact length-eight optimum and counted rooted optima are concrete reproducible combinatorial invariants beyond trivial tiny cases, even though no uniform formula for all m is claimed. Both independent finite-state methods certify minimum, and rooted counts distinguish genuine solution multiplicity from just one witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
