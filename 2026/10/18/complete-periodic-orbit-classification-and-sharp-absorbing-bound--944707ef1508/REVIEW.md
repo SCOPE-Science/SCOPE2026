@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Euler's product formula and the least-prime-factor argument prove \(m-\varphi(m)\ge\sqrt m\) for every composite positive integer \(m\). For all \(n\ge26\), either one composite step decreases \(n\), or a prime step followed by a composite or twin-prime branch decreases \(n\) in at most three iterations. Strong induction gives entry into the explicitly checked invariant interval \(1\) through \(25\); its complete map table proves there are exactly three cycles. The packaged independent exact-integer verifier reproduces all small transitions, tests the reduction cases, and checks one million starting values. The infinite conclusion rests on the inequalities, not on finite testing.
+## correctness
 
-**Originality — PASS within checked material.** Leonetti–Luca prove eventual periodicity for all shifts, but not the complete periodic orbit spectrum or the start-independent sharp endpoint \(25\) at shift \(3\). The closest public period-size result exhibits the \(23\leftrightarrow25\) cycle and bounds the maximum in terms of an arbitrary period \(T\); it cannot exclude longer periods or establish a universal absorbing interval. The Danh et al. improvement concerns the second-order recurrence. Targeted searches for the map, its cycles, the cototient form, and global absorption did not locate an equivalent statement. An unindexed duplicate remains a residual risk.
+PASS
 
-**Value — PASS.** Complete periodic classifications are fundamental invariants of arithmetic dynamics. This exact classification of a nonmonotone shifted-totient map determines the coexistence of three different least periods, gives a uniform transient-to-cycle reduction from every positive integer, and identifies an optimal universal absorbing endpoint, sharpening a qualitative eventual-periodicity theorem rather than enumerating arbitrary finite examples.
+Actual RESULT.md blob fd9faa02b7a4b5a60b443449745ea9cd4e7cb7a3 provides a complete symbolic descent: for composite m>=26 the least prime divisor q<=sqrt(m) gives c(m)=m−φ(m)>=m/q>=sqrt(m)>3 and F(m)<m. For p>=29 prime, F(p)=p+2; if composite, c(p+2)>=sqrt(p+2)>5 gives F²(p)<p; if p+2 prime then p+4 divisible by3 and F³(p)<=2(p+4)/3+3<p. Strong induction ensures all orbits enter [1,25]. Independently recomputed the exact 25-state totient transition table, verified closure and precisely three cycles, with 23<->25 obstructing smaller invariant initial intervals. The six states are the unique smallest forward-invariant universal eventual attractor. No empirical one-million-state search used as infinite proof.
 
-The result applies only to the shift \(3\). It does not solve other shifts or give closed-form global basin membership. The independent integer tests are finite, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Leonetti-Luca full primary article proves eventual periodicity for all shifts with orbit bound depending on initial input, which does not imply a uniform eventual [1,25] trap or exact three cycles. Published Resultary statement about sharp bound depending on period T includes known 23↔25 but permits arbitrarily long periods; explicitly credit the known two-cycle. No located direct complete shift-3 classification; priority risk for older elementary totient iteration is retained.
+
+## value
+
+PASS
+
+A complete infinite functional-graph periodic orbit classification and smallest absorbing interval are natural dynamical questions. The prime twin-case descent is a motivated obstruction to a simple monotone argument, resolved within three steps, and sharp constant 25 differs from previous initial-dependent bounds. The classification is exact, not a small data table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

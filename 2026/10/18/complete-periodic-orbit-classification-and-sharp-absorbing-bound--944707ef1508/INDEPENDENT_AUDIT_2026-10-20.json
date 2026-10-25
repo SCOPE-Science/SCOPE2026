@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T11:54:14.018665Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Actual RESULT.md blob fd9faa02b7a4b5a60b443449745ea9cd4e7cb7a3 provides a complete symbolic descent: for composite m>=26 the least prime divisor q<=sqrt(m) gives c(m)=m−φ(m)>=m/q>=sqrt(m)>3 and F(m)<m. For p>=29 prime, F(p)=p+2; if composite, c(p+2)>=sqrt(p+2)>5 gives F²(p)<p; if p+2 prime then p+4 divisible by3 and F³(p)<=2(p+4)/3+3<p. Strong induction ensures all orbits enter [1,25]. Independently recomputed the exact 25-state totient transition table, verified closure and precisely three cycles, with 23<->25 obstructing smaller invariant initial intervals. The six states are the unique smallest forward-invariant universal eventual attractor. No empirical one-million-state search used as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leonetti-Luca eventual periodicity has orbit bound max{x1,k^4}+(k+1)^2 and can grow with x1; cannot yield a uniform terminal attractor.",
+          "Sharp period-T cycle maximum <=[T(k−1)+1]^2 is not uniform over T; contains 23↔25 as an example."
+        ],
+        "reasoning": "Published general theorems credited where they imply eventual periodicity or a known cycle, but neither covers exhaustive three-cycle and sharp B=25 classification.",
+        "searches": [
+          "Leonetti-Luca arXiv:2302.01783 Theorem 1.2/2",
+          "Resultary 2026/10/4 sharp period-size bound"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md blob fd9faa02b7a4b5a60b443449745ea9cd4e7cb7a3",
+        "arXiv:2302.01783v1 full primary HTML Theorem2",
+        "Resultary 2026/10/4 sharp period-size bound statement",
+        "OEIS:A051953 background",
+        "Independent exact totient map n=1..25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier results imply each orbit eventually cycles but do not constrain which of infinitely many possible cycles it reaches.",
+          "The period-sensitive bound grows quadratically with unknown T, so it cannot rule out longer cycles."
+        ],
+        "reasoning": "The novel uniform strict-smaller-iterate argument covers all primes/composites and forces the 25-state exhaustive classification, beyond earlier implications.",
+        "searches": [
+          "Leonetti-Luca 2024 theorem eventual periodicity",
+          "Published sharp period-size bound / 23-25 example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map is exactly the shift-k totient dynamical system with k=3, not the distinct second-order recurrence.",
+          "Known period-bound result is the same map with all k and parameter T but does not identify all k=3 cycles."
+        ],
+        "reasoning": "Checked same-function aliases and distinguished second-order recurrence, preventing false novelty from terminology.",
+        "searches": [
+          "Resultary semantic search: shifted Euler totient phi(n)+3 full cycles 9 11 13 15 23 25 absorbing interval",
+          "Leonetti Luca shifted Euler function iterates",
+          "Euler totient iteration φ(n)+3 dynamical cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard cototient table c(n)=n−φ(n) supplies point evaluations; original article separately lists fixed/short cycles.",
+          "Independent exact first-25 map has three cycles, with no inspected prior complete 25-state global classification."
+        ],
+        "reasoning": "Known finite tables alone do not prove all higher starts descend. Exact map plus global induction is substantial missing implication.",
+        "searches": [
+          "Resultary exact Euler shifted period bound",
+          "Resultary semantic search: shifted Euler totient phi(n)+3 full cycles 9 11 13 15 23 25 absorbing interval",
+          "OEIS cototient A051953"
+        ]
+      },
+      "rationale": "Leonetti-Luca full primary article proves eventual periodicity for all shifts with orbit bound depending on initial input, which does not imply a uniform eventual [1,25] trap or exact three cycles. Published Resultary statement about sharp bound depending on period T includes known 23↔25 but permits arbitrarily long periods; explicitly credit the known two-cycle. No located direct complete shift-3 classification; priority risk for older elementary totient iteration is retained.",
+      "residual_risks": [
+        "Unindexed elementary totient-dynamics articles or notes might have already classified shift-3 basins/cycles.",
+        "No closed-form basin membership predicate for arbitrary n; only eventual cycle classification by iteration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: eventual periodicity and initial-dependent bound, not exact global k=3 cycles",
+          "evidence": [
+            "Theorem bound max{x1,k^4}+(k+1)^2 varies with initial state."
+          ],
+          "identifier_or_url": "arXiv:2302.01783v1; DOI:10.1017/S0004972723000394",
+          "material_read": "Accessible complete original preprint HTML and central eventual-periodicity bound theorem plus proof",
+          "method": "arXiv full HTML reading",
+          "title": "On the iterates of shifted Euler’s function",
+          "trigger": "Same map φ(n)+k, special shift k=3"
+        },
+        {
+          "assessment": "PARTIAL: period-dependent bound and known 23↔25, not all-cycle classification",
+          "evidence": [
+            "Every length-T cycle max <=[T(k−1)+1]²; k=3, T variable."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae",
+          "material_read": "Published Resultary record statement and mathematical bound inspected; complete linked package not independently read for current run",
+          "method": "Semantic search published scientific statement",
+          "title": "Sharp period-size bound and extremal structure for shifted Euler cycles",
+          "trigger": "Same map and known 23-25 cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete infinite functional-graph periodic orbit classification and smallest absorbing interval are natural dynamical questions. The prime twin-case descent is a motivated obstruction to a simple monotone argument, resolved within three steps, and sharp constant 25 differs from previous initial-dependent bounds. The classification is exact, not a small data table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 RESULT.md blob fd9faa02b7a4b5a60b443449745ea9cd4e7cb7a3",
+    "arXiv:2302.01783v1 full primary HTML Theorem2",
+    "Resultary 2026/10/4 sharp period-size bound statement",
+    "OEIS:A051953 background",
+    "Independent exact totient map n=1..25"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly shift 3 with φ(1)=1 and domain N>=1; no other k or nontrivial basin criterion claimed.",
+    "Unindexed elementary totient-dynamics articles or notes might have already classified shift-3 basins/cycles.",
+    "No closed-form basin membership predicate for arbitrary n; only eventual cycle classification by iteration."
+  ],
+  "residual_risks": [
+    "Unindexed elementary totient-dynamics articles or notes might have already classified shift-3 basins/cycles.",
+    "No closed-form basin membership predicate for arbitrary n; only eventual cycle classification by iteration."
+  ],
+  "schema_version": 1
+}
