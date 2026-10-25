@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence
 
-`verify_small_ball.py` is a standalone reproducible check requiring Python, SymPy and mpmath. It was executed from its actual source path, using deterministic random seeds and 70 decimal digits for the wedge-kernel checks. It reports:
+# Independent mathematical audit
 
-- Exact-rational computation of the source's three-state Markov-chain covariance \(C=\frac19\bigl(\begin{smallmatrix}14&-13\\-13&14\end{smallmatrix}\bigr)\), positive definiteness and zero-sum covariance.
-- 700 finite path and endpoint inclusion checks (including 100 distinct 41-point random grids and 100 constrained 121-point grids).
-- 15 high-precision checks of the Bessel heat-kernel leading term at five correlation parameters, plus the exact critical exponent \(8\).
-- The explicit noncyclic example exponent \(18.523774800939642819\ldots\).
+## correctness
 
-These finite checks do not certify any pathwise theorem on uncountably many paths or the infinite heat-kernel series. Those parts follow from the algebra and analytic arguments displayed in RESULT.md, including the positive interior-terminal lower event. The exact prefactor for the probability of the last-passage lower tail is not determined; neither independent validation nor independent audit has been performed.
+PASS
+
+In RESULT.md steps 1-2, F bounded above by epsilon forces both successive Brownian differences to remain below 3epsilon and to have O(epsilon) endpoints; conversely, positive-area strictly interior terminal values with two suprema below epsilon/2 force F<epsilon. Whitening of the 2-dimensional Gaussian covariance gives a planar survival wedge of opening angle theta=acos(-rho), with start and end at O(epsilon). The displayed Dirichlet wedge Bessel kernel has leading density delta^(2*pi/theta) times a positive product of angular harmonics; integration over a positive-area scaled terminal rectangle contributes delta^2. Both inclusions yield exactly the claimed two-sided exponent. The Bessel series convergence and boundary cases rho strictly in (-1,1) are handled analytically, not by finite paths. Independently recalculated the cited 3-state covariance C=(1/9)[[14,-13],[-13,14]], rho=-13/14 and exponent 18.523774800939645.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct final theorem after comparison of equivalent objects, broader implications and exact accessible primary statements; not a historical priority guarantee. One-sided O(epsilon^k) never implies an Omega(epsilon^k) statement; only proving E_epsilon subset of {F<=epsilon}, with a positive wedge density, supplies the missing direction. Earlier isotropic exponent=8 is expressly known.
+
+## value
+
+PASS
+
+The earlier known one-sided upper estimate explains an obstruction to Markov-word Gaussian-matrix representation but cannot identify actual lower-tail mass. The matching positive lower power and full nondegenerate correlation range are a useful sharp rare-event invariant, including a noncyclic concrete exponent ~18.524, not a routine numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

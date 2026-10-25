@@ -1,15 +1,21 @@
-# Scientific review: Sharp small-deviation exponent for three-line correlated Brownian last passage
+# Independent mathematical audit
 
-## Correctness — PASS
-For each fixed rank-two centered three-coordinate Brownian covariance with positive-definite difference covariance, the claim is precisely a positive two-sided power estimate with exponent \(2+2\pi/\arccos(-\rho)\). The proof first derives endpoint and path constraints from the three admissible corners of the last-passage domain and the zero-sum condition. A bounded terminal wedge confinement yields the established upper bound. Conversely, simultaneous coordinate upper confinement with positive endpoints gives a positive-area subset of the last-passage lower-tail event. Whitening transforms both into survival of a planar Brownian wedge. The explicit absolutely convergent Bessel heat-kernel expansion supplies both the uniform bounded-set upper estimate and a positive leading coefficient on compact interior endpoints. Finite exact-rational and high-precision checks corroborate the covariance identity, path inclusions and wedge leading terms; continuous-time and asymptotic claims rest on the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary paper, Houdré–Kidonakis, arXiv:2610.12950v1, Theorem 5.3 and Lemma 5.1, obtains the same *one-sided upper exponent* in the region \(-1<\rho<-1/2\); its Example 5.4 supplies the explicit covariance, and Remark 5.5 discusses the exponent \(8\) at isotropy. It does not furnish a positive matching lower power or establish the full \(-1<\rho<1\) two-sided statement. Houdré–Litherland, arXiv:1110.4570, gives the Brownian Markov-word limit, not this small-tail theorem. Cone heat-kernel results of Bañuelos–Smits provide a crucial ingredient but do not by themselves identify the bidirectional inclusion needed for the last-passage functional. Searches using the original title, aliases, sharp logarithmic tail, equivalent wedge and random-word formulations found no scientific statement implying the full claim. Residual risk remains from unindexed or differently formulated earlier consequences of wedge literature, and a complete historical exhaustiveness guarantee is not possible. The isotropic exponent itself is not claimed as a new discovery.
+PASS
 
-## Mathematical value — PASS
-The earlier result uses a high-order upper bound to show nonrepresentability of some random Markov-word Brownian limits; that bound alone does not determine their actual lower-tail frequency. The new theorem resolves the sharp rare-event exponent for the entire natural nondegenerate three-letter Brownian family. The exponent depends continuously on adjacent-increment correlation and crosses the GUE/traceless value \(8\) exactly at the natural cyclic boundary \(\rho=-1/2\). The explicit noncyclic Markov example acquires its exact logarithmic tail exponent \(18.5237748009\ldots\). This is a motivated sharp distributional invariant, not a re-indexing of a parameter or a finite numerical experiment.
+In RESULT.md steps 1-2, F bounded above by epsilon forces both successive Brownian differences to remain below 3epsilon and to have O(epsilon) endpoints; conversely, positive-area strictly interior terminal values with two suprema below epsilon/2 force F<epsilon. Whitening of the 2-dimensional Gaussian covariance gives a planar survival wedge of opening angle theta=acos(-rho), with start and end at O(epsilon). The displayed Dirichlet wedge Bessel kernel has leading density delta^(2*pi/theta) times a positive product of angular harmonics; integration over a positive-area scaled terminal rectangle contributes delta^2. Both inclusions yield exactly the claimed two-sided exponent. The Bessel series convergence and boundary cases rho strictly in (-1,1) are handled analytically, not by finite paths. Independently recalculated the cited 3-state covariance C=(1/9)[[14,-13],[-13,14]], rho=-13/14 and exponent 18.523774800939645.
 
-## Limits and literature
-No exact probability prefactor, uniform covariance-boundary estimate, finite-word small-deviation principle, or higher-letter generalization is asserted. The cone kernel is classical; the contribution is its sharp transfer to the exact Brownian last-passage event. See the four references in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct final theorem after comparison of equivalent objects, broader implications and exact accessible primary statements; not a historical priority guarantee. One-sided O(epsilon^k) never implies an Omega(epsilon^k) statement; only proving E_epsilon subset of {F<=epsilon}, with a positive wedge density, supplies the missing direction. Earlier isotropic exponent=8 is expressly known.
+
+## value
+
+PASS
+
+The earlier known one-sided upper estimate explains an obstruction to Markov-word Gaussian-matrix representation but cannot identify actual lower-tail mass. The matching positive lower power and full nondegenerate correlation range are a useful sharp rare-event invariant, including a noncyclic concrete exponent ~18.524, not a routine numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
