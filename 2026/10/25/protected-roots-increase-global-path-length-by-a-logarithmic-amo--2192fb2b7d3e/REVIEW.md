@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Deleting the root yields an explicitly weighted forest of increasing trees; forbidding singleton components encodes root protection. The marked component generating function gives the conditional expected path length, and the alternating-series pairing proves strictly positive displacement in all finite sizes. A factorial-remainder argument yields the logarithmic asymptotic, including the \(1/(2(n-1))\) correction. The standalone verifier independently enumerates every tree through size eight and passes 282 checks. Enumeration corroborates but does not prove the universal statement.
+
+**Originality — PASS, subject to bibliographic risk.** Dobrow–Fill (1999) establishes total path length, Mahmoud–Ward (2015) establishes protected roots, and Devroye–Janson (2013) develops fringe-subtree protection theory. The relevant full accessible texts were inspected; none reports the mixed exact conditional mean, its strict finite-size sign, or its logarithmic effect. Earlier recurrence systems might imply this specialized mixed identity with further analysis. The published mathematical research-record matches similarly concern separate statistics or root attachment rather than conditioning on all root children avoiding leaves. Exact wording searches and semantic comparisons were used; absence from search is not proof of absolute novelty.
+
+**Value — PASS.** This quantifies the global response of search cost/total path length to a natural local structural event already used in protected-node studies. The exact nonnegative dependence and its logarithmic size contrast with the global mean of order \(n\log n\); the first correction is explicit. The claim has a mathematically motivated observable, not an arbitrary parameter slice.
+
+**Limits and closest related work.** This applies to uniform random recursive trees, not arbitrary recursive-tree laws. The change in a mean does not imply full stochastic ordering. Independent scientific and historical-priority assessments remain open. Sources: Dobrow and Fill (1999), doi:10.1017/S0963548399003855; Mahmoud and Ward (2015), doi:10.1239/jap/1429282623; Devroye and Janson (2013), arXiv:1310.0665.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Forest exponential formula and marked component path lengths give the exact conditional expectation; strict positivity follows from alternating-truncation pairing for all n>=3; the factorially summable remainder yields the second-order logarithmic expansion. Direct exhaustive enumeration for n=3..8 and further 282 assertions corroborated independently.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobrow and Fill (1999), section 1 (mean) and section 2 (root-subtree decomposition), https://doi.org/10.1017/S0963548399003855",
+        "Mahmoud and Ward (2015), sections 2-3 (protected-root probability and protected-node moments), https://doi.org/10.1239/jap/1429282623",
+        "Devroye and Janson (2013), section 7 (random recursive tree fringe protection), https://arxiv.org/pdf/1310.0665"
+      ],
+      "reasoning": "Total path-length limit recurrences, marginal protected-node counts, and fringe-subtree limits address the two statistics individually or different conditional events; no inspected stated theorem covers their mixed exact expected value, uniform positivity and first asymptotic correction. Implicit derivation from general recurrences remains a risk.",
+      "searches": [
+        "\"protected root\" \"path length\" \"recursive tree\" conditional expected",
+        "\"random recursive trees\" \"protected\" \"path length\"",
+        "Dobrow and Fill Total Path Length for Random Recursive Trees 1999; Mahmoud and Ward Asymptotic Properties of Protected Nodes in Random Recursive Trees 2015",
+        "root protection and number of leaves in recursive trees exact conditional mean n minus one over two generating function"
+      ]
+    },
+    "checked_sources": [
+      "Dobrow and Fill (1999), section 1 (mean) and section 2 (root-subtree decomposition), https://doi.org/10.1017/S0963548399003855",
+      "Mahmoud and Ward (2015), sections 2-3 (protected-root probability and protected-node moments), https://doi.org/10.1239/jap/1429282623",
+      "Devroye and Janson (2013), section 7 (random recursive tree fringe protection), https://arxiv.org/pdf/1310.0665",
+      "Published 2024 work on exponential recursive trees treats a different growth law and protected-node path lengths, not global P conditioned on root protection.",
+      "Published finding: Root attachments have an exact negative path-length profile in random recursive trees (2026, claim id 3b3e0426b1ba)",
+      "Published finding: Equal-share covariance of root degree and leaves in a random recursive tree (2026, claim id ab0acf44833f)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dobrow and Fill (1999), section 1 (mean) and section 2 (root-subtree decomposition), https://doi.org/10.1017/S0963548399003855",
+        "Mahmoud and Ward (2015), sections 2-3 (protected-root probability and protected-node moments), https://doi.org/10.1239/jap/1429282623",
+        "Published finding: Equal-share covariance of root degree and leaves in a random recursive tree (2026, claim id ab0acf44833f)"
+      ],
+      "reasoning": "Knowing root-protection probability and unconditional total path-length mean separately does not determine their covariance: a mixed distribution or additional weighted enumeration is required. Root-degree/leaf-count covariance and per-arrival path-length influence do not by themselves give the joint protected-root/global-path statistic. Generic forest decomposition is sufficient to derive our result with the new marking and pairing proof; prior implicit implication is a documented priority risk.",
+      "searches": [
+        "uniform random recursive tree protected root and total path length expected conditional depth size logarithm covariance",
+        "recursive tree root protection no leaf children expected total path length bias log n",
+        "random recursive tree rooted branch singleton size conditioned total path length harmonic generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dobrow and Fill (1999), section 1 (mean) and section 2 (root-subtree decomposition), https://doi.org/10.1017/S0963548399003855",
+        "Mahmoud and Ward (2015), sections 2-3 (protected-root probability and protected-node moments), https://doi.org/10.1239/jap/1429282623",
+        "Published finding: Root attachments have an exact negative path-length profile in random recursive trees (2026, claim id 3b3e0426b1ba)"
+      ],
+      "reasoning": "The event is root having no leaf children, equivalently no singleton component after deleting root. Earlier root-attachment indicator regression is a different one-edge conditioning event; its reported conclusions do not imply the all-branches prohibition conditional mean or logarithmic displacement.",
+      "searches": [
+        "uniform random recursive tree protected root and total path length expected conditional depth size logarithm covariance",
+        "recursive tree root protection no leaf children expected total path length bias log n",
+        "random recursive tree rooted branch singleton size conditioned total path length harmonic generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exhaustive independently generated trees up to eight vertices yielded protected-path means; the public primary text gives marginal probabilities, not a matching conditional joint table."
+      ],
+      "reasoning": "Exact numerical tables for sizes three through eight are newly reproduced from independent enumeration; matching titles or snippets were not taken as full-paper coverage or novelty proof.",
+      "searches": [
+        "uniform random recursive tree protected root and total path length expected conditional depth size logarithm covariance",
+        "\"protected root\" \"path length\" \"recursive tree\" conditional expected"
+      ]
+    },
+    "rationale": "Inspected primary full texts on total path length and protected roots do not give the joint expectation, strict positive displacement or its sharp asymptotic. Actual published research-record semantic queries identify only related marginal/one-step conditioning results; implicit priority is a residual risk.",
+    "residual_risks": [
+      "Earlier general marked-tree generating functions or conditioned path-length identities may contain an implicit derivation; independent historical-priority search remains necessary.",
+      "Some older branch-structure papers and publisher-only full texts were not exhaustively checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unconditional total path length and independent branch decomposition; no conditioning that the root is protected",
+        "evidence": [
+          "Dobrow and Fill (1999), section 1 (mean) and section 2 (root-subtree decomposition), https://doi.org/10.1017/S0963548399003855",
+          "Accessible scientific text https://paperzz.com/doc/6944038/total-path-length-for-random-recursive-trees"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+        "material_read": "Complete accessible scientific text: model, section 1 mean, section 2 root-subtree decomposition and moment recurrence, end references",
+        "method": "Read lawful publicly accessible full-text reproduction and checked publisher metadata",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Same recursive-tree law and total path length"
+      },
+      {
+        "assessment": "Gives root-protection probability, protected-node mean and variance but not global total path length conditioned on root protection",
+        "evidence": [
+          "Mahmoud and Ward (2015), sections 2-3 (protected-root probability and protected-node moments), https://doi.org/10.1239/jap/1429282623"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1429282623",
+        "material_read": "Eight-page original PDF, particularly sections 2-3 and recurrence for root protection; page images inspected",
+        "method": "Read publisher PDF full text and visually checked mathematical page",
+        "title": "Asymptotic Properties of Protected Nodes in Random Recursive Trees",
+        "trigger": "Exactly same root protection event"
+      },
+      {
+        "assessment": "Fringe protected-node proportions and profiles; not the conditioned total path length",
+        "evidence": [
+          "Devroye and Janson (2013), section 7 (random recursive tree fringe protection), https://arxiv.org/pdf/1310.0665"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.0665",
+        "material_read": "Sections 1 and 7 of accessible full primary preprint, including the random recursive tree results, formulas and context",
+        "method": "Read searchable full primary PDF and inspected section 7 image",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "Random recursive tree protected-node results and limiting fringe subtrees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2192fb2b-7d3e-4fc0-a023-eee308ae4d10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Measures the global expected search cost response to a natural local root-protection event, with strict finite-size direction and surprising order-log-n effect plus an explicit first correction; structurally distinct from marginal path length/protected-node calculations.",
+    "status": "PASS"
+  }
+}
