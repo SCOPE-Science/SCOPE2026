@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Equality of power spectra reduces the entire fiber to unit Fourier phases, and nonzero bispectral triples impose exactly the integer presentation in the proof. For widths at least six, four elementary nonwrapped sums generate a primitive phase parameter and any wrapped triple imposes precisely the order-\(N\) relation; the positive threefold interval represents every order in the asserted transition range. The remaining widths have complete, explicitly listed presentations, with the finite wrap rows confirmed by integer Smith-form computations. The Fourier-normalization, all-coefficient-nonzero assumption, and absence of DC are explicit. The executable checker corroborates rather than substitutes for the analytic proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Kakarala's bispectrum completeness theorems presume full nonsingularity or a subgroup-closed nonzero Fourier set, neither of which describes the three-frequency notch. Pinilla–Mishra–Sadler's bandlimited inversion theorem works under generic nonvanishing assumptions and its relevant argument starts from a nonzero DC component, absent here. The closest published asymmetric-band classification contains first harmonics and excludes the symmetric notch family; it neither explicitly gives the low-width torsion strata nor directly implies them. Targeted database queries for the exact mask, transition and torsion orders identified no matching claim. The original paper of Matsuoka–Ulrych and the complete manuscript behind the closest indexed asymmetric-band claim were not obtained; an equivalent unpublished or implicit treatment remains possible.
+PASS
 
-**Mathematical value — PASS.** A prescribed spectral notch destroys the standard first-harmonic bispectral phase recursion, so identifiability is a substantive question rather than an immediate application of the fully supported case. The result supplies the full topology of every ambiguity fiber, determines the sharp bandwidth/order boundary, and identifies exceptional mixed continuous/torsion fibers. It characterizes whether noiseless measurements suffice, not just a scalar upper bound or isolated experiment.
+For arbitrary nonzero complex Fourier coefficients on S={-r..-2,2..r} modulo N, r>=3,N>2r, equality of power spectra leaves unit phase ratios; every nonzero full-bispectrum triple imposes exactly e_a+e_b=e_c in an integer quotient lattice. The Pontryagin characters of this lattice give the entire free phase fiber, no unstated genericity. For r>=6, elementary unwrapped triples force e_k=k t and a wrapped positive triple exists exactly if N<=3r, imposing Nt=0; absent wrap yields free Z and T. For r=3,4,5, the explicitly specified integer relation matrices have Smith forms yielding the stated T^d x finite torsion table. Independently rebuilt full relations and Smith forms for all 57 (r,N) cases with r=3..8 and 2r<N<=3r+4, matching all cases including r=4,N=10 torsion N and r=5,N=14,15 torsion 2,3. Translation forms exactly mu_N because 2 and 3 are supported. The conclusion assumes both complete power and full bispectrum, not bispectrum alone, and no interior coefficient vanishes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kakarala's nonvanishing Fourier/group-support uniqueness hypotheses do not encompass a support missing 0 and +/-1. Pinilla--Mishra--Sadler 2021 finite-support recovery Proposition 1 uses nonzero central Fourier coefficient in its relevant construction. The closest published independent asymmetric-band theorem was read in full from its Git result: mask {-s..-1,1..r} includes first harmonics and has a single free-phase chain; the submitted mask omits both +/-1, leading instead to exceptional high-dimensional/torsion phase fibers and a distinct threshold N=3r at r>=6. Shared character-lattice idea is credited, not novelty. A broader spectral-gap phase theorem could cover it; original 1984 phase-estimation paper was not read fully.
+
+## value
+
+PASS
+
+The absence of DC and first harmonics invalidates standard sequential phase recovery and yields a genuine identifiability boundary. A complete ambiguity-group classification (including mixed torus/torsion exceptions) tells exactly when all signals on a natural symmetric frequency-notch mask are translation identifiable, and when infinitely many inequivalent signals share all noiseless second and third spectral invariants. Both necessary/sufficient boundary and precise finite torsion are independently useful, not a renamed phase-translation lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
