@@ -1,0 +1,71 @@
+# Cut geometry of square-zero derivations of incidence algebras
+
+## Finding
+
+Let \(P\) be any finite poset with a least element and \(k\) any field of characteristic different from \(2\). Let \(A=I(P,k)\), and let \(J\) be its strict-interval radical. For a down-set (order ideal) \(S\subseteq P\), set
+\[
+L_S=\operatorname{span}_k\{e_{ij}:i<j,\ i\in S,\ j\notin S\}\subseteq J.
+\]
+Then the reduced algebraic variety of ordinary derivations \(D:A\to A\) satisfying \(D\circ D=0\) is precisely
+\[
+\mathcal Z_P=\bigcup_{S\text{ an order ideal}}\{\operatorname{ad}_U:U\in L_S\}.
+\]
+Every derivation has a unique representative \(\operatorname{ad}_U\) with \(U\in J\) whenever its square is zero. The assertion holds over arbitrary fields of characteristic not \(2\), including finite fields and imperfect fields; the reduced-variety equality also holds geometrically over algebraic closures.
+
+For the chain \(P=[n]\), \(n\ge2\), there are exactly \(n-1\) irreducible components, namely the linear rectangular cut spaces \(L_r=L_{\{1,\ldots,r\}}\) for \(1\le r<n\). They satisfy
+\[
+\dim L_r=r(n-r),\quad \dim(L_r\cap L_s)=r(n-s)\quad(1\le r<s<n),
+\]
+so \(\dim\mathcal Z_{[n]}=\lfloor n^2/4\rfloor\). For \(n\ge3\), the singular locus of the reduced union is exactly the union of adjacent intersections \(\bigcup_{r=1}^{n-2}(L_r\cap L_{r+1})\), of dimension \(\lfloor(n-1)^2/4\rfloor\).
+
+For any finite field \(\mathbb F_q\) of **odd** cardinality \(q\), the exact number of square-zero derivations of the full upper triangular matrix algebra \(T_n(\mathbb F_q)\) is
+\[
+Q_n(q)=q^{n-1}+\sum_{r=2}^{n-1}\bigl(q^{r(n-r)}-q^{(r-1)(n-r)}\bigr).
+\]
+For instance \(Q_3(q)=2q^2-q\) and \(Q_4(q)=q^4+2q^3-2q^2\).
+
+The characteristic restriction is sharp. In characteristic \(2\), the square-zero condition becomes \(U^2=0\), and already at \(n=4\) the element \(U=e_{12}+e_{34}\) satisfies \((\operatorname{ad}_U)^2=0\) but belongs to no cut space. Over \(\mathbb F_q\) of even cardinality, the exact \(n=4\) count is \(2q^4-q^2\), strictly larger than the cut-union count \(q^4+2q^3-2q^2\) for \(q>1\). For \(n\le3\) the two loci agree set-theoretically.
+
+## Assumptions and scope
+
+An incidence-algebra basis element \(e_{ij}\) exists exactly when \(i\le j\) in \(P\); multiplication is \(e_{ij}e_{h\ell}=\delta_{jh}e_{i\ell}\). The poset is finite and possesses \(\hat0\) with \(\hat0\le x\) for all \(x\). A derivation is a \(k\)-linear map satisfying Leibniz's identity, with \(\operatorname{ad}_U(a)=Ua-aU\); its square means operator composition \(D(D(a))\), not a condition merely on square-zero inputs. The rank and geometry conclusions concern the **reduced** variety, not the possibly nonreduced scheme of polynomial equations. All quantitative statements about fields require the declared characteristic.
+
+## Proof
+
+**1. Every derivation is inner, and the center consists of scalars.** Let \(e_i=e_{ii}\). For any derivation \(D\), put \(T=\sum_iD(e_i)e_i\). Since the \(e_i\) are pairwise orthogonal idempotents summing to \(1\), Leibniz's identity gives \([T,e_j]=D(e_j)\). The derivation \(D'=D-\operatorname{ad}_T\) therefore kills every \(e_j\). For \(i<j\), \(e_{ij}=e_i e_{ij}e_j\) forces \(D'(e_{ij})=\lambda_{ij}e_{ij}\) for a unique \(\lambda_{ij}\in k\), and \(\lambda_{ij}+\lambda_{j\ell}=\lambda_{i\ell}\) whenever \(i\le j\le\ell\). Put \(b_i=\lambda_{\hat0 i}\). Since \(\hat0\le i\le j\), \(\lambda_{ij}=b_j-b_i\). Therefore \(D'=\operatorname{ad}_H\), where \(H=-\sum_i b_i e_i\), and \(D\) is inner. If an element \(X\in A\) commutes with every \(e_i\), it is diagonal. Its commutation with \(e_{\hat0 i}\) then forces every diagonal entry equal, hence \(Z(A)=k1\). Thus representing elements of an inner derivation are unique modulo scalars.
+
+**2. Square-zero derivations have radical representatives.** Let \(D=\operatorname{ad}_X\). The coefficient of \(e_{ij}\) in \(D^2(e_{ij})\) is \((x_{ii}-x_{jj})^2\): every off-diagonal multiplication moves the row strictly down or the column strictly up, so cannot contribute on the original basis vector. If \(D^2=0\), \(x_{ii}=x_{jj}\) for comparable \(i\le j\). The least element makes all diagonal coefficients equal, and subtracting the resulting scalar leaves a unique \(U\in J\) with \(D=\operatorname{ad}_U\).
+
+**3. Odd-characteristic support criterion.** For \(Y\in A\),
+\[
+(\operatorname{ad}_U)^2(Y)=U^2Y-2UYU+YU^2.
+\]
+For any \(i<j<\ell\), the coefficient of \(e_{i\ell}\) in \((\operatorname{ad}_U)^2(e_{jj})\) is \(-2u_{ij}u_{j\ell}\). If \(\operatorname{char}k\ne2\) and \(D^2=0\), each product \(u_{ij}u_{j\ell}\) vanishes, so \(U^2=0\). Consequently \(D^2=0\) is equivalent to \(UYU=0\) for **every** \(Y\in A\). Applying this to \(e_{jk}\) for every comparable \(j\le k\), the \((i,\ell)\) coefficient is exactly \(u_{ij}u_{k\ell}\). Hence for any two nonzero coefficients \(u_{ij}\) and \(u_{k\ell}\), one must have \(j\nleq k\). This is a pairwise, cancellation-free criterion.
+
+Let \(S\) be the down-set generated by the set of source vertices \(i\) of the nonzero \(u_{ij}\). Every such source belongs to \(S\). No target \(j\) can lie in \(S\): otherwise \(j\le k\) for some source \(k\), contradicting the preceding support criterion with \(u_{ij}u_{k\ell}\ne0\). Thus \(U\in L_S\). Conversely, if \(U\in L_S\), all targets lie outside the down-set and hence cannot be below any source in \(S\); the basis equation \(UYU=0\) follows for every \(Y\), so \(D^2=0\). These arguments remain valid over every extension field; taking the reduced structure yields the stated union of linear spaces.
+
+**4. Chain geometry and enumeration.** A chain has precisely the initial-segment down-sets, and \(L_r\) is its upper-right \(r\)-by-\((n-r)\) rectangle. The coordinate \(e_{r,r+1}\) lies in \(L_r\) and in no other \(L_s\), proving all \(L_r\) are distinct maximal irreducible components. The intersections comprise entries with row at most \(r\) and column greater than \(s\), giving the dimensions above. A reduced union of linear spaces is smooth at points belonging to just one component, and singular at those in two or more distinct components. Each nonadjacent intersection lies in a suitable adjacent one, giving the claimed singular locus and its dimension.
+
+For \(r\ge2\), \(L_r\cap(\bigcup_{s<r}L_s)=L_r\cap L_{r-1}\), because every earlier intersection sits inside this adjacent intersection. Its dimension is \((r-1)(n-r)\). Counting the initial component \(L_1\), then the new points added by each subsequent component, gives exactly \(Q_n(q)\).
+
+**5. Characteristic two boundary.** In characteristic \(2\), the operator identity becomes \((\operatorname{ad}_U)^2=\operatorname{ad}_{U^2}\). The center has no nonzero radical element, so this vanishes exactly when \(U^2=0\). For \(n\le3\), that condition forces support across a cut, while \(U=e_{12}+e_{34}\) exhibits failure at \(n=4\). For \(n=4\), write the entries of \(U\) as \((a,b,c,d,e,f)=(u_{12},u_{13},u_{14},u_{23},u_{24},u_{34})\). The equations \(U^2=0\) are \(ad=df=ae+bf=0\). If \(d\ne0\), then \(a=f=0\), giving \((q-1)q^3\) solutions. If \(d=0\), a single orthogonality equation \(ae+bf=0\) gives \(q\bigl(q^2+(q^2-1)q\bigr)\) solutions (the extra factor \(q\) counts \(c\)). Their sum is \(2q^4-q^2\). This includes the zero derivation exactly once.
+
+## Verification
+
+The accompanying self-contained script `check_incidence_d2.py` enumerates every radical element and independently computes \(\operatorname{ad}_U\circ\operatorname{ad}_U\) on **each incidence basis element** using multiplication and commutators. It separately tests the down-set cut criterion. It passed 15 complete finite cases: chains of lengths \(2,3,4,5\), the diamond poset, and the three-pronged fork over selected \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) fields, including all \(4^6\) radical elements of \(T_4(\mathbb F_4)\). The cases verify the displayed odd-field chain formula and characteristic-two \(n=4\) count. Finite tests are supporting checks, not the proof of universal quantifiers.
+
+## Relationship to prior work
+
+Baclawski (1972) and Xiao (2014) characterize derivations of incidence algebras; these characterize the **space of all derivations**, not their second-iterate-zero sublocus. The fact that each derivation is inner for a poset with a least element is **prior knowledge**, re-proved here for self-containment. Panyushev (2002), with earlier work, classifies abelian ideals of a complex Borel subalgebra; in type A, maximal abelian ideals have exactly the rectangular shapes \(L_r\). Neither the rectangle ideals themselves nor their established classification is claimed as new. The asserted additional finding is that they exhaust the *operator-square-zero* locus, that the analogous down-set support criterion works for arbitrary least-element posets, and that the reduced-locus geometry, finite-field counts, and sharp characteristic-two discrepancy follow. Hu (2022) studies **strong** adjoint nilpotence, defined by generalized nonzero eigenspaces, not the index-two operator equation. Zhou, Wang and Zhang (2009) use the expression “square-zero derivations” for maps constrained **on square-zero input matrices**, a distinct condition. The Lie-theoretic phrase “absolute zero divisor” can also refer to the operator identity here; that synonym was included in related-title searches. No global publication-priority claim is made.
+
+## Limitations
+
+The poset classification assumes a least element and the odd-characteristic field condition. The finite-field closed count and singular-locus formula concern chains; arbitrary posets are described by their cut union but no simplified universal counting polynomial is asserted. In characteristic two, only the exact \(n=4\) count and the sharp first failure of the cut classification are established, not a classification at all sizes. The scheme defined by the raw polynomial identities may have nilpotent structure not addressed by the **reduced** variety statement. The literature comparisons cannot exclude every unpublished result or every indirect deduction from broader theories of abelian ideals, sandwich elements or structural matrix rings. Independent validation has not been performed.
+
+## References
+
+- Kenneth Baclawski, *Automorphisms and derivations of incidence algebras*, Proceedings of the American Mathematical Society **36** (1972), 351–356, DOI: `10.1090/S0002-9939-1972-0313133-8` (1972 source; day of first public release not verified).
+- Dmitri I. Panyushev, *Abelian ideals of a Borel subalgebra and long positive roots*, arXiv:`math/0210428`, first posted 2002-10-28, especially §6.1, type-A rectangular ideals.
+- Zhankui Xiao, *Jordan Derivations of Incidence Algebras*, arXiv:`1411.6123`, first posted 2014-11-22, especially §2, Proposition 2.5 and Corollary 2.6.
+- Zhiguang Hu, *Strongly Ad-Nilpotent Elements of the Lie Algebra of Upper Triangular Matrices*, Journal of Mathematics (2022), DOI: `10.1155/2022/3484381`, §§1, 3 and 5.
+- Jinming Zhou, Dengyin Wang and Qinghua Zhang, *Square-zero derivations of matrix algebras over commutative rings*, Linear and Multilinear Algebra **58** (2010), 239–243, DOI: `10.1080/03081080802443091` (different “square-zero” definition; abstract inspected).
