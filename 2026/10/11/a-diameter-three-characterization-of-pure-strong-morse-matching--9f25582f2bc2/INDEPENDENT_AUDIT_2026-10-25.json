@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T03:40:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md proof Steps 1-4, Git blob 8fa8ffdaad53baf8c0d50be194d388752760d66f",
+        "Pinned verify_tree_purity.py (source inspected, not relied upon as proof), Git blob f671723ad4134dd41346d0eafbecf74805657be4",
+        "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+        "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1",
+        "Independent code independent_tree_check.py and JSON independent_tree_results.json: 1440 labeled trees with all vertex orders."
+      ],
+      "rationale": "The theorem explicitly concerns finite simple trees T with N>=3, and simplices are subsets of vertex-filtration strong gradients: a nonroot vertex points to exactly its sole earlier neighbor, if one exists. Any breadth-first root-first order realizes every one of the N arrows-to-root gradients F_r with N-1 incidence pairs. Any N-1-pair gradient uses all N-1 tree edges and has one unmatched vertex; arrows cannot form a directed cycle or a two-cycle, hence every nonroot arrow leads to that root and the gradient equals F_r. For stars all matched leaf arrows point centrally and at most one arrow leaves the center. For a double star with central edge xy, a central arrow x->a toward a leaf forces x to precede y, whereas y->b would force y to precede x, so they cannot coexist; the remaining central-edge orientation fixes a compatible root. Thus every strong face extends to an F_r at diameter <=3. If diameter>=4, the vertex order v0,v4,v1,v3 on a length-four path yields v1->v0 and v3->v4. The compatible-root sides of the two cut edges are disjoint. This face cannot be part of any top facet and extends to a smaller inclusion-maximal face, establishing nonpurity. Chari-Joswig Proposition 3.1 identifies ordinary top rooted-forest facets, and Donovan-Lin-Scoville Proposition 18 proves strong collapsibility of the ordinary pure tree Morse complex; the result credits this old corollary. Independently re-enumerated every permutation (not merely incremental saved states) for every Prüfer-labeled tree of orders 3,4,5,6 (3+16+125+1296=1440 trees), confirming each maximum gradient set is one of the N rooted orientations and that all strong gradients are root-extendable iff diameter<=3 (300 short-diameter vs 1140 longer-diameter trees). The n=2 boundary is pure with two isolated vertices, so the N>=3 contractibility condition matters. This finite check is corroboration only, not proof of all N.",
+      "residual_risks": [
+        "The equivalence between the source-paper strong-filtration algorithm and the explicitly stated one-neighbor rule was supported by the supplied definition, but full arXiv 2609.06844 was inaccessible in this run; this is a primary-definition reading limitation, not a detected contradiction.",
+        "Brute-force verification through six vertices does not certify the universal quantified theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Donovan-Lin-Scoville Proposition 18 is an all-tree strong-collapse statement for the ordinary PURE Morse complex, not for the entire filtration-generated strong complex.",
+          "Chari-Joswig Proposition 3.1 covers every ordinary graph rooted forest, and hence all maximum tree rooted orientations.",
+          "Resultary double-star multipath record studies a different oriented multipath complex."
+        ],
+        "reasoning": "The prior results dominate the all-tree rooted-facet description and old collapse corollary. They do not imply that every strong face is contained in a maximum facet exactly for diameter<=3, because arbitrary ordinary rooted forests and strong-filtration realizability have different inclusion constraints.",
+        "searches": [
+          "Knudson Owens-White strong discrete Morse matchings full complex stars paths arbitrary trees",
+          "ordinary pure Morse complex tree strong collapsibility rooted forests",
+          "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+          "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1",
+          "Resultary: Resultary published index 2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100 (different directed multipath object)"
+        ]
+      },
+      "checked_sources": [
+        "Knudson and Owens-White, Complexes of strong discrete Morse matchings, arXiv:2609.06844v1 (2026-09-06); accessible abstract, NOT full PDF",
+        "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+        "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1",
+        "Resultary published index 2026/10/11/SCOPE-a-diameter-three-characterization-of-pure-strong-morse-matching--9f25582f2bc2 (same-record mirror)",
+        "Resultary published index 2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100 (different directed multipath object)",
+        "Resultary: path-reversal-has-a-mod-eight-orientation-character-on-strong-mo--7eaa15377a3d (path symmetry, not general tree purity)",
+        "Resultary: 2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63 (ordinary homology)",
+        "Web searches for strong matching tree purity, double stars, aliases and diameter threshold, October 25, 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chari-Joswig Proposition 3.1 implies the description of maximum ordinary rooted-tree gradients.",
+          "Donovan-Lin-Scoville Proposition 18 implies the strong collapsibility corollary after the new full=ordinary-pure identification, not that identification itself.",
+          "Knudson-Owens-White abstract establishes the strong filtration complex and explicitly computes star/path examples; full paper unavailable to inspect for any more general theorem."
+        ],
+        "reasoning": "The exact all-tree iff criterion and double-star filtration incompatibility require an extra combinatorial extension/obstruction argument; they are not stated or implied by the two fully inspected older primary theorems. Existing path obstruction is a special case and is not counted as independently new. The unseen 2026 primary text leaves a named residual risk.",
+        "searches": [
+          "strong discrete Morse matching complexes trees pure diameter 3 double stars vertex filtrations rooted orientations",
+          "Knudson Owens-White strong discrete Morse matchings full complex stars paths arbitrary trees",
+          "ordinary pure Morse complex tree strong collapsibility rooted forests",
+          "Knudson and Owens-White, Complexes of strong discrete Morse matchings, arXiv:2609.06844v1 (2026-09-06); accessible abstract, NOT full PDF",
+          "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+          "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-record mirror in Resultary indexes the identical research contribution rather than independent earlier priority.",
+          "The 2026 arXiv abstract defines the strong/pure distinction and lists paths and stars as target computations; its full text was not available.",
+          "Ordinary rooted-forest identification (Chari-Joswig Proposition 3.1) differs from the filtration-generated strong subcomplex."
+        ],
+        "reasoning": "Equivalent aliases include every filtration-realizable arrow set extending to a rooted orientation; strong complex equal to its top-generated part; all maximal strong gradients of size N-1. Searches found no separately attributable all-tree iff, but this absence is not a proof of novelty.",
+        "searches": [
+          "strong discrete Morse matching complexes trees pure diameter 3 double stars vertex filtrations rooted orientations",
+          "\"strong Morse\" matching \"double star\" pure",
+          "\"strong discrete Morse\" \"diameter\" tree purity",
+          "\"complexes of strong discrete Morse matchings\" \"tree\" \"pure\"",
+          "Resultary hit Resultary published index 2026/10/11/SCOPE-a-diameter-three-characterization-of-pure-strong-morse-matching--9f25582f2bc2 (same-record mirror)",
+          "Knudson and Owens-White, Complexes of strong discrete Morse matchings, arXiv:2609.06844v1 (2026-09-06); accessible abstract, NOT full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-title matching record is a mirror of this research object; no distinct earlier table or complete class found among inspected index hits.",
+          "The 2026 paper abstract states explicit finite graph families rather than a tabulated all-tree diameter classification.",
+          "Independent exhaustive 1440-tree finite table is corroborating computation, not independent prior art."
+        ],
+        "reasoning": "An all-order tree classification cannot be covered by a finite table unless a proven uniform implication is supplied. Path and star enumerations give proper subfamilies and are credited. The identical mirror is not independent historical evidence.",
+        "searches": [
+          "strong discrete Morse matching complexes trees pure diameter 3 double stars vertex filtrations rooted orientations",
+          "\"strong discrete Morse\" \"diameter\" tree purity",
+          "Resultary strong-Morse tree purity semantic index (20 hits)",
+          "web query: \"complexes of strong discrete Morse matchings\" \"tree\" \"pure\""
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty attaches to the sharp all-tree strong-filtration purity iff diameter <=3 and root-extension argument, not to rooted facets, classical ordinary Morse homotopy, or previously studied path/star cases. Resultary returned the identical record mirror and adjacent papers on ordinary Morse complexes, directed multipath complexes, and path reversal; none of the independently distinct indexed summaries establishes the same all-tree strong-filtration characterization. The accessible September 2026 main primary abstract advertises path, cycle, star, simplex and boundary cases, but its full text could not be inspected: this leaves explicit uncertainty about possible hidden general all-tree arguments and does NOT support a whole-document NOT_COVERING assertion. Full text of the 2019 and 2000 sources shows that prior complete rooted forests and all-tree pure Morse collapsibility apply to ordinary complexes or pure subcomplexes, not full strong-face extendability.",
+      "residual_risks": [
+        "2026 arXiv primary full text could not be read from attempted arXiv/HTML/OA endpoints, and authorized institutional access returned vpn_disconnected; possible unseen all-tree statement must not be declared absent.",
+        "Unindexed or unpublished equivalent all-tree purity characterization remains possible.",
+        "Previously published ordinary pure collapse and path/star subcases remain non-novel, even if shared wording or numerical thresholds are used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_PRIOR_SOURCE_NOT_FULLY_READ",
+          "evidence": "Abstract enumerates strong-complex computations for paths and stars among other named families, but does not itself establish what may appear in the body or appendices.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06844",
+          "material_read": "Abstract and accessible indexed summary only (published September 6, 2026); main full PDF/html inaccessible; no sections falsely claimed read.",
+          "method": "arXiv abstract and alternate open-source/ar5iv endpoints; institutional attempt returned vpn_disconnected.",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Identical definition and possible direct coverage of every tree purity claim"
+        },
+        {
+          "assessment": "COVERS_ORDINARY_PURE_STRONG_COLLAPSE_ONLY",
+          "evidence": "Proposition 18: pure ordinary Morse complex of any tree is strongly collapsible, independent of full strong filtration purity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.11440",
+          "material_read": "Full-text introduction, Definitions of ordinary and pure Morse complex, pages 5-6 around Proposition 18 and its proof; page 5 visually inspected.",
+          "method": "Lawful arXiv PDF textual and page-image inspection.",
+          "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+          "trigger": "Potentially stronger all-tree strong-collapse theorem"
+        },
+        {
+          "assessment": "COVERS_ORDINARY_ROOTED_FOREST_FACETS",
+          "evidence": "Proposition 3.1 identifies graph Morse matchings and rooted forests; this proves ordinary top orientations, not the full strong-filtration purity cutoff.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0011234",
+          "material_read": "Full-text preliminaries and Section 3 surrounding Proposition 3.1; page 2 visually inspected.",
+          "method": "Lawful arXiv PDF textual and page-image inspection.",
+          "title": "Discrete Morse Complexes",
+          "trigger": "Rooted-forest classification might subsume top strong facets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md proof and definitions",
+        "Knudson and Owens-White, Complexes of strong discrete Morse matchings, arXiv:2609.06844v1 (2026-09-06); accessible abstract, NOT full PDF",
+        "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+        "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1",
+        "Independent 1440-tree brute-force boundary and root-extension test"
+      ],
+      "rationale": "Purity and extension of filtration gradients to maximum facets are natural intrinsic structural questions for the recently defined strong Morse matching complex. The theorem classifies every finite tree by its graph diameter, distinguishes stars and double stars from all longer trees, and converts a local filtration compatibility restriction into an exact global boundary. The difference between the ordinary forest complex and strong-filtration complex makes the result nontrivial: opposing leafward hub arrows can be ordinary acyclic forest matchings but cannot both be realized in one vertex order. This meaningful exact classification tells researchers precisely when the previously known strong collapse of the ordinary pure tree complex applies to the entire strong complex. It does not claim to classify the homotopy of the nonpure regime or to re-prove old rooted-facet collapse.",
+      "residual_risks": [
+        "The classification does not determine number, dimensions, or homotopy of lower inclusion-maximal faces for diameter >=4.",
+        "The collapse consequence is inherited, not an independently new homotopy theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Knudson and Owens-White, Complexes of strong discrete Morse matchings, arXiv:2609.06844v1 (2026-09-06); accessible abstract, NOT full PDF",
+    "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+    "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1",
+    "Resultary published index 2026/10/11/SCOPE-a-diameter-three-characterization-of-pure-strong-morse-matching--9f25582f2bc2 (same-record mirror)",
+    "Resultary published index 2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100 (different directed multipath object)",
+    "Resultary: path-reversal-has-a-mod-eight-orientation-character-on-strong-mo--7eaa15377a3d (path symmetry, not general tree purity)",
+    "Resultary: 2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63 (ordinary homology)",
+    "Web searches for strong matching tree purity, double stars, aliases and diameter threshold, October 25, 2026",
+    "Pinned RESULT.md proof Steps 1-4, Git blob 8fa8ffdaad53baf8c0d50be194d388752760d66f",
+    "Pinned verify_tree_purity.py (source inspected, not relied upon as proof), Git blob f671723ad4134dd41346d0eafbecf74805657be4",
+    "Donovan, Lin and Scoville, On the homotopy and strong homotopy type of complexes of discrete Morse functions, arXiv:1909.11440v2; full text pp. 5-6, Proposition 18",
+    "Chari and Joswig, Discrete Morse Complexes, arXiv:math/0011234v1; Section 3, Proposition 3.1",
+    "Independent code independent_tree_check.py and JSON independent_tree_results.json: 1440 labeled trees with all vertex orders."
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite simple tree T with at least three vertices, the strong vertex-filtration Morse matching simplicial complex is pure if and only if diam(T)<=3; its maximum facets are the N gradients oriented toward one of N roots, and in the pure regime it coincides with the ordinary pure Morse complex and inherits known strong collapsibility.",
+  "limitations": [
+    "Cannot claim full primary source 2026 paper inspection due to access limitation; abstract only and residual priority risk recorded.",
+    "No formal Lean proof, expert attestation, or external certification was carried out.",
+    "No assertion about nonpure complex homotopy or enumerations of smaller maximal faces.",
+    "Potentially public existing metadata contains private provenance tokens; publication withheld."
+  ],
+  "residual_risks": [
+    "2026 arXiv primary full text could not be read from attempted arXiv/HTML/OA endpoints, and authorized institutional access returned vpn_disconnected; possible unseen all-tree statement must not be declared absent.",
+    "Unindexed or unpublished equivalent all-tree purity characterization remains possible.",
+    "Previously published ordinary pure collapse and path/star subcases remain non-novel, even if shared wording or numerical thresholds are used.",
+    "The equivalence between the source-paper strong-filtration algorithm and the explicitly stated one-neighbor rule was supported by the supplied definition, but full arXiv 2609.06844 was inaccessible in this run; this is a primary-definition reading limitation, not a detected contradiction.",
+    "Brute-force verification through six vertices does not certify the universal quantified theorem."
+  ],
+  "schema_version": 1
+}
