@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** With equivalence classes of size at most two, the colored union has exactly isolated vertices, alternating paths, and alternating even cycles (with doubled two-colored pairs included as two-cycles). The proof computes the exact parallel and ordered sequential depths of each type by reachable-word analysis, establishes the connected labeled counts, and applies exponential decomposition without any unproved limiting step. The standalone checker exhausts finite instances through seven worlds (binary cells), including literal event semantics through four; all tests passed. The unrestricted sharp count is also checked for three through six worlds.
+## correctness
 
-**Originality — PASS, with limitations.** The claimed mathematical content is the pair of exact semantic-depth distribution formulas for parallel and sequential common-knowledge approximations of all two-agent finite binary-cell frames, plus the sharp model counts. Neither the classical Aumann–Barwise common-knowledge semantics nor Lugo's 2009 enumeration of involution components is claimed original. The joint quantifier over *all events*, sequential two-step knowledge iteration, and corresponding cutoffs have no equivalent among the searched research records and accessible relevant epistemic literature. The classical decomposition supplies substantial prior ingredients and increases the risk of an unindexed restatement; the full Lugo preprint could not be inspected.
+PASS
 
-**Mathematical value — PASS.** The class of models is independently motivated: each agent can distinguish all but at most one alternative at each world. Uniform convergence depth is a natural worst-case semantic-resource invariant. Two different knowledge evaluation strategies have different exact histograms already on four worlds, and the formulas classify the entire infinite model family, rather than an arbitrary small table. The sequential improvement gives a structurally meaningful exact bound.
+For two distinguished S5 partitions with cells of size <=2, represent nontrivial equivalence classes as two partial matchings. Their union decomposes uniquely into singleton vertices, alternating r-paths and doubled/even 2j-cycles. Event-uniform E^d reaches precisely graph-distance d balls, yielding component depths r-1 and j. The ordered relation K_R K_S has directed reachability increments R then S, giving diameter ceil(r/2) on paths and ceil(j/2) on 2j-cycles (including doubled 2-cycle). Taking P equal to the complement of a not-yet-reached vertex proves necessity for all events. Labeled component counts are 1, r!, (2j-1)! and exponential formula with the corresponding cutoffs yields both cumulative EGFs; differences yield exact histograms. Spanning paths give n! maximal parallel frames for n>=3; perfect-matchings-only case deletes paths/singletons. Independent literal enumeration of all ordered involution pairs n=1..6 reproduced all cumulative coefficients and both depth distributions, including n=6 parallel (1,855,1920,1560,720,720) and sequential (1,1215,3120,1440). Original verify.py source inspected; finite enumeration corroborates, does not replace component proof.
 
-Principal comparisons: Humml–Schröder (arXiv:2211.16284; AAAI 2023), Stanford Encyclopedia *Common Knowledge* §§2.3–2.4, Lugo (arXiv:0911.3604), and the closest published two-agent S5 proper-cover results. The incomplete Lugo full-text comparison is retained as an originality risk. The theorem makes no claim that older combinatorial tools are new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lugo's explicit 2009 component EGF already supplies the colored-involution combinatorial species and all component weights; Aumann/Barwise and Humml–Schröder supply known common-knowledge reachability. These ingredients are credited. The remaining claim joins two particular uniform modal-iteration diameters to component-size cutoffs and derives separate exact distributions; the two histograms do not appear as results of the inspected prior theorem, although they are relatively accessible deductions once the new modal cutoffs are recognized. Best-of-knowledge not priority certification.
+
+## value
+
+PASS
+
+Depth to common-knowledge stabilization is a natural exact event-uniform modal invariant. The distinction between simultaneous E and ordered sequential K_R K_S exposes genuine directional distance asymmetry. Full all-n labeled histograms, extremal frames and fixed-point-free subfamily can be used as finite epistemic-model benchmarks; more than a random single instance, while the classical matching decomposition itself is not new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
