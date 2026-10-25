@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The disk has 13 lattice points. The sharp planar Steinitz constant \(\sqrt5/2\), explicitly established in the cited Girard–Plagne source, gives an absolute cutoff of 21 for every primitive zero sum. The six antipodal pairs yield exactly 64 one-sign orientation cases for lengths at least three. For each, two integer-independent pivots and all 809,600 bounded free quadruples are exhaustively enumerated; Cramer's rule is exact. The primitive-antichain pruning is sound because any proper zero-sum submultiset has strictly smaller free-degree. The certificate, replayed successfully, reports counts 12/16/12 at lengths three/four/five; 12 extrema split into two orbits of sizes 4 and 8. Direct subset-sum checking independently establishes minimality of all reported atoms. All counts and quantifiers are restricted to the radius-two lattice disk. Residual correctness risk: implementation errors in the enumerator or reliance on the cited non-elementary Steinitz theorem; the separate direct short enumeration helps mitigate, but does not eliminate, program risk.
+PASS
 
-## Originality — PASS (best-knowledge, residual risk)
+PASS. For B={(x,y)∈Z²:x²+y²<=4} the atom census is (1,6,12,16,12) for lengths 1..5, no atoms longer, D(B)=5, with maximal D4 orbits 8 and 4 of respective support sizes 3 and 5. The established sharp planar Euclidean Steinitz constant sqrt(5)/2 applied to vectors of norm<=2 supplies a *global* partial-sum bound sqrt(5); 21 lattice positions give L<=21 by distinct partial sums of a primitive zero sum. Nontrivial atoms contain no zero vector or antipodal pair. For each of 64 choices from six antipodal classes, solve two pivot multiplicities exactly in terms of four nonnegative counts with sum<=21, totaling 64*binom(25,4)=809600 finite candidates. The free-degree monotonic antichain argument justifies discarding a candidate when it contains an earlier atom and proves full exhaustion; duplicates across orientations deduplicated. Independently rebuilt exact integer enumerator (not merely the saved success log), found 12 length3,16 length4,12 length5. Symmetry class reps and their proper submultiset minimality follow from the explicit D4 action in the inspected package. The only imported premise is the known sharp planar Steinitz theorem; computation alone without that bound would not prove D=5.
 
-The full-text primary paper of Girard and Plagne defines this invariant, proves general-radius bounds and a radius-one special case, and states a support-size conjecture; it does not supply the radius-two exact census or the two extremal symmetry types. The previous box literature deals with a superseding square lattice set, without an implication that determines the exact disk value or its primitive atoms. Actual semantic-index queries for the first nontrivial radius, aliases, 13 lattice points, primitive zero sums and dihedral symmetry, together with primary literature and accessible prior claims, disclosed no covering theorem. The observed value does not follow from the parent's asymptotic upper/lower bounds or a generic larger-set inequality. Residual risk: an obscure unindexed elementary calculation or earlier classification may exist; a database nonhit does not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is the first nontrivial integer-radius planar disk immediately after the known radius-one case, in a family introduced and investigated by recent literature. The result determines the complete natural primitive-relation semigroup basis (47 atoms), its exact maximal length, and the full symmetry-orbit classification. The coexistence of two distinct support sizes at the exact maximum is useful finite structural information for understanding support-restricted Davenport invariants; it is not merely a selected random numerical instance. Larger-radius behavior remains open.
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. Radius-two is the first genuinely nontrivial Euclidean lattice ball after the radius-one case. A complete natural 13-point Davenport invariant and all 47 primitive atoms, including two distinct maximal support-orbit types, is a motivated exact finite boundary case of an actively studied general radius and dimension problem. It gives usable precise obstruction data without pretending to establish an all-radius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

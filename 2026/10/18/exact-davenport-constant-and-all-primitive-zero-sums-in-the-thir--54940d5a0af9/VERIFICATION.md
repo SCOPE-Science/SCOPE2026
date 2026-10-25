@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_ball2.py` from the package directory. The checker is standalone and uses the Python standard library only; its expected status begins `CERTIFICATE_OK`.
+## correctness
 
-The checker confirms 13 lattice points of squared norm at most four, and 21 lattice points of squared norm at most five. The latter bound uses the established planar Euclidean Steinitz theorem; it is not inferred by computation. It inspects all \(64\binom{25}{4}=809600\) bounded four-dimensional free-multiplicity choices for length at most 21. Each candidate is solved by an exact two-pivot determinant calculation, and primitive zero sums are retained by increasing-degree antichain elimination. The checker independently scans all direct six-variable multiplicity assignments up to length nine, checks every reported primitive multiset against every proper submultiset, and classifies maximal multisets by eight square isometries.
+PASS
 
-Expected outputs: 40 primitive nontrivial-pair multisets (12 of length three, 16 of length four, 12 of length five); together with the zero singleton and six opposite pairs, 47 in total. The maximal length is five; there are twelve maxima, in orbits of sizes four and eight with respective support sizes five and three.
+PASS. For B={(x,y)∈Z²:x²+y²<=4} the atom census is (1,6,12,16,12) for lengths 1..5, no atoms longer, D(B)=5, with maximal D4 orbits 8 and 4 of respective support sizes 3 and 5. The established sharp planar Euclidean Steinitz constant sqrt(5)/2 applied to vectors of norm<=2 supplies a *global* partial-sum bound sqrt(5); 21 lattice positions give L<=21 by distinct partial sums of a primitive zero sum. Nontrivial atoms contain no zero vector or antipodal pair. For each of 64 choices from six antipodal classes, solve two pivot multiplicities exactly in terms of four nonnegative counts with sum<=21, totaling 64*binom(25,4)=809600 finite candidates. The free-degree monotonic antichain argument justifies discarding a candidate when it contains an earlier atom and proves full exhaustion; duplicates across orientations deduplicated. Independently rebuilt exact integer enumerator (not merely the saved success log), found 12 length3,16 length4,12 length5. Symmetry class reps and their proper submultiset minimality follow from the explicit D4 action in the inspected package. The only imported premise is the known sharp planar Steinitz theorem; computation alone without that bound would not prove D=5.
 
-Exact arithmetic is used throughout. Exhaustive finite checking becomes a proof of the infinite-length exclusion only in conjunction with the proven length-21 upper bound. No external formal verification or independent review has been performed. Remaining risks include subtle implementation mistakes and undiscovered earlier equivalent claims.
+## originality
+
+PASS
+
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
+
+## value
+
+PASS
+
+PASS. Radius-two is the first genuinely nontrivial Euclidean lattice ball after the radius-one case. A complete natural 13-point Davenport invariant and all 47 primitive atoms, including two distinct maximal support-orbit types, is a motivated exact finite boundary case of an actively studied general radius and dimension problem. It gives usable precise obstruction data without pretending to establish an all-radius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
