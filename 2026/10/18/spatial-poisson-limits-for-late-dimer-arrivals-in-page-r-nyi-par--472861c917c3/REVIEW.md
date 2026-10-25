@@ -1,19 +1,21 @@
-# Scientific review: spatial Poisson limits for late dimer arrivals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite one-edge integral follows from a one-sided vacancy recursion for independent uniform arrival times; its Taylor remainder supplies a uniform \(O(n^{-1})\) count-mean estimate. The finite-range truncation error is bounded by the probability of a strictly decreasing priority chain, at most \(2/(L+2)!\). For \(L=\lceil\log n\rceil\), dependency-graph Chen–Stein bounds prove the threshold-count error \(O(\log n/n)\), and mixed factorial moments give the stated spatial and temporal Poisson-process convergence. Every step holds for all integers \(n\ge2\) where the finite identity is asserted, and for sufficiently large \(n\) where a limit or error rate is asserted. Exact finite enumeration independently confirms the vacancy identities, edge probabilities and causal-path implication; it does not establish the infinite limit on its own.
+PASS
 
-## Originality — PASS, with residual historical risk
+For rate-one independent edges on a path, mapped U_i=1-exp(-xi_i) are iid uniform priorities. The boundary-empty probability h_m(u) satisfies h_1=1 and h_m(u)=1-∫_0^u h_{m-1}(v)dv by conditioning on the unique incident boundary edge, hence the exact alternating polynomial H_m. Conditioning on edge-i priority u leaves two independent subpaths and proves P(A_i=1,xi_i>t)=∫_{1-e^-t}^1 H_i H_(n-i)du. Alternating Taylor remainder bounds |H_m-exp(-u)|≤1/m! and summing 1/m! yields mean e^(-2-x)+O_K(1/n) for t=logn+x. Recursive greedy blocking has a decreasing-priority predecessor chain; crossing radius-L requires a monotone chain, giving ≤2/(L+2)!, union O(n/(L+2)!). For L=ceil(log n), distinct late marked successes are ≤e^-2t even if acceptance depends; distance>2L windows use disjoint input edges, so dependency-graph Chen–Stein yields O(logn/n) count TV. Mixed factorial moments of disjoint bounded spacetime rectangles have separated tuples plus O_k(L/n) close tuples; independent windows and first moments identify marked PPP e^-2 du e^-x dx. Upper and lower truncation in centered time justify last-k spatial marks and time ordering. Independently enumerated all edge orders through n=8 and integrated H_iH_(n-i) exactly at t=0. This does not itself prove limiting PPP.
 
-De Smedt, Godrèche and Luck (arXiv:cond-mat/0202465), Section 5, explicitly apply their Gumbel jamming-time prediction to the same dimer process, so neither the scalar Gumbel law nor its \(e^{-2}\) constant is claimed as novel. Gerin (arXiv:1411.8002), especially Theorem 5 and Lemma 8, has the relevant time-density and locality inputs, but does not state joint marked spatial Poisson convergence, the exact finite individual-edge law, or the quantitative count approximation. Penrose–Sudbury (arXiv:math/0503519) study general deposition and normal approximation; Purvis et al. (2015) study near-jamming coverage/availability scaling. The contribution is the spatially resolved, multitime extreme-process theorem and finite error rate, not established scalar extremal behavior. Possible implicit derivations in other adsorption papers remain a priority risk; semantic similarity searches alone do not prove absence.
+## originality
 
-## Value — PASS
+PASS
 
-The last successful depositions are a natural observable of slow jamming. A scalar last-time distribution does not determine where the last few dimers land, how many nearly simultaneous late arrivals remain or whether their locations decouple. The theorem gives that complete rare-event field, exact finite rates per edge and a quantitative approximation for finite paths, permitting spatial late-stage calibration. This is substantially more informative than restating an already-known Gumbel limit.
+De Smedt–Godrèche–Luck Section 5 already covers the scalar Gumbel jamming time at density one and factor e^-2; it must remain disclaimed. Full Gerin primary text supports last-deposition log-scale/localization but does not state the spatially marked Poisson field or the stated uniform Chen–Stein total-variation rate. Other deposition work contains tools and broad models rather than a proved implication to this marked limit; originality assessed only for these additions.
 
-## Limits and external status
+## value
 
-The model has rate-one independent edge clocks and nearest-neighbor dimers on a path. No longer-car, nonuniform-clock or irregular-graph extension is asserted, and spatial convergence is not total variation. The review is not an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The late-arrival process for the natural Page–Rényi parking model gains precise space-time extreme geometry, unlike a scalar completion-time law. Quantitative TV approximation and an exact finite-edge marginal are useful for rigorous extreme-position statistics and error bounds; the final k dimers acquire asymptotically independent uniform locations. Strong mathematical motivation is the natural one-dimensional random maximal matching dynamics and known jamming-time question, not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

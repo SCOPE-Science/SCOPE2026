@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:03:52.940270Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md Git blob 7cc1334a321ff8dca255bf758d2d53d33cc36244",
+        "2026/10/18/spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/check.py Git blob 778662a9e8e223f8a2cf79f02e63914694605091"
+      ],
+      "evidence": [
+        "Pinned RESULT.md blob 7cc1334a321ff8dca255bf758d2d53d33cc36244, proof §§1–5; inspected check.py blob 778662a9e8e223f8a2cf79f02e63914694605091",
+        "Independent chronological edge-order enumeration n=2..8 exactly agrees with rational H_iH_(n-i) integral at t=0.",
+        "Analytic stabilization, two-late-clock upper bound and factorial-moment limit checked separately."
+      ],
+      "rationale": "For rate-one independent edges on a path, mapped U_i=1-exp(-xi_i) are iid uniform priorities. The boundary-empty probability h_m(u) satisfies h_1=1 and h_m(u)=1-∫_0^u h_{m-1}(v)dv by conditioning on the unique incident boundary edge, hence the exact alternating polynomial H_m. Conditioning on edge-i priority u leaves two independent subpaths and proves P(A_i=1,xi_i>t)=∫_{1-e^-t}^1 H_i H_(n-i)du. Alternating Taylor remainder bounds |H_m-exp(-u)|≤1/m! and summing 1/m! yields mean e^(-2-x)+O_K(1/n) for t=logn+x. Recursive greedy blocking has a decreasing-priority predecessor chain; crossing radius-L requires a monotone chain, giving ≤2/(L+2)!, union O(n/(L+2)!). For L=ceil(log n), distinct late marked successes are ≤e^-2t even if acceptance depends; distance>2L windows use disjoint input edges, so dependency-graph Chen–Stein yields O(logn/n) count TV. Mixed factorial moments of disjoint bounded spacetime rectangles have separated tuples plus O_k(L/n) close tuples; independent windows and first moments identify marked PPP e^-2 du e^-x dx. Upper and lower truncation in centered time justify last-k spatial marks and time ordering. Independently enumerated all edge orders through n=8 and integrated H_iH_(n-i) exactly at t=0. This does not itself prove limiting PPP.",
+      "residual_risks": [
+        "Proof uses finite open path, iid Exp(1) arrivals and acceptance by first attempted edge only; general random sequential adsorption is not covered.",
+        "The O(log n/n) rate is for the integer threshold count, not total variation of the continuous spatial point process."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General forward evolution and occupancy-count asymptotic normality do not, without a separate rare-event argument, entail a marked high-time PPP at time logn.",
+          "Gerin Theorem 5 provides order-of-growth but not the stated limiting marked factorial moments."
+        ],
+        "reasoning": "A broader class of deposition processes is not automatically a stronger theorem in the necessary parameter/regime; no located deduction from the available statements to the spatial Poisson/TV claim.",
+        "searches": [
+          "Penrose–Sudbury arXiv:math/0503519",
+          "Resultary search: Page Renyi parking random sequential adsorption dimer late arrivals spatial marked Poisson point process Gumbel jamming time",
+          "Gerin arXiv:1411.8002"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: Page Renyi parking random sequential adsorption dimer late arrivals spatial marked Poisson point process Gumbel jamming time",
+        "arXiv:cond-mat/0202465, https://arxiv.org/abs/cond-mat/0202465",
+        "arXiv:1411.8002, https://arxiv.org/abs/1411.8002",
+        "arXiv:math/0503519, Penrose–Sudbury, 2005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gumbel P(max≤logn+x)→exp(-e^-2-x) is a consequence of a PPP but does not conversely imply spatial independence or an O(logn/n) TV rate.",
+          "General deposition CLTs address different scaling/count statistics."
+        ],
+        "reasoning": "The advertised novelty is appropriately narrower than scalar Gumbel; actual proof supplies spatial independence and quantitative approximation not derivable from cited scalar limits.",
+        "searches": [
+          "arXiv:cond-mat/0202465 §5",
+          "arXiv:1411.8002 Theorems 5/7",
+          "arXiv:math/0503519",
+          "Resultary search: Page Renyi parking random sequential adsorption dimer late arrivals spatial marked Poisson point process Gumbel jamming time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jamming time of discrete RSA on a line is the final successful dimer clock; its Gumbel distribution with e^-2 is already known.",
+          "Gerin studies logarithmic trial count and local late activity, not the joint (position,centered time) marked extreme process."
+        ],
+        "reasoning": "The alternative name lattice dimer random sequential adsorption/greedy random maximal matching was checked; distinguish old scalar extreme from newly claimed full marked PPP and quantitative TV bound.",
+        "searches": [
+          "Resultary search: Page Renyi parking random sequential adsorption dimer late arrivals spatial marked Poisson point process Gumbel jamming time",
+          "De Smedt et al. arXiv:cond-mat/0202465 §5",
+          "Gerin arXiv:1411.8002 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite edge law uses alternating truncations H_iH_(n-i), rather than an enumerated preexisting marked extreme table."
+        ],
+        "reasoning": "Scalar Gumbel constant is already tabulated/known and excluded; no identified exact full threshold-count rate or marked process table.",
+        "searches": [
+          "Resultary search: Page Renyi parking random sequential adsorption dimer late arrivals spatial marked Poisson point process Gumbel jamming time",
+          "Gerin arXiv:1411.8002 §2.1",
+          "De Smedt §5"
+        ]
+      },
+      "rationale": "De Smedt–Godrèche–Luck Section 5 already covers the scalar Gumbel jamming time at density one and factor e^-2; it must remain disclaimed. Full Gerin primary text supports last-deposition log-scale/localization but does not state the spatially marked Poisson field or the stated uniform Chen–Stein total-variation rate. Other deposition work contains tools and broad models rather than a proved implication to this marked limit; originality assessed only for these additions.",
+      "residual_risks": [
+        "Penrose–Sudbury and subsequent extensive RSA literature not exhaustively full-text inspected; an unindexed late-arrival marked result remains a residual risk.",
+        "No complete prior-art guarantee is claimed for the O(log n/n) rate; secondary equivalences possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS scalar Gumbel limit with e^-2, but not spatially marked late-success process or explicit uniform TV rate",
+          "evidence": "Section 5 gives dimer-deposition Gumbel with p^2 exp(-2p), at vacant density p=1 constant exp(-2).",
+          "identifier_or_url": "arXiv:cond-mat/0202465, https://arxiv.org/abs/cond-mat/0202465",
+          "material_read": "Read full open-access arXiv HTML, notably Section 5 and explicit dimer transfer of Gumbel law",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Same physical dimer model and claimed Gumbel jamming-time constant"
+        },
+        {
+          "assessment": "NOT_COVERING claimed marked extreme-field and O(log n/n) threshold-count TV bound, though proves order logn last parking and related location arguments",
+          "evidence": "Theorem 5 and Section 2.1 characterize late vacancies/time count scales; no joint marked PPP intensity e^-2 or quantitative Chen-Stein comparison.",
+          "identifier_or_url": "arXiv:1411.8002, https://arxiv.org/abs/1411.8002",
+          "material_read": "Read full open-access HTML and the open EJC PDF, Section 2.1 plus Theorems 5 and 7; PDF page inspected visually",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "The Page–Rényi parking process",
+          "trigger": "Exactly same open-path greedy dimer process"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_METHOD, not identified as proving the fixed late-arrival extreme theorem",
+          "evidence": "General forward equations and normal approximations for non-rare occupation counts.",
+          "identifier_or_url": "arXiv:math/0503519, Penrose–Sudbury, 2005",
+          "material_read": "Read abstract and referenced topical description only; not full-text negative certification",
+          "method": "Open-access arXiv HTML or original PDF where stated; otherwise explicitly limited to abstract/bibliographic text",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "General deposition may imply one-dimensional special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md Git blob 7cc1334a321ff8dca255bf758d2d53d33cc36244",
+        "2026/10/18/spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/check.py Git blob 778662a9e8e223f8a2cf79f02e63914694605091",
+        "Resultary search: Page Renyi parking random sequential adsorption dimer late arrivals spatial marked Poisson point process Gumbel jamming time"
+      ],
+      "evidence": [
+        "Explicit intensity e^-2 du exp(-x)dx and O(log n/n) threshold error are quantitative refinements of classical jamming time.",
+        "Exact path-edge integral identifies boundary effect uniformly; spatial marks solve a natural localization question."
+      ],
+      "rationale": "The late-arrival process for the natural Page–Rényi parking model gains precise space-time extreme geometry, unlike a scalar completion-time law. Quantitative TV approximation and an exact finite-edge marginal are useful for rigorous extreme-position statistics and error bounds; the final k dimers acquire asymptotically independent uniform locations. Strong mathematical motivation is the natural one-dimensional random maximal matching dynamics and known jamming-time question, not an arbitrary finite example.",
+      "residual_risks": [
+        "Restricted to nearest-neighbor open path with identical independent clocks; rate not claimed optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
