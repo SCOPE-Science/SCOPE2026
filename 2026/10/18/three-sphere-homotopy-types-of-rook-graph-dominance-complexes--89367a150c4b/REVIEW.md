@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The closed neighborhood of square \((i,j)\) is its row union its column; this gives the exact decomposition into two joins of simplex boundaries. The Alexander dual of the intersection has a good cover whose nerve is a join of two simplex boundaries. Integral combinatorial Alexander duality gives a single integral homology generator, and the proof handles the missing simple-connectivity input explicitly: triangle fillings for boards with at least three rows and columns, and a two-facet deletion argument otherwise. The two intersection inclusions are null maps by a strict dimension inequality, yielding the three-sphere homotopy pushout. An independently written exhaustive checker passes seven boards; its mod-two calculations are not substituted for the general proof.
+## correctness
 
-## Originality
-PASS with residual literature uncertainty. A search for rectangular rook dominance complexes under the aliases \(K_p\square K_q\) and \(L(K_{p,q})\), closed-neighborhood hypergraph duals and the three predicted sphere dimensions found no equivalent all-parameter homotopy statement. Matsushita (arXiv:2009.04145) proves a general connectivity bound; Matsushita–Wakatsuki (arXiv:2312.02639) develops general duality tools and path-product calculations. Mertens (arXiv:2401.00716) already gives the row-or-column characterization and the domination polynomial, so this combinatorial criterion and all consequences about the number of dominating sets are NOT claimed as new. The new content is the intersection-sphere homotopy argument and the resulting complete two-parameter wedge classification. Open-neighborhood, Čech and cut-complex results for rook graphs concern different complexes. Unindexed equivalent work remains possible.
+PASS
 
-## Mathematical value
-PASS. A natural two-parameter graph family has exactly three integral sphere summands in dimensions determined uniformly by the board shape, often in different degrees. This strengthens a face-enumeration result to an all-parameter homotopy classification, distinguishes two independent high-dimensional row/column classes from a lower-dimensional gluing class, and supplies nontrivial torsion-freeness without relying on a finite census. It remains useful for comparison with other rook-graph complexes and for investigating symmetry actions; those extensions are not claimed here.
+Read all-parameter proof. A complement of a subset dominates rook graph iff it meets every row or every column; thus dominance complex is A∪B where A is join of p copies of ∂Δ^{q−1} (sphere dimension pq−p−1) and B join of q copies of ∂Δ^{p−1} (sphere pq−q−1). Intersection K has combinatorial Alexander dual nerve ∂Δ^{p−1}*∂Δ^{q−1}, a sphere of dimension p+q−3, hence integral homology of S^{pq−p−q}. For p,q≥3 its complete one-skeleton and coned-off missing row/column triangles imply simple connectivity; integral Whitehead/Hurewicz identify K≃S^d with d≥3. For p=2 or q=2, K is a sphere with two disjoint open opposite facets removed, deforming to S^{q−2} / S^{p−2}; p=q=2 gives S^0. Since K→A,B land in higher-dimensional spheres they are null (connectedness handles d=0), so homotopy pushout yields A∨B∨ΣK. Independent exact face and mod-2 chain calculations for 2×2,2×3,2×4,3×3,3×4 verified predicted Betti degrees. Infinite theorem rests on cover and homotopy argument, not finite checks.
 
-## Limits
-The proof yields homotopy type and integral homology but not a PL homeomorphism, simple-homotopy refinement, or equivariant classification. The external novelty search is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact row/column domination predicate is present in Mertens (2024) but his primary paper counts dominating sets and gives a generating polynomial rather than the homotopy types of all complement-dominating subsets. Matsushita–Wakatsuki develop dominance complex duality and compute other examples but the inspected theorems do not supply this all-parameter three-sphere wedge. Published rook neighborhood and cut complexes use different functors.
+
+## value
+
+PASS
+
+Complete integral homotopy classification, including low-dimensional boundary parameters and repetitions, of a fundamental two-parameter graph family; topology does not follow mechanically from the already known domination polynomial and provides reusable structure for dominance complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
