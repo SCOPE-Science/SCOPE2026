@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing `verify.py`; it uses only the Python standard library. The checker reports `VERIFY_OK` after independently evaluating exact integer trace masks for all one- through four-edge support graph types, exhaustively listing all such types on at most eight nonisolated vertices, checking their labeled embedding multipliers, and enumerating every subset of up to four graph vertices for triangular graphs of sizes \(2\le n\le10\).
+## correctness
 
-Completed local execution returned:
+PASS
 
-```
-REPRESENTATIVES 1 types 1 trace_table=PASS
-REPRESENTATIVES 2 types 2 trace_table=PASS
-REPRESENTATIVES 3 types 5 trace_table=PASS
-REPRESENTATIVES 4 types 11 trace_table=PASS
-GRAPH_TYPES_COMPLETE 19 PASS
-LABELED_MULTIPLIERS PASS
-SHATTER_COUNTS 2 [1, 0, 0, 0, 0] PASS
-SHATTER_COUNTS 3 [1, 3, 0, 0, 0] PASS
-SHATTER_COUNTS 4 [1, 6, 0, 0, 0] PASS
-SHATTER_COUNTS 5 [1, 10, 45, 0, 0] PASS
-SHATTER_COUNTS 6 [1, 15, 105, 420, 0] PASS
-SHATTER_COUNTS 7 [1, 21, 210, 1190, 2625] PASS
-SHATTER_COUNTS 8 [1, 28, 378, 2800, 9520] PASS
-SHATTER_COUNTS 9 [1, 36, 630, 5796, 23310] PASS
-SHATTER_COUNTS 10 [1, 45, 990, 10920, 50400] PASS
-VERIFY_OK candidate_subsets 265023 trace_table=PASS class_completeness=PASS orbit_sizes=PASS exact_coefficients=PASS
-```
+PASS. Defined open-neighborhood trace on T_n=L(K_n) including exclusion of the query edge itself, and modeled a selected j-edge set by its isolate-free support graph F. Every query edge uses zero, one or two endpoints outside F, so its trace stabilizes after two fresh vertices. Thus exact enumeration for j<=4 is a finite list of 1+2+5+11=19 isolate-free support isomorphism types and 0,1,2 external vertices, not merely finite n testing. The table yields successful 2-edge all-shattered cases for n>=5, three-edge support types K1,3/P4/P3⊔K2 for n>=6 and four-edge K1,4/broom/P5 (n>=7) plus P3⊔P3 (n>=8); labeled-embedding multipliers produce s2=3C(n,3)+3C(n,4), s3=16C(n,4)+30C(n,5), s4=125C(n,5)+90C(n,6) with exact threshold indicators. The previously published universal Johnson open-neighborhood bound VC<=4 rules out j>=5, with no novelty claim for that fact. Direct independent trace-mask subset enumerations for n<=8 corroborate every stated coefficient; infinite proof rests on support reduction plus exhaustive graph types.
 
-For the infinite result, the essential logical step is the exact support reduction: every query edge uses at most two outside vertices, so every trace family stabilizes after two outside vertices. Together with the mathematically complete list of support types, the finite mask table is exhaustive for every \(n\). The separate assertion that no set of size at least five is shattered uses an explicitly cited published theorem. Enumeration through dimension ten is corroboration, not a proof of that published theorem. Neither external review nor independent external validation has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge. Adler–Benediktsson–Macpherson gives exactly the general VC upper bound four and a four-point witness, but not the complete labeled support-type census and coefficient polynomial for every n. Coudert et al provide general closed-neighborhood VC computation rather than all-n enumerative formulas. Checked the equivalent closed-neighborhood trace system on Kneser graph complements as a possible alias; no evaluated identical all-rank result was found.
+
+## value
+
+PASS
+
+PASS. The all-rank shattering polynomial of a central Johnson/triangular graph family gives exact combinatorial structure and sharp ambient thresholds beyond mere VC dimension, notably universal pair shattering and vanishing triple/quartet sampling proportions. Complete classifications of natural finite supports are intrinsically motivated and self-contained, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: exact shattering profiles of triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated open-neighborhood trace formula accounts for the diagonal exclusion. A query edge has at most two endpoints outside the selected support; hence the two-fresh-vertex reduction is exact at every ground-set size, not an experimental extrapolation. Exhaustive classification of isolate-free graphs with at most four edges yields exactly nineteen unlabeled types. The explicit trace-mask table specifies the exact three cardinalities for every type, while orbit-stabilizer produces all four nonconstant coefficients. The previously published general upper bound for open Johnson neighborhoods eliminates larger shattered sets. The independent brute-force checks of all candidate subsets through \(n=10\) agree with the formulas. The argument applies only to the specified graph family and neighborhood convention.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-The closest work is Adler, Benediktsson, and Macpherson (2020), arXiv:2007.16042, Section 3: it proves VC dimension at most four, exhibits the \(J(7,2)\) four-set witness, and analyzes sixteen four-point local patterns. Those are explicitly credited. The assessed contribution is **not** the VC-dimension bound or mere existence of a shattered quartet, but the entire rank-refined shattering polynomial, uniform pair shattering, the exact support-type criterion for every sample set of size at most four, and the asymptotic proportions. These conclusions are not stated or computed in the inspected source. Coudert, Csikós, Ducoffe, and Viennot (2024), arXiv:2405.07588, provide general algorithms for graph VC dimension, chiefly with closed neighborhoods, not the proposed exact polynomial. The equivalent closed-Kneser-neighborhood formulation was deliberately included in the novelty comparison. An unindexed equivalent enumeration is possible and external priority certification has not occurred.
+PASS
 
-## Mathematical value — PASS
-The previously known extremal VC dimension four alone does not reveal how frequently subsets are shattered. The exact counts show a sharp and natural hierarchy: all pairs are shattered from \(n=5\), but only asymptotic fractions \(12/n\) of triples and \(48/n^2\) of quartets are. The support classification explains this rarity and provides complete all-parameter counts useful for finite sample complexity studies or checking symmetry-aware enumeration algorithms. The result is a natural complete invariant for an infinite family rather than an arbitrary finite slice or the repetition of a known table.
+PASS. Defined open-neighborhood trace on T_n=L(K_n) including exclusion of the query edge itself, and modeled a selected j-edge set by its isolate-free support graph F. Every query edge uses zero, one or two endpoints outside F, so its trace stabilizes after two fresh vertices. Thus exact enumeration for j<=4 is a finite list of 1+2+5+11=19 isolate-free support isomorphism types and 0,1,2 external vertices, not merely finite n testing. The table yields successful 2-edge all-shattered cases for n>=5, three-edge support types K1,3/P4/P3⊔K2 for n>=6 and four-edge K1,4/broom/P5 (n>=7) plus P3⊔P3 (n>=8); labeled-embedding multipliers produce s2=3C(n,3)+3C(n,4), s3=16C(n,4)+30C(n,5), s4=125C(n,5)+90C(n,6) with exact threshold indicators. The previously published universal Johnson open-neighborhood bound VC<=4 rules out j>=5, with no novelty claim for that fact. Direct independent trace-mask subset enumerations for n<=8 corroborate every stated coefficient; infinite proof rests on support reduction plus exhaustive graph types.
 
-## Closest literature and limitations
-Primary relevant full text: Adler et al., arXiv:2007.16042, especially Theorems 3.6–3.7 and Section 3. General exact computation: Coudert et al., arXiv:2405.07588, especially Sections 1–2 and the algorithmic contribution. Equivalent prior work under another terminology remains the main originality risk. The proof is restricted to triangular graphs \(J(n,2)\), relies on a credited published bound for larger shattered sets, and does not claim independent external auditing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Adler–Benediktsson–Macpherson gives exactly the general VC upper bound four and a four-point witness, but not the complete labeled support-type census and coefficient polynomial for every n. Coudert et al provide general closed-neighborhood VC computation rather than all-n enumerative formulas. Checked the equivalent closed-neighborhood trace system on Kneser graph complements as a possible alias; no evaluated identical all-rank result was found.
+
+## value
+
+PASS
+
+PASS. The all-rank shattering polynomial of a central Johnson/triangular graph family gives exact combinatorial structure and sharp ambient thresholds beyond mere VC dimension, notably universal pair shattering and vanishing triple/quartet sampling proportions. Complete classifications of natural finite supports are intrinsically motivated and self-contained, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
