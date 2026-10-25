@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-- Independent enumeration of forbidden four-vertex simple paths, and direct vertex-subset face inclusion comparison on 64 finite multipartite graphs.
-- Independent boundary-rank computation modulo two on each such complex; sample \(K_{3,3,3}\) gives 38 two-spheres by the formula and \(K_{2,2,2,2}\) gives 35.
-- Exact signed augmented Lefschetz enumeration on 123 within-part permutation cycle-type classes across nine graph size patterns.
-- Formal proof using a Mayer–Vietoris induction, relative 2-cell attachments, Euler evaluation, the Hurewicz map and homology Whitehead.
+## correctness
 
-The scripts use the Python 3 standard library only. Run `python3 verify_pathfree4.py` and `python3 verify_equivariant.py`; compare their output to the corresponding included `.txt` artifacts. Finite tests cannot prove an infinite-parameter theorem; the mathematical proof is in `RESULT.md`. No independent scientific audit has been performed.
+PASS
+
+Checked complete occupancy classification: permissible faces occupy one part, two parts with at least one singleton, or precisely three singleton parts. Any other pattern contains an explicit four-vertex simple path. X contains full 2-skeleton and is simply connected. The contractible star cover U_i has pairwise one-dimensional intersections; Mayer–Vietoris induction yields H_j(Z)=0 above degree2 and torsionfree H2, and attaching only rainbow triangles to form X preserves these properties. Integral Euler characteristic from exhaustive face enumerator yields β, and Hurewicz+Whitehead gives ∨βS², including degenerate singleton cases. Signed fixed-simplex Lefschetz traces depend only on per-part fixed points f_i, yielding the proposed polynomial and semisimple rational representation with multiplicities choose(m−1,3), choose(m−1,2), m−1,1. Independently enumerated all actual length-3 simple paths and checked classification/Euler counts for nine size tuples including (3,3,3) β38, (2,2,2,2) β35; package contains broader 64 tuple mod2 and 123 class-character checks. Finite samples are corroboration, not the all-parameter proof.
+
+## originality
+
+PASS
+
+Deshpande–Goyal–Sawant arXiv:2607.05358 closely studies these vertex-subset path-free complexes and provides general decomposition plus a complete bipartite homotopy classification, which are expressly credited. According to the accessible abstract, no all-m≥3 t=4 homotopy formula or W-equivariant character is stated; the full body was inaccessible, so hidden special cases cannot be excluded and priority is qualified. Distinguish directed-edge path-missing complexes of Grinberg–Katthän–Lewis from the vertex-subset construction. Resultary searches targeted path-free multipartite all-parameter sphere formula and did not locate a direct duplicate, but search absence alone is not proof.
+
+## value
+
+PASS
+
+This is a uniform integral homotopy and equivariant representation classification for every complete multipartite graph with ≥3 parts, a natural forbiddance complex at the first nontrivial four-vertex-path threshold. The exact β and W-character are useful invariants, with a nontrivial topological Mayer–Vietoris mechanism; neither arbitrary slice nor textbook substitution. No general statement for other forbidden path sizes is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

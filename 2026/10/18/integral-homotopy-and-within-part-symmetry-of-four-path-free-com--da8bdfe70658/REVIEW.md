@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact allowed-face classification follows by case division on the number and multiplicity of occupied parts; every excluded occupancy pattern contains a four-vertex path. The contractible-star union and one-dimensional pairwise intersections provide an integral Mayer–Vietoris induction with no homology above degree two and free second homology. Adding only distinct-part triangles preserves this property. The full two-skeleton makes the space simply connected. Its signed enumerator determines \(\beta\), and homology Whitehead converts the two-dimensional homology basis into the stated sphere wedge. Independent finite exact computations reproduce the face criterion, Betti ranks and all 123 enumerated cycle-type Lefschetz characters.
+## correctness
 
-**Originality — PASS under documented source-access uncertainty.** The closest recent source, Deshpande–Goyal–Sawant arXiv:2607.05358, gives an all-path-length structural decomposition, Cohen–Macaulay/vertex-decomposability criteria, and according to its abstract a full homotopy classification for complete bipartite graphs; these are not claimed as new. The claim here includes complete multipartite \(m\ge3\) at \(t=4\) plus the within-part rational character/decomposition, neither stated in the accessible abstract or external technical account. The original full manuscript was not inspectable, so hidden stronger results in its body are a genuine residual risk, not claimed absent. Related path-free directed edge-set papers concern different simplicial objects; targeted mathematical-record searches found no exact implication.
+PASS
 
-**Value — PASS.** The case \(t=4\) is the first forbidden path length at which nontrivial complete multipartite three-part faces and arbitrary one-part simplices coexist; unlike isolated examples, the theorem classifies the integral homotopy uniformly over arbitrary class sizes, and resolves a complete symmetry representation. The exact formula and nonnegative module decomposition distinguish topology invisible in ordinary graph-statistical Betti tables. It is directly motivated by the recent multipartite spectral-sequence program.
+Checked complete occupancy classification: permissible faces occupy one part, two parts with at least one singleton, or precisely three singleton parts. Any other pattern contains an explicit four-vertex simple path. X contains full 2-skeleton and is simply connected. The contractible star cover U_i has pairwise one-dimensional intersections; Mayer–Vietoris induction yields H_j(Z)=0 above degree2 and torsionfree H2, and attaching only rainbow triangles to form X preserves these properties. Integral Euler characteristic from exhaustive face enumerator yields β, and Hurewicz+Whitehead gives ∨βS², including degenerate singleton cases. Signed fixed-simplex Lefschetz traces depend only on per-part fixed points f_i, yielding the proposed polynomial and semisimple rational representation with multiplicities choose(m−1,3), choose(m−1,2), m−1,1. Independently enumerated all actual length-3 simple paths and checked classification/Euler counts for nine size tuples including (3,3,3) β38, (2,2,2,2) β35; package contains broader 64 tuple mod2 and 123 class-character checks. Finite samples are corroboration, not the all-parameter proof.
 
-**Limitations and literature-access risk.** There is no assertion for \(t\ne4\), full automorphism groups exchanging parts, or integral equivariant module lattices. The detailed statements and appendices of the closest source could not be compared, so an overlap in the full manuscript remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deshpande–Goyal–Sawant arXiv:2607.05358 closely studies these vertex-subset path-free complexes and provides general decomposition plus a complete bipartite homotopy classification, which are expressly credited. According to the accessible abstract, no all-m≥3 t=4 homotopy formula or W-equivariant character is stated; the full body was inaccessible, so hidden special cases cannot be excluded and priority is qualified. Distinguish directed-edge path-missing complexes of Grinberg–Katthän–Lewis from the vertex-subset construction. Resultary searches targeted path-free multipartite all-parameter sphere formula and did not locate a direct duplicate, but search absence alone is not proof.
+
+## value
+
+PASS
+
+This is a uniform integral homotopy and equivariant representation classification for every complete multipartite graph with ≥3 parts, a natural forbiddance complex at the first nontrivial four-vertex-path threshold. The exact β and W-character are useful invariants, with a nontrivial topological Mayer–Vietoris mechanism; neither arbitrary slice nor textbook substitution. No general statement for other forbidden path sizes is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
