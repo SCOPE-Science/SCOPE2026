@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof counts all orbits of directed two-windows under the involution, identifies a strict parity barrier when the alphabet involution has no fixed points and an odd number of transposition orbits, and gives a fully specified directed graph meeting the bound in every parameter class. Each block of the construction is checked for complementary-pair exclusivity, balance, and directed connectivity; the Euler-tour argument produces the required cyclic word. `verify.py` reconstructs and checks the construction for \(135\) parameter pairs and exhaustively checks four small optimum instances. Its finite coverage is not used as an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest source is Mitchell and Wild's 2026 *Negative Avoiding Sequences*, which addresses coordinatewise negation on cyclic residue alphabets and proves the upper bound and tightness for the conjugacy classes \(f=1\) and \(f=2\). Those cases are **covered** and are not represented as discoveries. The source's final section explicitly raises arbitrary symbol involutions; its binary no-fixed-point exception is noted. The exact all-orbit-type span-two formula, including the fixed-point-free odd-\(t\) deficiency and fixed-point counts above two, is not stated or implied by the inspected results. The 2024 orientable-sequence paper and the 2016 unoriented de Bruijn article impose reversal, not the present involution on each symbol. Public index and primary-literature searches found no covering statement; undiscovered prior formulations remain possible.
+PASS
 
-**Value — PASS.** This is the complete sharp span-two solution of a naturally posed family of pair-selecting cycle problems, including an unexpected parity failure of the obvious orbit bound and an explicit constructive optimum. It supplies a concrete baseline and obstruction for longer-window generalizations rather than an arbitrary small numerical example.
+For any involution with t≥1 transposition pairs, f≥0 fixed symbols, q=2t+f, exactly f² ordered two-windows are fixed and forbidden; remaining windows split into (q²−f²)/2 two-element coordinatewise involution orbits, at most one used. If f=0, crossing from the a-half to the b-half comprises t² paired orbits with one direction each. For t odd a directed cycle has balanced cross-edge flow, impossible with an odd number t² of +1/−1 choices, so lose ≥1 orbit. An explicit directed graph selects one representative per orbit (except omitted one internal orbit when f=0,t odd) via matching pairs of transposition blocks, a special odd-index connector, and circuits through fixed symbols. Each block balances indegree/outdegree; the active directed graph is strongly connected, hence admits Euler tour reading a cyclic word with distinct unpaired two-windows of maximal length (q²−f²)/2−1_{f=0,t odd}. Independently reimplemented the graph and checked 48 cases 1≤t≤8,0≤f≤5: no paired opposite, exact count, vertex balance, connectivity; includes t=1 edge cases. Constructive generic proof (not finite checks) covers all parameters.
 
-**Limitations.** The theorem excludes involutions with no moving symbols, makes no claims for span above two, and does not count distinct maximum cycles. The published modular-negation subcases are prior work. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the orbit-type classification over arbitrary alphabet involutions, particularly fixedpointfree cases t≥2 and arbitrary f≥3; source modular-negation constructions already cover f=1,2 and the exceptional t=1,f=0 is known. The partial overlap is disclosed, not counted as new.
+
+## value
+
+PASS
+
+The fixed-point count f and transposition count t are intrinsic conjugacy invariants for finite involutions. The exact orbit count is not always attainable: the parity obstruction when f=0,t odd is a genuine sharp combinatorial boundary. An explicit uniform Eulerian construction classifies every nontrivial involution and can be reused for constrained de Bruijn sequence design; not just checking the binary exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

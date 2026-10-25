@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The reproducible checker in `verify.py` constructs the directed edge selection in the proof for \(1\le t\le15\) and \(0\le f\le8\), and verifies pair-orbit uniqueness, missing-pair count, edge count, degree balance, connectivity, an Eulerian circuit, and its exact cyclic windows. The complete output is in `verification_output.txt`.
+# Independent mathematical audit
 
-Four additional small parameter pairs are exhaustively tested by enumerating all cyclic words up to the claimed optimum and checking each cyclic two-window. These checks are independent finite confirmations of the explicit construction and upper bound; neither the computer checks nor their logs prove the infinitely quantified formula. The written cut-parity argument and block construction establish the general theorem.
+## correctness
 
-No independent external validation has been performed.
+PASS
+
+For any involution with t≥1 transposition pairs, f≥0 fixed symbols, q=2t+f, exactly f² ordered two-windows are fixed and forbidden; remaining windows split into (q²−f²)/2 two-element coordinatewise involution orbits, at most one used. If f=0, crossing from the a-half to the b-half comprises t² paired orbits with one direction each. For t odd a directed cycle has balanced cross-edge flow, impossible with an odd number t² of +1/−1 choices, so lose ≥1 orbit. An explicit directed graph selects one representative per orbit (except omitted one internal orbit when f=0,t odd) via matching pairs of transposition blocks, a special odd-index connector, and circuits through fixed symbols. Each block balances indegree/outdegree; the active directed graph is strongly connected, hence admits Euler tour reading a cyclic word with distinct unpaired two-windows of maximal length (q²−f²)/2−1_{f=0,t odd}. Independently reimplemented the graph and checked 48 cases 1≤t≤8,0≤f≤5: no paired opposite, exact count, vertex balance, connectivity; includes t=1 edge cases. Constructive generic proof (not finite checks) covers all parameters.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the orbit-type classification over arbitrary alphabet involutions, particularly fixedpointfree cases t≥2 and arbitrary f≥3; source modular-negation constructions already cover f=1,2 and the exceptional t=1,f=0 is known. The partial overlap is disclosed, not counted as new.
+
+## value
+
+PASS
+
+The fixed-point count f and transposition count t are intrinsic conjugacy invariants for finite involutions. The exact orbit count is not always attainable: the parity obstruction when f=0,t odd is a genuine sharp combinatorial boundary. An explicit uniform Eulerian construction classifies every nontrivial involution and can be reused for constrained de Bruijn sequence design; not just checking the binary exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

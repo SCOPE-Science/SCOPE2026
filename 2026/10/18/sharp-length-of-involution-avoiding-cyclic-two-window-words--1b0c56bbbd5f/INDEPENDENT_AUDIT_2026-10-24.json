@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:00:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any involution with t≥1 transposition pairs, f≥0 fixed symbols, q=2t+f, exactly f² ordered two-windows are fixed and forbidden; remaining windows split into (q²−f²)/2 two-element coordinatewise involution orbits, at most one used. If f=0, crossing from the a-half to the b-half comprises t² paired orbits with one direction each. For t odd a directed cycle has balanced cross-edge flow, impossible with an odd number t² of +1/−1 choices, so lose ≥1 orbit. An explicit directed graph selects one representative per orbit (except omitted one internal orbit when f=0,t odd) via matching pairs of transposition blocks, a special odd-index connector, and circuits through fixed symbols. Each block balances indegree/outdegree; the active directed graph is strongly connected, hence admits Euler tour reading a cyclic word with distinct unpaired two-windows of maximal length (q²−f²)/2−1_{f=0,t odd}. Independently reimplemented the graph and checked 48 cases 1≤t≤8,0≤f≤5: no paired opposite, exact count, vertex balance, connectivity; includes t=1 edge cases. Constructive generic proof (not finite checks) covers all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mitchell–Wild prove maximal cyclic negative-avoiding sequences for every k≥3 with involution x↦−x and discuss arbitrary involutions separately as an open variant in §8; reversal-based unoriented de Bruijn identifies (x,y) with (y,x), not (πx,πy)."
+        ],
+        "reasoning": "Neither fixed arithmetic negation nor reversal-orbit results dominate the orbit-type formula for f=0,t odd or f>2.",
+        "searches": [
+          "Resultary semantic query: negative avoiding sequences arbitrary alphabet involution cyclic 2-window longest length",
+          "arXiv:2603.25286v2 Theorems 6.2 and 6.4, §8 open question",
+          "arXiv:1608.08480 reversal-pair unoriented de Bruijn sequences"
+        ]
+      },
+      "checked_sources": [
+        "Mitchell–Wild 2026 arXiv:2603.25286v2 §§3–8",
+        "arXiv:1608.08480 abstract-level (reversal orbit)",
+        "Resultary Resultary semantic query: negative avoiding sequences arbitrary alphabet involution cyclic 2-window longest length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For modular negation fixed counts are f=1,2; the source asks about replacing negation with an arbitrary alphabet involution and its maximality. The submitted Eulerian block matching is independent of arithmetic and obtains exact orbit-defect criterion."
+        ],
+        "reasoning": "The general result contains known f=1,2 as subcases but extends beyond them; original full blanket claim survives as new classification because the high-f and f=0,t odd regimes are not covered by modular negation existence.",
+        "searches": [
+          "Resultary semantic query: negative avoiding sequences arbitrary alphabet involution cyclic 2-window longest length",
+          "arXiv:2603.25286v2 §6 modular-negation and §8 general involution question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cyclic span-two negative-avoiding sequence for π(s)=−s mod q is exactly a directed Euler cycle selecting at most one edge from each paired window orbit. Modular negation has f=1 (q odd), f=2 (q even)."
+        ],
+        "reasoning": "Because conjugating an involution by alphabet relabeling preserves orbit type, all f=1 and f=2 cases are prior coverage. Other orbit types π are not conjugate to modular negation and need the submitted construction.",
+        "searches": [
+          "Resultary semantic query: negative avoiding sequences arbitrary alphabet involution cyclic 2-window longest length",
+          "arXiv:2603.25286v2 §§3,4,6,8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing binary exception gives L=1 for t=1,f=0; submitted formula also predicts t=3,f=0 has deficiency one despite 6 symbols; independent finite edge selectors match 48 cases."
+        ],
+        "reasoning": "Small q observations or a published q=2 exception cannot imply parity obstruction t odd at all scales nor the full f,t formula.",
+        "searches": [
+          "Resultary semantic query: negative avoiding sequences arbitrary alphabet involution cyclic 2-window longest length",
+          "arXiv:2603.25286v2 tables/example cases",
+          "small involution-type exact brute enumerations (t,f)=(1,0),(2,0) in source and independent checks"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the orbit-type classification over arbitrary alphabet involutions, particularly fixedpointfree cases t≥2 and arbitrary f≥3; source modular-negation constructions already cover f=1,2 and the exceptional t=1,f=0 is known. The partial overlap is disclosed, not counted as new.",
+      "residual_risks": [
+        "An earlier full-orbit involution Euler-tour construction under group actions or generalized antimatching vocabulary might already imply this classification.",
+        "The related reversal de Bruijn paper was not read fully, but reversal equivalence alone is mathematically distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already-known f=1,2 cases credited; arbitrary involution classification asked as new direction",
+          "evidence": "Definition and Theorems 6.2/6.4 for π=−mod k; final §8 open variation of arbitrary involutions.",
+          "identifier_or_url": "https://arxiv.org/html/2603.25286",
+          "material_read": "Full accessible HTML searched/read for §3 antinegative de Bruijn graphs, §4 orbit bound, §6 odd/even mod-negation span-two constructions, §8 conclusions and arbitrary involutions",
+          "method": "primary complete arXiv HTML article with text sections and theorem formulations",
+          "title": "Negative Avoiding Sequences",
+          "trigger": "Direct same object and window length two, possibly dominating theorem"
+        },
+        {
+          "assessment": "Reversal of coordinate order differs from coordinatewise involution; not assumed whole-document noncovering",
+          "evidence": "Reversal orbit (x,y)↦(y,x), contrasted with (x,y)↦(πx,πy).",
+          "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+          "material_read": "Abstract and source bibliographic identification; full mathematics not independently read",
+          "method": "arXiv abstract/bibliography only",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Plausible window-orbit classification under reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-point count f and transposition count t are intrinsic conjugacy invariants for finite involutions. The exact orbit count is not always attainable: the parity obstruction when f=0,t odd is a genuine sharp combinatorial boundary. An explicit uniform Eulerian construction classifies every nontrivial involution and can be reused for constrained de Bruijn sequence design; not just checking the binary exception.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Span two only, exactly one window from each orbit at most, cyclic words with ordered adjacent pairs; t=0 excluded (no nonempty valid cycles).",
+    "Does not classify counts of extremizers, longer spans, or additional forbidden constraints.",
+    "Originality is best-of-knowledge with individually stated material-read limitations; failed search does not establish historical priority.",
+    "Independent finite tests corroborate, and do not substitute for, general-parameter proofs.",
+    "The frozen full Git tree SHA-1 was independently rehashed; no scientific publication, GitHub writes, Lean/expert attestation or external certification occurred."
+  ],
+  "schema_version": 1
+}
