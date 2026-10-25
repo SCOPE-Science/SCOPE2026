@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact conditioning gives an invariant positive mass and a convex probability-measure recursion. The convolution-minus-maximum rewriting is algebraically exact, including both single-positive and two-positive child cases. The map is uniformly Lipschitz in \(\ell^1\), making the finite-clock law a controlled Euler limit in total variation. Stochastic monotonicity, the explicitly solved first atom, and an induction on the finite-level cumulative distribution establish the escape regime. The standalone exact checker returned 804 assertions; no finite computation is used as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+At every binary level, fair sum/min gives P(root>0)=r exactly, since (2r-r²+r²)/2=r. Conditioning on positivity gives μ_{m+1}=(1−r)μ_m+(r/2)(μ_m*μ_m+Min₂ μ_m)=μ_m+r(μ_m*μ_m−Max₂ μ_m)/2. Independent coupling gives 2-Lipschitz ℓ¹ vector field and ||Φ||₁≤1, hence global probability-simplex flow ν_t and Euler TV error ≤r(e^{2mr}−1)/4. Stochastic monotonicity of the update from δ₁, explicit U₁(t)=2/(t+2) and U_k′=[P(Y+Y′≤k)−U_k²]/2 force finite-set escape as t→∞. The comparison at m=⌊T/r_N⌋ proves the large-clock regime without falsely extending the finite-time error to unbounded times; TV δ₁ and ν_λ cover the other regimes. Exact check of original rational full/conditional update for finite depths was independently replayed, not used as universal proof.
 
-The full relevant Bernoulli-leaf and recursion sections of Mendonça (arXiv:2608.12295) and the model/comparison sections of Auffinger–Cable (arXiv:1709.07849) were compared by implication. Their stated theorems supply the conserved zero atom and the all-positive-leaf critical model, respectively, but neither gives the rare-positive conditional kinetic law, the precise \(Nr_N\) clock, the total-variation convergence, or the complete sparse-leaf trichotomy. Searches of published research records and public mathematical literature found no equivalent result. A broader, earlier measure-valued Euler or recursive-model theorem might subsume this concrete case; independent priority verification remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 motivating paper explicitly studies how the conditional positive-root law changes with the Bernoulli leaf density, but leaves the approach to the all-zero endpoint without a quantitative phase profile. The result identifies the naturally dimensionless density–depth clock, a nontrivial infinite-state kinetic crossover, a full classification of small/finite/large clock regimes, and a strong finite-clock error guarantee. It concerns a natural singular boundary of the model, not an arbitrary finite parameter slice or a restatement of the invariant zero atom.
+The exact conditional Euler representation uses the known zero-mass conservation but yields a three-regime conditional limit not established by the inspected prior recursive-tree papers; generic Banach-valued ODE Euler theory supplies a method, not an automatic determination of the model-specific vector field and t=Nr threshold.
 
-## Limitations
+## value
 
-The critical sum/min probability and Bernoulli positive leaves are essential. The theorem does not identify an unconditioned nondegenerate limit, a growth normalization beyond the diverging-clock finite-set escape statement, or uniqueness in the historical priority sense. Related continuous-time recursive models have distinct update laws; their general techniques may still require priority comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Bernoulli-positive-leaf endpoint is a natural unresolved density regime of the fair critical min-plus recursion. The dimensionless depth×density clock yields a nontrivial infinite-state conditional kinetic evolution with sharp total-variation finite-clock control and a complete fixed-finite-set escape classification, not a routine isolated probability evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
