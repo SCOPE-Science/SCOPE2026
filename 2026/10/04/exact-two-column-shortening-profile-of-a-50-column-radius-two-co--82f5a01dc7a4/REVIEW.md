@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The accepted claim is a complete finite classification over all \(1225\) unordered two-column deletions of the specified 50-column matrix. Two exact algorithms agree for every deletion: one rebuilds the shortened radius-two syndrome sumset, while the other uses the complete representation-support incidence relation. The bundled replay also recovers the published original coverage and single-deletion benchmark before checking the new profile.
+## correctness
 
-## Originality
-PASS. The closest primary sources prove that the same matrix is a radius-two covering seed and is locally optimal under one-column removal. A later public claim ledger records the sharp one-column defect and aggregate representation statistics. None of the inspected statements gives or implies the exact two-column histogram, because aggregate multiplicities and one-column minima do not determine which representation supports are simultaneously destroyed by a deleted pair. published-finding corpus and web searches under the numerical value, minimizers, shortening terminology, and 1-saturating-set terminology located no dominating statement.
+PASS
 
-## Value
-PASS. This seed is used to generate improved infinite covering-code families, and shortening is the basic operation behind the length-function problem. The profile gives a quantitative two-deletion stability invariant, not merely another confirmation that the set is minimal: every 48-column subset obtained from this seed misses at least \(27\) syndromes, and the nine best double shortenings are classified. This can guide repair or exchange searches while remaining explicit that no global impossibility at length \(48\) or \(49\) follows.
+Read actual RESULT.md, SLOGAN.txt and both checked artifact files from the frozen assigned Git tree. Independent Python reconstruction parsed the 50 decimal columns as nonzero distinct 10-bit vectors and enumerated all 1024 syndromes, all 50 one-column deletions and all binomial(50,2)=1225 distinct pair deletions without sampling. For each pair, two mathematically equivalent but operationally different finite tests agreed: (i) 1024 minus the cardinality of the shortened 0/one/two-XOR sumset, and (ii) count of syndromes all of whose original representation-support bitmasks intersect that deleted pair. The 1276 supports include 0, 50 singles and 1225 unordered doubles, and every syndrome has at least one. Exact histogram (27:9,31:6,40:12,45:29,47:94,49:3,53:6,54:48,56:69,59:46,61:71,62:6,65:6,73:608,74:87,76:35,78:11,79:78,92:1) sums to 1225; minimum 27 has exactly nine minimizers as claimed; source coverage 1024/1024 and independent one-deletion min9 at 381/479/927 match primary literature. Both original and independently reconstructed full Git tree hashes agree with assigned b5af...; this is exhaustive finite evidence, not a claim about all other 48/49-column codes.
 
-## Closest literature and limitations
-The closest primary literature is arXiv:2608.27494v1 and arXiv:2609.16078v1. The strongest directly overlapping public statement located is the single-deletion minimum \(9\), not a two-deletion profile. A public partition-number manuscript on the same seed was also checked because its claim ledger contains several exact finite invariants. Residual novelty risk remains for unindexed computations or unpublished notes. Scientifically, the result is object-specific and does not settle \(\ell_2(10,2)\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison of the same exact seed against full original radius-two paper, full v1 later code-family paper, all relevant sections of the 11-page same-seed exact partition manuscript and the original author’s exhaustive local exchange-search notebook found no statement establishing the raw 1225-pair hole histogram or nine minimizers. Published qualitative one-column local optimality, quantitative nine-hole one-column minimum, aggregate support multiplicities and separate insertion-after-deletion exclusion do not logically determine the simultaneous raw pair-deletion counts. Semantic discovery primarily found the assessed record itself, not an independent earlier equivalent. This does not prove absolute historical priority; unread v2 revision and latent experimental data remain specific risks.
+
+## value
+
+PASS
+
+The studied object is the explicit currently improved 50-column length seed used to construct infinite radius-two code families, and column shortening/repair is a natural central operation when seeking smaller redundancy-ten covering codes. The exact second-deletion defect u2=27, classification of all nine best deleted pairs and complete distribution over 1225 choices are a natural, finite, previously unreported stability invariant of this code, beyond merely proving local one-column minimality. Precise per-pair deficits can serve as checks and prioritization data for future column-replacement and code-exchange investigations. The result is self-contained and exhaustive, and its value does not depend on proving a new global code-length bound. It would be misdescribed as a general lower bound or as showing a 48/49-column cover is impossible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

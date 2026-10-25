@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:03:08.369185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual RESULT.md, SLOGAN.txt and both checked artifact files from the frozen assigned Git tree. Independent Python reconstruction parsed the 50 decimal columns as nonzero distinct 10-bit vectors and enumerated all 1024 syndromes, all 50 one-column deletions and all binomial(50,2)=1225 distinct pair deletions without sampling. For each pair, two mathematically equivalent but operationally different finite tests agreed: (i) 1024 minus the cardinality of the shortened 0/one/two-XOR sumset, and (ii) count of syndromes all of whose original representation-support bitmasks intersect that deleted pair. The 1276 supports include 0, 50 singles and 1225 unordered doubles, and every syndrome has at least one. Exact histogram (27:9,31:6,40:12,45:29,47:94,49:3,53:6,54:48,56:69,59:46,61:71,62:6,65:6,73:608,74:87,76:35,78:11,79:78,92:1) sums to 1225; minimum 27 has exactly nine minimizers as claimed; source coverage 1024/1024 and independent one-deletion min9 at 381/479/927 match primary literature. Both original and independently reconstructed full Git tree hashes agree with assigned b5af...; this is exhaustive finite evidence, not a claim about all other 48/49-column codes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Davydov–Marcugini–Pambianco–Wu, Further results on binary codes of covering radius 2 and saturating sets in projective spaces (arXiv:2609.16078v1), Theorem 5.2 proves the same seed is locally optimal and admits a ten-block partition; its definition of local optimality is one-column deletion, not the quantitative two-column profile.",
+          "wustep/maths, problems/covering/compute/q14/CLAIM.md and README.md (2026-09-23), exhaustive 2-delete/1-add and 3-delete/2-add neighborhoods exclude radius-2 49-column replacements in the specified neighborhoods; the first reports minimum nine holes after insertion, not the complete raw two-delete histogram."
+        ],
+        "reasoning": "The surrounding source proves radius-two coverage, one-column local optimality, and stronger restricted 49-column exchange-search exclusion. None of those stated conclusions yields the exact missing-syndrome counts of every 48-column two-deletion seed; even knowing that no single-column addition repairs a 48-set does not fix whether its raw deficit is 27, 73, or another value. The audited result neither supersedes these broader global questions nor infers a global length-function bound.",
+        "searches": [
+          "Resultary semantic: 50 column 10 by 50 minimal 1-saturating set PG 9 2 shortening two deletion robustness defect distribution",
+          "Resultary semantic: two column puncturing parity check radius two uncovered syndromes Wu Davydov Marcugini Pambianco",
+          "arXiv:2609.16078v1 Theorem 5.2 and new-family constructions",
+          "GitHub source search: wustep/maths, two-delete, q14, covering local switch"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.27494v1 (full primary HTML)",
+        "arXiv:2609.16078v1 (full primary HTML)",
+        "arXiv:2609.16078v2 (abstract only; full text inaccessible by attempted route)",
+        "https://ideosphere.ai/papers/covsat-partition-v1.pdf (full primary manuscript)",
+        "https://github.com/wustep/maths/blob/main/problems/covering/compute/q14/CLAIM.md (entire source)",
+        "https://github.com/wustep/maths/blob/main/problems/covering/compute/q14/README.md (entire source)",
+        "Resultary semantic queries q1–q4, assessed record excluded from independent-prior inference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu, Covering 1024 syndromes with 50 columns (arXiv:2608.27494v1): existence of the 50-column radius-two seed and min single-deletion defect nine, not the pair-deletion profile.",
+          "Davydov–Marcugini–Pambianco–Wu, Further results on binary codes of covering radius 2 and saturating sets in projective spaces (arXiv:2609.16078v1): qualitative local optimality, no numerical second deletion.",
+          "wustep/maths, problems/covering/compute/q14/CLAIM.md and README.md (2026-09-23): minimum nine holes after two deletions followed by one replacement; that is a different statistic on 49-element sets and not equal to raw pair-deletion deficit.",
+          "Independent exact representation incidence calculation reconstructs the per-pair defect distribution using the overlap pattern of all 1276 supports."
+        ],
+        "reasoning": "One-deletion minima and aggregate support multiplicities cannot determine correlations of representation supports with a deletion pair. Nor does exhaustive failure to repair by adding one column logically give the exact 19-count histogram of holes before addition. The submitted claim requires additional complete pairwise support-incidence information. No dominating theorem establishing this information was found in the specific full texts inspected.",
+        "searches": [
+          "arXiv:2608.27494v1 §2.2 and Table 1",
+          "arXiv:2609.16078v1 Theorem 5.2",
+          "Exact (2,0)-partition numbers for two binary covering codes of covering radius two (2026-09-07 public manuscript) Proposition 3.1 and Theorems 4.1–4.2",
+          "GitHub source search: wustep/maths, two-delete, q14, covering local switch",
+          "Resultary semantic: binary covering radius 2 50 columns 1024 syndromes double column deletion 27 uncovered 329 381 927"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davydov–Marcugini–Pambianco–Wu, Further results on binary codes of covering radius 2 and saturating sets in projective spaces (arXiv:2609.16078v1), Definitions 1.1–1.2: parity-check syndrome covering by at most two columns is equivalent to binary radius-2 code and minimal 1-saturation; local optimality tests one-column removal.",
+          "Wu, Covering 1024 syndromes with 50 columns (arXiv:2608.27494v1), main theorem and exact printed fifty-column matrix.",
+          "Independent computation: each deleted-pair defect is the loss of points from the corresponding radius-two syndrome cover."
+        ],
+        "reasoning": "The same assertion can be stated as the 48-point punctured radius-two syndrome cover, a two-point deletion of a minimal 1-saturating set in PG(9,2), or the holes of a fixed parity-check code after removing two coordinates. These reformulations are exact for the printed binary matrix; earlier definitions and qualitative local optimality do not determine the 19-value defect distribution or its nine minimizers.",
+        "searches": [
+          "Resultary semantic: binary covering radius 2 50 columns 1024 syndromes double column deletion 27 uncovered 329 381 927",
+          "Resultary semantic: 50 column 10 by 50 minimal 1-saturating set PG 9 2 shortening two deletion robustness defect distribution",
+          "arXiv:2609.16078v1 Definitions 1.1–1.4, Theorem 5.2",
+          "Web: binary 50-column covering code two-column shortening double deletion 27 uncovered 381 479 927; arXiv:2609.16078 v1/v2; exact partition-number manuscript"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact (2,0)-partition numbers for two binary covering codes of covering radius two (2026-09-07 public manuscript), Proposition 3.1 prints all 50 columns, representation multiplicities, and exact one-column defect minimum nine at 381, 479, 927, but no two-column 1225-pair defect histogram.",
+          "Exact (2,0)-partition numbers for two binary covering codes of covering radius two (2026-09-07 public manuscript), Proposition 7.1(6): 821 forced representation edges and 404 nonforced edges among 1225 column pairs; this table measures unique covering representations, not the two-deletion deficit.",
+          "Resultary returned the audited source itself as the best direct match, and other retrieved findings concerned different coding objects; the source itself cannot constitute an independent prior disclosure."
+        ],
+        "reasoning": "The exact 1225-column-pair count in the public forced-edge table concerns incidence multiplicity-one supports, not missing syndromes on simultaneous removal; numerical coincidence in pair counts is not coverage of the theorem. The new 19-bin table and nine optimum deletions are not contained in the inspected primary tables. Search nonmatches are supporting risk-limited evidence, not a proof of absolute priority.",
+        "searches": [
+          "Resultary semantic: binary covering radius 2 50 columns 1024 syndromes double column deletion 27 uncovered 329 381 927",
+          "Resultary semantic: covering code 50 40 2 exact 2 partition numbers binary code 381 479 927",
+          "Public manuscript Proposition 3.1; Sections 4 and 7",
+          "Web: binary 50-column covering code two-column shortening double deletion 27 uncovered 381 479 927; arXiv:2609.16078 v1/v2; exact partition-number manuscript",
+          "GitHub source search: wustep/maths, two-delete, q14, covering local switch"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison of the same exact seed against full original radius-two paper, full v1 later code-family paper, all relevant sections of the 11-page same-seed exact partition manuscript and the original author’s exhaustive local exchange-search notebook found no statement establishing the raw 1225-pair hole histogram or nine minimizers. Published qualitative one-column local optimality, quantitative nine-hole one-column minimum, aggregate support multiplicities and separate insertion-after-deletion exclusion do not logically determine the simultaneous raw pair-deletion counts. Semantic discovery primarily found the assessed record itself, not an independent earlier equivalent. This does not prove absolute historical priority; unread v2 revision and latent experimental data remain specific risks.",
+      "residual_risks": [
+        "The 2026-10-14 v2 revision of arXiv:2609.16078 has a longer full text not obtained through the attempted route; its abstract cannot exclude all appendix-level two-deletion data.",
+        "The original author’s experimental notebooks or pre-existing unindexed calculations may already include all-pair defects without a written theorem or discoverable table.",
+        "The audited finite profile is tied to one distinguished 50-set; statement-level originality is assessed for this precise pair-deletion quantity, not for the general idea of deletion robustness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the 50-column seed, radius-two full-syndrome coverage and sharp one-column defect minimum nine. No two-column 1225-pair histogram or its nine minimizers was found in the inspected full text.",
+          "evidence": "Matrix in the main text, §2.2 says least damaging removal of a single column leaves nine uncovered syndromes.",
+          "identifier_or_url": "arXiv:2608.27494v1 (https://arxiv.org/abs/2608.27494)",
+          "material_read": "Full primary arXiv HTML text including displayed matrix, §2.2 single-deletion statement, main theorem, construction, numerical coverage tables and scope.",
+          "method": "Open-access HTML full-text reading and direct statement/parameter comparison.",
+          "title": "Covering 1024 syndromes with 50 columns",
+          "trigger": "Original primary source of the precise 50-column seed and published deletion statement."
+        },
+        {
+          "assessment": "Explicitly defines local optimality as loss of radius-two coverage after each single-column deletion. Provides new code families; does not state or imply the complete 1225 two-deletion deficits. Version 2 from Oct 14 was checked at abstract level only; possible new appendix is retained as a residual priority risk.",
+          "evidence": "Theorem 5.2 (v1) prints the same matrix and claims a ten-block (2,0)-partition and locally optimal covering radius, whereas the audited quantity u(D) requires simultaneous two-column removal.",
+          "identifier_or_url": "arXiv:2609.16078v1 (https://arxiv.org/abs/2609.16078v1)",
+          "material_read": "Full first-version primary arXiv HTML; Definitions 1.1–1.4, constructions, Theorem 5.2 with same 50-column decimal matrix, local-optimality proof and surrounding discussion; searched shortening/deletion terms.",
+          "method": "Open-access HTML full text including focused theorem comparison.",
+          "title": "Further results on binary codes of covering radius 2 and saturating sets in projective spaces",
+          "trigger": "Same exact code in primary paper; plausible stronger minimality and 1-saturation results."
+        },
+        {
+          "assessment": "Contains fixed-matrix support multiplicities, single-deletion nine-hole minimum, the 821/404 forced/nonforced edge split and partition theorems; these do not supply two-column hole histogram.",
+          "evidence": "Proposition 3.1(4) states single-column min nine; Proposition 7.1(6) counts forced representation edges, a different pair statistic.",
+          "identifier_or_url": "https://ideosphere.ai/papers/covsat-partition-v1.pdf (2026-09-07)",
+          "material_read": "Full 11-page text sections 1–8, especially Definition 2.4, Proposition 3.1, partition Theorems 4.1/4.2, Proposition 7.1 and verification/controls; PDF page images 1, 4, and 9 visually inspected.",
+          "method": "Open-access PDF text with page-image checks for definitions, numbers, and conclusion.",
+          "title": "Exact (2,0)-partition numbers for two binary covering codes of covering radius two",
+          "trigger": "Primary manuscript giving exact combinatorial tables for the identical 50 columns and their representation structure."
+        },
+        {
+          "assessment": "Exhaustively excludes radius-two 49-column candidates in two local exchange neighborhoods, reporting minimum nine uncovered after a two-delete/one-add step and no complete 3-delete/2-add repair. Does not list the 19 raw two-delete deficits or nine minimizing deleted pairs.",
+          "evidence": "q14/README.md: 1,194,375 two-delete/one-add candidates, 19,600 deleted triples, all 49-column replacements fail; q14/CLAIM.md explicitly restricts claims to neighborhoods.",
+          "identifier_or_url": "https://github.com/wustep/maths/blob/main/problems/covering/compute/q14/CLAIM.md ; https://github.com/wustep/maths/blob/main/problems/covering/compute/q14/README.md",
+          "material_read": "Entire CLAIM.md and README.md source at accessible repository snapshot; compared their exact neighborhood quantifiers and counting conclusions.",
+          "method": "Connected GitHub full text read; cross-checked with problem summary and search results.",
+          "title": "Exact local exclusion; no new covering bound / q14: exact two-delete/one-add neighborhood",
+          "trigger": "Original author’s later exhaustive search specifically around two-column deletions and replacements of the same seed."
+        },
+        {
+          "assessment": "Revised abstract extends the scope to radius-three families but provides no two-deletion table. Abstract alone cannot exclude a hidden theorem or appendix in v2; retained as a residual risk.",
+          "evidence": "2026-10-14 v2 abstract describes new upper bounds, constructions, and partitions; versioned HTML fetch was unavailable.",
+          "identifier_or_url": "arXiv:2609.16078v2, updated 2026-10-14",
+          "material_read": "ArXiv version 2 metadata and complete abstract (33-page revision); full v2 text could not be fetched through tested open-access HTML route. Full prior version v1 was read separately.",
+          "method": "Public arXiv metadata and versioned full-text attempt, with no authentication bypass.",
+          "title": "Further results on binary linear covering codes and saturating sets in projective spaces",
+          "trigger": "Later revision of a highly relevant primary source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The studied object is the explicit currently improved 50-column length seed used to construct infinite radius-two code families, and column shortening/repair is a natural central operation when seeking smaller redundancy-ten covering codes. The exact second-deletion defect u2=27, classification of all nine best deleted pairs and complete distribution over 1225 choices are a natural, finite, previously unreported stability invariant of this code, beyond merely proving local one-column minimality. Precise per-pair deficits can serve as checks and prioritization data for future column-replacement and code-exchange investigations. The result is self-contained and exhaustive, and its value does not depend on proving a new global code-length bound. It would be misdescribed as a general lower bound or as showing a 48/49-column cover is impossible.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive profile only for the specified printed 10x50 matrix; unrelated 48- or 49-column binary radius-two covering matrices are not ruled out.",
+    "The completed scientific audit does not certify novelty against all possible unpublished data or unavailable later revision full text.",
+    "The two code paths implement equivalent math but do not substitute for an external formal proof assistant or third-party independent attestation."
+  ],
+  "schema_version": 1
+}
