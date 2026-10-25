@@ -1,13 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces every invariant numerical class to a Hermitian integral matrix, computes normalized fixed-fiber characters on all \(81\) stabilizer points, and checks that invariant degree-zero twists change only affine terms. This proves the necessary and sufficient congruence condition, not merely one sufficient construction. Ten independent mod-\(3\) symmetric coordinates give the exact index \(3^{10}\). Abelian variety positivity, finite pullback and rank-one matrices give the cone and its extremal rays. The numerical computation is consistent with Ajit's already-known divisor volume \(72\). The included finite-field checker verifies the critical rank and isotropic image calculations.
+## correctness
 
-**Originality — PASS (subject to stated risk).** Ajit's inspected full preprint constructs the scalar quotient and one descending ample bundle, but does not determine the complete numerical Cartier lattice, its index, the full nef cone, or Mori-dream status. The standard Rosati, descent and cone results are cited as prior knowledge. Targeted searches of published mathematical records and scholarly web resources found no specific implication covering the exact matrix congruence for this quotient. Database matching by implicit isomorphism and unindexed general quotient results remain material risks; failed search alone is not claimed as a proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The precise integral descent obstruction for all polarization directions clarifies how the example's unusual ample Cartier class sits among every numerical divisor. The sharp index \(59049\), congruence condition, nonpolyhedral nef cone and consequent failure of the Mori-dream property are motivated structural invariants of a newly central fourfold; they are not arbitrary numerical variations.
+For the specified diagonal order-three action on A=E^4 over C, the product polarization identifies NS(A) with rank-16 Herm_4(Z[zeta]). Fixed-point characters for rank-one generators have quadratic part t^T Hbar t on A[1-zeta]=F3^4. Equivariant degree-zero twists add only affine-linear characters, which cannot cancel a nonzero quadratic residue in odd characteristic. Therefore the Cartier pullback image is precisely the kernel of Herm_4(R)->Sym_4(F3), index 3^10; finite-surjective pullback identifies nef/pseudo-effective cones with PSD matrices, and D_H^4=8 det(H). Primitive rank-one rays vv* are extremal, rational and infinitely numerous and have exact Cartier multiplier three. Independently checked quadratic evaluation rank 10, affine rank 5 and disjointness on all 81 fixed points. The rank calculation checks the explicit finite linear algebra; descent and cone statements follow the supplied proof and cited finite-descent theorem, not numerical experiments.
 
-**Closest literature.** Ajit, arXiv:2610.09270v1, Sections 3–4, supplies the quotient, fixed-point fiber characters and the descent criterion. General Rosati/Hermitian descriptions of \(\operatorname{NS}(E^4)\) and rational polyhedrality for Mori dream spaces are established tools. The closest retrieved public record concerning nef divisors treated unrelated surfaces rather than the named quotient.
+## originality
 
-**Scientific limitations.** Characteristic zero only; numerical Cartier divisors only. A general theorem on Picard descent of CM abelian quotients could subsume this result, so external independent originality validation remains advisable. No claim is made about the author's non-vanishing counterexample being new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.
+
+## value
+
+PASS
+
+Determining the entire Cartier numerical descent lattice, its sharp index and Cartier multiples for a specified non-vanishing counterexample is a natural intrinsic classification, beyond checking the special ample divisor. Its nef cone and infinitely many rational extremal rays give a concrete sharp Mori-dream obstruction; a geometric researcher studying the quotient could reuse these exact class and cone data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

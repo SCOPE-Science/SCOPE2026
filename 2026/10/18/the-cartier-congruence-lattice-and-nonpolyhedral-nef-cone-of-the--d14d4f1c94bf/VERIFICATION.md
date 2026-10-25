@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The script exhausts the 81 fixed points and confirms that the ten quadratic functions \(t_i^2\) and \(2t_it_j\) span a 10-dimensional subspace, disjoint from the five-dimensional affine functions. It verifies the starting isogeny's reduced Gram matrix is zero and its image is a nine-point totally isotropic plane. Its final output must contain `VERIFY_OK`.
+## correctness
 
-The computation tests only the finite-character algebra. The complete characteristic-zero statement additionally uses established abelian variety Rosati theory, the finite quotient line-bundle descent lemma, semipositivity of Hermitian forms, finite pullback numerical functoriality, and the Mori dream nef-polyhedrality implication. All these steps are explicitly argued in `RESULT.md`; no machine proof, external expert certification, or independent audit is claimed.
+PASS
+
+For the specified diagonal order-three action on A=E^4 over C, the product polarization identifies NS(A) with rank-16 Herm_4(Z[zeta]). Fixed-point characters for rank-one generators have quadratic part t^T Hbar t on A[1-zeta]=F3^4. Equivariant degree-zero twists add only affine-linear characters, which cannot cancel a nonzero quadratic residue in odd characteristic. Therefore the Cartier pullback image is precisely the kernel of Herm_4(R)->Sym_4(F3), index 3^10; finite-surjective pullback identifies nef/pseudo-effective cones with PSD matrices, and D_H^4=8 det(H). Primitive rank-one rays vv* are extremal, rational and infinitely numerous and have exact Cartier multiplier three. Independently checked quadratic evaluation rank 10, affine rank 5 and disjointness on all 81 fixed points. The rank calculation checks the explicit finite linear algebra; descent and cone statements follow the supplied proof and cited finite-descent theorem, not numerical experiments.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.
+
+## value
+
+PASS
+
+Determining the entire Cartier numerical descent lattice, its sharp index and Cartier multiples for a specified non-vanishing counterexample is a natural intrinsic classification, beyond checking the special ample divisor. Its nef cone and infinitely many rational extremal rays give a concrete sharp Mori-dream obstruction; a geometric researcher studying the quotient could reuse these exact class and cone data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
