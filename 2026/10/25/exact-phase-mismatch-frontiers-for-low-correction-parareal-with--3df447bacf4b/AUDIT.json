@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For commuting unitaries, joint unitary diagonalization reduces the terminal operator norm to |Σ_{j=0}^k binom(N,j)(z−1)^j| at each unit-circle relative eigenvalue z. Exact free-N Chebyshev algebra yields four signed factorization identities in u=1−Re(z). Positivity of each N-prefactor and Δ²=2max(u) gives necessary and sufficient phase frontiers and realization in dimension one. The symbolic program verifies each free-N polynomial equality; 1020 checks also cover independent recurrence and commuting-matrix cases. No finite sample is used to infer the all-N statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Staff–Rønquist presents the general binomial polynomial but not solved unitary-circle parameter inequalities.",
+        "Buvoli–Minion tests broad non-diffusive method classes numerically and graphically, not an exact dominating cutoff covering all unitary pairs."
+      ],
+      "reasoning": "Containing algorithms and general a-priori stability bounds are not automatically dominating: their stated results neither characterize these specific parameter thresholds nor imply their sharpness without new sign analysis.",
+      "searches": [
+        "web: \"Parareal\" \"correction\" \"phase difference\" \"stability region\" exact",
+        "arxiv:2301.03764 stability matrices and complex nondiffusive regions",
+        "doi:10.1007/3-540-26825-1_46 complex-mode stability Section 3"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/3-540-26825-1_46",
+      "arxiv:1701.01359v1",
+      "arxiv:2301.03764v1",
+      "doi:10.1137/23M1547123",
+      "arxiv:1704.06882"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier binomial formula is indeed sufficiently general to reproduce p_{N,k}; this paper does not claim that formula.",
+        "The new formulae factor |p|²−1 for k=1,...,4 and compare phase thresholds exactly; past work cites numerical stability regions or sufficient norm bounds, not those equalities and iff assertions."
+      ],
+      "reasoning": "Generic exact recurrence + plots or sufficient bounds do not state the sharp k=3/k=4 inequalities or the first-restoration ordering. All those quantities remain mathematically deducible from the known polynomial; publication-priority risk is explicitly retained.",
+      "searches": [
+        "doi:10.1007/3-540-26825-1_46 Parareal polynomial and complex plots",
+        "arxiv:1701.01359 unitary wave stability",
+        "arxiv:1704.06882 theorem 2.2 and definition 2.5",
+        "doi:10.1137/23M1547123 averaging stability bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ariel–Nguyen–Tsai measures successive-iteration error via a norm upper bound; terminal one-block amplification at fixed k is different.",
+        "The phase-variable equivalent form is |p_{N,k}(exp(iθ))|≤1 for all eigenmodes and is solved here by exact factorizations."
+      ],
+      "reasoning": "Searched phase-error, unit-circle, weighted-coarse and error-amplification formulations. Prior general bounds do not supply the same necessary-and-sufficient fixed-k terminal norm region.",
+      "searches": [
+        "published mathematical-record query: Parareal unit modulus scalar propagators exact stability region for k iterations 3 4 phase mismatch amplification threshold",
+        "web: \"Parareal\" \"four iterations\" \"unit circle\" stability",
+        "arxiv:1704.06882 Theorem 2.2 / Definition 2.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching indexed exact cutoff/table in the returned ranked records; nearest identified records concern periodic recurrences or unrelated RK stability resonances."
+      ],
+      "reasoning": "Checked all four exact phase-window formulae and plausible alias expressions; absence of a database hit is weak evidence and is not treated as a uniqueness proof.",
+      "searches": [
+        "published mathematical-record query: Parareal exact phase error stability K=3 K=4 unitary fine coarse operators truncated binomial sharp arccos(1-3/(2(N-1)(N-2)))",
+        "published mathematical-record query: Parareal phase error resonance stability K=3 K=4 N slices analytical boundaries",
+        "web: \"Parareal\" \"N-1\" \"N-2\" \"phase\" stability"
+      ]
+    },
+    "rationale": "The old binomial Parareal polynomial and qualitative phase instability are explicitly credited. The independently derived Chebyshev sign factorizations and solved all-phase k=1–4 unitary-circle norm inequalities yield the first exact correction-index restoration at k=3 and sharp k=4 enlargement. Primary full-text comparisons show related bounds or plots, not this statement. Priority remains qualified by possibility of an unlocated specialized identity.",
+    "residual_risks": [
+      "A specialized scalar Parareal paper may already explicitly factor the low-k unitary-circle polynomials; search results cannot exclude that.",
+      "The exact frontiers are algebraic consequences of a published generic Parareal binomial polynomial; their standalone originality rests on the nontrivial solved inequalities and phase-window classification, not the source polynomial.",
+      "A generalized weighted-Parareal phase-stability theorem not retrieved might imply these special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The binomial endpoint polynomial is already established and is not claimed as original; complex parameter stability is studied graphically, not by the solved k=1,...,4 unitary-circle factorization or both exact phase thresholds.",
+        "evidence": "Staff–Rønquist (2005), Section 3, DOI:10.1007/3-540-26825-1_46; the generic sum over j is common prior work.",
+        "identifier_or_url": "https://ddm.org/DD15/pdf/127.pdf",
+        "material_read": "Open PDF pages 452–455, Sections 3.2–3.4, including complex-mode stability figures and displayed polynomial.",
+        "method": "Full-text reading of relevant derivation and complex-stability discussion, with page images.",
+        "title": "Stability of the Parareal Algorithm",
+        "trigger": "Foundational source for exact standard Parareal completed-block formula and possible dominating complex-mode stability classification."
+      },
+      {
+        "assessment": "Qualitative phase-error instability and matrix characterization are prior art; no exact sharp nonexpansivity frontiers for k=3 and k=4 are supplied.",
+        "evidence": "Ruprecht, arXiv:1701.01359v1, 2017-01-05; mode-dependent phase errors treated explicitly.",
+        "identifier_or_url": "https://arxiv.org/abs/1701.01359",
+        "material_read": "Full-text arXiv preprint, especially Sections 2.2 and 4.3 and accompanying propagator/dispersion analysis.",
+        "method": "Read original preprint including exact Parareal propagation and numerical wave-stability results.",
+        "title": "Wave propagation characteristics of Parareal",
+        "trigger": "Same oscillatory propagators and phase-mismatch instability motivation."
+      },
+      {
+        "assessment": "Method-level stability-region analysis does not give the exact k=3,k=4 universal norm mismatch thresholds for commuting unitaries.",
+        "evidence": "Buvoli–Minion, arXiv:2301.03764v1, 2023-01-10.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.03764",
+        "material_read": "Original arXiv preprint sections 2.1 and 5.2–5.4, including stability matrices and parameter regions.",
+        "method": "Read primary full-text definition and numerical stability-region comparisons.",
+        "title": "Exponential Runge-Kutta Parareal for Non-Diffusive Equations",
+        "trigger": "Potentially stronger prior coverage of non-diffusive (unimodular) linear Parareal stability regions."
+      },
+      {
+        "assessment": "Investigates multilevel averaging and general error bounds, not standard fixed-correction commuting-unitary endpoint contractivity.",
+        "evidence": "Rosemeier–Haut–Wingate (2024), DOI:10.1137/23M1547123.",
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/23M1547123",
+        "material_read": "Open full-text main body Sections 2.2–2.3 and stability/error results, including defined iteration.",
+        "method": "Read primary published HTML mathematical definitions and relevant stated estimates.",
+        "title": "Multilevel Parareal Algorithm with Averaging for Oscillatory Problems",
+        "trigger": "Averaging/multilevel wave integrators could imply a broader norm cutoff."
+      },
+      {
+        "assessment": "Introduces weighted scheme, bounds successive-iteration errors and maps weight-dependent stability numerically. Its sufficient bound is not the exact unweighted completed-block stability classification at k=1–4.",
+        "evidence": "Ariel–Nguyen–Tsai, arXiv:1704.06882, Theorem 2.2, Definition 2.5, and oscillatory example.",
+        "identifier_or_url": "https://arxiv.org/pdf/1704.06882",
+        "material_read": "Original full-text Sections 2.1, Theorems 2.1–2.3, Definition 2.5, oscillatory example, and PDF page 6 screenshot.",
+        "method": "Read primary paper formulae, check distinction between its iteration-error criterion and the terminal map norm criterion.",
+        "title": "θ-parareal schemes",
+        "trigger": "Directly addresses near-unitary oscillatory Parareal stability; strongest adjacent source discovered by last-targeted search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3df447ba-cf4b-46bf-aecc-888fd09ab4f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Phase mismatch is a recognized barrier in nondiffusive time-parallel integration. The exact k=1/2 obstruction, k=3 first nontrivial energy-safe regime and k=4 enlarged regime distinguish correction counts by a sharp, realizable spectral design tolerance that scales like N^{-1} in phase. The five-window counterexample exhibits initial expansive sweeps followed by true terminal-block contraction, separating operational one-block stability from a priori iteration-error bounds. This supplies a physically motivated sharp stability design criterion, not an arbitrary polynomial table.",
+    "status": "PASS"
+  }
+}
