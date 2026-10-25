@@ -1,0 +1,11 @@
+# Scientific review: Fano flag-graph radius-two Rips complex
+
+**Correctness — PASS.** The graph-square metric is specified through a provable Fano cross-incidence equivalence. All 511 nonempty simplices are enumerated, and all 231 codimension-one pairs are present in a standalone certificate. The full directed Hasse graph is proven acyclic by exhaustive topological sorting; exactly one zero-dimensional and 48 two-dimensional critical simplices remain, yielding an integral wedge of two-spheres. Separately, exact binary boundary ranks agree. A second finite enumeration produces all 336 incidence automorphisms and checks the complete signed Lefschetz character.
+
+**Originality — PASS, subject to residual bibliographic risk.** The closest primary text is Adamaszek's graph-power paper, whose radius-two stable-range result requires girth at least seven; the line graph here has triangles. Its total-graph theorem concerns a different graph square. Goyal–Shukla–Singh's full text studies the radius-one clique complex of a line graph, which is eight circles in the present example, not the 48 two-spheres at radius two. The Larrión–Pizaña–Villarroel-Flores fundamental-group comparison is not a computation of this higher homotopy or its symmetry character. Targeted indexed-record and primary-literature queries for Fano flags, the squared Heawood line graph, and equivalent strong-edge-distance terminology found no covering claim. This does not exclude unindexed results.
+
+**Value — PASS.** The 21 flags of the smallest projective plane form a canonical symmetric graph on which the first nontrivial metric enlargement replaces eight degree-one generators by 48 degree-two spheres. Beyond Betti numbers, the complete 336-element character detects a one-dimensional invariant for the 168-element color-preserving subgroup that reverses under point–line duality. This supplies a meaningful exact example at a natural boundary outside high-girth stability, rather than an arbitrary graph slice.
+
+**Limitations.** Only the order-two plane and graph-distance threshold two are classified. The character is rational and does not determine the integral module decomposition. Unindexed equivalent literature cannot be ruled out, and no external scientific audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
