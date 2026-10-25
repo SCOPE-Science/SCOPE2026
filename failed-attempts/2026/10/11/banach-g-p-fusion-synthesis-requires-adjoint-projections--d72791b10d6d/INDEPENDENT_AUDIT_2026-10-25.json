@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T16:40:03.577577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned RESULT.md assumes 1<p<∞, bounded projections P_i:X→X with range V_i, bounded Λ_i:X→X_i and weights v_i>0. Each A_i=v_i Λ_iP_i:X→X_i is bounded, so A_i^*=v_iP_i^*Λ_i^*:X_i^*→X^*; the printed P_iΛ_i^* is generically ill-typed. For any finite support g, <(v_iΛ_iP_i f)_i,g>=<f,Σ_i v_iP_i^*Λ_i^*g_i>. If the family is Bessel, U:X→ℓ^p(X_i) is bounded. Since (ℓ^p(X_i))^*=ℓ^q(X_i^*) for 1<p<∞, T_c=U^*; coordinate truncations give unconditional convergence for every g and ||T_c||=||U||=the optimal upper Bessel bound. Conversely, if the series defines a bounded T_c:ℓ^q→X^*, its finite-support restrictions imply every finite truncated ℓ^p norm of (v_iΛ_iP_i f)_i is ≤||T_c||||f||, so the infinite ℓ^p norm exists with the same bound; this fills a routine implicit summability step in RESULT.md. Once Bessel, U is bounded below iff U^*=T_c is onto by Hahn–Banach/closed-range. An exact independent matrix computation confirms P=[[1,1],[0,0]] is a nonorthogonal projection, Λ=[1,0], U=ΛP=[1,1], PΛ^*(1)=(1,0) but P^*Λ^*(1)=(1,1). No finite check is used for the infinite-series theorem. Limits: 1<p<∞, bounded P_i, no automatic extension to endpoint p or unbounded algebraic projections; neither 2022 downstream perturbation theorem nor arbitrary Banach adjoint identifications are implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MFAT (2007), formula (3.3) and Proposition 3.8 prove Bessel iff the synthesis sum of arbitrary bounded coefficient maps is well defined and bounded.",
+          "MFAT (2007), Lemma 3.11(i) proves U^*=T, Theorem 3.12 proves frame iff T is bounded and onto; Proposition 3.15 identifies corresponding optimal upper bounds in the Riesz setting.",
+          "For A_i=v_i Lambda_i P_{V_i}, its Banach adjoint is v_i P_{V_i}^* Lambda_i^*. The synthesis operator and frame equivalence in the submitted RESULT.md are exactly the same instance."
+        ],
+        "reasoning": "The 2007 theorem has strictly broader input classes: every bounded map A_i:X->X_i, not just maps factorized through fusion projections. With the precise substitution A_i=v_i Lambda_i P_i, every main positive theorem claimed in RESULT.md is a special case. Equality of optimal Bessel constant with ||T|| follows immediately from the 2007 adjoint identity and the universal isometric-adjoint equality ||U^*||=||U||. Differences in terminology and the 2022 theorem numbering are not obstacles to prior mathematical implication.",
+        "searches": [
+          "Full-text primary comparison MFAT 13(3) 2007, Proposition 3.8, Lemma 3.11, Theorem 3.12, Proposition 3.15",
+          "Resultary semantic search: g-p fusion frame Banach synthesis bounded adjoint (P_{V_i}^*) (U^*) surjectivity",
+          "Resultary semantic search: fusion frames Banach projection adjoint synthesis operator counterexample 2022",
+          "Web search: \"PG-FRAMES IN BANACH SPACES\" pdf 2007 MFAT"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Samanta GANITA 72(2) (2022), official journal PDF, relevant full proofs",
+        "Abdollahpour–Faroughi–Rahimi MFAT 13(3) (2007), official PDF, Proposition 3.8/Lemma 3.11/Theorem 3.12",
+        "Resultary searches q1/q2/q3 of this audit; identical indexed record excluded as independent evidence",
+        "Other retrieved published operator transport and Banach fusion-frame results were screened at abstract/record level only and were not used for whole-document coverage assertions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A_i=v_i Lambda_i P_{V_i} maps X continuously into X_i; its adjoint composition is A_i^*=v_i P_{V_i}^* Lambda_i^*.",
+          "The 2007 theorem is valid for all such A_i and gives complete Bessel/adjoint/surjectivity conclusions; 2022 Theorem 2.4 prints P_{V_i} rather than P_{V_i}^* after the factors are reversed.",
+          "Exact independent witness P=[[1,1],[0,0]], Lambda=[1,0] gives Lambda P=[1,1], (Lambda P)^*=[1,1]^T, but P Lambda^*=[1,0]^T."
+        ],
+        "reasoning": "The claimed repaired family theorem is mathematically implied by a 2007 general Banach pg-frame result, with no extra hypothesis except boundedness already assumed in the submitted claim. The observed later publication error is a useful correction notice, but the added norm identity and onto criterion are textbook adjoint properties of a previously characterized family, not an original theorem. Thus O is FAIL on mathematical implication, not because searches were incomplete.",
+        "searches": [
+          "MFAT (2007), pp. 206–207, proof of Proposition 3.8 and Theorem 3.12",
+          "GANITA (2022), pp. 177–179, proof of Theorem 2.4 and Theorems 2.8–2.9",
+          "Resultary semantic search: Banach generalized p fusion frame adjoint projection synthesis Ghosh Samanta Theorem 3.5 correction",
+          "Web search: Abdollahpour Faroughi Rahimi PG Frames Banach Spaces 2007 Proposition 3.8 Lemma 3.11 pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 journal Theorem 2.4 and Definition 2.5 print sum v_i P_{V_i} Lambda_i^*g_i despite declaring P_{V_i}:X->X and Lambda_i^*:X_i^*->X^*; journal PDF physical pp. 177–179.",
+          "The 2007 paper defines T(g)=sum_i g_i A_i for arbitrary bounded A_i:X->Y_i and proves U^*=T and boundedness/surjectivity criteria, MFAT pp. 206–207.",
+          "Resultary exact hit 2026/10/11/SCOPE-banach-g-p-fusion-synthesis-requires-adjoint-projections--d72791b10d6d is the assigned finding itself, excluded as independent priority evidence."
+        ],
+        "reasoning": "The 2022 published formula is ill-typed and the repaired adjoint expression is a correct diagnosis of that paper; however the corrected positive operator theorem is not independent new mathematics. Set A_i=v_i Lambda_i P_{V_i}, which is bounded under the submitted hypotheses. The 2007 general pg-frame results apply literally to this family and force its synthesis to equal sum_i (v_i Lambda_i P_{V_i})^*=sum_i v_i P_{V_i}^* Lambda_i^*. Its norm, Bessel equivalence and surjectivity characterize the same objects, even without using fusion terminology. No independent earlier erratum was located, but failure to find an erratum cannot establish originality of a corollary already implied by earlier published theorems.",
+        "searches": [
+          "Resultary semantic search: Banach generalized p fusion frame adjoint projection synthesis Ghosh Samanta Theorem 3.5 correction",
+          "Resultary semantic search: g-p fusion frame Banach synthesis bounded adjoint (P_{V_i}^*) (U^*) surjectivity",
+          "Web search: Ghosh Samanta Generalized p-fusion frame in separable Banach space 2022 theorem 3.5 synthesis operator erratum",
+          "Ghosh–Samanta, Generalized p-fusion frame in separable Banach space, GANITA 72(2), 2022, pp. 175–179, Definitions 2.1/2.5, Theorems 2.4/2.8/2.9",
+          "Abdollahpour–Faroughi–Rahimi, PG-Frames in Banach Spaces, MFAT 13(3) (2007), Proposition 3.8, Lemma 3.11, Theorem 3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identical Resultary record 2026/10/11/SCOPE-banach-g-p-fusion-synthesis-requires-adjoint-projections--d72791b10d6d was observed and explicitly excluded as independent priority.",
+          "Other nearest Resultary results addressed distinct K-g-fusion adjoint-range, transport and reconstruction questions, not this particular 2022 printed formula.",
+          "This is an abstract operator identity and correction, not a finite enumerative invariant or an object with a database/table lookup."
+        ],
+        "reasoning": "The literal exact-database-or-table test is inapplicable: no finite values or named classification table are claimed. Searches for a separate erratum were negative but this cannot overturn the positive stronger-coverage implication from the official 2007 theorem. An exact matched database entry is a mirror of the assigned output, not an independent source.",
+        "searches": [
+          "Resultary semantic search: Banach generalized p fusion frame adjoint projection synthesis Ghosh Samanta Theorem 3.5 correction",
+          "Resultary semantic search: fusion frames Banach projection adjoint synthesis operator counterexample 2022",
+          "Web search: \"Generalized p-fusion frame in separable Banach space\" \"adjoint\" correction erratum"
+        ]
+      },
+      "rationale": "The paper-specific diagnosis of an ill-typed 2022 synthesis formula is correct and searches did not find a separately indexed erratum; however the entire repaired mathematical theorem is a direct specialization of the strictly broader 2007 Banach pg-frame theory. In 2007 Abdollahpour–Faroughi–Rahimi Proposition 3.8, Lemma 3.11, Theorem 3.12 already prove bounded synthesis iff Bessel, T=U^*, and onto iff frame for an arbitrary family of bounded operators A_i:X→X_i. Taking A_i=v_iΛ_iP_i gives exactly the submitted corrected synthesis formula and all positive conclusions; optimal norm is the general identity ||U^*||=||U||. The difference in fusion terminology, later theorem numbers, and the 2022 printing error does not create a new theorem. Under implication-based coverage, O fails decisively rather than relying on negative searches.",
+      "residual_risks": [
+        "The 2022 arXiv v1 was not read end-to-end during this run; its journal publication was materially read and visibly contains the same relevant incorrect formula under shifted theorem numbers.",
+        "An independently issued erratum could already document the later paper-specific typo; no exhaustive search for nonindexed corrections is possible. This does not alter decisive prior coverage of the substantive repaired theorem.",
+        "One could treat diagnosing the 2022 typographical/typing error as an original scholarly editorial observation; that narrower historical claim does not provide an independent new mathematical operator theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The journal version renumbers the preprint target as Theorem 2.4; the defective unadjointed P_{V_i} Λ_i^* is still printed in the statement and Definition 2.5. Its proof and later U^*=T / frame-onto claims implicitly require P_{V_i}^* instead. Projections are declared linear; submitted boundedness is an explicit necessary extra hypothesis for the Banach adjoints.",
+          "evidence": "GANITA (2022) pp. 175, 177–179: Definition 2.1; Theorem 2.4 and proof; Definition 2.5; Theorems 2.8–2.9. Web PDF references  and screenshots , , , .",
+          "identifier_or_url": "P. Ghosh, T. K. Samanta, GANITA 72(2) (2022), 173–187; https://bharataganitaparisad.com/wp-content/uploads/2023/03/722-15.pdf; arXiv:2202.12266v1",
+          "material_read": "Primary journal full-text sections 1–2, in particular Definition 1.6 (ordinary synthesis), Definition 2.1 (projection domains), Theorem 2.4 and proof, Definition 2.5, Theorems 2.8–2.9 and proofs, printed pp. 175–179 (PDF pages indexed 2,4,5,6).",
+          "method": "Official journal PDF parsed text and visual inspection of PDF pages 2,4,5,6 using page screenshots; separate arXiv PDF attempt returned inaccessible, journal full text used.",
+          "title": "Generalized p-fusion frame in separable Banach space",
+          "trigger": "Exact paper and source of the asserted error; must establish operator domains and compare printed propositions rather than rely on metadata."
+        },
+        {
+          "assessment": "Decisive mathematical prior coverage. Applying the general theorem to A_i=v_i Λ_i P_{V_i} yields T_c, Bessel boundedness equivalence, U^*=T_c, and onto/frame characterization, with optimal norm following from adjoints. The 2007 authors could not identify a 2022 printing error, but the mathematical theorem is stronger.",
+          "evidence": "MFAT (2007), formula (3.3) and Proposition 3.8 at p. 206, Lemma 3.11 and Theorem 3.12 at p. 207, Proposition 3.15 p. 208. Web , , , .",
+          "identifier_or_url": "M. R. Abdollahpour, M. H. Faroughi, A. Rahimi, Methods of Functional Analysis and Topology 13(3) (2007), 201–210; https://mfat.imath.kiev.ua/article/2007/03/ab_fa_ra.pdf",
+          "material_read": "Official 2007 full-text §3, formula (3.3), Proposition 3.8 and full proof, Lemma 3.11(i) and Theorem 3.12 with proofs, plus Proposition 3.15 on optimal upper bounds; printed pp. 205–208 (PDF pages 4–7).",
+          "method": "Official journal PDF full-text inspection plus visual PDF screenshots of pages 5–6; checked scope of arbitrary bounded coefficient operators and its proofs.",
+          "title": "PG-Frames in Banach Spaces",
+          "trigger": "Source directly cited in the 2022 work; possible stronger general theorem covering the entire corrected claim."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The correction has concrete interpretive utility: an actual published central Bessel/synthesis operator is not composable on the stated Banach spaces, and its defect contaminates the printed U^*=T assertion and the onto/frame criterion. The corrected statement gives a uniform, type-correct reading for practitioners and a nonorthogonal projection witness shows that blindly identifying X with X^* does not save the formula. This is more motivated than an arbitrary negative type check because it protects several central results in an existing paper. The value is limited: the corrected theorem is a direct already-known pg-frame specialization and the exact optimal norm is the generic adjoint norm identity; it is not a new structural frame theorem or substantial independent technique. V PASS does not override O FAIL.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen pinned RESULT.md 718cd00ee184d68aaf88c3d19666875796b119b0: all claim/proof sections reconstructed",
+    "Frozen pinned SLOGAN.txt, VERIFICATION.md, REVIEW.md, METADATA.json, AUDIT.json: read all six files from actual assigned commit",
+    "Ghosh and Samanta, GANITA 72(2) (2022), official complete article PDF, Definition 2.1, Theorem 2.4, Definition 2.5, Theorems 2.8–2.9 and proofs, pages 175–179, screenshots",
+    "Abdollahpour, Faroughi, Rahimi, MFAT 13(3) (2007), official PDF, Proposition 3.8, Lemma 3.11, Theorem 3.12 and Proposition 3.15, with PDF page screenshots",
+    "Three actual Resultary semantic searches, identical published record excluded from independent evidence",
+    "Independent exact SymPy shear-projection and operator-adjoint identity computation",
+    "Reconstructed exact Git tree SHA-1 from all six pinned Git blob SHAs"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "C PASS for 1<p<∞, Banach spaces and bounded projections; exact witness recomputed. Converse requires the standard finite-truncation step to establish ℓp membership without presupposing Bessel.",
+    "O FAIL due decisive 2007 Proposition 3.8, Lemma 3.11, Theorem 3.12 coverage via A_i=v_iΛ_iP_i, not because of literature inaccessibility or absence of an erratum.",
+    "V PASS for correcting central published type defect and showing consequence; does not compensate for O FAIL.",
+    "No claim about higher perturbation statements, unbounded projections, p endpoints, formal Lean proof or external expert certification.",
+    "Publication not_ready is solely confidential-content/source-transport issue, separate from scientific rejection."
+  ],
+  "residual_risks": [
+    "The 2022 journal version visibly shares the defective formula while theorem numbering differs from the 2022 arXiv v1 referred to in the frozen result; the latter full manuscript was not re-fetched this run.",
+    "The source theorem printed “non-trivial linear projections” without an explicit boundedness clause, whereas the submitted corrected proof explicitly assumes bounded projections; this restriction is needed for bounded Banach adjoints.",
+    "The ordinary general 2007 synthesis/analysis theorem yields the corrected result; a distinct scholarly correction of a later printed mistake may be useful, but is not new mathematics under implication-based O criteria.",
+    "No standalone public package can be safely moved while the private scope_run_id survives in original JSON metadata."
+  ],
+  "schema_version": 1
+}
