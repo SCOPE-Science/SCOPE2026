@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For nonzero cubic sections of the fixed nonsplit \(\mathbf F_2\)-quadric, the sixteen-dimensional coefficient quotient and all 683 projective orbits exhaust the parameter space. Geometric smoothness is tested by the unit ideal for the Jacobian rank-drop scheme on three covering affine charts, not by checking only rational points. Both conic-plane and tangent-plane contact criteria are equivalent to an exact reduced triple-contact divisor. The source-embedded standard-library checker reproduces all 27,060 smooth equations, the 33 joint spectra, and the bound of three. No claim extends beyond the explicitly finite parameter space.
+PASS
 
-## Originality — PASS, subject to priority risk
+The fixed nonsplit quadric has a 16-dimensional cubic quotient, hence exactly 65535 nonzero cubic sections. Its rational projective automorphism group S5 acts on those sections; exact ideals Q,F and Jacobian rank-drop minors on three affine charts test geometric smoothness, not mere F2 rational points. Conic-plane binary sextic must be square of squarefree cubic (char2 discriminant ad+bc), while tangent-plane conjugate-line criterion a=0,b≠0,c=0 yields proper reduced triple double-contact. Inspected finite-field code and 683-row orbit_certificate.tsv; independent weighted aggregation matches 683 ambient orbits, 254 smooth orbits (27060 sections), tau sections (10300,12810,3600,350), orbit counts (96,120,32,6), all 33 joint strata, 396 five-point smooth curves and six extremal orbit masks. Separately checked geometric smoothness via independent Sympy Groebner on two singular masks and all six extremal smooth masks. This is exact finite classification with a source-embedded complete enumerator; full independent re-enumeration was NOT performed.
 
-The original real-space-sextic tritangent analysis gives contact geometry but does not provide this finite binary nonsplit count. Xarles provides genus-four isomorphism representatives and point counts, not this joint tritangent table in the inspected manuscript and Magma/data repository. Bergström–Faber–Payne consider nonsplit-quadric moduli and point markings without tritangent contact spectra. The different problems of split-quadric tritangents and anticanonical genus-one sections on the nonsplit quadric do not imply these values. Semantic research-record comparisons found no equivalent complete spectrum. The possibility of an earlier unindexed or unpublished enumeration remains; absence in indexed records is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-Proper rational tritangents are canonical contact invariants, and the nonsplit quadric has a fundamentally different arithmetic plane-section geometry from the split quadric. The exact 33-stratum joint distribution by rational curve points and two geometrically distinct classes of planes, together with six projective extremal types and a sharp five-point obstruction, advances a natural finite-geometric classification rather than an arbitrary numerical slice. These data are not supplied by a simple rational-point census or the general theory of theta characteristics.
+Known abstract genus-four model census and finite-field moduli point counts do not state the 33-stratum embedded proper tritangent spectrum, although equations could enable computation. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
 
-## Limits
+## value
 
-There is no claim of an independent audit, an abstract-curve classification, or extension to larger fields. Complete computational reproducibility does not establish unindexed-literature novelty. The underlying general genus-four census is prior work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Proper tritangents of canonical genus-four curves are natural theta-contact objects. Splitting the rational planes into conic and quadric-tangent types on a nonsplit binary quadric and listing all 33 strata, six extremal S5 orbits and the full-five-rational-point obstruction provides a motivated complete finite classification not merely an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

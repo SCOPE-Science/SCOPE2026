@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and the five accompanying program/data files in the same directory. All operations are exact GF(2) or GF(4) arithmetic. The standalone run reconstructs all 683 projective orbits, computes exact algebraic smoothness, and directly tests both classes of rational tritangents on all 27,060 smooth coefficient vectors. It compares the 33 joint-stratum counts against `expected.json`, checks every row of `orbit_certificate.tsv`, all six extremal orbits, and the rational-point/tritangent profile.
+## correctness
 
-A separate computer-algebra Gröbner computation and independently varied parametrizations of all plane sections corroborated the reported criteria on the orbit representatives, but these are not needed for self-contained replay. This is self-review, not independent audit or proof of bibliographic priority.
+PASS
+
+The fixed nonsplit quadric has a 16-dimensional cubic quotient, hence exactly 65535 nonzero cubic sections. Its rational projective automorphism group S5 acts on those sections; exact ideals Q,F and Jacobian rank-drop minors on three affine charts test geometric smoothness, not mere F2 rational points. Conic-plane binary sextic must be square of squarefree cubic (char2 discriminant ad+bc), while tangent-plane conjugate-line criterion a=0,b≠0,c=0 yields proper reduced triple double-contact. Inspected finite-field code and 683-row orbit_certificate.tsv; independent weighted aggregation matches 683 ambient orbits, 254 smooth orbits (27060 sections), tau sections (10300,12810,3600,350), orbit counts (96,120,32,6), all 33 joint strata, 396 five-point smooth curves and six extremal orbit masks. Separately checked geometric smoothness via independent Sympy Groebner on two singular masks and all six extremal smooth masks. This is exact finite classification with a source-embedded complete enumerator; full independent re-enumeration was NOT performed.
+
+## originality
+
+PASS
+
+Known abstract genus-four model census and finite-field moduli point counts do not state the 33-stratum embedded proper tritangent spectrum, although equations could enable computation. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
+
+## value
+
+PASS
+
+Proper tritangents of canonical genus-four curves are natural theta-contact objects. Splitting the rational planes into conic and quadric-tangent types on a nonsplit binary quadric and listing all 33 strata, six extremal S5 orbits and the full-five-rational-point obstruction provides a motivated complete finite classification not merely an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
