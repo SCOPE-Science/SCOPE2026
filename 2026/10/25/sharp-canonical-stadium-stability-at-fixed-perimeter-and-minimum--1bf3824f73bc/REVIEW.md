@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** On all planar convex bodies, the support function is in \(H^1\); fixed perimeter and Steiner center remove modes zero and one, while equality of the selected minimum width annuls the mixed-area term against the stadium's curvature measure. Parseval yields an exact positive weighted sum, weighted Cauchy–Schwarz gives the stated coefficient, and a finite-frequency sequence with an exact width constraint forces ratios toward that coefficient for every fixed positive stadium segment length. At constant width, only odd modes survive, giving the separate sharp endpoint. Curvature-positivity and persistence of the width-minimizing normal are justified for small perturbations; the supporting numerical program checks six finite examples but is not an infinite proof.
+
+**Originality: PASS, with risk.** A 2022/2024 primary source explicitly states the basic stadium area inequality, so that old inequality is excluded from the new contribution. The full-text sections inspected in that source contain no global sharp Hausdorff estimate against the *moving canonical stadium*. Gao's 2011 full-text Section 4 treats deviation from the Steiner disk, and An's October 2026 source treats planar Minkowski reconstruction and Steiner Hausdorff stability; neither implies the area gap against a perimeter–width-matched stadium. Current searchable mathematical records concerning constant-width stability concern the endpoint, not the full varying-width problem. Historical unindexed quantitative-stability sources remain a risk; a search result is not proof of global priority.
+
+**Value: PASS.** Rather than a restatement of the classical optimal-area inequality, the theorem provides a global exact stability identity and the best Hausdorff constant. It describes the extremal rate for *every fixed* nonconstant-width perimeter–width pair, and resolves the abrupt change of the sharp stability coefficient at constant width. This is a structural inverse-shape estimate, not a numerical recomputation or arbitrary parameter slice.
+
+The proof is analytic. The numerical script supplies finite corroboration; no independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
