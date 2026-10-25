@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python check.py` with Python 3, from the folder containing this document, `RESULT.md`, and the script. The script requires only the standard library and prints `CHECKS_PASS` upon successful completion. It evaluates 975 exact coefficient equalities by independently inverting the Euler pentagonal denominator and summing weighted separator-block compositions using partition-coefficient dynamic programming. It also performs 36 numerical root/profile checks at several indices and eight fixed-weight asymptotic comparisons. The script was executed successfully from these actual files.
+## correctness
 
-Proof-level verification is in RESULT.md: the dominant-pole analysis, bivariate implicit derivatives, eta modular formula, positive-root squeeze, and fixed-weight Taylor expansion establish the infinite statements. The code is a finite regression test, **not** an exhaustive or infinite certificate. Large-index results follow in the order of limits first \(n\to\infty\), then \(j\to\infty\). No simultaneous-limit approximation or external audit is established.
+PASS
+
+The positive weighted sequence C=Q/(1−a z^j Q) has a unique strictly dominant positive simple pole by positivity at consecutive exponents j,j+1; residue gives coefficient constant. A bivariate u marker and implicit-pole differentiation yield fixed-(a,j) mean n/L, variance nV/L^3 and Gaussian limit. Dedekind eta transformation gives log Q(e^-t)=A/t+(1/2)log(t/2π)−t/24 plus exponentially small terms. The pole equation jt=log a+log Q then gives s_gamma by a monotone root argument for a=e^{gamma sqrt(j)}, both scaled phase coefficients and dualities. Taylor expansion at t0=sqrt(A/j) gives the fixed-a log(j)/j term and amplitude. Independently solved 9 phase roots numerically. Checks support but do not substitute for eta/analytic proof.
+
+## originality
+
+PASS
+
+Known fixed-j exponential growth and Gaussian sequence counts belong to supercritical analytic combinatorics, and Keith--Schneider--Sills explicitly conjectured fixed-(a,j) exponential growth. The new qualified statements are the explicit coupled large-j perturbation profile, duality, second-order fixed-a root correction and amplitude, which are not stated in those inspected sources.
+
+## value
+
+PASS
+
+A natural Euler-product perturbation family has a nontrivial boundary between marked and partition contributions as monomial index grows. The full crossover Θ, fluctuation maximum and logarithmic amplitude correction provide usable exact asymptotic calibration beyond routine fixed-parameter pole extraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

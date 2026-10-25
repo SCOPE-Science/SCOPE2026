@@ -1,19 +1,21 @@
-# Scientific review: large-index monomial perturbations of Euler's product
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \(C_{a,j}(z)=Q(z)/(1-a z^jQ(z))\) has nonnegative coefficients and a unique strictly dominant simple pole because consecutive positive powers of \(z\) occur in \(Q(z)\). Residue calculus gives the coefficient constant, and implicit differentiation of the marked bivariate pole gives the first two cumulants and a Gaussian limit for each fixed parameter. The Dedekind eta transformation, positive-root monotonicity, and small-parameter derivative estimates prove the scaled phase limits and fixed-weight logarithmic expansion. The public script independently compares 975 exact coefficient values using two algorithms; it also checks 36 numerical root/profile quantities and eight fixed-weight asymptotic comparisons. This finite evidence supplements, but does not replace, the infinite analytic proof.
+PASS
 
-## Originality — PASS within inspected literature
+The positive weighted sequence C=Q/(1−a z^j Q) has a unique strictly dominant positive simple pole by positivity at consecutive exponents j,j+1; residue gives coefficient constant. A bivariate u marker and implicit-pole differentiation yield fixed-(a,j) mean n/L, variance nV/L^3 and Gaussian limit. Dedekind eta transformation gives log Q(e^-t)=A/t+(1/2)log(t/2π)−t/24 plus exponentially small terms. The pole equation jt=log a+log Q then gives s_gamma by a monotone root argument for a=e^{gamma sqrt(j)}, both scaled phase coefficients and dualities. Taylor expansion at t0=sqrt(A/j) gives the fixed-a log(j)/j term and amplitude. Independently solved 9 phase roots numerically. Checks support but do not substitute for eta/analytic proof.
 
-Keith, Schneider, and Sills (2024) formulate fixed-parameter exponential growth for the reciprocal as Conjecture 1. The fixed-parameter pole/mean/variance conclusions here are covered in principle by the standard Flajolet–Sedgewick supercritical-sequence framework and are explicitly **not** claimed novel. The contribution tested for originality is the varying-monomial-index regime \(a_j=e^{\gamma\sqrt j}\) and its continuous growth, mass fraction, variance-phase and duality profiles, together with the explicit fixed-weight second-order rate and asymptotic pole amplitude. Comparing the full motivating article, the relevant supercritical-sequence theorem, and Keith's different false-theta reciprocal gives no same statement or stronger result implying these large-index formulas; targeted mathematical-record searches gave no direct match. A general perturbative transfer theorem not located in this search might imply these formulas; publication priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2024 paper supplies a specifically motivated reciprocal family but treats the coefficient growth qualitatively. The sharp large-index analysis identifies a genuine crossover when the marked-token weight varies at the natural exponential-square-root scale, and shows an exact self-dual mass-fraction curve with a symmetric, maximized Gaussian-fluctuation coefficient. The explicit logarithmic correction and asymptotic coefficient constant provide additional quantitative arithmetic content rather than an arbitrary finite specialization. The findings are restricted to the iterated parameter limit and do not claim uniformity in the original coefficient index.
+Known fixed-j exponential growth and Gaussian sequence counts belong to supercritical analytic combinatorics, and Keith--Schneider--Sills explicitly conjectured fixed-(a,j) exponential growth. The new qualified statements are the explicit coupled large-j perturbation profile, duality, second-order fixed-a root correction and amplitude, which are not stated in those inspected sources.
 
-## Evidence and limits
+## value
 
-Primary references: Keith–Schneider–Sills, *Composition-Theoretic Series and False Theta Functions*, INTEGERS 24A (2024), A11, DOI 10.5281/zenodo.11352821; Flajolet–Sedgewick, *Analytic Combinatorics*, supercritical-sequence theorem (earlier lecture notes, Section V.3); Kong–Teo, *An Elementary Proof of the Transformation Formula for the Dedekind Eta Function*, arXiv:2302.03280; Keith, *Reciprocals of False Theta Functions*, arXiv:2412.19998. The modular identity and residue calculations are reconstructed in RESULT.md. Numerical checks do not independently certify infinite conclusions. Possible stronger general transfer or saddle-point literature is the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural Euler-product perturbation family has a nontrivial boundary between marked and partition contributions as monomial index grows. The full crossover Θ, fluctuation maximum and logarithmic amplitude correction provide usable exact asymptotic calibration beyond routine fixed-parameter pole extraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
