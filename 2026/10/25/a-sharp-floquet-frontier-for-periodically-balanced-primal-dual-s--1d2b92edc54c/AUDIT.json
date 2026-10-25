@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The source-compatible one-block dual-extrapolated proximal updates reduce exactly to a time-two Floquet map. Its characteristic trace and determinant yield three strict Schur margins; for normalized step product in (0,1), precisely one can fail. Equality has an attainable -1 eigenmode, and strict violation has an attainable eigenmode below -1. Orthogonal singular-mode decomposition proves the matrix extension and exact calculus gives the global contrast limit. A separate strictly convex-concave counterexample has an exact rational two-step characteristic polynomial negative at -1 and a nonzero exact excitation minor, proving divergence from the stated initial state. The included SymPy script reconstructs all critical identities, while the proof handles all quantifiers and boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chambolle et al., Theorem 2.1 and Lemma 2.2 require summable quasi-increase controls in addition to the product bound; permanent nontrivial reciprocal alternation violates these assumptions.",
+        "Goldstein, Li and Yuan, NeurIPS 2015 Section 5, require summable relative variations and an additional acceptance condition, excluding permanent alternation.",
+        "Published fixed-product scalar PDHG rate analyses concern fixed primal/dual steps and so have no periodic two-step monodromy."
+      ],
+      "reasoning": "Convergence under step-change summability does not dominate instability outside that hypothesis; fixed-parameter stability and critical damping cannot imply the time-periodic frontier without an additional noncommuting product analysis.",
+      "searches": [
+        "variable metric Chambolle Pock alternating tau sigma product fixed divergent scalar bilinear",
+        "SPDHG adaptive primal dual balancing alternating gamma divergence necessary quasi increasing condition",
+        "primal dual hybrid gradient A-SPDHG periodic balancing scaling gamma and 1/gamma fails strong convex quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.02511v1, first-public 2023-01-06; 2024 OA text DOI:10.1007/s10851-024-01174-1",
+      "arXiv:1305.0546, qualitative variable-step nonconvergence known",
+      "NeurIPS 2015 Adaptive Primal-Dual Splitting Methods, Section 2 and Assumptions A-C",
+      "Bonettini-Ruggiero variable-step image-restoration work (abstract and introduction)",
+      "Published math-research record: exact fixed-product scalar PDHG rate phase diagram (fixed steps)",
+      "Published math-research record: scalar primal-dual least-squares critical damping (fixed steps)",
+      "Accessible prior findings compared by claim and source terms, including a distinct fixed-step rotated-adjoint PDHG result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 and 2015 sources explicitly state the qualitative fact that nonconstant steps can diverge despite a small product; this portion is credited as prior.",
+        "The exact source algorithm and sufficient convergence theorem do not state a necessity frontier for two-periodic reciprocal updates.",
+        "The comparison with prior fixed-parameter scalar rate results does not order the spectrum of an alternating matrix product."
+      ],
+      "reasoning": "A known existential counterexample does not imply the necessary-and-sufficient formula for every product and contrast, the minimax uniform threshold over all singular modes or the exact strongly convex certificate. None of the cited known guarantees applies to this permanently oscillating schedule; there is no contradiction to existing theorems.",
+      "searches": [
+        "Adaptive Primal-Dual Hybrid Gradient Methods for Saddle-Point Problems variable stepsize divergence product bound",
+        "Adaptive Primal-Dual Splitting Methods for Statistical Learning and Image Processing step-size assumptions",
+        "Stochastic Primal Dual Hybrid Gradient Algorithm with Adaptive Step-Sizes Algorithm 2.1 theorem quasi increasing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chambolle et al., Algorithm 2.1 (arXiv:2301.02511; DOI:10.1007/s10851-024-01174-1), uses dual extrapolation and reciprocal balancing; neither a two-periodic Floquet characteristic polynomial nor this frontier occurs in the inspected algorithm/convergence sections.",
+        "Goldstein et al., arXiv:1305.0546 Section II, uses primal extrapolation and provides a prior warning of variable-step nonconvergence, but no exact dual-extrapolated two-cycle classification."
+      ],
+      "reasoning": "Extrapolation location and variation in step ratios make a change of terminology insufficient for identification. Searches and actual source comparison found no equivalent explicit periodic theorem; broader unpublished equivalences remain possible.",
+      "searches": [
+        "two-periodic dual extrapolated Chambolle Pock PDHG Floquet eigenvalues variable primal dual steps product fixed contrast stability boundary",
+        "periodically alternating primal dual step sizes fixed product PDHG bilinear saddle scalar exact Schur stability two step switching",
+        "primal dual algorithm alternating step size fixed product Floquet instability exact threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared published mathematical-research records on scalar PDHG describe a fixed-product rate diagram and a fixed-step critical damping ratio, neither contains the periodic contrast threshold.",
+        "The inspected primary 2023/2024 article includes theoretical step-size restrictions and imaging experiments rather than an exact two-periodic stability table."
+      ],
+      "reasoning": "No tabulated characteristic polynomial, contrast cutoff or strongly convex rational witness matching the final claim appeared in the actually examined sources or record summaries; absence from searches is not an exhaustive novelty proof.",
+      "searches": [
+        "oscillating reciprocal primal dual step sizes scalar saddle alternating steps Schur stable threshold singular value intermediate mode",
+        "two periodic PDHG step size stability scalar recurrence exact critical contrast",
+        "Chambolle Pock alternating steps Floquet multiplier Schur criterion"
+      ]
+    },
+    "rationale": "Prior 2013 and 2015 adaptive PDHG papers explicitly warn that variable steps with subcritical product can fail; existence of instability is therefore not claimed. The inspected source A-SPDHG 2023 update has a convergence theorem requiring quasi-increasing changes, but no two-periodic exact borderline. The new statement derives a necessary-and-sufficient Floquet condition for its dual-extrapolated single-block scheme, a sharp uniform all-spectrum contrast threshold, and an explicit persistent strongly convex failure. Published math records most closely related address fixed steps. Checks support a best-knowledge conclusion, with switched-operator equivalences a residual risk.",
+    "residual_risks": [
+      "An earlier two-periodic switched-operator theorem may have an algebraically equivalent specialization even without PDHG terminology.",
+      "Partial inspection of the older variable-step image-restoration article does not justify a global negative novelty claim.",
+      "This is self-review; independent expert audit and exhaustive literature coverage are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact periodically switched stability claim; sufficient quasi-increasing hypothesis excludes perpetual alternation.",
+        "evidence": "Algorithm 2.1 lines 195-230; Theorem 2.1 around 302-329; balance rule (2.6) lines 331-359 in open journal PDF.",
+        "identifier_or_url": "https://pure-oai.bham.ac.uk/ws/portalfiles/portal/222032739/s10851-024-01174-1.pdf",
+        "material_read": "Section 2.1 including Algorithm 2.1 (pdf p.3), Theorem 2.1, inequality (2.4), and balancing update/Lemma 2.2 on pdf pp.3-4; searched the 21-page text for periodic, counterexample, oscillation.",
+        "method": "Open-access full-text PDF read as text and rendered page screenshot for algorithm.",
+        "title": "Stochastic Primal-Dual Hybrid Gradient Algorithm with Adaptive Step Sizes",
+        "trigger": "Exact originating dual-extrapolated algorithm and reciprocal step update"
+      },
+      {
+        "assessment": "QUALITATIVE_PRIOR_COVERAGE only; no identified two-periodic sharp formula.",
+        "evidence": "Algorithm 1 uses primal extrapolation; Section II near its constant-step discussion already warns that varying steps with product below spectral bound may fail.",
+        "identifier_or_url": "https://arxiv.org/abs/1305.0546",
+        "material_read": "Full-text HTML introduction, basic algorithm Section II, explicit line on variable-step nonconvergence; document text searched for periodic and counterexample terminology.",
+        "method": "Lawful arXiv open full-text HTML; section-level statement and implication comparison.",
+        "title": "Adaptive Primal-Dual Hybrid Gradient Methods for Saddle-Point Problems",
+        "trigger": "Strong prior qualitative nonconvergence warning and possible reduction"
+      },
+      {
+        "assessment": "Prior qualitative divergence and summability-based sufficient theory, not an exact dual-extrapolated Floquet frontier.",
+        "evidence": "Page 1 lines 84-89 explicitly warns of failure for nonconstant steps; page 4 Assumption B requires summable step variation.",
+        "identifier_or_url": "https://proceedings.neurips.cc/paper/2015/file/cd758e8f59dfdf06a852adad277986ca-Paper.pdf",
+        "material_read": "Abstract and Section 2 algorithm and explicit nonconstant-step caution; Section 5 assumption block and convergence theorem; searched full PDF for periodic and oscillation.",
+        "method": "Open NeurIPS proceedings full-text PDF and rendered pages 1 and 4.",
+        "title": "Adaptive Primal-Dual Splitting Methods for Statistical Learning and Image Processing",
+        "trigger": "Earlier adaptive PDHG analysis that could cover varying step products"
+      },
+      {
+        "assessment": "Different algorithmic conditions and application; no implication of the exact claim established from inspected material. Partial-inspection risk explicitly retained.",
+        "evidence": "Abstract lines 5-18 describes epsilon-subgradient convergence for prescribed step sequences; introduction lines 80-143 frames assumptions and imaging application.",
+        "identifier_or_url": "https://scispace.com/pdf/on-the-convergence-of-primal-dual-hybrid-gradient-algorithms-1j3f6hju19.pdf",
+        "material_read": "Article abstract and introduction, including description of a priori steps and its image-restoration setting; later sections not exhaustively read.",
+        "method": "Lawful open PDF text plus rendered first-page screenshot.",
+        "title": "On the convergence of primal-dual hybrid gradient algorithms for total variation image restoration",
+        "trigger": "Older variable-step PDHG convergence theory"
+      },
+      {
+        "assessment": "NOT_COVERING the alternating dual-extrapolated step-sequence claim",
+        "evidence": "The result classifies constant-step rates for an isotropic strongly convex saddle and remarks only that balancing preserves step product. It expressly does not classify the nonstationary adaptive trajectory; its update and hypothesis differ from the period-two dual-extrapolated claim.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208/RESULT.md",
+        "material_read": "Full scientific RESULT.md studied, including its constant-step primal-extrapolated matrix, complete fixed-product minimization, and limitations.",
+        "method": "Read publicly accessible full scientific result from the publication record",
+        "title": "Exact fixed-product rate phase diagram for scalar PDHG",
+        "trigger": "Closest located published record with exact scalar PDHG spectral analysis"
+      },
+      {
+        "assessment": "NOT_COVERING the alternating dual-extrapolated step-sequence claim",
+        "evidence": "The result optimizes a constant-step primal-dual ratio for a scalar least-squares problem; there is no two-periodic product, Floquet map, or exact contrasting threshold. It cannot imply the new classification.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc/RESULT.md",
+        "material_read": "Full scientific RESULT.md studied, including the scalar fixed-step matrix, repeated-root criterion, proof, and limitations.",
+        "method": "Read publicly accessible full scientific result from the publication record",
+        "title": "Critical-damping ratio for scalar least-squares primal-dual linesearch",
+        "trigger": "Closest located published record with exact scalar PDHG spectral analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d2b92ed-c54c-4a9a-916e-bbc57e1a2ea3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is intrinsically motivated by the original theorem requiring both a product bound and temporal regularity of the step sizes. The new classification gives an exact all-initial stability boundary, a sharp model-uniform contrast limit not attained at the maximal normalized singular value, and a fully rational strongly convex failure. This is useful for choosing permitted variation in primal-dual balancing updates; it neither repeats the known existential warning nor relies on an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

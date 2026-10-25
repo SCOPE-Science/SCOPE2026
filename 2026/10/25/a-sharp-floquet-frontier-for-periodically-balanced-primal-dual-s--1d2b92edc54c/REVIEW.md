@@ -1,0 +1,19 @@
+# Mathematical assessment
+
+## Correctness (PASS)
+
+The exact single-block dual-extrapolated update is equation (3) in `RESULT.md`; in the bilinear case, eliminating the primal variable gives the stated second-order scalar recurrence. A direct first-step calculation proves every recurrence pair is achievable, closing an important boundary case for the necessity direction. Multiplication of the two companion matrices gives both invariants of the Floquet polynomial. The three strict degree-two Schur inequalities reduce without omitted sign cases to the stated scalar threshold for every \(0<r<1\), \(t\ge1\). At equality the multiplier \(-1\) exists; past it a negative real multiplier has modulus greater than one. Singular-value decomposition proves the modewise extension; exact minimization proves the dimension-free cutoff. The strongly convex–concave example is independently checked by the characteristic polynomial (8) and nonzero excitation determinant (9). The embedded symbolic verifier reproduces all decisive algebra from the actual included code. All asserted universal parts are proved, not inferred from tested samples.
+
+## Originality (PASS, best-knowledge assessment)
+
+Variable-step PDHG nonconvergence under individually subcritical products was already explicitly noted by Goldstein et al. (2013, arXiv:1305.0546) and Goldstein–Li–Yuan (2015, NeurIPS); it is *not* the contribution. The original adaptive SPDHG work (Chambolle et al., arXiv:2301.02511, Algorithm 2.1 and Theorem 2.1) supplies the exact update and the quasi-increase assumption, but gives no necessary-and-sufficient stability analysis for permanent two-periodic reciprocal steps. Related published research on scalar PDHG covers fixed, not alternating, step pairs; the 2012 Bonettini–Ruggiero variable-step image-restoration framework uses different conditions. The mathematical additions are the exact sharp period-two Floquet frontier, its all-singular-value and uniform-contrast consequences, and a certified strongly convex–concave divergent instance. Equivalent formulations in general switched nonexpansive-operator or older two-periodic splitting literature are the residual originality risk. No independent originality search or expert audit is claimed.
+
+## Value (PASS)
+
+The exact transition at a dual-step contrast near \(1.74007\), while every primal–dual product is strictly below the classical bound, quantifies why temporal regularity is a substantive convergence requirement rather than a technical proof artifact. The sharp spectrum-uniform threshold and the finding that the most vulnerable normalized singular mode lies at \(2/\sqrt5\), below the endpoint, are concrete stability design data. The explicit strongly convex–concave failure prevents overinterpreting strong convexity as an automatic replacement for step-sequence control. This is a structural boundary, not a routine numerical benchmark or a claim that an already safeguarded practical update diverges.
+
+## Closest literature and limits
+
+The principal paper's 2024 open journal text was materially inspected at its algorithm, product bound, assumptions and reciprocal balancing lemma; the original arXiv posting is dated January 6, 2023. The 2013 arXiv paper and 2015 NeurIPS paper were inspected at their respective algorithm definitions and prior qualitative warnings. The 2012 image-restoration paper was inspected at the abstract and introduction; no assertion of exhaustive appendix coverage is made. The finding concerns deterministic dual extrapolation with externally imposed periodic steps, not arbitrary stochastic block choices, uncontrolled matrix dimensions, or all possible variable-step methods. Its exact robust strongly convex example is not a complete strongly convex stability classification.
+
+Self-review: passed. Independent audit: not yet performed.
