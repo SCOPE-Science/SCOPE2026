@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
-The analytic proof in `RESULT.md` verifies all quantifiers and the three expansion coefficients using a uniform Rosser--Schoenfeld bound, the effective prime number theorem and Mertens product, and explicitly chosen primorial counterexamples. The strict inequalities for both types of threshold follow by bracketing with any fixed positive epsilon. No conjectured exact equality is presumed.
 
-The auxiliary `artifacts/check_bracket.py` uses standard-library floating-point arithmetic solely to check the algebraic inversion bracket for a few levels; it is not an exhaustive search and is not the proof. Results are subject to rounding but have margins far exceeding machine precision. Independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Rosser–Schoenfeld uniform n/φ(n)≤e^γ loglog n+O(1/loglog n) and quantitative PNT give F(n)=φ(n)/π(n)≥y/(e^γ log y)(1−O((log y)^−2)), y=log n. Along primorials, effective Mertens/PNT give matching F(P)=y/(e^γ log y)(1+o((log y)^−2)); gaps in log successive primorials O(log y)=o(k). Since (φ−π+ω)/(π−ω)=F−1+o(1), bracketing y=e^γ k(log k+loglog k+γ±ε) proves both log N_k and log M_k with o(k) remainders, no RH. Checked the inversion algebra independently at k=10^3,10^5,10^8.
+
+## originality
+
+PASS
+
+Checked the exact N/M definitions in the original source and derived nontrivial matching effective asymptotic brackets, explicitly separating classical totient and prime number estimates from the claimed sharpened threshold inversion.
+
+## value
+
+PASS
+
+The two explicitly introduced eventual number-theoretic thresholds acquire matched three-term asymptotic locations, separating extremal totient behavior from finitely computed exact thresholds. The third k-scale constant controls previously unavailable precision needed in asymptotic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

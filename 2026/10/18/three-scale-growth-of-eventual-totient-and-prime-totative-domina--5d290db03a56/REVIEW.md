@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives two quantitative extremal bounds: a uniform lower bound for \(\varphi(n)/\pi(n)\), and a matching, sufficiently precise upper estimate on primorials. The inversion is checked at the \(o(k)\) scale, which is stronger than a leading asymptotic, and the nonprime-totative ratio differs by \(-1+o(1)\). Strict threshold inequalities, monotonicity, and primorial spacing are explicitly accounted for. No numerical range stands in for the infinite argument.
+## correctness
 
-**Originality — PASS (best available comparison).** Fatehizadeh's September 2026 paper introduces and computes finitely many thresholds, and the accessible published *Exact seventh and eighth totient-prime thresholds* determines two more, but neither examined claim states the simultaneous three-scale \(k\to\infty\) asymptotic. Landau/Mertens theory and Rosser--Schoenfeld are essential general estimates but do not directly state this inverted threshold law. Searches included equivalent last-failure language and asymptotic threshold formulations. Residual risk: unindexed deductions and unavailable portions of the motivating preprint's later sections.
+PASS
 
-**Value — PASS.** The sequence of exact thresholds is a natural invariant motivated by the published finite classification and the conjectural near-equality of two different sequences. Their quantitative growth as \(k\to\infty\) was not characterized in the checked claims. Determining all three coefficients, including the constant-order \(k\) term with Euler's constant, answers a global question inaccessible from any fixed finite table and provides a sharp growth benchmark for subsequent computation or classification.
+Rosser–Schoenfeld uniform n/φ(n)≤e^γ loglog n+O(1/loglog n) and quantitative PNT give F(n)=φ(n)/π(n)≥y/(e^γ log y)(1−O((log y)^−2)), y=log n. Along primorials, effective Mertens/PNT give matching F(P)=y/(e^γ log y)(1+o((log y)^−2)); gaps in log successive primorials O(log y)=o(k). Since (φ−π+ω)/(π−ω)=F−1+o(1), bracketing y=e^γ k(log k+loglog k+γ±ε) proves both log N_k and log M_k with o(k) remainders, no RH. Checked the inversion algebra independently at k=10^3,10^5,10^8.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Checked the exact N/M definitions in the original source and derived nontrivial matching effective asymptotic brackets, explicitly separating classical totient and prime number estimates from the claimed sharpened threshold inversion.
+
+## value
+
+PASS
+
+The two explicitly introduced eventual number-theoretic thresholds acquire matched three-term asymptotic locations, separating extremal totient behavior from finitely computed exact thresholds. The third k-scale constant controls previously unavailable precision needed in asymptotic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
