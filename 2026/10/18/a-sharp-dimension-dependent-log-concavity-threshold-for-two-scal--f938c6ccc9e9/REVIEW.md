@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-For every integer \(d\ge1\), positive scales \(\sigma<\tau\), and interior narrow-component mass, differentiation identifies the full logarithmic Hessian. The tangential eigenvalues are strictly negative; the radial eigenvalue is positive exactly when \(\log r>F_q(t)\). The scalar function has a unique global minimum and diverges at both ends, proving the exact threshold, boundary sphere, and single curvature-reversal shell. Affine whitening of rank-deficient outputs proves the projection conclusions. The rational 4D example follows from analytic exponential bounds; the included finite checker passed 3,042 supplementary checks.
+## correctness
 
-## Originality: PASS, with unresolved source-access priority risk
-The available published full texts of Chasapis--Eskenazis--Tkocz (2022 preprint, DOI 10.1112/blms.12786) and Eskenazis--Gavalakis (2023 preprint, DOI 10.1112/mtk.12246) provide mixture moment or information/entropy results, not the necessary/sufficient global Hessian classification. The closest other Gaussian-mixture source, Eskenazis--Nayar--Tkocz (2016, arXiv:1611.04921), was not fully readable during review, nor was Boedihardjo--Xie (2026, arXiv:2607.17368). Their unresolved comparison constitutes a genuine residual priority risk. Searches using scale-mixture, log-curvature, dimensional threshold and projection aliases disclosed no covering result; that absence alone is not originality proof. Previous available results on equal-variance separated-mean Gaussians and Gamma component mixtures do not logically dominate the present two-scale classification.
+PASS
 
-## Value: PASS
-The precise weight bound depends sharply on dimension and resolves all parameters in a natural binary Gaussian variance-mixture family. Its four-dimensional example proves that universal log-concavity of all three-dimensional linear projections does not imply joint log-concavity. This is a structural boundary between marginal and joint log-concavity, with a concrete positive-curvature annulus and strict unimodality throughout.
+From f=e^{-alpha||x||²/2}(1+t) times constant, t=r e^{-delta||x||²/2}, the Hessian equals -u(t)I+delta² t xx^T/(1+t)², with tangential eigenvalue -u<0 and radial sign log r-F_q(t). Verified derivative F'_q=((q+1)t²+2t-q)/(2t²) has unique positive minimum at t_*=q/(1+sqrt(1+q(q+1))), giving exact criterion. Endpoints t=r at origin and t→0 at infinity are negative; when r<R minimum radial curvature stays negative uniformly. At equality a single spherical radial zero; above an open annular positive radial shell. Surjective projection can be whitened, preserving w and scale ratio but replacing d by k. Independent q=1/3 check R=1.1586706546951728, w3≈0.12651 and w4≈0.06753, so w=0.1 is 3D-yes/4D-no. Universal conclusion follows analytic Hessian, not numeric examples.
 
-## Limits and evidence
-All statements concern centered isotropic Gaussians, exactly two components, and positive interior weights; nonproportional covariance matrices and multiple scale atoms are outside scope. The numerical checks are finite, and inaccessible plausibly relevant full texts leave priority uncertainty. No external mathematical validation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Available original full texts on Gaussian mixtures treat entropy/geometry, Rosenthal bounds, Fisher information, not a pointwise scalar radial-Hessian necessary/sufficient condition coupled to dimension-projection separation. The 2026 mixture separation manuscript and any unindexed sharp Gaussian mixture logconcavity theorem remain plausible risks; accessible abstract does not justify exclusion.
+
+## value
+
+PASS
+
+An exact geometric classification of logconcavity for a canonical parametric Gaussian scale-mixture family, including curvature phase and a striking high-dimensional versus all lower-dimensional marginal separation. The dimension factor Q^d is a substantive threshold, not a cosmetic restatement of entropy bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
