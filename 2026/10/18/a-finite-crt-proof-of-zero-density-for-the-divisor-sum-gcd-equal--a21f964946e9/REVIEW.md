@@ -1,15 +1,21 @@
-# Scientific review: zero density of the divisor-sum GCD equality
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs an order-three residue for each fixed prime \(p\equiv1\pmod6\). For a finite family of other primes in that residue class, CRT gives independent valuation-one events with exact success probabilities \((q-1)/q^2\). Their mean diverges and their variance is no larger than the mean. Thus the set having fewer than two witnesses has vanishing natural density, separately for every fixed \(p\). Two witnesses force an extra factor of \(p\) in \(\sigma(m^2)\), preventing GCD equality whenever \(p\parallel m\). A second, genuinely finite CRT argument over finitely many \(p\) gives an upper bound by a partial Euler product, which tends to zero. The proof does not silently interchange infinite intersections with natural density. The regression verifier is ancillary.
+## correctness
 
-## Originality — PASS within inspected evidence
-Dris's 2022 paper formulates the density-zero statement as Conjecture 5.1 and gives only a strict density-below-one result. Meyerowitz's 2020 MathOverflow answer already contains the essential local obstruction and predicts the correct infinite product, but expressly leaves its simultaneous asymptotic justification conditional. The present finite-truncation argument supplies that missing proof. The closest inspected published mathematical record provides only a positive lower bound for a special subfamily. This is an incremental but logically decisive completion of an explicit unresolved claim. Absolute publication priority has not been established; an unindexed earlier proof remains possible.
+PASS
 
-## Mathematical value — PASS
-Determining the zero density of the complete set, without restricting to squarefree or odd integers, resolves a naturally posed arithmetic-density problem. The two-stage finite CRT argument provides a reusable method for such prime-obstruction questions. The quantitative lower bound for a known infinite subfamily is compatible with the theorem.
+For each p congruent 1 mod 6 choose nontrivial cube-root r mod p. For finitely many primes q congruent r mod p, events q exactly once divides m have CRT density delta_q=(q-1)/q^2 and independent Bernoulli means mu=sum delta_q, variance <=mu. Divergence of reciprocal primes in this reduced AP gives mu->infinity. If p||m and at least two such q||m, two factors sigma(q^2)=1+q+q^2 are divisible by p, forcing p^2|sigma(m^2) and unequal p-adic gcd valuations. Thus fixed-p upper density of equality events with p||m is at most delta_p mu/(mu-1)^2->0 by Chebyshev, with finite Q fixed before natural-density limit. For any finite P subset primes p=1 mod6, finite union bound discards zero-density p||m and CRT yields density upper bound product_{p in P}(1-delta_p); divergence of sum delta_p sends product to zero as finite P increases. This proves natural density zero without infinite independence. Independent integer arithmetic checked obstruction for p=7 with q=2,23 and p=13 with q=3,29 and exact modular valuations.
 
-## Closest sources and limitations
-The main precursors are the 2020 MathOverflow question and Meyerowitz's conditional argument; Dris (arXiv:2202.08116v1); and the mathematical record on a squarefree \(2\bmod3\) subfamily. The only analytic input beyond elementary variance/CRT is divergence of reciprocals of primes in reduced progressions. No explicit density-convergence rate or independent priority determination is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dris explicitly conjectured this exact zero-density limit. Meyerowitz in 2020 identified the local cubic-root obstruction and an informal infinite-product conditional argument, but asked for the simultaneous asymptotic justification. The submitted proof supplies that missing unconditional finite-CRT/two-truncation step; local obstruction itself is properly credited.
+
+## value
+
+PASS
+
+It settles a precise published positive-integer density-zero conjecture using two finite CRT truncations and a variance bound, addressing a genuine logical gap in an anticipated argument. Qualitative full-set density zero is a meaningful new arithmetic theorem; known solution subfamily has smaller order and is consistent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
