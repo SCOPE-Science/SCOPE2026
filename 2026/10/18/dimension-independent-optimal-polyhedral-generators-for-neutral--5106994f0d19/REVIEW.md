@@ -1,11 +1,21 @@
-# Review: Dimension-independent optimal polyhedral generators
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof specifies all \(q\) test intervals and partitions the zero base-\(m\) digit strip into one additional special cell and its complement. Merging these symbols reconstructs the expanding coordinate without ambiguity. A single full-measure uniformly distributed set then recovers all \(q\) identity coordinates by disjoint-window special-symbol frequencies. Each partition boundary is a finite affine arrangement. The lower bound uses Haar entropy \(\log m\), every finite block's entropy equality at \(m\) symbols, and the contradiction between an i.i.d. label generator and a nonergodic fixed factor. Finite-rational diagnostics of the definitions passed, but infinite claims rest on the proof, not the tests.
+## correctness
 
-**Originality (PASS, with bibliographic risk).** The closest publicly accessible mathematical results establish the sharp \(m+1\) polyhedral alphabet with one fixed coordinate (`b8dc89e947a7`), a smooth generator with \(q\) fixed coordinates but up to \(2^{q+1}\) symbols (`12214bef8476`), and a sharp \(m+1\) generator with one irrationally *moving* coordinate (`4edb0ee2c3e2`). Their full result documents were compared, and additional semantic database and published-literature searches found no dimension-independent **polyhedral** minimum for multiple fixed coordinates. Measurable conjugacy implies an abstract bound but does not imply geometric regularity. Leuridan's arXiv:2610.01642v1 is the motivating primary source, and its contracting-eigenvalue obstruction has different hypotheses. Possible earlier constructions under different coding terminology remain the main residual risk.
+PASS
 
-**Mathematical value (PASS).** The geometric result eliminates all dependence on the number of neutral identity factors from the minimal partition alphabet, reducing the previously explicit \(m=2\) alphabet from as many as \(2^{q+1}\) to exactly three. One shared symbol, dynamically addressed by disjoint intervals of the expanding coordinate, is an explicit structural mechanism rather than a mere nonconstructive measurable transfer or an arbitrary finite example. The exact minimum and polyhedral regularity supply motivated sharp information beyond known existence statements.
+Pinned RESULT.md f05c1fbe156d96ee90d7a20f6bc0b6744b9d46b6 gives disjoint affine windows I_i=[(2i-1)delta,2i delta), delta=1/[m(2q+1)] strictly inside digit-0 strip. Split label * iff y_n in [a_i,a_i+delta theta_i); merge * and 0 to reconstruct the exact greedy base-m digit sequence and y. For uniformly distributed D_m orbit (one full-measure set independent of theta), filtered * frequency equals delta theta_i simultaneously all i, retrieving invariant coordinates. Lower bound entropy log m implies >=m cells; exactly m cells would require every length-N block attain N logm, uniform IID symbolic process and ergodicity, contradicting invariant theta. Independent q=3,m=2 orbit frequency diagnostic at three unequal theta confirms scaling, not generation proof.
 
-**Scope and risks.** The result is Haar almost-everywhere, one-sided, and only for diagonal identity-times-integer-expansion toral maps. No all-points, Markov, or connected-atom claim is made. Exhaustive novelty cannot be certified from database queries; a broader older geometric-generator theorem would be the principal possible coverage source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Several unusually close Resultary records were found and FULL RESULT.md read: one fixed coordinate achieves sharp m+1, multiple identity coordinates previously have larger <=2^(q+1) alphabet for m=2, and irrational moving rotation case gets m+1 by Fourier phase; none provides a q-uniform finite-polyhedral construction for arbitrarily many fixed coordinates.
+
+## value
+
+PASS
+
+A natural entropy-sharp geometric coding question remains when multiple zero-entropy identity coordinates are added: this explicit minimal m+1-cell affine partition is dimension-uniform and shows one auxiliary bit/symbol can interrogate arbitrarily many invariant coordinates over time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

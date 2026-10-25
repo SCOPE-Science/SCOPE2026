@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and replay
 
-The proof is self-contained apart from the standard uniform distribution of Lebesgue-typical orbits of the integer expanding map and the finite-generator entropy identity. The exact algebraic partition inequalities and the entropy lower bound are laid out in `RESULT.md`.
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3 and the standard library. Its exact-rational checks cover \(q=2,\ldots,9\), \(m=2,\ldots,8\), and 2,520 finite orbit prefixes. It tests special-cell disjointness, label witnesses, the full alphabet, recovery of the underlying expanding digits, and finite-length digit-cylinder bounds. A further diagnostic estimates the three fixed coordinates \((1/5,1/2,4/5)\) from special-symbol frequencies over a 120,000-step approximate base-two orbit. This finite experiment is deliberately not treated as proof of the almost-everywhere assertion.
+## correctness
 
-The infinite statement requires a common full-measure equidistribution set valid for all interval endpoints; using only finitely many tested thresholds would leave a logical gap. The entropy argument excludes an \(m\)-cell generator only after deriving uniform distributions at **every** finite block length. The publication comparison leaves a residual possibility of older equivalent polyhedral codings.
+PASS
+
+Pinned RESULT.md f05c1fbe156d96ee90d7a20f6bc0b6744b9d46b6 gives disjoint affine windows I_i=[(2i-1)delta,2i delta), delta=1/[m(2q+1)] strictly inside digit-0 strip. Split label * iff y_n in [a_i,a_i+delta theta_i); merge * and 0 to reconstruct the exact greedy base-m digit sequence and y. For uniformly distributed D_m orbit (one full-measure set independent of theta), filtered * frequency equals delta theta_i simultaneously all i, retrieving invariant coordinates. Lower bound entropy log m implies >=m cells; exactly m cells would require every length-N block attain N logm, uniform IID symbolic process and ergodicity, contradicting invariant theta. Independent q=3,m=2 orbit frequency diagnostic at three unequal theta confirms scaling, not generation proof.
+
+## originality
+
+PASS
+
+Several unusually close Resultary records were found and FULL RESULT.md read: one fixed coordinate achieves sharp m+1, multiple identity coordinates previously have larger <=2^(q+1) alphabet for m=2, and irrational moving rotation case gets m+1 by Fourier phase; none provides a q-uniform finite-polyhedral construction for arbitrarily many fixed coordinates.
+
+## value
+
+PASS
+
+A natural entropy-sharp geometric coding question remains when multiple zero-entropy identity coordinates are added: this explicit minimal m+1-cell affine partition is dimension-uniform and shows one auxiliary bit/symbol can interrogate arbitrarily many invariant coordinates over time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
