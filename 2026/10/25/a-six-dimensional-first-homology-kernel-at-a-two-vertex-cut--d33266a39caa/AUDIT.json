@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The exact cellular model has 42, 140, and 82 cells in dimensions 0, 1, and 2. Exact rational boundary ranks are 41 and 77, so \\(\\dim_{\\mathbb Q}H_1(F(G,2);\\mathbb Q)=140-41-77=22\\). The graph cycle rank is \\(\\beta_1(G)=8\\), and the published surjectivity theorem gives target rank 16; the kernel dimension is therefore exactly 6. The included verifier reconstructs the matrices and checks the chain condition.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 14 gives a free subgroup of rank \\(2b_0(G'-\\{u,v\\})-2=4\\) in this case.",
+        "Proposition 19 establishes non-maturity for double wedges of connected subgraphs that are not intervals."
+      ],
+      "reasoning": "These results cover qualitative non-maturity and guarantee a rank-four subgroup. They do not imply that the entire rational kernel has dimension exactly six.",
+      "searches": [
+        "arXiv:1005.2300, Theorem 14 (edge addition and disconnected two-vertex deletion)",
+        "arXiv:1005.2300, Proposition 19 (double wedges are not mature)",
+        "Farber Hanbury maturity conjecture nonplanar graph double wedge cokernel Q Gamma exact rank"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0903.2180",
+      "arXiv:1005.2300",
+      "Durham e-theses repository entry for The Configuration Space of Two Particles Moving on a Graph (abstract/metadata only)",
+      "Searches for the exact graph family and rational inclusion-kernel rank"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published general result supplies a rank-four lower bound because deleting u,v from G' leaves three components.",
+        "The exact finite chain calculation gives \\(\\dim_{\\mathbb Q}H_1(F(G,2);\\mathbb Q)=22\\), whereas \\(H_1(G\\times G;\\mathbb Q)\\) has rank 16."
+      ],
+      "reasoning": "The prior lower bound yields only at least four hidden dimensions. The computed exact rank is six, so the two additional dimensions are not implied by the cited lower bound or the qualitative double-wedge result.",
+      "searches": [
+        "arXiv:0903.2180, Proposition 1.3 and Proposition 2.3",
+        "arXiv:1005.2300, Theorem 14, Proposition 19, and §8",
+        "K5 with multiple length-two paths between endpoints of an edge configuration space F(G,2) first homology kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barnett–Farber prove that \\(\\alpha_*:H_1(F(G,2))\\to H_1(G\\times G)\\) is onto for connected finite graphs other than the circle, and identify its kernel with the cokernel of the intersection form.",
+        "Farber–Hanbury define maturity as this map being an isomorphism."
+      ],
+      "reasoning": "The equivalent formulation is the rank of the cokernel of the intersection form. The prior definition captures whether the kernel vanishes, but does not give its exact rank for this graph.",
+      "searches": [
+        "graph configuration spaces F(G,2) maturity cokernel intersection form double wedge exact rank 2 components after removing two vertices",
+        "arXiv:0903.2180, Proposition 1.3 and Proposition 2.3",
+        "arXiv:1005.2300, Definition 1 and Theorem 14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concern mod-two homology of the Heawood graph, configuration-space homology of the Petersen graph, or three-particle homology of the Heawood graph.",
+        "Those records use different graphs, particle numbers, or coefficient fields and do not determine the claimed rational inclusion-kernel rank."
+      ],
+      "reasoning": "No exact database or table for this graph and this rational kernel rank was found in the returned records. These near matches use different graphs, particle numbers, or coefficients, so their statements do not determine the claimed value.",
+      "searches": [
+        "graph configuration spaces F(G,2) maturity cokernel intersection form double wedge exact rank 2 components after removing two vertices",
+        "K5 with multiple length-two paths between endpoints of an edge configuration space F(G,2) first homology kernel",
+        "Farber Hanbury maturity conjecture nonplanar graph double wedge cokernel Q Gamma exact rank"
+      ]
+    },
+    "rationale": "The inspected primary papers establish qualitative non-maturity and a lower bound of 4 for this two-cut situation, but do not state the exact kernel rank 6 for this graph. Searches for the graph family and exact inclusion-kernel rank returned no matching claim. A related 2010 thesis abstract reports an algorithm for second Betti numbers of arbitrary graph configuration spaces; its full text was not inspected here, so this remains a bounded originality assessment rather than proof that no prior calculation exists.",
+    "residual_risks": [
+      "An isomorphic graph or the same exact rank could be discussed under a different graph description in literature not found by these searches; search failure alone does not prove novelty.",
+      "Only rational homology is claimed; no integral torsion conclusion is made.",
+      "The result is one finite quantitative case and does not resolve the general maturity conjecture.",
+      "The 2010 thesis abstract reports a general algorithm for b2 of graph configuration spaces; the full text was not inspected, so it may contain a graph-specific calculation or make this finite case routine."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the model and the target-rank argument; it does not report the exact rank for the graph studied here.",
+        "identifier_or_url": "https://arxiv.org/abs/0903.2180",
+        "material_read": "Primary full text, lines 42-56, 82-92, 135-151, and 163-171.",
+        "method": "Read the cell definitions, strong homotopy retraction, surjectivity proof, exact sequence, and rank formula for the relative intersection pair.",
+        "title": "Topology of Configuration Space of Two Particles on a Graph, I",
+        "trigger": "Needed the precise configuration-space model, the inclusion map, and its effect on first homology."
+      },
+      {
+        "assessment": "Covers the qualitative obstruction and rank-four lower bound, but no exact rank-six calculation for this graph appears in the inspected passages.",
+        "identifier_or_url": "https://arxiv.org/abs/1005.2300",
+        "material_read": "Primary full text, lines 21-46, 66-108, 281-296, 321-365, and 437-450.",
+        "method": "Read the definition of maturity, the intersection-form exact sequence, Theorem 14, Proposition 19, and the stated open conjectures.",
+        "title": "Topology of configuration space of two particles on a graph, II",
+        "trigger": "Needed the exact two-cut lower bound and prior classification of non-mature graphs."
+      },
+      {
+        "assessment": "Potential residual coverage risk: the thesis may contain a calculation or a routine method applicable to this graph. The abstract does not state the exact kernel rank for this graph.",
+        "evidence": [
+          "The repository abstract states that the thesis develops an algorithm for b2(F(G,2)) for any graph and gives explicit formulae for complete and complete bipartite graphs."
+        ],
+        "identifier_or_url": "https://etheses.dur.ac.uk/id/eprint/293/",
+        "material_read": "Repository abstract and metadata only; the full thesis text was not inspected in this run.",
+        "method": "Abstract-level screening only; no claim of noncoverage is based on the thesis.",
+        "title": "The Configuration Space of Two Particles Moving on a Graph",
+        "trigger": "The repository abstract describes an algorithm for the second Betti number of F(G,2) for arbitrary graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d33266a3-9caa-4cac-93f6-7918b31f21fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact rank is a natural quantitative invariant of the inclusion F(G,2) -> G x G. The graph is a small 2-connected nonplanar example at a two-vertex cut; the exact six-dimensional kernel exceeds the established lower bound of four and gives a reproducible benchmark for further structural formulas.",
+    "status": "PASS"
+  }
+}
