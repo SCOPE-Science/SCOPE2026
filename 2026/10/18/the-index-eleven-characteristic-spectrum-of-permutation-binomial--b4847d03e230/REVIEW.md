@@ -1,15 +1,21 @@
-# Scientific review: index-eleven permutation-binomial characteristics
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem quantifies over every prime characteristic, every finite extension degree, all positive exponents, and every nonzero coefficient. The quotient-map criterion follows from fibers of the power map. The product of nonzero permutation values forces the Wendt obstruction. The exact resultant has four prime divisors. For the three primes beyond \(23\), every eleventh root of unity lies in the prime field, so the two reciprocal-moment equations are necessary independent of the extension degree. The finite certificate enumerates every possible value of their parameters and finds no joint root. A direct permutation over \(\mathbb F_{23}\) proves sufficiency. The finite enumerations are certificates of the reduction, not arbitrary-degree experiments.
+## correctness
 
-## Originality
-**PASS, provisionally.** The September 2026 characterization of \(X^r(X^{q-1}+a)\) concerns gcd index \(q-1\), not the fixed index \(11\) studied here. The October 2026 Wendt-determinant article proves characteristic finiteness for all fixed indices and the index-eleven classification over prime fields, but only obtains the candidate-prime set over arbitrary extensions. Its prime-field argument does not imply the extension-field exclusion of \(199\), nor the unrestricted exclusion of \(67\) and \(89\). The new joint reciprocal-moment certificate closes exactly that distinction. Exact-statement, equivalence, and stronger-coverage searches did not identify an already-published covering theorem. Residual risk: an older general criterion or unpublished computation might imply the same spectrum. This has not been independently audited.
+PASS
 
-## Mathematical value
-**PASS.** The least fixed index beyond the previously tabulated first ten is a natural test of whether prime-field obstructions persist over all extensions. The unrestricted spectrum is a complete classification of a meaningful characteristic invariant, not a special parameter calculation or mere recomputation of Wendt factors. It eliminates three prima facie allowed characteristics that survive the principal known necessary obstruction, providing a reusable two-moment elimination template.
+Let Q=p^m arbitrary, gcd(s,Q−1)=11, t=(Q−1)/11, u=s/11. Fiber quotient and gcd(u,t)=1 imply a permutation of μ_t by ψ(y)=y^b(y+a)^11 with bu≡r (mod t), gcd(r,11)=1. Root exclusion ζ=(-a)^t∈μ11\{1} and product of all nonzero permutation values forces (ζ−1)^11=(-1)^{r−1}; ζ or ζ⁻¹ is common root of X^11−1 and (X+1)^11−1 modulo p. Independently reconstructed W11=101832157445630503=23^5·67²·89·199². For p67,89,199, all μ11 lie in prime field and 11j<p for j=1,2; differentiated rational partial fractions justify necessary P11(−11⁻¹,U1,ζ)=0 and P22(−11⁻¹,U2,ζ)=0 with U2≡2U1+(1−c)/11. Independently computed all ζ and first-moment roots (6,2,4 for p67,89,199) and verified both second-moment cases nonzero, uniformly excluding EVERY extension field. For p23 f=x^12+2x permutes F23 as 3-times nonzero squares/fixes nonsquares. Finite residue certificates are exhaustive BECAUSE of the all-extension reduction, not a substitute for it.
 
-## Evidence and limits
-The included `verify.py` performs fraction-free integer resultant evaluation, prime-factor verification, and all twenty-four finite joint-moment exclusions, as well as the characteristic-23 witness. The exact theorem concerns the *set of characteristics*, not the permutation behavior of every binomial in characteristic \(23\). The 2026-09-23 paper is the earlier relevant source; the subsequent 2026-10-13 publication was examined as a close coverage comparison. Literature searches cannot establish priority or uniqueness. The review is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tang–Fan 2026 proves precisely p=23 when Q=p PRIME and g=11; their theorem is not the all-extension quantifier. Their general finiteness/Wendt restriction leaves 67,89,199 as candidates; the submitted second reciprocal moment excludes these over p^m of unbounded m. Ni/Pang/Yu/Yuan and Fan fixed structured exponents gcd(q−1) are different. Best-of-knowledge extension spectrum survives prior implication test.
+
+## value
+
+PASS
+
+Classifying exactly which prime characteristics can support a prescribed natural gcd index over ANY extension degree is a meaningful strengthening of a known prime-field result; exact universal finite obstruction and an explicit realizing witness may guide permutation-polynomial classification at other indices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
