@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:00:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: verified Git blob ed2cbbded77c010f15242863d4fb32af6af1c258",
+        "affine_variation_check.py: verified Git blob f2d0f6434f7345c73ee6d8934ddcb5f2ab38a4cc"
+      ],
+      "rationale": "For scalar real affine f(x)=<a,x>+b on an entire real separable Hilbert space and signed ReLU parameter measures in the *joint* Euclidean unit ball, line restriction along a/||a|| contracts TV. In one dimension decompose w=0 mass as constant c and push the w>0,w<0 parts to signed kink measures alpha±(t) weighted by |w|; the parameter-ball condition bounds their first absolute moments by TV. Vanishing distributional second derivative of the affine target enforces alpha_-=-alpha_+, and first moments fix slope s=||a|| and intercept b-c. The Euclidean vector-measure triangle inequality gives TV>=|c|+2 sqrt(s^2+(b-c)^2) for arbitrary signed Borel measures, not just atomic networks. Convex minimization in c produces exact branches 2 sqrt(s^2+|b|^2) for |b|<=s/sqrt(3) and |b|+sqrt(3)s above; explicit antipodal ReLU kink atoms of mass ±s sqrt(1+t^2), with an optional flat c atom, attain both. Kink cancellation proves two atoms minimally below/equal threshold and three strictly above; constant and zero exceptions checked. Independent six-parameter SciPy scalar minimizations and direct pointwise ReLU representation checks agree to numerical tolerance, but do not replace the distributional proof.",
+      "residual_risks": [
+        "Numerical finite diagnostics cannot replace analytic proof; scoped normalization and quantifiers are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barron function BV characterizations are usually equivalence up to constants or account for unpenalized affine skip/alternate domain/parameter norm; vector-valued representer theories give existence sparsity, not the quoted threshold."
+        ],
+        "reasoning": "Those broader spaces do not mathematically imply the numerical branch constant sqrt(3) or exact minimum support 2/3 without additional sharp normalization and kink analysis.",
+        "searches": [
+          "E Wojtowytsch arXiv:2006.05982; Shenouda Parhi Lee Nowak JMLR 2024; Savarese et al COLT 2019"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and affine_variation_check.py full texts",
+        "Yang Shi arXiv:2606.01244 abstract and cited homogeneous result (full text inaccessible in this run)",
+        "E Wojtowytsch arXiv:2006.05982 abstract/context, related signed kink formula",
+        "Savarese Evron Soudry Srebro COLT 2019 public proceedings overview",
+        "Resultary published semantic neural variation query top20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneous result is f(x)=<a,x> with b=0 and cost 2||a||; current b≠0 cost switches regimes; free bias in other approaches would yield different objective."
+        ],
+        "reasoning": "No verified prior theorem simultaneously has all-input equality, jointly constrained bias/slope parameter Euclidean norm, arbitrary signed-measure TV, and exact two-/three-atom cost threshold.",
+        "searches": [
+          "Yang Shi arXiv:2606.01244 Definition 2.1 and Proposition 2.4 abstract/reported homogeneous result; E Wojtowytsch arXiv:2006.05982; Savarese COLT 2019"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Shi norm framework includes homogeneous linear scalar maps with cost 2||a||, recovered at b=0; signed Barron measure representations resemble the decomposition but other conventions differ."
+        ],
+        "reasoning": "Neither homogeneous exact norm nor BV equivalence is an equivalent all-bias exact formula under the same jointly constrained bias+slope TV cost.",
+        "searches": [
+          "Resultary query: exact variation path norm ReLU affine functions bias slope penalized Barron Hilbert signed measure two three atoms; Yang Shi arXiv:2606.01244"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 99 finite scalar tests are reproducibility checks, not a stored table of optimal signed-measure norms; Resultary top hits concern unrelated norm bounds."
+        ],
+        "reasoning": "No exact earlier database/table was identified that evaluates the entire affine family and minimal-support phase boundary. The claim is analytic, not an isolated finite table.",
+        "searches": [
+          "Resultary neural variation/ReLU bias query; pinned affine_variation_check.py"
+        ]
+      },
+      "rationale": "The homogeneous zero-bias linear variation norm is covered by Yang and Shi; this claim determines the sharp *biased* affine value and the support-size threshold under that identical joint Euclidean parameter unit ball. Other Barron BV seminorm identities and finite-width regularizers use only equivalent rather than exact norms or allow a free intercept; neither is shown to yield the precise sharp two-branch equality. Available source comparison supports best-of-knowledge originality with substantial normalizations caveat.",
+      "residual_risks": [
+        "A differently normalized exact signed-variation norm in prior Barron/ReLU work might algebraically imply the branch formula; highly relevant inaccessible primary full text is explicitly not declared NOT_COVERING.",
+        "Formula applies on entire unbounded H with joint Euclidean parameter norm, not compact-domain equivalence or free biases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Homogeneous linear formula is identified; biased affine equality not verified in full original text",
+          "evidence": "The homogeneous case gives 2||a|| and equals reviewed first branch at b=0; unresolved full-text overlap is residual risk",
+          "identifier_or_url": "https://arxiv.org/abs/2606.01244",
+          "material_read": "Paper abstract, bibliographic information and claims quoted in pinned source; complete Yang–Shi main text/Appendix D not retrieved in this independent pass",
+          "method": "ArXiv web access attempt to full text unsuccessful; no invented reading",
+          "title": "Variation Spaces for Encoder–Decoder Neural Operators: Approximation and Generalization",
+          "trigger": "Exact same norm framework, possible dominating result"
+        },
+        {
+          "assessment": "Different free-bias/regularizer setting; cannot mechanically infer exact joint unit-ball cost",
+          "evidence": "Its function-space formulation addresses bounded norm but not identified joint Euclidean intercept tradeoff",
+          "identifier_or_url": "https://proceedings.mlr.press/v99/savarese19a.html",
+          "material_read": "Accessible proceedings overview/abstract and relevant public summary only",
+          "method": "Web public overview; no claim of complete text",
+          "title": "How do infinite width bounded norm networks look in function space?",
+          "trigger": "Potential prior exact univariate ReLU measure characterization"
+        },
+        {
+          "assessment": "Closely related signed kink BV structure; exact phase coefficient may be hidden",
+          "evidence": "Related Barron BV equivalence does not alone establish sharp equality for the particular variation cost",
+          "identifier_or_url": "https://arxiv.org/abs/2006.05982",
+          "material_read": "Abstract/public description plus cited paper sections noted in pinned RESULT.md; full text not independently inspected",
+          "method": "Public abstract/context; no whole-document NOT_COVERING assertion",
+          "title": "Representation formulas and pointwise properties for Barron functions",
+          "trigger": "Signed measure and kink decomposition prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md and affine_variation_check.py full texts",
+        "Yang Shi arXiv:2606.01244 abstract and cited homogeneous result (full text inaccessible in this run)",
+        "E Wojtowytsch arXiv:2006.05982 abstract/context, related signed kink formula",
+        "Savarese Evron Soudry Srebro COLT 2019 public proceedings overview",
+        "Resultary published semantic neural variation query top20"
+      ],
+      "rationale": "This exact affine subspace norm is a natural quantitative building block in bias-penalized infinite-width neural variation spaces. The nontrivial threshold |b|=||a||/sqrt(3) and accompanying two-versus-three minimum neuron support describe a real sparsity transition, not arbitrary parameter tabulation; the result is dimension independent and gives exact variation budget for affine functions.",
+      "residual_risks": [
+        "Mathematical value is limited to precise theorem scope and does not establish unproved general downstream claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
