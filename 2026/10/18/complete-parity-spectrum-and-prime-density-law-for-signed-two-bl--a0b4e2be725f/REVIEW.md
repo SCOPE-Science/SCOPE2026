@@ -1,19 +1,21 @@
-# Review of the complete parity spectrum and prime-density law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof takes the exact arithmetic formula for signed two-block odd partitions from Merca (arXiv:2609.33770v1). For odd arguments it identifies two independent prime-exponent mechanisms modulo eight; the odd-square case follows through the Jacobi symbol \((2/t)\). The separately published dyadic identity (arXiv:2610.05020v1) gives an exact parity flip for square odd parts above the second dyadic layer. The analytic count uses the prime number theorem for classes \(3,5\pmod8\), the convergent sum of reciprocal odd squares, and explicit negligible error families. Finite arithmetic and signed-partition tests supplement the proof.
+PASS
 
-## Originality — PASS, with acknowledged priority limitations
+Actual RESULT.md blob b8381dd2c1a8501336475d637374e7a0edb130a7 starts from Merca a(m)=(σ(m)−λ(m))/4 for odd m and a(2^km)=a(m)+(2^(k−1)−1)σ(m) for k≥1. Reconstructed local 2-adic valuations: if λ(m)=0 one p ≡3 (mod8) and exponent 1 (mod4); otherwise σ−λ mod8 isolates p ≡5 (mod8) same exponent, while even exponents yield odd-square Jacobi (2/t). For nonsquare odd m=p^(4h+1)u², p ≡3,5 (mod8), PNT in the two residue classes and sum of reciprocal odd squares π²/8 give F(Y)~π²Y/(16 logY), dyadic summation doubles constant; square branch is O(sqrt X). Independently enumerated direct signed representation/parity for n<=1799. Checks test low n; global proof additionally assumes the published Merca coefficient/dyadic identities and classical PNT AP.
 
-The motivating manuscript supplies the exact coefficient formula and the dyadic sequel supplies the prime-power specialization; neither inspected text states the complete mod-two support or prime-scale counting constant. OEIS A192717 already lists the \(p\equiv3\pmod8\) arithmetic subfamily and is explicitly credited: that proper subfamily is not claimed new. Semantic result searches for equivalent formulations, dyadic parity, square support and prime-scale counting identified related but distinct sequences, not a covering statement. The original coefficient formula logically implies the new corollaries when combined with the local residue calculations and a prime-number theorem; novelty is confined to those explicit arithmetic deductions and global count. An unindexed earlier derivation and incomplete older claim history remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coefficient sequence is a natural partition invariant introduced in the recent literature. Its complete parity support and the exact leading asymptotic answer distinct motivated questions not supplied by a table of individual coefficients. The dyadic square branch reveals a separate local mechanism, and the first-order prime-scale constant measures global sparsity. The theorem does not rely on arbitrary coefficient cutoffs or claim the earlier exact coefficient formula as new.
+Merca published the full coefficient formula and subsequent dyadic identity; these stronger formulae are explicitly prior, so parity is algebraically derivable, but the complete exact mod2 support and prime-density asymptotic are not stated in the inspected original primary full article. OEIS A192717 covers the p≡3 subsequence and is acknowledged. Second dyadic article was found at abstract but full-text retrieval failed through authorized Oxford VPN; relevant coverage remains a specific risk rather than automatically failing originality.
 
-## Limits and comparison
+## value
 
-First public source: Mircea Merca, *The two-block odd partition function*, arXiv:2609.33770v1 (2026-09-27), primary MSC 11P81. Related: arXiv:2610.05020v1, OEIS A192717 and classical prime number theorem for arithmetic progressions. An optimal remainder term, effective density bounds and independent validation are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The arithmetic support of a natural signed partition function is sparse at prime rather than square scale; a sharp positive leading constant and all dyadic parity flips are meaningful information not conveyed by an unevaluated divisor-sum formula. The result is a natural global density theorem, not just rewriting a congruence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
