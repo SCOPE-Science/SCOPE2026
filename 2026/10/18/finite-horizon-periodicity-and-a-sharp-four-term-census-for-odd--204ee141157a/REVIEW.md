@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses unreduced numerator-denominator states, proves the strict \(2A\) upper bound for every next numerator, and inductively couples all valid inputs in the same explicit modulus class. In the special \(2/d\) case, four successive numerator states are \(2,3,4,5\) on the nonterminating two-step branches; congruences modulo 3, 8, and 5 establish the four classes modulo 60, and independent exact-integer enumeration checks them. The proof does not infer an infinite statement from finite enumeration.
+## correctness
 
-## Originality
-PASS on the inspected, best-knowledge source comparison, with residual risk. Pihko (2001) constructs growth trajectories; Eppstein (2007) describes modular tracking; Louwsma and Martino (2023) give all fixed-prefix length-\(m\) expansions, a broad potential antecedent requiring implication analysis; their 2025 paper **already gives** the \(2/d\) two-term classification. None of the inspected theorem statements yields a uniform fixed-numerator horizon period or the four-class minimal-period census without a new derivation. A mathematically equivalent unindexed corollary remains possible and requires independent literature review.
+PASS
 
-## Value
-PASS. Odd-greedy termination is a classical unsettled problem; exact finite-time densities are a well-defined and motivated partial invariant. A complete general computable finite-horizon periodicity theorem, plus the least period 60 and four-step density \(4/5\) in the basic numerator-two family, is structural information beyond the known two-term parametrization, and does not purport to settle global termination.
+For odd d>a and positive a, least positive odd u≥B/A gives unreduced A⁺=Au−B, B⁺=Bu and 0≤A⁺<2A. With Q_j=∏_{i=j}^{h−1}2lcm(1,…,2^i a), equal positive numerator and B congruent mod Q_j imply the odd ceilings differ by 2Q_{j+1}t, hence both successor numerators match exactly and denominators match mod Q_{j+1}; induction proves all fixed-h stopping classes periodic even without termination. For 2/d, first branches yield T=2 at d≡1 mod4 or d≡3 mod12; elsewhere numerator 3→4→5 with B=d(d+3)/2, C=B(B+4)/3≡7 mod8, finishing at fourth step iff B≡0 or1 mod5. CRT gives {7,35,47,55} mod60; maximal proper divisors 30,20,12 fail as periods. Hence relative densities 2/3,2/15 and <=4 total 4/5. Independent bounded recurrence implementation agrees; no infinite stopping claim.
 
-## Boundaries
-The general period is not asserted sharp, the complete stopping-time distribution is not classified, and the residual \(1/5\) may or may not stop later. The independent status is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing algorithm, parity alternation, and the two-term numerator-two classification are credited. Fixed-prefix parametric expansions (Louwsma–Martino 2023/2025) are closer than generic modular numerators but inspected theorem statements do not supply a uniform fixed-initial-a horizon period or the exact minimal mod-60 four-step census as stated. Best-of-knowledge residual broad-fixed-prefix implication remains.
+
+## value
+
+PASS
+
+A general bounded-horizon rational density theorem is a rigorous partial invariant in an unsettled odd-greedy termination problem, and the first nontrivial 2/d four-term density, exact residue classes and smallest modulus quantify a natural follow-up to the known two-term theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

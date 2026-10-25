@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T01:17:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd d>a and positive a, least positive odd u≥B/A gives unreduced A⁺=Au−B, B⁺=Bu and 0≤A⁺<2A. With Q_j=∏_{i=j}^{h−1}2lcm(1,…,2^i a), equal positive numerator and B congruent mod Q_j imply the odd ceilings differ by 2Q_{j+1}t, hence both successor numerators match exactly and denominators match mod Q_{j+1}; induction proves all fixed-h stopping classes periodic even without termination. For 2/d, first branches yield T=2 at d≡1 mod4 or d≡3 mod12; elsewhere numerator 3→4→5 with B=d(d+3)/2, C=B(B+4)/3≡7 mod8, finishing at fourth step iff B≡0 or1 mod5. CRT gives {7,35,47,55} mod60; maximal proper divisors 30,20,12 fail as periods. Hence relative densities 2/3,2/15 and <=4 total 4/5. Independent bounded recurrence implementation agrees; no infinite stopping claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 fixed-prefix parametrization describes denominators conditional on specified successive unit fractions, rather than simultaneous classes in initial d for all trajectories through a given horizon."
+        ],
+        "reasoning": "The broad parametrization could be specialized to some four-term cases, but a mathematical derivation of a uniform lcm period and minimal 60 census is not supplied directly by the inspected source; partial implication risk retained.",
+        "searches": [
+          "https://arxiv.org/pdf/2309.07280",
+          "Louwsma Martino fixed prefix odd greedy expansion Theorem 3.2",
+          "Resultary semantic search: odd greedy Egyptian fractions algorithm number of steps periodicity exact four terms 2/d congruence 60"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md c75264b310c1b5aeb6785179a1060634220ea1a4",
+        "Git checker.py ba31fe93d64e09c00f78102f0fe87991926a5f6f",
+        "Louwsma–Martino 2023 arXiv:2309.07280 full HTML accessible",
+        "2025 odd greedy two-term classification; Resultary query 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An arbitrary prescribed prefix theorem requires ranging over infinitely many possible growing denominators as d varies; current finite-horizon modular coupling bounds unreduced numerators instead."
+        ],
+        "reasoning": "Coverage of individual four-step expansions does not directly establish a finite uniform period for all initial denominators; still vulnerable to a previously recorded corollary not located.",
+        "searches": [
+          "Louwsma Martino parametrization fixed length and first prefix",
+          "Resultary semantic search: odd greedy Egyptian fractions algorithm number of steps periodicity exact four terms 2/d congruence 60"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same least odd denominator with repetitions allowed, including unreduced modular dynamics, is used in Louwsma–Martino; their length-two 2/d congruence matches and is not new."
+        ],
+        "reasoning": "A congruence classification of T=2 is not equivalent to the full T<=h periodicity or the T=4 exact residue census; odd length parity already known.",
+        "searches": [
+          "Resultary semantic search: odd greedy Egyptian fractions algorithm number of steps periodicity exact four terms 2/d congruence 60",
+          "Louwsma Martino 2025 odd greedy Egyptian fractions length two d modulo 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Already known T=2 classes and density 2/3; current T=4 residue set {7,35,47,55} mod60 yields new 2/15 and stopping by four 4/5."
+        ],
+        "reasoning": "Numerical tables of expansion lengths do not imply the general periodic coupling theorem or certify minimal period; exact residue proof supplies it.",
+        "searches": [
+          "Resultary semantic search: odd greedy Egyptian fractions algorithm number of steps periodicity exact four terms 2/d congruence 60",
+          "Louwsma Martino 2025 Theorem 3 2/d odd greedy Egyptian fractions"
+        ]
+      },
+      "rationale": "The existing algorithm, parity alternation, and the two-term numerator-two classification are credited. Fixed-prefix parametric expansions (Louwsma–Martino 2023/2025) are closer than generic modular numerators but inspected theorem statements do not supply a uniform fixed-initial-a horizon period or the exact minimal mod-60 four-step census as stated. Best-of-knowledge residual broad-fixed-prefix implication remains.",
+      "residual_risks": [
+        "The 2023/2025 fixed-prefix parameterization may have an unindexed implicit specialization giving the same four-step classes.",
+        "No assertion about global termination or distribution beyond any fixed horizon; general period is not minimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_DIRECTLY_COVERING",
+          "evidence": "Fixed prefix parameter method versus uniform initial-denominator modulo-P(a,h) statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.07280",
+          "material_read": "Accessible complete HTML mathematical statement and key parametrization/termination-length theorem and comparison to 2/d cases",
+          "method": "Lawful OA full-text HTML and mathematical implication comparison",
+          "title": "Odd greedy Egyptian fraction expansions with prescribed length/prefix (Louwsma and Martino)",
+          "trigger": "Closest fixed-length parametrization antecedent"
+        },
+        {
+          "assessment": "CLAIM_PROOF_RECONSTRUCTED",
+          "evidence": "Bounded A_j invariant and Q_j congruence induction prove all a,h; CRT supplies mod60.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/finite-horizon-periodicity-and-a-sharp-four-term-census-for-odd--204ee141157a",
+          "material_read": "Entire RESULT.md, REVIEW.md, checker.py, metadata and Git tree",
+          "method": "Immutable Git source at assigned commit",
+          "title": "Odd-greedy finite horizon frozen record",
+          "trigger": "Audit primary claim, recurrence and minimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A general bounded-horizon rational density theorem is a rigorous partial invariant in an unsettled odd-greedy termination problem, and the first nontrivial 2/d four-term density, exact residue classes and smallest modulus quantify a natural follow-up to the known two-term theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md c75264b310c1b5aeb6785179a1060634220ea1a4",
+    "Git checker.py ba31fe93d64e09c00f78102f0fe87991926a5f6f",
+    "Louwsma–Martino 2023 arXiv:2309.07280 full HTML accessible",
+    "2025 odd greedy two-term classification; Resultary query 2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 2023/2025 fixed-prefix parameterization may have an unindexed implicit specialization giving the same four-step classes.",
+    "No assertion about global termination or distribution beyond any fixed horizon; general period is not minimal."
+  ],
+  "schema_version": 1
+}
