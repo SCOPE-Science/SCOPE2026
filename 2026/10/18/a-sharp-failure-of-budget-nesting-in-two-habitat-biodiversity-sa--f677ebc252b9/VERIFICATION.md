@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification evidence and scope
+# Independent mathematical audit
 
-Run `python verify_non_nested_rarefaction.py` with Python 3, using only the standard library.
+## correctness
 
-The program fully enumerates species abundance-pair multisets of total census \(2\le N\le6\), quotients by species permutation and habitat exchange, and obtains class counts \(2,4,14,28,69\). For every profile and every feasible pair of habitat sample sizes, it compares exact hypergeometric expectations against independently averaged labeled-subset enumerations (1,462 values). It checks both consecutive-budget incompatibility and global reachability of nested optimal allocations. At census six there are exactly three globally nonnesting classes, one of which has a forced incompatible consecutive optimum at budgets two and three.
+PASS
 
-The program also checks the algebraic deficit expression and unique optima of the unbounded family for 117 finite parameter combinations. The general infinite family is proved analytically using the exact deficit and its strict inequality; the disjoint-species case is proved by diminishing marginal increments. Numeric experimentation is neither a proof of the infinite results nor a substitute for the exhaustive finite certificate.
+For independent uniform-without-replacement habitat draws, exact absence multiplication yields F(x,y)=sum_s[1-C(A-a_s,x)/C(A,x)*C(B-b_s,y)/C(B,y)]. An independent exhaustive exact-rational enumeration of all species-abundance-pair multisets modulo habitat swap through N=6 reproduces the 2,4,14,28,69 census counts, three globally nonnested N=6 profiles, and the unique adjacent-gap profile with budget-2 optimum (x,y)=(2,0) and budget-3 optimum (0,3). For unbounded r>=2 and K>=r+2, the displayed loss D=(1-x/r)y(y-1)/(K(K-1))+x(r+1)y/(rK) is the expectation of within-B duplication plus cross-habitat repeated species; xy>=r for x>=1 makes D(x,r+1-x)>D(0,r+1). At budget r all-A is uniquely perfect: every competing split has positive repetition probability. For disjoint species sets each habitat marginal richness gain is decreasing, so sorted marginal increments produce nested optima. Finite enumeration does not prove the unrestricted r,K statement; the inequalities do.
 
-Scientific limits: fixed known integer abundances, two habitats, independent uniform samples without replacement, equal unit costs, accurate species labels, unconditional expected union richness. This is not an independent audit or experimental ecological validation.
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing exact statements/implications, relevant published corpus findings and available primary material. Classical ingredients are credited; no located stronger theorem or exact table entails the claimed new conclusion. Residual access and priority limits are recorded.
+
+## value
+
+PASS
+
+Survey cost and effort reoptimization with overlap is a natural problem. This yields the exact smallest census where optimal plans cease to nest, distinguishes adjacent incompatibility from failure of a whole optimal chain, and provides a uniform arbitrarily large forced redesign family. These are structural optimization boundaries, not merely a numerical six-individual curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
