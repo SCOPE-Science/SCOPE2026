@@ -1,12 +1,21 @@
-# Scientific review — bounded-crown order-polytope toric varieties
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal argument uses the totally unimodular signed incidence facet matrix and classifies every minimal feasible induced cycle in the bounded-crown Hasse graph: boundary K2,n−1 configurations, disjoint-index middle quadrangles, and equal-index middle hexagons. The integral semigroups give the three asserted transverse singularities and their multiplicities. The universal face-intersection and Boolean vertex arguments yield the common projective line and a unique smooth torus-fixed point. Exact exhaustive finite face checks pass for n=3 and n=4; candidate-cone and fixed-point checks pass for n=5. Finite checks are not a proof for arbitrary n.
+## correctness
 
-## Originality — PASS, qualified
-Stanley provides general facets, Wagner a general Hibi projective criterion, Brown–Lakshmibai Grassmann-specific singular loci, and Lakshmibai–Mukherjee affine Hibi criteria. The proposed claim instead identifies all three bounded-crown component families, their exact counts, transverse Segre models and global common intersection for every n≥4. Related results on complete-bipartite ordinal sums, uncapped even-cycle crowns, and matching-deleted edge toric varieties have different objects and do not imply this classification. Accessible primary text and targeted mathematical record searches did not establish stronger coverage, but Wagner's complete 1996 article could not be read; potential coverage in it or unindexed literature is a material residual risk. A failed search is not novelty proof.
+PASS
 
-## Mathematical value — PASS
-This natural family exhibits non-equidimensional singular support with three different geometrically meaningful transverse determinantal singularity types. The precise global component count, common intersection, and single smooth fixed point substantially refine general forest smoothness criteria. Only reduced singular support and generic transverse structures are claimed; no nonreduced singular scheme or nongeneric multiplicities are classified.
+For n≥4 poset with bottom/top and a_i<b_j for i≠j, the primitive facet normals of its (2n+2)-dimensional order polytope form a totally unimodular signed Hasse incidence matrix. Any active normal cone is regular precisely when its equality graph is a forest. Exhausting *minimal feasible induced cycles*, the boundary configurations K_{2,n−1} yield 2n codim-n components with generic cone over Segre (P1)^{n−1}, multiplicity (n−1)!; middle disjoint-index 4-cycles yield C(n,2)C(n−2,2) codim-three conifolds, multiplicity 2; equal-index 6-cycles yield C(n,3) codim-five 3×3 rank-one cones, multiplicity 6. No induced ≥8-cycle is possible because each left vertex has only one forbidden right neighbor. Primitive lattice saturation makes these characteristic-free. All boundary/middle equalities meet on the all-equal order-polytope segment, giving common P1; direct Boolean order-ideal classification leaves one smooth torus-fixed vertex.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality attaches to three precise bounded-crown families, codimension-dependent Segre cones, unique smooth vertex and global intersection, not to general Stanley facets, toric smoothness, Hibi singularity methods or Grassmann special cases. Highly relevant inaccessible Wagner article is a material named residual priority risk, not assumed to exclude coverage.
+
+## value
+
+PASS
+
+The bounded crown is a canonical family where normal-fan singularities exhibit three distinct geometries and nonpure support; exact component count, intersection P1 and one-smooth-fixed-point fact refine general binary forest criteria and are plausible input for algebraic and combinatorial study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

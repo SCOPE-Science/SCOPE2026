@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible numerical and exact checks
+# Independent mathematical audit
 
-Use `python3 verify_capped_crown.py` with standard-library Python 3. The checker builds the bounded-crown poset directly, enumerates all monotone Boolean assignments as order-polytope vertices, constructs true facet vertex masks, closes under facet intersections, and ranks active incidence columns by integer connected-component counts.
+## correctness
 
-The expected output is:
+PASS
 
-```
-n=3 vertices=20 faces=1615 singular_components=7 by_dimension={3: 1, 5: 6}
-n=4 vertices=37 faces=18447 singular_components=18 by_dimension={5: 4, 6: 8, 7: 6}
-n=5 vertices=70 predicted_components=50 all_candidate_cones_exact
-VERIFY_OK
-```
+For n≥4 poset with bottom/top and a_i<b_j for i≠j, the primitive facet normals of its (2n+2)-dimensional order polytope form a totally unimodular signed Hasse incidence matrix. Any active normal cone is regular precisely when its equality graph is a forest. Exhausting *minimal feasible induced cycles*, the boundary configurations K_{2,n−1} yield 2n codim-n components with generic cone over Segre (P1)^{n−1}, multiplicity (n−1)!; middle disjoint-index 4-cycles yield C(n,2)C(n−2,2) codim-three conifolds, multiplicity 2; equal-index 6-cycles yield C(n,3) codim-five 3×3 rank-one cones, multiplicity 6. No induced ≥8-cycle is possible because each left vertex has only one forbidden right neighbor. Primitive lattice saturation makes these characteristic-free. All boundary/middle equalities meet on the all-equal order-polytope segment, giving common P1; direct Boolean order-ideal classification leaves one smooth torus-fixed vertex.
 
-For \(n=3,4\), every nonempty face is inspected; every nonsmooth cone is identified by excess primitive active normals over incidence rank, and inclusion-minimal nonsmooth cones are compared as sets with the stated indexed families. For \(n=5\), the checker verifies each candidate equality block gives exactly the claimed active normals and dimensions, as well as all torus-fixed vertices; **it does not enumerate the entire face lattice**. The all-parameter completeness argument and local semigroup isomorphisms are mathematical proofs in `RESULT.md`, not certified by these finite tests. No independent audit is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge originality attaches to three precise bounded-crown families, codimension-dependent Segre cones, unique smooth vertex and global intersection, not to general Stanley facets, toric smoothness, Hibi singularity methods or Grassmann special cases. Highly relevant inaccessible Wagner article is a material named residual priority risk, not assumed to exclude coverage.
+
+## value
+
+PASS
+
+The bounded crown is a canonical family where normal-fan singularities exhibit three distinct geometries and nonpure support; exact component count, intersection P1 and one-smooth-fixed-point fact refine general binary forest criteria and are plausible input for algebraic and combinatorial study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
