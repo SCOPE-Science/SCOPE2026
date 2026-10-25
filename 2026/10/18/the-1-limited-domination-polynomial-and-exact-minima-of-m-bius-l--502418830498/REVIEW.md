@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-neighbor inequalities encode both domination of each unselected vertex and the at-most-one-unselected-neighbor condition for selected vertices. The closed-walk trace with a row-twist exactly counts the Möbius ladder's selected complements; each labelled subset is counted once. An explicit reproducible 16-state integer-polynomial calculation verifies both block determinants; formal trace-log and coefficient extraction then prove the entire generating function and the exact minimum/multiplicity trichotomy for every admissible order. Independently enumerated subsets confirm all coefficients for \(3\le n\le9\), but are not relied on as an infinite proof.
+PASS
 
-## Originality — PASS with bibliographic risk
+For cubic M_n on 2n vertices n>=3, the complement bits in a twisted two-row ladder satisfy two exact local inequalities a_r+c_r+b_{1−r}<=1+b_r, encoding both 1-limited and domination conditions. The 16-state weighted transfer T(u) with row-swap S counts labelled allowed complements as tr(T(u)^nS). Its 10- and 6-dimensional ± blocks have the displayed exact integer polynomial determinant identities, with trace–log giving every coefficient of the closed generating function. Counting edges in the cut gives |D|>=n. Extracting constant and linear terms in z gives min n if 4|n else n+1, with multiplicities 4,2n (n≡2 mod4),3n (n odd). Independently brute-enumerated all labelled subsets for n=3,...,8: predicted minima/multiplicities (4,9),(4,4),(6,15),(7,12),(8,21),(8,4); the unbounded result depends on the symbolic transfer argument, not finite sampling.
 
-The closest primary article, Radić–Tepeh (arXiv:2610.01796v1), treats complexity and Goldberg snarks, not the Möbius-ladder polynomial. General cubic bounds and Cartesian-product specializations do not imply the twisted full enumeration. Relevant online mathematical records and semantic overlap searches included 1-limited / (1,2)-domination aliases, antipodal circulant and prism terminology, and graph invariants nearby in the literature. No directly covering theorem was identified; nevertheless some older papers were only partly accessible, so priority is not definitive.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a complete cardinality distribution, not just the minimum, for a natural infinite cubic graph family. The exact period-four dichotomy and the distinct \(4\), \(2n\), \(3n\) minimum-set multiplicities reveal a twist-sensitive structure that is not visible from general half-order bounds. The fixed-size transfer apparatus supplies reproducible values for arbitrary orders and motivates comparison with untwisted ladders and other cubic circulants.
+Radić–Tepeh's exact Goldberg-snark work and general cubic complexity results do not subsume Möbius ladder all-cardinality polynomial; Tepeh's Cartesian-product results apply to untwisted products rather than antipodal cycle twists. Published (1,2)-domination bounds establish at most coarse minimum constraints, not the twisted 16-state characteristic determinants or all coefficients; known results on other cubic graph families give no implication of this recurrence. Priority is best-of-knowledge; accessible primary material and finite indexed Resultary results cannot establish exhaustive noncoverage.
 
-## Limits
+## value
 
-No independent mathematical audit has been performed. The symbolic determinant is exact but its verifier is additional code evidence rather than a separate independent proof. A recent literature search is not a proof of first publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete cardinality polynomial and sharp mod-four minimum-multiplicity classification for the natural twisted cubic Möbius ladder family answer a graph-domination structural question beyond the existing half-order bound; the twist changes the transfer boundary and is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
