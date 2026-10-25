@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:57:24.604720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed process redraws the sign at Poisson rate alpha, so actual reversals have rate alpha/2 and correlation decay alpha. The pinned RESULT.md two-by-two Fourier resolvent is G=(s+alpha)/(s(s+alpha)+v^2 q^2) with s=Dq^2-i omega; an independent SymPy complex-division check reconstructed Im(G)/omega=[(alpha+Dq^2)^2+omega^2-v^2q^2]/([D^2q^4+alpha Dq^2+v^2q^2-omega^2]^2+(2Dq^2+alpha)^2omega^2). For moving probes omega=qV, the sign numerator is (alpha+Dq^2)^2-(v^2-V^2)q^2. AM-GM yields the exact cutoff V^2+4alpha D >= v^2; strict negativity at q=sqrt(alpha/D) on the other side, and solving the quadratic in |q| gives q_plus/minus and product alpha/D. Fourier power equals -mu rho0 V^2 times integral q^4 |U_q|^2 K dq/(2pi). A real nonnegative Schwartz Gaussian multiplied by 1+cos(q0 x) produces symmetric Fourier packets at q0 and the origin, with zero-mode contribution o(L) and strictly negative band contributions proportional to L, giving an honest fixed-L positive-power witness, not an inadmissible delta. At equality only isolated q can make K=0, so every nonzero real Schwartz U has negative coefficient when V is nonzero. Plancherel gives the exact L2 spectral supremum, though not necessarily an attained optimizer. Setting D=(v^2/4alpha)(1-eta), q=(2alpha/v)(1+sqrt(eta) z), and V=v sqrt(eta) y yields uniform finite-region leading term (16alpha^2/(9v^2)) eta^2 y^2(1-y^2-z^2); its maximum is 4alpha^2/(9v^2) eta^2 at z=0, y^2=1/2. This checks boundary V=0, normalization, and no claim at finite potential strength. Source verifier matrix inversion and quadrature were read; the independent algebraic check and full proof establish unrestricted quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Woo–Choi–Rieger supply a general weak probe response and D=0 RTP results; Kim et al study a penetrable object in an ideal RTP gas with negligible thermal noise; Pei–Maes study induced friction/noise for a freely responding probe."
+        ],
+        "reasoning": "The broader stochastic response framework applies but mathematically does not state the specialized finite translational Brownian D threshold and exact η² optimized coefficient. Related active-fluid phases involve different coupling/model assumptions.",
+        "searches": [
+          "arXiv:2609.17047v1 Eqs 18,20,25 and Appendix A",
+          "arXiv:2304.01645v2 Sec III",
+          "arXiv:2504.03210v3 model"
+        ]
+      },
+      "checked_sources": [
+        "Woo–Choi–Rieger arXiv:2609.17047 full HTML Sec III.6 and Appendix A/D",
+        "Kim–Choe–Baek arXiv:2304.01645v2 full HTML Sec II–III",
+        "Pei–Maes arXiv:2504.03210v3 primary HTML introduction/model",
+        "Resultary exact semantic search recorded; top matches scientifically disjoint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source general response fixes the rational kernel after a Brownian Laplace shift, while the submission identifies its sign discriminant, nonnegative Schwartz witness and sharp uniform η→0 maximum."
+        ],
+        "reasoning": "Prior response representation implies computational derivability but not prior explicit theorem. This qualifies as an exact sharpened specialization only if the stated uniform optimization is not already available elsewhere.",
+        "searches": [
+          "Source Sec III.6 Eq54 and full D=0 RTP resolvent",
+          "Source RESULT.md Eq1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Woo–Choi–Rieger (2026), Sec III.6 Eq.54 is a positivity-preserving convolution of the D=0 spectrum, with no finite-D iff band or near-threshold L2 optimization.",
+          "Kim–Choe–Baek (2024) Sec II describes an RTP without translational Brownian noise."
+        ],
+        "reasoning": "A generic kernel formula and a diffusion-positivity implication do not provide a statement-equivalent classification of positive-power all-Schwartz probes at D<Dc or the exact sharp power envelope.",
+        "searches": [
+          "Resultary semantic query: weak potential probe active bath one dimensional run tumble thermal Brownian diffusion sharp power envelope critical diffusivity speed spectral band",
+          "web: Trajectory Statistics Govern Mechanical Power Transfer in Active Baths diffusion kernel",
+          "arXiv:2609.17047 Sec III.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No corresponding exact continuum optimization table or full-D speed-band formula was found in retrieved matching primary sources; Resultary top hits were other bath/response claims."
+        ],
+        "reasoning": "This is a continuum variational envelope rather than an OEIS-type exact table; absence in search is not proof of originality.",
+        "searches": [
+          "Resultary search quoted above",
+          "web: active bath thermal diffusion power envelope critical diffusivity formula",
+          "arXiv:2609.17047 finite diffusion appendix"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp all-Schwartz existence cutoff and power-envelope critical exponent/coefficient for the finite translational diffusivity extension. The foundational 2026 trajectory-response theorem determines the spectrum *implicitly* from a general response construction but does not state the finite-D all-speed iff criterion or maximize power near the thermal critical point. Earlier 1D negative drag studies omit independent Brownian diffusion or optimize different probe statistics. Literal parameter coincidence is not enough; the new uniform L2 spectral variational characterization and scaling are substantive specialized consequences, not claimed as a new general response principle.",
+      "residual_risks": [
+        "The new formulas are derived from the broadly applicable Woo–Choi–Rieger trajectory response; unidentified supplemental calculations or a separate prior specialized treatment might explicitly perform the same maximization.",
+        "No claim is made about uniform finite-potential-strength expansion over increasingly long wave packets, or autonomous probe phases.",
+        "Optimized L2 envelope permits signed U; the nonnegative probe statement is only existence, and these quantifiers must not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_FULL_COVERAGE",
+          "evidence": "Sec III.6 establishes diffusion positivity preservation from D=0; no explicit sharp Dc or 4alpha²/(9v²) η² envelope in the inspected primary section.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.17047",
+          "material_read": "ArXiv full HTML, especially Sec III.5–III.6 Eq54 and Appendix A/D, finite-frequency RTP discussion",
+          "method": "read relevant sections of full-text HTML and searched thermal/diffusion claims",
+          "title": "Trajectory Statistics Govern Mechanical Power Transfer in Active Baths",
+          "trigger": "Direct origin: same RTP process, probe response and translational diffusion"
+        },
+        {
+          "assessment": "DIFFERENT_D_NOISE_MODEL",
+          "evidence": "Sec II explicitly says thermal noise negligible; fixed penetrable piecewise potential and autonomous probe physics differ from Brownian spectral-band all-Schwartz theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2304.01645v2",
+          "material_read": "ArXiv full HTML, Sec II equations1–3 and Sec III negative drag",
+          "method": "read exact model, assumptions, stated negative drag regime",
+          "title": "Symmetry-breaking motility of penetrable objects in active fluids",
+          "trigger": "Prior 1D RTP negative drag and probe velocity dependence"
+        },
+        {
+          "assessment": "RELATED_NOT_EXACT_COVERAGE",
+          "evidence": "Reports induced-friction/noise of mobile spherical probe; no inspected exact independent Brownian thermal cutoff/envelope for weak prescribed-speed potentials.",
+          "identifier_or_url": "https://arxiv.org/html/2504.03210v3",
+          "material_read": "ArXiv full HTML introduction/model and abstracted results",
+          "method": "checked primary HTML problem setup and paper outline",
+          "title": "Transfer of active motion from medium to probe via induced friction and noise",
+          "trigger": "Related RTP-to-probe force with velocity-dependent friction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The independent thermal diffusion cutoff is a physically motivated sharp boundary for positive mechanical work in the 1D RTP weak-probe model. The all-speed impossibility and constructive nonnegative probe criterion are stronger than a plotted negative-response example. The exact L2-normalized maximal transferable-power asymptotic, quadratic critical exponent and unique limiting maximizing velocity/wave-number selection quantify suppression near D_c and are not mere substitutions of a constant into an existing formula. Meaningful even though restricted to ideal dilute baths, leading weak coupling and prescribed speed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The new formulas are derived from the broadly applicable Woo–Choi–Rieger trajectory response; unidentified supplemental calculations or a separate prior specialized treatment might explicitly perform the same maximization.",
+    "No claim is made about uniform finite-potential-strength expansion over increasingly long wave packets, or autonomous probe phases.",
+    "Optimized L2 envelope permits signed U; the nonnegative probe statement is only existence, and these quantifiers must not be conflated.",
+    "No claim of nonperturbative force sign, nonideal bath, thermodynamic density effects or finite-strength probe dynamics.",
+    "No human/external formal certification; novelty is best of knowledge rather than a guarantee.",
+    "All five root Git tree SHA-1 values were reconstructed from the actual Git directory entry listing, with source root blob SHAs matched; deeper nested tree bytes (where applicable) and each file payload hash not independently recomputed.",
+    "Scientific PASS is a best-of-knowledge analytical and finite-check assessment, not an independent human expert, Lean certification, or guarantee of publication priority.",
+    "Scientific acceptance does not license public exposure of source operational metadata; publication is intentionally not_ready."
+  ],
+  "schema_version": 1
+}
