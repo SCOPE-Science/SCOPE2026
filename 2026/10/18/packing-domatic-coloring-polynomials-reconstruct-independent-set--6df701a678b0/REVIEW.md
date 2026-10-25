@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For graphs of diameter at most two, each color at least \(2\) is necessarily a singleton and broadcasts to the whole graph. The decisive lemma proves exactly when a partition exists: at least \(k\) such vertices, or precisely \(k-1\) with an inclusion-maximal independent color-one class. A rootless broadcast-dominating block must include the entire color-one independent set, so at most one exists; the converse construction is explicit. Counting injective high-color assignments gives the whole polynomial, and the first nonzero falling-factorial terms give the three optimization regimes. These statements include empty color-one classes, complete graphs, \(k=1\), and \(k=n\). The independent exhaustive checker examined \(1,594\) instances and \(440,702\) raw assignments; finite testing supports but does not establish the infinite theorem.
+PASS
 
-## Originality — PASS, with residual risk
+For connected finite n>=2 diameter<=2, color 1 occupies an independent set I; every color >=2 is used at most once and broadcasts to all vertices. With r=n-|I| high-color singleton vertices, a k-block broadcasting partition exists iff r>=k, or r=k-1 and I is maximal independent (a nonempty rootless block must contain all I, leaving exactly k-1 blocks each containing a high-color vertex). The two cases are disjoint and yield sum_{r=k}^n i_{n-r}(t-1)_r + m_{n-k+1}(t-1)_{k-1}. Falling-factorial independence recovers all independent-set and maximal-independent-set cardinality distributions. The 3-case optimal palette/multiplicity formula follows from r>=n-alpha, high-color injection, and the exact r=k-1 boundary. Reviewed actual RESULT.md, verify_full.py and finite source data. Independent direct brute force on P3, K3, and a connected four-vertex diameter-two graph matched all predicted F_{k}(t) for t=1..n+1, 44 (graph,t,k) cases; archived checker asserts 1594 tests but logs alone were not treated as proof.
 
-Brešar, Ferme and Hu (arXiv:2610.03477, 2026-10-02) define the exact new coloring invariant and the accessible abstract reports chromatic extrema and specific graph families. It does not announce an all-\(t\), all-\(k\) counting polynomial or recovery of maximal-independent-set profiles. However, their complete preprint remained inaccessible for inspection; potential unindexed equivalent statements are the main scientific risk, and absence from an abstract does not prove absence from the paper. The published full text of Brešar and Mesarič Štesl (2022, Section 7) records the prior diameter-two ordinary packing-chromatic equality and considers a packing-coloring game, not packing-domatic counting. Goddard and coauthors (2008) introduce ordinary packing/broadcast coloring without the later partition condition. Searches for packing-domatic counting formulas, color-class enumeration, diameter-two formulas, and independence-polynomial equivalents did not reveal a covering theorem; search failures alone do not certify novelty. The older numerical bound is explicitly excluded from claimed novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Counting all feasible maps at every palette size, without overcounting witness partitions, refines the newly introduced invariant for every finite connected graph of diameter at most two. Falling-factorial coefficients recover *two* natural graph invariants, including the entire maximal-independent-set size distribution not determined by a single chromatic number. The exact formula also separates the regime controlled solely by independence number from higher domatic levels controlled by which maximal independent-set sizes exist, showing concrete plateaus and two-step jumps. The structural statement covers an unrestricted infinite graph class rather than an arbitrary finite slice or an isolated known minimum.
+Best-of-knowledge originality applies to the all-palette counting polynomial and recovery of both independent-set profiles, not the prior scalar equality chi_rho(G)=n-alpha+1 for diameter-two graphs or the general definition of packing k-domatic coloring. The 2026 introductory preprint abstract discusses chi_{rho,2},chi_{rho,3} and path/cycle minima, but its 26-page body was inaccessible; precise possible overlap is a material residual risk. Actual Resultary comparisons and primary abstract/2022 prior work found no implication yielding the arbitrary k,t counting identity.
 
-## Evidence and limitations
+## value
 
-The directly tested inputs include all diameter-at-most-two labeled simple graphs on \(2\), \(3\), and \(4\) vertices and a deterministic sample on \(5\) vertices; larger orders are proved symbolically, not exhausted. The full 2026 motivating preprint was not materially read, and publication overlap is not conclusively excluded. No independent external review or certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-palette map-counting invariant is natural for a recently introduced coloring/domination notion. Proving that it recovers not only alpha(G) but the entire independent-set and maximal-independent-set cardinality profiles is a genuine structural reconstruction, not renaming the already known scalar chi_rho=n-alpha+1. The three-case optimal coloring multiplicity formula detects maximal-independent-size gaps. Its #P-hard potential does not nullify the exact mathematical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

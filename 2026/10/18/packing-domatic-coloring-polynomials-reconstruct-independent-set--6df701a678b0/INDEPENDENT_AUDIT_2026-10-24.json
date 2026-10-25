@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "GitHub frozen RESULT.md acd35e8e7fff659c40f49bbb96752c1efd8a263c, proof unique obstruction/count/recovery/optima",
+        "GitHub verifier verify_full.py 69d44330a91d002cee411984e029e4fa63431b94",
+        "Independently generated exhaustive partitions and colorings for P3, K3 and 4-vertex diameter-2 example, 44 (graph,t,k) comparisons"
+      ],
+      "rationale": "For connected finite n>=2 diameter<=2, color 1 occupies an independent set I; every color >=2 is used at most once and broadcasts to all vertices. With r=n-|I| high-color singleton vertices, a k-block broadcasting partition exists iff r>=k, or r=k-1 and I is maximal independent (a nonempty rootless block must contain all I, leaving exactly k-1 blocks each containing a high-color vertex). The two cases are disjoint and yield sum_{r=k}^n i_{n-r}(t-1)_r + m_{n-k+1}(t-1)_{k-1}. Falling-factorial independence recovers all independent-set and maximal-independent-set cardinality distributions. The 3-case optimal palette/multiplicity formula follows from r>=n-alpha, high-color injection, and the exact r=k-1 boundary. Reviewed actual RESULT.md, verify_full.py and finite source data. Independent direct brute force on P3, K3, and a connected four-vertex diameter-two graph matched all predicted F_{k}(t) for t=1..n+1, 44 (graph,t,k) cases; archived checker asserts 1594 tests but logs alone were not treated as proof.",
+      "residual_risks": [
+        "Independent finite checks cover only n=3,4; unrestricted conclusion rests on the combinatorial obstruction lemma, not sampling.",
+        "Counts labeled color maps, not witnessing partitions or color permutations; restrictions connected diameter<=2 and k<=n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Ferme–Hu 2026 abstract proves chi_{rho,2}=chi_rho under no isolated vertices, chi_{rho,3}=chi_rho for connected minimum degree>=2, and results for paths/cycles; no all-k diameter-two enumerator in the readable abstract.",
+          "General definition is broader in graph families, but stated theorem is about a different scalar invariant."
+        ],
+        "reasoning": "A theorem giving minimum palettes at k=2,3 does not logically determine all-palette F_{G,k}(t) or maximal-independent-set counts; the inaccessible body remains a nontrivial overlap risk.",
+        "searches": [
+          "Resultary: Packing k-domatic colourings graph diameter two enumeration of all colourings falling factorial independence polynomial maximal independent sets",
+          "arXiv:2610.03477 2026 abstract packing k-domatic general results"
+        ]
+      },
+      "checked_sources": [
+        "Brešar, Ferme, Hu arXiv:2610.03477 (2026; abstract only)",
+        "Brešar and Mesarič Štesl Filomat 36 (2022), Prop.7.1",
+        "Goddard et al., Broadcast Chromatic Numbers of Graphs, Ars Combinatoria 86 (2008) bibliographic context",
+        "Resultary exact semantic search of packing-domatic and related color-polynomials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brešar and Mesarič Štesl (2022) Prop.7.1 cites prior chi_rho=n-alpha+1 for diameter-two; this fixes a minimum palette only.",
+          "Brešar–Ferme–Hu introduction defines k-domatic partition, chi_{rho,2}=chi_rho and chi_{rho,3} under degree restrictions."
+        ],
+        "reasoning": "Neither scalar equality entails the map enumeration sum or independent/maximal independent recovery; reserve explicit risk for unread newest complete preprint.",
+        "searches": [
+          "arxiv:2610.03477",
+          "doi:10.2298/FIL2218197B",
+          "Resultary: Packing k-domatic colourings graph diameter two enumeration of all colourings falling factorial independence polynomial maximal independent sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete identity is an inversion in the falling-factorial basis: F_{G,1} coefficients equal i_{n-r}, and F_{G,k} coefficient at k-1 gives m_{n-k+1}.",
+          "Known diameter-two chi_rho=n-alpha+1 is only one minimum-palette specialization."
+        ],
+        "reasoning": "Search included packing chromatic polynomial, broadcast-domatic coloring and fall-factorial independence polynomial aliases; inspected evidence did not assert the same full map enumerator.",
+        "searches": [
+          "Resultary: Packing k-domatic colourings graph diameter two enumeration of all colourings falling factorial independence polynomial maximal independent sets",
+          "\"packing k-domatic\" \"independence polynomial\" \"diameter two\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest findings include all k-limited packings of complete multipartite graphs and forced-coloring polynomials; neither is the given S-packing-broadcast domatic map enumerator.",
+          "The exact polynomial is symbolic for every connected diameter-two G rather than a finite table; a tabulated special class would not imply the general inversion without further proof."
+        ],
+        "reasoning": "Looked for exact coefficient tables and renamed color-count polynomial forms; no retrieved table provides this full invariant. Failure to find one is not a novelty proof.",
+        "searches": [
+          "Resultary: Packing k-domatic colourings graph diameter two enumeration of all colourings falling factorial independence polynomial maximal independent sets",
+          "Resultary published packed-coloring complete multipartite search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality applies to the all-palette counting polynomial and recovery of both independent-set profiles, not the prior scalar equality chi_rho(G)=n-alpha+1 for diameter-two graphs or the general definition of packing k-domatic coloring. The 2026 introductory preprint abstract discusses chi_{rho,2},chi_{rho,3} and path/cycle minima, but its 26-page body was inaccessible; precise possible overlap is a material residual risk. Actual Resultary comparisons and primary abstract/2022 prior work found no implication yielding the arbitrary k,t counting identity.",
+      "residual_risks": [
+        "Full 2026 introductory packing k-domatic preprint was not accessible; possible same theorem/equivalent polynomial in its 26 pages cannot be ruled out.",
+        "The same formula could be described using broadcast-color partition generating functions or falling-factorial independence polynomial aliases not indexed by returned searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: cannot pronounce whole document non-covering",
+          "evidence": "Abstract lists minimum-palette and path/cycle results, not the diameter-two all-palette counting identity; complete paper could contain an appendix or corollary.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03477",
+          "material_read": "Abstract (definition, k=2,3 statements, path/cycle theorems); full 26-page PDF unavailable via arXiv and lawful OA, protected retrieval returned vpn_disconnected",
+          "method": "arXiv abstract plus mirrored arXiv bibliographic/abstract page, Oxford protected access tried only after arXiv/OA failure",
+          "title": "Partitioning an S-packing coloring into broadcast dominating sets",
+          "trigger": "Direct priority collision: introduces precisely k-domatic coloring"
+        },
+        {
+          "assessment": "NOT_COVERING counting polynomial in inspected material",
+          "evidence": "Prop.7.1 concerns n-alpha+1 minimum-color result; the k-dependent complete map count is a stronger/different invariant.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2218197B",
+          "material_read": "2022 Section 7 and Proposition 7.1 as available, with scalar chi_rho relation and no k-domatic map-counting machinery",
+          "method": "Read available primary Section 7 and compared theorem statements",
+          "title": "The Competition-Independence Game with Prevention",
+          "trigger": "Classical diameter-two packing chromatic equality quoted in source"
+        },
+        {
+          "assessment": "DIFFERENT invariants, not whole-document certification",
+          "evidence": "k-limited packing sets in complete multipartite graphs vs k-domatic broadcast-coloring maps on all diameter-two graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4",
+          "material_read": "Published finding title and returned substantive summary only",
+          "method": "Resultary semantic search result, not full source inspection",
+          "title": "Resultary: All k-limited packings of complete multipartite graphs",
+          "trigger": "Semantic nearest search hit on packing of diameter-two multipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Complete polynomial and inversion theorem from inspected RESULT.md, not just finite tester"
+      ],
+      "rationale": "The exact all-palette map-counting invariant is natural for a recently introduced coloring/domination notion. Proving that it recovers not only alpha(G) but the entire independent-set and maximal-independent-set cardinality profiles is a genuine structural reconstruction, not renaming the already known scalar chi_rho=n-alpha+1. The three-case optimal coloring multiplicity formula detects maximal-independent-size gaps. Its #P-hard potential does not nullify the exact mathematical invariant.",
+      "residual_risks": [
+        "Applicability is restricted to diameter-two graphs; evaluating the coefficients of a general graph can be hard."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Literal palette labels matter; unused colors allowed; witness partitions not counted.",
+    "The 26-page k-domatic introducing preprint remained inaccessible; protected institutional source reported vpn_disconnected (no access bypass).",
+    "Independent finite direct enumeration (44 cases) corroborates but is not the general proof.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id operational identifiers. Their complete, semantically sanitized replacement public file contents, fresh blob guards and checked UTF-8 SHA-256 have not been prepared. Withhold publication despite completed scientific PASS; no public file operation was submitted."
+  ],
+  "schema_version": 1
+}
