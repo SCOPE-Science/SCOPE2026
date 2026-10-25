@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Differentiation of the survival copula gives the exact positive sum density, and direct curvature expansion yields a negative quadratic form for every nonpositive parameter. For positive parameters, an explicitly negative cross term makes the curvature condition equivalent to a single parameter inequality indexed by \(s>0\). Endpoint negativity and an exact rational sign witness establish a finite attained critical maximum. The self-contained verification script checks the central symbolic identities and a rigorous finite-point witness; the universal result follows analytically. No uniqueness or certified decimal enclosure is assumed.
+## correctness
 
-**Originality — PASS against inspected material, subject to stated historical risks.** The nearest primary paper (Navarro–Pellerey 2021, Example 2 and Figure 3) obtains the aggregate density, proves IFR for all FGM parameters, and infers ILR preservation visually rather than proving a sharp log-density threshold. Its visual ILR assertion conflicts with the present explicit curvature witness. The corresponding sharper condition and negative-dependence completion are not supplied by its theorems. The 2020 Navarro–Sarabia copula aggregation work is plausible prior coverage but available abstract/references do not settle its full contents; this uncertainty is disclosed, not treated as evidence of noncoverage. Search comparisons included conditional-sum likelihood-ratio order, generalized FGM copulas, and aggregate-risk hazard bounds, none equivalent in the inspected statements.
+PASS
 
-**Value — PASS.** The result resolves the positive-dependence boundary of a natural two-lifetime reliability example and provides a mathematically motivated counterexample to a published figure-based ILR inference. It distinguishes two aging classes that the source discusses together, while preserving its valid IFR statement. The exact parameter threshold, not a gratuitous numerical slice, is the natural complete classification within the original one-parameter family.
+Differentiation and convolution of FGM survival copula give f=e^-s(s+theta[s-4+4(s+1)e^-s]). The log-curvature numerator is a quadratic in dependence theta. For negative theta, writing g as a convex combination of g_0 and g_- makes self-terms and mixed curvature strictly negative. For positive theta, set t=(1-theta)/theta; curvature sign equals sign(D(s)+t C(s)-t^2), C(s)<0 for all s. Existence of bounded nonempty D>0 domain follows limits D(0+)=-4, D(infinity)=-4 and a rational exponential bound at s=3/2; continuity yields the exact finite maximum and sharp iff threshold including equality. Independent symbolic differentiation verified all coefficients; bounded numerical optimize reproduced theta_c≈0.860258273097455 (not certified enclosure) and D(1.5)>0.
 
-Scientific limitations: equal exponential rates and standard bivariate FGM only; the critical constant is an exact maximum rather than a certified closed form. An inaccessible relevant risk-aggregation article and earlier aggregation literature create a historical-priority risk. Independent scientific audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.
+
+## value
+
+PASS
+
+Resolves sharp separation of density ILR versus hazard IFR aging in the exact classical dependent two-exponential model. Prior primary literature mistakenly infers ILR for theta=1 from a plotted log-density, while precise curvature produces counterexample and universal threshold. Mathematically substantive correction with lifetime-model interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

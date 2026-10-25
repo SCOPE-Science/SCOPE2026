@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T04:05:03.841515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiation and convolution of FGM survival copula give f=e^-s(s+theta[s-4+4(s+1)e^-s]). The log-curvature numerator is a quadratic in dependence theta. For negative theta, writing g as a convex combination of g_0 and g_- makes self-terms and mixed curvature strictly negative. For positive theta, set t=(1-theta)/theta; curvature sign equals sign(D(s)+t C(s)-t^2), C(s)<0 for all s. Existence of bounded nonempty D>0 domain follows limits D(0+)=-4, D(infinity)=-4 and a rational exponential bound at s=3/2; continuity yields the exact finite maximum and sharp iff threshold including equality. Independent symbolic differentiation verified all coefficients; bounded numerical optimize reproduced theta_c≈0.860258273097455 (not certified enclosure) and D(1.5)>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Navarro–Pellerey Example 2 and Theorem 3; Navarro–Sarabia DOI:10.1017/S0269964820000649 abstract"
+        ],
+        "reasoning": "Primary Example 2 proves IFR for all dependence parameters, which does not imply ILR. The abstract of related aggregate-risk paper does not establish global density log-concavity threshold; its full text remains inaccessible and is a residual risk.",
+        "searches": [
+          "FGM survival copula equal exponential sum log concavity ILR threshold theta"
+        ]
+      },
+      "checked_sources": [
+        "Navarro–Pellerey, 2022, DOI:10.1002/asmb.2657 (primary Example 2 inspected)",
+        "Navarro–Sarabia, 2020, DOI:10.1017/S0269964820000649 (abstract only)",
+        "Resultary: FGM block-substitution threshold and entropy defect, 2026-09-18",
+        "frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Navarro–Pellerey Example 2, equations (6), (log H) and Figure 3",
+          "Navarro–Sarabia 2020 abstract"
+        ],
+        "reasoning": "Their IFR inequality yields monotone hazard, not all curvature signs of log density; indeed source visually suggests ILR at theta=1, contradicted by exact D(3/2)>0. The threshold solves a new global nonlinear curvature comparison.",
+        "searches": [
+          "FGM survival copula equal exponential sum log concavity ILR threshold theta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Navarro–Pellerey, 2022, Example 2, DOI:10.1002/asmb.2657, gives same FGM sum survival and IFR",
+          "Resultary FGM block substitution theorem (different problem)"
+        ],
+        "reasoning": "Density log concavity equals ILR for positive s; hazard monotonicity IFR is a weaker distinct condition. Prior Example 2 has exact model and an informal visual ILR claim, but no quantified phase boundary.",
+        "searches": [
+          "FGM survival copula equal exponential sum log concavity ILR threshold theta",
+          "FGM dependent exponentials sum density log concavity likelihood ratio aging exact threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Navarro–Pellerey Figure 3 theta values -1,-0.5,0,0.5,1",
+          "Resultary FGM block-substitution thresholds"
+        ],
+        "reasoning": "Discrete plotted curves cannot certify global log concavity, and the block-substitution parameter threshold is for copula validity under dimension expansion, not density curvature of a sum. Exact variational theta_c not present in inspected figure/table.",
+        "searches": [
+          "FGM survival copula equal exponential sum log concavity ILR threshold theta"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.",
+      "residual_risks": [
+        "Related Navarro–Sarabia full text not accessible because authorized institutional connection was disconnected; potential equivalent parameter result cannot be definitively excluded.",
+        "Threshold decimal is exploratory, while its variational definition is exact; uniqueness of maximizing s is neither needed nor claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes IFR all theta; Figure 3 text informally claims ILR but the submitted exact positive curvature at theta=1 contradicts that inference",
+          "evidence": [
+            "Example 2 lines 363–383 state IFR and plotted ILR for theta -1,-0.5,0,0.5,1, not a proved sharp ILR classification"
+          ],
+          "identifier_or_url": "DOI:10.1002/asmb.2657; https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+          "material_read": "Accessible full HTML Example 2, equations (6), Figure 3 captions, Theorem 3, adjacent reasoning",
+          "method": "Wiley lawful full HTML",
+          "title": "Preservation of ILR and IFR aging classes in sums of dependent random variables",
+          "trigger": "exact same FGM-dependent equal-rate exponential pair"
+        },
+        {
+          "assessment": "Not read: cannot exclude existing sharp theta phase boundary within full text",
+          "evidence": [
+            "Bibliographic description covers FGM risk aggregation and comparisons"
+          ],
+          "identifier_or_url": "DOI:10.1017/S0269964820000649",
+          "material_read": "Abstract/references only; authorized institutional retrieval yielded VPN disconnected",
+          "method": "publisher abstract and Oxford authorized attempt",
+          "title": "Copula representations for the sum of dependent risks: models and comparisons",
+          "trigger": "potential stronger same FGM aggregation calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves sharp separation of density ILR versus hazard IFR aging in the exact classical dependent two-exponential model. Prior primary literature mistakenly infers ILR for theta=1 from a plotted log-density, while precise curvature produces counterexample and universal threshold. Mathematically substantive correction with lifetime-model interpretation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Navarro–Pellerey, 2022, DOI:10.1002/asmb.2657 (primary Example 2 inspected)",
+    "Navarro–Sarabia, 2020, DOI:10.1017/S0269964820000649 (abstract only)",
+    "Resultary: FGM block-substitution threshold and entropy defect, 2026-09-18",
+    "frozen RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Related Navarro–Sarabia full text not accessible because authorized institutional connection was disconnected; potential equivalent parameter result cannot be definitively excluded.",
+    "Threshold decimal is exploratory, while its variational definition is exact; uniqueness of maximizing s is neither needed nor claimed."
+  ],
+  "residual_risks": [
+    "Related Navarro–Sarabia full text not accessible because authorized institutional connection was disconnected; potential equivalent parameter result cannot be definitively excluded.",
+    "Threshold decimal is exploratory, while its variational definition is exact; uniqueness of maximizing s is neither needed nor claimed."
+  ],
+  "schema_version": 1
+}
