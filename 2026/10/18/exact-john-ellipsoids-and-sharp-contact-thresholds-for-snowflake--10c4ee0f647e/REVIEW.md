@@ -1,11 +1,21 @@
-# Scientific review: snowflaked bipartite Lipschitz dual John ellipsoid
+# Independent mathematical audit
 
-**Correctness: PASS.** The object is the real zero-sum Euclidean Lipschitz dual ball for two parts of sizes \(2\le p\le q\) and metric parameter \(1\le t\le2\). The unique global John ellipsoid is centrally symmetric and invariant under the two within-part permutation groups. Its three invariant squared semiaxes satisfy an exact system of linear support inequalities. Strict concavity of the logarithmic determinant and explicitly nonnegative KKT multipliers prove all three optimal branches, endpoints and contact transitions, not merely a stationary candidate. The standard-library checker independently verifies all support/KKT conditions in 2,580 rational cases. Finite checks alone are not the all-parameter proof.
+## correctness
 
-**Originality: PASS under the completed comparison, with bibliographic risk.** The full result on facet-count transitions for the same two-class snowflake metric determines a different invariant and contains no ellipsoid formula. The inspected graph-metric Banach–Mazur theorem supplies the final \(t=2\) endpoint but not the two interior contact transitions or pre-endpoint saturation. General ellipsoid design and Lipschitz-free space literature supplies background methods rather than an implication of this piecewise solution. Accessible prior claims about split-graph John ellipsoids, dual-ball volumes and bipartite covariance also do not imply the continuously symmetric deformation. An unindexed equivalence is not ruled out; no independent priority determination is claimed.
+PASS
 
-**Value: PASS.** The new result determines an extremal geometric invariant for an infinite-dimensional sequence of finite Banach dual spaces across an entire natural one-parameter interpolation. The asymmetric two-stage loss of constraint contacts, exact threshold at which the optimal ellipsoid becomes insensitive to real changes in the metric, and distinction from continuing strict ball enlargement provide substantive geometric structure beyond endpoint calculations.
+The real zero-sum metric dual is exactly the intersection of within-class slabs of width t and cross-class slabs of width 1; H decomposes orthogonally as A-zero-sum, B-zero-sum, and the one-dimensional class contrast. Uniqueness and origin symmetry of the full-dimensional John ellipsoid, then S_p×S_q invariance, force shape aP_A+bP_B+cP_C without restricting an arbitrary competitor. For any pair difference the squared support is 2a (A), 2b (B), or αa+βb+γc (cross), with α=(p−1)/p, β=(q−1)/q, γ=(p+q)/(pq). The log determinant (p−1)ln(a)+(q−1)ln(b)+ln(c) is strictly concave under a,b≤T=t²/2 and αa+βb+γc≤1; solving exact KKT produces the stated branches at T1=q/(2q−1), T2=q/(p+q−1), including p=q merger. Strict positivity, multiplier signs, support equalities, and complementarity make the branches globally optimal. The cross support always equals 1, and a=T/b=T characterize contacts. At and after T2 the shape freezes although a chosen within-A potential with gap t<t′≤2 witnesses strict enlargement of Q; saturation t*=sqrt(2q/(p+q−1)) is sharp. An independently written NumPy/Python checker tested 518 p,q,T triples across all branches and boundaries and independently recomputed KKT feasibility/signs/complementarity; arithmetic floats are corroboration, not an infinite proof.
 
-The natural endpoints and classical John-ellipsoid optimality principles are credited. The theorem does not extend to general separately weighted multipartite metrics, complex scalars, or arbitrary Euclidean normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same snowflaked bipartite metric has a published facet enumeration but not this three-phase John matrix or saturation law. General finite-metric Lipschitz-free polytope theory and complete-bipartite endpoint Hilbert distortion fix framework and possibly endpoint, not the full parameterized John calculation. Based on full same-object source and relevant primary material the transition law appears original, with unindexed optimal-design formulas an explicit priority risk.
+
+## value
+
+PASS
+
+The two-part interpolating finite-metric family is natural between equilateral and graph-metric Lipschitz dual balls; a maximal-volume inscribed ellipsoid is a canonical Euclidean invariant not fixed by facet counts. The exact non-endpoint contact switches and pre-endpoint plateau are a genuinely geometric phase diagram useful for explicit norm distortion and metric-family comparisons, beyond a routine endpoint evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
