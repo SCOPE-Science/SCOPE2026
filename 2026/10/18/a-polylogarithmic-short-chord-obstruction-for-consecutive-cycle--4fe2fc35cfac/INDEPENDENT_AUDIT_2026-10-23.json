@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T12:11:37.816753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct graph argument: deleting a single essential chord from an induced connected vertex set can leave exactly the endpoint components; its complement is one omitted interval on each of the two endpoint-to-endpoint cycle paths. This yields the exact union A_cycle ∪ {T-a-b}. Ordinary integer interval sums factor as products with both factors ≤2n and wrapping cyclic sums are complementary, so A_cycle and the long-gap sumset each have ≤2M(2n) (or 1+2M(2n)) distinct values. The short path has d-1 internal vertices, giving at most 1+d(d-1)/2 gaps. Ford’s sharp multiplication-table theorem then implies O((1+d²)n²/((log n)^δ(loglog n)^(3/2))) with an absolute implied constant, and a completing chord must have d≫(log n)^(δ/2)(loglog n)^(3/4). I independently enumerated 112 chorded labeled cycles for n=4..10 by actual induced connectivity versus two omitted paths, verifying set equality and finite bound. Checks do not prove the infinite statement; the graph decomposition and Ford theorem do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ford provides the sharp cardinality bound M(N) for interval products; Konieczny treats consecutive permutation sums. The 2026 cycle paper gives an edge-count completion upper bound, not a single-chord span lower bound."
+        ],
+        "reasoning": "Neither general multiplication-table estimates alone nor the edge-count upper bound implies the required local connected-set decomposition.",
+        "searches": [
+          "consecutive cycle sums single chord cyclic span lower bound multiplication table two gap",
+          "Ford multiplication table arXiv:math/0607473",
+          "Konieczny sums in permutations arXiv:1504.07156"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query consecutive cycle sums single chord cyclic span lower bound multiplication table two gap",
+        "arXiv:2610.08889 relevant full text",
+        "arXiv:1504.07156 relevant full text",
+        "arXiv:math/0607473 sharp multiplication-table bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bare-cycle incompleteness forces at least one new edge, not any particular geometric chord span. Ford bounds intervals only and needs the extra two-gap decomposition."
+        ],
+        "reasoning": "None of these statements directly entails a span-dependent upper bound for connected chorded-cycle sums; proof supplies new necessary combinatorial bridge.",
+        "searches": [
+          "consecutive cycle sums single chord cyclic span lower bound multiplication table two gap",
+          "arXiv:2610.08889 Theorem 1 / Proposition 1",
+          "arXiv:1504.07156 interval sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same source formulates sums of connected vertex subsets after adding edges, whereas its complement argument uses one cyclic interval, not two independent omitted gaps."
+        ],
+        "reasoning": "The equivalent formulation is a sumset of two missing blocks constrained by chord endpoints; this identity is newly derived rather than quoted from the primary source.",
+        "searches": [
+          "consecutive cycle sums single chord cyclic span lower bound multiplication table two gap",
+          "Marotti Needleman Consecutive Cycle Sums arXiv:2610.08889 sections 1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A finite example C8 with an added chord does not provide all-n span requirements; new small-graph checks have n≤10 only."
+        ],
+        "reasoning": "No known finite table decides the infinite polylogarithmic obstruction. Local computations corroborate the graph identity, not originality.",
+        "searches": [
+          "consecutive cycle sums single chord cyclic span lower bound multiplication table two gap",
+          "arXiv:2610.08889 cycle 8 single chord example"
+        ]
+      },
+      "rationale": "The exact short-chord geometric locality obstruction for consecutively labeled cycles is not a theorem of the closely related author source, which studies bare-cycle incompleteness and counts added edges. Ford’s and Konieczny’s multiplication-table/linear-interval results are indispensable acknowledged ingredients but have no chord distance parameter or two-gap graph reduction. No equal/stronger span theorem appeared in Resultary’s relevant results; older graph terminology remains an explicit priority risk.",
+      "residual_risks": [
+        "Possible earlier equivalent local gap bound under another graph terminology",
+        "Ford logarithmic exponent inherited, no sharpness or existence theorem for a completing single chord"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No explicit all-n short-chord obstruction in inspected text",
+          "evidence": "Original C_n incomplete for n≥8; proposed additional edges; C8 one-chord example",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08889",
+          "material_read": "Accessible author mathematical text materially read through sections 1–5, including Theorem 1 and chord examples",
+          "method": "Compared original theorem, complement argument and edge-number bounds to geometric span statement",
+          "title": "Consecutive Cycle Sums",
+          "trigger": "Same graph labeling, target connected-sum coverage problem"
+        },
+        {
+          "assessment": "Supplies known input but not new chorded graph statement",
+          "evidence": "Konieczny uses Ford multiplication-table order for consecutive sums",
+          "identifier_or_url": "https://arxiv.org/abs/1504.07156",
+          "material_read": "Full accessible mathematical text, introduction, estimate and relevant proof sections",
+          "method": "Compared linear interval sums against connected chorded-cycle induced subsets",
+          "title": "On consecutive sums in permutations",
+          "trigger": "Consecutive positive-integer sumsets and multiplication-table reduction"
+        },
+        {
+          "assessment": "Covers analytic ingredient, not chord-gap graph statement",
+          "evidence": "Ford’s M(N) sharp upper order",
+          "identifier_or_url": "https://arxiv.org/abs/math/0607473",
+          "material_read": "Relevant full author text including introduction, sharp theorem and multiplication-table consequence",
+          "method": "Verified exponent δ and (loglog n)^(-3/2) and treated as prior input",
+          "title": "Integers with a divisor in (y,2y]",
+          "trigger": "Primary sharp multiplication-table estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It answers a motivated geometric necessity question for the same sum-completion problem: small cyclic-span repairs produce asymptotically zero coverage; any hypothetical completing single chord must be polylogarithmically nonlocal. This is a uniform structural lemma and infinite geometric obstruction, not a finite recomputation, and no existence of successful single chords is presumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

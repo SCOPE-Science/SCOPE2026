@@ -1,9 +1,21 @@
-# Review of the short-chord obstruction
+# Independent mathematical audit
 
-**Correctness (PASS).** The key identity replaces every chord-dependent connected vertex set by two omitted contiguous gaps in the chord's complementary cycle paths. Exhaustive tests of all \(210\) non-cycle chords for \(4\le n\le12\) reproduce the identity by independent subset enumeration. The short path contributes at most \(1+d(d-1)/2\) omitted-gap sums; the long path and original cycle contribute at most twice the \(2n\)-multiplication-table cardinality. Ford's established sharp-order bound converts this exact finite estimate into a universal polylogarithmic span obstruction. No finite test is treated as proof of asymptotics.
+## correctness
 
-**Originality (PASS, with limitations).** Marotti--Needleman (arXiv:2610.08889v1) studies the same consecutively labeled cycles, but the inspected text proves incompleteness and edge-count upper bounds, not the distance of a single chord. Konieczny (arXiv:1504.07156v1) discusses consecutive interval sums and Ford's multiplication-table theorem; no one-chord connected-sum statement is present in the inspected material. Ford's bound is explicitly inherited, not claimed as new. The new gap decomposition and its span-dependent consequence are not mathematically implied by those cited statements without an additional argument. Residual risk: comparable bounds could occur implicitly in older graph/additive-combinatorics work under different terminology; full bibliographic uniqueness is not established.
+PASS
 
-**Mathematical value (PASS).** The 2026 paper asks how added edges can repair the incomplete cycle. This theorem supplies a necessary *geometric scale* for any single-edge repair, uniformly in chord placement; it also proves that bounded or subthreshold local repairs leave almost every target unattainable. The precise statement is more informative than an existence/nonexistence calculation at fixed small \(n\), while not claiming the geometric lower bound is sharp or that distant successful chords exist.
+Direct graph argument: deleting a single essential chord from an induced connected vertex set can leave exactly the endpoint components; its complement is one omitted interval on each of the two endpoint-to-endpoint cycle paths. This yields the exact union A_cycle ∪ {T-a-b}. Ordinary integer interval sums factor as products with both factors ≤2n and wrapping cyclic sums are complementary, so A_cycle and the long-gap sumset each have ≤2M(2n) (or 1+2M(2n)) distinct values. The short path has d-1 internal vertices, giving at most 1+d(d-1)/2 gaps. Ford’s sharp multiplication-table theorem then implies O((1+d²)n²/((log n)^δ(loglog n)^(3/2))) with an absolute implied constant, and a completing chord must have d≫(log n)^(δ/2)(loglog n)^(3/4). I independently enumerated 112 chorded labeled cycles for n=4..10 by actual induced connectivity versus two omitted paths, verifying set equality and finite bound. Checks do not prove the infinite statement; the graph decomposition and Ford theorem do.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact short-chord geometric locality obstruction for consecutively labeled cycles is not a theorem of the closely related author source, which studies bare-cycle incompleteness and counts added edges. Ford’s and Konieczny’s multiplication-table/linear-interval results are indispensable acknowledged ingredients but have no chord distance parameter or two-gap graph reduction. No equal/stronger span theorem appeared in Resultary’s relevant results; older graph terminology remains an explicit priority risk.
+
+## value
+
+PASS
+
+It answers a motivated geometric necessity question for the same sum-completion problem: small cyclic-span repairs produce asymptotically zero coverage; any hypothetical completing single chord must be polylogarithmically nonlocal. This is a uniform structural lemma and infinite geometric obstruction, not a finite recomputation, and no existence of successful single chords is presumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
