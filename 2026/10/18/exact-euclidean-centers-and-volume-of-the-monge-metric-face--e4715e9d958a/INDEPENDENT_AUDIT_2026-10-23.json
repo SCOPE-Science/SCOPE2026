@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:58:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the normalized cut entries V_a and their Frobenius Gram matrix G_ab=min(a,b)(n-max(a,b))/(2a(n-a)b(n-b)); applying the Dirichlet second-difference L gives G^{-1}=2/n diag(w)Ldiag(w) and S=1^TG^{-1}1=2(n^2-1)/3. The barycentric-gradient projection B=G^{-1}-(G^{-1}1)(G^{-1}1)^T/S has B_aa=(4w_a^2/n)(1-6/[n(n^2-1)]), whence the unique equal-facet incenter weights w_a/W and r^2=9/[(n^2-1)(n(n^2-1)-6)]. Solving equal-distance linear equations gives strictly positive circumcenter coefficients: (n-1)/(2n) on terminal cuts plus 1/n of the incenter. The weighted sum of squared distances proves minimum-enclosing uniqueness and its exact R^2. det K=n^(n-2), det G=n^(n-2)/(2^(n-1) ((n-1)!)^4); det of differences=det G*S proves face volume squared. Independently reconstructed rational matrix cases n=3..5 agree; source checker uses n=3..10. Strictly these checks corroborate, while second difference/Gram formulas prove n>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Whole hollow symmetric Monge polytope volume is not the intrinsic (n-2)-face volume.",
+          "Path symmetric edge polytope has different vertices, ambient linear space and norm geometry."
+        ],
+        "reasoning": "Neither prior whole-polytope theorem nor path-edge polytope radius implies explicit Frobenius metric-face inball, circumball and volume.",
+        "searches": [
+          "arXiv:2311.07522, sections 4.1-4.3",
+          "Resultary: Path symmetric edge polytopes have an exact inradius"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 9cd90f9183c3977eb7d9be30f2cb72a8d5feebd3",
+        "Resultary query: normalized hollow symmetric Monge polytope metric face consecutive cut simplex Euclidean incenter circumradius intrinsic volume Erickson Kretschmann",
+        "arXiv:2311.07522",
+        "doi:10.1023/A:1004907919611",
+        "Resultary Monge/Euclidean incenter search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cut-simplex characterization supplies input vertices but not Frobenius Gram inverse/inscribed/circumscribed radius.",
+          "Chepoi–Fichet concern circular decomposable metrics, a representation theory, not the exact Euclidean face invariants."
+        ],
+        "reasoning": "Derived all four target invariants afresh using discrete Green kernel and positive convex all-contact certificate; prior cut representation does not logically give those explicit formulas.",
+        "searches": [
+          "arXiv:2311.07522 sections 4.1–4.3",
+          "doi:10.1023/A:1004907919611"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known normalized path metric representation and cut vertex family are equivalent to metric-face description.",
+          "Different Resultary full nonsymmetric Monge polytope has an affine cube of incenters, not this intrinsic symmetric face."
+        ],
+        "reasoning": "Compared cut-coordinate metric cone, symmetric Monge face, and Frobenius intrinsic simplex as possible aliases; the examined full polytope and nonsymmetric polytope are distinct affine domains.",
+        "searches": [
+          "normalized hollow symmetric Monge polytope metric face consecutive cut simplex Euclidean incenter circumradius intrinsic volume Erickson Kretschmann",
+          "Resultary: An affine n-1 cube of Euclidean incenters for square Monge polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact n-parametric metric-face center/volume table surfaced in the actual targeted semantic search."
+        ],
+        "reasoning": "For this all-dimensional cut-metric simplex there is no finite small-object table that alone settles the universal statement; search absence is not priority proof.",
+        "searches": [
+          "normalized hollow symmetric Monge polytope metric face consecutive cut simplex Euclidean incenter circumradius intrinsic volume Erickson Kretschmann",
+          "Resultary Euclidean incenter Monge metric face"
+        ]
+      },
+      "rationale": "Erickson–Kretschmann arXiv:2311.07522 sections 4.1–4.3 defines the same consecutive-cut metric face and studies the VOLUME OF THE PARENT HOLLOW MONGE POLYTOPE; that foundational identification is credited. Its volume theorem is not this face Gram determinant or center computation. Compared cut-coordinate metric cone, symmetric Monge face, and Frobenius intrinsic simplex as possible aliases; the examined full polytope and nonsymmetric polytope are distinct affine domains. Neither prior whole-polytope theorem nor path-edge polytope radius implies explicit Frobenius metric-face inball, circumball and volume.",
+      "residual_risks": [
+        "Equivalent prior formula in metric-face or cut-cone nomenclature might predate the searches.",
+        "Chepoi–Fichet full document not inspected; no negative whole-document conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR INPUT, NO EXPLICIT TARGET EUCLIDEAN INVARIANT LOCATED",
+          "evidence": [
+            "Section 4 gives normalized metric face from path cuts; parent-polytope normalized volume is a distinct dimensional object."
+          ],
+          "identifier_or_url": "arXiv:2311.07522",
+          "material_read": "PDF section 4, metric-face definition, cut vertices, characterization of metrics, and whole-polytope volume discussion",
+          "method": "Opened primary PDF and inspected text and page image",
+          "title": "The structure and normalized volume of Monge polytopes",
+          "trigger": "Exact same metric-face objects and normalized cuts"
+        },
+        {
+          "assessment": "BACKGROUND, FULL-TEXT COVERAGE NOT RULED OUT",
+          "evidence": [
+            "Circular split representation alone is not a Frobenius simplex inradius or volume formula."
+          ],
+          "identifier_or_url": "doi:10.1023/A:1004907919611",
+          "material_read": "Bibliographic information and supplied reference description; full text not established read",
+          "method": "Source comparison and contextual bibliography",
+          "title": "A Note on Circular Decomposable Metrics",
+          "trigger": "Equivalent split-decomposition representations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The metric face of normalized hollow symmetric Monge matrices is the natural parameter space of path distances, not an arbitrary simplex slice. Its exact incenter equals normalized equally spaced line distance, while its unique all-vertex contact circumcenter favors terminal cuts; the n^2/6 aspect-ratio divergence and full intrinsic volume are new natural Euclidean invariants beyond generic Gram recipes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only intrinsic Frobenius geometry of normalized metric face, n>=3; not the full Monge polytope or arbitrary metric cones.",
+    "Cited Chepoi–Fichet full source not read, and no formal proof certificate."
+  ],
+  "schema_version": 1
+}
