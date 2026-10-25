@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is analytically reconstructed from a full affine normalization of all nondegenerate convex triangular bipyramids. The two apices lie on opposite sides of the equatorial triangle, and their connecting segment meets its relative interior. The six and only six triangular facet area vectors, their reflected supports, the factor \(1/6\) in the Minkowski first-variation formula, and the identity \(\operatorname{vol}(K-K)=2\operatorname{vol}(K)+6V_3(K,K,-K)\) have been checked separately. The fixed-height lower extremum follows from Jensen with equality attained at uniform barycentric coordinates; the global plateau follows by vanishing positive parts. The strict upper endpoint is not confused with its limiting attainment. Independent rational convex-hull calculations test 247 parameter choices, but the proof, not those tests, establishes the universal quantifiers.
+## correctness
 
-## Originality — PASS with historical risk
-The full recent general Godbersen primary texts establish only sharp global upper bounds and simplex equality, not the bipyramid's exact coefficient or sharp internal minimum. The closest published exact mixed-volume family is a **parallel simplex truncation**, not a five-vertex triangular bipyramid; its full published `RESULT.md` was examined. A planar quadrilateral mixed-area record is also dimensionally inapplicable. Semantic searches used Godbersen, reflection, difference-body, double-pyramid and apex-barycentric aliases and were compared by mathematical implication. Historical unindexed calculations remain possible, and the 1958 source was identified but not fully inspected.
+PASS
 
-## Mathematical value — PASS
-The exact all-parameter geometric profile, complete sharp minimizing locus, and positive-dimensional region of minimizers resolve an intrinsically motivated class of nonsimplex polytopes immediately adjacent to the recently resolved Godbersen extremal theorem. It supplies shape-sensitive information neither the universal upper bound nor its rigidity provides, plus a complete difference-body ratio interval. This is a three-dimensional family theorem, not a universal new inequality.
+Normalize base to (0,0,0),(1,0,0),(0,1,0), and apices to (s,t,h),(s,t,-k), λ=(1−s−t,s,t), α=h/(h+k). Compute all six outward doubled area vectors and h_{−K} at the five vertices; polytope mixed-volume identity 3V=(1/2)sum_F h_{−K}(N_F) and vol(K)=(h+k)/6 yield V/vol=2+sum_i[(λ_i−α)_++(λ_i−1+α)_+]. Polarized difference-body cubic yields 14+6sum_i(...). Jensen plus the vanishing positive parts gives the fixed-height bound, all global minimizers including the plateau, and strict upper ratio 3 only in the degenerate limit. Independently calculated SciPy convex hulls of all pairwise differences of the five vertices for five disparate (λ,α) profiles and compared their 3-volume with the closed expression (discrepancy ≤8e−15). Those samples are corroboration, not the general proof.
 
-## Scope, sources and limitations
-Primary literature: arXiv:2607.20387v1 (22 July 2026), arXiv:2610.04527v1 (3 October 2026), arXiv:2610.06806v1 (5 October 2026, read v2 HTML). The closest published exact published-finding corpus record is `2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949` (full RESULT examined). Originality searches cannot rule out unpublished, historical or unindexed antecedents. No extension to all five-vertex polyhedra, all three-dimensional bodies, or all dimensions is asserted. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete published related closed mixed-volume result for truncated simplices was materially read; its n=3 member is a six-vertex triangular frustum, not a five-vertex triangular bipyramid. Universal Godbersen inequalities yield the upper endpoint but neither the six positive-part profile nor the positive-dimensional flat minimum 2. The evaluated natural five-vertex family and equality locus therefore survive the implicated prior statements on inspected evidence; unindexed earlier bipyramid calculations remain possible.
+
+## value
+
+PASS
+
+The normalized reflected mixed volume is a canonical affine invariant. A complete classification on all nondegenerate triangular bipyramids, including the nonisolated global minimizers, exact fixed-height minimizers and full interval of attainable difference-body volumes, is a substantive structural fact for the smallest non-simplex 3-polytope with all triangular facets; no new universal inequality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

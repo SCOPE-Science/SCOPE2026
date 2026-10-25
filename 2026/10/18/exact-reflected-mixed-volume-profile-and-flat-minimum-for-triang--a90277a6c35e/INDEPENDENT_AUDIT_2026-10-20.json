@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T01:05:10.810641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize base to (0,0,0),(1,0,0),(0,1,0), and apices to (s,t,h),(s,t,-k), λ=(1−s−t,s,t), α=h/(h+k). Compute all six outward doubled area vectors and h_{−K} at the five vertices; polytope mixed-volume identity 3V=(1/2)sum_F h_{−K}(N_F) and vol(K)=(h+k)/6 yield V/vol=2+sum_i[(λ_i−α)_++(λ_i−1+α)_+]. Polarized difference-body cubic yields 14+6sum_i(...). Jensen plus the vanishing positive parts gives the fixed-height bound, all global minimizers including the plateau, and strict upper ratio 3 only in the degenerate limit. Independently calculated SciPy convex hulls of all pairwise differences of the five vertices for five disparate (λ,α) profiles and compared their 3-volume with the closed expression (discrepancy ≤8e−15). Those samples are corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal reflected mixed-volume ≤3 vol holds for all convex bodies and implies only current strict upper bound for non-simplex shapes.",
+          "The Rogers–Shephard difference-body volume ceiling 20 for 3-bodies is likewise the upper endpoint, not the family profile."
+        ],
+        "reasoning": "Stronger universal domains produce bounds only. They do not entail internal exact values, fixed-height minimum 2+(1−3 min(α,1−α))_+, or equality plateau.",
+        "searches": [
+          "Kotrbatý Mouamine arXiv:2607.20387 Godbersen inequality",
+          "Fryš Kotrbatý Mouamine Wang arXiv:2610.06806",
+          "Rogers Shephard 1957 difference body"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.20387",
+        "https://arxiv.org/abs/2610.04527",
+        "https://arxiv.org/abs/2610.06806",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current 2≤ratio<3 sharp endpoint is compatible with universal ≤3; the lower bound 2 is NOT universal.",
+          "The truncated-simplex profile cannot be obtained by a parameter choice that changes its number and incidence of vertices."
+        ],
+        "reasoning": "Universal bound implies only the upper endpoint. The other exact record is in a distinct affine shape class and does not specialize to the new six-term positive-part expression.",
+        "searches": [
+          "arXiv:2607.20387 global upper bound",
+          "arXiv:2610.06806 simplex equality",
+          "published Resultary 2026/10/11 exact truncation profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Via reflection, V3(K,K,-K)/vol is equivalent to (vol(K-K)/vol−2)/6.",
+          "Affine normal form has five vertices, six triangular faces, three positive barycentrics and one height split."
+        ],
+        "reasoning": "The exact difference-body formula and mixed-volume formula are equivalent; both were checked. A truncated simplex is not equivalent: in dimension three it has six vertices/two disjoint triangular sections, rather than five vertices/two pyramids meeting on one triangle.",
+        "searches": [
+          "triangular bipyramid mixed volume V(K,K,-K) reflected difference body barycentric apex heights Godbersen explicit",
+          "published Resultary 2026/10/11 exact Godbersen simplex truncations",
+          "Rogers–Shephard difference body five-vertex triangular bipyramid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary primary matched for a related but affinely inequivalent truncated-simplex family; full theorem and proof inspected.",
+          "No exact published five-vertex bipyramid 4-parameter mixed-volume table identified in scoped searches."
+        ],
+        "reasoning": "An exact formula for a different family is not a look-up table for this family. Failed search alone does not prove priority, and residual overlap with older convex-geometry formula collections remains.",
+        "searches": [
+          "triangular bipyramid mixed volume V(K,K,-K) reflected difference body barycentric apex heights Godbersen explicit",
+          "Resultary exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "triangular bipyramid difference body volume exact table"
+        ]
+      },
+      "rationale": "A complete published related closed mixed-volume result for truncated simplices was materially read; its n=3 member is a six-vertex triangular frustum, not a five-vertex triangular bipyramid. Universal Godbersen inequalities yield the upper endpoint but neither the six positive-part profile nor the positive-dimensional flat minimum 2. The evaluated natural five-vertex family and equality locus therefore survive the implicated prior statements on inspected evidence; unindexed earlier bipyramid calculations remain possible.",
+      "residual_risks": [
+        "The full primary text of broad 2026 Godbersen papers was not independently read in this run; material descriptions establish universal bounds but are not asserted exhaustive.",
+        "An older specialized exact triangular-bipyramid difference-body formula could exist under a classical five-vertex polytope classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES NOT COVER: K_t has 2n vertices (six when n=3) arranged on two homothetic parallel triangular sections and is not a 5-vertex triangular bipyramid. Formula G_n,m(t) has one truncation parameter, not arbitrary apex barycentrics/height split.",
+          "evidence": [
+            "For n=3 the prior K_t is {x_i>=0,t<=sum x_i<=1}: a triangular frustum with 6 vertices. Submitted K has 5 vertices/6 triangular facets. These are not affinely equivalent."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md",
+          "material_read": "Entire published RESULT.md primary record, including exact K_t membership, orthant integration, coefficient formula, proof and limitations",
+          "method": "Read complete primary GitHub Git blob and compare affine-vertex families/parameter dimensions",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Highly similar exact normalized reflected mixed volume and flatness"
+        },
+        {
+          "assessment": "COVERS universal upper inequality V3(K,K,-K)≤3 vol(K) and tetrahedron equality, not on available material the exact six-term family formula or minimum 2/flat barycentric locus.",
+          "evidence": [
+            "Universal Godbersen upper bound is logically compatible with every value in [2,3) and does not imply which bipyramids attain the internal minimum."
+          ],
+          "identifier_or_url": "arXiv:2607.20387",
+          "material_read": "Public theorem statement, author abstract and result summary; complete paper text not secured in this run",
+          "method": "Checked primary arXiv bibliographic/theorem description and source proof’s explicit theorem comparison",
+          "title": "Godbersen’s conjecture and the L_p-Rogers–Shephard inequality, Kotrbatý–Mouamine",
+          "trigger": "Strong universal mixed-volume bound potentially dominates claim"
+        },
+        {
+          "assessment": "Universal coefficient upper bound and simplex equality do not furnish precise affine bipyramid mixed-volume profile.",
+          "evidence": [
+            "A global sharp upper extremum need not determine a family-specific lower extremum."
+          ],
+          "identifier_or_url": "arXiv:2610.06806",
+          "material_read": "Public abstract/theorem statement and discussion of equality; complete publisher/preprint text not independently secured",
+          "method": "Read accessible bibliographic and theorem material; no whole-document noncoverage asserted",
+          "title": "Higher-Order Godbersen Inequality and a Characterization of Simplices via the Face Lattice, Fryš–Kotrbatý–Mouamine–Wang",
+          "trigger": "Potential stronger theorem includes all convex bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalized reflected mixed volume is a canonical affine invariant. A complete classification on all nondegenerate triangular bipyramids, including the nonisolated global minimizers, exact fixed-height minimizers and full interval of attainable difference-body volumes, is a substantive structural fact for the smallest non-simplex 3-polytope with all triangular facets; no new universal inequality is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.20387",
+    "https://arxiv.org/abs/2610.04527",
+    "https://arxiv.org/abs/2610.06806",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No general five-vertex or arbitrary convex-body optimum is asserted.",
+    "Universal Godbersen inequality and simplex equality are prior results and explicitly credited.",
+    "The full primary text of broad 2026 Godbersen papers was not independently read in this run; material descriptions establish universal bounds but are not asserted exhaustive.",
+    "An older specialized exact triangular-bipyramid difference-body formula could exist under a classical five-vertex polytope classification.",
+    "Best-of-knowledge C/O/V, not formal theorem-prover certification, an external expert attestation, or publication authorization."
+  ],
+  "residual_risks": [
+    "The full primary text of broad 2026 Godbersen papers was not independently read in this run; material descriptions establish universal bounds but are not asserted exhaustive.",
+    "An older specialized exact triangular-bipyramid difference-body formula could exist under a classical five-vertex polytope classification."
+  ],
+  "schema_version": 1
+}
