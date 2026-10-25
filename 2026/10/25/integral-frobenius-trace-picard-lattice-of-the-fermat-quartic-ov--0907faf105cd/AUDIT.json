@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Forty-eight explicit lines over F25 all satisfy the equation; exact F25 Gaussian elimination determines their 48x48 intersection matrix of rank 20 and discriminant -64 in a 20-line integer basis. Schütt–Shioda–van Luijk supplies char-0 integral geometric line generation; Kummer and smooth proper base change exclude non-5 torsion in specialization, and the two-dimensional H2 complement with eigenvalues -3±4i excludes a Picard jump. The index is a 5-power whose square divides 64, hence one. Trace lattice HNF has rank 8, determinant -4096 and Smith factors 2^6,8^2; mod-2 rank 8 rules out any invariant half class since 2NS^Frob is contained in traces. Standalone verify.py replays line intersections, integer bases and 255 mod-2 combinations, plus F5/F25 counts. Deligne purity, Kummer and trace formula are explicitly invoked rather than numerically certified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Degtyarev, arXiv:1305.3073, Theorem 1.2: a broad complex line-generation theorem, not finite-field arithmetic invariant lattices.",
+        "Jumagulov, arXiv:2607.17387 abstract (2026): number-field Galois-invariant ranks, potentially overlapping the rank but not demonstrated as covering the characteristic-five integral discriminant group; complete text not accessible.",
+        "The 2013 line-generation theorem works over C; a newer number-field result computes ranks of invariant rational modules, whereas the present theorem requires an integral finite-field invariant lattice and index-one proof."
+      ],
+      "reasoning": "Broader geometric line-generation theorems subsume the fact that lines generate the complex NS and that its discriminant is -64, so these inputs are explicitly excluded from novelty. A published theorem computing only rational invariant ranks can at most subsume the rank-eight component, not the determinant, discriminant group, or saturated trace basis without additional integral data. The unavailable newer full text is a residual priority risk.",
+      "searches": [
+        "Fermat quartic surface over F5 Frobenius 48 lines conjugate pairs arithmetic Picard rank trace intersection lattice",
+        "Fermat quartic over finite field five line configuration Galois invariant Picard lattice discriminant group",
+        "arxiv:1305.3073 Theorem 1.2",
+        "arxiv:2607.17387 Galois invariant Neron Severi rank Fermat surfaces"
+      ]
+    },
+    "checked_sources": [
+      "Schütt–Shioda–van Luijk, arXiv:0812.2377, Section 6.1, Proposition 6.2: complex rank 20, integral line generation, discriminant -64.",
+      "Shimada–Shioda, arXiv:1604.06265, Section 3 and Table 3.1: complex forty-eight-line equations, geometric line basis; Section 5 studies reductions but does not give the finite-field fixed integral Gram.",
+      "Degtyarev, arXiv:1305.3073, Theorem 1.2: a broad complex line-generation theorem, not finite-field arithmetic invariant lattices.",
+      "Jumagulov, arXiv:2607.17387 abstract (2026): number-field Galois-invariant ranks, potentially overlapping the rank but not demonstrated as covering the characteristic-five integral discriminant group; complete text not accessible."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schütt–Shioda–van Luijk, arXiv:0812.2377, Section 6.1, Proposition 6.2: complex rank 20, integral line generation, discriminant -64.",
+        "Shimada–Shioda, arXiv:1604.06265, Section 3 and Table 3.1: complex forty-eight-line equations, geometric line basis; Section 5 studies reductions but does not give the finite-field fixed integral Gram.",
+        "Independent finite-field Gram and 2-saturation computations give invariant lattice SNF (2,2,2,2,2,2,8,8), while the complex determinant alone is -64."
+      ],
+      "reasoning": "Published complex NS rank/discriminant and line equations imply a method for calculating arithmetic invariants, not their exact values without determining Frobenius orbit pairing, integral HNF, and 2-saturation. Classical Fermat zeta formulas may already imply point counts, so the zeta formula is clearly a consequence only, not a new primary claim.",
+      "searches": [
+        "Fermat quartic surface over F5 Frobenius 48 lines conjugate pairs arithmetic Picard rank trace intersection lattice",
+        "Fermat quartic surface F5 Picard invariant lattice rank eight determinant 4096 two eight torsion six two torsion Galois line traces",
+        "Fermat quartic over F5 48 lines Frobenius involution 24 conjugate pairs no rational lines arithmetic Neron-Severi discriminant",
+        "arxiv:0812.2377 Proposition 6.2",
+        "arxiv:1604.06265 Theorem 1.3 and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schütt–Shioda–van Luijk, arXiv:0812.2377, Section 6.1, Proposition 6.2: complex rank 20, integral line generation, discriminant -64.",
+        "Shimada–Shioda, arXiv:1604.06265, Section 3 and Table 3.1: complex forty-eight-line equations, geometric line basis; Section 5 studies reductions but does not give the finite-field fixed integral Gram.",
+        "Explicit comparison: arithmetic NS invariant lattice rank 8/discriminant -4096/index 1 versus complex geometric NS rank 20/discriminant -64."
+      ],
+      "reasoning": "The fixed integral subgroup of the characteristic-five Frobenius involution is not equivalent to the complex geometric Picard lattice. The first two primary papers provide the full geometric line configuration and intersection data from which an integral invariant calculation is possible, but relevant inspected portions do not state this subgroup or its Smith invariants. Failure of a search by itself is not counted as proof of noncoverage.",
+      "searches": [
+        "Fermat quartic surface F5 Picard invariant lattice rank eight determinant 4096 two eight torsion six two torsion Galois line traces",
+        "Fermat quartic over F5 48 lines Frobenius involution 24 conjugate pairs no rational lines arithmetic Neron-Severi discriminant",
+        "Fermat quartic modulo 5 Galois invariant lattice discriminant Picard 8 4096",
+        "arxiv:0812.2377 Section 6.1",
+        "arxiv:1604.06265 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web searches found the two relevant arXiv works describing complex line lattices; no accessed finite-field exact table contained a row with discriminant -4096 and Smith factors (2,2,2,2,2,2,8,8).",
+        "arxiv:1604.06265 Table 3.1 tabulates the rank-20 geometric Gram matrix, not the rank-8 arithmetic invariant one."
+      ],
+      "reasoning": "The exact known source table is a 20x20 complex geometric matrix with determinant -64. The 8x8 trace-invariant matrix of determinant -4096 and its Smith factors are different statements. Searches are incomplete and cannot certify universal database uniqueness.",
+      "searches": [
+        "Fermat quartic over finite field 5 Neron Severi arithmetic Picard rank discriminant 4096 invariant lattice lines Galois",
+        "Fermat quartic modulo 5 Galois invariant lattice discriminant Picard 8 4096",
+        "Fermat quartic surface F5 Picard invariant lattice rank eight determinant 4096 two eight torsion six two torsion Galois line traces",
+        "Fermat quartic over F5 Picard group discriminant rational divisor classes trace lines"
+      ]
+    },
+    "rationale": "The new statement is specifically the integral F5 Frobenius-fixed Picard lattice, trace-index one, discriminant -4096 and Smith type (2^6,8^2). Previous complex rank-20/-64 line generation and classical zeta results are treated as established. Inspected relevant primary sections and targeted literature searches did not locate the exact arithmetic integral invariant. An equivalent cyclotomic-lattice computation could exist; see risks.",
+    "residual_risks": [
+      "A more general cyclotomic Galois invariant-lattice theorem, including integral discriminant groups, may subsume the result under another formulation.",
+      "The arXiv:2607.17387 PDF could not be inspected; its abstract does not establish finite-field integral index or discriminant but may include related arithmetic ranks.",
+      "Literature and published-record searches have incomplete coverage; absence of a matching hit is not proof of universal originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves geometric rank-20 integral line generation and discriminant -64; does not state arithmetic Frobenius-fixed index/discriminant in the inspected sections",
+        "evidence": "arXiv:0812.2377v3 pp.16–17, Proposition 6.2 and lines 891–949 of PDF text",
+        "identifier_or_url": "https://arxiv.org/pdf/0812.2377",
+        "material_read": "Title/abstract and Sections 1, 2 and 6.1 (PDF pp. 1–3 and 16–17), Proposition 6.2",
+        "method": "Read full-text PDF extracted text and inspected rendered page",
+        "title": "Lines on Fermat surfaces",
+        "trigger": "Same Fermat quartic and full geometric NS; possible dominating line theorem"
+      },
+      {
+        "assessment": "Contains complex 48-line basis, geometric 20x20 Gram and reductions; no explicit F5 invariant 8x8 lattice or group found in inspected relevant sections",
+        "evidence": "arXiv:1604.06265 pp.3–6, Section 3, and pp.11–12, Section 5",
+        "identifier_or_url": "https://arxiv.org/pdf/1604.06265",
+        "material_read": "Introduction, Section 3 including Table 3.1 and Section 5 reduction setup; visible text and rendered title page",
+        "method": "Read full-text PDF extracted portions and inspected rendered page",
+        "title": "On a smooth quartic surface containing 56 lines which is isomorphic as a K3 surface to the Fermat quartic",
+        "trigger": "Same Fermat K3, explicit 48-line basis, reduction to p>3"
+      },
+      {
+        "assessment": "Applies over complex numbers and supplies no finite-field integral invariant Gram; its geometric line-generation content is prior art",
+        "evidence": "arXiv:1305.3073v3 pp.1–4, especially the field assumption over C and Theorem 1.2",
+        "identifier_or_url": "https://arxiv.org/pdf/1305.3073",
+        "material_read": "Abstract, introduction, Theorems 1.2 and 1.3, and Section 2 preliminaries",
+        "method": "Read full-text PDF extracted portions and inspected rendered title page",
+        "title": "Lines generate the Picard groups of certain Fermat surfaces",
+        "trigger": "Broad integral line-generation theorem may dominate"
+      },
+      {
+        "assessment": "Reports number-field Galois invariant ranks; may include analogous rank, but integral F5 discriminant and index remain unassessed due inaccessible full text",
+        "evidence": "arXiv:2607.17387 abstract, first posted July 19 2026",
+        "identifier_or_url": "https://arxiv.org/abs/2607.17387",
+        "material_read": "ArXiv indexed abstract only; complete PDF retrieval failed",
+        "method": "Read abstract, attempted corresponding full-text PDF",
+        "title": "Galois-invariant Néron--Severi ranks of Fermat surfaces over number fields",
+        "trigger": "Very recent Galois-invariant rank paper could dominate the rank claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0907faf1-05cd-4aac-a33a-d8937bf75670",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arithmetic Galois descent on a canonical point-free smooth K3 surface is a natural invariant. An explicit rank-8 integral lattice, complete discriminant group, and index-one generation by 24 degree-two traces add geometric information not determined by geometric rank-20/-64 or rational point counts alone; the invariant is not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
