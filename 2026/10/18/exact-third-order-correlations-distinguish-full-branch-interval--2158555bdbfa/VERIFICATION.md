@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
-The exact analytical derivation uses the normalized inverse-branch Perron operator on the two-dimensional centered polynomial span of \(g=x-1/2\) and \(h=g^2-1/12\). Its action is triangular, \(Pg=\theta g\), \(Ph=Ah+Bg\), and the all-lag formula follows by two applications of transfer duality. The finite check cannot substitute for this proof.
 
-`verify.py` independently enumerates all inverse cylinders up to the tested lag, integrates the resulting cubic product using `fractions.Fraction`, and compares these exact rational integrals to the formula. Five two/three-branch orientation/length cases and two separate four-equal-branch patterns are tested. The program also checks the explicit unequal four-branch witnesses and the skew-tent sharp critical point symbolically. Run with Python 3 and SymPy using `python3 verify.py` in a directory containing the script. Actual execution result:
+# Independent mathematical audit
 
-`VERIFY_OK 49 exact rational independent cylinder and witness checks; sharp critical 0.72567115994167 amplitude 0.0046158691679921`
+## correctness
 
-The verifier does not test every length/lag or prove the infinite theorem; no other auxiliary data or external code is required beyond Python 3 and SymPy. The historical novelty assessment compares the 2006 NOLTA paper, the 2014 IJBC article, the 2010 arXiv transfer paper, existing accessible research records, and actual archive searches. Historical completeness remains uncertain; no independent external review is asserted.
+PASS
+
+Every inverse branch is phi_i(u)=c_i+eps_i ell_i(u-1/2) with Lebesgue-preserving Perron P f = sum ell_i f(phi_i(u)). For g=u-1/2 and h=g^2-1/12 the invariant two-dimensional polynomial span obeys Pg=theta*g, Ph=A*h+B*g, with theta=sum eps_i ell_i^2, A=sum ell_i^3>0, B=2 sum eps_i ell_i^2(c_i-1/2). Iterating gives P^m h=A^m h+B sum_{q=0}^{m-1} A^{m-1-q}theta^q g. Transfer duality twice and orthogonality ∫g h=0, ∫g^2=1/12 imply C_{j,m}=(B theta^j/12) sum A^{m-1-q}theta^q for ALL j,m>=1. Thus C_{1,2}-C_{2,1}=theta A B/12; since A>0, full gap symmetry iff theta B=0. For four equal branches one flipped sign at positions 1 versus 2 gives common theta=1/8 and A=1/16, but B=3/32 versus1/32 and C11=1/1024 versus1/3072. For skew tents differentiate t(1-t^2)(1+3t^2)/192 to get positive critical t^2=(3+2sqrt(6))/15. Independent exact inverse-cylinder cubic integration for these witnesses reproduced moments and reversal contrasts. Positive gaps and Lebesgue stationarity are essential; no claim of full path reversibility.
+
+## originality
+
+PASS
+
+Best-of-knowledge: earlier authors give exactly the pair autocorrelation invariants theta and A for these maps, but the explicitly evaluated two-positive-gap cubic tensor, its reversal criterion, and pair-ACF indistinguishability witness are additional statements.
+
+## value
+
+PASS
+
+Higher-order time correlations can separate deterministic dynamical systems with identical entire linear and centered-square autocorrelation sequences. The exact two-gap tensor and symmetry condition quantify a motivated identifiability and temporal-direction invariant; skew-tent extremal point is natural within that subfamily and is not a free arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
