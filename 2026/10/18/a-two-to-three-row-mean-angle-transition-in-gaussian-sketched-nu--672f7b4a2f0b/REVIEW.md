@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Gram-matrix eigenprojector gives the squared principal-angle observable, with independent beta-prime radial and beta angular laws for the two Gaussian columns. At three rows, the Wishart eigenvalue Jacobian produces an exactly integrable angular density and gives \(R_3(\varepsilon)=\varepsilon^2/(1+\varepsilon^2)\) for every \(0<\varepsilon<1\). At two rows, the large-ratio angular kernel is \(1/(2x)+O(x^{-2})\), yielding \(R_2(\varepsilon)=\varepsilon^2\log(1/\varepsilon)+O(\varepsilon^2)\). For every fixed \(s>2\), a negligible low-ratio region and an integrable \(t^2/r\) dominator yield \(R_s(\varepsilon)/\varepsilon^2\to1/(s-2)\). These are analytic proofs. The package verifier independently checks 1,500 Gaussian Gram eigenvector identities, 18 exact three-row integral identities, and 10 moment-integral asymptotic sanity tests; its finite calculations do not prove the continuous formulas.
+PASS
 
-## Originality — PASS, with limitations
+Orthogonal invariance makes the sketched columns independent N(0,I_s) and scaled N(0,epsilon^2 I_s). The 2-by-2 Gram smallest-eigenvector projector gives exact H(a/(epsilon^2 c),t) with independent beta-prime a/c and squared direction cosine Beta(1/2,(s-1)/2). For s=3, the Wishart determinant exponent (s-3)/2 vanishes; integrating ordered eigenvalues gives orientation density (cos^2theta+epsilon^-2 sin^2theta)^-2, so tangent-integral quotient is epsilon^2/(1+epsilon^2). For s=2, beta-prime ratio density (1+r)^-2 and H(x,t)=t^2/x+O(x^-2) yield exactly epsilon^2 log(1/epsilon)+O(epsilon^2). For fixed s>=3, exclusion of ratio r<2epsilon^2 costs O(epsilon^s) and dominated convergence supplies E[t^2/r]=1/(s-2). Independent 500,000-sample Gaussian Gram eigendecompositions at epsilon=.08 produced measured mean squared errors s=2:.0175163, s=3:.0063331, s=4:.0033404, s=6:.0016328; exact s=3 theoretical .0063593. Checks are finite and not proofs of limits.
 
-Nakatsukasa and Park, arXiv:2206.00975 (2022), analyze exactly the left-sketch trailing-singular-vector problem but give perturbation and probability bounds, not the present exact mean squared angle or critical two-row log law. Gilbert–Park–Wakin, arXiv:1211.0361, likewise give recovery guarantees. Most closely, Takemura–Sheena, METR02-13 (2002), give weak Wishart eigenvector limits, but the nonintegrable limiting squared ratio for \(s=2\) cannot settle its finite-small-eigenvalue mean; that paper does not give the three-row nonasymptotic risk formula. Dong–Martinsson–Nakatsukasa, arXiv:2211.04676, address another leading-subspace randomized scheme. Relevant published published-finding corpus searches reveal no evaluated matching mean-angle law. Residual risk: a specialized classical Wishart eigenprojector identity may reproduce some or all of the claim under another formulation. No independent priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The expected squared trailing-vector angle is a motivated diagnostic for approximate null-space extraction. The sharp transition between the minimal two-row Gaussian sketch and three rows isolates an oversampling phenomenon that high-probability singular-vector bounds need not quantify. The exact three-row risk gives a nonasymptotic algorithmic benchmark, and the general fixed-s leading constant makes the row dependence transparent. The claim is confined to a two-singular-mode model with exact arithmetic and standard real Gaussian left sketches; it does not generalize to arbitrary spectra, non-Gaussian embeddings, or high-probability tails.
+Park-Nakatsukasa (2023) studies precisely trailing right singular-vector sketch accuracy but its primary Theorem 3.1 and Corollary 3.1 are multiplicative perturbation/high-probability bounds requiring sketch dimension multiple of column count; neither states an exact s=3 expected squared-angle identity or s=2 borderline logarithmic mean. Takemura-Sheena (2002/2005) studies weak eigenvector limits as the entire covariance spectrum becomes infinitely dispersed, not convergence of squared-angle expectations at the nonuniform-integrability s=2 boundary. Thus the finite Wishart mean and sharp row threshold are not direct corollaries of the cited bounds or weak convergence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The smallest allowed full-column-rank sketch undergoes a genuine integrability transition when a single additional Gaussian row is added. The exact finite-epsilon three-row law and s=2 logarithmic penalty give quantitative benchmarks for nullspace and total-least-squares sketch dimension, avoiding misleading extrapolation from weak limiting eigenvector laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

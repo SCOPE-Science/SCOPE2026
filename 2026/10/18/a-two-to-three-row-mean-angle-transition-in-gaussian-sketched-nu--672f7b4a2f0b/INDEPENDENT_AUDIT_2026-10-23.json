@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T04:05:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal invariance makes the sketched columns independent N(0,I_s) and scaled N(0,epsilon^2 I_s). The 2-by-2 Gram smallest-eigenvector projector gives exact H(a/(epsilon^2 c),t) with independent beta-prime a/c and squared direction cosine Beta(1/2,(s-1)/2). For s=3, the Wishart determinant exponent (s-3)/2 vanishes; integrating ordered eigenvalues gives orientation density (cos^2theta+epsilon^-2 sin^2theta)^-2, so tangent-integral quotient is epsilon^2/(1+epsilon^2). For s=2, beta-prime ratio density (1+r)^-2 and H(x,t)=t^2/x+O(x^-2) yield exactly epsilon^2 log(1/epsilon)+O(epsilon^2). For fixed s>=3, exclusion of ratio r<2epsilon^2 costs O(epsilon^s) and dominated convergence supplies E[t^2/r]=1/(s-2). Independent 500,000-sample Gaussian Gram eigendecompositions at epsilon=.08 produced measured mean squared errors s=2:.0175163, s=3:.0063331, s=4:.0033404, s=6:.0016328; exact s=3 theoretical .0063593. Checks are finite and not proofs of limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reviewed nearby broad theoretical results and their stated hypotheses/conclusions.",
+          "Provides multiplicative subspace-angle perturbation bounds, including Gaussian s=4n with high-probability control, but not the claimed s=2 vs 3 exact mean transition"
+        ],
+        "reasoning": "The broad method or limit does not prove this exact conclusion under the record hypotheses without additional nontrivial steps. Any full-text-access exception and possible implicit stronger theorem are retained as risks.",
+        "searches": [
+          "Gaussian left sketch trailing singular vector mean squared principal angle two rows logarithm three rows exact Wishart",
+          "Takemura Sheena infinitely dispersed Wishart eigenvectors 2005 limiting distribution right singular vector Gaussian sketch"
+        ]
+      },
+      "checked_sources": [
+        "A fast randomized algorithm for computing an approximate null space | https://link.springer.com/article/10.1007/s10543-023-00979-7",
+        "Distribution of eigenvalues and eigenvectors of Wishart matrix when the population eigenvalues are infinitely dispersed | https://www.keisu.t.u-tokyo.ac.jp/data/2002/METR02-13.pdf",
+        "Assigned frozen RESULT.md blob 83ac3e06aac05439d4554b68b344f469a492ae4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "High-probability perturbation and weak convergence do not control nonuniformly integrable second moments when s=2; they also do not supply the finite-epsilon s=3 law without additional Wishart calculation.",
+          "Corollary 3.1 describes an O(exp(-n/50)) exceptional probability for Gaussian sketches of size s=4n",
+          "Theorem 1: sample eigenvectors converge in probability as spectral ratios vanish"
+        ],
+        "reasoning": "Explicit premise/conclusion comparison: High-probability perturbation and weak convergence do not control nonuniformly integrable second moments when s=2; they also do not supply the finite-epsilon s=3 law without additional Wishart calculation.",
+        "searches": [
+          "Gaussian left sketch trailing singular vector mean squared principal angle two rows logarithm three rows exact Wishart",
+          "Takemura Sheena infinitely dispersed Wishart eigenvectors 2005 limiting distribution right singular vector Gaussian sketch",
+          "\"A Fast Randomized Algorithm for Computing an Approximate Null Space\" Nakatsukasa Park full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source(s) compare an alternate but mathematically related formulation.",
+          "High-probability perturbation and weak convergence do not control nonuniformly integrable second moments when s=2; they also do not supply the finite-epsilon s=3 law without additional Wishart calculation."
+        ],
+        "reasoning": "High-probability perturbation and weak convergence do not control nonuniformly integrable second moments when s=2; they also do not supply the finite-epsilon s=3 law without additional Wishart calculation.",
+        "searches": [
+          "Gaussian left sketch trailing singular vector mean squared principal angle two rows logarithm three rows exact Wishart",
+          "Takemura Sheena infinitely dispersed Wishart eigenvectors 2005 limiting distribution right singular vector Gaussian sketch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned nearby but not exact statement; primary searches identified analysis and methodological literature rather than an exact indexed database/table."
+        ],
+        "reasoning": "This task gives exact analytic formulas and classifications, not a lookup in a standard enumerated database; an unindexed equivalent formula remains possible.",
+        "searches": [
+          "Gaussian left sketch trailing singular vector mean squared principal angle two rows logarithm three rows exact Wishart",
+          "\"A Fast Randomized Algorithm for Computing an Approximate Null Space\" Nakatsukasa Park full text"
+        ]
+      },
+      "rationale": "Park-Nakatsukasa (2023) studies precisely trailing right singular-vector sketch accuracy but its primary Theorem 3.1 and Corollary 3.1 are multiplicative perturbation/high-probability bounds requiring sketch dimension multiple of column count; neither states an exact s=3 expected squared-angle identity or s=2 borderline logarithmic mean. Takemura-Sheena (2002/2005) studies weak eigenvector limits as the entire covariance spectrum becomes infinitely dispersed, not convergence of squared-angle expectations at the nonuniform-integrability s=2 boundary. Thus the finite Wishart mean and sharp row threshold are not direct corollaries of the cited bounds or weak convergence.",
+      "residual_risks": [
+        "Potential classical Wishart angular-integral identity may give the exact s=3 mean in an unindexed source.",
+        "Takemura-Sheena full appendices were not exhaustively inspected.",
+        "Monte Carlo at one epsilon is a sanity check only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides multiplicative subspace-angle perturbation bounds, including Gaussian s=4n with high-probability control, but not the claimed s=2 vs 3 exact mean transition",
+          "evidence": [
+            "Corollary 3.1 describes an O(exp(-n/50)) exceptional probability for Gaussian sketches of size s=4n",
+            "Section 3.1.1 gives norm-based a priori angle bounds, not exact expectation"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-023-00979-7",
+          "material_read": "Open-access primary full-text Sections 2-3; Lemma 3.1, Theorem 3.1, Corollary 3.1, equations (7)-(9)",
+          "method": "Publisher full HTML reading/search",
+          "title": "A fast randomized algorithm for computing an approximate null space",
+          "trigger": "same trailing singular vectors from a Gaussian left sketch"
+        },
+        {
+          "assessment": "Weak limiting distributions of properly normalized eigenvector entries do not determine borderline expectation of bounded angle error; no inspected exact finite-epsilon three-row law",
+          "evidence": [
+            "Theorem 1: sample eigenvectors converge in probability as spectral ratios vanish",
+            "Theorem 2: rescaled sample eigenvector elements have asymptotic distributions"
+          ],
+          "identifier_or_url": "https://www.keisu.t.u-tokyo.ac.jp/data/2002/METR02-13.pdf",
+          "material_read": "Primary full-text available, examined introduction, Section 2 Theorems 1-2 and initial proofs on pp.1-6; later material not comprehensively checked",
+          "method": "OA technical-report PDF parsed text and page-5 screenshot",
+          "title": "Distribution of eigenvalues and eigenvectors of Wishart matrix when the population eigenvalues are infinitely dispersed",
+          "trigger": "same extreme-eigenvalue-ratio Wishart eigenvector asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest allowed full-column-rank sketch undergoes a genuine integrability transition when a single additional Gaussian row is added. The exact finite-epsilon three-row law and s=2 logarithmic penalty give quantitative benchmarks for nullspace and total-least-squares sketch dimension, avoiding misleading extrapolation from weak limiting eigenvector laws.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A fast randomized algorithm for computing an approximate null space | https://link.springer.com/article/10.1007/s10543-023-00979-7",
+    "Distribution of eigenvalues and eigenvectors of Wishart matrix when the population eigenvalues are infinitely dispersed | https://www.keisu.t.u-tokyo.ac.jp/data/2002/METR02-13.pdf",
+    "Assigned frozen RESULT.md blob 83ac3e06aac05439d4554b68b344f469a492ae4a"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "access": "Literature-access limitations and inspected page/section ranges are stated exactly in axes.originality.source_inspections.",
+    "scientific": [
+      "Potential classical Wishart angular-integral identity may give the exact s=3 mean in an unindexed source.",
+      "Takemura-Sheena full appendices were not exhaustively inspected.",
+      "Monte Carlo at one epsilon is a sanity check only."
+    ],
+    "scope": "Claims hold only under final RESULT.md hypotheses; no extrapolation past the stated limits."
+  },
+  "residual_risks": [
+    "Potential classical Wishart angular-integral identity may give the exact s=3 mean in an unindexed source.",
+    "Takemura-Sheena full appendices were not exhaustively inspected.",
+    "Monte Carlo at one epsilon is a sanity check only."
+  ],
+  "schema_version": 1
+}
