@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the stated finite remanent language results
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing this file and `verify.py`. The entire verification program uses Python's standard library; `checks.txt` contains the exact output of an actual execution.
+## correctness
 
-The program constructs the \(2^n\) orientations explicitly for each \(n\in\{3,5,7,9\}\), computes all signed subset transitions by bitmask union, determinizes their intersection with an absorbing empty-component dead state, and enumerates all reachable states. Partition refinement begins from acceptance and stops only when no further block split is possible. A separate assertion checks that output and both quotient transitions are invariant on every equivalence class.
+PASS
 
-It then checks all three strictness witnesses against every lower-cycle orientation and supplies one rejecting mask for the next cycle. Recorded exact pairs of reachable states and minimal DFA classes are \((6,6)\), \((24,18)\), \((230,102)\), and \((8936,1098)\).
+Definition uses all vertices both initial and accepting, + follows each edge orientation and - reverses. The displayed mapping C_{n+2}->C_n sends the cyclic image walk 0,1,...,n-1,0,1,0 along actual C_n edges; pullback of orientations proves Rem(C_{n+2}) subset Rem(C_n) for all n>=3. Strictness uses concrete three signed words and all lower masks/one higher rejecting mask. For exact finite sizes, enumerating 2^n masks, reachable subsets per mask, synchronous product and absorbing dead state is complete by BFS induction; deterministic Moore refinement ending in acceptance-respecting congruence counts distinct Myhill–Nerode classes. An independent reimplementation, not just stored checks.txt, recomputed (reachable,minimized)=(6,6),(24,18),(230,102),(8936,1098) for n=3,5,7,9 with respectively 3,8,25,88 refinement rounds, and confirmed the meaning of no extrapolation to other n. Source verify.py separately provides direct witness checks.
 
-The general language-inclusion statement is proved mathematically by an explicit graph homomorphism in `RESULT.md`. The verifier does not establish a closed formula for cycle orders beyond nine. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+The originating work defines remanent languages and preexisting triangle/five-cycle observations. Novel assessment is exact Myhill–Nerode minima at 5,7,9 and strict C5>C7>C9 witnesses along with all-n two-step monotonicity. Full original Pujol manuscript inaccessible, so priority is best-of-knowledge with a material uninspected-source risk.
+
+## value
+
+PASS
+
+The first contiguous four odd cycle orders are canonical test cases for remanent languages, especially beyond the triangle and five-cycle obstruction. Exact complete-DFA sizes escalate 6,18,102,1098 while language inclusions are strict; reproducible exhaustive minimization gives natural finite structural benchmarks, not an arbitrary instance or a false general formula. The all-n homomorphism gives a separate explanation of monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

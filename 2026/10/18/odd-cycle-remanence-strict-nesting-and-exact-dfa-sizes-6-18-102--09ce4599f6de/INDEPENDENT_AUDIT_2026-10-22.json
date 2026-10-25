@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:58:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "fixed-commit RESULT.md ddec755527114a5b64a2d3f0756a78b4c1a1e92b",
+        "verify.py 65fc7a819fa90031303f5bdee3058f64b55e0f1d",
+        "independent_checks.py locally reimplemented all finite DFA counts",
+        "checks.txt 9069e7f115ff4f1c1d3361423bae5522e29aaa0d"
+      ],
+      "rationale": "Definition uses all vertices both initial and accepting, + follows each edge orientation and - reverses. The displayed mapping C_{n+2}->C_n sends the cyclic image walk 0,1,...,n-1,0,1,0 along actual C_n edges; pullback of orientations proves Rem(C_{n+2}) subset Rem(C_n) for all n>=3. Strictness uses concrete three signed words and all lower masks/one higher rejecting mask. For exact finite sizes, enumerating 2^n masks, reachable subsets per mask, synchronous product and absorbing dead state is complete by BFS induction; deterministic Moore refinement ending in acceptance-respecting congruence counts distinct Myhill–Nerode classes. An independent reimplementation, not just stored checks.txt, recomputed (reachable,minimized)=(6,6),(24,18),(230,102),(8936,1098) for n=3,5,7,9 with respectively 3,8,25,88 refinement rounds, and confirmed the meaning of no extrapolation to other n. Source verify.py separately provides direct witness checks.",
+      "residual_risks": [
+        "No claimed formula or exact automaton sizes beyond 3,5,7,9; a recorded checker run alone would not be sufficient but independent full enumeration was executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pujol abstract describes broad remanent/chromatic structural results and homomorphism language theory."
+        ],
+        "reasoning": "Broad graph-homomorphism tools can imply inclusion after the explicit C_{n+2}->C_n map, so general inclusion is at most a simple structural corollary; it does not imply numerical Myhill–Nerode counts. Stronger full-body result remains to be checked.",
+        "searches": [
+          "oriented graph automata remanent languages odd cycles minimum deterministic automaton 3 5 7 9 nested strict inclusion",
+          "arXiv:2609.08843"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: oriented graph automata remanent languages odd cycles minimum deterministic automaton 3 5 7 9 nested strict inclusion",
+        "arXiv:2609.08843",
+        "Myhill–Nerode standard theorem",
+        "direct finite enumeration from Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Originating paper defines orientation intersection; classical minimization only supplies the method. Claim explicitly supplies four exact state counts and three strictness words."
+        ],
+        "reasoning": "The broad language definition and standard determinization do not themselves state the numerical minima for all four orders; the independently verified exhaustive run supplies nontrivial finite facts. A hidden appendix table would decisively change originality if located.",
+        "searches": [
+          "oriented graph automata remanent languages odd cycles minimum deterministic automaton 3 5 7 9 nested strict inclusion",
+          "arXiv:2609.08843",
+          "Myhill–Nerode theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remanent language definition is Pujol's graph-orientation intersection, not a newly invented formalism."
+        ],
+        "reasoning": "Equivalent formulation as intersection over all oriented-walk path languages was used in searches; the claimed new datum is minimized deterministic state count and separation for C5,C7,C9. No directly covering indexed result identified, but full originating manuscript remains a risk.",
+        "searches": [
+          "oriented graph automata remanent languages odd cycles minimum deterministic automaton 3 5 7 9 nested strict inclusion",
+          "arXiv:2609.08843"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact target table n=3,5,7,9 maps to minima 6,18,102,1098 and reachable 6,24,230,8936, independently reproduced."
+        ],
+        "reasoning": "A finite database/table match is applicable here; Resultary exact-language and cycle-state-complexity searches did not return the same values, but inaccessible source may already contain a table. No novelty conclusion follows from a negative search alone.",
+        "searches": [
+          "oriented graph automata remanent languages odd cycles minimum deterministic automaton 3 5 7 9 nested strict inclusion",
+          "arXiv:2609.08843"
+        ]
+      },
+      "rationale": "The originating work defines remanent languages and preexisting triangle/five-cycle observations. Novel assessment is exact Myhill–Nerode minima at 5,7,9 and strict C5>C7>C9 witnesses along with all-n two-step monotonicity. Full original Pujol manuscript inaccessible, so priority is best-of-knowledge with a material uninspected-source risk.",
+      "residual_risks": [
+        "Original 2609.08843 paper body, figures, appendices unavailable through lawful checked routes; may contain the same odd-cycle state counts or strictness patterns. Authorized Oxford vpn_disconnected, no bypass.",
+        "Exact finite counts are assessed only for four orders; searches cannot prove absence of equivalent terminology elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and graph-invariant direction already covered; these abstracts do not provide the four exact minimized state counts or all three strict separating witnesses, but no whole-document NOT_COVERING conclusion is made.",
+          "evidence": [
+            "Pujol (2026), arXiv:2609.08843: remanent language defined, chromatic information stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08843",
+          "material_read": "ArXiv abstract and secondary abstract text: graph-based automata, every vertex initial/final, remanent intersection, relation to chromatic number; article body could not be obtained by arXiv or OA; authorized Oxford returned vpn_disconnected.",
+          "method": "arXiv abstract, OA abstract, Oxford availability attempt",
+          "title": "Graph-based automata",
+          "trigger": "Originating definition of remanent orientation language, same finite cycle class"
+        },
+        {
+          "assessment": "Foundational algorithm is known, whereas exact four computed values are new data under this automaton construction, subject to originating-paper overlap.",
+          "evidence": [
+            "Myhill–Nerode: reachable states modulo continuation equivalence determine exact minimal DFA."
+          ],
+          "identifier_or_url": "classical finite-automata theorem",
+          "material_read": "Standard textbook right-congruence principle; complete implementation and proof in current source.",
+          "method": "mathematical theorem and direct independent enumeration",
+          "title": "Myhill–Nerode minimization criterion",
+          "trigger": "Potential prior finite-state reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pujol arXiv:2609.08843 graph-based automata motivation",
+        "independent full state enumeration to n=9"
+      ],
+      "rationale": "The first contiguous four odd cycle orders are canonical test cases for remanent languages, especially beyond the triangle and five-cycle obstruction. Exact complete-DFA sizes escalate 6,18,102,1098 while language inclusions are strict; reproducible exhaustive minimization gives natural finite structural benchmarks, not an arbitrary instance or a false general formula. The all-n homomorphism gives a separate explanation of monotonicity.",
+      "residual_risks": [
+        "Potential full originating-paper overlap could reduce the new contribution; further n not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Primary origin arXiv 2609.08843 full text unavailable; Oxford VPN disconnected.",
+    "Finite exact figures for n=3,5,7,9 only, no all-n size claim."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite graph-automaton transition definition matches the word-language definition. Breadth-first construction visits every reachable intersection state. Acceptance is an exact conjunction over all orientations, and merging all tuples with an empty component is language-preserving. The stable Myhill--Nerode refinement computes the exact minimum (not only an upper bound). `verify.py` reconstructed the four finite cases, proved class-transition invariance, and checked every strictness witness; the explicit graph homomorphism proves the general inclusion. No higher-cycle numerical extrapolation is used.
+## correctness
 
-## Originality — PASS within examined evidence
-The general graph-based automata framework is due to Pujol (2026, arXiv:2609.08843). A prior run-avoidance theorem covers triangles when chromatic and clique numbers coincide, and the first separating word was already noted. Neither gives the exact minimum complete-DFA sizes for cycles of orders five, seven and nine, nor the two longer-cycle strictness witnesses. Exact-parameter searches in indexed literature and mathematical records identified no covering statement. The primary 2026 paper was available only through its abstract, **not full text**, so a covering manuscript theorem or older equivalent result remains an explicit priority risk. This assessment is not independent novelty certification.
+PASS
 
-## Value — PASS
-The result gives an exact first-family quantitative classification for the first imperfect cycles in a newly studied remanent-language framework: state complexity increases from \(18\) to \(102\) to \(1098\), while the languages become strictly smaller. The general homomorphism inclusion is a structural explanation of the monotonicity. All cases are natural contiguous initial odd-cycle orders, not arbitrary finite instances.
+Definition uses all vertices both initial and accepting, + follows each edge orientation and - reverses. The displayed mapping C_{n+2}->C_n sends the cyclic image walk 0,1,...,n-1,0,1,0 along actual C_n edges; pullback of orientations proves Rem(C_{n+2}) subset Rem(C_n) for all n>=3. Strictness uses concrete three signed words and all lower masks/one higher rejecting mask. For exact finite sizes, enumerating 2^n masks, reachable subsets per mask, synchronous product and absorbing dead state is complete by BFS induction; deterministic Moore refinement ending in acceptance-respecting congruence counts distinct Myhill–Nerode classes. An independent reimplementation, not just stored checks.txt, recomputed (reachable,minimized)=(6,6),(24,18),(230,102),(8936,1098) for n=3,5,7,9 with respectively 3,8,25,88 refinement rounds, and confirmed the meaning of no extrapolation to other n. Source verify.py separately provides direct witness checks.
 
-## Scientific limitations
-The full originating paper could not be read; publication priority may change under independent examination. Exact state-count results beyond cycle order nine and a general formula remain open here. Reproducible exhaustive computation proves the four finite numbers but no unbounded numerical classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originating work defines remanent languages and preexisting triangle/five-cycle observations. Novel assessment is exact Myhill–Nerode minima at 5,7,9 and strict C5>C7>C9 witnesses along with all-n two-step monotonicity. Full original Pujol manuscript inaccessible, so priority is best-of-knowledge with a material uninspected-source risk.
+
+## value
+
+PASS
+
+The first contiguous four odd cycle orders are canonical test cases for remanent languages, especially beyond the triangle and five-cycle obstruction. Exact complete-DFA sizes escalate 6,18,102,1098 while language inclusions are strict; reproducible exhaustive minimization gives natural finite structural benchmarks, not an arbitrary instance or a false general formula. The all-n homomorphism gives a separate explanation of monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
