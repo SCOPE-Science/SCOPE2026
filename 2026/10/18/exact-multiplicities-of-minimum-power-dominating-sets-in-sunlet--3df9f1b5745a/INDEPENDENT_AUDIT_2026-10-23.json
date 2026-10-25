@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:14:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md cyclic gap case analysis, tree f2803f64818b1d40e302507165c18bde31b66555",
+        "Saibavani–Parvathi Theorem 3.1 scalar ceil(n/3)",
+        "independent_checks_output.txt enumeration n=3..13"
+      ],
+      "rationale": "For simple sunlet S_n=C_n circle K_1, n>=3, a cycle-vertex sensor can cover at most 3 core positions, a selected leaf at most 2: any core with unselected private leaf cannot force a second core while its leaf is unobserved. Thus n<=3a+2b and minimum size ceil(n/3) is attained by core dominating sets; b<=3ceil(n/3)-n. Cyclic distances between selected cores record deficiencies relative to disjoint three-block coverage. For n=3q, all gaps three (3 sets); n=3q+2, one gap two or one gap five assisted by one leaf (counts n,2n); n=3q+1, gap partitions give n(q+2)/2 zero-leaf, n(2q+1) one-leaf and 2nq two-leaf solutions for q>=2. n=4 has separate profiles (6,12,4). Independent implementation simulated initial N[S] and all legal unique-neighbor forces for every optimal-cardinality subset on n=3..13 and exactly matched all b-profiles. Finite range is not infinite proof; complete deficit/gap classification is.",
+      "residual_risks": [
+        "Special n=4 and cases with no selected cycle vertices require separate treatment, given in proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary id 215b394cb6b1 threshold graphs, id 646ff77569c3 book graphs, id 453d578dc82f spider trees",
+          "Saibavani–Parvathi original power-domination results on sunlet/line/middle/total graphs"
+        ],
+        "reasoning": "Books/spiders/threshold graphs do not include a cycle with one pendant at each vertex. General power-domination lower bounds do not enumerate optimal labeled placements.",
+        "searches": [
+          "power domination sunlet graph minimum power dominating sets count leaves multiplicity",
+          "Resultary power domination polynomial book graphs spider trees threshold graphs",
+          "power domination polynomial corona C_n K1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/09720529.2019.1689610 Theorem 3.1",
+        "DOI:10.1137/S0895480100375831",
+        "Resultary ids 215b394cb6b1,646ff77569c3,453d578dc82f",
+        "Resultary query: power domination sunlet graph minimum power dominating sets count leaves multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published scalar cardinality theorem follows from capacity proof",
+          "New counts distinguish core/leaf placements and give three different n-mod-3 regimes"
+        ],
+        "reasoning": "Knowing k=ceil(n/3) is necessary for defining minimum sets but not sufficient to count them. Conversely positive P_{n,b} for the claimed k validates attainability.",
+        "searches": [
+          "power domination sunlet graph minimum power dominating sets count leaves multiplicity",
+          "Saibavani Parvathi Theorem 3.1 sunlet 2019"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A sunlet is the one-leaf corona of C_n; same sensor sets can be phrased as zero forcing after neighborhood observation",
+          "2019 Theorem 3.1 states minimum cardinality and no stated optimal-set census"
+        ],
+        "reasoning": "Reformulating a sunlet as a leaf corona does not itself give the residue-class solution counts; targeted equivalent-terminology search found scalar law, not the b-stratified enumeration.",
+        "searches": [
+          "power domination sunlet graph minimum power dominating sets count leaves multiplicity",
+          "sunlet graph C_n corona K_1 power domination polynomial minimum subsets",
+          "Saibavani Parvathi Power domination number of sunlet graph Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing table gamma_P(S_n)=ceil(n/3), not P_{n,b}",
+          "New profile for n=4 is (6,12,4) and all n mod 3 explicit"
+        ],
+        "reasoning": "No earlier all-residue multiplicity table was found in inspected original sunlet source; new classification not inferred from scalar table.",
+        "searches": [
+          "power domination sunlet graph minimum power dominating sets count leaves multiplicity",
+          "minimum power dominating sets sunlet n mod 3 count",
+          "power domination sunlet line graph 2019 gamma"
+        ]
+      },
+      "rationale": "Same-object Saibavani–Parvathi 2019 Theorem 3.1 gives only cardinality gamma_P(S_n)=ceil(n/3); the assigned contribution determines every optimal-placement multiplicity and pendant profile. Known graph-specific counting results concern nonisomorphic families. Best-of-knowledge PASS, not a claim that negative searches prove priority.",
+      "residual_risks": [
+        "Unindexed minimum-set census for the sunlet or leaf-corona C_n could exist.",
+        "Published scalar result explicitly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes scalar gamma_P(S_n), not complete minimum-solution multiplicities",
+          "evidence": "Theorem 3.1, n>=3",
+          "identifier_or_url": "https://doi.org/10.1080/09720529.2019.1689610",
+          "material_read": "Accessible original manuscript including Theorem 3.1 and the sunlet proof",
+          "method": "Full available manuscript text examined",
+          "title": "Power domination number of sunlet graph and other graphs",
+          "trigger": "Exactly same graph and parameter"
+        },
+        {
+          "assessment": "Power-domination forcing protocol is prior",
+          "evidence": "Haynes et al. 2002",
+          "identifier_or_url": "https://doi.org/10.1137/S0895480100375831",
+          "material_read": "Definition and original abstract/framework",
+          "method": "Abstract/founding definition, not full theorem coverage",
+          "title": "Domination in graphs applied to electric power networks",
+          "trigger": "Foundational rules"
+        },
+        {
+          "assessment": "Different graph structure, does not imply sunlet optimum counts",
+          "evidence": "Resultary id 646ff77569c3",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+          "material_read": "Published result title and summary identifying book family",
+          "method": "Resultary publication summary, not purported full inspection",
+          "title": "Power domination polynomial of book graphs",
+          "trigger": "Potential general enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md n mod 3 gap classification",
+        "Saibavani–Parvathi 2019 Theorem 3.1 scalar"
+      ],
+      "rationale": "Counting every minimum-cost power-monitoring deployment in the classic sunlet network is mathematically and practically distinct from knowing its size. The exact b-stratification detects effects of pendant sensors and a sharp exceptional four-cycle. Constant, linear and quadratic multiplicity regimes are structural, natural, all-order results rather than a single small graph calculation.",
+      "residual_risks": [
+        "Does not classify nonminimum sensor sets or reconfiguration geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
