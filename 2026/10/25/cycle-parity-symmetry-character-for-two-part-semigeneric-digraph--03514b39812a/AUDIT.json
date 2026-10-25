@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Affine GF(2) rectangle factorization has exactly a two-element representation kernel. The permutation equations force a shared difference bit, yielding 2^(cσ+cτ-1) for each admissible value; part exchange forces the composite permutation to flip a bit along each orbit and is feasible precisely for all-even cycles. Integer weight-pair Burnside yields both orbit counts. Direct independent matrix enumeration verified 288 group-character cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Public record 5135d85e91a6 counts labelled n-tuple orbits in the semigeneric digraph using set partitions and 2-power factors; full RESULT.md checked.",
+        "Public record f8b9342567cf counts tuple orbits for random bipartite graph reduct groups using row/column bit translations of arbitrary matrices; full RESULT.md checked."
+      ],
+      "reasoning": "Neither broader labelled-orbit summation identifies automorphisms of a fixed two-part digraph nor the character for separately permuting or exchanging its two parts. The random-bipartite reduction concerns a different group action: translations on all matrices rather than relabellings on the rank-one parity subspace. Thus neither result logically determines the exact fixed-point formulas without a further symmetry analysis.",
+      "searches": [
+        "relative tuple orbit profile over nonempty finite parameters in semigeneric directed graph depends only on number of vertices and independent parts Stirling",
+        "semigeneric homogeneous multipartite digraph k-parameter t-type extension count rank one GF2",
+        "public finding 5135d85e91a6 exact Stirling-layer orbit profile",
+        "public finding f8b9342567cf side preserving random bipartite reducts"
+      ]
+    },
+    "checked_sources": [
+      "Jasiński et al., arxiv:1310.6466, Section 10",
+      "Coskey and Ellis, arxiv:1509.04222, Section 4",
+      "Public research record 5135d85e91a6, complete RESULT.md",
+      "Public research record f8b9342567cf, complete RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary parity theorem and two-part representation are previously known; direct consequence: exactly 2^(a+b-1) labelled admissible matrices.",
+        "The new fixed-character formula tests each permutation action on this space; its vanishing under side exchange depends on even cycles of the composite permutation.",
+        "The cited prior works do not present the Burnside weight-pair classification under a quarter-turn."
+      ],
+      "reasoning": "The raw rank-one description is prior coverage, but it is not a theorem giving the equivariant counts, especially the side-swap even-cycle obstruction. The claimed new theorem is exactly those character identities and their orbit-class consequences; no novelty is assigned to its prerequisites or labelled count.",
+      "searches": [
+        "arxiv:1310.6466 semigeneric Section 10",
+        "arxiv:1509.04222 semigeneric Lemma 4.1",
+        "public finding 5135d85e91a6 complete RESULT",
+        "public finding f8b9342567cf complete RESULT"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv 2013 paper defines the parity class and its equivalence relation.",
+        "Coskey--Ellis 2015, Lemma 4.1 derives the representation by two vertex subsets, equivalent to an affine binary row/column matrix.",
+        "None of those inspected sections gives fixed counts under arbitrary vertex permutations, or the class-swap obstruction."
+      ],
+      "reasoning": "The row/column representation is not novel; the claimed permutation character consists of distinct fixed-point subspaces for each group element and the exact obstruction from the cycle decomposition of the induced square. Published representations alone do not state these character values, although they make the new derivation possible.",
+      "searches": [
+        "semigeneric digraph bipartite parity invariant orientation under part-swapping permutation even cycles",
+        "even rectangle parity binary matrix Burnside wreath product side swapping fixed points",
+        "semigeneric complete bipartite digraph isomorphism orbits (n+1)^2 fixed point character",
+        "Jasiński et al arxiv:1310.6466 Section 10",
+        "Coskey Ellis arxiv:1509.04222 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public semigeneric result 5135d85e91a6 tabulates labelled-age counts, not isomorphism classes or permutation-fixed orientation counts.",
+        "No matching table of unlabelled two-class semigeneric structures or cycle-parity character appeared in these actual searches."
+      ],
+      "reasoning": "A labelled enumeration does not imply the unlabeled orbit count by numerical division; stabilizer patterns matter. The two exact formulas are verified directly rather than inferred from absence of a search hit.",
+      "searches": [
+        "semigeneric digraph finite tuple type spectrum over named parameter set 2^N",
+        "semigeneric complete bipartite digraph isomorphism orbits (n+1)^2 fixed point character",
+        "even rectangles bipartite orientation isomorphism classes",
+        "semigeneric complete multipartite digraph orbit fixed point character"
+      ]
+    },
+    "rationale": "Known local binary-matrix factorization is credited to prior primary sources; neither checked primary full relevant section nor the closest published labelled-orbit and random-bipartite switch-profile results contains or implies the exact finite permutation fixed-point characters without further equivariant analysis. Residual risk of a specialized unindexed formula remains.",
+    "residual_risks": [
+      "Exact same finite fixed-point character might have appeared under a different switching-matrix or signed rank-one name, outside accessible research index.",
+      "Known rank-one premise makes the character elementary to derive, but no cited source was found stating this equivariant theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Parallels finite parity representation; does not state the two-part permutation fixed-point character",
+        "evidence": [
+          "Section 10 defines 2x2 even orientation parity (printed p.25).",
+          "The equivalence-relation and transversal construction follows the definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.6466",
+        "material_read": "Section 10 pp.25-27, including the definition and classification of equivalence classes; introductory classification",
+        "method": "Read PDF full relevant section text and visually checked its first page",
+        "title": "Ramsey precompact expansions of homogeneous directed graphs",
+        "trigger": "Archival primary source defining the semigeneric homogeneous digraph and parity axioms"
+      },
+      {
+        "assessment": "Contains precise known two-antichain factorization; solves Borel-complexity rather than finite permutation characters",
+        "evidence": [
+          "Lemma 4.1 represents cross-edge directions using two subsets.",
+          "Theorem 4.2 concerns Borel reducibility of a conjugacy problem, not finite symmetry enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.04222",
+        "material_read": "Section 4 pp.5-7, especially Lemma 4.1 and its proof; introductory claims",
+        "method": "Read arXiv PDF text of the substantive relevant sections",
+        "title": "The conjugacy problem for automorphism groups of homogeneous digraphs",
+        "trigger": "Directly relevant two-antichain lemma and automorphism study"
+      },
+      {
+        "assessment": "Global labelled tuple-orbit counts use the same rank-one matrix lemma but do not classify fixed points of part-preserving/swap automorphisms",
+        "evidence": [
+          "Fixed partition labelled count 2^((k-1)n-C(k,2)).",
+          "No arbitrary permutation character or unlabeled bipartite orientation formula."
+        ],
+        "identifier_or_url": "public-finding:5135d85e91a6",
+        "material_read": "Complete RESULT.md, including theorem, proof, relationship to prior work, limitations",
+        "method": "Read complete published scientific result text",
+        "title": "Exact Stirling-layer orbit profile of the semigeneric complete multipartite digraph",
+        "trigger": "Closest indexed result on same semigeneric age"
+      },
+      {
+        "assessment": "Different mathematical action: row/column additions on arbitrary matrices versus row/column relabellings on parity matrices, no part-swap character",
+        "evidence": [
+          "Its S_{l,r} formula uses translation-subspace codimension.",
+          "The document explicitly restricts to side-preserving groups."
+        ],
+        "identifier_or_url": "public-finding:f8b9342567cf",
+        "material_read": "Complete RESULT.md, including five reduct formulas and group actions",
+        "method": "Read complete published scientific result text",
+        "title": "Exact ordered-tuple orbit profiles of the side-preserving random bipartite reducts",
+        "trigger": "Potentially equivalent matrix-group reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03514b39-812a-4305-844c-942277b61d1f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete classification of finite symmetries of the first nontrivial semigeneric bipartite age layer. Reveals a nonobvious and sharp even-cycle obstruction to exchanging parts, determines all fixed-point character values, and converts exponential labelled possibilities into exact quadratic unlabelled counts.",
+    "status": "PASS"
+  }
+}
