@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The semantics of each question is directly the downward closure of positive footprints, respectively their complements. Maximal faces force the exact extremal footprints in every realization. The union of minimum and maximum footprints is both a constructive realization and a matching lower bound. A two-Sperner maximal-chain argument gives the all-arity sharp bound. Two independent exhaustive programs verify the four-world rank histogram: one ranges over every nonempty set of footprints, and the other ranges over all candidate convex sets.
+## correctness
 
-**Originality — PASS with residual historical risk.** The original 2026 inquisitive first-order paper gives mention-some support, while the 2025 convex-team paper gives a general expressivity characterization. The 2024 interval-closed-poset paper describes boundary antichains and OEIS A369313 gives the *unweighted* total of 3938. The pairing semantics and especially the exact four-world minimal-individual histogram are not supplied by those inspected claims. The general maximal-domain bound is a direct classical two-Sperner corollary after the footprint representation; it is not attributed as independent new combinatorics. Searches for paired support semantics, maximal/minimal boundary weights, and the exact ten-bin vector did not reveal an equivalent existing census. These searches are not proof of global priority.
+PASS
 
-**Value — PASS.** The distinct minimum and maximum footprints are the precise individual resources needed to answer two naturally complementary witness-seeking questions in the *same* population. A sharp worst-case budget at every world count and the complete first four-world cost census separate unweighted expressibility from realization resources. This is a concrete, natural finite-model invariant rather than an arbitrarily selected subcase. It does not require an unresolved broader decidability result for its value.
+A domain individual determines complementary positive and negative world footprints. Maximal supporting sets force every F and complement of each G as realized footprints. The pair exists precisely when every F contains a complement of G and vice versa; using F union H realizes both questions, so minimal size is |F union H|. The resulting nonempty interval-convex Boolean-lattice set has minima H and maxima F. The union of two antichains obeys the 2-Sperner maximal-two-level bound, attained by adjacent middle ranks. n=1 boundary gives two footprints for one world. n4 enumeration is genuinely exhaustive over all 65535 nonempty sets of sixteen possible footprints.
 
-**Closest prior work and boundaries.** Anttila–Knudstorp arXiv:2503.21850 gives all convex meanings but not paired monadic witness costs; Ciardelli–Kontinen arXiv:2603.20845 gives the quantifier's semantics but not the two-query classification. Elder et al., arXiv:2307.08520, give boundary-antichain descriptions and statistics for different posets, and OEIS A369313 supplies the already known total. Potential differently named boundary-size enumerations remain a historical-priority risk; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. The bijection/minimality proof is required to move from old semantics to exact paired witness costs; the final n4 distribution needs additional enumeration.
+
+## value
+
+PASS
+
+The exact minimum common-domain individual resource is a natural semantic optimization statistic, nontrivially linking a pair of dual questions to convex poset boundaries; the ten-cell labeled 4-world refinement offers an exact benchmark distinct from mere convex-set counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

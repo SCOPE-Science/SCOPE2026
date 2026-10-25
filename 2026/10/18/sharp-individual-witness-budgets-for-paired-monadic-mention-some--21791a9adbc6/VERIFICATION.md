@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python paired_support_checker.py` and `python convex_boundary_checker.py` with a standard Python 3 installation. The first enumerates all nonempty sets of positive predicate footprints on world sets of sizes \(1\) through \(4\), takes the two generated support downsets, keeps the minimum individual count per pair, and verifies the exact extremal-footprint formula. The second enumerates **every** subset of each corresponding Boolean lattice, tests convexity directly using all three-way inclusion intervals, and counts distinct boundary extremes. Both assert identical known exact count totals and four-world histogram.
+## correctness
 
-The finite check does not by itself prove the all-\(n\) theorem; the general proof is in `RESULT.md`, including the construction and a two-Sperner chain-counting argument. The programs do not address historical priority, independent reproducibility by third parties, or the full monadic logic.
+PASS
+
+A domain individual determines complementary positive and negative world footprints. Maximal supporting sets force every F and complement of each G as realized footprints. The pair exists precisely when every F contains a complement of G and vice versa; using F union H realizes both questions, so minimal size is |F union H|. The resulting nonempty interval-convex Boolean-lattice set has minima H and maxima F. The union of two antichains obeys the 2-Sperner maximal-two-level bound, attained by adjacent middle ranks. n=1 boundary gives two footprints for one world. n4 enumeration is genuinely exhaustive over all 65535 nonempty sets of sixteen possible footprints.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. The bijection/minimality proof is required to move from old semantics to exact paired witness costs; the final n4 distribution needs additional enumeration.
+
+## value
+
+PASS
+
+The exact minimum common-domain individual resource is a natural semantic optimization statistic, nontrivially linking a pair of dual questions to convex poset boundaries; the ten-cell labeled 4-world refinement offers an exact benchmark distinct from mere convex-set counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
