@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The literal diagonal automorphism equation for the row-by-source structure matrix is \(M_{ij}(d_j-d_i^2)=0\). The exact mean follows from color-preserving block permutation matrices. The asymptotic also requires the separately proved minimal-cycle event characterization and a uniform bound on all longer-support scalings; an exhaustive finite experiment is not an infinite proof.
+## correctness
 
-Run `python verify.py` without dependencies. The script enumerates all invertible matrices and all diagonal tuples directly in six instances: \((q,n)=(2,3),(3,3),(4,2),(4,3),(5,2),(7,2)\). It independently implements the exact moment's finite squaring-orbit sum and compares it with the direct distribution. It also checks an explicit three-cycle and all its diagonal scalings over \(\mathbb F_8\). The actual replay succeeded and reported `VERIFY_OK`.
+PASS
 
-Selected exact empirical distributions were: \(q=4,n=2\): stabilizer orders \(1:171,3:9\); \(q=4,n=3\): \(1:181359,3:81\); \(q=7,n=2\): \(1:1980,3:36\). Fields with \(q-1\) a power of two showed only trivial diagonal stabilizers. Finite enumeration checks definitions and small cases, not the proof of the all-dimension formulas or fixed-field limit.
+For uniform M∈GL_n(F_q), the diagonal homomorphism condition is M_ij!=0 => d_j=d_i². An invertible determinant permutation forces all d_i into the odd-order subgroup H. Equivariant block-permutation linear algebra gives the exact mean as a sum over squaring orbits and dimension threshold r=min ord_ell(2). An isolated r-cycle counts (q-1)^r G_(n-r) matrices per oriented support, with h=gcd(q-1,2^r-1) diagonals; pair intersections and all support s>r are exponentially lower-order via q^[(n-s)^2+s²/r]. Independently enumerated all 180 GL2(F4) matrices: 171 have trivial and 9 order-3 diagonal symmetry. This sample does not replace uniform asymptotic tail proof.
 
-No human or independent audit has been performed. No group-scheme or full automorphism-group calculation is claimed.
+## originality
+
+PASS
+
+Elduque-Labra and Sriwongsa-Zou supply the squaring/root-of-unity diagonal graph mechanism. Wei-Zou Burnside counts isomorphism classes and formally contains related fixed-matrix subcases, but an isomorphism-class total does not explicitly imply this labelled GL_n distribution, sharp first-symmetry dimension or fixed-q rare-event rate. No covering source identified from exact statement-level comparisons.
+
+## value
+
+PASS
+
+Exact mean, first possible dimension, exceptional-event asymptotic and conditional automorphism order quantify genuine finite-field random algebra rigidity, a motivated class distribution not obtained simply by renaming automorphism-group axioms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
