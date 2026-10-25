@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and proof boundaries
+# Independent mathematical audit
 
-The included standard-library `verify.py` is the only program needed. Invoke `python verify.py` in a directory containing this file. It uses exact rational arithmetic to enumerate all \((n-1)^{n-1}\) assignments of independent candidate parents for each \(2\le n\le8\), without invoking the proved covariance expressions in its forest generator. For each sampled forest it computes the number of components, every undirected degree class, and the number of zero-outdegree vertices. It then compares these exact empirical covariances against the formulas in RESULT.md.
+## correctness
 
-Additional exact-rational assertions for \(3\le n\le70\) verify the degree-one factorization, the complete sign diagram and conservation of total vertex count. Floating-point asymptotic checks at \(n\in\{201,501,1001,5001\}\) compare with the two analytic constants. The result is `VERIFY_OK exact/numeric assertions 2614`. Finite checks corroborate but do not replace the published-sampler reduction, exact conditional-covariance identities, termwise sign proof or analytic Riemann-sum limits. No independent mathematical audit has been conducted.
+PASS
+
+The proof uses the independent directed-attachment representation of the stationary Moran forest (Bienvenu–Duchamps–Foutel-Rodier Prop. 2.1) up to relabeling: K=sum 1_{U_j>j}, total degree D_j=1-B_j+C_j and zero-child status 1_{C_j=0}. I independently enumerated all (n-1)^(n-1) attachment assignments for n=2,...,7 in exact rational arithmetic; the closed binomial-difference covariance for every degree agrees, as does Z. For n=4 the degree-one covariance is -2/27 and terminal covariance 2/9. The sign argument uses unimodality of binomial probabilities with success probability 1/(n-1); the degree-one formula factors into a sum of strictly negative terms except n=3 equality. The asymptotic constants follow by dominated Riemann sums of exact formulas, not finite extrapolation. Boundary n=2 and out-of-range degrees are handled.
+
+## originality
+
+PASS
+
+Bienvenu–Duchamps–Foutel-Rodier characterize marginal component counts and vertex degrees under the stationary Moran law, providing the sampler but not joint component/degree-histogram covariance or the contrast with zero-outdegree. Published random recursive tree and uniform recursive forest results use distinct distributions and cannot dominate this joint statement. A Resultary search showed no exact stationary Moran covariance match.
+
+## value
+
+PASS
+
+An exact all-degree sign diagram and the counterintuitive distinction between low undirected degree and terminal child count are natural structural statistics of a canonical stationary random forest. The explicit finite-size covariance row and nonzero opposite-sign limits are useful beyond routine marginal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

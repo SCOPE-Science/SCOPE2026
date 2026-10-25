@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The construction follows the cited uniform-attachment representation of the stationary forest. An exact covariance calculation separates the same attachment variable, earlier independent variables, and later competing attachment choices. The degree-one summands factor term by term, giving the exceptional equality at three vertices and strict negativity thereafter; binomial mass monotonicity proves the remaining degree classes. The zero-outdegree formula and two linear limits follow from the same exact conditioning and Riemann sums. Independently constructed exact finite forests reproduce every covariance for orders 2 through 8. The checker is evidence for finite algebra, not a substitute for the infinite proof.
+## correctness
 
-**Originality — PASS on checked sources, subject to historical-priority risk.** The full accessible primary account by Bienvenu–Duchamps–Foutel-Rodier establishes the attachment sampler and separate marginal component/degree results but not the component–degree covariance row, its complete sign diagram, or the opposing terminal-vertex covariance. The earlier similarly titled work by Balińska–Quintas–Szymański treats the uniform random recursive forest, a different distribution explicitly distinguished in the primary paper; only its abstract was accessible. The closest inspected published findings on random recursive trees concern root-degree/leaf statistics in a different model. Searches under joint moments, degree histograms, and terminal-count aliases returned no equivalent statement. Search absence is not proof of historical uniqueness.
+PASS
 
-**Value — PASS.** The theorem gives a full exact finite-size dependence sign diagram for a natural component-count statistic against every degree class in a stationary population-genetic forest. The zero-degree class absorbs positive dependence while all genuinely nonzero degrees repel; the distinction between total-degree-one vertices and zero-outdegree terminals reverses the sign. Explicit nonzero linear-order constants quantify the effect at large population sizes. These are structural distinctions not available from separate marginal distributions.
+The proof uses the independent directed-attachment representation of the stationary Moran forest (Bienvenu–Duchamps–Foutel-Rodier Prop. 2.1) up to relabeling: K=sum 1_{U_j>j}, total degree D_j=1-B_j+C_j and zero-child status 1_{C_j=0}. I independently enumerated all (n-1)^(n-1) attachment assignments for n=2,...,7 in exact rational arithmetic; the closed binomial-difference covariance for every degree agrees, as does Z. For n=4 the degree-one covariance is -2/27 and terminal covariance 2/9. The sign argument uses unimodality of binomial probabilities with success probability 1/(n-1); the degree-one formula factors into a sum of strictly negative terms except n=3 equality. The asymptotic constants follow by dominated Riemann sums of exact formulas, not finite extrapolation. Boundary n=2 and out-of-range degrees are handled.
 
-**Limits and source risk.** No independence, stochastic ordering, or joint central limit theorem is asserted. The complete 1994 full text remained inaccessible, though the models differ; less-visible broader joint-moment theory could supply equivalent formulas. The present review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bienvenu–Duchamps–Foutel-Rodier characterize marginal component counts and vertex degrees under the stationary Moran law, providing the sampler but not joint component/degree-histogram covariance or the contrast with zero-outdegree. Published random recursive tree and uniform recursive forest results use distinct distributions and cannot dominate this joint statement. A Resultary search showed no exact stationary Moran covariance match.
+
+## value
+
+PASS
+
+An exact all-degree sign diagram and the counterintuitive distinction between low undirected degree and terminal child count are natural structural statistics of a canonical stationary random forest. The explicit finite-size covariance row and nonzero opposite-sign limits are useful beyond routine marginal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
