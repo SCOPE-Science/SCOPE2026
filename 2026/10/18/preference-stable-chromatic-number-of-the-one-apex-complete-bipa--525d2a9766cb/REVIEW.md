@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. An explicit greedy coloring uses \(b+2\) colors for every preference profile and orders all envy arcs backward. For \(b\ge2\), a single strict preference profile for each \((a,b)\) makes every proper \((b+1)\)-coloring unstable: removing the universal vertex's color permutes the remaining favorite colors bijectively within each of the two other parts, and the alternating color maps must contain a blocking cycle. The \(b=1\) boundary follows from the triangle lower bound. The packaged finite checks exercise both constructions, without substituting enumeration for the infinite proof.
+PASS
 
-## Originality
+PASS: Fix a>=b>=1 and palette k=b+2. Greedily color universal vertex u with its favorite; process b vertices of side B assigning favorite of remaining colors; color all of A with the sole remaining color. Every envy arc points to an earlier colored vertex, including the full-arc definition in the pinned text; in Koana-Oh-Yoneda’s adjacency-only envy graph this is only easier. For k=b+1 when b>=2, choose b indexed vertices on each side whose favorite i (1<=i<=b) and second favorite k produce, after excluding ANY one color used on u, a complete set of favorite remaining colors in both sides. Every proper coloring has disjoint nonempty color sets S_A,S_B. For each s in S_A a B vertex assigned f(s) in S_B prefers s; for each t in S_B an A vertex assigned g(t) in S_A prefers t. A cycle of g∘f on the finite S_A gives a directed alternating envy cycle; every arc joins A and B, so is an actual edge also under the paper’s stricter official definition. Distinct colors on that orbit force distinct witness vertices. If b=1 the graph contains a triangle, giving 3. Fresh exhaustively enumerated all proper (b+1)-colorings for (a,b)=(2,2),(3,2),(3,3): respectively 6,6,168 proper, zero stable, corroborating the construction without proving all parameters. Potential wording difference: pinned RESULT defines envy arcs between any two vertices whereas original arXiv defines only between adjacent vertices; both bounds actually hold under adjacency-restricted definition, so the asserted numerical invariant survives.
 
-PASS with a declared access risk. The initiating work determines complete bipartite graphs and gives a general reachability upper bound, neither of which supplies the strict one-apex lower bound. A publicly available \(K_{2,3,3}\) result covers one distinct tripartite graph, not the family with a singleton part. A known complete-graph-minus-matching classification overlaps at a small boundary instance but does not dominate the two-parameter formula. Exact, equivalent, and stronger-statement searches found no covering theorem. The initiating manuscript's complete PDF was not accessible for a full-text inspection, leaving a specific residual risk of an overlooked general lemma.
+## originality
 
-## Value
+PASS
 
-PASS. The result determines an infinite natural next family after the recently settled complete-bipartite case. It proves that one universal apex vertex always raises this new graph-coloring invariant by **exactly one**, and supplies a reusable robust-favorites obstruction rather than an unmotivated finite calculation. It does not assert a general join theorem.
+PASS (qualified): Original Koana-Oh-Yoneda arXiv:2609.00569 full lawful HTML was read anew, including the graph-edge envy definition, Proposition 3.7 chi_stable(K_{a,b})=b+1 and general reachability/Grundy bounds. Its graph-class table lists complete bipartite, paths and cycles but no K_{a,b,1} formula; full-text find for tripartite and universal vertex found none. The special K_{2,2,1} overlaps other finite graph results; a separate Resultary result for K_{2,3,3} is a different non-singleton tripartite type. Subgraph monotonicity chi_stable(K_{a,b,1})>=b+1 plus upper bound b+2 leaves the apex increment unresolved, which the robust favorite profile proves. Qualified by possible unpublished general join/complete multipartite results, not an institutional access failure because arXiv HTML full text was accessible despite a VPN attempt failing.
 
-## Closest literature and limitations
+## value
 
-Primary motivation: Koana, Oh, and Yoneda, *Graph Coloring with Color Preferences*, arXiv:2609.00569, 1 September 2026. The published \(K_{2,3,3}\) computation is a nearby but noncovering finite result. The proof is restricted to one universal vertex, and the motivating primary manuscript could not be fully inspected through the available access route; unindexed prior work remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Adding a single universal apex to all complete bipartite K_{a,b} is the natural next family after the established exact bipartite result, and its one-unit increase in stable color requirement is a sharp infinite two-parameter classification, not a tiny finite instance. The robust one-deletion favorite profile is a structural lower-bound method and the exact answer is not implied by ordinary chromatic number or the general orientation upper bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
