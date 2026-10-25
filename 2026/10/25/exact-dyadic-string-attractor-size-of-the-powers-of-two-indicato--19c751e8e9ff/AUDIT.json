@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every integer k>=2, the explicit selected positions meet each possible factor type by monotonic zero-run lengths and alternating-power coverage. Uniquely occurring gap factors plus one terminal factor for even k or two terminal factors for odd k have disjoint occurrence intervals of precisely the target cardinality. All intervals and exceptional k=2,3 are checked. The standard-library checker exhaustively checks factor coverage through k=9 and lower-bound witnesses through k=10 from the same packaged source; the symbolic proof establishes the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 8 of arxiv:2012.06840v6 covers a broader interval of prefix lengths but proves only sufficient attractor cardinalities, not the minimum.",
+        "arxiv:2509.08503v2 Table 2 shows constructed greedy sets, with no matching optimality proof for the powers-of-two sequence."
+      ],
+      "reasoning": "A broader upper-bound theorem does not imply the exact lower bound, and an algorithm returning k positions cannot rule out a smaller attractor. The odd-parity boundary certificates supply exactly the missing obstruction.",
+      "searches": [
+        "arxiv:2012.06840v6, Theorem 8 and Section 8",
+        "arxiv:2509.08503v2, Table 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2509.08503v2",
+      "arxiv:2012.06840v6",
+      "doi:10.1016/j.tcs.2020.11.006",
+      "doi:10.4230/LIPIcs.CPM.2026.33",
+      "published records on exact greedy attractors of the period-doubling word and exact Rudin–Shapiro/paperfolding dyadic attractors (distinct words)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schaeffer–Shallit prove the formula’s upper half at dyadic lengths and asymptotic logarithmic growth, but do not derive the exact additive lower bound.",
+        "Mantaci et al. give general combinatorial string-attractor bounds and standard Sturmian/Thue–Morse examples; the searched OA postprint has no corresponding powers-of-two dyadic conclusion.",
+        "Banbara et al. characterize Fibonacci and period-doubling minimum attractors, not powers-of-two support."
+      ],
+      "reasoning": "The previous upper cardinality plus a mere Ω(log n) lower bound cannot determine ceil(k/2)+1. Proving k/2+1 forced positions for even k, and the two disjoint terminal unique-factor intervals for odd k, is the novel implication needed to identify the optimum.",
+      "searches": [
+        "arxiv:2012.06840v6, Sections 6 and 8",
+        "doi:10.1016/j.tcs.2020.11.006, Sections 3–5",
+        "doi:10.4230/LIPIcs.CPM.2026.33, exact attractors for other sequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaeffer–Shallit, arxiv:2012.06840v6, Section 6, Theorem 8 explicitly constructs an upper bound for the identical powers-of-two characteristic word but says a matching lower bound requires other methods.",
+        "Schaeffer–Shallit, Section 8, notes only logarithmic-order lower bounds for the word."
+      ],
+      "reasoning": "The unique-gap and terminal-run occurrence certificates in the present lower bound are not obtained by renaming the previously published upper-bound statement. The original word and every dyadic parameter were compared rather than merely paper titles.",
+      "searches": [
+        "arxiv:2012.06840v6, Section 6, Theorem 8",
+        "arxiv:2509.08503v2, Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Béal–Crochemore–Romana experimental table has cardinalities 2,3,4,... for dyadic lengths 4,8,16,..., i.e. k at length 2^k, and is not an exact minimum table.",
+        "Published exact attractor counts found for Rudin–Shapiro, paperfolding, Fibonacci, Thue–Morse and period-doubling concern different word families."
+      ],
+      "reasoning": "There was no identified preexisting exact optimum table for the indicator-of-powers-of-two prefixes. An experimental greedy output is compared to, rather than misidentified as, optimal.",
+      "searches": [
+        "arxiv:2509.08503v2, Table 2",
+        "doi:10.4230/LIPIcs.CPM.2026.33"
+      ]
+    },
+    "rationale": "Schaeffer–Shallit's Theorem 8 already gives the dyadic upper cardinality, explicitly without a matching lower bound. The present disjoint unique-occurrence witnesses establish equality at all even and odd dyadic lengths. The 2026 greedy experiment provides a motivating performance benchmark, not an exact optimum theorem. Searches of relevant primary literature and mathematical research summaries found no implication covering the new lower bound; independent priority remains unverified.",
+    "residual_risks": [
+      "Equivalent unpublished or unindexed exact lower-bound computations are possible; no global literature uniqueness guarantee.",
+      "The 2024 source already proves the matching upper bound, so only the sharp all-k lower-bound identification and accompanying explicit optimality proof are claimed as newly established.",
+      "The program checks finite instances and is not an automated proof of the universally quantified theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 8 already gives sufficient cardinality matching the new dyadic formula; no exact dyadic lower bound established in the inspected relevant sections",
+        "evidence": [
+          "Theorem 8(a,b) constructs attractors across intervals of lengths; immediately afterward the paper states that it gives only an upper bound and a matching lower bound requires other techniques."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.06840",
+        "material_read": "Full-text Section 6, Theorem 8 and its proof, immediate matching-lower-bound caveat, plus Section 8 logarithmic-growth discussion and cited lower construction",
+        "method": "Public complete PDF with extracted text and visual inspection of page 10",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Identical powers-of-two sequence, known optimized-size upper bound"
+      },
+      {
+        "assessment": "Reports dyadic powers-of-two greedy-output cardinalities k, without asserting optimality; compatible with a smaller exact optimum",
+        "evidence": [
+          "Table 2 powers-of-two column is 2,3,4,... at dyadic lengths 4,8,16,...; the description identifies output of GetAnAttractor, not minimum certificate."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.08503v2",
+        "material_read": "Complete relevant Section 5 on experimental sequences and Tables 1 and 2, with article abstract, methods and conclusions as available in full HTML",
+        "method": "Accessible original HTML text with Table 2 and arXiv dated version history",
+        "title": "Checking and producing word attractors",
+        "trigger": "Recent motivating algorithmic benchmark for powers-of-two words, 2025 original public date"
+      },
+      {
+        "assessment": "General bounds and applications to Sturmian/Thue–Morse/de Bruijn words; no directly covering claim located for powers-of-two dyadic prefixes",
+        "evidence": [
+          "The introduction lists Sturmian, Thue–Morse, and de Bruijn families as examples; source text search for the powers-of-two phrase found no match."
+        ],
+        "identifier_or_url": "https://iris.unipa.it/retrieve/e3ad8926-49b4-da0e-e053-3705fe0a2b96/MRRRS_TCS2021.pdf",
+        "material_read": "Open-access postprint abstract, introduction, Sections 2–4, and full-document textual search for powers-of-two terminology",
+        "method": "OA full PDF (29 pages), selective relevant-section inspection plus document search",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Primary foundational combinatorial paper cited by the more recent work and relevant lower-bound generalities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19c751e8-e9ff-4954-9e26-3499c1327ff9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact minimum string-attractor size, with the correct additive term for all dyadic lengths, of a classical 2-automatic sparse word; this natural invariant previously had a matching-size construction but lacked an identified exact dyadic lower bound. The sharp uniqueness certificates, with parity-dependent terminal obstruction, precisely quantify a factor-two asymptotic gap from the k-position algorithmic construction in a 2026 experimental benchmark. The claim is not a numerical extrapolation and is not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
