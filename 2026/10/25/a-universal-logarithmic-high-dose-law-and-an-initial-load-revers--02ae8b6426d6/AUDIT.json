@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Variation of constants yields an exact solution for all finite u and nonnegative input-independent initial conditions. Dose-zero differentiation yields strictly positive P,Q and exact P-y0Q slope. The Gaussian comparison integral obeys a proved H(z)~1/z law, and small-window squeeze plus a bounded complement establishes C/logu->1/2. Negative initial slope and divergent high-input response force an interior global minimum by compactness. A stand-alone RK4 test reproduces the explicit sign and independent finite-dose behavior; it does not certify the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 paper general multivariate analysis requires y0=yss in Lemma 1; its scalar Proposition B.5 also requires y0=1.",
+        "2025 IFFL1 monotonicity theorem is for y0 at the steady-state value; no theorem covering arbitrary y0 was identified.",
+        "The large-dose proof here uses a near-zero Gaussian boundary layer and gives coefficient 1/2 for arbitrary nonnegative x0,y0."
+      ],
+      "reasoning": "A theorem for more intermediate states cannot dominate an arbitrary-output-preload theorem when it retains the adapted-output restriction. Generic large-dose limit techniques could imply the asymptotic but no precise full-statement coverage was identified.",
+      "searches": [
+        "Cumulative dose response nonmonotonic from non-equilibrium initial output IFFL1 xdot=-x+u ydot=u-xy threshold initial value and large-input logarithmic growth",
+        "Incoherent feedforward circuit arbitrary initial condition y0 nonmonotone integrated dose response inverse U shape finite time",
+        "Singular input limit boundary layer cumulative response logarithm half log dose feedforward adaptation with x(0)=0",
+        "arxiv:2604.01573 §4.1 and Appendix B",
+        "doi:10.1098/rsif.2024.0877 §1.8 and §2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.01573 original April 2 2026 preprint; current HTML v3 full text",
+      "doi:10.1098/rsif.2024.0877 and full author reprint, published 2025-08-13",
+      "2026/10/11/SCOPE-critical-1-alpha-time-scale-and-quantitative-logarithmic-integra--8cba7accd8a9",
+      "2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300",
+      "2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 proposition assumes y0=1 and establishes monotone nondecreasing cDR; numerical simulations retain y0=yss for IFFM1.",
+        "The 2025 theorem studies xdot=-x+u, ydot=u-xy at y0=1, not the new y0>ycrit open region.",
+        "The new sign formula P-y0 Q changes sign when y0 exceeds P/Q, while the exact high-input law forces return growth."
+      ],
+      "reasoning": "The new theorem neither contradicts nor follows from the prior monotonicity claims. Initial-output hypotheses are decisive: an adapted-y0 conclusion cannot logically exclude nonmonotonicity for y0=2, and provides no logarithmic coefficient. Primary source results on other IFFM variants do not cover the exact scalar preloaded claim.",
+      "searches": [
+        "arxiv:2604.01573 Proposition B.5 and §5",
+        "doi:10.1098/rsif.2024.0877 §2",
+        "\"cumulative dose response\" \"log u\" IFFL1",
+        "cumulative dose response IFFL initial conditions nonmonotone integrated output large dose logarithmic 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wafi et al. Table 2 row 5 identifies the exact scalar model and Appendix B Proposition B.5 imposes y0=1.",
+        "Gupta and Sontag (2025) §1.8 fixes the IFFL1 output initial state at its adapted equilibrium; §2 uses y(0)=1 after scaling.",
+        "The new witness has y0=2 and small-input derivative -1/2+2exp(-3), which is outside both initial-output hypotheses."
+      ],
+      "reasoning": "Model aliases IFFM1/IFFL1 and scalar row 5 were checked. Statements coincide in the differential equations but not initial-output domain, derivative threshold, or high-dose asymptotic; no equivalent result was found in inspected portions.",
+      "searches": [
+        "Cumulative dose response nonmonotonic from non-equilibrium initial output IFFL1 xdot=-x+u ydot=u-xy threshold initial value and large-input logarithmic growth",
+        "Incoherent feedforward circuit arbitrary initial condition y0 nonmonotone integrated dose response inverse U shape finite time",
+        "arxiv:2604.01573 Appendix B Proposition B.5",
+        "doi:10.1098/rsif.2024.0877 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary table records an adapted initial-condition-dependent monotone cumulative response, not a database of arbitrary-preload thresholds.",
+        "The closest indexed records were 2026/10/11/SCOPE-critical-1-alpha-time-scale-and-quantitative-logarithmic-integra--8cba7accd8a9, 2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300, 2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c. Their objects are nonlinear relaxation, memory singularities and product-kernel endpoint laws rather than the IFFL1 cumulative-dose functional."
+      ],
+      "reasoning": "The exact model row was read, but it provides only the studied equations and existing monotonicity domain. No matching tabulated threshold, high-dose ratio law or same model claim appeared in the returned records. An unsuccessful database search does not prove novelty.",
+      "searches": [
+        "Cumulative dose response nonmonotonic from non-equilibrium initial output IFFL1 xdot=-x+u ydot=u-xy threshold initial value and large-input logarithmic growth",
+        "Incoherent feedforward circuit arbitrary initial condition y0 nonmonotone integrated dose response inverse U shape finite time",
+        "Singular input limit boundary layer cumulative response logarithm half log dose feedforward adaptation with x(0)=0",
+        "arxiv:2604.01573 Table 2 row 5 and Table 3 model 5"
+      ]
+    },
+    "rationale": "Both motivating primary texts prove a monotonicity statement only with output initialized at the adapted equilibrium; the new proof concerns arbitrary nonnegative initial output, yields an exact initial-slope sign threshold and a high-dose universal boundary-layer constant, neither stated nor implied by their fixed-output results. Three exact-content semantic searches in the published mathematical-record database and focused literature searches found no covering result. Residual historical-priority risk remains, especially general feedforward asymptotics.",
+    "residual_risks": [
+      "Specialized earlier feedforward initial-load/singular perturbation calculations not captured by indexed searches may cover some conclusions.",
+      "The proof does not classify all possible nonmonotonic cases; a negative initial slope is only sufficient for an interior minimum.",
+      "The 1/2 logarithmic high-dose limit may be deducible from a general high-gain singular perturbation theorem not inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the arbitrary-preload sign threshold or the 1/2 logarithmic high-input asymptotic; explicitly y0=yss in scalar monotonicity statement.",
+        "evidence": [
+          "arxiv:2604.01573; §4.1 Lemma 1 states y0=yss; Appendix B Proposition B.5 fixes y0=1; §5 fixes y0=yss for IFFM1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.01573v3",
+        "material_read": "Table 2 rows 1–8, section 4.1 including Lemma 1 and Proposition 2, §5 input and initial-condition design, Appendix B scalar system 5 and Proposition B.5.",
+        "method": "Full-text HTML with section navigation and targeted content searches; compare equations, output-initialization hypotheses and consequences.",
+        "title": "When is cumulative dose response monotonic? Analysis of incoherent feedforward motifs",
+        "trigger": "Exact scalar IFFM1 equations and claim of monotone integrated responses."
+      },
+      {
+        "assessment": "Unconditional in dose/horizon with respect to fixed pre-adapted initial output, not unrestricted y0; hence cannot imply claim for y0>P/Q.",
+        "evidence": [
+          "Gupta–Sontag 2025, §1.8: initial y equals its steady-state value and initial x arbitrary; §2.4 uses y(0)=1."
+        ],
+        "identifier_or_url": "https://www.sontaglab.org/FTPDIR/2025_gupta_sontag_cdr_rsi_reprint.pdf",
+        "material_read": "Introduction §1.8 model statement, §2 variation-of-constants calculation and monotonicity proof, inspected PDF pages 7, 9–13 including page-image checks; abstract and conclusion.",
+        "method": "Open-access author full-text PDF text extraction and page screenshots; trace assumptions into the proof.",
+        "title": "Cumulative dose responses for adapting biological systems",
+        "trigger": "Earliest closely relevant cDR monotonicity result on the same scalar motif."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02ae8b64-26d6-4d6f-9a38-1595d2052e8c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published model’s central interpretation concerns monotone cumulative responses under adaptation. The exact output-preload threshold exposes a rigorously nonmonotone regime and a positive-input dose minimizing cumulative exposure. The universal half-log-dose scaling identifies the singular boundary-layer mechanism and guarantees eventual rebound regardless of initial states; these are physically interpretable mathematical boundaries beyond a single numerical counterexample.",
+    "status": "PASS"
+  }
+}
