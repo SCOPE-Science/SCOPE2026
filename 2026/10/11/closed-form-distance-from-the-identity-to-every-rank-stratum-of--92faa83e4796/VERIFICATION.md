@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically in `RESULT.md`; finite experiments are not used as an infinite proof.
 
-Verified source premises:
-- Chen's factor-orbit model identifies correlation matrices with row-normalized factors modulo an orthogonal action.
-- With ambient parameter \(k=n\), the squared quotient distance is the infimum over \(O(n)\) of the sum of squared rowwise spherical angles.
-- The source explicitly distinguishes the metrics for different ambient \(k\) and recommends \(k=n\) on the full elliptope.
-- The source states that the general angular alignment optimization does not have a closed-form solution and supplies a numerical Riemannian-gradient algorithm.
+# Independent mathematical audit
 
-Verified mathematical steps:
-- For an \(s\)-dimensional row span with orthogonal projection \(P\), the rowwise registered cosine is at most \(\sqrt{P_{ii}}\).
-- The diagonal of \(P\) lies in \([0,1]^n\) and sums to \(s\).
-- For \(f(p)=\arccos^2\sqrt p\), strict convexity follows from
-  \[
-  f''(p)=
-  \frac{2(\sin(2\theta)-2\theta\cos(2\theta))}{\sin^3(2\theta)},
-  \qquad p=\cos^2\theta,
-  \]
-  because the numerator vanishes at \(0\) and has derivative \(4\theta\sin(2\theta)>0\).
-- Real Schur--Horn gives a rank-\(r\) projection with constant diagonal \(r/n\), establishing sharpness for every \(n\ge r\).
-- Equality in the projection bound and Jensen's inequality gives the complete minimizer set.
+## correctness
 
-`verify.py` performs deterministic numerical checks of the convexity expression and exact matrix checks for explicit constant-diagonal projection families. It is corroborative only.
+PASS
+
+Under Chen’s default ambient d_orb,n, pick the identity factor I_n. Registered rank-s candidate row vectors all lie in one s-dimensional subspace U with orthogonal projection P and p_i=P_ii, Σ p_i=s. Cauchy–Schwarz bounds each row cosine above by sqrt(p_i), hence its squared angle below by f(p_i)=acos²sqrt(p_i). Calculus gives fʺ(p)=2(sin2θ−2θcos2θ)/sin³(2θ)>0 for p=cos²θ, as the numerator vanishes at θ=0 and has derivative 4θsin2θ>0. Jensen gives Σf(p_i)≥n f(s/n)≥n f(r/n). Real Schur–Horn majorization supplies rank-r projection with uniform diagonal r/n in every dimension, and Y=√(n/r)P attains the bound; strict convexity and equality in rowwise Cauchy–Schwarz yield exactly (n/r)P, with no other minima. Rank n gives zero distance and unique I_n; rank1 gives sign-cut matrices; corank1 projections I−ssᵀ/n give exactly 2^(n−1) signed-simplex correlations. The proof addresses n≥2 and all 1≤r≤n and explicitly distinguishes smaller ambient k metrics. Independent DFT projections for all 170 n/r pairs n≤18 and 1620 sampled rank-bounded row subspaces numerically corroborated its claims; the universal proof is analytic and does not follow from finite tests.
+
+## originality
+
+PASS
+
+The exact source Chen (arXiv:2401.03126, metric definition and distance-computation section) supplies the O(n)-registered sum-of-squared-spherical-angles cost and discusses its general nonclosed form, but not its minimization from the identity to every rank stratum. The more recent Bisson–Loiseaux–Pennec (arXiv:2610.28475) studies low-rank correlation quotient geometry, geodesics and rank-dependent phenomena, not the explicit identity-centered formula or tight-frame equality class. Classical tight-frame/frame-potential and Schur–Horn theorems supply the optimizer objects and existence, not the angular orbit-metric optimization. The checked published Schur–Horn-orbitope Frobenius and spherical-isotropization Wasserstein results use materially different metrics and feasible objects. No independent stronger claim or exact table implying the full value and optimizer classification was found; Resultary indexed the exact assigned mirror, which is not counted as independent antecedent. Verdict is best-of-knowledge with specified terminology/indexing risk, not priority certification.
+
+## value
+
+PASS
+
+Rank strata are intrinsic organizing subsets of the elliptope quotient geometry, and exact metric clearance from the canonical full-rank basepoint I_n to rank loss is a natural stability/nearest-degeneracy question. The finding supplies a nontrivial closed form simultaneously for every n and r, a complete variational/equality classification by uniform-diagonal projections, and all exactly 2^(n−1) signed regular-simplex nearest singular correlations. The angular cost is not the familiar quadratic frame potential, so the result is not a mere reparameterization or known-table calculation. The optimized metric and full equality set are mathematically useful even without a separate downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

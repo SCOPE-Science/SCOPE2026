@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T17:13:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md (Git blob 245782273960ca7b85d73466dd53544dea67d40d)",
+        "Assigned verify.py and VERIFICATION.md, read rather than accepting VERIFY_OK at face value",
+        "H. Chen arXiv:2401.03126, metric formula and ambient convention",
+        "Schur–Horn projection majorization via primary frame existence paper arXiv:1106.0921",
+        "Independent local independent_checks.py / independent_checks.json, 170 projections, 1620 random subspaces, 10000 convexity points"
+      ],
+      "rationale": "Under Chen’s default ambient d_orb,n, pick the identity factor I_n. Registered rank-s candidate row vectors all lie in one s-dimensional subspace U with orthogonal projection P and p_i=P_ii, Σ p_i=s. Cauchy–Schwarz bounds each row cosine above by sqrt(p_i), hence its squared angle below by f(p_i)=acos²sqrt(p_i). Calculus gives fʺ(p)=2(sin2θ−2θcos2θ)/sin³(2θ)>0 for p=cos²θ, as the numerator vanishes at θ=0 and has derivative 4θsin2θ>0. Jensen gives Σf(p_i)≥n f(s/n)≥n f(r/n). Real Schur–Horn majorization supplies rank-r projection with uniform diagonal r/n in every dimension, and Y=√(n/r)P attains the bound; strict convexity and equality in rowwise Cauchy–Schwarz yield exactly (n/r)P, with no other minima. Rank n gives zero distance and unique I_n; rank1 gives sign-cut matrices; corank1 projections I−ssᵀ/n give exactly 2^(n−1) signed-simplex correlations. The proof addresses n≥2 and all 1≤r≤n and explicitly distinguishes smaller ambient k metrics. Independent DFT projections for all 170 n/r pairs n≤18 and 1620 sampled rank-bounded row subspaces numerically corroborated its claims; the universal proof is analytic and does not follow from finite tests.",
+      "residual_risks": [
+        "Finite verification is not an infinite-dimensional rank/dimension proof; analytic Cauchy–Schwarz, convexity, Schur–Horn are decisive.",
+        "No formal proof assistant or external human attestation was performed; preexisting independent/Lean/expert fields preserved.",
+        "The numerical tests sample random spanning configurations and explicit projection families, not all possible PSD correlations; classification follows from symbolic equality arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen establishes the ambient quotient metric and general orthogonal-alignment objective, not the rank-bounded minimization from I_n.",
+          "Bisson–Loiseaux–Pennec discuss low-rank geometry, quotient metrics and paths; the inspected full text did not yield a rank-stratum clearance/optimizer theorem.",
+          "Schur–Horn gives existence of uniform-diagonal rank-r projections; Benedetto–Fickus classifies quadratic frame-potential minimizers, with a different objective."
+        ],
+        "reasoning": "The metric geometry framework of Chen is broader but offers no stated or implied solution to this optimization. The recent low-rank geometry paper does not show an estimate/equality implying the formula. Classic spectral/frame statements give prerequisites, not the arccos-squared Jensen inequality or equality classification. The result is a nontrivial exact slice, not a direct restatement of a general theorem.",
+        "searches": [
+          "Chen, arXiv:2401.03126, full PDF, Sections 3.1, 3.4, 4.1 and distance formula",
+          "Bisson–Loiseaux–Pennec, arXiv:2610.28475v1, HTML full text, low-rank correlations and quotient geometry",
+          "Cahill et al, arXiv:1106.0921, full preprint on frame spectrum and lengths",
+          "Benedetto–Fickus, Finite Normalized Tight Frames, 2003 quadratic frame potential"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.03126 (full relevant PDF sections; screenshots checked)",
+        "arXiv:2610.28475 (new full HTML and relevant theorem sections)",
+        "arXiv:1106.0921 (Schur–Horn frame existence, read primary preprint)",
+        "DOI:10.1023/A:1021323312367 (abstract/theorem summaries only)",
+        "Resultary semantic searches ×3, exact same-record mirror excluded as independent",
+        "Resultary published spherical W₂ isotropization (full RESULT)",
+        "Resultary published Schur–Horn Frobenius radii (full RESULT)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen implies the registration cost formula, not its optimizer in each rank s.",
+          "Schur–Horn implies existence of P with diag P=r/n; frame potential determines an optimizer class for an unrelated quadratic objective.",
+          "The W2² transport result has value 2−2sqrt(r/d) under a chordal probability cost, not sqrt(n)acos sqrt(r/n).",
+          "The inspected Bisson–Loiseaux–Pennec metric work supplies geometry and geodesics but no statement implying all rank-stratum distances and optimizer classification."
+        ],
+        "reasoning": "To derive the audited theorem, beyond the prior definitions and projection existence, one must prove a coordinate projection upper bound for registered cosine, strict convexity of f(p)=acos²sqrt(p), Jensen equality, and r-dependent classification. The inspected stronger/parallel statements do not supply those metric implications. Residual risk is an unindexed equivalent bound in spherical frame alignment.",
+        "searches": [
+          "Chen arXiv:2401.03126 quotient distance equation and numerical Section 4.1",
+          "Bisson–Loiseaux–Pennec arXiv:2610.28475 full low-rank geometry paper",
+          "Cahill et al arXiv:1106.0921 real Schur–Horn and frame-existence theorem",
+          "Benedetto–Fickus DOI:10.1023/A:1021323312367 quadratic frame potential",
+          "Spherical W2 isotropization and Schur–Horn Frobenius radius primary RESULT texts in Resultary/2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary mirror SCOPE-closed-form-distance-from-the-identity-to-every-rank-stratum-of--92faa83e4796 is same assigned finding, not an independent earlier theorem.",
+          "Chen arXiv:2401.03126 gives a sum of squared rowwise arccos angular distances after orthogonal registration, without the optimized rank-stratum value.",
+          "Frames formulated through Gram equal-diagonal projections arise from Schur–Horn and unit-norm tight frames but prior frame potential is quadratic."
+        ],
+        "reasoning": "Equivalent aliases include spherical product quotient registration, distance from an orthonormal basis to rank-bounded unit-row factors, uniform-diagonal projection optimizer, and unit-norm-tight-frame Gram minimizers. Those aliases were searched. A coincident optimizer set under quadratic frame potential is not an implication for the arccos-squared metric. Unindexed angular-frame identities remain possible.",
+        "searches": [
+          "Resultary: Chen quotient geometry bounded rank correlation matrices spherical product orbit metric distance identity to rank r Schur Horn tight frame n arccos sqrt r/n",
+          "Resultary: geometry finite unit norm tight frames spherical Grassmannian orthogonal Procrustes elliptope identity closest rank deficient correlation",
+          "Web: distance identity rank r correlation matrix quotient metric arccos sqrt r/n tight frame",
+          "Web: orthogonal registration spherical product geometry tight frames nearest rank deficiency identity correlation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding itself is indexed verbatim, but is not an independent prior occurrence.",
+          "The subspace isotropization result gives W_2²=2−2sqrt(r/d) for probability measures, a different cost and feasible class.",
+          "The Schur–Horn orbitope result computes Frobenius radii of spectral orbitopes, not Chen angular quotient distances from correlation I_n."
+        ],
+        "reasoning": "No independent table or database entry located the claimed squared angular distance n acos²sqrt(r/n) or complete minimizer class in the same metric. The similar sqrt(r/d) factor in spherical Wasserstein transportation is not a cost equivalence, and Schur–Horn Frobenius radii do not dominate the claim.",
+        "searches": [
+          "Resultary three semantic queries for rank-stratum distance, quotient angular metric, tight frames and Schur–Horn",
+          "Resultary published SCOPE record 2026/10/4/SCOPE-exact-spherical-isotropization-of-subspace-isotropic-measures--30f384f04ba3",
+          "Resultary published SCOPE record 2026/10/11/SCOPE-frobenius-radii-and-contact-ranks-of-every-schur-horn-orbitope--b698e0fd83ad"
+        ]
+      },
+      "rationale": "The exact source Chen (arXiv:2401.03126, metric definition and distance-computation section) supplies the O(n)-registered sum-of-squared-spherical-angles cost and discusses its general nonclosed form, but not its minimization from the identity to every rank stratum. The more recent Bisson–Loiseaux–Pennec (arXiv:2610.28475) studies low-rank correlation quotient geometry, geodesics and rank-dependent phenomena, not the explicit identity-centered formula or tight-frame equality class. Classical tight-frame/frame-potential and Schur–Horn theorems supply the optimizer objects and existence, not the angular orbit-metric optimization. The checked published Schur–Horn-orbitope Frobenius and spherical-isotropization Wasserstein results use materially different metrics and feasible objects. No independent stronger claim or exact table implying the full value and optimizer classification was found; Resultary indexed the exact assigned mirror, which is not counted as independent antecedent. Verdict is best-of-knowledge with specified terminology/indexing risk, not priority certification.",
+      "residual_risks": [
+        "Search nonappearance is not proof of absolute priority; an unpublished/unindexed spherical-frame registration identity may give the same Jensen-based formula.",
+        "The 2003 Benedetto–Fickus original was available at abstract/theorem-summary level, not independently read page-by-page; its quadratic cost limits likely implication but uninspected details are a reading limitation.",
+        "The 2026 full low-rank geometry paper was checked materially for relevant theorems but not every auxiliary appendix line; an implicit corollary under a different convention remains conceivable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines d_orb,k and general nonlinear O(k)-registration metric; explains no general closed form, but does not assert the optimized I_n-to-rank-r formula or equality class.",
+          "evidence": "The metric is inf over O(k) of sum_i arccos² of registered unit-row dot products; general optimization is numerical; k=n is the default full-elliptope choice.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.03126",
+          "material_read": "Complete accessible 2024 author preprint inspected for factor-orbit model, sections 3.1 and 3.4 on quotient metric and its dependence on ambient k; Section 4.1 angular registration distance and numerical optimization; targeted terms frame, tight, identity, rank.",
+          "method": "Read open-access primary PDF textual pages, checked rendered PDF screenshots of its metric/algorithm pages and searched equation labels.",
+          "title": "Quotient Geometry of Bounded or Fixed-Rank Correlation Matrices",
+          "trigger": "Exact source of the quotient metric and asserted rank stratification."
+        },
+        {
+          "assessment": "Treatment of quotient correlation geometry and rank-dependent geodesics does not present or imply the uniform-diagonal identity-to-rank-stratum minimum formula.",
+          "evidence": "Discussed group quotient, spherical angle formulas and rank-sensitive geodesics; no theorem found bounding the identity-centered distance with the sharp equal-diagonal frame locus.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28475",
+          "material_read": "Material portions of full open HTML including Introduction, metric constructions, discussion of geodesics and rank-constrained paths, Sections 8–10, and text queries for identity distance, nearest rank, tight frames.",
+          "method": "Read accessible complete HTML source text and targeted theorem/lemma contexts.",
+          "title": "On the Geometry of Low Rank Correlation Matrices",
+          "trigger": "Highly recent exact-object/metric treatment with possible stronger low-rank geometry and boundary-distance results."
+        },
+        {
+          "assessment": "Provides the real Schur–Horn projection/frame existence input but not the quotient angular optimization.",
+          "evidence": "Constant norm r-dimensional tight frames correspond to projections P of rank r with diag P=r/n, by the majorization condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.0921",
+          "material_read": "Primary preprint front sections with Schur–Horn majorization and frame-operator eigenvalues; existence of finite frames with prescribed norms/spectrum.",
+          "method": "Full open preprint available; materially read theorem and proof setup, checked a rendered PDF page.",
+          "title": "Constructing finite frames of a given spectrum and set of lengths",
+          "trigger": "Original/frame-theoretic source underpinning existence of real unit-norm tight frames with constant diagonal projections."
+        },
+        {
+          "assessment": "Quadratic frame potential identifies tight-frame minimizers but does not directly prove an angular quotient orbit metric value; full-text reading limitation retained as residual risk.",
+          "evidence": "The potential uses sums of squared pairwise inner products rather than n registered squared arccos spherical angles.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1021323312367",
+          "material_read": "Bibliographic abstract and theorem-level summaries of the quadratic frame potential; original complete full text was not materially accessed.",
+          "method": "Published source/summary comparison (not full primary text).",
+          "title": "Finite Normalized Tight Frames",
+          "trigger": "Classical normalized tight-frame potential optimization may imply the equality locus under alternative metrics."
+        },
+        {
+          "assessment": "Wasserstein between probability distributions constrained by isotropic second moments; not a quotient row-angle distance or its optimizer set.",
+          "evidence": "Its W₂²=2−2sqrt(r/d) with subspace-support spherical marginals uses a distinct cost; no implication to sqrt(d) arccos sqrt(r/d).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spherical-isotropization-of-subspace-isotropic-measures--30f384f04ba3",
+          "material_read": "Complete RESULT.md finding, assumptions, proof, relationship to prior work and limitations.",
+          "method": "Direct read of published Git blob through read-only GitHub connector.",
+          "title": "Exact spherical isotropization of subspace-isotropic measures",
+          "trigger": "Closest indexed other result, common factor sqrt(r/d) and subspace-tight geometry."
+        },
+        {
+          "assessment": "Different Frobenius metric on an orbitope of symmetric matrices, not the spherical-product quotient angular metric on correlation matrices.",
+          "evidence": "Distances are ratios of spectral majorization slacks to sqrt(k(d−k)/d), not n arccos²sqrt(r/n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-frobenius-radii-and-contact-ranks-of-every-schur-horn-orbitope--b698e0fd83ad",
+          "material_read": "Complete RESULT.md finding and argument giving Frobenius inradius/circumradius of Schur–Horn orbitopes.",
+          "method": "Direct read of published Git blob through read-only GitHub connector.",
+          "title": "Frobenius radii and contact ranks of every Schur-Horn orbitope",
+          "trigger": "Potential stronger coverage of spectral matrix radii with Schur–Horn geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned theorem and complete equality proof in RESULT.md",
+        "Chen arXiv:2401.03126 motivating rank stratification and numerical metric optimization",
+        "Classical Schur–Horn and frame-potential comparison distinguishes this objective",
+        "Independent projection-family and random-spanning-space checks"
+      ],
+      "rationale": "Rank strata are intrinsic organizing subsets of the elliptope quotient geometry, and exact metric clearance from the canonical full-rank basepoint I_n to rank loss is a natural stability/nearest-degeneracy question. The finding supplies a nontrivial closed form simultaneously for every n and r, a complete variational/equality classification by uniform-diagonal projections, and all exactly 2^(n−1) signed regular-simplex nearest singular correlations. The angular cost is not the familiar quadratic frame potential, so the result is not a mere reparameterization or known-table calculation. The optimized metric and full equality set are mathematically useful even without a separate downstream theorem.",
+      "residual_risks": [
+        "The finding concerns only identity-centered distances and does not solve arbitrary pairwise correlation quotient distances or lower ambient metrics.",
+        "The natural mathematical use is rank-loss clearance and optimizer geometry; particular applications to statistical estimators or numerical algorithms are not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality PASS is best-of-knowledge, not proof of publication priority. Exact Resultary match was excluded as the assigned mirror.",
+    "Core source formula verified against Chen full text; 2003 quadratic-frame original only abstract/theorem summaries; current geometry preprint materially read relevant sections.",
+    "No scientific research-file editing was necessary. Public metadata contains private operational provenance and has not been fully sanitized in supplied replacements; publication therefore not_ready.",
+    "No GitHub writes, no dispatcher completion, no scheduling change, no external attestation."
+  ],
+  "schema_version": 1
+}
