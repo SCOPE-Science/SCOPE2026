@@ -1,128 +1,174 @@
 {
   "correctness": {
-    "rationale": "For every \\(0<a<2/5\\), the LL and RR inequalities prohibit a future switch; alternating bounded branch iterates force endpoints 0 and 1, and constant tails force 1/3 and 2/3. At \\(a=2/5\\), the sole switch after a repeated symbol forces the explicit 4-cycle. All survivor points are preperiodic; finite-to-one branches give countability and recurrence plus the variational principle give \\(h_{\\mathrm{top}}=0\\). Primitive-orbit enumeration gives the exact zeta and n-th fixed-point formulas. Exact Fraction-based diagnostics for \\(n\\le13\\) corroborate, but do not prove, the all-n theorem.",
+    "rationale": "For the interval negative-doubling map T(x)=1−2x on the left and 2−2x on the right, a survivor is confined to L=[0,a]∪R=[1−a,1]. If a<2/5, a repeated L step ends at y≥1−2a>a/2; any subsequent L→R requires y≤a/2. Hence LL is absorbing, and by reflection so is RR. An eventually constant L tail must equal the repelling fixed point 1/3 since T^k(x)−1/3=(−2)^k(x−1/3); the R fixed point is 2/3. Endless alternating itineraries force x=0 or 1 from T²=4x on L. At a=2/5, an LL→R transition forces y=1/5 and preceding x=2/5, hence the 4-cycle (2/5,1/5,3/5,4/5). The reflected RR→L case is the same orbit. All other surviving itineraries become constant or alternating. These exhaust all periodic orbits; their endpoint inclusion requires a≥1/3 for the fixed points and equality a=2/5 for the 4-cycle. Therefore for all n≥1 Fix count is 2·1_{2|n}+2·1_{a≥1/3}+4·1_{a=2/5}·1_{4|n}, with zeta (1−z²)^{−1}(1−z)^{−2·1_{a≥1/3}}(1−z⁴)^{−1_{a=2/5}}. Finite preimages of the finite periodic set imply countability. S_a is compact (closed survivor set of the continuous restricted map on L∪R), all invariant measures are supported on periodic points by recurrence, and the variational principle gives topological entropy zero. Fresh independent exact enumeration of 90 parameter/period pairs (n≤15, six a including both endpoints) and direct 4-cycle checks agree; finite checks are not a proof of universal exclusions.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "earlier_scientific_review": {
+    "correctness": {
+      "rationale": "Irreversible same-side transition argument below a=2/5, equality four-cycle at endpoint, finite-to-one preimages and compact variational argument; independently corroborated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Relevant prior work on negative doubling holes and zeta/entropy was distinguished from exact period counting; inaccessible Hege thesis explicitly noted.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact sharp finite-phase dynamics and rational zeta are a motivated invariant through the first four-cycle.",
+      "status": "PASS"
+    }
+  },
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Applies only to T with an open symmetric hole and 0<a≤2/5; endpoint points remain in the survivor set.",
+    "The finite verifier does not prove claims for all n; the mathematical argument is analytic.",
+    "The literature comparison is best of knowledge and preserves inaccessible-source risk."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arxiv:2610.03327v1, Theorems 1.3–1.5 focus on realization/plateaux/dimension",
-        "arxiv:2508.21429v1, Theorem 3.3 concerns periodic cascades at entropy-boundary transitions, not an exact subcritical zeta count"
+        "Ding, Steiner, Sun, Open dynamical systems in topologically expansive decreasing Lorenz maps, arXiv:2610.03327v1, §§1.2,4.3–4.4, Theorems 1.3–1.5 characterizes admissible boundary pairs, symbolic plateaux and entropy/Hausdorff dimension, without the all-n exact zeta factors.",
+        "Glendinning, Hege, The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps, arXiv:2508.21429v1, §§2–3,6–9, Theorem 3.3 characterizes different chaos-boundary periodic cascades/finite periods; a zero-entropy value does not determine individual periodic orbit counts.",
+        "R. Alcaraz Barrera, Topological and Symbolic Dynamics of the Doubling Map with a Hole, Manchester thesis (2014), doubling-positive setting examines degree-positive-two dynamics; degree sign and endpoint treatment prevent a direct parameter identification."
       ],
-      "reasoning": "General symbolic bounds may facilitate a derivation of the formula, but do not themselves assert the final counts, thresholds or precise zeta factors. Boundary-of-chaos entropy coverage is weaker for this question because periodic orbit count can change strictly inside a zero-entropy domain. This is a substantive statement-versus-implication comparison, not a title comparison.",
+      "reasoning": "A characterization of kneading-admissible or survivor words for arbitrary holes is not itself an all-parameter explicit count of prime 1,2,4 cycles in this symmetric wide-hole interval. The candidate proves a sharper orbit-by-orbit restriction not supplied by an entropy plateau or dimension theorem. Different positive-doubling/symmetric-hole results do not apply without a proved conjugacy, which was not found; the negative degree and interval endpoint separation matter.",
       "searches": [
-        "\"negative doubling\" \"symmetric hole\" \"periodic\" \"2/5\"",
-        "\"expanding decreasing Lorenz\" holes symmetric periodic orbits entropy",
-        "arxiv:2508.21429v1 class C Theorem 3.3 boundary of chaos",
-        "arxiv:2610.03327v1 Theorem 1.4 symbolic survivor plateaux"
+        "Ding Steiner Sun 2026 open dynamical systems topologically expansive decreasing Lorenz maps negative doubling periodic points hole theorems",
+        "arxiv:2610.03327v1 Theorems 1.3,1.4,1.5 and §4 survivor",
+        "arxiv:2508.21429v1 Theorem 3.3 §§3,6–9 periodic orbit transitions",
+        "arxiv:1506.00067v1 positive-doubling holes symbolic dynamics",
+        "web: symmetric holes negative doubling map periodic orbits fixed point 1/3 2/5"
       ]
     },
     "checked_sources": [
-      "arxiv:2610.03327v1 (Ding–Steiner–Sun, 2026)",
-      "arxiv:2508.21429v1 (Glendinning–Hege, 2025)",
-      "arxiv:2405.10560v2 (Olivares-Vinales, 2024)",
-      "C. Hege, University of Manchester PhD thesis (2022), abstract only"
+      "Ding, Steiner, Sun, Open dynamical systems in topologically expansive decreasing Lorenz maps, arXiv:2610.03327v1, §§1.2,4.3–4.4, Theorems 1.3–1.5",
+      "Glendinning, Hege, The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps, arXiv:2508.21429v1, §§2–3,6–9, Theorem 3.3",
+      "Olivares-Vinales, The Artin-Mazur zeta function for interval maps, arXiv:2405.10560v2, §§1–2",
+      "C. Hege, Open maps: the boundary of chaos for piecewise monotonic functions with one discontinuity, Manchester PhD thesis (2022), institutional landing page",
+      "R. Alcaraz Barrera, Topological and Symbolic Dynamics of the Doubling Map with a Hole, Manchester thesis (2014), doubling-positive setting",
+      "Published-mathematics corpus: three theorem-content searches, with identical mirror excluded"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Ding–Steiner–Sun prove survivor-space plateaux and dimension, not exact finite periods; a plateau equal in entropy can differ by a countable set",
-        "Glendinning–Hege describe entropy chaos boundaries, not zeta jumps at a=1/3 and 2/5 inside zero entropy",
-        "Olivares-Vinales treats rationality behavior of zeta, not the open negative-doubling survivor count"
+        "Ding, Steiner, Sun, Open dynamical systems in topologically expansive decreasing Lorenz maps, arXiv:2610.03327v1, §§1.2,4.3–4.4, Theorems 1.3–1.5 provides general parameter-dependent symbolic plateaux, but not the concrete primitive-orbit fixed-point counts; equal entropy cannot distinguish adding finitely many cycles.",
+        "Glendinning, Hege, The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps, arXiv:2508.21429v1, §§2–3,6–9, Theorem 3.3 gives periods in an anharmonic cascade at different entropy boundaries, not the symmetric a∈(0,2/5] primitive orbit set.",
+        "Olivares-Vinales, The Artin-Mazur zeta function for interval maps, arXiv:2405.10560v2, §§1–2 general formal zeta identity does not determine N_n here.",
+        "The direct inequality 1-2a>a/2 and its equality at a=2/5 are the claim-specific transition mechanism."
       ],
-      "reasoning": "The new statement is a parameterwise quantitative periodic-orbit classification. Entropy equality or countable symmetric differences do not imply equality of zeta functions, because finitely many periodic orbits can be added without changing entropy. General rationality is also insufficient to determine the displayed coefficients. No inspected stronger theorem directly dominates this exact claim.",
+      "reasoning": "The candidate is not just a substitution into a previously published zeta formula. The existing general frameworks provide language and tools; the new statement computes which periodic words survive in every parameter phase, including the special a=2/5 endpoint. Prior general zeta rationality alone does not force its factors. Inaccessibility of the plausible Hege thesis is retained as residual risk rather than ignored or treated as failure.",
       "searches": [
-        "arxiv:2610.03327v1 theorem 1.4 periodic zeta implication",
-        "arxiv:2508.21429v1 theorem 3.3 zero entropy periodic orbit boundary",
-        "arxiv:2405.10560v2 general zeta rationality piecewise monotone interval"
+        "arxiv:2610.03327v1 proof of Theorem 1.4 and examples §4",
+        "arxiv:2508.21429v1 boundary of chaos Theorem 3.3",
+        "arxiv:2405.10560v2 main interval-map zeta theorems",
+        "Published mathematical records on decreasing Lorenz entropy and the exact self-version (excluded as prior)"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arxiv:2610.03327v1, §§1,4: boundary-itinerary and plateau analysis",
-        "arxiv:2508.21429v1, §§3,6–9: class-C entropy/period transitions"
+        "Ding, Steiner, Sun, Open dynamical systems in topologically expansive decreasing Lorenz maps, arXiv:2610.03327v1, §§1.2,4.3–4.4, Theorems 1.3–1.5 (negative doubling is the same map); no parameterwise cycle list in its main theorems",
+        "Glendinning, Hege, The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps, arXiv:2508.21429v1, §§2–3,6–9, Theorem 3.3 (class-C decreasing two-branch maps use more general parameter families and entropy-boundary mechanisms)",
+        "Circle map m_{-2} identifies 0 and 1, whereas this interval model retains a distinct two-cycle of endpoints.",
+        "A currently published mirror of this very theorem (excluded as independent prior coverage)"
       ],
-      "reasoning": "Direct symbolic-alias and geometric-hole searches did not identify the same exact orbit classification. The negative-doubling map can also be expressed as a degree-minus-two circle map; this does not identify its interval endpoints, so the two-cycle must be counted correctly. Neither inspected paper states an equivalent 3-factor zeta law on the specified parameter interval.",
+      "reasoning": "Checked the interval negative-doubling map, orientation-reversing degree-minus-two circle formulations, symbolic decreasing-Lorenz/hole admissibility, and periodic-orbit generating-function aliases. The circle quotient can change endpoint orbit counts and must not be silently substituted. The exact publication match is a mirror of the same theorem, not an independent mathematical antecedent. The relevant inspected primary theorem statements do not give this three-phase primitive-orbit enumeration. Their symbolic admissibility frameworks could support further derivations, but obtaining the explicit thresholds requires analyzing irreversible same-side transitions and endpoint equality.",
       "searches": [
-        "negative doubling map central symmetric hole (a,1-a), a<2/5 survivor set countable; itineraries eventually constant or alternating; nonwandering set fixed points and two-cycle",
-        "negative 2x modulo 1 open interval symmetric hole threshold 2/5, zero entropy and primitive period four",
-        "negative doubling open map symmetric hole (a, 1-a) survivor Artin Mazur dynamical zeta fixed periodic orbit counting threshold 1/3 2/5",
-        "\"negative doubling\" survivor set \"symmetric hole\" \"zeta\""
+        "published corpus query: negative doubling map open symmetric central holes periodic orbits zeta function count fixed points threshold 1/3 2/5",
+        "published corpus query: decreasing Lorenz map symmetric hole zero entropy survivor eventual periodic orbit 4 cycle negative doubling",
+        "web: \"negative doubling\" \"symmetric hole\" \"periodic orbits\" zeta",
+        "web: \"negative doubling map\" \"symmetric\" \"2/5\" survivor",
+        "web: \"decreasing Lorenz\" \"2/5\" \"1/3\" hole orbit"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "arxiv:2405.10560v2, §1 on zeta functions and general rationality; no symmetric-hole lookup table",
-        "arxiv:2610.03327v1, §4 symbolic plateau theorems and examples"
+        "A currently published mirror of this very theorem (excluded as independent prior coverage) (excluded as self-match)",
+        "Olivares-Vinales, The Artin-Mazur zeta function for interval maps, arXiv:2405.10560v2, §§1–2 discusses general zeta definitions/rationality and does not tabulate this symmetric-hole survivor orbit census.",
+        "Independent rational checks cover periods 1..15 and six selected parameters; this is verification rather than an existing published table."
       ],
-      "reasoning": "No inspected table or exact database entry lists the three finite primitive-orbit spectra (one length-two orbit; then two fixed points; then one length-four orbit) for the whole parameter interval. Failed searches alone are not relied upon to certify novelty.",
+      "reasoning": "The searched published records and primary texts did not identify a distinct exact lookup entry or parameter table listing this entire piecewise primitive-period spectrum. Search absence alone cannot certify originality; positive evidence is the actual mathematical nonimplication of the located results.",
       "searches": [
-        "symbolic survivor for map x -> -2x mod1, hole (a,1-a), graph period spectrum low-hole boundary",
-        "open Lorenz maps central symmetric holes finite periodic point spectrum zero entropy rational zeta preperiodic survivor",
-        "Glendinning Hege negative doubling class C symmetric hole 2/5 1/3 three periodic orbit cycle 4 zeta",
-        "\"negative doubling\" \"Artin-Mazur zeta\" \"hole\""
+        "published corpus query: negative two modulo one symmetric holes periodic orbit trichotomy zeta fixed points",
+        "web: negative doubling map central symmetric hole 2/5 periodic zeta exact count",
+        "web: \"negative doubling\" hole \"period-four\" \"2/5\"",
+        "web: \"negative doubling\" \"Artin-Mazur zeta\" \"hole\""
       ]
     },
-    "rationale": "The inspected source on open negative-doubling maps classifies symbolic admissibility, plateaux and entropy/dimension; the closest more general chaos-boundary and interval-zeta literature does not imply or state the concrete three-phase symmetric-hole primitive-orbit/zeta spectrum without a new boundary-transition argument. Residual risk includes an unavailable original thesis and differently parameterized older formulas.",
+    "rationale": "Best of knowledge, the exact three-phase fixed-period spectrum for symmetric open holes in the negative-doubling interval map survives primary-source implication comparison. The closely matching published repository entry is the same theorem under review, not independent coverage. Ding–Steiner–Sun establish general negative-doubling kneading/survivor plateaux and entropy/dimension, but neither compute nor mechanically imply these exact primitive cycle counts without additional orbit-transition analysis. Glendinning–Hege treats distinct chaos-boundary regimes and Olivares-Vinales studies general interval zeta machinery. Inaccessible full Hege 2022 thesis and unindexed aliases remain explicit comparison risks; searches alone are not a novelty proof.",
     "residual_risks": [
-      "An older classification under equivalent negative-beta, Lorenz-kneading, or class-C plateau terminology may subsume the special symmetric-hole count.",
-      "The full 2022 Hege thesis was inaccessible; only its abstract and the related 2025 joint preprint were materially inspected. The thesis therefore remains an explicit unresolved coverage risk."
+      "The complete C. Hege 2022 thesis could not be inspected; it may contain an equivalent sharp symmetric-hole count under renormalization/class-C terminology.",
+      "An older unindexed formulation in negative-base maps, decreasing Lorenz symbolic dynamics or circle-degree-minus-two holes could imply the same periodic spectrum.",
+      "Related published broad survivor-space and entropy statements are not a novelty certificate; the best-of-knowledge assessment depends on the located theorem comparisons.",
+      "The independent finite verifier checks only periods n≤15 at six rational parameters, not universal n or all real a; universal correctness rests on the analytic itinerary proof."
     ],
     "source_inspections": [
       {
-        "assessment": "Theorems address admissibility, plateaux, survivor entropy, Hausdorff dimension, and related realization; the explicit symmetric-hole periodic point counts and rational zeta product are not stated.",
+        "assessment": "Theorems 1.3–1.5 develop kneading realization, symbolic survivor plateaux and dimension staircases. They do not explicitly count all surviving primitive 1-, 2- and 4-cycles for symmetric holes.",
         "evidence": [
-          "arxiv:2610.03327v1, §§1,2,4,5 (especially §§4.3–4.4)"
+          "Theorem 1.3 at HTML §1.2: DLM survivor kneading realization",
+          "Theorem 1.4 at HTML §1.2 and §4.3: plateau P(b)",
+          "Theorem 1.5 and proof at §4.4: dimension/entropy staircase; §4 examples distinguish symbolic boundary corrections"
         ],
         "identifier_or_url": "arxiv:2610.03327v1; https://arxiv.org/html/2610.03327v1",
-        "material_read": "Full HTML sections 1-2, selected theorem/proof passages in section 4, applications in section 5, and references",
-        "method": "Read public arXiv HTML and compared theorem statements and proof objectives with the exact periodic-orbit list",
+        "material_read": "Full HTML main theorem statements (§1.2), introductory model definitions, relevant proof statements and examples in §4, and selected §5 applications; not a claim to have read every paragraph of 47 pages.",
+        "method": "Read public arXiv HTML sections and directly compare model, endpoint conventions, plateau/entropy theorem implications.",
         "title": "Open dynamical systems in topologically expansive decreasing Lorenz maps",
-        "trigger": "Exact negative-doubling hole dynamics and the motivating recent source"
+        "trigger": "Same negative-doubling map and open holes, motivating source of the theorem under review"
       },
       {
-        "assessment": "Describes entropy transitions and finite-versus-infinite periodic-orbit behavior along general boundary-of-chaos sets; does not compute the exact subcritical symmetric-hole zeta spectrum or these two threshold parameters.",
+        "assessment": "Periodic cascades and entropy-boundary structure in parameterized plateau-map families do not give the exact survivor zeta factors for this fixed negative-doubling map with symmetric central holes.",
         "evidence": [
-          "arxiv:2508.21429v1, §§2–3 and §§6–9"
+          "§3 Theorem 3.3: countably infinite cascade periods in certain class-C boundary families",
+          "§§6–9: global boundary and renormalization boxes; not the symmetric three-phase census"
         ],
-        "identifier_or_url": "arxiv:2508.21429v1; https://arxiv.org/pdf/2508.21429",
-        "material_read": "Public PDF text: abstract, introduction, relevant definitions in section 2, transition theorems in section 3, renormalization and boundary statements in sections 6-9",
-        "method": "Read arXiv PDF text and page rendering for its model classes and boundary-period assertions",
+        "identifier_or_url": "arxiv:2508.21429v1; https://arxiv.org/html/2508.21429v1",
+        "material_read": "Public HTML introduction, §2 model definitions, §3 including Theorem 3.3, and inspected relevant §6 and §9 boundary/renormalization passages.",
+        "method": "Read public full-text HTML, following codimension-one transition and class hypotheses.",
         "title": "The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps",
-        "trigger": "Class-C (two decreasing branch) hole systems with periodic-orbit bifurcations"
+        "trigger": "Closely related decreasing two-branch holes and periodic-orbit bifurcations, including class C"
       },
       {
-        "assessment": "Studies piecewise-monotone interval maps and rationality/variation of their zeta functions; does not give the exact open negative-doubling symmetric-hole periodic orbit formula.",
+        "assessment": "General periodic-point counting machinery and rationality questions do not provide the specific prime orbit list for this discontinuous open negative-doubling restriction.",
         "evidence": [
-          "arxiv:2405.10560v2, §1.1 and §2 overview"
+          "§1 definition of N_n and Artin–Mazur zeta",
+          "§1.1 main theorem families target unimodal/multimodal maps rather than the exact open symmetric survivor census"
         ],
         "identifier_or_url": "arxiv:2405.10560v2; https://arxiv.org/html/2405.10560v2",
-        "material_read": "Public HTML abstract, introduction, main theorem statements, and preliminaries overview",
-        "method": "Read arXiv HTML theorem statements and contrasted object classes and implications",
+        "material_read": "Public HTML abstract, §1 general zeta definitions, introductory main theorem statements and §2 preliminaries overview.",
+        "method": "Read public full-text HTML parts about zeta rationality and compare object families.",
         "title": "The Artin-Mazur zeta function for interval maps",
-        "trigger": "Potential general zeta rationality or periodic-orbit formula that could dominate the claim"
+        "trigger": "Possible general zeta formula dominating the candidate numerical phases"
       },
       {
-        "assessment": "A plausible broader comparison risk remains; available abstract centers entropy boundaries and renormalization, not the exact symmetric-hole zeta trichotomy.",
+        "assessment": "Abstract centers general renormalization and boundaries of chaos; full thesis remains a residual risk and no negative coverage judgment is based on unseen pages.",
         "evidence": [
-          "Manchester thesis abstract and PDF access page (2022)"
+          "Manchester thesis landing page, abstract and four objectives (2022); linked PDF returned HTTP 403"
         ],
-        "identifier_or_url": "University of Manchester PhD thesis, C. Hege (2022); https://research.manchester.ac.uk/en/studentTheses/open-maps-the-boundary-of-chaos-for-piecewise-monotonic-functions/",
-        "material_read": "Institutional thesis abstract and four stated theorem objectives only; PDF full text unavailable in this review",
-        "method": "Read institutional thesis landing-page abstract; official linked full text returned access forbidden",
+        "identifier_or_url": "C. Hege, University of Manchester thesis (2022); https://research.manchester.ac.uk/en/studentTheses/open-maps-the-boundary-of-chaos-for-piecewise-monotonic-functions/",
+        "material_read": "Institutional thesis abstract, stated four main theorem objectives and bibliographic details; full thesis PDF not obtained (official PDF access denied; complete text unavailable).",
+        "method": "Read institutional landing-page text; attempted official full text and institutional source after public full-text failure.",
         "title": "Open maps: the boundary of chaos for piecewise monotonic functions with one discontinuity",
-        "trigger": "Related original thesis may contain stronger detailed low-hole classifications"
+        "trigger": "Plausible source of older class-C low-entropy exact orbit classifications"
+      },
+      {
+        "assessment": "Positive-doubling system has a different topological degree on the circle, and no direct equivalence carrying the original interval endpoint count was established.",
+        "evidence": [
+          "arXiv abstract: positive doubling with asymmetrical hole, entropy and finite-type subshifts"
+        ],
+        "identifier_or_url": "arxiv:1506.00067v1; https://arxiv.org/html/1506.00067v1",
+        "material_read": "Search-discovered abstract and description of symbolic entropy for positive doubling; full text not needed for exact negative-degree implication because no applicable conjugacy identified.",
+        "method": "Reviewed public search summary and source identity, not represented as complete primary reading.",
+        "title": "Topological dynamics of the doubling map with a hole",
+        "trigger": "Related arbitrary-hole symbolic classification with possible reductions to negative doubling"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "8027a957-802c-47f2-ba22-851aa1e37cea",
   "value": {
-    "rationale": "An exact natural finite regime is completely classified for all real hole widths through the first surviving primitive 4-cycle, not for an arbitrary isolated numerical parameter. The two sharp thresholds distinguish nonconjugate periodic spectra while htop is identically zero, supplying concrete invariant structure that entropy-only plateau theorems cannot see. The compact zeta formula is usable for exact periodic-point enumeration and tests at parameter boundaries.",
+    "rationale": "The symmetric central-hole family is a canonical one-dimensional open dynamical system. The exact three-phase primitive-period classification for an interval of real hole parameters identifies two sharp meaningful thresholds including an endpoint cycle (a=2/5) and an entropy-invisible dynamical-zeta transition. The result is an independently useful exact parameterwise invariant, not a random small-instance calculation, a mere restatement of entropy zero, or an arbitrary change of variables; no general higher-hole theorem is asserted.",
     "status": "PASS"
   }
 }

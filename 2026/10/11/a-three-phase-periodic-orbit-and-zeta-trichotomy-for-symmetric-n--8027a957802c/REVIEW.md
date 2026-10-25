@@ -1,19 +1,17 @@
-# Scientific review
+# Mathematical review
 
 ## Correctness — PASS
 
-The two one-sided transition inequalities force any repeated side symbol to become permanent when \(a<2/5\). At equality, a change after a repeated symbol forces the explicit four-cycle; alternating and constant tails give only the two-cycle and fixed points. This establishes eventual periodicity for all real parameters in the asserted interval. Countability follows from finite branching of preimages; invariance and recurrence show entropy zero. Primitive-orbit counting gives the exact zeta product. The attached exact-rational checker confirms representative periods and parameters, but the universal conclusions are proved rather than inferred from testing.
+The interval map has two decreasing affine branches of slope −2. For a<2/5, consecutive left symbols are absorbing because any left-to-right transition must start at x≤a/2, while a left-to-left image is at least 1−2a>a/2. Reflection treats the right branch. Infinite alternating sequences reduce by T²(x)=4x on the left to the endpoint two-cycle; infinite constant tails reduce to fixed points at 1/3 and 2/3. Exactly at a=2/5, a switch after a repeated side forces the boundary four-cycle (2/5,1/5,3/5,4/5). This proves the complete eventual-periodicity and primitive-cycle classification. Compactness and recurrence yield entropy zero. The Artin–Mazur factors follow from primitive orbit lengths. Independent exact arithmetic checked 90 parameter/period cases through n=15; those finite tests are corroboration, not universal proof.
 
-## Originality — PASS
+## Originality — PASS (best of knowledge)
 
-The motivating open-negative-doubling paper analyzes symbolic admissibility, plateau geometry, entropy and Hausdorff dimension, not this explicit two-threshold orbit-count and zeta classification. Related boundary-of-chaos results discuss period creation at entropy transitions, while interval-zeta work gives general machinery, not the precise symmetric-hole formula. Relevant statements were compared for mathematical implication rather than by title alone. Residual risk: an older equivalent symbolic classification, possibly in the full text of Hege's 2022 thesis (not available during this review), could subsume the calculation.
+The closest primary negative-doubling study (Ding–Steiner–Sun, arXiv:2610.03327v1, Theorems 1.3–1.5) characterizes kneading realization, survivor-space plateaux, and entropy/dimension, not this explicit three-phase finite-period count. The general two-decreasing-branch entropy-boundary classifications of Glendinning–Hege (arXiv:2508.21429v1) and the interval-zeta framework of Olivares-Vinales (arXiv:2405.10560v2) do not supply these exact factors. The opposite-sign doubling map and the circle quotient do not automatically preserve the relevant endpoint periodic orbit census. Searches under period/zeta, symbolic survivor and degree-minus-two aliases revealed no distinct exact coverage. A full 2022 Hege thesis could not be inspected, and an older equivalent under another terminology remains a residual risk. Search absence is not novelty proof.
 
 ## Mathematical value — PASS
 
-This is a natural complete classification for the wide-hole regime through the first critical four-cycle, including both endpoint conventions, the entire periodic-point spectrum, and sharp bifurcation parameters. It separates dynamical zeta from entropy: the latter stays identically zero although the former exhibits two genuine changes. The exact finite-period invariant informs the phase diagram even without a classification beyond \(2/5\).
+A single natural family of symmetric open holes exhibits two exact sharp changes in its periodic spectrum at a=1/3 and a=2/5 while its topological entropy stays zero. The complete real-parameter census and rational zeta factors are substantive exact information invisible to entropy, not just an isolated small-period calculation.
 
-## Boundaries of the result
+## Scope and verification limits
 
-Only the explicit negative-doubling map, open symmetric holes, and parameters \(0<a\le2/5\) are covered. No conclusion about higher-hole regimes, arbitrary decreasing Lorenz maps, or independent certification is made.
-
-Same-model review: passed. Independent audit: not yet performed.
+Only the stated negative-doubling interval map and 0<a≤2/5 with open holes are covered; the conclusion does not extend to larger or asymmetric holes. Independent finite computations through n=15 do not replace the all-period symbolic proof. No formal proof or separate expert attestation is claimed.
