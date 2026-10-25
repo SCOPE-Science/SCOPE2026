@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The continuous and discrete first-order conditions uniquely give the displayed controls. Conditional-expectation orthogonality proves the exact best adapted piecewise-constant error, and integrating Brownian increment variance gives (1/8) sum h_i^2. Direct evaluation of the two optimal running costs gives the same V-V_pi identity. Cauchy-Schwarz proves the fixed-N uniform-grid optimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reisinger et al. treat a broader class of extended mean-field control problems and give general rates, including a strong control bound of order |pi|^(1/4).",
+        "Jakobsen et al. treat general stochastic-control value functions with piecewise-constant policies and obtain an order-1/4 bound, with order 1 under additional smoothness.",
+        "Neither inspected source gives the exact quadratic benchmark formula or its mesh-dependent equality."
+      ],
+      "reasoning": "The broader theorems do not dominate the exact claim in the implication sense: an asymptotic upper bound does not imply the exact coefficient, the equality between control error and value bias, or the optimal nonuniform-grid formula. The claim is deliberately restricted to a special model and is not advertised as a stronger general theorem.",
+      "searches": [
+        "Search query: extended mean field control time discretization sharp control error lower bound mesh partition Brownian",
+        "Primary full text: arXiv:2509.00904v1, Theorems 2.5-2.7",
+        "Primary full text: arXiv:1901.01193, Theorem 2.1 and Proposition 2.4"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "General extended mean-field control rates; no exact mesh-square identity found.",
+        "identifier": "arXiv:2509.00904v1",
+        "material_read": "Full accessible HTML: model, assumptions H1-H3, equations (1.5)-(1.6), Theorems 2.5-2.7.",
+        "url": "https://arxiv.org/abs/2509.00904"
+      },
+      {
+        "comparison": "General value-function approximation for piecewise-constant stochastic-control policies; different error object and formulation.",
+        "identifier": "arXiv:1901.01193",
+        "material_read": "Full accessible HTML: introduction, Theorem 2.1, Proposition 2.4.",
+        "url": "https://arxiv.org/abs/1901.01193"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 theorem gives a general upper bound for a different level of generality; the exact calculation here gives \\|alpha_hat-alpha_pi\\|^2 = V-V_pi = (1/8) sum h_i^2.",
+        "The 2019 theorem's object is the value function v-v_h, not the strong norm of the optimal control process, and its setting does not include the stated law-coupled quadratic model as written.",
+        "For N intervals, the exact formula and Cauchy-Schwarz yield the attained lower bound T^2/(8N), not merely an asymptotic upper rate."
+      ],
+      "reasoning": "The exact statement is not implied by the cited general upper bounds: those bounds do not identify the mesh-by-mesh constant, the sign and exact size of the value bias, or the equality with the control error. The result remains a model-specific benchmark, not a correction or refutation of the prior theorems.",
+      "searches": [
+        "Primary full text: arXiv:2509.00904v1, Theorem 2.7 (strong control error bound) and equations (1.5)-(1.6)",
+        "Primary full text: arXiv:1901.01193, Theorem 2.1 (value-function error) and Proposition 2.4 (smooth-case rate)",
+        "Search query: exact mean field control Brownian piecewise constant adapted control approximation error sum of squared mesh widths value bias"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 source gives general regularity and convergence bounds but no exact identity in terms of each mesh width h_i.",
+        "The Closest indexed hits concern stochastic integrator covariance, mean-field contraction, or unrelated control algorithms rather than the stated scalar law-coupled cost.",
+        "The 2019 piecewise-constant policy paper analyzes value-function error rather than the strong control-process norm in this claim."
+      ],
+      "reasoning": "No equivalent formulation was located in the indexed literature searches or the inspected full texts. The claim is a specific exact identity linking three quantities—best adapted piecewise-constant control error, value bias, and the mesh-square sum—not merely a restatement of a rate bound.",
+      "searches": [
+        "Search query: exact mean field control Brownian piecewise constant adapted control approximation error sum of squared mesh widths value bias",
+        "Search query: stochastic optimal control exact identity value discretization error equals squared L2 control error Brownian mesh",
+        "Primary full text: arXiv:2509.00904v1, equations (1.5)-(1.6), Theorems 2.5-2.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned literature-index hits were not an exact table or record for this model; the nearest records concerned unrelated stochastic integrators, mean-field contractions, and control methods.",
+        "The inspected primary papers state general convergence results and do not tabulate this exact quadratic model."
+      ],
+      "reasoning": "No applicable exact database or published table was found. The claim is proved from the model equations rather than inferred from a numerical table or a partial parameter sweep.",
+      "searches": [
+        "Search query: exact mean field control Brownian piecewise constant adapted control approximation error sum of squared mesh widths value bias",
+        "Search query: stochastic optimal control exact identity value discretization error equals squared L2 control error Brownian mesh",
+        "Search query: Reisinger Stockinger Tsianni Zhang extended mean field control time discretization control approximation"
+      ]
+    },
+    "rationale": "Indexed literature searches and inspected primary full texts found no exact equivalent of the combined mesh-square identity, control-error/value-bias equality, and fixed-N optimal-grid conclusion for this scalar extended mean-field quadratic model. The 2025 source gives general rates; the 2019 source concerns value-function error. The claim is limited to this explicit model and does not overstate general novelty.",
+    "residual_risks": [
+      "Brownian conditional-projection error is classical; the mathematical contribution is the exact joint benchmark including the law-coupled quadratic term and value bias, not a claim that Brownian projection itself is new.",
+      "Semantic search and accessible literature inspection are not an exhaustive proof of novelty; a specialized exact calculation in another source may exist.",
+      "The formula does not cover bounded action sets, control-dependent diffusion, nonlinear state dynamics, or general extended mean-field interactions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general coverage: the paper establishes 1/2-Hölder regularity and general convergence bounds, including an O(|pi|^(1/4)) strong-control bound. It does not state the exact sum-of-squared-mesh-width identity or its equality with the left-endpoint value bias for this law-coupled quadratic model.",
+        "evidence": "arXiv:2509.00904v1, first submitted 2025-08-31; full-text sections 1 and 2.1.3, especially equations (1.5)-(1.6) and Theorems 2.5-2.7.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.00904 (full text: https://arxiv.org/html/2509.00904v1)",
+        "material_read": "Full HTML introduction, model equations (1.1)-(1.6), assumptions H1-H3, Theorem 2.5, Theorem 2.6, and Theorem 2.7.",
+        "method": "Compared the stated objects, hypotheses, and error norms with the exact quadratic benchmark; solved the scalar first-order conditions and integrated the costs.",
+        "title": "Convergence Rates of Time Discretization in Extended Mean Field Control",
+        "trigger": "Recent primary source for extended mean-field control time discretization and the strong control approximation rate."
+      },
+      {
+        "assessment": "Related but not covering: the paper's general O(h^(1/4)) result and smooth-case O(h) result concern value functions under a different formulation; they do not imply the exact control-norm/value-bias identity claimed here.",
+        "evidence": "arXiv:1901.01193, Theorem 2.1 and Proposition 2.4.",
+        "identifier_or_url": "https://arxiv.org/abs/1901.01193",
+        "material_read": "Full accessible HTML text including introduction, Theorem 2.1, and Proposition 2.4.",
+        "method": "Compared the target quantity and assumptions: value-function error for controlled diffusions versus strong control-process error and value bias for an explicit extended mean-field quadratic problem.",
+        "title": "Improved order 1/4 convergence for piecewise constant policy approximation of stochastic control problems",
+        "trigger": "Closest classical literature on piecewise-constant stochastic-control approximation and convergence-rate sharpness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c906614-3e21-45d7-a0a6-e7d88910339d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result provides an exact benchmark for numerical stochastic control: it gives the unavoidable strong-control approximation floor for any adapted piecewise-constant policy on a given partition, identifies the uniform grid as optimal at fixed interval count, and quantifies the matching value bias. This can separate discretization error from solver error.",
+    "status": "PASS"
+  }
+}
