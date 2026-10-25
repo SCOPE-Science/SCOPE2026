@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The formal-series proof starts from the published generating function, verifies integrality of the fourth-power correction and computes its reduction modulo two, then proves that the quadratic correction vanishes on odd degrees at the required extra power of two. The binomial valuation bound uniformly kills terms of degree at least three for all parameter sizes. The exact signed-theta representation exclusion on the target residue classes and Saikia--Sarma's published triple congruences establish both asserted universal congruences. Explicit coefficients \(1248\), \(9792\), and \(7424\) establish sharpness. Independent Euler-product versus theta-series computations and 1920 finite modular tests were replayed successfully. Finite calculations are not treated as infinite proofs.
+PASS
 
-## Originality — PASS (best knowledge, residual risk)
+Let A=phi(-z)phi(-z^2)=F^-1=1+2T, F(z)=f4/(f1² f2), t=2^(i-3)(2k+1), M=4t-1. Binomial expansion F^4=A^-4 gives F^4=1+8C with integral C; modulo 2, C=T+T² equals sum_{r>=1} z^(r²)+sum_{r>=1}z^(4r²), so C² has even-only exponent parity and A C² has even-only exponents modulo 2 because A≡1 mod2. Then F^M=A(1+8C)^t; the j>=3 terms have valuation >= i+6 using j*C(t,j)=t*C(t-1,j-1), quadratic coefficient divisible by 2^(i+2) gains one factor at odd exponents. Therefore for every positive odd n, b_M(n) ≡ (1-t)a(n)+t b3(n) mod 2^(i+3). Coefficients a(8u+5)=a(8u+7)=0 exactly since no square+2*square equals 5 or 7 mod8; known Saikia–Sarma 2024 Theorem1.1 proves b3 at these progressions divisible 32/64, giving b_M divisibility 2^(i+2) and 2^(i+3). Sharpness at 5 and 7 follows b3(5)=1248=32*39, b3(7)=9792=64*153, and (A C²)[7]=7424 (high valuation) while remaining corrections vanish modulo 2^(i+4). Independent polynomial arithmetic independently computed these degree5/7 coefficients and verified 12 parameter pairs through degree32. The formal power series proof is for every i>=3,k,n>=0, not just the finite checks.
 
-The principal Maity--Saikia manuscript, arXiv:2607.07270, explicitly poses the two claims as Conjecture 1.5 and proves different adjacent tuple-parameter classes. Its complete accessible manuscript was inspected for the target statement and potentially dominating parameter-family theorems. Saikia--Sarma arXiv:2411.00013 supplies only the triple base and weaker uniform odd-tuple results. Chacón--Sellers arXiv:2606.21780 develops related theta/binomial methods and low-modulus classifications, but does not imply the full sharp \(4t-1\) family at modulus \(2^{i+3}\). Semantic mathematical-result and publication searches under the conjecture statement, aliases and lifting relation did not disclose a covering later proof. No negative-search result is used as uniqueness proof; an undiscovered or implicit published derivation remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Both parts of an explicitly posed 2026 research conjecture are established for all three unbounded indices, with optimality for every permitted tuple parameter. The odd-index lifting lemma is structurally stronger than the conjecture and demonstrates the precise parity phenomenon that permits a one-power improvement beyond standard coefficient lifting. The result is not a routine substitution in the existing theorems: the literature supplies only neighboring parameter families and the base triple congruences.
+The stated Maity–Saikia Conjecture 1.5 targeted precisely the tuple parameter M=2^ik+2^(i-1)-1 and 8u+5/7 moduli; submitted odd-index lifting and universal sharpness give a nontrivial new resolution relative to accessible primary evidence. Prior triple congruences are fully credited. Strong plausible related papers not fully accessible are preserved as a real risk, not taken as automatic failure.
 
-## Boundaries and remaining risks
+## value
 
-The conclusion is limited to overcubic partition tuple counts in the stated parameter and residue classes. External independent validation is outstanding. The sources inspected cannot exclude implicit coverage elsewhere, and the auxiliary parity lemma alone does not produce congruences in unrestricted odd residue classes without additional base information.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp 2-adic proof resolving both branches of an explicit arXiv conjecture is a clearly motivated arithmetic advance. The key formal-series parity cancellation yields an independent all-odd-index transfer congruence and uniform exact valuations, not just finite data or a routine parameter substitution. The theorem has natural all-parameter range and separates the known base triple congruences from the new lifting lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

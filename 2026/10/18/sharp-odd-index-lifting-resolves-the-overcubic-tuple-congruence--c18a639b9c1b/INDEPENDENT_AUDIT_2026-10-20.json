@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T22:48:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/sharp-odd-index-lifting-resolves-the-overcubic-tuple-congruence--c18a639b9c1b/RESULT.md @ ddcb9a5f355ca334c6987ef2c5f3ba66fed830f0",
+        "2026/10/18/sharp-odd-index-lifting-resolves-the-overcubic-tuple-congruence--c18a639b9c1b/verify.py",
+        "Independent fresh checks: Fresh independently coded Euler/theta truncated integer power series at degree32; obtained b3(5)=1248, b3(7)=9792, (AC²)[7]=7424 and congruence for i=3..5,k=0..3 at odd indices up to degree32."
+      ],
+      "rationale": "Let A=phi(-z)phi(-z^2)=F^-1=1+2T, F(z)=f4/(f1² f2), t=2^(i-3)(2k+1), M=4t-1. Binomial expansion F^4=A^-4 gives F^4=1+8C with integral C; modulo 2, C=T+T² equals sum_{r>=1} z^(r²)+sum_{r>=1}z^(4r²), so C² has even-only exponent parity and A C² has even-only exponents modulo 2 because A≡1 mod2. Then F^M=A(1+8C)^t; the j>=3 terms have valuation >= i+6 using j*C(t,j)=t*C(t-1,j-1), quadratic coefficient divisible by 2^(i+2) gains one factor at odd exponents. Therefore for every positive odd n, b_M(n) ≡ (1-t)a(n)+t b3(n) mod 2^(i+3). Coefficients a(8u+5)=a(8u+7)=0 exactly since no square+2*square equals 5 or 7 mod8; known Saikia–Sarma 2024 Theorem1.1 proves b3 at these progressions divisible 32/64, giving b_M divisibility 2^(i+2) and 2^(i+3). Sharpness at 5 and 7 follows b3(5)=1248=32*39, b3(7)=9792=64*153, and (A C²)[7]=7424 (high valuation) while remaining corrections vanish modulo 2^(i+4). Independent polynomial arithmetic independently computed these degree5/7 coefficients and verified 12 parameter pairs through degree32. The formal power series proof is for every i>=3,k,n>=0, not just the finite checks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saikia–Sarma supplies strictly smaller M=3 base congruences only; Chacón–Sellers study broad 2-adic and odd-modulus families but full detailed theorems were inaccessible, so strong hidden coverage cannot be ruled out."
+        ],
+        "reasoning": "A general stronger theorem would defeat novelty even without exact notation. No such stronger implication was established from actually inspected material; risk is documented. Maity–Saikia identify the targets as conjecture, not a theorem in their supplied framing.",
+        "searches": [
+          "Chacón and Sellers arXiv:2606.21780v2 general overcubic congruences abstract",
+          "Maity–Saikia arXiv:2607.07270 source preprint reference",
+          "Saikia–Sarma 2024 Theorem1.1 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Saikia–Sarma (2024) arXiv:2411.00013 primary PDF Theorem1.1",
+        "Maity–Saikia (2026) arXiv:2607.07270 public abstract + inaccessible fulltext",
+        "Chacón–Sellers (2026) arXiv:2606.21780 abstract",
+        "Resultary Resultary semantic search: overcubic partition tuples congruence conjecture 1.5 Maity Saikia odd index lifting modulo powers two"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triple theorem gives b3(8u+5) mod 32, b3(8u+7) mod64; multiply by t of valuation i-3 *after* establishing odd-index F^M lift to achieve exactly conjectured modulus. Neither triple theorem nor generic neighboring congruences alone imply that strengthened lift."
+        ],
+        "reasoning": "The key mod2 even-support C² argument is essential at the quadratic term. A future accessible full-paper theorem implying this lift would supersede this tentative originality pass.",
+        "searches": [
+          "Maity–Saikia 2026 conjecture arXiv:2607.07270",
+          "Saikia–Sarma 2024 Theorem1.1 arXiv:2411.00013",
+          "Chacón–Sellers 2026 arXiv:2606.21780 general congruences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The m=3 triple congruences already provide base divisibility; extending parameter to M=4t-1 at all 2-adic scales requires new parity cancellation in AC², so it is not a renaming of the triple case."
+        ],
+        "reasoning": "Identified 2-adic formal q-series lifting and triple-base cases as possible reductions; the parity-supported quadratic correction is the added mathematical step.",
+        "searches": [
+          "Resultary semantic search: overcubic partition tuples congruence conjecture 1.5 Maity Saikia odd index lifting modulo powers two",
+          "Maity–Saikia arXiv:2607.07270 Conjecture 1.5",
+          "Saikia–Sarma arXiv:2411.00013 Theorem 1.1",
+          "Chacón–Sellers arXiv:2606.21780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No OEIS/table exact modulus for every i,k was identified. The known base values b3(5)=1248, b3(7)=9792 alone do not imply universal sharp M valuation without the odd-index lifting congruence."
+        ],
+        "reasoning": "A recurrence-table match at a few instances is not prior coverage; all-parameter transfer theorem and proof are the assessed finding.",
+        "searches": [
+          "Resultary semantic search: overcubic partition tuples congruence conjecture 1.5 Maity Saikia odd index lifting modulo powers two",
+          "arXiv:2607.07270 Conjecture 1.5",
+          "arXiv:2411.00013 Theorem 1.1",
+          "actual 2-adic coefficient checks at 5 and 7"
+        ]
+      },
+      "rationale": "The stated Maity–Saikia Conjecture 1.5 targeted precisely the tuple parameter M=2^ik+2^(i-1)-1 and 8u+5/7 moduli; submitted odd-index lifting and universal sharpness give a nontrivial new resolution relative to accessible primary evidence. Prior triple congruences are fully credited. Strong plausible related papers not fully accessible are preserved as a real risk, not taken as automatic failure.",
+      "residual_risks": [
+        "The full paper containing Conjecture1.5 could include nonadvertised equivalent lemmas, despite conjectural wording.",
+        "Chacón–Sellers (2026) is a plausible same-object stronger-coverage source whose full technical theorems were unavailable; its abstract alone cannot exclude priority.",
+        "Authorized Oxford institutional download reported vpn_disconnected, requiring human reauthentication; this is access risk, not a mathematical disproof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exactly needed base case, does not claim extension to all M=2^ik+2^(i-1)-1.",
+          "evidence": [
+            "Saikia–Sarma, Theorem 1.1, two triple congruences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.00013",
+          "material_read": "Opened primary PDF and inspected page containing Theorem 1.1, showing congruences b3(8n+5)=0 mod32 and b3(8n+7)=0 mod64.",
+          "method": "ArXiv original PDF with page visual inspection",
+          "title": "Further Arithmetic Properties of Overcubic Partition Triples",
+          "trigger": "Needed input triple congruences, potential exact coverage"
+        },
+        {
+          "assessment": "Source is a closely matching stated conjecture, but full-theorem coverage cannot be excluded until authorized full text becomes available.",
+          "evidence": [
+            "arXiv:2607.07270 published July 8 2026, general power-of-two tuple congruences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.07270",
+          "material_read": "ArXiv abstract, bibliographic metadata and repository exact conjecture quotation; attempts to obtain full arXiv PDF/HTML/lawful OA unsuccessful. Authorized institutional tool reported VPN disconnected; full primary paper not read.",
+          "method": "ArXiv public abstract and lawful access attempt followed by authorized institutional query",
+          "title": "Extending Recent Arithmetic Properties of Overcubic Partition Tuples",
+          "trigger": "Claim says resolves this paper Conjecture1.5"
+        },
+        {
+          "assessment": "Abstract covers many general new congruences and therefore leaves a real risk of dominating 2-adic results; no decisive identical full-parameter theorem established in material seen.",
+          "evidence": [
+            "Chacón–Sellers 2026 arXiv:2606.21780, examples focus other parameter/residue/modulus patterns."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.21780",
+          "material_read": "Read detailed public arXiv/alphaXiv abstract and bibliographic record, including examples of mod11 and mod3 families; full technical PDF was inaccessible in this run, no whole-document noncoverage asserted.",
+          "method": "Lawful abstract and OA search",
+          "title": "Congruences for Overcubic Partition k-Tuples",
+          "trigger": "Very plausible broader congruence result with same objects and parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Saikia–Sarma (2024) arXiv:2411.00013 primary PDF Theorem1.1",
+        "Maity–Saikia (2026) arXiv:2607.07270 public abstract + inaccessible fulltext",
+        "Chacón–Sellers (2026) arXiv:2606.21780 abstract",
+        "Resultary Resultary semantic search: overcubic partition tuples congruence conjecture 1.5 Maity Saikia odd index lifting modulo powers two"
+      ],
+      "rationale": "Sharp 2-adic proof resolving both branches of an explicit arXiv conjecture is a clearly motivated arithmetic advance. The key formal-series parity cancellation yields an independent all-odd-index transfer congruence and uniform exact valuations, not just finite data or a routine parameter substitution. The theorem has natural all-parameter range and separates the known base triple congruences from the new lifting lemma.",
+      "residual_risks": [
+        "Assumes exact overcubic generating function and M=4t-1, odd-index lifting only. Related full primary literature not fully accessible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every i>=3 and k,u>=0, M=2^ik+2^(i-1)-1, b_M(8u+5)≡0 mod 2^(i+2), b_M(8u+7)≡0 mod 2^(i+3), and both moduli are sharp at u=0; stronger all-positive-odd-index lifting modulo 2^(i+3).",
+  "limitations": [
+    "Assumes exact overcubic generating function and M=4t-1, odd-index lifting only. Related full primary literature not fully accessible.",
+    "Comparative novelty is best of knowledge; no external mathematical priority certificate."
+  ],
+  "schema_version": 1
+}
