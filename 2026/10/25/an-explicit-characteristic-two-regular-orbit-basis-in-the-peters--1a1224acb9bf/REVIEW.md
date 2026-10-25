@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The finite chain complex is completely specified by lexicographic graph-edge masks. Exhaustive calculation constructs the 4,680-by-2,000 top boundary and verifies exact binary rank 1,760. Both embedded, explicitly indexed top cycles satisfy every boundary equation. Their 240 label-permutation translates are independently checked to be cycles and to have binary column rank 240. Since no higher-dimensional chains exist, this is a full free-module certificate and does not confuse rational and modular representation theory.
+
+**Originality — PASS, with residual risk.** The closest accessible prior claim for the identical forest complex establishes two *rational* regular modules; its character does not imply a free decomposition over the nonsemisimple group algebra in characteristic two. General matroid equivariant representation theory in Moci–Pezzoli works over characteristic zero; the inspected special graph classes do not give these explicit binary orbit generators. Published Petersen matching and Morse complex calculations use different faces. Searches for modular graphic-matroid orbit bases returned no identical theorem. Equivalent unindexed modular calculations remain possible; no publication-priority guarantee is claimed.
+
+**Mathematical value — PASS.** The problem of whether a rationally regular homology representation remains free over a modular group algebra is substantive: character equality loses information when the characteristic divides the group order. The theorem resolves that question at the prime two for a canonical symmetric graphic matroid by providing two explicit geometric chain cycles and a full-rank orbit certificate, not just a Betti number or another rational character computation.
+
+Self-review: passed. Independent audit: not yet performed.
