@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:54:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/deterministic-linear-space-recognition-of-the-green-geodesic-lan--52856bc99716/RESULT.md",
+        "2026/10/18/deterministic-linear-space-recognition-of-the-green-geodesic-lan--52856bc99716/artifacts/verify.py"
+      ],
+      "rationale": "Munn coordinates (T,t) encode the prefix-visited subtree. R fixes rooted T, L fixes its translation to the terminal-rooted copy, and D fixes the unrooted edge-labeled tree up to group left translation; free terminal/start vertices correspond to endpoints to optimize. Any tree walk from s to u covering all e edges has length ≥2e−dist(s,u): each on-path edge is required odd and ≥1 crossing, each off-path edge even and ≥2; branch excursions attain equality. Thus optimizing one/both endpoints gives eccentricities/diameter and all Green shortest lengths, including empty word. For O(n) work space, re-free-reduce individual prefixes as needed, keeping at most two O(n)-length stacks and O(log n) counters for pairwise equality/distance and uniqueness scans; polynomial repeated scans avoid storing O(n²) prefix strings. Complement uses the same deterministic total decider. An independent exhaustive rank-one length≤9 and rank-two length≤5 short-word census (1023 and 1365 words) grouped true Munn Green invariants and matched all four formulas; not an unbounded proof.",
+      "residual_risks": [
+        "The finite computations do not establish the unrestricted theorem; the argument in the pinned RESULT.md supplies the universal quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source proves regular/context-free classifications, but leaves D/R/L context-sensitivity and indexed status in rank≥2 open; Kambites et al. compute growth exponents, not recognizers."
+        ],
+        "reasoning": "The stronger growth enumeration results do not dominate a deterministic-space bound for class-geodesic membership. Still, an earlier generic free-inverse-monoid word algorithm might imply the same complexity indirectly.",
+        "searches": [
+          "Resultary semantic search: Green geodesic language free inverse monoid context sensitive deterministic linear space Munn trees",
+          "\"Green languages and growth of free inverse monoids\" \"context-sensitive\" \"Question\"",
+          "The growth of free inverse monoids"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.35251",
+        "https://arxiv.org/abs/2407.10489",
+        "Resultary semantic search: Green geodesic language free inverse monoid context sensitive deterministic linear space Munn trees"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed alphabets, the candidate stores O(1) freely reduced length-≤n values and recomputes O(n²) prefix pair distances. The source’s open question does not itself state this bounded-workspace construction."
+        ],
+        "reasoning": "The tree-tour formula alone supplies an abstract length characterization; converting it to explicit repeated-scans linear-space recognition is the additional effective component. If an existing generic algorithm has this bound, its immediate consequence would cover the claim.",
+        "searches": [
+          "arxiv:2609.35251",
+          "Bodart–Carvalho–Monteiro Section 11 future work context sensitive",
+          "Munn tree geodesics tree traversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The originating Bodart–Carvalho–Monteiro paper defines geodesic languages via Munn trees and raises their context-sensitivity as an explicit question; classical Munn and tree-tour invariants are background, not new."
+        ],
+        "reasoning": "Geometric shortest-word characterizations do not by themselves state the read-only-input O(n)-work-tape algorithm, although one may derive it with extra prefix recomputation.",
+        "searches": [
+          "Resultary semantic search: Green geodesic language free inverse monoid context sensitive deterministic linear space Munn trees",
+          "arxiv:2609.35251",
+          "arxiv:2407.10489"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact deterministic linear-space resource table or Green-geodesic algorithm found in Resultary’s top matches, which were mostly unrelated tree combinatorics."
+        ],
+        "reasoning": "There is no intrinsic finite table for an unbounded language recognition theorem; the relevant comparison is a previously proved DSPACE(n) membership implication. Search absence does not establish novelty.",
+        "searches": [
+          "Resultary semantic search: Green geodesic language free inverse monoid context sensitive deterministic linear space Munn trees",
+          "Green geodesic language free inverse monoid context sensitive deterministic linear space Munn trees",
+          "Resultary same semantic search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS despite elementary tree-tour ingredients. Bodart–Carvalho–Monteiro 2026 define these languages, obtain geometric descriptions and prove R/L/D neither context-free nor co-context-free in rank≥2, while Section 11 publicly asks whether they are context-sensitive (explicitly quoted in the discoverable open-question record). Their publication therefore does not claim the new linear-space conclusion in its accessible description. Growth work on free inverse monoids counts objects rather than testing shortest Green-class representatives. A prior implicit algorithm or unindexed result could nevertheless imply deterministic linear space; full 2026 manuscript was not read here.",
+      "residual_risks": [
+        "A generic implicit polynomial-time or linear-space word-problem algorithm, or an unpublished solution of the open Section 11 problem, could subsume the bound.",
+        "The most relevant primary text arxiv:2609.35251 could not be obtained in full in this execution; Oxford VPN disconnected.",
+        "The proof does not settle indexed-language classification or logspace."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract proves lower language classes but not context-sensitive upper bound; Section 11 explicitly leaves whether D/R/L languages are context-sensitive or indexed open. No whole-document NOT_COVERING conclusion asserted.",
+          "evidence": "The Section 11 excerpt says it remains to determine if the non-CF/non-coCF D/R/L representative languages are context-sensitive or indexed.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.35251",
+          "material_read": "Original full arXiv abstract and externally indexed direct Section 11 open-question excerpt; arXiv HTML/PDF and ar5iv unsuccessful; Oxford retrieval returned vpn_disconnected; no full manuscript examined",
+          "method": "primary abstract plus attributed Section 11 excerpt via independent indexed open-question listing",
+          "title": "Green languages and growth of free inverse monoids",
+          "trigger": "Same exact Green languages and a directly stated open context-sensitivity question"
+        },
+        {
+          "assessment": "Growth constants and idempotent counts are different invariants and do not directly decide Green-geodesic language membership.",
+          "evidence": "Abstract determines exponential growth of free inverse monoids and idempotents, no resource complexity claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.10489",
+          "material_read": "Original arXiv and publisher abstracts; entire paper not read",
+          "method": "primary abstracts",
+          "title": "The growth of free inverse monoids",
+          "trigger": "Potential generic stronger result for free inverse monoid representatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.35251",
+        "https://arxiv.org/abs/2407.10489",
+        "Resultary semantic search: Green geodesic language free inverse monoid context sensitive deterministic linear space Munn trees"
+      ],
+      "rationale": "The bound answers a concrete published formal-language classification question for three natural Green relations with a uniform algorithm, also establishing context-sensitive complements. It is independently worthwhile even though the tree-walk lemma is standard and indexed-language status remains open.",
+      "residual_risks": [
+        "A generic implicit polynomial-time or linear-space word-problem algorithm, or an unpublished solution of the open Section 11 problem, could subsume the bound.",
+        "The most relevant primary text arxiv:2609.35251 could not be obtained in full in this execution; Oxford VPN disconnected.",
+        "The proof does not settle indexed-language classification or logspace."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed finite alphabets, no indexed-language or logarithmic-space classification.",
+    "Published source full text partly inaccessible and implicit prior-work coverage remains possible.",
+    "Finite ranked enumeration cannot replace the all-word tree-tour/workspace proof.",
+    "No external independent formal/Lean verification or expert attestation asserted; scientific PASS does not imply mechanical import, confidentiality clearance or historical-priority certification."
+  ],
+  "schema_version": 1
+}

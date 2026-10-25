@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the exact Munn-tree invariants of \(\mathcal R\), \(\mathcal L\) and \(\mathcal D\), proves a sharp tree-tour length formula, and supplies explicit bounded-storage scans of the reduced prefix words. Recomputing vertices rather than storing an entire matrix keeps memory linear in input length. Exhaustive enumerations of 9,063 short words in ranks one through three match the formulas. Their finiteness is not used to certify the unbounded claim.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The closest source, Bodart–Carvalho–Monteiro (arXiv:2609.35251), supplies geometric characterizations and explicitly leaves context-sensitivity of \(\mathcal D\)-, \(\mathcal R\)- and \(\mathcal L\)-geodesics as a question in Section 11. Existing tree-tour identities and classical Munn coordinates are not asserted as new. The additional result is a uniform deterministic linear-workspace recognizer and a three-language complexity consequence; searches did not locate a pre-existing explicit bound. Because this bound is close to known geometric descriptions, unindexed or implicit prior coverage remains the main risk.
+PASS
 
-**Value — PASS.** The result answers a specific published open language-hierarchy question simultaneously for three natural Green relations, with an algorithmic bound that also gives context-sensitive complements and is directly reproducible. The more demanding indexed-language question remains open.
+Munn coordinates (T,t) encode the prefix-visited subtree. R fixes rooted T, L fixes its translation to the terminal-rooted copy, and D fixes the unrooted edge-labeled tree up to group left translation; free terminal/start vertices correspond to endpoints to optimize. Any tree walk from s to u covering all e edges has length ≥2e−dist(s,u): each on-path edge is required odd and ≥1 crossing, each off-path edge even and ≥2; branch excursions attain equality. Thus optimizing one/both endpoints gives eccentricities/diameter and all Green shortest lengths, including empty word. For O(n) work space, re-free-reduce individual prefixes as needed, keeping at most two O(n)-length stacks and O(log n) counters for pairwise equality/distance and uniqueness scans; polynomial repeated scans avoid storing O(n²) prefix strings. Complement uses the same deterministic total decider. An independent exhaustive rank-one length≤9 and rank-two length≤5 short-word census (1023 and 1365 words) grouped true Munn Green invariants and matched all four formulas; not an unbounded proof.
 
-**Closest literature and limits.** Bodart, Carvalho and Monteiro, *Green languages and growth of free inverse monoids* (2026), arXiv:2609.35251, Sections 1, 2, 9 and 11; Kambites et al., *The growth of free inverse monoids* (arXiv:2407.10489), growth rather than Green-language space bounds. The latter's full text was not accessible at the attempted sources. The result applies to fixed finite generating sets and does not address general inverse monoids or logarithmic space.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS despite elementary tree-tour ingredients. Bodart–Carvalho–Monteiro 2026 define these languages, obtain geometric descriptions and prove R/L/D neither context-free nor co-context-free in rank≥2, while Section 11 publicly asks whether they are context-sensitive (explicitly quoted in the discoverable open-question record). Their publication therefore does not claim the new linear-space conclusion in its accessible description. Growth work on free inverse monoids counts objects rather than testing shortest Green-class representatives. A prior implicit algorithm or unindexed result could nevertheless imply deterministic linear space; full 2026 manuscript was not read here.
+
+## value
+
+PASS
+
+The bound answers a concrete published formal-language classification question for three natural Green relations with a uniform algorithm, also establishing context-sensitive complements. It is independently worthwhile even though the tree-walk lemma is standard and indexed-language status remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
