@@ -1,19 +1,27 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The edge definition reduces on paths to the exact local condition for consecutive zeros. Internal zero-run lengths are precisely \(0,1,2,3\) with label-dependent boundary restrictions, and boundary zero runs have lengths \(0,1,2\). The resulting two-positive-letter transfer counts each labeling once; the displayed determinant and numerator follow by direct two-by-two algebra. The Laurent substitution \(x=y/t\), \(z=t^2\) proves the minimum weight and extracts both full optimal multiplicity series. Brute-force checks cover every ternary word through length twelve; independent rational-coefficient checks cover lengths through 160. Formal-series reasoning, not enumeration, establishes all \(n\).
+PASS
 
-## Originality — PASS (best-knowledge, bibliographic risk retained)
+For path vertex labels {0,1,2} with weight the label sum, the original condition for an edge with both labels 0 is that one of the external neighboring labels be 2; a positive endpoint immediately satisfies the edge. A run of >=4 zeros has a central unprotected zero pair, whereas zero runs between positives have allowed lengths 0,1,2 (length2 needs at least one flanking 2) or 3 (length3 needs both flankers 2); boundary zeros have length <=2 and need their sole adjacent positive to be 2 at length2. The two-positive-letter 2×2 transfer matrix with weighted inter-run polynomials H_11=1+x,H_12=H_21=1+x+x²,H_22=1+x+x²+x³ and boundary factors (1+x),(1+x+x²) gives 1+x+U(I−M)^−1V, which simplifies to the exact displayed rational bivariate GF with numerator 1+x+x³z² and denominator 1−xz−xz²−x²z−x²z²−x³z²−x⁴z²−x⁴z³. The formal substitution x=y/t,z=t² shows minimum possible exponent of t is −1; the t^(−1) odd-length and t^0 even-length coefficients are y/(1−y²−y⁴) and (1−y²−y⁴)^(−2), respectively. Thus for n>=1 the minimum is floor(n/2), with odd multiplicity Fib_{k+1} and even multiplicity the Fibonacci convolution; n=0 has one empty word. Fresh independent brute enumeration of all 3^n ternary words for n=0..11 directly tested edge feasibility and compared complete weight distributions to recurrence coefficients, including Φ5 weights 2:2,3:16,4:37,5:49,6:45,7:30,8:15,9:5,10:1. Further algebraic coefficients through n=24 matched exact Fibonacci minima. Infinite identity is from run grammar and formal-series algebra, not finite checks.
 
-Al Subaiei–AlMulhim–Akwu (2023), Proposition 1, proves the scalar path minimum, which is explicitly excluded from the novel contribution. Full-text material inspected from the source covers its definition, path proof, tree bounds, and later graph-class results; it does not present the displayed all-weights series or Fibonacci optimal-multiplicity count. Focused searches for the same invariant, path generating functions, optimal-function counts, and equivalent zero-run formulations produced no covering record. Nearby results on ordinary Roman or other perfect-Roman variants use different admissibility conditions. General treewidth enumeration principles offer abstract algorithms but do not supply these explicit coefficients. Unindexed work could still overlap.
+## originality
 
-## Value — PASS
+PASS
 
-The known minimum weight does not determine how many optimal defenses exist or how all weights are distributed. The complete rational generating function solves the natural path enumeration, while its unexpected parity split into a Fibonacci sequence and a Fibonacci self-convolution identifies a reusable enumerative boundary. This is a complete infinite-family classification rather than a single small numeric instance.
+The exact notion requires checking edge endpoints versus a vertex adjacent to exactly one 2. Other perfect Roman vertex-domination or nonperfect vertex–edge Roman formulas use different feasibility conditions. The known minimum is a consequence of the stronger new enumerator, not the novelty in itself.
 
-## Scope and residual limits
+A broad algorithm capable of evaluating weights does not automatically state or directly imply these explicit coefficients without carrying out substantial transfer calculation; an existing explicit path enumerator would cover the theorem but was not found in inspected sources.
 
-Only simple paths and the stated labeled ternary functions are treated. The finite verification is not an infinite proof. Bibliographic priority has not been independently or exhaustively established.
+The scalar value is credited and excluded as new; no located exact polynomial table for the same vertex–edge perfect Roman labelings. Search limitations do not prove novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+The general finite-state method motivates the technique, but the prior minimum theorem and differing Roman variants do not imply the particular rational generating function as a stated result. The new claim makes a concrete substantially stronger enumeration.
+
+## value
+
+PASS
+
+The vertex–edge perfect Roman domination number on paths is already floor(n/2), but it discards almost all combinatorics. The complete rational weight enumerator, exact count of every feasible weight and exact multiplicity of the optimum are natural enumerative invariants of a recently defined graph-labeling notion. The Fibonacci convolution gives a meaningful structural classification for an entire graph family and is not an arbitrary finite slice or merely reproof of a scalar minimum. General bounded-treewidth countability is acknowledged, but a concrete closed polynomial series is separately useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

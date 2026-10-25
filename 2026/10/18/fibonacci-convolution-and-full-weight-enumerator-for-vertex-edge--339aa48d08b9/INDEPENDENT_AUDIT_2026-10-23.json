@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T23:03:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 136245327ca795ca76a707fd05d8fea36da6e6a6",
+        "Pinned independent verifier source (verify_paths.py)",
+        "Independent check: independent_checks.py and independent_checks_output.txt"
+      ],
+      "rationale": "For path vertex labels {0,1,2} with weight the label sum, the original condition for an edge with both labels 0 is that one of the external neighboring labels be 2; a positive endpoint immediately satisfies the edge. A run of >=4 zeros has a central unprotected zero pair, whereas zero runs between positives have allowed lengths 0,1,2 (length2 needs at least one flanking 2) or 3 (length3 needs both flankers 2); boundary zeros have length <=2 and need their sole adjacent positive to be 2 at length2. The two-positive-letter 2×2 transfer matrix with weighted inter-run polynomials H_11=1+x,H_12=H_21=1+x+x²,H_22=1+x+x²+x³ and boundary factors (1+x),(1+x+x²) gives 1+x+U(I−M)^−1V, which simplifies to the exact displayed rational bivariate GF with numerator 1+x+x³z² and denominator 1−xz−xz²−x²z−x²z²−x³z²−x⁴z²−x⁴z³. The formal substitution x=y/t,z=t² shows minimum possible exponent of t is −1; the t^(−1) odd-length and t^0 even-length coefficients are y/(1−y²−y⁴) and (1−y²−y⁴)^(−2), respectively. Thus for n>=1 the minimum is floor(n/2), with odd multiplicity Fib_{k+1} and even multiplicity the Fibonacci convolution; n=0 has one empty word. Fresh independent brute enumeration of all 3^n ternary words for n=0..11 directly tested edge feasibility and compared complete weight distributions to recurrence coefficients, including Φ5 weights 2:2,3:16,4:37,5:49,6:45,7:30,8:15,9:5,10:1. Further algebraic coefficients through n=24 matched exact Fibonacci minima. Infinite identity is from run grammar and formal-series algebra, not finite checks.",
+      "residual_risks": [
+        "Labeled path vertex labelings only, including empty path solely for generating functions. Scalar optimum is credited to source 2023; no claim for alternate Roman domination rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General treewidth/MSO counting machinery provides abstract computability/rationality for path families, not this explicit rational series or optimal Fibonacci multiplicities.",
+          "The 2023 primary paper reports scalar gamma_vepR(P_n)=floor(n/2) and complexity/bounds, not a complete distribution in inspected material."
+        ],
+        "reasoning": "A broad algorithm capable of evaluating weights does not automatically state or directly imply these explicit coefficients without carrying out substantial transfer calculation; an existing explicit path enumerator would cover the theorem but was not found in inspected sources.",
+        "searches": [
+          "DOI:10.3934/math.20231094",
+          "Resultary: vertex edge perfect Roman domination path full weight enumerator Fibonacci minimum function multiplicity",
+          "Arnborg–Lagergren–Seese 1991 bounded-treewidth algorithms"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.20231094 (definition and Proposition 1 read)",
+        "Naresh Kumar–Venkatakrishnan KJM 45 (2021) earlier nonperfect variant",
+        "Arnborg–Lagergren–Seese 1991 general treewidth context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar domination-number proof establishes only the least weight and not its multiplicity; all weights require run-based transfer and leading-term extraction."
+        ],
+        "reasoning": "The general finite-state method motivates the technique, but the prior minimum theorem and differing Roman variants do not imply the particular rational generating function as a stated result. The new claim makes a concrete substantially stronger enumeration.",
+        "searches": [
+          "DOI:10.3934/math.20231094",
+          "vertex-edge Roman domination path 2021",
+          "Arnborg–Lagergren–Seese 1991"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Al Subaiei–AlMulhim–Akwu Proposition 1 explicitly gives the minimum floor(n/2) on paths, not a complete weight enumerator in inspected primary sections.",
+          "Resultary search top hits concern different variants of Roman domination, generally on complete multipartite graphs; their coefficients cannot automatically be substituted for this perfect vertex–edge edge condition."
+        ],
+        "reasoning": "The exact notion requires checking edge endpoints versus a vertex adjacent to exactly one 2. Other perfect Roman vertex-domination or nonperfect vertex–edge Roman formulas use different feasibility conditions. The known minimum is a consequence of the stronger new enumerator, not the novelty in itself.",
+        "searches": [
+          "Resultary: vertex edge perfect Roman domination path full weight enumerator Fibonacci minimum function multiplicity",
+          "DOI:10.3934/math.20231094",
+          "vertex-edge Roman domination path 2021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known path minimum is a scalar table entry; complete bivariate Φ_n(z) coefficients count all feasible labeled functions and contain much more data."
+        ],
+        "reasoning": "The scalar value is credited and excluded as new; no located exact polynomial table for the same vertex–edge perfect Roman labelings. Search limitations do not prove novelty.",
+        "searches": [
+          "DOI:10.3934/math.20231094 Proposition 1",
+          "Resultary: vertex edge perfect Roman domination path full weight enumerator Fibonacci minimum function multiplicity"
+        ]
+      },
+      "rationale": "The exact notion requires checking edge endpoints versus a vertex adjacent to exactly one 2. Other perfect Roman vertex-domination or nonperfect vertex–edge Roman formulas use different feasibility conditions. The known minimum is a consequence of the stronger new enumerator, not the novelty in itself.\n\nA broad algorithm capable of evaluating weights does not automatically state or directly imply these explicit coefficients without carrying out substantial transfer calculation; an existing explicit path enumerator would cover the theorem but was not found in inspected sources.\n\nThe scalar value is credited and excluded as new; no located exact polynomial table for the same vertex–edge perfect Roman labelings. Search limitations do not prove novelty.\n\nThe general finite-state method motivates the technique, but the prior minimum theorem and differing Roman variants do not imply the particular rational generating function as a stated result. The new claim makes a concrete substantially stronger enumeration.",
+      "residual_risks": [
+        "A different terminology or later paper may already enumerate the same vertex-edge perfect Roman functions; no bibliographic search guarantees absolute priority.",
+        "The minimum floor(n/2) is established prior art and not independently claimed new.",
+        "The enumerator is only for simple paths; no cycles, arbitrary trees, or broad algorithmic complexity classification claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior minimum floor(n/2) covered, but inspected theorem does not give full weight enumerator or Fibonacci multiplicities",
+          "evidence": [
+            "Proposition 1 determines scalar optimal weight for P_n and defines edge condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.20231094",
+          "material_read": "Public AIMS Mathematics primary PDF, definition and Proposition 1 on paths, with selected page screenshot",
+          "method": "Lawful publisher open PDF and visual inspection",
+          "title": "Vertex-edge perfect Roman domination number",
+          "trigger": "Exact definition and known scalar path minimum for same graph-labeling notion"
+        },
+        {
+          "assessment": "Nonperfect labeling variant; full-text equivalence not asserted",
+          "evidence": [
+            "Earlier title addresses vertex-edge Roman rather than vertex-edge perfect Roman property."
+          ],
+          "identifier_or_url": "Naresh Kumar and Venkatakrishnan, Kragujevac Journal of Mathematics 45 (2021), 685–698",
+          "material_read": "Publication title and cited scope; full text not independently read",
+          "method": "Bibliographic search",
+          "title": "Vertex-edge Roman domination",
+          "trigger": "Earlier potentially equivalent label condition"
+        },
+        {
+          "assessment": "General bounded-treewidth method; no matching closed path polynomial demonstrated",
+          "evidence": [
+            "General bounded-treewidth counting algorithms differ from a derived exact series."
+          ],
+          "identifier_or_url": "Arnborg, Lagergren and Seese, Journal of Algorithms 12 (1991), 308–340",
+          "material_read": "Known statement and citation context, not independently read full article",
+          "method": "Bibliographic comparison",
+          "title": "Easy problems for tree-decomposable graphs",
+          "trigger": "Potential broad algorithmic domination of weighted enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3934/math.20231094 (definition and Proposition 1 read)",
+        "Naresh Kumar–Venkatakrishnan KJM 45 (2021) earlier nonperfect variant",
+        "Arnborg–Lagergren–Seese 1991 general treewidth context"
+      ],
+      "rationale": "The vertex–edge perfect Roman domination number on paths is already floor(n/2), but it discards almost all combinatorics. The complete rational weight enumerator, exact count of every feasible weight and exact multiplicity of the optimum are natural enumerative invariants of a recently defined graph-labeling notion. The Fibonacci convolution gives a meaningful structural classification for an entire graph family and is not an arbitrary finite slice or merely reproof of a scalar minimum. General bounded-treewidth countability is acknowledged, but a concrete closed polynomial series is separately useful.",
+      "residual_risks": [
+        "Labeled path vertex labelings only, including empty path solely for generating functions. Scalar optimum is credited to source 2023; no claim for alternate Roman domination rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
