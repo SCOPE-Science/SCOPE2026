@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model assumptions fix a unit rate per updating nonroot vertex. The transient first-moment generator is the degree-normalized root-killed Laplacian; integration gives \(Lh=d\). Grounded positive definiteness verifies existence. Rank-one edge insertion updates both \(L\) and \(d\), producing the displayed exact formula. Through four vertices, `verify.py` exhausts all connected labeled graphs, all roots, and all missing nonroot links, obtaining \(171\) strictly positive differences; the five-vertex witness is independently reproduced by a full \(16\)-state continuous-time Markov reward chain. The infinite leaf extension is an exact decoupling argument, not an experimental extrapolation.
+## correctness
 
-## Originality — PASS, conditional on independent bibliographic review
-Mobilia (2003, 2007) concerns a single opinion-biased site or the effects of immutable zealots; Masuda (2014) and Brede–Restocchi–Stein (2018) address stationary or finite-horizon network opinion control. The closest mathematical analogy, the Kemeny edge-addition problem, averages target hitting times under the stationary distribution, not fixed-root hitting times. The observed link paradox itself is not claimed novel for all random-walk functionals. No inspected primary statement implies the combined fixed-root exact edge response and sharp five-vertex boundary. Some earlier hitting-time, network-immunization, or influence-optimization work may still contain an equivalent statement.
+PASS
 
-## Mathematical value — PASS
-Cumulative dissent person-time measures total temporary resistance rather than merely the final conversion time. The sharp minimum demonstrates a concrete consequence of peer-link interventions, the general low-rank formula supplies an exact decision criterion for any proposed link, and root-attached leaves show the accelerated regime persists at arbitrary size. The distinctions from competing zealots, directed interactions, weighted links, and alternative clock normalization are material.
+The agent-level rate-one voter first-moment equation is ẋq=−D^(-1)Lq with root fixed, where L is positive definite grounded combinatorial Laplacian and D is the nonroot full-degree matrix. Integration from all-negative initial state gives La=d, hence cumulative dissent 1^T L^(-1)d, equal to the sum of fixed-root mean hitting times. A nonroot edge adds bb^T to L and e_u+e_v to d; substituting Sherman–Morrison yields the stated rank-one response with denominator 1+b^TPb>1. Independent Fraction Gaussian elimination across ALL connected labeled graphs and roots n=2,3,4 checked respectively 0,3,168 missing-nonroot-edge insertions, all 171 nonvacuous deltas strictly positive (minimum 2). For the five-vertex tree 01,04,12,23, hitting-time vectors before (5,8,9,1), after adding 24 (4,6,7,4), sums 23 and 21. Root-attached leaves each contribute exactly one independent unit of expected dissent in both graphs, extending the witness to all n>=5. The 16-state voter-chain certificate independently corroborates n=5.
 
-## Independent review status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: the underlying voter/walk correspondence and inverse update are known techniques, but inspected related zealot control and Kemeny constants do not supply the exact fixed-target integrated dissent insertion sign or the sharp five-agent threshold. Kemeny averages a random stationary target rather than one immutable root. Resultary semantic search returned no directly covering mathematical statement.
+
+## value
+
+PASS
+
+Cumulative negative-opinion person-time is a natural, explicitly normalized transient cost under an immutable source. The result identifies the smallest network size where adding an ordinary peer link can SPEED conversion, despite universal worsening in all smaller networks, with an all-graph rank-one response to test interventions. The first failure at five and extension to arbitrary orders are mathematically motivated structural features, not merely an inverse-matrix exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

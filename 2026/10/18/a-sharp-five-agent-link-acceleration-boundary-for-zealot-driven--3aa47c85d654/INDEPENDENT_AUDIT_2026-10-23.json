@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T10:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md SHA 00c4e4e92a1700e8c9fe7ff78377e4b6d3f60579",
+        "verify.py SHA 9788379961aab707ac3f423469d8ed4132a32d3d",
+        "certificate.json Git blob 6338ad1910a4f3a415ad8d7fbd78a1fc6b1933a4",
+        "Independent exact Fraction graph census: check_voter.py and voter_result.json"
+      ],
+      "rationale": "The agent-level rate-one voter first-moment equation is ẋq=−D^(-1)Lq with root fixed, where L is positive definite grounded combinatorial Laplacian and D is the nonroot full-degree matrix. Integration from all-negative initial state gives La=d, hence cumulative dissent 1^T L^(-1)d, equal to the sum of fixed-root mean hitting times. A nonroot edge adds bb^T to L and e_u+e_v to d; substituting Sherman–Morrison yields the stated rank-one response with denominator 1+b^TPb>1. Independent Fraction Gaussian elimination across ALL connected labeled graphs and roots n=2,3,4 checked respectively 0,3,168 missing-nonroot-edge insertions, all 171 nonvacuous deltas strictly positive (minimum 2). For the five-vertex tree 01,04,12,23, hitting-time vectors before (5,8,9,1), after adding 24 (4,6,7,4), sums 23 and 21. Root-attached leaves each contribute exactly one independent unit of expected dissent in both graphs, extending the witness to all n>=5. The 16-state voter-chain certificate independently corroborates n=5.",
+      "residual_risks": [
+        "Observable is cumulative person-time, explicitly NOT consensus time; graph clock and root assumptions are necessary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kemeny constant sums mean hitting times to random stationary targets; Brede et al optimize finite time-horizon opinion share or controller placement, not infinite cumulative dissent under a peer-edge change."
+        ],
+        "reasoning": "Because both target weighting and intervention differ, no general graph Kemeny theorem mechanically specializes to the fixed-root sum of hitting times plus precise n=5 cutoff.",
+        "searches": [
+          "Resultary published finding semantic search: Fixed-root random walk sum hitting times edge addition nonmonotone five-vertex sharp threshold, zealot voter integrated disagreement",
+          "Kirkland–Li–McAlister–Zhang arXiv:2306.04005",
+          "Brede–Restocchi–Stein 2019"
+        ]
+      },
+      "checked_sources": [
+        "Mobilia 2003 cond-mat/0304670",
+        "Mobilia–Petersen–Redner 2007 arXiv:0706.2892",
+        "Masuda 2014 arXiv:1412.2170",
+        "Brede–Restocchi–Stein 2019 DOI:10.1093/comnet/cny027",
+        "Kirkland/Zeng 2016 DOI:10.13001/1081-3810.3222",
+        "Kirkland et al arXiv:2306.04005",
+        "Resultary link-addition query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work has varying zealot counts, lattice/complete-graph settings or stationary Kemeny time; the present theorem fixes one root, rate-one clocks and adds a nonroot peer link."
+        ],
+        "reasoning": "None of the matched hypotheses/targets implies a strict n<=4 obstruction with n5 acceleration witness. Standard Sherman–Morrison alone does not imply sign for all graphs.",
+        "searches": [
+          "arXiv:0706.2892",
+          "arXiv:1412.2170",
+          "arXiv:2306.04005",
+          "Resultary published finding semantic search: Fixed-root random walk sum hitting times edge addition nonmonotone five-vertex sharp threshold, zealot voter integrated disagreement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Integrated dissent person-time equals uniform-sum of discrete-step mean hitting times to fixed root; a nonroot edge changes the degrees/transition probabilities as well as Laplacian."
+        ],
+        "reasoning": "The mathematical comparison explicitly included killed-root walk hitting time and graph-edge Braess paradox aliases, not just voter-model labels.",
+        "searches": [
+          "Resultary published finding semantic search: Fixed-root random walk sum hitting times edge addition nonmonotone five-vertex sharp threshold, zealot voter integrated disagreement",
+          "Mobilia et al 2007 zealot voter model",
+          "Kirkland/Zeng 2016 Kemeny edge addition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent full n<=4 census has 171 eligible rooted/link cases and n=5 witness values 23,21; no identified table reports this observable at this cutoff."
+        ],
+        "reasoning": "The values come from an exhaustively bounded and independently reproduced computation; indexed absence is only qualified bibliographic evidence.",
+        "searches": [
+          "Resultary published finding semantic search: Fixed-root random walk sum hitting times edge addition nonmonotone five-vertex sharp threshold, zealot voter integrated disagreement",
+          "Kirkland/Zeng 2016 paper",
+          "2023 Kemeny edge-addition preprint"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the underlying voter/walk correspondence and inverse update are known techniques, but inspected related zealot control and Kemeny constants do not supply the exact fixed-target integrated dissent insertion sign or the sharp five-agent threshold. Kemeny averages a random stationary target rather than one immutable root. Resultary semantic search returned no directly covering mathematical statement.",
+      "residual_risks": [
+        "Unindexed network-intervention work on the sum of fixed-target hitting times could implicitly cover the five-node extremum.",
+        "Model uses per-agent rate-one clocks; a global-clock version rescales observables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DIFFERENT_OBSERVABLE",
+          "evidence": "Studies opinion distributions and competing zealots, not a sharp rooted-link cumulative dissent cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/0706.2892",
+          "material_read": "Primary accessible PDF model and central results for finite populations and lattices; not an assertion of every appendix read.",
+          "method": "Compared microscopic update mechanism, observable, and graph interventions.",
+          "title": "On the Role of Zealotry in the Voter Model",
+          "trigger": "Permanently committed opinions as possible exact-model match"
+        },
+        {
+          "assessment": "KEMENY_NOT_FIXED_ROOT_SUM",
+          "evidence": "A statement about stationary-target averages does not control the specified fixed-target hitting-time sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.04005",
+          "material_read": "Accessible primary 22-page preprint introduction, Kemeny definition, main tree addition statements and method discussion.",
+          "method": "Directly compared target distribution (stationary randomized vs fixed root) and intervention.",
+          "title": "Edge Addition and the Change in Kemeny’s Constant",
+          "trigger": "Graph-edge random-walk paradox potentially stronger"
+        },
+        {
+          "assessment": "TRANSIENT_FINITE_HORIZON_NOT_LINK_INSERTION",
+          "evidence": "Optimizes controller allocations, not permanent-one-root cumulative person-time under ordinary peer-link addition.",
+          "identifier_or_url": "https://doi.org/10.1093/comnet/cny027",
+          "material_read": "Accessible full main HTML: setup, finite-horizon controllers, results and conclusion.",
+          "method": "Compared objective and action variables in primary technical text.",
+          "title": "Effects of Time Horizons on Influence Maximization in the Voter Dynamics",
+          "trigger": "Closest transient influence-control model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source exact graph-level response and witness",
+        "Related published voter intervention literature with different control actions"
+      ],
+      "rationale": "Cumulative negative-opinion person-time is a natural, explicitly normalized transient cost under an immutable source. The result identifies the smallest network size where adding an ordinary peer link can SPEED conversion, despite universal worsening in all smaller networks, with an all-graph rank-one response to test interventions. The first failure at five and extension to arbitrary orders are mathematically motivated structural features, not merely an inverse-matrix exercise.",
+      "residual_risks": [
+        "No sign classification for every larger graph or multiple zealots asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Observable is cumulative person-time, explicitly NOT consensus time; graph clock and root assumptions are necessary.",
+    "Unindexed network-intervention work on the sum of fixed-target hitting times could implicitly cover the five-node extremum.",
+    "Model uses per-agent rate-one clocks; a global-clock version rescales observables.",
+    "No sign classification for every larger graph or multiple zealots asserted."
+  ],
+  "schema_version": 1
+}
